@@ -2,13 +2,13 @@
 # If you add a page, you must also add it to the index here
 nav:
 #  - Home: 'index.md'
-  - Main:
-    - About Core: '1-main/1-about_core.md'
-    - About Documentation: '1-main/2-about_docs.md'
+  - General:
+    - About: '1-general/1-about.md'
+    - Frequently Asked Questions: '1-general/2-faqs.md'
   - Getting Started:
-    - Introduction to Core: '2-getting_started/1-intro_to_core.md'
+    - Introduction to the Editor: '2-getting_started/1-introduction.md'
     - Introduction to Assets: '2-getting_started/2-assets_intro.md'
-    - Introduction to Scritping: '2-getting_started/3-scripting_intro.md'
+    - Introduction to Scripting: '2-getting_started/3-scripting_intro.md'
     - My First Game:
       - Basic Platformer: '2-getting_started/4-my_first_game/1-basic_platformer.md'
       - Dynamic Map: '2-getting_started/4-my_first_game/2-triggers.md'

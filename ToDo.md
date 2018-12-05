@@ -1,0 +1,5 @@
+- [ ] Re-look at Sphinx and MkWiki - linking/organizational setup is painful in MkDocs (although it works great once complete)
+- [ ] Custom styling
+    - [ ] Windows setup (need to PR in Husky)
+- [ ] Contribution guidelines
+- [ ] Discuss licensing
