@@ -2,10 +2,22 @@
 # If you add a page, you must also add it to the index here
 nav:
   - Home: 'index.md'
+  - Introduction:
+    - Main: '1-intro/index.md'
   - Getting Started:
-    - Home: 'gettingstarted/index.md'
+    - Main: '2-getting-started/index.md'
+  - Scripting:
+    - Main: '3-scripting/index.md'
+  - Project Workflow:
+    - Main: '4-project-workflow/index.md'
   - Tutorials:
-    - My First Game: 'tutorials/myfirstgame.md'
+    - Main: '5-tutorials/index.md'
+  - Examples:
+    - Main: '6-examples/index.md'
+  - Community:
+    - Main: '7-community/index.md'
+  - Core API:
+    - Main: '8-core-api/index.md'
 
 # Additional data
 extra:
