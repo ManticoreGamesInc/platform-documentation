@@ -36,11 +36,11 @@ If it is in a new folder, add `-FolderName:` to the `nav:` root, like the others
 
 #### Full Setup
 
-Install python/pip
+[Install python and pip](https://www.makeuseof.com/tag/install-pip-for-python/) if you don't have them already.
 
-- Go to the location you want to clone this project to
+- Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
+- Clone this project from GitHub (e.g. `git clone https://github.com/ManticoreGamesInc/Documentation.git`)
 - `pip install -r python-requirements.txt` --installs required files
-- Clone this project from GitHub
 - `mkdocs serve` --starts server
 - Navigate to `http://127.0.0.1:8000/`
 
