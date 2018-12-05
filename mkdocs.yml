@@ -1,23 +1,60 @@
 # Page index
 # If you add a page, you must also add it to the index here
 nav:
-  - Home: 'index.md'
-  - Introduction:
-    - Main: '1-intro/index.md'
+#  - Home: 'index.md'
+  - Main:
+    - About Core: '1-main/1-about_core.md'
+    - About Documentation: '1-main/2-about_docs.md'
   - Getting Started:
-    - Main: '2-getting-started/index.md'
+    - Introduction to Core: '2-getting_started/1-intro_to_core.md'
+    - Introduction to Assets: '2-getting_started/2-assets_intro.md'
+    - Introduction to Scritping: '2-getting_started/3-scripting_intro.md'
+    - My First Game:
+      - Basic Platformer: '2-getting_started/4-my_first_game/1-basic_platformer.md'
+      - Dynamic Map: '2-getting_started/4-my_first_game/2-triggers.md'
+      - Visual Overhaul: '2-getting_started/4-my_first_game/3-visuals.md'
+      - Character Abilities: '2-getting_started/4-my_first_game/4-abilities.md'
+      - Multiplayer Racing: '2-getting_started/4-my_first_game/5-multiplayer_racing.md'
   - Scripting:
-    - Main: '3-scripting/index.md'
+    - Lua:
+      - Introduction: '3-scripting/1-lua/1-introduction.md'
+      - Primer: '3-scripting/1-lua/2-primer.md'
+      - Resources: '3-scripting/1-lua/3-resources.md'
+    - Best Practices: '3-scripting/2-best_practices.md'
+    - Debugging: '3-scripting/3-debugging.md'
   - Project Workflow:
-    - Main: '4-project-workflow/index.md'
+    - Project Setup: '4-project_workflow/1-project_setup.md'
+    - Assets Workflow: '4-project_workflow/2-assets_workflow.md'
+    - Scripts Workflow: '4-project_workflow/3-scripts_workflow.md'
+    - Best Practices: '4-project_workflow/4-best_practices.md'
   - Tutorials:
-    - Main: '5-tutorials/index.md'
+    - Games:
+      - First Person Shooters:
+        - Free For All: '5-tutorials/1-games/1-fps/1-ffa.md'
+        - Team Deathmatch: '5-tutorials/1-games/1-fps/2-tdm.md'
+      - RPG: '5-tutorials/1-games/2-rpg.md'
+      - Racing: '5-tutorials/1-games/3-racing.md'
+    - Topics:
+      - Editor:
+        - Editor Windows: '5-tutorials/2-topics/1-editor/1-editor_windows.md'
+        - Hotkeys: '5-tutorials/2-topics/1-editor/2-hotkeys.md'
+        - GUI: '5-tutorials/2-topics/1-editor/3-gui.md'
+        - Audio: '5-tutorials/2-topics/1-editor/4-audio.md'
+        - Visual Effects: '5-tutorials/2-topics/1-editor/5-vfx.md'
+        - Templates: '5-tutorials/2-topics/1-editor/6-templates.md'
+        - Marketplace: '5-tutorials/2-topics/1-editor/7-marketplace.md'
+        - Custom Properties: '5-tutorials/2-topics/1-editor/8-custom_properties.md'
+      - Abstract:
+        - Vectors: '5-tutorials/2-topics/2-abstract/1-vectors.md'
+        - Advanced Vectors: '5-tutorials/2-topics/2-abstract/2-vectors_advanced.md'
+        - Matrices: '5-tutorials/2-topics/2-abstract/3-matrices.md'
+        - Raytracing: '5-tutorials/2-topics/2-abstract/4-raytracing.md'
   - Examples:
-    - Main: '6-examples/index.md'
+    - Main: '6-examples/links.md'
   - Community:
-    - Main: '7-community/index.md'
+    - Links: '7-community/links.md'
   - Core API:
-    - Main: '8-core-api/index.md'
+    - Coming Soon: '8-core_api/coming_soon.md'
 
 # Additional data
 extra:
@@ -29,6 +66,8 @@ extra:
 theme:
   name: 'material'
   custom_dir: 'theme'
+  feature:
+    tabs: false
 
 # Site name
 site_name: CORE Docs
