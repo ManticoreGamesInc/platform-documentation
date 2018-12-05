@@ -1,0 +1,29 @@
+# Page index
+# If you add a page, you must also add it to the index here
+nav:
+  - Home: 'index.md'
+  - Getting Started:
+    - Home: 'gettingstarted/index.md'
+  - Tutorials:
+    - My First Game: 'tutorials/myfirstgame.md'
+
+# Additional data
+extra:
+  core_version: 0.0.x-prealpha # CORE editor version this documentation applies to
+
+# If you make a PR, no need to change data below this point
+
+# Base material theme with customizations
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+
+# Site name
+site_name: CORE Docs
+
+# Add repository for easy editing
+repo_url: https://github.com/ManticoreGamesInc/Documentation
+
+# Metadata
+site_description: Documentation for the CORE Engine
+site_author: Manticore

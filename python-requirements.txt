@@ -1,0 +1,4 @@
+#Mkdocs obviously needed
+mkdocs
+# Base styling
+mkdocs-material
