@@ -68,6 +68,39 @@ theme:
   custom_dir: 'theme'
   feature:
     tabs: false
+  palette:
+    primary: 'blue grey' # desired -> #20232a
+    accent: 'amber' # desired -> #ff9000
+
+extra:
+  social:
+    - type: 'discord' # unsupported
+      link: 'ToDo'
+    - type: 'reddit'
+      link: 'ToDo'
+
+markdown_extensions:
+  - admonition # add info/warn/error admonitions
+  - pymdownx.arithmatex # fancy math styling
+  - pymdownx.betterem: # better bolding styles
+      smart_enable: all
+  - pymdownx.caret # insert and superscript
+  - pymdownx.critic # editing allowed
+  - pymdownx.details # admonition style details
+  - pymdownx.emoji: # emojis
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite # inline code highlighting
+  - pymdownx.magiclink # autolinks and shorthand
+  - pymdownx.mark # highlights
+  - pymdownx.smartsymbols # special symbols like arrows
+  - pymdownx.superfences # tabbed content (e.g. with code)
+  - pymdownx.tasklist: # task list
+      custom_checkbox: true
+  - pymdownx.tilde # strike-through
+  - codehilite: # highlight code blocks
+      guess_lang: false # language has to be defined explicitly
+  - toc: # add linking to headers
+      permalink: true
 
 # Site name
 site_name: CORE Docs
