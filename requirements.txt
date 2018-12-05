@@ -1,0 +1,8 @@
+#Mkdocs obviously needed
+mkdocs
+# Base styling
+mkdocs-material
+# Code highlighting
+pygments
+# Other extensions
+pymdown-extensions

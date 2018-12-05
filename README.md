@@ -40,7 +40,7 @@ If it is in a new folder, add `-FolderName:` to the `nav:` root, like the others
 
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
 - Clone this project from GitHub (e.g. `git clone https://github.com/ManticoreGamesInc/Documentation.git`)
-- `pip install -r python-requirements.txt` --installs required files
+- `pip install -r requirements.txt` --installs required files
 - `mkdocs serve` --starts server
 - Navigate to `http://127.0.0.1:8000/`
 
