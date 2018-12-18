@@ -1,64 +1,66 @@
 # Page index
 # If you add a page, you must also add it to the index here
 nav:
-#  - Home: 'index.md'
-  - General:
-    - About: '1-general/1-about.md'
-    - Frequently Asked Questions: '1-general/2-faqs.md'
-  - Getting Started:
-    - Introduction to the Editor: '2-getting_started/1-introduction.md'
-    - Introduction to Assets: '2-getting_started/2-assets_intro.md'
-    - Introduction to Scripting: '2-getting_started/3-scripting_intro.md'
-    - My First Game:
-      - Basic Platformer: '2-getting_started/4-my_first_game/1-basic_platformer.md'
-      - Dynamic Map: '2-getting_started/4-my_first_game/2-triggers.md'
-      - Visual Overhaul: '2-getting_started/4-my_first_game/3-visuals.md'
-      - Character Abilities: '2-getting_started/4-my_first_game/4-abilities.md'
-      - Multiplayer Racing: '2-getting_started/4-my_first_game/5-multiplayer_racing.md'
-  - Scripting:
-    - Lua:
-      - Introduction: '3-scripting/1-lua/1-introduction.md'
-      - Primer: '3-scripting/1-lua/2-primer.md'
-      - Resources: '3-scripting/1-lua/3-resources.md'
-    - Best Practices: '3-scripting/2-best_practices.md'
-    - Debugging: '3-scripting/3-debugging.md'
-  - Project Workflow:
-    - Project Setup: '4-project_workflow/1-project_setup.md'
-    - Assets Workflow: '4-project_workflow/2-assets_workflow.md'
-    - Scripts Workflow: '4-project_workflow/3-scripts_workflow.md'
-    - Best Practices: '4-project_workflow/4-best_practices.md'
-  - Tutorials:
-    - Games:
-      - First Person Shooters:
-        - Free For All: '5-tutorials/1-games/1-fps/1-ffa.md'
-        - Team Deathmatch: '5-tutorials/1-games/1-fps/2-tdm.md'
-      - RPG: '5-tutorials/1-games/2-rpg.md'
-      - Racing: '5-tutorials/1-games/3-racing.md'
-    - Topics:
-      - Editor:
-        - Editor Windows: '5-tutorials/2-topics/1-editor/1-editor_windows.md'
-        - Hotkeys: '5-tutorials/2-topics/1-editor/2-hotkeys.md'
-        - GUI: '5-tutorials/2-topics/1-editor/3-gui.md'
-        - Audio: '5-tutorials/2-topics/1-editor/4-audio.md'
-        - Visual Effects: '5-tutorials/2-topics/1-editor/5-vfx.md'
-        - Templates: '5-tutorials/2-topics/1-editor/6-templates.md'
-        - Marketplace: '5-tutorials/2-topics/1-editor/7-marketplace.md'
-        - Custom Properties: '5-tutorials/2-topics/1-editor/8-custom_properties.md'
-      - Abstract:
-        - Vectors: '5-tutorials/2-topics/2-abstract/1-vectors.md'
-        - Advanced Vectors: '5-tutorials/2-topics/2-abstract/2-vectors_advanced.md'
-        - Matrices: '5-tutorials/2-topics/2-abstract/3-matrices.md'
-        - Raytracing: '5-tutorials/2-topics/2-abstract/4-raytracing.md'
-  - Examples:
-    - Main: '6-examples/links.md'
-  - Community:
-    - Links: '7-community/links.md'
-  - Core API:
-    - Coming Soon: '8-core_api/coming_soon.md'
-
-# Additional data
-extra:
-  core_version: 0.0.x-prealpha # CORE editor version this documentation applies to
+    - General:
+        - About: 'general/about.md'
+        - Frequently Asked Questions: 'general/faqs.md'
+    - Getting Started:
+        - Step by Step: 'getting_started/step_by_step.md'
+        - Introduction to the Editor: 'getting_started/editor_intro.md'
+        - Introduction to Scripting: 'getting_started/scripting_intro.md'
+        - Basic Project Workflow: 'getting_started/project_workflow.md'
+        - Coming From Unity/Unreal: 'getting_started/from_other_editors.md'
+        - My First Game:
+            - Basic Platformer: 'getting_started/my_first_game/basic_platformer.md'
+            - Dynamic Map: 'getting_started/my_first_game/triggers.md'
+            - Visual Overhaul: 'getting_started/my_first_game/visuals.md'
+            - Character Abilities: 'getting_started/my_first_game/abilities.md'
+            - Multiplayer Racing: 'getting_started/my_first_game/multiplayer_racing.md'
+    - Scripting:
+        - Lua:
+            - Introduction: 'scripting/lua/introduction.md'
+            - Primer: 'scripting/lua/primer.md'
+            - Resources: 'scripting/lua/resources.md'
+        - CORE API: 'scripting/core_api_intro.md'
+        - Best Practices: 'scripting/best_practices.md'
+        - Debugging: 'scripting/debugging.md'
+    - Project Workflow:
+        - Project Setup: 'project_workflow/project_setup.md'
+        - Assets Workflow: 'project_workflow/assets_workflow.md'
+        - Scripts Workflow: 'project_workflow/scripts_workflow.md'
+        - Best Practices: 'project_workflow/best_practices.md'
+    - Editor Manual:
+        - Editor Windows: 'editor/editor_windows.md'
+        - Hotkeys: 'editor/hotkeys.md'
+        - GUI: 'editor/gui.md'
+        - Audio: 'editor/audio.md'
+        - Visual Effects: 'editor/vfx.md'
+        - Templates: 'editor/templates.md'
+        - Marketplace: 'editor/marketplace.md'
+        - Custom Properties: 'editor/custom_properties.md'
+        - Localizations: 'editor/localizations.md'
+        - Animations: 'editor/animations.md'
+        - Networking: 'editor/networking.md'
+        - I/O: 'editor/io.md'
+        - Abstract:
+            - Vectors: 'editor/abstract/vectors.md'
+            - Advanced Vectors: 'editor/abstract/vectors_advanced.md'
+            - Matrices: 'editor/abstract/matrices.md'
+            - Raytracing: 'editor/abstract/raytracing.md'
+            - Physics: 'editor/abstract/physics.md'
+    - Tutorials:
+        - Complete Games:
+            - First Person Shooters:
+                - Free For All: 'tutorials/full_games/fps/ffa_fps.md'
+                - Team Deathmatch (with abilities): 'tutorials/full_games/fps/tdm_abilities_fps.md'
+                - Search and Destroy (with classes): 'tutorials/full_games/fps/search_and_destroy_classes_fps.md'
+            - RPG: 'tutorials/full_games/rpg.md'
+    - Examples:
+        - Main: 'examples/links.md'
+    - Community:
+        - Links: 'community/links.md'
+    - Core API:
+        - Coming Soon: 'core_api/coming_soon.md'
 
 # If you make a PR, no need to change data below this point
 
@@ -71,8 +73,10 @@ theme:
     primary: 'blue grey' # desired -> #20232a
     accent: 'amber' # desired -> #ff9000
 
+# Additional data
 extra:
-  social:
+    core_version: 0.0.1-prealpha # CORE editor version this documentation applies to
+    social:
     - type: 'discord' # unsupported
       link: 'ToDo'
     - type: 'reddit'
@@ -87,7 +91,7 @@ markdown_extensions:
   - pymdownx.critic # editing allowed
   - pymdownx.details # admonition style details
   - pymdownx.emoji: # emojis
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    #   emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite # inline code highlighting
   - pymdownx.magiclink # autolinks and shorthand
   - pymdownx.mark # highlights
