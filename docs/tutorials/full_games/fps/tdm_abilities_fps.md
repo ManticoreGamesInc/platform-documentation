@@ -1,1 +1,6 @@
-Team deathmatch with abilities and lobby (built from the foundation in ffa fps)
+# Team Deathmatch
+
+- TDM game mode
+  - Includes lobby
+- Dodge roll ability
+- Intermediate map

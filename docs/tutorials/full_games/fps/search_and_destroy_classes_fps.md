@@ -1,1 +1,6 @@
-Search and destroy with custom classes (built off founsation in tdm_abilities_fps)
+# Search and Destroy
+
+- Survival game mode
+  - Search and Destroy logic
+- Custom classes
+- Advanced map
