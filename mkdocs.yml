@@ -65,7 +65,6 @@ extra:
 # Base material theme with customizations
 theme:
   name: 'material'
-  custom_dir: 'theme'
   feature:
     tabs: false
   palette:
