@@ -17,7 +17,7 @@ You can edit a markdown file directly through GitHub, so it's very easy!
 
 Alternatively you can clone the repository and create a pull request for larger scale changes.
 
-#### New Pages
+### New Pages
 
 If you want to add a new page, create a markdown file (.md extension).
 
@@ -41,7 +41,7 @@ If it is in a new folder, add `-FolderName:` to the `nav:` root, like the others
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
 - Clone this project from GitHub (e.g. `git clone https://github.com/ManticoreGamesInc/Documentation.git`)
 - `pip install -r requirements.txt` --installs required files
-- `mkdocs serve` --starts server
+- `mkdocs serve` --starts server, which watches for changes upon saving and updates live
 - Navigate to `http://127.0.0.1:8000/`
 
 If you need a standalone and lightweight Markdown editor, [Typora](https://typora.io/) is a good one.

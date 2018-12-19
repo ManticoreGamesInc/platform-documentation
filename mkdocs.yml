@@ -30,6 +30,7 @@ nav:
         - Scripts Workflow: 'project_workflow/scripts_workflow.md'
         - Best Practices: 'project_workflow/best_practices.md'
     - Editor Manual:
+        - Overview: 'editor/overview.md'
         - Editor Windows: 'editor/editor_windows.md'
         - Hotkeys: 'editor/hotkeys.md'
         - GUI: 'editor/gui.md'
@@ -102,6 +103,7 @@ extra:
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
+  - fontawesome_markdown # easily add fontawesome icons in markdown format
   - pymdownx.arithmatex # fancy math styling
   - pymdownx.betterem: # better bolding styles
       smart_enable: all
@@ -109,7 +111,7 @@ markdown_extensions:
   - pymdownx.critic # editing allowed
   - pymdownx.details # admonition style details
   - pymdownx.emoji: # emojis
-    #   emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_generator: pymdownx.emoji.to_svg
   - pymdownx.inlinehilite # inline code highlighting
   - pymdownx.magiclink # autolinks and shorthand
   - pymdownx.mark # highlights
