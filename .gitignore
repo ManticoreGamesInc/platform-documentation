@@ -1,2 +1,4 @@
+# Ignore IDE specifics
 .idea/
 .vs/
+.vscode/
