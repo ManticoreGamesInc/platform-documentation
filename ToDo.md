@@ -1,12 +1,16 @@
 # To Do
 
-- [ ] Re-look at Sphinx and MkWiki - linking/organizational setup is painful in MkDocs (although it works great once complete)
+- [X] Re-look at Sphinx and MkWiki - linking/organizational setup is painful in MkDocs (although it works great once complete)
 - [ ] Custom styling
-  - [ ] Windows setup (need to PR in Husky)
+  - [X] Windows setup (need to PR in Husky)
+  - [ ] Custom colors
+  - [ ] Custom layout
+  - [ ] Integrate build into this repo
 - [ ] Contribution guidelines
 - [ ] Discuss licensing
+- [ ] [MkDocs Plus Reference](http://bwmarrin.github.io/MkDocsPlus)
 
 ## Game Ideas
 
-- [ ] Infection
+- [ ] Infections
 - [ ] Communal PvE
