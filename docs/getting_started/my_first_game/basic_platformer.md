@@ -1,5 +1,5 @@
-Basic Platformer
-================
+# Basic Platformer
+
 WIP:
 
 ![Layout](../../img/platformer/HierarchySetup.png)
