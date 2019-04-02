@@ -175,3 +175,17 @@ Now we will write a script to make the game round-based.
 
 Create a script called `CoinGameLogic` and put it into the top of the scene. Here's the entire hierarchy at this point ![GameLogicHierarchy](../../img/scripting/GameLogicHierarchy.png)
 
+We are going to update the game when the player has picked up all the possible coins. To do so, add the following code to `CoinGameLogic`
+
+```lua
+local coinFolder = game:find_object_by_name("Coins")
+
+function tick()
+	local coinsLeft = #coinFolder.children
+	if coinsLeft == 0 then
+		game:find_object_by_name("CoinUI").text = "All Coins Found!"
+	end
+end
+```
+
+We are looking at how many coins are left by seeing how full the folder of coins in the hierarchy is (`.children` gets the child elements, and `#` checks the length of the array, or how many there are). `game:find_object_by_name()` searches the hierarchy for the object with the name passed in, 
