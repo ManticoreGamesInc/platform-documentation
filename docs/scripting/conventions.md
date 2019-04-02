@@ -87,28 +87,11 @@ end
 
 Both are perfectly valid, but following convention allows for the usage call to consistently use colons for clarity.
 
-## Archive - dot vs colon
-
-Color.new() → constructor, dot, parenthesis
-Color.red → constant, dot
-{color}.r → property, dot
-{color}:desaturate() → member functions, colon, parenthesis
-Color.random() → static functions, dot, parenthesis
-{ability}.on_cast → event, dot
-
-ClassInstance [dot] -> properties, events
-ClassInstance [colon] -> member functions
-Note: Should move event to colon, as it’s closer to a function than property
-Class [dot] -> constants, static functions (including constructor)
-
-TL;DR: The only time there is a colon is with a method. Everything else is a dot.
-
 ### General
 
 * Use tabs
 * No whitespace at end of lines
 * No vertical alignment
-
 
 ### Styling
 
