@@ -33,9 +33,30 @@ myImport.foo()
 * Make class names singular, unless it is a static (helper) class or enum
   * e.g. `Person`, `Cat` vs `StringUtils`, `DogBreeds`
 
+Element | Styling
+--- | ---
+Classes | PascalCase
+Functions | PascalCase
+Enums | PascalCase
+Properties | camelCase
+Variables | camelCase
+Constants | LOUD_SNAKE_CASE
+
+Here is a tiny example with all the above:
+
+```lua
+-- Instantiate car object
+local car = Car.New("red")
+-- Set car's color
+car.color = Colors.GREEN
+-- Drive off into the sunset
+car:Drive()
+```
+
 ### Questions
 
 * ToDo: Wrap everything, add it all to _G with namespace prefixes for everything but the most common functionality (e.g. print)
+* ToDo: Write a linter to enforce all the conventions
 
 * How to resolve Lua's conventions without wrapping everything (e.g. `table.contains`, `tostring()`)
   * Or should we wrap everything?
@@ -47,7 +68,7 @@ myImport.foo()
 Here are some examples of code that conform to the above:
 
 ```lua
---Spawn player 30 units higher than normal, and print out new position
+-- Spawn player 30 units higher than normal, and print out new position
 function HandlePlayerJoined(player)
     player.position = Position.New(player.position.x, player.position.y + 30, player.position.z)
     Utils.Print("New Position: "player.position:toString())
@@ -57,7 +78,7 @@ game.onPlayerJoined:Connect(HandlePlayerJoined)
 ```
 
 ```lua
---Handle picking up a coin
+-- Handle picking up a coin
 function HandleOverlap(trigger, object)
 	if (object ~= nil and object:IsA("Player")) then
         object:AddResource("Manticoin", 1)
@@ -69,13 +90,13 @@ script.parent.onBeginOverlap:Connect(HandleOverlap)
 ```
 
 ```lua
---Cat helper script
+-- Cat helper script
 local DEBUG_PRINT = false
 
 local function IncreaseAge(currentAge)
     currentAge = currentAge + 1
     if DEBUG_PRINT then
-        --Note: `tostring` is native Lua so it doesn't follow Core's conventions
+        -- Note: `tostring` is native Lua so it doesn't follow Core's conventions
         print("Current age updated to" .. tostring(currentAge))
     end
     return currentAge
@@ -86,7 +107,7 @@ local function Main()
 
     for i = 1, 30 do
         local furColors = cat:GetColors()
-        --Note: table.contains is uncapitalized because Lua
+        -- Note: table.contains is uncapitalized because Lua
         if table.contains(furColors, "grey") then
             currentAge = IncreaseAge(cat.age)
         end
@@ -116,21 +137,21 @@ For more details, here is how it breaks down:
 For examples:
 
 ```lua
-Color.New() --static functions + constructors
-Colors.RED --constants
-player.name --properties
-player:ApplyDamage() --member functions
+Color.New() -- static functions + constructors
+Colors.RED -- constants
+player.name -- properties
+player:ApplyDamage() -- member functions
 ```
 
 ```lua
---Casing + operations
+-- Casing + operations
 
 uppercase -> Enum.ENUM_ENTRY
           -> Class.StaticFunction()
 lowercase -> instance:MemberFunction()
           -> instance.property
 
---You should be able to determine the type of operation by the casing alone
+-- You should be able to determine the type of operation by the casing alone
 
 -- PascalCase|PascalCase
 Class.StaticFunction()
@@ -280,6 +301,15 @@ if playerIsAirborne() then
     -- Set them to flying
     enableFlying()
 end
+```
+
+Each line of a block comment starts with `--` and a single space (unless it is indented text inside the comment).
+
+Inline comments should be separated by at least two spaces from the statement. They should start with `--` and a single space.
+
+```lua
+-- One space for block/single-line comments
+local myNum = 2  -- Two spaces after the code, then one space for inline comments
 ```
 
 ----
