@@ -46,8 +46,8 @@ Here is a tiny example with all the above:
 
 ```lua
 -- Instantiate car object
-local car = Car.New("red")
--- Set car's color
+local car = Car.New()
+-- Set the car's color property
 car.color = Colors.GREEN
 -- Drive off into the sunset
 car:Drive()
