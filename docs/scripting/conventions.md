@@ -4,7 +4,7 @@
 
 ## File Structure
 
-> Note: Implementation specifics are tbd, this just notes the need for imports at the top of the file
+> Note: Implementation specifics are tbd, this just notes the desire for imports at the top of the file
 
 * Start with any `require` calls, such as:
 
@@ -23,13 +23,80 @@ myImport.foo()
 ## Naming
 
 * Spell out words fully! Abbreviations generally make code easier to write, but harder to read.
-* Use `PascalCase` names for class and enum-like objects.
-  * e.g. `Color`, `MyClass`
-* Use `camelCase` names for local variables, member values, and functions.
-  * e.g. `myClassInstance`, `myFunction`, `myParameter`
-* Use `LOUD_SNAKE_CASE` names for local consants.
-* Prefix private members with an underscore, like `_camelCase`.
+* Use `PascalCase` names for classes, enum-like objects, and functions (both static and member) - `Enum.ENTRY`, `MyClass`, `MyFunction`
+  * e.g. `Colors.RED`, `Dog = {}`, `function SaveTheWorld()` --Note: OO syntax TBD
+* Use `camelCase` names for local variables and properties - `myClassInstance`, `myProperty`
+  * e.g. `local furColor = panda.furColor`
+* Prefix private fields with an underscore, like `_camelCase`.
   * Lua does not have visibility rules, but using a character like an underscore helps make private access stand out.
+* Use `LOUD_SNAKE_CASE` names for constants (including enum entries)
+* Make class names singular, unless it is a static (helper) class or enum
+  * e.g. `Person`, `Cat` vs `StringUtils`, `DogBreeds`
+
+### Questions
+
+* ToDo: Wrap everything, add it all to _G with namespace prefixes for everything but the most common functionality (e.g. print)
+
+* How to resolve Lua's conventions without wrapping everything (e.g. `table.contains`, `tostring()`)
+  * Or should we wrap everything?
+* Prefixing everything/namespaces for packaging for future compatibility as opposed to it all in the global namespace
+  * `ToString(myObj)` vs vs `Utils.ToString(myObj)`
+  * Can do capitals to differentiate (e.g. print vs Print)
+* Changing all properties to getter/setter member functions would fix inconsistencies, but this has its own issues too
+
+Here are some examples of code that conform to the above:
+
+```lua
+--Spawn player 30 units higher than normal, and print out new position
+function HandlePlayerJoined(player)
+    player.position = Position.New(player.position.x, player.position.y + 30, player.position.z)
+    Utils.Print("New Position: "player.position:toString())
+end
+
+game.onPlayerJoined:Connect(HandlePlayerJoined)
+```
+
+```lua
+--Handle picking up a coin
+function HandleOverlap(trigger, object)
+	if (object ~= nil and object:IsA("Player")) then
+        object:AddResource("Manticoin", 1)
+        trigger.parent:Destroy()
+	end
+end
+
+script.parent.onBeginOverlap:Connect(HandleOverlap)
+```
+
+```lua
+--Cat helper script
+local DEBUG_PRINT = false
+
+local function IncreaseAge(currentAge)
+    currentAge = currentAge + 1
+    if DEBUG_PRINT then
+        --Note: `tostring` is native Lua so it doesn't follow Core's conventions
+        print("Current age updated to" .. tostring(currentAge))
+    end
+    return currentAge
+end
+
+local function Main()
+    local cat = Cat.New()
+
+    for i = 1, 30 do
+        local furColors = cat:GetColors()
+        --Note: table.contains is uncapitalized because Lua
+        if table.contains(furColors, "grey") then
+            currentAge = IncreaseAge(cat.age)
+        end
+        if DEBUG_PRINT then
+            local meowText = cat:Meow()
+            print(meowText)
+        end
+    end
+end
+```
 
 ## Dot vs Colon
 
@@ -49,44 +116,46 @@ For more details, here is how it breaks down:
 For examples:
 
 ```lua
-Color.random() --static function
-Color.new() --constructor
-Color.red --constant
-myColor:desaturate() --method
-myColor.r --property
+Color.New() --static functions + constructors
+Colors.RED --constants
+player.name --properties
+player:ApplyDamage() --member functions
 ```
 
 ```lua
---Static function (or constructor) --> dot
-local randomColor = Color.random()
-local cyan = Color.new(0, 1, 1)
+--Casing + operations
 
---Constant --> dot
-local red = Color.red
+uppercase -> Enum.ENUM_ENTRY
+          -> Class.StaticFunction()
+lowercase -> instance:MemberFunction()
+          -> instance.property
 
---Instance method (or event) --> colon
-local myColorInstance = Color.random()
-myColorInstance:desaturate(0.5)
+--You should be able to determine the type of operation by the casing alone
 
---Instance property --> dot
-local redValue = myColorInstance.r
+-- PascalCase|PascalCase
+Class.StaticFunction()
+
+-- camelCase|camelCase
+instance.property
+
+-- camelCase|PascalCase
+instance:Method()
 ```
 
 When making your own methods:
 
-Good:
 ```lua
---Called as myClassInstance:speak(extra)
-function MyClass:speak(extra)
+--[[ GOOD ]]
+
+--Called as myClassInstance:Speak(extra)
+function MyClass:Speak(extra)
     return self.speech .. extra
 end
-```
 
+--[[ BAD ]]
 
-Bad:
-```lua
---Called as MyClass.speak(myClassInstance, extra)
-function MyClass.speak(self, extra)
+--Called as MyClass.Speak(myClassInstance, extra)
+function MyClass.Speak(self, extra)
     return self.speech .. extra
 end
 ```
@@ -214,5 +283,27 @@ end
 ```
 
 ----
+
+* Option: Use `PascalCase` for functions, or prefixes to clear ambiguity here (e.g. fMyFunction, pMyProperty)
+    * Option2: Functions as PascalCase too?
+    * Warframe's UI uses component based model using 'resource' system as needed to fake inheritence:
+      * Functions as PascalCase, local variables as camelCase
+      * All member variables are camelCase, but the first letter is always 'm' (mCamelCase)
+      * All parameter variables are camelCase, but the first letter is always 'p'(pCamelCase)
+      * Example: 
+```lua
+local BUTTON_RES = resource("/PathToScript/Button.lua")
+local LIST_RES = resource("/PathToScript/List.lua")
+local buttonList = LIST_RES.Create("List.Button", xOffset, yOffset) --element to duplicate, additive x and y offsets for each duplicated element
+buttonList.OnElementAdded =
+    function(pElement)
+        --pElement is the element that was created (IE: a table)
+        --pElement.mCompName is a unique duplicated element based on the original (IE: List.Button1, List.Button2, etc)
+        pElement.mButton = BUTTON_RES.Create(pElement.mCompName, pElement.mLabel)
+    end
+for i = 1, 10 do
+    buttonList.AddElement() --duplicate the element we passed in when creating the list, then call OnElementAdded
+end
+```
 
 * Note: Some content here is inspired from Roblox's Style Guide - all credit where it is due.

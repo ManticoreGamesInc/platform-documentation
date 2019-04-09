@@ -22,6 +22,7 @@ nav:
             - Tutorial: 'scripting/lua/tutorial.md'
             - Primer: 'scripting/lua/primer.md'
             - Resources: 'scripting/lua/resources.md'
+        - Conventions: 'scripting/conventions.md'
         - CORE API: 'scripting/core_api_intro.md'
         - Best Practices: 'scripting/best_practices.md'
         - Debugging: 'scripting/debugging.md'
