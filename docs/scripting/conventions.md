@@ -305,26 +305,4 @@ local myNum = 2  -- Two spaces after the code, then one space for inline comment
 
 ----
 
-* Option: Use `PascalCase` for functions, or prefixes to clear ambiguity here (e.g. fMyFunction, pMyProperty)
-    * Option2: Functions as PascalCase too?
-    * Warframe's UI uses component based model using 'resource' system as needed to fake inheritence:
-      * Functions as PascalCase, local variables as camelCase
-      * All member variables are camelCase, but the first letter is always 'm' (mCamelCase)
-      * All parameter variables are camelCase, but the first letter is always 'p'(pCamelCase)
-      * Example: 
-```lua
-local BUTTON_RES = resource("/PathToScript/Button.lua")
-local LIST_RES = resource("/PathToScript/List.lua")
-local buttonList = LIST_RES.Create("List.Button", xOffset, yOffset) --element to duplicate, additive x and y offsets for each duplicated element
-buttonList.OnElementAdded =
-    function(pElement)
-        --pElement is the element that was created (IE: a table)
-        --pElement.mCompName is a unique duplicated element based on the original (IE: List.Button1, List.Button2, etc)
-        pElement.mButton = BUTTON_RES.Create(pElement.mCompName, pElement.mLabel)
-    end
-for i = 1, 10 do
-    buttonList.AddElement() --duplicate the element we passed in when creating the list, then call OnElementAdded
-end
-```
-
 * Note: Some content here is inspired from Roblox's Style Guide - all credit where it is due.
