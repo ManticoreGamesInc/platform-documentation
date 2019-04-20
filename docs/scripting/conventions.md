@@ -53,25 +53,13 @@ car.color = Colors.GREEN
 car:Drive()
 ```
 
-### Questions
-
-* ToDo: Wrap everything, add it all to _G with namespace prefixes for everything but the most common functionality (e.g. print)
-* ToDo: Write a linter to enforce all the conventions
-
-* How to resolve Lua's conventions without wrapping everything (e.g. `table.contains`, `tostring()`)
-  * Or should we wrap everything?
-* Prefixing everything/namespaces for packaging for future compatibility as opposed to it all in the global namespace
-  * `ToString(myObj)` vs vs `Utils.ToString(myObj)`
-  * Can do capitals to differentiate (e.g. print vs Print)
-* Changing all properties to getter/setter member functions would fix inconsistencies, but this has its own issues too
-
 Here are some examples of code that conform to the above:
 
 ```lua
 -- Spawn player 30 units higher than normal, and print out new position
 function HandlePlayerJoined(player)
-    player.position = Position.New(player.position.x, player.position.y + 30, player.position.z)
-    Utils.Print("New Position: "player.position:toString())
+    player:GetPosition() = Position.New(player:GetPosition().x, player:GetPosition().y + 30, player:GetPosition().z)
+    Utils.Print("New Position: "..tostring(player:GetPosition()))
 end
 
 game.onPlayerJoined:Connect(HandlePlayerJoined)
@@ -185,6 +173,9 @@ Both are perfectly valid, but following convention allows for the usage call to 
 
 * Where possible, use getters and setters
   * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
+  * Properties use getter/setter methods unless you can both get _and_ set the value (in which case you can directly access it via the dot syntax)
+
+Note that some implementations (e.g. with private fields) may result in a reference to self being used, so you use the dot syntax rather than colon for methods; this is fine (although passing in a dummy parameter to enable the use of `:` is ideal), really  just keep to the naming conventions.
 
 ## General
 
