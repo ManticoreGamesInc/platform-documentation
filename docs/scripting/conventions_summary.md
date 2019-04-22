@@ -25,15 +25,31 @@ Note: Properties are used instead of getters/setters only when that element has 
 Generic Example:
 
 ```lua
--- camelCase local variables, PascalCase for classes and static functions (called with a '.')
-local car = Car.New()
--- camelCase properties (called with a '.'), and UPPER_CASE constants
-car.color = Colors.GREEN
--- PascalCase member functions (called with a ':')
-car:Drive()
+--[[
+    Files start with a descriptive multi-line comment
+]]--
+
+-- Imports go next
+local DogClass = require('DogClass')
+
+-- Function are PascalCase
+function GiveDog(player)
+
+    -- Local variables use camelCase, classes use PascalCase
+    local doggo = DogClass.New()
+
+    -- Properties are camelCase, constants are UPPER_CASE
+    doggo.color = Colors.BROWN
+
+    -- Member functions are called with a ':' (while static functions, see above, are called with a '.')
+    doggo:AttachToPlayer(player, PlayerSockets.RIGHT_ANKLE)
+end
+
+-- Event subscriptions are located at the end of the file
+Game.onPlayerJoined:Connect(GiveDog)
 ```
 
-Real example (short):
+Real example:
 
 ```lua
 --[[
@@ -53,10 +69,4 @@ end
 
 -- Whenever an object collides with the coin's trigger, run this function
 trigger.onBeginOverlap:Connect(HandleOverlap)
-```
-
-Real example (long):
-
-```lua
-
 ```
