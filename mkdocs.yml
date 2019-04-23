@@ -1,9 +1,7 @@
 # Page index
 # If you add a page, you must also add it to the index here
 nav:
-    - General:
-        - About: 'general/about.md'
-        - Frequently Asked Questions: 'general/faqs.md'
+    - index.md
     - Getting Started:
         - Step by Step: 'getting_started/step_by_step.md'
         - Introduction to the Editor: 'getting_started/editor_intro.md'
