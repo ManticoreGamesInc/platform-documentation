@@ -1,4 +1,4 @@
-# Introduction
+# Welcome
 
 Welcome to the official documentation of CORE, the community-focused game creation tool!
 
