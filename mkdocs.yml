@@ -20,8 +20,8 @@ nav:
             - Tutorial: 'scripting/lua/tutorial.md'
             - Primer: 'scripting/lua/primer.md'
             - Resources: 'scripting/lua/resources.md'
+        - Tools: scripting/setup_tools.md
         - Conventions: 'scripting/conventions.md'
-        - CORE API: 'scripting/core_api_intro.md'
         - Best Practices: 'scripting/best_practices.md'
         - Debugging: 'scripting/debugging.md'
     - Project Workflow:
@@ -29,6 +29,7 @@ nav:
         - Assets Workflow: 'project_workflow/assets_workflow.md'
         - Scripts Workflow: 'project_workflow/scripts_workflow.md'
         - Best Practices: 'project_workflow/best_practices.md'
+        - Worst Practices: project_workflow/worst_practices.md
     - Editor Manual:
         - Overview: 'editor/overview.md'
         - Editor Windows: 'editor/editor_windows.md'
