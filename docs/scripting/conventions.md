@@ -32,6 +32,7 @@ myImport.foo()
 * Use `LOUD_SNAKE_CASE` names for constants (including enum entries)
 * Make class names singular, unless it is a static (helper) class or enum
   * e.g. `Person`, `Cat` vs `StringUtils`, `DogBreeds`
+* Events follow the `Get{EventName}Event` syntax
 
 Element | Styling
 --- | ---
@@ -62,7 +63,7 @@ function HandlePlayerJoined(player)
     Utils.Print("New Position: "..tostring(player:GetPosition()))
 end
 
-game.onPlayerJoined:Connect(HandlePlayerJoined)
+game:GetPlayerJoinedEvent():Connect(HandlePlayerJoined)
 ```
 
 ```lua
@@ -74,7 +75,7 @@ function HandleOverlap(trigger, object)
 	end
 end
 
-script.parent.onBeginOverlap:Connect(HandleOverlap)
+script.parent:GetBeginOverlapEvent():Connect(HandleOverlap)
 ```
 
 ```lua
