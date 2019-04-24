@@ -81,6 +81,8 @@ nav:
         - Links: 'community/links.md'
     - Core API:
         - Coming Soon: 'core_api/coming_soon.md'
+        - Example Entry: 'core_api/example_entry.md'
+        - Raw Source: 'core_api/raw_source.md'
 
 # If you make a PR, no need to change data below this point
 
