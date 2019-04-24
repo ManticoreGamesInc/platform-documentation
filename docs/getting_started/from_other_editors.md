@@ -1,7 +1,7 @@
 ### Unity
 
-- tips from Unity -> CORE
+- Tips from Unity -> CORE
 
 ### Unreal
 
-- tips from Unreal -> CORE
+- Tips from Unreal -> CORE
