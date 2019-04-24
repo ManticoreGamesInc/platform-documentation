@@ -1,5 +1,5 @@
-Basic editor layout w/ viewports + terminolog
+* Basic editor layout w/ viewports + terminolog
 
-How to navigate edit/play mode
+* How to navigate edit/play mode
 
-Nothing more here, just give links for later
+* Nothing more here, just give links for later
