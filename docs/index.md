@@ -36,6 +36,12 @@ using the open source [MkDocs] and [ReadTheDocs] tools.
 !!! info "Contributions Welcome"
     Just click on the :fa-edit: icon on the top right of any page.
 
+Note: Videos must be under 100MB and sourced in
+CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
+click on the three dots -> open in new window -> three dots -> embed item ->
+paste that html code in the docs. Eventually we will embed YouTube links, but
+for now this works for tiny (but private) clips.
+
 All the contents are under the [ToDo] license. Credits are due to the [Godot] documentation and
 [Material] themes for inspiration.
 
