@@ -1,23 +1,24 @@
 # Best Practices
 
-## Coding Conventions
+## _G vs require
 
-Uses dots for static functions and class-level properties and colons for class methods
+require() explicitly makes a script execute if it hasn't already, and only executes a given script once.
 
-Tabs for indentation
-"Double Quotes" unless you 'need to quote a "quote"'
-And, for custom classes : is used for methods, . for properties (as a general rule . mimics static functions, : for methods of instantiated objects)
+If you need multiple instances of the same script dynamically spawned require
+doesn't make sense
 
-Use PascalCase names for class and enum-like objects.
-Use camelCase names for local variables, member values, and functions.
-Use LOUD_SNAKE_CASE names for local constants.
-Prefix private members with an underscore, like _camelCase.
-    Lua does not have visibility rules, but using a character like an underscore helps make private access stand out.
-A File's name should match the name of the object it exports.
-    If your module exports a single function named doSomething, the file should be named doSomething.lua.
 
-MyScript.lua
+## Using External Data
 
-local TIMER_CONSTANT = 4
+Regarding external data, you can use require() and a script that returns a long string to encapsulate json data in its own script.  Then use require again with a json library from the internet like this one:  https://raw.githubusercontent.com/rxi/json.lua/master/json.lua
 
-local playerTable = {}
+To make a script that returns a json string when you require it, start with
+this:
+
+```lua
+return [===[
+
+]===]
+```
+
+and just paste your json into the empty line in the middle.  No need to escape quotes or anything, as long as your json doesn't contain the string "]===]"
