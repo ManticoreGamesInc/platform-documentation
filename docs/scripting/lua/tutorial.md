@@ -24,6 +24,7 @@ Okay, so what happened?
 Now let's add our own function
 
 ```lua
+-- Our first function!
 function init()
     print_to_screen("Hello from a function!")
 end
@@ -36,10 +37,12 @@ prefers function definitions at the top).
 You should now have the following:
 
 ```lua
+-- Our first function!
 function init()
     print_to_screen("Hello from a function!")
 end
 
+-- Calling the function
 init()
 ```
 
@@ -91,8 +94,11 @@ Okay, so what did we just do?
 The above is a bit confusing, so let's rewrite it to be more clear
 
 ```lua
+-- Get the object one level above the script in the hierarchy, in this case our coin
 local coin = script.parent
+-- Create a rotation along the x axis
 local spin_rotation = Rotate.new(200, 0, 0)
+-- Rotate the coin using our previously defined rotation
 coin:rotate_continuous(spin_rotation)
 ```
 
@@ -118,6 +124,7 @@ the screen.
 * Add the following to the script:
 
 ```lua
+-- When a player hits the coin, increment a resource on the player and remove the coin
 function handleOverlap(trigger, object)
 	if (object ~= nil and object:is_a("Player")) then
         object:add_resource("Manticoin", 1)
@@ -125,6 +132,7 @@ function handleOverlap(trigger, object)
 	end
 end
 
+-- Whenever an object collides with the trigger, run this function
 script.parent.on_begin_overlap:connect(handleOverlap)
 ```
 
@@ -133,16 +141,13 @@ because we have no output of the data. Let's modify TutorialScript to display
 this. Add the following code:
 
 ```lua
---print out 'Player name: Coin count' every 5 seconds
+-- Print out 'Player name: {coin count}' every 5 seconds
 function tick()
     wait(5)
-
     local players = game:get_players()
-    print_to_screen("Coins")
     for i = 1,#players do
         print_to_screen(players[i].name..": "..tostring(players[i]:get_resource("Manticoin") or 0))
     end
-
 end
 ```
 
@@ -154,25 +159,26 @@ Next up is to add a UI element instead of the messy `print_to_screen` we have no
 Go to Object -> UI Text Control. Put the Text Control object in a `Client
 Context` folder
 
-!!! info Client context simply means it will be unique to each client, the
-    server doesn't care about it
+!!! info
+    Client context simply means it will be unique to each client, the server
+    doesn't care about it
 
 Create a new script called `Display Coins` and add the following code
 
 ```lua
---Display the player's coin amounts
+-- Display the player's coin amount
 
-wait() --wait a tick for players to connect
+wait()  -- Wait a tick for players to connect
 local player = game:get_local_player()
 
---every 0.1 seconds update the coin count
+-- Every 0.1 seconds update the coin count display
 function tick()
     wait(0.1)
-
     local displayString = player.name..": "..tostring(player:get_resource("Manticoin") or 0)
     script.parent.text = displayString
+end
 
-end)
+-- Note: For performance we'd ideally only update the UI when the coin count changes, but this example favors simple code
 ```
 
 For reference, the folder structure should look like this: ![UIText](../../img/scripting/UIText.png)
@@ -210,9 +216,12 @@ We are going to update the game when the player has picked up all the possible
 coins. To do so, add the following code to `CoinGameLogic`
 
 ```lua
+-- Get the folder containing all the coin objects
 local coinFolder = game:find_object_by_name("Coins")
 
+-- Every second check for how many coins are left in the scene
 function tick()
+	wait(1)
 	local coinsLeft = #coinFolder.children
 	if coinsLeft == 0 then
 		game:find_object_by_name("CoinUI").text = "All Coins Found!"
@@ -255,6 +264,7 @@ anymore, as we are setting a property on each of the coins (`.enabled`) rather
 than deleting the object entirely. Add the following function:
 
 ```lua
+-- Get the amount of coins that are enabled in the scene
 function GetCoinsLeft()
 	local count = 0
 	for _,coin in pairs(coinFolder.children) do
@@ -274,6 +284,7 @@ looping through all the coins and setting their `.enabled` property to be true.
 The logic will be quite similar to getting the coin count. Here it is as a function:
 
 ```lua
+-- Set all coins to be enabled
 function ResetMap()
 	for _,coin in pairs(coinFolder.children) do
 		if coin ~= nil then
@@ -287,13 +298,14 @@ Then we need to add these function calls to our main tick loop and update the
 UI, and we'll be done! Here's the code for it:
 
 ```lua
+-- Check for the round end by looking for the amount of coins left
+-- If the game should end, display a UI element, countdown, then reset the map
 function tick()
 	local players = game:get_players()
-	
 	local coinsLeft = GetCoinsLeft()
 
 	if coinsLeft == 0 then
-		local uiText = game:find_object_by_name("RoundUI") 
+		local uiText = game:find_object_by_name("RoundUI")
 		uiText.text = "All Coins Found!"
 		wait(3)
 		for i = 3,0,-1 do
@@ -306,11 +318,9 @@ function tick()
 end
 ```
 
-Here's what it all looks like:
+## Conclusion
 
-![](../../img/scripting/CompletedCoinPickupVideo.gif)
-
-Finally, you can check out the game by going [here]() and clicking on 'edit' to
-download a copy of the game to play around with yourself.
-
--- TODO: COMMENTS TO CODE, explain end segments
+Finally, you can check out the game by going
+[here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1)
+and clicking on 'edit' to download a copy of the game to play around with
+yourself!
