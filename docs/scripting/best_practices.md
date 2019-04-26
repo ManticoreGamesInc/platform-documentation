@@ -1,5 +1,10 @@
 # Best Practices
 
+ToDo: Why you shouldn't pollute the global namespace, why run order matters and
+how to structure your project to mitigate that, etc.
+
+## Miscellaneous
+
 ## _G vs require
 
 require() explicitly makes a script execute if it hasn't already, and only executes a given script once.

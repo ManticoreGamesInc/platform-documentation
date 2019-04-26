@@ -48,7 +48,7 @@ init()
 
 Save and run that, and you'll see your message appear on the screen! Excellent.
 
-If you have issues, make sure you have something like this: ![MyFirstScript](../../img/scripting/MyFirstScript.png)
+If you have issues, make sure you have something like this: ![MyFirstScript](../img/scripting/MyFirstScript.png)
 
 ---
 
@@ -69,7 +69,7 @@ First make a script, and call it `SpinCoin`, and put it one level below the main
 Manticoin object. Add the following line of code:
 `script.parent:rotate_continuous(Rotation.new(200, 0, 0))`
 
-You should have the following: ![SpinCoinLocation](../../img/scripting/SpinCoin.png)
+You should have the following: ![SpinCoinLocation](../img/scripting/SpinCoin.png)
 
 Running this should continuously rotate the coin in the air, fantastic!
 
@@ -181,7 +181,7 @@ end
 -- Note: For performance we'd ideally only update the UI when the coin count changes, but this example favors simple code
 ```
 
-For reference, the folder structure should look like this: ![UIText](../../img/scripting/UIText.png)
+For reference, the folder structure should look like this: ![UIText](../img/scripting/UIText.png)
 
 Now let's make a simple map and populate it with coins, and add in the main
 gameplay loop of rounds.
@@ -210,7 +210,7 @@ Now we will write a script to make the game round-based.
 Create a script called `CoinGameLogic` and put it into the top of the scene.
 Here's the entire hierarchy at this point
 
-![GameLogicHierarchy](../../img/scripting/GameLogicHierarchy.png)
+![GameLogicHierarchy](../img/scripting/GameLogicHierarchy.png)
 
 We are going to update the game when the player has picked up all the possible
 coins. To do so, add the following code to `CoinGameLogic`
