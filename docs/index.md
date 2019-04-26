@@ -103,4 +103,6 @@ for now this works for tiny (but private) clips.
 Pictures: Specs/ideal workflow is WIP. For now drop them in the `img/` folder
 and reference as expected.
 
-Correct workflow w/ branching + PRs + reviews and versions and internal vs external
+Correct workflow w/ branching + PRs + reviews and versions and internal vs
+external
+    - Note: Just two versions (public test/bleeding edge, and live/stable - that's it)
