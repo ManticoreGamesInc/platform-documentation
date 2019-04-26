@@ -1,3 +1,8 @@
+# Lua Primer
+
+Quick links to get you up to speed on the programming language we use
+(Note: This page will get much more verbose later on)
+
 * https://learnxinyminutes.com/docs/lua/
 * http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf
 

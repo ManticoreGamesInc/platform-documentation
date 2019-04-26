@@ -31,16 +31,10 @@ Alternatively, check out the list of topics to the left to get started.
 This documentation is continuously written and edited by both Manticore as well as members of the
 community. Contributions are more than welcome! It is easy to do so, as files are simply text files
 with some [Markdown] extras for formatting. We then compile the markdown files into a static website
-using the open source [MkDocs] and [ReadTheDocs] tools.
+using the open source [MkDocs] tool, and host the site using [Netlify].
 
 !!! info "Contributions Welcome"
     Just click on the :fa-edit: icon on the top right of any page.
-
-Note: Videos must be under 100MB and sourced in
-CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
-click on the three dots -> open in new window -> three dots -> embed item ->
-paste that html code in the docs. Eventually we will embed YouTube links, but
-for now this works for tiny (but private) clips.
 
 All the contents are under the [ToDo] license. Credits are due to the [Godot] documentation and
 [Material] themes for inspiration.
@@ -69,7 +63,7 @@ All the contents are under the [ToDo] license. Credits are due to the [Godot] do
   and therefore is the only section that strictly cannot be edited by community members.
 
 In addition to this documentation you may also want to take a look at the various [example]
-projects.
+projects and templates.
 
 Have fun reading and making games with CORE!
 
@@ -79,6 +73,7 @@ Have fun reading and making games with CORE!
 [Markdown]:https://daringfireball.net/projects/markdown/syntax
 [MkDocs]: https://www.mkdocs.org/
 [ReadTheDocs]: https://readthedocs.org/
+[Netlify]: https://www.netlify.com
 [Godot]: https://godot.readthedocs.io/en/3.0/
 [Material]: https://squidfunk.github.io/mkdocs-material
 
@@ -92,3 +87,20 @@ Have fun reading and making games with CORE!
 [Community]: /community/links
 [example]: /examples/links
 [CORE API]: /core_api/coming_soon
+
+---
+
+### Contribution Details
+
+ToDo: Move to its own section
+
+Videos must be under 100MB and sourced in
+CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
+click on the three dots -> open in new window -> three dots -> embed item ->
+paste that html code in the docs. Eventually we will embed YouTube links, but
+for now this works for tiny (but private) clips.
+
+Pictures: Specs/ideal workflow is WIP. For now drop them in the `img/` folder
+and reference as expected.
+
+Correct workflow w/ branching + PRs + reviews and versions and internal vs external

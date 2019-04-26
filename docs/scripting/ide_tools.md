@@ -1,6 +1,8 @@
 # IDE Tools
 
 There are a bunch of ways you can improve the experience of scripting in Core.
+If you are happy with the inbuilt editor, feel free to skip this section (it is
+only intended for power users).
 
 ## External editors
 
@@ -63,10 +65,11 @@ work.
 
 Alternatively download the following dependencies and build luacheck yourself
 (protip: don't do this unless you have a strong need to).
+
 * Luacheck
-  * Luarocks
-    * .\install /p c:\users\public\lua\LuaRocks /L /MW, add to path
-    * GCC via TDM (http://tdm-gcc.tdragon.net/)
+    * Luarocks
+        * .\install /p c:\users\public\lua\LuaRocks /L /MW, add to path
+        * GCC via TDM (http://tdm-gcc.tdragon.net/)
   * LuaDist (https://github.com/LuaDist/Repository/wiki/LuaDist%3A-Installation)
     * CMake (https://cmake.org/)
     * Git (https://gitforwindows.org/)
