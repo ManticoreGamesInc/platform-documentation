@@ -1,3 +1,5 @@
+Unfinished page! Contribute by clicking the :fa-edit: icon in the top right.
+
 ### Abstract
 
 General explanation of the topic
@@ -8,7 +10,4 @@ Simple step by step tutorial
 
 ### Example
 
-link to examples, with at least one good example project
-
-
-(This one includes viewports)
+Link to examples, with at least one good example project

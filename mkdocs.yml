@@ -5,52 +5,43 @@ nav:
     - Getting Started:
         - Step by Step: 'getting_started/step_by_step.md'
         - Introduction to the Editor: 'getting_started/editor_intro.md'
-        - Introduction to Scripting: 'getting_started/scripting_intro.md'
-        - Basic Project Workflow: 'getting_started/project_workflow.md'
         - Coming From Unity/Unreal: 'getting_started/from_other_editors.md'
-        - My First Game:
+        - My First Game (Empty):
             - Basic Platformer: 'getting_started/my_first_game/basic_platformer.md'
             - Dynamic Map: 'getting_started/my_first_game/triggers.md'
             - Visual Overhaul: 'getting_started/my_first_game/visuals.md'
             - Character Abilities: 'getting_started/my_first_game/abilities.md'
             - Multiplayer Racing: 'getting_started/my_first_game/multiplayer_racing.md'
-    - Scripting:
-        - Lua:
-            - Introduction: 'scripting/lua/introduction.md'
-            - Tutorial: 'scripting/lua/tutorial.md'
-            - Primer: 'scripting/lua/primer.md'
-            - Resources: 'scripting/lua/resources.md'
-        - Tools: scripting/setup_tools.md
-        - Conventions: 'scripting/conventions.md'
-        - Best Practices: 'scripting/best_practices.md'
-        - Debugging: 'scripting/debugging.md'
     - Project Workflow:
         - Project Setup: 'project_workflow/project_setup.md'
         - Assets Workflow: 'project_workflow/assets_workflow.md'
         - Scripts Workflow: 'project_workflow/scripts_workflow.md'
         - Best Practices: 'project_workflow/best_practices.md'
         - Worst Practices: project_workflow/worst_practices.md
+    - Scripting:
+        - Lua Primer: 'scripting/lua_primer.md'
+        - Tutorial: 'scripting/tutorial.md'
+        - Debugging: 'scripting/debugging.md'
+        - IDEs/Tools: scripting/ide_tools.md
+        - Best Practices: 'scripting/best_practices.md'
+        - Conventions: 'scripting/conventions.md'
     - Editor Manual:
         - Overview: 'editor/overview.md'
         - Editor Windows: 'editor/editor_windows.md'
         - Hotkeys: 'editor/hotkeys.md'
-        - GUI: 'editor/gui.md'
-        - Audio: 'editor/audio.md'
-        - Visual Effects: 'editor/vfx.md'
         - Templates: 'editor/templates.md'
         - Marketplace: 'editor/marketplace.md'
-        - Custom Properties: 'editor/custom_properties.md'
-        - Localizations: 'editor/localizations.md'
+        - UI: 'editor/ui.md'
+        - Audio: 'editor/audio.md'
+        - Visual Effects: 'editor/vfx.md'
         - Animations: 'editor/animations.md'
         - Networking: 'editor/networking.md'
-        - I/O: 'editor/io.md'
         - Abstract:
             - Vectors: 'editor/abstract/vectors.md'
-            - Advanced Vectors: 'editor/abstract/vectors_advanced.md'
             - Matrices: 'editor/abstract/matrices.md'
             - Raytracing: 'editor/abstract/raytracing.md'
             - Physics: 'editor/abstract/physics.md'
-    - Tutorials:
+    - Tutorials (Empty):
         - Complete Games:
             - First Person Shooters:
                 - Free For All: 'tutorials/full_games/fps/ffa_fps.md'
@@ -75,10 +66,8 @@ nav:
                 - First Person Shooter: 'tutorials/topics/game_types/fps.md'
                 - Racing: 'tutorials/topics/game_types/racing.md'
                 - RPG: 'tutorials/topics/game_types/rpg.md'
-    - Examples:
-        - Main: 'examples/links.md'
-    - Community:
-        - Links: 'community/links.md'
+    - Examples: 'examples.md'
+    - Community: 'community.md'
     - Core API:
         - Coming Soon: 'core_api/coming_soon.md'
         - Example Entry: 'core_api/example_entry.md'
