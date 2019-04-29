@@ -85,59 +85,59 @@ If you are having issues, check to see if your `TutorialScript` looks like this 
 
 ## Core API
 
-The next step is to use the Core API to modify objects in the world. We'll start
-small, with a coin the player can pick up,
+The next step is to use the Core API to modify objects in the world. We'll start small, with a coin the player can pick up.
 
-First the coin. The mesh for it can be found on the marketplace as `Manticoin`.
-Note: Alternatively, you can create it yourself with three cylinders, one
-textured  gold for the coin, and the other slightly smaller ones for decal
-textures on each side. Make sure to make it a template after.
+### Adding Manticoin
 
-Okay, we want our coin to spin slowly in the air, rather than just sitting there
-and being boring. The way to do this is, you guessed it, with a script.
+Luckily for you, the marketplace houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the `Manticoin`, which we'll use for this project, instead of making our own coin.
 
-First make a script, and call it `SpinCoin`, and put it one level below the main
-Manticoin object. Add the following line of code:
-`script.parent:rotate_continuous(Rotation.new(200, 0, 0))`
+To add the `Manticoin` asset to your project, head over to the `Shared Content` tab inside the editor. Type "Manticoin" into the search bar, and click on the one by "max." All you have to do to add it to your project is to click the "Add to Project" button, which is a big plus (+).
 
-You should have the following: ![SpinCoinLocation](../img/scripting/SpinCoin.png)
+!!! note
+    The editor will prompt you to save before it adds it to your project.
 
-Running this should continuously rotate the coin in the air, fantastic!
+Next, just like we did with TutorialScript, drag it from the Asset Manifest to the Hierarchy. Now that we have a coin in our world, our goal here is to get our coin to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
+
+### SpinCoin Script
+
+Let's make a new script, call it `SpinCoin`, and put it one level below the main `Manticoin` object. Like before, delete the current contents, and add the following line of code:
+
+```lua
+script.parent:rotate_continuous(Rotation.new(200, 0, 0))
+```
+
+We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
+
+![SpinCoinLocation](../img/scripting/SpinCoin.png)
+
+Running this should continuously rotate the coin in the air. Shiny!
 
 Okay, so what did we just do?
 
 ### Spin Breakdown
 
-* `script` -> references the script object, i.e. the thing you dragged into the hierarchy
-* `script.parent` -> references the script's parent object, i.e. the item one
-  level above the script (in this case the Manticoin object)
-* `script.parent:rotate_continuous()` -> Every _CoreObject_ (things like
-  Scripts, Objects, etc.) has methods available to it. `rotate_continuous` is
-  one of these, and we invoke it with the `:` syntax. It requires a `Rotation`
-  parameter to work
-* `script.parent:rotate_continuous(Rotate.new(200, 0, 0))` -> Here we create a
-  rotation vector to rotate by a pitch of 200, spinning the coin along the y
-  axis by the requisite speed. Rotate is a _Core Class_ that has the method
-  `.new`, which takes in parameters for the pitch, yaw, and roll. Since `.new`
-  returns a `Rotation` (exactly what we need to pass in to `rotate_continuous`,
-  it works out well.)
+* `script` -> references the script object, i.e. the asset you dragged into the hierarchy
+* `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case the Manticoin object)
+* `rotate_continuous()` -> Every **CoreObject** (things like Scripts, Objects, etc.) has methods available to it. `rotate_continuous` is one of these, and we invoke it with the `:` syntax. It requires a `Rotation` parameter to work
+    * Methods are basically just functions that belong to an object
+* `Rotation.new(number pitch, number yaw, number roll)` -> Here we create a rotation vector to rotate by a pitch of 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.new`, which takes in parameters for the pitch, yaw, and roll. `.new` returns a `Rotation`, which is exactly what we need to pass in to `rotate_continuous()`. How convenient!
 
-The above is a bit confusing, so let's rewrite it to be more clear
+### Spin Cleanup
+
+Writing all that in one line of code makes it a bit confusing, so let's rewrite it to be more clear and explicit.
 
 ```lua
 -- Get the object one level above the script in the hierarchy, in this case our coin
 local coin = script.parent
 -- Create a rotation along the x axis
-local spin_rotation = Rotate.new(200, 0, 0)
+local spin_rotation = Rotation.new(200, 0, 0)
 -- Rotate the coin using our previously defined rotation
 coin:rotate_continuous(spin_rotation)
 ```
 
 Yay, we've got it working!
 
-Next, let's add a resource collection system so you can pick up the coins. Then
-we'll spawn them all over the map, and will have a timer to pick them up in a
-limited time, making a game.
+Next, let's add a resource collection system so you can pick up the coins. Then we'll spawn them all over the map, and will have a timer to pick them up in a limited time, making a game.
 
 ---
 
