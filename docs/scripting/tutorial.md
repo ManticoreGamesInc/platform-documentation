@@ -37,6 +37,12 @@ Now that you've completed the [Lua Primer](lua_primer.md), it's time to get scri
 
 Now let's add our own function!
 
+---
+
+## Functions
+
+Let's change `TutorialScript` so the `print_to_screen` call is within a function. We'll call this function `init`, for simplicity.
+
 ```lua
 -- Our first function!
 function init()
@@ -44,9 +50,15 @@ function init()
 end
 ```
 
-If you save and run that code...nothing happens. Well that's because the
-function is never called. Add a function call to the end of the script (Lua
-prefers function definitions at the top).
+!!! note
+    In case you've forgotten from the [Lua Primer](lua_primer.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+
+If you save and run this code, nothing will happen. How utterly boring! This is because the function is never called in our code. To get our function to work, we can add a function call to the end of the script.
+
+```lua
+-- Calling the function
+init()
+```
 
 You should now have the following:
 
@@ -60,9 +72,14 @@ end
 init()
 ```
 
-Save and run that, and you'll see your message appear on the screen! Excellent.
+***Now*** if you save and run this, you'll see your message appear on the screen! Excellent.
 
-If you have issues, make sure you have something like this: ![MyFirstScript](../img/scripting/MyFirstScript.png)
+!!! note
+    Lua prefers functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of files, like we did with `TutorialScript`.
+
+If you are having issues, check to see if your `TutorialScript` looks like this in the Properties view:
+
+![MyFirstScript](../img/scripting/MyFirstScript.png)
 
 ---
 
