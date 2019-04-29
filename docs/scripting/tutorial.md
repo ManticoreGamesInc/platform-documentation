@@ -1,27 +1,41 @@
 # Tutorial
 
+Now that you've completed the [Lua Primer](lua_primer.md), it's time to get scripting in Core!
+
 ## My First Script
 
-* Open up the editor, click `+New Script`
-* Open up the script
-  * By default this happens via our inbuilt editor
-  * You can also configure scripts to open in an external editor by default by
-    going to `edit -> preferences --> external script editor`
-    * Atom, VSCode, and ZeroBrane all have auto-complete support
-* Delete everything in the script
-* Type `print_to_screen("Hello World!")`
-* Save the script (Ctr+S) and drag it to the top of the hierarchy
-* Press `Run` at the top of the editor, and see your message appear on screen!
 
-Okay, so what happened?
+### Creating the Script
+
+1. Open up the editor and click the `+New Script` button
+    * This will place a new script in the Asset Manifest
+* Rename your script to `TutorialScript`
+    * You can rename scripts by clicking on the script in the Asset Manifest and pressing `F2`
+* Open up the script by double clicking on it
+    * By default this happens via our inbuilt editor
+    * You can also configure scripts to open in an external editor by default by
+    going to `Edit -> Preferences --> External Script Editor`
+        * Atom, VSCode, and ZeroBrane all have auto-complete support
+
+### Writing the Script
+
+1. Delete everything in the script. We don't need any of the placeholder code
+* Type `print_to_screen("Hello World!")`
+* Save the script (`CTRL+S`)
+
+### Running the Script
+
+1. To add your script to the game, drag it from the Asset Manifest to the top of the Hierarchy
+* Press `Play` at the top of the editor, and see your message appear on screen!
+
+### Hello World Breakdown
 
 * We made a script
-* We populated with code:
-  * The inbuilt function `print_to_screen(string s)` prints the parameter `s` to
-    the viewport
-* We put the script into the hierarchy so it could run when the game did
+* We populated it with code
+    * The function `print_to_screen(string s)` prints the parameter `s` to the viewport. This is one of many of the built-in Core API functions
+* We placed the script into the Hierarchy so that it executes when the game runs
 
-Now let's add our own function
+Now let's add our own function!
 
 ```lua
 -- Our first function!
