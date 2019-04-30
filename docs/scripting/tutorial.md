@@ -135,24 +135,22 @@ local spin_rotation = Rotation.new(200, 0, 0)
 coin:rotate_continuous(spin_rotation)
 ```
 
-Yay, we've got it working!
-
-Next, let's add a resource collection system so you can pick up the coins. Then we'll spawn them all over the map, and will have a timer to pick them up in a limited time, making a game.
+Yay, we've got it working! Now if only we could collect these coins...
 
 ---
 
-## Pick Up Coins
+## Picking Up Coins
 
-### Goal
+### Adding a Trigger
 
-Use the Trigger object to pick up the coin, and display the total of coins on
-the screen.
+1. Create a `Trigger` via Object -> Trigger
+* Put that trigger as a child of the coin
+* Adjust the hitbox via the scale so it is slightly larger than the coin
+    * Select the `Trigger` in the hierarchy and press `R` to change to scale mode. Drag the handles to adjust the scale
 
-* Create a `Trigger` via Object -> Trigger
-* Put that trigger as a child of the coin and adjust the hitbox via the scale so
-  it is slightly larger than the coin
-* Make a script called `PickupCoin` and put it as the child of the trigger
-* Add the following to the script:
+### Handling Triggers
+
+Let's make a script called `PickupCoin` and place it as the child of the trigger. Delete the script's current code and add the following:
 
 ```lua
 -- When a player hits the coin, increment a resource on the player and remove the coin
@@ -162,36 +160,54 @@ function handleOverlap(trigger, object)
         trigger.parent:destroy()
 	end
 end
+```
 
+This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the orject is not `nil` and that it is a `Player`. If it is a `Player`, [explain add_resource]. Finally, we use `:destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
+
+We still have one more line of code to assign `handleOverlap` to the trigger.
+
+```lua
 -- Whenever an object collides with the trigger, run this function
 script.parent.on_begin_overlap:connect(handleOverlap)
 ```
 
-If you save and press play, you'll notice nothing seems to happen. Well that's
-because we have no output of the data. Let's modify TutorialScript to display
-this. Add the following code:
+`on_begin_overlap` is an event that exists within Trigger objects. By using `:connect()` in the code above, we are able to let the event know about `handleOverlap` and call it when the event gets executed.
+
+If you save and press Play, you'll notice that while the coin now disappears on contact, nothing else seems to happen. This is because aren't displaying anything to the player.
+
+### Displaying Coin Count
+
+Let's modify `TutorialScript` to display this info. Add the following code:
 
 ```lua
 -- Print out 'Player name: {coin count}' every 5 seconds
 function tick()
     wait(5)
     local players = game:get_players()
-    for i = 1,#players do
-        print_to_screen(players[i].name..": "..tostring(players[i]:get_resource("Manticoin") or 0))
+    local num_players = #players
+    for i = 1,num_players do
+        local num_coins = players[i]:get_resource("Manticoin")
+        print_to_screen(players[i].name..": "..tostring(num_coins or 0))
     end
 end
 ```
 
-Now when you walk over the coin and away from it, you'll pick it up, and the
-amount will be displayed every 5 seconds.
+!!! note
+    You can delete what we previously had in `TutorialScript` if you'd like.
 
-Next up is to add a UI element instead of the messy `print_to_screen` we have now.
+Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 5 seconds. The `for` loop will show the score of each `Player`, since Core comes equipped with multiplayer functionality right out of the box.
+
+Next up is to add a UI element to display this information instead of the bland `print_to_screen` call we have now.
+
+---
+
+## Using UI
 
 Go to Object -> UI Text Control. Put the Text Control object in a `Client
 Context` folder
 
 !!! info
-    Client context simply means it will be unique to each client, the server
+    Client Context simply means it will be unique to each client, the server
     doesn't care about it
 
 Create a new script called `Display Coins` and add the following code
