@@ -201,16 +201,33 @@ Next up is to add a UI element to display this information instead of the bland 
 
 ---
 
-## Using UI
+## Using UI Objects
 
-Go to Object -> UI Text Control. Put the Text Control object in a `Client
-Context` folder
+UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), buttons, and messages to the player. We can leverage these instead of `print_to_screen` to have more control over what the user sees.
+
+### Creating a UI Text
+
+1. In order to use UI elements, we need a UI Canvas. This can be found in Object -> 2D UI... -> Create UI Canvas
+* Right click in the Hierarchy and create a `Client Context`
+    * Since we only have one `Client Context` in this project, we won't be changing the name
+* Make the `Client Context` a child of the UI Canvas
+* Go to Object -> 2D UI... -> Create UI Text
+* Move the Text Control in the Hierarchy so it's a child of the `Client Context`
+
+_[NOTE(bret): Should the Canvas be inside or outside of the Client Context?]_
 
 !!! info
-    Client Context simply means it will be unique to each client, the server
-    doesn't care about it
+    While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each client. In other words, the server doesn't care about it.
 
-Create a new script called `Display Coins` and add the following code
+### Customizing UI Text
+
+_[NOTE(bret): Write this yo! Change font size, position, maybe color, etc]_
+
+_[NOTE(bret): Also make sure we have an image of what it will look like in the game]_
+
+### Updating UI Text
+
+Create a new script called `DisplayCoins` and add the following code
 
 ```lua
 -- Display the player's coin amount
@@ -221,17 +238,30 @@ local player = game:get_local_player()
 -- Every 0.1 seconds update the coin count display
 function tick()
     wait(0.1)
-    local displayString = player.name..": "..tostring(player:get_resource("Manticoin") or 0)
+    local score = player:get_resource("Manticoin")
+    local displayString = player.name..": "..tostring(score or 0)
     script.parent.text = displayString
 end
 
--- Note: For performance we'd ideally only update the UI when the coin count changes, but this example favors simple code
+--[===[
+    Note: For performance we'd ideally write code that only updates the
+    UI when the coin count changes, but this example favors simple code
+    over robust systems
+--]===]
 ```
 
-For reference, the folder structure should look like this: ![UIText](../img/scripting/UIText.png)
+!!! note
+    Calling `wait()` without sending in an argument will default to a single tick
 
-Now let's make a simple map and populate it with coins, and add in the main
-gameplay loop of rounds.
+Now that we have the code to display it, let's add `DisplayCoins` as a child of the Text Control. The folder structure at this point should look like this:
+
+![UIText](../img/scripting/UIText.png)
+
+Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel.
+
+Now let's make a simple map and populate it with coins.
+
+---
 
 ## Map
 
