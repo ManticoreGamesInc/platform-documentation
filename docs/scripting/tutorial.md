@@ -269,29 +269,35 @@ Add your objects, put it in a static group (group allows you to grab one object 
 
 _[NOTE(bret): This needs expanding. Is a map == a terrain? Do we "need" a map for this tutorial, or just more coins? Maybe the terrain part could be in an "extras"/"more"/"enhancements" category at the end since it's good to know and makes a game unique, but not necessary for getting something working]_
 
-## Game
+## Win State
 
-Okay, now to populate the map with coins.
+### Generating Coins
 
-There are two main ways to go about this.
+Okay, now to populate the map with coins. There are a few ways to do this. We're going to manually populate the map, but writing a script to place them would add variance between rounds. When you're done with the tutorial, you could write a script to use random or procedural generation to place them automatically!
 
-1) Manually populate
-2) Write a script to automatically place items
+Make a folder called `Coins` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of Ctr+W to duplicate may be helpful for this)
 
-For now we're going with #1, but know that #2 is an option too.
-
-So make a folder called `Coins` and copy Manticoins to scatter them over the map
-(the shortcut of Ctr+W to duplicate may be helpful for this)
+!!! note
+    Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, making _all_ items in the group be modified by any changes you make.
 
 Now we will write a script to make the game round-based.
 
-Create a script called `CoinGameLogic` and put it into the top of the scene.
-Here's the entire hierarchy at this point
+### Game Logic Script
+
+Create a script called `CoinGameLogic` and put it into the top of the scene. Here's the entire hierarchy at this point:
 
 ![GameLogicHierarchy](../img/scripting/GameLogicHierarchy.png)
 
-We are going to update the game when the player has picked up all the possible
-coins. To do so, add the following code to `CoinGameLogic`
+!!! note
+    The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
+
+    _[NOTE(bret): Is this correct? Will it always be this way?]_
+
+We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected.
+
+_[NOTE(bret): We'll need to either set the text to "" at the beginning of the script or show how to edit that in Properties]_
+
+Add the following code to `CoinGameLogic`:
 
 ```lua
 -- Get the folder containing all the coin objects
@@ -307,59 +313,27 @@ function tick()
 end
 ```
 
-We are looking at how many coins are left by seeing how full the folder of coins
-in the hierarchy is (`.children` gets the child elements, and `#` checks the
-length of the array, or how many there are). `game:find_object_by_name()`
-searches the hierarchy for the object with the name passed in, and then we get
-that UI element and set it to be the string we want!
+`game:find_object_by_name()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`.children` gets the child elements, and `#` checks the length of the array, which is many there items it has).
 
-### Reset
+_[NOTE(bret): Maybe we add something that actually makes the user "win" - we could grab some part of the reset, and then explain to the user that even though the game has rounds and a win state, we need to go through and respawn the coins]_
 
-Lastly, let's add in the logic to reset the map (i.e. add the coins back) after
-they all have been picked up.
+## Reset
 
-Currently we are deleting the coins when they are picked up. We could spawn in
-new coins at the old locations, but that would involve storing references tot he
-old locations and a bunch of boilerplate code. An easier solution would be to
-just hide the coins from the map when they are picked up, and then re-enable
-them when resetting the map. Fortunately, this is not only possible in Core, but
-is a very quick change.
+Lastly, let's add in the logic to reset the map (i.e. add the coins back) after they all have been picked up.
 
-Go to `PickupCoin` in the Asset Manifest, and change the line of
-`trigger.parent:destroy()` to `trigger.parent.enabled = false`. That will
-disable the collision and visibility of the object, making it basically not
-present in the scene.
+Currently we are deleting the coins when they are picked up. We could spawn in new coins at the old locations, but that would involve storing references to the old locations, which adds a bunch of boilerplate code. Sometimes you need to rewrite code as your game changes, and that's exactly what we're going to do!
 
-Next, create a UI element to display information on the round resetting. Make it
-a sibling of CoinUI, I called it RoundUI and positioned it right below CoinUI.
-Set the label of it to be an empty string/blank by default (we'll add text to it
-later programatically).
+An easier solution would be to just hide the coins from the map when they are picked up, and then un-hide them when resetting the map. Fortunately, this is not only a simple thing to do in Core, but is a very quick change.
+
+### Resetting Coins
+
+Open up the `PickupCoin` script, and change the line of `trigger.parent:destroy()` to `trigger.parent.enabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
+
+Next, create a UI element to display information when the round resets. We'll call it `RoundUI` and make it a sibling of `CoinUI` (in other words, set it as a child of your `Client Context`). Like `CoinUI`, let's set the Text property to be blank by default (we'll add text to it later programatically).
 
 The last step is to add the resetting logic to our main `CoinGameLogic` script.
 
-You'll note that our old code for checking the number of coins left won't work
-anymore, as we are setting a property on each of the coins (`.enabled`) rather
-than deleting the object entirely. Add the following function:
-
-```lua
--- Get the amount of coins that are enabled in the scene
-function GetCoinsLeft()
-	local count = 0
-	for _,coin in pairs(coinFolder.children) do
-		if coin ~= nil and coin.enabled	then
-			count = count + 1
-		end
-	end
-	return count
-end
-```
-
-This will return how many coins are left, which we can use in our main `tick`
-loop later.
-
-Next we need to add the logic to reset the map, which for us simply means
-looping through all the coins and setting their `.enabled` property to be true.
-The logic will be quite similar to getting the coin count. Here it is as a function:
+Next we need to add the logic to reset the map, which for us simply means looping through all the coins and setting their `.enabled` property to be true. The logic will be quite similar to getting the coin count. Here it is as a function:
 
 ```lua
 -- Set all coins to be enabled
@@ -372,8 +346,26 @@ function ResetMap()
 end
 ```
 
-Then we need to add these function calls to our main tick loop and update the
-UI, and we'll be done! Here's the code for it:
+### Updating Coins Left Detection
+
+You might notice that our old code for checking the number of coins left won't work anymore, as we are setting a property on each of the coins (`.enabled`) rather than deleting the object entirely. Add the following function:
+
+```lua
+-- Get the amount of coins that are enabled in the scene
+function GetCoinsLeft()
+    local count = 0
+    for _,coin in pairs(coinFolder.children) do
+        if coin ~= nil and coin.enabled then
+            count = count + 1
+        end
+    end
+    return count
+end
+```
+
+This function will return how many coins are left. All that's left to do is to add these function calls to our main tick loop and update the UI, and we'll be done!
+
+### Connecting all the Reset Code
 
 ```lua
 -- Check for the round end by looking for the amount of coins left
@@ -396,9 +388,12 @@ function tick()
 end
 ```
 
+And there we go! We have a complete game!
+
 ## Conclusion
 
-Finally, you can check out the game by going
-[here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1)
-and clicking on 'edit' to download a copy of the game to play around with
-yourself!
+Finally, you can check out the game by going [here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) and clicking on 'edit' to download a copy of the game to play around with yourself!
+
+_[NOTE(bret): Perhaps a Part 2 with more stuff like terrain, sound effects, more UI, etc? There were some great tutorials for Game Maker (before it lost the space) produced for the 7.0 version of the software. A lot of their tutorials were broken into parts, with part 1 usually being super bare bones, then each one adding features or polish. There were example files for each part. Could be something to consider doing for our tutorials as well :)]_
+
+_[Also, I still have them on a hard drive if we ever wanted to use them as reference materials. ]_
