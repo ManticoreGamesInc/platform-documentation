@@ -265,8 +265,9 @@ Now let's make a simple map and populate it with coins.
 
 ## Map
 
-Add your objects, put it in a static group (group allows you to grab one object
-and move all of them). Add a sky. Done.
+Add your objects, put it in a static group (group allows you to grab one object and move all of them). Add a sky. Done.
+
+_[NOTE(bret): This needs expanding. Is a map == a terrain? Do we "need" a map for this tutorial, or just more coins? Maybe the terrain part could be in an "extras"/"more"/"enhancements" category at the end since it's good to know and makes a game unique, but not necessary for getting something working]_
 
 ## Game
 
