@@ -388,4 +388,3 @@ And there we go! We have a complete game!
 Finally, you can check out the game by going [here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) and clicking on 'edit' to download a copy of the game to play around with yourself!
 
 
-_[NOTE(bret): Also, I still have them on a hard drive if we ever wanted to use them as reference materials. I still send them to people who are trying to get into game development because they really take you from "what am I doing, ahhh, confusing nightmare!" to "wow I know this entire software back and front", which is something that would be ideal to mimic within our own tutorials.]_
