@@ -290,7 +290,6 @@ Create a script called `CoinGameLogic` and put it into the top of the scene. Her
 
 We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected.
 
-_[NOTE(bret): We'll need to either set the text to "" at the beginning of the script or show how to edit that in Properties]_
 
 Add the following code to `CoinGameLogic`:
 
