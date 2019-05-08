@@ -309,7 +309,6 @@ end
 
 `game:find_object_by_name()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`.children` gets the child elements, and `#` checks the length of the array, which is many there items it has).
 
-_[NOTE(bret): Maybe we add something that actually makes the user "win" - we could grab some part of the reset, and then explain to the user that even though the game has rounds and a win state, we need to go through and respawn the coins]_
 
 ## Reset
 
