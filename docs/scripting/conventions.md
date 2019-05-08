@@ -59,7 +59,7 @@ Here are some examples of code that conform to the above:
 ```lua
 -- Spawn player 30 units higher than normal, and print out new position
 function HandlePlayerJoined(player)
-    player:GetPosition() = Position.New(player:GetPosition().x, player:GetPosition().y + 30, player:GetPosition().z)
+    player:SetPosition(Vector3.New(player:GetPosition().x, player:GetPosition().y + 30, player:GetPosition().z))
     Utils.Print("New Position: "..tostring(player:GetPosition()))
 end
 
