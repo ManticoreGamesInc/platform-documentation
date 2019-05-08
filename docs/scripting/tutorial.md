@@ -10,7 +10,7 @@ Now that you've completed the [Lua Primer](lua_primer.md), it's time to get scri
 1. Open up the editor and click the `+New Script` button
     * This will place a new script in the Asset Manifest
 * Rename your script to `TutorialScript`
-    * You can rename scripts by clicking on the script in the Asset Manifest and pressing `F2`
+    * You can rename scripts by clicking on the name of the script in the Asset Manifest when it is selected (or by pressing `F2`)
 * Open up the script by double clicking on it
     * By default this happens via our inbuilt editor
     * You can also configure scripts to open in an external editor by default by
@@ -119,7 +119,7 @@ Okay, so what did we just do?
 * `script` -> references the script object, i.e. the asset you dragged into the hierarchy
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case the Manticoin object)
 * `rotate_continuous()` -> Every **CoreObject** (things like Scripts, Objects, etc.) has methods available to it. `rotate_continuous` is one of these, and we invoke it with the `:` syntax. It requires a `Rotation` parameter to work
-    * Methods are basically just functions that belong to an object
+    * Methods are simply functions that belong to an object
 * `Rotation.new(number pitch, number yaw, number roll)` -> Here we create a rotation vector to rotate by a pitch of 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.new`, which takes in parameters for the pitch, yaw, and roll. `.new` returns a `Rotation`, which is exactly what we need to pass in to `rotate_continuous()`. How convenient!
 
 ### Spin Cleanup
@@ -162,7 +162,7 @@ function handleOverlap(trigger, object)
 end
 ```
 
-This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the orject is not `nil` and that it is a `Player`. If it is a `Player`, [explain add_resource]. Finally, we use `:destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
+This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. A resource is simply a key-value structure to assign arbitrary data to the player; in our case we simply increase the amount of the "Manticoin" resources on the player by one. Finally, we use `:destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
 
 We still have one more line of code to assign `handleOverlap` to the trigger.
 
@@ -173,7 +173,7 @@ script.parent.on_begin_overlap:connect(handleOverlap)
 
 `on_begin_overlap` is an event that exists within Trigger objects. By using `:connect()` in the code above, we are able to let the event know about `handleOverlap` and call it when the event gets executed.
 
-If you save and press Play, you'll notice that while the coin now disappears on contact, nothing else seems to happen. This is because aren't displaying anything to the player.
+If you save and press Play, you'll notice that while the coin now disappears on contact nothing else seems to happen. This is because we aren't displaying anything to the player.
 
 ### Displaying Coin Count
 
@@ -209,21 +209,18 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 
 1. In order to use UI elements, we need a UI Canvas. This can be found in Object -> 2D UI... -> Create UI Canvas
 * Right click in the Hierarchy and create a `Client Context`
-    * Since we only have one `Client Context` in this project, we won't be changing the name
 * Make the `Client Context` a child of the UI Canvas
 * Go to Object -> 2D UI... -> Create UI Text
 * Move the Text Control in the Hierarchy so it's a child of the `Client Context`
 
-_[NOTE(bret): Should the Canvas be inside or outside of the Client Context?]_
 
 !!! info
     While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each client. In other words, the server doesn't care about it.
 
 ### Customizing UI Text
 
-_[NOTE(bret): Write this yo! Change font size, position, maybe color, etc]_
+_[ToDo: Details needed on changing font size, position, color, etc. Include an image as well.]_
 
-_[NOTE(bret): Also make sure we have an image of what it will look like in the game]_
 
 ### Updating UI Text
 
@@ -243,11 +240,11 @@ function tick()
     script.parent.text = displayString
 end
 
---[===[
+--[
     Note: For performance we'd ideally write code that only updates the
     UI when the coin count changes, but this example favors simple code
     over robust systems
---]===]
+--]
 ```
 
 !!! note
@@ -267,7 +264,6 @@ Now let's make a simple map and populate it with coins.
 
 Add your objects, put it in a static group (group allows you to grab one object and move all of them). Add a sky. Done.
 
-_[NOTE(bret): This needs expanding. Is a map == a terrain? Do we "need" a map for this tutorial, or just more coins? Maybe the terrain part could be in an "extras"/"more"/"enhancements" category at the end since it's good to know and makes a game unique, but not necessary for getting something working]_
 
 ## Win State
 
@@ -291,7 +287,6 @@ Create a script called `CoinGameLogic` and put it into the top of the scene. Her
 !!! note
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
 
-    _[NOTE(bret): Is this correct? Will it always be this way?]_
 
 We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected.
 
