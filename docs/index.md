@@ -105,4 +105,3 @@ and reference as expected.
 
 Correct workflow w/ branching + PRs + reviews and versions and internal vs
 external
-    - Note: Just two versions (public test/bleeding edge, and live/stable - that's it)
