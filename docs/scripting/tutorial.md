@@ -387,6 +387,5 @@ And there we go! We have a complete game!
 
 Finally, you can check out the game by going [here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) and clicking on 'edit' to download a copy of the game to play around with yourself!
 
-_[NOTE(bret): Perhaps a Part 2 with more stuff like terrain, sound effects, more UI, etc? There were some great tutorials for Game Maker (before it lost the space) produced for the 7.0 version of the software. A lot of their tutorials were broken into parts, with part 1 usually being super bare bones, then each one adding features or polish. There were example files for each part. Could be something to consider doing for our tutorials as well :)]_
 
 _[NOTE(bret): Also, I still have them on a hard drive if we ever wanted to use them as reference materials. I still send them to people who are trying to get into game development because they really take you from "what am I doing, ahhh, confusing nightmare!" to "wow I know this entire software back and front", which is something that would be ideal to mimic within our own tutorials.]_
