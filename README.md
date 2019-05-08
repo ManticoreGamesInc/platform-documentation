@@ -15,7 +15,12 @@ You can edit a markdown file directly through GitHub, so it's very easy!
 - Add a helpful commit message and add it!
   - If you're making a lot of changes please make it a new branch and use a pull request :)
 
-Alternatively you can clone the repository and create a pull request for larger scale changes.
+Alternatively you can clone the repository and create a pull request for larger
+scale changes.
+
+## Branch Structure
+
+![](docs/img/readme_branches.png)
 
 ### New Pages
 
