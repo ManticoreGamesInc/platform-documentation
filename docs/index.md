@@ -104,4 +104,4 @@ Pictures: Specs/ideal workflow is WIP. For now drop them in the `img/` folder
 and reference as expected.
 
 Correct workflow w/ branching + PRs + reviews and versions and internal vs
-external
+external will be coming soon
