@@ -32,7 +32,8 @@ myImport.foo()
 * Use `LOUD_SNAKE_CASE` names for constants (including enum entries)
 * Make class names singular, unless it is a static (helper) class or enum
   * e.g. `Person`, `Cat` vs `StringUtils`, `DogBreeds`
-* Events follow the `Get{EventName}Event` syntax
+* Events are properties with Event at the end of their name.
+  * e.g. `beginOverlapEvent`, `playerJoinedEvent`
 
 Element | Styling
 --- | ---
@@ -63,7 +64,7 @@ function HandlePlayerJoined(player)
     Utils.Print("New Position: "..tostring(player:GetPosition()))
 end
 
-game:GetPlayerJoinedEvent():Connect(HandlePlayerJoined)
+game.playerJoinedEvent:Connect(HandlePlayerJoined)
 ```
 
 ```lua
@@ -75,7 +76,7 @@ function HandleOverlap(trigger, object)
 	end
 end
 
-script.parent:GetBeginOverlapEvent():Connect(HandleOverlap)
+script.parent.beginOverlapEvent:Connect(HandleOverlap)
 ```
 
 ```lua
@@ -120,8 +121,8 @@ For more details, here is how it breaks down:
   * Constants
 * Instance
   * Methods (**colon**)
-    * Events
   * Properties (**dot**)
+    * Events
 
 For examples:
 
@@ -356,7 +357,7 @@ function GiveDog(player)
 end
 
 -- Event subscriptions are located at the end of the file
-Game.onPlayerJoined:Connect(GiveDog)
+Game.playerJoinedEvent:Connect(GiveDog)
 ```
 
 Real example:
@@ -378,7 +379,7 @@ function HandleOverlap(trigger, player)
 end
 
 -- Whenever an object collides with the coin's trigger, run this function
-trigger.onBeginOverlap:Connect(HandleOverlap)
+trigger.beginOverlapEvent:Connect(HandleOverlap)
 ```
 
 ---
