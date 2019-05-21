@@ -12,3 +12,8 @@ The three published version are accessible via the following links:
 
 Check out the [contribution](CONTRIBUTING.MD) document if you are interested in
 helping out! :)
+
+---
+
+All the contents are under the [ToDo] license. Credits are due to the [Godot] documentation and
+[Material] themes for inspiration.
