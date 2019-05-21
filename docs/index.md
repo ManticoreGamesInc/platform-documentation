@@ -5,9 +5,9 @@ Welcome to the official documentation of CORE, the community-focused game creati
 This page aims at giving a broad presentation of the engine and of the contents of this
 documentation.
 
-## About CORE
+## About Core
 
-This is the official documentation for CORE, the UE4 based game editor built by [Manticore].
+This is the official documentation for Core, the game editor built by [Manticore].
 
 A game engine is a complex tool, and it is therefore difficult to present CORE in a few words. There
 are however a few things that set us apart:
@@ -16,10 +16,12 @@ are however a few things that set us apart:
   rapid speed, and for players it means a wealth of great games at their fingertips.
 - **Built-in multiplayer.** This saves creators tons of time and allows for a great interactive
   experience for players.
-- **Social gaming.** A marketplace and community for creators and users alike means everyone is
+- **Social gaming.** A marketplace for creators and community for creators and users alike means everyone is
   involved in the latest and greatest games.
 - **Mutually aligned interests.** Manticore is committed to empowering creators and helping players,
   so everyone is here to participate in something truly amazing.
+
+In essence, we are doing our best to _make game creation as enjoyable as possible_.
 
 For details regarding the engine, you are encouraged to read this documentation further, especially
 the [Getting Started] section.
@@ -39,21 +41,21 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 All the contents are under the [ToDo] license. Credits are due to the [Godot] documentation and
 [Material] themes for inspiration.
 
+For contribution details, check out [here](https://github.com/ManticoreGamesInc/Documentation).
+
 ## Organization of the Documentation
 
-- The [General] section contains this introduction as well as information about the engine, its
-  history, its licensing, authors, etc. It also contains the [FAQs].
 - The [Getting Started] section is the main purpose of this documentation, as it contains all the
   necessary information on using the engine to make games. It includes the [My First Game] tutorial
-  which should be the entry point for all new users.
+  which should be the entry point for all new users. It also contains the [FAQs].
 - The [Scripting] section is also intended for all users that intend to add gameplay elements, as it
   contains all the information you need to know about scripting in CORE. It includes sections on Lua
   (including a primer for programmers and resources for complete beginners), as well as best
   practices and debugging tools.
-- The [Project Workflow] section shows how to set up the workspace to get the most out of the CORE
-  editor, with everything from assets to scripts.
-- The [Editor Manual] section contains information on various aspects of the editor, encompassing
-  everything from GUIs to hotkeys to networking.
+- The [Project Workflow] expands on the previous sections with information on
+  how to set up the workspace to get the most out of the CORE editor.
+- The [Editor Manual] section contains specific information on the various
+  aspects of the editor, encompassing everything from GUIs to hotkeys to networking.
 - The [Tutorials] section, on the other hand, can be read as needed, in any order. It contains both
   full games and various feature-specific tutorials. This is the best place to go for information on
   larger projects.
@@ -87,21 +89,3 @@ Have fun reading and making games with CORE!
 [Community]: /community/links
 [example]: /examples/links
 [CORE API]: /core_api/coming_soon
-
----
-
-### Contribution Details
-
-ToDo: Move to its own section
-
-Videos must be under 100MB and sourced in
-CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
-click on the three dots -> open in new window -> three dots -> embed item ->
-paste that html code in the docs. Eventually we will embed YouTube links, but
-for now this works for tiny (but private) clips.
-
-Pictures: Specs/ideal workflow is WIP. For now drop them in the `img/` folder
-and reference as expected.
-
-Correct workflow w/ branching + PRs + reviews and versions and internal vs
-external will be coming soon
