@@ -38,9 +38,6 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 !!! info "Contributions Welcome"
     Just click on the :fa-edit: icon on the top right of any page.
 
-All the contents are under the [ToDo] license. Credits are due to the [Godot] documentation and
-[Material] themes for inspiration.
-
 For contribution details, check out [here](https://github.com/ManticoreGamesInc/Documentation).
 
 ## Organization of the Documentation
