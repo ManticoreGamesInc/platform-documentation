@@ -25,6 +25,7 @@ nav:
         - IDEs/Tools: scripting/ide_tools.md
         - Best Practices: 'scripting/best_practices.md'
         - Conventions: 'scripting/conventions.md'
+        - Renaming: 'scripting/renaming.md'
     - Editor Manual:
         - Overview: 'editor/overview.md'
         - Editor Windows: 'editor/editor_windows.md'
