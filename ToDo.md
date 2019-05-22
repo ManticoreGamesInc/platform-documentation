@@ -6,13 +6,14 @@
   - [ ] Custom colors
   - [ ] Custom layout
   - [ ] Integrate build into this repo
-- [ ] Contribution guidelines
+- [X] Contribution guidelines
 - [ ] Discuss licensing
 - [ ] [MkDocs Plus Reference](http://bwmarrin.github.io/MkDocsPlus)
 - [ ] `Recommonmark` as a way to do Sphinx _and_ MD in the same project
 - [ ] ReadTheDocs vs Netlify (versioning, domains, etc - all different)
 - [ ] Better way to link/reference with images with relative links, size of
   image details, etc.
+- [ ] Edit URI using correct branch
 
 ## Game Ideas
 
