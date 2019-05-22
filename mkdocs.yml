@@ -25,6 +25,7 @@ nav:
         - IDEs/Tools: scripting/ide_tools.md
         - Best Practices: 'scripting/best_practices.md'
         - Conventions: 'scripting/conventions.md'
+        - Renaming: 'scripting/renaming.md'
     - Editor Manual:
         - Overview: 'editor/overview.md'
         - Editor Windows: 'editor/editor_windows.md'
@@ -122,6 +123,7 @@ site_name: CORE Docs
 
 # Add repository for easy editing
 repo_url: https://github.com/ManticoreGamesInc/Documentation
+edit_uri: edit/production/docs
 
 # Metadata
 site_description: Documentation for the CORE Engine
