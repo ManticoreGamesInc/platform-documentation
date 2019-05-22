@@ -122,6 +122,7 @@ site_name: CORE Docs
 
 # Add repository for easy editing
 repo_url: https://github.com/ManticoreGamesInc/Documentation
+edit_uri: edit/production/docs
 
 # Metadata
 site_description: Documentation for the CORE Engine
