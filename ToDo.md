@@ -14,6 +14,7 @@
 - [ ] Better way to link/reference with images with relative links, size of
   image details, etc.
 - [ ] Edit URI using correct branch
+- [ ] Change examples to use sortable table (and style it too if needed)
 
 ## Game Ideas
 
