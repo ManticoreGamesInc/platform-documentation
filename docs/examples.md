@@ -46,6 +46,9 @@ Retro{Furniture} | Toaster, bed, oven, tv and more. All beautiful and made from 
 CC_{Gun}_Pack | Tiered guns! Pistols, shotguns, ARs, snipers, and light rifles. Includes pickup scripts too.
 FFA_SettingsAndAbilities | Simple settings for Free For All. Includes a script for abilities too.
 Male_Mannequin/Female Mannequin | Helper to make accessories and costuming for players easier
+Sky {Style} | All skies by `Brendanicus`, such as SciFi, Early Morning, and Paradise Planet
+ForestArena | Simple small map you can drag and drop in to get a game going quickly
+Player Default Size Guide | Useful measurements for map creation
 
 ### Update Required
 
