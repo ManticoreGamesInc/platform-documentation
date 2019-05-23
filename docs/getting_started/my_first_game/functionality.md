@@ -1,9 +1,11 @@
 # Tutorial
 
-Now that you've completed the [Lua Primer](lua_primer.md), it's time to get scripting in Core!
+## Prerequisites
+
+If you don't know Lua, check out the section on [scripting](/scripting/lua_primer) for details. If
+you've done programming before then you should be fine to continue.
 
 ## My First Script
-
 
 ### Creating the Script
 
@@ -51,7 +53,7 @@ end
 ```
 
 !!! note
-    In case you've forgotten from the [Lua Primer](lua_primer.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+    In case you've forgotten from the [Lua Primer](/scripting/lua_primer.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
 
 If you save and run this code, nothing will happen. How utterly boring! This is because the function is never called in our code. To get our function to work, we can add a function call to the end of the script.
 
@@ -79,7 +81,7 @@ init()
 
 If you are having issues, check to see if your `TutorialScript` looks like this in the Properties view:
 
-![MyFirstScript](../img/scripting/MyFirstScript.png)
+![MyFirstScript](/img/scripting/MyFirstScript.png)
 
 ---
 
@@ -108,7 +110,7 @@ script.parent:rotate_continuous(Rotation.new(200, 0, 0))
 
 We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../img/scripting/SpinCoin.png)
+![SpinCoinLocation](/img/scripting/SpinCoin.png)
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -252,7 +254,7 @@ end
 
 Now that we have the code to display it, let's add `DisplayCoins` as a child of the Text Control. The folder structure at this point should look like this:
 
-![UIText](../img/scripting/UIText.png)
+![UIText](/img/scripting/UIText.png)
 
 Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel.
 
@@ -282,7 +284,7 @@ Now we will write a script to make the game round-based.
 
 Create a script called `CoinGameLogic` and put it into the top of the scene. Here's the entire hierarchy at this point:
 
-![GameLogicHierarchy](../img/scripting/GameLogicHierarchy.png)
+![GameLogicHierarchy](/img/scripting/GameLogicHierarchy.png)
 
 !!! note
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
