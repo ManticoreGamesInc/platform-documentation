@@ -2,6 +2,8 @@
 
 ## Games
 
+Go to each page and click on `edit` to download them locally.
+
 ### Functional (Prod)
 
 Name/Link | Description
@@ -34,8 +36,11 @@ Browse | Just look around for others not mentioned, you may find something usefu
 
 ## Templates
 
-Note: {} means the actual name here may differ. For example the TV entry in
-'Retro{Furniture}' is actually found by searching for 'RetroTV'.
+Go to the marketplace, search for these names, and download them to your project.
+
+!!! Note
+    {} means the actual name here may differ. For example the TV entry in
+    'Retro{Furniture}' is actually found by searching for 'RetroTV'.
 
 ### Functional
 
