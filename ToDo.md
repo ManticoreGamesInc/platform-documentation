@@ -15,6 +15,7 @@
   image details, etc.
 - [ ] Edit URI using correct branch
 - [ ] Change examples to use sortable table (and style it too if needed)
+- [ ] Fix broken emojis
 
 ## Game Ideas
 
