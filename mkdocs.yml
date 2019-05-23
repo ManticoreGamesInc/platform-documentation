@@ -6,12 +6,10 @@ nav:
         - Step by Step: 'getting_started/step_by_step.md'
         - Introduction to the Editor: 'getting_started/editor_intro.md'
         - Coming From Unity/Unreal: 'getting_started/from_other_editors.md'
-        - My First Game (Empty):
-            - Basic Platformer: 'getting_started/my_first_game/basic_platformer.md'
-            - Dynamic Map: 'getting_started/my_first_game/triggers.md'
-            - Visual Overhaul: 'getting_started/my_first_game/visuals.md'
-            - Character Abilities: 'getting_started/my_first_game/abilities.md'
-            - Multiplayer Racing: 'getting_started/my_first_game/multiplayer_racing.md'
+        - My First Game:
+            - Map: 'getting_started/my_first_game/map.md'
+            - Scripting: 'getting_started/my_first_game/functionality.md'
+            - Marketplace: 'getting_started/my_first_game/marketplace.md'
     - Project Workflow:
         - Project Setup: 'project_workflow/project_setup.md'
         - Assets Workflow: 'project_workflow/assets_workflow.md'
@@ -20,7 +18,6 @@ nav:
         - Worst Practices: project_workflow/worst_practices.md
     - Scripting:
         - Lua Primer: 'scripting/lua_primer.md'
-        - Tutorial: 'scripting/tutorial.md'
         - Debugging: 'scripting/debugging.md'
         - IDEs/Tools: scripting/ide_tools.md
         - Best Practices: 'scripting/best_practices.md'

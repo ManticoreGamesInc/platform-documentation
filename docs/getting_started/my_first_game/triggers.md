@@ -1,1 +1,0 @@
-Add triggers to create a map that dynamically reacts to the player and what they do
