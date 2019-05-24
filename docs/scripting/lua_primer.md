@@ -1,7 +1,7 @@
 # Lua Primer
 
 Core uses Lua, the lightweight, flexible programming language to accomplish
-scripting in the engine.
+scripting in the engine. As of late May 2019, we are using Lua version 5.3.4.
 
 Lua is a [dynamically
 typed](https://en.wikipedia.org/wiki/Type_system#Combining_static_and_dynamic_type_checking)
