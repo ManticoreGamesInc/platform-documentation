@@ -17,6 +17,7 @@ nav:
         - Best Practices: 'project_workflow/best_practices.md'
         - Worst Practices: project_workflow/worst_practices.md
     - Scripting:
+        - Overview: 'scripting/overview.md'
         - Lua Primer: 'scripting/lua_primer.md'
         - Debugging: 'scripting/debugging.md'
         - IDEs/Tools: scripting/ide_tools.md
