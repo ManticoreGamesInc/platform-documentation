@@ -2,8 +2,12 @@
 
 ## Prerequisites
 
-If you don't know Lua, check out the section on [scripting](/scripting/lua_primer) for details. If
-you've done programming before then you should be fine to continue.
+Skim through the information in the [scripting](/scripting/overview) section before
+continuing here.
+
+!!! Warning
+    This syntax doesn't account for recent (Late May 2019) changes to the API,
+    so it will only work on the older API (currently found on production)
 
 ## My First Script
 

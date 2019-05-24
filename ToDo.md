@@ -16,6 +16,7 @@
 - [ ] Edit URI using correct branch
 - [ ] Change examples to use sortable table (and style it too if needed)
 - [ ] Fix broken emojis
+- [ ] Go through primers and choose best ones
 
 ## Game Ideas
 
