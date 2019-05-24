@@ -13,6 +13,10 @@ Next, simply click on `PlatformLauncher.exe` and you will see Core start up!
     Properties, and add `-ENV=Staging` or `-ENV=Production` to end of the
     target. Rename each shortcut as desired, and you're good to go!
 
+!!! Warning
+    Keep production clean. Don't publish templates or games on this environment
+    unless you have authorization to do so please!
+
 ### Editor
 
 When you open up the editor you'll see the following screen:
