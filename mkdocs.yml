@@ -9,7 +9,7 @@ nav:
         - My First Game:
             - Map: 'getting_started/my_first_game/map.md'
             - Scripting: 'getting_started/my_first_game/functionality.md'
-            - Marketplace: 'getting_started/my_first_game/marketplace.md'
+            - Shared Content: 'getting_started/my_first_game/shared_content.md'
     - Project Workflow:
         - Project Setup: 'project_workflow/project_setup.md'
         - Assets Workflow: 'project_workflow/assets_workflow.md'
@@ -29,7 +29,7 @@ nav:
         - Editor Windows: 'editor/editor_windows.md'
         - Hotkeys: 'editor/hotkeys.md'
         - Templates: 'editor/templates.md'
-        - Marketplace: 'editor/marketplace.md'
+        - Shared Content: 'editor/shared_content.md'
         - UI: 'editor/ui.md'
         - Audio: 'editor/audio.md'
         - Visual Effects: 'editor/vfx.md'

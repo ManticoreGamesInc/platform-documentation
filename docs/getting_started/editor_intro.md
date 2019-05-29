@@ -51,11 +51,11 @@ see the next screen:
 We'll go over each in more depth in their respective sections.
 
 The best way to start is by making a map. Then we'll add functionality with a
-simple game. Lastly, we'll see how using the marketplace can expedite this
+simple game. Lastly, we'll see how using shared content can expedite this
 entire process.
 
 > [Map Creation](../my_first_game/map)
 
 > [Scripting Tutorial](../my_first_game/functionality)
 
-> [Marketplace](../my_first_game/marketplace)
+> [Shared Content](../my_first_game/shared_content)
