@@ -41,27 +41,36 @@ Plugin Name | Details
 
 ### Autocomplete
 
-Go to the following
-[repository](https://github.com/ManticoreGamesInc/external-editor-api-support),
-and download it as a zip, and follow the instructions for your specific editor.
+Download and extract the following zip file (
+<a test href="/img/external_editor_autocomplete_05-28-2019.zip" download>
+  :fa-download:
+</a>) and simply follow the directions included in the bundled setup instructions.
 
 Copy .luacompleterc file to Platform/Saved/Maps folder, or the parent directory
 where content files are stored. As long as it is in a parent directory it should
 work.
 
+!!! info
+    If the date of the linked direct download is old, instead go to this
+    [repository](https://github.com/ManticoreGamesInc/external-editor-api-support),
+    download it as a zip, and follow the instructions for your specific editor in
+    the read me file included.
+
 ### Linting
 
-1) Download this, and remember where the file is: https://github.com/mpeterv/luacheck#windows-binary-download
-2) Download the linter-luacheck plugin for Atom (just like with the other
+1. Download this, and remember where the file is: https://github.com/mpeterv/luacheck#windows-binary-download
+2. Download the linter-luacheck plugin for Atom (just like with the other
    packages). You'll have to install dependencies for it too, just click yes
    when Atom give you the popup.
-3) Go to the preferences and configure the executable path to luacheck to be
+3. Go to the preferences and configure the executable path to luacheck to be
    wherever you put the file from step 1.
-4) Add the following .luacheckrc file to the /maps folder (so right beside the
+4. Add the following .luacheckrc file to the /maps folder (so right beside the
    .luacomplete file)
-5) I believe a quick restart is required, but not sure
-6) Open up your editor and rejoice, for it will be smart and will tell you to do
+5. I believe a quick restart is required, but not sure 
+6. Open up your editor and rejoice, for it will be smart and will tell you to do
    things right!
+
+---
 
 Alternatively download the following dependencies and build luacheck yourself
 (protip: don't do this unless you have a strong need to).
