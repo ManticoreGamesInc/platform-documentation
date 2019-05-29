@@ -1,15 +1,15 @@
-# Marketplace
+# Shared Content
 
-The marketplace is one of the most fundamentally important aspects of game
+Shared content is one of the most fundamentally important aspects of game
 creation in Core. It allows for you to use, improve, and remix creations you or
 others have made public in order to create a wealth of content for all game
 creators on the platform - speeding up game development more than ever before.
 With that in mind, here's how to use it.
 
 !!! Warning
-    The marketplace contents for Staging and Production are _not_ the same.
+    The shared content for Staging and Production is _not_ the same.
 
-## Using The Marketplace
+## Using Shared Content
 
 Open up the `Shared Content` tab (go to `View -> Shared Content` to open the
 window if you don't see it already).
@@ -26,14 +26,14 @@ Press the `+` button to import the template, and then you can see it in your
 ## Importing A New Map
 
 - Go to `Object -> Remove Old Sky`
-- Go to the marketplace and import `ForestArena`
+- Go to shared content and import `ForestArena`
 - Go to Project Content and drag the template into the 3D Viewport or the Hierarchy
 - Run around the fancy level, examine it in the hierarchy to see how it was
   constructed, etc.
 
 ## Importing New Game Logic
 
-- Go to the marketplace and import `FFA_GameMode`
+- Go to shared content and import `FFA_GameMode`
   - Like before, it has to be dragged into the hierarchy
 - Check out the READ_ME for details, or just play around
 

@@ -36,7 +36,7 @@ Browse | Just look around for others not mentioned, you may find something usefu
 
 ## Templates
 
-Go to the marketplace, search for these names, and download them to your project.
+Open the shared content window, search for these names, and download them to your project.
 
 !!! Note
     {} means the actual name here may differ. For example the TV entry in

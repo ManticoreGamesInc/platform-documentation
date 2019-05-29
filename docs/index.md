@@ -16,7 +16,7 @@ are however a few things that set us apart:
   rapid speed, and for players it means a wealth of great games at their fingertips.
 - **Built-in multiplayer.** This saves creators tons of time and allows for a great interactive
   experience for players.
-- **Social gaming.** A marketplace for creators and community for creators and users alike means everyone is
+- **Social gaming.** Shared, communal content for creators and users alike means everyone is
   involved in the latest and greatest games.
 - **Mutually aligned interests.** Manticore is committed to empowering creators and helping players,
   so everyone is here to participate in something truly amazing.
