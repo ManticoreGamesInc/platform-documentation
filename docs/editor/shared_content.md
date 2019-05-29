@@ -14,7 +14,7 @@ Link to examples, with at least one good example project
 
 ---
 
-Template/Marketplace updating details:
+Template/Shared Content updating details:
 - instantiating template keeps custom properties to user
 - script changes propagate from owner to user, stomping changes
 - new instances use owner's changes
