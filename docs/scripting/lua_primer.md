@@ -34,6 +34,10 @@ If you're really hungry for more info, more primers can be found here:
 [3](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/),
 [4](http://tylerneylon.com/a/learn-lua/)
 
+Other engines also have good sources of documentation for Lua. Check out Corona's [Introduction to
+Lua](https://docs.coronalabs.com/guide/start/introLua/index.html) 
+or Roblox's [articles](https://developer.roblox.com/learn-roblox/coding-scripts).
+
 ---
 
 Here's the primer, reposted here for convenience:
