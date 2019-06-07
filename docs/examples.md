@@ -54,7 +54,8 @@ Male_Mannequin/Female Mannequin | Helper to make accessories and costuming for p
 Sky {Style} | All skies by `Brendanicus`, such as SciFi, Early Morning, and Paradise Planet
 ForestArena | Simple small map you can drag and drop in to get a game going quickly
 Player Default Size Guide | Useful measurements for map creation
-DebugText | Tool to allow for debugging remote clients with UI text displays
+DebugClientUI | Tool to allow for debugging remote clients with UI text displays
+MessageTest | Simple way to send messages from server --> client
 
 ### Update Required
 
