@@ -120,7 +120,7 @@ markdown_extensions:
 site_name: CORE Docs
 
 # Add repository for easy editing
-repo_url: https://github.com/ManticoreGamesInc/Documentation
+repo_url: https://gitlab.com/manticore-games/platform-documentation
 edit_uri: edit/production/docs
 
 # Metadata
