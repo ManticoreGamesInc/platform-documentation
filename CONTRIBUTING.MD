@@ -63,7 +63,17 @@ will change and we will use the whole flow.
 
 #### Branch Details
 
-Each state of the published website has a corresponding branch-pair on GitHub, a commit-able version and a `*-publish` version. So the pair of `production` and `production-publish` is one example. The `*-publish` version is a protected branch and _cannot_ be pushed to directly! Instead, all changes must go through the main branch (`production`), then merged into the publish one (`production-publish`) via an approval process by the documentation team. This ensures quality on all public sources of documentation. The (slightly-outdated) picture below gives a visual representation of this flow.
+Each state of the published website has a corresponding branch-pair on GitHub, a
+commit-able version and a `*-publish` version. So the pair of `production` and
+`production-publish` is one example. The `*-publish` version is a protected
+branch and _cannot_ be pushed to directly! Instead, all changes must go through
+the main branch (`production`), then merged into the publish one
+(`production-publish`) via an approval process by the documentation team. This
+ensures quality on all public sources of documentation. The (slightly-outdated)
+picture below gives a visual representation of this flow.
+
+When a branch is merged to *-publish, it will use --no-ff, so as to not clutter
+up the history, and simply allow upstream commits for builds.
 
 #### Full Setup
 
