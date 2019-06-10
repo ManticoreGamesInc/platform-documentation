@@ -35,10 +35,15 @@ community. Contributions are more than welcome! It is easy to do so, as files ar
 with some [Markdown] extras for formatting. We then compile the markdown files into a static website
 using the open source [MkDocs] tool, and host the site using [Netlify].
 
-!!! info "Contributions Welcome"
+!!! info "Contributions Welcome!"
     Just click on the :fa-edit: icon on the top right of any page.
 
-For contribution details, check out [here](https://github.com/ManticoreGamesInc/Documentation).
+    You'll need a GitLab account, with contribution permissions. If you
+    don't already have that, just email
+    [max@manticoregames.com](mailto:max@manticoregames.com) with the name of
+    your GitLab account (make one if necessary first) to get set up.
+
+    More specific contribution details can be found [here](https://gitlab.com/manticore-games/platform-documentation/blob/production/CONTRIBUTING.MD), if needed.
 
 ## Organization of the Documentation
 
@@ -59,7 +64,9 @@ For contribution details, check out [here](https://github.com/ManticoreGamesInc/
 - The [Community] section points to various community channels like Reddit and Discord and contains
   a list of recommended third-party tutorial links.
 - Finally, the [CORE API] section is provided as a reference. It is generated automatically,
-  and therefore is the only section that strictly cannot be edited by community members.
+  and therefore is the only section that strictly cannot be edited by community
+  members.
+  Note: Currently WIP, check out the Google Doc [here](https://docs.google.com/document/d/1l4yKz5lT2hr2RJd_yewYMGJA6hZ9O3zbbnSa79n9anE) for the API reference.
 
 In addition to this documentation you may also want to take a look at the various [example]
 projects and templates.

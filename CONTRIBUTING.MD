@@ -11,10 +11,10 @@ changes. Specifically it covers:
 
 ## File Editing
 
-You can edit a markdown file directly through GitHub, so it's very easy!
+You can edit a markdown file directly through GitLab, so it's very easy!
 
 - Select the `.md` file you want to edit.
-- Click on the pencil shaped edit icon in the top right.
+- Click on the `Edit` or `Web IDE` icons in the top right.
 - Make your changes.
   - Here's how [markdown](https://daringfireball.net/projects/markdown/syntax) works, for those not familiar.
   - Additional tools provided by [extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/)
@@ -70,7 +70,7 @@ Each state of the published website has a corresponding branch-pair on GitHub, a
 [Install python and pip](https://www.makeuseof.com/tag/install-pip-for-python/) if you don't have them already.
 
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
-- Clone this project from GitHub (e.g. `git clone https://github.com/ManticoreGamesInc/Documentation.git`)
+- Clone this project from GitHub (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
 - `pip install -r requirements.txt` --installs required files
 - `mkdocs serve` --starts server, which watches for changes upon saving and updates live
 - Navigate to `http://127.0.0.1:8000/`
