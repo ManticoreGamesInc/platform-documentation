@@ -1,33 +1,30 @@
 # Contributing
 
-Thanks for contributing! Your assistance is much appreciated. There are a couple
-things to cover first. If you've come directly from the website you can safely
-ignore the below, this document is intended for people who want to make larger
-changes. Specifically it covers:
-
-- The basics of editing and adding new pages
-- Which branch to commit to
-- Other details (e.g. how to link videos)
+Thanks for contributing! Your assistance is much appreciated :)
 
 ## File Editing
 
 You can edit a markdown file directly through GitLab, so it's very easy!
 
-- Select the `.md` file you want to edit.
-- Click on the `Edit` or `Web IDE` icons in the top right.
+- Click on the `Edit` icon (top right) of the file you want to change.
 - Make your changes.
-  - Here's how [markdown](https://daringfireball.net/projects/markdown/syntax) works, for those not familiar.
-  - Additional tools provided by [extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/)
-- Make sure the changes look good (change the tab on the top to 'Preview changes').
+  - Here's how
+    [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+    works, for those not familiar. You can also uses GitLab's tools to quickly
+    add formatting.
+  - Additional tools provided by
+    [extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/)
+    (e.g. code highlighting, info blocks, icons, etc.)
+- Make sure the changes look good (check the 'Preview' tab on the top left).
 - Add a helpful commit message and add it!
 
-Note that this flow is best for simple changes, for larger ones you should clone
-the repository and commit changes with a pull request.
+Note that this flow is best for simple changes, for larger ones you should use
+the Web IDE (or clone the repository and push commits from your IDE of choice).
 
 ## New Pages
 
-If you want to add a new page, create a markdown file (`.md` extension). Then,
-to make it findable, simply add it to the index of pages.
+If you want to add a new page, create a markdown file (`.md` extension).
+Then, to make it findable, simply add it to the index of pages.
 
 - Go to `mkdocs.yml` and follow the existing format.
 
@@ -38,7 +35,15 @@ If it is a page in an existing folder:
 - Go to `nav: -ExistingFolder:`
 - Add in a new (indented) line with `- Page Name: 'ExistingFolder/pagename.md'`
 
-If it is in a new folder, add `-FolderName:` to the `nav:` root, like the others.
+If it is in a new folder, add `-FolderName:` to the `nav:` root, like the
+others.
+
+---
+---
+
+## Details
+
+Look below here for nuanced information for contributors.
 
 ## Branch Structure
 
