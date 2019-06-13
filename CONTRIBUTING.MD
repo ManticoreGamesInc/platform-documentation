@@ -40,11 +40,9 @@ others.
 
 ---
 
-## Details
+# Details
 
 Detailed information (e.g. branch structure) below here
-
----
 
 ## Branch Structure
 
