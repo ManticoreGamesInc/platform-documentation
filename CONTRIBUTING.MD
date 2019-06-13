@@ -2,7 +2,7 @@
 
 Thanks for contributing! Your assistance is much appreciated :)
 
-## File Editing
+## Editing Pages
 
 You can edit a markdown file directly through GitLab, so it's very easy!
 
@@ -39,11 +39,12 @@ If it is in a new folder, add `-FolderName:` to the `nav:` root, like the
 others.
 
 ---
----
 
 ## Details
 
-Look below here for nuanced information for contributors.
+Detailed information (e.g. branch structure) below here
+
+---
 
 ## Branch Structure
 
