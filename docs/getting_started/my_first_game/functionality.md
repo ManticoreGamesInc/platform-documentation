@@ -214,7 +214,7 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 ### Creating a UI Text
 
 1. In order to use UI elements, we need a UI Canvas. This can be found in Object -> 2D UI... -> Create UI Canvas
-* Right click in the Hierarchy and create a `Client Context`
+* Right click in the Hierarchy, hover over 'Creat Network Context' and create a `Client Context`
 * Make the `Client Context` a child of the UI Canvas
 * Go to Object -> 2D UI... -> Create UI Text
 * Move the Text Control in the Hierarchy so it's a child of the `Client Context`
@@ -277,7 +277,7 @@ Add your objects, put it in a static group (group allows you to grab one object 
 
 Okay, now to populate the map with coins. There are a few ways to do this. We're going to manually populate the map, but writing a script to place them would add variance between rounds. When you're done with the tutorial, you could write a script to use random or procedural generation to place them automatically!
 
-Make a folder called `Coins` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of Ctr+W to duplicate may be helpful for this)
+Make a folder called `CoinFolder` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of Ctr+W to duplicate may be helpful for this)
 
 !!! note
     Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, making _all_ items in the group be modified by any changes you make.
@@ -294,7 +294,7 @@ Create a script called `CoinGameLogic` and put it into the top of the scene. Her
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
 
 
-We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected.
+We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected. Remember to make 'CoinUI' a child of the 'Client Context'.
 
 
 Add the following code to `CoinGameLogic`:
