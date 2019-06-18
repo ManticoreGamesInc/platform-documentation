@@ -1,14 +1,14 @@
 # isPlaying
 
-###### [Classes](core_api/raw_source) > [Audio](core_api/audio)
+###### [Classes](core_api/raw_source) > [Audio](core_api/classes/audio)
 
 ### Description
 
-Returns whether the [Audio](core_api/audio) [CoreObject](core_api/CoreObject) is currently playing.
+Returns whether the [Audio](core_api/classes/audio) [CoreObject](core_api/classes/coreobject) is currently playing.
 
 ### Notes
 !!! info
-    isPlaying is a property of [audio](core_api/audio) that returns a boolean.
+    This audio property a read-only boolean.
 
 ### Syntax
 
@@ -21,18 +21,18 @@ Returns whether the [Audio](core_api/audio) [CoreObject](core_api/CoreObject) is
 ```lua
 --[[ Main.lua ]]--
 
--- drag the "Ambience Suburbs Night Crickets 01 SFX" into the hierarchy --
+-- drag the audio "Ambience Suburbs Night Crickets 01 SFX" into the hierarchy --
 
 local cricketsSFX = game:FindObjectByName("Ambience Suburbs Night Crickets 01 SFX")
 cricketsSFX:Play()
 Task.Wait(3)
 print_to_screen(tostring(cricketsSFX.isPlaying))
--- prints "true" in the Event Log window --
+-- will print "true" in the Event Log window --
 
 Task.Wait(3)
 cricketsSFX:Stop()
 print_to_screen(tostring(cricketsSFX.isPlaying))
--- prints "false" in the Event Log window --
+-- will print "false" in the Event Log window --
 
 
 ```
