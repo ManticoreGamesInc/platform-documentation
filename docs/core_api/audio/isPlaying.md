@@ -26,12 +26,12 @@ Returns whether the [Audio](core_api/classes/audio) [CoreObject](core_api/classe
 local cricketsSFX = game:FindObjectByName("Ambience Suburbs Night Crickets 01 SFX")
 cricketsSFX:Play()
 Task.Wait(3)
-print_to_screen(tostring(cricketsSFX.isPlaying))
+print(tostring(cricketsSFX.isPlaying))
 -- will print "true" in the Event Log window --
 
 Task.Wait(3)
 cricketsSFX:Stop()
-print_to_screen(tostring(cricketsSFX.isPlaying))
+print(tostring(cricketsSFX.isPlaying))
 -- will print "false" in the Event Log window --
 
 
