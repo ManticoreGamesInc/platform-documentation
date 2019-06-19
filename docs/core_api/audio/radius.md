@@ -35,7 +35,7 @@ cricketsSFX:Stop()
 Task.Wait(1)
 
 cricketsSFX.radius = cricketsSFX.radius * 5
-print_to_screen("The cricket SFX volume has increased!")
+print_to_screen("The cricket SFX radius has increased!")
 print_to_screen("You can hear it now from " .. tostring(cricketsSFX.radius) .. " units away.")
 cricketsSFX:Play()
 Task.Wait(5)
