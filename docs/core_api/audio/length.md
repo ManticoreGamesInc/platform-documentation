@@ -4,7 +4,7 @@
 
 ### Description
 
-Returns the length (in seconds) of the sound.
+Returns the length (in seconds) of the [Audio](core_api/classes/audio).
 
 ### Notes
 !!! info
