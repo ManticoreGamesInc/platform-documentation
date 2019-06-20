@@ -1,14 +1,14 @@
 # FadeIn(Number time)
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Starts playing and fades the [Audio](/core_api/classes/audio) in over the given time.
+Starts playing and fades the [Audio](/core_api/classes/audio/AudioOverview) in over the given time.
 
 ### Notes
 !!! info
-    This is an [Audio](/core_api/classes/audio) function that takes in a number input.
+    This is an [Audio](/core_api/classes/audio/AudioOverview) function that takes in a number input.
 
 ### Syntax
 
@@ -36,4 +36,4 @@ cricketsSFX:Stop()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

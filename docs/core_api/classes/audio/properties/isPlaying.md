@@ -1,10 +1,10 @@
 # isPlaying
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Returns whether the [Audio](/core_api/classes/audio) [CoreObject](/core_api/classes/coreobject) is currently playing.
+Returns whether the [Audio](/core_api/classes/audio/AudioOverview) [CoreObject](/core_api/classes/coreobject) is currently playing.
 
 ### Notes
 !!! info
@@ -37,4 +37,4 @@ print(tostring(cricketsSFX.isPlaying))
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

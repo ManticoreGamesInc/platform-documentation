@@ -1,10 +1,10 @@
 # Play()
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Begins the [Audio](/core_api/classes/audio) playback.
+Begins the [Audio](/core_api/classes/audio/AudioOverview) playback.
 
 ### Syntax
 
@@ -24,4 +24,4 @@ cricketsSFX:Play()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)
