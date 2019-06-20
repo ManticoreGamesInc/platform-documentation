@@ -1,14 +1,14 @@
 # FadeOut(Number time)
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Fades the [Audio](/core_api/classes/audio) out and stops over time seconds.
+Fades the [Audio](/core_api/classes/audio/AudioOverview) out and stops over time seconds.
 
 ### Notes
 !!! info
-    This is an [Audio](/core_api/classes/audio) function that takes in a number input.
+    This is an [Audio](/core_api/classes/audio/AudioOverview) function that takes in a number input.
 
 ### Syntax
 
@@ -36,4 +36,4 @@ cricketsSFX:FadeOut(5)
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

@@ -1,10 +1,10 @@
 # volume
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Multiplies the playback volume of the [Audio](core_api/classes/audio).
+Multiplies the playback volume of the [Audio](core_api/classes/audio/AudioOverview).
 Default 1. Note that values above 1 can distort sound. When balancing sound, it is recommended to scale down rather than up.
 
 
@@ -40,4 +40,4 @@ cricketsSFX:Stop()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

@@ -1,10 +1,10 @@
 # length
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Returns the length (in seconds) of the [Audio](/core_api/classes/audio).
+Returns the length (in seconds) of the [Audio](/core_api/classes/audio/AudioOverview).
 
 ### Notes
 !!! info
@@ -30,4 +30,4 @@ print("This sound effect will play for " .. tostring(cricketsSFX.length) .. " se
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)
