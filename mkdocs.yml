@@ -68,6 +68,25 @@ nav:
     - Examples: 'examples.md'
     - Community: 'community.md'
     - Core API:
+        - Classes: 
+            - Audio: 'audio.md'
+                - Properties:
+                    - isPlaying: 'isPlaying.md'
+                    - length: 'length.md'
+                    - currentPlaybackTime: 'currentPlaybackTime.md'
+                    - isSpatializationDisabled: 'isSpatializationDisabled.md'
+                    - isAutoPlayEnabled: 'isAutoPlayEnabled.md'
+                    - isTransient: 'isTransient.md'
+                    - isAutoRepeatEnabled: 'isAutoRepeatEnabled.md'
+                    - pitch: 'pitch.md'
+                    - volume: 'volume.md'
+                    - radius: 'radius.md'
+                    - falloff: 'falloff.md'
+                - Functions: 
+                    - Play: 'play.md'
+                    - Stop: 'stop.md'
+                    - FadeIn: 'fadein.md'
+                    - FadeOut: 'fadeout.md'
         - Coming Soon: 'core_api/coming_soon.md'
         - Example Entry: 'core_api/example_entry.md'
         - Raw Source: 'core_api/raw_source.md'
