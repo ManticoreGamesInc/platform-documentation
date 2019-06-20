@@ -1,10 +1,10 @@
 # currentPlaybackTime
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Returns the playback position (in seconds) of the [Audio](/core_api/classes/audio).
+Returns the playback position (in seconds) of the [Audio](/core_api/classes/audio/AudioOverview).
 
 ### Notes
 !!! info
@@ -31,4 +31,4 @@ print("The cricket SFX has been playing for " .. tostring(cricketsSFX.currentPla
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

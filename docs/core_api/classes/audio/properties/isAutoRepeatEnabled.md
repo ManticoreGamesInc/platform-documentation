@@ -1,10 +1,10 @@
 # isAutoRepeatEnabled
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Loops when [Audio](/core_api/classes/audio) playback has finished.
+Loops when [Audio](/core_api/classes/audio/AudioOverview) playback has finished.
 
 ### Notes
 !!! info
@@ -37,4 +37,4 @@ print_to_screen("The bullet SFX has been deleted!")
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

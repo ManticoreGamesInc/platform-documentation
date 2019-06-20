@@ -1,10 +1,10 @@
 # Stop()
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio))
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview))
 
 ### Description
 
-Stops the [Audio](core_api/classes/audio) playback.
+Stops the [Audio](core_api/classes/audio/AudioOverview) playback.
 
 ### Notes
 !!! info
@@ -31,4 +31,4 @@ cricketsSFX:Stop()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

@@ -1,10 +1,10 @@
 # isSpatializationDisabled
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Default false. Set true to play [Audio](/core_api/classes/audio) without 3D positioning.
+Default false. Set true to play [Audio](/core_api/classes/audio/AudioOverview) without 3D positioning.
 
 ### Notes
 !!! info
@@ -40,4 +40,4 @@ print_to_screen("Now, regardless of where you are in 3D space, you can hear the 
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)
