@@ -8,7 +8,7 @@ Begins the [Audio](core_api/classes/audio) playback.
 
 ### Notes
 !!! info
-    This is an [Audio](core_api/classes/audio) function.
+    None
 
 ### Syntax
 
