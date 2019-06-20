@@ -14,9 +14,7 @@ Attenuation distance is to the camera, not the player character. Distance parame
 
 ### Notes
 !!! info
-    Audio is a [CoreObject](core_api/classes/coreobject) class.
-
-    For client-specific playback, place the Audio object in a client NetworkContext folder. Playback can then be started by a client script, different sounds on each client. Example use case: victory music only playing for the winning team. See also: the [Replicator](core_api/classes/replicator).
+    Audio is a [CoreObject](core_api/classes/coreobject) class. For client-specific playback, place the Audio object in a client NetworkContext folder. Playback can then be started by a client script with different sounds on each client. Example use case: victory music only playing for the winning team. See also: the [Replicator](core_api/classes/replicator).
 
 ### Properties
 
