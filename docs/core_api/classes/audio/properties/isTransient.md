@@ -1,9 +1,9 @@
 # isTransient
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
-Default false. If set to true, the [Audio](/core_api/classes/audio) will automatically destroy itself after it finishes playing.
+Default false. If set to true, the [Audio](/core_api/classes/audio/AudioOverview) will automatically destroy itself after it finishes playing.
 
 ### Notes
 !!! info
@@ -36,4 +36,4 @@ print_to_screen("The bullet SFX has been deleted!")
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

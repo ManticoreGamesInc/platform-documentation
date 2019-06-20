@@ -1,10 +1,10 @@
 # falloff
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-If non-zero, will override default 3D spatial parameters of the [Audio](/core_api/classes/audio). Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. Default 0 (off).
+If non-zero, will override default 3D spatial parameters of the [Audio](/core_api/classes/audio/AudioOverview). Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. Default 0 (off).
 
 
 ### Notes
@@ -43,4 +43,4 @@ cricketsSFX:Stop()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)

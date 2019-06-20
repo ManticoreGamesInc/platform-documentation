@@ -1,10 +1,10 @@
 # pitch
 
-###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio)
+###### [Classes](/core_api/raw_source) > [Audio](/core_api/classes/audio/AudioOverview)
 
 ### Description
 
-Multiplies the playback pitch of the [Audio](/core_api/classes/audio).
+Multiplies the playback pitch of the [Audio](/core_api/classes/audio/AudioOverview).
 Default 1. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.)
 
 ### Notes
@@ -38,4 +38,4 @@ cricketsSFX:Stop()
 
 ### See Also
 
-* [Classes.Audio](/core_api/classes/audio)
+* [Classes.Audio](/core_api/classes/audio/AudioOverview)
