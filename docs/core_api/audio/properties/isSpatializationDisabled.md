@@ -4,7 +4,7 @@
 
 ### Description
 
-Default false. Set true to play [Audio](core_api/classes/audio) without 3D positioning.
+Default false. Set true to play sound without 3D positioning.
 
 ### Notes
 !!! info
