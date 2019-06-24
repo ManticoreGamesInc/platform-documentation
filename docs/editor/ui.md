@@ -3,7 +3,7 @@
 A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as “UI”. This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
 
-- UI in CORE is mostly a drag-and-drop process.
+- Creating UI in CORE is mostly a drag-and-drop process.
 
 - All UI elements can be found under View > UI Editor.
 
@@ -11,7 +11,8 @@ A core component of making quality video games is good user interface design. He
 
 - All UI elements need to be contained within a Canvas widget. Drag a Canvas widget into the hierarchy to start working on UI.
 
-Words like *widget*, *control* and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
+!!! info
+    Words like *widget*, *control* and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
 
 ### Tutorial
 
@@ -24,13 +25,13 @@ Below is an example using the Text Box control:
 
 2. At the bottom of the list, click "UI Editor" to view all UI options.
 
-3. Drag a Canvas into the hierarchy.
+3. Drag a Canvas into the Hierarchy window.
 
 4. Drag a Text Box into the Canvas to display the text directly onto the screen.
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
-![TransformBoundingBox](/img/EditorManual/UI/TextBoxUiElement.PNG)
+![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -39,7 +40,8 @@ Below is an example using the Text Box control:
     Once dragged in, if the widget is properly in the Canvas, it should be showing up in the top left corner. 
     It is in this location because it is by default **anchored** and **docked** to the top left. UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
-![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
+
+![TransformBoundingBox](/img/EditorManual/UI/TextBoxUiElement.PNG)
 
 Adjustable properties of the Text Box: 
 
@@ -63,9 +65,10 @@ Adjustable properties of the Text Box:
 **Justification** is the alignment of the text within the text box.
 
 
-Different widgets will have slightly different settings in the properties window, and all of these can be manipulated both in editor and in code.
+Different widgets will have slightly different settings in the properties window, and all of these can be manipulated both in-editor and in code.
 
-*See Lua API for functions & properties of UI controls.*
+!!! info "For Scripting Help"
+    *See Lua API for functions & properties of UI controls.*
 
 
 ### Example
@@ -73,6 +76,3 @@ Different widgets will have slightly different settings in the properties window
 *FAA_GameMode* includes functioning UI. 
 
 *Have U Herd?* Includes functional commented UI.
-
-!!! info "Contributions Welcome!"
-    Just click on the :fa-edit: icon on the top right of any page.
