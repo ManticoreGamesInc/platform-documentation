@@ -71,6 +71,17 @@ Name | Description
 --- | ---
 Browse | Just look around for others not mentioned, you may find something useful!
 
+## Scripts
+
+Useful Lua libraries to use (all permissive licenses).
+Just download the correct (single) `.lua` file and copy it into a new script and `require` it.
+
+Name/Link | Description
+--- | ---
+[Object Orientation](https://github.com/Yonaba/30log) | Allows for object oriented programming, including inheritance and mixins
+[JSON Parser](https://github.com/rxi/json.lua) | Allows you to parse JSON easily
+[Hooking Functions](https://github.com/Vallentin/hook.lua) | Allows you to hook into other functions
+
 ### Needed
 
 - What isn't represented here? Let us know!
