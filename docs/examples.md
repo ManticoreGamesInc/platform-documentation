@@ -80,6 +80,7 @@ Just download the correct (single) `.lua` file and copy it into a new script and
 Name/Link | Description
 --- | ---
 [Object Orientation](https://github.com/Yonaba/30log) | Allows for object oriented programming, including inheritance and mixins
+[Event Emitter](https://github.com/simenkid/lua-events) | Events (NodeJS style). For something similar, also check out the EventInterface script in CoreStrike in Shared Content.
 [JSON Parser](https://github.com/rxi/json.lua) | Allows you to parse JSON easily
 [Hooking Functions](https://github.com/Vallentin/hook.lua) | Allows you to hook into other functions
 
