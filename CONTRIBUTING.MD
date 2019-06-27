@@ -21,6 +21,9 @@ You can edit a markdown file directly through GitLab, so it's very easy!
 Note that this flow is best for simple changes, for larger ones you should use
 the Web IDE (or clone the repository and push commits from your IDE of choice).
 
+Note that integrated preview modes won't display advanced markdown functionality (e.g. `!!!
+info` blocks). To check out the live display for commits, you can go to `https://{branch}--manticore-docs.netlify.com`, so for production it would be [this](https://production--manticore-docs.netlify.com).
+
 ## New Pages
 
 If you want to add a new page, create a markdown file (`.md` extension).
@@ -97,11 +100,16 @@ Base styling provided by
 
 ### Files
 
-Videos must be under 100MB and sourced in the Google Drive under
+#### Videos
+
+Must be under 100MB and sourced in the Google Drive under
 CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
 click on the three dots -> open in new window -> three dots -> embed item ->
 paste that html code in the docs. Eventually we will embed YouTube links, but
 for now this works for tiny (but private) clips.
 
-Pictures: Specs/ideal workflow is WIP. For now drop them in the `img/` folder
-and reference as expected. Optimization will likely be handled by the host (Netlify).
+#### Pictures
+
+For now drop them in the `img/` folder and reference them via links as expected
+(examples present throughout). Optimization will likely be handled by the host
+(Netlify).
