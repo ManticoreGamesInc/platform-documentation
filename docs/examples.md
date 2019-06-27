@@ -27,6 +27,7 @@ Name/Link | Description
 [ScriptingExample](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) | Simple coin based-pickup game that demonstrates getting a couple of basic scripts up and running in the context of the editor
 [Forest Arena](https://staging.manticoreplatform.com/games/2dd012a4a582446d8e934052ad9bb7e5) | FFA Shooter. Simple, effective, fun.
 [Core Commander](https://staging.manticoreplatform.com/games/56a3c1cdf682470389866779aeb250cb) | RTS meets shooter. Complex game with structures, advanced UI, weapon tiers, etc.
+[Tween Example](https://staging.manticoreplatform.com/games/37f09c4e57344827bf1a079389508d92) | Tween example map
 
 ### Reference (no guarantee of quality)
 
