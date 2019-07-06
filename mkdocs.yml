@@ -5,7 +5,8 @@ nav:
     - Getting Started:
         - Step by Step: 'getting_started/step_by_step.md'
         - Introduction to the Editor: 'getting_started/editor_intro.md'
-        - Coming From Unity/Unreal: 'getting_started/from_other_editors.md'
+        - Coming From Unity: 'getting_started/from_other_editors.md'
+        - Coming From Unreal: 'getting_started/from_Unreal.md'
         - My First Game:
             - Map: 'getting_started/my_first_game/map.md'
             - Scripting: 'getting_started/my_first_game/functionality.md'
