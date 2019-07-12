@@ -35,7 +35,6 @@ The 4 different phases of an ability are:
     Execute: The witch flicks her wand, launching magic sparks at her enemy.
     Recovery: Out of breath from the power, the witch lowers her arm.
     Cooldown: The witch waits for her magic powers to return to her.
-    [images go here]
 
 Once an ability is triggered to start, it cycles through Cast > Execute > Recovery > Cooldown. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
@@ -47,7 +46,7 @@ A created function can be connected to these events, using `:Connect(ability_nam
 
 Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
 
-!!! info "Example"
+!!! info "Possible Differences between Abilities"
     A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
 
 ### Tutorial
@@ -67,13 +66,13 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 ![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
 
 3. We’re going to change some of the options at the top of this window.
-    1. Change the Ability Name in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
+    1. Change the **Ability Name** in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
 
-    2. The Input Binding is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to ‘ability_feet’.
+    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to ‘`ability_feet`’.
 
     3. When making a simple running sprint, we don’t need to change the animation, but an animation can be chosen to play when an ability is executed.
 
-    4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need On Interrupted or On Ready for this case. Uncheck those boxes. 
+    4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes. 
 
 4. Click the button ‘Create New Script’ to create a new script with all of this code.
 
@@ -85,7 +84,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
     1. Since we aren’t using an animation, the first thing we want to change is to remove the line that says ‘`ability.animation = “1hand_melee_slash_left”`’.
 
 
-    2. To allow the player to always sprint when they active this ability, we must change `ability.canBePrevented` to false.
+    2. To allow the player to always sprint when they activate this ability, we must change `ability.canBePrevented` to false.
 
 
     3. Towards the bottom, within `OnExecute_Sprint(ability)`, remove all 3 lines relating to `target_data`, as we won’t need this for sprinting.
@@ -159,6 +158,39 @@ Abilities themselves work in multiplayer games perfectly. What doesn't happen au
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related page].
+
+To get the job done, here is how to get Ability UI to display correctly in multiplayer games:
+
+1. Within the UI Canvas, right click in the Hierarchy and create a New Client Context.
+
+2. Create a new script, and drag this script into the Client Context folder.
+
+4. Copy this code within the script:
+
+```
+local sprintUIControl = game:FindObjectByName('AbilityUI')
+
+local playerAbilitiesAssigned = false
+
+function Tick(deltaSeconds)
+	local player = game:GetLocalPlayer()
+	if (is_valid(player)) then
+		if (not playerAbilitiesAssigned) then
+			assign_abilities(player)
+		end
+	end
+end
+
+function assign_abilities(player)
+	for _,ability in pairs(player:GetAbilities()) do
+		if (ability.binding == "ability_feet") then
+			sprintUIControl.ability = ability
+		end
+	end
+end
+```
+
+Now the ability AND the ability's UI work in multiplayer games!
 
 ### Examples
 
