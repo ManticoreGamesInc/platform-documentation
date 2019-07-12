@@ -132,7 +132,7 @@ This works great, but using print statements to tell which phase is active isnâ€
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CooldownAbility.PNG)
+![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Button](/img/EditorManual/Abilities/CooldownAbility.PNG)
 
 To get this to work correctly, there are only three steps:
 
