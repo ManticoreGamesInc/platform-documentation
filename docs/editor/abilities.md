@@ -29,7 +29,7 @@ The 4 different phases of an ability are:
     - The rest period after an ability is finished being cast, and cannot be cast again.
 
 
-!!! info "Example"
+!!! info "A More Natural Example"
     Try thinking of it like the casting of a magical spell:
     Cast: The witch charges up her spell, twirling her wand in the air in preparation.
     Execute: The witch flicks her wand, launching magic sparks at her enemy.
@@ -76,7 +76,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
 4. Click the button ‘Create New Script’ to create a new script with all of this code.
 
-!!! info "Example"
+!!! info "Script Generator Calls"
     Not all code from within the script generator is needed in every case, and Event Connects that you are not using do not need to be copied into your ability script.
 
 5. Now we make our changes, but first is removing unneeded parts!
