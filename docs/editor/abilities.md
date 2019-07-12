@@ -7,7 +7,7 @@ Anytime that a player can do something more than just jump and crouch that shoul
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
 !!! info
-    Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input--fancier because it has events built-in that can be set at each phase of execution.
+    Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
 
 ### The 4 Phases of an Ability
 
@@ -16,17 +16,17 @@ In Core, an ability is treated as 4 separate steps that happen immediately one r
 The 4 different phases of an ability are:
 
 - **Cast**
-The wind-up time--this is the prep phase before the ability actually happens.
+    - The wind-up time--this is the prep phase before the ability actually happens.
 
 - **Execute**
-The actual ability.
-Whatever the ability is going to do, it happens at this moment.
+    - The actual ability.
+    - Whatever the ability is going to do, it happens at this moment.
 
 - **Recovery**
-Additional ability actions that aren’t part of the main action.
+    - Additional ability actions that aren’t part of the main action.
 
 - **Cooldown**
-The rest period after an ability is finished being cast, and cannot be cast again.
+    - The rest period after an ability is finished being cast, and cannot be cast again.
 
 
 !!! info "Example"
@@ -39,7 +39,7 @@ The rest period after an ability is finished being cast, and cannot be cast agai
 
 Once an ability is triggered to start, it cycles through Cast > Execute > Recovery > Cooldown. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Gabe's Graphic](/img/EditorManual/UI/TextBoxUiElement.PNG)
+![Gabe's Graphic](/img/EditorManual/Abilities/Ability States.png)
 
 To tie functionality to the different phases of an ability, Core uses Events. Each phase has an event that is activated at the very beginning of that phase. 
 
@@ -64,7 +64,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
 2. The default should already be Ability, but if it is not, select Ability from the drop-down menu on the top right. You should see this fancy window:
 
-![Script Generator](/img/EditorManual/UI/TextBoxUiElement.PNG)
+![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
 
 3. We’re going to change some of the options at the top of this window.
     1. Change the Ability Name in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
@@ -95,7 +95,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
 6. Now we have removed unnecessary parts of the code, and we need to change what happens in the functions at the bottom. These are what happens in each phase.
 
-    1. Add the line ‘1ability.owner.walkSpeed = .51’ to the OnCast_Sprint function. This will lower the speed of the player in the time before they start sprinting, to simulate building up energy.
+    1. Add the line ‘`ability.owner.walkSpeed = .5`’ to the OnCast_Sprint function. This will lower the speed of the player in the time before they start sprinting, to simulate building up energy.
 
     2. Add the line ‘`ability.owner.walkSpeed = 4`’ to the OnExecute_Sprint function. This will speed them up massively.
 
@@ -133,7 +133,7 @@ This works great, but using print statements to tell which phase is active isn�
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Button](/img/EditorManual/UI/TextBoxUiElement.PNG)![Ability Button](/img/EditorManual/UI/TextBoxUiElement.PNG)![Ability Button](/img/EditorManual/UI/TextBoxUiElement.PNG)
+![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG)![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)
 
 To get this to work correctly, there are only three steps:
 
@@ -153,6 +153,12 @@ This will automatically change the button displayed to what was assigned when th
 
 *Now the UI element will update automatically when the ability is cast!*
 
+### Networking
+
+Abilities themselves work in multiplayer games perfectly. What doesn't happen automatically is the updating of the UI--for this to work, the UI relating to the player's abilities must be placed in a Client Context folder. 
+
+!!! info "Client Context"
+    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related page].
 
 ### Examples
 
