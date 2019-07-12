@@ -132,7 +132,7 @@ This works great, but using print statements to tell which phase is active isnâ€
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG)![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)
+![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG)![Ability Button](/img/EditorManual/Abilities/CooldownAbility.PNG)
 
 To get this to work correctly, there are only three steps:
 
@@ -154,16 +154,16 @@ This will automatically change the button displayed to what was assigned when th
 
 ### Networking
 
-Abilities themselves work in multiplayer games perfectly. What doesn't happen automatically is the updating of the UI--for this to work, the UI relating to the player's abilities must be placed in a Client Context folder. 
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. What doesn't happen automatically is the updating of the UI--for this to work, the UI relating to the player's abilities must be placed in a Client Context folder. 
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related page].
 
-To get the job done, here is how to get Ability UI to display correctly in multiplayer games:
+To get the job done, here is how to get Ability UI that we made above to display correctly in multiplayer games:
 
 1. Within the UI Canvas, right click in the Hierarchy and create a New Client Context.
 
-2. Create a new script, and drag this script into the Client Context folder.
+2. Create a new script and name it "ClientUI_UpdateScript", and drag this script into the Client Context folder.
 
 4. Copy this code within the script:
 
