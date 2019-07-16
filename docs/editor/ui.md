@@ -70,6 +70,16 @@ Different widgets will have slightly different settings in the properties window
 !!! info "For Scripting Help"
     *See Lua API for functions & properties of UI controls.*
 
+### CORE 2D Images
+
+There is a large collection of different images to use in Core. These could be stretched, layered, and combined in any sort of way to create UI!
+
+These are all the current images available to use in Core:
+
+![UI Borders](/img/EditorManual/UI/uiAssets_borders.png)
+![UI Buttons](/img/EditorManual/UI/uiAssets_buttons.png)
+![UI Icons](/img/EditorManual/UI/uiAssets_icons.png)
+![UI Reticles](/img/EditorManual/UI/uiAssets_reticles.png)
 
 ### Example
 
