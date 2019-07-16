@@ -109,7 +109,7 @@ Next, just like we did with TutorialScript, drag it from the Asset Manifest to t
 Let's make a new script, call it `SpinCoin`, and put it one level below the main `Manticoin` object. Like before, delete the current contents, and add the following line of code:
 
 ```lua
-script.parent:RotateContinuous(Rotation.new(200, 0, 0)) 
+script.parent:RotateContinuous(Rotation.New(200, 0, 0)) 
 ```
 
 We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
@@ -153,7 +153,8 @@ Yay, we've got it working! Now if only we could collect these coins...
 * Resize the trigger to match the coin's size 
     * Select the `Trigger` in the hierarchy and press `R` to change to scale mode. Drag the handles to adjust the scale
     * Press V to toggle gizmo visibility, including the `Trigger` hitbox
-* Parent the Manticoin underneath the Sphere Trigger
+* Parent the Manticoin under the Sphere Trigger
+    * Press W to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
 
 ### Handling Triggers
 
@@ -162,14 +163,14 @@ Let's make a script called `PickupCoin` and place it as the child of the trigger
 ```lua
 -- When a player hits the coin, increment a resource on the player and remove the coin
 function handleOverlap(trigger, object)
-	if (object ~= nil and object:is_a("Player")) then
-        object:add_resource("Manticoin", 1)
-        trigger.parent:destroy()
+	if (object ~= nil and object:IsA("Player")) then
+        object:AddResource("Manticoin", 1)
+        trigger:Destroy()
 	end
 end
 ```
 
-This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. A resource is simply a key-value structure to assign arbitrary data to the player; in our case we simply increase the amount of the "Manticoin" resources on the player by one. Finally, we use `:Destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
+This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. A resource is simply a key-value structure to assign data to the player; in our case, we simply increase the amount of the "Manticoin" resources on the player by one. Finally, we use `:Destroy()` to remove the trigger (and all its children) from the game.
 
 We still have one more line of code to assign `handleOverlap` to the trigger.
 
@@ -180,7 +181,8 @@ script.parent.beginOverlapEvent:Connect(handleOverlap)
 
 `beginOverlapEvent` is an event that exists within Trigger objects. By using `:Connect()` in the code above, we are able to let the event know about the function to call, in this case `handleOverlap`, when the event gets executed.
 
-If you save and press Play, you'll notice that while the coin disappears now on contact, nothing else seems to happen. This is because we aren't displaying anything to the player.
+Lastly, enable networking on the trigger (click yes on the dialogue box to enable networking on all the trigger's children). This enables interaction between the player on their client and the coin on the server.  
+If you save and press Play, you'll notice that while the coin disappears now on contact! However, nothing else seems to happen. This is because we aren't displaying anything to the player.
 
 ### Displaying Coin Count
 
@@ -222,7 +224,7 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 
 
 !!! info
-    While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each client. In other words, the server doesn't care about it.
+    While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client. In other words, the server doesn't care about it. 
 
 ### Customizing UI Text
 
@@ -236,13 +238,13 @@ Create a new script called `DisplayCoins` and add the following code
 ```lua
 -- Display the player's coin amount
 
-wait()  -- Wait a tick for players to connect
-local player = game:get_local_player()
+Task.Wait()  -- Wait a tick for players to connect
+local player = game:GetLocalPlayer()
 
 -- Every 0.1 seconds update the coin count display
-function tick()
-    wait(0.1)
-    local score = player:get_resource("Manticoin")
+function Tick()
+    Task.Wait(0.1)
+    local score = player:GetResource("Manticoin")
     local displayString = player.name..": "..tostring(score or 0)
     script.parent.text = displayString
 end
@@ -255,7 +257,7 @@ end
 ```
 
 !!! note
-    Calling `wait()` without sending in an argument will default to a single tick
+    Calling `Task.Wait()` without sending in an argument will default to a single tick
 
 Now that we have the code to display it, let's add `DisplayCoins` as a child of the Text Control. The folder structure at this point should look like this:
 
@@ -269,7 +271,10 @@ Now let's make a simple map and populate it with coins.
 
 ## Map
 
-Add your objects, put it in a static group (group allows you to grab one object and move all of them). Add a sky. Done.
+Select all your objects in the hierarchy and right click to create a new group containing all the objects. Alternatively, use the shortcut CTRL + G. 
+Grouping allows you to move all the objects within together at once. 
+
+Lastly, from shared content, feel free to search for a sky and add it to your project! Like last time, click the plus button and drag it from the Asset Manifest to the Hierarchy. 
 
 
 ## Win State
@@ -278,7 +283,7 @@ Add your objects, put it in a static group (group allows you to grab one object 
 
 Okay, now to populate the map with coins. There are a few ways to do this. We're going to manually populate the map, but writing a script to place them would add variance between rounds. When you're done with the tutorial, you could write a script to use random or procedural generation to place them automatically!
 
-Make a folder called `CoinFolder` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of Ctr+W to duplicate may be helpful for this)
+Make a folder called `Coins` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of CTRL + W to duplicate may be helpful for this).
 
 !!! note
     Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, making _all_ items in the group be modified by any changes you make.
@@ -302,19 +307,19 @@ Add the following code to `CoinGameLogic`:
 
 ```lua
 -- Get the folder containing all the coin objects
-local coinFolder = game:find_object_by_name("Coins")
+local coinFolder = game:FindObjectByName("Coins")
 
 -- Every second check for how many coins are left in the scene
-function tick()
-	wait(1)
-	local coinsLeft = #coinFolder.children
+function Tick()
+	Task.Wait(1)
+	local coinsLeft = #coinFolder:GetChildren()
 	if coinsLeft == 0 then
-		game:find_object_by_name("CoinUI").text = "All Coins Found!"
+		game:FindObjectByName("CoinUI").text = "All Coins Found!"
 	end
 end
 ```
 
-`game:find_object_by_name()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`.children` gets the child elements, and `#` checks the length of the array, which is many there items it has).
+`game:FindObjectByName()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains).
 
 
 ## Reset
@@ -327,7 +332,7 @@ An easier solution would be to just hide the coins from the map when they are pi
 
 ### Resetting Coins
 
-Open up the `PickupCoin` script, and change the line of `trigger.parent:destroy()` to `trigger.parent.enabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
+Open up the `PickupCoin` script, and change the line of `trigger:Destroy()` to `trigger.IsEnabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
 
 Next, create a UI element to display information when the round resets. We'll call it `RoundUI` and make it a sibling of `CoinUI` (in other words, set it as a child of your `Client Context`). Like `CoinUI`, let's set the Text property to be blank by default (we'll add text to it later programatically).
 
