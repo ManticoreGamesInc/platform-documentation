@@ -17,7 +17,7 @@ window if you don't see it already).
 Here you can browse the content or search (by username or template name).
 
 Press the `+` button to import the template, and then you can see it in your
-`Project Content -> Imported Shared Content`.
+`Asset Manifest -> Project Content -> Imported Shared Content`.
 
 !!! Note
     To see sub-content brought along by each template, click on each element in
