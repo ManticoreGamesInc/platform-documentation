@@ -1,4 +1,4 @@
-LIGHT SWITCH LUA TUTORIAL
+# LIGHT SWITCH LUA TUTORIAL
 Create a light switch that turns on and off a light.
 
 
@@ -13,10 +13,10 @@ Creating and updating trigger labels
 Creating a custom property
 Spawning a template/asset
 
-Step 1: Downloading the template
+#### Step 1: Downloading the template
 Download “Light Switch & Bulb” (by Tasha) from Shared Content and place it into your scene.
 
-Step 2: Creating a new script
+#### Step 2: Creating a new script
 Create a new script by clicking the “Create Script” button in the Asset Manifest to the left of the search bar.
  
 
@@ -33,7 +33,7 @@ Make sure our script is first in the Light Switch’s hierarchy.
 
 
 
-Step 3: Defining the switch variable
+#### Step 3: Defining the switch variable
 We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First we need to tell the script which object in our scene is the switch, so it knows what to rotate. Type the following into Line 1 of LuaLightTutorial:
 
 local switch = script.parent:GetChildren()[2]
@@ -51,7 +51,7 @@ GetChildren()[2] refers to the second child in a hierarchy. Because this is atta
 
 local switch = script.parent:GetChildren()[2] tells the script we are defining a local variable named “switch” and what object in the hierarchy our new variable corresponds to. 
 
-Step 4: Rotating the switch
+#### Step 4: Rotating the switch
 We need to rotate the Press enter twice, so you are now typing on line 3 in the script. Type: 
 
 switch:RotateTo(Rotation.New(0, 90, 0), 2)
@@ -121,7 +121,7 @@ Let’s press play and test it out.
 
 Success!
 
-Step 5: Adding a trigger
+#### Step 5: Adding a trigger
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
 To create a trigger go up to “Object” on the menu bar and click “Create Box Trigger”.
@@ -193,19 +193,19 @@ Let’s press play and see if our trigger is working properly.
 
 Perfect! When the player presses F our switch rotates down.
 
-BEST PRACTICES: ORGANIZING YOUR CODE
-It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of your functions do. It can also make finding specific functions in your script easier.
+!!! info "BEST PRACTICES: ORGANIZING YOUR CODE"
+    It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of your functions do. It can also make finding specific functions in your script easier.
 
-Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script. 
-
-
-
-I’ve blocked out different sections of our script by Variables, Functions, and Events that will make it easier to find lines of code.
-
-It is also common practice to indent lines of code that nest within functions and other  statements.
+    Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script. 
 
 
 
-As our script gets longer it these practices will make our script easier to read.
+    I’ve blocked out different sections of our script by Variables, Functions, and Events that will make it easier to find lines of code.
+
+    It is also common practice to indent lines of code that nest within functions and other  statements.
+
+
+
+    As our script gets longer it these practices will make our script easier to read.
 
 Step 6: 
