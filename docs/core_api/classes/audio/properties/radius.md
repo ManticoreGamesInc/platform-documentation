@@ -18,8 +18,7 @@ If non-zero, will override default 3D spatial parameters of the [Audio](/core_ap
 ### Example
 
 ```lua
---[[ audioExample.lua ]]--
-
+-- audioExample.lua --
 -- drag the audio "Ambience Suburbs Night Crickets 01 SFX" into the hierarchy --
 
 local cricketsSFX = game:FindObjectByName("Ambience Suburbs Night Crickets 01 SFX")
