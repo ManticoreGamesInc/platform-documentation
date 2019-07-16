@@ -343,9 +343,9 @@ Next we need to add the logic to reset the map, which for us simply means loopin
 ```lua
 -- Set all coins to be enabled
 function ResetMap()
-	for _,coin in pairs(coinFolder.children) do
+	for _,coin in pairs(coinFolder:GetChildren()) do
 		if coin ~= nil then
-			coin.enabled = true
+			coin.IsEnabled = true
 		end
 	end
 end
@@ -359,8 +359,8 @@ You might notice that our old code for checking the number of coins left won't w
 -- Get the amount of coins that are enabled in the scene
 function GetCoinsLeft()
     local count = 0
-    for _,coin in pairs(coinFolder.children) do
-        if coin ~= nil and coin.enabled then
+    for _,coin in pairs(coinFolder:GetChildren()) do
+        if coin ~= nil and coin.isEnabled then
             count = count + 1
         end
     end
@@ -375,16 +375,16 @@ This function will return how many coins are left. All that's left to do is to a
 ```lua
 -- Check for the round end by looking for the amount of coins left
 -- If the game should end, display a UI element, countdown, then reset the map
-function tick()
-	local players = game:get_players()
+function Tick()
+	local players = game:GetPlayers()
 	local coinsLeft = GetCoinsLeft()
 
 	if coinsLeft == 0 then
-		local uiText = game:find_object_by_name("RoundUI")
+		local uiText = game:FindObjectByName("RoundUI")
 		uiText.text = "All Coins Found!"
-		wait(3)
+		Task.Wait(3)
 		for i = 3,0,-1 do
-			wait(1)
+			Task.Wait(1)
 			uiText.text = "New round in "..tostring(i).." seconds"
 		end
 		ResetMap()
