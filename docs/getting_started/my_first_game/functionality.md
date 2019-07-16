@@ -109,7 +109,7 @@ Next, just like we did with TutorialScript, drag it from the Asset Manifest to t
 Let's make a new script, call it `SpinCoin`, and put it one level below the main `Manticoin` object. Like before, delete the current contents, and add the following line of code:
 
 ```lua
-script.parent:rotate_continuous(Rotation.new(200, 0, 0))
+script.parent:RotateContinuous(Rotation.new(200, 0, 0)) 
 ```
 
 We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
@@ -123,10 +123,10 @@ Okay, so what did we just do?
 ### Spin Breakdown
 
 * `script` -> references the script object, i.e. the asset you dragged into the hierarchy
-* `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case the Manticoin object)
-* `rotate_continuous()` -> Every **CoreObject** (things like Scripts, Objects, etc.) has methods available to it. `rotate_continuous` is one of these, and we invoke it with the `:` syntax. It requires a `Rotation` parameter to work
+* `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object)
+* `RotateContinuous()` -> Every **CoreObject** (things like Scripts, Objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work
     * Methods are simply functions that belong to an object
-* `Rotation.new(number pitch, number yaw, number roll)` -> Here we create a rotation vector to rotate by a pitch of 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.new`, which takes in parameters for the pitch, yaw, and roll. `.new` returns a `Rotation`, which is exactly what we need to pass in to `rotate_continuous()`. How convenient!
+* `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
 ### Spin Cleanup
 
@@ -136,9 +136,9 @@ Writing all that in one line of code makes it a bit confusing, so let's rewrite 
 -- Get the object one level above the script in the hierarchy, in this case our coin
 local coin = script.parent
 -- Create a rotation along the x axis
-local spin_rotation = Rotation.new(200, 0, 0)
+local spinRotation = Rotation.New(200, 0, 0)
 -- Rotate the coin using our previously defined rotation
-coin:rotate_continuous(spin_rotation)
+coin:RotateContinuous(spinRotation)
 ```
 
 Yay, we've got it working! Now if only we could collect these coins...
@@ -149,10 +149,11 @@ Yay, we've got it working! Now if only we could collect these coins...
 
 ### Adding a Trigger
 
-1. Create a `Trigger` via Object -> Trigger
-* Put that trigger as a child of the coin
-* Adjust the hitbox via the scale so it is slightly larger than the coin
+1. Create a `Trigger` via Object -> Create Sphere Trigger
+* Resize the trigger to match the coin's size 
     * Select the `Trigger` in the hierarchy and press `R` to change to scale mode. Drag the handles to adjust the scale
+    * Press V to toggle gizmo visibility, including the `Trigger` hitbox
+* Parent the Manticoin underneath the Sphere Trigger
 
 ### Handling Triggers
 
@@ -168,18 +169,18 @@ function handleOverlap(trigger, object)
 end
 ```
 
-This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. A resource is simply a key-value structure to assign arbitrary data to the player; in our case we simply increase the amount of the "Manticoin" resources on the player by one. Finally, we use `:destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
+This function takes in the `trigger` that was activated and the `object` that collided with it. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. A resource is simply a key-value structure to assign arbitrary data to the player; in our case we simply increase the amount of the "Manticoin" resources on the player by one. Finally, we use `:Destroy()` to remove the trigger's parent (the `Manticoin` object) from the game.
 
 We still have one more line of code to assign `handleOverlap` to the trigger.
 
 ```lua
 -- Whenever an object collides with the trigger, run this function
-script.parent.on_begin_overlap:connect(handleOverlap)
+script.parent.beginOverlapEvent:Connect(handleOverlap)
 ```
 
-`on_begin_overlap` is an event that exists within Trigger objects. By using `:connect()` in the code above, we are able to let the event know about `handleOverlap` and call it when the event gets executed.
+`beginOverlapEvent` is an event that exists within Trigger objects. By using `:Connect()` in the code above, we are able to let the event know about the function to call, in this case `handleOverlap`, when the event gets executed.
 
-If you save and press Play, you'll notice that while the coin now disappears on contact nothing else seems to happen. This is because we aren't displaying anything to the player.
+If you save and press Play, you'll notice that while the coin disappears now on contact, nothing else seems to happen. This is because we aren't displaying anything to the player.
 
 ### Displaying Coin Count
 
@@ -187,13 +188,13 @@ Let's modify `TutorialScript` to display this info. Add the following code:
 
 ```lua
 -- Print out 'Player name: {coin count}' every 5 seconds
-function tick()
-    wait(5)
-    local players = game:get_players()
-    local num_players = #players
-    for i = 1,num_players do
-        local num_coins = players[i]:get_resource("Manticoin")
-        print_to_screen(players[i].name..": "..tostring(num_coins or 0))
+function Tick()
+    Task.Wait(5)
+    local players = game:GetPlayers()
+    local numPlayers = #players
+    for i = 1, numPlayers do
+        local numCoins = players[i]:GetResource("Manticoin")
+        print_to_screen(players[i].name..": "..tostring(numCoins or 0))
     end
 end
 ```
