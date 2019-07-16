@@ -31,6 +31,7 @@ nav:
         - Hotkeys: 'editor/hotkeys.md'
         - Templates: 'editor/templates.md'
         - Shared Content: 'editor/shared_content.md'
+        - Weapons: 'editor/weapons.md'
         - Abilities: 'editor/abilities.md'
         - UI: 'editor/ui.md'
         - Audio: 'editor/audio.md'
