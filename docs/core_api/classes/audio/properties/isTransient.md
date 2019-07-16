@@ -16,8 +16,7 @@ Default false. If set to true, the [Audio](/core_api/classes/audio/AudioOverview
 ### Example
 
 ```lua
---[[ audioExample.lua ]]--
-
+-- audioExample.lua --
 -- drag the audio "Bullet Body Impact SFX --
 
 local bulletSFX = game:FindObjectByName("Bullet Body Impact SFX")
