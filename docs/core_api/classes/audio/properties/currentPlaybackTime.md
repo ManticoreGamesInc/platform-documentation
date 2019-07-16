@@ -17,8 +17,7 @@ Returns the playback position (in seconds) of the [Audio](/core_api/classes/audi
 ### Example
 
 ```lua
---[[ audioExample.lua ]]--
-
+-- audioExample.lua --
 -- drag the audio "Ambience Suburbs Night Crickets 01 SFX" into the hierarchy --
 
 local cricketsSFX = game:FindObjectByName("Ambience Suburbs Night Crickets 01 SFX")

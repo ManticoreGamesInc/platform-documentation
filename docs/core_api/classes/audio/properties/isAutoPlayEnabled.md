@@ -17,8 +17,7 @@ Default false. If set to true when placed in the editor (or included in a templa
 ### Example
 
 ```lua
---[[ audioExample.lua ]]--
-
+-- audioExample.lua --
 -- drag the audio "Ambience Suburbs Night Crickets 01 SFX" into the hierarchy --
 
 local cricketsSFX = game:FindObjectByName("Ambience Suburbs Night Crickets 01 SFX")
