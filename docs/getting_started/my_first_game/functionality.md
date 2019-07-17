@@ -222,18 +222,12 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 * Go to Object -> 2D UI... -> Create UI Text
 * Move the Text Control in the Hierarchy so it's a child of the `Client Context`
 
-
 !!! info
     While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client. In other words, the server doesn't care about it. 
 
-### Customizing UI Text
-
-_[ToDo: Details needed on changing font size, position, color, etc. Include an image as well.]_
-
-
 ### Updating UI Text
 
-Create a new script called `DisplayCoins` and add the following code
+Create a new script called `DisplayCoins` and add the following code:
 
 ```lua
 -- Display the player's coin amount
@@ -271,11 +265,8 @@ Now let's make a simple map and populate it with coins.
 
 ## Map
 
-Select all your objects in the hierarchy and right click to create a new group containing all the objects. Alternatively, use the shortcut CTRL + G. 
-Grouping allows you to move all the objects within together at once. 
-
-Lastly, from shared content, feel free to search for a sky and add it to your project! Like last time, click the plus button and drag it from the Asset Manifest to the Hierarchy. 
-
+Create the player's spawn point with Object -> Gameplay -> Create Spawn Point. Remember you can toggle gizmo visibility by pressing V! 
+Secondly, from shared content, feel free to search for a sky and add it to your project! Like last time, click the plus button and drag it from the Asset Manifest to the Hierarchy. 
 
 ## Win State
 
@@ -283,7 +274,12 @@ Lastly, from shared content, feel free to search for a sky and add it to your pr
 
 Okay, now to populate the map with coins. There are a few ways to do this. We're going to manually populate the map, but writing a script to place them would add variance between rounds. When you're done with the tutorial, you could write a script to use random or procedural generation to place them automatically!
 
-Make a folder called `Coins` and add the `Manticoin` object as a child. and copy Manticoins to scatter them over the map (the shortcut of CTRL + W to duplicate may be helpful for this).
+Right-click within the hierarchy to make a folder called `Coins` and add the `Manticoin` object as a child. 
+Copy Manticoins to scatter them over the map (the shortcut of CTRL + W to duplicate may be helpful for this).
+
+Organization is important in your hierarchy. You can put objects together via folders or grouping!   
+Select all the duplicated coins and right click to make a new folder containing them. 
+Let's rename that group "Coins".
 
 !!! note
     Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, making _all_ items in the group be modified by any changes you make.
@@ -292,7 +288,10 @@ Now we will write a script to make the game round-based.
 
 ### Game Logic Script
 
-Create a script called `CoinGameLogic` and put it into the top of the scene. Here's the entire hierarchy at this point:
+Here we go! Create a script called `CoinGameLogic`. 
+Let's also create a Replicator underneath that by right-clicking within the hierarchy. 
+
+Here's the entire hierarchy at this point:
 
 ![GameLogicHierarchy](/img/scripting/GameLogicHierarchy.png)
 
