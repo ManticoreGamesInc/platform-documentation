@@ -221,6 +221,7 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 * Make the `Client Context` a child of the UI Canvas
 * Go to Object -> 2D UI... -> Create UI Text
 * Move the Text Control in the Hierarchy so it's a child of the `Client Context`
+* Rename the Text Control to  `Player Currency`
 
 !!! info
     While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client. In other words, the server doesn't care about it. 
@@ -265,21 +266,28 @@ Now let's make a simple map and populate it with coins.
 
 ## Map
 
-Create the player's spawn point with Object -> Gameplay -> Create Spawn Point. Remember you can toggle gizmo visibility by pressing V! 
-Secondly, from shared content, feel free to search for a sky and add it to your project! Like last time, click the plus button and drag it from the Asset Manifest to the Hierarchy. 
+So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
+
+* Create the player's spawn point
+    * From the navigation bar, try Object -> Gameplay -> Create Spawn Point
+    * Alternatively, use the shortcut "0"!
+    * Remember you can toggle gizmo visibility by pressing V.
+
+* Add a Sky 
+    * Search in Shared Content for any "Sky" 
+    * Hit the plus button to add it to your project
+    * Drag it from the Asset Manifest to the Hierarchy.
+
+Alright, beautiful! 
 
 ## Win State
 
 ### Generating Coins
 
-Okay, now to populate the map with coins. There are a few ways to do this. We're going to manually populate the map, but writing a script to place them would add variance between rounds. When you're done with the tutorial, you could write a script to use random or procedural generation to place them automatically!
-
-Right-click within the hierarchy to make a folder called `Coins` and add the `Manticoin` object as a child. 
-Copy Manticoins to scatter them over the map (the shortcut of CTRL + W to duplicate may be helpful for this).
+Okay, now to populate the map with coins. Right-click within the hierarchy to make a folder called `Coins` and add the `Manticoin` object as a child. 
+Copy Manticoins to scatter them over the map (hint: the shortcut of CTRL + W to duplicate may be helpful).
 
 Organization is important in your hierarchy. You can put objects together via folders or grouping!   
-Select all the duplicated coins and right click to make a new folder containing them. 
-Let's rename that group "Coins".
 
 !!! note
     Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, making _all_ items in the group be modified by any changes you make.
@@ -289,7 +297,16 @@ Now we will write a script to make the game round-based.
 ### Game Logic Script
 
 Here we go! Create a script called `CoinGameLogic`. 
-Let's also create a Replicator underneath that by right-clicking within the hierarchy. 
+
+Let's also create a Replicator underneath that by right-clicking within the hierarchy.
+Replicators let you communicate between the server and client. Think of them as containing universal variables, their values accessible anywhere.  
+
+Next, create a boolean parameter called "gameOver" under the Replicator. Leave this unchecked, like default.  
+
+* Create a Replicator
+* Create a parameter for the Replicator
+    * Select boolean as the parameter type
+    * Name the parameter "gameOver"
 
 Here's the entire hierarchy at this point:
 
@@ -298,13 +315,10 @@ Here's the entire hierarchy at this point:
 !!! note
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
 
-
-We are going to update the game when the player has picked up all the possible coins. First, we'll need a new Text Control which we'll name `CoinUI` which will only show up when the game is over, alerting the player all coins have been collected. Remember to make 'CoinUI' a child of the 'Client Context'.
-
-
-Add the following code to `CoinGameLogic`:
+Let's make a new script for game logic. Add the following code to `CoinGameLogic`:
 
 ```lua
+
 -- Get the folder containing all the coin objects
 local coinFolder = game:FindObjectByName("Coins")
 
@@ -312,14 +326,54 @@ local coinFolder = game:FindObjectByName("Coins")
 function Tick()
 	Task.Wait(1)
 	local coinsLeft = #coinFolder:GetChildren()
-	if coinsLeft == 0 then
-		game:FindObjectByName("CoinUI").text = "All Coins Found!"
-	end
+    if (coinsLeft == 0) then 
+	    game:FindObjectByName("Replicator"):SetValue("gameOver", true)
+    end
 end
 ```
 
-`game:FindObjectByName()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains).
+`game:FindObjectByName()` searches the hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). 
 
+When there are zero coins left, we find the replicator and set the value of "gameOver" to true. This way, all the players' clients will be able to know when the game is finished!   
+
+### Victory UI
+
+We are going to update the game when all the possible coins are picked up. First, we'll need a new Text Control which we'll name `VictoryUI` which will only show up when the game is over, alerting the player all coins have been collected. 
+After designing the Victory UI, we'll want to hide it until it's the appropriate time. 
+
+* Create a Text Control named 'VictoryUI' as child of the Canvas under 'Client Context'
+* In the text field in the Properties window, type "All coins found!" 
+* Toggle the visibility of the Victory UI under Properties, Scene > Visible
+* Customize your font color, size, and justification!
+    
+Let's add a parameter again. This time, a CoreObject Reference so we can access our Replicator. 
+Drag the Replicator from the hierarchy into the input field. 
+
+Now, let's make a script called "DisplayUI" that makes the Victory UI visible at the end of the game!
+We will parent this script underneath the "Victory UI". 
+
+```lua
+ui = script.parent
+
+local function OnChanged(rep, key)
+	gameOver = rep:GetValue("gameOver")
+    if (gameOver == true) then
+	    ui.isVisible = true 
+    else 
+    	ui.isVisible = false 
+    end
+end
+
+local rep = script:GetCustomProperty("Replicator"):WaitForObject()
+rep.valueChangedEvent:Connect(OnChanged)
+```
+
+![Replicator](/img/scripting/Replicator.png)
+
+Your hierarchy should look like above now! 
+
+If you press play and collect all the coins in the scene, your victory UI should now appear! :) 
+Congrats on your first game!
 
 ## Reset
 
