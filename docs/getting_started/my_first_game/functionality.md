@@ -5,9 +5,6 @@
 Skim through the information in the [scripting](/scripting/overview) section before
 continuing here.
 
-!!! Warning
-    This syntax doesn't account for recent (Late May 2019) changes to the API,
-    so it will only work on the older API (currently found on production)
 
 ## My First Script
 
@@ -406,7 +403,7 @@ end
 
 ### Updating Coins Left Detection
 
-You might notice that our old code for checking the number of coins left won't work anymore, as we are setting a property on each of the coins (`.enabled`) rather than deleting the object entirely. Add the following function to CoinGameLogic:
+You might notice that our old code for checking the number of coins left won't work anymore, as we are setting a property on each of the coins (`.isEnabled`) rather than deleting the object entirely. Add the following function to CoinGameLogic:
 
 ```lua
 -- Get the amount of coins that are enabled in the scene
@@ -450,6 +447,6 @@ And there we go! We have a complete game!
 
 ## Conclusion
 
-Finally, you can check out the game by going [here](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) and clicking on 'edit' to download a copy of the game to play around with yourself!
+Finally, you can check out the game by going [here](https://staging.manticoreplatform.com/games/bb1a7a2d59f44215af1586007dae23d6) and clicking on 'edit' to download a copy of the game to play around with yourself!
 
 
