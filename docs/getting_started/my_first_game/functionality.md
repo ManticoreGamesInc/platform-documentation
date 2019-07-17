@@ -372,8 +372,8 @@ rep.valueChangedEvent:Connect(OnChanged)
 
 Your hierarchy should look like above now! 
 
-If you press play and collect all the coins in the scene, your victory UI should now appear! :) 
-Congrats on your first game!
+If you press play and collect all the coins in the scene, your victory UI should now appear. 
+Congrats on your first game! :)
 
 ## Reset
 
@@ -385,9 +385,9 @@ An easier solution would be to just hide the coins from the map when they are pi
 
 ### Resetting Coins
 
-Open up the `PickupCoin` script, and change the line of `trigger:Destroy()` to `trigger.IsEnabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
+Open up the `PickupCoin` script, and change the line of `trigger:Destroy()` to `trigger.isEnabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
 
-Next, create a UI element to display information when the round resets. We'll call it `RoundUI` and make it a sibling of `CoinUI` (in other words, set it as a child of your `Client Context`). Like `CoinUI`, let's set the Text property to be blank by default (we'll add text to it later programatically).
+Next, create a UI element to display information when the round resets. We'll call it `RoundUI` and make it a sibling of `CUI` (in other words, set it as a child of your `Client Context`). Like `CoinUI`, let's set the Text property to be blank by default (we'll add text to it later programatically).
 
 The last step is to add the resetting logic to our main `CoinGameLogic` script.
 
@@ -398,7 +398,7 @@ Next we need to add the logic to reset the map, which for us simply means loopin
 function ResetMap()
 	for _,coin in pairs(coinFolder:GetChildren()) do
 		if coin ~= nil then
-			coin.IsEnabled = true
+			coin.isEnabled = true
 		end
 	end
 end
@@ -406,7 +406,7 @@ end
 
 ### Updating Coins Left Detection
 
-You might notice that our old code for checking the number of coins left won't work anymore, as we are setting a property on each of the coins (`.enabled`) rather than deleting the object entirely. Add the following function:
+You might notice that our old code for checking the number of coins left won't work anymore, as we are setting a property on each of the coins (`.enabled`) rather than deleting the object entirely. Add the following function to CoinGameLogic:
 
 ```lua
 -- Get the amount of coins that are enabled in the scene
@@ -426,22 +426,22 @@ This function will return how many coins are left. All that's left to do is to a
 ### Connecting all the Reset Code
 
 ```lua
--- Check for the round end by looking for the amount of coins left
--- If the game should end, display a UI element, countdown, then reset the map
-function Tick()
-	local players = game:GetPlayers()
-	local coinsLeft = GetCoinsLeft()
+-- Check the number of enabled coins
+-- If the game should end, send a message through the replicator
+-- Cue a new round to start
+-- Reset the coins and UI 
 
+function Tick()
+	Task.Wait(1)
+	local coinsLeft = GetCoinsLeft()
 	if coinsLeft == 0 then
-		local uiText = game:FindObjectByName("RoundUI")
-		uiText.text = "All Coins Found!"
-		Task.Wait(3)
+	    game:FindObjectByName("Replicator"):SetValue("gameOver", true)
 		for i = 3,0,-1 do
 			Task.Wait(1)
-			uiText.text = "New round in "..tostring(i).." seconds"
+			print_to_screen("New round in "..tostring(i).." seconds")
 		end
+	    game:FindObjectByName("Replicator"):SetValue("gameOver", false)
 		ResetMap()
-		uiText.text = ""
 	end
 end
 ```
