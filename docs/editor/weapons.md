@@ -26,7 +26,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 !!! info
     The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes. These shapes should all be contained in a folder, and this folder should be made a child of the weapon by draggin the folder onto the weapon. This attaches the look of the weapon to the function of the weapon! 
 
-2. Next, using the same Object menu, click "Create Box Trigger". We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger.
+2. Next, using the same Object menu, click "Create Box Trigger". We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger. In the Box Trigger's Properties, check the Interactable box to be on. Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
 
 3. To help the trigger detect if the player is close enough to the weapon to pick it up, we need to create a script called `PickupWeaponScript`. In the Asset Manifest, click the create script button to make a new empty script.
 
@@ -63,7 +63,18 @@ This alone won't make the weapon work!
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-7. isINteractable
+7. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
+
+To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called Pickup(). Copy the code from below:
+
+```python
+function Pickup(equipment,  player)
+	trigger.isInteractable = false
+	trigger.isCollidable = false
+end
+```
+This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
+
 8. connect all events
 9. test it out bro!
 
