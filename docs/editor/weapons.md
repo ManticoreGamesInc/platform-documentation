@@ -5,6 +5,8 @@
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a tomato grenade. 
 Programming a weapon can be the most complicated part of making a game, but to make that easier, Core comes with a built-in weapon system!
 
+![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeapon.PNG)
+
 In Core, a `weapon` is an `equipment` type of object that can be created in any Core project. 
 
 When a player picks up or *equips* a weapon object, the player is instantly able to use that weapon and all that it can do! 
@@ -24,9 +26,15 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 1. The first thing to do is to open the Object menu at the top of the editor, and select Create Weapon. This adds one empty weapon to your current game's hierarchy. 
 
 !!! info
-    The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes. These shapes should all be contained in a folder, and this folder should be made a child of the weapon by draggin the folder onto the weapon. This attaches the look of the weapon to the function of the weapon! 
+    The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes.  
+	These shapes should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.  
+	This attaches the look of the weapon to the function of the weapon! 
 
-2. Next, using the same Object menu, click "Create Box Trigger". We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger. In the Box Trigger's Properties, check the Interactable box to be on. Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
+2. Next, using the same Object menu at the top of the editor, click "**Create Box Trigger**". We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger.  
+
+In the Box Trigger's Properties, check the Interactable box to be on. 
+
+Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
 
 3. To help the trigger detect if the player is close enough to the weapon to pick it up, we need to create a script called `PickupWeaponScript`. In the Asset Manifest, click the create script button to make a new empty script.
 
@@ -63,7 +71,7 @@ This alone won't make the weapon work!
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-7. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
+8. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
 
 To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called Pickup(). Copy the code from below:
 
@@ -75,8 +83,8 @@ end
 ```
 This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
 
-8. connect all events
-9. test it out bro!
+9. connect all events
+10. test it out bro!
 
 A second example will show how to have a player start with a specific weapon equipped.
 
