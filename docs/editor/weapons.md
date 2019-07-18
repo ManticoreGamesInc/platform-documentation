@@ -49,17 +49,17 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 
 ### Programming the Weapon
 
-6. The first step to writing this script is being able to access the things that we want. In this case, that would be both the trigger and the weapon. Get a reference to these things by using the code below:
+1. The first step to writing this script is being able to access the things that we want. In this case, that would be both the trigger and the weapon. Get a reference to these things by using the code below:
 
-   ```python
+   ```lua
    local weapon = script.parent
    local trigger = weapon:FindChildByType("Trigger")
    ```
 
-7. To actually make the equipping happen when the player is near the weapon, we need a function connected to an event.  
+2. To actually make the equipping happen when the player is near the weapon, we need a function connected to an event.  
    This code can also be taken from the script generator for Overlap Events, but copy this code below into your script:
 
-   ```python
+   ```lua
    function OnInteracted(whichTrigger, other)
 	 if other:IsA("Player") then
 		weapon:Equip(other)
@@ -73,17 +73,17 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 
   This alone won't make the weapon work!  
 
-8. To actually tie the function we made to the moment something overlaps the trigger, we need to connect the function to the trigger's interacted event. This is done with the following:
+3. To actually tie the function we made to the moment something overlaps the trigger, we need to connect the function to the trigger's interacted event. This is done with the following:
 
-   ```python
+   ```lua
    trigger.interactedEvent:Connect(OnInteracted)
    ```
 
-9. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
+4. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
 
    To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called `Pickup()`. Copy the code from below:
 
-   ```python
+   ```lua
    function Pickup(equipment,  player)
 	trigger.isInteractable = false
 	trigger.isCollidable = false
@@ -91,33 +91,41 @@ In this tutorial, we will be adding a really simple gun to an empty project.
    ```
    This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
 
-10. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`:
+5. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`:
 
-   ```python
+   ```lua
    function Drop()
 	trigger.isInteractable = true
 	trigger.isCollidable = true
    end
    ```
 
-11. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
+6. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
 
-   ```python
+   ```lua
    weapon.equippedEvent:Connect(Pickup)
    weapon.unequippedEvent:Connect(Drop)
    ```
 
    This causes the `Pickup()` function to happen any time the weapon is equipped, and `Drop()` to happen any time the weapon is unequipped.
 
-!! info
-    At this time, when testing the game, you should be able to pick up the gun and fire it, but nothing will shoot out of the gun.  
-    You should also be able to pick up a second weapon if you duplicate the first weapon.
+At this time, when testing the game, you should be able to pick up the gun and fire it, but nothing will shoot out of the gun.  
+You should also be able to pick up a second weapon if you duplicate the first weapon.
+
+### The Attack Script
+
+To get the gun to fire when shot, we need to create an `AttackScript`. This will deal with everything that happens the moment the gun fires!
+
+!!! info "Not All Weapons Need to Shoot"
+    The weapon system can be used for things that aren't weapons! If you were making a bubble blower, or a fishing pole, maybe you wouldn't call it "Attack Script" but whatever fits your weapon type. The key is that this is what actually happen when the player uses the weapon!
+    
+1. [THIS IS WHERE AM CURRENTLY]
 
 ### Polish the Weapon
 
-12. What happens if the player picks up a weapon while they are already holding one? Bad stuff! To fix the weapon so the player can only hold one at a time, we need to add code in the `Pickup()` event of the `PickupWeaponScript`. Add this code below to `Pickup()`:
+1. What happens if the player picks up a weapon while they are already holding one? Bad stuff! To fix the weapon so the player can only hold one at a time, we need to add code in the `Pickup()` event of the `PickupWeaponScript`. Add this code below to `Pickup()`:
 
-   ```python
+   ```lua
     for _,prevEquip in pairs(player:GetEquipment()) do
         if (prevEquip ~= weapon and prevEquip.socket == weapon.socket) then
             prevEquip:Unequip()
@@ -126,7 +134,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
    ```
 With this added, the entire Pickup() function should now look like this:
 
-   ```python
+   ```lua
    function Pickup(equipment,  player)
 	 -- remove any equipment the player already has
      for _,prevEquip in pairs(player:GetEquipment()) do
@@ -140,7 +148,7 @@ With this added, the entire Pickup() function should now look like this:
    end
    ```
 
-13. Be awesome
+2. Be awesome
 
 A second example will show how to have a player start with a specific weapon equipped.
 
