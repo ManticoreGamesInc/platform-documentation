@@ -1,4 +1,4 @@
-### Abstract
+## Abstract
 
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a tomato grenade. 
 Programming a weapon can be the most complicated part of making a game, but to make that easier, Core comes with a built-in weapon system!
@@ -13,7 +13,7 @@ So to create a weapon like a rifle, all that needs to be done is to spawn a weap
 !!! info
     A weapon can be anything imaginable that the player holds and uses to interact with the world.
 
-### Tutorial
+## Tutorial
 
 Adding a weapon to a game is more steps than just spawn, modify, and equip. The tutorial below will walk you through the entire process from an empty project, to using a gun of your own making in a level!
 
@@ -21,13 +21,15 @@ This gun will be placed in the world and the player will need to pick it up to u
 
 In this tutorial, we will be adding a really simple gun to an empty project.
 
-1. The first thing to do is to open the *Object* menu at the top of the editor, and select Create Weapon. This adds one empty weapon to your current game's hierarchy. 
+### Setting Up the Weapon
 
-2. The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes.  
+1. The first thing to do is to open the *Object* menu at the top of the editor, and select **Create Weapon**. This adds one empty weapon to your current game's hierarchy. 
 
-   These shapes should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.  
+2. The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes.
 
-   This attaches the look of the weapon to the function of the weapon! 
+   These shapes should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.
+     
+     This attaches the look of the weapon to the function of the weapon! 
 
 3. Next, using the same *Object* menu at the top of the editor, click "**Create Box Trigger**".  
    We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger.  
@@ -44,6 +46,8 @@ In this tutorial, we will be adding a really simple gun to an empty project.
    The hierarchy should now look like this:
 
    ![Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy.png)
+
+### Programming the Weapon
 
 6. The first step to writing this script is being able to access the things that we want. In this case, that would be both the trigger and the weapon. Get a reference to these things by using the code below:
 
@@ -77,7 +81,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 
 9. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking becomes impossible. Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.
 
-   To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called Pickup(). Copy the code from below:
+   To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called `Pickup()`. Copy the code from below:
 
    ```python
    function Pickup(equipment,  player)
@@ -87,11 +91,30 @@ In this tutorial, we will be adding a really simple gun to an empty project.
    ```
    This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
 
-10. connect all events
+10. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`:
+
+   ```python
+   function Drop()
+	trigger.isInteractable = true
+	trigger.isCollidable = true
+   end
+   ```
+
+10. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
+
+   ```python
+   weapon.equippedEvent:Connect(Pickup)
+   weapon.unequippedEvent:Connect(Drop)
+   ```
+
+   This causes the `Pickup()` function to happen any time the weapon is equipped, and `Drop()` to happen any time the weapon is unequipped.
+
+### Test & Polish the Weapon
+
 11. test it out bro!
 
 A second example will show how to have a player start with a specific weapon equipped.
 
-### Examples
+## Examples
 
 *Garden Warfare* includes several weapons used in various ways. 
