@@ -30,11 +30,11 @@ The 4 different phases of an ability are:
 
 
 !!! info "A More Natural Example"
-    Try thinking of it like the casting of a magical spell:
-    Cast: The witch charges up her spell, twirling her wand in the air in preparation.
-    Execute: The witch flicks her wand, launching magic sparks at her enemy.
-    Recovery: Out of breath from the power, the witch lowers her arm.
-    Cooldown: The witch waits for her magic powers to return to her.
+    Try thinking of it like the casting of a magical spell:  
+    Cast: The witch charges up her spell, twirling her wand in the air in preparation.  
+    Execute: The witch flicks her wand, launching magic sparks at her enemy.  
+    Recovery: Out of breath from the power, the witch lowers her arm.  
+    Cooldown: The witch waits for her magic powers to return to her.  
 
 Once an ability is triggered to start, it cycles through Cast > Execute > Recovery > Cooldown. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
@@ -46,7 +46,7 @@ A created function can be connected to these events, using `:Connect(ability_nam
 
 Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
 
-!!! info "Possible Differences between Abilities"
+!!! info "Making Your Ability Unique!"
     A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
 
 ### Tutorial
@@ -87,9 +87,15 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
     2. To allow the player to always sprint when they activate this ability, we must change `ability.canBePrevented` to false.
 
 
-    3. Towards the bottom, within `OnExecute_Sprint(ability)`, remove all 3 lines relating to `target_data`, as we won’t need this for sprinting.
-        - This is how to access the hit or contacted object when creating an ability that affects the world or other players.
-
+    3. Towards the bottom, within `OnExecute_Sprint(ability)`, remove all these lines relating to `target_data`, as we won’t need this for sprinting:
+    
+    ```python
+    -- if requires_target_data is set on phase, can access target_data 
+	-- for properties in target_data, see comment block below
+	local targetData = ability:GetTargetData()
+    ```
+    
+    This is how to access the hit or contacted object when creating an ability that affects the world or other players.
 
 
 6. Now we have removed unnecessary parts of the code, and we need to change what happens in the functions at the bottom. These are what happens in each phase.
@@ -141,7 +147,7 @@ Or any name you like.
 
 2. In the ability script that where the ability is created, get a reference to that ability control button.
 
-`local abilityControl = game:FindObjectByName('AbilityUI')`
+`local abilityControl = game:FindObjectByName("AbilityUI")`
 
 3. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability button.
 
