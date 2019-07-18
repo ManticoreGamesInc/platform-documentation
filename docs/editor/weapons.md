@@ -100,7 +100,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
    end
    ```
 
-10. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
+11. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
 
    ```python
    weapon.equippedEvent:Connect(Pickup)
@@ -109,9 +109,38 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 
    This causes the `Pickup()` function to happen any time the weapon is equipped, and `Drop()` to happen any time the weapon is unequipped.
 
-### Test & Polish the Weapon
+!! info
+    At this time, when testing the game, you should be able to pick up the gun and fire it, but nothing will shoot out of the gun.  
+    You should also be able to pick up a second weapon if you duplicate the first weapon.
 
-11. test it out bro!
+### Polish the Weapon
+
+12. What happens if the player picks up a weapon while they are already holding one? Bad stuff! To fix the weapon so the player can only hold one at a time, we need to add code in the `Pickup()` event of the `PickupWeaponScript`. Add this code below to `Pickup()`:
+
+   ```python
+    for _,prevEquip in pairs(player:GetEquipment()) do
+        if (prevEquip ~= weapon and prevEquip.socket == weapon.socket) then
+            prevEquip:Unequip()
+        end
+    end
+   ```
+With this added, the entire Pickup() function should now look like this:
+
+   ```python
+   function Pickup(equipment,  player)
+	 -- remove any equipment the player already has
+     for _,prevEquip in pairs(player:GetEquipment()) do
+         if (prevEquip ~= weapon and prevEquip.socket == weapon.socket) then
+             prevEquip:Unequip()
+         end
+     end
+
+	 trigger.isInteractable = false
+	 trigger.isCollidable = false
+   end
+   ```
+
+13. Be awesome
 
 A second example will show how to have a player start with a specific weapon equipped.
 
