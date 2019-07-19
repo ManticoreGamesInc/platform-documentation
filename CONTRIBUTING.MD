@@ -41,6 +41,15 @@ If it is a page in an existing folder:
 If it is in a new folder, add `-FolderName:` to the `nav:` root, like the
 others.
 
+## Branch Workflow
+
+When starting a new feature:
+- Check out a new branch with that feature as the name (e.g. `camera-controls`)
+- Commit any changes to that branch
+- When it is done, create a merge request, merging your feature branch into `production`
+- Others can then comment on the pull request, and once it has been audited it
+  will be merged
+
 ---
 
 # Details
