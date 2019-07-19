@@ -94,7 +94,13 @@ up the history, and simply allow upstream commits for builds.
 #### Full Setup
 
 [Install python and pip](https://www.makeuseof.com/tag/install-pip-for-python/) if you don't have them already.
+Make sure your [GitHub](https://github.com/) account is associated with your Manticore e-mail, otherwise sign up a new account.
 
+- Navigate: Control Panel > User Accounts > Credential Manager > Windows Credentials.
+- Find Git credentials in the list (e.g. git:https://).
+- Login with your GitHub account associated with your Manticore e-mail.
+
+- Open the command prompt.
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
 - Clone this project from GitHub (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
 - `pip install -r requirements.txt` --installs required files
