@@ -26,19 +26,16 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 1. The first thing to do is to open the *Object* menu at the top of the editor, and select **Create Weapon**. This adds one empty weapon to your current game's hierarchy. 
 
 2. The weapon will be completely "empty" having no visible parts at first! The look of the weapon can be made from any Core primitaves and shapes.
-
-   These shapes should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.  
-   This attaches the look of the weapon to the function of the weapon! 
+ These shapes should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.  
+ This attaches the look of the weapon to the function of the weapon! 
    
 3. Right click on that folder of shapes, and click Create Network Context > Create New Client Context Containing This.  
 This puts a lot less pressure on the game to run well. To understand more about a Client Context, read [the related page].
 
 4. Next, using the same *Object* menu at the top of the editor, click "**Create Box Trigger**".  
    We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger.  
-
-   In the Box Trigger's Properties, check the Interactable box to be on. 
-
-   Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
+In the Box Trigger's Properties, check the Interactable box to be on. 
+Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
 
 5. To allow the trigger to detect if the player is close enough to the weapon to pick it up, we need to create a script called `PickupWeaponScript`. In the *Asset Manifest*, click the create script button to make a new empty script.
 
