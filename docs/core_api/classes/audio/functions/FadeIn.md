@@ -12,7 +12,7 @@ Starts playing and fades the [Audio](/core_api/classes/audio/AudioOverview) in o
 
 ### Syntax
 
-`:FadeIn()`
+`:FadeIn(Number time)`
 
 ### Example
 
