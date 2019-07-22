@@ -91,6 +91,14 @@ nav:
                     - Stop: 'core_api/classes/audio/functions/Stop.md'
                     - FadeIn: 'core_api/classes/audio/functions/FadeIn.md'
                     - FadeOut: 'core_api/classes/audio/functions/FadeOut.md'
+            - Replicators:
+                - Overview: 'core_api/classes/replicators/ReplicatorsOverview/'
+                - Events:
+                    - valueChangedEvent: 'core_api/classes/replicators/events/valueChangedEvent/'       
+                - Functions:
+                    - GetValue: 'core_api/classes/replicators/functions/GetValue/'
+                    - SetValue: 'core_api/classes/replicators/functions/SetValue/'
+
 
 # If you make a PR, no need to change data below this point
 
