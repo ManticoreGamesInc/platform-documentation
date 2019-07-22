@@ -12,7 +12,7 @@ Fades the [Audio](/core_api/classes/audio/AudioOverview) out and stops over time
 
 ### Syntax
 
-`:FadeOut()`
+`:FadeOut(Number time)`
 
 ### Example
 
