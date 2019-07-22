@@ -111,7 +111,7 @@ script.parent:RotateContinuous(Rotation.New(200, 0, 0))
 
 We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](/img/scripting/SpinCoin.png)
+![SpinCoinLocation](/img/getting_started/SpinCoin.png)
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -253,7 +253,7 @@ end
 
 Now that we have the code to display it, let's add `DisplayCoins` as a child of the Text Control. The folder structure at this point should look like this:
 
-![UIText](/img/scripting/UIText.png)
+![UIText](/img/getting_started/UIText.png)
 
 Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel.
 
@@ -307,7 +307,7 @@ Next, create a boolean parameter called "gameOver" under the Replicator. Leave t
 
 Here's the entire hierarchy at this point:
 
-![GameLogicHierarchy](/img/scripting/GameLogicHierarchy.png)
+![GameLogicHierarchy](/img/getting_started/GameLogicHierarchy.png)
 
 !!! note
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
