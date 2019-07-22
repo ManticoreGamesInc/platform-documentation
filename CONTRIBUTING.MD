@@ -93,7 +93,7 @@ up the history, and simply allow upstream commits for builds.
 
 #### Full Setup
 
-[Install Python (with pip included)](https://www.python.org/) if you don't have them already. You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/). 
+[Install Python (with pip included)](https://www.python.org/) if you don't have them already. In your installation, make sure to **checkmark to option box to "Add Python to PATH"**. You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/). To manually add Python to PATH if you did not install it as so, reference [here](https://datatofish.com/add-python-to-windows-path/).
 
 Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) account associated with your Manticore e-mail, otherwise sign up a new account.
 
@@ -110,6 +110,8 @@ Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) ac
 - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
 - Find Git credentials in the list (e.g. git:https://).
 - Delete your Git credentials and restart the process to be prompted again. 
+
+Any new session, you make need to start up a server again with `mkdocs serve` after navigating to your platform-documentation folder.  
 
 If you need a standalone and lightweight Markdown editor,
 [Typora](https://typora.io/) is a good one.
