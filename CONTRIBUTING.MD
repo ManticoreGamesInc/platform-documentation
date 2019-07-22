@@ -93,19 +93,23 @@ up the history, and simply allow upstream commits for builds.
 
 #### Full Setup
 
-[Install python and pip](https://www.makeuseof.com/tag/install-pip-for-python/) if you don't have them already.
-Make sure your [GitHub](https://github.com/) account is associated with your Manticore e-mail, otherwise sign up a new account.
+[Install Python (with pip included)](https://www.python.org/) if you don't have them already. You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/). 
 
-- Navigate: Control Panel > User Accounts > Credential Manager > Windows Credentials.
-- Find Git credentials in the list (e.g. git:https://).
-- Login with your GitHub account associated with your Manticore e-mail.
+Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) account associated with your Manticore e-mail, otherwise sign up a new account.
 
 - Open the command prompt.
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
 - Clone this project from GitHub (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
-- `pip install -r requirements.txt` --installs required files
-- `mkdocs serve` --starts server, which watches for changes upon saving and updates live
-- Navigate to `http://127.0.0.1:8000/`
+- When prompted by popup, sign in with your Gitlab account associated with your Manticore email.* 
+- Navigate to the platform-documentation location (via command line with `cd platform-documentation`)
+- Enter `pip install -r requirements.txt` into the commmand line to install required files
+- Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live
+- Navigate to `http://127.0.0.1:8000/` for changes upon saving and and live updates
+
+* If you mistype your information, you can edit your information
+- Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
+- Find Git credentials in the list (e.g. git:https://).
+- Delete your Git credentials and restart the process to be prompted again. 
 
 If you need a standalone and lightweight Markdown editor,
 [Typora](https://typora.io/) is a good one.
