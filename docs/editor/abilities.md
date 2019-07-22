@@ -1,4 +1,4 @@
-### Abstract
+## Abstract
 
 An ability is anything that the player can do themselves. 
 
@@ -49,7 +49,7 @@ Connecting functions to events in an ability is the main task to be done when cr
 !!! info "Making Your Ability Unique!"
     A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
 
-### Tutorial
+## Tutorial
 
 Adding an ability to a game does take a little bit of coding.
 
@@ -59,27 +59,31 @@ While most all of the coding is already done for you to cause an ability to happ
 
 In this tutorial, we will be making a simple sprint ability that will use all 4 phases, but is very quick to create.
 
-1. With Core open to a project, click on View > Script Generator to open the script generator.
+### Generating the Script
 
-2. The default should already be Ability, but if it is not, select Ability from the drop-down menu on the top right. You should see this fancy window:
+1. With Core open to a project, click on View > Script Generator to open the **Script Generator**.
 
-![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
+2. The default selected should already be Ability, but if it is not, select Ability from the drop-down menu on the top right. You should see this fancy window:  
+ ![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
 
 3. We’re going to change some of the options at the top of this window.
     1. Change the **Ability Name** in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
 
-    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to ‘`ability_feet`’.
+    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to ‘`ability_feet`’.  
+     For keyboards, this is the **shift** key.
 
     3. When making a simple running sprint, we don’t need to change the animation, but an animation can be chosen to play when an ability is executed.
 
     4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes. 
 
-4. Click the button ‘Create New Script’ to create a new script with all of this code.
+4. Click the button ‘Create New Script’ to create a new script with all of this code. Name the script `AbilityScript`.
 
 !!! info "Script Generator Calls"
     Not all code from within the script generator is needed in every case, and Event Connects that you are not using do not need to be copied into your ability script.
 
-5. Now we make our changes, but first is removing unneeded parts!
+### Customizing the Code
+
+1. Now we make our changes, but first is removing unneeded parts!
 
     1. Since we aren’t using an animation, the first thing we want to change is to remove the line that says ‘`ability.animation = “1hand_melee_slash_left”`’.
 
@@ -87,18 +91,16 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
     2. To allow the player to always sprint when they activate this ability, we must change `ability.canBePrevented` to false.
 
 
-    3. Towards the bottom, within `OnExecute_Sprint(ability)`, remove all these lines relating to `target_data`, as we won’t need this for sprinting:
-    
+    3. Towards the bottom, within `OnExecute_Sprint(ability)`, remove all these lines relating to `target_data`, as we won’t need this for sprinting:  
     ```python
     -- if requires_target_data is set on phase, can access target_data 
 	-- for properties in target_data, see comment block below
 	local targetData = ability:GetTargetData()
-    ```
-    
-    This is how to access the hit or contacted object when creating an ability that affects the world or other players.
+    ```  
+     This is how to access the hit or contacted object when creating an ability that affects the world or other players.
 
 
-6. Now we have removed unnecessary parts of the code, and we need to change what happens in the functions at the bottom. These are what happens in each phase.
+2. Now we have removed unnecessary parts of the code, and we need to change what happens in the functions at the bottom. These are what happens in each phase.
 
     1. Add the line ‘`ability.owner.walkSpeed = .5`’ to the OnCast_Sprint function. This will lower the speed of the player in the time before they start sprinting, to simulate building up energy.
 
@@ -108,11 +110,9 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
     4. Add the line ‘`ability.owner.walkSpeed = 1`’ to the OnCooldown_Sprint function to reset player speed back to normal.
 
-!!! info "the print_to_screen lines"
-    The functions for each phase come with a print_to_screen line for game testing and debugging purposes, and they can be useful, but feel free to remove them!
+    5. The functions for each phase come with a `print_to_screen` line for game testing and debugging purposes, and they can be useful to tell which ability phase is happening at that moment, but feel free to remove them!
 
-7. To change how long each phase lasts, change the durations to this:
-
+3. To change how long each phase lasts, change the durations to this:  
 ```
 ability.castPhaseSettings.duration = .7
 ability.executePhaseSettings.duration = 3
@@ -120,61 +120,57 @@ ability.recoveryPhaseSettings.duration = 1
 ability.cooldownPhaseSettings.duration = 2
 ```
 
-8. We have nearly everything set up now--the only thing left is to actually assign the ability to a player.
+4. We have nearly everything set up now--the only thing left is to actually assign the ability to a player.  
+ There are many ways to do this (granting a new ability when an item is picked up) but in this case, we are going to give the player the ability as soon as the game starts so that they always have it.  
+  Beneath all code this ability script so far, add this line:  
+ `game.playerJoinedEvent:Connect(CreateAndGiveToPlayer_Sprint)`  
+  This will connect the function that we made to the moment when a player joins the game, giving them the ability to sprint!
 
-There are many ways to do this (granting a new ability when an item is picked up) but in this case, we are going to give the player the ability as soon as the game starts so that they always have it.
-
-Beneath all code this ability script so far, add this line:
-
-`game.playerJoinedEvent:Connect(CreateAndGiveToPlayer_Sprint)`
-
-This will connect the function that we made to the moment when a player joins the game, giving them the ability to sprint!
-
-9. Make sure this new script is dragged into the Hierarchy, and hit play! Test out that crazy running speed.
+5. Make sure this new script is dragged into the Hierarchy, and hit play! Test out that crazy running speed.  
+ Remember that the **shift** key is what activates this ability since it uses the `ability_feet` input binding.
 
 This works great, but using print statements to tell which phase is active isn’t helpful. Luckily there is a UI element built exactly for abilities!
 
-### UI Ability Button
+### UI Ability Control
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Button](/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Button](/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Button](/img/EditorManual/Abilities/CooldownAbility.PNG)
+![Ability Control](/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Control](/img/EditorManual/Abilities/CooldownAbility.PNG)
 
 To get this to work correctly, there are only three steps:
 
-1. Drag an ability control from the View > UI Editor onto a canvas and rename that control to AbilityUI.
-Or any name you like.
+1. Go to View > UI Editor and drag a Canvas into the hierarchy.
 
-2. In the ability script that where the ability is created, get a reference to that ability control button.
+1. Drag an Ability Control from the View > UI Editor onto the Canvas and rename that control to `AbilityUI`.
 
-`local abilityControl = game:FindObjectByName("AbilityUI")`
+2. In the same `AbilityScript` that we made above, get a reference to that new ability control.  
+ `local abilityControl = game:FindObjectByName("AbilityUI")`
 
-3. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability button.
-
-`abilityControl.ability = ability`
-
-This will automatically change the button displayed to what was assigned when the ability was created.
+3. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability control.  
+ `abilityControl.ability = ability`  
+  This will automatically change the control displayed to what was assigned when the ability was created.
 
 
 *Now the UI element will update automatically when the ability is cast!*
 
 ### Networking
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. What doesn't happen automatically is the updating of the UI--for this to work, the UI relating to the player's abilities must be placed in a Client Context folder. 
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. What doesn't happen automatically is the updating of the UI. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder. 
 
 !!! info "Client Context"
-    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related page].
+    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related Networking page].
 
-To get the job done, here is how to get Ability UI that we made above to display correctly in multiplayer games:
+To get the job done, here is how to get Ability UI that we made in the above section to display correctly in multiplayer games:
 
-1. Within the UI Canvas, right click in the Hierarchy and create a New Client Context.
+1. Within the UI Canvas that we made above, right click in the Hierarchy and create a New Client Context.
 
-2. Create a new script and name it "ClientUI_UpdateScript", and drag this script into the Client Context folder.
+2. Create a new script and name it `ClientUI_UpdateScript`, and drag this script into the Client Context folder.  
+ Your Hierarchy should now look like this:  
+  ![Hierarchy](/img/EditorManual/Abilities/Hierarchy.PNG)
 
-4. Copy this code within the script:
-
+3. Copy this code below and paste it within the new script:  
 ```
-local sprintUIControl = game:FindObjectByName('AbilityUI')
+local sprintUIControl = game:FindObjectByName("AbilityUI")
 
 local playerAbilitiesAssigned = false
 
@@ -194,10 +190,10 @@ function assign_abilities(player)
 		end
 	end
 end
-```
+```  
+ This code is a bit heavy on Core, but it does the trick! Several times a second, this script checks whether a player in the game has already had their abilities assigned to the UI controls. It does this only once for each player.  
+ Now the ability AND the ability's UI work in multiplayer games!
 
-Now the ability AND the ability's UI work in multiplayer games!
-
-### Examples
+## Examples
 
 *FAA_GameMode* includes functioning abilities. 
