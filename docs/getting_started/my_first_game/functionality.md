@@ -343,11 +343,11 @@ After designing the Victory UI, we'll want to hide it until it's the appropriate
 * Toggle the visibility of the Victory UI under Properties, Scene > Visible
 * Customize your font color, size, and justification!
     
-Let's add a parameter again. This time, a CoreObject Reference so we can access our Replicator. 
-Drag the Replicator from the hierarchy into the input field. 
-
 Now, let's make a script called "DisplayUI" that makes the Victory UI visible at the end of the game!
-We will parent this script underneath the "Victory UI". 
+We will parent this script underneath the "Victory UI".
+
+Let's add a parameter to our newly created script "DisplayUI". 
+This time, a CoreObject Reference so we can access our Replicator. Drag the Replicator from the hierarchy into the input field. 
 
 ```lua
 ui = script.parent
