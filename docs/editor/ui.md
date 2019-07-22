@@ -29,16 +29,16 @@ Below is an example using the Text Box control:
 
 4. Drag a Text Box into the Canvas to display the text directly onto the screen.
 
-5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
-
-![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
+5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.  
+ ![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
 
-!!! info "Widget Placement"
+!!! info "Widget Placement for Different Screen Resolutions"
     Once dragged in, if the widget is properly in the Canvas, it should be showing up in the top left corner. 
-    It is in this location because it is by default **anchored** and **docked** to the top left. UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
+    It is in this location because it is by default **anchored** and **docked** to the top left.  
+     UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
 
 ![TransformBoundingBox](/img/EditorManual/UI/TextBoxUiElement.PNG)
