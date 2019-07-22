@@ -365,7 +365,7 @@ local rep = script:GetCustomProperty("Replicator"):WaitForObject()
 rep.valueChangedEvent:Connect(OnChanged)
 ```
 
-![Replicator](/img/scripting/Replicator.png)
+![Replicator](/img/getting_started/Replicator.png)
 
 Your hierarchy should look like above now! 
 
