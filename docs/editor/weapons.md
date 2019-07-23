@@ -45,20 +45,21 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
 4. Next, using the same *Object* menu at the top of the editor, click "**Create Box Trigger**".  
    We are going to make a gun that will need to be picked up by the player, and to detect whether the player is close enough to the weapon, we need to use a Box Trigger.  
-In the Box Trigger's Properties, check the Interactable box to be on.  
-Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
+    1. In the Box Trigger's Properties, check the Interactable box to be on.  
+    2. Type "Press F to Equip" in the Interaction Label spot. This is what displays when the player approaches the trigger.
 
 5. To allow the trigger to detect if the player is close enough to the weapon to pick it up, we need to create a script called `PickupWeaponScript`. In the *Asset Manifest*, click the create script button to make a new empty script.
 
 6. Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.  
- Click on the weapon in the hierarchy. In the Properties window, scroll down to the Projectile section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!  
-  To do this, let's add a capsule shape to our project Hierarchy. Change the scale to shrink the size until you are satisfied with the bullet shape. Right click the shape, and click "Enable Networking".
- Next, right click this capsule, and click "Create New Template From This".  
-  Once it is a template, delete it from the project Hierarchy. We now can drag that bullet template from our Asset Manifest into the Projectile Template property of the weapon!
+    1. Click on the weapon in the hierarchy. In the Properties window, scroll down to the Projectile section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!  
+  To do this, let's add a capsule shape to our project Hierarchy. Change the scale to shrink the size until you are satisfied with the bullet shape.  
+    2. Right click the shape, and click "Enable Networking".  
+    3. Next, right click this capsule, and click "Create New Template From This".  
+    4. Once it is a template, delete it from the project Hierarchy. We now can drag that bullet template from our Asset Manifest into the Projectile Template property of the weapon!
 
 7. Drag the `PickupWeaponScript` into the Hierarchy. Then, drag both that script and the BoxTrigger onto the weapon.  
  This will cause the trigger and script to be children of the weapon, making it easier to access variables and keep everything contained.  
-  The hierarchy should now look like this:  
+  The hierarchy should now look like this, without the (networked) part. That's next!
    ![Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy.png)
    
 8. Lastly for the setup, right click on the weapon in the Hierarchy, and click "Enable Networking" to allow the gun to be picked up properly.
@@ -128,9 +129,47 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
  The Hierarchy should now look like this:  
   ![Current Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy2.png)
 
-2. make it hurt players on impact
+2. We're going to make our gun do straightforward gun things: damage a player when shot.  
+ Weapons do not come with a damage property by default, so we're going to add a **Custom Property** to our weapon for easier editing later when testing damage amounts.  
+    1. Click on the weapon itself. In the **Properties** window, at the bottom, click "Add Parameter". A little window will pop up, and here we want to change the drop-down menu to a `Float`, and change the words in the box to `Damage_Amount`.  
+    2. This property we just made shows up at the bottom of the Properties window, in a section named "Custom". Enter the number 50 into the Damage_Amount box.  
+    3. This is how you can change the damage the gun does at any time later!
 
-3. finish this tutorial
+3. Next, open the `AttackScript` we made earlier. Delete all code currently in there. We need to create a reference to that `Damage_Amount` property we made. Copy this code into your empty script:   
+   ```lua
+   local damageAmount = script.parent:GetCustomProperty("Damage_Amount") or 1
+   ```  
+   This sets the variable `damageAmount` to whatever value we entered into the Properties box, or sets it to 1 if nothing was set in the box.  
+
+4. Now that we have all the references we need, we can make the function that actually causes damage.  
+ All `weapon` objects have an event, `targetInteractionEvent`, that is triggered the moment their projectile collides with an object, and what we want to do is make a function to connect to that event.  
+  So we want a player to take damage the moment a bullet hits them! To do this, copy the code here and paste it into the `AttackScript` below the `damageAmount` line:  
+  ```lua
+  function handle_interacted(weaponInteraction)
+    local other = weaponInteraction.targetObject
+
+      if (other and damageAmount) then
+        if (other:IsA("Player")) then
+          -- hurt target player
+          other:ApplyDamage(Damage.New(damageAmount))
+        end
+      end
+  end
+  ```  
+  Here, the function takes in the parameter `weaponInteraction` which gives a bunch of information about what was hit the moment the bullet makes contact with an object.  
+   We created the variable `other` and set it to what the `targetObject` is so that we can compare if that `other` is a player, as opposed to a rock or the floor.  
+   If `other` is a player, then we `ApplyDamage()` to them! `ApplyDamage()` is a built-in function for Core.  
+   `Damage` is also a built-in Core class, and we create a New instance of it to plug in our `damageAmount`.  
+
+5. Lastly, we need to use the `EventListeners` to connect our function to the `targetInteractionEvent` of the weapon. Copy this code into the bottom of your `AttackScript`:  
+ ```lua
+ script.parent.targetInteractionEvent:Connect(handle_interacted)
+ ```  
+
+Now all the basics are hooked up! The gun should be able to shoot and kill other players. 
+
+This is a really simple version of a gun. Each part could be done a different way or made more complicated for whatever your imagination can dream up! You could go back into what we have created to add more functionality.  
+ Some possible improvements are included in the next section.
 
 ### Polish the Weapon
 
@@ -156,10 +195,6 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
 	 trigger.isCollidable = false
    end
    ```
-
-2. Be awesome
-
-A second example will show how to have a player start with a specific weapon equipped.
 
 ## Examples
 
