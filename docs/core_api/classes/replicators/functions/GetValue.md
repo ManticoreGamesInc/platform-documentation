@@ -30,4 +30,4 @@ replicator.valueChangedEvent:Connect(OnChanged)
 ### See Also
 
 * [Classes.Replicators](/core_api/classes/replicators/)
-* [SetValue](/core_api/classes/replicators/SetValue)
+* [SetValue](/core_api/classes/replicators/functions/SetValue)

@@ -26,4 +26,4 @@ replicator:SetValue("Key", value)
 ### See Also
 
 * [Classes.Replicators](/core_api/classes/replicators/)
-* [SetValue](/core_api/classes/replicators/SetValue)
+* [GetValue](/core_api/classes/replicators/functions/GetValue)
