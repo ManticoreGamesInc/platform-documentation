@@ -5,14 +5,14 @@ A core component of making quality video games is good user interface design. He
 
 - Creating UI in CORE is mostly a drag-and-drop process.
 
-- All UI elements can be found under View > UI Editor.
-
-- All of these do different things and be combined in different ways. 
+- All UI elements can be found under Object > 2D UI.
 
 - All UI elements need to be contained within a Canvas widget. Drag a Canvas widget into the hierarchy to start working on UI.
 
+- All UI elements do different things and be combined in many ways.
+
 !!! info
-    Words like *widget*, *control* and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
+    Words like *widget*, *control*, and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
 
 ### Tutorial
 
@@ -21,23 +21,23 @@ Each widget works a little differently, but all are set up in the same basic way
 Below is an example using the Text Box control:
 
 
-1. Click on View in the top left of the CORE window. 
+1. Click on Object in the top left of the CORE window. 
 
-2. At the bottom of the list, click "UI Editor" to view all UI options.
+2. At the bottom of the list, hover over 2D UI to view all UI options.
 
-3. Drag a Canvas into the Hierarchy window.
+3. Click Canvas to bring it into the Hierarchy window.
 
-4. Drag a Text Box into the Canvas to display the text directly onto the screen.
+4. From that 2D UI section of the Object menu, click a Text Box to bring it into the Hierarchy and drag it onto the Canvas to display the text directly onto the screen.
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.  
  ![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
 
-6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
+6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.  
 
-
-!!! info "Widget Placement for Different Screen Resolutions"
-    Once dragged in, if the widget is properly in the Canvas, it should be showing up in the top left corner. 
+7. Once dragged in, if the widget is properly in the Canvas, it should be showing up in the top left corner. 
     It is in this location because it is by default **anchored** and **docked** to the top left.  
+
+!!! info "UI Placement on Different Screen Resolutions"
      UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
 
@@ -56,7 +56,7 @@ Adjustable properties of the Text Box:
 
 **Rotation Angle** is as it says--based on the Transform Pivot.
 
-**Text** is unique to the Text Box control and determines what text is displayed.
+**Text** determines what text is displayed.
 
 **Color** decides the color of the font.
 
