@@ -12,7 +12,7 @@ An event that is fired whenever any of the parameters managed by the [Replicator
 
 ### Syntax
 
-`:SetValue(string, Object)`
+`.valueChangedEvent`
 
 ### Example
 
