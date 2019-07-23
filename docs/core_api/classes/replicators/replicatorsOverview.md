@@ -26,7 +26,7 @@ replicator.valueChangedEvent:Connect(OnChanged)
 
 - *Example server usage:*
 ```lua
-local replicator = script:GetCustomProperty(“MyReplicator”):WaitForObject()
+local replicator = script:GetCustomProperty("MyReplicator"):WaitForObject()
 replicator:SetValue("Key", value)
 ```
 
