@@ -20,7 +20,7 @@ When a player picks up or *equips* a weapon object, the player is instantly able
 
 ## Tutorial
 
-Adding a weapon to a game is more steps than just spawn, modify, and equip. The tutorial below will walk you through the entire process from an empty project, to using a gun of your own making in a level!
+Each step of creating a weapon allows for added creativity. While doing this tutorial you might come up with more ways to fancify your weapon! The tutorial below will walk you through the entire process from an empty project, to using a gun of your own making in a level!
 
 This gun will be placed in the world and the player will need to pick it up to use it.
 
@@ -39,7 +39,8 @@ In this tutorial, we will be adding a really simple gun to an empty project.
   This model should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.  
  This attaches the visuals of the weapon to the function of the weapon!  
   Your Hierarchy should now look like this:  
- ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.PNG)
+ ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.PNG)  
+
 3. Right click on that folder of shapes, and click Create Network Context > Create New Client Context Containing This.  
 This puts a lot less pressure on the game to run well. To understand more about a Client Context, read [the related page].
 
@@ -52,17 +53,18 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
 6. Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.  
     1. Click on the weapon in the hierarchy. In the Properties window, scroll down to the Projectile section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!  
-  To do this, let's add a capsule shape to our project Hierarchy. Change the scale to shrink the size until you are satisfied with the bullet shape.  
-    2. Right click the shape, and click "Enable Networking".  
-    3. Next, right click this capsule, and click "Create New Template From This".  
+  To do this, let's add a capsule object to our project Hierarchy. Change the scale to shrink the size until you are satisfied with the bullet shape.  
+    2. Once you are happy with the bullet shape, right click the object in the Hierarchy and click "Create Folder Containing This" to wrap our object in a folder. This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape.
+    2. Right click this folder, and click "Enable Networking".  
+    3. Next, right click this folder again, and click "Create New Template From This".  
     4. Once it is a template, delete it from the project Hierarchy. We now can drag that bullet template from our Asset Manifest into the Projectile Template property of the weapon!
 
 7. Drag the `PickupWeaponScript` into the Hierarchy. Then, drag both that script and the BoxTrigger onto the weapon.  
- This will cause the trigger and script to be children of the weapon, making it easier to access variables and keep everything contained.  
-  The hierarchy should now look like this, without the (networked) part. That's next!
-   ![Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy.png)
+ This will cause the trigger and script to be children of the weapon, making it easier to access variables and keep everything contained.
    
-8. Lastly for the setup, right click on the weapon in the Hierarchy, and click "Enable Networking" to allow the gun to be picked up properly.
+8. Lastly for the setup, right click on the weapon in the Hierarchy, and click "Enable Networking" to allow the gun to be picked up properly.  
+   The hierarchy should now look like this:  
+   ![Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy.png)
 
 ### Programming the Weapon
 
@@ -81,7 +83,7 @@ This puts a lot less pressure on the game to run well. To understand more about 
 	   end
    end
    ```  
-   This is a function that takes in both a trigger `whichTrigger` and an object `other`. When any Core object overlaps the trigger, it will cause this function to happen.  
+   This is a function that takes in both a trigger `whichTrigger` and an object `other`. When any Core object overlaps the trigger, it will show a pop up with the text we set on the trigger's Interaction Label, and when interacted with, will cause this function to happen.  
     The code inside the function is checking if the `other` object is a player. If `other` is a player, then it does the code contained within it: equip the weapon onto `other`!  
 
 3. To tie the function we made to the moment something overlaps the trigger, we need to connect the function to the trigger's interacted event. Copy this code to the very bottom of the `PickupWeaponScript`:
@@ -90,26 +92,33 @@ This puts a lot less pressure on the game to run well. To understand more about 
    ```  
     This makes use of `EventListeners` to bind a function to an event.  
      *More information on EventListeners can be found in the Lua API.*
+
 4. Now that the function we made will actually happen, there is some fixing to be done. If you've tried to hit play and pick up the weapon, it does get picked up, but walking might be impossible. Objects in Core have collision turned on by default, meaning that when the weapon is held in the hand of the player, the overlap in collision with the weapon makes the player movement do crazy things.  
  Unless you already turned off the collision of the weapon's shape, this needs to be done in scripting.  
    To turn off the collision when the player picks up the weapon, we will want to make a new function and connect it to the equipped event of the weapon. To do this, let's make a new function called `Pickup()`. Copy the code from below and paste it beneath the `OnInteracted()` function, and above the `:Connect()`:
    ```lua
    function Pickup(equipment,  player)
 	   trigger.isInteractable = false
-	   trigger.isCollidable = false
+	   weapon.isCollidable = false
    end
    ```
    This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
 
-5. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`, directly beneath the `Pickup()` function:
+5. You may also notice that the weapon, when equipped, is not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head.  
+ ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png)  
+ When equipped, the weapon's origin will snap to the attachment point, which is the player's right hand in this case. The odds are high that the weapon will be held in the wrong spot when equipped the first time.  
+  **To fix the weapon model's position**, move the folder within the weapon around in the world to find the right spot.  
+   This takes some experimenting!
+
+6. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`, directly beneath the `Pickup()` function:
    ```lua
    function Drop()
 	   trigger.isInteractable = true
-	   trigger.isCollidable = true
+	   weapon.isCollidable = true
    end
    ```
 
-6. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
+7. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
    ```lua
    weapon.equippedEvent:Connect(Pickup)
    weapon.unequippedEvent:Connect(Drop)
@@ -192,7 +201,7 @@ This is a really simple version of a gun. Each part could be done a different wa
      end
 
 	 trigger.isInteractable = false
-	 trigger.isCollidable = false
+	 weapon.isCollidable = false
    end
    ```
 
