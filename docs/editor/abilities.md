@@ -139,9 +139,9 @@ Core has a UI element already built in that visually shows the transitions betwe
 
 To get this to work correctly, there are only three steps:
 
-1. Go to View > UI Editor and drag a Canvas into the hierarchy.
+1. Go to Object > 2D UI and click a Canvas into the hierarchy.
 
-1. Drag an Ability Control from the View > UI Editor onto the Canvas and rename that control to `AbilityUI`.
+1. Create an Ability Control from the Object > 2D UI onto the Canvas and rename that control to `AbilityUI`.
 
 2. In the same `AbilityScript` that we made above, get a reference to that new ability control.  
  `local abilityControl = game:FindObjectByName("AbilityUI")`
