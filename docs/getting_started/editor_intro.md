@@ -1,4 +1,4 @@
-### Setup
+### Setup/Installation
 
 If you haven't downloaded the editor, go
 [here](https://mantiblob.blob.core.windows.net/builds/Launcher.zip) and extract
@@ -6,22 +6,11 @@ the file into its own directory.
 
 Next, simply click on `PlatformLauncher.exe` and you will see Core start up!
 
-!!! info
-    Note that there are two environments, production and staging (staging is the
-    default). You can create a desktop shortcut for each to easily switch
-    between them. Simple create two shortcuts, right click each and select
-    Properties, and add `-ENV=Staging` or `-ENV=Production` to end of the
-    target. Rename each shortcut as desired, and you're good to go!
-
-!!! Warning
-    Keep production clean. Don't publish templates or games on this environment
-    unless you have authorization to do so please!
-
 ### Editor
 
 When you open up the editor you'll see the following screen:
 
-![](/img/getting_started/Start_01.png)
+![](/src/img/getting_started/Start_01.png)
 
 1. Core! You made it to the right place
 2. User info - click on this to go to the avatar page
@@ -37,7 +26,7 @@ Click on the button to create a new map, put your name here, and then you'll
 load in. You may have to allow it through the firewall, do so, and then you'll
 see the next screen:
 
-![](/img/getting_started/Start_02.png)
+![](/src/img/getting_started/Start_02.png)
 
 1. Toolbar (Undo, Redo, Move, Rotate, Scale, Snap To Grid, Grid Size, World/Local
      Space, Performance View ... Play, Pause, Multiplayer ... Editor Settings)
