@@ -426,11 +426,11 @@ g()  -- Prints out 343; nothing printed before now.
 
 Congrats on making it this far! Here's some memes :D
 
-![](/img/scripting/tables_meme.jpg)
+![](/src/img/scripting/tables_meme.jpg)
 
-![](/img/scripting/multiple_return_meme.jpg)
+![](/src/img/scripting/multiple_return_meme.jpg)
 
-![](/img/scripting/zero_index_meme.jpg)
+![](/src/img/scripting/zero_index_meme.jpg)
 
 [reference]: http://www.lua.org/manual/5.3/
 [official]: https://www.lua.org/pil/contents.html

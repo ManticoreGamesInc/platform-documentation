@@ -4,8 +4,6 @@
 
 Go to each page and click on `edit` to download them locally.
 
-### Functional (Prod)
-
 Name/Link | Description
 --- | ---
 [Fantasy Battle](https://prod.manticoreplatform.com/games/3c99c03c572641a4b0bf999b029be5aa) | Top down FFA battle game with tiered weapons.
@@ -19,20 +17,10 @@ Name/Link | Description
 [UFO](https://prod.manticoreplatform.com/games/fad179eff79a4573b50a6ecf82d8552f) | Side-scroller game with great atmosphere and functional ships. Game mode WIP.
 [CoreSokoban](https://prod.manticoreplatform.com/games/2bff759c654746fda117f0f6e318ef94) | Top down single player puzzle game
 [Realm of the Mad Manticore](https://prod.manticoreplatform.com/games/45d913976c0b44428bf56b55c8bccee9) | Roguelike with progression, intended for co-op.
-
-### Update Required (Staging)
-
-Name/Link | Description
---- | ---
 [ScriptingExample](https://staging.manticoreplatform.com/games/b8efe9e824994eae963d618cdbcabbd1) | Simple coin based-pickup game that demonstrates getting a couple of basic scripts up and running in the context of the editor
 [Forest Arena](https://staging.manticoreplatform.com/games/2dd012a4a582446d8e934052ad9bb7e5) | FFA Shooter. Simple, effective, fun.
 [Core Commander](https://staging.manticoreplatform.com/games/56a3c1cdf682470389866779aeb250cb) | RTS meets shooter. Complex game with structures, advanced UI, weapon tiers, etc.
 [Tween Example](https://staging.manticoreplatform.com/games/37f09c4e57344827bf1a079389508d92) | Tween example map
-
-### Reference (no guarantee of quality)
-
-Name/Link | Description
---- | ---
 Browse | Just look around for others not mentioned, you may find something useful!
 
 ## Templates
@@ -57,6 +45,7 @@ ForestArena | Simple small map you can drag and drop in to get a game going quic
 Player Default Size Guide | Useful measurements for map creation
 DebugClientUI | Tool to allow for debugging remote clients with UI text displays
 MessageTest | Simple way to send messages from server --> client
+Browse | Just look around for others not mentioned, you may find something useful!
 
 ### Update Required
 
@@ -65,12 +54,6 @@ Name | Description
 Gravity Gun | Working gravity gun in Core!
 PartyHUD | Team and enemy healthbars and info you can drag and drop into any game.
 WorldBottomGuard | Kills players below a configurable z-axis.
-
-### Reference (no guarantee of quality)
-
-Name | Description
---- | ---
-Browse | Just look around for others not mentioned, you may find something useful!
 
 ## Scripts
 
@@ -87,3 +70,4 @@ Name/Link | Description
 ### Needed
 
 - What isn't represented here? Let us know!
+- To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).

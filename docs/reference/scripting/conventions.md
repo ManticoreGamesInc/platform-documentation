@@ -384,4 +384,36 @@ trigger.beginOverlapEvent:Connect(HandleOverlap)
 
 ---
 
-* Note: Some content here is inspired from Roblox's Style Guide - all credit where it is due.
+* Note: Some content here is inspired from [Roblox's Style Guide](https://roblox.github.io/lua-style-guide/) - all credit where it is due.
+
+---
+
+# Best Practices
+
+ToDo: Why you shouldn't pollute the global namespace, why run order matters and
+how to structure your project to mitigate that, etc.
+
+## Miscellaneous
+
+## _G vs require
+
+require() explicitly makes a script execute if it hasn't already, and only executes a given script once.
+
+If you need multiple instances of the same script dynamically spawned require
+doesn't make sense
+
+
+## Using External Data
+
+Regarding external data, you can use require() and a script that returns a long string to encapsulate json data in its own script.  Then use require again with a json library from the internet like this one:  https://raw.githubusercontent.com/rxi/json.lua/master/json.lua
+
+To make a script that returns a json string when you require it, start with
+this:
+
+```lua
+return [===[
+
+]===]
+```
+
+and just paste your json into the empty line in the middle.  No need to escape quotes or anything, as long as your json doesn't contain the string "]===]"
