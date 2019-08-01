@@ -1,31 +1,10 @@
-# Overview
-
-Welcome to the wonderful world of scripting in Core! We have a complete
-programming language available, so the possibilities are endless.
-
-- For details on [Lua](/scripting/lua_primer), check out the primer
-- For [IDE setup](/scripting/ide_tools) tips (advanced users), check out that section
-- For tips on [debugging](/scripting/debugging), we've got that covered
-- [Best practices](/scripting/best_practices) and misc tips can be useful
-- Lastly, we have a section on [code conventions](/scripting/conventions) as well
-
----
-
-View -> Script Debugger
-
-You need to enable the feature by clicking on the blue bug (it should turn orange)
-
-You can toggle breakpoints by clicking on a line number in the internal editor
-
----
-
 # Tutorial
 
 ## Prerequisites
 
-Skim through the information in the [scripting](/scripting/overview) section before
-continuing here.
-
+Core uses the Lua programming language, so make sure to check out our
+[primer](/reference/scripting/lua_primer/) if you haven't worked with the
+language before.
 
 ## My First Script
 
@@ -103,7 +82,7 @@ init()
 
 If you are having issues, check to see if your `TutorialScript` looks like this in the Properties view:
 
-![MyFirstScript](/img/scripting/MyFirstScript.png)
+![MyFirstScript](/src/img/scripting/MyFirstScript.png)
 
 ---
 
@@ -117,7 +96,7 @@ In CORE, shared content houses many assets you can use in your own games to spee
 
 To add the `Manticoin` asset to your project, head over to the `Shared Content` tab inside the editor. Type "Manticoin" into the search bar, and click on the one by "max." All you have to do to add it to your project is to click the "Add to Project" button, which is a big plus (+).
 
-![Manticoin](/img/scripting/manticoin.png)
+![Manticoin](/src/img/scripting/manticoin.png)
 
 !!! note
     The editor will prompt you to save before it adds it to your project.
@@ -134,7 +113,7 @@ script.parent:RotateContinuous(Rotation.New(200, 0, 0))
 
 We'll explain what this line does in a moment, but for now, quickly make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](/img/getting_started/SpinCoin.png)
+![SpinCoinLocation](/src/img/getting_started/SpinCoin.png)
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -279,7 +258,7 @@ Next, let's place the script `DisplayCoins` as a child of the Text Control. In t
 
  The folder structure at this point should look like this:
 
-![UIText](/img/getting_started/UIText.png)
+![UIText](/src/img/getting_started/UIText.png)
 
 We can remove the `TutorialScript` from the hierarchy now that we have wonderful updating UI set up. :) Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](/editor/ui/) is a cool tutorial to check out.
 
@@ -332,7 +311,7 @@ Next, create a boolean parameter called "gameOver" under the Replicator via the 
 
 Here's the entire hierarchy at this point:
 
-![GameLogicHierarchy](/img/getting_started/GameLogicHierarchy.png)
+![GameLogicHierarchy](/src/img/getting_started/GameLogicHierarchy.png)
 
 !!! note
     The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
@@ -389,7 +368,7 @@ local rep = script:GetCustomProperty("Replicator"):WaitForObject()
 rep.valueChangedEvent:Connect(OnChanged)
 ```
 
-![Replicator](/img/getting_started/Replicator.png)
+![Replicator](/src/img/getting_started/Replicator.png)
 
 Your hierarchy should look like above now!
 
