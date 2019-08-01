@@ -1,3 +1,0 @@
-# First Person
-
-## Third Person
