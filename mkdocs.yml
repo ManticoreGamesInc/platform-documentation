@@ -3,102 +3,28 @@
 nav:
     - index.md
     - Getting Started:
-        - Step by Step: 'getting_started/step_by_step.md'
-        - Introduction to the Editor: 'getting_started/editor_intro.md'
-        - Coming From Unity: 'getting_started/from_other_editors.md'
-        - Coming From Unreal: 'getting_started/from_unreal.md'
-        - My First Game:
-            - Map: 'getting_started/my_first_game/map.md'
-            - Scripting: 'getting_started/my_first_game/functionality.md'
-            - Shared Content: 'getting_started/my_first_game/shared_content.md'
-    - Project Workflow:
-        - Project Setup: 'project_workflow/project_setup.md'
-        - Assets Workflow: 'project_workflow/assets_workflow.md'
-        - Scripts Workflow: 'project_workflow/scripts_workflow.md'
-        - Best Practices: 'project_workflow/best_practices.md'
-        - Worst Practices: project_workflow/worst_practices.md
-    - Scripting:
-        - Overview: 'scripting/overview.md'
-        - Lua Primer: 'scripting/lua_primer.md'
-        - Debugging: 'scripting/debugging.md'
-        - IDEs/Tools: scripting/ide_tools.md
-        - Best Practices: 'scripting/best_practices.md'
-        - Conventions: 'scripting/conventions.md'
-        - Renaming: 'scripting/renaming.md'
-    - Editor Manual:
-        - Overview: 'editor/overview.md'
-        - Editor Windows: 'editor/editor_windows.md'
-        - Hotkeys: 'editor/hotkeys.md'
-        - Templates: 'editor/templates.md'
-        - Shared Content: 'editor/shared_content.md'
-        - Weapons: 'editor/weapons.md'
-        - Abilities: 'editor/abilities.md'
-        - UI: 'editor/ui.md'
-        - Audio: 'editor/audio.md'
-        - Visual Effects: 'editor/vfx.md'
-        - Animations: 'editor/animations.md'
-        - Networking: 'editor/networking.md'
-        - Abstract:
-            - Vectors: 'editor/abstract/vectors.md'
-            - Matrices: 'editor/abstract/matrices.md'
-            - Raytracing: 'editor/abstract/raytracing.md'
-            - Physics: 'editor/abstract/physics.md'
-    - Tutorials (Empty):
-        - Complete Games:
-            - First Person Shooters:
-                - Free For All: 'tutorials/full_games/fps/ffa_fps.md'
-                - Team Deathmatch (with Abilities): 'tutorials/full_games/fps/tdm_abilities_fps.md'
-                - Search and Destroy (with Classes): 'tutorials/full_games/fps/search_and_destroy_classes_fps.md'
-            - RPG: 'tutorials/full_games/rpg.md'
-        - Topics:
-            - Game Rules: 
-                - Freeform: 'tutorials/topics/game_rules/freeform.md'
-                - Teams: 'tutorials/topics/game_rules/teams.md'
-                - Rounds: 'tutorials/topics/game_rules/rounds.md'
-                - Respawning: 'tutorials/topics/game_rules/respawning.md'
-                - Abilities: 'tutorials/topics/game_rules/abilities.md'
-            - Game Types:
-                - Objective Based:
-                    - Location Based:
-                        - King of the Hill: 'tutorials/topics/game_types/objectives/location_based/king_of_the_hill.md'
-                        - Payload: 'tutorials/topics/game_types/objectives/location_based/payload.md'
-                    - Interactive:
-                        - Capture the Flag: 'tutorials/topics/game_types/objectives/interactive/ctf.md'
-                        - Search and Destroy: 'tutorials/topics/game_types/objectives/interactive/search_and_destroy.md'
-                - First Person Shooter: 'tutorials/topics/game_types/fps.md'
-                - Racing: 'tutorials/topics/game_types/racing.md'
-                - RPG: 'tutorials/topics/game_types/rpg.md'
-    - Examples: 'examples.md'
+        - Editor: 'getting_started/editor_intro.md'
+        - Art: 'getting_started/art_intro.md'
+        - Scripting: 'getting_started/scripting_intro.md'
+        - Community Content: 'getting_started/community_content.md'
+    - Tutorials:
+        - Complete Game: 'tutorials/complete_game.md'
+        - Terrain+: 'tutorials/terrain+.md'
+        - Networking: 'tutorials/networking.md'
+        - Gameplay:
+            - Abilities: 'tutorials/gameplay/abilities.md'
+            - Equipment: 'tutorials/gameplay/equipment.md'
+            - Weapons: 'tutorials/gameplay/weapons.md'
+        - UI: 'tutorials/ui.md'
+    - Reference:
+        - Useful Links: 'reference/links.md'
+        - Scripting:
+            - Lua Primer: 'reference/scripting/lua_primer.md'
+            - Extensions: 'reference/scripting/extensions.md'
+            - Conventions: 'reference/scripting/conventions.md'
+        - Examples: 'reference/examples.md'
+        - Core API: 'reference/core_api.md'
     - Community: 'community.md'
-    - Core API:
-        - Classes:
-            - Audio:
-                - Overview: 'core_api/classes/audio/AudioOverview.md'
-                - Properties:
-                    - isPlaying: 'core_api/classes/audio/properties/isPlaying.md'
-                    - length: 'core_api/classes/audio/properties/length.md'
-                    - currentPlaybackTime: 'core_api/classes/audio/properties/currentPlaybackTime.md'
-                    - isSpatializationDisabled: 'core_api/classes/audio/properties/isSpatializationDisabled.md'
-                    - isAutoPlayEnabled: 'core_api/classes/audio/properties/isAutoPlayEnabled.md'
-                    - isTransient: 'core_api/classes/audio/properties/isTransient.md'
-                    - isAutoRepeatEnabled: 'core_api/classes/audio/properties/isAutoRepeatEnabled.md'
-                    - pitch: 'core_api/classes/audio/properties/pitch.md'
-                    - volume: 'core_api/classes/audio/properties/volume.md'
-                    - radius: 'core_api/classes/audio/properties/radius.md'
-                    - falloff: 'core_api/classes/audio/properties/falloff.md'
-                - Functions: 
-                    - Play: 'core_api/classes/audio/functions/Play.md'
-                    - Stop: 'core_api/classes/audio/functions/Stop.md'
-                    - FadeIn: 'core_api/classes/audio/functions/FadeIn.md'
-                    - FadeOut: 'core_api/classes/audio/functions/FadeOut.md'
-            - Replicators:
-                - Overview: 'core_api/classes/replicators/ReplicatorsOverview/'
-                - Events:
-                    - valueChangedEvent: 'core_api/classes/replicators/events/valueChangedEvent/'       
-                - Functions:
-                    - GetValue: 'core_api/classes/replicators/functions/GetValue/'
-                    - SetValue: 'core_api/classes/replicators/functions/SetValue/'
-
 
 # If you make a PR, no need to change data below this point
 
