@@ -8,12 +8,12 @@ you can add to your scene. Note that there are categories and subcategories,
 pressing the `+` will expand it. For example, we can only display castle parts
 by finding that subsection and expanding it, as shown in the image below:
 
-![](/img/getting_started/Asset_Manifest.png)
+![](/src/img/getting_started/Asset_Manifest.png)
 
 Now, simply drag an object in to your scene, and you'll see it appear both in
 the viewport and the hierarchy!
 
-![](/img/getting_started/Asset_01.png)
+![](/src/img/getting_started/Asset_01.png)
 
 There's a couple things to note:
 

@@ -38,7 +38,7 @@ The 4 different phases of an ability are:
 
 Once an ability is triggered to start, it cycles through Cast > Execute > Recovery > Cooldown. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Gabe's Graphic](/img/EditorManual/Abilities/Ability States.png)
+![Gabe's Graphic](/src/img/EditorManual/Abilities/Ability States.png)
 
 To tie functionality to the different phases of an ability, Core uses Events. Each phase has an event that is activated at the very beginning of that phase. 
 
@@ -64,7 +64,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 1. With Core open to a project, click on View > Script Generator to open the **Script Generator**.
 
 2. The default selected should already be Ability, but if it is not, select Ability from the drop-down menu on the top right. You should see this fancy window:  
- ![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
+ ![Script Generator](/src/img/EditorManual/Abilities/scriptGenerator.PNG)
 
 3. We’re going to change some of the options at the top of this window.
     1. Change the **Ability Name** in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
@@ -135,7 +135,7 @@ This works great, but using print statements to tell which phase is active isn�
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Control](/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Control](/img/EditorManual/Abilities/CooldownAbility.PNG)
+![Ability Control](/src/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CooldownAbility.PNG)
 
 To get this to work correctly, there are only three steps:
 
@@ -166,7 +166,7 @@ To get the job done, here is how to get Ability UI that we made in the above sec
 
 2. Create a new script and name it `ClientUI_UpdateScript`, and drag this script into the Client Context folder.  
  Your Hierarchy should now look like this:  
-  ![Hierarchy](/img/EditorManual/Abilities/Hierarchy.PNG)
+  ![Hierarchy](/src/img/EditorManual/Abilities/Hierarchy.PNG)
 
 3. Copy this code below and paste it within the new script:  
 ```
