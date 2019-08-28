@@ -52,12 +52,12 @@ Function | Return Value | Description | Tags
     Task.Wait(5)
     cricketsSFX:Stop()
     ```
-    [CORE Audio Example](https://staging.manticoreplatform.com/games/AudioExampleHere)
+    [CORE Audio Example](https://dev.manticoreplatform.com/games/AudioExampleHere)
 
 ---
 
 
-### Replicators
+### Replicators(/core_api/classes/replicators/ReplicatorsOverview)
 
 Replicators are [CoreObjects](/core_api/classes/coreobject) used to broadcast data from the server to clients. To use them, add custom parameters to a replicator and assign them default values. These parameters will be readable on all clients, and read/write on the server. In short, replicator values are accessible in any context but can only be written over on the server.
 
@@ -96,4 +96,54 @@ Event | Return Value | Description | Tags
 
     Note: This example uses a custom property CoreObjectReference to point to the replicator. Another valid way of doing this is via the hierarchy (script.parent), or by using the Tick function.
     ```
-    [CORE Replicator Example](https://staging.manticoreplatform.com/games/AudioExampleHere)
+    [CORE Replicator Example](https://dev.manticoreplatform.com/games/ReplicatorExampleHere)
+
+
+### ButtonUIControl(/core_api/classes/buttonUIControl/buttonUIControlOverview)
+
+A [UIControl](/core_api/classes/PerPlayerReplicator) for a button, should be inside client context.
+
+#### Properties
+
+Property | Return Value | Description
+--- | --- | ---
+`text` | string | label text
+`fontSize` | number | font size for label text
+`isInteractable` | bool |  whether button can interact with cursor (click, hover, etc)
+
+#### Events
+
+Event | Return Value | Description | Tags
+--- | --- | --- | ---
+`clickedEvent` | Event<ButtonUIControl> | Called when button is released, triggered on mouse-button up but only if both button-down and button-up events happen inside the button widget. | Read-Only
+`pressedEvent` | Event<ButtonUIControl> | Called when button is pressed | Read-Only
+`releasedEvent` | Event<ButtonUIControl> | Called when button is released | Read-Only
+`hoveredEvent` | Event<ButtonUIControl> | Called when button is hovered | Read-Only
+`unhoveredEvent` | Event<ButtonUIControl> | Called when button is unhovered | Read-Only
+
+#### Functions
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`GetButtonColor()` | Color | Get button default color | None
+`SetButtonColor(Color)` | None | Get button default color | None
+`GetHoveredColor ` | None | Get button color when hovered | None
+`SetHoveredColor(Color)` | None | Set button color when hovered | None
+`GetPressedColor()` | Color | Get button color when pressed | None
+`SetPressedColor()` | None | Set button color when pressed | None
+`GetDisabledColor()` | Color | Get button color when it’s not intereactable | None
+`SetDisabledColor(Color)` | Color | Set button color when it’s not interactable | None
+`GetFontColor()` | Color | Get font color | None
+`SetFontColor(Color)` | Color | Set font color | None
+`SetImage(String)` | None | Set image with the brush's MUID string. | None
+
+
+### CameraSettings(/core_api/classes/camerasettings/cameraSettingsOverview)
+
+CameraSettings is a [CoreObject](/core_api/classes/coreobject) which can be used to configure camera settings for a Player.
+
+#### Functions
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`ApplyToPlayer(Player)` | None | Apply settings from this settings object to player. | Server-Only
