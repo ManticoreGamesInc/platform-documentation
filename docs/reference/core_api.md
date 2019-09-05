@@ -9,12 +9,12 @@ Both properties and events are accessed with `.propertyName` and `.eventName`, w
 
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
-Abilities are Objects created at runtime and attached to Players. Spawn an ability with game:SpawnAbility(). Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
+Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isEnabled` | bool | Turns an ability on/off. Ability remains on the player but is interrupted if enabled is set to False during an active Ability. | Read-Write
-`canActivateWhileDead` | bool | By default, false. Indicates if the Ability can be used while the owning Player is dead. | Read-Write
+`canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. Default false.  | Read-Write
 `name` | string | The name of the ability. | Read-Write
 `binding` | string | Which action binding will cause the Ability to activate. | Read-Write
 `owner` | Player | Assigning an owner applies the Ability to that Player. | Read-Write
@@ -23,7 +23,7 @@ Property | Return Value | Description | Tags
 `recoveryPhaseSettings` | AbilityPhaseSettings | Config data for the Recovery phase. | Read-Write
 `cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Write
 `animation` | string | Name of the animation the Player will play when the ability is activated. Possible values: | Read-Write
-`canBePrevented` | bool | By default, true. Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. | Read-Write
+`canBePrevented` | bool | Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. By default, true.  | Read-Write
 `readyEvent` | Event<Ability> | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
 `castEvent` | Event<Ability> | Called when the Ability enters the Cast phase. | Read-Only
 `executeEvent` | Event<Ability> | Called when the Ability enters Execute phase. | Read-Only
@@ -48,16 +48,18 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`duration` | Number | Length in seconds of the phase. By default, values per phase: 0.15, 0, 0.5 and 3. After this time the Ability moves to the next phase. Can be zero. | Read-Write
-`canMove` | bool | Default true. Is the Player allowed to move during this phase. | Read-Write
-`canJump` | bool | Default false. In Cast & Execute, default True in Recovery & Cooldown) - Is the Player allowed to jump during this phase. | Read-Write
-`canRotate` | bool | Default true. Is the Player allowed to rotate during this phase. | Read-Write
-`isFlying` | bool | Default false. When True gravity is turned off during this phase and if there is root motion it is allowed to pick up the Player off the ground.  This is primarily intended for use with the “roll” animation, or any other animation with vertical root motion. (More detail in the Animation section) | Read-Write
-`preventsOtherAbilities` | bool | Default true in Cast & Execute, default false in Recovery & Cooldown. When true, this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to false. | Read-Write
+`duration` | Number | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. By default, values per phase: 0.15, 0, 0.5 and 3. | Read-Write
+`canMove` | bool | Whether the Player is allowed to move during this phase. Default true. | Read-Write
+`canJump` | bool | Whether the Player allowed to jump during this phase. Default false. In Cast & Execute, default True in Recovery & Cooldown. | Read-Write
+`canRotate` | bool | Whether the Player allowed to rotate during this phase. Default true. | Read-Write
+`isFlying` | bool | If true, gravity is turned off during this phase and if there is root motion, it is allowed to pick up the Player off the ground. This is primarily intended for use with the “roll” animation, or any other animation with vertical root motion. Default false. | Read-Write
+`preventsOtherAbilities` | bool | If true, this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to false. Default true in Cast & Execute, default false in Recovery & Cooldown. | Read-Write
 `isTargetDataUpdated` | bool | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Write
-`playerFacing` | AbilitySetFacingEnum | How and if this ability rotates the player during execution. Cast and Execute default to “Aim”, other phases default to “None”. Options are: AbilitySetFacing.NONE, AbilitySetFacing.MOVEMENT, AbilitySetFacing.AIM | Read-Write
+`playerFacing` | AbilitySetFacingEnum | How this ability rotates the player during execution. Cast and Execute default to “Aim”, other phases default to “None”. Options are: AbilitySetFacing.NONE, AbilitySetFacing.MOVEMENT, AbilitySetFacing.AIM | Read-Write
 
 ### [AbilityTarget](/core_api/classes/abilitytarget/abilitytargetOverview)
+
+A data type containing information about what the player has targeted during a phase of an ability.
 
 Constructor | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -85,6 +87,8 @@ Function | Return Value | Description | Tags
 
 ### [AbilityUIControl](/core_api/classes/abilityuicontrol/abilityuicontrolOverview)
 
+A UIControl for showing the state of an Ability.
+
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `ability` | Ability | Which ability object should be shown by the control. | None
@@ -98,9 +102,9 @@ Property | Return Value | Description | Tags
 `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only
 `length` | Number | Returns the length (in seconds) of the sound. | Read-Only
 `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the sound. | Read-Only
-`isSpatializationDisabled` | bool | Default false. Set true to play sound without 3D positioning. | Dynamic, Read-Write
-`isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only
-`isTransient` | bool | Default false. If set to true, the sound will destroy itself after it finishes playing. | Read-Write
+`isSpatializationDisabled` | bool | Set true to play sound without 3D positioning. Default false. | Dynamic, Read-Write
+`isAutoPlayEnabled` | bool | If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. Default false.  | Read-Only
+`isTransient` | bool | If set to true, the sound will destroy itself after it finishes playing. Default false. | Read-Write
 `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.) | Read-Write
 `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.) | Read-Write
 `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write
@@ -120,31 +124,31 @@ A UIControl for a button, should be inside client context.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`text` | string | label text | None
-`fontSize` | string | font size for label text | None
-`isInteractable` | bool | whether button can interact with cursor (click, hover, etc) | None
+`text` | string | Returns the button label text. | None
+`fontSize` | string | Returns the Font size for label text. | None
+`isInteractable` | bool | Returns whether button can interact with cursor (click, hover, etc). | None
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`GetButtonColor()` | Color | Get button default color | None
-`SetButtonColor(Color)` | None | Set button default color | None
-`GetHoveredColor()` | Color | Get button color when hovered | None
-`SetHoveredColor(Color)` | None | Set button color when hovered | None
-`GetPressedColor()` | Color | Get button color when pressed | None
-`SetPressedColor(Color)` | None | Set button color when pressed | None
-`GetDisabledColor()` | Color | Get button color when it’s not intereactable | None
-`SetDisabledColor(Color)` | None | Set button color when it’s not interactable | None
-`GetFontColor()` | Color | Get font color | None
-`SetFontColor(Color)` | None | Set font color | None
-`SetImage(brushMuidString)` | None | Set image | None
+`GetButtonColor()` | Color | Get button default color. | None
+`SetButtonColor(Color)` | None | Set button default color. | None
+`GetHoveredColor()` | Color | Get button color when hovered. | None
+`SetHoveredColor(Color)` | None | Set button color when hovered. | None
+`GetPressedColor()` | Color | Get button color when pressed. | None
+`SetPressedColor(Color)` | None | Set button color when pressed. | None
+`GetDisabledColor()` | Color | Get button color when it’s not intereactable. | None
+`SetDisabledColor(Color)` | None | Set button color when it’s not interactable. | None
+`GetFontColor()` | Color | Get font color. | None
+`SetFontColor(Color)` | None | Set font color. | None
+`SetImage(brushMuidString)` | None | Set image. | None
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`clickedEvent` | Event<ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox | Read-Only
-`pressedEvent` | Event<ButtonUIControl> | Called when button is pressed (mouse button down) | Read-Only
-`releasedEvent` | Event<ButtonUIControl> | Called when button is released (mouse button up) | Read-Only
-`hoveredEvent` | Event<ButtonUIControl> | Called when button is hovered | Read-Only
-`unhoveredEvent` | Event<ButtonUIControl> | Called when button is unhovered | Read-Only
+`clickedEvent` | Event<ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only
+`pressedEvent` | Event<ButtonUIControl> | Called when button is pressed (mouse button down). | Read-Only
+`releasedEvent` | Event<ButtonUIControl> | Called when button is released (mouse button up). | Read-Only
+`hoveredEvent` | Event<ButtonUIControl> | Called when button is hovered. | Read-Only
+`unhoveredEvent` | Event<ButtonUIControl> | Called when button is unhovered. | Read-Only
 
 ### [CameraSettings](/core_api/classes/camerasettings/camerasettingsOverview)
 
@@ -203,9 +207,9 @@ Property | Return Value | Description | Tags
 `name` | string | The object's name. | Read-Write, Dynamic
 `id` | string | The object’s MUID. | Read-Only
 `parent` | CoreObject | The object’s parent object, may be nil. | Read-Write, Dynamic
-`isVisible` | bool | Turn on/off the rendering of an object and its children | Read-Write, Dynamic
-`isCollidable` | bool | Turn on/off the collision of an object and its children | Read-Write, Dynamic
-`isEnabled` | bool | Turn on/off an object and its children completely | Read-Write, Dynamic
+`isVisible` | bool | Turn on/off the rendering of an object and its children. | Read-Write, Dynamic
+`isCollidable` | bool | Turn on/off the collision of an object and its children. | Read-Write, Dynamic
+`isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic
 `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Static, Dynamic
 `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only
 `isServerOnly` | bool | If true, this object was spawned on the server and is not replicated to clients. | Read-Only
@@ -462,16 +466,16 @@ Property | Return Value | Description | Tags
 `walkSpeed` | Number | Walk speed as a fraction of default.  Range is 0-10, default is 1. | Read-Write
 `swimSpeed` | Number | Swim speed as a fraction of default.  Range is 0-10, default is 1. | Read-Write
 `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1200 | Read-Write
-`brakingDecelerationFalling` | Number | deceleration when falling and not applying acceleration. Default = 0 | Read-Write
-`brakingDecelerationWalking` | Number | deceleration when walking and movement input has stopped. Default = 512.0 | Read-Write
-`groundFriction` | Number | friction when walking on ground. Default = 8.0 | Read-Write
-`brakingFrictionFactor` | Number | multiplier for friction when braking. Default = 0.6 | Read-Write
-`walkableFloorAngle` | Number | max walkable floor angle, in degrees. Default = 44.765. There seem to be hard coded limit in unreal, so there is some upper limit it can go around 55 degrees (needs to verify) | Read-Write
-`maxJumpCount` | Number | max number of jumps, to enable multiple jumps. Set to 0 to disable jump | Read-Write
-`jumpVelocity` | Number | vertical speed applied to Player when they jump. | Read-Write
-`gravityScale` | Number | multiplier on gravity applied. Default = 1.9 | Read-Write
-`maxSwimSpeed` | Number | base swim speed (recommend use swimSpeed multiplier instead of this one). Default = 400 | Read-Write
-`touchForceFactor` | Number | force applied to physics objects when contacted with player. Default = 1 | Read-Write
+`brakingDecelerationFalling` | Number | Deceleration when falling and not applying acceleration. Default = 0 | Read-Write
+`brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 512.0 | Read-Write
+`groundFriction` | Number | Friction when walking on ground. Default = 8.0 | Read-Write
+`brakingFrictionFactor` | Number | Multiplier for friction when braking. Default = 0.6 | Read-Write
+`walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44.765. There seem to be hard coded limit in unreal, so there is some upper limit it can go around 55 degrees (needs to verify) | Read-Write
+`maxJumpCount` | Number | Max number of jumps, to enable multiple jumps. Set to 0 to disable jump | Read-Write
+`jumpVelocity` | Number | Vertical speed applied to Player when they jump. | Read-Write
+`gravityScale` | Number | Multiplier on gravity applied. Default = 1.9 | Read-Write
+`maxSwimSpeed` | Number | Base swim speed (recommend use swimSpeed multiplier instead of this one). Default = 400 | Read-Write
+`touchForceFactor` | Number | Force applied to physics objects when contacted with player. Default = 1 | Read-Write
 `isCrouchEnabled` | bool | Turns crouching on/off for a player. | Read-Write
 `mass` | Number | Gets the mass of the player. | Read-Only
 `isAccelerating` | bool | True if the player is accelerating, such as from input to move. | Read-Only
@@ -484,17 +488,17 @@ Property | Return Value | Description | Tags
 `isSwimming` | bool | True if the player is swimming in water. | Read-Only
 `isWalking` | bool | True if the player is in walking mode. | Read-Only
 `isDead` | bool | True if the player is dead, otherwise false. Can be set as well. | Read-Write
-`cameraSensitivity` | Number | multiplier on camera rotation speed relative to cursor movement. Default is 1.0. This is independent from player preference, both will be applied as multipliers together. | Read-Write
-`cursorMoveInputMode` | CursorMoveInput enum | enables move towards cursor when a button is held, values for CursorMoveInput enum are: NONE, LEFT_MOUSE, RIGHT_MOUSE, LEFT_OR_RIGHT_MOUSE. Example usage: player.cursorMoveInputMode = CursorMoveInput.LEFT_MOUSE | Read-Write
-`canTopdownCameraRotate` | bool | if true, can rotate in topdown mode | Read-Write
+`cameraSensitivity` | Number | Multiplier on camera rotation speed relative to cursor movement. Default is 1.0. This is independent from player preference, both will be applied as multipliers together. | Read-Write
+`cursorMoveInputMode` | CursorMoveInput enum | Enables move towards cursor when a button is held, values for CursorMoveInput enum are: NONE, LEFT_MOUSE, RIGHT_MOUSE, LEFT_OR_RIGHT_MOUSE. Example usage: player.cursorMoveInputMode = CursorMoveInput.LEFT_MOUSE | Read-Write
+`canTopdownCameraRotate` | bool | If true, can rotate in topdown mode | Read-Write
 `showBodyForFpsCamera` | bool | (for trying out showing body in FPS camera, will likely change/be removed) show body mesh in FPS camera mode | Read-Write
-`shouldRotationFollowCursor` | bool | if true, character will rotate to face cursor (intended for topdown mode) | Read-Write
-`scrollZoomSpeed` | Number | multiplier to mouse wheel scroll speed for zoom | Read-Write
+`shouldRotationFollowCursor` | bool | If true, character will rotate to face cursor (intended for topdown mode) | Read-Write
+`scrollZoomSpeed` | Number | Multiplier to mouse wheel scroll speed for zoom | Read-Write
 `spreadModifier` | Number | Added to the player’s targeting spread | Read-Write
-`buoyancy` | Number | in water, buoyancy 1.0 is neutral (won’t sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write
-`isCursorVisible` | bool | whether cursor is visible. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
-`isCursorLocked` | bool | whether to lock cursor in viewport. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
-`isCursorInteractableWithUI` | bool | whether cursor can interact with UI elements like buttons. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
+`buoyancy` | Number | In water, buoyancy 1.0 is neutral (won’t sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write
+`isCursorVisible` | bool | Whether cursor is visible. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
+`isCursorLocked` | bool | Whether to lock cursor in viewport. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
+`isCursorInteractableWithUI` | bool | Whether cursor can interact with UI elements like buttons. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
 `damagedEvent` | Event<Player, Damage> | Event fired when the Player takes damage. | Read-Only
 `diedEvent` | Event<Player, Damage> | Event fired when the Player dies. | Read-Only
 `respawnedEvent` | Event<Player> | Event fired when the Player respawns. | Read-Only
@@ -769,7 +773,7 @@ Property | Return Value | Description | Tags
 
 ### [SmartObject](/core_api/classes/smartobject/smartobjectOverview)
 
-SmartObject is the top-level container of a blueprint “smart object” that has been placed in the game.  It inherits everything from CoreObject.  Note that some properties, such as isCollidable or isVisible, may not be respected by the contents of the blueprint.
+SmartObject is the top-level container of a blueprint “smart object” that has been placed in the game.  It inherits everything from CoreObject.  Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by the contents of the blueprint.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
