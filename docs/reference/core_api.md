@@ -229,7 +229,7 @@ Function | Return Value | Description | Tags
 `GetPosition()` | Vector3 | The position of this object relative to its parent. | None
 `SetPosition (Vector3)` | None | The position of this object relative to its parent. | Dynamic
 `GetRotation()` | Rotation | The rotation relative to its parent. | None
-`SetRotation (Rotation)` | None | The rotation relative to its parent. | Dynamic
+`SetRotation(Rotation)` | None | The rotation relative to its parent. | Dynamic
 `GetScale()` | Vector3 | The scale relative to its parent. | None
 `SetScale()` | None | The scale relative to its parent. | Dynamic
 `GetWorldTransform()` | Transform | The absolute transform of this object. | None
@@ -455,7 +455,7 @@ Player is an Object representation of the state of a player connected to the gam
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `name` | string | The player’s name. | Read-Only
-`id)` | string | The unique id of the player. Consistent across sessions. | Read-Only
+`id` | string | The unique id of the player. Consistent across sessions. | Read-Only
 `team` | Number | The number of the team to which the player is assigned. By default, this value is 255 in FFA mode. | Read-Write
 `animationSet` | string | Which set of animations to use for this player. Values can be “unarmed”, “1hand_melee”, “1hand_pistol”, “2hand_sword” or “2hand_rifle”. (Deprecated values were “one_handed”, “pistol”, and “crossbow”) | Read-Write
 `activePose` | string | Determines an animation pose to hold during idle. Default value is “none”. Other values can be "2hand_rifle_aim_shoulder", "2hand_rifle_aim_hip", "1hand_pistol_aim", "2hand_pistol_aim", "unarmed_carry_object_high", "unarmed_carry_object_low", "unarmed_carry_object_heavy", "unarmed_carry_score_card", "unarmed_sit_car_low".  See Active Pose Information | Read-Write
@@ -599,7 +599,7 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetColor()` | Color | The color of the light. | None
-`SetColor(Color)(dynamic)` | None | The color of the light | Dynamic
+`SetColor(Color)` | None | The color of the light | Dynamic
 
 ### [ProgressBarUIControl](/core_api/classes/progressbaruicontrol/progressbaruicontrolOverview)
 
@@ -625,7 +625,7 @@ Property | Return Value | Description | Tags
 `speed` | Number | Returns cm/s. By default, 5000cm/s.  | Read-Write
 `maxSpeed` | Number | Returns max cm/s. By default, zero for no limit. | Read-Write
 `gravityScale` | Number | How much drop. Zero can be used to make a Projectile go in a straight line. By default, 1 for normal gravity. | Read-Write
-`drag (Number, read/write, default 0)` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. | Read-Write
+`drag` | Number | Deceleration. Default 0. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. | Read-Write
 `bouncesRemaining` | Number | Number of bounces remaining before it dies. By default, zero. | Read-Write
 `bounciness` | Number | Velocity % maintained after a bounce. By default, 0.6. | Read-Write
 `lifeSpan` | Number | Max seconds the projectile will exist. By default, 10 seconds. | Read-Write
@@ -956,7 +956,7 @@ Constructor | Return Value | Description | Tags
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `x` | Number | The X component of the vector. | Read-Write
-`y)` | Number | The Y component of the vector. | Read-Write
+`y` | Number | The Y component of the vector. | Read-Write
 `size` | Number | The magnitude of the vector. | Read-Only
 `sizeSquared` | Number | The squared magnitude of the vector. | Read-Only
 
