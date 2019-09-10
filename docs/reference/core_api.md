@@ -1158,6 +1158,315 @@ The CoreDebug API contains functions that may be useful for debugging.
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`CoreDebug.DrawLine (Vector3 start, Vector3 end, [table optionalParameters])` | Vector3 | draw debug line. optionalParameters is table containing one of the following keys: duration (number) - if <= 0, draw for single frame, thickness (number), color (Color) | None
+`CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | Vector3 | draw debug line. optionalParameters is table containing one of the following keys: duration (number) - if <= 0, draw for single frame, thickness (number), color (Color) | None
 `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | Vector3 | draw debug box, with dimension specified as a vector. optionalParameters has same options as DrawLine, with addition of: rotation (Rotation) - rotation of the box | None
 `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | Vector3 | draw debug sphere | None
+
+### [CoreMath](/core_api/classes/coremath/coremathOverview)
+
+The CoreMath API contains a group of static math functions.
+
+Static Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`CoreMath.Clamp(Number value, Number lower, Number upper)` | Number | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. | None
+`CoreMath.Lerp(Number from, Number to, Number t)` | Number | Linear interpolation between from and to.  t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None
+`CoreMath.Round(Number value, Number decimals)` | Number | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. | None
+
+### [Storage](/core_api/classes/storage/storageOverview)
+
+The Storage API allows a server-side script to save and load Lua tables as key value pairs. All keys must be strings and values can be string or numeric. Since each of these calls is a network request, all methods (sans one) will halt execution of the containing script until a response is received.
+
+Global Context Methods | Return Value | Description | Tags
+--- | --- | --- | ---
+`Storage.SaveTable(tableName, table)` | bool success, string | Sets the passed in table as the current table for the given table name. Any previous values are removed. | None
+`Storage.LoadTable(tableName)` | bool success, (string or table | Loads the table by name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message. | None
+`Storage.DeleteTable(tableName)` | bool success, string | Deletes the table. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist). | None
+`Storage.IncrementTable(tableName, table)` | bool success, (string or table | Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If success is true, the second return value is a lua table containing only the new values as a result of the increment. Negative values can be used to decrement. If success is false, the second return value is an error message string explaining why. | None
+
+Player Context Methods | Return Value | Description | Tags
+--- | --- | --- | ---
+`Storage.SavePlayerTable(player, tableName, table)` | bool success, string | Sets the passed in table as the current table for the given player and table name. Any previous values are removed. | None
+`Storage.LoadPlayerTable(player, tableName)` | bool success, (string or table | Loads the table by player and name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message. | None
+`Storage.DeletePlayerTable(player, tableName)` | bool success, string | Deletes the table for the given player. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist). | None
+`Storage.IncrementPlayerTable(player, tableName, table)` | bool success, (string or table | Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If the key doesn’t exist, it is added. Negative values can be used to decrement. If success is true, the second return value is a lua table containing only the new values as a result of the increment. If success is false, the second return value is an error message string explaining why. | None
+`Storage.IncrementPlayerTableAsync(player, tableName, table, callback(bool, (string or table))` | bool | Same as above except execution of the script is not halted. The fourth function parameter is a function with the same inputs as returned by the above function. This function is used as a test alternative to see in what use cases async may be preferable or not. | None
+
+### [UI](/core_api/classes/ui/uiOverview)
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`UI.ShowFlyUpText(Player target, string message, Color, Vector3, [Number])` | Color | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional duration. Default duration is 0.5 seconds. | None
+`UI.ShowBigFlyUpText(Player target, string message, Color, Vector3, [Number])` | Color | Same as ShowFlyUpText, but uses a larger font. | None
+`UI.ShowDamageDirection(Player target, Vector3 world point)` | Vector3 | Target player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | None
+`UI.ShowDamageDirection(Player target, CoreObject)` | RV | Target player sees an arrow pointing towards some Core Object. Multiple calls with the same Player and Core Object reuse the same UI indicator, but refreshes its duration. | None
+`UI.ShowDamageDirection(Player target, Player source)` | RV | Target player sees an arrow pointing towards some other Player. Multiple calls with the same Players reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements. | None
+`UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the x, y coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client Context
+`UI.GetScreenPosition(Vector3 world_position)` | Vector2 | Calculates the location that world_position appears on the screen. Returns a Vector2 with the x, y coordinates, or nil if world_position is behind the camera. Only gives results from a client context. | Client Context
+`UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the player’s screen in the x, y coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client Context
+`UI.PrintToScreen (string, Color)` | Color | Draws a message on the corner of the screen.  Second optional Color parameter can change the color from the default white. | None
+
+### [Core Lua Functions](/core_api/classes/CORELuaFunctions/CORELuaFunctionsOverview)
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in ms) between this and the last tick. | None
+`time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None
+`print (string)` | string | Print a message to the event log. Press \` to view messages. | None
+`warn (string)` | string | Similar to print(), but includes the script name and line number. | None
+
+
+### Built-In Lua Functions
+
+For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
+
+
+### MUIDs
+
+MUIDs are internal identifiers for objects and assets within your game. They are guaranteed to be unique within the game and likely to be unique globally.  You can copy a MUID to the clipboard automatically by right-clicking assets in the Asset Manifest or placed objects in the Hierarchy.  The MUID will look something like this:
+
+8D4B561900000092:Rabbit
+
+The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:  
+
+```
+local spawnTrans = script.parent:GetWorldTransform()
+local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
+game:SpawnTemplate('8D4B561900000092:Rabbit', spawnTrans, anchor)
+```
+
+### Animation
+
+General Ability Animation Information
+
+All ability animations are valid on any of the available body types.
+Each of the ability animations timing and/or translation values should behave identically across the body types.
+All ability animations have a long “tail” that gracefully transitions the character back to idle pose.  This animation tail is intended to only be seen if the player does not execute any other ability or movement.  In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
+
+If the intent is to have an ability “execute” as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so).  This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
+
+??? note "Ability Animation Strings"
+    1hand_melee_slash_left - A horizontal melee swing to the left.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    1hand_melee_slash_right - A horizontal melee swing to the right.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    1hand_melee_slash_vertical - A downward melee swing.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    1hand_melee_thrust - A melee forward lunge attack..
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    1hand_melee_unsheathe - Pulls the one-handed melee weapon from a belt sheath.
+    ⋅⋅* This animation works best with a cast phase duration of  0.31 or less
+
+    2hand_sword_slash_left - A horizontal melee swing to the left.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    2hand_sword_slash_right - A horizontal melee swing to the right.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    2hand_sword_slash_vertical - A downward melee swing.
+    ⋅⋅* This animation supports a variable cast phase time.
+    ⋅⋅* This animation supports a time stretched execute phase time
+
+    2hand_sword_thrust - A forward sword thrust melee attack.
+
+    2hand_sword_unsheathe - Pulls the one-handed melee weapon from a belt sheath.
+    This animation works best with a cast phase duration of  0.31 or less
+
+    1hand_pistol_shoot - A pistol shoot animation.
+    ⋅⋅* This animation supports a variable cast time.
+
+    1hand_pistol_unsheathe - Pulls the pistol from an invisible belt holster.
+    ⋅⋅* This animation works best with a cast phase duration of  0.21 or less
+
+    1hand_pistol_reload_magazine - Reloads a bottom-loading pistol clip.
+    ⋅⋅* This animation supports a variable cast time.
+
+    2hand_rifle_shoot - A rifle shoot animation.
+    ⋅⋅* This animation supports a variable cast time.
+
+    2hand_rifle_reload_magazine - Reloads an automatic rifle magazine.
+    ⋅⋅* This animation supports a variable cast time.
+
+    2hand_rifle_unsheathe - Pulls the rifle from a back scabbard.
+    ⋅⋅* This animation works best with a cast phase duration of  0.22 or less
+
+    unarmed_kick_ball - A kick motion that moves the character forward as well.  
+    ⋅⋅* This animation works best with a cast phase duration of  0.18 or less
+    ⋅⋅* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
+
+    unarmed_dance - Stand in place and dance.  
+    ⋅⋅* This animation has no cast time.
+
+    unarmed_magic_bolt - Magic casting animation which appears to launch a projectile forward from the hands.
+    ⋅⋅* This animation supports a variable cast time.
+
+    unarmed_punch_left - A left punch animation.
+    ⋅⋅* This animation supports a variable cast time.
+
+    unarmed_punch_right - A right punch animation.
+    ⋅⋅* This animation supports a variable cast time.
+
+    unarmed_roll - A roll animation that moves the character forward.  
+    ⋅⋅* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
+    ⋅⋅* The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the “flying_mode” to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
+
+    unarmed_throw - An over-the-shoulder right-handed throw animation.
+    ⋅⋅* This animation supports a variable cast time.
+
+    unarmed_wave - Stand in place and wave.  
+    ⋅⋅* This animation works best with a cast phase duration of 0.266 or less.
+
+    unarmed_pickup - Stand in place and pick up items from the ground.  
+    ⋅⋅* This animation works best with a cast phase duration of 0.266 or less.
+    ⋅⋅* This animation looks a bit odd when used while moving/jumping etc.
+
+### Active Poses
+
+All active poses are valid on either of the available genders.
+Each active pose should behave identically across the gender sets.  
+All active poses are looping animations that can be played indefinitely
+No active poses have root motion
+Each active pose has custom blending behavior for what happens while moving (specified below)
+
+??? note "Active Post Strings"
+    none - Calling this string will clear the current active pose.
+
+    2hand_rifle_aim_shoulder - A simple aiming pose in 2hand_rifle set.  Has the shoulder stock up to the shoulder.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+
+    2hand_rifle_aim_hip - A simple aiming pose in 2hand_rifle set.  Has the stock at the hip.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+
+    1hand_pistol_aim - A simple aiming pose for pistol.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+
+    2hand_pistol_aim - A simple aiming pose for 1hand_pistol set.  Hands are in the weaver stance.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+
+    2hand_sword_ready - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the ready pose.
+
+    unarmed_carry_object_high - A one (right) handed carry animation with the arm raised to roughly eye level.  Ideal for holding a torch up to see better, etc
+    ⋅⋅* When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+    This animation assumes the prop is attached to the right_prop socket.
+
+    unarmed_carry_object_low - A one (right) handed carry animation with the arm at waist height.  Ideal for holding a mug, potion, etc
+    ⋅⋅* When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+    This animation assumes the prop is attached to the right_prop socket.
+
+    unarmed_carry_object_heavy - A two handed carry animation with the arms in front of the body.  This is in pretty rough shape currently (11/2018) and will likely be refactored in the future.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+
+    unarmed_carry_score_card - A two handed carry animation with the arms all the way extended above the head.  Ideal for holding text signs, etc.
+    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+    ⋅⋅* The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign.  It also assumes x forward.
+
+    unarmed_sit_car_low - A full body animation that is sitting at ground level with arms up on a wheel.  Ideal for driving a go-kart style vehicle
+    ⋅⋅* When running/jumping etc, the entire body will retain the sitting pose.
+
+    unarmed_death - A full body animation that is falling to the floor, face-up.  The hips will be roughly on the spot where the game thinks the character is.
+
+### One Shot Animation Information
+
+One Shot Animations will:
+work regardless of which animation skeleton (gender) or outfit you are wearing.
+be interrupted (or fail to start) if you are moving, jumping, or falling.
+be interrupted if you execute an ability with a defined ability animation.
+be interrupted (or fail to start) if you execute an active pose animation.
+
+??? note "One Shot Animation Strings"
+    base_unarmed_ball_kick
+    base_unarmed_magic_bolt
+    base_unarmed_left_punch
+    base_unarmed_right_punch
+    base_unarmed_roll
+    base_unarmed_throw
+    base_unarmed_dance
+    base_unarmed_fetal
+    base_unarmed_carry_object_heavy
+    base_unarmed_carry_object_high
+    base_unarmed_carry_object_low
+    base_unarmed_score_card
+    base_unarmed_sit_car_low
+    base_unarmed_idle
+    base_unarmed_idle_relaxed
+    base_unarmed_idle_to_idle_relaxed
+    base_unarmed_jump_begin
+    base_unarmed_jump_cycle
+    base_unarmed_jump_end
+    base_unarmed_run_backward
+    base_unarmed_run_backward_left
+    base_unarmed_run_backward_right
+    base_unarmed_run_forward
+    base_unarmed_run_forward_left
+    base_unarmed_run_forward_right
+    base_unarmed_run_forward_stop
+    base_unarmed_run_left
+    base_unarmed_run_right
+    base_unarmed_walk_backward
+    base_unarmed_walk_backward_left
+    base_unarmed_walk_backward_right
+    base_unarmed_walk_forward
+    base_unarmed_walk_forward_left
+    base_unarmed_walk_forward_right
+    base_unarmed_walk_left
+    base_unarmed_walk_right
+    base_1h_left_sweep
+    base_1h_right_sweep
+    base_1h_idle
+    base_1h_idle_relaxed
+    base_1h_idle_to_idle_relaxed
+    base_1h_jump_begin
+    base_1h_jump_cycle
+    base_1h_jump_end
+    base_1h_run_backward
+    base_1h_run_backward_left
+    base_1h_run_backward_right
+    base_1h_run_forward
+    base_1h_run_forward_left
+    base_1h_run_forward_right
+    base_1h_run_forward_stop
+    base_1h_run_left
+    base_1h_run_right
+    base_1h_walk_backward
+    base_1h_walk_backward_left
+    base_1h_walk_backward_right
+    base_1h_walk_forward
+    base_1h_walk_forward_left
+    base_1h_walk_forward_right
+    base_1h_walk_left
+    base_1h_walk_right
+    base_crossbow_magazine_reload
+    base_crossbow_shoot
+    base_crossbow_idle
+    base_crossbow_idle_relaxed
+    base_crossbow_idle_to_idle_relaxed
+    base_crossbow_jump_begin
+    base_crossbow_jump_cycle
+    base_crossbow_jump_end
+    base_crossbow_run_backward
+    base_crossbow_run_backward_left
+    base_crossbow_run_backward_right
+    base_crossbow_run_forward
+    base_crossbow_run_forward_left
+    base_crossbow_run_forward_right
+    base_crossbow_run_forward_stop
+    base_crossbow_run_left
+    base_crossbow_run_right
+    base_crossbow_walk_backward
+    base_crossbow_walk_backward_left
+    base_crossbow_walk_backward_right
+    base_crossbow_walk_forward
+    base_crossbow_walk_forward_left
+    base_crossbow_walk_forward_right
+    base_crossbow_walk_left
+    base_crossbow_walk_right
