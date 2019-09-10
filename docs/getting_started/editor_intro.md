@@ -43,8 +43,8 @@ The best way to start is by making a map. Then we'll add functionality with a
 simple game. Lastly, we'll see how using shared content can expedite this
 entire process.
 
-> [Art Intro](../getting_started/art)
+> [Art Intro](../art_intro)
 
-> [Scripting Intro](../getting_started/scripting_intro)
+> [Scripting Intro](../scripting_intro)
 
-> [Community Content](../getting_started/community_content)
+> [Community Content](../community_content)
