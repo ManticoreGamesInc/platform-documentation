@@ -30,7 +30,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 
 !!! info "Steampunk Rifle Model"
     ![Steampunk Rifle](/src/img/EditorManual/Weapons/steampunkRifle.PNG)  
-     You can download the Steampunk Rifle from **Shared Content** on Core to have a ready-made weapon, or you can make your own model from props in Core!
+     You can download the Steampunk Rifle from **Community Content** on Core to have a ready-made weapon, or you can make your own model from props in Core!
 
 1. The first thing to do is to open the *Object* menu at the top of the editor, and select **Create Weapon**. This adds one empty weapon to your current game's hierarchy. 
 
@@ -53,8 +53,8 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
 6. Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.  
     1. Click on the weapon in the hierarchy. In the Properties window, scroll down to the Projectile section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!  
-  To do this, let's add a capsule object to our project Hierarchy. Change the scale to shrink the size until you are satisfied with the bullet shape.  
-    2. Once you are happy with the bullet shape, right click the object in the Hierarchy and click "Create Folder Containing This" to wrap our object in a folder. This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape.
+  To do this, let's add a capsule object to our project Hierarchy. This can be found in the *Asset Manifest*, within the Basic Shapes section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.  
+    2. Once you are happy with the bullet shape, right click the object in the Hierarchy and click "New Folder Containing This" to wrap our object in a folder. This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape.
     2. Right click this folder, and click "Enable Networking".  
     3. Next, right click this folder again, and click "Create New Template From This".  
     4. Once it is a template, delete it from the project Hierarchy. We now can drag that bullet template from our Asset Manifest into the Projectile Template property of the weapon!
