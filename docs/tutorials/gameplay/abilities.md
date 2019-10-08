@@ -2,14 +2,14 @@
 
 An ability is anything that the player can do themselves. 
 
-THIS IS A TEST BRO
-
 Anytime that a player can do something more than just jump and crouch that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
 !!! info
     Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
+
+*Need a photo here*
 
 ### The 4 Phases of an Ability
 
@@ -44,20 +44,30 @@ Once an ability is triggered to start, it cycles through Cast > Execute > Recove
 
 To tie functionality to the different phases of an ability, Core uses Events. Each phase has an event that is activated at the very beginning of that phase. 
 
-A created function can be connected to these events, using `:Connect(ability_name)`
+A created function can be connected to these events, using `:Connect(ability_name)` within a script.
 
 Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
 
-!!! info "Making Your Ability Unique!"
+!!! info "Customizing Your Ability!"
     A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
+
+
+### The Ability Object
+
+There are all sorts of fun settings for you to customize in an ability. While some of this is handled in code, many of the options--also known as parameters--can be changed from within one object that is kept in your project hierarchy.
+
+This can basically be thought of as a data structure, and generally a way to keep track of how the ability works. It contains all the main parameters that you might use for an ability, enabling you to make fast changes to how your ability works without having to open the scripts to go through code and change variables.
+
+To create an Ability object, navigate to the menu tab Object and select Create Ability.
+
+This spawns a single ability object in your project Hierarchy. On its own, it doesn't do anything--but that leads us into the tutorial!
+
 
 ## Tutorial
 
-Adding an ability to a game does take a little bit of coding.
-
+Adding an ability to a game does take a little bit of coding. It's easier than you might think!
 
 While most all of the coding is already done for you to cause an ability to happen, this code needs to be copied into your project so that you can make whatever custom changes you would like!
-
 
 In this tutorial, we will be making a simple sprint ability that will use all 4 phases, but is very quick to create.
 
@@ -71,14 +81,16 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 3. We’re going to change some of the options at the top of this window.
     1. Change the **Ability Name** in the first box to ‘Sprint’. Notice how all the code in the window updates to say ‘Sprint’ instead of ‘MyAbility’.
 
-    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to ‘`ability_feet`’.  
+    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to "`ability_feet`".  
      For keyboards, this is the **shift** key.
 
     3. When making a simple running sprint, we don’t need to change the animation, but an animation can be chosen to play when an ability is executed.
 
-    4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes. 
+    4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes.  
 
-4. Click the button ‘Create New Script’ to create a new script with all of this code. Name the script `AbilityScript`.
+         On Interrupted determines what happens when an ability is interupted by something in-game, and On Ready determines what when [uh find an answer].
+
+4. Click the button **Create New Script** to create a new script with all of this code. Name the script `AbilityScript`.
 
 !!! info "Script Generator Calls"
     Not all code from within the script generator is needed in every case, and Event Connects that you are not using do not need to be copied into your ability script.
