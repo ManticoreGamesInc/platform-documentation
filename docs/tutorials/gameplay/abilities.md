@@ -2,6 +2,8 @@
 
 An ability is anything that the player can do themselves. 
 
+THIS IS A TEST BRO
+
 Anytime that a player can do something more than just jump and crouch that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
