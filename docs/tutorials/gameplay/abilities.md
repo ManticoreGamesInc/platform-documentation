@@ -2,7 +2,7 @@
 
 An ability is anything that the player can do themselves. 
 
-Anytime that a player can do something more than just jump and crouch that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
+Anytime that a player can do something more than just jump and crouch, that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
@@ -48,7 +48,7 @@ A created function can be connected to these events, using `:Connect(ability_nam
 
 Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
 
-!!! info "Customizing Your Ability!"
+!!! info "Customize Your Ability"
     A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
 
 
@@ -73,7 +73,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
 ### Generating the Script
 
-1. With Core open to a project, click on View > Script Generator to open the **Script Generator**.
+1. With Core open to a project, click on View > Script Generator in the top menu bar to open the **Script Generator**.
 
 2. The default selected should already be Ability, but if it is not, select Ability from the drop-down menu on the top right. You should see this fancy window:  
  ![Script Generator](/src/img/EditorManual/Abilities/scriptGenerator.PNG)
@@ -136,7 +136,7 @@ ability.cooldownPhaseSettings.duration = 2
 
 4. We have nearly everything set up now--the only thing left is to actually assign the ability to a player.  
  There are many ways to do this (granting a new ability when an item is picked up) but in this case, we are going to give the player the ability as soon as the game starts so that they always have it.  
-  Beneath all code this ability script so far, add this line:  
+  Beneath all code in this ability script so far, add this line:  
  `game.playerJoinedEvent:Connect(CreateAndGiveToPlayer_Sprint)`  
   This will connect the function that we made to the moment when a player joins the game, giving them the ability to sprint!
 
@@ -149,21 +149,24 @@ This works great, but using print statements to tell which phase is active isnâ€
 
 Core has a UI element already built in that visually shows the transitions between each ability phase. 
 
-![Ability Control](/src/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CastAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CooldownAbility.PNG)
+![Ability Control](/src/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CooldownAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CastAbility.PNG) 
 
-To get this to work correctly, there are only three steps:
+To get this to work correctly, there are only a few steps steps:
 
-1. Go to Object > 2D UI and click a Canvas into the hierarchy.
+1. Go to Object > 2D UI and click Create UI Canvas to add a canvas into the hierarchy.
 
-1. Create an Ability Control from the Object > 2D UI onto the Canvas and rename that control to `AbilityUI`.
+2. Create an Ability Control from the Object > 2D UI by selecting Create UI Ability Box [4]. In your hierarchy, rename that control to `AbilityUI`. Drag this `AbilityUI` control onto the Canvas object, to make it a child of the canvas.
 
-2. In the same `AbilityScript` that we made above, get a reference to that new ability control.  
+3. Now the ability control should be visible in your viewport. By dragging the white controls around this UI object, you can position the control anywhere on the screen you would like!
+
+4. In the same `AbilityScript` that we made above, get a reference to that new ability control. Copy this line of code to the very top of your sript:  
  `local abilityControl = game:FindObjectByName("AbilityUI")`
 
-3. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability control.  
+5. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability control.  
  `abilityControl.ability = ability`  
-  This will automatically change the control displayed to what was assigned when the ability was created.
+  This will automatically change the control displayed to what was assigned when the ability was created.  
 
+6. Finally, right click the Canvas in your hierarchy, and select "**Enable Networking**" to allow these UI controls to work while the game runs.
 
 *Now the UI element will update automatically when the ability is cast!*
 
