@@ -15,6 +15,7 @@ nav:
             - Abilities: 'tutorials/gameplay/abilities.md'
             - Equipment: 'tutorials/gameplay/equipment.md'
             - Weapons: 'tutorials/gameplay/weapons.md'
+        - Art & Modeling in Core: 'tutorials/art.md'
         - UI: 'tutorials/ui.md'
     - Reference:
         - Useful Links: 'reference/links.md'
