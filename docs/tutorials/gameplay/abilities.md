@@ -88,7 +88,7 @@ In this tutorial, we will be making a simple sprint ability that will use all 4 
 
     4. We’re going to make a fancy sprint that uses all 4 phases, but we still won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes.  
 
-         On Interrupted determines what happens when an ability is interupted by something in-game, and On Ready determines what when [uh find an answer].
+         On Interrupted determines what happens when an ability is interupted by something in-game, and On Ready determines what happens when the ability finishes the cooldown phase and is ready to be activated again.
 
 4. Click the button **Create New Script** to create a new script with all of this code. Name the script `AbilityScript`.
 
