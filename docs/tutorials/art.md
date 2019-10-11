@@ -121,3 +121,19 @@ To understand the differences between contexts in more detail, read our Context 
 *GIF of rotating objects here here*
 
 When placing objects in a Client Context folder, players will not be able to collide with them. They’ll just pass right through. To give them collision for gameplay, place other shapes around the whole object that are outside of the Client Context folder, and turn their visibility off. Make sure their Collidable checkbox is also marked. This is a great way to create **fake collision**. The player will collide with the invisible object, rather than the moving shapes.
+
+### SHARE YOUR CREATIONS: CREATING TEMPLATES
+
+Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about Core is the ability to create and share what we make as templates for ourselves and for others to download.
+
+Another benefit to using templates is that when one is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
+
+#### CREATING NEW TEMPLATES
+
+To make something a template, right click on it in the Hierarchy and choose “Create New Template From This”. Choose a name for your template, and you’ll then notice the color of the text in the Hierarchy change to green. 
+
+#### PUBLISHING A TEMPLATE TO COMMUNITY CONTENT
+
+Now that you’ve made a template for yourself, let’s share it with the world!
+
+Navigate to the template you wish to publish within Project Content. Right click it, and select “Publish to Community Content”. It may prompt you to save, and then a window will open for filling out more details of your template.
