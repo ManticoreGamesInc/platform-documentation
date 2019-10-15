@@ -6,7 +6,7 @@ By resizing and combining different shapes and props, anything can be made!
 
 You won’t need to understand 3D software or modeling to create beautiful art in Core. While some aspects are similar, it’s up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **Asset Manifest**, or you could browse through what other creators have shared on **Community Content**. 
 
-*Need a pretty in-game photo here*
+![Carnival](/src/img/EditorManual/Art/carneval screenshot.JPG)
 
 ----
 
@@ -15,31 +15,31 @@ You won’t need to understand 3D software or modeling to create beautiful art i
 To find all the 3D models already included in Core, start by looking in the Asset Manifest, found in the bottom left window of the editor.  
 This window can also be accessed via the dropdown “View → Asset Manifest”.
 
-*Photo of Asset Manifest here*
+![Asset Manifest](/src/img/EditorManual/Art/AssetManifest.PNG)
 
 Currently, there are 4 different sections that contain models to use right away:
 
 
-- 3D Text
+- **3D Text**
     - All 3D letters and symbols found on an English keyboard.
-- Environment
+- **Environment**
     - Buildings, foliage, and all props related to setting a scene.
-- Basic Shapes
+- **Basic Shapes**
     - Cubes, cylinders, spheres and more.
-- Props
+- **Props**
     - Whole objects like benches, shields, tables, and various gun parts.
 
 To use any of these models, simply click and drag one out from the Asset Manifest and into the scene or the hierarchy.
 
-*GIF of bench dragging here*
+![Drag out Assets](/src/img/EditorManual/Art/DragOutAsset.GIF)
 
 ----
 
 ### Move, Rotate, & Scale
 
-The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the Core editor, or by using the keys **W**, **E**, and **R**, respectively.  
-
 ![Move, Rotate, Scale](/src/img/EditorManual/Art/MoveRotateScale.PNG)
+
+The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the Core editor, or by using the keys **W**, **E**, and **R**, respectively.  
 
 ![Move, Rotate, Scale](/src/img/EditorManual/Art/TransformManipulators.GIF)
 
@@ -50,48 +50,37 @@ The red, blue, and green arrows indicate the different directions a model can be
 While Core does have a distinct art style, all of this can be changed and modified to whatever your vision may be. 
 The colors and patterns on a 3D model are known as “materials”. The easiest way to create a dramatic change is to alter the materials of a model--either to a completely different material, or by editing the settings of a material.
 
-![Different Materials](/src/img/EditorManual/Art/differentMats2.PNG)
 ![Different Materials](/src/img/EditorManual/Art/differentMats.PNG)
 
-When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled “Material 1”--the numbers will continue for as many different material “slots” there are.
+When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled “Base Material”--different objects may have different names for their material slots.
 
 Some models can only have one material, while others are able to have **multiple materials** applied on different parts of the model. 
 
-*photo of mat properties here*
+![Material Properties](/src/img/EditorManual/Art/AssetMaterialSlots.PNG)
 
-In the case of this “Chest Small Opened”, there are 3 different material slots. One for the metal details, one for the wooden base, and one for the treasure on the inside.
+In the case of this “Craftsman Chair 01”, there are 3 different material slots. One for the wooden base, one for the cushion, and one for the metal details.
 
 There are two ways to change these material slots:  
 
 - **Drag a material** from the Materials section of the Asset Manifest into the Material slot in the Properties window. Check out how it’s done below:
 
-*photo of how^ here*
+![Drag a Material](/src/img/EditorManual/Art/dragMaterial.GIF)
 
 Or:
 
 - Double-click the material slot and select a material from the pop-up window:
 
-*photo of how^ here*
+![Double-Click a Material](/src/img/EditorManual/Art/doubleClickMaterial.GIF)
 
-You’ll notice that once a material is changed, the settings available beneath it change. These are all the “parameters” or options that can be changed about the material. Aspects like the color, whether it glows, and how metallic it looks can be changed from here. All materials have different settings, so have fun and experiment!
+Applying materials in this way allows you to change the color of the material. To alter even more options for the material, such as roughness and emissive amount, you will want to create your own custom material.
 
-#### Copying a Material from one Model to Another
+#### Creating Your Own Custom Materials
 
-To copy material settings from one slot to another--including on other models--right click on the Material slot and click “Copy MUID [Material #]”. This will copy the Material itself, but not the settings you may have changed. To copy those over as well, right-click again and select “Copy Material Params for slot [#]”. 
+In your own project, you can create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
 
-*photo of how^ here*
+To read more about creating custom materials, as well as more in-depth details about materials, check out our **Materials Guide**.
 
-To paste those into another material, right click the desired material slot and first select “Paste [Material #] MUID ####”. Now the basic material should be applied--to paste the settings you made, right click the Material slot again and click “Paste Material Params for slot [#]”. 
-
-*photo of how^ here*
-
-#### The Custom Material
-
-If you want even more customization to get the look you want, there is a material that has all kinds of settings to mess with. 
-
-Choose **Custom Material** when selecting a new material and alter settings from there. Options like Metallic, Emissive, Roughness, Distortion and more are editable!
-
-![Custom Materials](/src/img/EditorManual/Art/customeMat.GIF)
+![Different Materials](/src/img/EditorManual/Art/differentMats2.PNG)
 
 ----
 
@@ -99,7 +88,7 @@ Choose **Custom Material** when selecting a new material and alter settings from
 
 Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
 
-![Dragon Set](/src/img/EditorManual/Art/RobotDragonFam.PNG) ![Dragon Set](/src/img/EditorManual/Art/BugShip.GIF) ![Dragon Set](/src/img/EditorManual/Art/carneval screenshot.JPG)
+![Dragon Set](/src/img/EditorManual/Art/RobotDragonFam.PNG) ![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)
 *All of these objects and scenes were created using basic props and shapes combined in Core.*
 
 The process of making more complex models in Core is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
