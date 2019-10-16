@@ -147,69 +147,41 @@ This works great, but using print statements to tell which phase is active isnâ€
 
 ### UI Ability Control
 
-Core has a UI element already built in that visually shows the transitions between each ability phase. 
+A crucial part of a video game is the feedback it gives--players need to know that they're using an ability.
 
-![Ability Control](/src/img/EditorManual/Abilities/UnActivatedAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CooldownAbility.PNG) ![Ability Control](/src/img/EditorManual/Abilities/CastAbility.PNG) 
+While you can make a User Interface element yourself, there is a pre-made template on Community Content that we can use to very quickly set up simple UI for our new ability!
 
-To get this to work correctly, there are only a few steps steps:
+When the ability is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the ability is usable again.
 
-1. Go to Object > 2D UI and click Create UI Canvas to add a canvas into the hierarchy.
+![Ability Control](/src/img/EditorManual/Abilities/Sprint_NotActivated.PNG) ![Ability Control](/src/img/EditorManual/Abilities/Sprint_Activated.PNG)
 
-2. Create an Ability Control from the Object > 2D UI by selecting Create UI Ability Box [4]. In your hierarchy, rename that control to `AbilityUI`. Drag this `AbilityUI` control onto the Canvas object, to make it a child of the canvas.
+To get this to work correctly with the ability we made above, there are only a few steps steps:
 
-3. Now the ability control should be visible in your viewport. By dragging the white controls around this UI object, you can position the control anywhere on the screen you would like!
+1. In Community Content, search for the **CORE_Component_AbilityDisplay** template by jishnugirish, and add this to your project by clicking the plus icon.  
+  ![Ability Control](/src/img/EditorManual/Abilities/CORE_Component_Ability.PNG)
 
-4. In the same `AbilityScript` that we made above, get a reference to that new ability control. Copy this line of code to the very top of your sript:  
- `local abilityControl = game:FindObjectByName("AbilityUI")`
+2. Navigate through your **Project Content** to the **Imported Content** section, and drag the **white** component called **CORE_Component_AbilityBindingDisplay** into your Hierarchy.  
 
-5. Within the `MakeAbility_Sprint()` function, add a line above the return statement to set the ability of the ability control.  
- `abilityControl.ability = ability`  
-  This will automatically change the control displayed to what was assigned when the ability was created.  
+3. If you now click this template from in the hierarchy, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
+  ![Ability Control](/src/img/EditorManual/Abilities/AbilityButtonProperties.PNG)  
+  Change the **Binding** property from ability_primary to ability_feet. We're also going to change the **Text** field to LS, to stand for Left Shift. I will also uncheck the **HideName** property, so that "Sprint" will display over the button.  
 
-6. Finally, right click the Canvas in your hierarchy, and select "**Enable Networking**" to allow these UI controls to work while the game runs.
+     What is really the key here is the Binding property--this connects whatever ability is currently bound to that binding to the Ability Display.
 
-*Now the UI element will update automatically when the ability is cast!*
+4. To change the icon that displays from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the Hierarchy to the two Icon objects. Change the **Image** property on these to whatever you would like!  
+ ![Hierarchy](/src/img/EditorManual/Abilities/ComponentHierarchy.PNG)  
+     I chose the **Icon Stamina** for this case. 
+
+*Now the UI element will update automatically once the ability is cast!*
 
 ### Networking
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. What doesn't happen automatically is the updating of the UI. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder. 
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the Community Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder. 
+
+This has already been done for us in the Community Content template, so no action is needed!
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related Networking page].
-
-To get the job done, here is how to get Ability UI that we made in the above section to display correctly in multiplayer games:
-
-1. Within the UI Canvas that we made above, right click in the Hierarchy and create a New Client Context.
-
-2. Create a new script and name it `ClientUI_UpdateScript`, and drag this script into the Client Context folder.  
- Your Hierarchy should now look like this:  
-  ![Hierarchy](/src/img/EditorManual/Abilities/Hierarchy.PNG)
-
-3. Copy this code below and paste it within the new script:  
-```
-local sprintUIControl = game:FindObjectByName("AbilityUI")
-
-local playerAbilitiesAssigned = false
-
-function Tick(deltaSeconds)
-	local player = game:GetLocalPlayer()
-	if (is_valid(player)) then
-		if (not playerAbilitiesAssigned) then
-			assign_abilities(player)
-		end
-	end
-end
-
-function assign_abilities(player)
-	for _,ability in pairs(player:GetAbilities()) do
-		if (ability.binding == "ability_feet") then
-			sprintUIControl.ability = ability
-		end
-	end
-end
-```  
- This code is a bit heavy on Core, but it does the trick! Several times a second, this script checks whether a player in the game has already had their abilities assigned to the UI controls. It does this only once for each player.  
- Now the ability AND the ability's UI work in multiplayer games!
 
 ## Examples
 
