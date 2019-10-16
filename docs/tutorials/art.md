@@ -78,7 +78,8 @@ Applying materials in this way allows you to change the color of the material. T
 
 In your own project, you have the ability to create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
 
-To read more about creating custom materials, as well as more in-depth details about materials, check out our **Materials Guide**.
+!!! info "Even More Material Tips"
+    To read more about creating custom materials, as well as more in-depth details about materials, check out our **Materials Guide**.
 
 ![Different Materials](/src/img/EditorManual/Art/differentMats2.PNG)
 
@@ -113,7 +114,8 @@ On the other end, you might make a model that **does move during game runtime**:
 
 ![Dragon Set](/src/img/EditorManual/Art/ClientContextFolder.PNG)
 
-To understand the differences between contexts in more detail, read our **Context Guide**.
+!!! info "Give Me More Context, Please"
+    To understand the differences between contexts in more detail, read our **Context Guide**.
 
 ![Dragon Set](/src/img/EditorManual/Art/ClientContextCollision.GIF)
 
