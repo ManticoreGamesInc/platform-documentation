@@ -64,19 +64,19 @@ There are two ways to change these material slots:
 
 - **Drag a material** from the Materials section of the Asset Manifest into the Material slot in the Properties window. Check out how it’s done below:
 
-![Drag a Material](/src/img/EditorManual/Art/dragMaterial.GIF)
+![Drag a Material](/src/img/EditorManual/Art/DragMaterialOut.GIF)
 
 Or:
 
-- Double-click the material slot and select a material from the pop-up window:
+- **Double-click the material slot** and select a material from the pop-up window:
 
-![Double-Click a Material](/src/img/EditorManual/Art/doubleClickMaterial.GIF)
+![Double-Click a Material](/src/img/EditorManual/Art/DoubleClickMaterialSlot.GIF)
 
-Applying materials in this way allows you to change the color of the material. To alter even more options for the material, such as roughness and emissive amount, you will want to create your own custom material.
+Applying materials in this way allows you to change the color of the material. To alter even more options for the material, such as roughness and emissive amount, you can create your own custom material.
 
 #### Creating Your Own Custom Materials
 
-In your own project, you can create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
+In your own project, you have the ability to create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
 
 To read more about creating custom materials, as well as more in-depth details about materials, check out our **Materials Guide**.
 
@@ -88,7 +88,7 @@ To read more about creating custom materials, as well as more in-depth details a
 
 Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
 
-![Dragon Set](/src/img/EditorManual/Art/RobotDragonFam.PNG) ![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)
+![Dragon Set](/src/img/EditorManual/Art/RobotDragonFam.PNG) ![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)  
 *All of these objects and scenes were created using basic props and shapes combined in Core.*
 
 The process of making more complex models in Core is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
@@ -131,7 +131,7 @@ Another benefit to using templates is that when one is updated, it updates every
 
 To make something a template, right click on it in the Hierarchy and choose “**Create New Template From This**”. Choose a name for your template, and you’ll then notice the color of the text in the Hierarchy change to green. 
 
-*photo here*
+![Create New Template](/src/img/EditorManual/Art/CreateNewTEmplate.PNG)
 
 #### Publishing a Template to Community Content
 
@@ -139,9 +139,9 @@ Now that you’ve made a template for yourself, let’s share it with the world!
 
 Navigate to the template you wish to publish within Project Content. Right click it, and select “**Publish to Community Content**”. It may prompt you to save, and then a window will open for filling out more details of your template.
 
-*photo here*
+![Publish](/src/img/EditorManual/Art/publishToCC.PNG)
 
-*big photo here*
+![Publish Dialog Box](/src/img/EditorManual/Art/PublishtoCCBox.PNG)
 
 In this window, you can name your template and give it a description. Make sure to check the box **Is Public** for other players to find it. When you’re ready, click “**Review & Publish**”. Confirm that everything looks right, and click Publish.
 Now other users can find and search for your template on Community Content!
@@ -157,19 +157,21 @@ A deinstanced template will have text color change from green to blue. It is sti
 
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click “**Update Template From This**” to send changes. All the templates will now match the updated one!
 
-*image here* 
+![Update Template From This](/src/img/EditorManual/Art/updateTempFromThis.GIF)
 
 This will update the template for your project personally, but in order to update a template that has been published to Community Content, we will need to re-publish the template.
 
 In your Project Content, find the published template that you wish to update. Right click the template, and click “**Republish**”. It’ll bring up the same window as for Publishing a template, so that you may update the description if you like.
 
-**Download Latest** will update your local project template with whatever the most recent published version of template exists on Community Content.
+![Republish](/src/img/EditorManual/Art/RepublishTemplate.PNG)
+
+"**Download Latest**" will update your local project template with whatever the most recent published version of template exists on Community Content.
 
 #### I Change My Mind: Resetting a Deinstanced Template
 
 When you make a change to an instance of a template, the text turns blue and it is “Deinstanced”. There might be times when you don’t like the changes you’ve made, and you would like to return to your original template. 
 
-To do this, right click an object in the template and select “Reset to Template”. This will revert the template back to the original design!
+To do this, right click an object in the template and select “**Reset to Template**”. This will revert the template back to the original design!
 
 #### Downloading & Using Other Creator’s Templates
 
@@ -177,4 +179,4 @@ Templates made by other people can be downloaded from Community Content and re-u
 
 If you wish to publish a re-used template to Community Content, it must be as its own new and separate template. 
 
-*image here*
+![Community Content Template](/src/img/EditorManual/Art/CCtemplate.PNG)
