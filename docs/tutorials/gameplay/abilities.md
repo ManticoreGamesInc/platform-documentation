@@ -78,7 +78,7 @@ In this tutorial, we are going to make a super simple dodge roll!
 
          On Interrupted determines what happens when an ability is interupted by something in-game, and On Ready determines what happens when the ability finishes the cooldown phase and is ready to be activated again.  
 
-         **Your Script generator should now look like this:**
+         **Your Script Generator should now look like this:**
 
          ![Script Generator Set-UP](/src/img/EditorManual/Abilities/scriptGeneratorCorrect.PNG)
 
@@ -132,7 +132,7 @@ This works great, but using print statements to tell which phase is active isnâ€
 
 A crucial part of a video game is the feedback it gives--players need to know that they're using an ability.
 
-While you can make a User Interface *(often abbreviated to UI)* element yourself, there is a pre-made template on Community Content that we can use to very quickly set up simple UI for our new ability!
+While you can make a User Interface *(often abbreviated to UI)* element yourself, there is a pre-made template on **Community Content** that we can use to very quickly set up simple UI for our new ability!
 
 When the ability is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the ability is usable again.
 
@@ -180,7 +180,7 @@ This way you won't have to open a script to edit how your ability works!
 
 An Ability Object can basically be thought of as a data structure, and in general is a way to keep track of how the ability works. It contains all the main parameters that you use for an ability, enabling you to make fast changes to how your ability works without having to open the scripts to go through code and change variables.
 
-To create an Ability object, navigate to the menu tab Object and select Create Ability.
+To create an Ability object, navigate to the menu tab **Object** and select **Create Ability**.
 
 This spawns a single ability object in your project Hierarchy. On its own, it doesn't do anything--but that leads us into the next step of the tutorial!
 
