@@ -89,7 +89,7 @@ In your own project, you have the ability to create **Custom Materials**. This a
 
 Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
 
-![Dragon Set](/src/img/EditorManual/Art/RobotDragonFam.PNG) ![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)  
+![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)  
 *All of these objects and scenes were created using basic props and shapes combined in Core.*
 
 The process of making more complex models in Core is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
