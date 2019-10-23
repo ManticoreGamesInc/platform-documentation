@@ -2,7 +2,7 @@
 
 An ability is anything that the player can do themselves. 
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
+Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
@@ -13,7 +13,7 @@ An ability could be to sprint, a dance emote, the opening of a hidden menu; an a
 
 ### The 4 Phases of an Ability
 
-In Core, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
+In CORE, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
 
 The 4 different phases of an ability are:
 
@@ -42,7 +42,7 @@ Once an ability is triggered to start, it cycles through **Cast** > **Execute** 
 
 ![Ability States](/src/img/EditorManual/Abilities/Ability States.png)
 
-To tie functionality to the different phases of an ability, Core uses **Events**. Each phase has an event that is activated at the very beginning of that phase. 
+To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase. 
 
 A created function can be connected to these events, using `:Connect(ability_name)` within a script.
 
@@ -61,7 +61,7 @@ In this tutorial, we are going to make a super simple dodge roll!
 
 ### Generating the Script
 
-1. With Core open to a project, click on View > Script Generator in the top menu bar to open the **Script Generator**.
+1. With CORE open to a project, click on View > Script Generator in the top menu bar to open the **Script Generator**.
 
 2. The default selected script type should already be Ability, but if it is not, select Ability from the drop-down menu on the top left. You should see this fancy window:  
  ![Script Generator](/src/img/EditorManual/Abilities/scriptGenerator.PNG)
@@ -180,9 +180,7 @@ This way you won't have to open a script to edit how your ability works!
 
 An Ability Object can basically be thought of as a data structure, and in general is a way to keep track of how the ability works. It contains all the main parameters that you use for an ability, enabling you to make fast changes to how your ability works without having to open the scripts to go through code and change variables.
 
-To create an Ability object, navigate to the menu tab **Object** and select **Create Ability**.
-
-This spawns a single ability object in your project Hierarchy. On its own, it doesn't do anything--but that leads us into the next step of the tutorial!
+To read more on Ability Objects and create a more advanced ability system, read our **next tutorial on abilities**.
 
 ## Examples
 
