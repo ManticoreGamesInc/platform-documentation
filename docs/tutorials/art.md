@@ -1,10 +1,10 @@
 ## Abstract
 
-The Core editor comes with all sorts of built-in 3D models and props for using and combining in any way that you can imagine!
+The CORE™ editor comes with all sorts of built-in 3D models and props for using and combining in any way that you can imagine!
 
 By resizing and combining different shapes and props, anything can be made!
 
-You won’t need to understand 3D software or modeling to create beautiful art in Core. While some aspects are similar, it’s up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **Asset Manifest**, or you could browse through what other creators have shared on **Community Content**. 
+You won’t need to understand 3D software or modeling to create beautiful art in CORE. While some aspects are similar, it’s up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **Asset Manifest**, or you could browse through what other creators have shared on **Community Content**. 
 
 ![Carnival](/src/img/EditorManual/Art/carneval screenshot.JPG)
 
@@ -12,7 +12,8 @@ You won’t need to understand 3D software or modeling to create beautiful art i
 
 ### Pre-Made Props & Assets
 
-To find all the 3D models already included in Core, start by looking in the Asset Manifest, found in the bottom left window of the editor.  
+To find all the 3D models already included in CORE, start by looking in the **Asset Manifest**, found in the bottom left window of the editor.  
+
 This window can also be accessed via the dropdown “View → Asset Manifest”.
 
 ![Asset Manifest](/src/img/EditorManual/Art/AssetManifest.PNG)
@@ -22,12 +23,12 @@ Currently, there are 4 different sections that contain models to use right away:
 
 - **3D Text**
     - All 3D letters and symbols found on an English keyboard.
-- **Environment**
-    - Buildings, foliage, and all props related to setting a scene.
 - **Basic Shapes**
     - Cubes, cylinders, spheres and more.
+- **Environment**
+    - Buildings, foliage, and all props related to setting a scene.
 - **Props**
-    - Whole objects like benches, shields, tables, and various gun parts.
+    - Whole objects like benches, shields, tables, and various weapon parts.
 
 To use any of these models, simply click and drag one out from the Asset Manifest and into the scene or the hierarchy.
 
@@ -39,7 +40,7 @@ To use any of these models, simply click and drag one out from the Asset Manifes
 
 ![Move, Rotate, Scale](/src/img/EditorManual/Art/MoveRotateScale.PNG)
 
-The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the Core editor, or by using the keys **W**, **E**, and **R**, respectively.  
+The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys **W**, **E**, and **R**, respectively.  
 
 ![Move, Rotate, Scale](/src/img/EditorManual/Art/TransformManipulators.GIF)
 
@@ -47,12 +48,12 @@ The red, blue, and green arrows indicate the different directions a model can be
 
 ### Color Your Way: Changing Model Materials
 
-While Core does have a distinct art style, all of this can be changed and modified to whatever your vision may be. 
+While CORE does have a distinct art style, all of this can be changed and modified to whatever your vision may be. 
 The colors and patterns on a 3D model are known as “materials”. The easiest way to create a dramatic change is to alter the materials of a model--either to a completely different material, or by editing the settings of a material.
 
 ![Different Materials](/src/img/EditorManual/Art/differentMats.PNG)
 
-When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled “Base Material”--different objects may have different names for their material slots.
+When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled “Base Material”. Different objects may have different names for their material slots.
 
 Some models can only have one material, while others are able to have **multiple materials** applied on different parts of the model. 
 
@@ -72,7 +73,7 @@ Or:
 
 ![Double-Click a Material](/src/img/EditorManual/Art/DoubleClickMaterialSlot.GIF)
 
-Applying materials in this way allows you to change the color of the material. To alter even more options for the material, such as roughness and emissive amount, you can create your own custom material.
+Applying materials in this way allows you to adjust the color of the material. To alter even more options for the material, such as roughness and emissive amount, you can create your own custom material.
 
 #### Creating Your Own Custom Materials
 
@@ -87,18 +88,20 @@ In your own project, you have the ability to create **Custom Materials**. This a
 
 ### Getting Complex: Combining Models
 
-Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
+Using pre-made models in CORE is not the only way to create art. By arranging different props together, your imagination is the limit!
 
 ![Bug Ship](/src/img/EditorManual/Art/BugShip.GIF)  
-*All of these objects and scenes were created using basic props and shapes combined in Core.*
+*All of these objects and scenes were created using basic shapes and props combined in CORE.*
 
-The process of making more complex models in Core is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
+The process of making more complex models in CORE is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
 
-Using a **folder** to combine objects will allow you to select a single object when clicking.
+Using a **folder** to combine objects will allow you to select a single object when clicking. See this below:
 
-Using a **group** to combine objects will select the entire group at once when clicking a single object.
+![Folder](/src/img/EditorManual/Art/FolderSelect.GIF)
 
-![Folder](/src/img/EditorManual/Art/FolderSelect.GIF)*Folder Select*![Group](/src/img/EditorManual/Art/groupSelect.GIF)*Group Select*
+Using a **group** to combine objects will select the entire group at once when clicking a single object:
+
+![Group](/src/img/EditorManual/Art/groupSelect.GIF)
 
 Use whichever method suits your needs more.
 
@@ -106,7 +109,7 @@ Use whichever method suits your needs more.
 
 A huge part of creating video games is making sure that they work, and that they run smoothly!
 
-Whenever you create models that **will never be changing during gameplay**, and will always stay stationary, they will need to be kept in a **Static Context** folder. This way their data is never updated while the game plays, so they don’t take up power that would be useful for other mechanics.
+Whenever you create models that **will never change during gameplay** and will always stay stationary--such as a tree--they will need to be kept in a **Static Context** folder. This way their data is never updated while the game plays, so they don’t take up power that would be useful for other mechanics.
 
 ![Dragon Set](/src/img/EditorManual/Art/staticContext.PNG)
 
@@ -119,13 +122,15 @@ On the other end, you might make a model that **does move during game runtime**:
 
 ![Dragon Set](/src/img/EditorManual/Art/ClientContextCollision.GIF)
 
-When placing objects in a Client Context folder, players will not be able to collide with them. They’ll just pass right through. To give them collision for gameplay, place other shapes around the whole object that are outside of the Client Context folder, and turn their visibility off. Make sure their Collidable checkbox is also marked. This is a great way to create **fake collision**. The player will collide with the invisible object, rather than the moving shapes.
+When placing objects in a Client Context folder, players will not be able to collide with them. They’ll just pass right through. To give them collision for gameplay, place other shapes around the whole object that are outside of the Client Context folder, and turn their visibility off. Make sure their Collidable checkbox is also marked. These settings can be changed from the object's Properties window.  
+
+This is a great way to create **fake collision**. The player will collide with the invisible object, rather than the moving shapes.
 
 ----
 
 ### Share Your Creations: Creating Templates
 
-Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about Core is the ability to create and share what we make as **templates** for ourselves and for others to download.
+Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about CORE is the ability to create and share what we make as **templates** for ourselves and for others to download.
 
 Another benefit to using templates is that when one is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
 
