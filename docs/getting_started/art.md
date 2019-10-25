@@ -30,6 +30,10 @@ Currently, there are 4 different sections that contain models to use right away:
 - **Props**
     - Whole objects like benches, shields, tables, and various weapon parts.
 
+These larger categories also have subcategories, that can be opened by clicking the little gray arrow:
+
+![Asset Manifest Drop Downs](/src/img/EditorManual/Art/AssetManifestDropDowns.PNG)
+
 To use any of these models, simply click and drag one out from the Asset Manifest and into the scene or the hierarchy.
 
 ![Drag out Assets](/src/img/EditorManual/Art/DragOutAsset.GIF)
