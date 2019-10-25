@@ -4,7 +4,7 @@ nav:
     - index.md
     - Getting Started:
         - Editor: 'getting_started/editor_intro.md'
-        - Art: 'getting_started/art_intro.md'
+        - Art & Modeling in Core: 'getting_started/art.md'
         - Scripting: 'getting_started/scripting_intro.md'
         - Community Content: 'getting_started/community_content.md'
     - Tutorials:
@@ -15,7 +15,6 @@ nav:
             - Abilities: 'tutorials/gameplay/abilities.md'
             - Equipment: 'tutorials/gameplay/equipment.md'
             - Weapons: 'tutorials/gameplay/weapons.md'
-        - Art & Modeling in Core: 'tutorials/art.md'
         - UI: 'tutorials/ui.md'
     - Reference:
         - Useful Links: 'reference/links.md'
