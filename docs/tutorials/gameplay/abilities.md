@@ -1,4 +1,4 @@
-## Abstract
+## Overview
 
 An ability is anything that the player can do themselves. 
 
@@ -174,13 +174,9 @@ This has already been done for us in the Community Content template, so no actio
 
 ## Altering Properties the Easy Way: The Ability Object
 
-As you may have noticed while doing the tutorial, there are all sorts of fun settings for you to customize in an ability. While some of this is handled in code, many of the options--also known as properties or parameters--can be changed from within one object that is kept in your project hierarchy.
+Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts. 
 
-This way you won't have to open a script to edit how your ability works!
-
-An Ability Object can basically be thought of as a data structure, and in general is a way to keep track of how the ability works. It contains all the main parameters that you use for an ability, enabling you to make fast changes to how your ability works without having to open the scripts to go through code and change variables.
-
-To read more on Ability Objects and create a more advanced ability system, read our **next tutorial on abilities**.
+To create a more advanced ability system and read more about Ability Objects, read our [next tutorial on abilities](/tutorials/gameplay/complex_abilities/).
 
 ## Examples
 

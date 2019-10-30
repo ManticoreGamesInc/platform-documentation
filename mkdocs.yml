@@ -13,6 +13,7 @@ nav:
         - Networking: 'tutorials/networking.md'
         - Gameplay:
             - Abilities: 'tutorials/gameplay/abilities.md'
+            - Complex Abilities: 'tutorials/gameplay/complex_abilities.md'
             - Equipment: 'tutorials/gameplay/equipment.md'
             - Weapons: 'tutorials/gameplay/weapons.md'
         - UI: 'tutorials/ui.md'
