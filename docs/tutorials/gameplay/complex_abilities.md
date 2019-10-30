@@ -1,63 +1,25 @@
 ## Overview
 
-An ability is anything that the player can do themselves. 
-
-Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
-
-An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
+Abilities can get as complicated as you would like them to get. 
 
 !!! info
-    Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
+    This tutorial will also utilize the Equipment system.
 
-![Dodge Roll](/src/img/EditorManual/Abilities/dodgeRoll.GIF)
+![Heavy Slash](/src/img/EditorManual/Abilities/ComplexAbilities/Heavy Slash.GIF)
 
-### The 4 Phases of an Ability
+## Altering Properties the Easy Way: The Ability Object
 
-In CORE, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
+As you may have noticed while doing the intro to abilities tutorial, there are all sorts of fun settings for you to customize in an ability. While some of this is handled in code, many of the options--also known as properties or parameters--can be changed from within one object that is kept in your project hierarchy.
 
-The 4 different phases of an ability are:
+This way you won't have to open a script to edit how your ability works!
 
-- **Cast**
-    - The wind-up time--this is the prep phase before the ability actually happens.
-
-- **Execute**
-    - The actual ability.
-    - Whatever the ability is going to do, it happens at this moment.
-
-- **Recovery**
-    - Additional ability actions that aren’t part of the main action.
-
-- **Cooldown**
-    - The rest period after an ability is finished being cast, and cannot be cast again.
-
-
-!!! info "A More Natural Example"
-    Try thinking of it like the casting of a magical spell:  
-    Cast: The witch charges up her spell, twirling her wand in the air in preparation.  
-    Execute: The witch flicks her wand, launching magic sparks at her enemy.  
-    Recovery: Out of breath from the power, the witch lowers her arm.  
-    Cooldown: The witch waits for her magic powers to return to her.  
-
-Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
-
-![Ability States](/src/img/EditorManual/Abilities/Ability States.png)
-
-To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase. 
-
-A created function can be connected to these events, using `:Connect(ability_name)` within a script.
-
-Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
-
-!!! info "Customize Your Ability"
-    A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
+An Ability Object can basically be thought of as a data structure, and in general is a way to keep track of how the ability works. It contains all the main parameters that you use for an ability, enabling you to make fast changes to how your ability works without having to open the scripts to go through code and change variables.
 
 ## Tutorial
 
-Adding an ability to a game does take a little bit of coding. It's easier than you might think!
+In this tutorial, we will be making a magic staff that the player can pick up, granting them two different abilities. The data for these abilities will be kept in Ability Objects.
 
-While most all of the coding is already done for you to cause an ability to happen, this code needs to be copied into your project so that you can make whatever custom changes you would like.
-
-In this tutorial, we are going to make a super simple dodge roll!
+So, let's make magic!
 
 ### Generating the Script
 
@@ -171,12 +133,6 @@ This has already been done for us in the Community Content template, so no actio
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the [related Networking page].
-
-## Altering Properties the Easy Way: The Ability Object
-
-Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts. 
-
-To create a more advanced ability system and read more about Ability Objects, read our [next tutorial on abilities](/tutorials/gameplay/complex_abilities/).
 
 ## Examples
 
