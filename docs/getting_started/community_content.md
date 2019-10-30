@@ -1,8 +1,8 @@
 # Community Content
 
 **Community Content** is one of the most fundamentally awesome aspects of
-creation in Core. It allows for you to use, improve, and remix creations you or
-others have made public in order to create a wealth of content for all game
+creation in CORE™. It allows for you to use, improve, and remix creations you or
+others have made public. This creates a wealth of content for all game
 creators on the platform - speeding up game development & the spread of ideas more than ever before!
 
 With that in mind, here's how to best use it.
@@ -44,9 +44,16 @@ The green object is the main template, and the part you should drag into the Hie
 
 ## Next Steps: Publish Your Own Content
 
-Read Tasha's Tempaltes Tutorial for more info 
+To learn more about these templates that are shared on Community Content, and how to share your own with the world of CORE, follow our quick tutorial on [Templates](/Tutorials/Templates.md).
 
-Feel more than free to publish your whole project and play it with others! 
-[[dev](https://dev.manticoreplatform.com)/[production](https://prod.manticoreplatform.com)])
+Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
 
-Browse [examples](/reference/examples), download them, and play around with everything!
+----
+
+## Remixing Games: Starting from an Existing Game
+
+Another way to speed ahead the creation of your project is to **start with an entire game that somebody else has made.**
+
+Some games published on the CORE website allow other users to download them, enabling you to move things around and change the game however you would like. 
+
+To download a game by somebody else and add your own personal flair, go to the game's page on our website. If the person who published the game allowed it to be publicly editable, then there will be an `Edit` button on the page. Clicking this will download the whole game project to your computer, allowing you to open it up and edit it from within the CORE editor!
