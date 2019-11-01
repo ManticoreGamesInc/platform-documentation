@@ -4,28 +4,32 @@ nav:
     - index.md
     - Docs:
         - Getting Started:
-            - Editor: 'getting_started/editor_intro.md'
-            - Art & Modeling in Core: 'getting_started/art.md'
-            - Scripting: 'getting_started/scripting_intro.md'
-        - Tutorials:
-            - Complete Game: 'tutorials/complete_game.md'
-            - Terrain+: 'tutorials/terrain+.md'
-            - Networking: 'tutorials/networking.md'
-            - Gameplay:
-                - Abilities: 'tutorials/gameplay/abilities.md'
-                - Complex Abilities: 'tutorials/gameplay/complex_abilities.md'
-                - Equipment: 'tutorials/gameplay/equipment.md'
-                - Weapons: 'tutorials/gameplay/weapons.md'
-            - Art in Core: 'tutorials/art.md'
-            - UI: 'tutorials/ui.md'
-        - Reference:
-            - Community Content: 'getting_started/community_content.md'
-            - Useful Links: 'reference/links.md'
-            - Scripting:
-                - Lua Primer: 'reference/scripting/lua_primer.md'
-                - Extensions: 'reference/scripting/extensions.md'
-                - Conventions: 'reference/scripting/conventions.md'
-            - Examples: 'reference/examples.md'
+            - Installation:
+            - Spellshock:
+            - Intro to the Editor:
+        - Gameplay:
+            - First Ability:
+            - Advanced Ability:
+            - First Weapon:
+            - Advanced Weapon:
+            - Basic Lua (Detailed Help):
+            - Basic Lua (Quicker Primer):
+            - Lua Reference:
+            - Networking Reference:
+            - Performance Reference:
+        - Art:
+            - Scene Creation:
+            - Intro to Environmental Art:
+            - Modeling Basics:
+            - Art Reference:
+            - Custom Material Reference:
+            - Costumes:
+        - Misc:
+            - UI Reference:
+            - Audio Reference:
+            - Collaboration Reference:
+            - FAQs:
+            - Examples:
         - Core API: 'reference/core_api.md'
         - Community Created Documentation:
             - Example: 'community.md'
