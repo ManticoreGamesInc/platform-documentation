@@ -4,41 +4,41 @@ nav:
     - index.md
     - Docs:
         - Getting Started:
-            - Installation:
-            - Spellshock:
-            - Intro to the Editor:
+            - Installation: docs/getting_started/installation.md
+            - Spellshock: docs/getting_started/spellshock.md
+            - Intro to the Editor: docs/getting_started/editor_intro.md
         - Gameplay:
-            - First Ability:
-            - Advanced Ability:
-            - First Weapon:
-            - Advanced Weapon:
-            - Basic Lua (Detailed Help):
-            - Basic Lua (Quicker Primer):
-            - Lua Reference:
-            - Networking Reference:
-            - Performance Reference:
+            - First Ability: docs/gameplay/abilities.md
+            - Advanced Ability/Equipment: docs/gameplay/abilities_advanced.md
+            - First Weapon: docs/gameplay/weapons.md
+            - Advanced Weapon: docs/gameplay/weapons_advanced.md
+            - Basic Lua (Detailed Help): docs/gameplay/lua_basics_lightbulb.md
+            - Basic Lua (Quicker Primer): docs/gameplay/lua_basics_manticoin.md
+            - Lua Reference: docs/gameplay/lua_reference.md
+            - Networking Reference: docs/gameplay/networking.md
+            - Performance Reference: docs/gameplay/performance.md
         - Art:
-            - Scene Creation:
-            - Intro to Environmental Art:
-            - Modeling Basics:
-            - Art Reference:
-            - Custom Material Reference:
-            - Costumes:
-        - Misc:
-            - UI Reference:
-            - Audio Reference:
-            - Collaboration Reference:
-            - FAQs:
-            - Examples:
-        - Core API: 'reference/core_api.md'
+            - Scene Creation: docs/art/scene_creation.md
+            - Intro to Environmental Art: docs/art/enviro_art_intro.md
+            - Modeling Basics: docs/art/modeling_basics.md
+            - Art Reference: docs/art/art_reference.md
+            - Custom Material Reference: docs/art/custom_materials.md
+            - Costumes: docs/art/costumes.md
+        - Other:
+            - UI Reference: docs/other/ui_reference.md
+            - Audio Reference: docs/other/audio_reference.md
+            - Collaboration Reference: docs/other/collaboration.md
+        - FAQs: docs/faqs.md
+        - Examples: docs/examples.md
+        - Core API: docs/core_api.md
         - Community Created Documentation:
-            - Example: 'community.md'
-    - Community: 'community.md'
+            - Midi: docs/community_created/midi.md
+    - Community: community.md
     - News:
-        - Announcements: 'announcements.md'
-        - Events: 'announcements.md'
-        - Showcase: 'announcements.md'
-        - Patch Notes: 'announcements.md'
+        - Announcements: news/announcements/pre_alpha.md
+        - Events: news/events/alpha_launch.md
+        - Showcase: news/showcase/pre_alpha.md
+        - Patch Notes: news/patch_notes/12_10_19.md
 
 # If you make a PR, no need to change data below this point
 
@@ -84,12 +84,15 @@ markdown_extensions:
   - toc: # add linking to headers
       permalink: true
 
+# Docs dir
+docs_dir: src
+
 # Site name
-site_name: CORE Docs
+site_name: Creator Hub
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
-edit_uri: edit/production/docs
+edit_uri: edit/production/src
 
 # Metadata
 site_description: Documentation for the CORE Engine
