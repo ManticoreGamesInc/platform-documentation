@@ -1,50 +1,59 @@
 # Community Content
 
-Shared content is one of the most fundamentally important aspects of game
-creation in Core. It allows for you to use, improve, and remix creations you or
-others have made public in order to create a wealth of content for all game
-creators on the platform - speeding up game development more than ever before.
-With that in mind, here's how to use it.
+**Community Content** is one of the most fundamentally awesome aspects of
+creation in CORE™. It allows for you to use, improve, and remix creations you or
+others have made public. This creates a wealth of content for all game
+creators on the platform - speeding up game development & the spread of ideas more than ever before!
 
-## Using Community Content
+With that in mind, here's how to best use it.
 
-Open up the `Community Content` tab (go to `View -> Community Content` to open the
-window if you don't see it already).
+----
 
-Here you can browse the content or search (by username or template name).
+## Using Community Content: Downloading Content
 
-Press the `+` button to import the template, and then you can see it in your
-`Asset Manifest -> Project Content -> Imported Community Content`.
+Community Content exists as a free exchange of creations, both of models & art, as well as programming & game logic. All sorts of things can be found here, made by users just like you. 
 
-!!! Note
-    To see sub-content brought along by each template, click on each element in
-    the expanded category of imported community content.
+The goal is to bring your ideas to life as fast as possible, so that nothing stands between you and sharing your mind with the world! Building on top of what others have done before you leaves room to come up with even more new ideas and focus on what really speaks to you.
 
-## Importing A New Map
+Open up the **Community Content** tab by clicking on it. If the tab isn't already open for you, navigate to `View -> Community Content` in the top menu bar to open the window.
 
-- Go to `Object -> Remove Old Sky`
-- Go to community content and import `ForestArena`
-- Go to Project Content and drag the template into the 3D Viewport or the Hierarchy
-- Run around the fancy level, examine it in the hierarchy to see how it was
-  constructed, etc.
+![Community Content Template](/src/img/getting_started/communitycontent.PNG)
 
-## Importing New Game Logic
+Here you can browse the content or search by username or key words. 
 
-- Go to community content and import `FFA_GameMode`
-  - Like before, it has to be dragged into the hierarchy
-- Check out the READ_ME for details, or just play around
+Click the blue `+` button on an asset to import the template. It will likely ask you to save your project first.
 
-Optionally, add weapons via `FFA_Spawners` and you have a full game mode!
+![Community Content Template](/src/img/EditorManual/Art/CCtemplate.PNG)
 
-!!! Warning
-    This is not a perfect example, it is outdated and doesn't follow all the
-    best practices - it is simply included as inspiration for if you need some
-    direction; don't follow it exactly.
+You can then see the template you chose in your own **Project Content** folder.
+`Project Content -> Imported Content`.
 
-## Next Steps
+![Imported Content](/src/img/getting_started/ProjectContent_importedcontent.PNG)
 
-Feel free to publish the game and play with others (save the map, exit to the
-main menu, and click on the game, choose publish, and then go to the site
-[[staging](https://staging.manticoreplatform.com)/[production](https://prod.manticoreplatform.com)])
+### Using Your Imported Content
 
-Browse [examples](/reference/examples), download them, and play around with everything!
+From within the Imported Content section, you will find any and all templates that you download from Community Content. 
+
+When selecting a template from the menu on the left, the contents of that template will show up on the right. This will list all the parts of a template including scripts, visual effects, and materials. 
+
+The green object is the main template, and the part you should drag into the Hierarchy or viewport for use.
+
+![Imported Content Assets](/src/img/getting_started/ProjectContent_importedcontentasset.PNG)
+
+----
+
+## Next Steps: Publish Your Own Content
+
+To learn more about these templates that are shared on Community Content, and how to share your own with the world of CORE, follow our quick tutorial on [Templates](/Tutorials/Templates.md).
+
+Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
+
+----
+
+## Remixing Games: Starting from an Existing Game
+
+Another way to speed ahead the creation of your project is to **start with an entire game that somebody else has made.**
+
+Some games published on the CORE website allow other users to download them, enabling you to move things around and change the game however you would like. 
+
+To download a game by somebody else and add your own personal flair, go to the game's page on our website. If the person who published the game allowed it to be publicly editable, then there will be an `Edit` button on the page. Clicking this will download the whole game project to your computer, allowing you to open it up and edit it from within the CORE editor!
