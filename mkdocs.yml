@@ -2,31 +2,39 @@
 # If you add a page, you must also add it to the index here
 nav:
     - index.md
-    - Getting Started:
-        - Editor: 'getting_started/editor_intro.md'
-        - Art & Modeling in Core: 'getting_started/art.md'
-        - Scripting: 'getting_started/scripting_intro.md'
-        - Community Content: 'getting_started/community_content.md'
-    - Tutorials:
-        - Complete Game: 'tutorials/complete_game.md'
-        - Terrain+: 'tutorials/terrain+.md'
-        - Networking: 'tutorials/networking.md'
-        - Gameplay:
-            - Abilities: 'tutorials/gameplay/abilities.md'
-            - Complex Abilities: 'tutorials/gameplay/complex_abilities.md'
-            - Equipment: 'tutorials/gameplay/equipment.md'
-            - Weapons: 'tutorials/gameplay/weapons.md'
-        - Art in Core: 'tutorials/art.md'
-        - UI: 'tutorials/ui.md'
-    - Reference:
-        - Useful Links: 'reference/links.md'
-        - Scripting:
-            - Lua Primer: 'reference/scripting/lua_primer.md'
-            - Extensions: 'reference/scripting/extensions.md'
-            - Conventions: 'reference/scripting/conventions.md'
-        - Examples: 'reference/examples.md'
+    - Docs:
+        - Getting Started:
+            - Editor: 'getting_started/editor_intro.md'
+            - Art & Modeling in Core: 'getting_started/art.md'
+            - Scripting: 'getting_started/scripting_intro.md'
+        - Tutorials:
+            - Complete Game: 'tutorials/complete_game.md'
+            - Terrain+: 'tutorials/terrain+.md'
+            - Networking: 'tutorials/networking.md'
+            - Gameplay:
+                - Abilities: 'tutorials/gameplay/abilities.md'
+                - Complex Abilities: 'tutorials/gameplay/complex_abilities.md'
+                - Equipment: 'tutorials/gameplay/equipment.md'
+                - Weapons: 'tutorials/gameplay/weapons.md'
+            - Art in Core: 'tutorials/art.md'
+            - UI: 'tutorials/ui.md'
+        - Reference:
+            - Community Content: 'getting_started/community_content.md'
+            - Useful Links: 'reference/links.md'
+            - Scripting:
+                - Lua Primer: 'reference/scripting/lua_primer.md'
+                - Extensions: 'reference/scripting/extensions.md'
+                - Conventions: 'reference/scripting/conventions.md'
+            - Examples: 'reference/examples.md'
         - Core API: 'reference/core_api.md'
+        - Community Created Documentation:
+            - Example: 'community.md'
     - Community: 'community.md'
+    - News:
+        - Announcements: 'announcements.md'
+        - Events: 'announcements.md'
+        - Showcase: 'announcements.md'
+        - Patch Notes: 'announcements.md'
 
 # If you make a PR, no need to change data below this point
 
