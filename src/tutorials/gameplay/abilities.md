@@ -1,132 +1,66 @@
 ## Overview
 
-An ability is anything that the player can do themselves.
+An ability is anything that the player can do themselves. 
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
+Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
 !!! info
     Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
 
-![Dodge Roll](/img/EditorManual/Abilities/dodgeRoll.GIF)
+![Dodge Roll](src/docs/img/EditorManual/Abilities/dodgeRoll.GIF)
 
-### The 4 Phases of an Ability
+### What is an Ability?
 
-In CORE, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
+In CORE, an ability is an object that holds information about how to function. You can set how long the ability lasts for, how long until the ability can be used a second time, and all sorts of other properties.
 
-The 4 different phases of an ability are:
+While there are ways to utilize all these properties, for your first dive into abilities, we're just going to touch on the very basics.
 
-- **Cast**
-    - The wind-up time--this is the prep phase before the ability actually happens.
-
-- **Execute**
-    - The actual ability.
-    - Whatever the ability is going to do, it happens at this moment.
-
-- **Recovery**
-    - Additional ability actions that aren’t part of the main action.
-
-- **Cooldown**
-    - The rest period after an ability is finished being cast, and cannot be cast again.
-
-
-!!! info "A More Natural Example"
-    Try thinking of it like the casting of a magical spell:
-    Cast: The witch charges up her spell, twirling her wand in the air in preparation.
-    Execute: The witch flicks her wand, launching magic sparks at her enemy.
-    Recovery: Out of breath from the power, the witch lowers her arm.
-    Cooldown: The witch waits for her magic powers to return to her.
-
-Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
-
-![Ability States](/img/EditorManual/Abilities/Ability States.png)
-
-To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
-
-A created function can be connected to these events, using `:Connect(ability_name)` within a script.
-
-Connecting functions to events in an ability is the main task to be done when creating an ability, and is what makes each one different and infinitely customizable.
-
-!!! info "Customize Your Ability"
-    A magical spell might have a long cast time, whereas a punch would have a very short if not instant cast time.
+Abilities can either be assigned to players at the start of a game, or when they equip a special item.
 
 ## Tutorial
 
-Adding an ability to a game does take a little bit of coding. It's easier than you might think!
+Adding a simple ability to a game is only a couple of steps. We'll go over how to activate an animation on a button press, with no coding necessary!
 
-While most all of the coding is already done for you to cause an ability to happen, this code needs to be copied into your project so that you can make whatever custom changes you would like.
+We're going to make a piece of equipment that the player can pick up, and when they do, they will gain a new ability.
 
-In this tutorial, we are going to make a super simple dodge roll!
+In this tutorial, we are going to make a super simple dodge roll.
 
-### Generating the Script
+### Getting Started with Equipment
 
-1. With CORE open to a project, click on View > Script Generator in the top menu bar to open the **Script Generator**.
+1. With CORE open to a project, click on **Object** in the top menu bar and down on the list click "Create Equipment".  
+   
+     This will add an **Equipment** object to your project Hierarchy. Equipment comes with a `PickupTrigger` that allows players to equip the object when the player touches it.
 
-2. The default selected script type should already be Ability, but if it is not, select Ability from the drop-down menu on the top left. You should see this fancy window:
- ![Script Generator](/img/EditorManual/Abilities/scriptGenerator.PNG)
+     Doing this will already let you pick up the equipment when playing the game and walking through it--but it's hard to pick up something you can't see!
 
-3. We’re going to change some of the options at the top of this window.
-    1. Change the **Ability Name** in the first box to ‘Dodge’. Notice how all the code in the window updates to say ‘Dodge’ instead of ‘MyAbility’.
+2. To make this a more useful power-up object, let's add a model to it that players can see.  
+    
+     You can really choose whatever you would like, but in my case I am going to use a classic gem.  
 
-    2. The **Input Binding** is which button this ability is tied to. This works on both keyboards and game controllers! In this case, change the drop-down menu to "`ability_feet`".
-     For keyboards, this is the **shift** key.
+       1. In the **Asset Manifest**, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.  
 
-    3. There is an animation already built-in for the player to dodge roll. Set the **Anim Names** drop-down menu to "`unarmed_roll`"
+         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our [Art Reference Guide](src/docs/art/art_reference/) or try a [Tutorial](src/docs/art/modeling_basics/). 
 
-    4. Since we're making a simple dodge roll ability, we won’t need **On Interrupted** or **On Ready** for this case. Uncheck those boxes.
+       2. Drag it onto the Equipment object and it will become a child of the equipment object. It will prompt you to make the Gem Networked, and select Yes to this.  
+         For better organization, right click the Gem object and select `New Group Containing This`, and name it "Art".
 
-         On Interrupted determines what happens when an ability is interupted by something in-game, and On Ready determines what happens when the ability finishes the cooldown phase and is ready to be activated again.
+       3. In the **Properties** window, uncheck the "Collidable" box of the art folder. This way the gem won't mess with your camera when it's attached to the player.  
 
-         **Your Script Generator should now look like this:**
+     Now that we've created a visible object that can be picked up, it needs to do something!
 
-         ![Script Generator Set-UP](/img/EditorManual/Abilities/scriptGeneratorCorrect.PNG)
+4. Up in the **Object** menu, click "Create Ability" to add an ability object to your project Hierarchy.  
 
-4. Click the button **Create New Script** to create a new script with all of this code. Name the script `AbilityScript`.
+     1. Click on the Ability object and drag it onto the Equipment object to make it a child of the ability object. Now when the player picks up the equipment, they will automatically gain the ability!
 
-!!! info "Script Generator Calls"
-    Not all code from within the script generator is needed in every case, and Event Connects that you are not using do not need to be copied into your ability script.
+6. The Ability object starts with default settings in the Properties window. To make our own dodgeroll, we only need to change two things.  
 
-### Customizing the Code
+     1. With the Ability Object selected, navigate to the Properties window and change the **Key Binding** property to "Ability Feet".  
 
-1. Now we make our changes, but first is **removing unneeded parts**!
+        The Key Binding is which button will activate the ability. In this case, Ability Feet is the shift key on keyboards.
 
-    2. Towards the bottom, within `OnExecute_Dodge(ability)`, remove all these lines relating to `target_data`, as we won’t need this for dodging:
-    ```python
-    -- if requires_target_data is set on phase, can access target_data
-	-- for properties in target_data, see comment block below
-	local targetData = ability:GetTargetData()
-    ```
-     This is how to access the hit or contacted object when creating an ability that affects the world or other players.
-
-    3. To allow the player to always be able to dodge roll when they activate this ability, we must change `ability.canBePrevented` to false.
-
-    4. Since the dodge roll animation itself handles all movement, we don't need any code happening in the `OnCast_Dodge(ability)`, `OnExecute_Dodge(ability)`, `OnRecovery_Dodge(ability)`, or `OnCooldown_Dodge(ability)` functions.
-
-        You can remove all print statements from within these functions, or comment them out using `--`. Leaving these in can be helpful for seeing on-screen which phase you are in while the ability is active.
-
-2. To **change how long each phase lasts**, change the durations to this:
-```
-ability.castPhaseSettings.duration = .1
-ability.executePhaseSettings.duration = 1
-ability.recoveryPhaseSettings.duration = .1
-ability.cooldownPhaseSettings.duration = 3
-```
-
-3. We have nearly everything set up now--the only thing left is to actually **assign the ability to a player**.
-
-    There are many ways to do this *(such as granting a new ability when an item is picked up)* but in this case, we are going to give the player the ability as soon as the game starts so that they always have it.
-
-    Beneath all code in this ability script so far, add this line:
-
-    `game.playerJoinedEvent:Connect(CreateAndGiveToPlayer_Dodge)`
-
-    This will connect the function that we made to the moment when a player joins the game, giving them the ability to dodge roll!
-
-4. Make sure this **new script is dragged into the Hierarchy**, and hit play! Test out that mad rollin' action.
- Remember that the **shift** key is what activates this ability since it uses the `ability_feet` input binding.
-
-This works great, but using print statements to tell which phase is active isn’t great game design. Luckily there is a UI element we can use built exactly for abilities!
+     2. Still in the Properties window and right beneath the Key Binding, change the **Animation** property to `unarmed_roll`.  
 
 ### CORE Component: Ability Display
 
@@ -136,28 +70,28 @@ While you can make a User Interface *(often abbreviated to UI)* element yourself
 
 When the ability is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the ability is usable again.
 
-![Ability Display](/img/EditorManual/Abilities/abilityDisplay.GIF)
+![Ability Display](/src/img/EditorManual/Abilities/abilityDisplay.GIF)
 
 To get this to work correctly with the ability we made above, there are only a few steps steps:
 
-1. In Community Content, search for the **CORE_Component_AbilityDisplay** template by jishnugirish, and add this to your project by clicking the blue plus icon.
-  ![Ability Control](/img/EditorManual/Abilities/CORE_Component_Ability.PNG)
+1. In Community Content, search for the **CORE_Component_AbilityDisplay** template by jishnugirish, and add this to your project by clicking the blue plus icon.  
+  ![Ability Control](/src/img/EditorManual/Abilities/CORE_Component_Ability.PNG)
 
-2. Navigate through your **Project Content** to the **Imported Content** section, and drag the **green** component called **CORE_Component_AbilityBindingDisplay** into your Hierarchy.
+2. Navigate through your **Project Content** to the **Imported Content** section, and drag the **green** component called **CORE_Component_AbilityBindingDisplay** into your Hierarchy.  
 
 3. If you now click this template from in the hierarchy, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
-  ![Ability Control](/img/EditorManual/Abilities/AbilityButtonProperties.PNG)
-      1. Change the **Binding** property from `ability_primary` to `ability_feet`.
+  ![Ability Control](/src/img/EditorManual/Abilities/AbilityButtonProperties.PNG)  
+      1. Change the **Binding** property from `ability_primary` to `ability_feet`. 
 
-      2. Change the **Text** field to `LS`, to stand for Left Shift.
+      2. Change the **Text** field to `LS`, to stand for Left Shift. 
 
-      3. Uncheck the **HideName** property, so that "Dodge" will display over the button.
+      3. Uncheck the **HideName** property, so that "Dodge" will display over the button.  
 
       What is really the key here is the Binding property--this connects whatever ability is currently bound to that binding to the Ability Display.
 
-4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the Hierarchy to the two Icon objects. Change the **Image** property on these to whatever you would like!
- ![Hierarchy](/img/EditorManual/Abilities/ComponentHierarchy.PNG)
-     I chose the **Icon Stamina** for this case.
+4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the Hierarchy to the two Icon objects. Change the **Image** property on these to whatever you would like!  
+ ![Hierarchy](/src/img/EditorManual/Abilities/ComponentHierarchy.PNG)  
+     I chose the **Icon Stamina** for this case. 
 
 Now the UI element will update automatically once the ability is cast.
 
@@ -165,7 +99,7 @@ Congrats on creating your first ability! You are well on your way to making anyt
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the Community Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the Community Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder. 
 
 This has already been done for us in the Community Content template, so no action is needed!
 
@@ -174,11 +108,11 @@ This has already been done for us in the Community Content template, so no actio
 
 ## Altering Properties the Easy Way: The Ability Object
 
-Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts.
+Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts. 
 
 To create a more advanced ability system and read more about Ability Objects, read our [next tutorial on abilities](/tutorials/gameplay/complex_abilities/).
 
 ## Examples
 
-*FAA_GameMode* includes functioning abilities.
-*Spellshock* includes advanced abilities using ability objects.
+*FAA_GameMode* includes functioning abilities.  
+*Spellshock* includes advanced abilities using ability objects. 
