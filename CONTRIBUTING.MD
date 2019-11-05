@@ -58,7 +58,7 @@ Detailed information (e.g. branch structure) below here
 
 ## Branch Structure
 
-![](docs/img/readme_branches.png)
+![](src/docs/img/readme_branches.png)
 
 ### Branch Workflow
 
