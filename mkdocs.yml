@@ -28,6 +28,7 @@ nav:
             - UI Reference: docs/other/ui_reference.md
             - Audio Reference: docs/other/audio_reference.md
             - Collaboration Reference: docs/other/collaboration.md
+            - Coming From Other Engines: docs/other/other_engines.md
         - FAQs: docs/faqs.md
         - Examples: docs/examples.md
         - Core API: docs/core_api.md
