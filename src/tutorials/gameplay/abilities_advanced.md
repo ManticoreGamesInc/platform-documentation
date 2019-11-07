@@ -1,5 +1,9 @@
 ## Overview
 
+[rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
+
+show GIF of player using magic staff]
+
 Abilities can get as complicated as you would like them to get. 
 
 With the power of Lua scripting, abiliites can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
@@ -9,6 +13,12 @@ In the first ability tutorial, we went over the quickest possible way to get som
 If you're fresh and new to any kind of programming, it would be good to visit the Intro to Lua tutorial. This will go over some key words and practices you would want to know.
 
 ![Heavy Slash](/docs/img/EditorManual/Abilities/ComplexAbilities/Heavy Slash.GIF)
+
+---
+
+[users will have already gone through weapon system to understand how that part works, so just go to explaining abilities after briefly explaining that earlier tutorials didn't really go into abilities at their core (pun) so this is the time!
+
+so, jump into explaining how ability system works in detail, this part already exists. May need contextual updates.]
 
 ---
 
@@ -64,12 +74,28 @@ Using an Ability object in combination with scripting makes it similar to a data
 
 ## Tutorial
 
+[Tutorial intro explains we're making a magic staff that has a left click basic ability (weapon attack), a right click charge attack (ability) ]
+
 In this tutorial, we will be making a magic staff that the player can pick up, granting them two different abilities. The data for these abilities will be kept in Ability Objects.
 
 So, let's make magic!
 
 ### step 1
 
+
+- start with making a weapon object
+- don't need to explain it because that happened in first ability tutorial
+- make the art for the weapon, move into place
+- get the basic weapon function working (shoot a lil fireball)
+- involves creating an attack ability, a reticle, vfx
+- now we're basically as far as the simple weapon tutorial
+- add another ability for the right click spot (charge fire blast)
+- involves another ability script, reticle, vfx
+- explain setting up the ability in programming
+- add vfx for ability
+- now it's a weapon with an additional ability
+- probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
+- set  up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
 
 ### CORE Component: Ability Display
