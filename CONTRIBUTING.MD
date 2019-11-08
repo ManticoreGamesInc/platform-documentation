@@ -105,6 +105,10 @@ Then the document must complete all of the following:
 - Content pass (pass by main editors for overall quality)
 - Done (merged and live)
 
+Note: If we have a file that is no longer 'done' due to editor changes, include
+the following at the top of the file in question: !!!warning Flagged for review.
+Incomplete or outdated information may be present.
+
 #### Full Setup
 
 [Install Python (with pip included)](https://www.python.org/) if you don't have them already. In your installation, make sure to **checkmark to option box to "Add Python to PATH"**. You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/). To manually add Python to PATH if you did not install it as so, reference [here](https://datatofish.com/add-python-to-windows-path/).
