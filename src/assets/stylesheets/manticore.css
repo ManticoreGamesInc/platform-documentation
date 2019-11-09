@@ -1,0 +1,7 @@
+[data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero, .md-footer-meta, .md-footer-nav {
+    background-color: #20232a;
+}
+
+[data-md-color-accent=amber] .md-nav__link:focus, [data-md-color-accent=amber] .md-nav__link:hover, [data-md-color-accent=amber] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=amber] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=amber] .md-typeset .md-clipboard:active:before, [data-md-color-accent=amber] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=amber] .md-typeset [id] .headerlink:focus, [data-md-color-accent=amber] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=amber] .md-typeset [id]:target .headerlink, .md-header-nav__topic {
+    color: #ff9000;
+}
