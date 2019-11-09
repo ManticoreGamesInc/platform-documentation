@@ -454,6 +454,7 @@ g()  --> "343" nothing printed before now.
 ```
 
 If you're still really hungry for more info, more primers can be found here:
+
   * [LuaTut](http://luatut.com/crash_course.html)
   * [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
   * [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
