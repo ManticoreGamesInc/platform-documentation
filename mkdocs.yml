@@ -53,6 +53,8 @@ theme:
     accent: 'amber' # desired -> #ff9000
   logo: 'assets/images/logo.png'
   favicon: 'assets/images/favicon.ico'
+extra_css:
+  - 'assets/stylesheets/manticore.css'
 
 # Additional data
 extra:
