@@ -69,10 +69,10 @@ end
 
 -- If clauses:
 if num > 40 then
-  print('over 40')
-elseif s ~= 'walternate' then  -- ~= is not equals.
+  print("over 40")
+elseif s ~= "walternate" then  -- ~= is not equals.
   -- Equality check is == like Python; ok for strs.
-  io.write('not over 40\n')  -- Defaults to stdout.
+  io.write("not over 40\n")  -- Defaults to stdout.
 else
   -- Variables are global by default.
   thisIsGlobal = 5  -- Camel case is common.
@@ -81,7 +81,7 @@ else
   local line = io.read()  -- Reads next stdin line.
 
   -- String concatenation uses the .. operator:
-  print('Winter is coming, ' .. line)
+  print("Winter is coming, " .. line)
 end
 
 -- Undefined variables return nil.
@@ -90,29 +90,27 @@ foo = anUnknownVariable  -- Now foo = nil.
 
 aBoolValue = false
 
--- Only nil and false are falsy; 0 and '' are true!
-if not aBoolValue then print('twas false') end
+-- Only nil and false are falsy; 0 and "" are true!
+if not aBoolValue then print("twas false") end
 
--- 'or' and 'and' are short-circuited.
+-- "or" and "and" are short-circuited.
 -- This is similar to the a?b:c operator in C/js:
-ans = aBoolValue and 'yes' or 'no'  --> 'no'
+ans = aBoolValue and "yes" or "no"  --> "no"
 
 karlSum = 0
 for i = 1, 100 do  -- The range includes both ends.
   karlSum = karlSum + i
 end
 
--- Use "100, 1, -1" as the range to count down:
+-- The range is: begin, end[, step], use -1 as the range to count down
 fredSum = 0
 for j = 100, 1, -1 do
   fredSum = fredSum + j
 end
 
--- In general, the range is begin, end[, step].
-
 -- Another loop construct:
 repeat
-  print('the way of the future')
+  print("the way of the future")
   num = num - 1
 until num == 0
 ```
@@ -121,64 +119,59 @@ until num == 0
 ## Functions
 
 ```lua
-function fib(n)
+function Fib(n)
   if n < 2 then return 1 end
-  return fib(n - 2) + fib(n - 1)
+  return Fib(n - 2) + Fib(n - 1)
 end
 
 -- Closures and anonymous functions are ok:
-function adder(x)
-  -- The returned function is created when adder is
+function Adder(x)
+  -- The returned function is created when Adder is
   -- called, and remembers the value of x:
-  return function (y) return x + y end
+  return function(y) return x + y end
 end
 
-a1 = adder(9)
-a2 = adder(36)
-print(a1(16))  --> 25
-print(a2(64))  --> 100
+a1 = Adder(9)
+a2 = Adder(36)
+print(a1(16))  --> "25"
+print(a2(64))  --> "100"
 
 -- Returns, func calls, and assignments all work
 -- with lists that may be mismatched in length.
--- Unmatched receivers are nil;
--- unmatched senders are discarded.
+-- Unmatched receivers are nil.
+-- Unmatched senders are discarded.
 
 x, y, z = 1, 2, 3, 4
 -- Now x = 1, y = 2, z = 3, and 4 is thrown away.
 
-function bar(a, b, c)
+function Bar(a, b, c)
   print(a, b, c)
   return 4, 8, 15, 16, 23, 42
 end
 
-x, y = bar('zaphod')  --> prints "zaphod  nil nil"
+x, y = Bar("zaphod")  --> "zaphod  nil nil"
 -- Now x = 4, y = 8, values 15..42 are discarded.
 
 -- Functions are first-class, may be local/global.
 -- These are the same:
-function f(x)
+function F(x)
   return x * x
 end
 
-f = function (x)
+F = function(x)
   return x * x
 end
 
 -- And so are these:
-local function g(x)
-  return math.sin(x)
+local function G(x)
+  return math.sin(x) -- Trigonometry funcs work in radians, by the way.
 end
 
-local g
-g = function (x)
+local G
+G = function(x)
   return math.sin(x)
 end
--- the 'local g' declaration makes g-self-references ok.
-
--- Trig funcs work in radians, by the way.
-
--- Calls with one string param don't need parens:
-print 'hello'  -- Works fine.
+-- the "local G" declaration makes g-self-references ok.
 ```
 
 
@@ -196,17 +189,17 @@ print 'hello'  -- Works fine.
 t = {key1 = 'value1', key2 = false}
 
 -- String keys can use js-like dot notation:
-print(t.key1)  -- Prints 'value1'.
+print(t.key1)  --> "value1"
 t.newKey = {}  -- Adds a new key/value pair.
 t.key2 = nil   -- Removes key2 from the table.
 
 -- Literal notation for any (non-nil) value as key:
-u = {['@!#'] = 'qbert', [{}] = 1729, [6.28] = 'tau'}
-print(u[6.28])  -- prints "tau"
+u = {["@!#"] = "qbert", [{}] = 1729, [6.28] = "tau"}
+print(u[6.28])  --> "tau"
 
 -- Key matching is basically by value for numbers
 -- and strings, but by identity for tables.
-a = u['@!#']  -- Now a = 'qbert'.
+a = u["@!#"]  -- Now a = "qbert".
 b = u[{}]     -- We might expect 1729, but it's nil:
 -- b = nil since the lookup fails. It fails
 -- because the key we used is not the same object
@@ -214,15 +207,15 @@ b = u[{}]     -- We might expect 1729, but it's nil:
 -- strings & numbers are more portable keys.
 
 -- A one-table-param function call needs no parens:
-function h(x)
+function H(x)
   print(x.key1)
 end
 
-h{key1 = 'Sonmi~451'}  -- Prints 'Sonmi~451'.
+h{key1 = "Sonmi~451"}  --> "Sonmi~451"
 
--- There are two types of table iterators in Lua, pairs and ipairs
-
--- pairs returns key-value pairs and is mostly used for associative tables. Key order is unspecified.
+-- There are two types of table iterators in Lua
+-- pairs() returns key-value pairs and is mostly used for associative tables.
+-- Attention: Key order is unspecified.
 u = {}
 u[1]="a" -- Attention: Indices start at 1 in Lua!
 u[3]="b"
@@ -240,7 +233,10 @@ end
 -- 4  d
 -- hello  world
 
--- ipairs returns index-value pairs and is mostly used for numeric tables. Non numeric keys in an array are ignored, while the index order is deterministic (in numeric order). Key order is unspecified.
+-- ipairs() returns index-value pairs and is used for numeric tables.
+-- Non numeric keys in an array are ignored, while the index order is in numeric order.
+-- When you create tables without keys, ipairs behaves as a numeric array and therefore the same as pairs.
+-- Attention: ipairs stops when it first encounters a gap.
 for index, val in ipairs(u) do
   print(index, val)
 end
@@ -250,25 +246,23 @@ end
 -- 3  b
 -- 4  d
 
--- When you create tables without keys, ipairs behaves as a numeric array and therefore the same as pairs.
-
 -- _G is a special table of all globals.
-print(_G['_G'] == _G)  -- Prints 'true'.
+print(_G["_G"] == _G)  --> "true"
 
 -- Using tables as lists / arrays:
 
 -- List literals implicitly set up int keys:
-v = {'value1', 'value2', 1.21, 'gigawatts'}
+v = {"value1", "value2", 1.21, "gigawatts"}
 for i = 1, #v do  -- #v is the size of v for lists.
   print(v[i])
 end
 -- A 'list' is not a real type. v is just a table
 -- with consecutive integer keys, treated as a list.
+```
 
-----------------------------------------------------
--- 3.1 Metatables and metamethods.
-----------------------------------------------------
+### 3.1 Metatables and Metamethods
 
+```lua
 -- A table can have a metatable that gives the table
 -- operator-overloadish behavior. Later we'll see
 -- how metatables support js-prototypey behavior.
@@ -302,8 +296,8 @@ s = f1 + f2  -- call __add(f1, f2) on f1's metatable
 -- Class-like patterns given below would fix this.
 
 -- An __index on a metatable overloads dot lookups:
-defaultFavs = {animal = 'gru', food = 'donuts'}
-myFavs = {food = 'pizza'}
+defaultFavs = {animal = "gru", food = "donuts"}
+myFavs = {food = "pizza"}
 setmetatable(myFavs, {__index = defaultFavs})
 eatenBy = myFavs.animal  -- works! thanks, metatable
 
@@ -331,30 +325,28 @@ eatenBy = myFavs.animal  -- works! thanks, metatable
 -- __index(a, b)  <fn or a table>  for a.b
 -- __newindex(a, b, c)             for a.b = c
 -- __call(a, ...)                  for a(...)
+```
 
-----------------------------------------------------
--- 3.2 Class-like tables and inheritance.
-----------------------------------------------------
+### 3.2 Class-like Tables and Inheritance
 
--- Classes aren't built in; there are different ways
+```lua
+-- Classes aren't built in but there are different ways
 -- to make them using tables and metatables.
-
--- Explanation for this example is below it.
 
 Dog = {}                                   -- 1.
 
-function Dog:new()                         -- 2.
-  newObj = {sound = 'woof'}                -- 3.
+function Dog:New()                         -- 2.
+  newObj = {sound = "woof"}                -- 3.
   self.__index = self                      -- 4.
   return setmetatable(newObj, self)        -- 5.
 end
 
-function Dog:makeSound()                   -- 6.
-  print('I say ' .. self.sound)
+function Dog:MakeSound()                   -- 6.
+  print("I say " .. self.sound)
 end
 
-mrDog = Dog:new()                          -- 7.
-mrDog:makeSound()  -- 'I say woof'         -- 8.
+mrDog = Dog:New()                          -- 7.
+mrDog:MakeSound()  --> "I say woof"        -- 8.
 
 -- 1. Dog acts like a class; it's really a table.
 -- 2. function tablename:fn(...) is the same as
@@ -369,27 +361,27 @@ mrDog:makeSound()  -- 'I say woof'         -- 8.
 -- 5. Reminder: setmetatable returns its first arg.
 -- 6. The : works as in 2, but this time we expect
 --    self to be an instance instead of a class.
--- 7. Same as Dog.new(Dog), so self = Dog in new().
+-- 7. Same as Dog.New(Dog), so self = Dog in New().
 -- 8. Same as mrDog.makeSound(mrDog); self = mrDog.
 
 ----------------------------------------------------
 
 -- Inheritance example:
 
-LoudDog = Dog:new()                           -- 1.
+LoudDog = Dog:New()                           -- 1.
 
-function LoudDog:makeSound()
-  s = self.sound .. ' '                       -- 2.
+function LoudDog:MakeSound()
+  s = self.sound .. " "                       -- 2.
   print(s .. s .. s)
 end
 
-seymour = LoudDog:new()                       -- 3.
-seymour:makeSound()  -- 'woof woof woof'      -- 4.
+seymour = LoudDog:New()                       -- 3.
+seymour:MakeSound()  --> "woof woof woof"     -- 4.
 
 -- 1. LoudDog gets Dog's methods and variables.
--- 2. self has a 'sound' key from new(), see 3.
--- 3. Same as LoudDog.new(LoudDog), and converted to
---    Dog.new(LoudDog) as LoudDog has no 'new' key,
+-- 2. self has a 'sound' key from New(), see 3.
+-- 3. Same as LoudDog.New(LoudDog), and converted to
+--    Dog.New(LoudDog) as LoudDog has no 'new' key,
 --    but does have __index = Dog on its metatable.
 --    Result: seymour's metatable is LoudDog, and
 --    LoudDog.__index = LoudDog. So seymour.key will
@@ -398,8 +390,8 @@ seymour:makeSound()  -- 'woof woof woof'      -- 4.
 -- 4. The 'makeSound' key is found in LoudDog; this
 --    is the same as LoudDog.makeSound(seymour).
 
--- If needed, a subclass's new() is like the base's:
-function LoudDog:new()
+-- If needed, a subclass's New() is like the base's:
+function LoudDog:New()
   newObj = {}
   -- set up newObj
   self.__index = self
@@ -412,21 +404,21 @@ end
 
 ```lua
 -- Suppose the file mod.lua looks like this:
-local M = {}
+local m = {}
 
-local function sayMyName()
-  print('Hrunkner')
+local function SayMyName()
+  print("Hrunkner")
 end
 
-function M.sayHello()
-  print('Why hello there')
-  sayMyName()
+function M.SayHello()
+  print("Why hello there")
+  SayMyName()
 end
 
-return M
+return m
 
 -- Another file can use mod.lua's functionality:
-local mod = require('mod')  -- Run the file mod.lua.
+local mod = require("mod")  -- Run the file mod.lua.
 
 -- require is the standard way to include modules.
 -- require acts like:     (if not cached; see below)
@@ -437,35 +429,35 @@ end)()
 -- locals inside mod.lua are invisible outside it.
 
 -- This works because mod here = M in mod.lua:
-mod.sayHello()  -- Says hello to Hrunkner.
+mod.SayHello()  -- Says hello to Hrunkner.
 
--- This is wrong; sayMyName only exists in mod.lua:
-mod.sayMyName()  -- error
+-- This is wrong; SayMyName only exists in mod.lua:
+mod.SayMyName()  -- error
 
 -- require's return values are cached so a file is
 -- run at most once, even when require'd many times.
 
 -- Suppose mod2.lua contains "print('Hi!')".
-local a = require('mod2')  -- Prints Hi!
-local b = require('mod2')  -- Doesn't print; a=b.
+local a = require("mod2")  --> "Hi!"
+local b = require("mod2")  -- Doesn't print because a = b.
 
 -- dofile is like require without caching:
-dofile('mod2.lua')  --> Hi!
-dofile('mod2.lua')  --> Hi! (runs it again)
+dofile("mod2.lua")  --> "Hi!"
+dofile("mod2.lua")  --> "Hi!" (runs it again)
 
 -- loadfile loads a lua file but doesn't run it yet.
-f = loadfile('mod2.lua')  -- Call f() to run it.
+f = loadfile("mod2.lua")  -- Call f() to run it.
 
 -- loadstring is loadfile for strings.
-g = loadstring('print(343)')  -- Returns a function.
-g()  -- Prints out 343; nothing printed before now.
+g = loadstring("print(343)")  -- Returns a function.
+g()  --> "343" nothing printed before now.
 ```
 
 If you're still really hungry for more info, more primers can be found here:
-  [1](http://luatut.com/crash_course.html),
-  [2](http://www.wingdb.com/docs/pages/wg_lua_primer.htm),
-  [3](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/),
-  [4](http://tylerneylon.com/a/learn-lua/)
+  * [LuaTut](http://luatut.com/crash_course.html)
+  * [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
+  * [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
+  * [TylerNeylon](http://tylerneylon.com/a/learn-lua/)
 
 [reference]: http://www.lua.org/manual/5.3/
 [official]: https://www.lua.org/pil/contents.html
