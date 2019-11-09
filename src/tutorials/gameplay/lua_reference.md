@@ -1,6 +1,11 @@
 # Lua Primer
 
-Core uses Lua, the lightweight, flexible programming language to accomplish
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
+
+CORE uses Lua, a lightweight and flexible programming language to accomplish
 scripting in the engine. As of late May 2019, we are using Lua version 5.3.4.
 
 Lua is a [dynamically
@@ -15,7 +20,7 @@ The next steps depend on your level of previous programming experience.
 Check out this [tutorial], and review the [official] docs after.
 
 !!! Note
-    Programming In Lua (offical link) is a couple versions behind and may not be fully accurate!
+    Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!
 
 **Intermediate**
 
@@ -23,24 +28,16 @@ Skim through the beginner content, and look at the advanced stuff later.
 
 **Advanced**
 
-Check out this [primer], or this [reference sheet] for tips on syntax. Use the
+Check out this [primer], or this [reference-sheet] for tips on syntax. Use the
 official [reference] as needed.
 
 **Other**
 
-If you're really hungry for more info, more primers can be found here:
-[1](http://luatut.com/crash_course.html),
-[2](http://www.wingdb.com/docs/pages/wg_lua_primer.htm),
-[3](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/),
-[4](http://tylerneylon.com/a/learn-lua/)
+Other engines also have good sources of documentation for Lua. Check out our [other-engines] page that has a few hints on whats different between them and CORE.
 
-Other engines also have good sources of documentation for Lua. Check out Corona's [Introduction to
-Lua](https://docs.coronalabs.com/guide/start/introLua/index.html) 
-or Roblox's [articles](https://developer.roblox.com/learn-roblox/coding-scripts).
+## Basics
 
----
-
-Here's the primer, reposted here for convenience:
+While there are already a ton of good Lua tutorials out there, we're still going to teach you the most basic things right here.
 
 ```lua
 -- Two dashes start a one-line comment.
@@ -49,11 +46,10 @@ Here's the primer, reposted here for convenience:
      Adding two ['s and ]'s makes it a
      multi-line comment.
 --]]
+```
 
-----------------------------------------------------
--- 1. Variables and flow control.
-----------------------------------------------------
-
+## Variables and Flow Control
+```lua
 num = 42  -- All numbers are doubles.
 -- Don't freak out, 64-bit doubles have 52 bits for
 -- storing exact int values; machine precision is
@@ -108,7 +104,9 @@ end
 
 -- Use "100, 1, -1" as the range to count down:
 fredSum = 0
-for j = 100, 1, -1 do fredSum = fredSum + j end
+for j = 100, 1, -1 do
+  fredSum = fredSum + j
+end
 
 -- In general, the range is begin, end[, step].
 
@@ -117,12 +115,12 @@ repeat
   print('the way of the future')
   num = num - 1
 until num == 0
+```
 
 
-----------------------------------------------------
--- 2. Functions.
-----------------------------------------------------
+## Functions
 
+```lua
 function fib(n)
   if n < 2 then return 1 end
   return fib(n - 2) + fib(n - 1)
@@ -134,6 +132,7 @@ function adder(x)
   -- called, and remembers the value of x:
   return function (y) return x + y end
 end
+
 a1 = adder(9)
 a2 = adder(36)
 print(a1(16))  --> 25
@@ -157,24 +156,35 @@ x, y = bar('zaphod')  --> prints "zaphod  nil nil"
 
 -- Functions are first-class, may be local/global.
 -- These are the same:
-function f(x) return x * x end
-f = function (x) return x * x end
+function f(x)
+  return x * x
+end
+
+f = function (x)
+  return x * x
+end
 
 -- And so are these:
-local function g(x) return math.sin(x) end
-local g; g  = function (x) return math.sin(x) end
--- the 'local g' decl makes g-self-references ok.
+local function g(x)
+  return math.sin(x)
+end
+
+local g
+g = function (x)
+  return math.sin(x)
+end
+-- the 'local g' declaration makes g-self-references ok.
 
 -- Trig funcs work in radians, by the way.
 
 -- Calls with one string param don't need parens:
 print 'hello'  -- Works fine.
+```
 
 
-----------------------------------------------------
--- 3. Tables.
-----------------------------------------------------
+## Tables
 
+```lua
 -- Tables = Lua's only compound data structure;
 --          they are associative arrays.
 -- Similar to php arrays or js objects, they are
@@ -204,12 +214,43 @@ b = u[{}]     -- We might expect 1729, but it's nil:
 -- strings & numbers are more portable keys.
 
 -- A one-table-param function call needs no parens:
-function h(x) print(x.key1) end
+function h(x)
+  print(x.key1)
+end
+
 h{key1 = 'Sonmi~451'}  -- Prints 'Sonmi~451'.
 
-for key, val in pairs(u) do  -- Table iteration.
+-- There are two types of table iterators in Lua, pairs and ipairs
+
+-- pairs returns key-value pairs and is mostly used for associative tables. Key order is unspecified.
+u = {}
+u[1]="a" -- Attention: Indices start at 1 in Lua!
+u[3]="b"
+u[2]="c"
+u[4]="d"
+u["hello"]="world"
+
+for key, val in pairs(u) do
   print(key, val)
 end
+-- will print:
+-- 1  a
+-- 2  c
+-- 3  b
+-- 4  d
+-- hello  world
+
+-- ipairs returns index-value pairs and is mostly used for numeric tables. Non numeric keys in an array are ignored, while the index order is deterministic (in numeric order). Key order is unspecified.
+for index, val in ipairs(u) do
+  print(index, val)
+end
+-- will print:
+-- 1  a
+-- 2  c
+-- 3  b
+-- 4  d
+
+-- When you create tables without keys, ipairs behaves as a numeric array and therefore the same as pairs.
 
 -- _G is a special table of all globals.
 print(_G['_G'] == _G)  -- Prints 'true'.
@@ -219,7 +260,7 @@ print(_G['_G'] == _G)  -- Prints 'true'.
 -- List literals implicitly set up int keys:
 v = {'value1', 'value2', 1.21, 'gigawatts'}
 for i = 1, #v do  -- #v is the size of v for lists.
-  print(v[i])  -- Indices start at 1 !! SO CRAZY!
+  print(v[i])
 end
 -- A 'list' is not a real type. v is just a table
 -- with consecutive integer keys, treated as a list.
@@ -364,14 +405,12 @@ function LoudDog:new()
   self.__index = self
   return setmetatable(newObj, self)
 end
-
-----------------------------------------------------
--- 4. Modules.
-----------------------------------------------------
+```
 
 
---[[ I'm commenting out this section so the rest of
---   this script remains runnable.
+## Modules
+
+```lua
 -- Suppose the file mod.lua looks like this:
 local M = {}
 
@@ -420,20 +459,17 @@ f = loadfile('mod2.lua')  -- Call f() to run it.
 -- loadstring is loadfile for strings.
 g = loadstring('print(343)')  -- Returns a function.
 g()  -- Prints out 343; nothing printed before now.
-
---]]
 ```
 
-Congrats on making it this far! Here's some memes :D
-
-![](/src/img/scripting/tables_meme.jpg)
-
-![](/src/img/scripting/multiple_return_meme.jpg)
-
-![](/src/img/scripting/zero_index_meme.jpg)
+If you're still really hungry for more info, more primers can be found here:
+  [1](http://luatut.com/crash_course.html),
+  [2](http://www.wingdb.com/docs/pages/wg_lua_primer.htm),
+  [3](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/),
+  [4](http://tylerneylon.com/a/learn-lua/)
 
 [reference]: http://www.lua.org/manual/5.3/
 [official]: https://www.lua.org/pil/contents.html
 [tutorial]: https://www.tutorialspoint.com/lua/
 [primer]: https://learnxinyminutes.com/docs/lua/
-[reference sheet]: http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf
+[other-engines]: ../other/other_engines.md
+[reference-sheet]: http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf
