@@ -31,7 +31,7 @@ nav:
             - Coming From Other Engines: docs/other/other_engines.md
         - FAQs: docs/faqs.md
         - Examples: docs/examples.md
-        - Core API: docs/core_api.md
+        - CORE API: docs/core_api.md
         - Community Created Documentation:
             - Midi: docs/community_created/midi.md
     - Community: community.md
@@ -51,6 +51,8 @@ theme:
   palette:
     primary: 'blue grey' # desired -> #20232a
     accent: 'amber' # desired -> #ff9000
+  logo: 'assets/images/logo.png'
+  favicon: 'assets/images/favicon.ico'
 
 # Additional data
 extra:
@@ -89,7 +91,7 @@ markdown_extensions:
 docs_dir: src
 
 # Site name
-site_name: Creator Hub
+site_name: CORE Creator Hub
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
