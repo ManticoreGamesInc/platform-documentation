@@ -1,3 +1,7 @@
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
 # Welcome
 
 Welcome to the official documentation of CORE, the community-focused game creation tool!
@@ -5,9 +9,9 @@ Welcome to the official documentation of CORE, the community-focused game creati
 This page aims at giving a broad presentation of the engine and of the contents of this
 documentation.
 
-## About Core
+## About CORE
 
-This is the official documentation for Core, the game editor built by [Manticore].
+This is the official documentation for CORE, the game editor built by [Manticore].
 
 A game engine is a complex tool, and it is therefore difficult to present CORE in a few words. There
 are however a few things that set us apart:
@@ -48,7 +52,7 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 ## Organization of the Documentation
 
 - The [Getting Started] section is the main purpose of this documentation, as it contains all the
-  necessary information on using the engine to make games. It includes the [My First Game] tutorial
+  necessary information on using the engine to make games. It includes the [Light Bulb] tutorial
   which should be the entry point for all new users. It also contains the [FAQs].
 - The [Scripting] section is also intended for all users that intend to add gameplay elements, as it
   contains all the information you need to know about scripting in CORE. It includes sections on Lua
@@ -83,13 +87,12 @@ Have fun reading and making games with CORE!
 [Godot]: https://godot.readthedocs.io/en/3.0/
 [Material]: https://squidfunk.github.io/mkdocs-material
 
-[General]: /general/about
-[FAQs]: /general/faqs
-[My First Game]: /getting_started/my_first_game
+[FAQs]: /faqs
+[Light Bulb Game]: tutorials/gameplay/lua_basics_lightbulb.md
 [Scripting]: /scripting/lua/introduction
 [Project Workflow]: /project_workflow/project_setup
 [Editor Manual]: /editor/overview
-[Tutorials]: /tutorials/full_games/fps/ffa-fps
+[Tutorials]: /tutorials/
 [Community]: /community/links
 [example]: /examples/links
-[CORE API]: /core_api/coming_soon
+[CORE API]: core_api.md
