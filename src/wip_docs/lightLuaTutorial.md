@@ -10,12 +10,8 @@ programming language available, so the possibilities are endless.
 * For tips on [debugging](/scripting/debugging), we've got that covered
 * [Best practices](/scripting/best_practices) and misc tips can be useful
 * Lastly, we have a section on [code conventions](/scripting/conventions) as well
-
-View -> Script Debugger
-
-You need to enable the feature by clicking on the blue bug (it should turn orange)
-
-You can toggle breakpoints by clicking on a line number in the internal editor
+* For debugging we have our own script debugger, you can enable it via the **View* menu.
+    You can toggle breakpoints by clicking on a line number in the internal editor
 
 ## Overview
 
