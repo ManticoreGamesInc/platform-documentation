@@ -58,7 +58,7 @@ Detailed information (e.g. branch structure) below here
 
 ## Branch Structure
 
-![](src/docs/img/readme_branches.png)
+![](/img/readme_branches.png)
 
 ### Branch Workflow
 
@@ -118,7 +118,7 @@ Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) ac
 - Open the command prompt.
 - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
 - Clone this project from GitHub (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
-- When prompted by popup, sign in with your Gitlab account associated with your Manticore email.* 
+- When prompted by popup, sign in with your Gitlab account associated with your Manticore email.*
 - Navigate to the platform-documentation location (via command line with `cd platform-documentation`)
 - Enter `pip install -r requirements.txt` into the commmand line to install required files
 - Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live
@@ -127,9 +127,9 @@ Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) ac
 * If you mistype your information, you can edit your information
 - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
 - Find Git credentials in the list (e.g. git:https://).
-- Delete your Git credentials and restart the process to be prompted again. 
+- Delete your Git credentials and restart the process to be prompted again.
 
-Any new session, you make need to start up a server again with `mkdocs serve` after navigating to your platform-documentation folder.  
+Any new session, you make need to start up a server again with `mkdocs serve` after navigating to your platform-documentation folder.
 
 If you need a standalone and lightweight Markdown editor,
 [Typora](https://typora.io/) is a good one.

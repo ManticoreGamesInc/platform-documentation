@@ -22,18 +22,18 @@ The goal is to bring your ideas to life as fast as possible, so that nothing sta
 
 Open up the **Community Content** tab by clicking on it. If the tab isn't already open for you, navigate to `View -> Community Content` in the top menu bar to open the window.
 
-![Community Content Template](/src/img/getting_started/communitycontent.PNG)
+![Community Content Template](/img/getting_started/communitycontent.PNG)
 
 Here you can browse the content or search by username or key words.
 
 Click the blue `+` button on an asset to import the template. It will likely ask you to save your project first.
 
-![Community Content Template](/src/img/EditorManual/Art/CCtemplate.PNG)
+![Community Content Template](/img/EditorManual/Art/CCtemplate.PNG)
 
 You can then see the template you chose in your own **Project Content** folder.
 `Project Content -> Imported Content`.
 
-![Imported Content](/src/img/getting_started/ProjectContent_importedcontent.PNG)
+![Imported Content](/img/getting_started/ProjectContent_importedcontent.PNG)
 
 ### Using Your Imported Content
 
@@ -43,7 +43,7 @@ When selecting a template from the menu on the left, the contents of that templa
 
 The green object is the main template, and the part you should drag into the Hierarchy or viewport for use.
 
-![Imported Content Assets](/src/img/getting_started/ProjectContent_importedcontentasset.PNG)
+![Imported Content Assets](/img/getting_started/ProjectContent_importedcontentasset.PNG)
 
 ----
 
