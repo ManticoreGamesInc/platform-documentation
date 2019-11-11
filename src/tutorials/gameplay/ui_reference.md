@@ -76,9 +76,9 @@ Different widgets will have slightly different settings in the properties window
 
 ### CORE 2D Images
 
-There is a large collection of different images to use in Core. These could be stretched, layered, and combined in any sort of way to create UI!
+There is a large collection of different images to use in CORE. These could be stretched, layered, and combined in any sort of way to create UI!
 
-These are all the current images available to use in Core:
+These are all the current images available to use in CORE:
 
 ![UI Borders](/img/EditorManual/UI/uiAssets_borders.png)
 ![UI Buttons](/img/EditorManual/UI/uiAssets_buttons.png)
