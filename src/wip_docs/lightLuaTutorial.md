@@ -342,14 +342,14 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     In our `OnSwitchInteraction` function under our `RotateTo` statement, type:
 
-    `game:SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
-    * `game` is a global variable and can be used with different functions. TODO:FACTCHECK
+    `World:SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
+    * `World` is a [collection of functions](TODO:API_DOCS:World) for finding objects in the world.
 
     * `SpawnAsset` is a function that tells the script we’ll be spawning a template or asset, and where to do so
 
     * `lightTemplate` is the variable we’ll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script’s custom property “**Light**”.
 
-    * Vector3.New(0, 0, 0)) represents where in the scene the script will spawn our template. Currently the script will place our light template at coordinates (0, 0, 0). We will need to change this part to spawn the light in our light bulb, but for now let’s check to see if our new lines of code work.
+    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates 0, 0, 0. We will need to change this part to spawn the light in our light bulb, but for now let’s check to see if our new lines of code work.
 
     Your script should now look like this:
 
@@ -363,7 +363,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     -- when the player interacts with switchTrigger
     function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        game:SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))
+        World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))
     end
 
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
@@ -382,7 +382,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     Let's start with the variables:
 
     ```lua
-    local filaments = game:FindObjectByName("Filaments")
+    local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
     ```
 
@@ -410,14 +410,14 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     local startingRotation = switch:GetWorldRotation()
     local switchTrigger = script.parent:GetChildren()[4]
     local lightTemplate = script:GetCustomProperty("Light")
-    local filaments = game:FindObjectByName("Filaments")
+    local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
 
     -- Rotate the switch and spawn a light
     -- when the player interacts with switchTrigger
     function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        game:SpawnAsset(lightTemplate, bulbPosition)
+        World.SpawnAsset(lightTemplate, bulbPosition)
     end
 
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
@@ -481,7 +481,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     * `end` tells the script the `if` statement is over.
 
-    Place the `switch:RotateTo` statement and the `game:SpawnAsset` function inside of your new `if` statement. Your `OnSwitchInteraction` function should now look like this:
+    Place the `switch:RotateTo` statement and the `World.SpawnAsset` function inside of your new `if` statement. Your `OnSwitchInteraction` function should now look like this:
 
     ```lua
     function OnSwitchInteraction()
@@ -489,7 +489,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            game:SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, bulbPosition)
         end
     end
     ```
@@ -498,7 +498,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     A light should have spawned every other time you interacted with the switch, instead of every time. The light is only spawning when we toggle `isLightOn` to `false`. Progress!
 
-5. The next step is to tell the script to turn the switch downwards when the light is off. Under our `game:SpawnAsset` function and between `end`, type:
+5. The next step is to tell the script to turn the switch downwards when the light is off. Under our `World.SpawnAsset` function and between `end`, type:
 
     ```lua
     else
@@ -529,7 +529,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            game:SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, bulbPosition)
         else
             switch:RotateTo(startingRotation, 0.5)
         end
@@ -543,11 +543,11 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
 1. In order to turn off the light, you first need to define the light after it is spawned. When the LightTemplate is spawned, it shows up at the bottom of the Hierarchy as “LightTemplate”. In your else statement, after the RotateTo line, type the following:
 
-    `local spawnedLight = game:FindObjectByName("LightTemplate")`
+    `local spawnedLight = World.FindObjectByName("LightTemplate")`
 
     * `spawnedLight` is the name we are giving to the light we have just spawned.
 
-    * `game:FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named “LightTemplate”.
+    * `World.FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named “LightTemplate”.
 
     * `“LightTemplate”` is the name of our spawned light.
 
@@ -570,11 +570,11 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
         -- Turning the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            game:SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, bulbPosition)
         -- Turning the light off
         else
             switch:RotateTo(startingRotation, 0.5)
-            local spawnedLight = game:FindObjectByName("LightTemplate")
+            local spawnedLight = World.FindObjectByName("LightTemplate")
             spawnedLight:Destroy()
         end
     end
@@ -665,7 +665,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     end
     ```
 
-    The script still doesn’t say what to do when the light is on. Let’s add another `interactionLabel` assignment that makes it say **Turn Off** and an `else` condition to our ``if`` statement. Under the **Turn On** `interactionLabel` statement and before the `end` line, type:
+    The script still doesn’t say what to do when the light is on. Let’s add another `interactionLabel` assignment that makes it say **Turn Off** and an `else` condition to our `if` statement. Under the **Turn On** `interactionLabel` statement and before the `end` line, type:
 
     ```lua
     else
@@ -687,11 +687,11 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
         -- Turns the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            game:SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, bulbPosition)
         -- Turns the light off
         else
             switch:RotateTo(startingRotation, 0.5)
-            local spawnedLight = game:FindObjectByName("LightTemplate")
+            local spawnedLight = World.FindObjectByName("LightTemplate")
             spawnedLight:Destroy()
         end
 
@@ -714,7 +714,7 @@ local switch = script.parent:GetChildren()[2]
 local startingRotation = switch:GetWorldRotation()
 local switchTrigger = script.parent:GetChildren()[4]
 local lightTemplate = script:GetCustomProperty("Light")
-local filaments = game:FindObjectByName("Filaments")
+local filaments = World.FindObjectByName("Filaments")
 local bulbPosition = filaments:GetWorldPosition()
 local isLightOn = false
 
@@ -735,11 +735,11 @@ function OnSwitchInteraction()
 	-- Turns the light on
 	if not isLightOn then
 		switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-		game:SpawnAsset(lightTemplate, bulbPosition)
+		World.SpawnAsset(lightTemplate, bulbPosition)
 	-- Turns the light off
 	else
 		switch:RotateTo(startingRotation, 0.5)
-		local spawnedLight = game:FindObjectByName("LightTemplate")
+		local spawnedLight = World.FindObjectByName("LightTemplate")
 		spawnedLight:Destroy()
 	end
 
