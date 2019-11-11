@@ -8,7 +8,7 @@ If you haven't downloaded the editor, go
 [here](https://mantiblob.blob.core.windows.net/builds/Launcher.zip) and extract
 the file into its own directory.
 
-Next, simply click on `PlatformLauncher.exe` and you will see Core start up!
+Next, simply click on `PlatformLauncher.exe` and you will see CORE start up!
 
 ### Editor
 
@@ -16,7 +16,7 @@ When you open up the editor you'll see the following screen:
 
 ![](/img/getting_started/Start_01.png)
 
-1. Core! You made it to the right place
+1. CORE! You made it to the right place
 2. User info - click on this to go to the avatar page
 3. User settings - change your editor settings here
 4. My Games - Where games directly authored by you live

@@ -62,7 +62,7 @@ Detailed information (e.g. branch structure) below here
 
 ### Branch Workflow
 
-There are multiple version of the Core documentation, and therefore multiple
+There are multiple version of the CORE documentation, and therefore multiple
 branches on this repository that correspond to each.
 
 - [Prod](https://docs.manticoreplatform.com/) - the live, production state (useful
