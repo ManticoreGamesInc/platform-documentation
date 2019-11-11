@@ -1,15 +1,15 @@
-# Overview
+# Light Switch Lua Tutorial
 
-Welcome to the wonderful world of scripting in CORE! We have a complete
+Welcome to the wonderful world of scripting in **CORE**! We have a complete
 programming language available, so the possibilities are endless.
-<!- TODO: Fix Links -->
-- For details on [Lua](/scripting/lua_primer), check out the primer
-- For [IDE setup](/scripting/ide_tools) tips (advanced users), check out that section
-- For tips on [debugging](/scripting/debugging), we've got that covered
-- [Best practices](/scripting/best_practices) and misc tips can be useful
-- Lastly, we have a section on [code conventions](/scripting/conventions) as well
 
----
+<!- TODO: Fix Links -->
+
+* For details on [Lua](/scripting/lua_primer), check out the primer
+* For [IDE setup](/scripting/ide_tools) tips (advanced users), check out that section
+* For tips on [debugging](/scripting/debugging), we've got that covered
+* [Best practices](/scripting/best_practices) and misc tips can be useful
+* Lastly, we have a section on [code conventions](/scripting/conventions) as well
 
 View -> Script Debugger
 
@@ -17,98 +17,94 @@ You need to enable the feature by clicking on the blue bug (it should turn orang
 
 You can toggle breakpoints by clicking on a line number in the internal editor
 
-# Light Switch Lua Tutorial
-Create a light switch that turns on and off a light.
+## Overview
 
-Completion time: TODO: TBD
-Knowledge level: No prior knowledge of Lua
+* Completion time: TODO: TBD
+* Knowledge level: No prior knowledge of Lua
 
 This tutorial will cover:
-    * Downloading and editing templates
-    * Creating a script and using it to:
-        * Rotate an object
-        * Spawn a template/asset
-        * Despawn a template/asset
-        * Create an interactable event
-        * Create a custom property
-    * Global and local rotation
-    * If statements
-    * Using triggers
-    * Creating and updating trigger labels
 
+* Downloading and editing templates
+* Creating a script and using it to:
+    * Rotate an object
+    * Spawn a template/asset
+    * Despawn a template/asset
+    * Create an interactable event
+    * Create a custom property
+* Global and local rotation
+* Using triggers
+* Creating and updating trigger labels
 
-#### Step 1: Downloading the template
+## Step 1: Downloading the template
 
-Download Light Switch & Bulb (by Tobs) from the Community Content tab and place it into your scene by either dragging it into the viewer or the hierarchy tab.
+Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles* header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
 <image />
 
 <image annotation>Left: halfway through the ground, in the shade - hard to see.
 Right: Well lit and constructed - good to go!</image annotation>
 
+## Step 2: Creating a new script
 
-#### Step 2: Creating a new script
-
-1. Create a new script by clicking the “Create Script” button in the Project Content tab to the left of the search bar. Make sure you’re in Project Content > All Project Content or My Scripts, so you can find your newly created script.
+1. Create a new script by clicking the “**+**” button in the **Project Content** tab to the left of the search bar.
 
 2. Name this one “**LightToggleScript**”.
 
-3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>. It’s important to save your scripts often so you don’t lose work in the event of a crash. Scripts don’t update in game until you save them, so you won’t see any of your new code in action until you save.
+3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>. It’s important to save your scripts often so you don’t lose work in the event of a crash. Scripts don’t update in game until you save them, so you won’t see any of your new code in action until you save. You cannot save a script while the game is running.
 
-4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "Deinstance This Object" from the drop down menu.
+4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "**Deinstance This Object**" from the drop down menu.
+
+    <image />
+
+    The template and objects in the template should change from green to teal. Green objects represent objects in a template. Templates are not editable.
+
+    <image />
+
+    Teal objects represent objects that are part of a template that’s been deinstanced - which means you can edit them and move them around in the hierarchy.
+
+5. Drag “**LightToggleScript**” from the **Project Content** tab into the “**Light switch**” folder within the **Light Switch & Bulb** template (as shown in the picture below).
+
+Make sure the script is first in the “**Light switch**” folder’s hierarchy. This makes it easier to find when looking at the hierarchy.
 
 <image />
 
-The template and objects in the template should change from green to blue. Green objects represent objects in a template. Templates are not editable.
-
-<image />
-
-Blue objects represent objects that are part of a template that’s been deinstanced - which means you can edit them and move them around in the hierarchy.
-
-5. Drag “LightToggleScript” from the Project Content into the “Light switch” folder within the Light Switch & Bulb template (as shown in the picture below).
-
-Make sure the script is first in the “Light switch” folder’s hierarchy. This makes it easier to find when looking at the hierarchy.
-
-<image />
-
-
-#### Step 3: Defining the switch variable
+## Step 3: Defining the switch
 
 We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you’ll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
 
 1. Type the following into Line 1 of `LightToggleScript`:
 
-`local switch = script.parent:GetChildren()[2]`
+    `local switch = script.parent:GetChildren()[2]`
 
-`local` tells the script that the following variable should only be accessible from this script rather than being accessible from external scripts, or globally.
+    `local` tells the script that the following variable should only be accessible from this script rather than being accessible from external scripts, or globally.
 
-`switch` is our variable name. We can name it anything but it’s important to create variables with self-explanatory names so our scripts are easy to read and understand.
+    `switch` is our variable name. We can name it anything but it’s important to create variables with self-explanatory names so our scripts are easy to read and understand.
 
-`script.parent` refers to the script’s parent - the group or folder the script is placed in. In this case it refers to the **Light switch group**. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent`.
+    `script.parent` refers to the script’s parent - the group or folder the script is placed in. In this case it refers to the **Light switch group**. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent`.
 
-`GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
+    `GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
 
-<image />
+    <image />
 
-`local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
+    `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
 2. Left click on the Switch folder and select “Enable Networking” from the drop down menu.
 
-<image />
+    <image />
 
-Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking here (TODO: link).
+    Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking here (TODO: link).
 
-The Switch folder should now read: “**Switch (networked)**”.
+    The Switch folder should now read: “**Switch (networked)**”.
 
-
-#### Step 4: Rotating the switch
+## Step 4: Rotating the switch
 
 1. We now need to rotate the switch. On a new line, type:
 
-`switch:RotateTo(Rotation.New(0, 90, 0), 2)`
+    `switch:RotateTo(Rotation.New(0, 90, 0), 2)`
+
     * `switch` tells the script to rotate the object attached to this variable.
 
-    * `RotateTo` is an function that tells CORE we want to rotate an object.
+    * `RotateTo` is an function that tells **CORE** we want to rotate an object.
 
     * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `(0, 0, 0)`.
 
@@ -116,22 +112,21 @@ The Switch folder should now read: “**Switch (networked)**”.
 
     * `2` is the animation duration in seconds.
 
-Our script should now look like this:
+    Our script should now look like this:
 
-```lua
-local switch = script.parent:GetChildren()[2]
+    ```lua
+    local switch = script.parent:GetChildren()[2]
 
-switch:RotateTo(Rotation.New(0, 90, 0), 2)
-```
+    switch:RotateTo(Rotation.New(0, 90, 0), 2)
+    ```
 
-Let’s press play and see how our switch moves!
+    Let’s press play and see how our switch moves!
 
-<image gif />
+    <image gif />
 
-Unfortunately that didn’t quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That’s because we didn’t take into account the switch’s initial rotation in the scene.
+    Unfortunately that didn’t quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That’s because we didn’t take into account the switch’s initial rotation in the scene.
 
-We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it’s changing the switch’s global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y axis, it has to know where the switch’s starting rotation.
-
+    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it’s changing the switch’s global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y axis, it has to know where the switch’s starting rotation.
 
 2. Let’s create a variable that defines the switch’s starting rotation. Go to the line 2 of the code and type:
 
@@ -159,18 +154,18 @@ We want the script to rotate our switch 90 degrees up. But our problem is that t
     <image gif>
     Success!
 
-
-#### Step 5: Adding a trigger
+## Step 5: Adding a trigger
 
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
-1. Create a trigger by going up to “Object” on the menu bar and click “Create Box Trigger”. TODO: CHECK
+1. Create a trigger by going up to "**Object**" on the menu bar, expand **Create Gameplay Object** and click "**Create Trigger**". TODO: CHECK
 <image />
-Now there is an object called “BoxTrigger” in our Hierarchy.
+Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
 2. Select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can’t see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
-    Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights.
+    !!! info
+        Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights.
 
 3. Drag the trigger over to the light switch. The size of the trigger determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
 
@@ -204,13 +199,12 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)
     ```
 
-
 7. Now that the script knows which object we are using as a trigger we need to define what happens when we interact with the trigger.
 
     After your rotation statement, type:
 
     ```lua
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
 
     end
     ```
@@ -233,7 +227,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     local startingRotation = switch:GetWorldRotation()
     local switchTrigger = script.parent:GetChildren()[4]
 
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)
     end
     ```
@@ -259,7 +253,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     local startingRotation = switch:GetWorldRotation()
     local switchTrigger = script.parent:GetChildren()[4]
 
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)
     end
 
@@ -286,23 +280,22 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
         local switchTrigger = script.parent:GetChildren()[4]
 
         -- Rotate the switch when the player interacts with switchTrigger
-        function OnSwitchInteraction()
+        local function OnSwitchInteraction()
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
         end
 
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
         ```
 
-        At CORE, we have our own set of coding conventions which you can read about [here](TODO:LINK),
+        At **CORE**, we have our own set of coding conventions which you can read about [here](TODO:LINK),
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
-
-#### Step 6: Spawning a Light
+## Step 6: Spawning a Light
 
 1. Let’s make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
-    Select the *Lighting* category in the **CORE Content** tag. Any of the lights can be used for this tutorial. I’ll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light’s smart properties to your liking.
+    Select the *Lighting* category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I’ll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light’s smart properties to your liking.
 
     <image />
 
@@ -342,7 +335,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     In our `OnSwitchInteraction` function under our `RotateTo` statement, type:
 
-    `World:SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
+    `World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
     * `World` is a [collection of functions](TODO:API_DOCS:World) for finding objects in the world.
 
     * `SpawnAsset` is a function that tells the script we’ll be spawning a template or asset, and where to do so
@@ -361,7 +354,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     -- Rotate the switch and spawn a light
     -- when the player interacts with switchTrigger
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
         World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))
     end
@@ -369,7 +362,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
     ```
 
-    Notice how I updated the comment describing what our `OnSwitchInteraction` function does.
+    Notice how we updated the comment describing what our `OnSwitchInteraction` function does.
 
 9. Press play and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see “**LightTemplate**” at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates (0, 0, 0).
 
@@ -388,7 +381,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     * `filaments` is the name of our variable defining which objects are the filaments in our scene.
 
-    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
+    * `FindObjectByName` is a **CORE** function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
 
         ```lua
         local lightBulbFolder = script.parent.parent:GetChildren()[1]
@@ -415,7 +408,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     -- Rotate the switch and spawn a light
     -- when the player interacts with switchTrigger
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
         World.SpawnAsset(lightTemplate, bulbPosition)
     end
@@ -425,14 +418,13 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
 12. Press play and test out the script.
 
-    <image />
+<image />
 
-    Excellent!
+Excellent!
 
-    You’ve turned on the light. If you keep interacting with the light switch you’ll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that’s what you wanted (and you’re not the one footing the electric bill) but we want to flip the switch and turn off the light.
+You’ve turned on the light. If you keep interacting with the light switch you’ll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that’s what you wanted (and you’re not the one footing the electric bill) but we want to flip the switch and turn off the light.
 
-
-#### Step 7: Turning the switch off
+## Step 7: Turning the switch off
 
 1. In order to turn the switch off again, we need to create a variable that keeps track of whether the switch is on or off.
 
@@ -484,7 +476,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     Place the `switch:RotateTo` statement and the `World.SpawnAsset` function inside of your new `if` statement. Your `OnSwitchInteraction` function should now look like this:
 
     ```lua
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         local isLightOn = not isLightOn
 
         if not isLightOn then
@@ -515,16 +507,14 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     end
     ```
 
-    * `switch:RotateTo` tells the script to rotate our switch variable.
+    * `switch:RotateTo` tells the script to rotate our switch variable. The switch needs to rotate to its original downwards position, since we defined its initial rotation as startingRotation, we can simply plug startingRotation into our rotation statement.
 
-    The switch needs to rotate to its original downwards position, since we defined its initial rotation as startingRotation, we can simply plug startingRotation into our rotation statement.
-
-    0.5 is the time in seconds it takes to complete the action.
+    * `0.5` is the time in seconds it takes to complete the action.
 
     Your `OnSwitchInteraction` function should now look like this:
 
     ```lua
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         local isLightOn = not isLightOn
 
         if not isLightOn then
@@ -538,10 +528,9 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
 6. Press play to see if your else statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it.  However, we still need to despawn the light when the light switch is turned off.
 
+## Step 8: Turning the light off
 
-#### Step 8: Turning the light off
-
-1. In order to turn off the light, you first need to define the light after it is spawned. When the LightTemplate is spawned, it shows up at the bottom of the Hierarchy as “LightTemplate”. In your else statement, after the RotateTo line, type the following:
+1. In order to turn off the light, you first need to define the light after it is spawned. When the LightTemplate is spawned, it shows up at the bottom of the Hierarchy as “LightTemplate”. In your else statement, after the `RotateTo` line, type the following:
 
     `local spawnedLight = World.FindObjectByName("LightTemplate")`
 
@@ -564,7 +553,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     ```lua
     -- Rotate the switch and turn on and off the light
     -- when the player interacts with switchTrigger
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         local isLightOn = not isLightOn
 
         -- Turning the light on
@@ -584,8 +573,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
 3. Let’s test out the script. You can now turn on and off the switch and the light turns on and off with it. Everything works as it should, great!
 
-
-#### Step 9: Adding interaction labels
+## Step 9: Adding interaction labels
 
 1. Right now, the light switch trigger simply says, “**Interact**”. You can add more polish to a project by changing the interaction label to say something relevant to the trigger interaction.
 
@@ -611,14 +599,14 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
     * `=` is an assignment, meaning we are setting a property to what comes afterwards
 
-2. Press play to see if the label changed from *Interact* to *Turn On*.
+2. Press play to see if the label changed from **Interact** to **Turn On**.
 
 
     Now we just need to create a function that updates the label based on whether the light is on or off. Around your `interactionLabel` statement, type the following:
 
     ```lua
     -- Update light switch’s label
-    function UpdateLabel()
+    local function UpdateLabel()
 
     end
     ```
@@ -626,14 +614,14 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
     Your `UpdateLabel` function should look like this:
 
     ```lua
-    function UpdateLabel()
+    local function UpdateLabel()
         switchTrigger.interactionLabel = "Turn On"
     end
     ```
 
 3. Press play. Notice how the interaction label now says **Interact** instead of **Turn On**. This is because the line of code changing the label to **Turn On** is now in a function that isn’t called on in the script. The script won’t run the function until we tell it to. Right now we have only defined what the function does, but we haven’t told the script when to run it.
 
-4. Underneath the `switchTrigger.interactedEvent` line, write:
+4. Underneath the `switchTrigger.interactedEvent` line, add:
 
     ```lua
     UpdateLabel()
@@ -658,7 +646,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 7. If `isLightOn` is set to `true`, that means the light is off - so our interaction label should say **Turn On**. Cut and paste the **interactionLabel** line into this `if `statement. Now the `UpdateLabel()` function should look like this:
 
     ```lua
-    function UpdateLabel()
+    local function UpdateLabel()
         if isLightOn == false then
             switchTrigger.interactionLabel = "Turn On"
         end
@@ -681,7 +669,7 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 9. Type `UpdateLabel()` before the `end` of the function and after the `if` statement within it. The `OnSwitchInteraction` function should now look like:
 
     ```lua
-    function OnSwitchInteraction()
+    local function OnSwitchInteraction()
         local isLightOn = not isLightOn
 
         -- Turns the light on
@@ -701,9 +689,9 @@ Now there is an object called “BoxTrigger” in our Hierarchy.
 
 10. Press play. Now the label should update every time you interact with the light switch.
 
-#### Congrats! You’ve just completed your first Lua tutorial.
+**Congrats! You’ve just completed your first Lua tutorial.**
 
-### Summary
+## Summary
 
 You’ve now learned how a script can move and interact with objects within your scene using triggers and custom properties. You’ve also picked up a few programming concepts like global and local rotation and when to use if statements. Hopefully you feel a little more comfortable with coding and your next Lua project won’t be so intimidating!
 
@@ -719,7 +707,7 @@ local bulbPosition = filaments:GetWorldPosition()
 local isLightOn = false
 
 -- Update light switch’s label
-function UpdateLabel()
+local function UpdateLabel()
 	if isLightOn == false then
 		switchTrigger.interactionLabel = "Turn On"
 	else
@@ -729,7 +717,7 @@ end
 
 -- Rotate the switch and spawn a light
 -- when the player interacts with switchTrigger
-function OnSwitchInteraction()
+local function OnSwitchInteraction()
     isLightOn = not isLightOn
 
 	-- Turns the light on
