@@ -8,12 +8,12 @@ you can add to your scene. Note that there are categories and subcategories,
 pressing the `+` will expand it. For example, we can only display castle parts
 by finding that subsection and expanding it, as shown in the image below:
 
-![](/src/img/getting_started/Asset_Manifest.png)
+![](/img/getting_started/Asset_Manifest.png)
 
 Now, simply drag an object in to your scene, and you'll see it appear both in
 the viewport and the hierarchy!
 
-![](/src/img/getting_started/Asset_01.png)
+![](/img/getting_started/Asset_01.png)
 
 There's a couple things to note:
 
@@ -28,7 +28,7 @@ There's a couple things to note:
 The 3D Widget is how you modify the tranformation of elements in 3D space inside
 the editor. You'll note it currently has the translation tool selected. You can
 change to the rotate or scale tools by pressing the icons at the top, or by
-pressing the `W`, `E`, or `R` hotkeys, respectively. 
+pressing the `W`, `E`, or `R` hotkeys, respectively.
 
 !!! Note
     In this example grid is enabled, so every translation will move the object
