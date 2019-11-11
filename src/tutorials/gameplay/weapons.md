@@ -7,7 +7,7 @@
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a tomato grenade.
 Programming a weapon can be the most complicated part of making a game, but to make that easier, Core comes with a built-in weapon system!
 
-![A Sniper Rifle](/src/img/EditorManual/Weapons/holdingWeaponNew.PNG)
+![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.PNG)
 
 In Core, a `weapon` is an `equipment` type of object that can be created in any Core project.
 
@@ -33,7 +33,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
 ### Setting Up the Weapon
 
 !!! info "Steampunk Rifle Model"
-    ![Steampunk Rifle](/src/img/EditorManual/Weapons/steampunkRifle.PNG)
+    ![Steampunk Rifle](/img/EditorManual/Weapons/steampunkRifle.PNG)
      You can download the Steampunk Rifle from **Community Content** on Core to have a ready-made weapon, or you can make your own model from props in Core!
 
 1. The first thing to do is to open the *Object* menu at the top of the editor, and select **Create Weapon**. This adds one empty weapon to your current game's hierarchy.
@@ -43,7 +43,7 @@ In this tutorial, we will be adding a really simple gun to an empty project.
   This model should all be contained in a folder, and this folder should be made a child of the weapon by dragging the folder onto the weapon.
  This attaches the visuals of the weapon to the function of the weapon!
   Your Hierarchy should now look like this:
- ![Initial Hierarchy](/src/img/EditorManual/Weapons/hierarchyFirst.PNG)
+ ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.PNG)
 
 3. Right click on that folder of shapes, and click Create Network Context > Create New Client Context Containing This.
 This puts a lot less pressure on the game to run well. To understand more about a Client Context, read [the related page].
@@ -68,7 +68,7 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
 8. Lastly for the setup, right click on the weapon in the Hierarchy, and click "Enable Networking" to allow the gun to be picked up properly.
    The hierarchy should now look like this:
-   ![Weapon Hierarchy](/src/img/EditorManual/Weapons/hierarchy.png)
+   ![Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy.png)
 
 ### Programming the Weapon
 
@@ -109,7 +109,7 @@ This puts a lot less pressure on the game to run well. To understand more about 
    This turns off both the collision of the shape so that the player can't constantly run into it anymore, and turns off the interaction of the weapon, so that another player cannot walk up and take it from you!
 
 5. You may also notice that the weapon, when equipped, is not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head.
- ![Weapon Hierarchy](/src/img/EditorManual/Weapons/brokenLocationWeapon.png)
+ ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png)
  When equipped, the weapon's origin will snap to the attachment point, which is the player's right hand in this case. The odds are high that the weapon will be held in the wrong spot when equipped the first time.
   **To fix the weapon model's position**, move the folder within the weapon around in the world to find the right spot.
    This takes some experimenting!
@@ -140,7 +140,7 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
 
 1. The first step is to create a new script, and call it `AttackScript`.  Drag this empty script onto the weapon in the Hierarchy.
  The Hierarchy should now look like this:
-  ![Current Weapon Hierarchy](/src/img/EditorManual/Weapons/hierarchy2.png)
+  ![Current Weapon Hierarchy](/img/EditorManual/Weapons/hierarchy2.png)
 
 2. We're going to make our gun do straightforward gun things: damage a player when shot.
  Weapons do not come with a damage property by default, so we're going to add a **Custom Property** to our weapon for easier editing later when testing damage amounts.

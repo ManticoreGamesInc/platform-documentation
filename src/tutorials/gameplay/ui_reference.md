@@ -34,7 +34,7 @@ Below is an example using the Text Box control:
 4. From that 2D UI section of the Object menu, click a Text Box to bring it into the Hierarchy and drag it onto the Canvas to display the text directly onto the screen.
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
- ![TextBoxPropertiesWindow](/src/img/EditorManual/UI/WidgetExampole.PNG)
+ ![TextBoxPropertiesWindow](/img/EditorManual/UI/WidgetExampole.PNG)
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -45,7 +45,7 @@ Below is an example using the Text Box control:
      UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
 
-![TransformBoundingBox](/src/img/EditorManual/UI/TextBoxUiElement.PNG)
+![TransformBoundingBox](/img/EditorManual/UI/TextBoxUiElement.PNG)
 
 Adjustable properties of the Text Box:
 
@@ -80,10 +80,10 @@ There is a large collection of different images to use in Core. These could be s
 
 These are all the current images available to use in Core:
 
-![UI Borders](/src/img/EditorManual/UI/uiAssets_borders.png)
-![UI Buttons](/src/img/EditorManual/UI/uiAssets_buttons.png)
-![UI Icons](/src/img/EditorManual/UI/uiAssets_icons.png)
-![UI Reticles](/src/img/EditorManual/UI/uiAssets_reticles.png)
+![UI Borders](/img/EditorManual/UI/uiAssets_borders.png)
+![UI Buttons](/img/EditorManual/UI/uiAssets_buttons.png)
+![UI Icons](/img/EditorManual/UI/uiAssets_icons.png)
+![UI Reticles](/img/EditorManual/UI/uiAssets_reticles.png)
 
 ### Example
 

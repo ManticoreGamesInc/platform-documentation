@@ -4,7 +4,7 @@ Collaboration is an important aspect of art and design as well as key to develop
 
 Templates can be created, shared, and updated in real time across the platform. Enabling creators to quickly and dynamically make changes to their scenes and games.
 
-Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](/src/img/EditorManual/UI/templateicon.PNG)
+Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](/img/EditorManual/UI/templateicon.PNG)
 
 
 # Tutorial
@@ -13,25 +13,25 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 1. Drag in your assets from the Asset Manifest. Place them how you’d like.
 2. When satisfied with your creation, select all assets in the hierarchy that you desire to be in the template. Right click and select “Group and Create New Template from These”.
-![TemplateTut1](/src/img/EditorManual/UI/TemplateTut1.PNG)
+![TemplateTut1](/img/EditorManual/UI/TemplateTut1.PNG)
 
 !!! note "Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, ther are multiple ways to go about achieving a task. The process is whichever comes natural to you!"
 
 3. Name Your Template and click the New Template button.
-![TemplateTut2](/src/img/EditorManual/UI/TemplateTut2.PNG)
+![TemplateTut2](/img/EditorManual/UI/TemplateTut2.PNG)
 
 The template is now recognized in your project as its own object and can be found in the Project Content folder of the Asset Manifest and you may quickly and easily drag out multiple instances into your scene.
 
 Once your template is created, you may use it for just this project alone, or you can now publish the template to Community Content. Unpublished templates have white names in the Project Content folder while published template names are green. However, Templates in the hierarchy will always be green, published or not.
-![TemplateTut3](/src/img/EditorManual/UI/TemplateTut3.PNG)
+![TemplateTut3](/img/EditorManual/UI/TemplateTut3.PNG)
 
 ## Publishing Your Template
 1. Click on your template in the Project Content Folder of the Asset Manifest.
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
-![TemplateTut4](/src/img/EditorManual/UI/TemplateTut4.PNG)
+![TemplateTut4](/img/EditorManual/UI/TemplateTut4.PNG)
 3. This option box will appear:
 
-![TemplateTut3](/src/img/EditorManual/UI/TemplateTut5.PNG)
+![TemplateTut3](/img/EditorManual/UI/TemplateTut5.PNG)
 
 a. Check or create a new template name. A template’s name must be between 5 to 30 characters.
 
@@ -43,7 +43,7 @@ c. Mark your permissions as either public or private. If private, only you can s
 5. Click Publish.
 
 The template’s white name should now be green and the template can be found and downloaded from Community Content. From here, you may edit, re-download or delete templates you’ve published!
-![TemplateTut4](/src/img/EditorManual/UI/TemplateTut6.PNG)
+![TemplateTut4](/img/EditorManual/UI/TemplateTut6.PNG)
 
 Congratulations! You’ve created, edited, and published a template that can be shared and used by other creators in Core!
 ## Tips and Tricks with Templates!
@@ -53,7 +53,7 @@ Once your template is created, you must “deinstance” it in order to edit the
 
 To deinstance a template, right click and select “Deinstance this object”.
 
-![TemplateTut5](/src/img/EditorManual/UI/TemplateTut7.PNG)
+![TemplateTut5](/img/EditorManual/UI/TemplateTut7.PNG)
 
 The object’s name will now be blue and you may edit the template as you wish!
 Don’t like the changes you made? You can always select “Reset to Template” to restore back to the original template.
@@ -70,4 +70,4 @@ To update a template, simply right click on an altered template, deinstanced or 
 
 If another creator has re-published their template across the platform, in order to assign the changes to the template in your project you must download the latest version of the shared template.
 
-To download the latest template, either right click on the template in Asset Manifest and select Download Latest OR select the template and click the Download Latest Button. 
+To download the latest template, either right click on the template in Asset Manifest and select Download Latest OR select the template and click the Download Latest Button.
