@@ -12,7 +12,7 @@ nav:
     - Spellshock: getting_started/spellshock.md
     - Intro to the Editor: getting_started/editor_intro.md
     - Coming from other Engines: getting_started/other_engines.md
-    - Community Content: /getting_started/community_content.md
+    - Community Content: getting_started/community_content.md
   - CORE API: core_api.md
   - Tutorials:
     - Gameplay:
@@ -35,7 +35,7 @@ nav:
       - "[Reference] Art": tutorials/art/art_reference.md
       - "[Reference] Audio": tutorials/art/audio_reference.md
       - "[Reference] Custom Materials": tutorials/art/custom_materials.md
-    - Examples & Snippets: examples.md
+    - Examples & Snippets: tutorials/examples.md
   - FAQs: faqs.md
   - Community: community.md
 
