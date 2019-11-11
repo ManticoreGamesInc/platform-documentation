@@ -1,45 +1,43 @@
 # Page index
 # If you add a page, you must also add it to the index here
 nav:
-    - index.md
-    - Docs:
-        - Getting Started:
-            - Installation: docs/getting_started/installation.md
-            - Spellshock: docs/getting_started/spellshock.md
-            - Intro to the Editor: docs/getting_started/editor_intro.md
-        - Gameplay:
-            - First Ability: docs/gameplay/abilities.md
-            - Advanced Ability/Equipment: docs/gameplay/abilities_advanced.md
-            - First Weapon: docs/gameplay/weapons.md
-            - Advanced Weapon: docs/gameplay/weapons_advanced.md
-            - Basic Lua (Detailed Help): docs/gameplay/lua_basics_lightbulb.md
-            - Basic Lua (Quicker Primer): docs/gameplay/lua_basics_manticoin.md
-            - Lua Reference: docs/gameplay/lua_reference.md
-            - Networking Reference: docs/gameplay/networking.md
-            - Performance Reference: docs/gameplay/performance.md
-        - Art:
-            - Scene Creation: docs/art/scene_creation.md
-            - Intro to Environmental Art: docs/art/enviro_art_intro.md
-            - Modeling Basics: docs/art/modeling_basics.md
-            - Art Reference: docs/art/art_reference.md
-            - Custom Material Reference: docs/art/custom_materials.md
-            - Costumes: docs/art/costumes.md
-        - Other:
-            - UI Reference: docs/other/ui_reference.md
-            - Audio Reference: docs/other/audio_reference.md
-            - Collaboration Reference: docs/other/collaboration.md
-            - Coming From Other Engines: docs/other/other_engines.md
-        - FAQs: docs/faqs.md
-        - Examples: docs/examples.md
-        - CORE API: docs/core_api.md
-        - Community Created Documentation:
-            - Midi: docs/community_created/midi.md
-    - Community: community.md
-    - News:
-        - Announcements: news/announcements/pre_alpha.md
-        - Events: news/events/alpha_launch.md
-        - Showcase: news/showcase/pre_alpha.md
-        - Patch Notes: news/patch_notes/12_10_19.md
+  - index.md
+  - News:
+    - Announcements: news/announcements/pre_alpha.md
+    - Events: news/events/alpha_launch.md
+    - Showcase: news/showcase/pre_alpha.md
+    - Patch Notes: news/patch_notes/12_10_19.md
+  - Getting Started:
+    - Installation: getting_started/installation.md
+    - Spellshock: getting_started/spellshock.md
+    - Intro to the Editor: getting_started/editor_intro.md
+    - Coming from other Engines: getting_started/other_engines.md
+    - Community Content: /getting_started/community_content.md
+  - CORE API: core_api.md
+  - Tutorials:
+    - Gameplay:
+      - Dodge Roll Ability (Simple): tutorials/gameplay/abilities.md
+      - Heavy Slash Ability (Advanced): tutorials/gameplay/abilities_advanced.md
+      - Simple Sword Weapon (Simple): tutorials/gameplay/weapons.md
+      - Mighty Sword Weapon (Advanced): tutorials/gameplay/weapons_advanced.md
+      - Light Bulb Game (Simple): tutorials/gameplay/lua_basics_lightbulb.md
+      - Manticoin Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+      - "[Reference] Collaboration": tutorials/gameplay/collaboration_reference.md
+      - "[Reference] Lua": tutorials/gameplay/lua_reference.md
+      - "[Reference] Networking": tutorials/gameplay/networking_reference.md
+      - "[Reference] Performance": tutorials/gameplay/performance_reference.md
+      - "[Reference] UI": tutorials/gameplay/ui_reference.md
+    - Art:
+      - Scene Creation: tutorials/art/scene_creation.md
+      - Intro to Environmental Art: tutorials/art/enviro_art_intro.md
+      - Modeling Basics: tutorials/art/modeling_basics.md
+      - Costumes: tutorials/art/costumes.md
+      - "[Reference] Art": tutorials/art/art_reference.md
+      - "[Reference] Audio": tutorials/art/audio_reference.md
+      - "[Reference] Custom Materials": tutorials/art/custom_materials.md
+    - Examples & Snippets: examples.md
+  - FAQs: faqs.md
+  - Community: community.md
 
 # If you make a PR, no need to change data below this point
 
