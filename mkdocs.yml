@@ -24,6 +24,7 @@ nav:
       - Manticoin Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
       - "[Reference] Collaboration": tutorials/gameplay/collaboration_reference.md
       - "[Reference] Lua": tutorials/gameplay/lua_reference.md
+      - "[Reference] Lua Style Guide": docs/other/lua_style_guide.md
       - "[Reference] Networking": tutorials/gameplay/networking_reference.md
       - "[Reference] Performance": tutorials/gameplay/performance_reference.md
       - "[Reference] UI": tutorials/gameplay/ui_reference.md
