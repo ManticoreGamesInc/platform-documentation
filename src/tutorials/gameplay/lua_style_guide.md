@@ -1,4 +1,8 @@
-# Core Lua Style Guide
+# CORE Lua Style Guide
+
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present. Deprecated API needs to be replaced
 
 **Goal:** Unify Lua conventions for a consistent style
 
@@ -40,6 +44,7 @@ Element | Styling
 Classes | PascalCase
 Functions | PascalCase
 Enums | PascalCase
+Enum Entries | LOUD_SNAKE_CASE
 Properties | camelCase
 Variables | camelCase
 Constants | LOUD_SNAKE_CASE
@@ -86,7 +91,7 @@ local DEBUG_PRINT = false
 local function IncreaseAge(currentAge)
     currentAge = currentAge + 1
     if DEBUG_PRINT then
-        -- Note: `tostring` is native Lua so it doesn't follow Core's conventions
+        -- Note: `tostring` is native Lua so it doesn't follow CORE's conventions
         print("Current age updated to" .. tostring(currentAge))
     end
     return currentAge
@@ -97,7 +102,7 @@ local function Main()
 
     for i = 1, 30 do
         local furColors = cat:GetColors()
-        -- Note: table.contains is uncapitalized because Lua
+        -- Note: table.contains is native Lua so it doesn't follow CORE's conventions
         if table.contains(furColors, "grey") then
             currentAge = IncreaseAge(cat.age)
         end
@@ -177,7 +182,7 @@ Both are perfectly valid, but following convention allows for the usage call to 
   * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
   * Properties use getter/setter methods unless you can both get _and_ set the value (in which case you can directly access it via the dot syntax)
 
-Note that some implementations (e.g. with private fields) may result in a reference to self being used, so you use the dot syntax rather than colon for methods; this is fine (although passing in a dummy parameter to enable the use of `:` is ideal), really  just keep to the naming conventions.
+Note that some implementations (e.g. with private fields) may result in a reference to self being used, so you use the dot syntax rather than colon for methods; this is fine (although passing in a dummy parameter to enable the use of `:` is ideal), really just keep to the naming conventions.
 
 ## General
 
@@ -281,8 +286,8 @@ Good:
 
 ```lua
 -- Without this condition, the player's state would mismatch
-if playerIsAirborne() then
-    enableFlying()
+if PlayerIsAirborne() then
+    EnableFlying()
 end
 ```
 
@@ -290,9 +295,9 @@ Bad:
 
 ```lua
 -- Check if the player is in the air
-if playerIsAirborne() then
+if PlayerIsAirborne() then
     -- Set them to flying
-    enableFlying()
+    EnableFlying()
 end
 ```
 
@@ -382,12 +387,6 @@ end
 trigger.beginOverlapEvent:Connect(HandleOverlap)
 ```
 
----
-
-* Note: Some content here is inspired from [Roblox's Style Guide](https://roblox.github.io/lua-style-guide/) - all credit where it is due.
-
----
-
 # Best Practices
 
 ToDo: Why you shouldn't pollute the global namespace, why run order matters and
@@ -405,15 +404,14 @@ doesn't make sense
 
 ## Using External Data
 
-Regarding external data, you can use require() and a script that returns a long string to encapsulate json data in its own script.  Then use require again with a json library from the internet like this one:  https://raw.githubusercontent.com/rxi/json.lua/master/json.lua
+Regarding external data, you can use `require()` and a script that returns a long string to encapsulate JSON data in its own script.
+Afterwards use `require()` again with a JSON library from the internet like this one:  https://raw.githubusercontent.com/rxi/json.lua/master/json.lua
 
-To make a script that returns a json string when you require it, start with
+To make a script that returns a JSON string when you require it, start with
 this:
 
 ```lua
 return [===[
-
+    -- JSON here, make sure it does not contain "]===]" though!
 ]===]
 ```
-
-and just paste your json into the empty line in the middle.  No need to escape quotes or anything, as long as your json doesn't contain the string "]===]"
