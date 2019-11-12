@@ -3,15 +3,11 @@
 Welcome to the wonderful world of scripting in **CORE**! We have a complete
 programming language available, so the possibilities are endless.
 
-<!- TODO: Fix Links -->
-
-* For details on [Lua](/scripting/lua_primer), check out the primer
-* For [IDE setup](/scripting/ide_tools) tips (advanced users), check out that section
-* For tips on [debugging](/scripting/debugging), we've got that covered
-* [Best practices](/scripting/best_practices) and misc tips can be useful
-* Lastly, we have a section on [code conventions](/scripting/conventions) as well
+* For details on [Lua](/tutorials/gameplay/lua_reference.md), check out the primer
+* If you're already more experienced, skip ahead to the [Manticoin Game](tutorials/gameplay/lua_basics_manticoin.md) tutorial!
 * For debugging we have our own script debugger, you can enable it via the **View* menu.
     You can toggle breakpoints by clicking on a line number in the internal editor
+* Lastly, we have a section on [code conventions](/tutorials/gameplay/lua_style_guide.md) as well
 
 ## Overview
 
@@ -155,8 +151,8 @@ We want our light switch to function just like it would in real life: the switch
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
 1. Create a trigger by going up to "**Object**" on the menu bar, expand **Create Gameplay Object** and click "**Create Trigger**". TODO: CHECK
-<image />
-Now there is an object called "**BoxTrigger**" in our Hierarchy.
+    <image />
+    Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
 2. Select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can’t see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
@@ -179,7 +175,8 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
     <image />
 
 6. Now we need to tell the script what our trigger is and what should happen when the player interacts with it. Under our `switch` variable definition type:
-`local switchTrigger = script.parent:GetChildren()[4]`
+
+    `local switchTrigger = script.parent:GetChildren()[4]`
 
     * `switchTrigger` is the name for our trigger variable.
 
@@ -230,9 +227,7 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
 9. Lastly, you’ll need an event statement that tells the script to execute the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
 
-    ```lua
-    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
+    `switchTrigger.interactedEvent:Connect(OnSwitchInteraction)`
 
     * `switchTrigger` is the name of our trigger.
 
@@ -260,7 +255,6 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
     Perfect! When the player presses <kbd>F</kbd> to interact with the trigger, our switch rotates up!
 
-
 11. Let’s speed up the switch’s rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
@@ -283,7 +277,7 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
         ```
 
-        At **CORE**, we have our own set of coding conventions which you can read about [here](TODO:LINK),
+        At **CORE**, we have our own set of coding conventions which you can read about [here](tutorials/gameplay/lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
@@ -313,9 +307,7 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
     Congrats! You just added your first custom property to a script.
 
-
 6. Find the template we just made (“**LightTemplate**”) in the **Project Content** tab and drag it over to our “**Light**” custom parameter where it says “**Empty**”.
-
 
 7. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
@@ -332,6 +324,7 @@ Now there is an object called "**BoxTrigger**" in our Hierarchy.
     In our `OnSwitchInteraction` function under our `RotateTo` statement, type:
 
     `World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
+
     * `World` is a [collection of functions](TODO:API_DOCS:World) for finding objects in the world.
 
     * `SpawnAsset` is a function that tells the script we’ll be spawning a template or asset, and where to do so
@@ -425,6 +418,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 1. In order to turn the switch off again, we need to create a variable that keeps track of whether the switch is on or off.
 
     As always, we start with the variables:
+
     `local isLightOn = false`
 
     * `isLightOn` is the name of the variable we’ll use to keep track of the switch being on and off. Because we start with the switch off, `false`is the starting state for the switch.
