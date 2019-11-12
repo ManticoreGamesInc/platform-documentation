@@ -5,8 +5,8 @@
     Incomplete or outdated information may be present.
 
 
-CORE uses Lua, a lightweight and flexible programming language to accomplish
-scripting in the engine. As of late May 2019, we are using Lua version 5.3.4.
+CORE uses **Lua**, a lightweight and flexible programming language to accomplish
+scripting in the engine. As of late May 2019, we are using Lua version **5.3.4**.
 
 Lua is a [dynamically
 typed](https://en.wikipedia.org/wiki/Type_system#Combining_static_and_dynamic_type_checking)
@@ -17,23 +17,23 @@ The next steps depend on your level of previous programming experience.
 
 **Beginner**
 
-Check out this [tutorial], and review the [official] docs after.
+Check out this [tutorial](tutorials/gameplay/lua_basics_lightbulb.md), and review the [official] docs after.
 
 !!! Note
     Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!
 
 **Intermediate**
 
-Skim through the beginner content, and look at the advanced stuff later.
+Skim through the beginner content, then try our [Manticoin Game](tutorials/gameplay/lua_basics_manticoin.md) tutorial.
 
 **Advanced**
 
 Check out this [primer], or this [reference-sheet] for tips on syntax. Use the
-official [reference] as needed.
+official [reference] as needed, then make yourself familiar with the [CORE API](../core_api.md).
 
 **Other**
 
-Other engines also have good sources of documentation for Lua. Check out our [other-engines] page that has a few hints on whats different between them and CORE.
+Other engines also have good sources of documentation for Lua. Check out our [other-engines] page that has a few hints on whats different between them and **CORE**.
 
 ## Basics
 
@@ -49,6 +49,7 @@ While there are already a ton of good Lua tutorials out there, we're still going
 ```
 
 ## Variables and Flow Control
+
 ```lua
 num = 42  -- All numbers are doubles.
 -- Don't freak out, 64-bit doubles have 52 bits for
@@ -115,7 +116,6 @@ repeat
 until num == 0
 ```
 
-
 ## Functions
 
 ```lua
@@ -173,7 +173,6 @@ G = function(x)
 end
 -- the "local G" declaration makes g-self-references ok.
 ```
-
 
 ## Tables
 
@@ -253,6 +252,7 @@ print(_G["_G"] == _G)  --> "true"
 
 -- List literals implicitly set up int keys:
 v = {"value1", "value2", 1.21, "gigawatts"}
+
 for i = 1, #v do  -- #v is the size of v for lists.
   print(v[i])
 end
@@ -399,7 +399,6 @@ function LoudDog:New()
 end
 ```
 
-
 ## Modules
 
 ```lua
@@ -464,5 +463,5 @@ If you're still really hungry for more info, more primers can be found here:
 [official]: https://www.lua.org/pil/contents.html
 [tutorial]: https://www.tutorialspoint.com/lua/
 [primer]: https://learnxinyminutes.com/docs/lua/
-[other-engines]: ../other/other_engines.md
+[other-engines]: getting_started/other_engines.md
 [reference-sheet]: http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf
