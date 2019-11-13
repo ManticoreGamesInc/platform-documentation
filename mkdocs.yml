@@ -35,9 +35,11 @@ nav:
       - "[Reference] Art": tutorials/art/art_reference.md
       - "[Reference] Audio": tutorials/art/audio_reference.md
       - "[Reference] Custom Materials": tutorials/art/custom_materials.md
+    - Community Created:
+      - Placeholder: tutorials/community_created/placeholder.md
     - Examples & Snippets: tutorials/examples.md
   - FAQs: faqs.md
-  - Community: community.md
+  - Join the Community: "community.md"
 
 # If you make a PR, no need to change data below this point
 
@@ -91,7 +93,7 @@ markdown_extensions:
 docs_dir: src
 
 # Site name
-site_name: CORE Creator Hub
+site_name: CORE CREATOR HUB
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
