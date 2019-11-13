@@ -150,11 +150,10 @@ We want our light switch to function just like it would in real life: the switch
 
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
-1. Create a trigger by going up to "**Object**" on the menu bar, expand **Create Gameplay Object** and click "**Create Trigger**". TODO: CHECK
+1. Create a trigger by going to the **CORE Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
     <image />
-    Now there is an object called "**BoxTrigger**" in our Hierarchy.
 
-2. Select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can’t see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
+2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can’t see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
     !!! info
         Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights.
