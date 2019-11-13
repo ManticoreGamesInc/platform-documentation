@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
+
+.md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
 [data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero, .md-footer-meta, .md-footer-nav {
     background-color: #20232a;
 }
