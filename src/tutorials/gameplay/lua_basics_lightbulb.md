@@ -1,18 +1,16 @@
-# Light Switch Lua Tutorial
-
-Welcome to the wonderful world of scripting in **CORE**! We have a complete
-programming language available, so the possibilities are endless.
-
-* For details on [Lua](/tutorials/gameplay/lua_reference.md), check out the primer
-* If you're already more experienced, skip ahead to the [Manticoin Game](tutorials/gameplay/lua_basics_manticoin.md) tutorial!
-* For debugging we have our own script debugger, you can enable it via the **View* menu.
-    You can toggle breakpoints by clicking on a line number in the internal editor
-* Lastly, we have a section on [code conventions](/tutorials/gameplay/lua_style_guide.md) as well
+# Light Bulb Game Tutorial
 
 ## Overview
 
-* Completion time: TODO: TBD
-* Knowledge level: No prior knowledge of Lua
+!!! "About this Tutorial"
+    * Completion time: TODO: TBD
+    * Knowledge level: No prior knowledge of Lua
+
+
+**CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
+* For debugging, we have our own script debugger, you can enable it via the **View** menu.
+    You can toggle breakpoints by clicking on a line number in the internal editor.
+* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
 This tutorial will cover:
 
@@ -38,11 +36,11 @@ Right: Well lit and constructed - good to go!</image annotation>
 
 ## Step 2: Creating a new script
 
-1. Create a new script by clicking the “**+**” button in the **Project Content** tab to the left of the search bar.
+1. Create a new script by clicking the "**+**" button in the **Project Content** tab to the left of the search bar.
 
-2. Name this one “**LightToggleScript**”.
+2. Name this one "**LightToggleScript**".
 
-3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>. It’s important to save your scripts often so you don’t lose work in the event of a crash. Scripts don’t update in game until you save them, so you won’t see any of your new code in action until you save. You cannot save a script while the game is running.
+3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>. It's important to save your scripts often so you don't lose work in the event of a crash. Scripts don't update in game until you save them, so you won't see any of your new code in action until you save. You cannot save a script while the game is running.
 
 4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "**Deinstance This Object**" from the drop down menu.
 
@@ -52,17 +50,17 @@ Right: Well lit and constructed - good to go!</image annotation>
 
     <image />
 
-    Teal objects represent objects that are part of a template that’s been deinstanced - which means you can edit them and move them around in the hierarchy.
+    Teal objects represent objects that are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
 
-5. Drag “**LightToggleScript**” from the **Project Content** tab into the “**Light switch**” folder within the **Light Switch & Bulb** template (as shown in the picture below).
+5. Drag "**LightToggleScript**" from the **Project Content** tab into the "**Light switch**" folder within the **Light Switch & Bulb** template (as shown in the picture below).
 
-Make sure the script is first in the “**Light switch**” folder’s hierarchy. This makes it easier to find when looking at the hierarchy.
+Make sure the script is first in the "**Light switch**" folder's hierarchy. This makes it easier to find when looking at the hierarchy.
 
 <image />
 
 ## Step 3: Defining the switch
 
-We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you’ll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
+We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you'll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
 
 1. Type the following into Line 1 of `LightToggleScript`:
 
@@ -70,9 +68,9 @@ We want our light switch to function just like it would in real life: the switch
 
     `local` tells the script that the following variable should only be accessible from this script rather than being accessible from external scripts, or globally.
 
-    `switch` is our variable name. We can name it anything but it’s important to create variables with self-explanatory names so our scripts are easy to read and understand.
+    `switch` is our variable name. We can name it anything but it's important to create variables with self-explanatory names so our scripts are easy to read and understand.
 
-    `script.parent` refers to the script’s parent - the group or folder the script is placed in. In this case it refers to the **Light switch group**. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent`.
+    `script.parent` refers to the script's parent - the group or folder the script is placed in. In this case it refers to the **Light switch group**. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent`.
 
     `GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
 
@@ -80,13 +78,13 @@ We want our light switch to function just like it would in real life: the switch
 
     `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
-2. Left click on the Switch folder and select “Enable Networking” from the drop down menu.
+2. Left click on the Switch folder and select "Enable Networking" from the drop down menu.
 
     <image />
 
-    Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking here (TODO: link).
+    Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking [here](networking_reference.md).
 
-    The Switch folder should now read: “**Switch (networked)**”.
+    The Switch folder should now read: "**Switch (networked)**".
 
 ## Step 4: Rotating the switch
 
@@ -112,19 +110,19 @@ We want our light switch to function just like it would in real life: the switch
     switch:RotateTo(Rotation.New(0, 90, 0), 2)
     ```
 
-    Let’s press play and see how our switch moves!
+    Let's press play and see how our switch moves!
 
     <image gif />
 
-    Unfortunately that didn’t quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That’s because we didn’t take into account the switch’s initial rotation in the scene.
+    Unfortunately that didn't quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
-    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it’s changing the switch’s global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y axis, it has to know where the switch’s starting rotation.
+    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y axis, it has to know where the switch's starting rotation.
 
-2. Let’s create a variable that defines the switch’s starting rotation. Go to the line 2 of the code and type:
+2. Let's create a variable that defines the switch's starting rotation. Go to the line 2 of the code and type:
 
     `local startingRotation = switch:GetWorldRotation()`
 
-    * `startingRotation` is the name of our new variable that will define the switch’s starting rotation.
+    * `startingRotation` is the name of our new variable that will define the switch's starting rotation.
 
     * `switch:GetWorldRotation()` tells the script to get the global rotation coordinates of our first variable, `switch`.
 
@@ -137,7 +135,7 @@ We want our light switch to function just like it would in real life: the switch
     switch:RotateTo(Rotation.New(0, 90, 0), 2)
     ```
 
-    Now that we have the switch’s starting rotation set to a variable, we just need to include it in our rotation statement:
+    Now that we have the switch's starting rotation set to a variable, we just need to include it in our rotation statement:
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)`
 
@@ -153,7 +151,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 1. Create a trigger by going to the **CORE Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
     <image />
 
-2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can’t see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
+2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
     !!! info
         Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights.
@@ -163,11 +161,11 @@ We want the player to be able to flip the switch to turn on and off our light. T
     <image />
     This looks like a good size.
 
-4. Look at the properties of the trigger by selecting it within the Hierarchy. Under “**Gameplay**” there is a parameter called “**Interactable**,” check the box next to it to enable it. Otherwise we won’t be able to interact with the trigger.
+4. Look at the properties of the trigger by selecting it within the Hierarchy. Under "**Gameplay**" there is a parameter called "**Interactable**," check the box next to it to enable it. Otherwise we won't be able to interact with the trigger.
 
     <image />
 
-5. Drag the trigger into the **Light switch group**. It should be the 4th child in the group. Since we’ll be referencing the trigger in our script, make sure it’s marked as networked. Right click on the trigger and select “**Enable Networking**”.
+5. Drag the trigger into the **Light switch group**. It should be the 4th child in the group. Since we'll be referencing the trigger in our script, make sure it's marked as networked. Right click on the trigger and select "**Enable Networking**".
 
     Our hierarchy should now look like this:
 
@@ -179,7 +177,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `switchTrigger` is the name for our trigger variable.
 
-    * `script.parent:GetChildren()[4]` defines the object we are using as our trigger - the fourth child of the script’s parent group.
+    * `script.parent:GetChildren()[4]` defines the object we are using as our trigger - the fourth child of the script's parent group.
 
     Your script should look like this:
 
@@ -209,7 +207,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     This function will define what happens when the player interacts with the trigger.
 
-    Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we’ll just place our rotate statement inside it, which is just the switch turning down.
+    Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
 
 8. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
     It should now look like this:
@@ -224,7 +222,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     end
     ```
 
-9. Lastly, you’ll need an event statement that tells the script to execute the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
+9. Lastly, you'll need an event statement that tells the script to execute the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
 
     `switchTrigger.interactedEvent:Connect(OnSwitchInteraction)`
 
@@ -234,7 +232,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `OnSwitchInteraction` is the name of the function we are connecting.
 
-    Without this statement the script wouldn’t know to call the `OnSwitchInteraction` function when the player interacts with the trigger.
+    Without this statement the script wouldn't know to call the `OnSwitchInteraction` function when the player interacts with the trigger.
 
     Our script should now look like this:
 
@@ -254,7 +252,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Perfect! When the player presses <kbd>F</kbd> to interact with the trigger, our switch rotates up!
 
-11. Let’s speed up the switch’s rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
+11. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
 
@@ -276,37 +274,37 @@ We want the player to be able to flip the switch to turn on and off our light. T
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
         ```
 
-        At **CORE**, we have our own set of coding conventions which you can read about [here](tutorials/gameplay/lua_style_guide.md).
+        At **CORE**, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
 ## Step 6: Spawning a Light
 
-1. Let’s make our light switch a little more functional and have it spawn a light when we interact with the switch.
+1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
-    Select the *Lighting* category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I’ll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light’s smart properties to your liking.
+    Select the *Lighting* category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
 
     <image />
 
-    I turned down the light’s **Intensity** because it was very bright in my scene. When you’re done making adjustments, right click on the **Point Light** in the Hierarchy and select “**Enable Networking**” under the **Networking** menu.
+    I turned down the light's **Intensity** because it was very bright in my scene. When you're done making adjustments, right click on the **Point Light** in the Hierarchy and select "**Enable Networking**" under the **Networking** menu.
 
-    Anytime a script interacts with an object or asset the object needs to be networked. (You can learn more about networked objects [here](TODO:LINK).
+    Anytime a script interacts with an object or asset the object needs to be networked. (You can learn more about networked objects [here](networking_reference.md).
 
-2. Right click on the *Point Light* in your Hierarchy and select “**Create New Template from This**” under **Templates** in the menu. Let’s call our new template “**LightTemplate**”.
+2. Right click on the *Point Light* in your Hierarchy and select "**Create New Template from This**" under **Templates** in the menu. Let's call our new template "**LightTemplate**".
 
     <image />
 
 3. Delete the **LightTemplate** from the Hierarchy. We don't want the light in our scene until we turn on the light switch.
 
-4. Click on our script “**LightToggleScript**” in the Hierarchy and look at the **Properties** tab. Click “**Add Property**” at the bottom of the tab.
+4. Click on our script "**LightToggleScript**" in the Hierarchy and look at the **Properties** tab. Click "**Add Property**" at the bottom of the tab.
 
     <image />
 
-5. Choose “**AssetReference**” from the drop down menu. Change “**PropertyName**” to “**Light**” then click “**Add Property**”.
+5. Choose "**AssetReference**" from the drop down menu. Change "**PropertyName**" to "**Light**" then click "**Add Property**".
 
     Congrats! You just added your first custom property to a script.
 
-6. Find the template we just made (“**LightTemplate**”) in the **Project Content** tab and drag it over to our “**Light**” custom parameter where it says “**Empty**”.
+6. Find the template we just made ("**LightTemplate**") in the **Project Content** tab and drag it over to our "**Light**" custom parameter where it says "**Empty**".
 
 7. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
@@ -314,9 +312,9 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     `local lightTemplate = script:GetCustomProperty("Light")`
 
-    * `lightTemplate` is the name of our variable. Remember we want to keep our names straightforward. Because we will be using this variable to spawn template we just made, we’re going to call it `lightTemplate`.
+    * `lightTemplate` is the name of our variable. Remember we want to keep our names straightforward. Because we will be using this variable to spawn template we just made, we're going to call it `lightTemplate`.
 
-    * `script:GetCustomProperty("Light")` tells the script to look for our scripts custom property called “**Light**” which references our `LightTemplate` object in **Project Content**.
+    * `script:GetCustomProperty("Light")` tells the script to look for our scripts custom property called "**Light**" which references our `LightTemplate` object in **Project Content**.
 
 8. Now we need to tell the script to spawn `lightTemplate` when the player interacts with the switch and where to spawn it.
 
@@ -324,13 +322,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     `World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
 
-    * `World` is a [collection of functions](TODO:API_DOCS:World) for finding objects in the world.
+    * `World` is a [collection of functions](../../core_api/World/TODO:API_DOCS:World) for finding objects in the world.
 
-    * `SpawnAsset` is a function that tells the script we’ll be spawning a template or asset, and where to do so
+    * `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so
 
-    * `lightTemplate` is the variable we’ll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script’s custom property “**Light**”.
+    * `lightTemplate` is the variable we'll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script's custom property "**Light**".
 
-    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates 0, 0, 0. We will need to change this part to spawn the light in our light bulb, but for now let’s check to see if our new lines of code work.
+    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0, 0, 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
 
     Your script should now look like this:
 
@@ -352,13 +350,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Notice how we updated the comment describing what our `OnSwitchInteraction` function does.
 
-9. Press play and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see “**LightTemplate**” at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates (0, 0, 0).
+9. Press play and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0, 0, 0".
 
-10. Time to change the spawn location to the light bulb. Click on the **Light Bulb group** in the Hierarchy. See the group named “**Filaments**”? As this group is located in the center of the bulb, it would be the perfect location for our light to spawn at.
+10. Time to change the spawn location to the light bulb. Click on the **Light Bulb group** in the Hierarchy. See the group named "**Filaments**"? As this group is located in the center of the bulb, it would be the perfect location for our light to spawn at.
 
     We could look up the global position of the **Filaments** and plug them into our code, but that would mean if we ever moved the light bulb we would have to go into our script and update it - which we might forget to do, resulting in a random floating light in our game.
 
-    Instead we can find the filament’s position in the script and use that, which is a lot easier in the long run as we’ll be able to move the light bulb anywhere we want without worrying about updating the script every time. (TODO: What is global and local position? Click [here][link] to find out).
+    Instead we can find the filament's position in the script and use that, which is a lot easier in the long run as we'll be able to move the light bulb anywhere we want without worrying about updating the script every time. (TODO: What is global and local position? Click [here][link] to find out).
 
     Let's start with the variables:
 
@@ -410,7 +408,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 Excellent!
 
-You’ve turned on the light. If you keep interacting with the light switch you’ll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that’s what you wanted (and you’re not the one footing the electric bill) but we want to flip the switch and turn off the light.
+You've turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that's what you wanted (and you're not the one footing the electric bill) but we want to flip the switch and turn off the light.
 
 ## Step 7: Turning the switch off
 
@@ -420,7 +418,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
     `local isLightOn = false`
 
-    * `isLightOn` is the name of the variable we’ll use to keep track of the switch being on and off. Because we start with the switch off, `false`is the starting state for the switch.
+    * `isLightOn` is the name of the variable we'll use to keep track of the switch being on and off. Because we start with the switch off, `false`is the starting state for the switch.
 
 2. Next, we need to tell the script to set `isLightOn` to `true`, when we turn on the light. In the `OnSwitchInteraction` function, type:
 
@@ -428,7 +426,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
     * Instead of just setting `isLightOn` to `true`, this tells the script to change `isLightOn` to whatever it is NOT set to. If `isLightOn` is `false` it sets it to `true`, and vice versa. In other words, the value is toggled to the state it is not currently at.
 
-3. Let’s see if our script correctly toggles between isLightOn = false and isLightOn = true when the player interacts with the switch. Anywhere in our OnSwitchInteraction function type:
+3. Let's see if our script correctly toggles between `isLightOn = false` and `isLightOn = true` when the player interacts with the switch. Anywhere in our `OnSwitchInteraction` function type:
 
     `print(isLightOn)`
 
@@ -436,9 +434,9 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
     * `isLightOn` is the variable that will be printing.
 
-    It doesn’t matter where in the function you typed this as we’ll delete this later. Right now we only want to know if the switch is correctly toggling our `isLightOn` variable.
+    It doesn't matter where in the function you typed this as we'll delete this later. Right now we only want to know if the switch is correctly toggling our `isLightOn` variable.
 
-    Open up the **Event Log** tab by going to **View** in the top menu bar and selecting **Event Log**. Keep this open and press play. Interact with the switch. The Event Log should print  “true” or “false” every time you interact with the light switch. You can delete the `print` statement now.
+    Open up the **Event Log** tab from the **View** menu in the top bar. Keep this open and press play. Interact with the switch. The Event Log should print `true` or `false` every time you interact with the light switch. You can delete the `print` statement now.
 
     Now the script needs to know what to do specifically when the switch is on, and when it is not. We need an if statement for this. In the `OnSwitchInteraction` function, after `isLightOn = not isLightOn` type:
 
@@ -496,7 +494,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
     end
     ```
 
-    * `switch:RotateTo` tells the script to rotate our switch variable. The switch needs to rotate to its original downwards position, since we defined its initial rotation as startingRotation, we can simply plug startingRotation into our rotation statement.
+    * `switch:RotateTo` tells the script to rotate our switch variable. The switch needs to rotate to its original downwards position, since we defined its initial rotation as `startingRotation`, we can simply plug `startingRotation` into our rotation statement.
 
     * `0.5` is the time in seconds it takes to complete the action.
 
@@ -519,15 +517,15 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
 ## Step 8: Turning the light off
 
-1. In order to turn off the light, you first need to define the light after it is spawned. When the LightTemplate is spawned, it shows up at the bottom of the Hierarchy as “LightTemplate”. In your else statement, after the `RotateTo` line, type the following:
+1. In order to turn off the light, you first need to define the light after it is spawned. When the **LightTemplate** is spawned, it shows up at the bottom of the Hierarchy. In your `else` statement, after the `RotateTo` line, type the following:
 
     `local spawnedLight = World.FindObjectByName("LightTemplate")`
 
     * `spawnedLight` is the name we are giving to the light we have just spawned.
 
-    * `World.FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named “LightTemplate”.
+    * `World.FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named "LightTemplate".
 
-    * `“LightTemplate”` is the name of our spawned light.
+    * `"LightTemplate"` is the name of our spawned light.
 
 2. Now that you have defined our spawned light, you can tell the script to destroy it when the switch is turned off. Under the statement you just wrote, type:
 
@@ -560,19 +558,19 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
     Notice how I updated the comment describing what the `OnSwitchInteraction` function does, and added some additional comment in the function for further clarity.
 
-3. Let’s test out the script. You can now turn on and off the switch and the light turns on and off with it. Everything works as it should, great!
+3. Let's test out the script. You can now turn on and off the switch and the light turns on and off with it. Everything works as it should, great!
 
 ## Step 9: Adding interaction labels
 
-1. Right now, the light switch trigger simply says, “**Interact**”. You can add more polish to a project by changing the interaction label to say something relevant to the trigger interaction.
+1. Right now, the light switch trigger simply says, "**Interact**". You can add more polish to a project by changing the interaction label to say something relevant to the trigger interaction.
 
-    Let’s change the label to say "**Turn Off**" or "**Turn On**" depending on whether the light is on or off.
+    Let's change the label to say "**Turn Off**" or "**Turn On**" depending on whether the light is on or off.
 
-    There are two ways to change a trigger’s label, by going to the trigger’s properties tab and simply editing the **Interaction Label** field, or with a script.
+    There are two ways to change a trigger's label, by going to the trigger's properties tab and simply editing the **Interaction Label** field, or with a script.
 
     <image />
 
-    Editing the **Interaction Field** property is great for when your label will always say the same thing, no matter what. Because we want to create a label that changes based on whether the switch is already on or off, we’ll use our script to update the label.
+    Editing the **Interaction Field** property is great for when your label will always say the same thing, no matter what. Because we want to create a label that changes based on whether the switch is already on or off, we'll use our script to update the label.
 
     In your functions block, before the `OnSwitchInteraction` function, type:
 
@@ -594,7 +592,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
     Now we just need to create a function that updates the label based on whether the light is on or off. Around your `interactionLabel` statement, type the following:
 
     ```lua
-    -- Update light switch’s label
+    -- Update light switch's label
     local function UpdateLabel()
 
     end
@@ -608,7 +606,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
     end
     ```
 
-3. Press play. Notice how the interaction label now says **Interact** instead of **Turn On**. This is because the line of code changing the label to **Turn On** is now in a function that isn’t called on in the script. The script won’t run the function until we tell it to. Right now we have only defined what the function does, but we haven’t told the script when to run it.
+3. Press play. Notice how the interaction label now says **Interact** instead of **Turn On**. This is because the line of code changing the label to **Turn On** is now in a function that isn't called on in the script. The script won't run the function until we tell it to. Right now we have only defined what the function does, but we haven't told the script when to run it.
 
 4. Underneath the `switchTrigger.interactedEvent` line, add:
 
@@ -618,7 +616,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
 5. Press play. The label should now display **Turn On** again.
 
-6. In order to change the label from Turn On to Turn Off based on if the light is on or not we’ll need an `if` statement. In the `UpdateLabel()` function write:
+6. In order to change the label from Turn On to Turn Off based on if the light is on or not we'll need an `if` statement. In the `UpdateLabel()` function write:
 
     ```lua
     if isLightOn == false then
@@ -642,7 +640,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
     end
     ```
 
-    The script still doesn’t say what to do when the light is on. Let’s add another `interactionLabel` assignment that makes it say **Turn Off** and an `else` condition to our `if` statement. Under the **Turn On** `interactionLabel` statement and before the `end` line, type:
+    The script still doesn't say what to do when the light is on. Let's add another `interactionLabel` assignment that makes it say **Turn Off** and an `else` condition to our `if` statement. Under the **Turn On** `interactionLabel` statement and before the `end` line, type:
 
     ```lua
     else
@@ -653,7 +651,7 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
 8. Press play to test it out.
 
-    The label still says **Turn On** even when the light is on. That is because the script only executes our `UpdateLabel()` function once. It doesn’t know to change the label when we interact with the switch. This can be solved simply by adding another call to `UpdateLabel()` to our `OnSwitchInteraction` function.
+    The label still says **Turn On** even when the light is on. That is because the script only executes our `UpdateLabel()` function once. It doesn't know to change the label when we interact with the switch. This can be solved simply by adding another call to `UpdateLabel()` to our `OnSwitchInteraction` function.
 
 9. Type `UpdateLabel()` before the `end` of the function and after the `if` statement within it. The `OnSwitchInteraction` function should now look like:
 
@@ -678,11 +676,11 @@ You’ve turned on the light. If you keep interacting with the light switch you�
 
 10. Press play. Now the label should update every time you interact with the light switch.
 
-**Congrats! You’ve just completed your first Lua tutorial.**
+**Congrats! You've just created a new game!**
 
 ## Summary
 
-You’ve now learned how a script can move and interact with objects within your scene using triggers and custom properties. You’ve also picked up a few programming concepts like global and local rotation and when to use if statements. Hopefully you feel a little more comfortable with coding and your next Lua project won’t be so intimidating!
+You've now learned how a script can move and interact with objects within your scene using triggers and custom properties. You've also picked up a few programming concepts like global and local rotation and when to use if statements. Hopefully you feel a little more comfortable with coding and your next Lua project won't be so intimidating!
 
 As a reference, here's how your full script should look like at the end:
 
@@ -695,7 +693,7 @@ local filaments = World.FindObjectByName("Filaments")
 local bulbPosition = filaments:GetWorldPosition()
 local isLightOn = false
 
--- Update light switch’s label
+-- Update light switch's label
 local function UpdateLabel()
 	if isLightOn == false then
 		switchTrigger.interactionLabel = "Turn On"
