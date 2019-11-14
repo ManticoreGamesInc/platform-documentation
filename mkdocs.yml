@@ -39,6 +39,7 @@ nav:
     - Community Created:
       - Placeholder: tutorials/community_created/placeholder.md
     - Examples & Snippets: tutorials/examples.md
+  - Editor Key Bindings: editor_keybindings.md
   - FAQs: faqs.md
   - Join the Community: "community.md"
 
