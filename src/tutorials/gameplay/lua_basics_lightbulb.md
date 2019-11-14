@@ -2,32 +2,21 @@
 
 ## Overview
 
-!!! "About this Tutorial"
+!!! info "About this Tutorial"
     * Completion time: TODO: TBD
     * Knowledge level: No prior knowledge of Lua
 
 
 **CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
+
 * For debugging, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
-This tutorial will cover:
-
-* Downloading and editing templates
-* Creating a script and using it to:
-    * Rotate an object
-    * Spawn a template/asset
-    * Despawn a template/asset
-    * Create an interactable event
-    * Create a custom property
-* Global and local rotation
-* Using triggers
-* Creating and updating trigger labels
-
 ## Step 1: Downloading the template
 
-Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles* header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
+1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
+2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
 <image />
 
@@ -78,13 +67,13 @@ We want our light switch to function just like it would in real life: the switch
 
     `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
-2. Left click on the Switch folder and select "Enable Networking" from the drop down menu.
+2. Left click on the `Switch` folder and select "**Enable Networking**" from the drop down menu.
 
     <image />
 
     Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking [here](networking_reference.md).
 
-    The Switch folder should now read: "**Switch (networked)**".
+    The `Switch` folder should now read: `Switch (networked)`.
 
 ## Step 4: Rotating the switch
 
@@ -94,9 +83,9 @@ We want our light switch to function just like it would in real life: the switch
 
     * `switch` tells the script to rotate the object attached to this variable.
 
-    * `RotateTo` is an function that tells **CORE** we want to rotate an object.
+    * `RotateTo` is an function that tells CORE we want to rotate an object.
 
-    * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `(0, 0, 0)`.
+    * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
 
     * `(0, 90, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y axis by 90 degrees.
 
@@ -274,7 +263,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
         ```
 
-        At **CORE**, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
+        At CORE, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
@@ -282,15 +271,15 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
-    Select the *Lighting* category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
+    Select the **Lighting** category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
 
     <image />
 
-    I turned down the light's **Intensity** because it was very bright in my scene. When you're done making adjustments, right click on the **Point Light** in the Hierarchy and select "**Enable Networking**" under the **Networking** menu.
+    I turned down the light's `Intensity` because it was very bright in my scene. When you're done making adjustments, right click on the `Point Light` in the Hierarchy and select "**Enable Networking**" under the **Networking** menu.
 
     Anytime a script interacts with an object or asset the object needs to be networked. (You can learn more about networked objects [here](networking_reference.md).
 
-2. Right click on the *Point Light* in your Hierarchy and select "**Create New Template from This**" under **Templates** in the menu. Let's call our new template "**LightTemplate**".
+2. Right click on the `Point Light` in your Hierarchy and select "**Create New Template from This**" under **Templates** in the menu. Let's call our new template "**LightTemplate**".
 
     <image />
 
@@ -367,7 +356,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `filaments` is the name of our variable defining which objects are the filaments in our scene.
 
-    * `FindObjectByName` is a **CORE** function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
+    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
 
         ```lua
         local lightBulbFolder = script.parent.parent:GetChildren()[1]
