@@ -1,13 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
 
-.md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source {
+body {
+    color: #555;
+}
+
+.md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source, .md-footer-nav {
     font-family: 'Oswald';
     text-transform: uppercase;
     font-weight: 400;
 }
 
-[data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero, .md-footer-meta, .md-footer-nav {
+[data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero, .md-footer-meta {
     background-color: #20232a;
+}
+
+.md-header {
+    border-bottom: 4px solid #ff9000;
+    height: 64px;
+}
+
+.md-header[data-md-state=shadow] {
+    box-shadow: none;
+}
+
+.md-header-nav__button.md-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.md-footer-nav {
+    background-color: #fff;
+    color: #000000de;
+}
+
+.md-footer-nav a:hover, .md-footer-nav__direction {
+    color: #ff9000;
 }
 
 [data-md-color-accent=amber] .md-nav__link:focus, [data-md-color-accent=amber] .md-nav__link:hover, [data-md-color-accent=amber] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=amber] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=amber] .md-typeset .md-clipboard:active:before, [data-md-color-accent=amber] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=amber] .md-typeset [id] .headerlink:focus, [data-md-color-accent=amber] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=amber] .md-typeset [id]:target .headerlink, .md-header-nav__topic {
@@ -23,3 +50,4 @@
         margin-left: 71rem;
     }
 }
+
