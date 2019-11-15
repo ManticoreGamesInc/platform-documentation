@@ -17,7 +17,7 @@ An ability could be to sprint, a dance emote, the opening of a hidden menu; an a
 - How to use an animation
 - How to set up UI connected to an ability
 
-![Dodge Roll](/img/EditorManual/Abilities/FullProcess.GIF)
+![Dodge Roll](/img/EditorManual/Abilities/FullProcess.gif)
 
 ----
 
@@ -43,12 +43,12 @@ For this tutorial, we are going to make a quick dodge roll.
 
 1. With CORE open to a project, navigate to the **CORE Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project Hierarchy.
 
-     ![Hierarchy Collapsed](/img/EditorManual/Abilities/GameObjects.PNG) 
+     ![Hierarchy Collapsed](/img/EditorManual/Abilities/GameObjects.png) 
 
      This will add an **Equipment** object to your project Hierarchy. `Equipment` comes with a `PickupTrigger` that allows players to equip the object when the player touches it.  
 
-     ![Hierarchy Collapsed](/img/EditorManual/Abilities/EquipmentInHierarchy.PNG)
-     ![Hierarchy Uncollapsed](/img/EditorManual/Abilities/EquipmentInHierarchy2.PNG)  
+     ![Hierarchy Collapsed](/img/EditorManual/Abilities/EquipmentInHierarchy.png)
+     ![Hierarchy Uncollapsed](/img/EditorManual/Abilities/EquipmentInHierarchy2.png)  
 
 2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".  
 
@@ -64,23 +64,23 @@ For this tutorial, we are going to make a quick dodge roll.
 
        1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.  
 
-         ![Basic Gem Model](/img/EditorManual/Abilities/Gem.PNG) 
+         ![Basic Gem Model](/img/EditorManual/Abilities/Gem.png) 
 
          Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](/tutorials/art/art_reference/)** or try a **[Tutorial](/tutorials/art/modeling_basics/)**.  
 
          I went with a simple red gem, and made it a little smaller than the default diamond.  
 
-         ![Red Gem Model](/img/EditorManual/Abilities/redGem.PNG) 
+         ![Red Gem Model](/img/EditorManual/Abilities/redGem.png) 
 
        2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem *Networked*, and select "Make Children Networked" when this window appears.  
 
          For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".  
 
-         ![Art Folder](/img/EditorManual/Abilities/EquipmentInHierarchy3.PNG)
+         ![Art Folder](/img/EditorManual/Abilities/EquipmentInHierarchy3.png)
 
        3. In the **Properties** window, uncheck the `Collidable` box of the art folder. This way the gem won't mess with your camera when it's attached to the player.  
 
-         ![Art Folder Collision](/img/EditorManual/Abilities/ArtFolderCollision.PNG)
+         ![Art Folder Collision](/img/EditorManual/Abilities/ArtFolderCollision.png)
 
      Now that we've created a visible object that can be picked up, it needs to do something!  
 
@@ -88,7 +88,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
      1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Ability` object.  
 
-         ![Ability Object in Hierarchy](/img/EditorManual/Abilities/EquipmentInHierarchy4.PNG)  
+         ![Ability Object in Hierarchy](/img/EditorManual/Abilities/EquipmentInHierarchy4.png)  
 
      2. Rename the `Ability` object to "Dodge" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.  
 
@@ -102,7 +102,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
      2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_roll`.  
 
-         ![Ability Properties Panel](/img/EditorManual/Abilities/AbilityPropertiesChange.PNG)
+         ![Ability Properties Panel](/img/EditorManual/Abilities/AbilityPropertiesChange.png)
 
      **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dodgeroll!
 
@@ -117,7 +117,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
       Increase or lower this to suit your gameplay needs.  
 
-      ![Ability Properties Panel: Cooldown](/img/EditorManual/Abilities/CooldownDuration.PNG)
+      ![Ability Properties Panel: Cooldown](/img/EditorManual/Abilities/CooldownDuration.png)
 
   Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.  
 
@@ -133,7 +133,7 @@ While you can make a User Interface *(often abbreviated to UI)* element yourself
 
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
-![Ability Display](/img/EditorManual/Abilities/abilityDisplay.GIF)
+![Ability Display](/img/EditorManual/Abilities/abilityDisplay.gif)
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps steps:
 
@@ -141,7 +141,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
 2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.  
 
-     ![Ability Control](/img/EditorManual/Abilities/AbilityButtonProperties.PNG)  
+     ![Ability Control](/img/EditorManual/Abilities/AbilityButtonProperties.png)  
 
       1. Change the **Binding** property from `ability_primary` to `ability_feet`. 
 
@@ -155,13 +155,13 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
      Select the **ActiveIcon** object, and from within the **Properties** window, change the **Color** property from white to a darker gray.  
 
-     ![Active Icon Color](/img/EditorManual/Abilities/ActiveIconColor.PNG)
+     ![Active Icon Color](/img/EditorManual/Abilities/ActiveIconColor.png)
 
 4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the **Hierarchy** to the two Icon objects. Select both of these, and within the **Properties** panel change the **Image** property on these to whatever you would like!  
 
      Double-click on the **Image** property to see all options possible.  
 
-     ![Hierarchy](/img/EditorManual/Abilities/ComponentHierarchy.PNG)  
+     ![Hierarchy](/img/EditorManual/Abilities/ComponentHierarchy.png)  
      I chose the **Icon Stamina** for this case. 
 
 Now the UI element will update automatically once the ability is cast.
