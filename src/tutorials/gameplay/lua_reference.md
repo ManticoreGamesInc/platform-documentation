@@ -17,19 +17,19 @@ The next steps depend on your level of previous programming experience.
 
 **Beginner**
 
-Check out this [tutorial](tutorials/gameplay/lua_basics_lightbulb.md), and review the [official] docs after.
+Check out this [tutorial](lua_basics_lightbulb.md), and review the [official] docs after.
 
 !!! Note
     Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!
 
 **Intermediate**
 
-Skim through the beginner content, then try our [Manticoin Game](tutorials/gameplay/lua_basics_manticoin.md) tutorial.
+Skim through the beginner content, then try our [Manticoin Game](lua_basics_manticoin.md) tutorial.
 
 **Advanced**
 
 Check out this [primer], or this [reference-sheet] for tips on syntax. Use the
-official [reference] as needed, then make yourself familiar with the [CORE API](../core_api.md).
+official [reference] as needed, then make yourself familiar with the [CORE API](../../core_api.md).
 
 **Other**
 
