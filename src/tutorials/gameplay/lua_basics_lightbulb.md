@@ -13,7 +13,7 @@
     You can toggle breakpoints by clicking on a line number in the internal editor.
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
-## Step 1: Downloading the template
+## Downloading the template
 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
 2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
@@ -23,7 +23,7 @@
 <image annotation>Left: halfway through the ground, in the shade - hard to see.
 Right: Well lit and constructed - good to go!</image annotation>
 
-## Step 2: Creating a new script
+## Creating a new script
 
 1. Create a new script by clicking the "**+**" button in the **Project Content** tab to the left of the search bar.
 
@@ -47,7 +47,7 @@ Make sure the script is first in the "**Light switch**" folder's hierarchy. This
 
 <image />
 
-## Step 3: Defining the switch
+## Defining the switch
 
 We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you'll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
 
@@ -75,7 +75,7 @@ We want our light switch to function just like it would in real life: the switch
 
     The `Switch` folder should now read: `Switch (networked)`.
 
-## Step 4: Rotating the switch
+## Rotating the switch
 
 1. We now need to rotate the switch. On a new line, type:
 
@@ -133,7 +133,7 @@ We want our light switch to function just like it would in real life: the switch
     <image gif>
     Success!
 
-## Step 5: Adding a trigger
+## Adding a trigger
 
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
@@ -267,7 +267,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
-## Step 6: Spawning a Light
+## Spawning a Light
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
@@ -399,7 +399,7 @@ Excellent!
 
 You've turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that's what you wanted (and you're not the one footing the electric bill) but we want to flip the switch and turn off the light.
 
-## Step 7: Turning the switch off
+## Turning the switch off
 
 1. In order to turn the switch off again, we need to create a variable that keeps track of whether the switch is on or off.
 
@@ -504,7 +504,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 6. Press play to see if your else statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it.  However, we still need to despawn the light when the light switch is turned off.
 
-## Step 8: Turning the light off
+## Turning the light off
 
 1. In order to turn off the light, you first need to define the light after it is spawned. When the **LightTemplate** is spawned, it shows up at the bottom of the Hierarchy. In your `else` statement, after the `RotateTo` line, type the following:
 
@@ -549,7 +549,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 3. Let's test out the script. You can now turn on and off the switch and the light turns on and off with it. Everything works as it should, great!
 
-## Step 9: Adding interaction labels
+## Adding interaction labels
 
 1. Right now, the light switch trigger simply says, "**Interact**". You can add more polish to a project by changing the interaction label to say something relevant to the trigger interaction.
 
