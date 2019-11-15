@@ -60,12 +60,15 @@ extra_css:
 
 # Additional data
 extra:
-    core_version: 0.0.1-prealpha # CORE editor version this documentation applies to
     social:
-    - type: 'discord' # unsupported
-      link: 'ToDo'
+    #- type: 'discord' # unsupported
+    #  link: 'https://discord.gg/85k8A7V'
     - type: 'reddit'
-      link: 'ToDo'
+      link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
+    - type: 'twitter'
+      link: 'https://twitter.com/PlayCoreGames' # TODO
+    - type: 'facebook'
+      link: 'https://facebook.com/playcoregames'
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -104,3 +107,6 @@ edit_uri: edit/production/src
 # Metadata
 site_description: Documentation for the CORE Engine
 site_author: Manticore
+
+# Copyright
+copyright: 'Copyright &copy; 2019 Manticore Games, Inc'
