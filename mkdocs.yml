@@ -110,3 +110,8 @@ site_author: Manticore
 
 # Copyright
 copyright: 'Copyright &copy; 2019 Manticore Games, Inc'
+
+# Google Analytics
+google_analytics:
+    - 'UA-142884846-1'
+    - auto
