@@ -1,10 +1,14 @@
 ## Overview
 
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
 [rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
 
 show GIF of player using magic staff]
 
-Abilities can get as complicated as you would like them to get. 
+Abilities can get as complicated as you would like them to get.
 
 With the power of Lua scripting, abiliites can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
 
@@ -12,7 +16,7 @@ In the first ability tutorial, we went over the quickest possible way to get som
 
 If you're fresh and new to any kind of programming, it would be good to visit the Intro to Lua tutorial. This will go over some key words and practices you would want to know.
 
-![Heavy Slash](/docs/img/EditorManual/Abilities/ComplexAbilities/Heavy Slash.GIF)
+![Heavy Slash](../../img/EditorManual/Abilities/ComplexAbilities/Heavy_Slash.gif)
 
 ---
 
@@ -43,17 +47,17 @@ The 4 different phases of an ability are:
 
 
 !!! info "A More Natural Example"
-    Try thinking of it like the casting of a magical spell:  
-    Cast: The witch charges up her spell, twirling her wand in the air in preparation.  
-    Execute: The witch flicks her wand, launching magic sparks at her enemy.  
-    Recovery: Out of breath from the power, the witch lowers her arm.  
-    Cooldown: The witch waits for her magic powers to return to her.  
+    Try thinking of it like the casting of a magical spell:
+    Cast: The witch charges up her spell, twirling her wand in the air in preparation.
+    Execute: The witch flicks her wand, launching magic sparks at her enemy.
+    Recovery: Out of breath from the power, the witch lowers her arm.
+    Cooldown: The witch waits for her magic powers to return to her.
 
 Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Ability States](/docs/img/EditorManual/Abilities/Ability States.png)
+![Ability States](../../img/EditorManual/Abilities/Ability_States.png)
 
-To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase. 
+To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
 
 A created function can be connected to these events, using `:Connect(ability_name)` within a script.
 
@@ -104,5 +108,5 @@ link to this in intro tutorial?
 
 ## Examples
 
-*FAA_GameMode* includes functioning abilities.  
-*Spellshock* includes advanced abilities using ability objects. 
+*FAA_GameMode* includes functioning abilities.
+*Spellshock* includes advanced abilities using ability objects.
