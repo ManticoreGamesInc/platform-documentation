@@ -1,6 +1,10 @@
-# IDE Tools
+# IDE Extensions
 
-There are a bunch of ways you can improve the experience of scripting in Core.
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
+There are a bunch of ways you can improve the experience of scripting in CORE.
 If you are happy with the inbuilt editor, feel free to skip this section (it is
 only intended for power users).
 
@@ -66,7 +70,7 @@ work.
    wherever you put the file from step 1.
 4. Add the following .luacheckrc file to the /maps folder (so right beside the
    .luacomplete file)
-5. I believe a quick restart is required, but not sure 
+5. I believe a quick restart is required, but not sure
 6. Open up your editor and rejoice, for it will be smart and will tell you to do
    things right!
 
