@@ -463,5 +463,5 @@ If you're still really hungry for more info, more primers can be found here:
 [official]: https://www.lua.org/pil/contents.html
 [tutorial]: https://www.tutorialspoint.com/lua/
 [primer]: https://learnxinyminutes.com/docs/lua/
-[other-engines]: getting_started/other_engines.md
+[other-engines]: ../../getting_started/other_engines.md
 [reference-sheet]: http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf
