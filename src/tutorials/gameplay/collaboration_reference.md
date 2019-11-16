@@ -1,5 +1,9 @@
 # Abstract
 
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
 Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates are a fundamental tool to Core that enables creators to develop assets and publish them to be used by other creators across the platform.
 
 Templates can be created, shared, and updated in real time across the platform. Enabling creators to quickly and dynamically make changes to their scenes and games.
