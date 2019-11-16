@@ -1,4 +1,4 @@
-# Lua Primer
+# Lua in CORE
 
 !!! warning
     Flagged for Review.
