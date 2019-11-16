@@ -13,29 +13,30 @@ nav:
     - Intro to the Editor: getting_started/editor_intro.md
     - Community Content: getting_started/community_content.md
     - Coming from other Engines: getting_started/other_engines.md
-  - CORE API: core_api.md
+  - CORE API:
+    - API Overview: core_api.md
+    - Lua in CORE: tutorials/gameplay/lua_reference.md
+    - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
   - Tutorials:
     - Gameplay:
-      - Dodge Roll Ability (Simple): tutorials/gameplay/abilities.md
-      - Heavy Slash Ability (Advanced): tutorials/gameplay/abilities_advanced.md
-      - Simple Sword Weapon (Simple): tutorials/gameplay/weapons.md
-      - Mighty Sword Weapon (Advanced): tutorials/gameplay/weapons_advanced.md
-      - Light Bulb Game (Simple): tutorials/gameplay/lua_basics_lightbulb.md
+      - Ability: tutorials/gameplay/abilities.md
+      - Ability (Advanced): tutorials/gameplay/abilities_advanced.md
+      - Weapon: tutorials/gameplay/weapons.md
+      - Weapon (Advanced): tutorials/gameplay/weapons_advanced.md
+      - Light Bulb Game: tutorials/gameplay/lua_basics_lightbulb.md
       - Manticoin Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
-      - "[Reference] Collaboration": tutorials/gameplay/collaboration_reference.md
-      - "[Reference] Lua": tutorials/gameplay/lua_reference.md
-      - "[Reference] Lua Style Guide": docs/other/lua_style_guide.md
-      - "[Reference] Networking": tutorials/gameplay/networking_reference.md
-      - "[Reference] Performance": tutorials/gameplay/performance_reference.md
-      - "[Reference] UI": tutorials/gameplay/ui_reference.md
     - Art:
+      - Art in CORE: tutorials/art/art_reference.md
       - Scene Creation: tutorials/art/scene_creation.md
       - Intro to Environmental Art: tutorials/art/enviro_art_intro.md
       - Modeling Basics: tutorials/art/modeling_basics.md
       - Costumes: tutorials/art/costumes.md
-      - "[Reference] Art": tutorials/art/art_reference.md
-      - "[Reference] Audio": tutorials/art/audio_reference.md
-      - "[Reference] Custom Materials": tutorials/art/custom_materials.md
+      - Audio: tutorials/art/audio_reference.md
+      - Custom Materials: tutorials/art/custom_materials.md
+    - Collaboration: tutorials/gameplay/collaboration_reference.md
+    - UI: tutorials/gameplay/ui_reference.md
+    #- Networking: tutorials/gameplay/networking_reference.md
+    #- Performance: tutorials/gameplay/performance_reference.md
     - Community Created:
       - Placeholder: tutorials/community_created/placeholder.md
     - Examples & Snippets: tutorials/examples.md
