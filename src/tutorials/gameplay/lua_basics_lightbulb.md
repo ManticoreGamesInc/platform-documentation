@@ -1,5 +1,19 @@
 # Light Bulb Game Tutorial
 
+!!! warning
+    Flagged for Review.
+
+    Missing:
+
+    * Images
+    * Links to other docs
+
+    Docs to delete after merge:
+
+    * https://docs.google.com/document/d/1H5Y7U_2z0hlEScLM_J89g5YTx5j68fXjwTIxT3C0f-U/edit
+    * https://docs.google.com/document/d/1ekVtiiNbviFzQsKl8yI8Iq8zDsZEvzdg6N24Lu4okvg/edit
+
+
 ## Overview
 
 !!! info "About this Tutorial"
