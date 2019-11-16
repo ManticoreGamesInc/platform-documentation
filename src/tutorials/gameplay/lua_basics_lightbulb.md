@@ -13,6 +13,19 @@
     You can toggle breakpoints by clicking on a line number in the internal editor.
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
+This tutorial will cover:
+
+* Downloading and editing templates
+* Creating a script and using it to:
+    * Rotate an object
+    * Spawn a template/asset
+    * Despawn a template/asset
+    * Create an interactable event
+    * Create a custom property
+* Global and local rotation
+* Using triggers
+* Creating and updating trigger labels
+
 ## Downloading the template
 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
