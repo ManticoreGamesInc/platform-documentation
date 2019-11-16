@@ -1,23 +1,23 @@
 ## Overview
 
-An ability is anything that the player can do themselves. 
+An ability is anything that the player can do themselves.
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything. 
+Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
 
 An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
 !!! info
     Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
 
-**Time to Complete:** 10 minutes  
+**Time to Complete:** 10 minutes
 
-**Skills You Will Learn:**  
+**Skills You Will Learn:**
 
 - How to create an ability
 - How to use an animation
 - How to set up UI connected to an ability
 
-![Dodge Roll](/img/EditorManual/Abilities/FullProcess.gif)
+![Dodge Roll](../../img/EditorManual/Abilities/FullProcess.gif)
 
 ----
 
@@ -43,83 +43,83 @@ For this tutorial, we are going to make a quick dodge roll.
 
 1. With CORE open to a project, navigate to the **CORE Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project Hierarchy.
 
-     ![Hierarchy Collapsed](/img/EditorManual/Abilities/GameObjects.png) 
+     ![Hierarchy Collapsed](../../img/EditorManual/Abilities/GameObjects.png)
 
-     This will add an **Equipment** object to your project Hierarchy. `Equipment` comes with a `PickupTrigger` that allows players to equip the object when the player touches it.  
+     This will add an **Equipment** object to your project Hierarchy. `Equipment` comes with a `PickupTrigger` that allows players to equip the object when the player touches it.
 
-     ![Hierarchy Collapsed](/img/EditorManual/Abilities/EquipmentInHierarchy.png)
-     ![Hierarchy Uncollapsed](/img/EditorManual/Abilities/EquipmentInHierarchy2.png)  
+     ![Hierarchy Collapsed](../../img/EditorManual/Abilities/EquipmentInHierarchy.png)
+     ![Hierarchy Uncollapsed](../../img/EditorManual/Abilities/EquipmentInHierarchy2.png)
 
-2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".  
+2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".
 
-     Change the **Socket** property from "topper" to "pelvis".  
+     Change the **Socket** property from "topper" to "pelvis".
 
-     The **Socket** property determines *where* the equipment will be attached to the player--we want the equipment to disappear, so for simplicity we will attach it somewhere that it will be hidden by the player's body.  
+     The **Socket** property determines *where* the equipment will be attached to the player--we want the equipment to disappear, so for simplicity we will attach it somewhere that it will be hidden by the player's body.
 
      Doing these first two steps will already let you pick up the `Equipment` when playing the game and walking through it--but it is hard to pick up something you can't see!
 
-3. To make this a more usable power-up object, let's add a model to it that players can see.  
-    
-     You can choose whatever you would like and would fit your game, but in my case I am going to use a classic gem.  
+3. To make this a more usable power-up object, let's add a model to it that players can see.
 
-       1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.  
+     You can choose whatever you would like and would fit your game, but in my case I am going to use a classic gem.
 
-         ![Basic Gem Model](/img/EditorManual/Abilities/Gem.png) 
+       1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
-         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](/tutorials/art/art_reference/)** or try a **[Tutorial](/tutorials/art/modeling_basics/)**.  
+         ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png)
 
-         I went with a simple red gem, and made it a little smaller than the default diamond.  
+         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](/tutorials/art/art_reference/)** or try a **[Tutorial](/tutorials/art/modeling_basics/)**.
 
-         ![Red Gem Model](/img/EditorManual/Abilities/redGem.png) 
+         I went with a simple red gem, and made it a little smaller than the default diamond.
 
-       2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem *Networked*, and select "Make Children Networked" when this window appears.  
+         ![Red Gem Model](../../img/EditorManual/Abilities/redGem.png)
 
-         For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".  
+       2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem *Networked*, and select "Make Children Networked" when this window appears.
 
-         ![Art Folder](/img/EditorManual/Abilities/EquipmentInHierarchy3.png)
+         For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
 
-       3. In the **Properties** window, uncheck the `Collidable` box of the art folder. This way the gem won't mess with your camera when it's attached to the player.  
+         ![Art Folder](../../img/EditorManual/Abilities/EquipmentInHierarchy3.png)
 
-         ![Art Folder Collision](/img/EditorManual/Abilities/ArtFolderCollision.png)
+       3. In the **Properties** window, uncheck the `Collidable` box of the art folder. This way the gem won't mess with your camera when it's attached to the player.
 
-     Now that we've created a visible object that can be picked up, it needs to do something!  
+         ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png)
 
-4. Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.  
+     Now that we've created a visible object that can be picked up, it needs to do something!
 
-     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Ability` object.  
+4. Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
-         ![Ability Object in Hierarchy](/img/EditorManual/Abilities/EquipmentInHierarchy4.png)  
+     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Ability` object.
 
-     2. Rename the `Ability` object to "Dodge" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.  
+         ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png)
+
+     2. Rename the `Ability` object to "Dodge" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
      Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the dodge roll animation.
 
-5. The `Ability` object starts with default settings in the **Properties** window. To make our own dodgeroll, we only need to change two things.  
+5. The `Ability` object starts with default settings in the **Properties** window. To make our own dodgeroll, we only need to change two things.
 
-     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the *Ability* section to change the **Key Binding** property to "Ability Feet".  
+     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the *Ability* section to change the **Key Binding** property to "Ability Feet".
 
          The Key Binding is which button will activate the ability. In this case, *Ability Feet* is the `shift` key on keyboards.
 
-     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_roll`.  
+     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_roll`.
 
-         ![Ability Properties Panel](/img/EditorManual/Abilities/AbilityPropertiesChange.png)
+         ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png)
 
      **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dodgeroll!
 
 !!! info "Good Object Placement"
-    If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up. 
+    If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
 
-  If you'd like to change the amount of time between when you use (also known as **Cast**) an ability, this can be altered within the `Ability` object!  
+  If you'd like to change the amount of time between when you use (also known as **Cast**) an ability, this can be altered within the `Ability` object!
 
-  1. In the **Properties** window for the ability object, scroll down to the section called **Cooldown**.  
+  1. In the **Properties** window for the ability object, scroll down to the section called **Cooldown**.
 
-  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dodgeroll before you can use it again.  
+  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dodgeroll before you can use it again.
 
-      Increase or lower this to suit your gameplay needs.  
+      Increase or lower this to suit your gameplay needs.
 
-      ![Ability Properties Panel: Cooldown](/img/EditorManual/Abilities/CooldownDuration.png)
+      ![Ability Properties Panel: Cooldown](../../img/EditorManual/Abilities/CooldownDuration.png)
 
-  Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.  
+  Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.
 
   For this we need UI!
 
@@ -133,36 +133,36 @@ While you can make a User Interface *(often abbreviated to UI)* element yourself
 
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
-![Ability Display](/img/EditorManual/Abilities/abilityDisplay.gif)
+![Ability Display](../../img/EditorManual/Abilities/abilityDisplay.gif)
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps steps:
 
-1. In **CORE Content**, search for the **AbilityBindingDisplay** object, and drag this into your **Hierarchy**.  
+1. In **CORE Content**, search for the **AbilityBindingDisplay** object, and drag this into your **Hierarchy**.
 
-2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.  
+2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
 
-     ![Ability Control](/img/EditorManual/Abilities/AbilityButtonProperties.png)  
+     ![Ability Control](../../img/EditorManual/Abilities/AbilityButtonProperties.png)
 
-      1. Change the **Binding** property from `ability_primary` to `ability_feet`. 
+      1. Change the **Binding** property from `ability_primary` to `ability_feet`.
 
-      2. Change the **Text** field to `Shift`, to stand for Left Shift. 
+      2. Change the **Text** field to `Shift`, to stand for Left Shift.
 
-      3. Check the **ShowAbilityName** property, so that "Dodge" will display over the button.  
+      3. Check the **ShowAbilityName** property, so that "Dodge" will display over the button.
 
       What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
 
-3. To make sure our icon symbol is visible, shift-click the AbilityBindingDisplay in the **Hierarchy** to expand all of the children subfolders.  
+3. To make sure our icon symbol is visible, shift-click the AbilityBindingDisplay in the **Hierarchy** to expand all of the children subfolders.
 
-     Select the **ActiveIcon** object, and from within the **Properties** window, change the **Color** property from white to a darker gray.  
+     Select the **ActiveIcon** object, and from within the **Properties** window, change the **Color** property from white to a darker gray.
 
-     ![Active Icon Color](/img/EditorManual/Abilities/ActiveIconColor.png)
+     ![Active Icon Color](../../img/EditorManual/Abilities/ActiveIconColor.png)
 
-4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the **Hierarchy** to the two Icon objects. Select both of these, and within the **Properties** panel change the **Image** property on these to whatever you would like!  
+4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the **Hierarchy** to the two Icon objects. Select both of these, and within the **Properties** panel change the **Image** property on these to whatever you would like!
 
-     Double-click on the **Image** property to see all options possible.  
+     Double-click on the **Image** property to see all options possible.
 
-     ![Hierarchy](/img/EditorManual/Abilities/ComponentHierarchy.png)  
-     I chose the **Icon Stamina** for this case. 
+     ![Hierarchy](../../img/EditorManual/Abilities/ComponentHierarchy.png)
+     I chose the **Icon Stamina** for this case.
 
 Now the UI element will update automatically once the ability is cast.
 
@@ -172,7 +172,7 @@ Now the UI element will update automatically once the ability is cast.
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder. 
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
 This has already been done for us in the CORE Content template, so no action is needed!
 
@@ -183,7 +183,7 @@ This has already been done for us in the CORE Content template, so no action is 
 
 ## Altering Properties the Easy Way: The Ability Object
 
-Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts. 
+Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts.
 
 To create a more advanced ability system and read more about Ability objects, read our **[next tutorial using abilities](/tutorials/gameplay/abilities_advanced/)**.
 
@@ -191,5 +191,5 @@ To create a more advanced ability system and read more about Ability objects, re
 
 ## Examples
 
-*FAA_GameMode* includes functioning abilities.  
-*Spellshock* includes advanced abilities using ability objects. 
+*FAA_GameMode* includes functioning abilities.
+*Spellshock* includes advanced abilities using ability objects.
