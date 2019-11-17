@@ -1,8 +1,10 @@
+# Introduction to the CORE Editor
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-### Setup/Installation
+## Setup/Installation
 
 If you haven't downloaded the editor, go
 [here](https://mantiblob.blob.core.windows.net/builds/Launcher.zip) and extract
@@ -10,7 +12,7 @@ the file into its own directory.
 
 Next, simply click on `PlatformLauncher.exe` and you will see CORE start up!
 
-### Editor
+## Editor
 
 When you open up the editor you'll see the following screen:
 

@@ -34,7 +34,7 @@ nav:
       - Audio: tutorials/art/audio_reference.md
       - Custom Materials: tutorials/art/custom_materials.md
     - Collaboration: tutorials/gameplay/collaboration_reference.md
-    - UI: tutorials/gameplay/ui_reference.md
+    - User Interfaces: tutorials/gameplay/ui_reference.md
     #- Networking: tutorials/gameplay/networking_reference.md
     #- Performance: tutorials/gameplay/performance_reference.md
     - Community Created:
@@ -93,6 +93,7 @@ markdown_extensions:
   - pymdownx.tilde # strike-through
   - codehilite: # highlight code blocks
       guess_lang: false # language has to be defined explicitly
+      linenums: true
   - toc: # add linking to headers
       permalink: true
 

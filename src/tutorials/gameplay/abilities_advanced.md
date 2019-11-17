@@ -1,8 +1,10 @@
-## Overview
+# Advanced Abilities in CORE
 
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
+
+## Overview
 
 [rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
 
@@ -12,7 +14,7 @@ Abilities can get as complicated as you would like them to get.
 
 With the power of Lua scripting, abiliites can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
 
-In the first ability tutorial, we went over the quickest possible way to get something cool happening at the press of a button. In  this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
+In the first ability tutorial, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
 
 If you're fresh and new to any kind of programming, it would be good to visit the Intro to Lua tutorial. This will go over some key words and practices you would want to know.
 
@@ -84,23 +86,21 @@ In this tutorial, we will be making a magic staff that the player can pick up, g
 
 So, let's make magic!
 
-### step 1
+### Step 1
 
-
-- start with making a weapon object
-- don't need to explain it because that happened in first ability tutorial
-- make the art for the weapon, move into place
-- get the basic weapon function working (shoot a lil fireball)
-- involves creating an attack ability, a reticle, vfx
-- now we're basically as far as the simple weapon tutorial
-- add another ability for the right click spot (charge fire blast)
-- involves another ability script, reticle, vfx
-- explain setting up the ability in programming
-- add vfx for ability
-- now it's a weapon with an additional ability
-- probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
-- set  up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
-
+-   start with making a weapon object
+-   don't need to explain it because that happened in first ability tutorial
+-   make the art for the weapon, move into place
+-   get the basic weapon function working (shoot a lil fireball)
+-   involves creating an attack ability, a reticle, vfx
+-   now we're basically as far as the simple weapon tutorial
+-   add another ability for the right click spot (charge fire blast)
+-   involves another ability script, reticle, vfx
+-   explain setting up the ability in programming
+-   add vfx for ability
+-   now it's a weapon with an additional ability
+-   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
+-   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
 ### CORE Component: Ability Display
 
@@ -108,5 +108,5 @@ link to this in intro tutorial?
 
 ## Examples
 
-*FAA_GameMode* includes functioning abilities.
-*Spellshock* includes advanced abilities using ability objects.
+* _FAA_GameMode_ includes functioning abilities.
+* _Spellshock_ includes advanced abilities using ability objects.

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing! Your assistance is much appreciated :)
+Thanks for contributing! Your assistance is much appreciated!
 
 ## Editing Pages
 
@@ -58,7 +58,7 @@ Detailed information (e.g. branch structure) below here
 
 ## Branch Structure
 
-![](/img/readme_branches.png)
+![](src/img/readme_branches.png)
 
 ### Branch Workflow
 
@@ -106,8 +106,12 @@ Then the document must complete all of the following:
 - Done (merged and live)
 
 Note: If we have a file that is no longer 'done' due to editor changes, include
-the following at the top of the file in question: !!!warning Flagged for review.
-Incomplete or outdated information may be present.
+the following at the top of the file in question:
+```
+!!! warning
+    Flagged for review.
+    Incomplete or outdated information may be present.
+```
 
 #### Full Setup
 

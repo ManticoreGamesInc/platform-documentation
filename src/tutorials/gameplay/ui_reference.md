@@ -1,8 +1,10 @@
+# User Interfaces in CORE
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-### Abstract
+## Abstract
 
 A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as “UI”. This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
@@ -18,8 +20,7 @@ A core component of making quality video games is good user interface design. He
 !!! info
     Words like *widget*, *control*, and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
 
-### Tutorial
-
+## Tutorial
 
 Each widget works a little differently, but all are set up in the same basic way.
 Below is an example using the Text Box control:
@@ -35,7 +36,7 @@ Below is an example using the Text Box control:
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
- ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.PNG)
+ ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png)
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -46,7 +47,7 @@ Below is an example using the Text Box control:
      UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
 
-![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.PNG)
+![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png)
 
 Adjustable properties of the Text Box:
 
@@ -75,7 +76,7 @@ Different widgets will have slightly different settings in the properties window
 !!! info "For Scripting Help"
     *See Lua API for functions & properties of UI controls.*
 
-### CORE 2D Images
+## CORE 2D Images
 
 There is a large collection of different images to use in CORE. These could be stretched, layered, and combined in any sort of way to create UI!
 
@@ -86,7 +87,7 @@ These are all the current images available to use in CORE:
 ![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png)
 ![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png)
 
-### Example
+## Examples
 
 *FAA_GameMode* includes functioning UI.
 
