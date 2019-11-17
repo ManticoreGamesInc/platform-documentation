@@ -14,13 +14,26 @@
 
 
 ## Overview
+
 Create a light switch that turns on and off a light.
 
-!!! info "About this Tutorial"
-    * Completion time: TODO: TBD
-    * Knowledge level: No prior knowledge of Lua
+* **Completion time:** TODO: TBD
+* **Knowledge level:** No prior knowledge of Lua
+* **Skills you will learn:**
+    * Downloading and editing templates
+    * Creating a script and using it to:
+        * Rotate an object
+        * Spawn a template/asset
+        * Despawn a template/asset
+        * Create an interactable event
+        * Create a custom property
+    * Global and local rotation
+    * Using triggers
+    * Creating and updating trigger labels
 
-![](../../img/LightBulb/image9.png)
+![LightSwitchAndBulb](../../img/LightBulb/image9.png)
+
+---
 
 **CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
 
@@ -28,18 +41,7 @@ Create a light switch that turns on and off a light.
     You can toggle breakpoints by clicking on a line number in the internal editor.
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
-This tutorial will cover:
-
-* Downloading and editing templates
-* Creating a script and using it to:
-    * Rotate an object
-    * Spawn a template/asset
-    * Despawn a template/asset
-    * Create an interactable event
-    * Create a custom property
-* Global and local rotation
-* Using triggers
-* Creating and updating trigger labels
+---
 
 ## Downloading the template
 

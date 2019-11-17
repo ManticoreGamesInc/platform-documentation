@@ -12,16 +12,16 @@ only intended for power users).
 
 Here are some popular IDEs you can use (all are free)
 
-Name | Details
--- | --
-[ZeroBrane Studio](https://studio.zerobrane.com/support) | Lua based lightweight editor
-[Visual Studio Code](https://code.visualstudio.com/download) | Popular powerful editor with many plugins
-[Atom](https://atom.io/) | Middle-range power/speed editor with plugin support
-[SublimeText](https://www.sublimetext.com/3) | Lightweight text editor with plugins
-[Notepad++](https://notepad-plus-plus.org/) | Very lightweight text editor
+| Name                                                         | Details                                             |
+| ------------------------------------------------------------ | --------------------------------------------------- |
+| [ZeroBrane Studio](https://studio.zerobrane.com/support)     | Lua based lightweight editor                        |
+| [Visual Studio Code](https://code.visualstudio.com/download) | Popular powerful editor with many plugins           |
+| [Atom](https://atom.io/)                                     | Middle-range power/speed editor with plugin support |
+| [SublimeText](https://www.sublimetext.com/3)                 | Lightweight text editor with plugins                |
+| [Notepad++](https://notepad-plus-plus.org/)                  | Very lightweight text editor                        |
 
-* Note: We (will) support autocomplete for ZeroBrane, VSCode, and Atom so those
-  are the recommended editors
+-   Note: We (will) support autocomplete for ZeroBrane, VSCode, and Atom so those
+    are the recommended editors
 
 ## IDE+
 
@@ -29,25 +29,25 @@ Name | Details
 
 VSCode
 
-Plugin Name | Details
--- | --
-[VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua) | Adds Lua support
-[LuaCoderAssist](https://marketplace.visualstudio.com/items?itemName=liwangqian.luacoderassist) | More Lua tools
+| Plugin Name                                                                                     | Details          |
+| ----------------------------------------------------------------------------------------------- | ---------------- |
+| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)             | Adds Lua support |
+| [LuaCoderAssist](https://marketplace.visualstudio.com/items?itemName=liwangqian.luacoderassist) | More Lua tools   |
 
 Note: in Settings->Extensions->Lua Coder Assist, disable "code metric codelens"
 
 Atom
 
-Plugin Name | Details
--- | --
-[language-lua](https://atom.io/packages/language-lua) | Adds Lua support
-[autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete
+| Plugin Name                                                   | Details               |
+| ------------------------------------------------------------- | --------------------- |
+| [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support      |
+| [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete |
 
 ### Autocomplete
 
 Download and extract the following zip file (
 <a test href="/img/external_editor_autocomplete_05-28-2019.zip" download>
-  :fa-download:
+:fa-download:
 </a>) and simply follow the directions included in the bundled setup instructions.
 
 Copy .luacompleterc file to Platform/Saved/Maps folder, or the parent directory
@@ -79,10 +79,10 @@ work.
 Alternatively download the following dependencies and build luacheck yourself
 (protip: don't do this unless you have a strong need to).
 
-* Luacheck
-    * Luarocks
-        * .\install /p c:\users\public\lua\LuaRocks /L /MW, add to path
-        * GCC via TDM (http://tdm-gcc.tdragon.net/)
-  * LuaDist (https://github.com/LuaDist/Repository/wiki/LuaDist%3A-Installation)
-    * CMake (https://cmake.org/)
-    * Git (https://gitforwindows.org/)
+-   Luacheck
+    -   Luarocks
+        -   .\install /p c:\users\public\lua\LuaRocks /L /MW, add to path
+        -   GCC via TDM (http://tdm-gcc.tdragon.net/)
+    -   LuaDist (https://github.com/LuaDist/Repository/wiki/LuaDist%3A-Installation)
+        -   CMake (https://cmake.org/)
+        -   Git (https://gitforwindows.org/)

@@ -4,9 +4,12 @@
     Flagged for Review.
     Incomplete or outdated information may be present. Deprecated API needs to be replaced
 
+## Abstract
+
 ## File Structure
 
-* Start with any `require` calls, such as: TODO: Clarify
+* Start with any `require` calls, such as:
+<!-- TODO: Clarify why -->
 
 ```lua
 local myImport = require("assetID")
@@ -28,25 +31,26 @@ myImport.Foo()
 
 ### Casing
 
-Element | Styling
---- | ---
-Classes | PascalCase
-Functions | PascalCase
-Enums | PascalCase
-Properties | camelCase
-Variables | camelCase
-Constants | LOUD_SNAKE_CASE
+| Element    | Styling         |
+| ---------- | --------------- |
+| Classes    | PascalCase      |
+| Functions  | PascalCase      |
+| Enums      | PascalCase      |
+| Properties | camelCase       |
+| Variables  | camelCase       |
+| Constants  | LOUD_SNAKE_CASE |
 
 #### Casing Calls
 
-Example | Casing | Dot or Colon
---- | --- | ---
-Enum.ENUM_ENTRY | PascalCase -> LOUD_SNAKE_CASE | Dot
-Class.StaticFunction() | PascalCase -> PascalCase| Dot
-instance.property | camelCase -> camelCase | Dot
-instance:MemberFunction() | camelCase -> PascalCase | Colon
+| Example                   | Casing                        | Dot or Colon |
+| ------------------------- | ----------------------------- | ------------ |
+| Enum.ENUM_ENTRY           | PascalCase -> LOUD_SNAKE_CASE | Dot          |
+| Class.StaticFunction()    | PascalCase -> PascalCase      | Dot          |
+| instance.property         | camelCase -> camelCase        | Dot          |
+| instance:MemberFunction() | camelCase -> PascalCase       | Colon        |
 
-Note: Properties are used instead of getters/setters only when that element has a getter _and_ setter. TODO: Clarify why
+Note: Properties are used instead of getters/setters only when that element has a getter _and_ setter.
+<!-- TODO: Clarify why -->
 
 ### Examples
 
@@ -98,7 +102,6 @@ end
 -- Whenever an object collides with the coin's trigger, run this function
 trigger.beginOverlapEvent:Connect(HandleOverlap)
 ```
-
 
 ```lua
 -- Spawn player 30 units higher than normal, and print out new position
@@ -345,7 +348,6 @@ Make sure to always declare your variables and functions in the order they are u
 `require()` explicitly makes a script execute if it hasn't already, and only executes a given script once.
 
 If you need multiple instances of the same script dynamically spawned, `require()`doesn't make sense
-
 
 ## Using External Data
 

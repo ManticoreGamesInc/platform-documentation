@@ -1,3 +1,5 @@
+# Differences between CORE and other Engines
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
@@ -6,7 +8,7 @@
     The purpose of this page is to outline a few key differences between CORE and the engine you've worked on previously.
     To get a full overview of our API, read our [API Docs](../core_api.md) instead.
 
-# Unity
+## Unity
 
 | **Category** | **Unity** | **CORE** |
 | ------ | ------ | ------ |
@@ -26,7 +28,7 @@
 There is no way to import assets; everything is included in the asset manifest.
 
 
-# World of Warcraft
+## World of Warcraft
 
 Ref: https://www.townlong-yak.com/framexml/live/
 
@@ -58,8 +60,9 @@ Every object has a specific set of events available, but there are also custom e
 
 ```lua
 function Foo( arg_1, arg_2)
-		// do something
-End
+	-- do something
+end
+
 Events.Connect(“MyEvent”, Foo)
 ```
 
@@ -70,23 +73,23 @@ more details over in the [API Docs](../core_api.md).
 * CORE does have `print` but it prints to the Event Log instead of the chat frame. There is no `dump` for tables.
 * CORE does not include the `bitlib` library.
 
-# Garry's Mod
+## Garry's Mod
 
 Ref: http://wiki.garrysmod.com/page/Beginner_Tutorial_Intro
 
 
-# Factorio
+## Factorio
 
 Ref: https://www.factorio.com/modding
 
-# Roblox
+## Roblox
 
 Ref: https://developer.roblox.com/api-reference
 
-# Dota2
+## Dota2
 
 Ref: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools
 
-# Starbound
+## Starbound
 
 Ref: https://starbounder.org/Modding:Lua

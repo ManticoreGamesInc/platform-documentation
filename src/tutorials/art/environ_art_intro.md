@@ -1,4 +1,10 @@
-# Map
+# Environmental Art in CORE
+
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present.
+
+## Abstract
 
 ## Meshes and Materials
 
@@ -8,12 +14,12 @@ you can add to your scene. Note that there are categories and subcategories,
 pressing the `+` will expand it. For example, we can only display castle parts
 by finding that subsection and expanding it, as shown in the image below:
 
-![](/img/getting_started/Asset_Manifest.png)
+![](../../img/getting_started/Asset_Manifest.png)
 
 Now, simply drag an object in to your scene, and you'll see it appear both in
 the viewport and the hierarchy!
 
-![](/img/getting_started/Asset_01.png)
+![](../../img/getting_started/Asset_01.png)
 
 There's a couple things to note:
 
@@ -23,7 +29,7 @@ There's a couple things to note:
 4. Properties - Mesh
 5. Properties - Material
 
-> Widget
+### Widget
 
 The 3D Widget is how you modify the tranformation of elements in 3D space inside
 the editor. You'll note it currently has the translation tool selected. You can
@@ -34,24 +40,24 @@ pressing the `W`, `E`, or `R` hotkeys, respectively.
     In this example grid is enabled, so every translation will move the object
     by 50 units.
 
-> Hierarchy - Element
+### Hierarchy - Element
 
 The object was added to the hierarchy. You can move it around, add it to a
 folder or group, toggle the visibility or lock it from being altered. Operations
 in the hierarchy become much more useful when more objects are added to the
 scene.
 
-> Properties
+### Properties
 
 Our empty properties panel from before is now full of information, as we have an
 object selected. Note that some elements have tooltips, which will appear after
 hovering over the name (e.g. `Visible`) for a second.
 
-> Properties - Mesh
+### Properties - Mesh
 
 This is the object we dragged in, in our case the arch shape.
 
-> Properties - Material
+### Properties - Material
 
 This is the default material, in our case the stone texture. Note that it can be
 replaced by using other materials.

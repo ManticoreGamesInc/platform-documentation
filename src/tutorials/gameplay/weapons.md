@@ -1,3 +1,5 @@
+# Weapons in CORE
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
@@ -87,11 +89,11 @@ This puts a lot less pressure on the game to run well. To understand more about 
    function OnInteracted(whichTrigger, other)
        if other:IsA("Player") then
          weapon:Equip(other)
-	   end
+       end
    end
    ```
 
-   This is a function that takes in both a trigger `whichTrigger` and an object `other`. When any Core object overlaps the trigger, it will show a pop up with the text we set on the trigger's Interaction Label, and when interacted with, will cause this function to happen.
+    This is a function that takes in both a trigger `whichTrigger` and an object `other`. When any Core object overlaps the trigger, it will show a pop up with the text we set on the trigger's Interaction Label, and when interacted with, will cause this function to happen.
     The code inside the function is checking if the `other` object is a player. If `other` is a player, then it does the code contained within it: equip the weapon onto `other`!
 
 3. To tie the function we made to the moment something overlaps the trigger, we need to connect the function to the trigger's interacted event. Copy this code to the very bottom of the `PickupWeaponScript`:
@@ -109,8 +111,8 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
    ```lua
    function Pickup(equipment,  player)
-	   trigger.isInteractable = false
-	   weapon.isCollidable = false
+       trigger.isInteractable = false
+       weapon.isCollidable = false
    end
    ```
 
@@ -126,19 +128,19 @@ This puts a lot less pressure on the game to run well. To understand more about 
 
 6. So that handles what happens when a player picks up a weapon, but what about when they drop it? That interaction and collision needs to be turned back on. The code for that is almost exactly the same, but we will use a separate function called `Drop()`. Copy this code and paste it into your `PickupWeaponScript`, directly beneath the `Pickup()` function:
 
-   ```lua
-   function Drop()
-	   trigger.isInteractable = true
-	   weapon.isCollidable = true
-   end
-   ```
+    ```lua
+    function Drop()
+        trigger.isInteractable = true
+        weapon.isCollidable = true
+    end
+    ```
 
 7. Now that we have created all these functions for Pickup and Drop, we need to connect them to the corresponding event on the weapon. Copy this code below:
 
-   ```lua
-   weapon.equippedEvent:Connect(Pickup)
-   weapon.unequippedEvent:Connect(Drop)
-   ```
+    ```lua
+    weapon.equippedEvent:Connect(Pickup)
+    weapon.unequippedEvent:Connect(Drop)
+    ```
 
     This causes the `Pickup()` function to happen any time the weapon is equipped, and `Drop()` to happen any time the weapon is unequipped.
 
@@ -152,9 +154,9 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
     The weapon system can be used for things that aren't weapons! If you were making a bubble blower, or a fishing pole, maybe you wouldn't call it "Attack Script" but whatever fits your weapon type. The key is that this is what actually happen when the player uses the weapon!
 
 1. The first step is to create a new script, and call it `AttackScript`.  Drag this empty script onto the weapon in the Hierarchy.
- The Hierarchy should now look like this:
+    The Hierarchy should now look like this:
 
-  ![Current Weapon Hierarchy](../../img/EditorManual/Weapons/hierarchy2.png)
+    ![Current Weapon Hierarchy](../../img/EditorManual/Weapons/hierarchy2.png)
 
 2. We're going to make our gun do straightforward gun things: damage a player when shot.
  Weapons do not come with a damage property by default, so we're going to add a **Custom Property** to our weapon for easier editing later when testing damage amounts.
@@ -175,15 +177,15 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
   So we want a player to take damage the moment a bullet hits them! To do this, copy the code here and paste it into the `AttackScript` below the `damageAmount` line:
 
   ```lua
-  function handle_interacted(weaponInteraction)
+  local function HandleInteracted(weaponInteraction)
     local other = weaponInteraction.targetObject
 
-      if other and damageAmount then
+    if other and damageAmount then
         if other:IsA("Player") then
-          -- hurt target player
-          other:ApplyDamage(Damage.New(damageAmount))
+            -- hurt target player
+            other:ApplyDamage(Damage.New(damageAmount))
         end
-      end
+    end
   end
   ```
 
@@ -195,7 +197,7 @@ To get the gun to fire when shot, we need to create an `AttackScript`. This will
 5. Lastly, we need to use the `EventListeners` to connect our function to the `targetInteractionEvent` of the weapon. Copy this code into the bottom of your `AttackScript`:
 
  ```lua
- script.parent.targetInteractionEvent:Connect(handle_interacted)
+ script.parent.targetInteractionEvent:Connect(HandleInteracted)
  ```
 
 Now all the basics are hooked up! The gun should be able to shoot and kill other players.
@@ -219,15 +221,15 @@ This is a really simple version of a gun. Each part could be done a different wa
 
    ```lua
    function Pickup(equipment,  player)
-	 -- remove any equipment the player already has
+     -- remove any equipment the player already has
      for _,prevEquip in pairs(player:GetEquipment()) do
          if (prevEquip ~= weapon and prevEquip.socket == weapon.socket) then
              prevEquip:Unequip()
          end
      end
 
-	 trigger.isInteractable = false
-	 weapon.isCollidable = false
+     trigger.isInteractable = false
+     weapon.isCollidable = false
    end
    ```
 
