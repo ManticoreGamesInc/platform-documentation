@@ -1,8 +1,8 @@
+# Welcome to the CORE Creator Hub
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
-
-# Welcome
 
 Welcome to the official documentation of CORE, the community-focused game creation tool!
 

@@ -4,7 +4,6 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-
 CORE uses **Lua**, a lightweight and flexible programming language to accomplish
 scripting in the engine. As of late May 2019, we are using Lua version **5.3.4**.
 

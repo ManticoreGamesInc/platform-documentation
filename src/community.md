@@ -1,8 +1,10 @@
+# The CORE Community
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-# Community Links
+## Community Links
 
 Come engage with fellow creators and players!
 

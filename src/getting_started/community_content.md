@@ -1,12 +1,13 @@
+# Community Content in CORE
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-
-# Community Content
+## Abstract
 
 **Community Content** is one of the most fundamentally awesome aspects of
-creation in CORE™. It allows for you to use, improve, and remix creations you or
+creation in CORE. It allows for you to use, improve, and remix creations you or
 others have made public. This creates a wealth of content for all game
 creators on the platform - speeding up game development & the spread of ideas more than ever before!
 
