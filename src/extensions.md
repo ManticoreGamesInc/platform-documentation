@@ -1,88 +1,50 @@
-# IDE Extensions
+# Development Environment
 
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-There are a bunch of ways you can improve the experience of scripting in CORE.
-If you are happy with the inbuilt editor, feel free to skip this section (it is
-only intended for power users).
+There are a bunch of ways you can improve the experience of scripting in CORE. If you are happy with the in-built editor, feel free to skip this section.
 
 ## External editors
 
-Here are some popular IDEs you can use (all are free)
+There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available for Lua dev.
 
-| Name                                                         | Details                                             |
-| ------------------------------------------------------------ | --------------------------------------------------- |
-| [ZeroBrane Studio](https://studio.zerobrane.com/support)     | Lua based lightweight editor                        |
-| [Visual Studio Code](https://code.visualstudio.com/download) | Popular powerful editor with many plugins           |
-| [Atom](https://atom.io/)                                     | Middle-range power/speed editor with plugin support |
-| [SublimeText](https://www.sublimetext.com/3)                 | Lightweight text editor with plugins                |
-| [Notepad++](https://notepad-plus-plus.org/)                  | Very lightweight text editor                        |
+| Name                                                         | Details                                             | CORE Autocomplete         | Price
+| ------------------------------------------------------------ | --------------------------------------------------- |-------------------------- |-----------
+| [ZeroBrane Studio](https://studio.zerobrane.com/support)     | Lua based lightweight editor                        | Supported                 | Free (self-compile) / Paid
+| [Visual Studio Code](https://code.visualstudio.com/download) | Popular powerful editor with many plugins           | Supported                 | Free
+| [Atom](https://atom.io/)                                     | Middle-range power/speed editor with plugin support | Supported                 | Free
+| [SublimeText](https://www.sublimetext.com/3)                 | Lightweight text editor with plugins                | Not Supported             | Free Evaluation / Paid
+| [Notepad++](https://notepad-plus-plus.org/)                  | Very lightweight text editor                        | Not Supported             | Free
 
--   Note: We (will) support autocomplete for ZeroBrane, VSCode, and Atom so those
-    are the recommended editors
+### Plugins / Extensions
 
-## IDE+
+For VS Code and Atom, we have collected a few extensions that make developing in CORE and Lua easier:
 
-### Plugins/Extensions
-
-VSCode
-
-| Plugin Name                                                                                     | Details          |
-| ----------------------------------------------------------------------------------------------- | ---------------- |
-| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)             | Adds Lua support |
-| [LuaCoderAssist](https://marketplace.visualstudio.com/items?itemName=liwangqian.luacoderassist) | More Lua tools   |
-
-Note: in Settings->Extensions->Lua Coder Assist, disable "code metric codelens"
-
-Atom
-
-| Plugin Name                                                   | Details               |
-| ------------------------------------------------------------- | --------------------- |
-| [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support      |
-| [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete |
+|VS Code|Atom|
+|--|--|
+|<table> <tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[language-lua](https://atom.io/packages/language-lua)</td><td>Adds Lua support</td></tr><tr><td>[autocomplete-lua](https://atom.io/packages/autocomplete-lua)</td><td>Adds Lua autocomplete</td></tr><tr><td>[Linter](https://atom.io/packages/linter)</td><td>Adds linting support</td></tr><tr><td>[Linter: LuaCheck](https://atom.io/packages/linter-luacheck)</td><td>Adds Lua support to Linter </td></tr></table>|<table><tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)</td><td>Adds Lua support</td></tr><tr><td>[LuaCoderAssist](https://marketplace.visualstudio.com/items?itemName=liwangqian.luacoderassist)</td><td>More Lua tools</td></tr><tr><td>[Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)</td><td>More Lua tools</td></tr></table>|
 
 ### Autocomplete
 
-Download and extract the following zip file (
-<a test href="/img/external_editor_autocomplete_05-28-2019.zip" download>
-:fa-download:
-</a>) and simply follow the directions included in the bundled setup instructions.
+We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
 
-Copy .luacompleterc file to Platform/Saved/Maps folder, or the parent directory
-where content files are stored. As long as it is in a parent directory it should
-work.
+* :fa-download: Download: <a title="External Editor Autocomplete" href="/img/external_editor_autocomplete_05-28-2019.zip">external_editor_autocomplete.zip</a>
+* :fa-angle-double-right: Install: Copy `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
 
-!!! info
-    If the date of the linked direct download is old, instead go to this
-    [repository](https://github.com/ManticoreGamesInc/external-editor-api-support),
-    download it as a zip, and follow the instructions for your specific editor in
-    the read me file included.
+!!! note "For VS Code, it will only work if the folder containing `.luacompleterc` file is opened, it does not look for it in parent directories."
 
-### Linting
+### Installing a Linter
 
-1. Download this, and remember where the file is: https://github.com/mpeterv/luacheck#windows-binary-download
-2. Download the linter-luacheck plugin for Atom (just like with the other
-   packages). You'll have to install dependencies for it too, just click yes
-   when Atom give you the popup.
-3. Go to the preferences and configure the executable path to luacheck to be
-   wherever you put the file from step 1.
-4. Add the following .luacheckrc file to the /maps folder (so right beside the
-   .luacomplete file)
-5. I believe a quick restart is required, but not sure
-6. Open up your editor and rejoice, for it will be smart and will tell you to do
-   things right!
+[Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info.
 
----
+* :fa-download: Download: A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
+* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
-Alternatively download the following dependencies and build luacheck yourself
-(protip: don't do this unless you have a strong need to).
+In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
 
--   Luacheck
-    -   Luarocks
-        -   .\install /p c:\users\public\lua\LuaRocks /L /MW, add to path
-        -   GCC via TDM (http://tdm-gcc.tdragon.net/)
-    -   LuaDist (https://github.com/LuaDist/Repository/wiki/LuaDist%3A-Installation)
-        -   CMake (https://cmake.org/)
-        -   Git (https://gitforwindows.org/)
+* :fa-download: Download: <a title=".luacheckrc" href="">.luacheckrc</a>
+* :fa-angle-double-right: Install: Copy the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
+
+That's it! You're now all set up for developing in CORE and Lua.
