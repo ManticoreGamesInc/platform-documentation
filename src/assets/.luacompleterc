@@ -1,0 +1,5763 @@
+{
+  "luaVersion": "5.3",
+  "packagePath": "./?.lua",
+  "global": {
+    "type": "table",
+    "fields": {
+      "warn": {
+        "type": "function",
+        "args": [
+          {
+            "name": "message_string"
+          }
+        ],
+        "link": "",
+        "description": "Similar to print(), but includes the script name and line number"
+      },
+      "is_valid": {
+        "type": "function",
+        "args": [
+          {
+            "name": "coreobject"
+          }
+        ],
+        "link": "",
+        "description": "Returns true if object is still a valid object, or false if it has been destroyed"
+      },
+      "script": {
+        "type": "ref",
+        "name": "_script",
+        "description": "script object"
+      },
+      "print": {
+        "type": "function",
+        "args": [
+          {
+            "name": "message_string"
+          }
+        ],
+        "link": "",
+        "description": "Print a message to the event log. Press ` to view messages"
+      },
+      "print_to_screen": {
+        "type": "function",
+        "args": [
+          {
+            "name": "message_string"
+          }
+        ],
+        "link": "",
+        "description": "print message to screen"
+      },
+      "print_to_screen_color": {
+        "type": "function",
+        "args": [
+          {
+            "name": "message_string"
+          },
+          {
+            "name": "color_color"
+          }
+        ],
+        "link": "",
+        "description": "print message to screen with given color"
+      },
+      "time": {
+        "type": "function",
+        "args": [],
+        "link": "",
+        "description": "return time in seconds since world has been brought up for play"
+      },
+      "wait": {
+        "type": "function",
+        "args": [
+          {
+            "name": "duration_number"
+          }
+        ],
+        "link": "",
+        "description": "Pauses execution of the current script for some number of seconds.  If no number is given, or the number is very small, resumes execution on the next tick"
+      },
+      "Rotation.New": {
+        "type": "function",
+        "args": [],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_rotation"
+          }
+        ],
+        "link": "",
+        "description": "new() -> identity rotation (0, 0, 0)\nnew(q: quaternion) -> create rotation from quaternion"
+      },
+      "Rotation.ZERO": {
+        "type": "ref",
+        "name": "_rotation",
+        "description": "constant rotation (0, 0, 0)"
+      },
+      "Quaternion.IDENTITY": {
+        "type": "ref",
+        "name": "_quaternion",
+        "description": "constant identity quaternion"
+      },
+      "Quaternion.New": {
+        "type": "function",
+        "args": [
+          {
+            "name": "x_number"
+          },
+          {
+            "name": "y_number"
+          },
+          {
+            "name": "z_number"
+          },
+          {
+            "name": "w_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_quaternion"
+          }
+        ],
+        "link": "",
+        "description": "new(r: Rotation) -> quaternion from Rotation\nnew(axit: vector, angle: number) -> create quaternion from axis-angle"
+      },
+      "Quaternion.Slerp": {
+        "type": "function",
+        "args": [
+          {
+            "name": "from_quaternion"
+          },
+          {
+            "name": "to_quaternion"
+          },
+          {
+            "name": "progress_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_quaternion"
+          }
+        ],
+        "link": "",
+        "description": "linearly interpolates between two quaternions by specified progress amount and return result quaternion"
+      },
+      "AbilitySetFacing.NONE": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilitySetFacing.MOVEMENT": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilitySetFacing.AIM": {
+        "type": "unknown",
+        "description": ""
+      },
+      "Color.MAGENTA": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.New": {
+        "type": "function",
+        "args": [
+          {
+            "name": "r_number"
+          },
+          {
+            "name": "g_number"
+          },
+          {
+            "name": "b_number["
+          },
+          {
+            "name": "a_number]"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_color"
+          }
+        ],
+        "link": "",
+        "description": "new(colorAsVec: vector) -> construct color with vector input"
+      },
+      "Color.YELLOW": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.TRANSPARENT": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.BLUE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.PURPLE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.EMERALD": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.RED": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.WHITE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.CYAN": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.BROWN": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.GREEN": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.BLACK": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.SMOKE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.PINK": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.RUBY": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.TAN": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.SAPPHIRE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.SILVER": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.ORANGE": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.Lerp": {
+        "type": "function",
+        "args": [
+          {
+            "name": "from_color"
+          },
+          {
+            "name": "to_color"
+          },
+          {
+            "name": "progress_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_color"
+          }
+        ],
+        "link": "",
+        "description": "linearly interpolates between two colors in HSV space by specified progress amount and return result Color"
+      },
+      "Color.GRAY": {
+        "type": "ref",
+        "name": "_color",
+        "description": ""
+      },
+      "Color.Random": {
+        "type": "function",
+        "args": [],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_color"
+          }
+        ],
+        "link": "",
+        "description": "create random color"
+      },
+      "RandomStream.New": {
+        "type": "function",
+        "args": [
+          {
+            "name": "[initialSeed_number]"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_randomstream"
+          }
+        ],
+        "link": "",
+        "description": ""
+      },
+      "Damage.New": {
+        "type": "function",
+        "args": [
+          {
+            "name": "damageAmount_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_damage"
+          }
+        ],
+        "link": "",
+        "description": ""
+      },
+      "Transform.new": {
+        "type": "function",
+        "args": [
+          {
+            "name": "rotation_quaternionorrotator"
+          },
+          {
+            "name": "position_vector"
+          },
+          {
+            "name": "scale_vector"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_transform"
+          }
+        ],
+        "link": "",
+        "description": "new() -> creates identity transform.\nnew(xaxis: vector, yaxis: vector, zaxis: vector, translation: vector) -> create from matrix"
+      },
+      "CursorMoveInput.None": {
+        "type": "unknown",
+        "description": ""
+      },
+      "CursorMoveInput.EitherMB": {
+        "type": "unknown",
+        "description": ""
+      },
+      "CursorMoveInput.RMB": {
+        "type": "unknown",
+        "description": ""
+      },
+      "CursorMoveInput.LMB": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilityPhase.READY": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilityPhase.RECOVERY": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilityPhase.EXECUTE": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilityPhase.COOLDOWN": {
+        "type": "unknown",
+        "description": ""
+      },
+      "AbilityPhase.CAST": {
+        "type": "unknown",
+        "description": ""
+      },
+      "Vector3.New": {
+        "type": "function",
+        "args": [
+          {
+            "name": "x_number"
+          },
+          {
+            "name": "y_number"
+          },
+          {
+            "name": "z_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_vector"
+          }
+        ],
+        "link": "",
+        "description": "new() -> create (0, 0, 0).\nnew(v: number) -> creates (v, v, v)"
+      },
+      "Vector3.ONE": {
+        "type": "ref",
+        "name": "_vector",
+        "description": "(1, 1, 1)"
+      },
+      "Vector3.FORWARD": {
+        "type": "ref",
+        "name": "_vector",
+        "description": "(1, 0, 0)"
+      },
+      "Vector3.RIGHT": {
+        "type": "ref",
+        "name": "_vector",
+        "description": "(0, 1, 0)"
+      },
+      "Vector3.Lerp": {
+        "type": "function",
+        "args": [
+          {
+            "name": "from_vector"
+          },
+          {
+            "name": "to_vector"
+          },
+          {
+            "name": "progress_number"
+          }
+        ],
+        "returnTypes": [
+          {
+            "type": "ref",
+            "name": "_vector"
+          }
+        ],
+        "link": "",
+        "description": "linearly interpolates between two vectors by specified progress amount and return result vector"
+      },
+      "Vector3.UP": {
+        "type": "ref",
+        "name": "_vector",
+        "description": "(0, 0, 1)"
+      },
+      "Vector3.ZERO": {
+        "type": "ref",
+        "name": "_vector",
+        "description": "(0, 0, 0)"
+      },
+      "_staticMesh": {
+        "type": "ref",
+        "name": "_staticMesh"
+      },
+      "_color": {
+        "type": "ref",
+        "name": "_color"
+      },
+      "Storage": {
+        "type": "ref",
+        "name": "Storage"
+      },
+      "_projectile": {
+        "type": "ref",
+        "name": "_projectile"
+      },
+      "_trigger": {
+        "type": "ref",
+        "name": "_trigger"
+      },
+      "_abilityTarget": {
+        "type": "ref",
+        "name": "_abilityTarget"
+      },
+      "_eventType": {
+        "type": "ref",
+        "name": "_eventType"
+      },
+      "_statBarControl": {
+        "type": "ref",
+        "name": "_statBarControl"
+      },
+      "game": {
+        "type": "ref",
+        "name": "game"
+      },
+      "_ability": {
+        "type": "ref",
+        "name": "_ability"
+      },
+      "_equipment": {
+        "type": "ref",
+        "name": "_equipment"
+      },
+      "_weaponInteraction": {
+        "type": "ref",
+        "name": "_weaponInteraction"
+      },
+      "_hitResult": {
+        "type": "ref",
+        "name": "_hitResult"
+      },
+      "_audio": {
+        "type": "ref",
+        "name": "_audio"
+      },
+      "_textRenderer": {
+        "type": "ref",
+        "name": "_textRenderer"
+      },
+      "_replicator": {
+        "type": "ref",
+        "name": "_replicator"
+      },
+      "_randomstream": {
+        "type": "ref",
+        "name": "_randomstream"
+      },
+      "_abilityControl": {
+        "type": "ref",
+        "name": "_abilityControl"
+      },
+      "_playerStart": {
+        "type": "ref",
+        "name": "_playerStart"
+      },
+      "_coreObject": {
+        "type": "ref",
+        "name": "_coreObject"
+      },
+      "_transform": {
+        "type": "ref",
+        "name": "_transform"
+      },
+      "_weapon": {
+        "type": "ref",
+        "name": "_weapon"
+      },
+      "_textControl": {
+        "type": "ref",
+        "name": "_textControl"
+      },
+      "_vector": {
+        "type": "ref",
+        "name": "_vector"
+      },
+      "_baseControl": {
+        "type": "ref",
+        "name": "_baseControl"
+      },
+      "_damage": {
+        "type": "ref",
+        "name": "_damage"
+      },
+      "DamageReason": {
+        "type": "ref",
+        "name": "DamageReason"
+      },
+      "_eventListener": {
+        "type": "ref",
+        "name": "_eventListener"
+      },
+      "_pointLight": {
+        "type": "ref",
+        "name": "_pointLight"
+      },
+      "_script": {
+        "type": "ref",
+        "name": "_script"
+      },
+      "_abilityPhase": {
+        "type": "ref",
+        "name": "_abilityPhase"
+      },
+      "_perPlayerReplicator": {
+        "type": "ref",
+        "name": "_perPlayerReplicator"
+      },
+      "UI": {
+        "type": "ref",
+        "name": "UI"
+      },
+      "_player": {
+        "type": "ref",
+        "name": "_player"
+      },
+      "_rotation": {
+        "type": "ref",
+        "name": "_rotation"
+      },
+      "_quaternion": {
+        "type": "ref",
+        "name": "_quaternion"
+      },
+      "_blueprint": {
+        "type": "ref",
+        "name": "_blueprint"
+      }
+    }
+  },
+  "namedTypes": {
+    "_staticMesh": {
+      "type": "table",
+      "fields": {
+        "isCameraCollisionDisabled": {
+          "type": "boolean",
+          "description": "If true, the mesh will not collide with camera arm, causing it to shorten"
+        },
+        "SetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "color"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "GetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetMaterialProperty": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "slot_number"
+            },
+            {
+              "name": "propName_string"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "link": "",
+          "description": "Sets the value of a parameter on a material in a given slot.  Value, which can be a number, bool, Vector3, or Color, but must match the type of the parameter on the material.  Returns true if set successfully and false if not."
+        },
+        "GetMaterialProperty": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "slot_number"
+            },
+            {
+              "name": "propName_string"
+            }
+          ],
+          "link": "",
+          "description": "Gets the current value of a parameter on a material in a given slot.  Returns the value, which can be an float, bool, Vector3, Color, or nil if not found.  Second return value is a bool, true if found and false if not."
+        },
+        "isEnemyCollisionDisabled": {
+          "type": "boolean",
+          "description": "If true, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh"
+        },
+        "team": {
+          "type": "string",
+          "description": "Assigns the mesh to a team. Use Team0, Team1, etc, or an empty string for no team."
+        },
+        "ResetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Turns off the color override, if there is one"
+        },
+        "isTeamCollisionDisabled": {
+          "type": "boolean",
+          "description": "If true, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh."
+        },
+        "isSimulatingPhysics": {
+          "type": "boolean",
+          "description": "If true, physics will be enabled for the mesh"
+        },
+        "isTeamColorUsed": {
+          "type": "boolean",
+          "description": "If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. (Requires a material that supports the color parameter.)"
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "Rotation": {
+      "type": "table",
+      "fields": {
+        "New": {
+          "type": "function",
+          "args": [],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "new() -> identity rotation (0, 0, 0)\nnew(q: quaternion) -> create rotation from quaternion"
+        },
+        "ZERO": {
+          "type": "ref",
+          "name": "_rotation",
+          "description": "constant rotation (0, 0, 0)"
+        }
+      }
+    },
+    "_color": {
+      "type": "table",
+      "fields": {
+        "b": {
+          "type": "number",
+          "description": ""
+        },
+        "r": {
+          "type": "number",
+          "description": ""
+        },
+        "GetDesaturated": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "desaturation_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": "Returns the desaturated version of the color. 0 represents no desaturation and 1 represents full desaturation."
+        },
+        "a": {
+          "type": "number",
+          "description": ""
+        },
+        "g": {
+          "type": "number",
+          "description": ""
+        }
+      }
+    },
+    "Storage": {
+      "type": "table",
+      "fields": {
+        "SavePlayerTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player"
+            },
+            {
+              "name": "tableName_string"
+            },
+            {
+              "name": "table"
+            }
+          ],
+          "link": "",
+          "description": "Sets the passed in table as the current table for the given player and table name. Any previous values are removed"
+        },
+        "IncrementPlayerTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player"
+            },
+            {
+              "name": "tableName_string"
+            },
+            {
+              "name": "table"
+            }
+          ],
+          "link": "",
+          "description": "Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If the key doesn’t exist, it is added. Negative values can be used to decrement. If success is true, the second return value is a lua table containing only the new values as a result of the increment. If success is false, the second return value is an error message string explaining why."
+        },
+        "SaveTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "tableName_string"
+            },
+            {
+              "name": "table"
+            }
+          ],
+          "link": "",
+          "description": "Sets the passed in table as the current table for the given table name. Any previous values are removed"
+        },
+        "LoadTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "tableName_string"
+            }
+          ],
+          "link": "",
+          "description": "Loads the table by name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message."
+        },
+        "IncrementTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "tableName_string"
+            },
+            {
+              "name": "table"
+            }
+          ],
+          "link": "",
+          "description": "Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If success is true, the second return value is a lua table containing only the new values as a result of the increment. Negative values can be used to decrement. If success is false, the second return value is an error message string explaining why."
+        },
+        "DeletePlayerTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player"
+            },
+            {
+              "name": "tableName_string"
+            }
+          ],
+          "link": "",
+          "description": "Deletes the table for the given player. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist)."
+        },
+        "DeleteTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "tableName_string"
+            }
+          ],
+          "link": "",
+          "description": "Deletes the table. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist)."
+        },
+        "LoadPlayerTable": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player"
+            },
+            {
+              "name": "tableName_string"
+            }
+          ],
+          "link": "",
+          "description": "Loads the table by player and name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message."
+        },
+        "IncrementPlayerTableAsync": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player"
+            },
+            {
+              "name": "tableName_string"
+            },
+            {
+              "name": "table"
+            },
+            {
+              "name": "callbackbool"
+            },
+            {
+              "name": "table|string"
+            }
+          ],
+          "link": "",
+          "description": "Same as above except execution of the script is not halted. The fourth function parameter is a function with the same inputs as returned by the above function. This function is used as a test alternative to see in what use cases async may be preferable or not"
+        }
+      }
+    },
+    "_projectile": {
+      "type": "table",
+      "fields": {
+        "impactEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(p: Projectile, other: object, hitRes: HitResult) fires when the Projectile collides with something. Impacted object parameter will be either of type CoreObject or Player, but can also be nil. The HitResult parameter contains properties such as .impact_point, .impact_normal and .transform, describing the point of contact between the Projectile and the impacted object. "
+        },
+        "shouldDieOnImpact": {
+          "type": "boolean",
+          "description": "If true the projectile is automatically destroyed when it hits something, unless it has bounces remaining."
+        },
+        "capsuleLength": {
+          "type": "number",
+          "description": "Shape of the projectile’s collision. A value of zero will make it shaped like a Sphere."
+        },
+        "homingFailedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(p: Projectile) fires when the target is no longer valid, for example the player disconnected from the game or the object was destroyed somehow"
+        },
+        "maxSpeed": {
+          "type": "number",
+          "description": "Max cm/s. Zero means no limit."
+        },
+        "speed": {
+          "type": "number",
+          "description": " Centimeters per second movement."
+        },
+        "SetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation_rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world rotation"
+        },
+        "capsuleRadius": {
+          "type": "number",
+          "description": "Shape of the projectile’s collision. Default 22"
+        },
+        "bounciness": {
+          "type": "number",
+          "description": "Velocity % maintained after a bounce. Defaults to 0.6"
+        },
+        "sourceAbility": {
+          "type": "ref",
+          "name": "_ability",
+          "description": ""
+        },
+        "piercesRemaining": {
+          "type": "number",
+          "description": "Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the on_impact event. If combined with bounces, all pierces are spent before bounces are counted"
+        },
+        "drag": {
+          "type": "number",
+          "description": "Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate."
+        },
+        "GetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "get local transform"
+        },
+        "lifeSpanEndedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(p: Projectile) fires when the Projectile reaches the end of its lifespan. Called before it is destroyed."
+        },
+        "SetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "velocity_vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set velocity"
+        },
+        "GetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "current velocity"
+        },
+        "shouldBounceOnPlayers": {
+          "type": "boolean",
+          "description": "Determines if the projectile should bounce off players or be destroyed, when bounces is used."
+        },
+        "owner": {
+          "type": "ref",
+          "name": "_player",
+          "description": "The player who fired this projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the projectile if teams are being used in the game."
+        },
+        "homingAcceleration": {
+          "type": "number",
+          "description": "Magnitude of acceleration towards the target."
+        },
+        "GetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get world rotation"
+        },
+        "Destroy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "immediately destroys this object"
+        },
+        "gravityScale": {
+          "type": "number",
+          "description": "How much drop. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line."
+        },
+        "lifeSpan": {
+          "type": "number",
+          "description": "Max seconds the projectile will exist. Defaults to 10"
+        },
+        "bouncesRemaining": {
+          "type": "number",
+          "description": "Number of bounces remaining before it dies."
+        },
+        "homingTarget": {
+          "type": "ref",
+          "name": "_player",
+          "description": "The projectile accelerates towards its target."
+        }
+      }
+    },
+    "_trigger": {
+      "type": "table",
+      "fields": {
+        "beginOverlapEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(trigger, object) fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:is_a to check the type.  Eg, other:is_a(‘Player’), other:is_a(‘StaticMesh’), etc."
+        },
+        "isInteractable": {
+          "type": "boolean",
+          "description": "Is the trigger interactable?"
+        },
+        "interactedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(trigger, player) fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player"
+        },
+        "endOverlapEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(trigger, other: object) fired when an object exits the trigger volume."
+        },
+        "interactionLabel": {
+          "type": "string",
+          "description": "The text players will see in their HUD when they come into range of interacting with this trigger"
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_abilityTarget": {
+      "type": "table",
+      "fields": {
+        "SetCameraForwardVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "forwardDir_vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "The direction the camera is facing."
+        },
+        "SetHitPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "position_vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "SetCameraPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "position_vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "The world space location of the camera"
+        },
+        "GetOwnerMovementRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "The direction the player is moving"
+        },
+        "GetHitResult": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_hitresult"
+            }
+          ],
+          "link": "",
+          "description": "Physics information about the point being targeted"
+        },
+        "GetHitPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "The world space location of the object under the player’s reticle. If there is no object, a location under the reticle in the distance. If the player doesn’t have a reticle displayed, uses the center of the screen as if there was a reticle there."
+        },
+        "spreadRandomSeed": {
+          "type": "int",
+          "description": "Seed that can be used with RandomStream  for deterministic RNG."
+        },
+        "SetOwnerMovementRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation_rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "The direction the player is moving"
+        },
+        "GetCameraForwardVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "The direction the camera is facing."
+        },
+        "hitObject": {
+          "type": "object",
+          "description": "Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, Static Mesh, etc"
+        },
+        "GetCameraPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "The world space location of the camera"
+        },
+        "spreadHalfAngle": {
+          "type": "float",
+          "description": "Half-angle of cone of possible target space."
+        },
+        "hitPlayer": {
+          "type": "ref",
+          "name": "_player",
+          "description": "Convenience property that is the same as hit_object, but only if hit_object is a Player"
+        },
+        "SetHitResult": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "hitResult"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "Physics information about the point being targeted"
+        }
+      }
+    },
+    "_eventType": {
+      "type": "table",
+      "fields": {
+        "Connect": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "listener_function"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_eventListener"
+            }
+          ],
+          "link": "",
+          "description": "registers given function to the event, will be called whenever the event is fired. Returns EventListener which can be used to disconnect it from event"
+        }
+      }
+    },
+    "Quaternion": {
+      "type": "table",
+      "fields": {
+        "IDENTITY": {
+          "type": "ref",
+          "name": "_quaternion",
+          "description": "constant identity quaternion"
+        },
+        "New": {
+          "type": "function",
+          "args": [
+            {
+              "name": "x_number"
+            },
+            {
+              "name": "y_number"
+            },
+            {
+              "name": "z_number"
+            },
+            {
+              "name": "w_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_quaternion"
+            }
+          ],
+          "link": "",
+          "description": "new(r: Rotation) -> quaternion from Rotation\nnew(axit: vector, angle: number) -> create quaternion from axis-angle"
+        },
+        "Slerp": {
+          "type": "function",
+          "args": [
+            {
+              "name": "from_quaternion"
+            },
+            {
+              "name": "to_quaternion"
+            },
+            {
+              "name": "progress_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_quaternion"
+            }
+          ],
+          "link": "",
+          "description": "linearly interpolates between two quaternions by specified progress amount and return result quaternion"
+        }
+      }
+    },
+    "_statBarControl": {
+      "type": "table",
+      "fields": {
+        "percent": {
+          "type": "unknown",
+          "description": "fill amount, 0 to 1"
+        },
+        "color": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_baseControl"
+          }
+        }
+      }
+    },
+    "game": {
+      "type": "table",
+      "fields": {
+        "root": {
+          "type": "ref",
+          "name": "_coreObject",
+          "description": ""
+        },
+        "GetAlivePlayers": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_table"
+            }
+          ],
+          "link": "",
+          "description": "return table containing players that are alive"
+        },
+        "Raycast": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "start_vector"
+            },
+            {
+              "name": "end_vector["
+            },
+            {
+              "name": "playerToIgnore_player"
+            },
+            {
+              "name": "teamToIgnore_string]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_hitresult"
+            }
+          ],
+          "link": "",
+          "description": "Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Can be set to ignore a specific player or an entire team."
+        },
+        "FindNearestEnemy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "team_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_player"
+            }
+          ],
+          "link": "",
+          "description": "Returns the Player that is nearest to the given position but is not on the given team"
+        },
+        "playerJoinedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player) fires when a player has joined game and ready"
+        },
+        "FindAlliesInSphere": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            },
+            {
+              "name": "team_string"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "FindPlayersInSphere": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table with all Players that are in the given spherical area"
+        },
+        "abilitySpawnedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when ability is spawned. Useful for client contexts to hook up to ability events"
+        },
+        "DebugDrawSphere": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "center_vector"
+            },
+            {
+              "name": "radius_number"
+            },
+            {
+              "name": "optionalParams_table"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "draw debug sphere, optional params: color (color), thickness (number), duration (number)"
+        },
+        "playerLeftEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player) fires when a player has disconnected from the game or their character has been destroyed"
+        },
+        "FindNearestPlayer": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_player"
+            }
+          ],
+          "link": "",
+          "description": "Returns the Player that is nearest to the given position."
+        },
+        "DebugDrawLine": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "startPos_vector"
+            },
+            {
+              "name": "endPos_vector"
+            },
+            {
+              "name": "optionalParams_table"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "draw debug line, optional params: color (color), thickness (number), duration (number)"
+        },
+        "FindAlliesInCylinder": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            },
+            {
+              "name": "team_string"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table with all Players that are in the given cylindrical area and who belong to the given team"
+        },
+        "FindObjectById": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "muid_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "Returns the object with a given MUID.  Returns nil if no object has this ID. "
+        },
+        "FindEnemiesInSphere": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            },
+            {
+              "name": "team_string"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetCursorHit": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "start_vector"
+            },
+            {
+              "name": "end_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_hitresult"
+            }
+          ],
+          "link": "",
+          "description": "return hit result from local client’s view in direction of deprojected cursor position. Meant for client-side use only, for ability cast, please use ability.target_data.hit_location, which would contain cursor hit position at time of cast, when in topdown camera mode"
+        },
+        "RaycastIgnoreAllPlayers": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "start_vector"
+            },
+            {
+              "name": "end_vector["
+            },
+            {
+              "name": "playerToIgnore_player"
+            },
+            {
+              "name": "teamToIgnore_string]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_hitresult"
+            }
+          ],
+          "link": "",
+          "description": "same as raycast(), but ignores all players"
+        },
+        "FindObjectsByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned"
+        },
+        "FindNearestAlly": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "team_string"
+            },
+            {
+              "name": "player_toIgnore"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_player"
+            }
+          ],
+          "link": "",
+          "description": "Returns the Player that is nearest to the given position but is on the given team. The last parameter is optional, allowing one Player to be ignored from the search."
+        },
+        "DebugDrawBox": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "center_vector"
+            },
+            {
+              "name": "dimensions_vector"
+            },
+            {
+              "name": "optionalParams_table"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "draw debug box, optional params: color (color), thickness (number), duration (number), rotation (rotation)"
+        },
+        "SpawnAbility": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_ability"
+            }
+          ],
+          "link": "",
+          "description": "Spawns an ability object"
+        },
+        "FindObjectsByType": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned.  See below for valid type names."
+        },
+        "SpawnTemplate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "templateid_string"
+            },
+            {
+              "name": "location_vector|transform["
+            },
+            {
+              "name": "parent_coreobject]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "Spawns an instance of a template. Location is in parent's space if parent is used, in world space otherwise"
+        },
+        "GetPlayers": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table containing the players currently in the game."
+        },
+        "DebugCopyToClipboard": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "toCopy_string"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "copy given string to clipboard"
+        },
+        "FindObjectByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "Returns the first object found with a matching name. In none match, nil is returned"
+        },
+        "GetCursorPlaneIntersection": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "pointOnPlane_vector"
+            },
+            {
+              "name": "optionalPlaneNormal_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get position of view to cursor direction with given plane"
+        },
+        "AreTeamsEnemies": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "teamA_number"
+            },
+            {
+              "name": "teamB_number"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SpawnProjectile": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "childTemplateId_string"
+            },
+            {
+              "name": "startPos_vector"
+            },
+            {
+              "name": "direction_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_projectile"
+            }
+          ],
+          "link": "",
+          "description": "Spawns a Projectile with a child that is an instance of a template."
+        },
+        "SpawnAsset": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "templateid_string"
+            },
+            {
+              "name": "location_vector|transform["
+            },
+            {
+              "name": "parent_coreobject]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "Spawns an instance of a catalog asset. Asset needs to be referenced by asset reference parameter."
+        },
+        "GetLocalPlayer": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_player"
+            }
+          ],
+          "link": "",
+          "description": "Returns the local player (or nil on the server)."
+        },
+        "AreTeamsFriendly": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "teamA_number"
+            },
+            {
+              "name": "teamB_number"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "FindEnemiesInCylinder": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            },
+            {
+              "name": "team_string"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table with all Players that are in the given cylindrical area and who do not belong to the given team."
+        },
+        "FindPlayersInCylinder": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "wrtPos_vector"
+            },
+            {
+              "name": "radius_number"
+            }
+          ],
+          "link": "",
+          "description": "Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright."
+        }
+      }
+    },
+    "AbilitySetFacing": {
+      "type": "table",
+      "fields": {
+        "NONE": {
+          "type": "unknown",
+          "description": ""
+        },
+        "MOVEMENT": {
+          "type": "unknown",
+          "description": ""
+        },
+        "AIM": {
+          "type": "unknown",
+          "description": ""
+        }
+      }
+    },
+    "_ability": {
+      "type": "table",
+      "fields": {
+        "readyEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when ability becomes ready. In this phase it is possible to activate it again"
+        },
+        "canActivateWhileDead": {
+          "type": "boolean",
+          "description": "Indicates if the Ability can be used while the owning Player is dead. False by default."
+        },
+        "cooldownEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when the Ability enters the Cooldown phase"
+        },
+        "recoveryEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when the Ability enters the Recovery phase"
+        },
+        "Interrupt": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase."
+        },
+        "GetPhaseTimeRemaining": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "number"
+            }
+          ],
+          "link": "",
+          "description": "time left in current phase, in seconds"
+        },
+        "executeEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when the Ability enters the Execute phase"
+        },
+        "GetTargetData": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_abilityTarget"
+            }
+          ],
+          "link": "",
+          "description": "Information about what the player has targeted this phase"
+        },
+        "SetTargetData": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "abilityTarget"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "binding": {
+          "type": "string",
+          "description": "Which action binding will cause the Ability to activate. Possible values: ability_primary, ability_secondary, ability_feet, ability_1, ability_2, ability_ult and numeric keys from ability_extra_1 to ability_extra_0"
+        },
+        "GetCurrentPhase": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "AbilityPhase"
+            }
+          ],
+          "link": "",
+          "description": "The current ability phase for this ability. value is AbilityPhase enum"
+        },
+        "recoveryPhaseSettings": {
+          "type": "ref",
+          "name": "_abilityPhase",
+          "description": ""
+        },
+        "Activate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Client-context only. Activates an ability as if the button had been pressed"
+        },
+        "tickEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires every tick while the Ability is active"
+        },
+        "castPhaseSettings": {
+          "type": "ref",
+          "name": "_abilityPhase",
+          "description": "Config data"
+        },
+        "animation": {
+          "type": "string",
+          "description": "Name of the animation the Player will play when the ability is activated"
+        },
+        "owner": {
+          "type": "ref",
+          "name": "_player",
+          "description": "Assigning an owner applies the Ability to that Player."
+        },
+        "canBePrevented": {
+          "type": "boolean",
+          "description": "Used in conjunction with the phase property prevents_other_abilities so multiple abilities on the same Player can block each other during specific phases"
+        },
+        "interruptedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when the Ability is interrupted."
+        },
+        "executePhaseSettings": {
+          "type": "ref",
+          "name": "_abilityPhase",
+          "description": ""
+        },
+        "cooldownPhaseSettings": {
+          "type": "ref",
+          "name": "_abilityPhase",
+          "description": ""
+        },
+        "enabled": {
+          "type": "unknown",
+          "description": "Turns an ability on/off. It stays on the player but is interrupted if enabled is set to False during an active Ability."
+        },
+        "name": {
+          "type": "string",
+          "description": "name of ability"
+        },
+        "castEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(Ability) fires when the Ability enters the Cast phase"
+        }
+      }
+    },
+    "_equipment": {
+      "type": "table",
+      "fields": {
+        "owner": {
+          "type": "ref",
+          "name": "_player",
+          "description": "Which Player the Equipment is attached to"
+        },
+        "unequippedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(equipment, player): fired when equipment is unequipped from player"
+        },
+        "GetAbilities": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": "A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities"
+        },
+        "AddAbility": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "ability_Ability"
+            }
+          ],
+          "link": "",
+          "description": "Adds an Ability to the list of abilities on this Equipment"
+        },
+        "Equip": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "player_Player"
+            }
+          ],
+          "link": "",
+          "description": "Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one."
+        },
+        "Unequip": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Detaches the Equipment from any Player it may currently be attached to. The player loses any abilities granted by the Equipment"
+        },
+        "equippedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(equipment, player): fired when equipment is equipped on player"
+        },
+        "socket": {
+          "type": "string",
+          "description": "Determines which point on the avatar’s body this equipment will be attached."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "Color": {
+      "type": "table",
+      "fields": {
+        "MAGENTA": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "New": {
+          "type": "function",
+          "args": [
+            {
+              "name": "r_number"
+            },
+            {
+              "name": "g_number"
+            },
+            {
+              "name": "b_number["
+            },
+            {
+              "name": "a_number]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": "new(colorAsVec: vector) -> construct color with vector input"
+        },
+        "YELLOW": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "TRANSPARENT": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "BLUE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "PURPLE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "EMERALD": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "RED": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "WHITE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "CYAN": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "BROWN": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "GREEN": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "BLACK": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "SMOKE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "PINK": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "RUBY": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "TAN": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "SAPPHIRE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "SILVER": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "ORANGE": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "Lerp": {
+          "type": "function",
+          "args": [
+            {
+              "name": "from_color"
+            },
+            {
+              "name": "to_color"
+            },
+            {
+              "name": "progress_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": "linearly interpolates between two colors in HSV space by specified progress amount and return result Color"
+        },
+        "GRAY": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        },
+        "Random": {
+          "type": "function",
+          "args": [],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": "create random color"
+        }
+      }
+    },
+    "_weaponInteraction": {
+      "type": "table",
+      "fields": {
+        "projectile": {
+          "type": "ref",
+          "name": "_projectile",
+          "description": "Reference to a Projectile, if one was produced as part of this interaction"
+        },
+        "travelDistance": {
+          "type": "float",
+          "description": "The distance in cm between where the weapon attack started until it impacted something."
+        },
+        "GetHitResults": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": "Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit."
+        },
+        "GetHitResult": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "Physics information about the impact between the weapon and the other object"
+        },
+        "weaponOwner": {
+          "type": "ref",
+          "name": "_player",
+          "description": "Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction"
+        },
+        "targetObject": {
+          "type": "ref",
+          "name": "_coreObject",
+          "description": "player or coreobject"
+        },
+        "sourceAbility": {
+          "type": "ref",
+          "name": "_ability",
+          "description": "Reference to the Ability which initiated the interaction."
+        },
+        "weapon": {
+          "type": "ref",
+          "name": "_weaponObjectType",
+          "description": "Reference to the Weapon that is interacting"
+        }
+      }
+    },
+    "RandomStream": {
+      "type": "table",
+      "fields": {
+        "New": {
+          "type": "function",
+          "args": [
+            {
+              "name": "[initialSeed_number]"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_randomstream"
+            }
+          ],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "_hitResult": {
+      "type": "table",
+      "fields": {
+        "other": {
+          "type": "ref",
+          "name": "_coreObject",
+          "description": "core object or player impacted"
+        },
+        "GetImpactNormal": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "Normal direction of the surface which was impacted."
+        },
+        "GetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetImpactPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "The world location where the impact occurred"
+        }
+      }
+    },
+    "_audio": {
+      "type": "table",
+      "fields": {
+        "isTransient": {
+          "type": "boolean",
+          "description": "Default false. If set to true, the sound will automatically destroy itself after it finishes playing."
+        },
+        "isAutoPlayEnabled": {
+          "type": "boolean",
+          "description": "Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded."
+        },
+        "pitch": {
+          "type": "number",
+          "description": "Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.)"
+        },
+        "isAutoRepeatEnabled": {
+          "type": "boolean",
+          "description": "Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.)"
+        },
+        "FadeIn": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "time_number"
+            }
+          ],
+          "link": "",
+          "description": "Starts playing and fades the sound in over the given time."
+        },
+        "length": {
+          "type": "unknown",
+          "description": "sound's length in seconds"
+        },
+        "Play": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Begins sound playback."
+        },
+        "isPlaying": {
+          "type": "unknown",
+          "description": "whether sound is currently playing"
+        },
+        "Stop": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Stops sound playback."
+        },
+        "isSpatializationDisabled": {
+          "type": "boolean",
+          "description": "Default false. Set true to play sound without 3D positioning."
+        },
+        "currentPlaybackTime": {
+          "type": "unknown",
+          "description": "Returns the playback position (in seconds) of the sound."
+        },
+        "isOcclusionEnabled": {
+          "type": "boolean",
+          "description": "whether occlutsion is enabled"
+        },
+        "falloff": {
+          "type": "number",
+          "description": "Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero"
+        },
+        "volume": {
+          "type": "number",
+          "description": "Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up."
+        },
+        "radius": {
+          "type": "number",
+          "description": "Default 0 (off.) If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume."
+        },
+        "FadeOut": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "time_number"
+            }
+          ],
+          "link": "",
+          "description": "Fades the sound out and stops over time seconds."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_textRenderer": {
+      "type": "table",
+      "fields": {
+        "horizontalScale": {
+          "type": "number",
+          "description": "The horizontal size of the text."
+        },
+        "verticalScale": {
+          "type": "number",
+          "description": "The vertical size of the text"
+        },
+        "SetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "color"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "GetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "text": {
+          "type": "string",
+          "description": "The text being displayed by this object"
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_replicator": {
+      "type": "table",
+      "fields": {
+        "GetValue": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "paramName_string"
+            }
+          ],
+          "link": "",
+          "description": "Returns the named custom parameter and whether or not the parameter was found."
+        },
+        "valueChangedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(replicator: coreObject, paramName: string) fires whenever any of the parameters managed by the replicator receive an update. The event is fired on the server and the client. Event payload is the Replicator object and the name of the parameter that just changed."
+        },
+        "SetValue": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "paramName_string"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "link": "",
+          "description": "Sets the named custom parameter and returns whether or not it was set successfully. Reasons for failure are not being able to find the parameter or the Object parameter being the wrong type"
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_randomstream": {
+      "type": "table",
+      "fields": {
+        "Mutate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetNumber": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "optionalMin_number"
+            },
+            {
+              "name": "optionalMax_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "number"
+            }
+          ],
+          "link": "",
+          "description": "if passed in min and max values, return random number min <= result <= max. If no argument, return number between 0 and 1"
+        },
+        "GetVector3": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetInitialSeed": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "number"
+            }
+          ],
+          "link": "",
+          "description": "seed used for initialize this stream"
+        },
+        "seed": {
+          "type": "number",
+          "description": "current seed used for RNG"
+        },
+        "Reset": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetInteger": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "number"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetVector3FromCone": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "dir_vector"
+            },
+            {
+              "name": "coneHalfAngle_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "_abilityControl": {
+      "type": "table",
+      "fields": {
+        "ability": {
+          "type": "ref",
+          "name": "_ability",
+          "description": ""
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_baseControl"
+          }
+        }
+      }
+    },
+    "_playerStart": {
+      "type": "table",
+      "fields": {
+        "team": {
+          "type": "string",
+          "description": "A tag controlling which players can spawn at this start point."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_coreObject": {
+      "type": "table",
+      "fields": {
+        "FindChildByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first immediate child that matches name, nil if not found"
+        },
+        "GetChildren": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "IsCollidableInHierarchy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local scale"
+        },
+        "GetWorldTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "get world transform"
+        },
+        "parent": {
+          "type": "ref",
+          "name": "_coreObject",
+          "description": "parent core object (dynamic)"
+        },
+        "GetCustomProperty": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "propertyName_string"
+            }
+          ],
+          "link": "",
+          "description": "Gets data which has been added to an object using the custom property system.  Returns the value, which can be an integer, float, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not.\n- Note: String return value is “” (an empty string), not nil, if the field is empty."
+        },
+        "SetWorldScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector_scale"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world scale"
+        },
+        "SetAngularVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "Destroy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Destroys the object.  You can check whether an object has been destroyed by calling is_valid(object), which will return true if object is still a valid object, or false if it has been destroyed"
+        },
+        "destroyEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(coreobject): fires when an object is about to be destroyed"
+        },
+        "GetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get world rotation"
+        },
+        "LookAt": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "lookAtPos_vector"
+            }
+          ],
+          "link": "",
+          "description": "Instantly rotates the object to look at the given location."
+        },
+        "LookAtCamera": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "[lockPitch_boolean]"
+            }
+          ],
+          "link": "",
+          "description": "Continuously looks at the local camera. The bool parameter is optional and locks the pitch."
+        },
+        "isClientOnly": {
+          "type": "boolean",
+          "description": ""
+        },
+        "LookAtContinuous": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "target_coreObject["
+            },
+            {
+              "name": "lockPitch_boolean"
+            },
+            {
+              "name": "trackSpeed_number]"
+            }
+          ],
+          "link": "",
+          "description": "Smoothly rotates a CoreObject to look at another given CoreObject. Second parameter is optional and locks the pitch. Third parameter is how fast it tracks the target. If speed is not supplied it tracks as fast as possible."
+        },
+        "SetWorldTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transform_transform"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world transform"
+        },
+        "Follow": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "target_coreObject["
+            },
+            {
+              "name": "speed_number"
+            },
+            {
+              "name": "followDistance_number]"
+            }
+          ],
+          "link": "",
+          "description": "Follows a dynamic object at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target."
+        },
+        "FindDescendantsByType": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": "find descendants of given type"
+        },
+        "GetWorldPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "return world position"
+        },
+        "GetAngularVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "descendantRemovedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(ancestor, newObject): fires when a child is removed from this object or its descendant"
+        },
+        "GetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "return local position"
+        },
+        "SetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector_velocity"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set velocity"
+        },
+        "isEnabled": {
+          "type": "boolean",
+          "description": "(dynamic)"
+        },
+        "FindAncestorByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first ancestor that matches name, nil if not found"
+        },
+        "SetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local position"
+        },
+        "IsVisibleInHierarchy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "lifeSpan": {
+          "type": "number",
+          "description": "duration after which the object is destroyed"
+        },
+        "MoveTo": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "targetPos_vector"
+            },
+            {
+              "name": "duration_number"
+            }
+          ],
+          "link": "",
+          "description": "smoothly move object to targetPos over given amount of time"
+        },
+        "RotateTo": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "targetRotation_rotation|quaternion"
+            },
+            {
+              "name": "duration_number"
+            }
+          ],
+          "link": "",
+          "description": "smoothly rotate object to targetRotation over given amount of time"
+        },
+        "IsAncestorOf": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "inputObject_coreobject"
+            }
+          ],
+          "link": "",
+          "description": "returns true if object is ancestor of inputObject"
+        },
+        "StopRotate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Interrupts further rotation from rotate_to() or rotate_continuous()."
+        },
+        "FindChildByType": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first immediate child of given type, nil if not found"
+        },
+        "id": {
+          "type": "number",
+          "description": "muid"
+        },
+        "SetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local rotation"
+        },
+        "FindDescendantByType": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first descendant of given type, nil if not found"
+        },
+        "FindAncestorByType": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first ancestor of given type, nil if not found"
+        },
+        "IsEnabledInHierarchy": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "isVisible": {
+          "type": "boolean",
+          "description": "(dynamic)"
+        },
+        "descendantAddedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(ancestor, newObject): fires when a child is added to this object or its descendant"
+        },
+        "sourceTemplateId": {
+          "type": "string",
+          "description": "The ID of the Template from which this Core Object was instantiated. nil if the object did not come from a Template"
+        },
+        "childAddedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(parentObject, newChildObject): fires when a child is added to this object"
+        },
+        "FindDescendantsByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": "find descendants that matches name"
+        },
+        "FindDescendantByName": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "name_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_coreObject"
+            }
+          ],
+          "link": "",
+          "description": "find first descendant that matches name, nil if not found"
+        },
+        "RotateContinuous": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "angularVelocity_rotation|quaternion["
+            },
+            {
+              "name": "multiplier_number"
+            },
+            {
+              "name": "localSpace=false_boolean]"
+            }
+          ],
+          "link": "",
+          "description": "Smoothly rotates the object over time by the given angular velocity. Because the limit is 179 degrees, the second param is an optional multiplier, for very fast rotations. Third parameter specifies if this should be done in local space (true) or world space (false)."
+        },
+        "Detach": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "detach from player object is attached to"
+        },
+        "SetWorldPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector_position"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world position"
+        },
+        "GetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "get local transform"
+        },
+        "AttachToPlayer": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "player_player"
+            },
+            {
+              "name": "socket_string"
+            }
+          ],
+          "link": "",
+          "description": "attach to player at given socket. Object will be unparented from current hierarchy, and its parent will be nil"
+        },
+        "MoveContinuous": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "velocity_vector["
+            },
+            {
+              "name": "localSpace=false_boolean]"
+            }
+          ],
+          "link": "",
+          "description": "Smoothly moves the object over time by the given velocity vector."
+        },
+        "StopMove": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Interrupts further movement from move_to() or move_continuous()."
+        },
+        "SetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transform_transform"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local transform"
+        },
+        "childRemovedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(parentObject, removedChildObject): fires when a child is removed from this object"
+        },
+        "GetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "current velocity"
+        },
+        "GetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get local rotation"
+        },
+        "isCollidable": {
+          "type": "boolean",
+          "description": "(dynamic)"
+        },
+        "userData": {
+          "type": "table",
+          "description": "table in which user can store any data they want"
+        },
+        "isStatic": {
+          "type": "boolean",
+          "description": "if true, cannot call dynamic functions or modify dynamic properties. read-only"
+        },
+        "GetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get local scale"
+        },
+        "GetWorldScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get world scale"
+        },
+        "name": {
+          "type": "string",
+          "description": "object name (dynamic)"
+        },
+        "SetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation_rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world rotation"
+        }
+      }
+    },
+    "_transform": {
+      "type": "table",
+      "fields": {
+        "GetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get local rotation"
+        },
+        "GetRightVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetInverse": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetQuaternion": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_quaternion"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "GetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "return local position"
+        },
+        "IDENTITY": {
+          "type": "unknown",
+          "description": ""
+        },
+        "GetUpVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local rotation"
+        },
+        "SetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local position"
+        },
+        "SetQuaternion": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "quaternion"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "GetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get local scale"
+        },
+        "GetForwardVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local scale"
+        }
+      }
+    },
+    "_weapon": {
+      "type": "table",
+      "fields": {
+        "isReticleEnabled": {
+          "type": "boolean",
+          "description": "If True, the reticle will appear when this Weapon is equipped."
+        },
+        "multiShotCount": {
+          "type": "int",
+          "description": "Number of projectiles/hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack."
+        },
+        "targetInteractionEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(WeaponInteraction) fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc."
+        },
+        "isHitscan": {
+          "type": "bool",
+          "description": "if trye, will use instantaneous line traces to simulate shots"
+        },
+        "projectileLength": {
+          "type": "float",
+          "description": "length of capsule collision"
+        },
+        "projectileRadius": {
+          "type": "float",
+          "description": "radius of capsule collision"
+        },
+        "range": {
+          "type": "float",
+          "description": "max travel distance of projectile. for hitscan weapon, it's range of trace"
+        },
+        "shouldBurstStopOnRelease": {
+          "type": "bool",
+          "description": "If True, a burst sequence can be interrupted by the player by releasing the action button. If False, the burst continues firing automatically until it completes or the weapon runs out of ammo."
+        },
+        "projectileBounceCount": {
+          "type": "int",
+          "description": "number of bounces before project is destroyed"
+        },
+        "attackCooldownDuration": {
+          "type": "float",
+          "description": "Interval between separate burst sequences"
+        },
+        "projectileSpawnedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(weapon, projectile). fired when a weapon spawns a projectile"
+        },
+        "projectileLifeSpan": {
+          "type": "float",
+          "description": "duration of projectile"
+        },
+        "isAmmoFinite": {
+          "type": "boolean",
+          "description": "Determines where the ammo comes from. If True, then ammo will be drawn from the Player’s Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If False, then the Weapon simply reloads to full and inventory Resources are ignored"
+        },
+        "shotsPerSecond": {
+          "type": "float",
+          "description": "Used in conjunction with burst_count to determine the interval between automatic weapon activations."
+        },
+        "Attack": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "HasAmmo": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "link": "",
+          "description": "Informs whether the Weapon is able to attack or not"
+        },
+        "projectilePierceCount": {
+          "type": "int",
+          "description": "number of objects pierced by projectile before it's destroyed. Each pierce generates an interaction event"
+        },
+        "projectileSpeed": {
+          "type": "float",
+          "description": "speed in cm/s"
+        },
+        "projectileGravity": {
+          "type": "float",
+          "description": "gravity scale applied to projectile"
+        },
+        "maxAmmo": {
+          "type": "number",
+          "description": "How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn’t need to reload."
+        },
+        "currentAmmo": {
+          "type": "number",
+          "description": "Current amount of ammo stored in this Weapon"
+        },
+        "ammoType": {
+          "type": "string",
+          "description": "A unique identifier for the ammunition type"
+        },
+        "burstCount": {
+          "type": "int",
+          "description": "Number of automatic activations of the weapon that generally occur in quick succession."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_textControl": {
+      "type": "table",
+      "fields": {
+        "text": {
+          "type": "unknown",
+          "description": ""
+        },
+        "size": {
+          "type": "unknown",
+          "description": "font size"
+        },
+        "color": {
+          "type": "ref",
+          "name": "_color",
+          "description": ""
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_baseControl"
+          }
+        }
+      }
+    },
+    "_vector": {
+      "type": "table",
+      "fields": {
+        "GetNormalized": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "return a normalized version of current vector. Does not modify caller"
+        },
+        "x": {
+          "type": "number",
+          "description": ""
+        },
+        "size": {
+          "type": "number",
+          "description": "magnitude of vector"
+        },
+        "y": {
+          "type": "number",
+          "description": ""
+        },
+        "z": {
+          "type": "number",
+          "description": ""
+        },
+        "sizeSquared": {
+          "type": "number",
+          "description": "squared magnitude of vector"
+        }
+      }
+    },
+    "Damage": {
+      "type": "table",
+      "fields": {
+        "New": {
+          "type": "function",
+          "args": [
+            {
+              "name": "damageAmount_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_damage"
+            }
+          ],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "_baseControl": {
+      "type": "table",
+      "fields": {
+        "y": {
+          "type": "unknown",
+          "description": ""
+        },
+        "x": {
+          "type": "unknown",
+          "description": ""
+        },
+        "height": {
+          "type": "unknown",
+          "description": ""
+        },
+        "width": {
+          "type": "unknown",
+          "description": ""
+        }
+      }
+    },
+    "_damage": {
+      "type": "table",
+      "fields": {
+        "amount": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "damage amount"
+        },
+        "reason": {
+          "type": "DamageReason",
+          "description": "context for damage"
+        },
+        "sourceAbilityName": {
+          "type": "string",
+          "description": "Name of the ability which caused the Damage"
+        },
+        "GetHitResult": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_hitresult"
+            }
+          ],
+          "link": "",
+          "description": "Forward the HitResult information if this damage was caused by a Projectile impact."
+        },
+        "sourcePlayer": {
+          "type": "ref",
+          "name": "_player",
+          "description": "Reference to the Player who caused the Damage. Setting this automatically sets the source_player_name"
+        },
+        "sourcePlayerName": {
+          "type": "string",
+          "description": "Name of the player who caused the Damage"
+        },
+        "sourceAbility": {
+          "type": "ref",
+          "name": "_ability",
+          "description": "Reference to the Ability which caused the Damage. Setting this automatically sets the source_ability_name"
+        },
+        "SetHitResult": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "hitResult_hitResult"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "Transform": {
+      "type": "table",
+      "fields": {
+        "new": {
+          "type": "function",
+          "args": [
+            {
+              "name": "rotation_quaternionorrotator"
+            },
+            {
+              "name": "position_vector"
+            },
+            {
+              "name": "scale_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "new() -> creates identity transform.\nnew(xaxis: vector, yaxis: vector, zaxis: vector, translation: vector) -> create from matrix"
+        }
+      }
+    },
+    "DamageReason": {
+      "type": "table",
+      "fields": {
+        "UNKNOWN": {
+          "type": "number",
+          "description": ""
+        },
+        "COMBAT": {
+          "type": "number",
+          "description": ""
+        },
+        "NPC": {
+          "type": "number",
+          "description": ""
+        },
+        "FRIENDLY_FIRE": {
+          "type": "number",
+          "description": ""
+        },
+        "MAP": {
+          "type": "number",
+          "description": ""
+        }
+      }
+    },
+    "_eventListener": {
+      "type": "table",
+      "fields": {
+        "isConnected": {
+          "type": "boolean",
+          "description": "returns true if listener is still connected, false if owner was destroyed or event listener has been disconnected"
+        },
+        "Disconnect": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "disconnect event"
+        }
+      }
+    },
+    "_pointLight": {
+      "type": "table",
+      "fields": {
+        "fallOffExponent": {
+          "type": "number",
+          "description": "Controls the radial falloff of the light when use_attenuation_radius is disabled. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents."
+        },
+        "SetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "color"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set light color"
+        },
+        "attenuationRadius": {
+          "type": "number",
+          "description": "Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more."
+        },
+        "hasAttenuationRadius": {
+          "type": "boolean",
+          "description": "The attenuation method of the light. When enabled, attenuation_radius is used. When disabled, fall_off_exponent is used. Also changes the interpretation of the intensity property, see intensity for details."
+        },
+        "GetColor": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_color"
+            }
+          ],
+          "link": "",
+          "description": "return light color"
+        },
+        "sourceRadius": {
+          "type": "number",
+          "description": "Radius of light source shape."
+        },
+        "intensity": {
+          "type": "number",
+          "description": "The intensity of the light. This has two interpretations, depending on use_attenuation_radius:\ntrue: the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb.\nfalse: the light's Intensity is a brightness scale.\n\t\t\t"
+        },
+        "hasTemperature": {
+          "type": "number",
+          "description": "true: use temperature value as illuminant. false: use white (D65) as illuminant."
+        },
+        "isShadowCaster": {
+          "type": "number",
+          "description": "Does this light cast shadows?"
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K"
+        },
+        "sourceLength": {
+          "type": "number",
+          "description": "Length of light source shape."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_script": {
+      "type": "table",
+      "fields": {
+        "context": {
+          "type": "unknown",
+          "description": ""
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "_abilityPhase": {
+      "type": "table",
+      "fields": {
+        "playerFacing": {
+          "type": "AbilitySetFacing",
+          "description": "How and if this ability rotates the player during execution. Cast and Execute default to Aim, other phases default to None. Options are: \n\t\t\t\t\t\t\tAbilitySetFacing.None\n\t\t\t\t\t\t\tAbilitySetFacing.Movement\n\t\t\t\t\t\t\tAbilitySetFacing.Aim\n\t\t\t\t\t\t\t"
+        },
+        "canRotate": {
+          "type": "boolean",
+          "description": "Is the Player allowed to rotate during this phase"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. default values per phase: 0.15, 0, 0.5 and 3"
+        },
+        "isTargetDataUpdated": {
+          "type": "boolean",
+          "description": "If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date"
+        },
+        "preventsOtherAbilities": {
+          "type": "boolean",
+          "description": "When True this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to False"
+        },
+        "canMove": {
+          "type": "boolean",
+          "description": "Is the Player allowed to move during this phase."
+        },
+        "isFlying": {
+          "type": "boolean",
+          "description": "When True gravity is turned off during this phase and if there is root motion it is allowed to pick up the Player off the ground.  This is primarily intended for use with the “roll” animation, or any other animation with vertical root motion.  (More detail in the Animation section)"
+        },
+        "canJump": {
+          "type": "boolean",
+          "description": "Is the Player allowed to jump during this phase. default False in Cast & Execute, default True in Recovery & Cooldown"
+        }
+      }
+    },
+    "CursorMoveInput": {
+      "type": "table",
+      "fields": {
+        "None": {
+          "type": "unknown",
+          "description": ""
+        },
+        "EitherMB": {
+          "type": "unknown",
+          "description": ""
+        },
+        "RMB": {
+          "type": "unknown",
+          "description": ""
+        },
+        "LMB": {
+          "type": "unknown",
+          "description": ""
+        }
+      }
+    },
+    "AbilityPhase": {
+      "type": "table",
+      "fields": {
+        "READY": {
+          "type": "unknown",
+          "description": ""
+        },
+        "RECOVERY": {
+          "type": "unknown",
+          "description": ""
+        },
+        "EXECUTE": {
+          "type": "unknown",
+          "description": ""
+        },
+        "COOLDOWN": {
+          "type": "unknown",
+          "description": ""
+        },
+        "CAST": {
+          "type": "unknown",
+          "description": ""
+        }
+      }
+    },
+    "Vector3": {
+      "type": "table",
+      "fields": {
+        "New": {
+          "type": "function",
+          "args": [
+            {
+              "name": "x_number"
+            },
+            {
+              "name": "y_number"
+            },
+            {
+              "name": "z_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "new() -> create (0, 0, 0).\nnew(v: number) -> creates (v, v, v)"
+        },
+        "ONE": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "(1, 1, 1)"
+        },
+        "FORWARD": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "(1, 0, 0)"
+        },
+        "RIGHT": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "(0, 1, 0)"
+        },
+        "Lerp": {
+          "type": "function",
+          "args": [
+            {
+              "name": "from_vector"
+            },
+            {
+              "name": "to_vector"
+            },
+            {
+              "name": "progress_number"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "linearly interpolates between two vectors by specified progress amount and return result vector"
+        },
+        "UP": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "(0, 0, 1)"
+        },
+        "ZERO": {
+          "type": "ref",
+          "name": "_vector",
+          "description": "(0, 0, 0)"
+        }
+      }
+    },
+    "_perPlayerReplicator": {
+      "type": "table",
+      "fields": {
+        "GetPlayerReplicator": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "player"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_replicator"
+            }
+          ],
+          "link": "",
+          "description": "Returns the replicator for the specified player. Can be nil if the replicator hasn’t spawned on the client yet"
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    },
+    "UI": {
+      "type": "table",
+      "fields": {
+        "GetScreenSize": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player_player"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "Returns a Vector3 with the size of the player’s screen in the x, y coordinates. Only gives results from a client context."
+        },
+        "ShowDamageDirection": {
+          "type": "function",
+          "args": [
+            {
+              "name": "target_player"
+            },
+            {
+              "name": "source_vector|coreobject|player"
+            }
+          ],
+          "link": "",
+          "description": "Target player sees an arrow pointing towards some damage source. Lasts for 5 seconds."
+        },
+        "ShowFlyUpText": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player_player"
+            },
+            {
+              "name": "message_string"
+            },
+            {
+              "name": "c_color"
+            },
+            {
+              "name": "pos_vector["
+            },
+            {
+              "name": "duration_number]"
+            }
+          ],
+          "link": "",
+          "description": "Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional duration"
+        },
+        "GetScreenPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player_player"
+            },
+            {
+              "name": "worldPos_vector"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "Calculates the location that world_position appears on the screen. Returns a Vector3 with the x, y coordinates. Only gives results from a client context."
+        },
+        "ShowBigFlyUpText": {
+          "type": "function",
+          "args": [
+            {
+              "name": "player_player"
+            },
+            {
+              "name": "message_string"
+            },
+            {
+              "name": "c_color"
+            },
+            {
+              "name": "pos_vector["
+            },
+            {
+              "name": "duration_number]"
+            }
+          ],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "_player": {
+      "type": "table",
+      "fields": {
+        "mass": {
+          "type": "number",
+          "description": ""
+        },
+        "touchForceFactor": {
+          "type": "number",
+          "description": ""
+        },
+        "SetCameraOffset": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "offset_vector"
+            },
+            {
+              "name": "transition_boolean"
+            }
+          ],
+          "link": "",
+          "description": "Adjusts the focus point for the camera (what the camera looks at and rotates around). Defaults to just off the shoulder. The Offset is calculated from the middle of the player."
+        },
+        "brakingFrictionFactor": {
+          "type": "number",
+          "description": ""
+        },
+        "brakingDecelerationWalking": {
+          "type": "number",
+          "description": ""
+        },
+        "buoyancy": {
+          "type": "number",
+          "description": "1.0 is neutral buoyancy, where player won't sink or float naturally. < 1 will sink, > 1 fill float"
+        },
+        "diedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player): fires when player dies"
+        },
+        "GetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get world rotation"
+        },
+        "isCrouching": {
+          "type": "boolean",
+          "description": ""
+        },
+        "activePose": {
+          "type": "string",
+          "description": "Determines an animation pose to hold during idle. Default value is none. Other values can be sit_car_low, aim_rifle_shoulder, carry_object_high, score_card, carry_object_heavy, carryl_object_low"
+        },
+        "DisableRagdoll": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Disables all ragdolls that have been set on the player."
+        },
+        "isCursorVisible": {
+          "type": "boolean",
+          "description": "is mouse cursor visible"
+        },
+        "isWalking": {
+          "type": "boolean",
+          "description": ""
+        },
+        "shouldRotationFollowCursor": {
+          "type": "boolean",
+          "description": "if true, character will rotate towards mouse cursor. If gamepad is attached, will use right thumbstick for character rotation"
+        },
+        "isMounted": {
+          "type": "boolean",
+          "description": ""
+        },
+        "isCrouchEnabled": {
+          "type": "boolean",
+          "description": "turns crouching on/off for a player"
+        },
+        "isJumping": {
+          "type": "boolean",
+          "description": ""
+        },
+        "ResetCamera": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transition=true_bool"
+            }
+          ],
+          "link": "",
+          "description": "Sets the camera back to default, 3rd person behind character. If Transition is set to True (default behavior) the change will be smooth"
+        },
+        "animationSet": {
+          "type": "string",
+          "description": "Which set of animations to use for this player. Values can be unarmed, one_handed or crossbow"
+        },
+        "SetCameraFov": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "fov_number"
+            }
+          ],
+          "link": "",
+          "description": "Sets the camera’s field of view for the player."
+        },
+        "swimSpeed": {
+          "type": "number",
+          "description": ""
+        },
+        "GetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get local scale"
+        },
+        "walkSpeed": {
+          "type": "number",
+          "description": "Walk speed as a fraction of default.  Range is 0-10, default is 1"
+        },
+        "isClimbing": {
+          "type": "boolean",
+          "description": ""
+        },
+        "isFlying": {
+          "type": "boolean",
+          "description": ""
+        },
+        "GetAbilities": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "isAccelerating": {
+          "type": "boolean",
+          "description": ""
+        },
+        "GetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "current velocity"
+        },
+        "maxAcceleration": {
+          "type": "number",
+          "description": ""
+        },
+        "SetCameraEnableCollision": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "show_bool"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetupCameraTopdownFollow": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "pitch_number"
+            },
+            {
+              "name": "yaw_number"
+            },
+            {
+              "name": "initialDist_number"
+            },
+            {
+              "name": "minDist_number"
+            },
+            {
+              "name": "maxDist_number"
+            }
+          ],
+          "link": "",
+          "description": "set camera in topdown mode. For more options, please use Camera Settings object"
+        },
+        "GetWorldScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "get world scale"
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "TransferToGame": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "gameId_string"
+            }
+          ],
+          "link": "",
+          "description": "Play mode only. Transfers player to the game specified by the passed-in game ID."
+        },
+        "RemoveResource": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "resourceName_string"
+            },
+            {
+              "name": "amount_number"
+            }
+          ],
+          "link": "",
+          "description": "Subtracts an amount of a resource from a player. Does not go below 0."
+        },
+        "LockCamera": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "enabled_boolean|dir_vector|rot_rotation"
+            }
+          ],
+          "link": "",
+          "description": "locks camera, at current direction, or input direction"
+        },
+        "GetWorldTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "get world transform"
+        },
+        "AddResource": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "resourceName_string"
+            },
+            {
+              "name": "amount_number"
+            }
+          ],
+          "link": "",
+          "description": "Adds an amount of a resource to a player"
+        },
+        "SetResource": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "resourceName_string"
+            },
+            {
+              "name": "amount_number"
+            }
+          ],
+          "link": "",
+          "description": "Sets a specific amount of a resource on a player"
+        },
+        "SetWorldScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector_scale"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world scale"
+        },
+        "maxSwimSpeed": {
+          "type": "number",
+          "description": ""
+        },
+        "GetResource": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "resourceName_string"
+            }
+          ],
+          "link": "",
+          "description": "Returns the amount of a resource owned by a player."
+        },
+        "team": {
+          "type": "string",
+          "description": ""
+        },
+        "maxJumpCount": {
+          "type": "number",
+          "description": "max number of jumps. if 0, jump is disabled"
+        },
+        "ClearResources": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Removes all resources from a player"
+        },
+        "ResetVelocity": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "link": "",
+          "description": "Resets the player’s velocity to zero"
+        },
+        "walkableFloorAngle": {
+          "type": "number",
+          "description": ""
+        },
+        "maxHitPoints": {
+          "type": "number",
+          "description": "max hitpoints"
+        },
+        "SetWorldTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transform_transform"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world transform"
+        },
+        "canTopdownCameraRotate": {
+          "type": "boolean",
+          "description": "if true, camera can rotate in topdown mode"
+        },
+        "SetNameVisible": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "boolean"
+            }
+          ],
+          "link": "",
+          "description": "set nameplace visible"
+        },
+        "GetWorldPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "return world position"
+        },
+        "cameraSensitivity": {
+          "type": "number",
+          "description": "default 1.0, multiplier"
+        },
+        "PlayAnimation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "animName_string"
+            },
+            {
+              "name": "isLooping_bool"
+            },
+            {
+              "name": "duration_number"
+            }
+          ],
+          "link": "",
+          "description": "Plays a specific animation."
+        },
+        "GetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": "return local position"
+        },
+        "GetEquipment": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "table"
+            }
+          ],
+          "link": "",
+          "description": "return table of equipments"
+        },
+        "AddImpulse": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "impulse_vector"
+            }
+          ],
+          "link": "",
+          "description": "Adds an impulse force to the player."
+        },
+        "SetScale": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local scale"
+        },
+        "SetPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local position"
+        },
+        "damagedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player, damage): fires when player takes damage"
+        },
+        "SetReticleVisible": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "show_bool"
+            }
+          ],
+          "link": "",
+          "description": "Shows or hides the reticle for the player"
+        },
+        "scrollZoomSpeed": {
+          "type": "boolean",
+          "description": "multiplier to mouse wheel zoom speed"
+        },
+        "SetCameraOverTheShoulder": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transition=true_bool"
+            }
+          ],
+          "link": "",
+          "description": "Sets the camera to 3rd person over the shoulder. Ideal for firing weapons. If Transition is set to True (default behavior) the change will be smooth"
+        },
+        "SetCameraDistance": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "distance_number"
+            },
+            {
+              "name": "transition_boolean"
+            }
+          ],
+          "link": "",
+          "description": "Sets the Distance the camera floats from the player. Using a negative Distance will reset it to default."
+        },
+        "stepHeight": {
+          "type": "number",
+          "description": "Maximum height in centimeters the player can step up. Range is 0-100, default is 45"
+        },
+        "groundFriction": {
+          "type": "number",
+          "description": ""
+        },
+        "GetRotationRate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "SetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local rotation"
+        },
+        "Respawn": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "[optionalPos_vector"
+            },
+            {
+              "name": "optionalRot_rotation]"
+            }
+          ],
+          "link": "",
+          "description": "Resurrects a dead Player at one of the Start Points. Optional position and rotation parameters can be used to specify a location"
+        },
+        "hitPoints": {
+          "type": "number",
+          "description": "current hitpoints"
+        },
+        "SetWorldRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation_rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world rotation"
+        },
+        "ApplyDamage": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "damage_Damage"
+            }
+          ],
+          "link": "",
+          "description": "Damages a Player. If their hitpoints go below 0 they die"
+        },
+        "Die": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "damage_Damage"
+            }
+          ],
+          "link": "",
+          "description": "They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death"
+        },
+        "IsA": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "typename_string"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "link": "",
+          "description": "returns true if object type is or extends input type"
+        },
+        "SetRotationRate": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "rotation"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": ""
+        },
+        "isGrounded": {
+          "type": "boolean",
+          "description": ""
+        },
+        "EnableRagdoll": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "boneName_string"
+            },
+            {
+              "name": "weight_number"
+            },
+            {
+              "name": "cameraFollows_boolean"
+            }
+          ],
+          "link": "",
+          "description": "Enables ragdoll for the player, starting on BoneName weighted by Weight (between 0.0 and 1.0). This can cause the player capsule to detach from the mesh. Setting CameraFollows to true will force the player capsule to stay with the mesh. All parameters are optional; BoneName defaults to the root bone, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously."
+        },
+        "respawnedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player): fires when player respawns"
+        },
+        "bindingPressedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player, string): fires when action binding is pressed. second parameter is binding"
+        },
+        "SetWorldPosition": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "vector_position"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set world position"
+        },
+        "GetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_transform"
+            }
+          ],
+          "link": "",
+          "description": "get local transform"
+        },
+        "isSwimming": {
+          "type": "boolean",
+          "description": ""
+        },
+        "spreadModifier": {
+          "type": "number",
+          "description": ""
+        },
+        "facingMode": {
+          "type": "string",
+          "description": "controls mode to use for this player. Values can be strafe or loose."
+        },
+        "SetTransform": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "transform_transform"
+            }
+          ],
+          "returnTypes": [],
+          "link": "",
+          "description": "set local transform"
+        },
+        "id": {
+          "type": "string",
+          "description": ""
+        },
+        "cursorMoveInputMode": {
+          "type": "CursorMoveInput",
+          "description": "set which mouse button to use for mouse-hold move. Values are CursorMoveInput.NONE/LEFT_MOUSE/RIGHT_MOUSE/LEFT_OR_RIGHT_MOUSE"
+        },
+        "SetupCameraFps": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "[cameraOffset_vector]"
+            }
+          ],
+          "link": "",
+          "description": "set camera in fps mode, with given offset"
+        },
+        "brakingDecelerationFalling": {
+          "type": "number",
+          "description": ""
+        },
+        "GetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get local rotation"
+        },
+        "bindingReleasedEvent": {
+          "type": "ref",
+          "name": "_eventType",
+          "description": "event(player, string): fires when action binding is released"
+        },
+        "gravityScale": {
+          "type": "number",
+          "description": ""
+        },
+        "isDead": {
+          "type": "boolean",
+          "description": ""
+        },
+        "ShowHitFeedback": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "color_color"
+            }
+          ],
+          "link": "",
+          "description": "Shows diagonal crosshair feedback. Useful, e.g. when a shot connects with a target. Optional Color defaults to red"
+        },
+        "SetVisibility": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "hidePlayer_boolean["
+            },
+            {
+              "name": "hideAttachments=true_boolean]"
+            }
+          ],
+          "link": "",
+          "description": "Shows or hides the player. The second parameter is optional, defaults to true, and determines if attachments to the player are hidden as well as the player"
+        }
+      }
+    },
+    "_rotation": {
+      "type": "table",
+      "fields": {
+        "y": {
+          "type": "number",
+          "description": "Y component of rotation"
+        },
+        "x": {
+          "type": "number",
+          "description": "X component of rotation"
+        },
+        "z": {
+          "type": "number",
+          "description": "Z component of rotation"
+        }
+      }
+    },
+    "_quaternion": {
+      "type": "table",
+      "fields": {
+        "GetRotation": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_rotation"
+            }
+          ],
+          "link": "",
+          "description": "get rotation representation of this quaternion"
+        },
+        "x": {
+          "type": "number",
+          "description": "X component of quaternion"
+        },
+        "GetRightVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "w": {
+          "type": "number",
+          "description": "W component of quaternion"
+        },
+        "y": {
+          "type": "number",
+          "description": "Y component of quaternion"
+        },
+        "GetUpVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        },
+        "z": {
+          "type": "number",
+          "description": "Z component of quaternion"
+        },
+        "GetForwardVector": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            }
+          ],
+          "returnTypes": [
+            {
+              "type": "ref",
+              "name": "_vector"
+            }
+          ],
+          "link": "",
+          "description": ""
+        }
+      }
+    },
+    "_blueprint": {
+      "type": "table",
+      "fields": {
+        "SetSmartProperty": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "propName_string"
+            }
+          ],
+          "link": "",
+          "description": "Sets the value of an exposed blueprint variable.  Value, which can be a number, bool, string, Vector3, Rotator, or Color, but must match the type of the parameter on the blueprint.  Returns true if set successfully and false if not."
+        },
+        "GetSmartProperty": {
+          "type": "function",
+          "args": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "propName_string"
+            }
+          ],
+          "link": "",
+          "description": "Gets the current value of an exposed blueprint variable.  Returns the value, which can be an integer, float, bool, string, Vector3, Rotator, Color, or nil if not found.  Second return value is a bool, true if found and false if not."
+        }
+      },
+      "metatable": {
+        "type": "table",
+        "fields": {
+          "__index": {
+            "type": "ref",
+            "name": "_coreObject"
+          }
+        }
+      }
+    }
+  }
+}
