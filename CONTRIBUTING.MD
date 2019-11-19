@@ -218,7 +218,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 - Provide Related Tutorials / Additional Resources
 
 #### Writing Conventions
-- Follow the Core Lua Style Guide, which most notably script writing and casing conventions 
+- Follow the [Core Lua Style Guide](tutorials/gameplay/lua_style_guide.md), which most notably script writing and casing conventions 
 - Make functions and variables local unless global is completely necessary. 
 - Strings should be in double quotes like so a = “hello world“, not b = ‘hello world’ 
 - If describing a command outside a code snippet, put the command in code format like so `tostring`
