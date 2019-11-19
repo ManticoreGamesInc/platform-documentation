@@ -128,10 +128,15 @@ Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) ac
 - Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live
 - Navigate to `http://127.0.0.1:8000/` for changes upon saving and and live updates
 
-* If you mistype your information, you can edit your information
+If you mistype your information, you can edit your information
 - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
 - Find Git credentials in the list (e.g. git:https://).
 - Delete your Git credentials and restart the process to be prompted again.
+
+To update your local branch to the latest version of this project,
+- Navigate to the platform-documentation location via command line
+- In the command prompt, enter `git pull origin` (fetches the latest version and merges the latest commits into your branch)
+- To learn more, visit [Git's Documentation](https://git-scm.com/docs/git-pull).
 
 Any new session, you make need to start up a server again with `mkdocs serve` after navigating to your platform-documentation folder.
 
@@ -156,3 +161,81 @@ for now this works for tiny (but private) clips.
 For now drop them in the `img/` folder and reference them via links as expected
 (examples present throughout). Optimization will likely be handled by the host
 (Netlify).
+
+## Tutorial Styling
+
+To encourage consistent styling, here are CORE tutorial styling and writing guidelines.
+
+### Tutorial, Background Info:
+
+- Tutorial Prerequisites
+- Topic Tag
+- Estimated Time for Completion
+- Difficulty Level
+
+### Tutorial Prerequisites:
+
+- Author/Audience Assumptions
+- Link to any recommended basic tutorials
+- If applicable, link to other tutorials in the series
+
+### Topic Tag(s)
+
+|Topic Tag | Example Tutorial|
+|---|---| 
+| Game Creation | First Platformer, First FPS
+| Scripting | Intro to Lua, Coding Best Practices
+| Editor Essentials | Player Settings, Script Debugger
+| Audio | SFX, Rhythm Games
+| Networking | Replicators, Client-Server
+| UI | Main Menu Creation, Regen HP Bar
+| Terrain | Basic Terrain, Import Height Maps                                                                                          
+| Weapon | Intro to Melee Weapons, Intro to Guns
+| Ability | How to Sprint, How to Cast a Magic Spell
+
+### Estimated Time for Completion
+
+It is recommended to keep your tutorials short and below the 30 minute mark for estimated time of completion.
+If longer, it is recommendeded to split your tutorial into a series.  
+
+### Difficulty Level
+- Beginner
+- Intermediate
+- Advanced
+
+### Content
+
+#### Abstract
+- Introduction with goal of the tutorial (2-3 sentences)
+- Image of finished work
+- Skills the learner will acquire (3-5 bullet points)
+
+#### Tutorial Content
+- Include Commented Code that follows Conventions*
+- Include Pictures of the Hierarchy often
+- Link to the Finished Example Project at the end
+- Published project should be on Prod before Alpha
+- Provide Related Tutorials / Additional Resources
+
+#### Writing Conventions
+- Follow the Core Lua Style Guide, which most notably script writing and casing conventions 
+- Make functions and variables local unless global is completely necessary. 
+- Strings should be in double quotes like so a = “hello world“, not b = ‘hello world’ 
+- If describing a command outside a code snippet, put the command in code format like so `tostring`
+- Encourage use of the Event Log and use print() more than UI.PrintToScreen()
+- Put parentheses around your conditions in any compound conditional
+- Bold any button or object a user has to click on like `**Edit Terrain*`
+- Please use the Oxford comma. :) 
+
+### Expectations
+
+#### Review Process
+- Should be in Markdown, with additional tools provided by extensions for infoboxes, tips, questions, and warnings.  
+- Tutorials should be reviewed by 2-3 people minimum who have completely gone through the tutorial before the writer pushes to Prod Docs.
+- Host locally, then should create a branch in Gitlab and then merge once fully reviewed and completed.
+
+#### Content Quality
+- Name your objects in the hierarchy informatively.  
+- Favor best practices (using CoreObject Asset references rather than script.parent.parent:GetChildren()[3]).
+- Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series. 
+
