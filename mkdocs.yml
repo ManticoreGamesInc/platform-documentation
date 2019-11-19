@@ -76,6 +76,7 @@ markdown_extensions:
   - admonition # add info/warn/error admonitions
   - fontawesome_markdown # easily add fontawesome icons in markdown format
   - pymdownx.arithmatex # fancy math styling
+  - markdown.extensions.attr_list # Customn attributes for elements
   - pymdownx.betterem: # better bolding styles
       smart_enable: all
   - pymdownx.caret # insert and superscript
