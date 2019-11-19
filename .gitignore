@@ -3,3 +3,4 @@
 .vs/
 .vscode/
 .markdownlint.json
+src/assets/test.lua
