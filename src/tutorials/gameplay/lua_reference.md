@@ -5,21 +5,18 @@
     Incomplete or outdated information may be present.
 
 CORE uses **Lua**, a lightweight and flexible programming language to accomplish
-scripting in the engine. As of late May 2019, we are using Lua version **5.3.4**.
-
-Lua is a [dynamically
+scripting in the engine. It is a [dynamically
 typed](https://en.wikipedia.org/wiki/Type_system#Combining_static_and_dynamic_type_checking)
 language, has no inbuilt conception of classes, and has minimal to no data
-structures present in the base language.
+structures present in the base language. As of late May 2019, we are using Lua version **5.3.4**.
 
 The next steps depend on your level of previous programming experience.
 
 **Beginner**
 
-Check out this [tutorial](lua_basics_lightbulb.md), and review the [official] docs after.
+After you're done reading this primer, check out this [tutorial](lua_basics_lightbulb.md), and review the [official] docs after.
 
-!!! Note
-    Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!
+!!! note "Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!"
 
 **Intermediate**
 
@@ -28,7 +25,7 @@ Skim through the beginner content, then try our [Manticoin Game](lua_basics_mant
 **Advanced**
 
 Check out this [primer], or this [reference-sheet] for tips on syntax. Use the
-official [reference] as needed, then make yourself familiar with the [CORE API](../../core_api.md).
+official [reference] as needed, then make yourself familiar with the [CORE API](../../core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
 
 **Other**
 
@@ -215,11 +212,11 @@ h{key1 = "Sonmi~451"}  --> "Sonmi~451"
 -- pairs() returns key-value pairs and is mostly used for associative tables.
 -- Attention: Key order is unspecified.
 u = {}
-u[1]="a" -- Attention: Indices start at 1 in Lua!
-u[3]="b"
-u[2]="c"
-u[4]="d"
-u["hello"]="world"
+u[1] = "a" -- Attention: Indices start at 1 in Lua!
+u[3] = "b"
+u[2] = "c"
+u[4] = "d"
+u["hello"] = "world"
 
 for key, val in pairs(u) do
   print(key, val)
@@ -408,7 +405,7 @@ local function SayMyName()
   print("Hrunkner")
 end
 
-function M.SayHello()
+function m.SayHello()
   print("Why hello there")
   SayMyName()
 end
