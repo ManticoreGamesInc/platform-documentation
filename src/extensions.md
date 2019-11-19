@@ -8,7 +8,7 @@ There are a bunch of ways you can improve the experience of scripting in CORE. I
 
 ## External editors
 
-There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available for Lua dev.
+There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
 
 | Name                                                         | Details                                             | CORE Autocomplete         | Price
 | ------------------------------------------------------------ | --------------------------------------------------- |-------------------------- |-----------
@@ -24,7 +24,7 @@ For VS Code and Atom, we have collected a few extensions that make developing in
 
 |VS Code|Atom|
 |--|--|
-|<table> <tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[language-lua](https://atom.io/packages/language-lua)</td><td>Adds Lua support</td></tr><tr><td>[autocomplete-lua](https://atom.io/packages/autocomplete-lua)</td><td>Adds Lua autocomplete</td></tr><tr><td>[Linter](https://atom.io/packages/linter)</td><td>Adds linting support</td></tr><tr><td>[Linter: LuaCheck](https://atom.io/packages/linter-luacheck)</td><td>Adds Lua support to Linter </td></tr></table>|<table><tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)</td><td>Adds Lua support</td></tr><tr><td>[LuaCoderAssist](https://marketplace.visualstudio.com/items?itemName=liwangqian.luacoderassist)</td><td>More Lua tools</td></tr><tr><td>[Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)</td><td>More Lua tools</td></tr></table>|
+|<table> <tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[language-lua](https://atom.io/packages/language-lua)</td><td>Adds Lua support</td></tr><tr><td>[autocomplete-lua](https://atom.io/packages/autocomplete-lua)</td><td>Adds Lua autocomplete</td></tr><tr><td>[Linter](https://atom.io/packages/linter)</td><td>Adds linting support</td></tr><tr><td>[Linter: Luacheck](https://atom.io/packages/linter-luacheck)</td><td>Adds Lua support to Linter </td></tr></table>|<table><tr><th>Plugin Name</th><th>Details</th></tr><tr><td>[VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)</td><td>Adds Lua support</td></tr><tr><td>[Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)</td><td>Auto Completion and more</td></tr></table>|
 
 ### Autocomplete
 
@@ -34,7 +34,12 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/luacompleterc.zip">luacompleterc.zip</a>
 * :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
 
-!!! note "For VS Code, it will only work if the folder containing `.luacompleterc` file is opened, it does not look for it in parent directories."
+!!! note
+    For VS Code, you need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
+
+    Example: `"Lua.workspace.library": {"E:\\CORE\\Dev\\Platform\\Saved\\Maps\\": true}`
+
+    Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
 
 #### ZeroBrane
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
