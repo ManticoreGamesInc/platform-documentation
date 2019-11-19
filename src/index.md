@@ -40,7 +40,7 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 
     You'll need a GitLab account, with contribution permissions. If you
     don't already have that, just email
-    [max@manticoregames.com](mailto:max@manticoregames.com) with the name of
+    [mailto:docs@manticoregames.com](mailto:mailto:docs@manticoregames.com) with the name of
     your GitLab account to get set up.
 
     More specific contribution details can be found [here](../CONTRIBUTING.MD), if needed.
