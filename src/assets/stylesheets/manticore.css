@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
 
-body {
-    color: #555;
-}
-
 [data-md-color-primary=blue-grey] .md-typeset a {
     border-bottom: 1px dotted black;
 }
@@ -64,6 +60,10 @@ body > div > main > div > div.md-content > article > a:first-child {
 .md-footer-nav {
     background-color: #fff;
     color: #000000de;
+}
+
+[data-md-color-primary=blue-grey] .md-nav__link--active, [data-md-color-primary=blue-grey] .md-nav__link:active {
+    color: #ff9000;
 }
 
 .md-footer-nav a:hover, .md-footer-nav__direction {
