@@ -24,8 +24,8 @@ nav:
       - Ability (Advanced): tutorials/gameplay/abilities_advanced.md
       - Weapon: tutorials/gameplay/weapons.md
       - Weapon (Advanced): tutorials/gameplay/weapons_advanced.md
-      - Light Bulb Game: tutorials/gameplay/lua_basics_lightbulb.md
-      - Manticoin Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+      - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
+      - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
     - Art:
       - Art in CORE: tutorials/art/art_reference.md
       - Scene Creation: tutorials/art/scene_creation.md

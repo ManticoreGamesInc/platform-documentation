@@ -1,4 +1,4 @@
-# Light Bulb Game Tutorial
+# Scripting in CORE
 
 !!! warning
     Flagged for Review.
@@ -15,27 +15,11 @@
 
 ## Overview
 
-Create a light switch that turns on and off a light.
-
-* **Completion time:** TODO: TBD
-* **Knowledge level:** No prior knowledge of Lua
-* **Skills you will learn:**
-    * Downloading and editing templates
-    * Creating a script and using it to:
-        * Rotate an object
-        * Spawn a template/asset
-        * Despawn a template/asset
-        * Create an interactable event
-        * Create a custom property
-    * Global and local rotation
-    * Using triggers
-    * Creating and updating trigger labels
-
-![LightSwitchAndBulb](../../img/LightBulb/image9.png)
+In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition amongs programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
 ---
 
-**CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
+**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
 
 * For debugging, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
@@ -43,20 +27,118 @@ Create a light switch that turns on and off a light.
 
 ---
 
-## Downloading the template
+* **Completion time:** TODO: TBD
+* **Knowledge level:** No prior knowledge of Lua
+* **Skills you will learn:**
+    * Downloading and editing templates
+    * Creating a script and using it to:
+        * Rotate an object
+        * Create an interactable event
+        * Create a custom property
+    * Using triggers
+    * Creating and updating trigger labels
+
+---
+
+## My First Script
+
+### Creating the Script
+
+1. Open up the editor and click the **+** (Create Script) button in the `Project Content` tab.
+    * Name it `TutorialScript` for now.
+    * You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>), when it is selected.
+* Open up the script by double clicking on it.
+    * By default this happens via our in-built editor.
+    * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
+        * We offer [editor integrations](../../extensions.md) for Atom, VS Code, and ZeroBrane that add autocomplete for the CORE API support!
+
+### Writing the Script
+
+* Type `UI.PrintToScreen("Hello World!")`.
+* Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
+
+### Running the Script
+
+1. To add your script to the game, drag it from the **Scripts** area to the top of the Hierarchy tree on the right side.
+    * Press **Play** at the top of the editor, and see your message appear on screen!
+
+### Hello World Breakdown
+
+* We made a script.
+* We populated it with code.
+    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in CORE API functions](../../core_api.md).
+* We placed the script into the Hierarchy tree so that it executes when the game runs.
+
+Next step: Adding our own function!
+
+### Functions
+
+In programming, a function is a named section of a program that performs a specific task. In this sense, a function is a type of procedure or routine.
+So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Init`, for simplicity.
+
+```lua
+-- Our first function!
+local function Init()
+    UI.PrintToScreen("Hello from a function!")
+end
+```
+
+!!! note
+    In case you've not read the [Lua Primer](lua_reference.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+
+If you save and run this code, nothing will happen. How utterly boring! This is because the function is never called in our code. To get our function to work, we can add a function call to the end of the script.
+
+```lua
+-- Calling the function
+Init()
+```
+
+You should now have the following:
+
+```lua
+-- Our first function!
+local function Init()
+    UI.PrintToScreen("Hello from a function!")
+end
+
+-- Calling the function
+Init()
+```
+
+Now if you save and run this, you'll see your message appear on the screen! Excellent.
+
+!!! note "Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of files."
+
+If you are having issues, check to see if your `TutorialScript` looks like this in the `Properties` view:
+
+![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
+
+Time to put what we've learned to a test, welcome to the main course!
+
+---
+
+## Tutorial
+
+Now we are going to create a small game that involves a light switch that turns on and off a light.
+
+![LightSwitchAndBulb](../../img/LightBulb/image9.png){: .center}
+
+### Downloading the template
 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
 2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
-    ![](../../img/LightBulb/image22.png) ![](../../img/LightBulb/image6.png)
+    <div align="center">
+    <img style="display: inline; width: 40%;" src="../../../img/LightBulb/image22.png" />
+    <img style="display: inline; width: 40%;" src="../../../img/LightBulb/image6.png" />
+    <p style="font-style: italic">Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!</p>
+    </div>
 
-    *Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!*
-
-## Creating a new script
+### Creating a new script
 
 1. Create a new script by clicking the "**+**" button in the **Project Content** tab to the left of the search bar.
 
-    ![](../../img/LightBulb/image11.png)
+    ![](../../img/LightBulb/image11.png){: .center}
 
 2. Name this one "**LightToggleScript**".
 
@@ -64,11 +146,11 @@ Create a light switch that turns on and off a light.
 
 4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "**Deinstance This Object**" from the drop down menu.
 
-    ![](../../img/LightBulb/image8.png)
+    ![](../../img/LightBulb/image8.png){: .center}
 
     The template and objects in the template should change from green to teal. Green objects represent objects in a template. Templates are not editable.
 
-    ![](../../img/LightBulb/image10.png)
+    ![](../../img/LightBulb/image10.png){: .center}
 
     Teal objects represent objects that are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
 
@@ -76,9 +158,9 @@ Create a light switch that turns on and off a light.
 
     Make sure the script is first in the "**Light switch**" folder's hierarchy. This makes it easier to find when looking at the hierarchy.
 
-    ![](../../img/LightBulb/step_1_point_5.png)
+    ![](../../img/LightBulb/step_1_point_5.png){: .center}
 
-## Defining the switch
+### Defining the switch
 
 We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you'll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
 
@@ -94,19 +176,19 @@ We want our light switch to function just like it would in real life: the switch
 
     `GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
 
-    ![](../../img/LightBulb/step_3_point_1.png)
+    ![](../../img/LightBulb/step_3_point_1.png){: .center}
 
     `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
 2. Left click on the `Switch` folder and select "**Enable Networking**" from the drop down menu.
 
-    ![](../../img/LightBulb/image15.png)
+    ![](../../img/LightBulb/image15.png){: .center}
 
     Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking [here](networking_reference.md).
 
     The `Switch` folder should now read: `Switch (networked)`.
 
-## Rotating the switch
+### Rotating the switch
 
 1. We now need to rotate the switch. On a new line, type:
 
@@ -132,7 +214,7 @@ We want our light switch to function just like it would in real life: the switch
 
     Let's press **Play** and see how our switch moves!
 
-    ![](../../img/LightBulb/image13.png)
+    ![](../../img/LightBulb/image13.png){: .center}
 
     Unfortunately that didn't quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
@@ -161,38 +243,40 @@ We want our light switch to function just like it would in real life: the switch
 
 3. Press **Play** and test it out!
 
+    <div align="center"><!-- TODO: Replace with gif -->
     ![](../../img/LightBulb/image7.png)
+    <p style="font-style: italic">Success!</p>
+    </div>
 
-    Success!
-
-## Adding a trigger
+### Adding a trigger
 
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
 1. Create a trigger by going to the **CORE Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
 
-    ![](../../img/LightBulb/trigger.png)
+    ![](../../img/LightBulb/trigger.png){: .center}
 
 2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
-    !!! info
-        Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights.
+    !!! info "Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights."
 
 3. Drag the trigger over to the light switch. The size of the trigger determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
 
-    ![](../../img/LightBulb/image20.png)
+    ![](../../img/LightBulb/image20.png){: .center}
 
     This looks like a good size.
 
 4. Look at the properties of the trigger by selecting it within the Hierarchy. Under "**Gameplay**" there is a parameter called "**Interactable**," check the box next to it to enable it. Otherwise we won't be able to interact with the trigger.
 
-    ![](../../img/LightBulb/image17.png)
+    <div align="center">
+    ![](../../img/LightBulb/image17.png){: .center}
+    </div>
 
 5. Drag the trigger into the **Light switch group**. It should be the 4th child in the group. Since we'll be referencing the trigger in our script, make sure it's marked as networked. Right click on the trigger and select "**Enable Networking**".
 
     Our hierarchy should now look like this:
 
-    ![](../../img/LightBulb/step_3_point_5.png)
+    ![](../../img/LightBulb/step_3_point_5.png){: .center}
 
 6. Now we need to tell the script what our trigger is and what should happen when the player interacts with it. Under our `switch` variable definition type:
 
@@ -280,7 +364,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
 
-    !!! info "BEST PRACTICES: ORGANIZING YOUR CODE"
+    !!! info "Best Practices: Organizing your code"
         It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of what your functions do. It can also make finding specific functions in your script easier.
 
         Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script.
@@ -303,13 +387,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
         As our script gets longer, these practices will make our script easier to read and edit.
 
-## Spawning a Light
+### Spawning a Light
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
     Select the **Lighting** category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
 
-    ![](../../img/LightBulb/image4.png)
+    ![](../../img/LightBulb/image4.png){: .center}
 
     I turned down the light's `Intensity` because it was very bright in my scene. When you're done making adjustments, right click on the `Point Light` in the Hierarchy and select "**Enable Networking**" under the **Networking** menu.
 
@@ -317,13 +401,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 2. Right click on the `Point Light` in your Hierarchy and select "**Create New Template from This**" under **Templates** in the menu. Let's call our new template "**LightTemplate**".
 
-    ![](../../img/LightBulb/image16.png)
+    ![](../../img/LightBulb/image16.png){: .center}
 
 3. Delete the **LightTemplate** from the Hierarchy. We don't want the light in our scene until we turn on the light switch.
 
 4. Click on our script "**LightToggleScript**" in the Hierarchy and look at the **Properties** tab. Click "**Add Property**" at the bottom of the tab.
 
-    ![](../../img/LightBulb/image14.png)
+    ![](../../img/LightBulb/image14.png){: .center}
 
 5. Choose "**AssetReference**" from the drop down menu. Change "**PropertyName**" to "**Light**" then click "**Add Property**".
 
@@ -331,7 +415,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 6. Find the template we just made ("**LightTemplate**") in the **Project Content** tab and drag it over to our "**Light**" custom parameter where it says "**Empty**".
 
-    ![](../../img/LightBulb/image2.png)
+    ![](../../img/LightBulb/image2.png){: .center}
 
 7. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
@@ -355,7 +439,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `lightTemplate` is the variable we'll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script's custom property "**Light**".
 
-    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0, 0, 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
+    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0 0 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
 
     Your script should now look like this:
 
@@ -378,13 +462,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Notice how we updated the comment describing what our `OnSwitchInteraction` function does.
 
-9. Press **Play** and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0, 0, 0".
+9. Press **Play** and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0 0 0".
 
 10. Time to change the spawn location to the light bulb. Click on the **Light Bulb group** in the Hierarchy. See the group named "**Filaments**"? As this group is located in the center of the bulb, it would be the perfect location for our light to spawn at.
 
     We could look up the global position of the **Filaments** and plug them into our code, but that would mean if we ever moved the light bulb we would have to go into our script and update it - which we might forget to do, resulting in a random floating light in our game.
 
-    Instead we can find the filament's position in the script and use that, which is a lot easier in the long run as we'll be able to move the light bulb anywhere we want without worrying about updating the script every time. (TODO: What is global and local position? Click [here][link] to find out).
+    Instead we can find the filament's position in the script and use that, which is a lot easier in the long run as we'll be able to move the light bulb anywhere we want without worrying about updating the script every time.
 
     Let's start with the variables:
 
@@ -433,13 +517,14 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 12. Press **Play** and test out the script.
 
+    <div align="center"><!-- TODO: Replace with gif -->
     ![](../../img/LightBulb/image3.png)
-
-    Excellent!
+    <p style="font-style: italic">Excellent!</a>
+    </div>
 
 You've turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that's what you wanted (and you're not the one footing the electric bill) but we want to flip the switch and turn off the light.
 
-## Turning the switch off
+### Turning the switch off
 
 1. In order to turn the switch off again, we need to create a variable that keeps track of whether the switch is on or off.
 
@@ -544,7 +629,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it.  However, we still need to despawn the light when the light switch is turned off.
 
-## Turning the light off
+### Turning the light off
 
 1. In order to turn off the light, you first need to define the light after it is spawned. When the **LightTemplate** is spawned, it shows up at the bottom of the Hierarchy. In your `else` statement, after the `RotateTo` line, type the following:
 
@@ -589,7 +674,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 3. Let's test out the script. You can now turn on and off the switch and the light turns on and off with it. Everything works as it should, great!
 
-## Adding interaction labels
+### Adding interaction labels
 
 1. Right now, the light switch trigger simply says, "**Interact**". You can add more polish to a project by changing the interaction label to say something relevant to the trigger interaction.
 
@@ -597,15 +682,13 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     There are two ways to change a trigger's label, by going to the trigger's properties tab and simply editing the **Interaction Label** field, or with a script.
 
-    ![](../../img/LightBulb/image12.png)
+    ![](../../img/LightBulb/image12.png){: .center}
 
     Editing the **Interaction Field** property is great for when your label will always say the same thing, no matter what. Because we want to create a label that changes based on whether the switch is already on or off, we'll use our script to update the label.
 
     In your script, before the `OnSwitchInteraction` function, type:
 
-    ```lua
-    switchTrigger.interactionLabel = "Turn On"
-    ```
+    `switchTrigger.interactionLabel = "Turn On"`
 
     * `switchTrigger` is the name of the trigger we are editing the label of.
 
@@ -751,11 +834,11 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 10. Press **Play**. Now the label should update every time you interact with the light switch.
 
-**Congrats! You've just created a new game!**
+<div align="center" style="font-weight: bold; margin-top: 50px;">Congrats! You've just created your first game on CORE!</div>
 
 ## Summary
 
-You've now learned how a script can move and interact with objects within your scene using triggers and custom properties. You've also picked up a few programming concepts like global and local rotation and when to use if statements. Hopefully you feel a little more comfortable with coding and your next Lua project won't be so intimidating!
+You've now learned how a script can move and interact with objects within your scene using triggers and custom properties. You've also picked up a few programming concepts like functions and when to use `if` statements. Hopefully you feel a little more comfortable with coding and your next Lua project won't be so intimidating!
 
 As a reference, here's how your full script should look like at the end:
 
@@ -801,4 +884,3 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 
 UpdateLabel()
 ```
-
