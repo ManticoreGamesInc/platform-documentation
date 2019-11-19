@@ -4,6 +4,14 @@ body {
     color: #555;
 }
 
+[data-md-color-primary=blue-grey] .md-typeset a {
+    border-bottom: 1px dotted black;
+}
+
+body > div > main > div > div.md-content > article > a:first-child {
+    border-bottom: none;
+}
+
 .md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source, .md-footer-nav {
     font-family: 'Oswald';
     text-transform: uppercase;
