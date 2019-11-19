@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
 
-[data-md-color-primary=blue-grey] .md-typeset a {
+.md-typeset a {
     border-bottom: 1px dotted black;
 }
 
-body > div > main > div > div.md-content > article > a:first-child {
+.md-typeset .headerlink, .md-typeset .md-content__icon {
     border-bottom: none;
 }
 
@@ -30,7 +30,6 @@ body > div > main > div > div.md-content > article > a:first-child {
 .md-header-nav__button.md-logo img {
     width: 32px;
     height: 32px;
-    margin-top: 0px;
 }
 
 @media only screen and (min-width: 60em) and (max-width: 125em) {
@@ -75,12 +74,24 @@ body > div > main > div > div.md-content > article > a:first-child {
 }
 
 .md-grid {
-    max-width: 71rem;
+    max-width: 75rem;
+}
+
+.md-typeset img {
+    max-width: 50%;
+}
+
+.md-typeset code, .md-typeset table:not([class]) th {
+    white-space: nowrap;
 }
 
 @media only screen and (min-width: 76.25em) {
     .md-sidebar--secondary {
-        margin-left: 71rem;
+        margin-left: 75rem;
     }
 }
 
+.center {
+    display: block;
+    margin: 15px auto;
+}
