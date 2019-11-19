@@ -34,6 +34,31 @@ body > div > main > div > div.md-content > article > a:first-child {
 .md-header-nav__button.md-logo img {
     width: 32px;
     height: 32px;
+    margin-top: 0px;
+}
+
+@media only screen and (min-width: 60em) and (max-width: 125em) {
+    .md-header-nav__topic {
+        margin-top: 3px;
+    }
+    .md-header-nav__button.md-logo img {
+        margin-top: 1px;
+    }
+}
+
+@media only screen and (min-width: 60em) and (max-width: 100em) {
+    .md-header-nav__topic {
+        margin-top: 5px;
+    }
+    .md-header-nav__button.md-logo img {
+        margin-top: 2px;
+    }
+}
+
+@media only screen and (min-width: 59.9375em) and (max-width: 76.1875em) {
+    .md-header-nav__topic {
+        margin-top: -1px;
+    }
 }
 
 .md-footer-nav {
