@@ -1,11 +1,13 @@
-# Manticoin Game Tutorial
+# Making A Game
+
+!!! warning
+    Flagged for Review.
 
 ## Overview
 
-!!! info "About this Tutorial"
-    * Completion time: TODO: TBD
-    * Knowledge level: No prior knowledge of Lua
+In this tutorial, we are taking a deeper look at what it takes to utilize the CORE API to create a simple multiplayer game.
 
+---
 
 **CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
 
@@ -13,83 +15,28 @@
     You can toggle breakpoints by clicking on a line number in the internal editor.
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
+---
 
-## My First Script
+* **Completion time:** TODO: TBD
+* **Knowledge level:** No prior knowledge of Lua
+* **Skills you will learn:**
+    * Downloading and editing templates
+    * Creating a script and using it to:
+        * Rotate an object
+        * Spawn a template/asset
+        * Despawn a template/asset
+        * Create an interactable event
+        * Create a custom property
+        * Update UI elements
+    * Using triggers
+    * Creating and updating trigger labels
+    * Creating UI elements
 
-### Creating the Script
+---
 
-1. Open up the editor and click the **+** (Create Script) button in the `Project Content` tab.
-    * Name it `TutorialScript` for now.
-    * You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>), when it is selected.
-* Open up the script by double clicking on it.
-    * By default this happens via our in-built editor.
-    * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-        * Atom, VS Code, and ZeroBrane all have auto-complete support!
+## Tutorial
 
-### Writing the Script
-
-* Type `UI.PrintToScreen("Hello World!")`.
-* Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
-
-### Running the Script
-
-1. To add your script to the game, drag it from the **Scripts** area to the top of the Hierarchy tree on the right side.
-    * Press **Play** at the top of the editor, and see your message appear on screen!
-
-### Hello World Breakdown
-
-* We made a script.
-* We populated it with code.
-    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in CORE API functions](../../core_api.md).
-* We placed the script into the Hierarchy tree so that it executes when the game runs.
-
-Now let's add our own function!
-
-## Functions
-
-Let's change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Init`, for simplicity.
-
-```lua
--- Our first function!
-local function Init()
-    UI.PrintToScreen("Hello from a function!")
-end
-```
-
-!!! note
-    In case you've forgotten from the [Lua Primer](lua_reference.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
-
-If you save and run this code, nothing will happen. How utterly boring! This is because the function is never called in our code. To get our function to work, we can add a function call to the end of the script.
-
-```lua
--- Calling the function
-Init()
-```
-
-You should now have the following:
-
-```lua
--- Our first function!
-local function Init()
-    UI.PrintToScreen("Hello from a function!")
-end
-
--- Calling the function
-Init()
-```
-
-***Now*** if you save and run this, you'll see your message appear on the screen! Excellent.
-
-!!! note
-    Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of files, like we did with `TutorialScript`.
-
-If you are having issues, check to see if your `TutorialScript` looks like this in the `Properties` view:
-
-![MyFirstScript](../../img/scripting/MyFirstScript.png)
-
-## CORE API
-
-The next step is to use the CORE API to modify objects in the world. We'll start small, with a coin the player can pick up.
+The first step is to use the CORE API to modify objects in the world. We'll start small, with a coin the player can pick up.
 
 ### Adding Manticoin
 
@@ -97,10 +44,9 @@ In CORE, **Community Content** houses many assets you can use in your own games 
 
 To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**max.**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
 
-![Manticoin](../../img/scripting/manticoin.png)
+![Manticoin](../../img/scripting/manticoin.png){: .center}
 
-!!! note
-    The editor will prompt you to save before it adds it to your project.
+!!! note "The editor will prompt you to save before it adds it to your project."
 
 Since this has been imported from our community content area, it is now listed under **Imports** in the **CORE Content** tab. Next, just like we did with `TutorialScript`, drag it to the world.  Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
 
@@ -113,22 +59,21 @@ At this point, the editor will prompt you about a networking state missmatch. In
 
 We'll explain what this line does in a moment, but for now, make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../../img/getting_started/SpinCoin.png)
+![SpinCoinLocation](../../img/getting_started/SpinCoin.png){: .center}
 
 Running this should continuously rotate the coin in the air. Shiny!
 
 Okay, so what did we just do?
 
-*Spin Breakdown:*
+#### Spin Breakdown:
 
 * `script` -> references the script object, i.e. the asset you dragged into the Hierarchy.
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object).
-* `RotateContinuous()` -> Every **CoreObject** (things like Scripts, Objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work.
+* `RotateContinuous()` -> Every **CoreObject** (things like scripts, objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work.
     * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
-!!! note
-    If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page.
+!!! note "If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page."
 
 ### Spin Cleanup
 
@@ -190,7 +135,7 @@ If you now save and press play, you'll notice that while the coin disappears on 
 
 ### Displaying Coin Count
 
-Let's modify `TutorialScript` to display this info. Add the following code:
+Create a new script and call it `DisplayCoins`. We'll start with the following code:
 
 ```lua
 -- Print out 'Player name: {coin count}' every 2 seconds
@@ -204,9 +149,6 @@ function Tick()
     end
 end
 ```
-
-!!! note
-    You can delete what we previously had in `TutorialScript` if you'd like.
 
 Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since CORE comes equipped with multiplayer functionality right out of the box.
 
@@ -230,7 +172,7 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 
 ### Updating UI Text
 
-Create a new script called `DisplayCoins` and replace the default code with the following:
+Now we are going back to our `DisplayCoins` script and replace the code with the following:
 
 ```lua
 -- Display the player's coin amount
@@ -255,9 +197,9 @@ Next, let's place the script `DisplayCoins` as a child of the Text Control. In t
 
 The folder structure at this point should look like this:
 
-![UIText](../../img/getting_started/UIText.png)
+![UIText](../../img/getting_started/UIText.png){: .center}
 
-We can remove the `TutorialScript` from the Hierarchy now that we have our new updating UI set up. Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
+Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
 
 Now let's make a simple map and populate it with coins.
 
@@ -300,10 +242,9 @@ Next, we need to create the custom parameter to save our game state.
 
 Here's the entire Hierarchy at this point:
 
-![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png)
+![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png){: .center}
 
-!!! note
-    The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!
+!!! note "The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!"
 
 Let's make a script for game logic, create a new one called `CoinGameLogic` and add the following code:
 
@@ -346,10 +287,10 @@ After that is done, open up the `DisplayUI` script and add the following:
 
 ```lua
 local ui = script.parent
-local rep = script:GetCustomProperty("Gameplay Settings"):WaitForObject()
+local settings = script:GetCustomProperty("Gameplay Settings"):WaitForObject()
 
-local function OnChanged(rep, key)
-	gameOver = rep:GetCustomProperty("gameOver")
+local function OnChanged(settings, key)
+	gameOver = settings:GetCustomProperty("gameOver")
     if gameOver == true then
 	    ui.isVisible = true
     else
@@ -357,12 +298,12 @@ local function OnChanged(rep, key)
     end
 end
 
-rep.networkedPropertyChangedEvent:Connect(OnChanged)
+settings.networkedPropertyChangedEvent:Connect(OnChanged)
 ```
 
 This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Gameplay Settings`.
 
-![Replicator](../../img/getting_started/Replicator.png)
+![Replicator](../../img/getting_started/Replicator.png){: .center}
 
 Your Hierarchy should look like the above now!
 
@@ -445,8 +386,8 @@ function Tick()
 end
 ```
 
-And there we go, you just made your first game!
+<div align="center" style="font-weight: bold; margin-top: 50px;">Congrats! You've just created your first multiplayer game on CORE!</div>
 
-## Conclusion
+## Summary
 
-In just a few steps, you've created your first game on CORE by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!
+In just a few steps, you've created your first multiplayer game on CORE by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!
