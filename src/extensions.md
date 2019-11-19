@@ -30,25 +30,29 @@ For VS Code and Atom, we have collected a few extensions that make developing in
 
 We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
 
-* :fa-download: Download: <a title="External Editor Autocomplete" href="/img/external_editor_autocomplete_05-28-2019.zip">external_editor_autocomplete.zip</a>
-* :fa-angle-double-right: Install for Atom & VS Code: Copy `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
-* :fa-angle-double-right: Install for ZeroBrane:
+#### VS Code & Atom
+* :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/luacompleterc.zip">luacompleterc.zip</a>
+* :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
+
+!!! note "For VS Code, it will only work if the folder containing `.luacompleterc` file is opened, it does not look for it in parent directories."
+
+#### ZeroBrane
+* :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
+* :fa-angle-double-right: Install:
     * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
     * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
     * Save and restart ZeroBraneStudio.
 
-!!! note "For VS Code, it will only work if the folder containing `.luacompleterc` file is opened, it does not look for it in parent directories."
-
 ### Installing a Linter
 
-[Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info.
+[Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
 
-* :fa-download: Download: A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
+* :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
 * :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
 
-* :fa-download: Download: <a title=".luacheckrc" href="">.luacheckrc</a>
-* :fa-angle-double-right: Install: Copy the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
+* :fa-download: Download: <a title=".luacheckrc" href="/assets/luacheckrc.zip">luacheckrc.zip</a>
+* :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
 
 That's it! You're now all set up for developing in CORE and Lua.
