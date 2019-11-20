@@ -98,6 +98,8 @@ version (useful for details on impending updates)
 bleeding edge changes (useful for internal development, or for particularly
 invested developers to know what upcoming changes are on the horizon)
 
+**Note:** Currently only prod and prod-publish exist.
+
 #### Branch Details
 
 Each state of the published website has a corresponding branch-pair on GitLab, a
