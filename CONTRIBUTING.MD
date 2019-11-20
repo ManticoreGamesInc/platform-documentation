@@ -2,36 +2,80 @@
 
 Thanks for contributing! Your assistance is much appreciated!
 
-## Editing Pages
+## Workflow
+
+When starting a new feature:
+- Create a new branch from `production` with that feature as the name (e.g. `camera-controls`)
+- Commit any changes to that branch
+- When it is done, create a merge request, merging your feature branch into `production`
+- It will build a version of the site to view live (check #docs-updates in slack
+  for the link, can search by commit message to find it as well)
+- Others can then comment on the pull request, and once it has been audited it
+  will be merged.
+- Make sure to include `TODO: XX` comments for stuff that needs clarification or you are planning changes for.
+
+### Definition of Done (Alpha)
+
+The document must complete all of the following:
+- Syntax pass (spelling/grammar/style guide adherence/markdown format)
+- Dependencies pass (make sure anything referenced in community content will
+  exist in the future, e.g. by checking with gameplay team)
+- Content pass (pass by main editors for overall quality)
+
+**Note**: If we have a file that is no longer 'done' due to editor changes, include
+the following at the top of the file in question:
+
+```
+!!! warning
+    Flagged for review.
+    Incomplete or outdated information may be present.
+```
+### Editing Pages
 
 You can edit a markdown file directly through GitLab, so it's very easy!
 
 - Click on the `Edit` icon (top right) of the file you want to change.
 - Make your changes.
-  - Here's how
-    [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-    works, for those not familiar. You can also uses GitLab's tools to quickly
-    add formatting.
-  - Additional tools provided by
-    [extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/)
-    (e.g. code highlighting, info blocks, icons, etc.)
+    - Here's how
+        [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) works, for those not familiar. You can also uses GitLab's tools to quickly add formatting.
+    - Additional tools provided by [extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/) (e.g. code highlighting, info blocks, icons, etc.)
+    - We also have a few custom markdown features that help with getting good layouts done faster:
+        - `{: .image-inline-text}` for positioning text vertically centered next to an image.
+
+            Usage:
+            ```markdown
+            ![alt_text](../../img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
+            {: .image-inline-text}
+            ```
+        - `{: .image-cluster}` for easily placing two images next to each other and centering a description text below them.
+
+            Usage:
+            ```markdown
+            ![alt_text](../../img/EnvironIntro/image9.png "image_tooltip")
+            ![alt_text](../../img/EnvironIntro/image44.png "image_tooltip")
+            _Randomized Color unchecked (left) vs. checked (right)_
+            {: .image-cluster}
+            ```
+        - `{: .center}` to quickly center elements like images.
+
+            Usage:
+            ```markdown
+            ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
+            ```
 - Make sure the changes look good (check the 'Preview' tab on the top left).
 - Add a helpful commit message and add it!
 
-Note that this flow is best for simple changes, for larger ones you should use
-the Web IDE (or clone the repository and push commits from your IDE of choice).
+**Notes:**
+1. The integrated preview mode won't display advanced markdown functionality (e.g. `!!!
+info` blocks and our custom ones). To check out the live display for commits, you can go to `https://{branch}--manticore-docs.netlify.com`, so for production it would be [this](https://production--manticore-docs.netlify.com).
+2. That means this flow is best for simple changes, for larger ones you should go with the [full setup](#full-setup).
 
-Note that integrated preview modes won't display advanced markdown functionality (e.g. `!!!
-info` blocks). To check out the live display for commits, you can go to `https://{branch}--manticore-docs.netlify.com`, so for production it would be [this](https://production--manticore-docs.netlify.com).
-
-## New Pages
+### New Pages
 
 If you want to add a new page, create a markdown file (`.md` extension).
 Then, to make it findable, simply add it to the index of pages.
 
 - Go to `mkdocs.yml` and follow the existing format.
-
-In case that isn't enough explanation, here is more info:
 
 If it is a page in an existing folder:
 
@@ -41,45 +85,22 @@ If it is a page in an existing folder:
 If it is in a new folder, add `-FolderName:` to the `nav:` root, like the
 others.
 
-## Branch Workflow
-
-When starting a new feature:
-- Check out a new branch with that feature as the name (e.g. `camera-controls`)
-- Commit any changes to that branch
-- When it is done, create a merge request, merging your feature branch into `production`
-- Others can then comment on the pull request, and once it has been audited it
-  will be merged
-
----
-
-# Details
-
-Detailed information (e.g. branch structure) below here
-
-## Branch Structure
-
-![](src/img/readme_branches.png)
-
-### Branch Workflow
+### Branch Structure
 
 There are multiple version of the CORE documentation, and therefore multiple
 branches on this repository that correspond to each.
 
-- [Prod](https://docs.manticoreplatform.com/) - the live, production state (useful
-for all current or newly created games)
+- [production](https://production--manticore-docs.netlify.com) - the staging site
+- [production-publish](https://docs.manticoreplatform.com/) - the live, production state
 - [PTS](https://pts-publish--manticore-docs.netlify.com/)- the public test server
 version (useful for details on impending updates)
 - [Dev](https://dev-publish--manticore-docs.netlify.com/) - for in-development,
 bleeding edge changes (useful for internal development, or for particularly
 invested developers to know what upcoming changes are on the horizon)
 
-**For now just create a pull-request to production for all changes**. When we get
-closer to public launch and the various environments become more relevant this
-will change and we will use the whole flow.
-
 #### Branch Details
 
-Each state of the published website has a corresponding branch-pair on GitHub, a
+Each state of the published website has a corresponding branch-pair on GitLab, a
 commit-able version and a `*-publish` version. So the pair of `production` and
 `production-publish` is one example. The `*-publish` version is a protected
 branch and _cannot_ be pushed to directly! Instead, all changes must go through
@@ -88,154 +109,137 @@ the main branch (`production`), then merged into the publish one
 ensures quality on all public sources of documentation. The (slightly-outdated)
 picture below gives a visual representation of this flow.
 
-When a branch is merged to *-publish, it will use --no-ff, so as to not clutter
+![BranchStructure](src/img/readme_branches.png)
+
+When a branch is merged to `*-publish`, it will use `--no-ff`, so as to not clutter
 up the history, and simply allow upstream commits for builds.
 
-#### Definition of Done (Alpha)
+#### [Full Setup](#full-setup)
 
-When you are ready for your doc to be done
-- Create a merge request from your branch (with your changed file(s)) to `production`:
-- It will build a version of the site to view live (check #docs-updates in slack
-  for the link, can search by commit message to find it as well)
+1. Download and install [Python (with pip included)](https://www.python.org/).
+    - In your installation, make sure to **checkmark to option box to "Add Python to PATH"**.
+    - You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/).
+    - To manually add Python to PATH if you did not install it as so, reference [here](https://datatofish.com/add-python-to-windows-path/).
 
-Then the document must complete all of the following:
-- Syntax pass (spelling/grammar/style guide adherence/markdown format)
-- Dependencies pass (make sure anything referenced in community content will
-  exist in the future, e.g. by checking with gameplay team)
-- Content pass (pass by main editors for overall quality)
-- Done (merged and live)
+2. Download and install [Git](https://git-scm.com/).
 
-Note: If we have a file that is no longer 'done' due to editor changes, include
-the following at the top of the file in question:
-```
-!!! warning
-    Flagged for review.
-    Incomplete or outdated information may be present.
-```
+3. Create a new [Gitlab](https://gitlab.com/) account associated with your Manticore e-mail.
 
-#### Full Setup
+4. Clone the repositiory
+    - Open the command prompt.
+    - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
+    - Clone this project from GitLab (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
+    - When prompted by popup, sign in with your Gitlab account associated with your Manticore email.
+        If you mistype your information, you can edit your information:
+            - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
+            - Find Git credentials in the list (e.g. git:https://).
+            - Delete your Git credentials and restart the process to be prompted again.
 
-[Install Python (with pip included)](https://www.python.org/) if you don't have them already. In your installation, make sure to **checkmark to option box to "Add Python to PATH"**. You can check it's properly installed via instructions [here](https://www.makeuseof.com/tag/install-pip-for-python/). To manually add Python to PATH if you did not install it as so, reference [here](https://datatofish.com/add-python-to-windows-path/).
+5. Install mkdocs
+    - Navigate to the `platform-documentation` location (via command line with `cd platform-documentation`)
+    - Enter `pip install -r requirements.txt` into the commmand line to install required files
+    - Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live
+    - Navigate to `http://127.0.0.1:8000/` for changes upon saving and and live updates
 
-Download [Git](https://git-scm.com/) and make a [Gitlab](https://gitlab.com/) account associated with your Manticore e-mail, otherwise sign up a new account.
-
-- Open the command prompt.
-- Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
-- Clone this project from GitHub (e.g. `git clone https://gitlab.com/manticore-games/platform-documentation`)
-- When prompted by popup, sign in with your Gitlab account associated with your Manticore email.*
-- Navigate to the platform-documentation location (via command line with `cd platform-documentation`)
-- Enter `pip install -r requirements.txt` into the commmand line to install required files
-- Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live
-- Navigate to `http://127.0.0.1:8000/` for changes upon saving and and live updates
-
-If you mistype your information, you can edit your information
-- Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
-- Find Git credentials in the list (e.g. git:https://).
-- Delete your Git credentials and restart the process to be prompted again.
-
-To update your local branch to the latest version of this project,
-- Navigate to the platform-documentation location via command line
+To update your local branch to the latest version of `production`,
+- Navigate to the `platform-documentation` location via command line
 - In the command prompt, enter `git pull origin` (fetches the latest version and merges the latest commits into your branch)
 - To learn more, visit [Git's Documentation](https://git-scm.com/docs/git-pull).
 
 Any new session, you make need to start up a server again with `mkdocs serve` after navigating to your platform-documentation folder.
 
-If you need a standalone and lightweight Markdown editor,
-[Typora](https://typora.io/) is a good one.
-
-Base styling provided by
-[material](https://squidfunk.github.io/mkdocs-material/).
-
 ### Files
-
-#### Videos
-
-Must be under 100MB and sourced in the Google Drive under
-CoreUserDocumentation/DocsVideos. Click on the video, in the upper right corner
-click on the three dots -> open in new window -> three dots -> embed item ->
-paste that html code in the docs. Eventually we will embed YouTube links, but
-for now this works for tiny (but private) clips.
 
 #### Pictures
 
 For now drop them in the `img/` folder and reference them via links as expected
-(examples present throughout). Optimization will likely be handled by the host
-(Netlify).
+(examples present throughout). Use folder names that represent the page the pictures are going to be embedded on.
+Optimization will likely be handled by the host (Netlify).
 
-## Tutorial Styling
+### Videos
+
+- Message Tasha got get acces to our YouTube account, upload them there and then use Markdown to embed them into your documents.
+
+---
+
+# Tutorial Styling
 
 To encourage consistent styling, here are CORE tutorial styling and writing guidelines.
 
-### Tutorial, Background Info:
+## Tutorial, Background Info:
 
 - Tutorial Prerequisites
 - Topic Tag
 - Estimated Time for Completion
 - Difficulty Level
 
-### Tutorial Prerequisites:
+## Tutorial Prerequisites:
 
 - Author/Audience Assumptions
 - Link to any recommended basic tutorials
 - If applicable, link to other tutorials in the series
 
-### Topic Tag(s)
+## Topic Tag(s)
 
 |Topic Tag | Example Tutorial|
-|---|---| 
+|---|---|
 | Game Creation | First Platformer, First FPS
 | Scripting | Intro to Lua, Coding Best Practices
 | Editor Essentials | Player Settings, Script Debugger
 | Audio | SFX, Rhythm Games
 | Networking | Replicators, Client-Server
 | UI | Main Menu Creation, Regen HP Bar
-| Terrain | Basic Terrain, Import Height Maps                                                                                          
+| Terrain | Basic Terrain, Import Height Maps
 | Weapon | Intro to Melee Weapons, Intro to Guns
 | Ability | How to Sprint, How to Cast a Magic Spell
 
-### Estimated Time for Completion
+## Estimated Time for Completion
 
 It is recommended to keep your tutorials short and below the 30 minute mark for estimated time of completion.
-If longer, it is recommendeded to split your tutorial into a series.  
+If longer, it is recommendeded to split your tutorial into a series.
 
-### Difficulty Level
+## Difficulty Level
+
 - Beginner
 - Intermediate
 - Advanced
 
-### Content
+## Content
 
-#### Abstract
+### Abstract
+
 - Introduction with goal of the tutorial (2-3 sentences)
 - Image of finished work
 - Skills the learner will acquire (3-5 bullet points)
 
-#### Tutorial Content
-- Include Commented Code that follows Conventions*
-- Include Pictures of the Hierarchy often
-- Link to the Finished Example Project at the end
-- Published project should be on Prod before Alpha
-- Provide Related Tutorials / Additional Resources
+### Tutorial Content
 
-#### Writing Conventions
-- Follow the [Core Lua Style Guide](tutorials/gameplay/lua_style_guide), which most notably script writing and casing conventions 
-- Make functions and variables local unless global is completely necessary. 
-- Strings should be in double quotes like so a = “hello world“, not b = ‘hello world’ 
-- If describing a command outside a code snippet, put the command in code format like so `tostring`
-- Encourage use of the Event Log and use print() more than UI.PrintToScreen()
+- Include commented code that follows conventions
+- Include pictures of the Hierarchy often
+- Link to the finished example project at the end
+- Published project should be on Prod before Alpha
+- Provide related tutorials / Additional Resources
+
+### Writing Conventions
+
+- Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide), which most notably script writing and casing conventions.
+- Make functions and variables local unless global is completely necessary.
+- If describing a command outside a code snippet, put the command in code format like so `tostring`.
+- Encourage use of the Event Log and use `print()` more than `UI.PrintToScreen()`.
 - Put parentheses around your conditions in any compound conditional
 - Bold any button or object a user has to click on like `**Edit Terrain*`
-- Please use the Oxford comma. :) 
+- Please use the Oxford comma.
 
-### Expectations
+## Expectations
 
-#### Review Process
-- Should be in Markdown, with additional tools provided by extensions for infoboxes, tips, questions, and warnings.  
-- Tutorials should be reviewed by 2-3 people minimum who have completely gone through the tutorial before the writer pushes to Prod Docs.
-- Host locally, then should create a branch in Gitlab and then merge once fully reviewed and completed.
+### Review Process
 
-#### Content Quality
-- Name your objects in the hierarchy informatively.  
-- Favor best practices (using CoreObject Asset references rather than script.parent.parent:GetChildren()[3]).
-- Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series. 
+- Should be in Markdown, with additional tools provided by extensions for infoboxes, tips, questions, and warnings.
+- Tutorials should be reviewed by 2-3 people minimum who have completely gone through the tutorial before the writer pushes to prod.
+
+### Content Quality
+
+- Name your objects in the hierarchy informatively.
+- Favor best practices (using CoreObject Asset References rather than script.parent.parent:GetChildren()[3]).
+- Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.
 
