@@ -95,3 +95,22 @@
     display: block;
     margin: 15px auto;
 }
+
+.image-cluster {
+    text-align: center;
+    margin-bottom: 15px !important;
+}
+
+.image-cluster img {
+    width: 40%;
+    margin: 15px 0 auto;
+}
+
+.image-cluster em {
+    font-style: italic;
+    display: block;
+}
+
+.image-inline-text img {
+    vertical-align: middle;
+}
