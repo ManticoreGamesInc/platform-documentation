@@ -1,9 +1,3 @@
----
-name: Advanced Abilities in CORE
-categories:
-    - Tutorial
----
-
 # Advanced Abilities in CORE
 
 !!! warning
@@ -12,25 +6,23 @@ categories:
 
 ## Overview
 
-\[rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
-
-show GIF of player using magic staff]
-
-Abilities can get as complicated as you would like them to get.
+While both weapons and abilities can be utilized without having to code, if you *do* use scripting, so much more is possible.
 
 With the power of Lua scripting, abiliites can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
 
-In the first ability tutorial, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
+In the first tutorials for abilities and weapons, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
 
-If you're fresh and new to any kind of programming, it would be good to visit the Intro to Lua tutorial. This will go over some key words and practices you would want to know.
+If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](/tutorials/gameplay/lua_basics_lightbulb/)**. This will go over some key words and practices you would want to know.
 
 ![Heavy Slash](../../img/EditorManual/Abilities/ComplexAbilities/Heavy_Slash.gif){: .center}
 
 ---
 
-\[users will have already gone through weapon system to understand how that part works, so just go to explaining abilities after briefly explaining that earlier tutorials didn't really go into abilities at their core (pun) so this is the time!
+Before doing this tutorial, make sure you've already gone through the Ability tutorial and the Weapon tutorial to understand the basics of how these things work.
 
-so, jump into explaining how ability system works in detail, this part already exists. May need contextual updates.]
+We're going to be making a more complex `weapon` that utilizes scripting, and has multiple abilities.
+
+To really see the power that the ability system gives us to make cool gameplay mechanics, you should understand what is happening behind the scenes of an `ability`.
 
 ---
 
@@ -40,18 +32,19 @@ In CORE™, an ability is treated as 4 separate steps that happen immediately on
 
 The 4 different phases of an ability are:
 
-* **Cast**
-  * The wind-up time--this is the prep phase before the ability actually happens.
+- **Cast**
+    - The wind-up time--this is the prep phase before the ability actually happens.
 
-* **Execute**
-  * The actual ability.
-  * Whatever the ability is going to do, it happens at this moment.
+- **Execute**
+    - The actual ability.
+    - Whatever the ability is going to do, it happens at this moment.
 
-* **Recovery**
-  * Additional ability actions that aren’t part of the main action.
+- **Recovery**
+    - Additional ability actions that aren’t part of the main action.
 
-* **Cooldown**
-  * The rest period after an ability is finished being cast, and cannot be cast again.
+- **Cooldown**
+    - The rest period after an ability is finished being cast, and cannot be cast again.
+
 
 !!! info "A More Natural Example"
     Try thinking of it like the casting of a magical spell:
@@ -62,7 +55,7 @@ The 4 different phases of an ability are:
 
 Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Ability States](../../img/EditorManual/Abilities/Ability_States.png "image_tooltip"){: .center}
+![Ability States](../../img/EditorManual/Abilities/Ability_States.png){: .center}
 
 To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
 
@@ -79,33 +72,31 @@ Connecting functions to events in an ability is the main task to be done when cr
 
 CORE allows building gameplay with as little or as much scripting as you would like. A powerful aspect of abilities is that they are kept in an Ability Object. This is a single Hierarchy object that holds all the most useful proprties you might want to change to make your specific ability unique.
 
-Using an Ability object in combination with scripting makes it similar to a data structure; it is a nice single location to test different variables.
+Using an Ability object in combination with scripting makes it similar to a data structure; an ability object is a nice single location to test different variables.
 
 ---
 
 ## Tutorial
 
-[Tutorial intro explains we're making a magic staff that has a left click basic ability (weapon attack), a right click charge attack (ability) ]
-
-In this tutorial, we will be making a magic staff that the player can pick up, granting them two different abilities. The data for these abilities will be kept in Ability Objects.
+In this tutorial, we will be making a magic fire staff that the player can pick up, granting them two different abilities: a left-click fire burst and a right-click charged fire bomb.
 
 So, let's make magic!
 
 ### Step 1
 
-* start with making a weapon object
-* don't need to explain it because that happened in first ability tutorial
-* make the art for the weapon, move into place
-* get the basic weapon function working (shoot a lil fireball)
-* involves creating an attack ability, a reticle, vfx
-* now we're basically as far as the simple weapon tutorial
-* add another ability for the right click spot (charge fire blast)
-* involves another ability script, reticle, vfx
-* explain setting up the ability in programming
-* add vfx for ability
-* now it's a weapon with an additional ability
-* probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
-* set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
+-   start with making a weapon object
+-   don't need to explain it because that happened in first ability tutorial
+-   make the art for the weapon, move into place
+-   get the basic weapon function working (shoot a lil fireball)
+-   involves creating an attack ability, a reticle, vfx
+-   set up fireball ammo needing to be recharged
+-   add another ability for the right click spot (charge fire blast)
+-   involves another ability script, reticle, vfx
+-   explain setting up the ability in programming
+-   add vfx for ability
+-   now it's a weapon with an additional ability
+-   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
+-   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
 ### CORE Component: Ability Display
 
@@ -113,5 +104,5 @@ link to this in intro tutorial?
 
 ## Examples
 
-* *FAA_GameMode* includes functioning abilities.
-* *Spellshock* includes advanced abilities using ability objects.
+* _FAA_GameMode_ includes functioning abilities.
+* _Spellshock_ includes advanced abilities using ability objects.
