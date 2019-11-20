@@ -62,6 +62,13 @@ You can edit a markdown file directly through GitLab, so it's very easy!
             ```markdown
             ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
             ```
+        - `{: style="color: $css_color_code"}` to color text elements.
+
+            Usage:
+            ```markdown
+            **Pancakes**{: style="color: red"}
+            ```
+
 - Make sure the changes look good (check the 'Preview' tab on the top left).
 - Add a helpful commit message and add it!
 
