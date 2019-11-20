@@ -68,6 +68,22 @@ You can edit a markdown file directly through GitLab, so it's very easy!
             ```markdown
             **Pancakes**{: style="color: red"}
             ```
+        - `{: .style-good|.style-bad|.style-exception}` to highlight good/bad practice code examples.
+
+            Usage:
+            ```markdown
+                Good:
+                ```
+                local foo = {
+                    bar = 2,
+                }
+
+                if foo then
+                    -- do something
+                end
+                ```
+                {: .style-good}
+            ```
 
 - Make sure the changes look good (check the 'Preview' tab on the top left).
 - Add a helpful commit message and add it!
