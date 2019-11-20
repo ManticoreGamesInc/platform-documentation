@@ -20,10 +20,9 @@ nav:
     - Lua Dev Environment: extensions.md
   - Tutorials:
     - Gameplay:
-      - Ability: tutorials/gameplay/abilities.md
-      - Ability (Advanced): tutorials/gameplay/abilities_advanced.md
-      - Weapon: tutorials/gameplay/weapons.md
-      - Weapon (Advanced): tutorials/gameplay/weapons_advanced.md
+      - Abilities: tutorials/gameplay/abilities.md
+      - Weapons: tutorials/gameplay/weapons.md
+      - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
       - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
       - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
     - Art:
