@@ -181,6 +181,19 @@ For now drop them in the `img/` folder and reference them via links as expected
 (examples present throughout). Use folder names that represent the page the pictures are going to be embedded on.
 Optimization will likely be handled by the host (Netlify).
 
+##### Size
+
+Please resize your images to TBD/TBD pixels.
+Please use TBD to reduce your image file size before adding them.
+Please convert your GIFs into videos.
+`ffmpeg -i input.gif -b:v 0 -crf 25 output.mp4`
+
+```
+<video autoplay loop muted playsinline>
+<source src="cat.mp4" type="video/mp4">
+</video>
+```
+
 ### Videos
 
 - Message Tasha got get acces to our YouTube account, upload them there and then use Markdown to embed them into your documents.
