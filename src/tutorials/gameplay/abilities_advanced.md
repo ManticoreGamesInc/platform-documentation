@@ -82,13 +82,21 @@ In this tutorial, we will be making a magic fire staff that the player can pick 
 
 So, let's make magic!
 
-### Step 1
+### Setting up the Visuals
 
--   start with making a weapon object
--   don't need to explain it because that happened in first ability tutorial
--   make the art for the weapon, move into place
+To begin, let's set up the look of the fire staff and create our weapon object. Open the project your wish to use, or an empty project.
+
+1. Create an empty `weapon` object by dragging one into your Hierarchy from the Gameplay Objects section of CORE Content.
+
+2. Just like in the first weapon tutorial, we are going to create a Client Content folder within the weapon to hold the model of the staff.  
+
+     1. You can combine shapes in whatever way you like with the help or an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.  
+
+- mainly need to address how to make an ability itself do fancy things, like cause splash AOE damage, as that's pretty much the only thing that can't be done in code. Use code for spawning vfx in a pattern possibly? A weapon can be set up so nicely without code, even have more abilities, but it's the fancy triggering of effects and splash damage and camera stuff that can't be done without code. Need to address stuff people might not be able to just figure out by just looking at API, such as how to effectively use weapon and ability events.
+
 -   get the basic weapon function working (shoot a lil fireball)
--   involves creating an attack ability, a reticle, vfx
+-   involves creating an attack ability, a reticle, vfx (look what vfx tung used, see how it is triggered, do a simple version of that coding)
+- design some sort of reticle, possible do camera shake?
 -   set up fireball ammo needing to be recharged
 -   add another ability for the right click spot (charge fire blast)
 -   involves another ability script, reticle, vfx
@@ -98,9 +106,9 @@ So, let's make magic!
 -   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
 -   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
-### CORE Component: Ability Display
+### Connecting UI
 
-link to this in intro tutorial?
+You'll likely want to set up User Interface (UI) for your magic staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](/tutorials/gameplay/abilities/#core-component-ability-display)**'s section on UI. 
 
 ## Examples
 
