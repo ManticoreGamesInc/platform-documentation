@@ -2,10 +2,14 @@
 
 ## Overview
 
-CORE has integrated version 5.3.4 of the Lua library.  For detailed technical information, see their [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](/core_api/classes/coreobject).  Data structures are owned by Lua, while [CoreObjects](/core_api/classes/coreobject) are owned by the engine and could be destroyed while still referenced by Lua.  
+CORE has integrated version 5.3.4 of the Lua library.  For detailed technical information, see their [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](/core_api/classes/coreobject).  Data structures are owned by Lua, while [CoreObjects](/core_api/classes/coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
 
 Properties, functions, and events inherited by [CoreObject](/core_api/classes/coreobject) types are listed below.
 Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:functionName()`.
+
+## CORE Lua Types
+
+At a high level, CORE Lua types can be divided into two groups: data structures and Objects.  Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua.  Objects all inherit from a single base type: Object.  Data structures have no common parent.  However, all data structures and Objects share a common `type` property, which is a String indicating its type.  The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc.  All CORE types also share an `IsA()` function.  The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not.  For example, `myObject:IsA("StaticMesh")`.
 
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
@@ -13,33 +17,33 @@ Abilities are Objects created at runtime and attached to Players. Spawn an abili
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`isEnabled` | bool | Turns an ability on/off. Ability remains on the player but is interrupted if enabled is set to False during an active Ability. | Read-Write
-`canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. Default false.  | Read-Write
-`name` | string | The name of the ability. | Read-Write
-`binding` | string | Which action binding will cause the Ability to activate. | Read-Write
+`isEnabled` | bool | Turns an ability on/off. It stays on the player but is interrupted if isEnabled is set to False during an active Ability.  True by default. | Read-Write
+`canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only
+`name ` | string | The name of the ability. | Read-Only
+`actionBinding` | string | Which action binding will cause the Ability to activate. Possible values are listed under ability binding list. | Read-Only
 `owner` | Player | Assigning an owner applies the Ability to that Player. | Read-Write
-`castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase. | Read-Write
-`executePhaseSettings` | AbilityPhaseSettings | Config data for the Execute phase. | Read-Write
-`recoveryPhaseSettings` | AbilityPhaseSettings | Config data for the Recovery phase. | Read-Write
-`cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Write
-`animation` | string | Name of the animation the Player will play when the ability is activated. Possible values: | Read-Write
-`canBePrevented` | bool | Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. By default, true.  | Read-Write
+`castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase (see below). | Read-Only
+`executePhaseSettings` | AbilityPhaseSettings | Config data for the Execute phase. | Read-Only
+`recoveryPhaseSettings` | AbilityPhaseSettings | Config data for the Recovery phase. | Read-Only
+`cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Only
+`animation` | string | Name of the animation the Player will play when the ability is activated. Possible values: See Ability Animation Section for strings and other info | Read-Only
+`canBePrevented` | bool | Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only
 `readyEvent` | Event<Ability> | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
 `castEvent` | Event<Ability> | Called when the Ability enters the Cast phase. | Read-Only
 `executeEvent` | Event<Ability> | Called when the Ability enters Execute phase. | Read-Only
 `recoveryEvent` | Event<Ability> | Called when the Ability enters Recovery. | Read-Only
 `cooldownEvent` | Event<Ability> | Called when the Ability enters Cooldown. | Read-Only
 `interruptedEvent` | Event<Ability> | Called when the Ability is interrupted. | Read-Only
-`tickEvent` | Event<Ability> | Called every tick while the Ability is active. | Read-Write
+`tickEvent` | Event<Ability> | Called every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Write
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`Activate()` | None | Activates an ability as if the button had been pressed. | Client-Context
+`Activate()` | None | Client-context only. Activates an ability as if the button had been pressed. | None
 `Interrupt()` | None | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None
-`GetCurrentPhase()` | AbilityPhase | The current ability phase for this ability. | None
-`GetPhaseTimeRemaining()` | Number | Seconds left in the current phase. | None
+`GetCurrentPhase()` | AbilityPhase | The current ability phase for this ability. These are returned as an AbilityPhaseEnum type which can be accessed as: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY, andAbilityPhase.COOLDOWN | None
+`GetPhaseTimeRemaining` | Number | Seconds left in the current phase. | None
 `GetTargetData()` | AbilityTarget | Returns information about what the player has targeted this phase. | None
-`SetTargetData (AbilityTarget)` | None | Updates information about what the player has targeted this phase.  This can affect execution of the ability. | None
+`SetTargetData (AbilityTarget)` | None | Updates information about what the player has targeted this phase.  This can affect the execution of the ability. | None
 
 
 ### [AbilityPhaseSettings](/core_api/classes/abilityphasesettings/abilityphasesettingsOverview)
@@ -48,14 +52,13 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`duration` | Number | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. By default, values per phase: 0.15, 0, 0.5 and 3. | Read-Write
-`canMove` | bool | Whether the Player is allowed to move during this phase. Default true. | Read-Write
-`canJump` | bool | Whether the Player allowed to jump during this phase. Default false. In Cast & Execute, default True in Recovery & Cooldown. | Read-Write
-`canRotate` | bool | Whether the Player allowed to rotate during this phase. Default true. | Read-Write
-`isFlying` | bool | If true, gravity is turned off during this phase and if there is root motion, it is allowed to pick up the Player off the ground. This is primarily intended for use with the “roll” animation, or any other animation with vertical root motion. Default false. | Read-Write
-`preventsOtherAbilities` | bool | If true, this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to false. Default true in Cast & Execute, default false in Recovery & Cooldown. | Read-Write
-`isTargetDataUpdated` | bool | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Write
-`playerFacing` | AbilitySetFacingEnum | How this ability rotates the player during execution. Cast and Execute default to “Aim”, other phases default to “None”. Options are: AbilitySetFacing.NONE, AbilitySetFacing.MOVEMENT, AbilitySetFacing.AIM | Read-Write
+`duration` | Number | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. Default values per phase: 0.15, 0, 0.5 and 3. | Read-Only
+`canMove` | bool | Is the Player allowed to move during this phase. True by default. | Read-Only
+`canJump` | bool | Is the Player allowed to jump during this phase. Default False in Cast & Execute, default True in Recovery & Cooldown. | Read-Only
+`canRotate` | bool | Is the Player allowed to rotate during this phase. Default True. | Read-Only
+`preventsOtherAbilities` | bool | When True this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to False. Default True in Cast & Execute, default False in Recovery & Cooldown. | Read-Only
+`isTargetDataUpdated` | bool | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Only
+`facingMode` | AbilityFacingMode enum, | How and if this ability rotates the player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are:  AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only
 
 ### [AbilityTarget](/core_api/classes/abilitytarget/abilitytargetOverview)
 
@@ -70,7 +73,7 @@ Property | Return Value | Description | Tags
 `hitObject` | Object | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, Static Mesh, etc. | Read-Only
 `hitPlayer` | Player | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Only
 `spreadHalfAngle` | Number | Half-angle of cone of possible target space, in degrees. | Read-Only
-`spreadRandomSeed` | Number | Seed that can be used with RandomStream for deterministic RNG. | Read-Only
+`spreadRandomSeed` | Integer | Seed that can be used with RandomStream for deterministic RNG. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -85,14 +88,6 @@ Function | Return Value | Description | Tags
 `GetHitResult()` | HitResult | Returns physics information about the point being targeted | None
 `SetHitResult(HitResult)` | None | Sets the hit result property.  Setting this value has no affect on the ability. | None
 
-### [AbilityUIControl](/core_api/classes/abilityuicontrol/abilityuicontrolOverview)
-
-A UIControl for showing the state of an Ability.
-
-Property | Return Value | Description | Tags
---- | --- | --- | ---
-`ability` | Ability | Which ability object should be shown by the control. | None
-
 ### [Audio](/core_api/classes/audio/audioOverview)
 
 Audio objects are CoreObjects that wrap sound files. Most properties are exposed in the UI and can be set when placed in the editor, but some functionality (such as playback with fade in/out) requires Lua scripting.
@@ -102,21 +97,21 @@ Property | Return Value | Description | Tags
 `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only
 `length` | Number | Returns the length (in seconds) of the sound. | Read-Only
 `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the sound. | Read-Only
-`isSpatializationDisabled` | bool | Set true to play sound without 3D positioning. Default false. | Dynamic, Read-Write
-`isAutoPlayEnabled` | bool | If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. Default false.  | Read-Only
-`isTransient` | bool | If set to true, the sound will destroy itself after it finishes playing. Default false. | Read-Write
+`isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic
+`isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only
+`isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write
 `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.) | Read-Write
 `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.) | Read-Write
 `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write
-`radius` | Number | Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write
+`radius` | Number | Default 0 (off.) If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write
 `falloff` | Number | Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Play()` | None | Begins sound playback. | None
 `Stop()` | None | Stops sound playback. | None
-`FadeIn(Number time)` | Number | Starts playing and fades the sound in over the given time. | None
-`FadeOut(Number time)` | Number | Fades the sound out and stops over time seconds. | None
+`FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. | None
+`FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. | None
 
 ### [ButtonUIControl](/core_api/classes/buttonuicontrol/buttonuicontrolOverview)
 
@@ -150,15 +145,31 @@ Event | Return Value | Description | Tags
 `hoveredEvent` | Event<ButtonUIControl> | Called when button is hovered. | Read-Only
 `unhoveredEvent` | Event<ButtonUIControl> | Called when button is unhovered. | Read-Only
 
-### [CameraSettings](/core_api/classes/camerasettings/camerasettingsOverview)
+### [Camera](/core_api/classes/camera/cameraOverview)
 
-CameraSettings is a CoreObject which can be used to configure camera settings for a Player.
+Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured to follow a specific player’s view as well. Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior (currently) falls back to old and now deprecated behavior. Override cameras generally will be temporary things, like a view when the player is sitting in a mounted turret, while default cameras should be used for main gameplay behavior.
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`lerpTime` | float | The time over which camera property changes take effect. Clamped to be non-negative. | None
+`hasFreeControl` | bool | Whether the player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | None
+`isDistanceAdjustable` | bool | Whether the player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | None
+`minDistance` | float | The minimum distance the player can zoom in to. | None
+`maxDistance` | float | The maximum distance the player can zoom out to. | None
+`isIsometric` | bool | Whether the camera uses an isometric (orthographic) view or perspective. | None
+`fieldOfView` | float | The field of view when using perspective view. Clamped between 1.0 and 170.0. | None
+`viewWidth` | float | The width of the view with an isometric view. Has a minimum value of 1.0. | None
+`followPlayer` | Player | Which player’s view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach. | None
+`currentDistance` | float | The distance controlled by the player with scroll wheel (by default). Client-only | Client Context
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`ApplyToPlayer(Player)` | None | Apply settings from this settings object to player. | Server Context
+`GetPositionOffset ()` | Vector3 | An offset added to the camera or follow target’s eye position to the player’s view. | None
+`SetPositionOffset (Vector3)` | None | An offset added to the camera or follow target’s eye position to the player’s view. | None
+`GetRotationOffset ()` | Rotation | A rotation added to the camera or follow target’s eye position. | None
+`SetRotationOffset (Rotation)` | None | A rotation added to the camera or follow target’s eye position. | None
 
-### [CanvasControl](/core_api/classes/canvascontrol/canvascontrolOverview)
+### [CanvasUIControl](/core_api/classes/canvasuicontrol/canvasuicontrolOverview)
 
 A UIControl which indicates that child UI elements should be rendered. Does not have a position or size (it always is the size of the entire screen).
 
@@ -198,54 +209,59 @@ Operator | Return Value | Description | Tags
 `Color / Color` | Color | Component-wise division. | None
 `Color / Number` | Color | Divides each component of the color by the right-side Number. | None
 
+!!! note
+    Predefined Colors include Color.WHITE ,Color.GRAY ,Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
+
 ### [CoreObject](/core_api/classes/coreobject/coreobjectOverview)
 
 CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually they’ll be a more specific type of CoreObject, but all CoreObjects have these
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`name` | string | The object's name. | Read-Write, Dynamic
+`name` | string | Hello, my name is… | Read-Write, Dynamic
 `id` | string | The object’s MUID. | Read-Only
 `parent` | CoreObject | The object’s parent object, may be nil. | Read-Write, Dynamic
-`isVisible` | bool | Turn on/off the rendering of an object and its children. | Read-Write, Dynamic
-`isCollidable` | bool | Turn on/off the collision of an object and its children. | Read-Write, Dynamic
-`isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic
+`isVisibl` | bool | Turn on/off the rendering of an object and its children | Read-Write, Dynamic
+`isCollidable` | bool | Turn on/off the collision of an object and its children | Read-Write, Dynamic
+`isEnabled` | bool | Turn on/off an object and its children completely | Read-Write, Dynamic
 `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Static, Dynamic
 `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only
 `isServerOnly` | bool | If true, this object was spawned on the server and is not replicated to clients. | Read-Only
 `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only
 `lifeSpan` | Number | Duration after which the object is destroyed. | Read-Write, Dynamic
-`sourceTemplateId` | string | The ID of the Template from which this Core Object was instantiated. Returns nil if the object did not come from a Template. | Read-Only
+`sourceTemplateId` | string | The ID of the Template from which this Core Object was instantiated. NIL if the object did not come from a Template. | Read-Only
 `childAddedEvent` | Event<CoreObject parent, CoreObject new_child> | An event fired when a child is added to this object. | Read-Only
 `childRemovedEvent` | Event<CoreObject parent, CoreObject removed_child> | An event fired when a child is removed from this object. | Read-Only
 `descendantAddedEvent` | Event<CoreObject ancestor, CoreObject new_child> | An event fired when a child is added to this object or any of its descendants. | Read-Only
-`descendantRemovedEvent ` | Event<CoreObject ancestor, CoreObject removed_child> | An event fired when a child is removed from this object or any of its descendants. | Read-Only
+`descendantRemovedEvent` | Event<CoreObject ancestor, CoreObject removed_child> | An event fired when a child is removed from this object or any of its descendants. | Read-Only
 `destroyEvent` | Event<CoreObject> | An event fired when this object is about to be destroyed. | Read-Only
+`networkedPropertyChangedEvent` | Event<CoreObject owner, string propertyName> | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetTransform()` | Transform | The transform relative to this object’s parent. | None
 `SetTransform(Transform)` | None | The transform relative to this object’s parent. | Dynamic
 `GetPosition()` | Vector3 | The position of this object relative to its parent. | None
-`SetPosition (Vector3)` | None | The position of this object relative to its parent. | Dynamic
+`SetPosition(Vector3)` | None | The position of this object relative to its parent. | Dynamic
 `GetRotation()` | Rotation | The rotation relative to its parent. | None
 `SetRotation(Rotation)` | None | The rotation relative to its parent. | Dynamic
 `GetScale()` | Vector3 | The scale relative to its parent. | None
-`SetScale()` | None | The scale relative to its parent. | Dynamic
+`SetScale(Vector3)` | None | The scale relative to its parent. | Dynamic
 `GetWorldTransform()` | Transform | The absolute transform of this object. | None
-`SetWorldTransform(Transform)` | None | The absolute transform of this object. | Dynamic
+`SetWorldTransform()` | None | The absolute transform of this object. | Dynamic
 `GetWorldPosition()` | Vector3 | The absolute position. | None
-`SetWorldPosition(Vector3)` | None | The absolute position. | Dynamic
+`SetWorldPosition (Vector3)` | None | The absolute position. | Dynamic
 `GetWorldRotation()` | Rotation | The absolute rotation. | None
 `SetWorldRotation(Rotation)` | None | The absolute rotation. | Dynamic
 `GetWorldScale()` | Vector3 | The absolute scale. | None
 `SetWorldScale(Vector3)` | None | The absolute scale. | Dynamic
 `GetVelocity()` | Vector3 | The object’s velocity in world space. | None
-`SetVelocity(Vector3)` | None | The object’s velocity in world space. | Dynamic
+`SetVelocity(Vector3)` | None | The object’s velocity in world space. Only true for physics objects. | Dynamic
 `GetAngularVelocity()` | Vector3 | The object’s angular velocity in degrees per second. | None
-`SetAngularVelocity(Vector3)` | None | The object’s angular velocity in degrees per second. | Dynamic
+`SetAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in world space. Physics networked Objects only. | Dynamic
+`SetLocalAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in local space. Physics networked Objects only. | Dynamic
 `GetReference()` | CoreObjectReference | Returns a CoreObjectReference pointing at this object. | None
-`GetChildren()` | array<CoreObject> | Returns a table containing the object’s children, may be empty (1 indexed). | None
+`GetChildren()` | array<CoreObject> | Returns a table containing the object’s children, may be empty. | None
 `FindAncestorByName(string name)` | CoreObject | Returns the first parent or ancestor whose name matches the provided name.  If none match, returns nil. | None
 `FindChildByName(string name)` | CoreObject | Returns the first immediate child whose name matches the provided name.  If none match, returns nil. | None
 `FindDescendantByName(string name)` | CoreObject | Returns the first child or descendant whose name matches the provided name.  If none match, returns nil. | None
@@ -257,11 +273,13 @@ Function | Return Value | Description | Tags
 `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None
 `IsAncestorOf(CoreObject)` | bool | Returns true if this core object is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None
 `GetCustomProperty(string property_name)` | value, bool | Gets data which has been added to an object using the custom property system.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not. | None
-`AttachToPlayerCamera(Player)` | None | Attaches a CoreObject to given player’s camera. This should be called inside a Client Context. Reminder to turn off the object’s collision otherwise it will cause camera to jitter. | Client Context, Dynamic
+`SetNetworkedCustomProperty(string PropertyName, Object)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is non-static, and server-side networked or in a client/server context. | Client Context, Static
+`AttachToPlayer(Player, String SocketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its ‘parent’ property will be nil. Socket names are: root, pelvis, spine, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_shoulder, right_elbow, right_prop, left_shoulder, left_elbow, left_prop, topper, camera. | Dynamic
+`AttachToLocalView()` | None | Attaches a CoreObject to the local player’s camera. This should be called inside a Client Context. Reminder to turn off the object’s collision otherwise it will cause camera to jitter. | Client Context, Dynamic.
 `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. | Dynamic
-`GetAttachedToSocketName()` | string | return name of the socket this object is attached to. | None
-`MoveTo(Vector3, Number, bool)` | None | Smoothly moves the object to the target location over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
-`RotateTo(Rotation/Quaternion, Number, bool)` | None | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
+`GetAttachedToSocketName()` | string | Returns the name of the socket this object is attached to. | None
+`MoveTo(Vector3, Number, bool)` | None | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
+`RotateTo(Rotation/Quaternion, Number, bool=false)` | None | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
 `ScaleTo(Vector3, Number, bool)` | None | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
 `MoveContinuous(Vector3, bool)` | None | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if this should be done in local space (true) or world space (false). | Dynamic
 `RotateContinuous(Rotation/Quaternion, Number, bool)` | None | Smoothly rotates the object over time by the given angular velocity. Because the limit is 179°, the second param is an optional multiplier, for very fast rotations. Third parameter specifies if this should be done in local space (true) or world space (false (default)). | Dynamic
@@ -272,8 +290,8 @@ Function | Return Value | Description | Tags
 `Follow(CoreObject, Number, Number)` | None | Follows a dynamic object at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic
 `LookAt(Vector3 position)` | None | Instantly rotates the object to look at the given position. | Dynamic
 `LookAtContinuous(CoreObject, bool, Number)` | None | Smoothly rotates a CoreObject to look at another given CoreObject. Second parameter is optional and locks the pitch.  (Default is unlocked.)  Third parameter is how fast it tracks the target. If speed is not supplied it tracks as fast as possible. | Dynamic
-`LookAtCamera(bool)` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. | Dynamic
-`Destroy()` | None | Destroys the object.  You can check whether an object has been destroyed by calling is_valid(object), which will return true if object is still a valid object, or false if it has been destroyed. | Dynamic
+`LookAtLocalView(bool)` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | Client Context, Dynamic
+`Destroy()` | None | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | Dynamic
 
 ### [CoreObjectReference](/core_api/classes/coreobjectreference/coreobjectreferenceOverview)
 
@@ -282,6 +300,7 @@ A reference to a CoreObject which may or may not exist.  This type is returned b
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `id` | string | The MUID of the referred object. | Read-Only
+`isAssigned` | bool | Returns true if this reference has been assigned a valid ID. (This does not necessarily mean the object currently exists.) | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -295,11 +314,9 @@ To damage a Player, you can simply write e.g.: whichPlayer:ApplyDamage(Damage.Ne
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `amount` | Number | The numeric amount of damage to inflict. | Read-Write
-`reason` | Damage/Reason | What is the context for this Damage? | Read-Write
+`reason` | Damage/Reason | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC | Read-Write
 `sourceAbility` | Ability | Reference to the Ability which caused the Damage. Setting this automatically sets sourceAbilityName. | Read-Write
-`sourceAbilityName` | string | Name of the ability which caused the Damage. | Read-Write
 `sourcePlayer` | Player | Reference to the Player who caused the Damage. Setting this automatically sets sourcePlayerName. | Read-Write
-`sourcePlayerName` | string | Name of the player who caused the Damage. | Read-Write
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -321,7 +338,7 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | None
 `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The player loses any abilities granted by the Equipment. | None
-`AddAbility(Ability)` | None  | Adds an Ability to the list of abilities on this Equipment. | None
+`AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. | None
 `GetAbilities()` | array<Ability> | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None
 
 ### [Event](/core_api/classes/event/eventOverview)
@@ -348,51 +365,6 @@ Function | Return Value | Description | Tags
 
 Folder is a CoreObject representing a folder containing other objects.  It currently has no properties or functions of its own, but inherits everything from CoreObject.
 
-### [Game](/core_api/classes/game/gameOverview)
-
-Game is a singleton Object type providing access to some useful functions and events.  It is accessed via the global variable game.
-
-Property | Return Value | Description | Tags
---- | --- | --- | ---
-`root` | CoreObject | The root of the scene object hierarchy. | Read-Only
-`playerJoinedEvent` | Event<Player> | Event fired when a player has joined the game and their character is ready. | Read-Only
-`playerLeftEvent` | Event<Player> | Event fired when a player has disconnected from the game or their character has been destroyed. | Read-Only
-`abilitySpawnedEvent` | Event<Ability> | Event fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only
-`roundStartEvent` | Event | Event fired when StartRound is called on game. | Read-Only
-`roundEndEvent` | Event | Event fired when EndRound is called on game. | Read-Only
-
-Function | Return Value | Description | Tags
---- | --- | --- | ---
-`FindObjectsByName(string name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned. | None
-`FindObjectsByType(string type_name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned.  See below for valid type names. | None
-`FindObjectByName(string type_name)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None
-`FindObjectById(string muid_string)` | CoreObject | Returns the object with a given MUID.  Returns nil if no object has this ID. | None
-`GetPlayers()` | array<Player> | Returns a table containing the players currently in the game. The last player that joined is the last player in the table, and the first player is the first element in the table (assuming they haven’t left). | None
-`GetAlivePlayers()` | array<Player> | Returns a table containing the players currently in the game who are not dead. | None
-`GetLocalPlayer()` | Player | Returns the local player (or nil on the server). | None
-`FindNearestPlayer(Vector3 position)` | Player | Returns the Player that is nearest to the given position. | None
-`FindNearestAlly(Vector3 position, Integer team, Player ignore)` | Player | Returns the Player that is nearest to the given position but is on the given team. The last parameter is optional, allowing one Player to be ignored from the search. | None
-`FindNearestEnemy(Vector3 position, Integer team)` | Player | Returns the Player that is nearest to the given position but is not on the given team. | None
-`FindPlayersInCylinder(Vector3 position, Number radius)` | array<Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright. | None
-`FindAlliesInCylinder(Vector3 position, Number radius, Integer team)` | array<Player> | Returns a table with all Players that are in the given cylindrical area and who belong to the given team. | None
-`FindEnemiesInCylinder(Vector3 position, Number radius, Integer team)` | array<Player> | Returns a table with all Players that are in the given cylindrical area and who do not belong to the given team. | None
-`FindPlayersInSphere(Vector3 position, Number radius)` | array<Player> | Returns a table with all Players that are in the given spherical area. | None
-`FindAlliesInSphere(Vector3 position, Number radius, Integer team)` | array<Player> | Returns a table with all Players that are in the given spherical area and who belong to the given team. | None
-`FindEnemiesInSphere(Vector3 position, Number radius, Integer team)` | array<Player> | Returns a table with all Players that are in the given spherical area and who do not belong to the given team. | None
-`SpawnTemplate(string template_id, [Location])` | CoreObject | Spawns an instance of a template.  Location can be a Vector3 or a full Transform and is in world space. | None
-`SpawnTemplate(string template_id, Transform transform, CoreObject parent)` | CoreObject | Spawns an instance of a template as a child of a given parent.  Location can be a Vector3 or a full Transform and is in the parent’s local space. More on Templates. | None
-`SpawnProjectile(string child_template_id, Vector3 start_position, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. More on Projectiles. | None
-`SpawnAbility()` | Ability | Spawns an ability object. | None
-`SpawnAsset(string asset_id, Vector3/Transform location, [CoreObject parent])` | CoreObject | Spawns an instance of the specified asset.  The asset_id needs to be referenced through Asset Reference custom property to work. Interface is same as SpawnTemplate() | None
-`Raycast(Vector3 rayStart, Vector3 rayEnd, Player playerToIgnore(optional), String teamToIgnore (optional))` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Can be set to ignore a specific player or an entire team. | None
-`RaycastIgnoreAllPlayers(Vector3 rayStart, Vector3 rayEnd)` | HitResult | similar to raycast(), but ignores all players. | None
-`GetCursorHit()` | HitResult | return hit result from local client’s view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode | None
-`GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal[optional default to up vector])` | Vector, bool | return intersection from local client’s camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. | None
-`AreTeamsEnemies(Integer team1, Integer team2)` | bool | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None
-`AreTeamsFriendly(Integer team1, Integer team2)` | bool | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None
-`StartRound()` | None | Fire all events attached to roundStartEvent | Server Context
-`EndRound()` | None | Fire all events attached to roundEndEvent | Server Context
-
 ### [HitResult](/core_api/classes/hitresult/hitresultOverview)
 
 Contains data pertaining to an impact or raycast.
@@ -400,8 +372,7 @@ Contains data pertaining to an impact or raycast.
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `other` | CoreObject or Player | Reference to a CoreObject or Player impacted. | None
-`isHeadshot` | bool | True if the weapon hit another player in the head. | Read-Only
-`boneName` | string | If the hit was on a player boneName tells you which spot on the body was hit. | Read-Only
+`socketName` | string | If the hit was on a player, socketName tells you which spot on the body was hit. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -415,14 +386,41 @@ A UIControl for displaying an image.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`isTeamColorUsed` | Color | If true, the image will be tinted blue if its team matches the player, or red if not | None
-`team` | Number | the team of the image, used for isTeamColorUsed | None
+`isTeamColorUsed` | bool | If true, the image will be tinted blue if its team matches the player, or red if not | None
+`team` | Integer | the team of the image, used for isTeamColorUsed | None
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetColor()` | Color | The tint to apply to the image | None
 `SetColor(Color)` | None | The tint to apply to the image | None
-`SetImage(brushMuidString)` | None | set image | None
+`SetImage(imageId)` | None | Set image. You can get this muid from an asset reference. | None
+`GetImage()` | string | Returns the imageId assigned to this Image control. | None
+`SetImage(Player)` | None | Downloads and sets a Player’s profile picture as the texture for this Image control. | None
+
+### [Light](/core_api/classes/light/lightOverview)
+
+Light is a light source that is a CoreObject.  Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the hasNaturalFallOff property. If true: the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If false: the light's Intensity is a brightness scale. | Read-Write, Dynamic
+`attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. | Read-Write, Dynamic
+`isShadowCaster` | bool | Does this light cast shadows? | Read-Write, Dynamic
+`hasTemperature` | Number | true: use temperature value as illuminant. false: use white (D65) as illuminant. | Read-Write, Dynamic
+`temperatur` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic
+`team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
+`isTeamColorUsed` | bool | If true, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`GetColor()` | Color | The color of the light. | None
+`SetColor(Color)(dynamic)` | None | The color of the light. | Dynamic
+
+### [MovementSettings](/core_api/classes/movementsettings/movementsettingsOverview)
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`ApplyToPlayer(Player)` | RV | apply settings from this settings object to player. Should be called on server. | None
 
 ### [NetworkContext](/core_api/classes/networkcontext/networkcontextOverview)
 
@@ -434,11 +432,20 @@ At a high level, CORE Lua types can be divided into two groups: data structures 
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`userData(table)` | table | Table in which users can store any data they want. | None
+`serverUserData` | table | Table in which users can store any data they want on the server. | Read-Only
+`clientUserData` | table | Table in which users can store any data they want on the client. | Read-Only
 
 Static Functions | Return Value | Description | Tags
 --- | --- | --- | ---
 `IsValid(Object object)` | bool | Returns true if object is still a valid Object, or false if it has been destroyed.  Also returns false if passed a nil value or something that’s not an Object, such as a Vector3 or a string. | None
+
+### [PanelUIControl](/core_api/classes/paneluicontrol/paneluicontrolOverview)
+
+A UIControl which can be used for containing and laying out other UI controls.
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`shouldClipChildren (bool)` | bool | If True, children of this panel will not draw outside of its bounds. | None
 
 ### [PerPlayerReplicator](/core_api/classes/perplayerreplicator/perplayerreplicatorOverview)
 
@@ -457,9 +464,9 @@ Property | Return Value | Description | Tags
 `name` | string | The player’s name. | Read-Only
 `id` | string | The unique id of the player. Consistent across sessions. | Read-Only
 `team` | Number | The number of the team to which the player is assigned. By default, this value is 255 in FFA mode. | Read-Write
-`animationSet` | string | Which set of animations to use for this player. Values can be “unarmed”, “1hand_melee”, “1hand_pistol”, “2hand_sword” or “2hand_rifle”. (Deprecated values were “one_handed”, “pistol”, and “crossbow”) | Read-Write
-`activePose` | string | Determines an animation pose to hold during idle. Default value is “none”. Other values can be "2hand_rifle_aim_shoulder", "2hand_rifle_aim_hip", "1hand_pistol_aim", "2hand_pistol_aim", "unarmed_carry_object_high", "unarmed_carry_object_low", "unarmed_carry_object_heavy", "unarmed_carry_score_card", "unarmed_sit_car_low".  See Active Pose Information | Read-Write
-`facingMode` | string | Which controls mode to use for this player. Values can be “strafe” or “loose”. | Read-Write
+`animationStance` | string | Which set of animations to use for this player. Example values can be “unarmed_stance”, “1hand_melee_stance”, “1hand_pistol_stance”, “2hand_sword_stance” or “2hand_rifle_stance”. See  Animation Stance Information | Read-Write
+`currentFacingMode` | FacingMode | Current mode applied to player, including possible overrides. Possible values are FacingMode.STRAFE and FacingMode.LOOSE. See desiredFacingMode for details. | None
+`desiredFacingMode` | FacingMode | Which controls mode to use for this player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.STRAFE and FacingMode.LOOSE. | Read-Write
 `hitPoints` | Number | Current amount of hitpoints. | Read-Write
 `maxHitPoints` | Number | Maximum amount of hitpoints. | Read-Write
 `stepHeight` | Number | Maximum height in centimeters the player can step up. Range is 0-100, default is 45. | Read-Write
@@ -479,7 +486,6 @@ Property | Return Value | Description | Tags
 `isCrouchEnabled` | bool | Turns crouching on/off for a player. | Read-Write
 `mass` | Number | Gets the mass of the player. | Read-Only
 `isAccelerating` | bool | True if the player is accelerating, such as from input to move. | Read-Only
-`isClimbing` | bool | True if the player is climbing. | Read-Only
 `isCrouching` | bool | True if the player is crouching. | Read-Only
 `isFlying` | bool | True if the player is flying. | Read-Only
 `isGrounded` | bool | True if the player is on the ground with no upward velocity, otherwise false | Read-Only
@@ -488,24 +494,23 @@ Property | Return Value | Description | Tags
 `isSwimming` | bool | True if the player is swimming in water. | Read-Only
 `isWalking` | bool | True if the player is in walking mode. | Read-Only
 `isDead` | bool | True if the player is dead, otherwise false. Can be set as well. | Read-Write
-`cameraSensitivity` | Number | Multiplier on camera rotation speed relative to cursor movement. Default is 1.0. This is independent from player preference, both will be applied as multipliers together. | Read-Write
-`cursorMoveInputMode` | CursorMoveInput enum | Enables move towards cursor when a button is held, values for CursorMoveInput enum are: NONE, LEFT_MOUSE, RIGHT_MOUSE, LEFT_OR_RIGHT_MOUSE. Example usage: player.cursorMoveInputMode = CursorMoveInput.LEFT_MOUSE | Read-Write
-`canTopdownCameraRotate` | bool | If true, can rotate in topdown mode | Read-Write
-`showBodyForFpsCamera` | bool | (for trying out showing body in FPS camera, will likely change/be removed) show body mesh in FPS camera mode | Read-Write
-`shouldRotationFollowCursor` | bool | If true, character will rotate to face cursor (intended for topdown mode) | Read-Write
-`scrollZoomSpeed` | Number | Multiplier to mouse wheel scroll speed for zoom | Read-Write
+`isSliding` | bool | True if the player is currently in sliding mode. | Read-Only
+`movementControlMode` | MovementControlMode | Possible values are MovementControlMode.NONE, MovementControlMode.LOOK_RELATIVE, MovementControlMode.VIEW_RELATIVE, MovementControlMode.FIXED_AXES. | Read-Write
+`lookControlMode` | LookControlMode | Possible values are LookControlMode.NONE, LookControlMode.RELATIVE. | Read-Write
+`lookSensitivity` | Number | multiplier on player look rotation speed relative to cursor movement. Default is 1.0. This is independent from player preference, both will be applied as multipliers together. | Read-Write
 `spreadModifier` | Number | Added to the player’s targeting spread | Read-Write
-`buoyancy` | Number | In water, buoyancy 1.0 is neutral (won’t sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write
-`isCursorVisible` | bool | Whether cursor is visible. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
-`isCursorLocked` | bool | Whether to lock cursor in viewport. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
-`isCursorInteractableWithUI` | bool | Whether cursor can interact with UI elements like buttons. Will be set automatically by camera mode by default, but can be overriden afterwards | Read-Write
-`damagedEvent` | Event<Player, Damage> | Event fired when the Player takes damage. | Read-Only
-`diedEvent` | Event<Player, Damage> | Event fired when the Player dies. | Read-Only
-`respawnedEvent` | Event<Player> | Event fired when the Player respawns. | Read-Only
-`bindingPressedEvent` | Event<Player, String> | Event fired when an action binding is pressed. Second parameter tells you which binding. | Read-Only
+`buoyancy` | Number | in water, buoyancy 1.0 is neutral (won’t sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write
+`canMount` | bool | whether the player can manually toggle on/off the mount | Read-Write
+`shouldDismountWhenDamaged` | bool | If true, and the player is mounted they will dismount if they take damage. | Read-Write
+`isVisibleToSelf` | bool | Set whether to hide player model on player’s own client, for sniper scope, etc. Client-only. | Client Context, Read-Write
+`damagedEvent` | Event<Player, Damage> | Event fired when the Player takes damage. Server only. | Server Context, Read-Only
+`diedEvent` | Event<Player, Damage> | Event fired when the Player dies.  Server only. | Server Context, Read-Only
+`respawnedEvent` | Event<Player> | Event fired when the Player respawns.  Server only. | Server Context, Read-Only
+`bindingPressedEvent` | Event<Player, String> | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list | Read-Only
 `bindingReleasedEvent` | Event<Player, String> | Event fired when an action binding is released. Second parameter tells you which binding. | Read-Only
 `resourceChangedEvent` | Event<Player> | Event fired when a resource changed | Read-Only
-`keyValuePairReceivedEvent` | Event<Player, String, value> | Event fired when a key-value pair is received. See also SendKeyValuePairToServer(). | Read-Only
+`movementModeChangedEvent` | Event<Player, MovementMode, MovementMode> | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only
+`animationEvent` | Event<Player>,EventName | Event fired during certain animations played on a player. Client only. | Client Context
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -528,49 +533,35 @@ Function | Return Value | Description | Tags
 `AddImpulse (Vector3)` | Vector3 | Adds an impulse force to the player. | None
 `GetVelocity()` | Vector3 | Gets current velocity of player | None
 `ResetVelocity()` | None | Resets the player’s velocity to zero. | None
-`GetRotationRate()` | Rotation | ? | None
-`SetRotationRate (Rotation)` | None | no ? | None
+`GetRotationRate()` | Rotation | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | None
+`SetRotationRate (Rotation)` | None | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | None
 `GetAbilities()` | array<Ability> | Array of all Abilities assigned to this Player. | None
 `GetEquipment()` | array<Equipment> | Array of all Equipment assigned to this Player. | None
-`ApplyDamage(Damage)` | None | Damages a Player. If their hitpoints go below 0, they die. | None
+`ApplyDamage(Damage)` | None | Damages a Player. If their hitpoints go below 0 they die. | None
 `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | None
 `DisableRagdoll()` | None | Disables all ragdolls that have been set on the player. | None
 `SetVisibility(bool, bool)` | None | Shows or hides the player. The second parameter is optional, defaults to true, and determines if attachments to the player are hidden as well as the player. | None
-`SetReticleVisible(bool Show)` | None | Shows or hides the reticle for the player. | None
-`SetNameVisible(bool)` | None | Set player name visibility | None
-`EnableRagdoll(string SocketName, Number Weight, bool CameraFollows)` | Number | Enables ragdoll for the player, starting on “SocketName” weighted by “Weight” (between 0.0 and 1.0). This can cause the player capsule to detach from the mesh. Setting CameraFollows to true will force the player capsule to stay with the mesh. All parameters are optional; SocketName defaults to the root, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously. | None
-`ForceHideModelOnOwnerClient(bool)` | bool | Set whether to hide player model on player’s own client, for sniper scope, etc. Client-only. | Client Context
-`SetClientIgnoreMoveInput(bool)` | None | Set whether to ignore move input on client. Client-only | Client Context
-`GetClientIgnoreMoveInput()` | None | whether player ignores move input, Client-only | Client Context
-`LockCamera(bool Enable)` | bool | If Enable is true (or no parameters are given), locks the camera at the current rotation. If Enable is false, the camera is unlocked if it was previously locked. | None
-`LockCamera(Vector3 Direction)` | Vector3 | Locks the camera looking at the player in the Direction supplied. Roll is never applied to the camera. If Direction is directly up, down, or otherwise unable to be normalized, the function does nothing. | None
-`LockCamera(Rotation NewRotation)` | Rotation | Locks the camera to the rotation supplied. | None
-`AttachCameraTo(CoreObject, [blendTime])` | None | Have camera follow position and orientation of the given object. If blend time is <= 0, transition is instant. Default blend time is 2 seconds | None
-`ResetCameraAttachment([blendTime])` | None | Set camera to attach back to its owner | None
-`Respawn([Vector, Rotation])` | Rotation | Resurrects a dead Player at one of the Start Points. Optional position and rotation parameters can be used to specify a location. | None
-`SetCameraDistance(Number Distance, bool Transition)` | None | Sets the Distance the camera floats from the player. Using a negative Distance will reset it to default. | None
-`SetCameraOffset(Vector3 Offset, bool Transition)` | None | Adjusts the focus point for the camera (what the camera looks at and rotates around). Defaults to just off the shoulder. The Offset is calculated from the middle of the player. | None
-`SetCameraLerpSpeed(float)` | None | set camera distance and offset lerp speed, default is 10 | None
-`ResetCamera(bool Transition)` | bool | Sets the camera back to default, 3rd person behind character. If Transition is set to True (default behavior) the change will be smooth. | None
-`SetCameraOverTheShoulder(bool Transition)` | None | Sets the camera to 3rd person over the shoulder. Ideal for firing weapons. If Transition is set to True (default behavior) the change will be smooth. | None
-`SetupCameraTopdownFollow(Number PitchAngle, Number YawAngle, Number InitialDist, [Number MinDist, Number MaxDist])` | None | set camera in topdown mode, with given rotation and distance. Always follow player with player in center of view by default | None
-`SetupCameraFps(optionalCameraOffset)` | None | set camera in first person mode (experimental) | None
-`SetupCameraWithSettings(CameraSettings Settings)` | None | setup camera with given camera settings object (obsolete, please use CameraSettings:apply(player) instead) | None
-`SetCameraFov(Number FoV)` | None | Sets the camera’s field of view for the player. | None
-`GetCameraPosition()` | Vector3 | Get position of player’s camera view. Only works for local player. | None
-`GetCameraForward()` | Vector3 | Get forward vector of player’s camera view. Only works for local player. | None
-`ShowHitFeedback([Color])` | Color | Shows diagonal crosshair feedback. Useful, e.g. when a shot connects with a target. Optional Color defaults to red. | None
-`PlayAnimation(String animationName, bool isLooping, Number duration)` | Number | Plays a specific animation.  See below for valid strings. | None
-`ClearResources()` | None | Removes all resources from a player. | None
-`GetResource(String name)` | string | Returns the amount of a resource owned by a player. | None
+`EnableRagdoll(string SocketName, Number Weight, bool CameraFollows)` | None | Enables ragdoll for the player, starting on “SocketName” weighted by “Weight” (between 0.0 and 1.0). This can cause the player capsule to detach from the mesh. Setting CameraFollows to true will force the player capsule to stay with the mesh. All parameters are optional; SocketName defaults to the root, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously. | None
+`Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | None
+`GetViewWorldPosition()` | Vector3 | Get position of player’s camera view. Only works for local player. | None
+`GetViewWorldRotation()` | Rotation | Get rotation of player’s camera view. Only works for local player. | None
+`ClearResources()` | RV | Removes all resources from a player. | None
+`GetResource(String name)` | string | Returns the amount of a resource owned by a player. Returns 0 by default. | None
 `SetResource(String name, Integer amount)` | None | Sets a specific amount of a resource on a player. | None
-`AddResource(String name, Integer amount)` | Number | Adds an amount of a resource to a player. | None
-`RemoveResource(String name, Integer amount)` | Number | Subtracts an amount of a resource from a player. Does not go below 0. | None
+`AddResource(String name, Integer amount)` | None | Adds an amount of a resource to a player. | None
+`RemoveResource(String name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | None
 `GetResourceNames()` | array<String> | return array containing resource names | None
 `GetResourceNamesStartingWith(String prefix)` | array<String> | return array containing resource names starting with given prefix | None
-`TransferToGame(String)` | string |  Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | None
-`GetAttachedObjects()` | table | Returns a table containing the CoreObjects attached to this player. | None
-`SendKeyValuePairToServer(String key, value)` | string | send a key-value pair to server, value restricted to string, number, and vector at the moment. See also keyValuePairReceivedEvent. | None
+`TransferToGame(String)` | None |  Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | None
+`GetAttachedObjects()` | Table<CoreObjects> | return table containing core objects attached to this player. | None
+`SetMounted(Bool)` | None | Forces a player in or out of mounted state. | None
+`GetDefaultCamera()` | Camera | Returns the default camera object the player is currently using. This can only be called on the client. | None
+`SetDefaultCamera(Camera, LerpTime = 2.0)` | None | Sets the default camera object for the player. This can only be called on the client. | None
+`GetOverrideCamera()` | Camera | Returns the override camera object the player is currently using. This can only be called on the client. | None
+`SetOverrideCamera(Camera, LerpTime = 2.0)` | None | Sets the override camera object for the player. This can only be called on the client. | None
+`ClearOverrideCamera(LerpTime = 2.0)` | None | Clears the override camera object for the player (to revert back to the default camera). This can only be called on the client. | None
+`ActivateFlying()` | None | Activates the player flying mode. | None
+`ActivateWalking()` | None | Activate the player walking mode | None
 
 ### [PlayerStart](/core_api/classes/playerstart/playerstartOverview)
 
@@ -586,20 +577,10 @@ PointLight is a placeable light source that is a CoreObject.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`intensity` | Number | The intensity of the light. This has two interpretations, depending on use_attenuation_radius. If true, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If false: the light's Intensity is a brightness scale. | Read-Write, Dynamic
-`hasAttenuationRadius` | bool | The attenuation method of the light. When enabled, attenuation_radius is used. When disabled, fall_off_exponent is used. Also changes the interpretation of the intensity property, see intensity for details. | Read-Write, Dynamic
-`attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. | Read-Write, Dynamic
-`fallOffExponent` | Number | Controls the radial falloff of the light when use_attenuation_radius is disabled. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic
+`hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, attenuationRadius is used. When disabled, falloffExponent is used. Also changes the interpretation of the intensity property, see intensity for details. | Read-Write, Dynamic
+`falloffExponent` | Number | Controls the radial falloff of the light when hasNaturalFalloff is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic
 `sourceRadius` | Number | Radius of light source shape. | Read-Write, Dynamic
 `sourceLength` | Number | Length of light source shape. | Read-Write, Dynamic
-`isShadowCaster` | bool | Does this light cast shadows? | Read-Write, Dynamic
-`hasTemperature` | Number | If true, uses the temperature value as illuminant. If false, uses the white (D65) as illuminant. | Read-Write, Dynamic
-`temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic
-
-Function | Return Value | Description | Tags
---- | --- | --- | ---
-`GetColor()` | Color | The color of the light. | None
-`SetColor(Color)` | None | The color of the light | Dynamic
 
 ### [ProgressBarUIControl](/core_api/classes/progressbaruicontrol/progressbaruicontrolOverview)
 
@@ -614,6 +595,7 @@ Function | Return Value | Description | Tags
 `GetFillColor()` | Color | The color of the fill. | None
 `SetFillColor(Color)` | None | The color of the fill. | None
 
+
 ### [Projectile](/core_api/classes/projectile/projectileOverview)
 
 Projectile is a specialized Object which moves through the air in a parabolic shape and impacts other objects. To spawn a projectile see `game:SpawnProjectile()`.
@@ -622,20 +604,20 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `owner` | Player | The player who fired this projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the projectile if teams are being used in the game. | Read-Write
 `sourceAbility` | Ability | ? | Read-Write
-`speed` | Number | Returns cm/s. By default, 5000cm/s.  | Read-Write
-`maxSpeed` | Number | Returns max cm/s. By default, zero for no limit. | Read-Write
-`gravityScale` | Number | How much drop. Zero can be used to make a Projectile go in a straight line. By default, 1 for normal gravity. | Read-Write
-`drag` | Number | Deceleration. Default 0. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. | Read-Write
-`bouncesRemaining` | Number | Number of bounces remaining before it dies. By default, zero. | Read-Write
-`bounciness` | Number | Velocity % maintained after a bounce. By default, 0.6. | Read-Write
-`lifeSpan` | Number | Max seconds the projectile will exist. By default, 10 seconds. | Read-Write
-`shouldBounceOnPlayers` | bool | Determines if the projectile should bounce off players or be destroyed, when bouncesRemaining is used. By default, false. | Read-Write
-`piercesRemaining` | Number | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. By default, zero pierces. | Read-Write
-`capsuleRadius` | Number | Shape of the projectile’s collision. By default, 22.| Read-Write
-`capsuleLength` | Number | Shape of the projectile’s collision. A value of zero will make it shaped like a Sphere. By default, 44. | Read-Write
+`speed` | Number | Centimeters per second movement. Default 5000. | Read-Write
+`maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. | Read-Write
+`gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write
+`drag` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. | Read-Write
+`bouncesRemaining` | Integer | Number of bounces remaining before it dies. Default 0. | Read-Write
+`bounciness` | Number | Velocity % maintained after a bounce. Default 0.6. | Read-Write
+`lifeSpan` | Number | Max seconds the projectile will exist. Default 10. | Read-Write
+`shouldBounceOnPlayers` | bool | Determines if the projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. | Read-Write
+`piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write
+`capsuleRadius` | Number | Shape of the projectile’s collision. Default 22. | Read-Write
+`capsuleLength` | Number | Shape of the projectile’s collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write
 `homingTarget` | Player | The projectile accelerates towards its target. | Read-Write
-`homingAcceleration` | Number | Magnitude of acceleration towards the target. By default, 10,000. | Read-Write
-`shouldDieOnImpact` | bool | If true, the projectile is automatically destroyed when it hits something, unless it has bounces remaining. By default, true. | Read-Write
+`homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. | Read-Write
+`shouldDieOnImpact` | bool | If true the projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write
 `impactEvent` | Event<Projectile, other Object, HitResult> | An event fired when the Projectile collides with something. Impacted object parameter will be either of type CoreObject or Player, but can also be nil. The HitResult describes the point of contact between the Projectile and the impacted object. | Read-Only
 `lifeSpanEndedEvent` | Event<Projectile> | An event fired when the Projectile reaches the end of its lifespan. Called before it is destroyed. | Read-Only
 `homingFailedEvent` | Event<Projectile> | The target is no longer valid, for example the player disconnected from the game or the object was destroyed somehow. | Read-Only
@@ -643,11 +625,15 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `destroy()` | Object | Immediately destroys the object. | None
-`GetTransform()` | Transform | Transform data for the Projectile in world space. | None
+`GetWorldTransform()` | Transform | Transform data for the Projectile in world space. | None
 `GetWorldPosition()` | Vector3 | Position of the Projectile in world space. | None
 `SetWorldPosition(Vector3)` | None | Position of the Projectile in world space. | None
 `GetVelocity()` | Vector3 | Current direction and speed vector of the Projectile. | None
 `SetVelocity(Vector3)` | None | Current direction and speed vector of the Projectile. | None
+
+Static Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`Spawn(string child_template_id, Vector3 start_position, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. | None
 
 ### [Quaternion](/core_api/classes/quaternion/quaternionOverview)
 
@@ -762,14 +748,43 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `context(table, read-only)` | table | Returns the table containing any non-local variables and functions created by the script.  This can be used to call (or overwrite!) functions on another script. | Read-Only
 
+!!! Note
+    While not technically a property, a script can access itself using the `script` variable.
+
 ### [SpotLight](/core_api/classes/spotlight/spotlightOverview)
 
-SpotLight is a PointLight that shines in a specific direction.
+SpotLight is a Light that shines in a specific direction from the location at which it is placed.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`innerConeAngle` | Number | ? | Read-Write, Dynamic
-`outerConeAngle` | Number | ? | Read-Write, Dynamic
+`hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, attenuationRadius is used. When disabled, falloffExponent is used. Also changes the interpretation of the intensity property, see intensity for details. | Read-Write, Dynamic
+`falloffExponent` | Number | Controls the radial falloff of the light when hasNaturalFalloff is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic
+`sourceRadius` | Number | Radius of light source shape. | Read-Write, Dynamic
+`sourceLength` | Number | Length of light source shape. | Read-Write, Dynamic
+`innerConeAngle` | Number | The angle (in degrees) of the cone within which the projected light achieves full brightness. | Read-Write, Dynamic
+`outerConeAngle` | Number | The outer angle (in degrees) of the cone of light emitted by this SpotLight. | Read-Write, Dynamic
+
+### [SmartAudio](/core_api/classes/smartaudio/smartaudioOverview)
+
+SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio objects, they have many of the same properties and functions.
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`isPlaying` | bool | Returns if the sound is currently playing. | Read-Only
+`isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic
+`isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only
+`isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write
+`isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.) | Read-Write
+`pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.) | Read-Write
+`volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write
+`radius` | Number | Default 0 (off.) If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write
+`falloff` | Number | Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`Play()` | None | Begins sound playback. | None
+`Stop()` | None | Stops sound playback. | None
+
 
 ### [SmartObject](/core_api/classes/smartobject/smartobjectOverview)
 
@@ -787,18 +802,18 @@ StaticMesh is a CoreObject representing a static mesh.
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isSimulatingPhysics` | bool | If true, physics will be enabled for the mesh. | Read-Write, Dynamic
-`team` | Number | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
-`isTeamColorUsed` | bool | If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
-`isTeamCollisionDisabled` | bool | If true, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic
-`isEnemyCollisionDisabled` | bool | If true, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic
-`isCameraCollisionDisabled` | bool | If true, and the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write, Dynamic
+`team (int, read-write)(dynamic)` | RV | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
+`isTeamColorUsed` | Color | If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
+`isTeamCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic
+`isEnemyCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic
+`isCameraCollisionEnabled` | bool | If false, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write, Dynamic
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetColor()` | Color | Overrides the color of all materials on the mesh, and replicates the new colors. | None
 `SetColor(Color)` | None | Overrides the color of all materials on the mesh, and replicates the new colors. | Dynamic
-`GetMaterialProperty(Integer slot, string property_name)` | value, bool | Gets the current value of a property on a material in a given slot.  Returns the value, which can be an Number, bool, Vector3, Color, or nil if not found. Second return value is a bool, true if found and false if not. | None
-`SetMaterialProperty(Integer slot, string property_name, value)` | bool | Sets the value of a property on a material in a given slot. Value, which can be a Number, bool, Vector3, or Color, but must match the type of the property on the material. Returns true if set successfully and false if not. | None
+`GetMaterialProperty(Integer slot, string property_name)` | value, bool | Gets the current value of a property on a material in a given slot.  Returns the value, which can be a Number, bool, Vector3, Color, or nil if not found.  Second return value is a bool, true if found and false if not. | None
+`SetMaterialProperty(Integer slot, string property_name, value)` | bool | Sets the value of a property on a material in a given slot.  Value, which can be a Number, bool, Vector3, or Color, but must match the type of the property on the material.  Returns true if set successfully and false if not. | None
 `ResetColor()` | Color | Turns off the color override, if there is one. | None
 
 ### [Task](/core_api/classes/task/taskOverview)
@@ -814,7 +829,7 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Cancel()` | None | Cancels the Task immediately.  It will no longer be executed, regardless of the state it was in.  If called on the currently executing Task, that Task will halt execution. | None
-`GetStatus()` | TaskStatus | Returns the status of the Task. | None
+`GetStatus()` | TaskStatus | Returns the status of the Task. Possible values include: TaskStatus.UNINITIALIZED, TaskStatus.SCHEDULED, TaskStatus.RUNNING, TaskStatus.COMPLETED, TaskStatus.YIELDED, TaskStatus.FAILED, TaskStatus.CANCELED. | None
 
 Class functions | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -850,6 +865,8 @@ Property | Return Value | Description | Tags
 `text` | string | The actual text string to show. | None
 `fontSize` | Number | Font size | None
 `justification` | TextJustify | Enum that determines alignment of text.  Possible values are: TextJustify.LEFT, TextJustify.Right, and TextJustify.CENTER. | None
+`shouldWrapText` | bool | Whether or not text should be wrapped within the bounds of this control. | None
+`shouldClipText` | bool | Whether or not text should be clipped when exceeding the bounds of this control. | None
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -865,6 +882,8 @@ Property | Return Value | Description | Tags
 `text` | string | The actual text string to show. | None
 `fontSize` | Number | Font size | None
 `justification` | TextJustify | Enum that determines alignment of text.  Possible values are: TextJustify.LEFT, TextJustify.Right, and TextJustify.CENTER. | None
+`shouldWrapText` | bool | Whether or not text should be wrapped within the bounds of this control. | None
+`shouldClipText` | bool | Whether or not text should be clipped when exceeding the bounds of this control. | None
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -914,16 +933,21 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isInteractable` | bool | Is the trigger interactable? | Read-Write, Dynamic
 `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. | Read-Write, Dynamic
-`team` | Number | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
-`isTeamCollisionDisabled` | bool | If true, and the trigger has been assigned to a valid team, players on that team will not overlap or interact with the trigger. | Read-Write, Dynamic
-`isEnemyCollisionDisabled` | bool | If true, and the trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the trigger. | Read-Write, Dynamic
+`team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team ( friendly to all other teams ) | Read-Write, Dynamic
+`isTeamCollisionEnabled` | bool | If false, and the trigger has been assigned to a valid team, players on that team will not overlap or interact with the trigger. | Read-Write, Dynamic
+`isEnemyCollisionEnabled` | bool | If false, and the trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the trigger. | Read-Write, Dynamic
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`IsOverlapping(CoreObject)` | bool | Returns true if given core object overlaps with the trigger. | None
+`IsOverlapping(Player)` | bool | Returns true if given player overlaps with the trigger. | None
+`GetOverlappingObjects()` | array<Objects> | Returns a list of all objects that are currently overlapping with the trigger. | None
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`beginOverlapEvent` | Event<CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only, Static
+`beginOverlapEvent` | Event<CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only
 `endOverlapEvent` | Event<CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent. | Read-Only
 `interactedEvent` | Event<CoreObject trigger, Player> | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player. | Read-Only
-
 
 ### [UIControl](/core_api/classes/uicontrol/uicontrolOverview)
 
@@ -935,9 +959,6 @@ Property | Return Value | Description | Tags
 `y` | Number | Screen-space offset from the anchor. | None
 `width` | Number | Horizontal size of the control. | None
 `height` | Number | Vertical size of the control. | None
-`inheritParentWidth` | bool | inherit parent width | None
-`inheritParentHeight` | bool | inherit parent height | None
-`addSelfSizeToInheritedSize` | bool | add self width and height to inherited size | None
 `rotationAngle` | Number | rotation angle of the control. | None
 
 ### [Vector2](/core_api/classes/vector2/vector2Overview)
@@ -1076,6 +1097,11 @@ Vfx is a specialized type of SmartObject for visual effects.  It inherits everyt
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
+`team (int, read-write)(dynamic)` | RV | Assigns the vfx to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
+`isTeamColorUsed (bool, read-write)(dynamic)` | Color | If true, and the vfx has been assigned to a valid team, players on that team will see a blue vfx, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
 `Play()` | None | Starts playing the effect. | None
 `Stop()` | None | Stops playing the effect. | None
 
@@ -1086,48 +1112,50 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isReticleEnabled` | bool | If True, the reticle will appear when this Weapon is equipped. | Read-Write
-`attackCooldownDuration` | Number | Interval between separate burst sequences. | Read-Write
-`multiShotCount` | Number | Number of projectiles/hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Write
-`burstCount` | Number | Number of automatic activations of the weapon that generally occur in quick succession. | Read-Write
+`animationStance` | string | When the weapon is equipped this animation stance is applied to the Player. | Read-Only
+`attackCooldownDuration` | Number | Interval between separate burst sequences. | Read-Only
+`multiShotCount` | Integer | Number of projectiles/hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Only
+`burstCount` | Integer | Number of automatic activations of the weapon that generally occur in quick succession. | Read-Only
 `shotsPerSecond` | Number | Used in conjunction with burst_count to determine the interval between automatic weapon activations. | Read-Write
-`shouldBurstStopOnRelease` | bool | If True, a burst sequence can be interrupted by the player by releasing the action button. If False, the burst continues firing automatically until it completes or the weapon runs out of ammo. | Read-Write
-`isHitscan` | bool | If False, the weapon will produce simulated projectiles. If true, it will instead use instantaneous line traces to simulate shots. | Read-Write
+`shouldBurstStopOnRelease` | bool | If True, a burst sequence can be interrupted by the player by releasing the action button. If False, the burst continues firing automatically until it completes or the weapon runs out of ammo. | Read-Only
+`isHitscan` | bool | If False, the weapon will produce simulated projectiles. If true, it will instead use instantaneous line traces to simulate shots. | Read-Only
 `range` | Number | Max travel distance of the projectile (is_hitscan = False) or range of the line trace (is_hitscan = True). | Read-Write
-`projectileTemplateId` | string | Asset reference for the visual body of the projectile, for non-hitscan weapons. | Read-Write
-`muzzleFlashTemplateId` | string | Asset reference for a VFX to be attached to the muzzle point each time the weapon attacks. | Read-Write
-`trailTemplateId` | string | Asset reference for a trail VFX to follow the trajectory of the shot. | Read-Write
-`beamTemplateId` | string | Asset reference for a beam VFX to be placed along the trajectory of the shot. Useful for hitscan weapons or very fast projectiles. | Read-Write
-`impactSurfaceTemplateId` | string | Asset reference of a VFX to be attached to the surface of any Core Objects hit by the attack. | Read-Write
-`impactProjectileTemplateId` | string | Asset reference of a VFX to be spawned at the interaction point. It will be aligned with the trajectory. If the impacted object is a Core Object, then the VFX will attach to it as a child. | Read-Write
-`impactPlayerTemplateId` | string | Asset reference of a VFX to be spawned at the interaction point, if the impacted object is a player. | Read-Write
-`projectileSpeed` | Number | Travel speed (cm/s) of projectiles spawned by this weapon. | Read-Write
-`projectileLifeSpan` | Number | Duration of projectiles. After which they are destroyed. | Read-Write
-`projectileGravity` | Number | Gravity scale applied to spawned projectiles. | Read-Write
-`projectileLength` | Number | Length of the projectile’s capsule collision. | Read-Write
-`projectileRadius` | Number | Radius of the projectile’s capsule collision | Read-Write
-`projectileBounceCount` | Number | Number of times the projectile will bounce before it’s destroyed. Each bounce generates an interaction event. | Read-Write
-`projectilePierceCount` | Number | Number of objects that will be pierced by the projectile before it’s destroyed. Each pierce generates an interaction event. | Read-Write
-`maxAmmo` | Number | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn’t need to reload. | Read-Write
-`currentAmmo` | Number | Current amount of ammo stored in this Weapon. | Read-Write
-`ammoType` | string | A unique identifier for the ammunition type. | Read-Write
-`isAmmoFinite` | bool | Determines where the ammo comes from. If True, then ammo will be drawn from the Player’s Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If False, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Write
-`outOfAmmoSoundId` | string | Asset reference for a sound effect to be played when the weapon tries to activate, but is out of ammo. | Read-Write
-`reloadSoundId` | string | Asset reference for a sound effect to be played when the weapon reloads ammo. | Read-Write
-`spreadMin` | Number | Smallest size in degrees for the Weapon’s cone of probability space to fire projectiles in. | Read-Write
-`spreadMax` | Number | Largest size in degrees for the Weapon’s cone of probability space to fire projectiles in. | Read-Write
-`spreadAperture` | Number | The surface size from which shots spawn. An aperture of zero means shots originate from a single point. | Read-Write
-`spreadDecreaseSpeed` | Number | Speed at which the Spread contracts back from it’s current value to the minimum cone size. | Read-Write
-`spreadIncreasePerShot` | Number | Amount the Spread increases each time the Weapon attacks. | Read-Write
-`spreadPenaltyPerShot` | Number | Cumulative penalty to the Spread size for successive attacks. Penalty cools off based on spreadDecreaseSpeed. | Read-Write
+`projectileTemplateId` | string | Asset reference for the visual body of the projectile, for non-hitscan weapons. | Read-Only
+`muzzleFlashTemplateId` | string | Asset reference for a VFX to be attached to the muzzle point each time the weapon attacks. | Read-Only
+`trailTemplateId` | string | Asset reference for a trail VFX to follow the trajectory of the shot. | Read-Only
+`beamTemplateId` | string | Asset reference for a beam VFX to be placed along the trajectory of the shot. Useful for hitscan weapons or very fast projectiles. | Read-Only
+`impactSurfaceTemplateId` | string | Asset reference of a VFX to be attached to the surface of any Core Objects hit by the attack. | Read-Only
+`impactProjectileTemplateId` | string | Asset reference of a VFX to be spawned at the interaction point. It will be aligned with the trajectory. If the impacted object is a Core Object, then the VFX will attach to it as a child. | Read-Only
+`impactPlayerTemplateId` | string | Asset reference of a VFX to be spawned at the interaction point, if the impacted object is a player. | Read-Only
+`projectileSpeed` | Number | Travel speed (cm/s) of projectiles spawned by this weapon. | Read-Only
+`projectileLifeSpan` | Number | Duration of projectiles. After which they are destroyed. | Read-Only
+`projectileGravity` | Number | Gravity scale applied to spawned projectiles. | Read-Only
+`projectileLength` | Number | Length of the projectile’s capsule collision. | Read-Only
+`projectileRadius` | Number | Radius of the projectile’s capsule collision | Read-Only
+`projectileDrag` | Number | Drag on the projectile. | Read-Only
+`projectileBounceCount` | Integer | Number of times the projectile will bounce before it’s destroyed. Each bounce generates an interaction event. | Read-Only
+`projectilePierceCount` | Integer | Number of objects that will be pierced by the projectile before it’s destroyed. Each pierce generates an interaction event. | Read-Only
+`maxAmmo` | Integer | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn’t need to reload. | Read-Only
+`currentAmmo` | Integer | Current amount of ammo stored in this Weapon. | Read-Write
+`ammoType` | string | A unique identifier for the ammunition type. | Read-Only
+`isAmmoFinite` | bool | Determines where the ammo comes from. If True, then ammo will be drawn from the Player’s Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If False, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only
+`outOfAmmoSoundId` | string | Asset reference for a sound effect to be played when the weapon tries to activate, but is out of ammo. | Read-Only
+`reloadSoundId` | string | Asset reference for a sound effect to be played when the weapon reloads ammo. | Read-Only
+`spreadMin` | Number | Smallest size in degrees for the Weapon’s cone of probability space to fire projectiles in. | Read-Only
+`spreadMax` | Number | Largest size in degrees for the Weapon’s cone of probability space to fire projectiles in. | Read-Only
+`spreadAperture` | Number | The surface size from which shots spawn. An aperture of zero means shots originate from a single point. | Read-Only
+`spreadDecreaseSpeed` | Number | Speed at which the Spread contracts back from its current value to the minimum cone size. | Read-Only
+`spreadIncreasePerShot` | Number | Amount the Spread increases each time the Weapon attacks. | Read-Only
+`spreadPenaltyPerShot` | Number | Cumulative penalty to the Spread size for successive attacks. Penalty cools off based on spreadDecreaseSpeed. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `HasAmmo()` | bool | Informs whether the Weapon is able to attack or not. | None
-`Attack([target])` | None | Triggers the main ability of the weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None
+`Attack(target)` | None | Triggers the main ability of the weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`targetInteractionEvent` | Event<WeaponInteraction> | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. | Read-Only
+`targetInteractionEvent` | Event<WeaponInteraction> | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. Server only. | Server Context, Read-Only
 `projectileSpawnedEvent` | Event<WeaponInteraction> | An event fired when a Weapon spawns a projectile. | Read-Only
 
 ### [WeaponInteraction](/core_api/classes/weaponinteraction/weaponinteractionOverview)
@@ -1142,11 +1170,25 @@ Property | Return Value | Description | Tags
 `weapon` | Weapon | Reference to the Weapon that is interacting. | Read-Only
 `weaponOwner` | Player | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only
 `travelDistance` | Number | The distance in cm between where the weapon attack started until it impacted something. | Read-Only
+`isHeadshot` | bool | True if the weapon hit another player in the head. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetHitResult()` | HitResult | Physics information about the impact between the weapon and the other object. | None
 `GetHitResults()` | array<HitResult> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None
+
+### [WorldText](/core_api/classes/worldtext/worldtextOverview)
+
+WorldText is an in-world text CoreObject.
+
+Property | Return Value | Description | Tags
+--- | --- | --- | ---
+`text` | string | The text being displayed by this object. | Read-Write, Dynamic
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`GetColor()` | Color | The color of the text. | None
+`SetColor(Color)` | None | The color of the text. | Dynamic
 
 ## Core Lua Namespaces
 
@@ -1162,48 +1204,140 @@ Function | Return Value | Description | Tags
 `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | Vector3 | draw debug box, with dimension specified as a vector. optionalParameters has same options as DrawLine, with addition of: rotation (Rotation) - rotation of the box | None
 `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | Vector3 | draw debug sphere | None
 
+??? "CoreDebug Code Example"
+    ```
+    -- draw red line for 3 seconds
+    CoreDebug.DrawLine(Vector3.New(0, 0, 0), Vector3.New(0, 0, 1000), {color = Color.RED, duration = 3.0})
+
+    -- draw box with dimension (100x200x300) for 10 seconds, rotated 45 degrees along Z axis
+    CoreDebug.DrawBox(Vector3.New(1000, 0, 0), Vector3.New(100, 200, 300), {color = Color.BLUE, duration = 10.0, rotation = Rotation.New(0, 0, 45)})
+
+    -- draw cyan sphere with radius 50 for single frame
+    CoreDebug.DrawSphere(Vector3.New(0, 0, 100), 50, {color = Color.CYAN })
+    ```
+
 ### [CoreMath](/core_api/classes/coremath/coremathOverview)
 
 The CoreMath API contains a group of static math functions.
 
 Static Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`CoreMath.Clamp(Number value, Number lower, Number upper)` | Number | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. | None
-`CoreMath.Lerp(Number from, Number to, Number t)` | Number | Linear interpolation between from and to.  t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None
-`CoreMath.Round(Number value, Number decimals)` | Number | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. | None
+`CoreMath.Clamp(Number value, Number lower, Number upper)` | None | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. | None
+`CoreMath.Lerp(Number from, Number to, Number t)` | None | Linear interpolation between from and to.  t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None
+`CoreMath.Round(Number value, Number decimals)` | None | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. | None
 
-### [Storage](/core_api/classes/storage/storageOverview)
+### [Events](/core_api/classes/events/eventsOverview)
 
-The Storage API allows a server-side script to save and load Lua tables as key value pairs. All keys must be strings and values can be string or numeric. Since each of these calls is a network request, all methods (sans one) will halt execution of the containing script until a response is received.
-
-Global Context Methods | Return Value | Description | Tags
---- | --- | --- | ---
-`Storage.SaveTable(tableName, table)` | bool success, string | Sets the passed in table as the current table for the given table name. Any previous values are removed. | None
-`Storage.LoadTable(tableName)` | bool success, (string or table | Loads the table by name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message. | None
-`Storage.DeleteTable(tableName)` | bool success, string | Deletes the table. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist). | None
-`Storage.IncrementTable(tableName, table)` | bool success, (string or table | Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If success is true, the second return value is a lua table containing only the new values as a result of the increment. Negative values can be used to decrement. If success is false, the second return value is an error message string explaining why. | None
-
-Player Context Methods | Return Value | Description | Tags
---- | --- | --- | ---
-`Storage.SavePlayerTable(player, tableName, table)` | bool success, string | Sets the passed in table as the current table for the given player and table name. Any previous values are removed. | None
-`Storage.LoadPlayerTable(player, tableName)` | bool success, (string or table | Loads the table by player and name. If the table exists, success is true, and the second return value is the table. If the load fails or the table doesn’t exist, success is false and the second return value is a string with the error message. | None
-`Storage.DeletePlayerTable(player, tableName)` | bool success, string | Deletes the table for the given player. If success is true, the table was deleted. If success is false, the second return value is an error message with the reason why (ie table doesn’t exist). | None
-`Storage.IncrementPlayerTable(player, tableName, table)` | bool success, (string or table | Adds only the key value pairs in the given table to an existing table. If the table doesn’t exist, a new one is created. If the key doesn’t exist, it is added. Negative values can be used to decrement. If success is true, the second return value is a lua table containing only the new values as a result of the increment. If success is false, the second return value is an error message string explaining why. | None
-`Storage.IncrementPlayerTableAsync(player, tableName, table, callback(bool, (string or table))` | bool | Same as above except execution of the script is not halted. The fourth function parameter is a function with the same inputs as returned by the above function. This function is used as a test alternative to see in what use cases async may be preferable or not. | None
-
-### [UI](/core_api/classes/ui/uiOverview)
+User defined events can be specified using the Events namespace. The Events namespace uses the following static functions (called using a `.`):
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`UI.ShowFlyUpText(Player target, string message, Color, Vector3, [Number])` | Color | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional duration. Default duration is 0.5 seconds. | None
-`UI.ShowBigFlyUpText(Player target, string message, Color, Vector3, [Number])` | Color | Same as ShowFlyUpText, but uses a larger font. | None
-`UI.ShowDamageDirection(Player target, Vector3 world point)` | Vector3 | Target player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | None
-`UI.ShowDamageDirection(Player target, CoreObject)` | RV | Target player sees an arrow pointing towards some Core Object. Multiple calls with the same Player and Core Object reuse the same UI indicator, but refreshes its duration. | None
-`UI.ShowDamageDirection(Player target, Player source)` | RV | Target player sees an arrow pointing towards some other Player. Multiple calls with the same Players reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements. | None
+`Connect(string eventName, function eventListener)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None
+`ConnectForPlayer(string eventName, function eventListener) (Server Only)` | EventListener |  Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server Context
+`Broadcast(string eventName, args...)` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None
+`BroadcastToAllPlayers(string eventName, args...)` | <resultcode, errorMessage> |  Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToPlayer(Player player, string eventName,args...)` | <resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToServer(string eventName,args...)` | <resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context
+
+??? "Broadcast Event Result Codes"
+    * BroadcastEventResultCode.SUCCESS
+    * BroadcastEventResultCode.FAILURE
+    * BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT
+    * BroadcastEventResultCode.EXCEEDED_RATE_LIMIT
+
+??? "Networked Events Supported Types"
+    * Bool
+    * Int32
+    * Float
+    * String
+    * Color
+    * Rotator
+    * Vector2
+    * Vector3
+    * Vector4
+    * Player
+    * Table
+
+### [Game](/core_api/classes/game/gameOverview)
+
+Game is a collection of functions and events related to players in the game, rounds of a game, and team scoring.
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`GetLocalPlayer()` | Player | Returns the local player (Client-only). | Client Context
+`GetPlayers(table Parameters (optional))` | array<Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: | None
+`ignoreDead(boolean)` | None | If true, don’t return any dead players. | None
+`ignoreLiving(boolean)` | None | If true, don’t return any living players. | None
+`ignoreTeams(Integer or Array<Integer>)` | None | Don’t return any players belonging to the team or teams listed. | None
+`includeTeams(Integer or Array<Integer>)` | None | Return only players belonging to the team or teams listed. | None
+`ignorePlayers(Player or Array<Player>)` | None | Don’t return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} ) | None
+`FindNearestPlayer(Vector3 position, table Parameters (optional))` | Player | Returns the Player that is nearest to the given position.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInCylinder(Vector3 position, Number radius, table Parameters (optional))` | array<Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInSphere(Vector3 position, Number radius, table Parameters (optional))` | array<Player> | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`StartRound()` | None | Fire all events attached to roundStartEvent | Server Context
+`EndRound()` | None | Fire all events attached to roundEndEvent | Server Context
+`GetTeamScore(team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None
+`SetTeamScore(team, score)` | None | Sets one team’s score. | Server Context
+`IncreaseTeamScore(team, scoreChange)` | None | Increases one team’s score. | Server Context
+`DecreaseTeamScore(team, scoreChange)` | None | Decreases one team’s score. | Server Context
+`ResetTeamScores()` | None | Sets all teams’ scores to 0. | Server Context
+
+Event | Return Value | Description | Tags
+--- | --- | --- | ---
+`playerJoinedEvent` | Event<Player> | Event fired when a player has joined the game and their character is ready. | Read-Only
+`playerLeftEvent` | Event<Player> | Event fired when a player has disconnected from the game or their character has been destroyed. | Read-Only
+`abilitySpawnedEvent` | Event<Ability> | Event fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only
+`roundStartEvent` | Event | Event fired when StartRound is called on game. | Read-Only
+`roundEndEvent` | Event | Event fired when EndRound is called on game. | Read-Only
+`teamScoreChangedEvent` | Event<int(team)> | Event fired whenever any team’s score changes. This is fired once per team who’s score changes. | Read-Only
+
+### [Teams](/core_api/classes/teams/teamsOverview)
+
+The Teams API contains a group of static functions for dealing with teams and team settings.
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`Teams.AreTeamsEnemies(Integer team1, Integer team2)` | bool | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None
+`Teams.AreTeamsFriendly(Integer team1, Integer team2)` | bool | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns true. | None
+
+### [UI](/core_api/classes/ui/uiOverview)
+
+The UI API contains a group of static functions allowing you to push information to the HUD. All functions take a player as an argument to select which player’s UI to modify. In addition, there are a number of UI widgets that will replicate and appear on player screens the same way CoreObjects appear in the world. They must be under a Canvas to be displayed. If Canvases exist only on a client, outside of a NetworkContext, they will always display on top of all other UI valid elements.
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`UI.ShowFlyUpText(string message, Vector3, [table])` | Vector3 | (Client only) Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the text.  Default is white; isBig (boolean) - When true, larger text is used. | Client Context
+`UI.ShowDamageDirection(Vector3 world point)` | Vector3 | (Client only) Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client Context
+`UI.ShowDamageDirection(CoreObject)` | RV | (Client only) Local player sees an arrow pointing towards some Core Object. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client Context
+`UI.ShowDamageDirection(Player source)` | RV | (Client only) Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements. | Client Context
 `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the x, y coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client Context
 `UI.GetScreenPosition(Vector3 world_position)` | Vector2 | Calculates the location that world_position appears on the screen. Returns a Vector2 with the x, y coordinates, or nil if world_position is behind the camera. Only gives results from a client context. | Client Context
 `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the player’s screen in the x, y coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client Context
-`UI.PrintToScreen (string, Color)` | Color | Draws a message on the corner of the screen.  Second optional Color parameter can change the color from the default white. | None
+`UI.PrintToScreen(string, Color)` | None | Draws a message on the corner of the screen.  Second optional Color parameter can change the color from the default white. | None
+`UI.IsCursorVisible()` | bool | Whether cursor is visible. | None
+`UI.SetCursorVisible(bool isVisible)` | None | Whether cursor is visible. | None
+`UI.IsCursorLockedToViewport()` | bool | Whether to lock cursor in viewport. | None
+`UI.SetCursorLockedToViewport(bool isLocked)` | None | Whether to lock cursor in viewport. | None
+`UI.CanCursorInteractWithUI()` | bool | Whether cursor can interact with UI elements like buttons. | None
+`UI.SetCanCursorInteractWithUI(bool)` | None | Whether cursor can interact with UI elements like buttons. | None
+`UI.SetReticleVisible(bool Show)` | None | Shows or hides the reticle for the player. | None
+`UI.IsReticleVisible()` | bool | Check if reticle is visible | None
+`UI.GetCursorHitResult()` | HitResult | Return hit result from local client’s view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode | None
+`UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal[optional default to up vector])` | Vector | return intersection from local client’s camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)). | None
+
+### [World](/core_api/classes/world/worldOverview)
+
+World is a collection of functions for finding objects in the world.
+
+Function | Return Value | Description | Tags
+--- | --- | --- | ---
+`GetRootObject()` | CoreObject | Returns the root of the CoreObject hierarchy. | None
+`FindObjectsByName(string name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned. | None
+`FindObjectsByType(string type_name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned. | None
+`FindObjectByName(string type_name)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None
+`FindObjectById(string muid_string)` | CoreObject | Returns the object with a given MUID.  Returns nil if no object has this ID. | None
+`SpawnAsset(string asset_id, table Parameters (optional))` | CoreObject | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object’s transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent’s transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None
+`Raycast(Vector3 rayStart, Vector3 rayEnd, table Parameters (optional))` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array<Integer>)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array<Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer }) | None
 
 ### [Core Lua Functions](/core_api/classes/CORELuaFunctions/CORELuaFunctionsOverview)
 
@@ -1219,95 +1353,95 @@ Function | Return Value | Description | Tags
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
-??? note "Built-In Lua Functions"
-    assert
-    collectgarbage†
-    error
-    getmetatable†
-    ipairs
-    next
-    pairs
-    pcall
-    print†
-    rawequal
-    rawget†
-    rawset†
-    require†
-    select
-    setmetatable†
-    tonumber
-    tostring
-    type
-    \_G†
-    \_VERSION
-    xpcall
-    coroutine.create
-    coroutine.isyieldable
-    coroutine.resume
-    coroutine.running
-    coroutine.status
-    coroutine.wrap
-    coroutine.yield
-    math.abs
-    math.acos
-    math.asin
-    math.atan
-    math.ceil
-    math.cos
-    math.deg
-    math.exp
-    math.floor
-    math.fmod
-    math.huge
-    math.log
-    math.max
-    math.maxinteger
-    math.min
-    math.mininteger
-    math.modf
-    math.pi
-    math.rad
-    math.random
-    math.randomseed
-    math.sin
-    math.sqrt
-    math.tan
-    math.tointeger
-    math.type
-    math.ult
-    os.clock
-    os.date
-    os.difftime
-    os.time
-    string.byte
-    string.char
-    string.find
-    string.format
-    string.gmatch
-    string.gsub
-    string.len
-    string.lower
-    string.match
-    string.pack
-    string.packsize
-    string.rep
-    string.reverse
-    string.sub
-    string.unpack
-    string.upper
-    table.concat
-    table.insert
-    table.move
-    table.pack
-    table.remove
-    table.sort
-    table.unpack
-    utf8.char
-    utf8.charpattern
-    utf8.codes
-    utf8.codepoint
-    utf8.len
-    utf8.offset
+??? "Built-In Lua Functions"
+    * assert  
+    * collectgarbage†  
+    * error  
+    * getmetatable†  
+    * ipairs  
+    * next  
+    * pairs  
+    * pcall  
+    * print†  
+    * rawequal  
+    * rawget†  
+    * rawset†  
+    * require†  
+    * select  
+    * setmetatable†  
+    * tonumber  
+    * tostring  
+    * type  
+    * \_G†  
+    * \_VERSION  
+    * xpcall  
+    * coroutine.create  
+    * coroutine.isyieldable  
+    * coroutine.resume  
+    * coroutine.running  
+    * coroutine.status  
+    * coroutine.wrap  
+    * coroutine.yield  
+    * math.abs   
+    * math.acos    
+    * math.asin    
+    * math.atan    
+    * math.ceil    
+    * math.cos    
+    * math.deg   
+    * math.exp  
+    * math.floor  
+    * math.fmod  
+    * math.huge  
+    * math.log  
+    * math.max  
+    * math.maxinteger  
+    * math.min  
+    * math.mininteger  
+    * math.modf  
+    * math.pi  
+    * math.rad  
+    * math.random  
+    * math.randomseed  
+    * math.sin  
+    * math.sqrt  
+    * math.tan  
+    * math.tointeger  
+    * math.type  
+    * math.ult  
+    * os.clock  
+    * os.date  
+    * os.difftime  
+    * os.time  
+    * string.byte  
+    * string.char  
+    * string.find  
+    * string.format  
+    * string.gmatch  
+    * string.gsub  
+    * string.len  
+    * string.lower  
+    * string.match  
+    * string.pack  
+    * string.packsize  
+    * string.rep  
+    * string.reverse  
+    * string.sub  
+    * string.unpack  
+    * string.upper  
+    * table.concat  
+    * table.insert  
+    * table.move  
+    * table.pack  
+    * table.remove  
+    * table.sort  
+    * table.unpack  
+    * utf8.char  
+    * utf8.charpattern  
+    * utf8.codes  
+    * utf8.codepoint  
+    * utf8.len  
+    * utf8.offset  
 
 ### MUIDs
 
@@ -1331,138 +1465,246 @@ All ability animations are valid on any of the available body types.
 Each of the ability animations timing and/or translation values should behave identically across the body types.
 All ability animations have a long “tail” that gracefully transitions the character back to idle pose.  This animation tail is intended to only be seen if the player does not execute any other ability or movement.  In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
 
-If the intent is to have an ability “execute” as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so).  This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
+!!! Note
+    If the intent is to have an ability “execute” as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so).  This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
 
-??? note "Ability Animation Strings"
-    1hand_melee_slash_left - A horizontal melee swing to the left.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+#### 1hand_melee Strings
 
-    1hand_melee_slash_right - A horizontal melee swing to the right.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_slash_left` - A horizontal melee swing to the left.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    1hand_melee_slash_vertical - A downward melee swing.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_slash_right` - A horizontal melee swing to the right.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    1hand_melee_thrust - A melee forward lunge attack..
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_slash_vertical` - A downward melee swing.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    1hand_melee_unsheathe - Pulls the one-handed melee weapon from a belt sheath.
-    ⋅⋅* This animation works best with a cast phase duration of  0.31 or less
+`1hand_melee_thrust` - A melee forward lunge attack..
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    2hand_sword_slash_left - A horizontal melee swing to the left.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_rm_combo_opener_vertical_slash` - A horizontal melee swing to the left.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo opener.
 
-    2hand_sword_slash_right - A horizontal melee swing to the right.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_rm_combo_middle_diagonal_slash` - A diagonal melee swing to the right.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
-    2hand_sword_slash_vertical - A downward melee swing.
-    ⋅⋅* This animation supports a variable cast phase time.
-    ⋅⋅* This animation supports a time stretched execute phase time
+`1hand_melee_rm_combo_closer_uppercut` - an uppercut.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo closer.
 
-    2hand_sword_thrust - A forward sword thrust melee attack.
+`1hand_melee_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
+-   works best with a cast phase duration of  0.31 or less
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    2hand_sword_unsheathe - Pulls the one-handed melee weapon from a belt sheath.
-    This animation works best with a cast phase duration of  0.31 or less
+#### 2hand_sword Strings
 
-    1hand_pistol_shoot - A pistol shoot animation.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_sword_slash_left` - A horizontal melee swing to the left.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    1hand_pistol_unsheathe - Pulls the pistol from an invisible belt holster.
-    ⋅⋅* This animation works best with a cast phase duration of  0.21 or less
+`2hand_sword_slash_right` - A horizontal melee swing to the right.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    1hand_pistol_reload_magazine - Reloads a bottom-loading pistol clip.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_sword_slash_vertical` - A downward melee swing.
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
-    2hand_rifle_shoot - A rifle shoot animation.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_sword_thrust` - A forward sword thrust melee attack.
 
-    2hand_rifle_reload_magazine - Reloads an automatic rifle magazine.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_sword_rm_combo_opener_cone` - A horizontal melee swing to the left.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo opener.
 
-    2hand_rifle_unsheathe - Pulls the rifle from a back scabbard.
-    ⋅⋅* This animation works best with a cast phase duration of  0.22 or less
+`2hand_sword_rm_combo_middle_spin` - A spin.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
-    unarmed_kick_ball - A kick motion that moves the character forward as well.  
-    ⋅⋅* This animation works best with a cast phase duration of  0.18 or less
-    ⋅⋅* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
+`2hand_sword_rm_combo_closer_spin` - a jumping spin.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo closer.
 
-    unarmed_dance - Stand in place and dance.  
-    ⋅⋅* This animation has no cast time.
+`2hand_sword_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
+-   This animation works best with a cast phase duration of  0.31 or less
 
-    unarmed_magic_bolt - Magic casting animation which appears to launch a projectile forward from the hands.
-    ⋅⋅* This animation supports a variable cast time.
+#### 2hand_staff Strings
 
-    unarmed_punch_left - A left punch animation.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_staff_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the staff.
+-   This animation supports a variable cast time.
 
-    unarmed_punch_right - A right punch animation.
-    ⋅⋅* This animation supports a variable cast time.
+`2hand_staff_magic_up` - Magic casting animation which raises the staff on cast.  This animation is not direction specific.
+-   This animation supports a variable cast time.
 
-    unarmed_roll - A roll animation that moves the character forward.  
-    ⋅⋅* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
-    ⋅⋅* The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the “flying_mode” to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
+#### 1hand_pistol Strings
 
-    unarmed_throw - An over-the-shoulder right-handed throw animation.
-    ⋅⋅* This animation supports a variable cast time.
+`1hand_pistol_shoot` - A pistol shoot animation.
+-   This animation supports a variable cast time.
 
-    unarmed_wave - Stand in place and wave.  
-    ⋅⋅* This animation works best with a cast phase duration of 0.266 or less.
+`1hand_pistol_unsheathe` - Pulls the pistol from an invisible belt holster.
+-   This animation works best with a cast phase duration of  0.21 or less
 
-    unarmed_pickup - Stand in place and pick up items from the ground.  
-    ⋅⋅* This animation works best with a cast phase duration of 0.266 or less.
-    ⋅⋅* This animation looks a bit odd when used while moving/jumping etc.
+`1hand_pistol_reload_magazine` - Reloads a bottom-loading pistol clip.
+-   This animation supports a variable cast time.
 
-### Active Poses
+#### 2hand_rifle Strings
 
-All active poses are valid on either of the available genders.
-Each active pose should behave identically across the gender sets.  
-All active poses are looping animations that can be played indefinitely
-No active poses have root motion
-Each active pose has custom blending behavior for what happens while moving (specified below)
+`2hand_rifle_shoot` - A rifle shoot animation.
+-   This animation supports a variable cast time.
 
-??? note "Active Post Strings"
-    none - Calling this string will clear the current active pose.
+`2hand_rifle_reload_magazine` - Reloads an automatic rifle magazine.
+-   This animation supports a variable cast time.
 
-    2hand_rifle_aim_shoulder - A simple aiming pose in 2hand_rifle set.  Has the shoulder stock up to the shoulder.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+`2hand_rifle_unsheathe` - Pulls the rifle from a back scabbard.
+-   This animation works best with a cast phase duration of  0.22 or less
 
-    2hand_rifle_aim_hip - A simple aiming pose in 2hand_rifle set.  Has the stock at the hip.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+#### Unarmed Strings
 
-    1hand_pistol_aim - A simple aiming pose for pistol.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+`unarmed_kick_ball` - A kick motion that moves the character forward as well.
+-   This animation works best with a cast phase duration of  0.18 or less
+-   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
 
-    2hand_pistol_aim - A simple aiming pose for 1hand_pistol set.  Hands are in the weaver stance.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+`unarmed_dance` - Stand in place and dance.   
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    2hand_sword_ready - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the ready pose.
+`unarmed_dance_spooky` - Stand in place and dance.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_carry_object_high - A one (right) handed carry animation with the arm raised to roughly eye level.  Ideal for holding a torch up to see better, etc
-    ⋅⋅* When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
-    This animation assumes the prop is attached to the right_prop socket.
+`unarmed_flex` - Body builder style flexing animation.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_carry_object_low - A one (right) handed carry animation with the arm at waist height.  Ideal for holding a mug, potion, etc
-    ⋅⋅* When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
-    This animation assumes the prop is attached to the right_prop socket.
+`unarmed_thumbs_up` - thumbs up.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_carry_object_heavy - A two handed carry animation with the arms in front of the body.  This is in pretty rough shape currently (11/2018) and will likely be refactored in the future.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
+`unarmed_thumbs_up` - thumbs down.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_carry_score_card - A two handed carry animation with the arms all the way extended above the head.  Ideal for holding text signs, etc.
-    ⋅⋅* When running/jumping etc, the entire upper body will retain the aiming pose.
-    ⋅⋅* The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign.  It also assumes x forward.
+`unarmed_rochambeau_rock` - rock, paper, scissors game.  This chooses rock as the end result.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_sit_car_low - A full body animation that is sitting at ground level with arms up on a wheel.  Ideal for driving a go-kart style vehicle
-    ⋅⋅* When running/jumping etc, the entire body will retain the sitting pose.
+`unarmed_rochambeau_paper` - rock, paper, scissors game.  This chooses paper as the end result.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
-    unarmed_death - A full body animation that is falling to the floor, face-up.  The hips will be roughly on the spot where the game thinks the character is.
+`unarmed_rochambeau_scissors` - rock, paper, scissors game.  This chooses scissors as the end result.  
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+
+`unarmed_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the hands.
+-   This animation supports a variable cast time.
+
+`unarmed_punch_left` - A left punch animation.
+-   This animation supports a variable cast time.
+
+`unarmed_punch_right` - A right punch animation.
+-   This animation supports a variable cast time.
+
+`unarmed_roll` - A roll animation that moves the character forward.  
+-   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
+-   The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
+
+`unarmed_throw` - An over-the-shoulder right-handed throw animation.
+-   This animation supports a variable cast time.
+
+`unarmed_wave` - Stand in place and wave.  
+-   This animation works best with a cast phase duration of 0.266 or less.
+
+`unarmed_pickup` - Stand in place and pick up items from the ground.  
+-   This animation works best with a cast phase duration of 0.266 or less.
+
+### General Animation Stance Information
+
+- All animation stances are valid on either of the available body types.
+- Each animation stance should behave identically across the body types (with regard to timing).  
+- All animation stances are (or end in) looping animations that can be played indefinitely
+- No animation stances have root motion
+- Each animation stance has custom blending behavior for what happens while moving (specified below)
+
+### Animation Stance Strings
+
+Animation Stance Strings
+
+`unarmed_stance` - This will cause the player to walk or stand with nothing being held in their hands.
+
+`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.  
+
+`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.  
+
+`2hand_sword_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed sword.
+
+`2hand_staff_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed staff.
+
+`2hand_rifle_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed rifle.
+
+`2hand_rifle_aim_shoulder` - A simple aiming pose in 2hand_rifle set.  Has the shoulder stock up to the shoulder.
+When running/jumping etc, the entire upper body will retain the aiming pose.
+
+`2hand_rifle_aim_hip` - A simple aiming pose in 2hand_rifle set.  Has the stock at the hip.
+When running/jumping etc, the entire upper body will retain the aiming pose.
+
+`1hand_pistol_aim` - A simple aiming pose for pistol.
+When running/jumping etc, the entire upper body will retain the aiming pose.
+
+`2hand_sword_ready` - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
+When running/jumping etc, the entire upper body will retain the ready pose.
+
+`2hand_sword_block_high` - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
+When running/jumping etc, the entire upper body will retain the ready pose.
+
+`unarmed_carry_object_high` - A one (right) handed carry animation with the arm raised to roughly eye level.  Ideal for holding a torch up to see better, etc
+When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+This animation assumes the prop is attached to the right_prop socket.
+
+`unarmed_carry_object_low` - A one (right) handed carry animation with the arm at waist height.  Ideal for holding a mug, potion, etc
+When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+This animation assumes the prop is attached to the right_prop socket.
+
+`unarmed_carry_object_heavy` - A two handed carry animation with the arms in front of the body. When running/jumping etc, the entire upper body will retain the aiming pose.
+
+`unarmed_carry_score_card` - A two handed carry animation with the arms all the way extended above the head.  Ideal for holding text signs, etc. When running/jumping etc, the entire upper body will retain the aiming pose. The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign.  It also assumes x forward.
+
+`unarmed_sit_car_low` - A full body animation that is sitting at ground level with arms up on a wheel.  Ideal for driving a go-kart style vehicle
+When running/jumping etc, the entire body will retain the sitting pose.
+Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc).  Ability animations, however, can be used.
+
+`unarmed_death` - A full body animation that is falling to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is. Suggested to turn on ragdoll.
+
+`unarmed_death_spin` - A full body animation that spins 360 and then  falls to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is.
+
+??? note "How to Turn on Ragdoll"
+	```
+    ability.owner.active_pose = "unarmed_death"
+    Task.Wait(0.9)
+    ability.owner:EnableRagdoll("spine", .4, true)
+    ability.owner:EnableRagdoll("right_shoulder", .2, true)
+    ability.owner:EnableRagdoll("left_shoulder", .6, true)
+    ability.owner:EnableRagdoll("right_hip", .6, true)
+    ability.owner:EnableRagdoll("left_hip", .6, true)
+    ```
 
 ### One Shot Animation Information
 
@@ -1473,89 +1715,167 @@ be interrupted if you execute an ability with a defined ability animation.
 be interrupted (or fail to start) if you execute an active pose animation.
 
 ??? note "One Shot Animation Strings"
-    base_unarmed_ball_kick
-    base_unarmed_magic_bolt
-    base_unarmed_left_punch
-    base_unarmed_right_punch
-    base_unarmed_roll
-    base_unarmed_throw
-    base_unarmed_dance
-    base_unarmed_fetal
-    base_unarmed_carry_object_heavy
-    base_unarmed_carry_object_high
-    base_unarmed_carry_object_low
-    base_unarmed_score_card
-    base_unarmed_sit_car_low
-    base_unarmed_idle
-    base_unarmed_idle_relaxed
-    base_unarmed_idle_to_idle_relaxed
-    base_unarmed_jump_begin
-    base_unarmed_jump_cycle
-    base_unarmed_jump_end
-    base_unarmed_run_backward
-    base_unarmed_run_backward_left
-    base_unarmed_run_backward_right
-    base_unarmed_run_forward
-    base_unarmed_run_forward_left
-    base_unarmed_run_forward_right
-    base_unarmed_run_forward_stop
-    base_unarmed_run_left
-    base_unarmed_run_right
-    base_unarmed_walk_backward
-    base_unarmed_walk_backward_left
-    base_unarmed_walk_backward_right
-    base_unarmed_walk_forward
-    base_unarmed_walk_forward_left
-    base_unarmed_walk_forward_right
-    base_unarmed_walk_left
-    base_unarmed_walk_right
-    base_1h_left_sweep
-    base_1h_right_sweep
-    base_1h_idle
-    base_1h_idle_relaxed
-    base_1h_idle_to_idle_relaxed
-    base_1h_jump_begin
-    base_1h_jump_cycle
-    base_1h_jump_end
-    base_1h_run_backward
-    base_1h_run_backward_left
-    base_1h_run_backward_right
-    base_1h_run_forward
-    base_1h_run_forward_left
-    base_1h_run_forward_right
-    base_1h_run_forward_stop
-    base_1h_run_left
-    base_1h_run_right
-    base_1h_walk_backward
-    base_1h_walk_backward_left
-    base_1h_walk_backward_right
-    base_1h_walk_forward
-    base_1h_walk_forward_left
-    base_1h_walk_forward_right
-    base_1h_walk_left
-    base_1h_walk_right
-    base_crossbow_magazine_reload
-    base_crossbow_shoot
-    base_crossbow_idle
-    base_crossbow_idle_relaxed
-    base_crossbow_idle_to_idle_relaxed
-    base_crossbow_jump_begin
-    base_crossbow_jump_cycle
-    base_crossbow_jump_end
-    base_crossbow_run_backward
-    base_crossbow_run_backward_left
-    base_crossbow_run_backward_right
-    base_crossbow_run_forward
-    base_crossbow_run_forward_left
-    base_crossbow_run_forward_right
-    base_crossbow_run_forward_stop
-    base_crossbow_run_left
-    base_crossbow_run_right
-    base_crossbow_walk_backward
-    base_crossbow_walk_backward_left
-    base_crossbow_walk_backward_right
-    base_crossbow_walk_forward
-    base_crossbow_walk_forward_left
-    base_crossbow_walk_forward_right
-    base_crossbow_walk_left
-    base_crossbow_walk_right
+    * base_unarmed_ball_kick
+    * base_unarmed_magic_bolt
+    * base_unarmed_left_punch
+    * base_unarmed_right_punch
+    * base_unarmed_roll
+    * base_unarmed_throw
+    * base_unarmed_dance
+    * base_unarmed_fetal
+    * base_unarmed_carry_object_heavy
+    * base_unarmed_carry_object_high
+    * base_unarmed_carry_object_low
+    * base_unarmed_score_card
+    * base_unarmed_sit_car_low
+    * base_unarmed_idle
+    * base_unarmed_idle_relaxed
+    * base_unarmed_idle_to_idle_relaxed
+    * base_unarmed_jump_begin
+    * base_unarmed_jump_cycle
+    * base_unarmed_jump_end
+    * base_unarmed_run_backward
+    * base_unarmed_run_backward_left
+    * base_unarmed_run_backward_right
+    * base_unarmed_run_forward
+    * base_unarmed_run_forward_left
+    * base_unarmed_run_forward_right
+    * base_unarmed_run_forward_stop
+    * base_unarmed_run_left
+    * base_unarmed_run_right
+    * base_unarmed_walk_backward
+    * base_unarmed_walk_backward_left
+    * base_unarmed_walk_backward_right
+    * base_unarmed_walk_forward
+    * base_unarmed_walk_forward_left
+    * base_unarmed_walk_forward_right
+    * base_unarmed_walk_left
+    * base_unarmed_walk_right
+    * base_1h_left_sweep
+    * base_1h_right_sweep
+    * base_1h_idle
+    * base_1h_idle_relaxed
+    * base_1h_idle_to_idle_relaxed
+    * base_1h_jump_begin
+    * base_1h_jump_cycle
+    * base_1h_jump_end
+    * base_1h_run_backward
+    * base_1h_run_backward_left
+    * base_1h_run_backward_right
+    * base_1h_run_forward
+    * base_1h_run_forward_left
+    * base_1h_run_forward_right
+    * base_1h_run_forward_stop
+    * base_1h_run_left
+    * base_1h_run_right
+    * base_1h_walk_backward
+    * base_1h_walk_backward_left
+    * base_1h_walk_backward_right
+    * base_1h_walk_forward
+    * base_1h_walk_forward_left
+    * base_1h_walk_forward_right
+    * base_1h_walk_left
+    * base_1h_walk_right
+    * base_crossbow_magazine_reload
+    * base_crossbow_shoot
+    * base_crossbow_idle
+    * base_crossbow_idle_relaxed
+    * base_crossbow_idle_to_idle_relaxed
+    * base_crossbow_jump_begin
+    * base_crossbow_jump_cycle
+    * base_crossbow_jump_end
+    * base_crossbow_run_backward
+    * base_crossbow_run_backward_left
+    * base_crossbow_run_backward_right
+    * base_crossbow_run_forward
+    * base_crossbow_run_forward_left
+    * base_crossbow_run_forward_right
+    * base_crossbow_run_forward_stop
+    * base_crossbow_run_left
+    * base_crossbow_run_right
+    * base_crossbow_walk_backward
+    * base_crossbow_walk_backward_left
+    * base_crossbow_walk_backward_right
+    * base_crossbow_walk_forward
+    * base_crossbow_walk_forward_left
+    * base_crossbow_walk_forward_right
+    * base_crossbow_walk_left
+    * base_crossbow_walk_right
+
+### Ability Binding list
+
+??? note "Ability Binding List"
+    * Mouse 1 = ability_primary
+    * Mouse 2 = ability_secondary
+    * Q and Gamepad Left face button = ability_1 (to be deprecated)
+    * E = ability_2 (to be deprecated)
+    * R = ability_ult (to be deprecated)
+    * Left Shift and Gamepad left shoulder = ability_feet
+    * 0 = ability_extra_0
+    * 1 = ability_extra_1
+    * 2 = ability_extra_2
+    * 3 = ability_extra_3
+    * 4 = ability_extra_4
+    * 5 = ability_extra_5
+    * 6 = ability_extra_6
+    * 7 = ability_extra_7
+    * 8 = ability_extra_8
+    * 9 = ability_extra_9
+    * Left Ctrl = ability_extra_10
+    * Right Ctrl = ability_extra_11
+    * Left Shift = ability_extra_12
+    * Right Shift = ability_extra_13
+    * Left Alt = ability_extra_14
+    * Right Alt = ability_extra_15
+    * Return = ability_extra_16
+    * Spacebar = ability_extra_17
+    * Capslock = ability_extra_18
+    * Tab = ability_extra_19
+    * Q = ability_extra_20
+    * W = ability_extra_21
+    * E = ability_extra_22
+    * R = ability_extra_23
+    * T = ability_extra_24
+    * Y = ability_extra_25
+    * U = ability_extra_26
+    * I = ability_extra_27
+    * O = ability_extra_28
+    * P = ability_extra_29
+    * A = ability_extra_30
+    * S = ability_extra_31
+    * D = ability_extra_32
+    * F = ability_extra_33
+    * G = ability_extra_34
+    * H = ability_extra_35
+    * J = ability_extra_36
+    * K = ability_extra_37
+    * L = ability_extra_38
+    * Z = ability_extra_39
+    * X = ability_extra_40
+    * C = ability_extra_41
+    * V = ability_extra_42
+    * B = ability_extra_43
+    * N = ability_extra_44
+    * M = ability_extra_45
+    * Up Arrow = ability_extra_46
+    * Down Arrow =ability_extra_47
+    * Left Arrow = ability_extra_48
+    * Right Arrow = ability_extra_49
+    * F1 = ability_extra_50
+    * F2 = ability_extra_51
+    * F3 = ability_extra_52
+    * F4 =  ability_extra_53
+    * F5 = ability_extra_54
+    * F6 = ability_extra_55
+    * F7 = ability_extra_56
+    * F8 = ability_extra_57
+    * F9 = ability_extra_58
+    * F10 = ability_extra_59
+    * F11 = ability_extra_60
+    * F12 = ability_extra_61
+    * Insert = ability_extra_62
+    * Home = ability_extra_63
+    * Page Up = ability_extra_64
+    * Page Down = ability_extra_65
+    * Delete = ability_extra_66
+    * End = ability_extra_67
