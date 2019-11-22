@@ -172,6 +172,7 @@ up the history, and simply allow upstream commits for builds.
             - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
             - Find Git credentials in the list (e.g. git:<https://).>
             - Delete your Git credentials and restart the process to be prompted again.
+    - Update the Git submodule via `git submodule update --init --recursive --remote --depth=1`
 
 5. Install mkdocs
     - Navigate to the `platform-documentation` location (via command line with `cd platform-documentation`)
