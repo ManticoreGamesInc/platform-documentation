@@ -6,6 +6,7 @@
 
 .md-typeset .headerlink, .md-typeset .md-content__icon {
     border-bottom: none;
+    margin-right: 40px;
 }
 
 .md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source, .md-footer-nav {
@@ -81,10 +82,6 @@
     max-width: 50%;
 }
 
-.md-typeset code, .md-typeset table:not([class]) th {
-    white-space: nowrap;
-}
-
 @media only screen and (min-width: 76.25em) {
     .md-sidebar--secondary {
         margin-left: 75rem;
@@ -95,6 +92,8 @@
     display: block;
     margin: 15px auto;
 }
+
+/* Image Cluster */
 
 .image-cluster {
     text-align: center;
@@ -155,4 +154,33 @@
 .md-typeset .style-exception + .codehilitetable {
 	margin-top: 0;
 	background-color: #fffaf1;
+}
+
+/* Tables */
+
+/* .md-typeset code, .md-typeset table:not([class]) th {
+    white-space: nowrap;
+} */
+
+.md-typeset table:not([class]) th {
+    background: #20232a;
+    border-bottom: 2px solid #ff9000;
+}
+
+.md-typeset table thead tr {
+    white-space: nowrap;
+}
+
+div.md-content > article > p,
+.md-typeset__table {
+    width: 95%;
+}
+
+.md-typeset {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.md-typeset table tbody tr td:first-child {
+    width: 25%;
 }
