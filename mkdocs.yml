@@ -111,7 +111,7 @@ markdown_extensions:
 plugins:
 
 # Docs dir
-docs_dir: src
+docs_dir: src/
 
 # Site name
 site_name: CORE CREATORS HUB
