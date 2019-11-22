@@ -7,4 +7,4 @@
   publish = "site"
 
   # Default build command.
-  command = "git submodule update --init --recursive --remote --depth=1 && cd mkdocs-material npm install && npm run build && cd .. && mkdocs build"
+  command = "git submodule update --init --recursive --remote --depth=1 && mkdocs build"
