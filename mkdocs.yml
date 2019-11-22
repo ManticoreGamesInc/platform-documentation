@@ -35,8 +35,8 @@ nav:
       - Custom Materials: tutorials/art/custom_materials.md
     - Collaboration: tutorials/gameplay/collaboration_reference.md
     - User Interfaces: tutorials/gameplay/ui_reference.md
-    #- Networking: tutorials/gameplay/networking_reference.md
-    #- Performance: tutorials/gameplay/performance_reference.md
+    - Networking: tutorials/gameplay/networking_reference.md
+    - Performance: tutorials/gameplay/performance_reference.md
     - Community Created:
       - Placeholder: tutorials/community_created/placeholder.md
     - Examples & Snippets: tutorials/examples.md
