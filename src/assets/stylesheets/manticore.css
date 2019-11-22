@@ -1,38 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
 
-.md-typeset a {
-    border-bottom: 1px dotted black;
-}
 
-.md-typeset .headerlink, .md-typeset .md-content__icon {
-    border-bottom: none;
-}
-
-.md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source, .md-footer-nav {
-    font-family: 'Oswald';
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-[data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero, .md-footer-meta {
-    background-color: #20232a;
-}
-
-.md-header {
-    border-bottom: 4px solid #ff9000;
-    height: 64px;
-}
+[data-md-color-primary=manticore-blue] .md-header, [data-md-color-primary=manticore-blue] .md-hero, .md-footer-meta {
+    background-color: #20232a;}
 
 .md-header[data-md-state=shadow] {
     box-shadow: none;
 }
 
-.md-header-nav__button.md-logo img {
-    width: 32px;
-    height: 32px;
+.dark-mode code,
+.dark-mode .md-typeset .code {
+  filter: invert(100%)
 }
 
-@media only screen and (min-width: 60em) and (max-width: 125em) {
+.dark-mode .code {
+    background-color: white;
+}
+
+.md-clipboard {
+    filter:invert(100%);
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.linenos {
+    filter:invert(100%);
+}
+
+.md-typeset .codehilitetable .linenos pre, .md-typeset .highlighttable .linenos pre {
+    color: initial;
+}
+/* @media only screen and (min-width: 60em) and (max-width: 125em) {
     .md-header-nav__topic {
         margin-top: 3px;
     }
@@ -54,24 +53,25 @@
     .md-header-nav__topic {
         margin-top: -1px;
     }
-}
+} */
 
-.md-footer-nav {
-    background-color: #fff;
-    color: #000000de;
-}
-
-[data-md-color-primary=blue-grey] .md-nav__link--active, [data-md-color-primary=blue-grey] .md-nav__link:active {
+[data-md-color-primary=manticore-blue] .md-nav__link--active, [data-md-color-primary=manticore-blue] .md-nav__link:active {
     color: #ff9000;
 }
 
-.md-footer-nav a:hover, .md-footer-nav__direction {
+/* [data-md-color-primary=manticore-blue] .md-typeset a:hover,
+[data-md-color-accent=manticore-orange] .md-nav__link:focus,
+[data-md-color-accent=manticore-orange] .md-nav__link:hover,
+[data-md-color-accent=manticore-orange] .md-typeset .footnote li:hover .footnote-backref:hover,
+[data-md-color-accent=manticore-orange] .md-typeset .footnote li:target .footnote-backref,
+[data-md-color-accent=manticore-orange] .md-typeset .md-clipboard:active:before,
+[data-md-color-accent=manticore-orange] .md-typeset .md-clipboard:hover:before,
+[data-md-color-accent=manticore-orange] .md-typeset [id] .headerlink:focus,
+[data-md-color-accent=manticore-orange] .md-typeset [id]:hover .headerlink:hover,
+[data-md-color-accent=manticore-orange] .md-typeset [id]:target .headerlink,
+.md-header-nav__topic {
     color: #ff9000;
-}
-
-[data-md-color-accent=amber] .md-nav__link:focus, [data-md-color-accent=amber] .md-nav__link:hover, [data-md-color-accent=amber] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=amber] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=amber] .md-typeset .md-clipboard:active:before, [data-md-color-accent=amber] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=amber] .md-typeset [id] .headerlink:focus, [data-md-color-accent=amber] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=amber] .md-typeset [id]:target .headerlink, .md-header-nav__topic {
-    color: #ff9000;
-}
+} */
 
 .md-grid {
     max-width: 75rem;
@@ -169,16 +169,33 @@
 .md-typeset table:not([class]) thead tr {
     white-space: nowrap;
 }
+
 .md-typeset .md-typeset__table {
     width: 100%;
 }
 
-.md-typeset table {
-    table-layout: fixed;
+.md-typeset .md-typeset__table table {
     width: 100%;
+    table-layout: auto;
+    border: 1px solid #20232a;
+    border-bottom: 2px solid #ff9000;
+    border-radius: 4px;
 }
 
 .md-typeset table:not([class]) tbody tr td:first-child {
-    width: 25%;
-    background: blue;
+    width: 150px;
+    /* background: blue; */
 }
+
+/* .md-typeset table:not([class]) tbody tr td:nth-child(2) {
+    background: yellow;
+}
+
+.md-typeset table:not([class]) tbody tr td:nth-child(3) {
+    background: red;
+}
+
+.md-typeset table:not([class]) tbody tr td:nth-child(4) {
+    background: green;
+} */
+

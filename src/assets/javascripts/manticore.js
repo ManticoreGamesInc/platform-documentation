@@ -19,3 +19,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
         el.replaceWith(iframe);
     });
 })
+
+!function() {
+    const darkMode = document.getElementById("dark-mode-toggle");
+    if (darkMode) {
+        const isDarkSchemePreferred = ()=>window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          , toggleDarkMode = isDark=>{
+            darkMode.href = "?dark=" + (1 - isDark),
+            document.documentElement.classList.toggle("dark-mode", isDark),
+            document.cookie = "__Host-dark=" + isDark + "; path=/; secure; samesite=lax; max-age=" + (isDark || isDarkSchemePreferred() ? "7776000" : "0")
+        }
+        ;
+        darkMode.addEventListener("click", e=>{
+            e.preventDefault();
+            const isDark = document.documentElement.classList.contains("dark-mode") ? 0 : 1;
+            toggleDarkMode(isDark)
+        }
+        ),
+        isDarkSchemePreferred() && -1 === document.cookie.indexOf("__Host-dark=") && toggleDarkMode(1)
+    }
+}();
