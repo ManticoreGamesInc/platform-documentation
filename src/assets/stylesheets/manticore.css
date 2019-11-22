@@ -6,7 +6,6 @@
 
 .md-typeset .headerlink, .md-typeset .md-content__icon {
     border-bottom: none;
-    margin-right: 40px;
 }
 
 .md-header-nav__topic, .md-nav--primary, .md-search__form input, .md-header-nav__source, .md-footer-nav {
@@ -167,20 +166,19 @@
     border-bottom: 2px solid #ff9000;
 }
 
-.md-typeset table thead tr {
+.md-typeset table:not([class]) thead tr {
     white-space: nowrap;
 }
-
-div.md-content > article > p,
-.md-typeset__table {
-    width: 95%;
+.md-typeset .md-typeset__table {
+    width: 100%;
 }
 
-.md-typeset {
+.md-typeset table {
     table-layout: fixed;
     width: 100%;
 }
 
-.md-typeset table tbody tr td:first-child {
+.md-typeset table:not([class]) tbody tr td:first-child {
     width: 25%;
+    background: blue;
 }
