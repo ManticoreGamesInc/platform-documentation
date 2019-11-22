@@ -210,7 +210,9 @@ Please convert your GIFs into videos.
 
 ### Videos
 
-- Message Tasha got get acces to our YouTube account, upload them there and then use Markdown to embed them into your documents.
+- Message Tasha to get access to our YouTube account, upload them there and then use Markdown to embed them into your documents.
+
+Format: `![YOUTUBE](LRLQE2N0DKc)` where the part in parentheses is the video id.
 
 ---
 
