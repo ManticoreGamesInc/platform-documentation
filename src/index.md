@@ -38,14 +38,14 @@ with some [Markdown] extras for formatting. We then compile the markdown files i
 using the open source [MkDocs] tool, and host the site using [Netlify].
 
 !!! info "Contributions Welcome!"
-    Just click on the :fa-edit: icon on the top right of any page.
+    Just click on the :far fa-edit: icon on the top right of any page.
 
     You'll need a GitLab account, with contribution permissions. If you
     don't already have that, just email
     [mailto:docs@manticoregames.com](mailto:mailto:docs@manticoregames.com) with the name of
     your GitLab account to get set up.
 
-    More specific contribution details can be found [here](../CONTRIBUTING.MD), if needed.
+    More specific contribution details can be found [here](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD), if needed.
 
 ## Organization of the Documentation
 

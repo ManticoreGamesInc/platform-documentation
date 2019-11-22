@@ -115,6 +115,15 @@
     vertical-align: middle;
 }
 
+/* YouTube */
+.youtube-video {
+    width: 640px;
+    height: 360px;
+    border: 0px;
+}
+
+/* Good / Bad / Exception */
+
 .md-typeset .style-good {
 	color: green;
 	font-weight: bold;
