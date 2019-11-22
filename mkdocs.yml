@@ -57,8 +57,8 @@ theme:
   feature:
     tabs: false
   palette:
-    primary: 'blue grey' # desired -> #20232a
-    accent: 'amber' # desired -> #ff9000
+    primary: 'manticore-blue'
+    accent: 'manticore-orange'
   logo: 'assets/images/logo.png'
   favicon: 'assets/images/favicon.ico'
 
@@ -114,7 +114,7 @@ plugins:
 docs_dir: src
 
 # Site name
-site_name: CORE CREATOR HUB
+site_name: CORE CREATORS HUB
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
