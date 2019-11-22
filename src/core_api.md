@@ -11,6 +11,9 @@ Both properties and events are accessed with `.propertyName` and `.eventName`, w
 
 At a high level, CORE Lua types can be divided into two groups: data structures and Objects.  Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua.  Objects all inherit from a single base type: Object.  Data structures have no common parent.  However, all data structures and Objects share a common `type` property, which is a String indicating its type.  The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc.  All CORE types also share an `IsA()` function.  The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not.  For example, `myObject:IsA("StaticMesh")`.
 
+A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+
+
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
 Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
@@ -28,13 +31,13 @@ Property | Return Value | Description | Tags
 `cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Only
 `animation` | string | Name of the animation the Player will play when the ability is activated. Possible values: See Ability Animation Section for strings and other info | Read-Only
 `canBePrevented` | bool | Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only
-`readyEvent` | Event<Ability> | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
-`castEvent` | Event<Ability> | Called when the Ability enters the Cast phase. | Read-Only
-`executeEvent` | Event<Ability> | Called when the Ability enters Execute phase. | Read-Only
-`recoveryEvent` | Event<Ability> | Called when the Ability enters Recovery. | Read-Only
-`cooldownEvent` | Event<Ability> | Called when the Ability enters Cooldown. | Read-Only
-`interruptedEvent` | Event<Ability> | Called when the Ability is interrupted. | Read-Only
-`tickEvent` | Event<Ability> | Called every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Write
+`readyEvent` | Event\<Ability> | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
+`castEvent` | Event\<Ability> | Called when the Ability enters the Cast phase. | Read-Only
+`executeEvent` | Event\<Ability> | Called when the Ability enters Execute phase. | Read-Only
+`recoveryEvent` | Event\<Ability> | Called when the Ability enters Recovery. | Read-Only
+`cooldownEvent` | Event\<Ability> | Called when the Ability enters Cooldown. | Read-Only
+`interruptedEvent` | Event\<Ability> | Called when the Ability is interrupted. | Read-Only
+`tickEvent` | Event\<Ability> | Called every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Write
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -139,11 +142,11 @@ Function | Return Value | Description | Tags
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`clickedEvent` | Event<ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only
-`pressedEvent` | Event<ButtonUIControl> | Called when button is pressed (mouse button down). | Read-Only
-`releasedEvent` | Event<ButtonUIControl> | Called when button is released (mouse button up). | Read-Only
-`hoveredEvent` | Event<ButtonUIControl> | Called when button is hovered. | Read-Only
-`unhoveredEvent` | Event<ButtonUIControl> | Called when button is unhovered. | Read-Only
+`clickedEvent` | Event\<ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only
+`pressedEvent` | Event\<ButtonUIControl> | Called when button is pressed (mouse button down). | Read-Only
+`releasedEvent` | Event\<ButtonUIControl> | Called when button is released (mouse button up). | Read-Only
+`hoveredEvent` | Event\<ButtonUIControl> | Called when button is hovered. | Read-Only
+`unhoveredEvent` | Event\<ButtonUIControl> | Called when button is unhovered. | Read-Only
 
 ### [Camera](/core_api/classes/camera/cameraOverview)
 
@@ -151,23 +154,23 @@ Camera is a CoreObject which is used both to configure player camera settings as
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`lerpTime` | float | The time over which camera property changes take effect. Clamped to be non-negative. | None
+`lerpTime` | Number | The time over which camera property changes take effect. Clamped to be non-negative. | None
 `hasFreeControl` | bool | Whether the player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | None
 `isDistanceAdjustable` | bool | Whether the player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | None
-`minDistance` | float | The minimum distance the player can zoom in to. | None
-`maxDistance` | float | The maximum distance the player can zoom out to. | None
-`isIsometric` | bool | Whether the camera uses an isometric (orthographic) view or perspective. | None
-`fieldOfView` | float | The field of view when using perspective view. Clamped between 1.0 and 170.0. | None
-`viewWidth` | float | The width of the view with an isometric view. Has a minimum value of 1.0. | None
+`minDistance` | Number | The minimum distance the player can zoom in to. | None
+`maxDistance` | Number | The maximum distance the player can zoom out to. | None
+`isIsometric` | Number | Whether the camera uses an isometric (orthographic) view or perspective. | None
+`fieldOfView` | Number | The field of view when using perspective view. Clamped between 1.0 and 170.0. | None
+`viewWidth` | Number | The width of the view with an isometric view. Has a minimum value of 1.0. | None
 `followPlayer` | Player | Which player’s view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach. | None
-`currentDistance` | float | The distance controlled by the player with scroll wheel (by default). Client-only | Client Context
+`currentDistance` | Number | The distance controlled by the player with scroll wheel (by default). Client-only | Client Context
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`GetPositionOffset ()` | Vector3 | An offset added to the camera or follow target’s eye position to the player’s view. | None
-`SetPositionOffset (Vector3)` | None | An offset added to the camera or follow target’s eye position to the player’s view. | None
-`GetRotationOffset ()` | Rotation | A rotation added to the camera or follow target’s eye position. | None
-`SetRotationOffset (Rotation)` | None | A rotation added to the camera or follow target’s eye position. | None
+`GetPositionOffset()` | Vector3 | An offset added to the camera or follow target’s eye position to the player’s view. | None
+`SetPositionOffset(Vector3)` | None | An offset added to the camera or follow target’s eye position to the player’s view. | None
+`GetRotationOffset()` | Rotation | A rotation added to the camera or follow target’s eye position. | None
+`SetRotationOffset(Rotation)` | None | A rotation added to the camera or follow target’s eye position. | None
 
 ### [CanvasUIControl](/core_api/classes/canvasuicontrol/canvasuicontrolOverview)
 
@@ -221,7 +224,7 @@ Property | Return Value | Description | Tags
 `name` | string | Hello, my name is… | Read-Write, Dynamic
 `id` | string | The object’s MUID. | Read-Only
 `parent` | CoreObject | The object’s parent object, may be nil. | Read-Write, Dynamic
-`isVisibl` | bool | Turn on/off the rendering of an object and its children | Read-Write, Dynamic
+`isVisible` | bool | Turn on/off the rendering of an object and its children | Read-Write, Dynamic
 `isCollidable` | bool | Turn on/off the collision of an object and its children | Read-Write, Dynamic
 `isEnabled` | bool | Turn on/off an object and its children completely | Read-Write, Dynamic
 `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Static, Dynamic
@@ -230,12 +233,12 @@ Property | Return Value | Description | Tags
 `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only
 `lifeSpan` | Number | Duration after which the object is destroyed. | Read-Write, Dynamic
 `sourceTemplateId` | string | The ID of the Template from which this Core Object was instantiated. NIL if the object did not come from a Template. | Read-Only
-`childAddedEvent` | Event<CoreObject parent, CoreObject new_child> | An event fired when a child is added to this object. | Read-Only
-`childRemovedEvent` | Event<CoreObject parent, CoreObject removed_child> | An event fired when a child is removed from this object. | Read-Only
-`descendantAddedEvent` | Event<CoreObject ancestor, CoreObject new_child> | An event fired when a child is added to this object or any of its descendants. | Read-Only
-`descendantRemovedEvent` | Event<CoreObject ancestor, CoreObject removed_child> | An event fired when a child is removed from this object or any of its descendants. | Read-Only
-`destroyEvent` | Event<CoreObject> | An event fired when this object is about to be destroyed. | Read-Only
-`networkedPropertyChangedEvent` | Event<CoreObject owner, string propertyName> | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only
+`childAddedEvent` | Event\<CoreObject parent, CoreObject new_child> | An event fired when a child is added to this object. | Read-Only
+`childRemovedEvent` | Event\<CoreObject parent, CoreObject removed_child> | An event fired when a child is removed from this object. | Read-Only
+`descendantAddedEvent` | Event\<CoreObject ancestor, CoreObject new_child> | An event fired when a child is added to this object or any of its descendants. | Read-Only
+`descendantRemovedEvent` | Event\<CoreObject ancestor, CoreObject removed_child> | An event fired when a child is removed from this object or any of its descendants. | Read-Only
+`destroyEvent` | Event\<CoreObject> | An event fired when this object is about to be destroyed. | Read-Only
+`networkedPropertyChangedEvent` | Event\<CoreObject owner, string propertyName> | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -261,15 +264,15 @@ Function | Return Value | Description | Tags
 `SetAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in world space. Physics networked Objects only. | Dynamic
 `SetLocalAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in local space. Physics networked Objects only. | Dynamic
 `GetReference()` | CoreObjectReference | Returns a CoreObjectReference pointing at this object. | None
-`GetChildren()` | array<CoreObject> | Returns a table containing the object’s children, may be empty. | None
+`GetChildren()` | array\<CoreObject> | Returns a table containing the object’s children, may be empty. | None
 `FindAncestorByName(string name)` | CoreObject | Returns the first parent or ancestor whose name matches the provided name.  If none match, returns nil. | None
 `FindChildByName(string name)` | CoreObject | Returns the first immediate child whose name matches the provided name.  If none match, returns nil. | None
 `FindDescendantByName(string name)` | CoreObject | Returns the first child or descendant whose name matches the provided name.  If none match, returns nil. | None
-`FindDescendantsByName(string name)` | array<CoreObject> | Returns the descendants whose name matches the provided name.  If none match, returns an empty table. | None
-`FindAncestorByType(string type_name)` | CoreObject | Returns the first parent or ancestor whose type is or extends the specified type.  For example, calling FindAncestorByType(‘CoreObject’) will return the first ancestor that is any type of CoreObject, while FindAncestorByType(‘StaticMesh’) will only return the first static mesh. If no ancestors match, returns nil. | Static
+`FindDescendantsByName(string name)` | array\<CoreObject> | Returns the descendants whose name matches the provided name.  If none match, returns an empty table. | None
+`FindAncestorByType(string type_name)` | CoreObject | Returns the first parent or ancestor whose type is or extends the specified type.  For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType(‘StaticMesh’) will only return the first static mesh. If no ancestors match, returns nil. | Static
 `FindChildByType(string type_name)` | CoreObject | Returns the first immediate child whose type is or extends the specified type.  If none match, returns nil. | None
 `FindDescendantByType(string type_name)` | CoreObject | Returns the first child or descendant whose type is or extends the specified type.  If none match, returns nil. | None
-`FindDescendantsByType(string type_name)` | array<CoreObject> | Returns the descendants whose type is or extends the specified type.  If none match, returns an empty table. | None
+`FindDescendantsByType(string type_name)` | array\<CoreObject> | Returns the descendants whose type is or extends the specified type.  If none match, returns an empty table. | None
 `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None
 `IsAncestorOf(CoreObject)` | bool | Returns true if this core object is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None
 `GetCustomProperty(string property_name)` | value, bool | Gets data which has been added to an object using the custom property system.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not. | None
@@ -305,11 +308,11 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetObject()` | CoreObject | Returns the CoreObject with a matching ID, if it exists.  Will otherwise return nil. | None
-`WaitForObject([float])` | CoreObject | Returns the CoreObject with a matching ID, if it exists.  If it does not, yields the current task until the object is spawned.  Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None
+`WaitForObject([Number])` | CoreObject | Returns the CoreObject with a matching ID, if it exists.  If it does not, yields the current task until the object is spawned.  Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None
 
 ### [Damage](/core_api/classes/damage/damageOverview)
 
-To damage a Player, you can simply write e.g.: whichPlayer:ApplyDamage(Damage.New(10)). Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
+To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -331,15 +334,15 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `socket` | string | Determines which point on the avatar’s body this equipment will be attached. | Read-Write, Dynamic
 `owner` | Player | Which Player the Equipment is attached to. | Read-Only, Dynamic
-`equippedEvent` | Event<Equipment, Player> | An event fired when this equipment is equipped onto a player. | Read-Only
-`unequippedEvent` | Event<Equipment, Player> | An event fired when this object is unequipped from a player. | Read-Only
+`equippedEvent` | Event\<Equipment, Player> | An event fired when this equipment is equipped onto a player. | Read-Only
+`unequippedEvent` | Event\<Equipment, Player> | An event fired when this object is unequipped from a player. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | None
 `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The player loses any abilities granted by the Equipment. | None
 `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. | None
-`GetAbilities()` | array<Ability> | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None
+`GetAbilities()` | array\<Ability> | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None
 
 ### [Event](/core_api/classes/event/eventOverview)
 
@@ -414,13 +417,13 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetColor()` | Color | The color of the light. | None
-`SetColor(Color)(dynamic)` | None | The color of the light. | Dynamic
+`SetColor(Color)` | None | The color of the light. | Dynamic
 
 ### [MovementSettings](/core_api/classes/movementsettings/movementsettingsOverview)
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`ApplyToPlayer(Player)` | RV | apply settings from this settings object to player. Should be called on server. | None
+`ApplyToPlayer(Player)` | None | Apply settings from this settings object to player. Should be called on server. | None
 
 ### [NetworkContext](/core_api/classes/networkcontext/networkcontextOverview)
 
@@ -445,7 +448,7 @@ A UIControl which can be used for containing and laying out other UI controls.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`shouldClipChildren (bool)` | bool | If True, children of this panel will not draw outside of its bounds. | None
+`shouldClipChildren(bool)` | bool | If True, children of this panel will not draw outside of its bounds. | None
 
 ### [PerPlayerReplicator](/core_api/classes/perplayerreplicator/perplayerreplicatorOverview)
 
@@ -503,14 +506,14 @@ Property | Return Value | Description | Tags
 `canMount` | bool | whether the player can manually toggle on/off the mount | Read-Write
 `shouldDismountWhenDamaged` | bool | If true, and the player is mounted they will dismount if they take damage. | Read-Write
 `isVisibleToSelf` | bool | Set whether to hide player model on player’s own client, for sniper scope, etc. Client-only. | Client Context, Read-Write
-`damagedEvent` | Event<Player, Damage> | Event fired when the Player takes damage. Server only. | Server Context, Read-Only
-`diedEvent` | Event<Player, Damage> | Event fired when the Player dies.  Server only. | Server Context, Read-Only
-`respawnedEvent` | Event<Player> | Event fired when the Player respawns.  Server only. | Server Context, Read-Only
-`bindingPressedEvent` | Event<Player, String> | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list | Read-Only
-`bindingReleasedEvent` | Event<Player, String> | Event fired when an action binding is released. Second parameter tells you which binding. | Read-Only
-`resourceChangedEvent` | Event<Player> | Event fired when a resource changed | Read-Only
-`movementModeChangedEvent` | Event<Player, MovementMode, MovementMode> | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only
-`animationEvent` | Event<Player>,EventName | Event fired during certain animations played on a player. Client only. | Client Context
+`damagedEvent` | Event\<Player, Damage> | Event fired when the Player takes damage. Server only. | Server Context, Read-Only
+`diedEvent` | Event\<Player, Damage> | Event fired when the Player dies.  Server only. | Server Context, Read-Only
+`respawnedEvent` | Event\<Player> | Event fired when the Player respawns.  Server only. | Server Context, Read-Only
+`bindingPressedEvent` | Event\<Player, String> | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list | Read-Only
+`bindingReleasedEvent` | Event\<Player, String> | Event fired when an action binding is released. Second parameter tells you which binding. | Read-Only
+`resourceChangedEvent` | Event\<Player> | Event fired when a resource changed | Read-Only
+`movementModeChangedEvent` | Event\<Player, MovementMode, MovementMode> | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only
+`animationEvent` | Event\<Player>,EventName | Event fired during certain animations played on a player. Client only. | Client Context
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -545,7 +548,7 @@ Function | Return Value | Description | Tags
 `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | None
 `GetViewWorldPosition()` | Vector3 | Get position of player’s camera view. Only works for local player. | None
 `GetViewWorldRotation()` | Rotation | Get rotation of player’s camera view. Only works for local player. | None
-`ClearResources()` | RV | Removes all resources from a player. | None
+`ClearResources()` | None | Removes all resources from a player. | None
 `GetResource(String name)` | string | Returns the amount of a resource owned by a player. Returns 0 by default. | None
 `SetResource(String name, Integer amount)` | None | Sets a specific amount of a resource on a player. | None
 `AddResource(String name, Integer amount)` | None | Adds an amount of a resource to a player. | None
@@ -603,7 +606,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `owner` | Player | The player who fired this projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the projectile if teams are being used in the game. | Read-Write
-`sourceAbility` | Ability | ? | Read-Write
+`sourceAbility` | Ability | Reference to the ability from which the projectile was created. | Read-Write
 `speed` | Number | Centimeters per second movement. Default 5000. | Read-Write
 `maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. | Read-Write
 `gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write
@@ -746,7 +749,7 @@ Script is a CoreObject representing a script.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
-`context(table, read-only)` | table | Returns the table containing any non-local variables and functions created by the script.  This can be used to call (or overwrite!) functions on another script. | Read-Only
+`context` | table | Returns the table containing any non-local variables and functions created by the script.  This can be used to call (or overwrite!) functions on another script. | Read-Only
 
 !!! Note
     While not technically a property, a script can access itself using the `script` variable.
@@ -802,7 +805,7 @@ StaticMesh is a CoreObject representing a static mesh.
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isSimulatingPhysics` | bool | If true, physics will be enabled for the mesh. | Read-Write, Dynamic
-`team (int, read-write)(dynamic)` | RV | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
+`team` | Integer | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
 `isTeamColorUsed` | Color | If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
 `isTeamCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic
 `isEnemyCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic
@@ -908,11 +911,11 @@ Function | Return Value | Description | Tags
 `GetPosition()` | Vector3 | Returns a copy of the position component of the transform. | None
 `SetPosition (Vector3)` | None | Sets the position component of the transform. | None
 `GetRotation()` | Rotation | Returns a copy of the rotation component of the transform. | None
-`SetRotation (Rotation)` | None | Sets the rotation component of the transform. | None
+`SetRotation(Rotation)` | None | Sets the rotation component of the transform. | None
 `GetQuaternion()` | Quaternion | Returns a quaternion-based representation of the rotation. | None
-`SetQuaternion (Quaternion)` | None | Sets the quaternion-based representation of the rotation. | None
+`SetQuaternion(Quaternion)` | None | Sets the quaternion-based representation of the rotation. | None
 `GetScale()` | Vector3 | Returns a copy of the scale component of the transform. | None
-`SetScale (Vector3)` | None | Sets the scale component of the transform. | None
+`SetScale(Vector3)` | None | Sets the scale component of the transform. | None
 `GetForwardVector()` | Vector3 | Forward vector of the transform. | None
 `GetRightVector()` | Vector3 | Right vector of the transform. | None
 `GetUpVector()` | Vector3 | Up vector of the transform. | None
@@ -941,13 +944,13 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `IsOverlapping(CoreObject)` | bool | Returns true if given core object overlaps with the trigger. | None
 `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the trigger. | None
-`GetOverlappingObjects()` | array<Objects> | Returns a list of all objects that are currently overlapping with the trigger. | None
+`GetOverlappingObjects()` | array\<Objects> | Returns a list of all objects that are currently overlapping with the trigger. | None
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`beginOverlapEvent` | Event<CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only
-`endOverlapEvent` | Event<CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent. | Read-Only
-`interactedEvent` | Event<CoreObject trigger, Player> | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player. | Read-Only
+`beginOverlapEvent` | Event\<CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only
+`endOverlapEvent` | Event\<CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent. | Read-Only
+`interactedEvent` | Event\<CoreObject trigger, Player> | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player. | Read-Only
 
 ### [UIControl](/core_api/classes/uicontrol/uicontrolOverview)
 
@@ -1097,8 +1100,8 @@ Vfx is a specialized type of SmartObject for visual effects.  It inherits everyt
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`team (int, read-write)(dynamic)` | RV | Assigns the vfx to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
-`isTeamColorUsed (bool, read-write)(dynamic)` | Color | If true, and the vfx has been assigned to a valid team, players on that team will see a blue vfx, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
+`team` | Integer | Assigns the vfx to a team. Value range from 0 to 4. 0 is neutral team | Read-Write, Dynamic
+`isTeamColorUsed` | bool | If true, and the vfx has been assigned to a valid team, players on that team will see a blue vfx, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -1235,9 +1238,9 @@ Function | Return Value | Description | Tags
 `Connect(string eventName, function eventListener)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None
 `ConnectForPlayer(string eventName, function eventListener) (Server Only)` | EventListener |  Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server Context
 `Broadcast(string eventName, args...)` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None
-`BroadcastToAllPlayers(string eventName, args...)` | <resultcode, errorMessage> |  Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
-`BroadcastToPlayer(Player player, string eventName,args...)` | <resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
-`BroadcastToServer(string eventName,args...)` | <resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context
+`BroadcastToAllPlayers(string eventName, args...)` | \<resultcode, errorMessage> |  Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToPlayer(Player player, string eventName,args...)` | \<resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToServer(string eventName,args...)` | \<resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context
 
 ??? "Broadcast Event Result Codes"
     * BroadcastEventResultCode.SUCCESS
@@ -1265,15 +1268,15 @@ Game is a collection of functions and events related to players in the game, rou
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetLocalPlayer()` | Player | Returns the local player (Client-only). | Client Context
-`GetPlayers(table Parameters (optional))` | array<Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: | None
+`GetPlayers([table Parameters])` | array<Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: | None
 `ignoreDead(boolean)` | None | If true, don’t return any dead players. | None
 `ignoreLiving(boolean)` | None | If true, don’t return any living players. | None
 `ignoreTeams(Integer or Array<Integer>)` | None | Don’t return any players belonging to the team or teams listed. | None
 `includeTeams(Integer or Array<Integer>)` | None | Return only players belonging to the team or teams listed. | None
 `ignorePlayers(Player or Array<Player>)` | None | Don’t return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} ) | None
-`FindNearestPlayer(Vector3 position, table Parameters (optional))` | Player | Returns the Player that is nearest to the given position.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
-`FindPlayersInCylinder(Vector3 position, Number radius, table Parameters (optional))` | array<Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
-`FindPlayersInSphere(Vector3 position, Number radius, table Parameters (optional))` | array<Player> | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindNearestPlayer(Vector3 position, [table Parameters])` | Player | Returns the Player that is nearest to the given position.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInCylinder(Vector3 position, Number radius, [table Parameters]` | array<Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInSphere(Vector3 position, Number radius, [table Parameters]` | array<Player> | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
 `StartRound()` | None | Fire all events attached to roundStartEvent | Server Context
 `EndRound()` | None | Fire all events attached to roundEndEvent | Server Context
 `GetTeamScore(team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None
@@ -1308,8 +1311,8 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `UI.ShowFlyUpText(string message, Vector3, [table])` | Vector3 | (Client only) Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the text.  Default is white; isBig (boolean) - When true, larger text is used. | Client Context
 `UI.ShowDamageDirection(Vector3 world point)` | Vector3 | (Client only) Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client Context
-`UI.ShowDamageDirection(CoreObject)` | RV | (Client only) Local player sees an arrow pointing towards some Core Object. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client Context
-`UI.ShowDamageDirection(Player source)` | RV | (Client only) Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements. | Client Context
+`UI.ShowDamageDirection(CoreObject)` | None | Local player sees an arrow pointing towards some Core Object. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client Context
+`UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements. | Client Context
 `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the x, y coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client Context
 `UI.GetScreenPosition(Vector3 world_position)` | Vector2 | Calculates the location that world_position appears on the screen. Returns a Vector2 with the x, y coordinates, or nil if world_position is behind the camera. Only gives results from a client context. | Client Context
 `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the player’s screen in the x, y coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client Context
@@ -1323,7 +1326,7 @@ Function | Return Value | Description | Tags
 `UI.SetReticleVisible(bool Show)` | None | Shows or hides the reticle for the player. | None
 `UI.IsReticleVisible()` | bool | Check if reticle is visible | None
 `UI.GetCursorHitResult()` | HitResult | Return hit result from local client’s view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode | None
-`UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal[optional default to up vector])` | Vector | return intersection from local client’s camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)). | None
+`UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal [optional default to up vector])` | Vector | return intersection from local client’s camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)). | None
 
 ### [World](/core_api/classes/world/worldOverview)
 
@@ -1336,8 +1339,8 @@ Function | Return Value | Description | Tags
 `FindObjectsByType(string type_name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned. | None
 `FindObjectByName(string type_name)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None
 `FindObjectById(string muid_string)` | CoreObject | Returns the object with a given MUID.  Returns nil if no object has this ID. | None
-`SpawnAsset(string asset_id, table Parameters (optional))` | CoreObject | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object’s transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent’s transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None
-`Raycast(Vector3 rayStart, Vector3 rayEnd, table Parameters (optional))` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array<Integer>)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array<Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer }) | None
+`SpawnAsset(string asset_id, [table Parameters])` | CoreObject | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object’s transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent’s transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None
+`Raycast(Vector3 rayStart, Vector3 rayEnd, [table Parameters])` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array<Integer>)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array<Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer }) | None
 
 ### [Core Lua Functions](/core_api/classes/CORELuaFunctions/CORELuaFunctionsOverview)
 
@@ -1345,8 +1348,8 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in ms) between this and the last tick. | None
 `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None
-`print (string)` | string | Print a message to the event log. Press \` to view messages. | None
-`warn (string)` | string | Similar to print(), but includes the script name and line number. | None
+`print(string)` | string | Print a message to the event log. Press \` to view messages. | None
+`warn(string)` | string | Similar to print(), but includes the script name and line number. | None
 
 
 ### Built-In Lua Functions
