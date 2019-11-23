@@ -62,6 +62,10 @@ theme:
   logo: 'assets/images/logo.png'
   favicon: 'assets/images/favicon.ico'
 
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
 extra_css:
   - 'assets/stylesheets/manticore.css'
 
@@ -123,6 +127,7 @@ edit_uri: edit/production/src
 # Metadata
 site_description: Documentation for the CORE Engine
 site_author: Manticore
+site_url: https://docs.manticoreplatform.com
 
 # Copyright
 copyright: 'Copyright &copy; 2019 Manticore Games, Inc'
