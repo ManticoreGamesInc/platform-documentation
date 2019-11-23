@@ -114,7 +114,7 @@ plugins:
 docs_dir: src/
 
 # Site name
-site_name: CORE CREATORS HUB
+site_name: CORE Creators Hub
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
