@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
-
-
-[data-md-color-primary=manticore-blue] .md-header, [data-md-color-primary=manticore-blue] .md-hero, .md-footer-meta {
-    background-color: #20232a;}
-
-.md-header[data-md-state=shadow] {
-    box-shadow: none;
-}
 
 .codehilite,
 .dark-mode .md-typeset .code {
@@ -14,16 +5,18 @@
     background-color: #303030;
 }
 
-.md-clipboard {
+/* .md-clipboard {
     filter:invert(100%);
     width: 2rem;
     height: 2rem;
     font-size: 1.5rem;
-}
+} */
+
 .md-typeset .admonition, .md-typeset details {
     font-size: 0.7rem;
 }
-.md-typeset .codehilitetable .code, .md-typeset .highlighttable .code {
+
+.dark-mode .md-typeset .codehilitetable .code, .md-typeset .highlighttable .code {
     background-color: #424242;
 }
 .md-typeset .codehilitetable .linenos pre, .md-typeset .highlighttable .linenos pre {
@@ -48,73 +41,6 @@
     }
 }
 
-.center {
-    display: block;
-    margin: 15px auto;
-}
-
-/* Image Cluster */
-
-.image-cluster {
-    text-align: center;
-    margin-bottom: 15px !important;
-}
-
-.image-cluster img {
-    width: 40%;
-    margin: 15px 0 auto;
-}
-
-.image-cluster em {
-    font-style: italic;
-    display: block;
-}
-
-.image-inline-text img {
-    vertical-align: middle;
-}
-
-/* YouTube */
-.youtube-video {
-    width: 640px;
-    height: 360px;
-    border: 0px;
-}
-
-/* Good / Bad / Exception */
-
-.md-typeset .style-good {
-	color: green;
-	font-weight: bold;
-	margin-bottom: 0;
-}
-
-.md-typeset .style-good + .codehilitetable {
-	margin-top: 0;
-	background-color: #ecffe5;
-}
-
-.md-typeset .style-bad {
-	color: red;
-	font-weight: bold;
-	margin-bottom: 0;
-}
-
-.md-typeset .style-bad + .codehilitetable {
-	margin-top: 0;
-	background-color: #ffecec;
-}
-
-.md-typeset .style-exception {
-	color: orange;
-	font-weight: bold;
-	margin-bottom: 0;
-}
-
-.md-typeset .style-exception + .codehilitetable {
-	margin-top: 0;
-	background-color: #fffaf1;
-}
 
 /* Tables */
 
