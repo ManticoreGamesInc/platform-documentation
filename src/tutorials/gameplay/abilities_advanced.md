@@ -90,9 +90,23 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 2. Just like in the first weapon tutorial, we are going to create a Client Content folder within the weapon to hold the model of the staff.  
 
-     1. You can combine shapes in whatever way you like with the help or an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.  
+     1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.  
+
+### Modifying the Abilities
 
 - mainly need to address how to make an ability itself do fancy things, like cause splash AOE damage, as that's pretty much the only thing that can't be done in code. Use code for spawning vfx in a pattern possibly? A weapon can be set up so nicely without code, even have more abilities, but it's the fancy triggering of effects and splash damage and camera stuff that can't be done without code. Need to address stuff people might not be able to just figure out by just looking at API, such as how to effectively use weapon and ability events.
+
+- Tung's advanced weapons use a different camera setup, can zoom in on right click, spread to damage, and has an auto reload. Overall it feels better to use, but it's super subtle.
+
+- Tung's basic weapons don't auto reload because they have infinite ammo, and don't do any sort of fancy things. They are so dang bare minimum, my tutorial goes a bit fancier by explaining reload.
+
+### Create Camera Feedback
+
+- So to model after Tung's advanced systems, the fire staff should change camera setup, have a damage spread, and require gaining more ammo as a pickup to explain how that works.
+
+- This means the advanced tutorial is more about how to modify the camera, how ammo pickups work, and how to make damage spread happen. This can get the user thinking more about ways they can add to and modify the system.
+
+### Spread that Damage
 
 -   get the basic weapon function working (shoot a lil fireball)
 -   involves creating an attack ability, a reticle, vfx (look what vfx tung used, see how it is triggered, do a simple version of that coding)
@@ -106,11 +120,15 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 -   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
 -   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
+### Ammo as a Pickup
+
+- grab them bullets, dude
+
 ### Connecting UI
 
 You'll likely want to set up User Interface (UI) for your magic staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](/tutorials/gameplay/abilities/#core-component-ability-display)**'s section on UI. 
 
 ## Examples
 
-* _FAA_GameMode_ includes functioning abilities.
 * _Spellshock_ includes advanced abilities using ability objects.
+* _CORE Content_ includes pre-made and ready-to-use weapons! Check in Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible.
