@@ -83,7 +83,7 @@ So, let's get started!
 7. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
 
 8. You may also notice that the weapon, when equipped, could be not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head.
- ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png)
+ ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png "image_tooltip"){: .center}
  When equipped, the weapon's origin will snap to the attachment point or "Socket". The odds are high that the weapon will be held in the wrong spot when equipped the first time.
 
     **To fix the weapon model's position:**

@@ -36,7 +36,7 @@ Below is an example using the Text Box control:
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
- ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png)
+ ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -47,7 +47,7 @@ Below is an example using the Text Box control:
      UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
 
-![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png)
+![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png "image_tooltip"){: .center}
 
 Adjustable properties of the Text Box:
 
@@ -82,10 +82,10 @@ There is a large collection of different images to use in CORE. These could be s
 
 These are all the current images available to use in CORE:
 
-![UI Borders](../../img/EditorManual/UI/uiAssets_borders.png)
-![UI Buttons](../../img/EditorManual/UI/uiAssets_buttons.png)
-![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png)
-![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png)
+![UI Borders](../../img/EditorManual/UI/uiAssets_borders.png "image_tooltip"){: .center}
+![UI Buttons](../../img/EditorManual/UI/uiAssets_buttons.png "image_tooltip"){: .center}
+![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png "image_tooltip"){: .center}
+![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png "image_tooltip"){: .center}
 
 ## Examples
 
