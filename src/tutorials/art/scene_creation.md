@@ -16,7 +16,7 @@ An introduction to the basics of placing and remixing objects.
     * CORE UI
     * Changing materials
 
-![SceneCreation](../../img/SceneCreation/image11.png){: .center}
+![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
 
 ---
 
@@ -53,9 +53,9 @@ If you would like to see into the room without having to move your viewport into
 
 Turn off the visibility of the roof and 1-2 walls by clicking the orange eye next to the corresponding assets.
 
-![SceneCreation](../../img/SceneCreation/image7.png){: .center}
+![SceneCreation](../../img/SceneCreation/image7.png "image_tooltip"){: .center}
 
-![SceneCreation](../../img/SceneCreation/image13.png){: .center}
+![SceneCreation](../../img/SceneCreation/image13.png "image_tooltip"){: .center}
 
 ## Rotating the House
 
@@ -66,13 +66,13 @@ Rotate the house so the interior isn't in the shade. This will make it easier to
 !!! note "CORE Concepts: Snap To Grid"
     Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing <kbd>G</kbd> or using the **Snap to Grid** button in the toolbar.
 
-![SceneCreation](../../img/SceneCreation/image3.png){: .center}
+![SceneCreation](../../img/SceneCreation/image3.png "image_tooltip"){: .center}
 
 In the above GIF the widget is set to **Rotation mode** and **Snap to Grid** is enabled. The degree of rotation is set to 90, which means the selected object will be rotated by 90 degrees.
 
 There are more degrees of rotation available in the drop down menu.
 
-![SceneCreation](../../img/SceneCreation/image1.png){: .center}
+![SceneCreation](../../img/SceneCreation/image1.png "image_tooltip"){: .center}
 
 ## Placing and customizing the Bed
 
@@ -90,7 +90,7 @@ There are more degrees of rotation available in the drop down menu.
 
     If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
 
-    ![SceneCreation](../../img/SceneCreation/image10.png){: .center}
+    ![SceneCreation](../../img/SceneCreation/image10.png "image_tooltip"){: .center}
 
 ## Decorate!
 
@@ -100,4 +100,4 @@ There are more degrees of rotation available in the drop down menu.
 
     TODO: Do we really want that?
 
-![SceneCreation](../../img/SceneCreation/image2.png){: .center}
+![SceneCreation](../../img/SceneCreation/image2.png "image_tooltip"){: .center}

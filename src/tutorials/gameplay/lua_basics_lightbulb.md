@@ -111,7 +111,7 @@ Now if you save and run this, you'll see your message appear on the screen! Exce
 
 If you are having issues, check to see if your `TutorialScript` looks like this in the `Properties` view:
 
-![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
+![MyFirstScript](../../img/scripting/MyFirstScript.png "image_tooltip"){: .center}
 
 Time to put what we've learned to a test, welcome to the main course!
 
@@ -121,7 +121,7 @@ Time to put what we've learned to a test, welcome to the main course!
 
 Now we are going to create a small game that involves a light switch that turns on and off a light.
 
-![LightSwitchAndBulb](../../img/LightBulb/image9.png){: .center}
+![LightSwitchAndBulb](../../img/LightBulb/image9.png "image_tooltip"){: .center}
 
 ### Downloading the template
 
@@ -138,7 +138,7 @@ Now we are going to create a small game that involves a light switch that turns 
 
 1. Create a new script by clicking the "**+**" button in the **Project Content** tab to the left of the search bar.
 
-    ![](../../img/LightBulb/image11.png){: .center}
+    ![](../../img/LightBulb/image11.png "image_tooltip"){: .center}
 
 2. Name this one "**LightToggleScript**".
 
@@ -146,11 +146,11 @@ Now we are going to create a small game that involves a light switch that turns 
 
 4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "**Deinstance This Object**" from the drop down menu.
 
-    ![](../../img/LightBulb/image8.png){: .center}
+    ![](../../img/LightBulb/image8.png "image_tooltip"){: .center}
 
     The template and objects in the template should change from green to teal. Green objects represent objects in a template. Templates are not editable.
 
-    ![](../../img/LightBulb/image10.png){: .center}
+    ![](../../img/LightBulb/image10.png "image_tooltip"){: .center}
 
     Teal objects represent objects that are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
 
@@ -158,7 +158,7 @@ Now we are going to create a small game that involves a light switch that turns 
 
     Make sure the script is first in the "**Light switch**" folder's hierarchy. This makes it easier to find when looking at the hierarchy.
 
-    ![](../../img/LightBulb/step_1_point_5.png){: .center}
+    ![](../../img/LightBulb/step_1_point_5.png "image_tooltip"){: .center}
 
 ### Defining the switch
 
@@ -176,13 +176,13 @@ We want our light switch to function just like it would in real life: the switch
 
     `GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
 
-    ![](../../img/LightBulb/step_3_point_1.png){: .center}
+    ![](../../img/LightBulb/step_3_point_1.png "image_tooltip"){: .center}
 
     `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
 2. Left click on the `Switch` folder and select "**Enable Networking**" from the drop down menu.
 
-    ![](../../img/LightBulb/image15.png){: .center}
+    ![](../../img/LightBulb/image15.png "image_tooltip"){: .center}
 
     Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking [here](networking_reference.md).
 
@@ -214,7 +214,7 @@ We want our light switch to function just like it would in real life: the switch
 
     Let's press **Play** and see how our switch moves!
 
-    ![](../../img/LightBulb/image13.png){: .center}
+    ![](../../img/LightBulb/image13.png "image_tooltip"){: .center}
 
     Unfortunately that didn't quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
@@ -244,7 +244,7 @@ We want our light switch to function just like it would in real life: the switch
 3. Press **Play** and test it out!
 
     <div align="center"><!-- TODO: Replace with gif -->
-    ![](../../img/LightBulb/image7.png)
+    ![](../../img/LightBulb/image7.png "image_tooltip"){: .center}
     <p style="font-style: italic">Success!</p>
     </div>
 
@@ -254,7 +254,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 1. Create a trigger by going to the **CORE Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
 
-    ![](../../img/LightBulb/trigger.png){: .center}
+    ![](../../img/LightBulb/trigger.png "image_tooltip"){: .center}
 
 2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
@@ -262,21 +262,21 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 3. Drag the trigger over to the light switch. The size of the trigger determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
 
-    ![](../../img/LightBulb/image20.png){: .center}
+    ![](../../img/LightBulb/image20.png "image_tooltip"){: .center}
 
     This looks like a good size.
 
 4. Look at the properties of the trigger by selecting it within the Hierarchy. Under "**Gameplay**" there is a parameter called "**Interactable**," check the box next to it to enable it. Otherwise we won't be able to interact with the trigger.
 
     <div align="center">
-    ![](../../img/LightBulb/image17.png){: .center}
+    ![](../../img/LightBulb/image17.png "image_tooltip"){: .center}
     </div>
 
 5. Drag the trigger into the **Light switch group**. It should be the 4th child in the group. Since we'll be referencing the trigger in our script, make sure it's marked as networked. Right click on the trigger and select "**Enable Networking**".
 
     Our hierarchy should now look like this:
 
-    ![](../../img/LightBulb/step_3_point_5.png){: .center}
+    ![](../../img/LightBulb/step_3_point_5.png "image_tooltip"){: .center}
 
 6. Now we need to tell the script what our trigger is and what should happen when the player interacts with it. Under our `switch` variable definition type:
 
@@ -393,7 +393,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Select the **Lighting** category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
 
-    ![](../../img/LightBulb/image4.png){: .center}
+    ![](../../img/LightBulb/image4.png "image_tooltip"){: .center}
 
     I turned down the light's `Intensity` because it was very bright in my scene. When you're done making adjustments, right click on the `Point Light` in the Hierarchy and select "**Enable Networking**" under the **Networking** menu.
 
@@ -401,13 +401,13 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 2. Right click on the `Point Light` in your Hierarchy and select "**Create New Template from This**" under **Templates** in the menu. Let's call our new template "**LightTemplate**".
 
-    ![](../../img/LightBulb/image16.png){: .center}
+    ![](../../img/LightBulb/image16.png "image_tooltip"){: .center}
 
 3. Delete the **LightTemplate** from the Hierarchy. We don't want the light in our scene until we turn on the light switch.
 
 4. Click on our script "**LightToggleScript**" in the Hierarchy and look at the **Properties** tab. Click "**Add Property**" at the bottom of the tab.
 
-    ![](../../img/LightBulb/image14.png){: .center}
+    ![](../../img/LightBulb/image14.png "image_tooltip"){: .center}
 
 5. Choose "**AssetReference**" from the drop down menu. Change "**PropertyName**" to "**Light**" then click "**Add Property**".
 
@@ -415,7 +415,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 6. Find the template we just made ("**LightTemplate**") in the **Project Content** tab and drag it over to our "**Light**" custom parameter where it says "**Empty**".
 
-    ![](../../img/LightBulb/image2.png){: .center}
+    ![](../../img/LightBulb/image2.png "image_tooltip"){: .center}
 
 7. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
@@ -518,7 +518,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 12. Press **Play** and test out the script.
 
     <div align="center"><!-- TODO: Replace with gif -->
-    ![](../../img/LightBulb/image3.png)
+    ![](../../img/LightBulb/image3.png "image_tooltip"){: .center}
     <p style="font-style: italic">Excellent!</a>
     </div>
 
@@ -682,7 +682,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     There are two ways to change a trigger's label, by going to the trigger's properties tab and simply editing the **Interaction Label** field, or with a script.
 
-    ![](../../img/LightBulb/image12.png){: .center}
+    ![](../../img/LightBulb/image12.png "image_tooltip"){: .center}
 
     Editing the **Interaction Field** property is great for when your label will always say the same thing, no matter what. Because we want to create a label that changes based on whether the switch is already on or off, we'll use our script to update the label.
 
