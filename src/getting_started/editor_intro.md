@@ -16,7 +16,7 @@ Next, simply click on `PlatformLauncher.exe` and you will see CORE start up!
 
 When you open up the editor you'll see the following screen:
 
-![](../img/getting_started/Start_01.png)
+![](../img/getting_started/Start_01.png "image_tooltip"){: .center}
 
 1. CORE! You made it to the right place
 2. User info - click on this to go to the avatar page
@@ -32,7 +32,7 @@ Click on the button to create a new map, put your name here, and then you'll
 load in. You may have to allow it through the firewall, do so, and then you'll
 see the next screen:
 
-![](../img/getting_started/Start_02.png)
+![](../img/getting_started/Start_02.png "image_tooltip"){: .center}
 
 1. Toolbar (Undo, Redo, Move, Rotate, Scale, Snap To Grid, Grid Size, World/Local
      Space, Performance View ... Play, Pause, Multiplayer ... Editor Settings)
