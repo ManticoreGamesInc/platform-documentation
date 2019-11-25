@@ -44,7 +44,7 @@ In CORE, **Community Content** houses many assets you can use in your own games 
 
 To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**max.**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
 
-![Manticoin](../../img/scripting/manticoin.png){: .center}
+![Manticoin](../../img/scripting/manticoin.png "image_tooltip"){: .center}
 
 !!! note "The editor will prompt you to save before it adds it to your project."
 
@@ -59,7 +59,7 @@ At this point, the editor will prompt you about a networking state missmatch. In
 
 We'll explain what this line does in a moment, but for now, make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../../img/getting_started/SpinCoin.png){: .center}
+![SpinCoinLocation](../../img/getting_started/SpinCoin.png "image_tooltip"){: .center}
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -197,7 +197,7 @@ Next, let's place the script `DisplayCoins` as a child of the Text Control. In t
 
 The folder structure at this point should look like this:
 
-![UIText](../../img/getting_started/UIText.png){: .center}
+![UIText](../../img/getting_started/UIText.png "image_tooltip"){: .center}
 
 Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
 
@@ -242,7 +242,7 @@ Next, we need to create the custom parameter to save our game state.
 
 Here's the entire Hierarchy at this point:
 
-![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png){: .center}
+![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png "image_tooltip"){: .center}
 
 !!! note "The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!"
 
@@ -303,7 +303,7 @@ settings.networkedPropertyChangedEvent:Connect(OnChanged)
 
 This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Gameplay Settings`.
 
-![Replicator](../../img/getting_started/Replicator.png){: .center}
+![Replicator](../../img/getting_started/Replicator.png "image_tooltip"){: .center}
 
 Your Hierarchy should look like the above now!
 

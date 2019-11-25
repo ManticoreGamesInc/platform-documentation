@@ -18,7 +18,7 @@ In the first ability tutorial, we went over the quickest possible way to get som
 
 If you're fresh and new to any kind of programming, it would be good to visit the Intro to Lua tutorial. This will go over some key words and practices you would want to know.
 
-![Heavy Slash](../../img/EditorManual/Abilities/ComplexAbilities/Heavy_Slash.gif)
+![Heavy Slash](../../img/EditorManual/Abilities/ComplexAbilities/Heavy_Slash.gif){: .center}
 
 ---
 
@@ -57,7 +57,7 @@ The 4 different phases of an ability are:
 
 Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Ability States](../../img/EditorManual/Abilities/Ability_States.png)
+![Ability States](../../img/EditorManual/Abilities/Ability_States.png "image_tooltip"){: .center}
 
 To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
 
