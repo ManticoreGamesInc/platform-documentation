@@ -77,12 +77,12 @@ extra:
     social:
     - type: 'discord'
       link: 'https://discord.gg/85k8A7V'
-    - type: 'reddit'
-      link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
-    - type: 'twitter'
-      link: 'https://twitter.com/PlayCoreGames' # TODO
+    #- type: 'reddit'
+    #  link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
+    #- type: 'twitter'
+    #  link: 'https://twitter.com/PlayCoreGames' # TODO
     - type: 'facebook'
-      link: 'https://facebook.com/playcoregames'
+      link: 'https://www.facebook.com/groups/playcoregames'
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
