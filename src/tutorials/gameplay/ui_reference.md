@@ -8,7 +8,6 @@
 
 A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as “UI”. This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
-
 - Creating UI in CORE is mostly a drag-and-drop process.
 
 - All UI elements can be found under Object > 2D UI.
@@ -25,7 +24,6 @@ A core component of making quality video games is good user interface design. He
 Each widget works a little differently, but all are set up in the same basic way.
 Below is an example using the Text Box control:
 
-
 1. Click on Object in the top left of the CORE window.
 
 2. At the bottom of the list, hover over 2D UI to view all UI options.
@@ -36,7 +34,7 @@ Below is an example using the Text Box control:
 
 5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
- ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
+    ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
 
 6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -46,11 +44,9 @@ Below is an example using the Text Box control:
 !!! info "UI Placement on Different Screen Resolutions"
      UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
 
-
 ![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png "image_tooltip"){: .center}
 
 Adjustable properties of the Text Box:
-
 
 **X and Y Offset** determine the position away from the anchor origin that the UI widget will display.
 
@@ -70,11 +66,10 @@ Adjustable properties of the Text Box:
 
 **Justification** is the alignment of the text within the text box.
 
-
 Different widgets will have slightly different settings in the properties window, and all of these can be manipulated both in-editor and in code.
 
 !!! info "For Scripting Help"
-    *See Lua API for functions & properties of UI controls.*
+    *See [Lua API](../../core_api.md) for functions & properties of UI controls.*
 
 ## CORE 2D Images
 
@@ -89,6 +84,5 @@ These are all the current images available to use in CORE:
 
 ## Examples
 
-*FAA_GameMode* includes functioning UI.
-
-*Have U Herd?* Includes functional commented UI.
+- *FAA_GameMode* includes functioning UI. TODO: LINK MISSING
+- *Have U Herd?* Includes functional commented UI. TODO: LINK MISSING

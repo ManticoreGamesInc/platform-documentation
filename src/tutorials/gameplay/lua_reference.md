@@ -4,6 +4,8 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
+## Overview
+
 CORE uses **Lua**, a lightweight and flexible programming language to accomplish
 scripting in the engine. It is a [dynamically
 typed](https://en.wikipedia.org/wiki/Type_system#Combining_static_and_dynamic_type_checking)
@@ -12,22 +14,22 @@ structures present in the base language. As of late May 2019, we are using Lua v
 
 The next steps depend on your level of previous programming experience.
 
-**Beginner**
+### Beginner
 
 After you're done reading this primer, check out this [tutorial](lua_basics_lightbulb.md), and review the [official] docs after.
 
 !!! note "Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!"
 
-**Intermediate**
+### Intermediate
 
 Skim through the beginner content, then try our [Manticoin Game](lua_basics_manticoin.md) tutorial.
 
-**Advanced**
+### Advanced
 
 Check out this [primer], or this [reference-sheet] for tips on syntax. Use the
 official [reference] as needed, then make yourself familiar with the [CORE API](../../core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
 
-**Other**
+#### Coming from other engines
 
 Other engines also have good sources of documentation for Lua. Check out our [other-engines] page that has a few hints on whats different between them and **CORE**.
 
@@ -450,10 +452,10 @@ g()  --> "343" nothing printed before now.
 
 If you're still really hungry for more info, more primers can be found here:
 
-  * [LuaTut](http://luatut.com/crash_course.html)
-  * [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
-  * [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
-  * [TylerNeylon](http://tylerneylon.com/a/learn-lua/)
+- [LuaTut](http://luatut.com/crash_course.html)
+- [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
+- [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
+- [TylerNeylon](http://tylerneylon.com/a/learn-lua/)
 
 [reference]: http://www.lua.org/manual/5.3/
 [official]: https://www.lua.org/pil/contents.html

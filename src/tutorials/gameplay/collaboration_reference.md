@@ -1,4 +1,4 @@
-# Collaboration in CORE
+# Templates in CORE
 
 !!! warning
     Flagged for Review.
@@ -11,7 +11,6 @@ Collaboration is an important aspect of art and design as well as key to develop
 Templates can be created, shared, and updated in real time across the platform. Enabling creators to quickly and dynamically make changes to their scenes and games.
 
 Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "image_tooltip"){: .center}
-
 
 ## Tutorial
 
@@ -62,7 +61,7 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 Congratulations! You’ve created, edited, and published a template that can be shared and used by other creators in CORE!
 
-### Tips and Tricks with Templates!
+### Tips and Tricks with Templates
 
 #### Deinstancing Templates
 
