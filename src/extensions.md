@@ -31,6 +31,7 @@ For VS Code and Atom, we have collected a few extensions that make developing in
 We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
 
 #### VS Code & Atom
+
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/luacompleterc.zip">luacompleterc.zip</a>
 * :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
 
@@ -42,6 +43,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
     Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
 
 #### ZeroBrane
+
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
 * :fa-angle-double-right: Install:
     * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.

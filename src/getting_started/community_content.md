@@ -15,7 +15,9 @@ With that in mind, here's how to best use it.
 
 ----
 
-## Using Community Content: Downloading Content
+## Tutorial
+
+### Using Community Content: Downloading Content
 
 Community Content exists as a free exchange of creations, both of models & art, as well as programming & game logic. All sorts of things can be found here, made by users just like you.
 
@@ -36,7 +38,7 @@ You can then see the template you chose in your own **Project Content** folder.
 
 ![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "image_tooltip"){: .center}
 
-### Using Your Imported Content
+#### Using Your Imported Content
 
 From within the Imported Content section, you will find any and all templates that you download from Community Content.
 
@@ -48,7 +50,7 @@ The green object is the main template, and the part you should drag into the Hie
 
 ----
 
-## Next Steps: Publish Your Own Content
+### Next Steps: Publish Your Own Content
 
 To learn more about these templates that are shared on Community Content, and how to share your own with the world of CORE, follow our quick tutorial on [Templates](../tutorials/gameplay/collaboration_reference.md).
 
@@ -56,7 +58,7 @@ Feel more than free to download as many Community Content templates as you can! 
 
 ----
 
-## Remixing Games: Starting from an Existing Game
+### Remixing Games: Starting from an Existing Game
 
 Another way to speed ahead the creation of your project is to **start with an entire game that somebody else has made.**
 
