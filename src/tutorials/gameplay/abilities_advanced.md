@@ -82,7 +82,7 @@ In this tutorial, we will be making a magic fire staff that the player can pick 
 
 So, let's make magic!
 
-### Setting up the Visuals
+### Setting up the Basics
 
 To begin, let's set up the look of the fire staff and create our weapon object. Open the project your wish to use, or an empty project.
 
@@ -92,19 +92,50 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
      1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.  
 
+3. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first.
+
+4. Create a bullet template, just like in the first tutorial--go for something thematic like a sphere with a custom Plasma material applied!
+
 ### Modifying the Abilities
 
-- mainly need to address how to make an ability itself do fancy things, like cause splash AOE damage, as that's pretty much the only thing that can't be done in code. Use code for spawning vfx in a pattern possibly? A weapon can be set up so nicely without code, even have more abilities, but it's the fancy triggering of effects and splash damage and camera stuff that can't be done without code. Need to address stuff people might not be able to just figure out by just looking at API, such as how to effectively use weapon and ability events.
 
-- Tung's advanced weapons use a different camera setup, can zoom in on right click, spread to damage, and has an auto reload. Overall it feels better to use, but it's super subtle.
+1. Add another `ability` to the `weapon` as a child.
 
-- Tung's basic weapons don't auto reload because they have infinite ammo, and don't do any sort of fancy things. They are so dang bare minimum, my tutorial goes a bit fancier by explaining reload.
+2. Change the name of the ability to "FireBombAttackAbility".
+
+3. Change the animation string to "2hand_staff_magic_bolt" so that it looks better when firing.
+
+4. On the AttackAbility that already exists on the weapon, change the animation string to "2hand_staff_magic_bolt" as well.
+
+5. On the ReloadAbility, change the animation string to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the gods to be rejuvinated. 
+
+6. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff.
+
+Tung's advanced weapons use a different camera setup, can zoom in on right click, spread to damage, and has an auto reload. Overall it feels better to use, but it's super subtle.
+
+Tung's basic weapons don't auto reload because they have infinite ammo, and don't do any sort of fancy things. They are so dang bare minimum, my tutorial goes a bit fancier by explaining reload.
 
 ### Create Camera Feedback
 
-- So to model after Tung's advanced systems, the fire staff should change camera setup, have a damage spread, and require gaining more ammo as a pickup to explain how that works.
+We're going to add the ability to focus zoom with right click for better aiming!
 
-- This means the advanced tutorial is more about how to modify the camera, how ammo pickups work, and how to make damage spread happen. This can get the user thinking more about ways they can add to and modify the system.
+1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables wthat can be easily changed without having to open the code once it's been written!
+
+     1. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
+
+     2. Add another custom property of type string and call it "*AimActiveStance*". Set the value to "*2hand_rifle_aim_shoulder*". This determines what animation pose is used while aiming. 
+
+     3. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
+
+     4. Lastly for this part, add a custom property called "*AimZoomDistance*" of type integer. This assigns how far the camera zooms in when aiming.
+
+2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
+
+3. Open this script, removing any existing text, and let's start by accessing our variables.
+
+So to model after Tung's advanced systems, the fire staff should change camera setup, have a damage spread, and require gaining more ammo as a pickup to explain how that works.
+
+This means the advanced tutorial is more about how to modify the camera, how ammo pickups work, and how to make damage spread happen. This can get the user thinking more about ways they can add to and modify the system.
 
 ### Critical Hit
 
@@ -123,7 +154,13 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 ### Ammo as a Pickup
 
-- grab them bullets, dude
+The main thing to change for our ammo supply is to change the properties of the weapon itself.
+
+1. With the fire staff selected, scroll in the Properties window down to the Ammo section.  
+
+     Check the box that says "Finite Ammo Supply" on.
+
+2. Change the "Ammo Type" to fire. This name will need to match the resource we create for our player to pick up.
 
 ### Connecting UI
 
