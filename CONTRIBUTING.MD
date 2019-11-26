@@ -244,7 +244,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 
 ## Content
 
-### Abstract
+### Overview
 
 - Introduction with goal of the tutorial (2-3 sentences)
 - Image of finished work
