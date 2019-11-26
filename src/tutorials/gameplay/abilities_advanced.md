@@ -106,8 +106,9 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 - This means the advanced tutorial is more about how to modify the camera, how ammo pickups work, and how to make damage spread happen. This can get the user thinking more about ways they can add to and modify the system.
 
-### Spread that Damage
+### Critical Hit
 
+-   advanced weapon has headshot damage (critical hits)
 -   get the basic weapon function working (shoot a lil fireball)
 -   involves creating an attack ability, a reticle, vfx (look what vfx tung used, see how it is triggered, do a simple version of that coding)
 - design some sort of reticle, possible do camera shake?
