@@ -4,7 +4,7 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-## Abstract
+## Overview
 
 **Community Content** is one of the most fundamentally awesome aspects of
 creation in CORE. It allows for you to use, improve, and remix creations you or
