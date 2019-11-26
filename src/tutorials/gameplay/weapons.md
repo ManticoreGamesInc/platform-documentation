@@ -16,7 +16,7 @@ Programming a weapon can be the most complicated part of making a game, but to m
 - how to use Multiplayer Preview Mode effectively
 - how to create templates that can be used in weapons
 
-![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.PNG)
+![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.png "image_tooltip"){: .center}
 
 In CORE, a `weapon` is an `equipment` type of object that can be created in any Core project.
 
@@ -48,7 +48,7 @@ So, let's get started!
 ### Setting Up the Weapon
 
 !!! info "Pick a New Gun Sierra pssstt"
-    ![Steampunk Rifle](/img/EditorManual/Weapons/steampunkRifle.PNG)
+    ![Steampunk Rifle](/img/EditorManual/Weapons/steampunkRifle.png "image_tooltip"){: .center}
      You can download the Steampunk Rifle from **Community Content** on Core to have a ready-made weapon, or you can make your own model from props in Core!
 
 1. The first thing to do is to navigate over to **CORE Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
@@ -78,7 +78,7 @@ So, let's get started!
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
 6. Your **Hierarchy** should now look like this:
-      ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.PNG)
+      ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.png "image_tooltip"){: .center}
 
 7. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
 
