@@ -3,43 +3,43 @@
 nav:
   - index.md
   - News:
-    - Announcements: news/announcements/pre_alpha.md
-    - Events: news/events/alpha_launch.md
-    - Showcase: news/showcase/pre_alpha.md
-    - Patch Notes: news/patch_notes/12_10_19.md
+      - Announcements: news/announcements/alpha.md
+      - Events: news/events/alpha_launch.md
+      - Showcase: news/showcase/pre_alpha.md
+      - Patch Notes: news/patch_notes/12_10_19.md
   - Getting Started:
-    - Installation: getting_started/installation.md
-    - Spellshock: getting_started/spellshock.md
-    - Intro to the Editor: getting_started/editor_intro.md
-    - Community Content: getting_started/community_content.md
-    - Coming from other Engines: getting_started/other_engines.md
+      - Installation: getting_started/installation.md
+      - Spellshock: getting_started/spellshock.md
+      - Intro to the Editor: getting_started/editor_intro.md
+      - Community Content: getting_started/community_content.md
+      - Coming from other Engines: getting_started/other_engines.md
   - CORE API:
-    - API Overview: core_api.md
-    - Lua in CORE: tutorials/gameplay/lua_reference.md
-    - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
-    - Lua Dev Environment: extensions.md
+      - API Overview: core_api.md
+      - Lua in CORE: tutorials/gameplay/lua_reference.md
+      - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
+      - Lua Dev Environment: extensions.md
   - Tutorials:
-    - Gameplay:
-      - Abilities: tutorials/gameplay/abilities.md
-      - Weapons: tutorials/gameplay/weapons.md
-      - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
-      - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
-      - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
-    - Art:
-      - Art in CORE: tutorials/art/art_reference.md
-      - Scene Creation: tutorials/art/scene_creation.md
-      - Intro to Environmental Art: tutorials/art/environ_art_intro.md
-      - Modeling Basics: tutorials/art/modeling_basics.md
-      - Costumes: tutorials/art/costumes.md
-      - Audio: tutorials/art/audio_reference.md
-      - Custom Materials: tutorials/art/custom_materials.md
-    - Collaboration: tutorials/gameplay/collaboration_reference.md
-    - User Interfaces: tutorials/gameplay/ui_reference.md
-    #- Networking: tutorials/gameplay/networking_reference.md
-    #- Performance: tutorials/gameplay/performance_reference.md
-    - Community Created:
-      - Placeholder: tutorials/community_created/placeholder.md
-    - Examples & Snippets: tutorials/examples.md
+      - Gameplay:
+          - Abilities: tutorials/gameplay/abilities.md
+          - Weapons: tutorials/gameplay/weapons.md
+          - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
+          - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
+          - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+      - Art:
+          - Art in CORE: tutorials/art/art_reference.md
+          - Scene Creation: tutorials/art/scene_creation.md
+          - Custom Materials: tutorials/art/custom_materials.md
+          - Environmental Art: tutorials/art/environ_art_intro.md
+          - Modeling Basics: tutorials/art/modeling_basics.md
+          - Costumes: tutorials/art/costumes.md
+          - Audio: tutorials/art/audio_reference.md
+      - Templates: tutorials/gameplay/collaboration_reference.md
+      - User Interfaces: tutorials/gameplay/ui_reference.md
+      #- Networking: tutorials/gameplay/networking_reference.md
+      #- Performance: tutorials/gameplay/performance_reference.md
+      - Community Created:
+          - Placeholder: tutorials/community_created/placeholder.md
+      - Examples & Snippets: tutorials/examples.md
   - Editor Key Bindings: editor_keybindings.md
   - FAQs: faqs.md
   - Join the Community: "community.md"
@@ -48,28 +48,28 @@ nav:
 
 # Base material theme with customizations
 theme:
-  name: 'material'
+  name: "material"
   feature:
     tabs: false
   palette:
-    primary: 'blue grey' # desired -> #20232a
-    accent: 'amber' # desired -> #ff9000
-  logo: 'assets/images/logo.png'
-  favicon: 'assets/images/favicon.ico'
+    primary: "blue grey" # desired -> #20232a
+    accent: "amber" # desired -> #ff9000
+  logo: "assets/images/logo.png"
+  favicon: "assets/images/favicon.ico"
 extra_css:
-  - 'assets/stylesheets/manticore.css'
+  - "assets/stylesheets/manticore.css"
 
 # Additional data
 extra:
-    social:
+  social:
     #- type: 'discord' # unsupported
     #  link: 'https://discord.gg/85k8A7V'
-    - type: 'reddit'
-      link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
-    - type: 'twitter'
-      link: 'https://twitter.com/PlayCoreGames' # TODO
-    - type: 'facebook'
-      link: 'https://facebook.com/playcoregames'
+    - type: "reddit"
+      link: "https://www.reddit.com/r/PlayCoreGames/" # TODO
+    - type: "twitter"
+      link: "https://twitter.com/PlayCoreGames" # TODO
+    - type: "facebook"
+      link: "https://facebook.com/playcoregames"
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -108,13 +108,13 @@ repo_url: https://gitlab.com/manticore-games/platform-documentation
 edit_uri: edit/production/src
 
 # Metadata
-site_description: Documentation for the CORE Engine
+site_description: Documentation for the CORE Platform
 site_author: Manticore
 
 # Copyright
-copyright: 'Copyright &copy; 2019 Manticore Games, Inc'
+copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
 
 # Google Analytics
 google_analytics:
-    - 'UA-142884846-1'
-    - auto
+  - "UA-142884846-1"
+  - auto

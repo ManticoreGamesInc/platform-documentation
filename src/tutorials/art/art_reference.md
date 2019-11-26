@@ -10,7 +10,7 @@ The CORE™ editor comes with all sorts of built-in 3D models and props for usin
 
 By resizing and combining different shapes and props, anything can be made!
 
-You won’t need to understand 3D software or modeling to create beautiful art in CORE. While some aspects are similar, it’s up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **Asset Manifest**, or you could browse through what other creators have shared on **Community Content**.
+You won't need to understand 3D software or modeling to create beautiful art in CORE. While some aspects are similar, it's up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **CORE Content** tab, or you could browse through what other creators have shared on **Community Content**.
 
 ![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "image_tooltip"){: .center}
 
@@ -18,14 +18,13 @@ You won’t need to understand 3D software or modeling to create beautiful art i
 
 ### Pre-Made Props & Assets
 
-To find all the 3D models already included in CORE, start by looking in the **Asset Manifest**, found in the bottom left window of the editor.
+To find all the 3D models already included in CORE, start by looking in the **CORE Content** tab, found in the bottom left window of the editor.
 
-This window can also be accessed via the dropdown “View → Asset Manifest”.
+This window can also be accessed via the dropdown "**View -> CORE Content**". tab
 
-![Asset Manifest](../../img/EditorManual/Art/AssetManifest.png "image_tooltip"){: .center}
+![CORE Content](../../img/EditorManual/Art/AssetManifest.png "image_tooltip"){: .center}
 
 Currently, there are 4 different sections that contain models to use right away:
-
 
 - **3D Text**
     - All 3D letters and symbols found on an English keyboard.
@@ -38,9 +37,9 @@ Currently, there are 4 different sections that contain models to use right away:
 
 These larger categories also have subcategories, that can be opened by clicking the little gray arrow:
 
-![Asset Manifest Drop Downs](../../img/EditorManual/Art/AssetManifestDropDowns.png "image_tooltip"){: .center}
+![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "image_tooltip"){: .center}
 
-To use any of these models, simply click and drag one out from the Asset Manifest and into the scene or the hierarchy.
+To use any of these models, simply click and drag one out from the CORE Content a tabnd into the scene or the hierarchy.
 
 ![Drag out Assets](../../img/EditorManual/Art/DragOutAsset.gif){: .center}
 
@@ -50,36 +49,36 @@ To use any of these models, simply click and drag one out from the Asset Manifes
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/MoveRotateScale.png "image_tooltip"){: .center}
 
-The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys **W**, **E**, and **R**, respectively.
+The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
 
-![Move, Rotate, Scale](../../img/EditorManual/Art/TransformManipulators.gif){: .center}
+![Move, Rotate, Scale](../../img/EditorManual/Art/TransformManipulators.gif "image_tooltip"){: .center}
 
 ----
 
 ### Color Your Way: Changing Model Materials
 
 While CORE does have a distinct art style, all of this can be changed and modified to whatever your vision may be.
-The colors and patterns on a 3D model are known as “materials”. The easiest way to create a dramatic change is to alter the materials of a model--either to a completely different material, or by editing the settings of a material.
+The colors and patterns on a 3D model are known as "materials". The easiest way to create a dramatic change is to alter the materials of a model--either to a completely different material, or by editing the settings of a material.
 
 ![Different Materials](../../img/EditorManual/Art/differentMats.png "image_tooltip"){: .center}
 
-When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled “Base Material”. Different objects may have different names for their material slots.
+When a model is selected, all of its settings will show up in the **Properties** window. To find the settings for altering a material, scroll down in the Properties window to the section labeled "Base Material". Different objects may have different names for their material slots.
 
 Some models can only have one material, while others are able to have **multiple materials** applied on different parts of the model.
 
 ![Material Properties](../../img/EditorManual/Art/AssetMaterialSlots.png "image_tooltip"){: .center}
 
-In the case of this “Craftsman Chair 01”, there are 3 different material slots. One for the wooden base, one for the cushion, and one for the metal details.
+In the case of this "**Craftsman Chair 01**", there are 3 different material slots. One for the wooden base, one for the cushion, and one for the metal details.
 
 There are two ways to change these material slots:
 
-- **Drag a material** from the Materials section of the Asset Manifest into the Material slot in the Properties window. Check out how it’s done below:
+- **Drag a material** from the **Materials** section of the CORE Content tab to the **Material** slot in the **Properties** window. Check out how it's done below:
 
 ![Drag a Material](../../img/EditorManual/Art/DragMaterialOut.gif){: .center}
 
 Or:
 
-- **Double-click the material slot** and select a material from the pop-up window:
+- **Double-click the Material slot** and select a material from the pop-up window:
 
 ![Double-Click a Material](../../img/EditorManual/Art/DoubleClickMaterialSlot.gif){: .center}
 
@@ -89,8 +88,7 @@ Applying materials in this way allows you to adjust the color of the material. T
 
 In your own project, you have the ability to create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
 
-!!! info "Even More Material Tips"
-    To read more about creating custom materials, as well as more in-depth details about materials, check out our **Materials Guide**.
+!!! info "To read more about creating custom materials, as well as more in-depth details about materials, check out our [Materials Guide](custom_materials.md)."
 
 ![Different Materials](../../img/EditorManual/Art/differentMats2.png "image_tooltip"){: .center}
 
@@ -119,7 +117,7 @@ Use whichever method suits your needs more.
 
 A huge part of creating video games is making sure that they work, and that they run smoothly!
 
-Whenever you create models that **will never change during gameplay** and will always stay stationary--such as a tree--they will need to be kept in a **Static Context** folder. This way their data is never updated while the game plays, so they don’t take up power that would be useful for other mechanics.
+Whenever you create models that **will never change during gameplay** and will always stay stationary--such as a tree--they will need to be kept in a **Static Context** folder. This way their data is never updated while the game plays, so they don't take up power that would be useful for other mechanics.
 
 ![Dragon Set](../../img/EditorManual/Art/staticContext.png "image_tooltip"){: .center}
 
@@ -127,12 +125,9 @@ On the other end, you might make a model that **does move during game runtime**:
 
 ![Dragon Set](../../img/EditorManual/Art/ClientContextFolder.png "image_tooltip"){: .center}
 
-!!! info "Give Me More Context, Please"
-    To understand the differences between contexts in more detail, read our **Context Guide**.
-
 ![Dragon Set](../../img/EditorManual/Art/ClientContextCollision.gif){: .center}
 
-When placing objects in a Client Context folder, players will not be able to collide with them. They’ll just pass right through. To give them collision for gameplay, place other shapes around the whole object that are outside of the Client Context folder, and turn their visibility off. Make sure their Collidable checkbox is also marked. These settings can be changed from the object's Properties window.
+When placing objects in a Client Context folder, players will not be able to collide with them. They'll just pass right through. To give them collision for gameplay, place other shapes around the whole object that are outside of the Client Context folder, and turn their visibility off. Make sure their Collidable checkbox is also marked. These settings can be changed from the object's Properties window.
 
 This is a great way to create **fake collision**. The player will collide with the invisible object, rather than the moving shapes.
 
@@ -146,21 +141,21 @@ Another benefit to using templates is that when one is updated, it updates every
 
 #### Creating New Templates
 
-To make something a template, right click on it in the Hierarchy and choose “**Create New Template From This**”. Choose a name for your template, and you’ll then notice the color of the text in the Hierarchy change to green.
+To make something a template, right click on it in the Hierarchy and choose "**Create New Template From This**". Choose a name for your template, and you'll then notice the color of the text in the Hierarchy change to green.
 
 ![Create New Template](../../img/EditorManual/Art/CreateNewTEmplate.png "image_tooltip"){: .center}
 
 #### Publishing a Template to Community Content
 
-Now that you’ve made a template for yourself, let’s share it with the world!
+Now that you've made a template for yourself, let's share it with the world!
 
-Navigate to the template you wish to publish within Project Content. Right click it, and select “**Publish to Community Content**”. It may prompt you to save, and then a window will open for filling out more details of your template.
+Navigate to the template you wish to publish within Project Content. Right click it, and select "**Publish to Community Content**". It may prompt you to save, and then a window will open for filling out more details of your template.
 
 ![Publish](../../img/EditorManual/Art/publishToCC.png "image_tooltip"){: .center}
 
 ![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "image_tooltip"){: .center}
 
-In this window, you can name your template and give it a description. Make sure to check the box **Is Public** for other players to find it. When you’re ready, click “**Review & Publish**”. Confirm that everything looks right, and click Publish.
+In this window, you can name your template and give it a description. Make sure to check the box **Is Public** for other players to find it. When you're ready, click "**Review & Publish**". Confirm that everything looks right, and click Publish.
 Now other users can find and search for your template on Community Content!
 
 #### Updating and Republishing Templates
@@ -169,16 +164,16 @@ One of the huge benefits of templates is being able to update many objects at th
 
 ![Update Template](../../img/EditorManual/Art/updateTemplate.gif){: .center}
 
-You will notice when making changes to a template, it will ask if you would like to “**Deinstance**” the template. Click yes when this prompt appears.
+You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click yes when this prompt appears.
 A deinstanced template will have text color change from green to blue. It is still a template, but has changes that the other instances of this template will not.
 
-Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click “**Update Template From This**” to send changes. All the templates will now match the updated one!
+Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
 
 ![Update Template From This](../../img/EditorManual/Art/updateTempFromThis.gif){: .center}
 
 This will update the template for your project personally, but in order to update a template that has been published to Community Content, we will need to re-publish the template.
 
-In your Project Content, find the published template that you wish to update. Right click the template, and click “**Republish**”. It’ll bring up the same window as for Publishing a template, so that you may update the description if you like.
+In your Project Content, find the published template that you wish to update. Right click the template, and click "**Republish**". It'll bring up the same window as for Publishing a template, so that you may update the description if you like.
 
 ![Republish](../../img/EditorManual/Art/RepublishTemplate.png "image_tooltip"){: .center}
 
@@ -186,11 +181,11 @@ In your Project Content, find the published template that you wish to update. Ri
 
 #### I Change My Mind: Resetting a Deinstanced Template
 
-When you make a change to an instance of a template, the text turns blue and it is “Deinstanced”. There might be times when you don’t like the changes you’ve made, and you would like to return to your original template.
+When you make a change to an instance of a template, the text turns blue and it is "Deinstanced". There might be times when you don't like the changes you've made, and you would like to return to your original template.
 
-To do this, right click an object in the template and select “**Reset to Template**”. This will revert the template back to the original design!
+To do this, right click an object in the template and select "**Reset to Template**". This will revert the template back to the original design!
 
-#### Downloading & Using Other Creator’s Templates
+#### Downloading & Using Other Creator's Templates
 
 Templates made by other people can be downloaded from Community Content and re-used as anything you like. This is a great way to focus on getting to your final idea faster than creating everything from scratch!
 

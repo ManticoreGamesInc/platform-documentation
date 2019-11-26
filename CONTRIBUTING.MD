@@ -5,6 +5,7 @@ Thanks for contributing! Your assistance is much appreciated!
 ## Workflow
 
 When starting a new feature:
+
 - Create a new branch from `production` with that feature as the name (e.g. `camera-controls`)
 - Commit any changes to that branch
 - When it is done, create a merge request, merging your feature branch into `production`
@@ -17,6 +18,7 @@ When starting a new feature:
 ### Definition of Done (Alpha)
 
 The document must complete all of the following:
+
 - Syntax pass (spelling/grammar/style guide adherence/markdown format)
 - Dependencies pass (make sure anything referenced in community content will
   exist in the future, e.g. by checking with gameplay team)
@@ -25,11 +27,12 @@ The document must complete all of the following:
 **Note**: If we have a file that is no longer 'done' due to editor changes, include
 the following at the top of the file in question:
 
-```
+```markdown
 !!! warning
     Flagged for review.
     Incomplete or outdated information may be present.
 ```
+
 ### Editing Pages
 
 You can edit a markdown file directly through GitLab, so it's very easy!
@@ -43,34 +46,43 @@ You can edit a markdown file directly through GitLab, so it's very easy!
         - `{: .image-inline-text}` for positioning text vertically centered next to an image.
 
             Usage:
+
             ```markdown
             ![alt_text](../../img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
             {: .image-inline-text}
             ```
+
         - `{: .image-cluster}` for easily placing two images next to each other and centering a description text below them.
 
             Usage:
+
             ```markdown
             ![alt_text](../../img/EnvironIntro/image9.png "image_tooltip")
             ![alt_text](../../img/EnvironIntro/image44.png "image_tooltip")
             _Randomized Color unchecked (left) vs. checked (right)_
             {: .image-cluster}
             ```
+
         - `{: .center}` to quickly center elements like images.
 
             Usage:
+
             ```markdown
             ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
             ```
+
         - `{: style="color: $css_color_code"}` to color text elements.
 
             Usage:
+
             ```markdown
             **Pancakes**{: style="color: red"}
             ```
+
         - `{: .style-good|.style-bad|.style-exception}` to highlight good/bad practice code examples.
 
             Usage:
+
             ```markdown
                 Good:
                 ```
@@ -89,6 +101,7 @@ You can edit a markdown file directly through GitLab, so it's very easy!
 - Add a helpful commit message and add it!
 
 **Notes:**
+
 1. The integrated preview mode won't display advanced markdown functionality (e.g. `!!!
 info` blocks and our custom ones). To check out the live display for commits, you can go to `https://{branch}--manticore-docs.netlify.com`, so for production it would be [this](https://production--manticore-docs.netlify.com).
 2. That means this flow is best for simple changes, for larger ones you should go with the [full setup](#full-setup).
@@ -157,7 +170,7 @@ up the history, and simply allow upstream commits for builds.
     - When prompted by popup, sign in with your Gitlab account associated with your Manticore email.
         If you mistype your information, you can edit your information:
             - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials.
-            - Find Git credentials in the list (e.g. git:https://).
+            - Find Git credentials in the list (e.g. git:<https://).>
             - Delete your Git credentials and restart the process to be prompted again.
 
 5. Install mkdocs
@@ -167,6 +180,7 @@ up the history, and simply allow upstream commits for builds.
     - Navigate to `http://127.0.0.1:8000/` for changes upon saving and and live updates
 
 To update your local branch to the latest version of `production`,
+
 - Navigate to the `platform-documentation` location via command line
 - In the command prompt, enter `git pull origin` (fetches the latest version and merges the latest commits into your branch)
 - To learn more, visit [Git's Documentation](https://git-scm.com/docs/git-pull).
@@ -188,7 +202,7 @@ Please use TBD to reduce your image file size before adding them.
 Please convert your GIFs into videos.
 `ffmpeg -i input.gif -b:v 0 -crf 25 output.mp4`
 
-```
+```html
 <video autoplay loop muted playsinline>
 <source src="cat.mp4" type="video/mp4">
 </video>
@@ -200,24 +214,24 @@ Please convert your GIFs into videos.
 
 ---
 
-# Tutorial Styling
+## Tutorial Styling
 
 To encourage consistent styling, here are CORE tutorial styling and writing guidelines.
 
-## Tutorial, Background Info:
+### Tutorial, Background Info
 
 - Tutorial Prerequisites
 - Topic Tag
 - Estimated Time for Completion
 - Difficulty Level
 
-## Tutorial Prerequisites:
+### Tutorial Prerequisites
 
 - Author/Audience Assumptions
 - Link to any recommended basic tutorials
 - If applicable, link to other tutorials in the series
 
-## Topic Tag(s)
+### Topic Tag(s)
 
 |Topic Tag | Example Tutorial|
 |---|---|
@@ -231,26 +245,26 @@ To encourage consistent styling, here are CORE tutorial styling and writing guid
 | Weapon | Intro to Melee Weapons, Intro to Guns
 | Ability | How to Sprint, How to Cast a Magic Spell
 
-## Estimated Time for Completion
+### Estimated Time for Completion
 
 It is recommended to keep your tutorials short and below the 30 minute mark for estimated time of completion.
 If longer, it is recommendeded to split your tutorial into a series.
 
-## Difficulty Level
+### Difficulty Level
 
 - Beginner
 - Intermediate
 - Advanced
 
-## Content
+### Content
 
-### Overview
+#### Overview
 
 - Introduction with goal of the tutorial (2-3 sentences)
 - Image of finished work
 - Skills the learner will acquire (3-5 bullet points)
 
-### Tutorial Content
+#### Tutorial Content
 
 - Include commented code that follows conventions
 - Include pictures of the Hierarchy often
@@ -258,7 +272,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 - Published project should be on Prod before Alpha
 - Provide related tutorials / Additional Resources
 
-### Writing Conventions
+#### Writing Conventions
 
 - Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide), which most notably script writing and casing conventions.
 - Make functions and variables local unless global is completely necessary.
@@ -268,16 +282,15 @@ If longer, it is recommendeded to split your tutorial into a series.
 - Bold any button or object a user has to click on like `**Edit Terrain*`
 - Please use the Oxford comma.
 
-## Expectations
+### Expectations
 
-### Review Process
+#### Review Process
 
 - Should be in Markdown, with additional tools provided by extensions for infoboxes, tips, questions, and warnings.
 - Tutorials should be reviewed by 2-3 people minimum who have completely gone through the tutorial before the writer pushes to prod.
 
-### Content Quality
+#### Content Quality
 
 - Name your objects in the hierarchy informatively.
-- Favor best practices (using CoreObject Asset References rather than script.parent.parent:GetChildren()[3]).
+- Favor best practices [using CoreObject Asset References rather than script.parent.parent:GetChildren(](3)).
 - Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.
-

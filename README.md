@@ -6,6 +6,7 @@ The source for the official CORE documentation.
 The password is `I love documentation!`
 
 The three published version are accessible via the following links:
+
 * [Live](https://docs.manticoreplatform.com/)
 * [Test](https://pts-publish--manticore-docs.netlify.com/)
 * [Dev](https://dev-publish--manticore-docs.netlify.com/)

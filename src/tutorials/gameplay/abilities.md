@@ -22,7 +22,7 @@ An ability could be to sprint, a dance emote, the opening of a hidden menu; an a
 
 ---
 
-### What is an Ability?
+### What is an Ability
 
 In CORE, an `Ability` is an object that holds information about how to behave when used. You can set how long the ability lasts for, how long until the ability can be used a second time, and all sorts of other properties.
 
@@ -124,7 +124,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
   For this we need UI!
 
-----
+---
 
 ### CORE Component: Ability Display
 
