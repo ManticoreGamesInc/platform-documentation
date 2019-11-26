@@ -13,7 +13,6 @@ At a high level, CORE Lua types can be divided into two groups: data structures 
 
 A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
-
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
 Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
@@ -22,7 +21,7 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isEnabled` | bool | Turns an ability on/off. It stays on the player but is interrupted if isEnabled is set to False during an active Ability.  True by default. | Read-Write
 `canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only
-`name ` | string | The name of the ability. | Read-Only
+`name` | string | The name of the ability. | Read-Only
 `actionBinding` | string | Which action binding will cause the Ability to activate. Possible values are listed under ability binding list. | Read-Only
 `owner` | Player | Assigning an owner applies the Ability to that Player. | Read-Write
 `castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase (see below). | Read-Only
@@ -47,7 +46,6 @@ Function | Return Value | Description | Tags
 `GetPhaseTimeRemaining` | Number | Seconds left in the current phase. | None
 `GetTargetData()` | AbilityTarget | Returns information about what the player has targeted this phase. | None
 `SetTargetData (AbilityTarget)` | None | Updates information about what the player has targeted this phase.  This can affect the execution of the ability. | None
-
 
 ### [AbilityPhaseSettings](/core_api/classes/abilityphasesettings/abilityphasesettingsOverview)
 
@@ -346,7 +344,7 @@ Function | Return Value | Description | Tags
 
 ### [Event](/core_api/classes/event/eventOverview)
 
-When objects have events that can be fired, they’re accessed using the Event type.  
+When objects have events that can be fired, they’re accessed using the Event type.
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -568,7 +566,7 @@ Function | Return Value | Description | Tags
 
 ### [PlayerStart](/core_api/classes/playerstart/playerstartOverview)
 
-PlayerStart is a CoreObject representing a spawn point for players.  
+PlayerStart is a CoreObject representing a spawn point for players.
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -597,7 +595,6 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetFillColor()` | Color | The color of the fill. | None
 `SetFillColor(Color)` | None | The color of the fill. | None
-
 
 ### [Projectile](/core_api/classes/projectile/projectileOverview)
 
@@ -703,7 +700,6 @@ Function | Return Value | Description | Tags
 `GetVector3FromCone(Vector3 Direction, Number HalfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction and HalfAngle (in radians). | None
 `GetVector3FromCone(Vector3 Direction, Number HorizontalAngle, Number VerticalAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction, HorizontalAngle and VerticalAngle (in radians). | None
 
-
 ### [Replicator](/core_api/classes/replicator/replicatorOverview)
 
 Replicators are CoreObjects are used to broadcast data from the server to clients. To use them, add custom properties to a replicator and assign them default values. These properties will be readable on all clients, and read/write on the server.
@@ -787,7 +783,6 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Play()` | None | Begins sound playback. | None
 `Stop()` | None | Stops sound playback. | None
-
 
 ### [SmartObject](/core_api/classes/smartobject/smartobjectOverview)
 
@@ -1351,100 +1346,99 @@ Function | Return Value | Description | Tags
 `print(string)` | string | Print a message to the event log. Press \` to view messages. | None
 `warn(string)` | string | Similar to print(), but includes the script name and line number. | None
 
-
 ### Built-In Lua Functions
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
-    * assert  
-    * collectgarbage†  
-    * error  
-    * getmetatable†  
-    * ipairs  
-    * next  
-    * pairs  
-    * pcall  
-    * print†  
-    * rawequal  
-    * rawget†  
-    * rawset†  
-    * require†  
-    * select  
-    * setmetatable†  
-    * tonumber  
-    * tostring  
-    * type  
-    * \_G†  
-    * \_VERSION  
-    * xpcall  
-    * coroutine.create  
-    * coroutine.isyieldable  
-    * coroutine.resume  
-    * coroutine.running  
-    * coroutine.status  
-    * coroutine.wrap  
-    * coroutine.yield  
-    * math.abs   
-    * math.acos    
-    * math.asin    
-    * math.atan    
-    * math.ceil    
-    * math.cos    
-    * math.deg   
-    * math.exp  
-    * math.floor  
-    * math.fmod  
-    * math.huge  
-    * math.log  
-    * math.max  
-    * math.maxinteger  
-    * math.min  
-    * math.mininteger  
-    * math.modf  
-    * math.pi  
-    * math.rad  
-    * math.random  
-    * math.randomseed  
-    * math.sin  
-    * math.sqrt  
-    * math.tan  
-    * math.tointeger  
-    * math.type  
-    * math.ult  
-    * os.clock  
-    * os.date  
-    * os.difftime  
-    * os.time  
-    * string.byte  
-    * string.char  
-    * string.find  
-    * string.format  
-    * string.gmatch  
-    * string.gsub  
-    * string.len  
-    * string.lower  
-    * string.match  
-    * string.pack  
-    * string.packsize  
-    * string.rep  
-    * string.reverse  
-    * string.sub  
-    * string.unpack  
-    * string.upper  
-    * table.concat  
-    * table.insert  
-    * table.move  
-    * table.pack  
-    * table.remove  
-    * table.sort  
-    * table.unpack  
-    * utf8.char  
-    * utf8.charpattern  
-    * utf8.codes  
-    * utf8.codepoint  
-    * utf8.len  
-    * utf8.offset  
+    * assert
+    * collectgarbage†
+    * error
+    * getmetatable†
+    * ipairs
+    * next
+    * pairs
+    * pcall
+    * print†
+    * rawequal
+    * rawget†
+    * rawset†
+    * require†
+    * select
+    * setmetatable†
+    * tonumber
+    * tostring
+    * type
+    * \_G†
+    * \_VERSION
+    * xpcall
+    * coroutine.create
+    * coroutine.isyieldable
+    * coroutine.resume
+    * coroutine.running
+    * coroutine.status
+    * coroutine.wrap
+    * coroutine.yield
+    * math.abs
+    * math.acos
+    * math.asin
+    * math.atan
+    * math.ceil
+    * math.cos
+    * math.deg
+    * math.exp
+    * math.floor
+    * math.fmod
+    * math.huge
+    * math.log
+    * math.max
+    * math.maxinteger
+    * math.min
+    * math.mininteger
+    * math.modf
+    * math.pi
+    * math.rad
+    * math.random
+    * math.randomseed
+    * math.sin
+    * math.sqrt
+    * math.tan
+    * math.tointeger
+    * math.type
+    * math.ult
+    * os.clock
+    * os.date
+    * os.difftime
+    * os.time
+    * string.byte
+    * string.char
+    * string.find
+    * string.format
+    * string.gmatch
+    * string.gsub
+    * string.len
+    * string.lower
+    * string.match
+    * string.pack
+    * string.packsize
+    * string.rep
+    * string.reverse
+    * string.sub
+    * string.unpack
+    * string.upper
+    * table.concat
+    * table.insert
+    * table.move
+    * table.pack
+    * table.remove
+    * table.sort
+    * table.unpack
+    * utf8.char
+    * utf8.charpattern
+    * utf8.codes
+    * utf8.codepoint
+    * utf8.len
+    * utf8.offset
 
 ### MUIDs
 
@@ -1452,7 +1446,7 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 
 8D4B561900000092:Rabbit
 
-The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:  
+The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:
 
 ```
 local spawnTrans = script.parent:GetWorldTransform()
@@ -1474,175 +1468,214 @@ All ability animations have a long “tail” that gracefully transitions the ch
 #### 1hand_melee Strings
 
 `1hand_melee_slash_left` - A horizontal melee swing to the left.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `1hand_melee_slash_right` - A horizontal melee swing to the right.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `1hand_melee_slash_vertical` - A downward melee swing.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `1hand_melee_thrust` - A melee forward lunge attack..
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `1hand_melee_rm_combo_opener_vertical_slash` - A horizontal melee swing to the left.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as a combo opener.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as a combo opener.
 
 `1hand_melee_rm_combo_middle_diagonal_slash` - A diagonal melee swing to the right.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
 `1hand_melee_rm_combo_closer_uppercut` - an uppercut.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as a combo closer.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as a combo closer.
 
 `1hand_melee_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
--   works best with a cast phase duration of  0.31 or less
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- works best with a cast phase duration of  0.31 or less
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 #### 2hand_sword Strings
 
 `2hand_sword_slash_left` - A horizontal melee swing to the left.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `2hand_sword_slash_right` - A horizontal melee swing to the right.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `2hand_sword_slash_vertical` - A downward melee swing.
--   This animation supports a variable cast phase time.
--   This animation supports a time stretched execute phase time
+
+- This animation supports a variable cast phase time.
+- This animation supports a time stretched execute phase time
 
 `2hand_sword_thrust` - A forward sword thrust melee attack.
 
 `2hand_sword_rm_combo_opener_cone` - A horizontal melee swing to the left.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as a combo opener.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as a combo opener.
 
 `2hand_sword_rm_combo_middle_spin` - A spin.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
 `2hand_sword_rm_combo_closer_spin` - a jumping spin.
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
--   has root motion
--   can be used in any context, despite its original intention as a combo closer.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
+- has root motion
+- can be used in any context, despite its original intention as a combo closer.
 
 `2hand_sword_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
--   This animation works best with a cast phase duration of  0.31 or less
+
+- This animation works best with a cast phase duration of  0.31 or less
 
 #### 2hand_staff Strings
 
 `2hand_staff_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the staff.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `2hand_staff_magic_up` - Magic casting animation which raises the staff on cast.  This animation is not direction specific.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 #### 1hand_pistol Strings
 
 `1hand_pistol_shoot` - A pistol shoot animation.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `1hand_pistol_unsheathe` - Pulls the pistol from an invisible belt holster.
--   This animation works best with a cast phase duration of  0.21 or less
+
+- This animation works best with a cast phase duration of  0.21 or less
 
 `1hand_pistol_reload_magazine` - Reloads a bottom-loading pistol clip.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 #### 2hand_rifle Strings
 
 `2hand_rifle_shoot` - A rifle shoot animation.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `2hand_rifle_reload_magazine` - Reloads an automatic rifle magazine.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `2hand_rifle_unsheathe` - Pulls the rifle from a back scabbard.
--   This animation works best with a cast phase duration of  0.22 or less
+
+- This animation works best with a cast phase duration of  0.22 or less
 
 #### Unarmed Strings
 
 `unarmed_kick_ball` - A kick motion that moves the character forward as well.
--   This animation works best with a cast phase duration of  0.18 or less
--   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
 
-`unarmed_dance` - Stand in place and dance.   
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+- This animation works best with a cast phase duration of  0.18 or less
+- This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
+
+`unarmed_dance` - Stand in place and dance.
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_dance_spooky` - Stand in place and dance.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_flex` - Body builder style flexing animation.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_thumbs_up` - thumbs up.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_thumbs_up` - thumbs down.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_rock` - rock, paper, scissors game.  This chooses rock as the end result.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_paper` - rock, paper, scissors game.  This chooses paper as the end result.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_scissors` - rock, paper, scissors game.  This chooses scissors as the end result.  
--   currently does NOT support a variable cast phase time.
--   currently does NOT support a time stretched execute phase time
+
+- currently does NOT support a variable cast phase time.
+- currently does NOT support a time stretched execute phase time
 
 `unarmed_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the hands.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `unarmed_punch_left` - A left punch animation.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `unarmed_punch_right` - A right punch animation.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `unarmed_roll` - A roll animation that moves the character forward.  
--   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
--   The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
+
+- This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
+- The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
 
 `unarmed_throw` - An over-the-shoulder right-handed throw animation.
--   This animation supports a variable cast time.
+
+- This animation supports a variable cast time.
 
 `unarmed_wave` - Stand in place and wave.  
--   This animation works best with a cast phase duration of 0.266 or less.
+
+- This animation works best with a cast phase duration of 0.266 or less.
 
 `unarmed_pickup` - Stand in place and pick up items from the ground.  
--   This animation works best with a cast phase duration of 0.266 or less.
+
+- This animation works best with a cast phase duration of 0.266 or less.
 
 ### General Animation Stance Information
 
 - All animation stances are valid on either of the available body types.
-- Each animation stance should behave identically across the body types (with regard to timing).  
+- Each animation stance should behave identically across the body types (with regard to timing).
 - All animation stances are (or end in) looping animations that can be played indefinitely
 - No animation stances have root motion
 - Each animation stance has custom blending behavior for what happens while moving (specified below)
@@ -1653,9 +1686,9 @@ Animation Stance Strings
 
 `unarmed_stance` - This will cause the player to walk or stand with nothing being held in their hands.
 
-`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.  
+`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.
 
-`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.  
+`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.
 
 `2hand_sword_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed sword.
 
@@ -1699,7 +1732,7 @@ Currently cannot mix the lower body of this pose with other animation stances (h
 `unarmed_death_spin` - A full body animation that spins 360 and then  falls to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is.
 
 ??? note "How to Turn on Ragdoll"
-	```
+ ```
     ability.owner.active_pose = "unarmed_death"
     Task.Wait(0.9)
     ability.owner:EnableRagdoll("spine", .4, true)

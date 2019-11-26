@@ -1,10 +1,12 @@
+# Examples and Snippets
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-# Examples
+## Examples
 
-## Games
+### Games
 
 Go to each page and click on `edit` to download them locally.
 
@@ -27,7 +29,7 @@ Go to each page and click on `edit` to download them locally.
 | [Tween Example](https://staging.manticoreplatform.com/games/37f09c4e57344827bf1a079389508d92)           | Tween example map                                                                                                                |
 | Browse                                                                                                  | Just look around for others not mentioned, you may find something useful!                                                        |
 
-## Templates
+### Templates
 
 Open the shared content window, search for these names, and download them to your project.
 
@@ -35,7 +37,7 @@ Open the shared content window, search for these names, and download them to you
     {} means the actual name here may differ. For example the TV entry in
     'Retro{Furniture}' is actually found by searching for 'RetroTV'.
 
-### Functional
+#### Functional
 
 | Name                            | Description                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -51,7 +53,7 @@ Open the shared content window, search for these names, and download them to you
 | MessageTest                     | Simple way to send messages from server --> client                                           |
 | Browse                          | Just look around for others not mentioned, you may find something useful!                    |
 
-### Update Required
+#### Update Required
 
 | Name             | Description                                                             |
 | ---------------- | ----------------------------------------------------------------------- |
@@ -59,7 +61,7 @@ Open the shared content window, search for these names, and download them to you
 | PartyHUD         | Team and enemy healthbars and info you can drag and drop into any game. |
 | WorldBottomGuard | Kills players below a configurable z-axis.                              |
 
-## Scripts
+### Scripts
 
 Useful Lua libraries to use (all permissive licenses).
 Just download the correct (single) `.lua` file and copy it into a new script and `require` it.
@@ -71,7 +73,7 @@ Just download the correct (single) `.lua` file and copy it into a new script and
 | [JSON Parser](https://github.com/rxi/json.lua)             | Allows you to parse JSON easily                                                                                         |
 | [Hooking Functions](https://github.com/Vallentin/hook.lua) | Allows you to hook into other functions                                                                                 |
 
-### Needed
+#### Needed
 
 - What isn't represented here? Let us know!
 - To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).

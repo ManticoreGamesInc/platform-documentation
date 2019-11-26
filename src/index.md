@@ -1,8 +1,10 @@
+# Welcome to CORE
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-Welcome to the official documentation of CORE, the community-focused game creation tool!
+Welcome to the official documentation of CORE&trade;, the community-focused game creation tool!
 
 This page aims at giving a broad presentation of the engine and of the contents of this
 documentation.
@@ -67,7 +69,7 @@ projects and templates.
 
 Have fun reading and making games with CORE!
 
-[Manticore]: http://www.manticoregames.com/
+[Manticore]: https://www.manticoregames.com/
 
 [Markdown]:https://daringfireball.net/projects/markdown/syntax
 [MkDocs]: https://www.mkdocs.org/

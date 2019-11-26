@@ -29,6 +29,7 @@ _Google is your friend. Searching "**Pancakes**" has given us more than enough r
 {: .image-cluster}
 
 ### Makin' pancakes
+
 The key to creating 3D models is to see the basic shapes in your reference image and finding the primitives in Core that best represent that shape. We'll start by making a plate for our pancakes.
 
 #### Setting the Table

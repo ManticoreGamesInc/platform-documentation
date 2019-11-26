@@ -20,7 +20,9 @@ An introduction to the basics of placing and remixing objects.
 
 ---
 
-## Downloading the Template
+## Tutorial
+
+### Downloading the Template
 
 1. In the **Community Content** tab, search for **"My Room" (by Tobs)** and download it to your project.
 2. Go to the **Project Content** tab > **Imported Content** and find the "**My Room**" template. Drag it into your scene.
@@ -46,7 +48,8 @@ You can easily switch between **translation**, **rotation**, and **scale mode** 
 
 ![SceneCreation](../../img/SceneCreation/image8.gif){: .center}
 
-## Turning off Wall Visibility
+### Turning off Wall Visibility
+
 If you would like to see into the room without having to move your viewport into the room, do the following:
 
 1. In the Hierarchy, expand the **My Room** group by clicking the arrow next to the **My Room** group icon.
@@ -57,7 +60,7 @@ Turn off the visibility of the roof and 1-2 walls by clicking the orange eye nex
 
 ![SceneCreation](../../img/SceneCreation/image13.png "image_tooltip"){: .center}
 
-## Rotating the House
+### Rotating the House
 
 Rotate the house so the interior isn't in the shade. This will make it easier to see where you are placing objects.
 
@@ -74,11 +77,11 @@ There are more degrees of rotation available in the drop down menu.
 
 ![SceneCreation](../../img/SceneCreation/image1.png "image_tooltip"){: .center}
 
-## Placing and customizing the Bed
+### Placing and customizing the Bed
 
 1. Drag the bed from the **Project Content** tab > **My Shared Content** > **My Room** into the scene.
 
-!!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
+    !!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
 
 2. Change the color and material of the quilt.
 
@@ -92,7 +95,7 @@ There are more degrees of rotation available in the drop down menu.
 
     ![SceneCreation](../../img/SceneCreation/image10.png "image_tooltip"){: .center}
 
-## Decorate!
+### Decorate
 
 1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **CORE Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
 

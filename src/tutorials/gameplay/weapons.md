@@ -1,3 +1,5 @@
+# Weapons in CORE
+
 !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
@@ -98,25 +100,25 @@ So, let's get started!
 
 ### Buildin' the Bullets
 
-7. Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.
+Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.
 
-    1. Click on the weapon in the **Hierarchy** window. In the **Properties** window, scroll down to the *Projectile* section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!
+1. Click on the weapon in the **Hierarchy** window. In the **Properties** window, scroll down to the *Projectile* section. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!
 
-         To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **CORE Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
+    To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **CORE Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
 
-         Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage.
+    Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage.
 
-    2. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder.
+2. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder.
 
-         This needs to be done so that our resizing is saved--whenever a template is spawned in CORE, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
+    This needs to be done so that our resizing is saved--whenever a template is spawned in CORE, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
 
-    2. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
+3. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
 
-         Bullets need to be both Client Context, and wrapped in a Networked object to be preform really well in-game.
+    Bullets need to be both Client Context, and wrapped in a Networked object to be preform really well in-game.
 
-    3. Next, right click this folder again, and click "Create New Template From This".
+4. Next, right click this folder again, and click "Create New Template From This".
 
-    4. Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
+5. Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
 
 ### Firing the Weapon
 
@@ -129,19 +131,19 @@ Weapons come with a property for Damage--setting this determines how much gettin
 
 2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
 
-     [photo here]
+    [photo here]
 
-     1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **CORE Content** tab, within the **Settings Objects** section.
+    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **CORE Content** tab, within the **Settings Objects** section.
 
-     2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
+    2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
 
-     2. With Multiplayer Preview Mode turned on to two players, press Play.
+    3. With Multiplayer Preview Mode turned on to two players, press Play.
 
-         [photo here]
+        [photo here]
 
-     3. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
+    4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
 
-         If you've set up everything correctly along with this tutorial, the player bot should die after 4 shots!
+    If you've set up everything correctly along with this tutorial, the player bot should die after 4 shots!
 
 Now all the basics are hooked up! The gun should be able to shoot and kill other players--if not, try going back through the steps above to see where something might be missing. Typos are a common human error, check those and don't worry about having missed it the first time. Even the very best will miss things like that!
 
@@ -215,6 +217,6 @@ If you want to try you hand at some coding to really add complexity to your weap
 
 ## Examples
 
-**ETDM: Abduction** includes fully functional weapons and game logic created by the Lead Gameplay Programmer.
- **Garden Warfare** includes several functional weapons used in various ways, created by several Interns.
- **CORE_BasicWeapons_Pack** includes ultra-basic versions of a Grenade, Pistol, Rifle, and Shotgun for your modification needs! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
+- **ETDM: Abduction** includes fully functional weapons and game logic created by the Lead Gameplay Programmer.
+- **Garden Warfare** includes several functional weapons used in various ways, created by several Interns.
+- **CORE_BasicWeapons_Pack** includes ultra-basic versions of a Grenade, Pistol, Rifle, and Shotgun for your modification needs! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
