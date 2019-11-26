@@ -65,7 +65,7 @@ Running this should continuously rotate the coin in the air. Shiny!
 
 Okay, so what did we just do?
 
-#### Spin Breakdown:
+#### Spin Breakdown
 
 * `script` -> references the script object, i.e. the asset you dragged into the Hierarchy.
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object).

@@ -117,10 +117,10 @@ World.playerJoinedEvent:Connect(HandlePlayerJoined)
 ```lua
 -- Handle picking up a coin
 local function HandleOverlap(trigger, object)
-	if object ~= nil and object:IsA("Player") then
+ if object ~= nil and object:IsA("Player") then
         object:AddResource("Manticoin", 1)
         trigger.parent:Destroy()
-	end
+ end
 end
 
 script.parent.beginOverlapEvent:Connect(HandleOverlap)
@@ -162,13 +162,14 @@ The colon is only used for methods that pass `self` as the first parameter, ever
 This means that `x:Bar(1, 2)` is the same as `x.Bar(x, 1, 2)`
 
 For more details, here is how it breaks down:
+
 * Static (**dot**)
-  * Functions
+    * Functions
     * Constructor
-  * Constants
+    * Constants
 * Instance
-  * Methods (**colon**)
-  * Properties (**dot**)
+    * Methods (**colon**)
+    * Properties (**dot**)
     * Events
 
 For example:
@@ -221,8 +222,8 @@ end
 Both are perfectly valid, but following convention allows for the usage call to consistently use colons for clarity.
 
 * Where possible, use getters and setters
-  * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
-  * Properties use getter/setter methods unless you can both get _and_ set the value in which case you can directly access them. TODO: Clarify why
+    * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
+    * Properties use getter/setter methods unless you can both get _and_ set the value in which case you can directly access them. TODO: Clarify why
 
 ## Styling
 
@@ -290,6 +291,7 @@ end
 ## Comments
 
 Use block comments for documenting larger elements:
+
 * Use a block comment at the top of files to describe their purpose.
 * Use a block comment before functions or objects to describe their intent.
 
@@ -336,20 +338,20 @@ local myNum = 2  -- Two spaces after the code, then one space for inline comment
 
 ---
 
-# Best Practices
+## Best Practices
 
 In general, you should always try to use `local` functions and variables, the only exception should be when you overwrite global functions like `Tick()`.
 Make sure to always declare your variables and functions in the order they are using in. Lua parses the file top to bottom, if you try to use a function before it has been declared, you will error.
 
-## Miscellaneous
+### Miscellaneous
 
-## _G vs require
+### _G vs require
 
 `require()` explicitly makes a script execute if it hasn't already, and only executes a given script once.
 
 If you need multiple instances of the same script dynamically spawned, `require()`doesn't make sense
 
-## Using External Data
+### Using External Data
 
 You can use `require()` and a script that returns a long string to encapsulate JSON data in its own script.
 Afterwards use `require()` again with a [JSON library](https://github.com/rxi/json.lua).
