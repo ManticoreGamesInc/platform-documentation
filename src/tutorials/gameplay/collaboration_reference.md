@@ -4,7 +4,7 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-## Abstract
+## Overview
 
 Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates are a fundamental tool to CORE that enables creators to develop assets and publish them to be used by other creators across the platform.
 

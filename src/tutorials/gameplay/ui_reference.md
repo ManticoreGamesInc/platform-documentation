@@ -4,7 +4,7 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
-## Abstract
+## Overview
 
 A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as “UI”. This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
