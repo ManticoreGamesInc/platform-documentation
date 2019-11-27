@@ -160,8 +160,8 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 
 ### Creating UI Text
 
-1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Canvas.
-    * Go to **CORE Content -> UI Elements** and drag the **UI Canvas** object in to the heirarchy.
+1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
+    * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the heirarchy.
     * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
     * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the heirarchy, this will make it a child of it.
     * Rename the Text Control to `CoinUI`.
@@ -270,7 +270,7 @@ When there are zero coins left, we find the Gameplay Settings and set the value 
 
 We are going to update the game when all the possible coins are picked up. First, we'll need a new `Text Control` which we'll name `VictoryUI` which will only show up when the game is over, alerting the players that all coins have been collected. After designing the victory UI, we'll want to hide it until it's the appropriate time.
 
-* Create a **Text Control** named `VictoryUI` as a child of `Canvas` under `Client Context`.
+* Create a **Text Control** named `VictoryUI` as a child of `UI Container` under `Client Context`.
 * In the `text` field in the Properties window, type "**All coins found!**".
 * Toggle the visibility of the Victory UI under **Properties -> Scene -> Visible**.
 * Customize your font color, size, and justification!
