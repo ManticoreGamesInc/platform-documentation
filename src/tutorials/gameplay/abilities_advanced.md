@@ -4,6 +4,12 @@
     Flagged for Review.
     Incomplete or outdated information may be present.
 
+    TODO:  
+
+    - Add & Updates Images  
+
+    - Complete tutorial sections
+
 ## Overview
 
 While both weapons and abilities can be utilized without having to code, if you *do* use scripting, so much more is possible.
@@ -132,6 +138,12 @@ We're going to add the ability to focus zoom with right click for better aiming!
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
 3. Open this script, removing any existing text, and let's start by accessing our variables.
+
+     1. We first want to create a reference to the weapon object, so type this at the top of the script:
+
+         ```lua
+         local WEAPON = script:FindAncestorByType('Weapon')
+         ```
 
 So to model after Tung's advanced systems, the fire staff should change camera setup, have a damage spread, and require gaining more ammo as a pickup to explain how that works.
 
