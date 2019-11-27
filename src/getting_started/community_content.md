@@ -25,28 +25,32 @@ The goal is to bring your ideas to life as fast as possible, so that nothing sta
 
 Open up the **Community Content** tab by clicking on it. If the tab isn't already open for you, navigate to `View -> Community Content` in the top menu bar to open the window.
 
-![Community Content Template](../img/getting_started/communitycontent.png "image_tooltip"){: .center}
+![Community Content Template](../img/getting_started/communitycontent.png "Community Content Template"){: .center}
 
 Here you can browse the content or search by username or key words.
 
 Click the blue `+` button on an asset to import the template. It will likely ask you to save your project first.
 
-![Community Content Template](../img/EditorManual/Art/CCtemplate.png "image_tooltip"){: .center}
+![Community Content Template](../img/getting_started/CCtemplate.png "Community Content Template"){: .center}
 
-You can then see the template you chose in your own **Project Content** folder.
-`Project Content -> Imported Content`.
+You can then see the template you downloaded in your the **CORE Content** folder.
+`CORE Content -> Imported Content`.
 
-![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "image_tooltip"){: .center}
+![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
 
 #### Using Your Imported Content
 
-From within the Imported Content section, you will find any and all templates that you download from Community Content.
+From within the Imported Content section of CORE Content, you will find any and all templates that you download from Community Content.
 
-When selecting a template from the menu on the left, the contents of that template will show up on the right. This will list all the parts of a template including scripts, visual effects, and materials.
+To use this in your game, just drag the **green**{: style="color: green"} template object (in this case called "My Room") into your project Hierarchy.
 
-The green object is the main template, and the part you should drag into the Hierarchy or viewport for use.
+Once you've done this, you will have a **blue**{: style="color: blue"} object in your Hierarchy, which is an instance of the template you downloaded! You're now set to modify it and use it however you like.
 
-![Imported Content Assets](../img/getting_started/ProjectContent_importedcontentasset.png "image_tooltip"){: .center}
+CORE also then adds the template and its contents to your Project Content folder.
+
+![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
+
+Within the template, in the section called "Dependencies", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
 
 ----
 
@@ -64,4 +68,6 @@ Another way to speed ahead the creation of your project is to **start with an en
 
 Some games published on the CORE website allow other users to download them, enabling you to move things around and change the game however you would like.
 
-To download a game by somebody else and add your own personal flair, go to the game's page on our website. If the person who published the game allowed it to be publicly editable, then there will be an `Edit` button on the page. Clicking this will download the whole game project to your computer, allowing you to open it up and edit it from within the CORE editor!
+To download a game by somebody else and add your own personal flair, go to the CREATE menu of the CORE editor. When you cick create, you will have the option to select a base game type from **CORE Games**, or select **Community Games** to see what games other users have published as public for the world to modify.  
+
+Pick a game by clicking it, give it a new project name, click download, and you're ready to go!
