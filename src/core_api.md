@@ -13,6 +13,7 @@ At a high level, CORE Lua types can be divided into two groups: data structures 
 
 A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
+
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
 Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
@@ -21,7 +22,7 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `isEnabled` | bool | Turns an ability on/off. It stays on the player but is interrupted if isEnabled is set to False during an active Ability.  True by default. | Read-Write
 `canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only
-`name` | string | The name of the ability. | Read-Only
+`name ` | string | The name of the ability. | Read-Only
 `actionBinding` | string | Which action binding will cause the Ability to activate. Possible values are listed under ability binding list. | Read-Only
 `owner` | Player | Assigning an owner applies the Ability to that Player. | Read-Write
 `castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase (see below). | Read-Only
@@ -30,13 +31,13 @@ Property | Return Value | Description | Tags
 `cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Only
 `animation` | string | Name of the animation the Player will play when the ability is activated. Possible values: See Ability Animation Section for strings and other info | Read-Only
 `canBePrevented` | bool | Used in conjunction with the phase property preventsOtherAbilities so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only
-`readyEvent` | Event\<Ability> | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
-`castEvent` | Event\<Ability> | Called when the Ability enters the Cast phase. | Read-Only
-`executeEvent` | Event\<Ability> | Called when the Ability enters Execute phase. | Read-Only
-`recoveryEvent` | Event\<Ability> | Called when the Ability enters Recovery. | Read-Only
-`cooldownEvent` | Event\<Ability> | Called when the Ability enters Cooldown. | Read-Only
-`interruptedEvent` | Event\<Ability> | Called when the Ability is interrupted. | Read-Only
-`tickEvent` | Event\<Ability> | Called every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Write
+`readyEvent` | Event&lt;Ability&gt; | Event called when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only
+`castEvent` | Event&lt;Ability&gt; | Called when the Ability enters the Cast phase. | Read-Only
+`executeEvent` | Event&lt;Ability&gt; | Called when the Ability enters Execute phase. | Read-Only
+`recoveryEvent` | Event&lt;Ability&gt; | Called when the Ability enters Recovery. | Read-Only
+`cooldownEvent` | Event&lt;Ability&gt; | Called when the Ability enters Cooldown. | Read-Only
+`interruptedEvent` | Event&lt;Ability&gt; | Called when the Ability is interrupted. | Read-Only
+`tickEvent` | Event&lt;Ability&gt; | Called every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Write
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -46,6 +47,7 @@ Function | Return Value | Description | Tags
 `GetPhaseTimeRemaining` | Number | Seconds left in the current phase. | None
 `GetTargetData()` | AbilityTarget | Returns information about what the player has targeted this phase. | None
 `SetTargetData (AbilityTarget)` | None | Updates information about what the player has targeted this phase.  This can affect the execution of the ability. | None
+
 
 ### [AbilityPhaseSettings](/core_api/classes/abilityphasesettings/abilityphasesettingsOverview)
 
@@ -140,11 +142,11 @@ Function | Return Value | Description | Tags
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`clickedEvent` | Event\<ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only
-`pressedEvent` | Event\<ButtonUIControl> | Called when button is pressed (mouse button down). | Read-Only
-`releasedEvent` | Event\<ButtonUIControl> | Called when button is released (mouse button up). | Read-Only
-`hoveredEvent` | Event\<ButtonUIControl> | Called when button is hovered. | Read-Only
-`unhoveredEvent` | Event\<ButtonUIControl> | Called when button is unhovered. | Read-Only
+`clickedEvent` | Event&lt;ButtonUIControl&gt; | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only
+`pressedEvent` | Event&lt;ButtonUIControl&gt; | Called when button is pressed (mouse button down). | Read-Only
+`releasedEvent` | Event&lt;ButtonUIControl&gt; | Called when button is released (mouse button up). | Read-Only
+`hoveredEvent` | Event&lt;ButtonUIControl&gt; | Called when button is hovered. | Read-Only
+`unhoveredEvent` | Event&lt;ButtonUIControl&gt; | Called when button is unhovered. | Read-Only
 
 ### [Camera](/core_api/classes/camera/cameraOverview)
 
@@ -231,12 +233,12 @@ Property | Return Value | Description | Tags
 `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only
 `lifeSpan` | Number | Duration after which the object is destroyed. | Read-Write, Dynamic
 `sourceTemplateId` | string | The ID of the Template from which this Core Object was instantiated. NIL if the object did not come from a Template. | Read-Only
-`childAddedEvent` | Event\<CoreObject parent, CoreObject new_child> | An event fired when a child is added to this object. | Read-Only
-`childRemovedEvent` | Event\<CoreObject parent, CoreObject removed_child> | An event fired when a child is removed from this object. | Read-Only
-`descendantAddedEvent` | Event\<CoreObject ancestor, CoreObject new_child> | An event fired when a child is added to this object or any of its descendants. | Read-Only
-`descendantRemovedEvent` | Event\<CoreObject ancestor, CoreObject removed_child> | An event fired when a child is removed from this object or any of its descendants. | Read-Only
-`destroyEvent` | Event\<CoreObject> | An event fired when this object is about to be destroyed. | Read-Only
-`networkedPropertyChangedEvent` | Event\<CoreObject owner, string propertyName> | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only
+`childAddedEvent` | Event&lt;CoreObject parent, CoreObject new_child&gt; | An event fired when a child is added to this object. | Read-Only
+`childRemovedEvent` | Event&lt;CoreObject parent, CoreObject removed_child&gt; | An event fired when a child is removed from this object. | Read-Only
+`descendantAddedEvent` | Event&lt;CoreObject ancestor, CoreObject new_child&gt; | An event fired when a child is added to this object or any of its descendants. | Read-Only
+`descendantRemovedEvent` | Event&lt;CoreObject ancestor, CoreObject removed_child&gt; | An event fired when a child is removed from this object or any of its descendants. | Read-Only
+`destroyEvent` | Event&lt;CoreObject&gt; | An event fired when this object is about to be destroyed. | Read-Only
+`networkedPropertyChangedEvent` | Event&lt;CoreObject owner, string propertyName&gt; | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -262,15 +264,15 @@ Function | Return Value | Description | Tags
 `SetAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in world space. Physics networked Objects only. | Dynamic
 `SetLocalAngularVelocity(Vector3)` | None | Set the object’s angular velocity in degrees per second in local space. Physics networked Objects only. | Dynamic
 `GetReference()` | CoreObjectReference | Returns a CoreObjectReference pointing at this object. | None
-`GetChildren()` | array\<CoreObject> | Returns a table containing the object’s children, may be empty. | None
+`GetChildren()` | array&lt;CoreObject&gt; | Returns a table containing the object’s children, may be empty. | None
 `FindAncestorByName(string name)` | CoreObject | Returns the first parent or ancestor whose name matches the provided name.  If none match, returns nil. | None
 `FindChildByName(string name)` | CoreObject | Returns the first immediate child whose name matches the provided name.  If none match, returns nil. | None
 `FindDescendantByName(string name)` | CoreObject | Returns the first child or descendant whose name matches the provided name.  If none match, returns nil. | None
-`FindDescendantsByName(string name)` | array\<CoreObject> | Returns the descendants whose name matches the provided name.  If none match, returns an empty table. | None
+`FindDescendantsByName(string name)` | array&lt;CoreObject&gt; | Returns the descendants whose name matches the provided name.  If none match, returns an empty table. | None
 `FindAncestorByType(string type_name)` | CoreObject | Returns the first parent or ancestor whose type is or extends the specified type.  For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType(‘StaticMesh’) will only return the first static mesh. If no ancestors match, returns nil. | Static
 `FindChildByType(string type_name)` | CoreObject | Returns the first immediate child whose type is or extends the specified type.  If none match, returns nil. | None
 `FindDescendantByType(string type_name)` | CoreObject | Returns the first child or descendant whose type is or extends the specified type.  If none match, returns nil. | None
-`FindDescendantsByType(string type_name)` | array\<CoreObject> | Returns the descendants whose type is or extends the specified type.  If none match, returns an empty table. | None
+`FindDescendantsByType(string type_name)` | array&lt;CoreObject&gt; | Returns the descendants whose type is or extends the specified type.  If none match, returns an empty table. | None
 `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None
 `IsAncestorOf(CoreObject)` | bool | Returns true if this core object is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None
 `GetCustomProperty(string property_name)` | value, bool | Gets data which has been added to an object using the custom property system.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not. | None
@@ -332,19 +334,19 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `socket` | string | Determines which point on the avatar’s body this equipment will be attached. | Read-Write, Dynamic
 `owner` | Player | Which Player the Equipment is attached to. | Read-Only, Dynamic
-`equippedEvent` | Event\<Equipment, Player> | An event fired when this equipment is equipped onto a player. | Read-Only
-`unequippedEvent` | Event\<Equipment, Player> | An event fired when this object is unequipped from a player. | Read-Only
+`equippedEvent` | Event&lt;Equipment, Player&gt; | An event fired when this equipment is equipped onto a player. | Read-Only
+`unequippedEvent` | Event&lt;Equipment, Player&gt; | An event fired when this object is unequipped from a player. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | None
 `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The player loses any abilities granted by the Equipment. | None
 `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. | None
-`GetAbilities()` | array\<Ability> | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None
+`GetAbilities()` | array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None
 
 ### [Event](/core_api/classes/event/eventOverview)
 
-When objects have events that can be fired, they’re accessed using the Event type.
+When objects have events that can be fired, they’re accessed using the Event type.  
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -504,14 +506,14 @@ Property | Return Value | Description | Tags
 `canMount` | bool | whether the player can manually toggle on/off the mount | Read-Write
 `shouldDismountWhenDamaged` | bool | If true, and the player is mounted they will dismount if they take damage. | Read-Write
 `isVisibleToSelf` | bool | Set whether to hide player model on player’s own client, for sniper scope, etc. Client-only. | Client Context, Read-Write
-`damagedEvent` | Event\<Player, Damage> | Event fired when the Player takes damage. Server only. | Server Context, Read-Only
-`diedEvent` | Event\<Player, Damage> | Event fired when the Player dies.  Server only. | Server Context, Read-Only
-`respawnedEvent` | Event\<Player> | Event fired when the Player respawns.  Server only. | Server Context, Read-Only
-`bindingPressedEvent` | Event\<Player, String> | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list | Read-Only
-`bindingReleasedEvent` | Event\<Player, String> | Event fired when an action binding is released. Second parameter tells you which binding. | Read-Only
-`resourceChangedEvent` | Event\<Player> | Event fired when a resource changed | Read-Only
-`movementModeChangedEvent` | Event\<Player, MovementMode, MovementMode> | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only
-`animationEvent` | Event\<Player>,EventName | Event fired during certain animations played on a player. Client only. | Client Context
+`damagedEvent` | Event&lt;Player, Damage&gt; | Event fired when the Player takes damage. Server only. | Server Context, Read-Only
+`diedEvent` | Event&lt;Player, Damage&gt; | Event fired when the Player dies.  Server only. | Server Context, Read-Only
+`respawnedEvent` | Event&lt;Player&gt; | Event fired when the Player respawns.  Server only. | Server Context, Read-Only
+`bindingPressedEvent` | Event&lt;Player, String&gt; | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list | Read-Only
+`bindingReleasedEvent` | Event&lt;Player, String&gt; | Event fired when an action binding is released. Second parameter tells you which binding. | Read-Only
+`resourceChangedEvent` | Event&lt;Player&gt; | Event fired when a resource changed | Read-Only
+`movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only
+`animationEvent` | Event&lt;Player&gt;,EventName | Event fired during certain animations played on a player. Client only. | Client Context
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -536,8 +538,8 @@ Function | Return Value | Description | Tags
 `ResetVelocity()` | None | Resets the player’s velocity to zero. | None
 `GetRotationRate()` | Rotation | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | None
 `SetRotationRate (Rotation)` | None | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | None
-`GetAbilities()` | array<Ability> | Array of all Abilities assigned to this Player. | None
-`GetEquipment()` | array<Equipment> | Array of all Equipment assigned to this Player. | None
+`GetAbilities()` | array&lt;Ability&gt; | Array of all Abilities assigned to this Player. | None
+`GetEquipment()` | array&lt;Equipment&gt; | Array of all Equipment assigned to this Player. | None
 `ApplyDamage(Damage)` | None | Damages a Player. If their hitpoints go below 0 they die. | None
 `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | None
 `DisableRagdoll()` | None | Disables all ragdolls that have been set on the player. | None
@@ -551,10 +553,10 @@ Function | Return Value | Description | Tags
 `SetResource(String name, Integer amount)` | None | Sets a specific amount of a resource on a player. | None
 `AddResource(String name, Integer amount)` | None | Adds an amount of a resource to a player. | None
 `RemoveResource(String name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | None
-`GetResourceNames()` | array<String> | return array containing resource names | None
-`GetResourceNamesStartingWith(String prefix)` | array<String> | return array containing resource names starting with given prefix | None
+`GetResourceNames()` | array&lt;String&gt; | return array containing resource names | None
+`GetResourceNamesStartingWith(String prefix)` | array&lt;String&gt; | return array containing resource names starting with given prefix | None
 `TransferToGame(String)` | None |  Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | None
-`GetAttachedObjects()` | Table<CoreObjects> | return table containing core objects attached to this player. | None
+`GetAttachedObjects()` | Table&lt;CoreObjects&gt; | return table containing core objects attached to this player. | None
 `SetMounted(Bool)` | None | Forces a player in or out of mounted state. | None
 `GetDefaultCamera()` | Camera | Returns the default camera object the player is currently using. This can only be called on the client. | None
 `SetDefaultCamera(Camera, LerpTime = 2.0)` | None | Sets the default camera object for the player. This can only be called on the client. | None
@@ -566,7 +568,7 @@ Function | Return Value | Description | Tags
 
 ### [PlayerStart](/core_api/classes/playerstart/playerstartOverview)
 
-PlayerStart is a CoreObject representing a spawn point for players.
+PlayerStart is a CoreObject representing a spawn point for players.  
 
 Property | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -596,6 +598,7 @@ Function | Return Value | Description | Tags
 `GetFillColor()` | Color | The color of the fill. | None
 `SetFillColor(Color)` | None | The color of the fill. | None
 
+
 ### [Projectile](/core_api/classes/projectile/projectileOverview)
 
 Projectile is a specialized Object which moves through the air in a parabolic shape and impacts other objects. To spawn a projectile see `game:SpawnProjectile()`.
@@ -618,9 +621,9 @@ Property | Return Value | Description | Tags
 `homingTarget` | Player | The projectile accelerates towards its target. | Read-Write
 `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. | Read-Write
 `shouldDieOnImpact` | bool | If true the projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write
-`impactEvent` | Event<Projectile, other Object, HitResult> | An event fired when the Projectile collides with something. Impacted object parameter will be either of type CoreObject or Player, but can also be nil. The HitResult describes the point of contact between the Projectile and the impacted object. | Read-Only
-`lifeSpanEndedEvent` | Event<Projectile> | An event fired when the Projectile reaches the end of its lifespan. Called before it is destroyed. | Read-Only
-`homingFailedEvent` | Event<Projectile> | The target is no longer valid, for example the player disconnected from the game or the object was destroyed somehow. | Read-Only
+`impactEvent` | Event&lt;Projectile, other Object, HitResult&gt; | An event fired when the Projectile collides with something. Impacted object parameter will be either of type CoreObject or Player, but can also be nil. The HitResult describes the point of contact between the Projectile and the impacted object. | Read-Only
+`lifeSpanEndedEvent` | Event&lt;Projectile&gt; | An event fired when the Projectile reaches the end of its lifespan. Called before it is destroyed. | Read-Only
+`homingFailedEvent` | Event&lt;Projectile&gt; | The target is no longer valid, for example the player disconnected from the game or the object was destroyed somehow. | Read-Only
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
@@ -700,6 +703,7 @@ Function | Return Value | Description | Tags
 `GetVector3FromCone(Vector3 Direction, Number HalfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction and HalfAngle (in radians). | None
 `GetVector3FromCone(Vector3 Direction, Number HorizontalAngle, Number VerticalAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction, HorizontalAngle and VerticalAngle (in radians). | None
 
+
 ### [Replicator](/core_api/classes/replicator/replicatorOverview)
 
 Replicators are CoreObjects are used to broadcast data from the server to clients. To use them, add custom properties to a replicator and assign them default values. These properties will be readable on all clients, and read/write on the server.
@@ -711,7 +715,7 @@ Function | Return Value | Description | Tags
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`valueChangedEvent` | Event<Replicator, string propertyName> | An event that is fired whenever any of the properties managed by the replicator receives an update. The event is fired on the server and the client. Event payload is the Replicator object and the name of the property that just changed. | Read-Only
+`valueChangedEvent` | Event&lt;Replicator, string propertyName&gt; | An event that is fired whenever any of the properties managed by the replicator receives an update. The event is fired on the server and the client. Event payload is the Replicator object and the name of the property that just changed. | Read-Only
 
 ### [Rotation](/core_api/classes/rotation/rotationOverview)
 
@@ -783,6 +787,7 @@ Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `Play()` | None | Begins sound playback. | None
 `Stop()` | None | Stops sound playback. | None
+
 
 ### [SmartObject](/core_api/classes/smartobject/smartobjectOverview)
 
@@ -922,13 +927,13 @@ Property | Return Value | Description | Tags
 --- | --- | --- | ---
 `IsOverlapping(CoreObject)` | bool | Returns true if given core object overlaps with the trigger. | None
 `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the trigger. | None
-`GetOverlappingObjects()` | array\<Objects> | Returns a list of all objects that are currently overlapping with the trigger. | None
+`GetOverlappingObjects()` | array&lt;Objects&gt; | Returns a list of all objects that are currently overlapping with the trigger. | None
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`beginOverlapEvent` | Event\<CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only
-`endOverlapEvent` | Event\<CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent. | Read-Only
-`interactedEvent` | Event\<CoreObject trigger, Player> | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player. | Read-Only
+`beginOverlapEvent` | Event&lt;CoreObject trigger, object other&gt; | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only
+`endOverlapEvent` | Event&lt;CoreObject trigger, object other&gt; | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent. | Read-Only
+`interactedEvent` | Event&lt;CoreObject trigger, Player&gt; | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player. | Read-Only
 
 ### [UIControl](/core_api/classes/uicontrol/uicontrolOverview)
 
@@ -1136,8 +1141,8 @@ Function | Return Value | Description | Tags
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`targetInteractionEvent` | Event<WeaponInteraction> | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. Server only. | Server Context, Read-Only
-`projectileSpawnedEvent` | Event<WeaponInteraction> | An event fired when a Weapon spawns a projectile. | Read-Only
+`targetInteractionEvent` | Event&lt;WeaponInteraction&gt; | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. Server only. | Server Context, Read-Only
+`projectileSpawnedEvent` | Event&lt;WeaponInteraction&gt; | An event fired when a Weapon spawns a projectile. | Read-Only
 
 ### [WeaponInteraction](/core_api/classes/weaponinteraction/weaponinteractionOverview)
 
@@ -1156,7 +1161,7 @@ Property | Return Value | Description | Tags
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetHitResult()` | HitResult | Physics information about the impact between the weapon and the other object. | None
-`GetHitResults()` | array<HitResult> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None
+`GetHitResults()` | array&lt;HitResult&gt; | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None
 
 ### [WorldText](/core_api/classes/worldtext/worldtextOverview)
 
@@ -1181,7 +1186,7 @@ The CoreDebug API contains functions that may be useful for debugging.
 
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
-`CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | Vector3 | draw debug line. optionalParameters is table containing one of the following keys: duration (number) - if <= 0, draw for single frame, thickness (number), color (Color) | None
+`CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | Vector3 | draw debug line. optionalParameters is table containing one of the following keys: duration (number) - if &lt;= 0, draw for single frame, thickness (number), color (Color) | None
 `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | Vector3 | draw debug box, with dimension specified as a vector. optionalParameters has same options as DrawLine, with addition of: rotation (Rotation) - rotation of the box | None
 `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | Vector3 | draw debug sphere | None
 
@@ -1216,9 +1221,9 @@ Function | Return Value | Description | Tags
 `Connect(string eventName, function eventListener)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None
 `ConnectForPlayer(string eventName, function eventListener) (Server Only)` | EventListener |  Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server Context
 `Broadcast(string eventName, args...)` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None
-`BroadcastToAllPlayers(string eventName, args...)` | \<resultcode, errorMessage> |  Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
-`BroadcastToPlayer(Player player, string eventName,args...)` | \<resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
-`BroadcastToServer(string eventName,args...)` | \<resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context
+`BroadcastToAllPlayers(string eventName, args...)` | &lt;resultcode, errorMessage&gt; |  Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToPlayer(Player player, string eventName,args...)` | &lt;resultcode, errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context
+`BroadcastToServer(string eventName,args...)` | &lt;resultcode, errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context
 
 ??? "Broadcast Event Result Codes"
     * BroadcastEventResultCode.SUCCESS
@@ -1246,15 +1251,15 @@ Game is a collection of functions and events related to players in the game, rou
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetLocalPlayer()` | Player | Returns the local player (Client-only). | Client Context
-`GetPlayers([table Parameters])` | array<Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: | None
+`GetPlayers([table Parameters])` | array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: | None
 `ignoreDead(boolean)` | None | If true, don’t return any dead players. | None
 `ignoreLiving(boolean)` | None | If true, don’t return any living players. | None
-`ignoreTeams(Integer or Array<Integer>)` | None | Don’t return any players belonging to the team or teams listed. | None
-`includeTeams(Integer or Array<Integer>)` | None | Return only players belonging to the team or teams listed. | None
-`ignorePlayers(Player or Array<Player>)` | None | Don’t return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} ) | None
+`ignoreTeams(Integer or Array&lt;Integer&gt;)` | None | Don’t return any players belonging to the team or teams listed. | None
+`includeTeams(Integer or Array&lt;Integer&gt;)` | None | Return only players belonging to the team or teams listed. | None
+`ignorePlayers(Player or Array&lt;Player&gt;)` | None | Don’t return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} ) | None
 `FindNearestPlayer(Vector3 position, [table Parameters])` | Player | Returns the Player that is nearest to the given position.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
-`FindPlayersInCylinder(Vector3 position, Number radius, [table Parameters]` | array<Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
-`FindPlayersInSphere(Vector3 position, Number radius, [table Parameters]` | array<Player> | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInCylinder(Vector3 position, Number radius, [table Parameters]` | array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
+`FindPlayersInSphere(Vector3 position, Number radius, [table Parameters]` | array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None
 `StartRound()` | None | Fire all events attached to roundStartEvent | Server Context
 `EndRound()` | None | Fire all events attached to roundEndEvent | Server Context
 `GetTeamScore(team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None
@@ -1265,12 +1270,12 @@ Function | Return Value | Description | Tags
 
 Event | Return Value | Description | Tags
 --- | --- | --- | ---
-`playerJoinedEvent` | Event<Player> | Event fired when a player has joined the game and their character is ready. | Read-Only
-`playerLeftEvent` | Event<Player> | Event fired when a player has disconnected from the game or their character has been destroyed. | Read-Only
-`abilitySpawnedEvent` | Event<Ability> | Event fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only
+`playerJoinedEvent` | Event&lt;Player&gt; | Event fired when a player has joined the game and their character is ready. | Read-Only
+`playerLeftEvent` | Event&lt;Player&gt; | Event fired when a player has disconnected from the game or their character has been destroyed. | Read-Only
+`abilitySpawnedEvent` | Event&lt;Ability&gt; | Event fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only
 `roundStartEvent` | Event | Event fired when StartRound is called on game. | Read-Only
 `roundEndEvent` | Event | Event fired when EndRound is called on game. | Read-Only
-`teamScoreChangedEvent` | Event<int(team)> | Event fired whenever any team’s score changes. This is fired once per team who’s score changes. | Read-Only
+`teamScoreChangedEvent` | Event&lt;int(team)&gt; | Event fired whenever any team’s score changes. This is fired once per team who’s score changes. | Read-Only
 
 ### [Teams](/core_api/classes/teams/teamsOverview)
 
@@ -1313,12 +1318,12 @@ World is a collection of functions for finding objects in the world.
 Function | Return Value | Description | Tags
 --- | --- | --- | ---
 `GetRootObject()` | CoreObject | Returns the root of the CoreObject hierarchy. | None
-`FindObjectsByName(string name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned. | None
-`FindObjectsByType(string type_name)` | array<CoreObject> | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned. | None
+`FindObjectsByName(string name)` | array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned. | None
+`FindObjectsByType(string type_name)` | array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned. | None
 `FindObjectByName(string type_name)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None
 `FindObjectById(string muid_string)` | CoreObject | Returns the object with a given MUID.  Returns nil if no object has this ID. | None
 `SpawnAsset(string asset_id, [table Parameters])` | CoreObject | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object’s transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent’s transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None
-`Raycast(Vector3 rayStart, Vector3 rayEnd, [table Parameters])` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array<Integer>)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array<Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer }) | None
+`Raycast(Vector3 rayStart, Vector3 rayEnd, [table Parameters])` | HitResult | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array&lt;Integer&gt;)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array&lt;Player&gt;, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer }) | None
 
 ### [Core Lua Functions](/core_api/classes/CORELuaFunctions/CORELuaFunctionsOverview)
 
@@ -1329,99 +1334,100 @@ Function | Return Value | Description | Tags
 `print(string)` | string | Print a message to the event log. Press \` to view messages. | None
 `warn(string)` | string | Similar to print(), but includes the script name and line number. | None
 
+
 ### Built-In Lua Functions
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
-    * assert
-    * collectgarbage†
-    * error
-    * getmetatable†
-    * ipairs
-    * next
-    * pairs
-    * pcall
-    * print†
-    * rawequal
-    * rawget†
-    * rawset†
-    * require†
-    * select
-    * setmetatable†
-    * tonumber
-    * tostring
-    * type
-    * \_G†
-    * \_VERSION
-    * xpcall
-    * coroutine.create
-    * coroutine.isyieldable
-    * coroutine.resume
-    * coroutine.running
-    * coroutine.status
-    * coroutine.wrap
-    * coroutine.yield
-    * math.abs
-    * math.acos
-    * math.asin
-    * math.atan
-    * math.ceil
-    * math.cos
-    * math.deg
-    * math.exp
-    * math.floor
-    * math.fmod
-    * math.huge
-    * math.log
-    * math.max
-    * math.maxinteger
-    * math.min
-    * math.mininteger
-    * math.modf
-    * math.pi
-    * math.rad
-    * math.random
-    * math.randomseed
-    * math.sin
-    * math.sqrt
-    * math.tan
-    * math.tointeger
-    * math.type
-    * math.ult
-    * os.clock
-    * os.date
-    * os.difftime
-    * os.time
-    * string.byte
-    * string.char
-    * string.find
-    * string.format
-    * string.gmatch
-    * string.gsub
-    * string.len
-    * string.lower
-    * string.match
-    * string.pack
-    * string.packsize
-    * string.rep
-    * string.reverse
-    * string.sub
-    * string.unpack
-    * string.upper
-    * table.concat
-    * table.insert
-    * table.move
-    * table.pack
-    * table.remove
-    * table.sort
-    * table.unpack
-    * utf8.char
-    * utf8.charpattern
-    * utf8.codes
-    * utf8.codepoint
-    * utf8.len
-    * utf8.offset
+    * assert  
+    * collectgarbage†  
+    * error  
+    * getmetatable†  
+    * ipairs  
+    * next  
+    * pairs  
+    * pcall  
+    * print†  
+    * rawequal  
+    * rawget†  
+    * rawset†  
+    * require†  
+    * select  
+    * setmetatable†  
+    * tonumber  
+    * tostring  
+    * type  
+    * \_G†  
+    * \_VERSION  
+    * xpcall  
+    * coroutine.create  
+    * coroutine.isyieldable  
+    * coroutine.resume  
+    * coroutine.running  
+    * coroutine.status  
+    * coroutine.wrap  
+    * coroutine.yield  
+    * math.abs   
+    * math.acos    
+    * math.asin    
+    * math.atan    
+    * math.ceil    
+    * math.cos    
+    * math.deg   
+    * math.exp  
+    * math.floor  
+    * math.fmod  
+    * math.huge  
+    * math.log  
+    * math.max  
+    * math.maxinteger  
+    * math.min  
+    * math.mininteger  
+    * math.modf  
+    * math.pi  
+    * math.rad  
+    * math.random  
+    * math.randomseed  
+    * math.sin  
+    * math.sqrt  
+    * math.tan  
+    * math.tointeger  
+    * math.type  
+    * math.ult  
+    * os.clock  
+    * os.date  
+    * os.difftime  
+    * os.time  
+    * string.byte  
+    * string.char  
+    * string.find  
+    * string.format  
+    * string.gmatch  
+    * string.gsub  
+    * string.len  
+    * string.lower  
+    * string.match  
+    * string.pack  
+    * string.packsize  
+    * string.rep  
+    * string.reverse  
+    * string.sub  
+    * string.unpack  
+    * string.upper  
+    * table.concat  
+    * table.insert  
+    * table.move  
+    * table.pack  
+    * table.remove  
+    * table.sort  
+    * table.unpack  
+    * utf8.char  
+    * utf8.charpattern  
+    * utf8.codes  
+    * utf8.codepoint  
+    * utf8.len  
+    * utf8.offset  
 
 ### MUIDs
 
@@ -1429,7 +1435,7 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 
 8D4B561900000092:Rabbit
 
-The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:
+The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:  
 
 ```
 local spawnTrans = script.parent:GetWorldTransform()
@@ -1451,214 +1457,175 @@ All ability animations have a long “tail” that gracefully transitions the ch
 #### 1hand_melee Strings
 
 `1hand_melee_slash_left` - A horizontal melee swing to the left.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `1hand_melee_slash_right` - A horizontal melee swing to the right.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `1hand_melee_slash_vertical` - A downward melee swing.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `1hand_melee_thrust` - A melee forward lunge attack..
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `1hand_melee_rm_combo_opener_vertical_slash` - A horizontal melee swing to the left.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as a combo opener.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo opener.
 
 `1hand_melee_rm_combo_middle_diagonal_slash` - A diagonal melee swing to the right.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
 `1hand_melee_rm_combo_closer_uppercut` - an uppercut.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as a combo closer.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo closer.
 
 `1hand_melee_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
-
-- works best with a cast phase duration of  0.31 or less
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   works best with a cast phase duration of  0.31 or less
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 #### 2hand_sword Strings
 
 `2hand_sword_slash_left` - A horizontal melee swing to the left.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `2hand_sword_slash_right` - A horizontal melee swing to the right.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `2hand_sword_slash_vertical` - A downward melee swing.
-
-- This animation supports a variable cast phase time.
-- This animation supports a time stretched execute phase time
+-   This animation supports a variable cast phase time.
+-   This animation supports a time stretched execute phase time
 
 `2hand_sword_thrust` - A forward sword thrust melee attack.
 
 `2hand_sword_rm_combo_opener_cone` - A horizontal melee swing to the left.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as a combo opener.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo opener.
 
 `2hand_sword_rm_combo_middle_spin` - A spin.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
 
 `2hand_sword_rm_combo_closer_spin` - a jumping spin.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
-- has root motion
-- can be used in any context, despite its original intention as a combo closer.
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
+-   has root motion
+-   can be used in any context, despite its original intention as a combo closer.
 
 `2hand_sword_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
-
-- This animation works best with a cast phase duration of  0.31 or less
+-   This animation works best with a cast phase duration of  0.31 or less
 
 #### 2hand_staff Strings
 
 `2hand_staff_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the staff.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `2hand_staff_magic_up` - Magic casting animation which raises the staff on cast.  This animation is not direction specific.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 #### 1hand_pistol Strings
 
 `1hand_pistol_shoot` - A pistol shoot animation.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `1hand_pistol_unsheathe` - Pulls the pistol from an invisible belt holster.
-
-- This animation works best with a cast phase duration of  0.21 or less
+-   This animation works best with a cast phase duration of  0.21 or less
 
 `1hand_pistol_reload_magazine` - Reloads a bottom-loading pistol clip.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 #### 2hand_rifle Strings
 
 `2hand_rifle_shoot` - A rifle shoot animation.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `2hand_rifle_reload_magazine` - Reloads an automatic rifle magazine.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `2hand_rifle_unsheathe` - Pulls the rifle from a back scabbard.
-
-- This animation works best with a cast phase duration of  0.22 or less
+-   This animation works best with a cast phase duration of  0.22 or less
 
 #### Unarmed Strings
 
 `unarmed_kick_ball` - A kick motion that moves the character forward as well.
+-   This animation works best with a cast phase duration of  0.18 or less
+-   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
 
-- This animation works best with a cast phase duration of  0.18 or less
-- This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
-
-`unarmed_dance` - Stand in place and dance.
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+`unarmed_dance` - Stand in place and dance.   
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_dance_spooky` - Stand in place and dance.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_flex` - Body builder style flexing animation.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_thumbs_up` - thumbs up.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_thumbs_up` - thumbs down.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_rock` - rock, paper, scissors game.  This chooses rock as the end result.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_paper` - rock, paper, scissors game.  This chooses paper as the end result.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_rochambeau_scissors` - rock, paper, scissors game.  This chooses scissors as the end result.  
-
-- currently does NOT support a variable cast phase time.
-- currently does NOT support a time stretched execute phase time
+-   currently does NOT support a variable cast phase time.
+-   currently does NOT support a time stretched execute phase time
 
 `unarmed_magic_bolt` - Magic casting animation which appears to launch a projectile forward from the hands.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `unarmed_punch_left` - A left punch animation.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `unarmed_punch_right` - A right punch animation.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `unarmed_roll` - A roll animation that moves the character forward.  
-
-- This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
-- The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
+-   This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
+-   The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
 
 `unarmed_throw` - An over-the-shoulder right-handed throw animation.
-
-- This animation supports a variable cast time.
+-   This animation supports a variable cast time.
 
 `unarmed_wave` - Stand in place and wave.  
-
-- This animation works best with a cast phase duration of 0.266 or less.
+-   This animation works best with a cast phase duration of 0.266 or less.
 
 `unarmed_pickup` - Stand in place and pick up items from the ground.  
-
-- This animation works best with a cast phase duration of 0.266 or less.
+-   This animation works best with a cast phase duration of 0.266 or less.
 
 ### General Animation Stance Information
 
 - All animation stances are valid on either of the available body types.
-- Each animation stance should behave identically across the body types (with regard to timing).
+- Each animation stance should behave identically across the body types (with regard to timing).  
 - All animation stances are (or end in) looping animations that can be played indefinitely
 - No animation stances have root motion
 - Each animation stance has custom blending behavior for what happens while moving (specified below)
@@ -1669,9 +1636,9 @@ Animation Stance Strings
 
 `unarmed_stance` - This will cause the player to walk or stand with nothing being held in their hands.
 
-`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.
+`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.  
 
-`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.
+`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.  
 
 `2hand_sword_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed sword.
 
@@ -1715,7 +1682,7 @@ Currently cannot mix the lower body of this pose with other animation stances (h
 `unarmed_death_spin` - A full body animation that spins 360 and then  falls to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is.
 
 ??? note "How to Turn on Ragdoll"
- ```
+	```
     ability.owner.active_pose = "unarmed_death"
     Task.Wait(0.9)
     ability.owner:EnableRagdoll("spine", .4, true)
