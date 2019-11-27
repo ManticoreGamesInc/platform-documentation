@@ -10,39 +10,46 @@ A core component of making quality video games is good user interface design. He
 
 - Creating UI in CORE is mostly a drag-and-drop process.
 
-- All UI elements can be found under Object > 2D UI.
+- All UI elements can be found either under Object > Create UI Object or in the UI Elements section of CORE Content.
 
-- All UI elements need to be contained within a Canvas widget. Drag a Canvas widget into the hierarchy to start working on UI.
+- All UI elements need to be contained within a UI Container object. Drag a UI Container into the hierarchy to start working on UI.
 
 - All UI elements do different things and be combined in many ways.
 
 !!! info
     Words like *widget*, *control*, and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
 
+---
+
 ## Tutorial
 
 Each widget works a little differently, but all are set up in the same basic way.
 Below is an example using the Text Box control:
 
-1. Click on Object in the top left of the CORE window.
+1. UI can be found in two different locations, but both contain the same things. Use either the **Object** menu at the top of the screen, or the UI Elements section of **CORE Content**. In this case, let's use CORE Content.
 
-2. At the bottom of the list, hover over 2D UI to view all UI options.
+2. Scroll to the bottom of the CORE Content window, and click the UI Elements section within the GAME OBJECTS category.  
 
-3. Click Canvas to bring it into the Hierarchy window.
+     On the right several different options will be displayed, and these are the pieces we're looking for!
 
-4. From that 2D UI section of the Object menu, click a Text Box to bring it into the Hierarchy and drag it onto the Canvas to display the text directly onto the screen.
+3. First we need something to hold the UI. So select the **UI Container** object, and drag this into your project Hierarchy. This is an object that cannot have any transformations, and only exists to hold UI within it.
 
-5. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
+4. Next, from that UI Elements section of CORE Content, click the **UI Text Box**, and drag this on top of the UI Container we just made. It should now be displaying on-screen in the viewport as well!  
+
+     ![New Hierarchy](../../img/EditorManual/UI/Hierarchy.png "The text box is a child of the UI container."){: .center}
+
+5. With the UI Text Box in the Hierarchy selected, look in the Properties window. 
+
+6. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
     ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
 
-6. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
-
-7. Once dragged in, if the widget is properly in the Canvas, it should be showing up in the top left corner.
-    It is in this location because it is by default **anchored** and **docked** to the top left.
+7. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
 !!! info "UI Placement on Different Screen Resolutions"
-     UI elements need to be anchored to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
+     UI elements need to be **anchored** to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.  
+
+     So if you want your UI to always stay in the very center of the screen, change the **Dock** property to *Middle Center*.
 
 ![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png "image_tooltip"){: .center}
 
@@ -50,13 +57,17 @@ Adjustable properties of the Text Box:
 
 **X and Y Offset** determine the position away from the anchor origin that the UI widget will display.
 
-**Width and Height** refer to that of the widget.
-
-**Inherit Parent Size** will determine whether the widget stretches in size to fit the transformations of the parent.
-
-**Transform Pivot** is where changes to height and width will start from.
+**Width and Height** refer to that of the widget.  
 
 **Rotation Angle** is as it says--based on the Transform Pivot.
+
+**Inherit Parent Width and Height** will determine whether the widget stretches in size to fit the transformations of the parent.
+
+**Adjust Self Size to Inherited Size** works when one of the Inherit Parent Size boxes is checked on, and will add the dimensions on this UI element to the dimensions of the parent element.  
+
+**Anchor** determines where children of this element will be docked.  
+
+**Dock** determines where this UI element is positioned relative to its parent.
 
 **Text** determines what text is displayed.
 
@@ -64,12 +75,18 @@ Adjustable properties of the Text Box:
 
 **Size** is the size of the font.
 
-**Justification** is the alignment of the text within the text box.
+**Justification** is the alignment of the text within the text box.  
 
-Different widgets will have slightly different settings in the properties window, and all of these can be manipulated both in-editor and in code.
+**Wrap Text** determines whether the text will wrap to fix the space allowed.  
+
+**Clip Text** determines whether the text will cut off when going out of bounds, or continue on our of the bounds.
+
+Different UI Elements will have slightly different settings in the properties window, and all of these can be manipulated both in-editor and in code.
 
 !!! info "For Scripting Help"
     *See [Lua API](../../core_api.md) for functions & properties of UI controls.*
+
+---
 
 ## CORE 2D Images
 
@@ -82,7 +99,8 @@ These are all the current images available to use in CORE:
 ![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png "image_tooltip"){: .center}
 ![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png "image_tooltip"){: .center}
 
+---
+
 ## Examples
 
-- *FAA_GameMode* includes functioning UI. TODO: LINK MISSING
-- *Have U Herd?* Includes functional commented UI. TODO: LINK MISSING
+- ***Spellshock*** contains functioning UI, and can be found in the Community Games section of the CORE Editor.
