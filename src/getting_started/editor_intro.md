@@ -6,11 +6,8 @@
 
 ## Setup/Installation
 
-If you haven't downloaded the editor, go
-[here](https://mantiblob.blob.core.windows.net/builds/Launcher.zip) and extract
-the file into its own directory.
-
-Next, simply click on `PlatformLauncher.exe` and you will see CORE start up!
+If you haven't downloaded CORE, go
+[here](https://mantiblob.blob.core.windows.net/builds/CoreLauncherInstall.exe) run the installer.
 
 ## Editor
 
