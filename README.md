@@ -12,7 +12,7 @@ The three published version are accessible via the following links:
 * [Dev](https://dev-publish--manticore-docs.netlify.com/)
 
 Check out the [contribution](CONTRIBUTING.MD) document if you are interested in
-helping out! :)
+helping out!
 
 ---
 
