@@ -871,23 +871,6 @@ Function | Return Value | Description | Tags
 `GetColor()` | Color | The color of the text. | None
 `SetColor(Color)` | None | The color of the text. | None
 
-### [TextUIControl](/core_api/classes/textuicontrol/textuicontrolOverview)
-
-Transforms represent the position, rotation, and scale of objects in the game.  They are immutable, but new Transforms can be created when you want to change an object’s transform.
-
-Property | Return Value | Description | Tags
---- | --- | --- | ---
-`text` | string | The actual text string to show. | None
-`fontSize` | Number | Font size | None
-`justification` | TextJustify | Enum that determines alignment of text.  Possible values are: TextJustify.LEFT, TextJustify.Right, and TextJustify.CENTER. | None
-`shouldWrapText` | bool | Whether or not text should be wrapped within the bounds of this control. | None
-`shouldClipText` | bool | Whether or not text should be clipped when exceeding the bounds of this control. | None
-
-Function | Return Value | Description | Tags
---- | --- | --- | ---
-`GetColor()` | Color | The color of the text. | None
-`SetColor(Color)` | None | The color of the text. | None
-
 ### [Transform](/core_api/classes/transform/transformOverview)
 
 Transforms represent the position, rotation, and scale of objects in the game.  They are immutable, but new Transforms can be created when you want to change an object’s transform.
