@@ -1,23 +1,24 @@
 # Page index
+
 # If you add a page, you must also add it to the index here
 nav:
-  - index.md
-  - News:
-      - Announcements: news/announcements/alpha.md
-      - Events: news/events/alpha_launch.md
-      - Showcase: news/showcase/pre_alpha.md
-      - Patch Notes: news/patch_notes/12_10_19.md
+  - Welcome to CORE: index.md
+  - News: news/news.md
   - Getting Started:
-      - Installation: getting_started/installation.md
-      - Spellshock: getting_started/spellshock.md
       - Intro to the Editor: getting_started/editor_intro.md
-      - Community Content: getting_started/community_content.md
-      - Coming from other Engines: getting_started/other_engines.md
+      - Create your first Game: getting_started/spellshock.md
+      - Sharing Content: getting_started/community_content.md
+  - Community:
+      - Discord: https://discord.gg/85k8A7V
+      - ManticoreTV: https://www.facebook.com/groups/playcoregames
+      - Events: news/events/alpha_launch.md
+      - Showcase: news/showcase/showcase.md
   - CORE API:
       - API Overview: core_api.md
       - Lua in CORE: tutorials/gameplay/lua_reference.md
       - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
       - Lua Dev Environment: extensions.md
+      - Coming from other Engines: getting_started/other_engines.md
   - Tutorials:
       - Gameplay:
           - Abilities: tutorials/gameplay/abilities.md
@@ -34,19 +35,16 @@ nav:
           - Costumes: tutorials/art/costumes.md
           - Audio: tutorials/art/audio_reference.md
       - Templates: tutorials/gameplay/collaboration_reference.md
-      - User Interfaces: tutorials/gameplay/ui_reference.md
+      - UI: tutorials/gameplay/ui_reference.md
       - Networking: tutorials/gameplay/networking_reference.md
       - Performance: tutorials/gameplay/performance_reference.md
-      - Community Created:
-          - Placeholder: tutorials/community_created/placeholder.md
       - Examples & Snippets: tutorials/examples.md
+      - Community Created:
+          - Overview: tutorials/community_created/community_created.md
   - Editor Key Bindings: editor_keybindings.md
   - FAQs: faqs.md
-  - Join the Community: "community.md"
 
 # If you make a PR, no need to change data below this point
-
-# Base material theme with customizations
 theme:
   name: null
   custom_dir: "mkdocs-material/material"
@@ -117,7 +115,7 @@ plugins:
 docs_dir: src/
 
 # Site name
-site_name: CORE Creators Hub
+site_name: CORE Creator Hub
 
 # Add repository for easy editing
 repo_url: https://gitlab.com/manticore-games/platform-documentation
@@ -125,7 +123,7 @@ edit_uri: edit/production/src
 
 # Metadata
 site_description: Documentation for the CORE Platform
-site_author: Manticore
+site_author: Manticore Games
 site_url: https://docs.manticoreplatform.com
 
 # Copyright
