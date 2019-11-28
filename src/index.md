@@ -39,47 +39,26 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 
 !!! info "Contributions Welcome!"
     Just click on the :far fa-edit: icon on the top right of any page.
-
-    You'll need a GitLab account, with contribution permissions. If you
-    don't already have that, just email
-    [docs@manticoregames.com](mailto:mailto:docs@manticoregames.com) with the name of
-    your GitLab account to get set up.
-
-    More specific contribution details can be found [here](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD), if needed.
+    You'll need a GitLab account, with contribution permissions. If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitLab account to get set up.
+    More specific contribution details can be found on our [repository](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
 
 ## Organization of the Documentation
 
 - The **Getting Started** section is the main purpose of this documentation, as it contains all the
-  necessary information on using the engine to make games. It includes the [Light Bulb] tutorial
-  which should be the entry point for all new users. It also contains the [FAQs].
+  necessary information on how to [install](getting_started/editor_intro.md) CORE and using the engine to make games.
+- The **Community** section points to various community channels like Reddit and Discord and contains
+  a list of recommended third-party tutorial links.
+- The **Tutorials** section can be read as needed, in any order. It contains both
+  full games and various feature-specific tutorials. This is the best place to go for information on
+  larger projects. It includes the [Light Bulb](tutorials/gameplay/lua_basics_lightbulb.md) tutorial, which should be the entry point for all new users. In addition to this you may also want to take a look at our collection of various example projects and templates on the [examples](tutorials/examples.md) page.
 - The **CORE API** section is also intended for all users that intend to add gameplay elements, as it
   contains all the information you need to know about scripting in CORE. It includes sections on Lua
   (including a primer for programmers and resources for complete beginners), as well as best
   practices and debugging tools.
-- The [Editor Manual] section contains specific information on the various
-  aspects of the editor, encompassing everything from GUIs to hotkeys to networking.
-- The **Tutorials** section, on the other hand, can be read as needed, in any order. It contains both
-  full games and various feature-specific tutorials. This is the best place to go for information on
-  larger projects.
-- The [Community] section points to various community channels like Reddit and Discord and contains
-  a list of recommended third-party tutorial links.
-
-In addition to this documentation you may also want to take a look at the various [example]
-projects and templates.
 
 Have fun reading and making games with CORE!
 
 [Manticore]: https://www.manticoregames.com/
-
 [Markdown]:https://daringfireball.net/projects/markdown/syntax
 [MkDocs]: https://www.mkdocs.org/
 [Netlify]: https://www.netlify.com
-[Godot]: https://godot.readthedocs.io/en/3.0/
-[Material]: https://squidfunk.github.io/mkdocs-material
-
-[FAQs]: faqs.md
-[Light Bulb]: tutorials/gameplay/lua_basics_lightbulb.md
-[Editor Manual]: /getting_started/editor_intro.md
-[Tutorials]: /tutorials/
-[Community]: community.md
-[example]: /tutorials/examples.md
