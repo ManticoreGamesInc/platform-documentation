@@ -18,7 +18,7 @@ Programming a weapon can be the most complicated part of making a game, but to m
 - how to use Multiplayer Preview Mode effectively
 - how to create templates that can be used in weapons
 
-![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.png "image_tooltip"){: .center}
+![A Sniper Rifle](../../img/EditorManual/Weapons/holdingWeaponNew.png "image_tooltip"){: .center}
 
 In CORE, a `weapon` is an `equipment` type of object that can be created in any Core project.
 
@@ -50,7 +50,7 @@ So, let's get started!
 ### Setting Up the Weapon
 
 !!! info "Pick a New Gun Sierra pssstt"
-    ![Steampunk Rifle](/img/EditorManual/Weapons/steampunkRifle.png "image_tooltip"){: .center}
+    ![Steampunk Rifle](../../img/EditorManual/Weapons/steampunkRifle.png "image_tooltip"){: .center}
      You can download the Steampunk Rifle from **Community Content** on Core to have a ready-made weapon, or you can make your own model from props in Core!
 
 1. The first thing to do is to navigate over to **CORE Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
@@ -80,23 +80,25 @@ So, let's get started!
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
 6. Your **Hierarchy** should now look like this:
-      ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.png "image_tooltip"){: .center}
+
+    ![Initial Hierarchy](../../img/EditorManual/Weapons/hierarchyFirst.png "image_tooltip"){: .center}
 
 7. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
 
 8. You may also notice that the weapon, when equipped, could be not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head.
- ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png "image_tooltip"){: .center}
+
+ ![Weapon Hierarchy](../../img/EditorManual/Weapons/brokenLocationWeapon.png "image_tooltip"){: .center}
  When equipped, the weapon's origin will snap to the attachment point or "Socket". The odds are high that the weapon will be held in the wrong spot when equipped the first time.
 
-    **To fix the weapon model's position:**
+**To fix the weapon model's position:**
 
-    1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
+1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
 
-    2. Once you've made sure that is happening, scroll down to the *Utility* section of **CORE Content**. In here is a tool for visualizing how to position a gun in the player's hand--the **GunGuide_C**. Drag this onto the weapon in your **Hierarchy**, to make it a child of the weapon.
+2. Once you've made sure that is happening, scroll down to the *Utility* section of **CORE Content**. In here is a tool for visualizing how to position a gun in the player's hand--the **GunGuide_C**. Drag this onto the weapon in your **Hierarchy**, to make it a child of the weapon.
 
-    3. With the *GunGuide_C* selected, Set all Position Transforms in the **Properties** window to 0. This will center it within the `weapon` object. Now, move the art folder within the weapon around in the world to align with the hands of this model.
+3. With the *GunGuide_C* selected, Set all Position Transforms in the **Properties** window to 0. This will center it within the `weapon` object. Now, move the art folder within the weapon around in the world to align with the hands of this model.
 
-         This takes some wiggling--do what looks best to you!
+    This takes some wiggling--do what looks best to you!
 
 ### Buildin' the Bullets
 
@@ -211,7 +213,7 @@ This is a really simple version of a gun. Each part could be done a different wa
 
 What we've done here is the simple setup! Using this method you can make any sort of basic weapon you can dream up just by changing different properties of a weapon and its abilities.
 
-If you want to try you hand at some coding to really add complexity to your weapon, and give it even more abilities, check out our **[Advanced Weapon Tutorial](/tutorials/gameplay/abilities_advanced/)** to feel for what can be done.
+If you want to try you hand at some coding to really add complexity to your weapon, and give it even more abilities, check out our **[Advanced Weapons & Abilities Tutorial](abilities_advanced.md)** to feel for what can be done.
 
 ---
 

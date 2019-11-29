@@ -73,7 +73,7 @@ Just download the correct (single) `.lua` file and copy it into a new script and
 | [JSON Parser](https://github.com/rxi/json.lua)             | Allows you to parse JSON easily                                                                                         |
 | [Hooking Functions](https://github.com/Vallentin/hook.lua) | Allows you to hook into other functions                                                                                 |
 
-#### Needed
+## Needed
 
 - What isn't represented here? Let us know!
 - To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).

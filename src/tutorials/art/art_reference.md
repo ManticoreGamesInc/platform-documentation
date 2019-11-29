@@ -14,8 +14,6 @@ You won't need to understand 3D software or modeling to create beautiful art in 
 
 ![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "image_tooltip"){: .center}
 
-----
-
 ### Pre-Made Props & Assets
 
 To find all the 3D models already included in CORE, start by looking in the **CORE Content** tab, found in the bottom left window of the editor.
