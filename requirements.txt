@@ -6,5 +6,6 @@ mkdocs-material
 pygments
 # Other extensions
 pymdown-extensions
+markdown-full-yaml-metadata
 # fontawesome-markdown; need to get latest from github
 https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
