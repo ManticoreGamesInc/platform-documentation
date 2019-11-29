@@ -67,7 +67,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
         ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "image_tooltip"){: .center}
 
-        Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](/tutorials/art/art_reference/)** or try a **[Tutorial](/tutorials/art/modeling_basics/)**.
+        Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
 
         I went with a simple red gem, and made it a little smaller than the default diamond.
 
@@ -178,7 +178,7 @@ Abilities themselves work in multiplayer games perfectly without any extra progr
 This has already been done for us in the CORE Content template, so no action is needed!
 
 !!! info "Client Context"
-    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the **[Networking Reference](/tutorials/gameplay/networking_reference/)**.
+    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the **[Networking Reference](networking_reference.md)**.
 
 ---
 
@@ -186,7 +186,7 @@ This has already been done for us in the CORE Content template, so no action is 
 
 Abilities can get more complex, and often you may want to tweak the values in an ability quickly without having to open up scripts.
 
-To create a more advanced ability system and read more about Ability objects, read our **[next tutorial using abilities](/tutorials/gameplay/abilities_advanced.md)**.
+To create a more advanced ability system and read more about Ability objects, read our **[next tutorial using abilities](abilities_advanced.md)**.
 
 ---
 
