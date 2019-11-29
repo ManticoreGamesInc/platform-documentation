@@ -295,5 +295,5 @@ If longer, it is recommendeded to split your tutorial into a series.
 #### Content Quality
 
 - Name your objects in the hierarchy informatively.
-- Favor best practices [using CoreObject Asset References rather than script.parent.parent:GetChildren(](3)).
+- Favor best practices using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
 - Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.

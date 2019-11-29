@@ -18,8 +18,6 @@ An introduction to the basics of placing and remixing objects.
 
 ![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
 
----
-
 ## Tutorial
 
 ### Downloading the Template

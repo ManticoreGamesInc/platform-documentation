@@ -8,16 +8,6 @@
 
 In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition amongs programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
----
-
-**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
-
-* For debugging, we have our own script debugger, you can enable it via the **View** menu.
-    You can toggle breakpoints by clicking on a line number in the internal editor.
-* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
-
----
-
 * **Completion time:** TODO: TBD
 * **Knowledge level:** No prior knowledge of Lua
 * **Skills you will learn:**
@@ -28,6 +18,14 @@ In the first part, we are going to introduce you do the basics of scripting in C
         * Create a custom property
     * Using triggers
     * Creating and updating trigger labels
+
+---
+
+**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+
+* For debugging, we have our own script debugger, you can enable it via the **View** menu.
+    You can toggle breakpoints by clicking on a line number in the internal editor.
+* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
 ---
 
