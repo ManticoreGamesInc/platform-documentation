@@ -108,6 +108,7 @@ markdown_extensions:
       linenums: true
   - toc: # add linking to headers
       permalink: true
+  - full_yaml_metadata
 
 # Plugins
 plugins:
