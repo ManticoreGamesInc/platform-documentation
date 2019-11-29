@@ -2,20 +2,11 @@
 
 !!! warning
     Flagged for Review.
+    Incomplete or outdated information may be present.
 
 ## Overview
 
 In this tutorial, we are taking a deeper look at what it takes to utilize the CORE API to create a simple multiplayer game.
-
----
-
-**CORE** uses the **Lua** programming language, so make sure to check out our [primer](lua_reference.md) if you haven't worked with the language before.
-
-* For debugging, we have our own script debugger, you can enable it via the **View** menu.
-    You can toggle breakpoints by clicking on a line number in the internal editor.
-* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
-
----
 
 * **Completion time:** TODO: TBD
 * **Knowledge level:** No prior knowledge of Lua
@@ -31,6 +22,14 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the CO
     * Using triggers
     * Creating and updating trigger labels
     * Creating UI elements
+
+---
+
+**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+
+* For debugging, we have our own script debugger, you can enable it via the **View** menu.
+    You can toggle breakpoints by clicking on a line number in the internal editor.
+* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
 ---
 
