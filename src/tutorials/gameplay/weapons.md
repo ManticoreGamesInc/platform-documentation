@@ -1,3 +1,9 @@
+---
+name: Weapons in CORE
+categories:
+    - Tutorial
+---
+
 # Weapons in CORE
 
 !!! warning

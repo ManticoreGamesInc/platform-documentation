@@ -1,3 +1,9 @@
+---
+name: Networking Reference
+categories:
+    - Reference
+---
+
 # Networking in CORE
 
 !!! warning

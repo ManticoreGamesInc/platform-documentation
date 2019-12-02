@@ -1,3 +1,9 @@
+---
+name: UI Reference
+categories:
+    - Reference
+---
+
 # User Interfaces in CORE
 
 !!! warning

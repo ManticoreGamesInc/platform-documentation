@@ -1,3 +1,9 @@
+---
+name: CORE Editor Keybindings
+categories:
+    - Reference
+---
+
 # CORE Editor Keybindings
 
 | **Operation**                       | **Key**                                 | **Key 2**                | **Key 3** | **Description**                                                                             | **Requirements/Context**        |

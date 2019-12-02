@@ -1,3 +1,9 @@
+---
+name: Custom Materials in CORE
+categories:
+    - Reference
+---
+
 # Custom Materials in CORE
 
 !!! warning

@@ -1,7 +1,7 @@
 ---
 name: news
 categories:
-   - misc
+   - Misc
 ---
 
 

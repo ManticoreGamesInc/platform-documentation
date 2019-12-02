@@ -1,3 +1,9 @@
+---
+name: Welcome to CORE
+categories:
+    - Reference
+---
+
 # Welcome to CORE
 
 !!! warning

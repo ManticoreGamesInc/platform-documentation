@@ -1,3 +1,9 @@
+---
+name: Development Environment
+categories:
+    - Misc
+---
+
 # Development Environment
 
 !!! warning
