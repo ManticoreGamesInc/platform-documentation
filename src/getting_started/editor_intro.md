@@ -47,6 +47,14 @@ We'll now go over each in more depth in their respective sections.
 
 The basic functions like Undo, Redo, Move, Rotate, Scale, Snap To Grid, Grid Size, World/Local Space, Performance View ... Play, Pause, Multiplayer ... Editor Settings live here.
 
+#### Preferences
+
+Here you can change several things:
+
+- General Settings include options for using an external code editor, syntax highlighting and auto complete.
+- Player Controls lets you change your key bindings
+- Gameplay Settings have camera sensitivity and Y-Axes inversion and more.
+
 ### Main Viewport
 
 The Main Viewport is where you are designing your game.
@@ -149,6 +157,6 @@ TODO
 
 Here are a few links to get you started on certain areas in CORE:
 
-* [Art Intro](../tutorials/art/art_reference.md)
-* [Scripting Intro](../tutorials/gameplay/lua_reference.md)
-* [Community Content](community_content.md)
+- [Art Intro](../tutorials/art/art_reference.md)
+- [Scripting Intro](../tutorials/gameplay/lua_reference.md)
+- [Community Content](community_content.md)
