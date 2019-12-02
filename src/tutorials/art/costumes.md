@@ -1,3 +1,9 @@
+---
+name: Costumes in CORE
+categories:
+    - Reference
+---
+
 # Costumes in CORE
 
 !!! warning

@@ -1,3 +1,9 @@
+---
+name: Performance Reference
+categories:
+    - Reference
+---
+
 # Performance in CORE
 
 !!! warning

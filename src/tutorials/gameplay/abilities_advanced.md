@@ -1,3 +1,9 @@
+---
+name: Advanced Abilities in CORE
+categories:
+    - Tutorial
+---
+
 # Advanced Abilities in CORE
 
 !!! warning
@@ -47,7 +53,6 @@ The 4 different phases of an ability are:
 - **Cooldown**
     - The rest period after an ability is finished being cast, and cannot be cast again.
 
-
 !!! info "A More Natural Example"
     Try thinking of it like the casting of a magical spell:
     Cast: The witch charges up her spell, twirling her wand in the air in preparation.
@@ -88,19 +93,19 @@ So, let's make magic!
 
 ### Step 1
 
--   start with making a weapon object
--   don't need to explain it because that happened in first ability tutorial
--   make the art for the weapon, move into place
--   get the basic weapon function working (shoot a lil fireball)
--   involves creating an attack ability, a reticle, vfx
--   now we're basically as far as the simple weapon tutorial
--   add another ability for the right click spot (charge fire blast)
--   involves another ability script, reticle, vfx
--   explain setting up the ability in programming
--   add vfx for ability
--   now it's a weapon with an additional ability
--   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
--   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
+- start with making a weapon object
+- don't need to explain it because that happened in first ability tutorial
+- make the art for the weapon, move into place
+- get the basic weapon function working (shoot a lil fireball)
+- involves creating an attack ability, a reticle, vfx
+- now we're basically as far as the simple weapon tutorial
+- add another ability for the right click spot (charge fire blast)
+- involves another ability script, reticle, vfx
+- explain setting up the ability in programming
+- add vfx for ability
+- now it's a weapon with an additional ability
+- probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
+- set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
 ### CORE Component: Ability Display
 
@@ -108,5 +113,5 @@ link to this in intro tutorial?
 
 ## Examples
 
-* _FAA_GameMode_ includes functioning abilities.
-* _Spellshock_ includes advanced abilities using ability objects.
+- _FAA_GameMode_ includes functioning abilities.
+- _Spellshock_ includes advanced abilities using ability objects.

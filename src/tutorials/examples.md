@@ -1,3 +1,9 @@
+---
+name: Examples and Snippets
+categories:
+    - Misc
+---
+
 # Examples and Snippets
 
 !!! warning

@@ -1,3 +1,9 @@
+---
+name: Collaboration Reference
+categories:
+    - Reference
+---
+
 # Templates in CORE
 
 !!! warning

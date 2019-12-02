@@ -1,3 +1,9 @@
+---
+name: Audio Reference
+categories:
+    - Reference
+---
+
 # Audio in CORE
 
 !!! warning

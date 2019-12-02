@@ -1,3 +1,9 @@
+---
+name: Environmental Art in CORE
+categories:
+    - Reference
+---
+
 # Environmental Art in CORE
 
 !!! warning
