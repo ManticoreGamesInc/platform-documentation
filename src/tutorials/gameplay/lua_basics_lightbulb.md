@@ -1,3 +1,9 @@
+---
+name: Scripting in CORE
+categories:
+    - Tutorial
+---
+
 # Scripting in CORE
 
 !!! warning

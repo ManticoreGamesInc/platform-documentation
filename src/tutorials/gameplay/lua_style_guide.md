@@ -1,3 +1,9 @@
+---
+name: Lua Style Guide
+categories:
+    - Tutorial
+---
+
 # Lua Style Guide
 
 !!! warning

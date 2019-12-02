@@ -1,3 +1,9 @@
+---
+name: Art in CORE
+categories:
+    - Reference
+---
+
 # Art in CORE
 
 !!! warning

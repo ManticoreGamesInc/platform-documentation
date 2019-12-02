@@ -1,3 +1,9 @@
+---
+name: Modeling Basics
+categories:
+    - Reference
+---
+
 # Modeling Basics
 
 !!! warning
