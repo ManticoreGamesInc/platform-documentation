@@ -1,3 +1,9 @@
+---
+name: Community Content in CORE
+categories:
+    - Tutorial
+---
+
 # Community Content in CORE
 
 !!! warning
@@ -68,6 +74,6 @@ Another way to speed ahead the creation of your project is to **start with an en
 
 Some games published on the CORE website allow other users to download them, enabling you to move things around and change the game however you would like.
 
-To download a game by somebody else and add your own personal flair, go to the CREATE menu of the CORE editor. When you cick create, you will have the option to select a base game type from **CORE Games**, or select **Community Games** to see what games other users have published as public for the world to modify.  
+To download a game by somebody else and add your own personal flair, go to the CREATE menu of the CORE editor. When you cick create, you will have the option to select a base game type from **CORE Games**, or select **Community Games** to see what games other users have published as public for the world to modify.
 
 Pick a game by clicking it, give it a new project name, click download, and you're ready to go!

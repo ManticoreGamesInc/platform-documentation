@@ -1,3 +1,9 @@
+---
+name: Abilities in CORE
+categories:
+    - Tutorial
+---
+
 # Abilities in CORE
 
 ## Overview

@@ -1,3 +1,9 @@
+---
+name: SpellShock
+categories:
+    - Tutorial
+---
+
 # SpellShock
 
 !!! warning

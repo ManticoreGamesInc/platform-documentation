@@ -1,3 +1,9 @@
+---
+name: Lua Reference
+categories:
+    - Reference
+---
+
 # Lua in CORE
 
 !!! warning
