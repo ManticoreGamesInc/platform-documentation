@@ -90,11 +90,11 @@ So, let's make magic!
 
 ### Setting up the Basics
 
-To begin, let's set up the look of the fire staff and create our weapon object. Open the project your wish to use, or an empty project.
+To begin, let's set up the look of the fire staff and create our weapon object. Open the project you wish to use, or an empty project.
 
 1. Create an empty `weapon` object by dragging one into your Hierarchy from the Gameplay Objects section of CORE Content.
 
-2. Just like in the first weapon tutorial, we are going to create a Client Content folder within the weapon to hold the model of the staff.  
+2. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.  
 
      1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.  
 
@@ -109,23 +109,22 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 2. Change the name of the ability to "FireBombAttackAbility".
 
-3. Change the animation string to "2hand_staff_magic_bolt" so that it looks better when firing.
+3. We're going to change the animations first, as this is the most dramatic visual change to make firing look correct.  
 
-4. On the AttackAbility that already exists on the weapon, change the animation string to "2hand_staff_magic_bolt" as well.
+    1. Change the animation string to "2hand_staff_magic_bolt" so that it looks better when firing.
 
-5. On the ReloadAbility, change the animation string to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the gods to be rejuvinated. 
+    2. On the AttackAbility that already exists on the weapon, change the animation string to "2hand_staff_magic_bolt" as well.
+
+    3. On the ReloadAbility, change the animation string to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the gods to be rejuvinated. 
 
 6. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff.
 
-Tung's advanced weapons use a different camera setup, can zoom in on right click, spread to damage, and has an auto reload. Overall it feels better to use, but it's super subtle.
-
-Tung's basic weapons don't auto reload because they have infinite ammo, and don't do any sort of fancy things. They are so dang bare minimum, my tutorial goes a bit fancier by explaining reload.
 
 ### Create Camera Feedback
 
 We're going to add the ability to focus zoom with right click for better aiming!
 
-1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables wthat can be easily changed without having to open the code once it's been written!
+1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written!
 
      1. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
 
@@ -143,11 +142,74 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
          ```lua
          local WEAPON = script:FindAncestorByType('Weapon')
-         ```
+         ```  
 
-So to model after Tung's advanced systems, the fire staff should change camera setup, have a damage spread, and require gaining more ammo as a pickup to explain how that works.
+     2. To protect ourselves from putting this script in the wrong place, we can add an error check into the script. Beneath the above line, add:  
 
-This means the advanced tutorial is more about how to modify the camera, how ammo pickups work, and how to make damage spread happen. This can get the user thinking more about ways they can add to and modify the system.
+         ```lua
+         if not WEAPON:IsA('Weapon') then
+             error(script.name .. " should be part of Weapon object hierarchy.")
+         end
+         ```  
+
+         This will check if the parent of this script is a `weapon`, based on the line we wrote above first! If it is not, it will give us the error message.
+
+     3. Next we need to create references to those custom properties we made earlier on the weapon. To do this, add the code below to your script:  
+
+         ```lua
+         local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
+         local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
+         local ZOOM_DISTANCE = WEAPON:GetCustomProperty("AimZoomDistance")
+         ```  
+
+         Just like with the `WEAPON` variable, these variables are in all-capitals. This is because they are constants--meaning they will never change while the script is running.
+
+     4. Now we need empty variables for use in future functions, so beneath the above variables, add this:  
+
+         ```lua
+         local pressedHandle = nil
+         local releasedHandle = nil
+         local playerDieHandle = nil
+         ```  
+
+     5. Lastly for variables is creating values to hold the camera settings. Copy or type the text below into your script, below everything else so far:  
+
+         ```lua
+         local cameraResetDistance = 0
+         local cameraTargetDistance = 0
+         local lerpTime = 0
+         local activeCamera = nil
+         ```  
+
+     Now we have our variables set up! Next is getting into creating the functions that use these variables.  
+
+4. To get a better understanding of what we're going to be making, let's set up the `Tick()` function.  
+
+     The `Tick()` function happens constantly while the game runs, creating a loop of time flowing. The parameter `deltaTime` within it is the difference in seconds between this tick and the last tick.  
+
+     1. First, we don't want the script to do anything unless we are actively aiming, so we need a line that breaks out of the `Tick` loop.  
+
+         After that line, we use another `if` statement to determine if the weapon already had an owner, and if not, then it runs the `OnEquipped` function to set up the weapon camera's ownership to the player that equipped it.  
+
+         Lastly, to stay smooth in movement, we use the function `LerpCameraDistance(deltaTime)` to smoothly move the camera to a new position.  
+
+         All of this together reads like this:  
+
+         ```lua
+         function Tick(deltaTime)
+             if not CAN_AIM then return end
+
+             -- Setup the new weapon camera owner
+             if WEAPON and WEAPON.owner and activeCamera == nil then
+                 OnEquipped(WEAPON, WEAPON.owner)
+             end
+
+             -- Smoothly lerps the camera distance when player aims
+             LerpCameraDistance(deltaTime)
+         end
+         ``` 
+
+
 
 ### Critical Hit
 
