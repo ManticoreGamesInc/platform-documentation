@@ -1,51 +1,107 @@
 # Icons in CORE
 
-Icons are used to visually represent information, here's a full list of the icons contained within CORE:
+Icons are used to visually represent information, here's a full (that's a lie) list of the icons contained within CORE:
 
-![Audio Asset](../../img/EditorManual/icons/image15.png "Audio Asset") Audio Asset
-{: .image-inline-text}
+## Asset Types
 
-![Decal](../../img/EditorManual/icons/image12.png "Decal") Decal
-{: .image-inline-text}
+![Audio Asset](../../img/EditorManual/icons/HierarchyIcon_Audio.png "Audio Asset") Audio Asset
+{: .image-inline-text .image-background}
 
-![Folder (Hierarchy specific)](../../img/EditorManual/icons/image11.png "Folder (Hierarchy specific)") Folder (Hierarchy specific)
-{: .image-inline-text}
+![Decal](../../img/EditorManual/icons/HierarchyIcon_Decal.png "Decal") Decal
+{: .image-inline-text .image-background}
 
-![Group](../../img/EditorManual/icons/image8.png "Group") Group
-{: .image-inline-text}
+![Folder (Hierarchy specific)](../../img/EditorManual/icons/HierarchyIcon_Folder.png "Folder (Hierarchy specific)") Folder (Hierarchy specific)
+{: .image-inline-text .image-background}
 
-![Material](../../img/EditorManual/icons/image5.png "Material") Material
-{: .image-inline-text}
+![Group](../../img/EditorManual/icons/HierarchyIcon_Group.png "Group") Group
+{: .image-inline-text .image-background}
 
-![Script](../../img/EditorManual/icons/image16.png "Script") Script
-{: .image-inline-text}
+![Material](../../img/EditorManual/icons/HierarchyIcon_Material.png "Material") Material
+{: .image-inline-text .image-background}
 
-![Single object](../../img/EditorManual/icons/image1.png "Single Object") Single Object
-{: .image-inline-text}
+![Script](../../img/EditorManual/icons/HierarchyIcon_Text.png "Script") Script
+{: .image-inline-text .image-background}
 
-![Smart object](../../img/EditorManual/icons/image4.png "Smart Object") Smart Object
-{: .image-inline-text}
+![Single object](../../img/EditorManual/icons/HierarchyIcon_ParameterizedMeshCube.png "Single Object") Single Object
+{: .image-inline-text .image-background}
 
-![Terrain](../../img/EditorManual/icons/image14.png "Terrain") Terrain
-{: .image-inline-text}
+![Terrain](../../img/EditorManual/icons/HierarchyIcon_Terrain.png "Terrain") Terrain
+{: .image-inline-text .image-background}
 
-![UI asset](../../img/EditorManual/icons/image6.png "UI Asset") UI Asset
-{: .image-inline-text}
+![VFX](../../img/EditorManual/icons/HierarchyIcon_VFX.png "VFX") VFX
+{: .image-inline-text .image-background}
 
-![VFX with Lua Support](../../img/EditorManual/icons/image7.png "VFX with Lua Support") VFX with Lua Support
-{: .image-inline-text}
+### UI
 
-![ Hidden Asset (Hierarchy specific)](../../img/EditorManual/icons/image10.png "Hidden Asset (Hierarchy specific)") Hidden Asset (Hierarchy specific)
-{: .image-inline-text}
+![UI Template](../../img/EditorManual/icons/HierarchyIcon_UITemplate.png "UI Template") UI Template
+{: .image-inline-text .image-background}
 
-![Unpublished Template (Asset Manifest specific)](../../img/EditorManual/icons/image2.png "Unpublished Template (Asset Manifest specific)") Unpublished Template (Asset Manifest specific)
-{: .image-inline-text}
+![UI Elements](../../img/EditorManual/icons/HierarchyIcon_UIElements.png "UI Elements") UI Elements
+{: .image-inline-text .image-background}
 
-![Deinstanced group, all blue icons represent assets that are part of a deinstanced template](../../img/EditorManual/icons/image3.png "Deinstanced group, all blue icons represent assets that are part of a deinstanced template") Deinstanced group, all blue icons represent assets that are part of a deinstanced template
-{: .image-inline-text}
+![UI Canvas](../../img/EditorManual/icons/HierarchyIcon_UICanvas.png "UI Canvas") UI Canvas
+{: .image-inline-text .image-background}
 
-![Templated group, all green icons represent assets that are part of a template](../../img/EditorManual/icons/image9.png "Templated group, all green icons represent assets that are part of a template") Templated group, all green icons represent assets that are part of a template
-{: .image-inline-text}
+![UI Widget](../../img/EditorManual/icons/HierarchyIcon_UIWidget.png "UI Widget") UI Widget
+{: .image-inline-text .image-background}
 
-![Published template (Asset Manifest specific)](../../img/EditorManual/icons/image13.png "Published template (Asset Manifest specific)") Published Template (Asset Manifest specific)
-{: .image-inline-text}
+![UI Panel](../../img/EditorManual/icons/HierarchyIcon_UIPanel.png "UI Panel") UI Panel
+{: .image-inline-text .image-background}
+
+![UI Button](../../img/EditorManual/icons/HierarchyIcon_UIButton.png "UI Button") UI Button
+{: .image-inline-text .image-background}
+
+![UI ProgressBar](../../img/EditorManual/icons/HierarchyIcon_UIProgressBar.png "UI ProgressBar") UI ProgressBar
+{: .image-inline-text .image-background}
+
+![UI Toggle](../../img/EditorManual/icons/HierarchyIcon_UIToggle.png "UI Toggle") UI Toggle
+{: .image-inline-text .image-background}
+
+![UI Image](../../img/EditorManual/icons/HierarchyIcon_UIImage.png "UI Image") UI Image
+{: .image-inline-text .image-background}
+
+![UI ComboBox](../../img/EditorManual/icons/HierarchyIcon_UIComboBox.png "UI ComboBox") UI ComboBox
+{: .image-inline-text .image-background}
+
+![UI Grid](../../img/EditorManual/icons/HierarchyIcon_UIGrid.png "UI Grid") UI Grid
+{: .image-inline-text .image-background}
+
+![UI ScrollPanel](../../img/EditorManual/icons/HierarchyIcon_UIScrollPanel.png "UI ScrollPanel") UI ScrollPanel
+{: .image-inline-text .image-background}
+
+![UI Text](../../img/EditorManual/icons/HierarchyIcon_UIText.png "UI Text") UI Text
+{: .image-inline-text .image-background}
+
+### Folder States
+
+![Disconnected](../../img/EditorManual/icons/HierarchyIcon_DisconnectedFolder.png "Disconnected") Disconnected
+{: .image-inline-text .image-background}
+
+![Local](../../img/EditorManual/icons/HierarchyIcon_LocalFolder.png "Local") Local
+{: .image-inline-text .image-background}
+
+![Group](../../img/EditorManual/icons/HierarchyIcon_Group.png "Group") Group
+{: .image-inline-text .image-background}
+
+![Server](../../img/EditorManual/icons/HierarchyIcon_ServerFolder.png "Server") Server
+{: .image-inline-text .image-background}
+
+![Find](../../img/EditorManual/icons/HierarchyIcon_FindFolder.png "Find") Find
+{: .image-inline-text .image-background}
+
+![RuntimeStatic](../../img/EditorManual/icons/HierarchyIcon_RuntimeStaticFolder.png "Runtime Static") Runtime Static
+{: .image-inline-text .image-background}
+
+All states are also color coded:
+
+- **Locked or Disabled**{: style="color: var(--core-color-locked)"}
+
+- **Templetized**{: style="color: var(--core-color-templetized)"}
+
+- **Deinstanced**{: style="color: var(--core-color-deinstanced)"}
+
+- **Published**{: style="color: var(--core-color-published)"}
+
+- **Update Pending**{: style="color: var(--core-color-update-pending)"}
+
+- **Error State**{: style="color: var(--core-color-error-state)"}
