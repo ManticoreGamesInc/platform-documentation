@@ -1,3 +1,9 @@
+---
+name: Scene Creation in CORE
+categories:
+    - Reference
+---
+
 # Scene Creation in CORE
 
 !!! warning

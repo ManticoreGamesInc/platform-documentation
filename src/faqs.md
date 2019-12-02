@@ -1,3 +1,9 @@
+---
+name: FAQs
+categories:
+    - Misc
+---
+
 # Frequently Asked Questions
 
 !!! warning
