@@ -2,7 +2,7 @@
 name: Welcome to CORE
 categories:
     - Reference
-hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
+#hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
 ---
 
 # Create Amazing Games in CORE
