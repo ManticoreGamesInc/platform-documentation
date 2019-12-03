@@ -10,7 +10,7 @@ nav:
       - Sharing Content: getting_started/community_content.md
   - Community:
       - Discord: https://discord.gg/85k8A7V
-      - ManticoreTV: https://www.facebook.com/groups/playcoregames
+      - ManticoreTV: manticoretv.md
       - Events: news/events/alpha_launch.md
       - Showcase: news/showcase/showcase.md
   - CORE API:
