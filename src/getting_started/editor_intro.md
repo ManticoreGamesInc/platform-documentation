@@ -109,50 +109,6 @@ The Event Log is a way to quickly view the results of your code, any script can 
 
 ![Event Log](../../img/EditorManual/event_log.png "Event Log"){: .center}
 
-### UI Editor
-
-The UI Editor includes content that you can use to create graphical user interfaces for your games. Remember that to view UI elements in your game, they must be children of a Canvas within the hierarchy.
-
-To learn more about UI, checkout our [UI guide](../tutorials/gameplay/ui_reference.md).
-
-![UI Editor](../../img/EditorManual/ui_editor.png "UI Editor"){: .center}
-
-### Performance
-
-The Performance view includes valuable insights on how your game is running. Use this view to identify where your game can be improved!
-
-![Performance](../../img/EditorManual/performance.png "Performance"){: .center}
-
-### History
-
-The History view records every action you make within the editor. For example, I added a folder into the hierarchy and then deleted it. You can double-click on different revision to restore Core to that state. Control+Z can also undo changes within the editor.
-
-![History](../../img/EditorManual/history.png "History"){: .center}
-
-### Object Generator
-
-The Object Generator can be used to place many objects of a certain kind over a wide area! For more details on how to use this tool, visit our page HERE.
-
-![Object Generator](../../img/EditorManual/object_generator.png "Object Generator"){: .center}
-
-### Script Checker
-
-TODO
-
-![Script Checker](../../img/EditorManual/script_checker.png "Script Checker"){: .center}
-
-### Script Debugger
-
-TODO
-
-![Script Debugger](../../img/EditorManual/script_debugger.png "Script Debugger"){: .center}
-
-### Script Generator
-
-TODO
-
-![Script Generator](../../img/EditorManual/script_generator.png "Script Generator"){: .center}
-
 ## Summary
 
 Here are a few links to get you started on certain areas in CORE:
