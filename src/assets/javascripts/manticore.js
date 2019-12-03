@@ -18,6 +18,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         el.replaceWith(iframe);
     });
+
+    var elementsLive = document.querySelectorAll('img[alt="YOUTUBELIVE"]');
+
+    Array.prototype.forEach.call(elementsLive, function(el, i){
+        var id = el.getAttribute('src').split('/')[el.getAttribute('src').split('/').length - 1];
+        var old_class = el.getAttribute('class');
+        var iframe = document.createElement('iframe');
+
+        iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + id + '?modestbranding=1&amp;'
+
+        if (old_class != 'null') {
+            iframe.className = 'youtube-video ' + old_class
+        } else {
+            iframe.className = 'youtube-video'
+        }
+
+        el.replaceWith(iframe);
+    });
 })
 
 !function() {
