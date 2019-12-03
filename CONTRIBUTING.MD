@@ -161,7 +161,7 @@ up the history, and simply allow upstream commits for builds.
 
 2. Download and install [Git](https://git-scm.com/).
 
-3. Create a new [Gitlab](https://gitlab.com/) account associated with your Manticore e-mail.
+3. Create a new [GitLab](https://gitlab.com/) account associated with your Manticore e-mail.
 
 4. Clone the repositiory
     - Open the command prompt.
@@ -194,7 +194,6 @@ Any new session, you make need to start up a server again with `mkdocs serve` af
 
 For now drop them in the `img/` folder and reference them via links as expected
 (examples present throughout). Use folder names that represent the page the pictures are going to be embedded on.
-Optimization will likely be handled by the host (Netlify).
 
 ##### Size
 
@@ -204,9 +203,11 @@ Please convert your GIFs into videos.
 `ffmpeg -i input.gif -b:v 0 -crf 25 output.mp4`
 
 ```html
-<video autoplay loop muted playsinline>
-<source src="cat.mp4" type="video/mp4">
-</video>
+<div class="mt-video">
+    <video autoplay loop muted playsinline>
+        <source src="cat.mp4" type="video/mp4">
+    </video>
+</div>
 ```
 
 ### Videos
@@ -224,7 +225,7 @@ To encourage consistent styling, here are CORE tutorial styling and writing guid
 ### Tutorial, Background Info
 
 - Tutorial Prerequisites
-- Topic Tag
+- Topic Category
 - Estimated Time for Completion
 - Difficulty Level
 
@@ -234,9 +235,9 @@ To encourage consistent styling, here are CORE tutorial styling and writing guid
 - Link to any recommended basic tutorials
 - If applicable, link to other tutorials in the series
 
-### Topic Tag(s)
+### Topic Category(s)
 
-|Topic Tag | Example Tutorial|
+|Topic Category | Example Tutorial|
 |---|---|
 | Game Creation | First Platformer, First FPS
 | Scripting | Intro to Lua, Coding Best Practices
@@ -247,6 +248,18 @@ To encourage consistent styling, here are CORE tutorial styling and writing guid
 | Terrain | Basic Terrain, Import Height Maps
 | Weapon | Intro to Melee Weapons, Intro to Guns
 | Ability | How to Sprint, How to Cast a Magic Spell
+
+Topic Categories are added at the top of every file in this format:
+
+```yaml
+---
+name: Costumes in CORE
+categories:
+    - Reference
+---
+```
+
+`name` is mandatory, `categories` are optional. If you add categories to a file, they will be listed on the [sitemap](generated/sitemap.md). (once Ben automates that)
 
 ### Estimated Time for Completion
 
