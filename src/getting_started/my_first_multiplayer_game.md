@@ -23,23 +23,21 @@ Welcome to CORE! We're excited to have you in Closed Alpha and can't wait to see
     * Community Content
     * Publishing
 
-
 ## Create a New Game
 
 To get started, we're going to create a new project.
 
 1. Click on `Create New`.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/CreateNew.png)
+    ![Create New](../img/EditorManual/MyFirstMultiplayer/CreateNew.png){: .center}
 
 2. Select the `Deathmatch` framework!
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/Deathmatch.png)
+    ![Deathmatch](../img/EditorManual/MyFirstMultiplayer/Deathmatch.png){: .center}
 
 3. Name your project `MyFirstMultiplayerGame` or whatever you like! Then, click Create.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/MyFirstMultiplayerGame.png)
-
+    ![Name](../img/EditorManual/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center}
 
 ### Explore the Map
 
@@ -47,49 +45,49 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
 1. Behold the magnificence of this whiteboxed, free-for-all game framework! Let's jump in by pressing Play.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/WhiteboxMapMarked.png)
+    ![Whitebox](../img/EditorManual/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center}
 
-2. Out of the box, you have a character who can move and jump! Explore the map by moving your character with the `WASD` keys and jumping with `Space`. Shoot the default gun with your left mouse click and interact with the door with `F`.
+2. Out of the box, you have a character who can move and jump! Explore the map by moving your character with the <kbd>WASD</kbd> keys and jumping with <kbd>Space</kbd>. Shoot the default gun with your left mouse click and interact with the door with <kbd>F</kbd>.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/PlayMode.png)
+    ![PlayMode](../img/EditorManual/MyFirstMultiplayer/PlayMode.png){: .center}
 
 3. But we're all by ourselves. 😞 That's no fun, so let's test out the multiplayer experience by simulating two clients! Near the pause button, click on the `Multiplayer Preview Mode` button and select 2 Players.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/TwoPlayers.png)
+    ![TwoPlayers](../img/EditorManual/MyFirstMultiplayer/TwoPlayers.png){: .center}
 
 4. Let's press Play again! Two clients will launch now. You control whichever character is in your current active window.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/MultiplayerPreviewPlay.png)
+    ![MPPreview](../img/EditorManual/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
-    !!! Note
-        Note that you can use `Alt + Enter` to toggle between fullscreen and windowed mode if you're using Windows. You can also use `WindowsKey + Arrow Key` to dock the screens side by side like above!
+    !!! note
+    Note that you can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
 
-## Make It Your Own!
+## Make It Your Own
 
 So we've got a whitebox map now, and that's great and important in testing design! Let's customize the map now and make it our own.
 
-1.  Navigate to the "CORE Content" window. You have access to this amazing, massive library of 3D assets for your game creation in CORE!
+1. Navigate to the "CORE Content" window. You have access to this amazing, massive library of 3D assets for your game creation in CORE!
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/AddPropsMarked.png)
+    ![Add Props](../img/EditorManual/MyFirstMultiplayer/AddPropsMarked.png){: .center}
 
-    !!! Note
+    !!! note
         If you can't find the "CORE Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
 
 2. Click on "3D Objects" and then drag and drop props into the editor viewport! In this example, we're going to place some bushes.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/DragDropBushes.gif)
+    ![DragDrop](../img/EditorManual/MyFirstMultiplayer/DragDropBushes.gif)
 
 3. You can move, rotate, and scale all these objects! `W` activates Translation Mode to move objects; `E` activates Rotation mode; and `R` activates Scale Mode to resize objects. Let's try click on an arrow and dragging an object along an axis.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/MoveBushes.gif)
+    ![Move](../img/EditorManual/MyFirstMultiplayer/MoveBushes.gif)
 
 4. Press Play. Currently, if you try to move through a bush, you'll be stopped once you collide with the object.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/StuckInBushes.png)
+    ![Stuck](../img/EditorManual/MyFirstMultiplayer/StuckInBushes.png){: .center}
 
 5. Bushes are great as environmental props to hide players, but it'd be great to let players push past them to surprise enemies in this game! Let's click on a Bush and check out the Properties window. By default, this Bush is "Collideable" but with a simple click on the checkmarked box, we can turn that off.
 
-    ![](../../img/EditorManual/MyFirstMultiplayer/NoCollisonBush.gif)
+    ![Collison](../img/EditorManual/MyFirstMultiplayer/NoCollisonBush.gif)
 
     !!! Note
         If you can't find the "Properties" window or accidentally close it, you can reopen the window by going to View > Properties in the toolbar at the top of the editor.
@@ -103,7 +101,7 @@ So we've got a whitebox map now, and that's great and important in testing desig
 3. Drag and drop a material onto the whitebox floor.
 
     ??? How do I make my own material?
-        If you want to learn more about customizing materials, check out our [Custom Material tutorial](../../tutorials/art/custom_materials.md).
+        If you want to learn more about customizing materials, check out our [Custom Material tutorial](../tutorials/art/custom_materials.md).
 
 4. Add a Sky
 
@@ -123,7 +121,7 @@ So we've got a whitebox map now, and that's great and important in testing desig
 5. Let's move the spawn points. Press `V` to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
 
     !!! Did You Know?
-        With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](hi-folks)!
+        With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](../editor_keybindings.md)!
 
 ### Choose Your Weapon! from Community Content
 
@@ -139,7 +137,7 @@ So we've got a whitebox map now, and that's great and important in testing desig
         A custom property is an exposed blah blah blah.
 
     ??? How do I make my own weapon?
-        If you want to learn more about customizing materials, check out our [Basic Weapons Tutorial](../../tutorials/gameplay/weapons.md).
+        If you want to learn more about customizing materials, check out our [Basic Weapons Tutorial](../tutorials/gameplay/weapons.md).
 
 ### Publishing Your Game
 
@@ -153,9 +151,8 @@ Engage with community in #playtest in Discord
 Encourage to post a screenshot of character/map/playtest in #showcase in Discord.
 You're doing amazing!! Supportive encouragement here.
 
-
 Check out these tutorials:
 
-- Intro to Enviro Art (Terrain)  
-- Weapons (Gun)    
-- Abilities (Dodgeroll)   
+* Intro to Enviro Art (Terrain)
+* Weapons (Gun)
+* Abilities (Dodgeroll)
