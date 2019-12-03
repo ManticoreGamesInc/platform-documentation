@@ -9,9 +9,9 @@ nav:
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
   - Community:
-      - Discord: https://discord.gg/85k8A7V
+      - Discord: discord.md
       - ManticoreTV: manticoretv.md
-      - Events: news/events/alpha_launch.md
+      - Special Events: news/events/alpha_launch.md
       - Showcase: news/showcase/showcase.md
   - CORE API:
       - API Overview: core_api.md
