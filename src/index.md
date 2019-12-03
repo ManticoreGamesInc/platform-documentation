@@ -4,37 +4,77 @@ categories:
     - Reference
 ---
 
-# Welcome to CORE
-
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
+# Create Amazing Games in CORE
 
 Welcome to the official documentation of CORE&trade;, the community-focused game creation tool!
 
-This page aims at giving a broad presentation of the engine and of the contents of this
-documentation.
+CORE is a new game creation platform by [Manticore Games](https://www.manticoregames.com) that allows anyone to create, share, and play high quality online games.
+
+![IntroHeader](img/index_head.png "Intro")
+_Start Here: [Create your first game](getting_started/my_first_multiplayer_game.md)_
+{: .image-cluster .hero-image}
+
+<div class="figure-block">
+    <figure>
+        <a href="tutorials/gameplay/weapon" title="Weapons">
+            <img src="img/EditorManual/Weapons/holdingWeaponNew.png" alt="Build a Weapon"/>
+            <figcaption><em>Build a Weapon</em></figcaption>
+        </a>
+    </figure>
+    <figure>
+        <a href="tutorials/art/environ_art_intro/" title="Environmental Art">
+            <img src="img/EnvironIntro/image45.png" alt="Craft an Environment"/>
+            <figcaption><em>Craft an Environment</em></figcaption>
+        </a>
+    </figure>
+    <figure>
+        <a href="tutorials/art/environ_art_intro/" title="Abilities">
+            <img src="img/EditorManual/Abilities/FullProcess.gif" alt="Create an Ability"/>
+            <figcaption><em>Create an Ability</em></figcaption>
+        </a>
+    </figure>
+</div>
 
 ## About CORE
 
-This is the official documentation for CORE, the game editor built by [Manticore].
+CORE is a one-stop shop with everything you need to create and publish high quality games. Creators of all skill levels can use CORE to make something both beautiful and fun.
 
-A game engine is a complex tool, and it is therefore difficult to present CORE in a few words. There
-are however a few things that set us apart:
+CORE combines professional-grade tools with a radically accessible interface. These include:
 
-- **AAA quality on an accessible level.**  For creators this means you can make amazing content at
-  rapid speed, and for players it means a wealth of great games at their fingertips.
-- **Built-in multiplayer.** This saves creators tons of time and allows for a great interactive
-  experience for players.
-- **Social gaming.** Shared, communal content for creators and users alike means everyone is
-  involved in the latest and greatest games.
-- **Mutually aligned interests.** Manticore is committed to empowering creators and helping players,
-  so everyone is here to participate in something truly amazing.
+- **Built-in multiplayer**: share and play with friends anywhere in the world
+- **One-click publishing**: launch your game with the push of a button
+- **Community content**: Bolster your creation with objects, scripts, and even entire games shared by other creators
+- **Every tool you need**: VFX, audio, materials, textures, skyboxes, terrain sculpting, heightmaps, scripting, UI,  you name it
 
-In essence, we are doing our best to _make game creation as enjoyable as possible_.
+![Art Example Town](img/index_screenshot_1.png "Art Example Town")
+![Art Example Sea](img/index_screenshot_2.png "Art Example Sea")
+{: .image-cluster}
 
-For details regarding the engine, you are encouraged to read this documentation further, especially
-the **Getting Started** section. Alternatively, check out the list of topics to the left to get started.
+## About the Alpha
+
+**CORE is in Closed Alpha**, which means it is only available to a select group of creators. If you’re reading this, you’re one of them!
+
+As one of the first to make games in CORE, you are an explorer in uncharted territory. There will be surprises, there will be changes, and there will be bugs of unusual size. The goal of this journey is to provide feedback that pushes CORE to be as great as it can be.
+
+Most importantly, we’re all here to **make games and community content that future players will love**.
+
+Some things to keep in mind:
+
+- There will be bugs - help us find them!.
+- [Join the community](https://discord.gg/85k8A7V) and help us shape the product in real time.
+- [Share your feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform) with us often. No detail or thought is too small!
+
+In addition, while we will work hard to avoid them, please keep in mind the following possibilities:
+
+- We may need to bring the servers down
+- Assets may change
+- We may need to wipe content during Alpha
+
+## The CORE Alpha is Confidential
+
+**Everything you see in CORE, in this documentation, and in the games CORE creates is strictly confidential.**
+
+We’re excited to share these very early stages of CORE with you. We ask that you respect confidentiality so that we can be as transparent as possible with the community.
 
 ## About the Documentation
 
@@ -64,7 +104,6 @@ using the open source [MkDocs] tool, and host the site using [Netlify].
 
 Have fun reading and making games with CORE!
 
-[Manticore]: https://www.manticoregames.com/
 [Markdown]:https://daringfireball.net/projects/markdown/syntax
 [MkDocs]: https://www.mkdocs.org/
 [Netlify]: https://www.netlify.com
