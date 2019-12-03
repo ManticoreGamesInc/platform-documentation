@@ -5,6 +5,6 @@ categories:
 ---
 
 
-# Announcements
+# News
 
 Alpha is here, yay!
