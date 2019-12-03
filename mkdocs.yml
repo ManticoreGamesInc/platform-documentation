@@ -6,7 +6,7 @@ nav:
   - News: news/news.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
-      - Create your first Game: getting_started/spellshock.md
+      - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
   - Community:
       - Discord: https://discord.gg/85k8A7V
@@ -25,7 +25,6 @@ nav:
           - Weapons: tutorials/gameplay/weapons.md
           - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
           - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
-          - My First Multiplayer Game: tutorials/gameplay/my_first_multiplayer_game.md
           - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
       - Art:
           - Art in CORE: tutorials/art/art_reference.md
