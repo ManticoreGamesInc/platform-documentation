@@ -1,16 +1,16 @@
 # Discord
 
-![YOUTUBE](hHW1oY26kxQ){: .center}
+This Creator Discord is a place for the community to have a place to share their CORE creations, learn from each other, and hang out.
+We can't wait to see what you create!
 
-## Stuff
+Here on the Creators Discord, you can...
 
-While building CORE, we discovered the true magical moments happen when you're creating with friends. Swapping tricks, trading ideas, and throwing "what-if's" around like improv game design.
+- Join us for community events and share your CORE creations.
+- Hangout and make new friends as you playtest together.
+- Learn and get help in our support channels, such as `#lua-help`  and `#editor-help`.
 
-We want everyone to experience that magic, so we created ManticoreTV. Join us and the CORE community in collaborative build-a-thons, interactive tutorials, live playtests, and more.
+<div id="discord-embed">
+    <iframe src="https://discordapp.com/widget?id=547553459562610698&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0"></iframe>
+</div>
 
-### Where can I watch ManticoreTV
-
-- [Facebook](https://www.facebook.com/groups/playcoregames)
-- [YouTube](TODO: LINK)
-
-### Upcoming Schedule
+:fab fa-discord: [Join us now!](https://discord.gg/85k8A7V)
