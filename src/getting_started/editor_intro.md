@@ -71,17 +71,17 @@ TODO
 
 Within the CORE content tab you can select an asset type from the drop down menu, then press the "+" icon to expand the different categories within that type. These categories include all assets provided by CORE.
 
-<div class="video" style="width: 50%; margin-left: auto; margin-right:auto;">
-<video autoplay loop muted playsinline style="max-width: 720px">
-    <source src="../../img/EditorManual/core_content.mp4" type="video/mp4">
-</video>
+<div class="mt-video">
+    <video autoplay loop muted playsinline>
+        <source src="../../img/EditorManual/core_content.mp4" type="video/mp4">
+    </video>
 </div>
 
 #### Community Content
 
 To access assets created by other creators, open the "Community Content" view. You can browse content based on a variety of search criteria. These shareable content items are called "templates" and may include scripts, visuals, or even complete games.
 
-![CommunityContent](../../img/EditorManual/community_content.png "Community Content"){: .center}
+![CommunityContent](../img/EditorManual/community_content.png "Community Content"){: .center}
 
 To learn more about templates, including how to make your own to share, checkout our [template guide](../tutorials/gameplay/collaboration_reference.md).
 
@@ -89,11 +89,11 @@ To learn more about templates, including how to make your own to share, checkout
 
 The Hierarchy view includes all of the objects in your game. If you add an object, for example a Trigger, it will appear here.
 
-![Hierarchy](../../img/EditorManual/hierarchy.png "Hierarchy"){: .center}
+![Hierarchy](../img/EditorManual/hierarchy.png "Hierarchy"){: .center}
 
 You can parent objects by dragging them onto each other. See the example below where we make the “Child” object into a child of the “Parent” object.
 
-![Hierarchy Child](../../img/EditorManual/hierarchy_child.gif "Hierarchy Child"){: .center}
+![Hierarchy Child](../img/EditorManual/hierarchy_child.gif "Hierarchy Child"){: .center}
 
 When an object is a child of another, it will be affected by its parent’s position, scale, and visibility. See how in the example the child is automatically hidden when we choose to hide the parent.
 
@@ -101,13 +101,13 @@ When an object is a child of another, it will be affected by its parent’s posi
 
 The Properties window is where all the details of a selected object can be found, and changed. Things like world position and visibility can be altered here.
 
-![Properties](../../img/EditorManual/properties.png "Properties"){: .center}
+![Properties](../img/EditorManual/properties.png "Properties"){: .center}
 
 ### Event Log
 
 The Event Log is a way to quickly view the results of your code, any script can call the `print()` function to output text directly to this view!
 
-![Event Log](../../img/EditorManual/event_log.png "Event Log"){: .center}
+![Event Log](../img/EditorManual/event_log.png "Event Log"){: .center}
 
 ## Summary
 
