@@ -2,6 +2,7 @@
 name: Welcome to CORE
 categories:
     - Reference
+hero: Test THIS IS A TEST
 ---
 
 # Create Amazing Games in CORE
