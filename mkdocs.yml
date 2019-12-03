@@ -72,7 +72,7 @@ extra_javascript:
 
 # Additional data
 extra:
-  disqus: core-creator-hub
+  #disqus: core-creator-hub
   social:
     - type: "discord"
       link: "https://discord.gg/85k8A7V"
