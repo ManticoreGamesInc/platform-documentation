@@ -25,6 +25,7 @@ nav:
           - Weapons: tutorials/gameplay/weapons.md
           - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
           - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
+          - My First Multiplayer Game: tutorials/gameplay/my_first_multiplayer_game.md
           - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
       - Art:
           - Art in CORE: tutorials/art/art_reference.md
