@@ -10,6 +10,11 @@ categories:
     Flagged for Review.
     Incomplete or outdated information may be present.
 
+    TODO:
+
+    - Updates images
+    - Provide example / base weapon model
+
 ## Overview
 
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a magical tomato grenade.
