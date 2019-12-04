@@ -25,6 +25,7 @@ An introduction to the basics of placing and remixing objects.
 ![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
 
 ## Tutorial
+This tutorial will cover how to place and move images in a scene as well as how to customize objects to your liking. Share your decorated room on our Discord's #showcase channel!
 
 ### Downloading the Template
 
