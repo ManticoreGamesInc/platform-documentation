@@ -17,8 +17,8 @@ Learning modelling basics in CORE by making delicious food.
 * **Completion time:** ~20 minutes (TODO)
 * **Knowledge level:** How to use the transform widget, how to change materials (TODO)
 * **Skills you will learn:**
-    * Using a reference image
-    * Using decals
+  * Using a reference image
+  * Using decals
 
 ![ModelingBasics](../../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center}
 
@@ -31,7 +31,7 @@ This tutorial will show you how easy it is to create realistic in-game objects w
 Almost every artist uses reference images when recreating something. It is hard to remember every single thing about an object; using a reference image will allow you to see small details you would otherwise forget.
 
 ![ModelingBasics](../../img/ModelingBasics/image5.png "Modeling Screenshot"){: .center}
-_Google is your friend. Searching "**Pancakes**" has given us more than enough reference images!_
+*Google is your friend. Searching "**Pancakes**" has given us more than enough reference images!*
 {: .image-cluster}
 
 ### Makin' pancakes
@@ -44,13 +44,13 @@ The key to creating 3D models is to see the basic shapes in your reference image
 
 Plates are a very straightforward shape. This is a cylinder scaled down.
 
-!!! info "CORE Tip: Use <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd> to toggle between _Move_, _Rotate_, and _Scale_ respectively when using the transform widget."
+!!! info "CORE Tip: Use <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd> to toggle between *Move*, *Rotate*, and *Scale* respectively when using the transform widget."
 
 ![ModelingBasics](../../img/ModelingBasics/image2.png "Modeling Screenshot"){: .center}
 
 Most plates have a lip or edge that runs around them. These small details make the object look more realistic. I used "**Ring Beveled**" and scaled it down until it looked right.
 
-!!! info "CORE Tip: Use _Snap to Grid_ (<kbd>G</kbd>) to place approximately in your scene. Turn off _Snap to Grid_ to fine tune their placement."
+!!! info "CORE Tip: Use *Snap to Grid* (<kbd>G</kbd>) to place approximately in your scene. Turn off *Snap to Grid* to fine tune their placement."
 
 ![ModelingBasics](../../img/ModelingBasics/image10.png "Modeling Screenshot"){: .center}
 

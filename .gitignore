@@ -4,6 +4,6 @@
 .vscode/
 .markdownlint.json
 src/assets/test.lua
-
+node_modules
 # Local Netlify folder
 .netlify
