@@ -19,7 +19,7 @@ creators on the platform - speeding up game development & the spread of ideas mo
 
 With that in mind, here's how to best use it.
 
-----
+---
 
 ## Tutorial
 
@@ -58,7 +58,7 @@ CORE also then adds the template and its contents to your Project Content folder
 
 Within the template, in the section called "Dependencies", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
 
-----
+---
 
 ### Next Steps: Publish Your Own Content
 
@@ -66,7 +66,7 @@ To learn more about these templates that are shared on Community Content, and ho
 
 Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
 
-----
+---
 
 ### Remixing Games: Starting from an Existing Game
 

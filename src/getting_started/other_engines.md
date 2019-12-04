@@ -17,18 +17,18 @@ To get a full overview of our API, read our [API Documentation](../core_api.md) 
 
 ## Unity
 
-| **Category** | **Unity** | **CORE** |
-| ------ | ------ | ------ |
-| **Gameplay** | GameObject | CoreObject |
-| | Prefabs | Templates |
-| **Editor** | Hierarchy Panel | Hierarchy |
-| | Scene View | Main Viewport |
-| | Project Browser | Asset Manifest |
-| | Asset Store | Shared Marketplace |
-| | Terrain Editor | Terrain |
-| | Console | Event Log |
-| | Inspector | Properties |
-| **Scripting** | C# | Lua |
+| **Category**  | **Unity**       | **CORE**           |
+| ------------- | --------------- | ------------------ |
+| **Gameplay**  | GameObject      | CoreObject         |
+|               | Prefabs         | Templates          |
+| **Editor**    | Hierarchy Panel | Hierarchy          |
+|               | Scene View      | Main Viewport      |
+|               | Project Browser | Asset Manifest     |
+|               | Asset Store     | Shared Marketplace |
+|               | Terrain Editor  | Terrain            |
+|               | Console         | Event Log          |
+|               | Inspector       | Properties         |
+| **Scripting** | C#              | Lua                |
 
 ## Projects and Files
 
@@ -43,7 +43,7 @@ Instead of 5.1 as in WoW, CORE uses Lua 5.3.4. There have not been that many cha
 * Trigonometry functions: As with Blizzard's versions, CORE's work with degrees. Lua's standard math library works with radians.
 
 * Events:
-The most obvious change when coming from WoW, is the event system in CORE. Instead of hooking your events up to your frames, you register functions onto the events of objects.
+  The most obvious change when coming from WoW, is the event system in CORE. Instead of hooking your events up to your frames, you register functions onto the events of objects.
 
 As an example:
 
@@ -66,7 +66,7 @@ Every object has a specific set of events available, but there are also custom e
 
 ```lua
 function Foo( arg_1, arg_2)
-	-- do something
+ -- do something
 end
 
 Events.Connect(“MyEvent”, Foo)

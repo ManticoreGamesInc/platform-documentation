@@ -14,13 +14,13 @@ categories:
 
 A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as “UI”. This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
-- Creating UI in CORE is mostly a drag-and-drop process.
+* Creating UI in CORE is mostly a drag-and-drop process.
 
-- All UI elements can be found either under Object > Create UI Object or in the UI Elements section of CORE Content.
+* All UI elements can be found either under Object > Create UI Object or in the UI Elements section of CORE Content.
 
-- All UI elements need to be contained within a UI Container object. Drag a UI Container into the hierarchy to start working on UI.
+* All UI elements need to be contained within a UI Container object. Drag a UI Container into the hierarchy to start working on UI.
 
-- All UI elements do different things and be combined in many ways.
+* All UI elements do different things and be combined in many ways.
 
 !!! info
     Words like *widget*, *control*, and *element* are used interchangeably here to refer to a CoreObject that is dragged from the UI Editor.
@@ -36,19 +36,19 @@ Below is an example using the Text Box control:
 
 2. Scroll to the bottom of the CORE Content window, and click the UI Elements section within the GAME OBJECTS category.
 
-     On the right several different options will be displayed, and these are the pieces we're looking for!
+    On the right several different options will be displayed, and these are the pieces we're looking for!
 
 3. First we need something to hold the UI. So select the **UI Container** object, and drag this into your project Hierarchy. This is an object that cannot have any transformations, and only exists to hold UI within it.
 
 4. Next, from that UI Elements section of CORE Content, click the **UI Text Box**, and drag this on top of the UI Container we just made. It should now be displaying on-screen in the viewport as well!
 
-     ![New Hierarchy](../../img/EditorManual/UI/Hierarchy.png "The text box is a child of the UI container."){: .center}
+    ![New Hierarchy](../../img/EditorManual/UI/Hierarchy.png "The text box is a child of the UI container."){: .center}
 
 5. With the UI Text Box in the Hierarchy selected, look in the Properties window.
 
 6. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
-    ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
+   ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
 
 7. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -109,4 +109,4 @@ These are all the current images available to use in CORE:
 
 ## Examples
 
-- ***Spellshock*** contains functioning UI, and can be found in the Community Games section of the CORE Editor.
+* ***Spellshock*** contains functioning UI, and can be found in the Community Games section of the CORE Editor.

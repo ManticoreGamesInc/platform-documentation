@@ -17,14 +17,15 @@ An introduction to the basics of placing and remixing objects.
 * **Completion time:** 10 - 30 minutes (TODO)
 * **Knowledge level:** Basic editor (TODO)
 * **Skills you will learn:**
-    * Placing objects in a scene
-    * Community Content
-    * CORE UI
-    * Changing materials
+  * Placing objects in a scene
+  * Community Content
+  * CORE UI
+  * Changing materials
 
 ![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
 
 ## Tutorial
+
 This tutorial will cover how to place and move images in a scene as well as how to customize objects to your liking. Share your decorated room on our Discord's #showcase channel!
 
 ### Downloading the Template
@@ -86,19 +87,19 @@ There are more degrees of rotation available in the drop down menu.
 
 1. Drag the bed from the **Project Content** tab > **My Shared Content** > **My Room** into the scene.
 
-    !!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
+   !!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
 
 2. Change the color and material of the quilt.
 
-    Select **Quilt 1** and both **Blanket Hills 1** in the Hierarchy. Go to the **Properties** tab > **Base Material**. Double click on the name of the material to open the **Material Picker**.
+   Select **Quilt 1** and both **Blanket Hills 1** in the Hierarchy. Go to the **Properties** tab > **Base Material**. Double click on the name of the material to open the **Material Picker**.
 
-    Change the color by clicking once on the color block - this will open the Color Picker.
+   Change the color by clicking once on the color block - this will open the Color Picker.
 
-    Every object in CORE has a material slot. You can change the color and material of everything in the scene to exactly how you want it.
+   Every object in CORE has a material slot. You can change the color and material of everything in the scene to exactly how you want it.
 
-    If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
+   If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
 
-    ![SceneCreation](../../img/SceneCreation/image10.png "image_tooltip"){: .center}
+   ![SceneCreation](../../img/SceneCreation/image10.png "image_tooltip"){: .center}
 
 ### Decorate
 
@@ -106,6 +107,6 @@ There are more degrees of rotation available in the drop down menu.
 
 2. Take a screenshot of your room and post it on the #showcase channel in CORE Creator's Discord.
 
-    TODO: Do we really want that?
+   TODO: Do we really want that?
 
 ![SceneCreation](../../img/SceneCreation/image2.png "image_tooltip"){: .center}

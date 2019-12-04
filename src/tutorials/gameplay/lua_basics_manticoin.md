@@ -17,17 +17,17 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the CO
 * **Completion time:** TODO: TBD
 * **Knowledge level:** No prior knowledge of Lua
 * **Skills you will learn:**
-    * Downloading and editing templates
-    * Creating a script and using it to:
-        * Rotate an object
-        * Spawn a template/asset
-        * Despawn a template/asset
-        * Create an interactable event
-        * Create a custom property
-        * Update UI elements
-    * Using triggers
-    * Creating and updating trigger labels
-    * Creating UI elements
+  * Downloading and editing templates
+  * Creating a script and using it to:
+    * Rotate an object
+    * Spawn a template/asset
+    * Despawn a template/asset
+    * Create an interactable event
+    * Create a custom property
+    * Update UI elements
+  * Using triggers
+  * Creating and updating trigger labels
+  * Creating UI elements
 
 ---
 
@@ -53,7 +53,7 @@ To add the **Manticoin** asset to your project, head over to the **Community Con
 
 !!! note "The editor will prompt you to save before it adds it to your project."
 
-Since this has been imported from our community content area, it is now listed under **Imports** in the **CORE Content** tab. Next, just like we did with `TutorialScript`, drag it to the world.  Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
+Since this has been imported from our community content area, it is now listed under **Imports** in the **CORE Content** tab. Next, just like we did with `TutorialScript`, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
 
 ### SpinCoin Script
 
@@ -75,7 +75,7 @@ Okay, so what did we just do?
 * `script` -> references the script object, i.e. the asset you dragged into the Hierarchy.
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object).
 * `RotateContinuous()` -> Every **CoreObject** (things like scripts, objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work.
-    * Methods are simply functions that belong to an object.
+  * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
 !!! note "If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page."
@@ -102,11 +102,11 @@ Yay, we've got it working! Now if only we could collect these coins...
 ### Adding a Trigger
 
 1. From **CORE Content -> Gameplay Objects**, drag a **Trigger** object into the world
-    * Resize the trigger to match the coin's size.
-        * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
-        * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
-    * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the heirarchy.
-    * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
+   * Resize the trigger to match the coin's size.
+     * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
+     * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
+   * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the heirarchy.
+   * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
 
 ### Handling Triggers
 
@@ -166,11 +166,11 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 ### Creating UI Text
 
 1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
-    * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the heirarchy.
-    * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
-    * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the heirarchy, this will make it a child of it.
-    * Rename the Text Control to `CoinUI`.
-    * In the properties panel, set `Text` to be blank by default.
+   * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the heirarchy.
+   * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
+   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the heirarchy, this will make it a child of it.
+   * Rename the Text Control to `CoinUI`.
+   * In the properties panel, set `Text` to be blank by default.
 
 !!! info
     While visually similar in the Hierarchy, Client Context is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client. In other words, the server doesn't care about it.
@@ -213,8 +213,8 @@ Now let's make a simple map and populate it with coins.
 So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
 
 * Create the player's spawn point
-    * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
-    * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
+  * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
+  * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
 
 Alright, beautiful!
 
@@ -228,7 +228,7 @@ Press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it how many times you like.
 Organization is important in your hierarchy. You can put objects together via folders or grouping!
 
 !!! note
-    Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, causing _all_ items in the group to be modified by any changes you make.
+    Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, causing *all* items in the group to be modified by any changes you make.
 
 Now we will write a script to make the game round-based.
 
@@ -241,9 +241,9 @@ Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content
 Next, we need to create the custom parameter to save our game state.
 
 * Create a parameter for `Gameplay Settings`
-    * Select the `Gameplay Settings` object in the heirarchy.
-    * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
-    * Right click the property and click "**Enable Property networking**".
+  * Select the `Gameplay Settings` object in the heirarchy.
+  * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
+  * Right click the property and click "**Enable Property networking**".
 
 Here's the entire Hierarchy at this point:
 

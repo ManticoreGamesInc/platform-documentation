@@ -18,13 +18,13 @@ There are a bunch of ways you can improve the experience of scripting in CORE. I
 
 There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
 
-| Name                                                         | Details                                             | CORE Autocomplete         | Price
-| ------------------------------------------------------------ | --------------------------------------------------- |-------------------------- |-----------
-| [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time)     | Lua based lightweight editor         | Supported                 | Free
-| [Visual Studio Code](https://code.visualstudio.com/download) | Popular powerful editor with many plugins           | Supported                 | Free
-| [Atom](https://atom.io/)                                     | Middle-range power/speed editor with plugin support | Supported                 | Free
-| [SublimeText](https://www.sublimetext.com/3)                 | Lightweight text editor with plugins                | Not Supported             | Free Evaluation / Paid
-| [Notepad++](https://notepad-plus-plus.org/)                  | Very lightweight text editor                        | Not Supported             | Free
+| Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
+| ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
+| [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
+| [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
+| [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
+| [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
+| [Notepad++](https://notepad-plus-plus.org/)                             | Very lightweight text editor                        | Not Supported     | Free                   |
 
 ### Plugins / Extensions
 
@@ -32,10 +32,10 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 #### Visual Studio Code
 
-| Plugin Name                                                                                     | Details          |
-| ----------------------------------------------------------------------------------------------- | ---------------- |
-| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)             | Adds Lua support |
-| [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more  |
+| Plugin Name                                                                            | Details                  |
+| -------------------------------------------------------------------------------------- | ------------------------ |
+| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
+| [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
 
 #### Atom
 
@@ -67,9 +67,9 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
 * :fa-angle-double-right: Install:
-    * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
-    * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
-    * Save and restart ZeroBraneStudio.
+  * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
+  * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
+  * Save and restart ZeroBraneStudio.
 
 ### Installing a Linter
 
