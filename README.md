@@ -7,7 +7,7 @@ The password is `I love documentation!`
 
 The three published version are accessible via the following links:
 
-* [Live](https://docs.manticoreplatform.com/)
+* [Live](https://docs.coregames.com/)
 * [Test](https://pts-publish--manticore-docs.netlify.com/)
 * [Dev](https://dev-publish--manticore-docs.netlify.com/)
 
