@@ -24,6 +24,7 @@ Learning modelling basics in CORE by making delicious food. (TODO)
 ![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
 
 ## Tutorial
+Learn how to easily and quickly create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to scuplt terrain by walking you through how to create a swimmble oasis. 
 
 ### Generating Terrain
 
