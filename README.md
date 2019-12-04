@@ -9,11 +9,11 @@ The password is `I love documentation!`
 
 There are multiple version of the CORE documentation, and therefore multiple branches on this repository that correspond to each.
 
-- [production](https://production--manticore-docs.netlify.com) - the staging site.
-- [production-publish](https://docs.coregames.com/) - the live, production site.
-- [PTS](https://pts-publish--manticore-docs.netlify.com/)- the public test server
+* [production](https://production--manticore-docs.netlify.com) - the staging site.
+* [production-publish](https://docs.coregames.com/) - the live, production site.
+* [PTS](https://pts-publish--manticore-docs.netlify.com/)- the public test server
     version.
-- [Dev](https://dev-publish--manticore-docs.netlify.com/) - for in-development,
+* [Dev](https://dev-publish--manticore-docs.netlify.com/) - for in-development,
     bleeding edge changes.
 
 **Note:** Currently only `production` and `production-publish` exist and are used.
@@ -23,7 +23,7 @@ There are multiple version of the CORE documentation, and therefore multiple bra
 Each state of the published website has a corresponding branch-pair on GitLab, a
 commit-able version and a `*-publish` version. So the pair of `production` and
 `production-publish` is one example. The `*-publish` version is a protected
-branch and _cannot_ be pushed to directly! Instead, all changes must go through
+branch and *cannot* be pushed to directly! Instead, all changes must go through
 the main branch (`production`), then merged into the publish one
 (`production-publish`) via an approval process by the documentation team. This
 ensures quality on all public sources of documentation. The (slightly-outdated)

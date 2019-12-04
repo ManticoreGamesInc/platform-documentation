@@ -94,14 +94,14 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 
 All states are also color coded:
 
-- **Locked or Disabled**{: style="color: var(--core-color-locked)"}
+* **Locked or Disabled**{: style="color: var(--core-color-locked)"}
 
-- **Templetized**{: style="color: var(--core-color-templetized)"}
+* **Templetized**{: style="color: var(--core-color-templetized)"}
 
-- **Deinstanced**{: style="color: var(--core-color-deinstanced)"}
+* **Deinstanced**{: style="color: var(--core-color-deinstanced)"}
 
-- **Published**{: style="color: var(--core-color-published)"}
+* **Published**{: style="color: var(--core-color-published)"}
 
-- **Update Pending**{: style="color: var(--core-color-update-pending)"}
+* **Update Pending**{: style="color: var(--core-color-update-pending)"}
 
-- **Error State**{: style="color: var(--core-color-error-state)"}
+* **Error State**{: style="color: var(--core-color-error-state)"}

@@ -10,7 +10,7 @@ We want everyone to experience that magic, so we created ManticoreTV. Join us an
 
 ### Where can I watch ManticoreTV
 
-- [Facebook](https://www.facebook.com/groups/playcoregames)
-- [YouTube](TODO: LINK)
+* [Facebook](https://www.facebook.com/groups/playcoregames)
+* [YouTube]\(TODO: LINK)
 
 ### Upcoming Schedule

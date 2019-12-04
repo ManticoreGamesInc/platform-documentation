@@ -15,7 +15,7 @@ categories:
 ## File Structure
 
 * Start with any `require` calls, such as:
-<!-- TODO: Clarify why -->
+  <!-- TODO: Clarify why -->
 
 ```lua
 local myImport = require("assetID")
@@ -55,7 +55,8 @@ myImport.Foo()
 | instance.property         | camelCase -> camelCase        | Dot          |
 | instance:MemberFunction() | camelCase -> PascalCase       | Colon        |
 
-Note: Properties are used instead of getters/setters only when that element has a getter _and_ setter.
+Note: Properties are used instead of getters/setters only when that element has a getter *and* setter.
+
 <!-- TODO: Clarify why -->
 
 ### Examples
@@ -170,13 +171,13 @@ This means that `x:Bar(1, 2)` is the same as `x.Bar(x, 1, 2)`
 For more details, here is how it breaks down:
 
 * Static (**dot**)
-    * Functions
-    * Constructor
-    * Constants
+  * Functions
+  * Constructor
+  * Constants
 * Instance
-    * Methods (**colon**)
-    * Properties (**dot**)
-    * Events
+  * Methods (**colon**)
+  * Properties (**dot**)
+  * Events
 
 For example:
 
@@ -228,8 +229,8 @@ end
 Both are perfectly valid, but following convention allows for the usage call to consistently use colons for clarity.
 
 * Where possible, use getters and setters
-    * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
-    * Properties use getter/setter methods unless you can both get _and_ set the value in which case you can directly access them. TODO: Clarify why
+  * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
+  * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them. TODO: Clarify why
 
 ## Styling
 
@@ -314,7 +315,7 @@ end
 ```
 
 * Use single line comments for inline notes.
-* Comments should generally focus on _why_ code is written a certain way instead of _what_ the code is doing.
+* Comments should generally focus on *why* code is written a certain way instead of *what* the code is doing.
 * Obviously there are exceptions to this rule, the more obfuscated your execution the more true this is.
 
 ```lua
@@ -351,7 +352,7 @@ Make sure to always declare your variables and functions in the order they are u
 
 ### Miscellaneous
 
-### _G vs require
+### \_G vs require
 
 `require()` explicitly makes a script execute if it hasn't already, and only executes a given script once.
 
