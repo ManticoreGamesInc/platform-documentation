@@ -12,12 +12,11 @@ categories:
 
 ## Setup & Installation
 
-If you haven't downloaded CORE yet, time to download our installer from
-[here](https://mantiblob.blob.core.windows.net/builds/CoreLauncherInstall.exe) and then run it.
+To get started, you'll need two things, the installer and an account. You can get both from [our website](https:/coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
 
 ## Launcher
 
-Now you'll have a new icon in your startmenu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [manticoreplatform.com](https://prod.manticoreplatform.com) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will directly into the game.
+Now you'll have a new icon in your startmenu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will launch directly into the game.
 
 ## Editor
 
@@ -27,7 +26,7 @@ If you decide to work on something new, you start the Editor directly via CORE L
 
 1. Character - Your place to customize your CORE Avatar.
 2. Create - Where games directly authored by you live.
-3. Games - A link to the game browser on [manticoreplatform.com](https://prod.manticoreplatform.com).
+3. Games - A link to the game browser on [coregames.com](https://coregames.com).
 4. Discord - A link to the [CORE Creators Community Discord](https://discord.gg/85k8A7V).
 5. Feedback - A link to a form to submit feedback.
 6. User Dropdown - Here you can log out or exit CORE.
@@ -65,7 +64,7 @@ The Asset Manifest is split into three parts, it is the place to add new content
 
 #### Project Content
 
-TODO
+This contains everything that you added to your project, including stuff from CORE and Community content as well as your own assets.
 
 #### CORE Content
 
