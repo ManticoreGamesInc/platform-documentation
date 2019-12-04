@@ -5,9 +5,9 @@ We can't wait to see what you create!
 
 Here on the Creators Discord, you can...
 
-- Join us for community events and share your CORE creations.
-- Hangout and make new friends as you playtest together.
-- Learn and get help in our support channels, such as `#lua-help`  and `#editor-help`.
+* Join us for community events and share your CORE creations.
+* Hangout and make new friends as you playtest together.
+* Learn and get help in our support channels, such as `#lua-help`  and `#editor-help`.
 
 <div id="discord-embed">
     <iframe src="https://discordapp.com/widget?id=547553459562610698&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0"></iframe>

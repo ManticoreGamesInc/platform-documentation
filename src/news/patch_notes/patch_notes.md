@@ -2,5 +2,5 @@
 
 ## 12/10/19
 
-- Test
-- Test
+* Test
+* Test

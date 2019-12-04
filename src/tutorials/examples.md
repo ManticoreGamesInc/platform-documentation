@@ -81,5 +81,5 @@ Just download the correct (single) `.lua` file and copy it into a new script and
 
 ## Needed
 
-- What isn't represented here? Let us know!
-- To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).
+* What isn't represented here? Let us know!
+* To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).
