@@ -18,10 +18,10 @@ Learning modelling basics in CORE by making delicious food. (TODO)
 * **Knowledge level:** Basic editor (TODO)
 * **Skills you will learn:**
     * Generating terrain
-    * Underwater post process effect
-    * Fog
+    * Creating swimable volumes 
+    * Using the Object Generator tool
 
-![ArtIntro](../../img/EnvironIntro/image16.png "Art Screenshot"){: .center}
+![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
 
 ## Tutorial
 
