@@ -16,7 +16,7 @@ To get started, you'll need two things, the installer and an account. You can ge
 
 ## Launcher
 
-Now you'll have a new icon in your startmenu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will launch directly into the game.
+Now you'll have a new icon in your startmenu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://www.coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will launch directly into the game.
 
 ## Editor
 
@@ -26,7 +26,7 @@ If you decide to work on something new, you start the Editor directly via CORE L
 
 1. Character - Your place to customize your CORE Avatar.
 2. Create - Where games directly authored by you live.
-3. Games - A link to the game browser on [coregames.com](https://coregames.com).
+3. Games - A link to the game browser on [coregames.com](https://www.coregames.com).
 4. Discord - A link to the [CORE Creators Community Discord](https://discord.gg/85k8A7V).
 5. Feedback - A link to a form to submit feedback.
 6. User Dropdown - Here you can log out or exit CORE.
