@@ -16,11 +16,12 @@ In a lot of video games, the main character uses a weapon to make their way thro
 
 Programming a weapon can be the most complicated part of making a game, but to make that easier, CORE™ comes with a built-in weapon system!
 
-**Time to complete:** 15 minutes
-**Skills you will gain:**
-* How to create a functioning weapon in CORE
-* How to use Multiplayer Preview Mode effectively
-* How to create templates that can be used in weapons
+* **Completion Time:** 15 minutes
+* **Knowledge Level:** TODO
+* **Skills you will gain:**
+    * How to create a functioning weapon in CORE
+    * How to use Multiplayer Preview Mode effectively
+    * How to create templates that can be used in weapons
 
 ![A Sniper Rifle](../../img/EditorManual/Weapons/holdingWeaponNew.png "image_tooltip"){: .center}
 
