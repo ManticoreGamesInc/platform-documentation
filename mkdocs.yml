@@ -33,7 +33,7 @@ nav:
           - Custom Materials: tutorials/art/custom_materials.md
           - Environmental Art: tutorials/art/environ_art_intro.md
           - Modeling Basics: tutorials/art/modeling_basics.md
-          - Costumes: tutorials/art/costumes.md
+          #- Costumes: tutorials/art/costumes.md
           - Audio: tutorials/art/audio_reference.md
       - Templates: tutorials/gameplay/collaboration_reference.md
       - UI: tutorials/gameplay/ui_reference.md
