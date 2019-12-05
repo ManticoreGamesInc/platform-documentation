@@ -37,7 +37,7 @@ official :fas fa-external-link-alt: [reference](http://www.lua.org/manual/5.3/) 
 
 #### Coming from other engines
 
-Other engines also have good sources of documentation for Lua. Check out our [other-engines](../../getting_started/other_engines.md) page that has a few hints on whats different between them and **CORE**.
+Other engines also have good sources of documentation for Lua. Check out our [other-engines](../../getting_started/other_engines.md) page that has a few hints on what's different between them and **CORE**.
 
 ## Basics
 

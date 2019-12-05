@@ -24,9 +24,9 @@ Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](
 
 Creating a template is fast and easy! To make a template follow these steps:
 
-1. Drag in your assets from the Asset Manifest. Place them how you’d like.
+1. Drag in your assets from the Asset Manifest. Place them how you'd like.
 
-2. When satisfied with your creation, select all assets in the hierarchy that you desire to be in the template. Right click and select “Group and Create New Template from These”.
+2. When satisfied with your creation, select all assets in the hierarchy that you desire to be in the template. Right click and select "Group and Create New Template from These".
 
    ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
 
@@ -54,34 +54,34 @@ Creating a template is fast and easy! To make a template follow these steps:
 
    ![TemplateTut3](../../img/EditorManual/UI/TemplateTut5.png "image_tooltip"){: .center}
 
-   a. Check or create a new template name. A template’s name must be between 5 to 30 characters.
+   a. Check or create a new template name. A template's name must be between 5 to 30 characters.
 
-   b. Write a description for your template. A template’s description must be between 1 to 255 characters.
+   b. Write a description for your template. A template's description must be between 1 to 255 characters.
 
    c. Mark your permissions as either public or private. If private, only you can see the template in Community Content. If public, the template can be seen and used by everyone on the platform.
 
-4. Click Review & Publish and review your settings, but don’t worry as they may be edited after publishing.
+4. Click Review & Publish and review your settings, but don't worry as they may be edited after publishing.
 
 5. Click Publish.
 
-   The template’s white name should now be green and the template can be found and downloaded from Community Content. From here, you may edit, re-download or delete templates you’ve published!
+   The template's white name should now be green and the template can be found and downloaded from Community Content. From here, you may edit, re-download or delete templates you've published!
 
    ![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
-Congratulations! You’ve created, edited, and published a template that can be shared and used by other creators in CORE!
+Congratulations! You've created, edited, and published a template that can be shared and used by other creators in CORE!
 
 ### Tips and Tricks with Templates
 
 #### Deinstancing Templates
 
-Once your template is created, you must “deinstance” it in order to edit the template again. Deinstancing a template still keeps its reference in mind, but allows you to make changes so that you can re-update or re-upload the template.
+Once your template is created, you must "deinstance" it in order to edit the template again. Deinstancing a template still keeps its reference in mind, but allows you to make changes so that you can re-update or re-upload the template.
 
-To deinstance a template, right click and select “Deinstance this object”.
+To deinstance a template, right click and select "Deinstance this object".
 
 ![TemplateTut5](../../img/EditorManual/UI/TemplateTut7.png "image_tooltip"){: .center}
 
-The object’s name will now be blue and you may edit the template as you wish!
-Don’t like the changes you made? You can always select “Reset to Template” to restore back to the original template.
+The object's name will now be blue and you may edit the template as you wish!
+Don't like the changes you made? You can always select "Reset to Template" to restore back to the original template.
 
 #### Updating Templates
 
@@ -89,7 +89,7 @@ Have tons of instances of a template in your scene but you want to do something 
 
 Updating templates is based only in your project. If you wish to update a template across the platform, you must select the template in the Project Content Folder and click the Republish button in the Properties menu.
 
-To update a template, simply right click on an altered template, deinstanced or not and select “Update template from this”. You should be able to see all the instances of that template change in your scene!
+To update a template, simply right click on an altered template, deinstanced or not and select "Update template from this". You should be able to see all the instances of that template change in your scene!
 
 #### Downloading Latest
 
