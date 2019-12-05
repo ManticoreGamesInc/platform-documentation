@@ -124,8 +124,8 @@ Now we are going to create a small game that involves a light switch that turns 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
 2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
-    ![Hard to see](../../../img/LightBulb/image22.png "Hard to see")
-    ![Well lit](../../../img/LightBulb/image6.png "Well lit")
+    ![Hard to see](../../img/LightBulb/image22.png "Hard to see")
+    ![Well lit](../../img/LightBulb/image6.png "Well lit")
     _Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!_
     {: .image-cluster}
 
@@ -195,7 +195,7 @@ We want our light switch to function just like it would in real life: the switch
 
     * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
 
-    * `(0, 90, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y axis by 90 degrees.
+    * `(0, 90, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y-axis by 90 degrees.
 
     * `2` is the animation duration in seconds.
 
@@ -211,9 +211,10 @@ We want our light switch to function just like it would in real life: the switch
 
     !["LightBulb1"](../../img/LightBulb/image13.png "Rotate"){: .center}
 
-    Unfortunately that didn't quite work out the way we wanted… Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
+    Unfortunately that didn't quite work out the way we wanted…
+    Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
-    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y axis, it has to know where the switch's starting rotation.
+    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y-axis, it has to know where the switch's starting rotation.
 
 2. Let's create a variable that defines the switch's starting rotation. Go to the line 2 of the code and type:
 
