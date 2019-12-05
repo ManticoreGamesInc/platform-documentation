@@ -59,8 +59,8 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
    ![MPPreview](../img/EditorManual/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
-   !!! tip
-       Note that you can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
+!!! tip
+    Note that you can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
 
 ## Make It Your Own
 
@@ -70,8 +70,8 @@ So we have a whiteboxed map, and that's great and important in testing design! N
 
    ![Add Props](../img/EditorManual/MyFirstMultiplayer/AddPropsMarked.png){: .center}
 
-   !!! note
-       If you can't find the "CORE Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
+!!! note
+    If you can't find the "CORE Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
 
 2. Click on "3D Objects" and then drag and drop props into the editor viewport! In this example, we're going to place some bushes.
 
@@ -89,8 +89,8 @@ So we have a whiteboxed map, and that's great and important in testing design! N
 
    ![Collison](../img/EditorManual/MyFirstMultiplayer/NoCollisonBush.gif){: .center}
 
-   !!! note
-       If you can't find the "Properties" window or accidentally close it, you can reopen the window by going to View > Properties in the toolbar at the top of the editor.
+!!! note
+    If you can't find the "Properties" window or accidentally close it, you can reopen the window by going to View > Properties in the toolbar at the top of the editor.
 
 ### Designing Your Level
 
@@ -120,15 +120,15 @@ Let's take this time to build out our own game! We're going to apply materials t
 
    ![FinishArt](../img/EditorManual/MyFirstMultiplayer/FinishArt.png){: .center}
 
-   !!! info "How do I make my own material?"
-       If you want to learn more about customizing materials, check out our [Custom Material tutorial](../tutorials/art/custom_materials.md).
+!!! info "How do I make my own material?"
+    If you want to learn more about customizing materials, check out our [Custom Material tutorial](../tutorials/art/custom_materials.md).
 
 7. Awesome! This scene looks rather dark though. Let's make it more vibrant with some better lighting! In "Core Content," search for sky. Then, drag and drop "Sky Whimsical Sunny Saturation."
 
    ![VibrantLevel](../img/EditorManual/MyFirstMultiplayer/VibrantLevel.png){: .center}
 
-   !!! tip
-        In CORE, you even have tons of customizeable post process effects and VFX. Search for "Advanced Bloom Post Process" in CORE Content and try it out!
+!!! tip
+    In CORE, you even have tons of customizeable post process effects and VFX. Search for "Advanced Bloom Post Process" in CORE Content and try it out!
 
 ### Customizing the Gameplay
 
@@ -158,8 +158,8 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
    ![PlayerSpawn](../img/EditorManual/MyFirstMultiplayer/PlayerSpawn.png){: .center}
 
-   !!! tip
-       With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](../editor_keybindings.md)!
+!!! tip
+    With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](../editor_keybindings.md)!
 
 ### Choose Your Weapon! from Community Content
 
@@ -167,8 +167,8 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
    ![CCSearch](../img/EditorManual/MyFirstMultiplayer/CCSearch.png){: .center}
 
-   !!! note
-       If you can't find the "Community Content" window or accidentally close it, you can reopen the window by going to View > Community Content in the toolbar at the top of the editor.
+!!! note
+    If you can't find the "Community Content" window or accidentally close it, you can reopen the window by going to View > Community Content in the toolbar at the top of the editor.
 
 2. Now, in the "Gameplay Settings" folder in the hierarchy, locate the "Starting Weapon" folder. In the custom property called "EquipmentTemplate", drag and drop your imported gun's template. The imported weapon can be found under **CORE Content** in the "Imported" category.
 
@@ -176,8 +176,8 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
 3. Press Play and test our your awesome new gun!
 
-   !!! info "How do I make my own weapon?"
-       It's easy! Check out our [Basic Weapons Tutorial](../tutorials/gameplay/weapons.md).
+!!! info "How do I make my own weapon?"
+    It's easy! Check out our [Basic Weapons Tutorial](../tutorials/gameplay/weapons.md).
 
 ### Publishing Your Game
 
@@ -188,7 +188,7 @@ Flow is still in progress on the engine side.
 ### Next Steps
 
 Now's the best part! Playtesting with friends!
-Engage with community in #playtest in [Discord](https://discordapp.com/invite/3H4j3YJ).
+Engage with community in #playtest in :fab fa-discord: [Discord](https://discordapp.com/invite/3H4j3YJ).
 
 Post a screenshot of character/map/playtest in #showcase in Discord.
 You're doing amazing!! Supportive encouragement here.
