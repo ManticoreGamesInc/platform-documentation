@@ -48,15 +48,15 @@ You can then see the template you downloaded in your the **CORE Content** folder
 
 From within the Imported Content section of CORE Content, you will find any and all templates that you download from Community Content.
 
-To use this in your game, just drag the **green**{: style="color: green"} template object (in this case called "My Room") into your project Hierarchy.
+To use this in your game, just drag the **green**{: style="color: green"} template object (in this case called "**My Room**") into your project Hierarchy.
 
 Once you've done this, you will have a **blue**{: style="color: blue"} object in your Hierarchy, which is an instance of the template you downloaded! You're now set to modify it and use it however you like.
 
-CORE also then adds the template and its contents to your Project Content folder.
+CORE also then adds the template and its contents to your "**Project Content**" folder.
 
 ![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
 
-Within the template, in the section called "Dependencies", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
+Within the template, in the section called "**Dependencies**", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
 
 ---
 
