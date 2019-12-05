@@ -51,7 +51,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
 
-#### VS Code & Atom
+#### Visual Studio Code & Atom
 
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/luacompleterc.zip">luacompleterc.zip</a>
 * :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
@@ -63,7 +63,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
     Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
 
-#### ZeroBrane
+#### ZeroBraneStudio
 
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
 * :fa-angle-double-right: Install:
@@ -73,10 +73,10 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
 ### Installing a Linter
 
-[Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
+:fas fa-external-link-alt: [Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their :fas fa-external-link-alt: [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on :fas fa-external-link-alt: [GitHub](https://github.com/mpeterv/luacheck/releases/).
 
 * :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
-* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
+* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. (:fas fa-external-link-alt: [HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
 
