@@ -20,11 +20,11 @@ There are of course several good editors out there for Lua development, but we s
 
 | Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
 | ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
-| [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
-| [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
-| [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
-| [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
-| [Notepad++](https://notepad-plus-plus.org/)                             | Very lightweight text editor                        | Not Supported     | Free                   |
+| :fas fa-external-link-alt: [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
+| :fas fa-external-link-alt: [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
+| :fas fa-external-link-alt: [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
+| :fas fa-external-link-alt: [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
+| :fas fa-external-link-alt: [Notepad++](https://notepad-plus-plus.org/)                             | Very lightweight text editor                        | Not Supported     | Free                   |
 
 ### Plugins / Extensions
 
@@ -34,18 +34,18 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 | Plugin Name                                                                            | Details                  |
 | -------------------------------------------------------------------------------------- | ------------------------ |
-| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
-| [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
+| :fas fa-external-link-alt: [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
+| :fas fa-external-link-alt: [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
 
 #### Atom
 
 | Plugin Name                                                   | Details                    |
 | ------------------------------------------------------------- | -------------------------- |
-| [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
-| [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
-| [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
-| [Linter UI](https://atom.io/packages/linter-ui-default)       | Adds a UI to Linter        |
-| [Linter: Luacheck](https://atom.io/packages/linter-luacheck)  | Adds Lua support to Linter |
+| :fas fa-external-link-alt: [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
+| :fas fa-external-link-alt: [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
+| :fas fa-external-link-alt: [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
+| :fas fa-external-link-alt: [Linter UI](https://atom.io/packages/linter-ui-default)       | Adds a UI to Linter        |
+| :fas fa-external-link-alt: [Linter: Luacheck](https://atom.io/packages/linter-luacheck)  | Adds Lua support to Linter |
 
 ### Autocomplete
 
