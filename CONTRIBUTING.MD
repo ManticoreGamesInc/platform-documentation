@@ -18,7 +18,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
 
     - In the "**Select Components**" window, leave all default options checked and check any other additional components you want installed.
     - Next you will chose the default editor used by Git. Use a text editor you're comfortable using.
-    - In the "**Adjusting your PATH environment**" section, chose "**Git from the command line and also from 3rd-party software**"
+    - In the "**Adjusting your PATH environment**" section, chose "**Git from the command line and, also from 3rd-party software**"
     - Next in "**Choosing HTTPS transport backend**", leave the default selected as "**Use OpenSSH**".
     - In "**Configuring the line ending conversions**" use "**Checkout as-is, commit Unix-style endings**".
     - In "**Configuring the terminal emulator**" use "**Use Windows' default console window**".
