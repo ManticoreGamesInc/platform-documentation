@@ -458,7 +458,7 @@ g()  --> "343" nothing printed before now.
 
 If you're still really hungry for more info, more primers can be found here:
 
--   :fas fa-external-link-alt: [LuaTut](http://luatut.com/crash_course.html)
--   :fas fa-external-link-alt: [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
--   :fas fa-external-link-alt: [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
--   :fas fa-external-link-alt: [TylerNeylon](http://tylerneylon.com/a/learn-lua/)
+* :fas fa-external-link-alt: [LuaTut](http://luatut.com/crash_course.html)
+* :fas fa-external-link-alt: [WingDB](http://www.wingdb.com/docs/pages/wg_lua_primer.htm)
+* :fas fa-external-link-alt: [Geeks3D](https://www.geeks3d.com/20130516/lua-primer-for-the-impatient/)
+* :fas fa-external-link-alt: [TylerNeylon](http://tylerneylon.com/a/learn-lua/)

@@ -14,8 +14,8 @@ categories:
 
 In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition amongs programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
-* **Completion time:** TODO: TBD
-* **Knowledge level:** No prior knowledge of Lua
+* **Completion Time:** ~25 minutes
+* **Knowledge Level:** No prior knowledge of Lua
 * **Skills you will learn:**
     * Downloading and editing templates
     * Creating a script and using it to:
@@ -623,7 +623,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
         end
         ```
 
-6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it.  However, we still need to despawn the light when the light switch is turned off.
+6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to despawn the light when the light switch is turned off.
 
 ### Turning the light off
 
@@ -829,8 +829,6 @@ You've turned on the light. If you keep interacting with the light switch you'll
         ```
 
 10. Press **Play**. Now the label should update every time you interact with the light switch.
-
-<div align="center" style="font-weight: bold; margin-top: 50px;">Congrats! You've just created your first game on CORE!</div>
 
 ## Summary
 

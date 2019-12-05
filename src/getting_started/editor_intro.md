@@ -90,11 +90,11 @@ The Hierarchy view includes all of the objects in your game. If you add an objec
 
 ![Hierarchy](../img/EditorManual/hierarchy.png "Hierarchy"){: .center}
 
-You can parent objects by dragging them onto each other. See the example below where we make the “Child” object into a child of the “Parent” object.
+You can parent objects by dragging them onto each other. See the example below where we make the "Child" object into a child of the "Parent" object.
 
 ![Hierarchy Child](../img/EditorManual/hierarchy_child.gif "Hierarchy Child"){: .center}
 
-When an object is a child of another, it will be affected by its parent’s position, scale, and visibility. See how in the example the child is automatically hidden when we choose to hide the parent.
+When an object is a child of another, it will be affected by its parent's position, scale, and visibility. See how in the example the child is automatically hidden when we choose to hide the parent.
 
 ### Properties
 

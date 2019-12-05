@@ -2,18 +2,18 @@
 
 ## Overview
 
-CORE has integrated version 5.3.4 of the Lua library.  For detailed technical information, see their :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](/core_api/classes/coreobject).  Data structures are owned by Lua, while [CoreObjects](/core_api/classes/coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
+CORE has integrated version 5.3.4 of the Lua library. For detailed technical information, see their :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](#coreobject). Data structures are owned by Lua, while [CoreObjects](#coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
 
-Properties, functions, and events inherited by [CoreObject](/core_api/classes/coreobject) types are listed below.
+Properties, functions, and events inherited by [CoreObject](#coreobject) types are listed below.
 Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:functionName()`.
 
 ## CORE Lua Types
 
-At a high level, CORE Lua types can be divided into two groups: data structures and Objects.  Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua.  Objects all inherit from a single base type: Object.  Data structures have no common parent.  However, all data structures and Objects share a common `type` property, which is a String indicating its type.  The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc.  All CORE types also share an `IsA()` function.  The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not.  For example, `myObject:IsA("StaticMesh")`.
+At a high level, CORE Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Objects all inherit from a single base type: Object. Data structures have no common parent. However, all data structures and Objects share a common `type` property, which is a String indicating its type. The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc. All CORE types also share an `IsA()` function. The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not. For example, `myObject:IsA("StaticMesh")`.
 
 A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual :fas fa-external-link-alt: [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
-### [Ability](/core_api/classes/ability/abilityOverview)
+### Ability
 
 Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
 
@@ -47,9 +47,9 @@ Abilities are Objects created at runtime and attached to Players. Spawn an abili
 | `GetTargetData()`               | AbilityTarget | Returns information about what the player has targeted this phase.                                                                                                                                                                | None |
 | `SetTargetData (AbilityTarget)` | None          | Updates information about what the player has targeted this phase.  This can affect the execution of the ability.                                                                                                                 | None |
 
-### [AbilityPhaseSettings](/core_api/classes/abilityphasesettings/abilityphasesettingsOverview)
+### AbilityPhaseSettings
 
-Each phase of an Ability can be configured differently, allowing complex and different Abilities.  AbilityPhaseSettings is an Object.
+Each phase of an Ability can be configured differently, allowing complex and different Abilities. AbilityPhaseSettings is an Object.
 
 | Property                 | Return Value            | Description                                                                                                                                                                                                             | Tags      |
 | ------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -61,7 +61,7 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 | `isTargetDataUpdated`    | bool                    | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date.                                                                                          | Read-Only |
 | `facingMode`             | AbilityFacingMode enum, | How and if this ability rotates the player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are:  AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
 
-### [AbilityTarget](/core_api/classes/abilitytarget/abilitytargetOverview)
+### AbilityTarget
 
 A data type containing information about what the player has targeted during a phase of an ability.
 
@@ -79,17 +79,17 @@ A data type containing information about what the player has targeted during a p
 | Function                             | Return Value | Description                                                                                                                                                                                                                                                    | Tags |
 | ------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetOwnerMovementRotation()`         | Rotation     | Gets the direction the player is moving.                                                                                                                                                                                                                       | None |
-| `SetOwnerMovementRotation(Rotation)` | None         | Sets the direction the player face, if the phase settings’ playerFacing property is set to AbilitySetFacing.Movement.                                                                                                                                          | None |
+| `SetOwnerMovementRotation(Rotation)` | None         | Sets the direction the player face, if the phase settings' playerFacing property is set to AbilitySetFacing.Movement.                                                                                                                                          | None |
 | `GetCameraPosition()`                | Vector3      | Returns the world space position of the camera.                                                                                                                                                                                                                | None |
-| `SetCameraPosition(Vector3)`         | None         | The world space location of the camera.  Setting this currently has no effect on the player’s camera.                                                                                                                                                          | None |
+| `SetCameraPosition(Vector3)`         | None         | The world space location of the camera.  Setting this currently has no effect on the player's camera.                                                                                                                                                          | None |
 | `GetCameraForwardVector()`           | Vector3      | Returns the direction the camera is facing.                                                                                                                                                                                                                    | None |
 | `SetCameraForwardVector(Vector3)`    | None         | Sets the direction the camera is facing.                                                                                                                                                                                                                       | None |
-| `GetHitPosition()`                   | Vector3      | Returns the world space position of the object under the player’s reticle. If there is no object, a position under the reticle in the distance. If the player doesn’t have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
+| `GetHitPosition()`                   | Vector3      | Returns the world space position of the object under the player's reticle. If there is no object, a position under the reticle in the distance. If the player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
 | `SetHitPosition(Vector3)`            | None         | Sets the hit position property.  This may affect weapon behavior.                                                                                                                                                                                              | None |
 | `GetHitResult()`                     | HitResult    | Returns physics information about the point being targeted                                                                                                                                                                                                     | None |
 | `SetHitResult(HitResult)`            | None         | Sets the hit result property.  Setting this value has no affect on the ability.                                                                                                                                                                                | None |
 
-### [Audio](/core_api/classes/audio/audioOverview)
+### Audio
 
 Audio objects are CoreObjects that wrap sound files. Most properties are exposed in the UI and can be set when placed in the editor, but some functionality (such as playback with fade in/out) requires Lua scripting.
 
@@ -114,7 +114,7 @@ Audio objects are CoreObjects that wrap sound files. Most properties are exposed
 | `FadeIn(Number time)`  | None         | Starts playing and fades in the sound over the given time. | None |
 | `FadeOut(Number time)` | None         | Fades the sound out and stops over time seconds.           | None |
 
-### [ButtonUIControl](/core_api/classes/buttonuicontrol/buttonuicontrolOverview)
+### ButtonUIControl
 
 A UIControl for a button, should be inside client context.
 
@@ -132,8 +132,8 @@ A UIControl for a button, should be inside client context.
 | `SetHoveredColor(Color)`    | None         | Set button color when hovered.                | None |
 | `GetPressedColor()`         | Color        | Get button color when pressed.                | None |
 | `SetPressedColor(Color)`    | None         | Set button color when pressed.                | None |
-| `GetDisabledColor()`        | Color        | Get button color when it’s not intereactable. | None |
-| `SetDisabledColor(Color)`   | None         | Set button color when it’s not interactable.  | None |
+| `GetDisabledColor()`        | Color        | Get button color when it's not intereactable. | None |
+| `SetDisabledColor(Color)`   | None         | Set button color when it's not interactable.  | None |
 | `GetFontColor()`            | Color        | Get font color.                               | None |
 | `SetFontColor(Color)`       | None         | Set font color.                               | None |
 | `SetImage(brushMuidString)` | None         | Set image.                                    | None |
@@ -146,9 +146,9 @@ A UIControl for a button, should be inside client context.
 | `hoveredEvent`   | Event&lt;ButtonUIControl> | Called when button is hovered.                                                                                                             | Read-Only |
 | `unhoveredEvent` | Event&lt;ButtonUIControl> | Called when button is unhovered.                                                                                                           | Read-Only |
 
-### [Camera](/core_api/classes/camera/cameraOverview)
+### Camera
 
-Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured to follow a specific player’s view as well. Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior (currently) falls back to old and now deprecated behavior. Override cameras generally will be temporary things, like a view when the player is sitting in a mounted turret, while default cameras should be used for main gameplay behavior.
+Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured to follow a specific player's view as well. Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior (currently) falls back to old and now deprecated behavior. Override cameras generally will be temporary things, like a view when the player is sitting in a mounted turret, while default cameras should be used for main gameplay behavior.
 
 | Property               | Return Value | Description                                                                                                                                                                            | Tags           |
 | ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
@@ -160,29 +160,29 @@ Camera is a CoreObject which is used both to configure player camera settings as
 | `isIsometric`          | Number       | Whether the camera uses an isometric (orthographic) view or perspective.                                                                                                               | None           |
 | `fieldOfView`          | Number       | The field of view when using perspective view. Clamped between 1.0 and 170.0.                                                                                                          | None           |
 | `viewWidth`            | Number       | The width of the view with an isometric view. Has a minimum value of 1.0.                                                                                                              | None           |
-| `followPlayer`         | Player       | Which player’s view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach.                                                        | None           |
+| `followPlayer`         | Player       | Which player's view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach.                                                        | None           |
 | `currentDistance`      | Number       | The distance controlled by the player with scroll wheel (by default). Client-only                                                                                                      | Client Context |
 
 | Function                      | Return Value | Description                                                                         | Tags |
 | ----------------------------- | ------------ | ----------------------------------------------------------------------------------- | ---- |
-| `GetPositionOffset()`         | Vector3      | An offset added to the camera or follow target’s eye position to the player’s view. | None |
-| `SetPositionOffset(Vector3)`  | None         | An offset added to the camera or follow target’s eye position to the player’s view. | None |
-| `GetRotationOffset()`         | Rotation     | A rotation added to the camera or follow target’s eye position.                     | None |
-| `SetRotationOffset(Rotation)` | None         | A rotation added to the camera or follow target’s eye position.                     | None |
+| `GetPositionOffset()`         | Vector3      | An offset added to the camera or follow target's eye position to the player's view. | None |
+| `SetPositionOffset(Vector3)`  | None         | An offset added to the camera or follow target's eye position to the player's view. | None |
+| `GetRotationOffset()`         | Rotation     | A rotation added to the camera or follow target's eye position.                     | None |
+| `SetRotationOffset(Rotation)` | None         | A rotation added to the camera or follow target's eye position.                     | None |
 
-### [CanvasUIControl](/core_api/classes/canvasuicontrol/canvasuicontrolOverview)
+### CanvasUIControl
 
 A UIControl which indicates that child UI elements should be rendered. Does not have a position or size (it always is the size of the entire screen).
 
-### [Color](/core_api/classes/color/colorOverview)
+### Color
 
-An RGBA representation of a color. Color components have an effective range of [0.0, 1.0], but values greater than 1 may be used.
+An RGBA representation of a color. Color components have an effective range of `[0.0, 1.0]`, but values greater than 1 may be used.
 
 | Constructor                                           | Return Value | Description                                                                                       | Tags |
 | ----------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------- | ---- |
 | `Color.New(Number r, Number g, Number b, [Number a])` | Color        | Construct with the given values. Alpha defaults to 1.0 if no fourth parameter is provided.        | None |
-| `Color.New(Vector3 v)`                                | Color        | Construct using the vector’s XYZ components as the color’s RGB components. Alpha defaults to 1.0. | None |
-| `Color.New(Vector4 v)`                                | Color        | Construct using the vector’s XYZW components as the color’s RGBA components.                      | None |
+| `Color.New(Vector3 v)`                                | Color        | Construct using the vector's XYZ components as the color's RGB components. Alpha defaults to 1.0. | None |
+| `Color.New(Vector4 v)`                                | Color        | Construct using the vector's XYZW components as the color's RGBA components.                      | None |
 | `Color.New(Color c)`                                  | Color        | Makes a copy of the given color.                                                                  | None |
 
 | Property | Return Value | Description                   | Tags       |
@@ -213,15 +213,15 @@ An RGBA representation of a color. Color components have an effective range of [
 !!! note
     Predefined Colors include Color.WHITE ,Color.GRAY ,Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
 
-### [CoreObject](/core_api/classes/coreobject/coreobjectOverview)
+### CoreObject
 
-CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually they’ll be a more specific type of CoreObject, but all CoreObjects have these
+CoreObject is an Object placed in the scene hierarchy during edit mode. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these
 
 | Property                        | Return Value                                            | Description                                                                                                                                                                                                                                  | Tags                       |
 | ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `name`                          | string                                                  | Hello, my name is…                                                                                                                                                                                                                           | Read-Write, Dynamic        |
-| `id`                            | string                                                  | The object’s MUID.                                                                                                                                                                                                                           | Read-Only                  |
-| `parent`                        | CoreObject                                              | The object’s parent object, may be nil.                                                                                                                                                                                                      | Read-Write, Dynamic        |
+| `id`                            | string                                                  | The object's MUID.                                                                                                                                                                                                                           | Read-Only                  |
+| `parent`                        | CoreObject                                              | The object's parent object, may be nil.                                                                                                                                                                                                      | Read-Write, Dynamic        |
 | `isVisible`                     | bool                                                    | Turn on/off the rendering of an object and its children                                                                                                                                                                                      | Read-Write, Dynamic        |
 | `isCollidable`                  | bool                                                    | Turn on/off the collision of an object and its children                                                                                                                                                                                      | Read-Write, Dynamic        |
 | `isEnabled`                     | bool                                                    | Turn on/off an object and its children completely                                                                                                                                                                                            | Read-Write, Dynamic        |
@@ -240,8 +240,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually
 
 | Function                                                  | Return Value         | Description                                                                                                                                                                                                                                                                                                                                                              | Tags                     |
 | --------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
-| `GetTransform()`                                          | Transform            | The transform relative to this object’s parent.                                                                                                                                                                                                                                                                                                                          | None                     |
-| `SetTransform(Transform)`                                 | None                 | The transform relative to this object’s parent.                                                                                                                                                                                                                                                                                                                          | Dynamic                  |
+| `GetTransform()`                                          | Transform            | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                          | None                     |
+| `SetTransform(Transform)`                                 | None                 | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                          | Dynamic                  |
 | `GetPosition()`                                           | Vector3              | The position of this object relative to its parent.                                                                                                                                                                                                                                                                                                                      | None                     |
 | `SetPosition(Vector3)`                                    | None                 | The position of this object relative to its parent.                                                                                                                                                                                                                                                                                                                      | Dynamic                  |
 | `GetRotation()`                                           | Rotation             | The rotation relative to its parent.                                                                                                                                                                                                                                                                                                                                     | None                     |
@@ -256,18 +256,18 @@ CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually
 | `SetWorldRotation(Rotation)`                              | None                 | The absolute rotation.                                                                                                                                                                                                                                                                                                                                                   | Dynamic                  |
 | `GetWorldScale()`                                         | Vector3              | The absolute scale.                                                                                                                                                                                                                                                                                                                                                      | None                     |
 | `SetWorldScale(Vector3)`                                  | None                 | The absolute scale.                                                                                                                                                                                                                                                                                                                                                      | Dynamic                  |
-| `GetVelocity()`                                           | Vector3              | The object’s velocity in world space.                                                                                                                                                                                                                                                                                                                                    | None                     |
-| `SetVelocity(Vector3)`                                    | None                 | The object’s velocity in world space. Only true for physics objects.                                                                                                                                                                                                                                                                                                     | Dynamic                  |
-| `GetAngularVelocity()`                                    | Vector3              | The object’s angular velocity in degrees per second.                                                                                                                                                                                                                                                                                                                     | None                     |
-| `SetAngularVelocity(Vector3)`                             | None                 | Set the object’s angular velocity in degrees per second in world space. Physics networked Objects only.                                                                                                                                                                                                                                                                  | Dynamic                  |
-| `SetLocalAngularVelocity(Vector3)`                        | None                 | Set the object’s angular velocity in degrees per second in local space. Physics networked Objects only.                                                                                                                                                                                                                                                                  | Dynamic                  |
+| `GetVelocity()`                                           | Vector3              | The object's velocity in world space.                                                                                                                                                                                                                                                                                                                                    | None                     |
+| `SetVelocity(Vector3)`                                    | None                 | The object's velocity in world space. Only true for physics objects.                                                                                                                                                                                                                                                                                                     | Dynamic                  |
+| `GetAngularVelocity()`                                    | Vector3              | The object's angular velocity in degrees per second.                                                                                                                                                                                                                                                                                                                     | None                     |
+| `SetAngularVelocity(Vector3)`                             | None                 | Set the object's angular velocity in degrees per second in world space. Physics networked Objects only.                                                                                                                                                                                                                                                                  | Dynamic                  |
+| `SetLocalAngularVelocity(Vector3)`                        | None                 | Set the object's angular velocity in degrees per second in local space. Physics networked Objects only.                                                                                                                                                                                                                                                                  | Dynamic                  |
 | `GetReference()`                                          | CoreObjectReference  | Returns a CoreObjectReference pointing at this object.                                                                                                                                                                                                                                                                                                                   | None                     |
-| `GetChildren()`                                           | array&lt;CoreObject> | Returns a table containing the object’s children, may be empty.                                                                                                                                                                                                                                                                                                          | None                     |
+| `GetChildren()`                                           | array&lt;CoreObject> | Returns a table containing the object's children, may be empty.                                                                                                                                                                                                                                                                                                          | None                     |
 | `FindAncestorByName(string name)`                         | CoreObject           | Returns the first parent or ancestor whose name matches the provided name.  If none match, returns nil.                                                                                                                                                                                                                                                                  | None                     |
 | `FindChildByName(string name)`                            | CoreObject           | Returns the first immediate child whose name matches the provided name.  If none match, returns nil.                                                                                                                                                                                                                                                                     | None                     |
 | `FindDescendantByName(string name)`                       | CoreObject           | Returns the first child or descendant whose name matches the provided name.  If none match, returns nil.                                                                                                                                                                                                                                                                 | None                     |
 | `FindDescendantsByName(string name)`                      | array&lt;CoreObject> | Returns the descendants whose name matches the provided name.  If none match, returns an empty table.                                                                                                                                                                                                                                                                    | None                     |
-| `FindAncestorByType(string type_name)`                    | CoreObject           | Returns the first parent or ancestor whose type is or extends the specified type.  For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType(‘StaticMesh’) will only return the first static mesh. If no ancestors match, returns nil.                                               | Static                   |
+| `FindAncestorByType(string type_name)`                    | CoreObject           | Returns the first parent or ancestor whose type is or extends the specified type.  For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType(‘StaticMesh') will only return the first static mesh. If no ancestors match, returns nil.                                               | Static                   |
 | `FindChildByType(string type_name)`                       | CoreObject           | Returns the first immediate child whose type is or extends the specified type.  If none match, returns nil.                                                                                                                                                                                                                                                              | None                     |
 | `FindDescendantByType(string type_name)`                  | CoreObject           | Returns the first child or descendant whose type is or extends the specified type.  If none match, returns nil.                                                                                                                                                                                                                                                          | None                     |
 | `FindDescendantsByType(string type_name)`                 | array&lt;CoreObject> | Returns the descendants whose type is or extends the specified type.  If none match, returns an empty table.                                                                                                                                                                                                                                                             | None                     |
@@ -275,8 +275,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually
 | `IsAncestorOf(CoreObject)`                                | bool                 | Returns true if this core object is a parent somewhere in the hierarchy above the given parameter object. False otherwise.                                                                                                                                                                                                                                               | None                     |
 | `GetCustomProperty(string property_name)`                 | value, bool          | Gets data which has been added to an object using the custom property system.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not.                                                                                            | None                     |
 | `SetNetworkedCustomProperty(string PropertyName, Object)` | None                 | Sets the named custom property if it is marked as replicated and the object it belongs to is non-static, and server-side networked or in a client/server context.                                                                                                                                                                                                        | Client Context, Static   |
-| `AttachToPlayer(Player, String SocketName)`               | None                 | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its ‘parent’ property will be nil. Socket names are: root, pelvis, spine, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_shoulder, right_elbow, right_prop, left_shoulder, left_elbow, left_prop, topper, camera. | Dynamic                  |
-| `AttachToLocalView()`                                     | None                 | Attaches a CoreObject to the local player’s camera. This should be called inside a Client Context. Reminder to turn off the object’s collision otherwise it will cause camera to jitter.                                                                                                                                                                                 | Client Context, Dynamic. |
+| `AttachToPlayer(Player, String SocketName)`               | None                 | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its ‘parent' property will be nil. Socket names are: root, pelvis, spine, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_shoulder, right_elbow, right_prop, left_shoulder, left_elbow, left_prop, topper, camera. | Dynamic                  |
+| `AttachToLocalView()`                                     | None                 | Attaches a CoreObject to the local player's camera. This should be called inside a Client Context. Reminder to turn off the object's collision otherwise it will cause camera to jitter.                                                                                                                                                                                 | Client Context, Dynamic. |
 | `Detach()`                                                | None                 | Detaches a CoreObject from any player it has been attached to, or from its parent object.                                                                                                                                                                                                                                                                                | Dynamic                  |
 | `GetAttachedToSocketName()`                               | string               | Returns the name of the socket this object is attached to.                                                                                                                                                                                                                                                                                                               | None                     |
 | `MoveTo(Vector3, Number, bool)`                           | None                 | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if this should be done in local space (true) or world space (false).                                                                                                                                                                                   | Dynamic                  |
@@ -294,9 +294,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode.  Usually
 | `LookAtLocalView(bool)`                                   | None                 | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only)                                                                                                                                                                                                                                                                | Client Context, Dynamic  |
 | `Destroy()`                                               | None                 | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed.                                                                                                                                            | Dynamic                  |
 
-### [CoreObjectReference](/core_api/classes/coreobjectreference/coreobjectreferenceOverview)
+### CoreObjectReference
 
-A reference to a CoreObject which may or may not exist.  This type is returned by CoreObject:GetCustomProperty() for Core Object Reference properties, and may be used to find the actual object if it exists.  (For networked objects, it is possible to get a CoreObjectReference pointing to a CoreObject that hasn’t been received on the client yet.)
+A reference to a CoreObject which may or may not exist. This type is returned by CoreObject:GetCustomProperty() for Core Object Reference properties, and may be used to find the actual object if it exists. (For networked objects, it is possible to get a CoreObjectReference pointing to a CoreObject that hasn't been received on the client yet.)
 
 | Property     | Return Value | Description                                                                                                                | Tags      |
 | ------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -308,7 +308,7 @@ A reference to a CoreObject which may or may not exist.  This type is returned b
 | `GetObject()`             | CoreObject   | Returns the CoreObject with a matching ID, if it exists.  Will otherwise return nil.                                                                                                                                                                                                                    | None |
 | `WaitForObject([Number])` | CoreObject   | Returns the CoreObject with a matching ID, if it exists.  If it does not, yields the current task until the object is spawned.  Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None |
 
-### [Damage](/core_api/classes/damage/damageOverview)
+### Damage
 
 To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
@@ -324,13 +324,13 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | `GetHitResult()`          | HitResult    | Get the HitResult information if this damage was caused by a Projectile impact.     | None |
 | `SetHitResult(HitResult)` | None         | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
 
-### [Equipment](/core_api/classes/equipment/equipmentOverview)
+### Equipment
 
 Equipment is a CoreObject representing an equippable item for players.
 
 | Property          | Return Value                | Description                                                                  | Tags                |
 | ----------------- | --------------------------- | ---------------------------------------------------------------------------- | ------------------- |
-| `socket`          | string                      | Determines which point on the avatar’s body this equipment will be attached. | Read-Write, Dynamic |
+| `socket`          | string                      | Determines which point on the avatar's body this equipment will be attached. | Read-Write, Dynamic |
 | `owner`           | Player                      | Which Player the Equipment is attached to.                                   | Read-Only, Dynamic  |
 | `equippedEvent`   | Event&lt;Equipment, Player> | An event fired when this equipment is equipped onto a player.                | Read-Only           |
 | `unequippedEvent` | Event&lt;Equipment, Player> | An event fired when this object is unequipped from a player.                 | Read-Only           |
@@ -342,15 +342,15 @@ Equipment is a CoreObject representing an equippable item for players.
 | `AddAbility(Ability)` | None              | Adds an Ability to the list of abilities on this Equipment.                                                                                                                                                                   | None |
 | `GetAbilities()`      | array&lt;Ability> | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities.                                                                                                                      | None |
 
-### [Event](/core_api/classes/event/eventOverview)
+### Event
 
-When objects have events that can be fired, they’re accessed using the Event type.
+When objects have events that can be fired, they're accessed using the Event type.
 
 | Function                          | Return Value  | Description                                                                                                                                                                                         | Tags |
 | --------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Connect(function eventListener)` | EventListener | Registers the given function which will be called every time the event is fired.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
 
-### [EventListener](/core_api/classes/eventlistener/eventlistenerOverview)
+### EventListener
 
 EventListeners are returned by Events when you connect a listener function to them.
 
@@ -362,11 +362,11 @@ EventListeners are returned by Events when you connect a listener function to th
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------- | ---- |
 | `Disconnect()` | None         | Disconnects this listener from its event, so it will no longer be called when the event is fired. | None |
 
-### [Folder](/core_api/classes/folder/folderOverview)
+### Folder
 
-Folder is a CoreObject representing a folder containing other objects.  It currently has no properties or functions of its own, but inherits everything from CoreObject.
+Folder is a CoreObject representing a folder containing other objects. It currently has no properties or functions of its own, but inherits everything from CoreObject.
 
-### [HitResult](/core_api/classes/hitresult/hitresultOverview)
+### HitResult
 
 Contains data pertaining to an impact or raycast.
 
@@ -381,7 +381,7 @@ Contains data pertaining to an impact or raycast.
 | `GetImpactNormal()`   | Vector3      | Normal direction of the surface which was impacted.                                                                              | None |
 | `GetTransform()`      | Transform    | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
-### [ImageUIControl](/core_api/classes/imageuicontrol/imageuicontrolOverview)
+### ImageUIControl
 
 A UIControl for displaying an image.
 
@@ -396,11 +396,11 @@ A UIControl for displaying an image.
 | `SetColor(Color)`   | None         | The tint to apply to the image                                                       | None |
 | `SetImage(imageId)` | None         | Set image. You can get this muid from an asset reference.                            | None |
 | `GetImage()`        | string       | Returns the imageId assigned to this Image control.                                  | None |
-| `SetImage(Player)`  | None         | Downloads and sets a Player’s profile picture as the texture for this Image control. | None |
+| `SetImage(Player)`  | None         | Downloads and sets a Player's profile picture as the texture for this Image control. | None |
 
-### [Light](/core_api/classes/light/lightOverview)
+### Light
 
-Light is a light source that is a CoreObject.  Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
+Light is a light source that is a CoreObject. Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
 
 | Property            | Return Value | Description                                                                                                                                                                                                                                                                                             | Tags                |
 | ------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -417,19 +417,19 @@ Light is a light source that is a CoreObject.  Generally a Light will be an inst
 | `GetColor()`      | Color        | The color of the light. | None    |
 | `SetColor(Color)` | None         | The color of the light. | Dynamic |
 
-### [MovementSettings](/core_api/classes/movementsettings/movementsettingsOverview)
+### MovementSettings
 
 | Function                | Return Value | Description                                                                     | Tags |
 | ----------------------- | ------------ | ------------------------------------------------------------------------------- | ---- |
 | `ApplyToPlayer(Player)` | None         | Apply settings from this settings object to player. Should be called on server. | None |
 
-### [NetworkContext](/core_api/classes/networkcontext/networkcontextOverview)
+### NetworkContext
 
-NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or static objects.  It currently has no properties or functions of its own, but inherits everything from CoreObject.
+NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or static objects. It currently has no properties or functions of its own, but inherits everything from CoreObject.
 
-### [Object](/core_api/classes/object/objectOverview)
+### Object
 
-At a high level, CORE Lua types can be divided into two groups: data structures and Objects.  Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua.  Any such object will inherit from this type.  These include Ability, CoreObject, Player, and Projectile.
+At a high level, CORE Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include Ability, CoreObject, Player, and Projectile.
 
 | Property         | Return Value | Description                                                      | Tags      |
 | ---------------- | ------------ | ---------------------------------------------------------------- | --------- |
@@ -438,9 +438,9 @@ At a high level, CORE Lua types can be divided into two groups: data structures 
 
 | Static Functions         | Return Value | Description                                                                                                                                                                                    | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `IsValid(Object object)` | bool         | Returns true if object is still a valid Object, or false if it has been destroyed.  Also returns false if passed a nil value or something that’s not an Object, such as a Vector3 or a string. | None |
+| `IsValid(Object object)` | bool         | Returns true if object is still a valid Object, or false if it has been destroyed.  Also returns false if passed a nil value or something that's not an Object, such as a Vector3 or a string. | None |
 
-### [PanelUIControl](/core_api/classes/paneluicontrol/paneluicontrolOverview)
+### PanelUIControl
 
 A UIControl which can be used for containing and laying out other UI controls.
 
@@ -448,24 +448,24 @@ A UIControl which can be used for containing and laying out other UI controls.
 | -------------------------- | ------------ | -------------------------------------------------------------------- | ---- |
 | `shouldClipChildren(bool)` | bool         | If True, children of this panel will not draw outside of its bounds. | None |
 
-### [PerPlayerReplicator](/core_api/classes/perplayerreplicator/perplayerreplicatorOverview)
+### PerPlayerReplicator
 
-Per-player replicator is a CoreObject used to replicate data for specific players. They are similar to normal replicators in that you add custom properties for the values you want to replicate, but are accessed quite differently. At runtime, request a player’s personal replicator and use the standard Replicator API to retrieve and set data. Note that clients can access other client’s replicators.
+Per-player replicator is a CoreObject used to replicate data for specific players. They are similar to normal replicators in that you add custom properties for the values you want to replicate, but are accessed quite differently. At runtime, request a player's personal replicator and use the standard Replicator API to retrieve and set data. Note that clients can access other client's replicators.
 
 | Function                      | Return Value | Description                                                                                                     | Tags |
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetPlayerReplicator(Player)` | Replicator   | Returns the replicator for the specified player. Can be nil if the replicator hasn’t spawned on the client yet. | None |
+| `GetPlayerReplicator(Player)` | Replicator   | Returns the replicator for the specified player. Can be nil if the replicator hasn't spawned on the client yet. | None |
 
-### [Player](/core_api/classes/player/playerOverview)
+### Player
 
 Player is an Object representation of the state of a player connected to the game, as well as their avatar in the world.
 
 | Property                     | Return Value                                 | Description                                                                                                                                                                                                                                                                                                    | Tags                       |
 | ---------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `name`                       | string                                       | The player’s name.                                                                                                                                                                                                                                                                                             | Read-Only                  |
+| `name`                       | string                                       | The player's name.                                                                                                                                                                                                                                                                                             | Read-Only                  |
 | `id`                         | string                                       | The unique id of the player. Consistent across sessions.                                                                                                                                                                                                                                                       | Read-Only                  |
 | `team`                       | Number                                       | The number of the team to which the player is assigned. By default, this value is 255 in FFA mode.                                                                                                                                                                                                             | Read-Write                 |
-| `animationStance`            | string                                       | Which set of animations to use for this player. Example values can be “unarmed_stance”, “1hand_melee_stance”, “1hand_pistol_stance”, “2hand_sword_stance” or “2hand_rifle_stance”. See  Animation Stance Information                                                                                           | Read-Write                 |
+| `animationStance`            | string                                       | Which set of animations to use for this player. Example values can be "unarmed_stance", "1hand_melee_stance", "1hand_pistol_stance", "2hand_sword_stance" or "2hand_rifle_stance". See  Animation Stance Information                                                                                           | Read-Write                 |
 | `currentFacingMode`          | FacingMode                                   | Current mode applied to player, including possible overrides. Possible values are FacingMode.STRAFE and FacingMode.LOOSE. See desiredFacingMode for details.                                                                                                                                                   | None                       |
 | `desiredFacingMode`          | FacingMode                                   | Which controls mode to use for this player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.STRAFE and FacingMode.LOOSE.                                                                                                                | Read-Write                 |
 | `hitPoints`                  | Number                                       | Current amount of hitpoints.                                                                                                                                                                                                                                                                                   | Read-Write                 |
@@ -499,24 +499,24 @@ Player is an Object representation of the state of a player connected to the gam
 | `movementControlMode`        | MovementControlMode                          | Possible values are MovementControlMode.NONE, MovementControlMode.LOOK_RELATIVE, MovementControlMode.VIEW_RELATIVE, MovementControlMode.FIXED_AXES.                                                                                                                                                            | Read-Write                 |
 | `lookControlMode`            | LookControlMode                              | Possible values are LookControlMode.NONE, LookControlMode.RELATIVE.                                                                                                                                                                                                                                            | Read-Write                 |
 | `lookSensitivity`            | Number                                       | multiplier on player look rotation speed relative to cursor movement. Default is 1.0. This is independent from player preference, both will be applied as multipliers together.                                                                                                                                | Read-Write                 |
-| `spreadModifier`             | Number                                       | Added to the player’s targeting spread                                                                                                                                                                                                                                                                         | Read-Write                 |
-| `buoyancy`                   | Number                                       | in water, buoyancy 1.0 is neutral (won’t sink or float naturally). Less than 1 to sink, greater than 1 to float.                                                                                                                                                                                               | Read-Write                 |
+| `spreadModifier`             | Number                                       | Added to the player's targeting spread                                                                                                                                                                                                                                                                         | Read-Write                 |
+| `buoyancy`                   | Number                                       | in water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float.                                                                                                                                                                                               | Read-Write                 |
 | `canMount`                   | bool                                         | whether the player can manually toggle on/off the mount                                                                                                                                                                                                                                                        | Read-Write                 |
 | `shouldDismountWhenDamaged`  | bool                                         | If true, and the player is mounted they will dismount if they take damage.                                                                                                                                                                                                                                     | Read-Write                 |
-| `isVisibleToSelf`            | bool                                         | Set whether to hide player model on player’s own client, for sniper scope, etc. Client-only.                                                                                                                                                                                                                   | Client Context, Read-Write |
+| `isVisibleToSelf`            | bool                                         | Set whether to hide player model on player's own client, for sniper scope, etc. Client-only.                                                                                                                                                                                                                   | Client Context, Read-Write |
 | `damagedEvent`               | Event&lt;Player, Damage>                     | Event fired when the Player takes damage. Server only.                                                                                                                                                                                                                                                         | Server Context, Read-Only  |
 | `diedEvent`                  | Event&lt;Player, Damage>                     | Event fired when the Player dies.  Server only.                                                                                                                                                                                                                                                                | Server Context, Read-Only  |
 | `respawnedEvent`             | Event&lt;Player>                             | Event fired when the Player respawns.  Server only.                                                                                                                                                                                                                                                            | Server Context, Read-Only  |
 | `bindingPressedEvent`        | Event&lt;Player, String>                     | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list                                                                                                                                                 | Read-Only                  |
 | `bindingReleasedEvent`       | Event&lt;Player, String>                     | Event fired when an action binding is released. Second parameter tells you which binding.                                                                                                                                                                                                                      | Read-Only                  |
 | `resourceChangedEvent`       | Event&lt;Player>                             | Event fired when a resource changed                                                                                                                                                                                                                                                                            | Read-Only                  |
-| `movementModeChangedEvent`   | Event&lt;Player, MovementMode, MovementMode> | Event fired when a player’s movement mode changes. The first parameter is the player being changed. The second parameter is the “new” movement mode. The third parameter is the “previous” movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only  |
+| `movementModeChangedEvent`   | Event&lt;Player, MovementMode, MovementMode> | Event fired when a player's movement mode changes. The first parameter is the player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only  |
 | `animationEvent`             | Event&lt;Player>,EventName                   | Event fired during certain animations played on a player. Client only.                                                                                                                                                                                                                                         | Client Context             |
 
 | Function                                                              | Return Value          | Description                                                                                                                                                                                                                                                                                                                                                                                                                      | Tags |
 | --------------------------------------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetTransform()`                                                      | Transform             | The transform relative to this object’s parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
-| `SetTransform (Transform)`                                            | None                  | The transform relative to this object’s parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
+| `GetTransform()`                                                      | Transform             | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
+| `SetTransform (Transform)`                                            | None                  | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
 | `GetPosition()`                                                       | Vector3               | The position of this object relative to its parent.                                                                                                                                                                                                                                                                                                                                                                              | None |
 | `SetPosition (Vector3)`                                               | None                  | The position of this object relative to its parent.                                                                                                                                                                                                                                                                                                                                                                              | None |
 | `GetRotation()`                                                       | Rotation              | The rotation relative to its parent.                                                                                                                                                                                                                                                                                                                                                                                             | None |
@@ -533,7 +533,7 @@ Player is an Object representation of the state of a player connected to the gam
 | `SetWorldScale (Vector3)`                                             | None                  | The absolute scale.                                                                                                                                                                                                                                                                                                                                                                                                              | None |
 | `AddImpulse (Vector3)`                                                | Vector3               | Adds an impulse force to the player.                                                                                                                                                                                                                                                                                                                                                                                             | None |
 | `GetVelocity()`                                                       | Vector3               | Gets current velocity of player                                                                                                                                                                                                                                                                                                                                                                                                  | None |
-| `ResetVelocity()`                                                     | None                  | Resets the player’s velocity to zero.                                                                                                                                                                                                                                                                                                                                                                                            | None |
+| `ResetVelocity()`                                                     | None                  | Resets the player's velocity to zero.                                                                                                                                                                                                                                                                                                                                                                                            | None |
 | `GetRotationRate()`                                                   | Rotation              | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis.                                                                                                                                                                                                                                                                          | None |
 | `SetRotationRate (Rotation)`                                          | None                  | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis.                                                                                                                                                                                                                                                                          | None |
 | `GetAbilities()`                                                      | array&lt;Ability>     | Array of all Abilities assigned to this Player.                                                                                                                                                                                                                                                                                                                                                                                  | None |
@@ -542,10 +542,10 @@ Player is an Object representation of the state of a player connected to the gam
 | `Die([Damage])`                                                       | None                  | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death.                                                                                                                                                                                                                                                                                             | None |
 | `DisableRagdoll()`                                                    | None                  | Disables all ragdolls that have been set on the player.                                                                                                                                                                                                                                                                                                                                                                          | None |
 | `SetVisibility(bool, bool)`                                           | None                  | Shows or hides the player. The second parameter is optional, defaults to true, and determines if attachments to the player are hidden as well as the player.                                                                                                                                                                                                                                                                     | None |
-| `EnableRagdoll(string SocketName, Number Weight, bool CameraFollows)` | None                  | Enables ragdoll for the player, starting on “SocketName” weighted by “Weight” (between 0.0 and 1.0). This can cause the player capsule to detach from the mesh. Setting CameraFollows to true will force the player capsule to stay with the mesh. All parameters are optional; SocketName defaults to the root, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously. | None |
+| `EnableRagdoll(string SocketName, Number Weight, bool CameraFollows)` | None                  | Enables ragdoll for the player, starting on "SocketName" weighted by "Weight" (between 0.0 and 1.0). This can cause the player capsule to detach from the mesh. Setting CameraFollows to true will force the player capsule to stay with the mesh. All parameters are optional; SocketName defaults to the root, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously. | None |
 | `Respawn([Vector, Rotation])`                                         | None                  | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location.                                                                                                                                                                                                                                                                  | None |
-| `GetViewWorldPosition()`                                              | Vector3               | Get position of player’s camera view. Only works for local player.                                                                                                                                                                                                                                                                                                                                                               | None |
-| `GetViewWorldRotation()`                                              | Rotation              | Get rotation of player’s camera view. Only works for local player.                                                                                                                                                                                                                                                                                                                                                               | None |
+| `GetViewWorldPosition()`                                              | Vector3               | Get position of player's camera view. Only works for local player.                                                                                                                                                                                                                                                                                                                                                               | None |
+| `GetViewWorldRotation()`                                              | Rotation              | Get rotation of player's camera view. Only works for local player.                                                                                                                                                                                                                                                                                                                                                               | None |
 | `ClearResources()`                                                    | None                  | Removes all resources from a player.                                                                                                                                                                                                                                                                                                                                                                                             | None |
 | `GetResource(String name)`                                            | string                | Returns the amount of a resource owned by a player. Returns 0 by default.                                                                                                                                                                                                                                                                                                                                                        | None |
 | `SetResource(String name, Integer amount)`                            | None                  | Sets a specific amount of a resource on a player.                                                                                                                                                                                                                                                                                                                                                                                | None |
@@ -564,7 +564,7 @@ Player is an Object representation of the state of a player connected to the gam
 | `ActivateFlying()`                                                    | None                  | Activates the player flying mode.                                                                                                                                                                                                                                                                                                                                                                                                | None |
 | `ActivateWalking()`                                                   | None                  | Activate the player walking mode                                                                                                                                                                                                                                                                                                                                                                                                 | None |
 
-### [PlayerStart](/core_api/classes/playerstart/playerstartOverview)
+### PlayerStart
 
 PlayerStart is a CoreObject representing a spawn point for players.
 
@@ -572,7 +572,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 | -------- | ------------ | -------------------------------------------------------------- | ------------------- |
 | `team`   | string       | A tag controlling which players can spawn at this start point. | Read-Write, Dynamic |
 
-### [PointLight](/core_api/classes/pointlight/pointlightOverview)
+### PointLight
 
 PointLight is a placeable light source that is a CoreObject.
 
@@ -583,7 +583,7 @@ PointLight is a placeable light source that is a CoreObject.
 | `sourceRadius`      | Number       | Radius of light source shape.                                                                                                                                                                                                                                                                    | Read-Write, Dynamic |
 | `sourceLength`      | Number       | Length of light source shape.                                                                                                                                                                                                                                                                    | Read-Write, Dynamic |
 
-### [ProgressBarUIControl](/core_api/classes/progressbaruicontrol/progressbaruicontrolOverview)
+### ProgressBarUIControl
 
 A UIControl that displays a filled rectangle which can be used for things such as a health indicator.
 
@@ -596,7 +596,7 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | `GetFillColor()`      | Color        | The color of the fill. | None |
 | `SetFillColor(Color)` | None         | The color of the fill. | None |
 
-### [Projectile](/core_api/classes/projectile/projectileOverview)
+### Projectile
 
 Projectile is a specialized Object which moves through the air in a parabolic shape and impacts other objects. To spawn a projectile see `game:SpawnProjectile()`.
 
@@ -613,8 +613,8 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `lifeSpan`              | Number                                        | Max seconds the projectile will exist. Default 10.                                                                                                                                                                                                                         | Read-Write |
 | `shouldBounceOnPlayers` | bool                                          | Determines if the projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false.                                                                                                                                                      | Read-Write |
 | `piercesRemaining`      | Integer                                       | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
-| `capsuleRadius`         | Number                                        | Shape of the projectile’s collision. Default 22.                                                                                                                                                                                                                           | Read-Write |
-| `capsuleLength`         | Number                                        | Shape of the projectile’s collision. A value of zero will make it shaped like a Sphere. Default 44.                                                                                                                                                                        | Read-Write |
+| `capsuleRadius`         | Number                                        | Shape of the projectile's collision. Default 22.                                                                                                                                                                                                                           | Read-Write |
+| `capsuleLength`         | Number                                        | Shape of the projectile's collision. A value of zero will make it shaped like a Sphere. Default 44.                                                                                                                                                                        | Read-Write |
 | `homingTarget`          | Player                                        | The projectile accelerates towards its target.                                                                                                                                                                                                                             | Read-Write |
 | `homingAcceleration`    | Number                                        | Magnitude of acceleration towards the target. Default 10,000.                                                                                                                                                                                                              | Read-Write |
 | `shouldDieOnImpact`     | bool                                          | If true the projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true.                                                                                                                                                   | Read-Write |
@@ -635,7 +635,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | ---------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------- | ---- |
 | `Spawn(string child_template_id, Vector3 start_position, Vector3 direction)` | Projectile   | Spawns a Projectile with a child that is an instance of a template. | None |
 
-### [Quaternion](/core_api/classes/quaternion/quaternionOverview)
+### Quaternion
 
 A quaternion-based representation of a rotation.
 
@@ -676,7 +676,7 @@ A quaternion-based representation of a rotation.
 | `Quaternion / Number`     | Quaternion   | Divides each component by the right-side Number.                                                           | None |
 | `-Quaternion`             | Quaternion   | Returns the inverse rotation.                                                                              | None |
 
-### [RandomStream](/core_api/classes/randomstream/randomstreamOverview)
+### RandomStream
 
 Seed-based random stream of numbers. Useful for deterministic RNG problems, for instance, inside a Client Context so all players get the same outcome without the need to replicate lots of data from the server. Bad quality in the lower bits (avoid combining with modulus operations).
 
@@ -700,7 +700,7 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 | `GetVector3FromCone(Vector3 Direction, Number HalfAngle)`                             | Vector3      | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction and HalfAngle (in radians).                      | None |
 | `GetVector3FromCone(Vector3 Direction, Number HorizontalAngle, Number VerticalAngle)` | Vector3      | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction, HorizontalAngle and VerticalAngle (in radians). | None |
 
-### [Replicator](/core_api/classes/replicator/replicatorOverview)
+### Replicator
 
 Replicators are CoreObjects are used to broadcast data from the server to clients. To use them, add custom properties to a replicator and assign them default values. These properties will be readable on all clients, and read/write on the server.
 
@@ -713,7 +713,7 @@ Replicators are CoreObjects are used to broadcast data from the server to client
 | ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `valueChangedEvent` | Event&lt;Replicator, string propertyName> | An event that is fired whenever any of the properties managed by the replicator receives an update. The event is fired on the server and the client. Event payload is the Replicator object and the name of the property that just changed. | Read-Only |
 
-### [Rotation](/core_api/classes/rotation/rotationOverview)
+### Rotation
 
 An immutable euler-based rotation around X, Y, and Z axes.
 
@@ -739,7 +739,7 @@ An immutable euler-based rotation around X, Y, and Z axes.
 | `Rotation * Number`   | Rotation     | Returns the scaled rotation.  | None |
 | `-Rotation`           | Rotation     | Returns the inverse rotation. | None |
 
-### [Script](/core_api/classes/script/scriptOverview)
+### Script
 
 Script is a CoreObject representing a script.
 
@@ -750,7 +750,7 @@ Script is a CoreObject representing a script.
 !!! Note
     While not technically a property, a script can access itself using the `script` variable.
 
-### [SpotLight](/core_api/classes/spotlight/spotlightOverview)
+### SpotLight
 
 SpotLight is a Light that shines in a specific direction from the location at which it is placed.
 
@@ -763,7 +763,7 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 | `innerConeAngle`    | Number       | The angle (in degrees) of the cone within which the projected light achieves full brightness.                                                                                                                                                                                                    | Read-Write, Dynamic |
 | `outerConeAngle`    | Number       | The outer angle (in degrees) of the cone of light emitted by this SpotLight.                                                                                                                                                                                                                     | Read-Write, Dynamic |
 
-### [SmartAudio](/core_api/classes/smartaudio/smartaudioOverview)
+### SmartAudio
 
 SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio objects, they have many of the same properties and functions.
 
@@ -784,16 +784,16 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `Play()` | None         | Begins sound playback. | None |
 | `Stop()` | None         | Stops sound playback.  | None |
 
-### [SmartObject](/core_api/classes/smartobject/smartobjectOverview)
+### SmartObject
 
-SmartObject is the top-level container of a blueprint “smart object” that has been placed in the game.  It inherits everything from CoreObject.  Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by the contents of the blueprint.
+SmartObject is the top-level container of a blueprint "smart object" that has been placed in the game. It inherits everything from CoreObject. Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by the contents of the blueprint.
 
 | Property                                        | Return Value | Description                                                                                                                                                                                                                               | Tags |
 | ----------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetSmartProperty(string property_name)`        | value, bool  | Gets the current value of an exposed blueprint variable.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found.  Second return value is a bool, true if found and false if not. | None |
 | `SetSmartProperty(string property_name, value)` | bool         | Sets the value of an exposed blueprint variable.  Value, which can be a Number, bool, string, Vector3, Rotation, or Color, but must match the type of the property on the blueprint.  Returns true if set successfully and false if not.  | None |
 
-### [StaticMesh](/core_api/classes/staticmesh/staticmeshOverview)
+### StaticMesh
 
 StaticMesh is a CoreObject representing a static mesh.
 
@@ -814,9 +814,9 @@ StaticMesh is a CoreObject representing a static mesh.
 | `SetMaterialProperty(Integer slot, string property_name, value)` | bool         | Sets the value of a property on a material in a given slot.  Value, which can be a Number, bool, Vector3, or Color, but must match the type of the property on the material.  Returns true if set successfully and false if not. | None    |
 | `ResetColor()`                                                   | Color        | Turns off the color override, if there is one.                                                                                                                                                                                   | None    |
 
-### [Task](/core_api/classes/task/taskOverview)
+### Task
 
-Task is a representation of a Lua thread.  It could be a Script initialization, a repeating tick() function from a Script, an EventListener invocation, or a Task spawned directly by a call to `Task.Spawn()`.
+Task is a representation of a Lua thread. It could be a Script initialization, a repeating tick() function from a Script, an EventListener invocation, or a Task spawned directly by a call to `Task.Spawn()`.
 
 | Property         | Return Value | Description                                                                                                                                                                                                                                                                                              | Tags       |
 | ---------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -835,11 +835,11 @@ Task is a representation of a Lua thread.  It could be a Script initialization, 
 | `GetCurrent()`                                 | Task         | Returns the currently running Task.                                                                                                                                                                                                                                      | None |
 | `Wait([Number delay])`                         | Number       | Yields the current Task, resuming in delay seconds, or during the next frame if delay is not specified.                                                                                                                                                                  | None |
 
-### [Terrain](/core_api/classes/terrain/terrainOverview)
+### Terrain
 
 Terrain is a CoreObject representing terrain placed in the world.
 
-### [Text](/core_api/classes/text/textOverview)
+### Text
 
 Text is an in-world text CoreObject.
 
@@ -854,7 +854,7 @@ Text is an in-world text CoreObject.
 | `GetColor()`      | Color        | The color of the text. | None    |
 | `SetColor(Color)` | None         | The color of the text. | Dynamic |
 
-### [TextUIControl](/core_api/classes/textuicontrol/textuicontrolOverview)
+### TextUIControl
 
 A UIControl which displays a basic text label.
 
@@ -871,9 +871,9 @@ A UIControl which displays a basic text label.
 | `GetColor()`      | Color        | The color of the text. | None |
 | `SetColor(Color)` | None         | The color of the text. | None |
 
-### [Transform](/core_api/classes/transform/transformOverview)
+### Transform
 
-Transforms represent the position, rotation, and scale of objects in the game.  They are immutable, but new Transforms can be created when you want to change an object’s transform.
+Transforms represent the position, rotation, and scale of objects in the game. They are immutable, but new Transforms can be created when you want to change an object's transform.
 
 | Constructor                                                                          | Return Value | Description                    | Tags |
 | ------------------------------------------------------------------------------------ | ------------ | ------------------------------ | ---- |
@@ -899,14 +899,14 @@ Transforms represent the position, rotation, and scale of objects in the game.  
 | `GetUpVector()`                         | Vector3      | Up vector of the transform.                                                                                                                   | None |
 | `GetInverse()`                          | Transform    | Inverse of the transform.                                                                                                                     | None |
 | `TransformPosition(Vector3 position)`   | Vector3      | Applies the transform to the given position in 3D space.                                                                                      | None |
-| `TransformDirection(Vector3 direction)` | Vector3      | Applies the transform to the given directional Vector3.  This will rotate and scale the Vector3, but does not apply the transform’s position. | None |
+| `TransformDirection(Vector3 direction)` | Vector3      | Applies the transform to the given directional Vector3.  This will rotate and scale the Vector3, but does not apply the transform's position. | None |
 
 | Operator                 | Return Value | Description                                                                        | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------- | ---- |
 | `Transform * Transform`  | Transform    | Returns a new transform composing the left and right transforms.                   | None |
 | `Transform * Quaternion` | Quaternion   | Returns a new transform composing the left transform then the right side rotation. | None |
 
-### [Trigger](/core_api/classes/trigger/triggerOverview)
+### Trigger
 
 A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A player walks into it):
 
@@ -926,11 +926,11 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event               | Return Value                               | Description                                                                                                                                                                                                                                                                                                   | Tags      |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `beginOverlapEvent` | Event&lt;CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player’), other:IsA(‘StaticMesh’), etc. | Read-Only |
+| `beginOverlapEvent` | Event&lt;CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player'), other:IsA(‘StaticMesh'), etc. | Read-Only |
 | `endOverlapEvent`   | Event&lt;CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent.                                                                                                                                                                                                            | Read-Only |
-| `interactedEvent`   | Event&lt;CoreObject trigger, Player>       | An event fired when a player uses the interaction on a trigger volume (By default “F” key). The first parameter is the trigger itself and the second parameter is a Player.                                                                                                                                   | Read-Only |
+| `interactedEvent`   | Event&lt;CoreObject trigger, Player>       | An event fired when a player uses the interaction on a trigger volume (By default "F" key). The first parameter is the trigger itself and the second parameter is a Player.                                                                                                                                   | Read-Only |
 
-### [UIControl](/core_api/classes/uicontrol/uicontrolOverview)
+### UIControl
 
 UIControl is a CoreObject which serves as a base class for other UI Control Proxies.
 
@@ -942,7 +942,7 @@ UIControl is a CoreObject which serves as a base class for other UI Control Prox
 | `height`        | Number       | Vertical size of the control.        | None |
 | `rotationAngle` | Number       | rotation angle of the control.       | None |
 
-### [Vector2](/core_api/classes/vector2/vector2Overview)
+### Vector2
 
 A two-component vector.
 
@@ -982,7 +982,7 @@ A two-component vector.
 | `Vector2 .. Vector2`                              | Vector2      | Returns the dot product of the Vector2s.                                                                        | None |
 | `Vector2 ^ Vector2`                               | Vector2      | Returns the cross product of the Vector2s.                                                                      | None |
 
-### [Vector3](/core_api/classes/vector3/vector3Overview)
+### Vector3
 
 A three-component vector.
 
@@ -1027,7 +1027,7 @@ A three-component vector.
 | `Vector3 .. Vector3`                              | Vector3      | Returns the dot product of the Vector3s.                                                                        | None |
 | `Vector3 ^ Vector3`                               | Vector3      | Returns the cross product of the Vector3s.                                                                      | None |
 
-### [Vector4](/core_api/classes/vector4/vector4Overview)
+### Vector4
 
 A four-component vector.
 
@@ -1039,7 +1039,7 @@ A four-component vector.
 | `Vector4.New(Vector3 xyz, Number w)`                  | Vector4      | Construct with x, y, z values from the given Vector3 and the given w value.                | None |
 | `Vector4.New(Vector4 v)`                              | Vector4      | Construct with x, y, z, w values from the given Vector4.                                   | None |
 | `Vector4.New(Vector2 xy, Vector2 zw)`                 | Vector4      | Construct with x, y values from the first Vector2 and z, w values from the second Vector2. | None |
-| `Vector4.New(Color v)`                                | Color        | Construct with x, y, z, w values mapped from the given Color’s r, g, b, a values.          | None |
+| `Vector4.New(Color v)`                                | Color        | Construct with x, y, z, w values mapped from the given Color's r, g, b, a values.          | None |
 | `Vector3.ZERO`                                        | Vector3      | (0, 0, 0, 0)                                                                               | None |
 | `Vector3.ONE`                                         | Vector3      | (1, 1, 1, 1)                                                                               | None |
 
@@ -1072,9 +1072,9 @@ A four-component vector.
 | `Vector4 .. Vector4`                              | Vector4      | Returns the dot product of the Vector4s.                                                                        | None |
 | `Vector4 ^ Vector4`                               | Vector4      | Returns the cross product of the Vector4s.                                                                      | None |
 
-### [Vfx](/core_api/classes/vfx/vfxOverview)
+### Vfx
 
-Vfx is a specialized type of SmartObject for visual effects.  It inherits everything from SmartObject.
+Vfx is a specialized type of SmartObject for visual effects. It inherits everything from SmartObject.
 
 | Function          | Return Value | Description                                                                                                                                                                                 | Tags                |
 | ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -1086,7 +1086,7 @@ Vfx is a specialized type of SmartObject for visual effects.  It inherits everyt
 | `Play()` | None         | Starts playing the effect. | None |
 | `Stop()` | None         | Stops playing the effect.  | None |
 
-### [Weapon](/core_api/classes/weapon/weaponOverview)
+### Weapon
 
 A Weapon is an Equipment that comes with built-in Abilities and fires Projectiles.
 
@@ -1111,19 +1111,19 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `projectileSpeed`            | Number       | Travel speed (cm/s) of projectiles spawned by this weapon.                                                                                                                                                                                                                     | Read-Only  |
 | `projectileLifeSpan`         | Number       | Duration of projectiles. After which they are destroyed.                                                                                                                                                                                                                       | Read-Only  |
 | `projectileGravity`          | Number       | Gravity scale applied to spawned projectiles.                                                                                                                                                                                                                                  | Read-Only  |
-| `projectileLength`           | Number       | Length of the projectile’s capsule collision.                                                                                                                                                                                                                                  | Read-Only  |
-| `projectileRadius`           | Number       | Radius of the projectile’s capsule collision                                                                                                                                                                                                                                   | Read-Only  |
+| `projectileLength`           | Number       | Length of the projectile's capsule collision.                                                                                                                                                                                                                                  | Read-Only  |
+| `projectileRadius`           | Number       | Radius of the projectile's capsule collision                                                                                                                                                                                                                                   | Read-Only  |
 | `projectileDrag`             | Number       | Drag on the projectile.                                                                                                                                                                                                                                                        | Read-Only  |
-| `projectileBounceCount`      | Integer      | Number of times the projectile will bounce before it’s destroyed. Each bounce generates an interaction event.                                                                                                                                                                  | Read-Only  |
-| `projectilePierceCount`      | Integer      | Number of objects that will be pierced by the projectile before it’s destroyed. Each pierce generates an interaction event.                                                                                                                                                    | Read-Only  |
-| `maxAmmo`                    | Integer      | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn’t need to reload.                                                                                                                                      | Read-Only  |
+| `projectileBounceCount`      | Integer      | Number of times the projectile will bounce before it's destroyed. Each bounce generates an interaction event.                                                                                                                                                                  | Read-Only  |
+| `projectilePierceCount`      | Integer      | Number of objects that will be pierced by the projectile before it's destroyed. Each pierce generates an interaction event.                                                                                                                                                    | Read-Only  |
+| `maxAmmo`                    | Integer      | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn't need to reload.                                                                                                                                      | Read-Only  |
 | `currentAmmo`                | Integer      | Current amount of ammo stored in this Weapon.                                                                                                                                                                                                                                  | Read-Write |
 | `ammoType`                   | string       | A unique identifier for the ammunition type.                                                                                                                                                                                                                                   | Read-Only  |
-| `isAmmoFinite`               | bool         | Determines where the ammo comes from. If True, then ammo will be drawn from the Player’s Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If False, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only  |
+| `isAmmoFinite`               | bool         | Determines where the ammo comes from. If True, then ammo will be drawn from the Player's Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If False, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only  |
 | `outOfAmmoSoundId`           | string       | Asset reference for a sound effect to be played when the weapon tries to activate, but is out of ammo.                                                                                                                                                                         | Read-Only  |
 | `reloadSoundId`              | string       | Asset reference for a sound effect to be played when the weapon reloads ammo.                                                                                                                                                                                                  | Read-Only  |
-| `spreadMin`                  | Number       | Smallest size in degrees for the Weapon’s cone of probability space to fire projectiles in.                                                                                                                                                                                    | Read-Only  |
-| `spreadMax`                  | Number       | Largest size in degrees for the Weapon’s cone of probability space to fire projectiles in.                                                                                                                                                                                     | Read-Only  |
+| `spreadMin`                  | Number       | Smallest size in degrees for the Weapon's cone of probability space to fire projectiles in.                                                                                                                                                                                    | Read-Only  |
+| `spreadMax`                  | Number       | Largest size in degrees for the Weapon's cone of probability space to fire projectiles in.                                                                                                                                                                                     | Read-Only  |
 | `spreadAperture`             | Number       | The surface size from which shots spawn. An aperture of zero means shots originate from a single point.                                                                                                                                                                        | Read-Only  |
 | `spreadDecreaseSpeed`        | Number       | Speed at which the Spread contracts back from its current value to the minimum cone size.                                                                                                                                                                                      | Read-Only  |
 | `spreadIncreasePerShot`      | Number       | Amount the Spread increases each time the Weapon attacks.                                                                                                                                                                                                                      | Read-Only  |
@@ -1139,7 +1139,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `targetInteractionEvent` | Event&lt;WeaponInteraction> | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. Server only. | Server Context, Read-Only |
 | `projectileSpawnedEvent` | Event&lt;WeaponInteraction> | An event fired when a Weapon spawns a projectile.                                                                                                                                                                                                        | Read-Only                 |
 
-### [WeaponInteraction](/core_api/classes/weaponinteraction/weaponinteractionOverview)
+### WeaponInteraction
 
 A data structure containing all information about a specific weapon interaction, such as collision with a character.
 
@@ -1158,7 +1158,7 @@ A data structure containing all information about a specific weapon interaction,
 | `GetHitResult()`  | HitResult           | Physics information about the impact between the weapon and the other object.                                                                                                                                           | None |
 | `GetHitResults()` | array&lt;HitResult> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
 
-### [WorldText](/core_api/classes/worldtext/worldtextOverview)
+### WorldText
 
 WorldText is an in-world text CoreObject.
 
@@ -1173,9 +1173,9 @@ WorldText is an in-world text CoreObject.
 
 ## Core Lua Namespaces
 
-Some sets of related functionality are grouped within namespaces, which are similar to the types above, but cannot be instantiated.  They are only ever accessed by calling functions within these namespaces.
+Some sets of related functionality are grouped within namespaces, which are similar to the types above, but cannot be instantiated. They are only ever accessed by calling functions within these namespaces.
 
-### [CoreDebug](/core_api/classes/coredebug/coredebugOverview)
+### CoreDebug
 
 The CoreDebug API contains functions that may be useful for debugging.
 
@@ -1187,7 +1187,7 @@ The CoreDebug API contains functions that may be useful for debugging.
 
 ??? "CoreDebug Code Example"
 
-    ```
+    ```lua
     -- draw red line for 3 seconds
     CoreDebug.DrawLine(Vector3.New(0, 0, 0), Vector3.New(0, 0, 1000), {color = Color.RED, duration = 3.0})
 
@@ -1198,7 +1198,7 @@ The CoreDebug API contains functions that may be useful for debugging.
     CoreDebug.DrawSphere(Vector3.New(0, 0, 100), 50, {color = Color.CYAN })
     ```
 
-### [CoreMath](/core_api/classes/coremath/coremathOverview)
+### CoreMath
 
 The CoreMath API contains a group of static math functions.
 
@@ -1208,7 +1208,7 @@ The CoreMath API contains a group of static math functions.
 | `CoreMath.Lerp(Number from, Number to, Number t)`          | None         | Linear interpolation between from and to.  t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None |
 | `CoreMath.Round(Number value, Number decimals)`            | None         | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value.                                | None |
 
-### [Events](/core_api/classes/events/eventsOverview)
+### Events
 
 User defined events can be specified using the Events namespace. The Events namespace uses the following static functions (called using a `.`):
 
@@ -1238,9 +1238,9 @@ User defined events can be specified using the Events namespace. The Events name
     * Vector3
     * Vector4
     * Player
-    \* Table
+    * Table
 
-### [Game](/core_api/classes/game/gameOverview)
+### Game
 
 Game is a collection of functions and events related to players in the game, rounds of a game, and team scoring.
 
@@ -1248,21 +1248,21 @@ Game is a collection of functions and events related to players in the game, rou
 | --------------------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `GetLocalPlayer()`                                                          | Player           | Returns the local player (Client-only).                                                                                                                                                                                                                                                       | Client Context |
 | `GetPlayers([table Parameters])`                                            | array&lt;Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned:                                                                                                                                 | None           |
-| `ignoreDead(boolean)`                                                       | None             | If true, don’t return any dead players.                                                                                                                                                                                                                                                       | None           |
-| `ignoreLiving(boolean)`                                                     | None             | If true, don’t return any living players.                                                                                                                                                                                                                                                     | None           |
-| `ignoreTeams(Integer or Array&lt;Integer&gt;)`                              | None             | Don’t return any players belonging to the team or teams listed.                                                                                                                                                                                                                               | None           |
+| `ignoreDead(boolean)`                                                       | None             | If true, don't return any dead players.                                                                                                                                                                                                                                                       | None           |
+| `ignoreLiving(boolean)`                                                     | None             | If true, don't return any living players.                                                                                                                                                                                                                                                     | None           |
+| `ignoreTeams(Integer or Array&lt;Integer&gt;)`                              | None             | Don't return any players belonging to the team or teams listed.                                                                                                                                                                                                                               | None           |
 | `includeTeams(Integer or Array&lt;Integer&gt;)`                             | None             | Return only players belonging to the team or teams listed.                                                                                                                                                                                                                                    | None           |
-| `ignorePlayers(Player or Array&lt;Player&gt;)`                              | None             | Don’t return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} )                                                                                                                                                              | None           |
+| `ignorePlayers(Player or Array&lt;Player&gt;)`                              | None             | Don't return any of the listed Players. For example: Game.GetPlayers( {ignoreDead = true, ignorePlayers=Game.GetLocalPlayer()} )                                                                                                                                                              | None           |
 | `FindNearestPlayer(Vector3 position, [table Parameters])`                   | Player           | Returns the Player that is nearest to the given position.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers().                                                                      | None           |
-| `FindPlayersInCylinder(Vector3 position, Number radius, [table Parameters]` | array&lt;Player> | Returns a table with all Players that are in the given area. Position’s Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None           |
+| `FindPlayersInCylinder(Vector3 position, Number radius, [table Parameters]` | array&lt;Player> | Returns a table with all Players that are in the given area. Position's Z is ignored with the cylindrical area always upright.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers(). | None           |
 | `FindPlayersInSphere(Vector3 position, Number radius, [table Parameters]`   | array&lt;Player> | Returns a table with all Players that are in the given spherical area.  An optional table may be provided containing parameters to filter the list of players considered.  This supports the same list of parameters as GetPlayers().                                                         | None           |
 | `StartRound()`                                                              | None             | Fire all events attached to roundStartEvent                                                                                                                                                                                                                                                   | Server Context |
 | `EndRound()`                                                                | None             | Fire all events attached to roundEndEvent                                                                                                                                                                                                                                                     | Server Context |
 | `GetTeamScore(team)`                                                        | Integer          | Returns the current score for the specified team. Only teams 0 - 4 are valid.                                                                                                                                                                                                                 | None           |
-| `SetTeamScore(team, score)`                                                 | None             | Sets one team’s score.                                                                                                                                                                                                                                                                        | Server Context |
-| `IncreaseTeamScore(team, scoreChange)`                                      | None             | Increases one team’s score.                                                                                                                                                                                                                                                                   | Server Context |
-| `DecreaseTeamScore(team, scoreChange)`                                      | None             | Decreases one team’s score.                                                                                                                                                                                                                                                                   | Server Context |
-| `ResetTeamScores()`                                                         | None             | Sets all teams’ scores to 0.                                                                                                                                                                                                                                                                  | Server Context |
+| `SetTeamScore(team, score)`                                                 | None             | Sets one team's score.                                                                                                                                                                                                                                                                        | Server Context |
+| `IncreaseTeamScore(team, scoreChange)`                                      | None             | Increases one team's score.                                                                                                                                                                                                                                                                   | Server Context |
+| `DecreaseTeamScore(team, scoreChange)`                                      | None             | Decreases one team's score.                                                                                                                                                                                                                                                                   | Server Context |
+| `ResetTeamScores()`                                                         | None             | Sets all teams' scores to 0.                                                                                                                                                                                                                                                                  | Server Context |
 
 | Event                   | Return Value        | Description                                                                                      | Tags                      |
 | ----------------------- | ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------- |
@@ -1271,9 +1271,9 @@ Game is a collection of functions and events related to players in the game, rou
 | `abilitySpawnedEvent`   | Event&lt;Ability>   | Event fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only |
 | `roundStartEvent`       | Event               | Event fired when StartRound is called on game.                                                   | Read-Only                 |
 | `roundEndEvent`         | Event               | Event fired when EndRound is called on game.                                                     | Read-Only                 |
-| `teamScoreChangedEvent` | Event&lt;int(team)> | Event fired whenever any team’s score changes. This is fired once per team who’s score changes.  | Read-Only                 |
+| `teamScoreChangedEvent` | Event&lt;int(team)> | Event fired whenever any team's score changes. This is fired once per team who's score changes.  | Read-Only                 |
 
-### [Teams](/core_api/classes/teams/teamsOverview)
+### Teams
 
 The Teams API contains a group of static functions for dealing with teams and team settings.
 
@@ -1282,19 +1282,19 @@ The Teams API contains a group of static functions for dealing with teams and te
 | `Teams.AreTeamsEnemies(Integer team1, Integer team2)`  | bool         | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None |
 | `Teams.AreTeamsFriendly(Integer team1, Integer team2)` | bool         | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns true. | None |
 
-### [UI](/core_api/classes/ui/uiOverview)
+### UI
 
-The UI API contains a group of static functions allowing you to push information to the HUD. All functions take a player as an argument to select which player’s UI to modify. In addition, there are a number of UI widgets that will replicate and appear on player screens the same way CoreObjects appear in the world. They must be under a Canvas to be displayed. If Canvases exist only on a client, outside of a NetworkContext, they will always display on top of all other UI valid elements.
+The UI API contains a group of static functions allowing you to push information to the HUD. All functions take a player as an argument to select which player's UI to modify. In addition, there are a number of UI widgets that will replicate and appear on player screens the same way CoreObjects appear in the world. They must be under a Canvas to be displayed. If Canvases exist only on a client, outside of a NetworkContext, they will always display on top of all other UI valid elements.
 
 | Function                                                                                                   | Return Value | Description                                                                                                                                                                                                                                                                                                                                                                                 | Tags           |
 | ---------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `UI.ShowFlyUpText(string message, Vector3, [table])`                                                       | Vector3      | (Client only) Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the text.  Default is white; isBig (boolean) - When true, larger text is used. | Client Context |
 | `UI.ShowDamageDirection(Vector3 world point)`                                                              | Vector3      | (Client only) Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds.                                                                                                                                                                                                                                                                                          | Client Context |
 | `UI.ShowDamageDirection(CoreObject)`                                                                       | None         | Local player sees an arrow pointing towards some Core Object. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration.                                                                                                                                                                                                                              | Client Context |
-| `UI.ShowDamageDirection(Player source)`                                                                    | None         | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player’s movements.                                                                                          | Client Context |
+| `UI.ShowDamageDirection(Player source)`                                                                    | None         | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment ShowDamageDirection is called and does not track the source Player's movements.                                                                                          | Client Context |
 | `UI.GetCursorPosition()`                                                                                   | Vector2      | Returns a Vector2 with the x, y coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined.                                                                                                                                                                                                        | Client Context |
 | `UI.GetScreenPosition(Vector3 world_position)`                                                             | Vector2      | Calculates the location that world_position appears on the screen. Returns a Vector2 with the x, y coordinates, or nil if world_position is behind the camera. Only gives results from a client context.                                                                                                                                                                                    | Client Context |
-| `UI.GetScreenSize()`                                                                                       | Vector2      | Returns a Vector2 with the size of the player’s screen in the x, y coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined.                                                                                                                                                                                                           | Client Context |
+| `UI.GetScreenSize()`                                                                                       | Vector2      | Returns a Vector2 with the size of the player's screen in the x, y coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined.                                                                                                                                                                                                           | Client Context |
 | `UI.PrintToScreen(string, Color)`                                                                          | None         | Draws a message on the corner of the screen.  Second optional Color parameter can change the color from the default white.                                                                                                                                                                                                                                                                  | None           |
 | `UI.IsCursorVisible()`                                                                                     | bool         | Whether cursor is visible.                                                                                                                                                                                                                                                                                                                                                                  | None           |
 | `UI.SetCursorVisible(bool isVisible)`                                                                      | None         | Whether cursor is visible.                                                                                                                                                                                                                                                                                                                                                                  | None           |
@@ -1304,10 +1304,10 @@ The UI API contains a group of static functions allowing you to push information
 | `UI.SetCanCursorInteractWithUI(bool)`                                                                      | None         | Whether cursor can interact with UI elements like buttons.                                                                                                                                                                                                                                                                                                                                  | None           |
 | `UI.SetReticleVisible(bool Show)`                                                                          | None         | Shows or hides the reticle for the player.                                                                                                                                                                                                                                                                                                                                                  | None           |
 | `UI.IsReticleVisible()`                                                                                    | bool         | Check if reticle is visible                                                                                                                                                                                                                                                                                                                                                                 | None           |
-| `UI.GetCursorHitResult()`                                                                                  | HitResult    | Return hit result from local client’s view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode                                                                                                       | None           |
-| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal [optional default to up vector])` | Vector       | return intersection from local client’s camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)).                                                                                                                                          | None           |
+| `UI.GetCursorHitResult()`                                                                                  | HitResult    | Return hit result from local client's view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode                                                                                                       | None           |
+| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal [optional default to up vector])` | Vector       | return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)).                                                                                                                                          | None           |
 
-### [World](/core_api/classes/world/worldOverview)
+### World
 
 World is a collection of functions for finding objects in the world.
 
@@ -1318,10 +1318,10 @@ World is a collection of functions for finding objects in the world.
 | `FindObjectsByType(string type_name)`                           | array&lt;CoreObject> | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type.  If none match, an empty table is returned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | None |
 | `FindObjectByName(string type_name)`                            | CoreObject           | Returns the first object found with a matching name. In none match, nil is returned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | None |
 | `FindObjectById(string muid_string)`                            | CoreObject           | Returns the object with a given MUID.  Returns nil if no object has this ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | None |
-| `SpawnAsset(string asset_id, [table Parameters])`               | CoreObject           | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object’s transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent’s transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None |
-| `Raycast(Vector3 rayStart, Vector3 rayEnd, [table Parameters])` | HitResult            | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array&lt;Integer>)- Don’t return any players belonging to the team or teams listed; ignorePlayers (Player, Array&lt;Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer })                                                                                                                                                                                                               | None |
+| `SpawnAsset(string asset_id, [table Parameters])`               | CoreObject           | Spawns an instance of an asset into the world. (More on Templates)  Optional parameters can specify a parent for the spawned object or the object's transform.  Supported parameters include: parent (CoreObject)- If provided, the spawned asset will be a child of this parent, and any transform parameters are relative to the parent's transform; transform (Transform)- The transform of the spawned object.  If provided, it is an error to specify position, rotation, or scale; position (Vector3)- Position of the spawned object; rotation (Rotation or Quaternion)- Rotation of the spawned object; scale (Vector3)- Scale of the spawned object. For example: World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)} ) | None |
+| `Raycast(Vector3 rayStart, Vector3 rayEnd, [table Parameters])` | HitResult            | Traces a ray from rayStart to rayEnd, returning a HitResult with data about the impact point and object. Returns nil if no intersection is found. Optional parameters can be provided to control the results of the raycast: ignoreTeams (Integer or Array&lt;Integer>)- Don't return any players belonging to the team or teams listed; ignorePlayers (Player, Array&lt;Player>, or boolean)- Ignore any of the players listed.  If true, ignore all players. Example: Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers=myPlayer })                                                                                                                                                                                                               | None |
 
-### [Core Lua Functions](/core_api/classes/CORELuaFunctions/CORELuaFunctionsOverview)
+### Core Lua Functions
 
 | Function                 | Return Value | Description                                                                                                                                                                                                                                    | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -1332,7 +1332,7 @@ World is a collection of functions for finding objects in the world.
 
 ### Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
+For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
     * assert
@@ -1426,15 +1426,17 @@ For security reasons, various built-in Lua functions have been restricted or rem
 
 ### MUIDs
 
-MUIDs are internal identifiers for objects and assets within your game. They are guaranteed to be unique within the game and likely to be unique globally.  You can copy a MUID to the clipboard automatically by right-clicking assets in the Asset Manifest or placed objects in the Hierarchy.  The MUID will look something like this:
+MUIDs are internal identifiers for objects and assets within your game. They are guaranteed to be unique within the game and likely to be unique globally. You can copy a MUID to the clipboard automatically by right-clicking assets in the Asset Manifest or placed objects in the Hierarchy. The MUID will look something like this:
 
 8D4B561900000092:Rabbit
 
-The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:
+The important part is the 16 digits at the start. The colon and everything after it are optional and are there to make it easier to read. Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate. When used in a script, it needs to be surrounded by single quotes to make it a string. For example:
 
-    local spawnTrans = script.parent:GetWorldTransform()
-    local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
-    game:SpawnTemplate('8D4B561900000092:Rabbit', spawnTrans, anchor)
+```lua
+local spawnTrans = script.parent:GetWorldTransform()
+local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
+game:SpawnTemplate('8D4B561900000092:Rabbit', spawnTrans, anchor)
+```
 
 ### Animation
 
@@ -1442,10 +1444,10 @@ General Ability Animation Information
 
 All ability animations are valid on any of the available body types.
 Each of the ability animations timing and/or translation values should behave identically across the body types.
-All ability animations have a long “tail” that gracefully transitions the character back to idle pose.  This animation tail is intended to only be seen if the player does not execute any other ability or movement.  In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
+All ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the player does not execute any other ability or movement. In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
 
 !!! Note
-    If the intent is to have an ability “execute” as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so).  This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
+    If the intent is to have an ability "execute" as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so). This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
 
 #### 1hand_melee Strings
 
@@ -1678,52 +1680,51 @@ Animation Stance Strings
 
 `2hand_rifle_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed rifle.
 
-`2hand_rifle_aim_shoulder` - A simple aiming pose in 2hand_rifle set.  Has the shoulder stock up to the shoulder.
+`2hand_rifle_aim_shoulder` - A simple aiming pose in 2hand_rifle set. Has the shoulder stock up to the shoulder.
 When running/jumping etc, the entire upper body will retain the aiming pose.
 
-`2hand_rifle_aim_hip` - A simple aiming pose in 2hand_rifle set.  Has the stock at the hip.
+`2hand_rifle_aim_hip` - A simple aiming pose in 2hand_rifle set. Has the stock at the hip.
 When running/jumping etc, the entire upper body will retain the aiming pose.
 
 `1hand_pistol_aim` - A simple aiming pose for pistol.
 When running/jumping etc, the entire upper body will retain the aiming pose.
 
-`2hand_sword_ready` - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
+`2hand_sword_ready` - A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body.
 When running/jumping etc, the entire upper body will retain the ready pose.
 
-`2hand_sword_block_high` - A simple ready pose 2hand_sword set.  Has the sword held with both hands in front of the body.
+`2hand_sword_block_high` - A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body.
 When running/jumping etc, the entire upper body will retain the ready pose.
 
-`unarmed_carry_object_high` - A one (right) handed carry animation with the arm raised to roughly eye level.  Ideal for holding a torch up to see better, etc
-When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+`unarmed_carry_object_high` - A one (right) handed carry animation with the arm raised to roughly eye level. Ideal for holding a torch up to see better, etc
+When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed.
 This animation assumes the prop is attached to the right_prop socket.
 
-`unarmed_carry_object_low` - A one (right) handed carry animation with the arm at waist height.  Ideal for holding a mug, potion, etc
-When running/jumping, the right arm will retain the lifted arm pose.  The left arm will inherit the animation underneath.  This works best if the animation set is unarmed.
+`unarmed_carry_object_low` - A one (right) handed carry animation with the arm at waist height. Ideal for holding a mug, potion, etc
+When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed.
 This animation assumes the prop is attached to the right_prop socket.
 
 `unarmed_carry_object_heavy` - A two handed carry animation with the arms in front of the body. When running/jumping etc, the entire upper body will retain the aiming pose.
 
-`unarmed_carry_score_card` - A two handed carry animation with the arms all the way extended above the head.  Ideal for holding text signs, etc. When running/jumping etc, the entire upper body will retain the aiming pose. The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign.  It also assumes x forward.
+`unarmed_carry_score_card` - A two handed carry animation with the arms all the way extended above the head. Ideal for holding text signs, etc. When running/jumping etc, the entire upper body will retain the aiming pose. The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign. It also assumes x forward.
 
-`unarmed_sit_car_low` - A full body animation that is sitting at ground level with arms up on a wheel.  Ideal for driving a go-kart style vehicle
+`unarmed_sit_car_low` - A full body animation that is sitting at ground level with arms up on a wheel. Ideal for driving a go-kart style vehicle
 When running/jumping etc, the entire body will retain the sitting pose.
-Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc).  Ability animations, however, can be used.
+Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc). Ability animations, however, can be used.
 
-`unarmed_death` - A full body animation that is falling to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is. Suggested to turn on ragdoll.
+`unarmed_death` - A full body animation that is falling to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is. Suggested to turn on ragdoll.
 
-`unarmed_death_spin` - A full body animation that spins 360 and then  falls to the floor, face-up.  The hips will end roughly on the spot where the game thinks the character is.
+`unarmed_death_spin` - A full body animation that spins 360 and then falls to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is.
 
 ??? note "How to Turn on Ragdoll"
-
-````
-   ability.owner.active_pose = "unarmed_death"
-   Task.Wait(0.9)
-   ability.owner:EnableRagdoll("spine", .4, true)
-   ability.owner:EnableRagdoll("right_shoulder", .2, true)
-   ability.owner:EnableRagdoll("left_shoulder", .6, true)
-   ability.owner:EnableRagdoll("right_hip", .6, true)
-   ability.owner:EnableRagdoll("left_hip", .6, true)
-   ```
+    ```lua
+    ability.owner.active_pose = "unarmed_death"
+    Task.Wait(0.9)
+    ability.owner:EnableRagdoll("spine", .4, true)
+    ability.owner:EnableRagdoll("right_shoulder", .2, true)
+    ability.owner:EnableRagdoll("left_shoulder", .6, true)
+    ability.owner:EnableRagdoll("right_hip", .6, true)
+    ability.owner:EnableRagdoll("left_hip", .6, true)
+    ```
 
 ### One Shot Animation Information
 
@@ -1734,169 +1735,167 @@ be interrupted if you execute an ability with a defined ability animation.
 be interrupted (or fail to start) if you execute an active pose animation.
 
 ??? note "One Shot Animation Strings"
-   * base_unarmed_ball_kick
-   * base_unarmed_magic_bolt
-   * base_unarmed_left_punch
-   * base_unarmed_right_punch
-   * base_unarmed_roll
-   * base_unarmed_throw
-   * base_unarmed_dance
-   * base_unarmed_fetal
-   * base_unarmed_carry_object_heavy
-   * base_unarmed_carry_object_high
-   * base_unarmed_carry_object_low
-   * base_unarmed_score_card
-   * base_unarmed_sit_car_low
-   * base_unarmed_idle
-   * base_unarmed_idle_relaxed
-   * base_unarmed_idle_to_idle_relaxed
-   * base_unarmed_jump_begin
-   * base_unarmed_jump_cycle
-   * base_unarmed_jump_end
-   * base_unarmed_run_backward
-   * base_unarmed_run_backward_left
-   * base_unarmed_run_backward_right
-   * base_unarmed_run_forward
-   * base_unarmed_run_forward_left
-   * base_unarmed_run_forward_right
-   * base_unarmed_run_forward_stop
-   * base_unarmed_run_left
-   * base_unarmed_run_right
-   * base_unarmed_walk_backward
-   * base_unarmed_walk_backward_left
-   * base_unarmed_walk_backward_right
-   * base_unarmed_walk_forward
-   * base_unarmed_walk_forward_left
-   * base_unarmed_walk_forward_right
-   * base_unarmed_walk_left
-   * base_unarmed_walk_right
-   * base_1h_left_sweep
-   * base_1h_right_sweep
-   * base_1h_idle
-   * base_1h_idle_relaxed
-   * base_1h_idle_to_idle_relaxed
-   * base_1h_jump_begin
-   * base_1h_jump_cycle
-   * base_1h_jump_end
-   * base_1h_run_backward
-   * base_1h_run_backward_left
-   * base_1h_run_backward_right
-   * base_1h_run_forward
-   * base_1h_run_forward_left
-   * base_1h_run_forward_right
-   * base_1h_run_forward_stop
-   * base_1h_run_left
-   * base_1h_run_right
-   * base_1h_walk_backward
-   * base_1h_walk_backward_left
-   * base_1h_walk_backward_right
-   * base_1h_walk_forward
-   * base_1h_walk_forward_left
-   * base_1h_walk_forward_right
-   * base_1h_walk_left
-   * base_1h_walk_right
-   * base_crossbow_magazine_reload
-   * base_crossbow_shoot
-   * base_crossbow_idle
-   * base_crossbow_idle_relaxed
-   * base_crossbow_idle_to_idle_relaxed
-   * base_crossbow_jump_begin
-   * base_crossbow_jump_cycle
-   * base_crossbow_jump_end
-   * base_crossbow_run_backward
-   * base_crossbow_run_backward_left
-   * base_crossbow_run_backward_right
-   * base_crossbow_run_forward
-   * base_crossbow_run_forward_left
-   * base_crossbow_run_forward_right
-   * base_crossbow_run_forward_stop
-   * base_crossbow_run_left
-   * base_crossbow_run_right
-   * base_crossbow_walk_backward
-   * base_crossbow_walk_backward_left
-   * base_crossbow_walk_backward_right
-   * base_crossbow_walk_forward
-   * base_crossbow_walk_forward_left
-   * base_crossbow_walk_forward_right
-   * base_crossbow_walk_left
-   * base_crossbow_walk_right
+    * base_unarmed_ball_kick
+    * base_unarmed_magic_bolt
+    * base_unarmed_left_punch
+    * base_unarmed_right_punch
+    * base_unarmed_roll
+    * base_unarmed_throw
+    * base_unarmed_dance
+    * base_unarmed_fetal
+    * base_unarmed_carry_object_heavy
+    * base_unarmed_carry_object_high
+    * base_unarmed_carry_object_low
+    * base_unarmed_score_card
+    * base_unarmed_sit_car_low
+    * base_unarmed_idle
+    * base_unarmed_idle_relaxed
+    * base_unarmed_idle_to_idle_relaxed
+    * base_unarmed_jump_begin
+    * base_unarmed_jump_cycle
+    * base_unarmed_jump_end
+    * base_unarmed_run_backward
+    * base_unarmed_run_backward_left
+    * base_unarmed_run_backward_right
+    * base_unarmed_run_forward
+    * base_unarmed_run_forward_left
+    * base_unarmed_run_forward_right
+    * base_unarmed_run_forward_stop
+    * base_unarmed_run_left
+    * base_unarmed_run_right
+    * base_unarmed_walk_backward
+    * base_unarmed_walk_backward_left
+    * base_unarmed_walk_backward_right
+    * base_unarmed_walk_forward
+    * base_unarmed_walk_forward_left
+    * base_unarmed_walk_forward_right
+    * base_unarmed_walk_left
+    * base_unarmed_walk_right
+    * base_1h_left_sweep
+    * base_1h_right_sweep
+    * base_1h_idle
+    * base_1h_idle_relaxed
+    * base_1h_idle_to_idle_relaxed
+    * base_1h_jump_begin
+    * base_1h_jump_cycle
+    * base_1h_jump_end
+    * base_1h_run_backward
+    * base_1h_run_backward_left
+    * base_1h_run_backward_right
+    * base_1h_run_forward
+    * base_1h_run_forward_left
+    * base_1h_run_forward_right
+    * base_1h_run_forward_stop
+    * base_1h_run_left
+    * base_1h_run_right
+    * base_1h_walk_backward
+    * base_1h_walk_backward_left
+    * base_1h_walk_backward_right
+    * base_1h_walk_forward
+    * base_1h_walk_forward_left
+    * base_1h_walk_forward_right
+    * base_1h_walk_left
+    * base_1h_walk_right
+    * base_crossbow_magazine_reload
+    * base_crossbow_shoot
+    * base_crossbow_idle
+    * base_crossbow_idle_relaxed
+    * base_crossbow_idle_to_idle_relaxed
+    * base_crossbow_jump_begin
+    * base_crossbow_jump_cycle
+    * base_crossbow_jump_end
+    * base_crossbow_run_backward
+    * base_crossbow_run_backward_left
+    * base_crossbow_run_backward_right
+    * base_crossbow_run_forward
+    * base_crossbow_run_forward_left
+    * base_crossbow_run_forward_right
+    * base_crossbow_run_forward_stop
+    * base_crossbow_run_left
+    * base_crossbow_run_right
+    * base_crossbow_walk_backward
+    * base_crossbow_walk_backward_left
+    * base_crossbow_walk_backward_right
+    * base_crossbow_walk_forward
+    * base_crossbow_walk_forward_left
+    * base_crossbow_walk_forward_right
+    * base_crossbow_walk_left
+    * base_crossbow_walk_right
 
 ### Ability Binding list
 
 ??? note "Ability Binding List"
-   * Mouse 1 = ability_primary
-   * Mouse 2 = ability_secondary
-   * Q and Gamepad Left face button = ability_1 (to be deprecated)
-   * E = ability_2 (to be deprecated)
-   * R = ability_ult (to be deprecated)
-   * Left Shift and Gamepad left shoulder = ability_feet
-   * 0 = ability_extra_0
-   * 1 = ability_extra_1
-   * 2 = ability_extra_2
-   * 3 = ability_extra_3
-   * 4 = ability_extra_4
-   * 5 = ability_extra_5
-   * 6 = ability_extra_6
-   * 7 = ability_extra_7
-   * 8 = ability_extra_8
-   * 9 = ability_extra_9
-   * Left Ctrl = ability_extra_10
-   * Right Ctrl = ability_extra_11
-   * Left Shift = ability_extra_12
-   * Right Shift = ability_extra_13
-   * Left Alt = ability_extra_14
-   * Right Alt = ability_extra_15
-   * Return = ability_extra_16
-   * Spacebar = ability_extra_17
-   * Capslock = ability_extra_18
-   * Tab = ability_extra_19
-   * Q = ability_extra_20
-   * W = ability_extra_21
-   * E = ability_extra_22
-   * R = ability_extra_23
-   * T = ability_extra_24
-   * Y = ability_extra_25
-   * U = ability_extra_26
-   * I = ability_extra_27
-   * O = ability_extra_28
-   * P = ability_extra_29
-   * A = ability_extra_30
-   * S = ability_extra_31
-   * D = ability_extra_32
-   * F = ability_extra_33
-   * G = ability_extra_34
-   * H = ability_extra_35
-   * J = ability_extra_36
-   * K = ability_extra_37
-   * L = ability_extra_38
-   * Z = ability_extra_39
-   * X = ability_extra_40
-   * C = ability_extra_41
-   * V = ability_extra_42
-   * B = ability_extra_43
-   * N = ability_extra_44
-   * M = ability_extra_45
-   * Up Arrow = ability_extra_46
-   * Down Arrow =ability_extra_47
-   * Left Arrow = ability_extra_48
-   * Right Arrow = ability_extra_49
-   * F1 = ability_extra_50
-   * F2 = ability_extra_51
-   * F3 = ability_extra_52
-   * F4 =  ability_extra_53
-   * F5 = ability_extra_54
-   * F6 = ability_extra_55
-   * F7 = ability_extra_56
-   * F8 = ability_extra_57
-   * F9 = ability_extra_58
-   * F10 = ability_extra_59
-   * F11 = ability_extra_60
-   * F12 = ability_extra_61
-   * Insert = ability_extra_62
-   * Home = ability_extra_63
-   * Page Up = ability_extra_64
-   * Page Down = ability_extra_65
-   * Delete = ability_extra_66
-   * End = ability_extra_67
-
-````
+    * Mouse 1 = ability_primary
+    * Mouse 2 = ability_secondary
+    * Q and Gamepad Left face button = ability_1 (to be deprecated)
+    * E = ability_2 (to be deprecated)
+    * R = ability_ult (to be deprecated)
+    * Left Shift and Gamepad left shoulder = ability_feet
+    * 0 = ability_extra_0
+    * 1 = ability_extra_1
+    * 2 = ability_extra_2
+    * 3 = ability_extra_3
+    * 4 = ability_extra_4
+    * 5 = ability_extra_5
+    * 6 = ability_extra_6
+    * 7 = ability_extra_7
+    * 8 = ability_extra_8
+    * 9 = ability_extra_9
+    * Left Ctrl = ability_extra_10
+    * Right Ctrl = ability_extra_11
+    * Left Shift = ability_extra_12
+    * Right Shift = ability_extra_13
+    * Left Alt = ability_extra_14
+    * Right Alt = ability_extra_15
+    * Return = ability_extra_16
+    * Spacebar = ability_extra_17
+    * Capslock = ability_extra_18
+    * Tab = ability_extra_19
+    * Q = ability_extra_20
+    * W = ability_extra_21
+    * E = ability_extra_22
+    * R = ability_extra_23
+    * T = ability_extra_24
+    * Y = ability_extra_25
+    * U = ability_extra_26
+    * I = ability_extra_27
+    * O = ability_extra_28
+    * P = ability_extra_29
+    * A = ability_extra_30
+    * S = ability_extra_31
+    * D = ability_extra_32
+    * F = ability_extra_33
+    * G = ability_extra_34
+    * H = ability_extra_35
+    * J = ability_extra_36
+    * K = ability_extra_37
+    * L = ability_extra_38
+    * Z = ability_extra_39
+    * X = ability_extra_40
+    * C = ability_extra_41
+    * V = ability_extra_42
+    * B = ability_extra_43
+    * N = ability_extra_44
+    * M = ability_extra_45
+    * Up Arrow = ability_extra_46
+    * Down Arrow =ability_extra_47
+    * Left Arrow = ability_extra_48
+    * Right Arrow = ability_extra_49
+    * F1 = ability_extra_50
+    * F2 = ability_extra_51
+    * F3 = ability_extra_52
+    * F4 =  ability_extra_53
+    * F5 = ability_extra_54
+    * F6 = ability_extra_55
+    * F7 = ability_extra_56
+    * F8 = ability_extra_57
+    * F9 = ability_extra_58
+    * F10 = ability_extra_59
+    * F11 = ability_extra_60
+    * F12 = ability_extra_61
+    * Insert = ability_extra_62
+    * Home = ability_extra_63
+    * Page Up = ability_extra_64
+    * Page Down = ability_extra_65
+    * Delete = ability_extra_66
+    * End = ability_extra_67
