@@ -2,7 +2,7 @@
 
 ## Markdown
 
-In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) we also use [additional extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/) for code highlighting, info blocks, icons, etc. and also a few custom features that help with getting good layouts done faster:
+In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) we also use [additional extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/) for code highlighting, info blocks, icons, etc. and, also a few custom features that help with getting good layouts done faster:
 
 - `{: .image-inline-text}` for positioning text vertically centered next to an image.
 
@@ -173,6 +173,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 - Bold any button or object a user has to click on like `**Edit Terrain*`.
 - Mke sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
 - Make sure to include `<!-- TODO: XX -->` comments for stuff that needs clarification or you are planning changes for.
+- Mark external links by prefixing them with `:fas fa-external-link-alt: `.
 - Please use the Oxford comma.
 
 **Note**: If we have a file that is no longer "done" due to editor changes, include the following after the `# Title` section of your file.
