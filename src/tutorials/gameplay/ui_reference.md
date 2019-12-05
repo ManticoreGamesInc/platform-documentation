@@ -12,10 +12,10 @@ categories:
 
 ## Overview
 
-A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as "UI". This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
+A core component of making quality video games is good user interface design. Health bars, time limits, and dialogue are all in the category of user interface, also abbreviated as "**UI**". This includes anything that you want to display in 2D to the player. CORE comes with built-in progress bars, images, and buttons that can all be used to make any kind of UI.
 
 * Creating UI in CORE is mostly a drag-and-drop process.
-* All UI elements can be found either under Object > Create UI Object or in the UI Elements section of CORE Content.
+* All UI elements can be found either under "**Object**" > "**Create UI Object**" or in the "**UI Elements**" section of **CORE Content**.
 * All UI elements need to be contained within a UI Container object. Drag a UI Container into the hierarchy to start working on UI.
 * All UI elements do different things and be combined in many ways.
 
@@ -27,7 +27,7 @@ A core component of making quality video games is good user interface design. He
 ## Tutorial
 
 Each widget works a little differently, but all are set up in the same basic way.
-Below is an example using the Text Box control:
+Below is an example using the "Text Box" control:
 
 1. UI can be found in two different locations, but both contain the same things. Use either the **Object** menu at the top of the screen, or the UI Elements section of **CORE Content**. In this case, let's use CORE Content.
 
@@ -45,7 +45,7 @@ Below is an example using the Text Box control:
 
 6. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
-   ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "image_tooltip"){: .center}
+   ![TextBoxPropertiesWindow](../../img/EditorManual/UI/WidgetExampole.png "TextBoxPropertiesWindow"){: .center}
 
 7. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -53,7 +53,7 @@ Below is an example using the Text Box control:
      UI elements need to be **anchored** to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
      So if you want your UI to always stay in the very center of the screen, change the **Dock** property to *Middle Center*.
 
-![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png "image_tooltip"){: .center}
+![TransformBoundingBox](../../img/EditorManual/UI/TextBoxUiElement.png "TransformBoundingBox"){: .center}
 
 Adjustable properties of the Text Box:
 
@@ -96,10 +96,10 @@ There is a large collection of different images to use in CORE. These could be s
 
 These are all the current images available to use in CORE:
 
-![UI Borders](../../img/EditorManual/UI/uiAssets_borders.png "image_tooltip"){: .center}
-![UI Buttons](../../img/EditorManual/UI/uiAssets_buttons.png "image_tooltip"){: .center}
-![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png "image_tooltip"){: .center}
-![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png "image_tooltip"){: .center}
+![UI Borders](../../img/EditorManual/UI/uiAssets_borders.png "UI Borders"){: .center}
+![UI Buttons](../../img/EditorManual/UI/uiAssets_buttons.png "UI Buttons"){: .center}
+![UI Icons](../../img/EditorManual/UI/uiAssets_icons.png "UI Icons"){: .center}
+![UI Reticles](../../img/EditorManual/UI/uiAssets_reticles.png "UI Reticles"){: .center}
 
 ---
 
