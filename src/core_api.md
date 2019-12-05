@@ -2,7 +2,7 @@
 
 ## Overview
 
-CORE has integrated version 5.3.4 of the Lua library.  For detailed technical information, see their [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](/core_api/classes/coreobject).  Data structures are owned by Lua, while [CoreObjects](/core_api/classes/coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
+CORE has integrated version 5.3.4 of the Lua library.  For detailed technical information, see their :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](/core_api/classes/coreobject).  Data structures are owned by Lua, while [CoreObjects](/core_api/classes/coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
 
 Properties, functions, and events inherited by [CoreObject](/core_api/classes/coreobject) types are listed below.
 Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:functionName()`.
@@ -11,7 +11,7 @@ Both properties and events are accessed with `.propertyName` and `.eventName`, w
 
 At a high level, CORE Lua types can be divided into two groups: data structures and Objects.  Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua.  Objects all inherit from a single base type: Object.  Data structures have no common parent.  However, all data structures and Objects share a common `type` property, which is a String indicating its type.  The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc.  All CORE types also share an `IsA()` function.  The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not.  For example, `myObject:IsA("StaticMesh")`.
 
-A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual :fas fa-external-link-alt: [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
 ### [Ability](/core_api/classes/ability/abilityOverview)
 
@@ -344,7 +344,7 @@ Equipment is a CoreObject representing an equippable item for players.
 
 ### [Event](/core_api/classes/event/eventOverview)
 
-When objects have events that can be fired, they’re accessed using the Event type.  
+When objects have events that can be fired, they’re accessed using the Event type.
 
 | Function                          | Return Value  | Description                                                                                                                                                                                         | Tags |
 | --------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -566,7 +566,7 @@ Player is an Object representation of the state of a player connected to the gam
 
 ### [PlayerStart](/core_api/classes/playerstart/playerstartOverview)
 
-PlayerStart is a CoreObject representing a spawn point for players.  
+PlayerStart is a CoreObject representing a spawn point for players.
 
 | Property | Return Value | Description                                                    | Tags                |
 | -------- | ------------ | -------------------------------------------------------------- | ------------------- |
@@ -1332,37 +1332,37 @@ World is a collection of functions for finding objects in the world.
 
 ### Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
+For security reasons, various built-in Lua functions have been restricted or removed entirely.  The available functions are listed below. Note that lua’s built-in trigonometric functions use radians, while other functions in Core uses degrees. See the :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
-    * assert  
-    * collectgarbage†  
-    * error  
-    * getmetatable†  
-    * ipairs  
-    * next  
-    * pairs  
-    * pcall  
-    * print†  
-    * rawequal  
-    * rawget†  
-    * rawset†  
-    * require†  
-    * select  
-    * setmetatable†  
-    * tonumber  
-    * tostring  
-    * type  
-    * \_G†  
-    * \_VERSION  
-    * xpcall  
-    * coroutine.create  
-    * coroutine.isyieldable  
-    * coroutine.resume  
-    * coroutine.running  
-    * coroutine.status  
-    * coroutine.wrap  
-    * coroutine.yield  
+    * assert
+    * collectgarbage†
+    * error
+    * getmetatable†
+    * ipairs
+    * next
+    * pairs
+    * pcall
+    * print†
+    * rawequal
+    * rawget†
+    * rawset†
+    * require†
+    * select
+    * setmetatable†
+    * tonumber
+    * tostring
+    * type
+    * \_G†
+    * \_VERSION
+    * xpcall
+    * coroutine.create
+    * coroutine.isyieldable
+    * coroutine.resume
+    * coroutine.running
+    * coroutine.status
+    * coroutine.wrap
+    * coroutine.yield
     * math.abs
     * math.acos
     * math.asin
@@ -1370,59 +1370,59 @@ For security reasons, various built-in Lua functions have been restricted or rem
     * math.ceil
     * math.cos
     * math.deg
-    * math.exp  
-    * math.floor  
-    * math.fmod  
-    * math.huge  
-    * math.log  
-    * math.max  
-    * math.maxinteger  
-    * math.min  
-    * math.mininteger  
-    * math.modf  
-    * math.pi  
-    * math.rad  
-    * math.random  
-    * math.randomseed  
-    * math.sin  
-    * math.sqrt  
-    * math.tan  
-    * math.tointeger  
-    * math.type  
-    * math.ult  
-    * os.clock  
-    * os.date  
-    * os.difftime  
-    * os.time  
-    * string.byte  
-    * string.char  
-    * string.find  
-    * string.format  
-    * string.gmatch  
-    * string.gsub  
-    * string.len  
-    * string.lower  
-    * string.match  
-    * string.pack  
-    * string.packsize  
-    * string.rep  
-    * string.reverse  
-    * string.sub  
-    * string.unpack  
-    * string.upper  
-    * table.concat  
-    * table.insert  
-    * table.move  
-    * table.pack  
-    * table.remove  
-    * table.sort  
-    * table.unpack  
-    * utf8.char  
-    * utf8.charpattern  
-    * utf8.codes  
-    * utf8.codepoint  
-    * utf8.len  
-    * utf8.offset  
+    * math.exp
+    * math.floor
+    * math.fmod
+    * math.huge
+    * math.log
+    * math.max
+    * math.maxinteger
+    * math.min
+    * math.mininteger
+    * math.modf
+    * math.pi
+    * math.rad
+    * math.random
+    * math.randomseed
+    * math.sin
+    * math.sqrt
+    * math.tan
+    * math.tointeger
+    * math.type
+    * math.ult
+    * os.clock
+    * os.date
+    * os.difftime
+    * os.time
+    * string.byte
+    * string.char
+    * string.find
+    * string.format
+    * string.gmatch
+    * string.gsub
+    * string.len
+    * string.lower
+    * string.match
+    * string.pack
+    * string.packsize
+    * string.rep
+    * string.reverse
+    * string.sub
+    * string.unpack
+    * string.upper
+    * table.concat
+    * table.insert
+    * table.move
+    * table.pack
+    * table.remove
+    * table.sort
+    * table.unpack
+    * utf8.char
+    * utf8.charpattern
+    * utf8.codes
+    * utf8.codepoint
+    * utf8.len
+    * utf8.offset
 
 ### MUIDs
 
@@ -1430,7 +1430,7 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 
 8D4B561900000092:Rabbit
 
-The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:  
+The important part is the 16 digits at the start.  The colon and everything after it are optional and are there to make it easier to read.  Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate.  When used in a script, it needs to be surrounded by single quotes to make it a string.  For example:
 
     local spawnTrans = script.parent:GetWorldTransform()
     local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
@@ -1657,7 +1657,7 @@ All ability animations have a long “tail” that gracefully transitions the ch
 ### General Animation Stance Information
 
 * All animation stances are valid on either of the available body types.
-* Each animation stance should behave identically across the body types (with regard to timing).  
+* Each animation stance should behave identically across the body types (with regard to timing).
 * All animation stances are (or end in) looping animations that can be played indefinitely
 * No animation stances have root motion
 * Each animation stance has custom blending behavior for what happens while moving (specified below)
@@ -1668,9 +1668,9 @@ Animation Stance Strings
 
 `unarmed_stance` - This will cause the player to walk or stand with nothing being held in their hands.
 
-`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.  
+`1hand_melee_stance` - This will cause the player to walk or stand with the right hand posed to hold a  one handed weapon, and the left arm is assumed to possibly have a shield.
 
-`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.  
+`1hand_pistol_stance` - This will cause the player to walk or stand with the right hand posed to hold a pistol.
 
 `2hand_sword_stance` - This will cause the player to walk or stand with the left and right hand posed to hold a two handed sword.
 
