@@ -73,10 +73,11 @@ extra_javascript:
 
 # Additional data
 extra:
-  #disqus: core-creator-hub
   social:
     - type: "discord"
       link: "https://discord.gg/85k8A7V"
+    - type: "youtube"
+      link: "https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ"
     #- type: 'reddit'
     #  link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
     #- type: 'twitter'
