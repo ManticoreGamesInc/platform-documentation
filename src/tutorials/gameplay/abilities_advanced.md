@@ -12,7 +12,7 @@ categories:
 
 ## Overview
 
-[rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
+\[rewrite tutorial intro to explain we're making something badass and complete that brings the weapon system and ability system to a much higher potential.
 
 show GIF of player using magic staff]
 
@@ -28,7 +28,7 @@ If you're fresh and new to any kind of programming, it would be good to visit th
 
 ---
 
-[users will have already gone through weapon system to understand how that part works, so just go to explaining abilities after briefly explaining that earlier tutorials didn't really go into abilities at their core (pun) so this is the time!
+\[users will have already gone through weapon system to understand how that part works, so just go to explaining abilities after briefly explaining that earlier tutorials didn't really go into abilities at their core (pun) so this is the time!
 
 so, jump into explaining how ability system works in detail, this part already exists. May need contextual updates.]
 
@@ -40,18 +40,18 @@ In CORE™, an ability is treated as 4 separate steps that happen immediately on
 
 The 4 different phases of an ability are:
 
-- **Cast**
-    - The wind-up time--this is the prep phase before the ability actually happens.
+* **Cast**
+  * The wind-up time--this is the prep phase before the ability actually happens.
 
-- **Execute**
-    - The actual ability.
-    - Whatever the ability is going to do, it happens at this moment.
+* **Execute**
+  * The actual ability.
+  * Whatever the ability is going to do, it happens at this moment.
 
-- **Recovery**
-    - Additional ability actions that aren’t part of the main action.
+* **Recovery**
+  * Additional ability actions that aren’t part of the main action.
 
-- **Cooldown**
-    - The rest period after an ability is finished being cast, and cannot be cast again.
+* **Cooldown**
+  * The rest period after an ability is finished being cast, and cannot be cast again.
 
 !!! info "A More Natural Example"
     Try thinking of it like the casting of a magical spell:
@@ -93,19 +93,19 @@ So, let's make magic!
 
 ### Step 1
 
-- start with making a weapon object
-- don't need to explain it because that happened in first ability tutorial
-- make the art for the weapon, move into place
-- get the basic weapon function working (shoot a lil fireball)
-- involves creating an attack ability, a reticle, vfx
-- now we're basically as far as the simple weapon tutorial
-- add another ability for the right click spot (charge fire blast)
-- involves another ability script, reticle, vfx
-- explain setting up the ability in programming
-- add vfx for ability
-- now it's a weapon with an additional ability
-- probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
-- set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
+* start with making a weapon object
+* don't need to explain it because that happened in first ability tutorial
+* make the art for the weapon, move into place
+* get the basic weapon function working (shoot a lil fireball)
+* involves creating an attack ability, a reticle, vfx
+* now we're basically as far as the simple weapon tutorial
+* add another ability for the right click spot (charge fire blast)
+* involves another ability script, reticle, vfx
+* explain setting up the ability in programming
+* add vfx for ability
+* now it's a weapon with an additional ability
+* probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
+* set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
 
 ### CORE Component: Ability Display
 
@@ -113,5 +113,5 @@ link to this in intro tutorial?
 
 ## Examples
 
-- _FAA_GameMode_ includes functioning abilities.
-- _Spellshock_ includes advanced abilities using ability objects.
+* *FAA_GameMode* includes functioning abilities.
+* *Spellshock* includes advanced abilities using ability objects.
