@@ -14,20 +14,20 @@ categories:
 
 In this tutorial, we are taking a deeper look at what it takes to utilize the CORE API to create a simple multiplayer game.
 
-* **Completion time:** TODO: TBD
-* **Knowledge level:** No prior knowledge of Lua
+* **Completion Time:** ~30 minutes
+* **Knowledge Level:** No prior knowledge of Lua
 * **Skills you will learn:**
-  * Downloading and editing templates
-  * Creating a script and using it to:
-    * Rotate an object
-    * Spawn a template/asset
-    * Despawn a template/asset
-    * Create an interactable event
-    * Create a custom property
-    * Update UI elements
-  * Using triggers
-  * Creating and updating trigger labels
-  * Creating UI elements
+    * Downloading and editing templates
+    * Creating a script and using it to:
+        * Rotate an object
+        * Spawn a template/asset
+        * Despawn a template/asset
+        * Create an interactable event
+        * Create a custom property
+        * Update UI elements
+    * Using triggers
+    * Creating and updating trigger labels
+    * Creating UI elements
 
 ---
 

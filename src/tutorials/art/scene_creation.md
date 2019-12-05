@@ -14,13 +14,13 @@ categories:
 
 An introduction to the basics of placing and remixing objects.
 
-* **Completion time:** 10 - 30 minutes (TODO)
-* **Knowledge level:** Basic editor (TODO)
+* **Completion Time:** 10 - 30 minutes (TODO)
+* **Knowledge Level:** Basic editor (TODO)
 * **Skills you will learn:**
-  * Placing objects in a scene
-  * Community Content
-  * CORE UI
-  * Changing materials
+    * Placing objects in a scene
+    * Community Content
+    * CORE UI
+    * Changing materials
 
 ![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
 

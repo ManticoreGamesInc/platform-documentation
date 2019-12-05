@@ -17,12 +17,10 @@ In a lot of video games, the main character uses a weapon to make their way thro
 Programming a weapon can be the most complicated part of making a game, but to make that easier, CORE™ comes with a built-in weapon system!
 
 **Time to complete:** 15 minutes
-
 **Skills you will gain:**
-
-* how to create a functioning weapon in CORE
-* how to use Multiplayer Preview Mode effectively
-* how to create templates that can be used in weapons
+* How to create a functioning weapon in CORE
+* How to use Multiplayer Preview Mode effectively
+* How to create templates that can be used in weapons
 
 ![A Sniper Rifle](../../img/EditorManual/Weapons/holdingWeaponNew.png "image_tooltip"){: .center}
 
@@ -69,19 +67,20 @@ So, let's get started!
 3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
 
    1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibilty of these gizmos.
-   2. The look of the weapon can be made from any CORE primitaves and shapes, or you can use the [**DEFAULT MODEL**].
 
-       This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
+   2. The look of the weapon can be made from any CORE primitaves and shapes, or you can use the **DEFAULT MODEL**.
 
-       If you'd like more tips on how to model and create art in CORE, visit the **[Art Reference](/tutorials/art/art_reference/)** page or try a **[Tutorial](/tutorials/art/modeling_basics/)**.
+      This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-       This attaches the visuals of the weapon to the function of the weapon!
+      If you'd like more tips on how to model and create art in CORE, visit the **[Art Reference](/tutorials/art/art_reference/)** page or try a **[Tutorial](/tutorials/art/modeling_basics/)**.
+
+      This attaches the visuals of the weapon to the function of the weapon!
 
 4. Right click this Art group and select "Create Network Context > New Client Context Containing This" to keep the weapon's visuals within a Client Context folder.
 
-     This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up preformance space.
+    This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up preformance space.
 
-     To read more about Client Context and networking in CORE games, read our guide about **[Networking](/gameplay/networking/)**.
+    To read more about Client Context and networking in CORE games, read our guide about **[Networking](/gameplay/networking/)**.
 
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
@@ -139,7 +138,7 @@ Weapons come with a property for Damage--setting this determines how much gettin
 
 2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
 
-   [photo here]
+   TODO: photo here
 
    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **CORE Content** tab, within the **Settings Objects** section.
 
@@ -147,7 +146,7 @@ Weapons come with a property for Damage--setting this determines how much gettin
 
    3. With Multiplayer Preview Mode turned on to two players, press Play.
 
-      [photo here]
+      TODO: photo here
 
    4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
 
@@ -171,9 +170,9 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
    1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poff of dust, try changing the color property to whatever you'd like.
 
-       [GIF HERE]
+      TODO: GIF HERE
 
-       All visual effects in CORE can be found in the **Effects** section of **CORE Content**.
+      All visual effects in CORE can be found in the **Effects** section of **CORE Content**.
 
 2. Next, let's grab an audio object to make sounds when a player is shot.
 
@@ -181,35 +180,35 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
    2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
 
-       Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
+      Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
 
-       [PHOTO HERE]
+      TODO: PHOTO HERE
 
-       We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
+      We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
 
-       Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
+      Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
 
-       We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
+      We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
 
-       **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
+      **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
 
 3. Now that we have these two effects in our Hierarchy, hold shift to select them both and right click to open the context menu.
 
-    Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
+   Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
 
 4. Right click this new Client Context folder, and click **"New Group Containing This"** to wrap the whole thing in a group. This is the usual best practice for making templates with Client Context content.
 
-    Name the group "Player Impact Effect".
+   Name the group "Player Impact Effect".
 
 5. Right click this new group, and click **"Create New Template From This"** to make this whole little effect we made a template that we can use elsewhere, or even publish to Community Content should you so choose!
 
 6. Now that it is a template, it can be found in our Project Content tab. Just like the bullet from earlier, delete the template we just made from the Hierarchy and then select the `weapon` object.
 
-    Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
+   Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
 
 Now that you've made one effect, try making other types of effect templates for the other sections of the `weapon`'s effects! A good one to add is the Impact Surface Aligned effect--this happens when the player shoots something that isn't a player, like a wall or the floor.
 
-[GIF HERE OF WHOLE SHABANG]
+TODO: GIF HERE OF WHOLE SHABANG
 
 This is a really simple version of a gun. Each part could be done a different way or made more complicated for whatever your imagination can dream up! You could go back into what we have created to add more effects or change the way it works.
 

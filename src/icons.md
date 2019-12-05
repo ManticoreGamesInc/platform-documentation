@@ -4,31 +4,31 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 
 ## Asset Types
 
-![Audio Asset](img/EditorManual/icons/HierarchyIcon_Audio.png "Audio Asset") Audio Asset
+![Audio Asset](img/EditorManual/icons/HierarchyIcon_Audio.png "Audio Asset Icon") Audio Asset
 {: .image-inline-text .image-background}
 
-![Decal](img/EditorManual/icons/HierarchyIcon_Decal.png "Decal") Decal
+![Decal](img/EditorManual/icons/HierarchyIcon_Decal.png "Decal Icon") Decal
 {: .image-inline-text .image-background}
 
-![Folder (Hierarchy specific)](img/EditorManual/icons/HierarchyIcon_Folder.png "Folder (Hierarchy specific)") Folder (Hierarchy specific)
+![Folder (Hierarchy specific)](img/EditorManual/icons/HierarchyIcon_Folder.png "Folder (Hierarchy specific) Icon") Folder (Hierarchy specific)
 {: .image-inline-text .image-background}
 
-![Group](img/EditorManual/icons/HierarchyIcon_Group.png "Group") Group
+![Group](img/EditorManual/icons/HierarchyIcon_Group.png "Group Icon") Group
 {: .image-inline-text .image-background}
 
-![Material](img/EditorManual/icons/HierarchyIcon_Material.png "Material") Material
+![Material](img/EditorManual/icons/HierarchyIcon_Material.png "Material Icon") Material
 {: .image-inline-text .image-background}
 
-![Script](img/EditorManual/icons/HierarchyIcon_Text.png "Script") Script
+![Script](img/EditorManual/icons/HierarchyIcon_Text.png "Script Icon") Script
 {: .image-inline-text .image-background}
 
-![Single object](img/EditorManual/icons/HierarchyIcon_ParameterizedMeshCube.png "Single Object") Single Object
+![Single Object](img/EditorManual/icons/HierarchyIcon_ParameterizedMeshCube.png "Single Object Icon") Single Object
 {: .image-inline-text .image-background}
 
-![Terrain](img/EditorManual/icons/HierarchyIcon_Terrain.png "Terrain") Terrain
+![Terrain](img/EditorManual/icons/HierarchyIcon_Terrain.png "Terrain Icon") Terrain
 {: .image-inline-text .image-background}
 
-![VFX](img/EditorManual/icons/HierarchyIcon_VFX.png "VFX") VFX
+![VFX Icon](img/EditorManual/icons/HierarchyIcon_VFX.png "VFX Icon") VFX
 {: .image-inline-text .image-background}
 
 ### UI
@@ -95,13 +95,8 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 All states are also color coded:
 
 * **Locked or Disabled**{: style="color: var(--core-color-locked)"}
-
 * **Templetized**{: style="color: var(--core-color-templetized)"}
-
 * **Deinstanced**{: style="color: var(--core-color-deinstanced)"}
-
 * **Published**{: style="color: var(--core-color-published)"}
-
 * **Update Pending**{: style="color: var(--core-color-update-pending)"}
-
 * **Error State**{: style="color: var(--core-color-error-state)"}

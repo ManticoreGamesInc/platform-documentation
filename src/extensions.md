@@ -18,8 +18,8 @@ There are a bunch of ways you can improve the experience of scripting in CORE. I
 
 There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
 
-| Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
-| ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
+| Name                                                                                               | Details                                             | CORE Autocomplete | Price                  |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
 | :fas fa-external-link-alt: [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
 | :fas fa-external-link-alt: [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
 | :fas fa-external-link-alt: [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
@@ -32,15 +32,15 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 #### Visual Studio Code
 
-| Plugin Name                                                                            | Details                  |
-| -------------------------------------------------------------------------------------- | ------------------------ |
+| Plugin Name                                                                                                       | Details                  |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | :fas fa-external-link-alt: [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
 | :fas fa-external-link-alt: [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
 
 #### Atom
 
-| Plugin Name                                                   | Details                    |
-| ------------------------------------------------------------- | -------------------------- |
+| Plugin Name                                                                              | Details                    |
+| ---------------------------------------------------------------------------------------- | -------------------------- |
 | :fas fa-external-link-alt: [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
 | :fas fa-external-link-alt: [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
 | :fas fa-external-link-alt: [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
