@@ -41,7 +41,6 @@ Ref: :fas fa-external-link-alt: <https://www.townlong-yak.com/framexml/live/>
 Instead of 5.1 as in WoW, CORE uses Lua 5.3.4. There have not been that many changes in the language itself but do note that many of the additions Blizzard made will be missing here.
 
 * Trigonometry functions: As with Blizzard's versions, CORE's work with degrees. Lua's standard math library works with radians.
-
 * Events:
   The most obvious change when coming from WoW, is the event system in CORE. Instead of hooking your events up to your frames, you register functions onto the events of objects.
 

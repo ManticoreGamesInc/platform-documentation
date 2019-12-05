@@ -14,11 +14,11 @@ categories:
 
 Learning modelling basics in CORE by making delicious food.
 
-* **Completion time:** ~20 minutes (TODO)
-* **Knowledge level:** How to use the transform widget, how to change materials (TODO)
+* **Completion Time:** ~20 minutes (TODO)
+* **Knowledge Level:** How to use the transform widget, how to change materials (TODO)
 * **Skills you will learn:**
-  * Using a reference image
-  * Using decals
+    * Using a reference image
+    * Using decals
 
 ![ModelingBasics](../../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center}
 
@@ -118,6 +118,6 @@ Try adding your own garnishes using the techniques we used to make the pancakes.
 
 ## Summary
 
-TODO
+TODO: Add text
 
 ![ModelingBasics](../../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center}

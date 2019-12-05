@@ -17,7 +17,7 @@ An ability could be to sprint, a dance emote, the opening of a hidden menu; an a
 !!! info
     Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
 
-* **Time to Complete:** 10 minutes
+* **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
 * **Skills you will learn:**
     * How to create an ability
@@ -142,7 +142,7 @@ When the `Ability` is in the Cooldown phase, it will darken the ability button a
 
 ![Ability Display](../../img/EditorManual/Abilities/abilityDisplay.gif){: .center}
 
-To get this to work correctly with the `Ability` we made above, there are only a few steps steps:
+To get this to work correctly with the `Ability` we made above, there are only a few steps:
 
 1. In **CORE Content**, search for the **AbilityBindingDisplay** object, and drag this into your **Hierarchy**.
 
