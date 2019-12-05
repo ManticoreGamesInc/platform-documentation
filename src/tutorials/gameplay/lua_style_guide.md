@@ -361,7 +361,7 @@ If you need multiple instances of the same script dynamically spawned, `require(
 ### Using External Data
 
 You can use `require()` and a script that returns a long string to encapsulate JSON data in its own script.
-Afterwards use `require()` again with a [JSON library](https://github.com/rxi/json.lua).
+Afterwards use `require()` again with a :fas fa-external-link-alt: [JSON library](https://github.com/rxi/json.lua).
 To make a script that returns a JSON string when you require it, start with
 this:
 

@@ -36,7 +36,7 @@ There is no way to import assets; everything is included in the asset manifest.
 
 ## World of Warcraft
 
-Ref: <https://www.townlong-yak.com/framexml/live/>
+Ref: :fas fa-external-link-alt: <https://www.townlong-yak.com/framexml/live/>
 
 Instead of 5.1 as in WoW, CORE uses Lua 5.3.4. There have not been that many changes in the language itself but do note that many of the additions Blizzard made will be missing here.
 
@@ -81,20 +81,20 @@ more details over in the [API Docs](../core_api.md).
 
 ## Garry's Mod
 
-Ref: <http://wiki.garrysmod.com/page/Beginner_Tutorial_Intro>
+Ref: :fas fa-external-link-alt: <http://wiki.garrysmod.com/page/Beginner_Tutorial_Intro>
 
 ## Factorio
 
-Ref: <https://www.factorio.com/modding>
+Ref: :fas fa-external-link-alt: <https://www.factorio.com/modding>
 
 ## Roblox
 
-Ref: <https://developer.roblox.com/api-reference>
+Ref: :fas fa-external-link-alt: <https://developer.roblox.com/api-reference>
 
 ## Dota2
 
-Ref: <https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools>
+Ref: :fas fa-external-link-alt: <https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools>
 
 ## Starbound
 
-Ref: <https://starbounder.org/Modding:Lua>
+Ref: :fas fa-external-link-alt: <https://starbounder.org/Modding:Lua>
