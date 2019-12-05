@@ -93,7 +93,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
 4. Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
-    1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Ability` object.
+    1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
         ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
 
