@@ -12,10 +12,12 @@ categories:
 
 ## Overview
 
+This document aims to provide a general overview of what we at Manticore see as sensible defaults for writing code in Lua.
+
 ## File Structure
 
 * Start with any `require` calls, such as:
-  <!-- TODO: Clarify why -->
+<!-- TODO: Clarify why -->
 
 ```lua
 local myImport = require("assetID")
@@ -229,8 +231,8 @@ end
 Both are perfectly valid, but following convention allows for the usage call to consistently use colons for clarity.
 
 * Where possible, use getters and setters
-  * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
-  * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them. TODO: Clarify why
+    * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
+    * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them. TODO: Clarify why
 
 ## Styling
 
