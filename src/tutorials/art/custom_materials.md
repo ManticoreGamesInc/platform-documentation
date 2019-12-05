@@ -14,8 +14,8 @@ categories:
 
 Learn how to fully customize a material.
 
-* **Completion time:** >10 minutes
-* **Knowledge level:** No prior knowledge of CORE
+* **Completion Time:** > 10 minutes
+* **Knowledge Level:** No prior knowledge of CORE
 * **Skills you will learn:**
     * Smart materials
     * Z-fighting

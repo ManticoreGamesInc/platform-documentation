@@ -4,59 +4,59 @@
 
 In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) we also use [additional extensions](https://squidfunk.github.io/mkdocs-material/extensions/admonition/) for code highlighting, info blocks, icons, etc. and, also a few custom features that help with getting good layouts done faster:
 
-- `{: .image-inline-text}` for positioning text vertically centered next to an image.
+* `{: .image-inline-text}` for positioning text vertically centered next to an image.
 
     Usage:
 
-    ```markdown
-    ![alt_text](../../img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
-    {: .image-inline-text}
-    ```
+  ```markdown
+  ![alt_text](../../img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
+  {: .image-inline-text}
+  ```
 
-- `{: .image-cluster}` for easily placing two images next to each other and centering a description text below them.
-
-    Usage:
-
-    ```markdown
-    ![alt_text](../../img/EnvironIntro/image9.png "image_tooltip")
-    ![alt_text](../../img/EnvironIntro/image44.png "image_tooltip")
-    _Randomized Color unchecked (left) vs. checked (right)_
-    {: .image-cluster}
-    ```
-
-- `{: .center}` to quickly center elements like images.
+* `{: .image-cluster}` for easily placing two images next to each other and centering a description text below them.
 
     Usage:
 
-    ```markdown
-    ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
-    ```
+  ```markdown
+  ![alt_text](../../img/EnvironIntro/image9.png "image_tooltip")
+  ![alt_text](../../img/EnvironIntro/image44.png "image_tooltip")
+  _Randomized Color unchecked (left) vs. checked (right)_
+  {: .image-cluster}
+  ```
 
-- `{: style="color: $css_color_code"}` to color text elements.
-
-    Usage:
-
-    ```markdown
-    **Pancakes**{: style="color: red"}
-    ```
-
-- `{: .style-good|.style-bad|.style-exception}` to highlight good/bad practice code examples.
+* `{: .center}` to quickly center elements like images.
 
     Usage:
 
-    ```markdown
-        Good:
-        ```
-        local foo = {
-            bar = 2,
-        }
+  ```markdown
+  ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
+  ```
 
-        if foo then
-            -- do something
-        end
-        ```
-        {: .style-good}
-    ```
+* `{: style="color: $css_color_code"}` to color text elements.
+
+    Usage:
+
+  ```markdown
+  **Pancakes**{: style="color: red"}
+  ```
+
+* `{: .style-good|.style-bad|.style-exception}` to highlight good/bad practice code examples.
+
+    Usage:
+
+  ````markdown
+      Good:
+      ```
+      local foo = {
+          bar = 2,
+      }
+
+      if foo then
+          -- do something
+      end
+      ```
+      {: .style-good}
+  ````
 
 ## Pictures
 
@@ -67,7 +67,7 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
 
 ### Converting GIF to Video
 
-Get ffmpeg from [here](https://ffmpeg.zeranoe.com/builds/) and put it onto your \$PATH or the same folder as the GIF.
+Get ffmpeg from [here](https://ffmpeg.zeranoe.com/builds/) and put it onto your \\$PATH or the same folder as the GIF.
 Now run `ffmpeg -i input.gif -b:v 0 -crf 25 output.mp4` from the command line.
 
 After that is done, embed video like this:
@@ -82,7 +82,7 @@ After that is done, embed video like this:
 
 ## Long Tutorial Videos
 
-- Message Tasha to get access to the CORE YouTube account, upload and then use Markdown to embed them into your documents.
+* Message Tasha to get access to the CORE YouTube account, upload and then use Markdown to embed them into your documents.
 
     Usage:
 
@@ -132,14 +132,14 @@ Setting a `name` is mandatory, `categories` are optional. If you add categories 
 
 ### Overview
 
-- Introduction with goal of the tutorial (2-3 sentences)
-- Image of finished work
-- Skills the learner will acquire (3-5 bullet points)
-- Estimated Time for Completion
-- Difficulty Level
-- Author/Audience Assumptions
-- Link to any recommended basic tutorials
-- If applicable, link to other tutorials in the series
+* Introduction with goal of the tutorial (2-3 sentences)
+* Image of finished work
+* Skills the learner will acquire (3-5 bullet points)
+* Estimated Time for Completion
+* Difficulty Level
+* Author/Audience Assumptions
+* Link to any recommended basic tutorials
+* If applicable, link to other tutorials in the series
 
 #### Estimated Time for Completion
 
@@ -148,33 +148,33 @@ If longer, it is recommendeded to split your tutorial into a series.
 
 #### Difficulty Level
 
-- Beginner
-- Intermediate
-- Advanced
+* Beginner
+* Intermediate
+* Advanced
 
 ### Tutorial Content
 
-- Include commented code that follows conventions
-- Include pictures of the Hierarchy often
-- Link to the finished example project at the end
-- Published project should be on Prod
-- Provide related tutorials / additional resources
+* Include commented code that follows conventions
+* Include pictures of the Hierarchy often
+* Link to the finished example project at the end
+* Published project should be on Prod
+* Provide related tutorials / additional resources
 
 ### Writing Conventions
 
-- Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide) for scripting.
-- Name your objects in the hierarchy informatively.
-- Favor best practices like using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
-- Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.
-- Make functions and variables local unless global is completely necessary.
-- If describing a command outside a code snippet, put the command in code format like so `tostring`.
-- Encourage use of the **Event Log** and use `print()` more than `UI.PrintToScreen()`.
-- Put parentheses around your conditions in any compound conditional.
-- Bold any button or object a user has to click on like `**Edit Terrain*`.
-- Mke sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
-- Make sure to include `<!-- TODO: XX -->` comments for stuff that needs clarification or you are planning changes for.
-- Mark external links by prefixing them with `:fas fa-external-link-alt: `.
-- Please use the Oxford comma.
+* Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide) for scripting.
+* Name your objects in the hierarchy informatively.
+* Favor best practices like using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
+* Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.
+* Make functions and variables local unless global is completely necessary.
+* If describing a command outside a code snippet, put the command in code format like so `tostring`.
+* Encourage use of the **Event Log** and use `print()` more than `UI.PrintToScreen()`.
+* Put parentheses around your conditions in any compound conditional.
+* Bold any button or object a user has to click on like `**Edit Terrain*`.
+* Mke sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
+* Make sure to include `<!-- TODO: XX -->` comments for stuff that needs clarification or you are planning changes for.
+* Mark external links by prefixing them with `:fas fa-external-link-alt: `.
+* Please use the Oxford comma.
 
 **Note**: If we have a file that is no longer "done" due to editor changes, include the following after the `# Title` section of your file.
 

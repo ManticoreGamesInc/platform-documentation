@@ -1,3 +1,3 @@
 # Alpha Launch Event
 
-Comming soon&trade;.
+Coming soon™.

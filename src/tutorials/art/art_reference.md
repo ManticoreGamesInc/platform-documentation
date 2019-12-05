@@ -47,7 +47,7 @@ To use any of these models, simply click and drag one out from the CORE Content 
 
 ![Drag out Assets](../../img/EditorManual/Art/DragOutAsset.gif){: .center}
 
-----
+---
 
 ### Move, Rotate, & Scale
 
@@ -57,7 +57,7 @@ The red, blue, and green arrows indicate the different directions a model can be
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/TransformManipulators.gif "image_tooltip"){: .center}
 
-----
+---
 
 ### Color Your Way: Changing Model Materials
 
@@ -92,11 +92,11 @@ Applying materials in this way allows you to adjust the color of the material. T
 
 In your own project, you have the ability to create **Custom Materials**. This allows you to customize the settings of a specific material, and apply it to multiple objects. This way when your custom material is updated, it changes all models with that material at once!
 
-!!! info "To read more about creating custom materials, as well as more in-depth details about materials, check out our [Materials Guide](custom_materials.md)."
+!!! info "To read more about creating custom materials, as well as more in depth details about materials, check out our [Materials Guide](custom_materials.md)."
 
 ![Different Materials](../../img/EditorManual/Art/differentMats2.png "image_tooltip"){: .center}
 
-----
+---
 
 ### Getting Complex: Combining Models
 
@@ -135,7 +135,7 @@ When placing objects in a Client Context folder, players will not be able to col
 
 This is a great way to create **fake collision**. The player will collide with the invisible object, rather than the moving shapes.
 
-----
+---
 
 ### Share Your Creations: Creating Templates
 
