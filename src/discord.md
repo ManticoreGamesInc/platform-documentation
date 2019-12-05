@@ -1,6 +1,6 @@
 # Discord
 
-This Creator Discord is a place for the community to have a place to share their CORE creations, learn from each other, and hang out.
+This Creators Discord is a place for the community to have a place to share their CORE creations, learn from each other, and hang out.
 We can't wait to see what you create!
 
 Here on the Creators Discord, you can...
