@@ -28,7 +28,7 @@ If you decide to work on something new, you start the Editor directly via CORE L
 2. Create - Where games directly authored by you live.
 3. Games - A link to the game browser on :fas fa-external-link-alt: [coregames.com](https://www.coregames.com/games).
 4. Documentation - A link to our :fas fa-external-link-alt: [ocumentation platform](https://docs.coregames.com) that in addition to our API also houses a ton of tutorials to get you started.
-5. Discord - A link to the :fas fa-external-link-alt: [CORE Creators Community Discord](https://discord.gg/85k8A7V).
+5. Discord - A link to the :fas fa-external-link-alt: [CORE Creator Discord](https://discord.gg/85k8A7V).
 6. Feedback - A link to a form to submit feedback.
 7. User Dropdown - Here you can log out or exit CORE.
 
