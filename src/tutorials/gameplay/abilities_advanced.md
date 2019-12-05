@@ -102,7 +102,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 4. Create a bullet template, just like in the first tutorial--go for something thematic like a sphere with a custom Plasma material applied!
 
-### Modifying the Abilities
+### Modifying the Ability Animations
 
 
 1. Add another `ability` to the `weapon` as a child.
@@ -120,19 +120,21 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 6. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff.
 
 
-### Create Camera Feedback
+### Right Click to Aim
 
 We're going to add the ability to focus zoom with right click for better aiming!
 
 1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written!
 
-     1. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
+     1. To start we need a custom property added to the weapon object of type boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
 
-     2. Add another custom property of type string and call it "*AimActiveStance*". Set the value to "*2hand_rifle_aim_shoulder*". This determines what animation pose is used while aiming.
+     2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
 
-     3. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
+     3. Add another custom property of type string and call it "*AimActiveStance*". Set the value to "*2hand_rifle_aim_shoulder*". This determines what animation pose is used while aiming.
 
-     4. Lastly for this part, add a custom property called "*AimZoomDistance*" of type integer, and give it a value of 100. This assigns how far the camera zooms in when aiming.
+     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
+
+     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type integer, and give it a value of 100. This assigns how far the camera zooms in when aiming.
 
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
@@ -205,7 +207,8 @@ We're going to add the ability to focus zoom with right click for better aiming!
              -- Smoothly lerps the camera distance when player aims
              LerpCameraDistance(deltaTime)
          end
-         ```
+         ```  
+
 5. Now let's tackle one of those functions used in the above `Tick()` function.
 
      First, we'll do the `LerpCameraDistance(deltatime)`.
@@ -333,7 +336,146 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
          ```lua
          WEAPON.unequippedEvent:Connect(OnUnequipped)
-         ```
+         ```  
+
+So this was the first half of the camera aim setup--we have created a script for the client context, that only each individual player uses. The next part is the script that will live in a server context, as this is the part that needs to be replicated back to the server.
+
+This server script will seem fairly similar to the client script, but this one is directly changing and affecting variables of the player.
+
+So let's get started on the server script!
+
+1. Create a new script and call it "*WeaponAimServer*".  
+
+2. In your project Hierarchy, nagivate to the Fire Staff `weapon` object. Right click this object, and hover over "*Create Network Context*" to select "*New Server Context*".  
+
+     Here is where we will keep our new script!  
+
+3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.
+
+4. Next is adding in the coding sections--open up the new script to begin.
+
+5. We first need to access the custom variables we created on the `weapon`. This will look really similar to the WeaponAimClient script.  
+
+     1. Start with creating a reference to the `weapon` itself so that we can find the variables, and the safety error checking we made just like last time.  
+
+         ```lua
+         local WEAPON = script:FindAncestorByType('Weapon')
+         if not WEAPON:IsA('Weapon') then
+             error(script.name .. " should be part of Weapon object hierarchy.")
+         end
+         ```  
+
+     2. Now we'll want to create in-script variables that use the custom variables we put on the weapon. To access these, use the code below:  
+
+         ```lua
+         local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
+         local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
+         local AIM_WALK_SPEED_PERCENTAGE = WEAPON:GetCustomProperty("AimWalkSpeedPercentage")
+         local AIM_ACTIVE_STANCE = WEAPON:GetCustomProperty("AimActiveStance")
+         ```  
+
+     3. Next comes the variables we need to create so that we can use them later:  
+
+         ```lua
+         local speedReduced = 0
+         local pressedHandle = nil
+         local releasedHandle = nil
+         local playerDieHandle = nil
+         local UNARMED_STANCE = "unarmed_stance"
+         ```  
+
+6. Now that we've created our variables, we can get into the function writing! We'll start with a function that sets the walking speed of the player while they are aiming.  
+
+     1. Type the following function below all the variables in your script.  
+
+         ```lua
+         function SetAimingSpeed(player)
+             if Object.IsValid(player) and player == WEAPON.owner then
+                 speedReduced = player.maxWalkSpeed * AIM_WALK_SPEED_PERCENTAGE
+                 player.maxWalkSpeed = player.maxWalkSpeed - speedReduced
+                 player.animationStance = AIM_ACTIVE_STANCE
+             end
+         end
+         ``` 
+
+7. Going along with setting the walk speed, we need a function to reset the player's speed back to normal when they are not zoomed in.  
+
+     1. The code below is a function that will reset the player's walk speed--add this beneath the previous function.  
+
+         ```lua
+         function ResetPlayerSpeed(player)
+             if WEAPON and Object.IsValid(player) then
+                 player.maxWalkSpeed = player.maxWalkSpeed + speedReduced
+                 player.animationStance = WEAPON.animationStance
+                 speedReduced = 0
+             end
+         end
+         ``` 
+
+8. Similar to the WeaponAimClient script, we now need functions that trigger our speed-modifying functions by binding them to the buttons the player will press.  
+
+     1. First comes the function for when a button is pressed:  
+
+         ```lua
+         function OnBindingPressed(player, actionName)
+             if actionName == AIM_BINDING then
+                 SetAimingSpeed(player)
+            end
+         end
+         ```  
+
+     2. Followed by a function for when a button is released:  
+
+         ```lua
+         function OnBindingReleased(player, actionName)
+             if actionName == AIM_BINDING then
+                 ResetPlayerSpeed(player)
+            end
+         end
+         ```      
+
+     3. Another way we need to reset the speed of the player is when they die--check out the code below for doing this:  
+
+         ```lua
+         function OnPlayerDied(player, damage)
+             ResetPlayerSpeed(player)
+         end
+         ```  
+
+9. The most important functions for bringing this all together are the `OnEquipped()` and `OnUnequipped()` functions. Just like in the other script, but affecting the speed and animations rather than the camera movements, we'll create both.  
+
+     1. Use this code for the `OnEquipped()` portion, and as usual, type it directly beneath the previous section:  
+
+         ```lua
+         function OnEquipped(weapon, player)
+             if not CAN_AIM then return end
+
+             pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
+             releasedHandle = player.bindingReleasedEvent:Connect(OnBindingReleased)
+             playerDieHandle = player.diedEvent:Connect(OnPlayerDied)
+         end
+         ```  
+
+     2. Then comes the `OnUnequipped()` section:  
+
+         ```lua
+         function OnBindingReleased(player, actionName)
+             if actionName == AIM_BINDING then
+                 ResetPlayerSpeed(player)
+            end
+         end
+         ```  
+
+10. On to the last step for camera movement! Similar to the *WeaponAimClient* script, we need to connect the functions we wrote to the built-in events that happen on a `weapon` object.  
+
+     1. At the very end of your script, beneath all the other functions, add these two lines of code to connect the functions:  
+
+         ```lua
+         WEAPON.equippedEvent:Connect(OnEquipped)
+         WEAPON.unequippedEvent:Connect(OnUnequipped)
+         ```  
+
+Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!  
 
 ### Critical Hit
 
