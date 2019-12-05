@@ -118,6 +118,6 @@ Try adding your own garnishes using the techniques we used to make the pancakes.
 
 ## Summary
 
-TODO: Add text
+Through a combination of simple geometry, modified materials, and decals, you can create tons of different props of all shapes and sizes in CORE. Experiment with different settings, shapes, and make sure to check out other people's creations in the Community Content folder for inspiration.
 
 ![ModelingBasics](../../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center}
