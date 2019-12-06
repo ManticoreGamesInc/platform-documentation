@@ -477,10 +477,23 @@ So let's get started on the server script!
 
 Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!  
 
-### Critical Hit
+### Critical Hit Headshots
 
-- go over the short script that Tung included in AdvancedRifle called WeaponDamageShootServer
-- it jsut defines what a headshot is and does more damage when the shot is a headshot
+A common aspect of games with player combat is the ability to land a headshot on someone--having both superior and lucky aim is fun to reward, and helps push players to improve.
+
+For our Fire Staff, let's set it up to do double damage if a player gets a successful headshot.
+
+1. Select the Fire Staff weapon object in the Hierarchy. We need to add two custom properties to it.  
+
+     1. Add a custom property of type int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.  
+
+     2. Add another custom property of type int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
+
+2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff.  
+
+3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.  
+
+4. type code dude
 
 ### Ammo as a Pickup
 
