@@ -14,6 +14,8 @@ categories:
 
 Welcome to CORE! We're excited to have you in Closed Alpha and can't wait to see what you create. To get you started, we're going to walk you through creating your first multiplayer game in CORE... in 10 minutes!
 
+   ![NewWeapon](../img/EditorManual/MyFirstMultiplayer/NewWeapon.png){: .center}
+
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** Beginner! No experience necessary!
 * **Skills you will learn:**
@@ -55,7 +57,7 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
    ![TwoPlayers](../img/EditorManual/MyFirstMultiplayer/TwoPlayers.png){: .center}
 
-4. Let's press Play again! Two clients will launch now. You control whichever character is in your current active window.
+4. Let's press Play again! CORE will launch multiple windows, one for each player. You control whichever character is in the active window.
 
    ![MPPreview](../img/EditorManual/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
@@ -64,7 +66,7 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
 ## Make It Your Own
 
-So we have a whiteboxed map, and that's great and important in testing design! Now, let's customize the map now and make it our own.
+So we have a whiteboxed map, and that's great and important in testing design! Now, let's customize the map and make it our own.
 
 1. Navigate to the **CORE Content** window. You have access to a massive library of 3D assets, materials, and more for your game creation in CORE!
 
@@ -77,7 +79,7 @@ So we have a whiteboxed map, and that's great and important in testing design! N
 
    ![DragDrop](../img/EditorManual/MyFirstMultiplayer/DragDropBushes.gif){: .center}
 
-3. You can move, rotate, and scale all these objects! `W` activates Translation Mode to move objects; `E` activates Rotation mode; and `R` activates Scale Mode to resize objects. Let's try click on an arrow and dragging an object along an axis.
+3. You can move, rotate, and scale all these objects! `W` activates Translation Mode to move objects; `E` activates Rotation mode; and `R` activates Scale Mode to resize objects. Let's click and drag on an arrow to move the object along that axis.
 
    ![Move](../img/EditorManual/MyFirstMultiplayer/MoveBushes.gif){: .center}
 
@@ -150,7 +152,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
    ![ChangedKillLimit](../img/EditorManual/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
 
-5. To match that game logic, let's change the UI text to match the Round Kill Limit. In "UI Seetings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
+5. Game rounds now end at 3 kills, but in the upper-left corner of the screen it still says "First to kill 10 enemies wins!". Let's change that UI text to match the Round Kill Limit. In "UI Seetings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
 
    ![ChangedGameInstructions](../img/EditorManual/MyFirstMultiplayer/ChangedGameInstructions.png){: .center}
 
@@ -161,40 +163,62 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 !!! tip
     With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](../editor_keybindings.md)!
 
-### Choose Your Weapon! from Community Content
+### Choose Your Weapon from Community Content
 
-1. Navigate to **Community Content**, where creators can publish and share their creations with the community! Let's search for a weapon and then click on the `Import` button to download the template into your local project. In this example, the "Tree Gun" will be imported.
+1. Navigate to **Community Content**, where creators can publish and share their creations with the community! Let's search for a weapon and then click on the `Import` button to download the template into your local project. In this example, the "Tree Gun" by Buckmonster will be imported.
 
-   ![CCSearch](../img/EditorManual/MyFirstMultiplayer/CCSearch.png){: .center}
+   ![CCSearch](../img/EditorManual/MyFirstMultiplayer/CCSearchMarked.png){: .center}
 
 !!! note
     If you can't find the "Community Content" window or accidentally close it, you can reopen the window by going to View > Community Content in the toolbar at the top of the editor.
 
-2. Now, in the "Gameplay Settings" folder in the hierarchy, locate the "Starting Weapon" folder. In the custom property called "EquipmentTemplate", drag and drop your imported gun's template. The imported weapon can be found under **CORE Content** in the "Imported" category.
+2. Locate your imported weapon in **CORE Content** under the "Imported" category.
 
-   ![StartingWeapon](../img/EditorManual/MyFirstMultiplayer/StartingWeapon.png){: .center}
+   ![LocateImport](../img/EditorManual/MyFirstMultiplayer/LocateImportedWeapon.png){: .center}
 
-3. Press Play and test our your awesome new gun!
+3. Now, in the "Gameplay Settings" folder in the hierarchy, locate the "Starting Weapon" folder. In Properties, there is an "EquipmentTemplate" custom property which currently is the "Basic Rifle".
 
-!!! info "How do I make my own weapon?"
+   ![BasicRifle](../img/EditorManual/MyFirstMultiplayer/BasicRifle.png){: .center}
+
+3. To swap out the starting weapon, drag and drop your imported gun's template into the "EquipmentTemplate" field.
+
+   ![SwapWeapons](../img/EditorManual/MyFirstMultiplayer/SwapWeapons.gif){: .center}
+
+4. Press Play and test our your awesome new gun... that shoots tree!
+
+   ![TreeShot](../img/EditorManual/MyFirstMultiplayer/TreeShot.gif){: .center}
+
+!!! info "That's too cool. How do I make my own weapon?"
     It's easy! Check out our [Basic Weapons Tutorial](../tutorials/gameplay/weapons.md).
 
-### Publishing Your Game
+## Publishing Your Game
 
-Flow is still in progress on the engine side.
+Almost there! Now to make your game live for the world.
 
-(Show Final Website)
+1. Locate the `Publish` button in the top right of the editor and press it.
 
-### Next Steps
+   ![PublishButton](../img/EditorManual/MyFirstMultiplayer/PublishButtonMarked.png){: .center}
 
-Now's the best part! Playtesting with friends!
-Engage with community in #playtest in :fab fa-discord: [Discord](https://discordapp.com/invite/3H4j3YJ).
+2. Fill out all the relevant information! Give your game a name, write up a description blurb, add relevant tags, and take a screenshot for your game! For your game's screenshots, you can either take snapshots in-editor with the camera button or select an image file from your directory via the folder button.
 
-Post a screenshot of character/map/playtest in #showcase in Discord.
-You're doing amazing!! Supportive encouragement here.
+   ![PublishWindow](../img/EditorManual/MyFirstMultiplayer/PublishWindow.png){: .center}
 
-Excited? Check out these tutorials next:
+3. Click "Publish" in the bottom right corner. Anytime you're republishing the game with changes or updates, you can follow the exact same flow, except with a "Review & Update" button instead. When your game has been successfully published, a new window will pop up!
 
-* Intro to Enviro Art (Terrain)
-* Weapons (Gun)
-* Abilities (Dodgeroll)
+    ![PublishSuccess](../img/EditorManual/MyFirstMultiplayer/PublishSuccess.png){: .center}
+
+4. Your game's now live! Visit your game's page and press play to try it out online.
+
+    ![GamePage](../img/EditorManual/MyFirstMultiplayer/GamePage.png){: .center}
+
+## Next Steps
+
+Congrats! You've made your first multiplayer game! 🎉
+
+Now's the best part: playtesting! Come invite people to join you in-game in the #playtest channel on :fab fa-discord: [Discord](https://discordapp.com/invite/3H4j3YJ). Manticore devs will be hanging out there too, and we can't wait to see what you create! If you need any help or have questions, there'll be live support there too.
+
+Excited? Check out these tutorials to build out your game:
+
+* Sculpt your own world! Check the [Terrain Tutorial](../tutorials/gameplay/weapons.md).
+* Create your own Weapon! Try out the [Basic Weapon Tutorial](../tutorials/gameplay/weapons.md)
+* Learn how to add player Abilities! Give players the [Dodgeroll](../tutorials/gameplay/abilities.md).
