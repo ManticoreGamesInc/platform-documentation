@@ -122,7 +122,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 ### Explosive Visual Effects
 
-1. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most *impactful* sections of the weapon to change are:  
+1. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:  
 
      1. The **Muzzle Flash Template**   
 
@@ -148,19 +148,19 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written!
 
-     1. To start we need a custom property added to the weapon object of type boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
+     1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
 
      2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
 
-     3. Add another custom property of type string and call it "*AimActiveStance*". Set the value to "*2hand_rifle_aim_shoulder*". This determines what animation pose is used while aiming.
+     3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose is used while aiming.
 
      4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
 
-     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type integer, and give it a value of 100. This assigns how far the camera zooms in when aiming.
+     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
 
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
-3. Open this script, removing any existing text, and let's start by accessing our variables.
+3. Open this script, and let's start by accessing our variables.
 
      1. We first want to create a reference to the weapon object, so type this at the top of the script:
 
@@ -231,7 +231,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
          end
          ```  
 
-5. Now let's tackle one of those functions used in the above `Tick()` function.
+5. Now let's tackle one of those functions used in the `Tick()` function.
 
      First, we'll do the `LerpCameraDistance(deltatime)`.
 
@@ -248,19 +248,20 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 6. Now we need a function that accesses the camera for the local player, so that we can change it when we want to.
 
-     1. To do this, copy the code below beneath your function from the previous step.
+     1. To do this, copy the code below beneath your function from the previous step.  
+
          ```lua
-        function GetPlayerActiveCamera(player)
+         function GetPlayerActiveCamera(player)
             if not Object.IsValid(player) then
                 return nil
-            end
+            end  
 
             if player:GetOverrideCamera() then
                 return player:GetOverrideCamera()
             else
                 return player:GetDefaultCamera()
             end
-        end
+         end
          ```
 
 7. The above is followed directly by another function--`EnableScoping(player)`. This turns on the aiming!
@@ -360,6 +361,10 @@ We're going to add the ability to focus zoom with right click for better aiming!
          WEAPON.unequippedEvent:Connect(OnUnequipped)
          ```  
 
+12. We've written the script, but we can't forget to add it to our fire staff object.  
+
+     Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!  
+
 So this was the first half of the camera aim setup--we have created a script for the client context, that only each individual player uses. The next part is the script that will live in a server context, as this is the part that needs to be replicated back to the server.
 
 This server script will seem fairly similar to the client script, but this one is directly changing and affecting variables of the player.
@@ -376,7 +381,7 @@ So let's get started on the server script!
 
 4. Next is adding in the coding sections--open up the new script to begin.
 
-5. We first need to access the custom variables we created on the `weapon`. This will look really similar to the WeaponAimClient script.  
+5. We first need to access the custom variables we created on the `weapon`. This will look really similar to the *WeaponAimClient* script.  
 
      1. Start with creating a reference to the `weapon` itself so that we can find the variables, and the safety error checking we made just like last time.  
 
@@ -434,7 +439,7 @@ So let's get started on the server script!
          end
          ``` 
 
-8. Similar to the WeaponAimClient script, we now need functions that trigger our speed-modifying functions by binding them to the buttons the player will press.  
+8. Similar to the *WeaponAimClient* script, we now need functions that trigger our speed-modifying functions by binding them to the buttons the player will press.  
 
      1. First comes the function for when a button is pressed:  
 
@@ -456,7 +461,7 @@ So let's get started on the server script!
          end
          ```      
 
-     3. Another way we need to reset the speed of the player is when they die--check out the code below for doing this:  
+     3. Another way we need to reset the speed of the player is when they die--check out the code below for doing this, and add it to the current bottom of your script:  
 
          ```lua
          function OnPlayerDied(player, damage)
@@ -481,10 +486,16 @@ So let's get started on the server script!
      2. Then comes the `OnUnequipped()` section:  
 
          ```lua
-         function OnBindingReleased(player, actionName)
-             if actionName == AIM_BINDING then
-                 ResetPlayerSpeed(player)
-            end
+         function OnUnequipped(weapon, player)
+             if not CAN_AIM then return end
+
+             if (pressedHandle) then pressedHandle:Disconnect() end
+             if (releasedHandle) then releasedHandle:Disconnect() end
+             if (playerDieHandle) then playerDieHandle:Disconnect() end
+
+             -- Reset player speed and animation stance on unequip
+             ResetPlayerSpeed(player)
+             player.animationStance = UNARMED_STANCE
          end
          ```  
 
@@ -501,17 +512,17 @@ Now, if you hit play to test out your weapon, you should be able to zoom in when
 
 ### Critical Hit Headshots
 
-A common aspect of games with player combat is the ability to land a headshot on someone--having both superior and lucky aim is fun to reward, and helps push players to improve.
+A common aspect of games with player combat is the ability to land a headshot on someone--having both superior and lucky aim is fun to reward, and it can push players to want to improve their aim.
 
 For our Fire Staff, let's set it up to do double damage if a player gets a successful headshot.
 
 1. Select the Fire Staff weapon object in the Hierarchy. We need to add two custom properties to it.  
 
-     1. Add a custom property of type int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.  
+     1. Add a custom property of type Int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.  
 
-     2. Add another custom property of type int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
+     2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
 
-2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff.  
+2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.  
 
 3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.  
 
@@ -533,7 +544,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
          
      3. The biggest and most important section of this is the function for what happens the moment a fireball/bullet/projectile makes impact with something.  
 
-         Weapons come with data for their hit target built-in, so we just need to utilize this data to determine whether or not we apply damage and how much damage we apply.  
+         Weapons come with data for their impacted target built-in, so we just need to utilize this data to determine whether or not we apply damage and how much damage we apply.  
 
          Here is the whole complete function--add this to your script beneath the variables:  
 
@@ -571,6 +582,16 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
          WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
          ```   
 
+4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.  
+
+     1. In **CORE Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.  
+
+     2. With Team Settings selected in your project Hierarchy, check the Properties tab. Change the Team Mode to Free For All.  
+
+         Now that we've set the game mode to Free For All, any test AI bots that we spawn we will be able to shoot at.
+
+     3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
+
 ### Ammo as a Pickup
 
 One way to really change gameplay and force players to explore a map and be more resourceful is to give the weapon a limited ammo supply. Eventually, they'll have to go look for more. 
@@ -581,11 +602,13 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 1. With the fire staff selected, scroll in the **Properties** window down to the **Ammo** section.
 
-     Check the box that says "Finite Ammo Supply" on.
+     Check the box that says **Finite Ammo Supply** on.
 
-2. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
+2. Change the **Max Ammo** to 10.  
 
-3. Now we need to build the ammunition pickup itself.  
+3. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
+
+4. Now we get to build the ammunition pickup itself!  
 
      1. We'll start by creating a `trigger` object for our player to interact with.  
 
@@ -595,17 +618,17 @@ The main thing to change for our ammo supply is to change the properties of the 
 
          This can be anything you want--for a Fire Staff, a spark-looking object could be cool.  
 
-         Choose whatever object you would like from CORE Content, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.  
+         Choose whatever object you would like from **CORE Content**, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.  
 
          Right click this object and create a group containing this.
 
      3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
 
-4. That settles the art portion--now for the script that will make the game magic happen!  
+5. That settles the art portion--now for the script that will make the game magic happen!  
 
      1. Within your project content, create a new script and call it "EmberPickupScript".  
 
-     2. Drag this script onto the Trigger in your project Hierarchy.
+     2. Drag this script onto the `trigger` in your project Hierarchy.
 
      3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.  
 
@@ -630,6 +653,8 @@ The main thing to change for our ammo supply is to change the properties of the 
          end
          ```  
 
+         Notice the `print()` statements in the code--these help us by showing in the **Event Log** what is happening. So when we test this, open the Event Log window and check there for the statements showing the player's *embers* resource increasing.
+
      5. Lastly, we need to connect the function we just made to the trigger's built-in event for overlapping.  
 
          Add this code to the very bottom of your script:  
@@ -638,9 +663,13 @@ The main thing to change for our ammo supply is to change the properties of the 
          trigger.beginOverlapEvent:Connect(OnBeginOverlap)
          ```  
 
+6. Once you've set up all the code, the final step is to select the trigger itself (that holds both the art and the script) and right click it. Select "Enable Networking" to enable this to work properly.
+
+7. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
+
 ### Connecting UI
 
-You'll likely want to set up User Interface (UI) for your magic staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](/tutorials/gameplay/abilities/#core-component-ability-display)**'s section on UI.
+You'll probably want to set up User Interface (UI) for your fire staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](/tutorials/gameplay/abilities/#core-component-ability-display)**'s section on UI.
 
 ## Examples
 
