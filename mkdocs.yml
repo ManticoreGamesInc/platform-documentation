@@ -44,8 +44,8 @@ nav:
       - Community Created:
           - Overview: tutorials/community_created/community_created.md
   - Editor Key Bindings: editor_keybindings.md
-  - FAQs:
-    - faqs.md
+  - FAQ:
+    - faq.md
 
 # If you make a PR, no need to change data below this point
 theme:
