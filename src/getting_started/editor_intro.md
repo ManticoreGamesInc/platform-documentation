@@ -12,7 +12,7 @@ categories:
 
 ## Setup & Installation
 
-To get started, you'll need two things, the installer and an account. You can get both from [our website](https:/coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
+To get started, you'll need two things, the installer and an account. You can get both from [our website](https://coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
 
 ## Launcher
 
