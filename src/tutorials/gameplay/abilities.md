@@ -12,7 +12,7 @@ An ability is anything that the player can do themselves.
 
 Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
 
-An ability could be to sprint, a dance emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
+An ability could be to sprint, a cheering emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
 !!! info
     Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
@@ -24,7 +24,7 @@ An ability could be to sprint, a dance emote, the opening of a hidden menu; an a
     * How to use an animation
     * How to set up UI connected to an ability
 
-![Dodge Roll](../../img/EditorManual/Abilities/FullProcess.gif){: .center}
+![Dance](../../img/EditorManual/Abilities/FullProcess.gif){: .center}
 
 ---
 
@@ -44,7 +44,7 @@ Adding a simple ability to a game is only a couple of steps. We'll go over how t
 
 We're going to make a piece of equipment that the player can pick up, and when they do, they will gain a new ability.
 
-For this tutorial, we are going to make a quick dodge roll.
+For this tutorial, we are going to make the player do a dance.
 
 ### Getting Started with Equipment
 
@@ -89,7 +89,9 @@ For this tutorial, we are going to make a quick dodge roll.
 
         ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
-    Now that we've created a visible object that can be picked up, it needs to do something!
+     4. Right click the Art folder, and hover over Create Network Context to select "New Client Context Containing This" to ensure better performance for the game by wrapping the art in a Client Context.
+
+         Now that we've created a visible object that can be picked up, it needs to do something!
 
 4. Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
@@ -97,21 +99,21 @@ For this tutorial, we are going to make a quick dodge roll.
 
         ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
 
-    2. Rename the `Ability` object to "Dodge" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
+    2. Rename the `Ability` object to "Dance" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
-    Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the dodge roll animation.
+    Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the dance animation.
 
-5. The `Ability` object starts with default settings in the **Properties** window. To make our own dodge roll, we only need to change two things.
+5. The `Ability` object starts with default settings in the **Properties** window. To make our own dance, we only need to change two things.
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
 
         The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the `shift` key on keyboards.
 
-    2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_roll`.
+    2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_dance`.
 
         ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
 
-    **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dodgeroll!
+    **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dance!
 
 !!! info "Good Object Placement"
     If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
@@ -120,7 +122,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
   1. In the **Properties** window for the ability object, scroll down to the section called **Cooldown**.
 
-  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dodge roll before you can use it again.
+  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dance before you can use it again.
 
       Increase or lower this to suit your gameplay needs.
 
@@ -154,7 +156,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     2. Change the **Text** field to `Shift`, to stand for Left Shift.
 
-    3. Check the **ShowAbilityName** property, so that "Dodge" will display over the button.
+    3. Check the **ShowAbilityName** property, so that "Dance" will display over the button.
 
     What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
 
@@ -179,7 +181,7 @@ Now the UI element will update automatically once the ability is cast.
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ability's UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
 This has already been done for us in the CORE Content template, so no action is needed!
 
