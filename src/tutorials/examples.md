@@ -21,4 +21,4 @@ Open the shared content window, search for these names, and download them to you
 ## Needed
 
 * What isn't represented here? Let us know!
-* To add more, enter the details in the form :fas fa-external-link-alt: [here](https://forms.gle/br8ZjanQGU2LkBvPA).
+* To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).

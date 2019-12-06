@@ -9,7 +9,7 @@ categories:
 
 Welcome to the official documentation of CORE&trade;, the community-focused game creation tool!
 
-CORE is a new game creation platform by :fas fa-external-link-alt: [Manticore Games](https://www.manticoregames.com) that allows anyone to create, share, and play high quality online games.
+CORE is a new game creation platform by [Manticore Games](https://www.manticoregames.com) that allows anyone to create, share, and play high quality online games.
 
 [![IntroHeader](img/index_head.png "Intro")](getting_started/my_first_multiplayer_game.md)
 _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.md)_
@@ -63,7 +63,7 @@ Some things to keep in mind:
 
 - There will be bugs - help us find them!.
 - :fab fa-discord: [Join the community](https://discord.gg/85k8A7V) and help us shape the product in real time.
-- :fas fa-external-link-alt: [Share your feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform) with us often. No detail or thought is too small!
+- [Share your feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform) with us often. No detail or thought is too small!
 
 In addition, while we will work hard to avoid them, please keep in mind the following possibilities:
 
@@ -81,13 +81,13 @@ We’re excited to share these very early stages of CORE with you. We ask that y
 
 This documentation is continuously written and edited by both Manticore as well as members of the
 community. Contributions are more than welcome! It is easy to do so, as files are simply text files
-with some :fas fa-external-link-alt: [Markdown](https://daringfireball.net/projects/markdown/syntax) extras for formatting. We then compile the markdown files into a static website
-using the open source :fas fa-external-link-alt: [MkDocs](https://www.mkdocs.org/) platform, and host the site using :fas fa-external-link-alt: [Netlify](https://www.netlify.com).
+with some [Markdown](https://daringfireball.net/projects/markdown/syntax) extras for formatting. We then compile the markdown files into a static website
+using the open source [MkDocs](https://www.mkdocs.org/) platform, and host the site using [Netlify](https://www.netlify.com).
 
 !!! info "Contributions Welcome!"
     Just click on the :far fa-edit: icon on the top right of any page.
     You'll need a GitLab account, with contribution permissions. If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitLab account to get set up.
-    More specific contribution details can be found on our :fas fa-external-link-alt: [repository](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
+    More specific contribution details can be found on our [repository](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
 
 ## Organization of the Documentation
 
