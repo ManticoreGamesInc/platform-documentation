@@ -2,7 +2,7 @@
 
 ## Overview
 
-CORE has integrated version 5.3.4 of the Lua library. For detailed technical information, see their :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](#coreobject). Data structures are owned by Lua, while [CoreObjects](#coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
+CORE has integrated version 5.3.4 of the Lua library. For detailed technical information, see their [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](#coreobject). Data structures are owned by Lua, while [CoreObjects](#coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
 
 Properties, functions, and events inherited by [CoreObject](#coreobject) types are listed below.
 Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:functionName()`.
@@ -11,7 +11,7 @@ Both properties and events are accessed with `.propertyName` and `.eventName`, w
 
 At a high level, CORE Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Objects all inherit from a single base type: Object. Data structures have no common parent. However, all data structures and Objects share a common `type` property, which is a String indicating its type. The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc. All CORE types also share an `IsA()` function. The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not. For example, `myObject:IsA("StaticMesh")`.
 
-A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual :fas fa-external-link-alt: [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
 ### Ability
 
@@ -1332,7 +1332,7 @@ World is a collection of functions for finding objects in the world.
 
 ### Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the :fas fa-external-link-alt: [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
+For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
     * assert
@@ -1592,37 +1592,37 @@ All ability animations have a long "tail" that gracefully transitions the charac
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_dance_spooky` - Stand in place and dance.  
+`unarmed_dance_spooky` - Stand in place and dance.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_flex` - Body builder style flexing animation.  
+`unarmed_flex` - Body builder style flexing animation.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_thumbs_up` - thumbs up.  
+`unarmed_thumbs_up` - thumbs up.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_thumbs_up` - thumbs down.  
+`unarmed_thumbs_up` - thumbs down.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_rochambeau_rock` - rock, paper, scissors game.  This chooses rock as the end result.  
+`unarmed_rochambeau_rock` - rock, paper, scissors game.  This chooses rock as the end result.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_rochambeau_paper` - rock, paper, scissors game.  This chooses paper as the end result.  
+`unarmed_rochambeau_paper` - rock, paper, scissors game.  This chooses paper as the end result.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
 
-`unarmed_rochambeau_scissors` - rock, paper, scissors game.  This chooses scissors as the end result.  
+`unarmed_rochambeau_scissors` - rock, paper, scissors game.  This chooses scissors as the end result.
 
 * currently does NOT support a variable cast phase time.
 * currently does NOT support a time stretched execute phase time
@@ -1639,7 +1639,7 @@ All ability animations have a long "tail" that gracefully transitions the charac
 
 * This animation supports a variable cast time.
 
-`unarmed_roll` - A roll animation that moves the character forward.  
+`unarmed_roll` - A roll animation that moves the character forward.
 
 * This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
 * The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
@@ -1648,11 +1648,11 @@ All ability animations have a long "tail" that gracefully transitions the charac
 
 * This animation supports a variable cast time.
 
-`unarmed_wave` - Stand in place and wave.  
+`unarmed_wave` - Stand in place and wave.
 
 * This animation works best with a cast phase duration of 0.266 or less.
 
-`unarmed_pickup` - Stand in place and pick up items from the ground.  
+`unarmed_pickup` - Stand in place and pick up items from the ground.
 
 * This animation works best with a cast phase duration of 0.266 or less.
 
