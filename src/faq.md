@@ -1,5 +1,5 @@
 ---
-name: FAQs
+name: FAQ
 ---
 
 # Frequently Asked Questions
