@@ -6,7 +6,7 @@ name: FAQs
 
 ## What are the system requirements for CORE?
 
-Check below for CORE's current system requirements. We will be actively working on optimizing CORE throughout Alpha and beyond to enable more and more machines.
+Check below for CORE's current system requirements. We will be actively optimizing CORE throughout Alpha and beyond to enable more and more machines.
 
 ### Minimum System Requirements
 
