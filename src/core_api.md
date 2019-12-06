@@ -1,3 +1,10 @@
+---
+name: CORE API
+hero: IGNORE ME PLEASE -- SUPER OUT OF DATE
+categories:
+    - API
+---
+
 # Lua Scripting API
 
 ## Overview
