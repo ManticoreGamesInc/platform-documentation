@@ -98,7 +98,7 @@ using the open source [MkDocs](https://www.mkdocs.org/) platform, and host the s
 - The **Tutorials** section can be read as needed, in any order. It contains both
   full games and various feature-specific tutorials. This is the best place to go for information on
   larger projects. It includes the [Light Bulb](tutorials/gameplay/lua_basics_lightbulb.md) tutorial, which should be the entry point for all new users. In addition to this you may also want to take a look at our collection of various example projects and templates on the [examples](tutorials/examples.md) page.
-- The **CORE API** section is also intended for all users that intend to add gameplay elements, as it
+- The **CORE API** section is intended for all users looking to add gameplay elements, as it
   contains all the information you need to know about scripting in CORE. It includes sections on Lua
   (including a primer for programmers and resources for complete beginners), as well as best
   practices and debugging tools.
