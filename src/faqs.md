@@ -4,18 +4,20 @@ name: FAQs
 
 # Frequently Asked Questions
 
-## Minimum System Requirements
+## What are the system requirements for CORE?
 
-**CPU:** Intel Core i5-7400 or AMD equivalent
-**RAM:** 8GB
-**GPU:** NVIDIA GeForce GTX 1050 TI or AMD equivalent
+**Note:** We are still in Alpha, CORE is not optimized yet and final release requirements will be lower!
 
-**OS:** Windows 7/8/10 64-bit
+### Minimum System Requirements
 
-## Recommended System Requirements
+* **CPU:** Intel Core i5-7400 or AMD equivalent
+* **RAM:** 8 GB
+* **GPU:** NVIDIA GeForce GTX 1050 Ti or AMD equivalent
+* **OS:** Windows 10 64-bit
 
-**CPU:** Intel Core i5-7400 or AMD equivalent
-**RAM:** 8GB
-**GPU:** NVIDIA GeForce GTX 1060 TI or AMD equivalent
+### Recommended System Requirements
 
-**OS:** Windows 10 64-bit
+* **CPU:** Intel Core i5-7400 or AMD equivalent
+* **RAM:** 16 GB
+* **GPU:** NVIDIA GeForce GTX 1060 Ti or AMD equivalent
+* **OS:** Windows 10 64-bit
