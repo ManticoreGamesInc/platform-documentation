@@ -21,6 +21,7 @@ nav:
       - Lua Dev Environment: extensions.md
       - Coming from other Engines: getting_started/other_engines.md
   - Tutorials:
+      - Overview: generated/sitemap.md
       - Gameplay:
           - Abilities: tutorials/gameplay/abilities.md
           - Weapons: tutorials/gameplay/weapons.md
@@ -43,7 +44,8 @@ nav:
       - Community Created:
           - Overview: tutorials/community_created/community_created.md
   - Editor Key Bindings: editor_keybindings.md
-  - FAQs: faqs.md
+  - FAQs:
+    - faqs.md
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -54,7 +56,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   feature:
-    tabs: false
+    tabs: true
   palette:
     primary: "manticore-blue"
     accent: "manticore-orange"
