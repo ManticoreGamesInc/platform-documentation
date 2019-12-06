@@ -17,7 +17,7 @@ _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.
 
 <div class="figure-block">
     <figure>
-        <a href="tutorials/gameplay/weapon" title="Weapons">
+        <a href="tutorials/gameplay/weapons" title="Weapons">
             <img src="img/EditorManual/Weapons/holdingWeaponNew.png" alt="Build a Weapon"/>
             <figcaption><em>Build a Weapon</em></figcaption>
         </a>
