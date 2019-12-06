@@ -122,7 +122,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 ### Explosive Visual Effects
 
-1. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:  
+1. Use the **[VFX section](/tutorials/gameplay/weapons/#adding-visual-effects)** of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:  
 
      1. The **Muzzle Flash Template**   
 
@@ -136,9 +136,9 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
          - Activated the moment a player is hit with a projectile.
 
-### Fire Bomb Ability
+### Fire Fly Ability
 
-1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of CORE Content.
+1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
 
 2. Change the name of the ability to "FireBombAttackAbility".
 
