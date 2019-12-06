@@ -200,5 +200,4 @@ To create a more advanced ability system and read more about Ability objects, re
 
 ## Examples
 
-* _FAA_GameMode_ includes functioning abilities.
-* _Spellshock_ includes advanced abilities using ability objects.
+* ***[Spellshock](https://www.coregames.com/games)*** includes advanced abilities using ability objects.
