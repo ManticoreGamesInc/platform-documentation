@@ -118,6 +118,9 @@ markdown_extensions:
 
 # Plugins
 plugins:
+  - redirects:
+        redirect_maps:
+            'getting_started.md': 'getting_started/editor_intro.md'
 
 # Docs dir
 docs_dir: src/
