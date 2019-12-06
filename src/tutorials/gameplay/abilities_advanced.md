@@ -479,28 +479,75 @@ Now, if you hit play to test out your weapon, you should be able to zoom in when
 
 ### Critical Hit
 
--   advanced weapon has headshot damage (critical hits)
--   get the basic weapon function working (shoot a lil fireball)
--   involves creating an attack ability, a reticle, vfx (look what vfx tung used, see how it is triggered, do a simple version of that coding)
-- design some sort of reticle, possible do camera shake?
--   set up fireball ammo needing to be recharged
--   add another ability for the right click spot (charge fire blast)
--   involves another ability script, reticle, vfx
--   explain setting up the ability in programming
--   add vfx for ability
--   now it's a weapon with an additional ability
--   probably end here but maybe make longer if something else should be explained? I don't think anything new would happen
--   set up UI, perhaps link to first ability tutorial for reference again on how to set it up or explain again quickly.
+- go over the short script that Tung included in AdvancedRifle called WeaponDamageShootServer
+- it jsut defines what a headshot is and does more damage when the shot is a headshot
 
 ### Ammo as a Pickup
 
-The main thing to change for our ammo supply is to change the properties of the weapon itself.
+One way to really change gameplay and force players to explore a map and be more resourceful is to give the weapon a limited ammo supply. Eventually, they'll have to go look for more. 
 
-1. With the fire staff selected, scroll in the Properties window down to the Ammo section.
+With this fire staff, we could use something thematic and firey like *ember* as an ammo pickup.
+
+The main thing to change for our ammo supply is to change the properties of the `weapon` itself.
+
+1. With the fire staff selected, scroll in the **Properties** window down to the **Ammo** section.
 
      Check the box that says "Finite Ammo Supply" on.
 
-2. Change the "Ammo Type" to fire. This name will need to match the resource we create for our player to pick up.
+2. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
+
+3. Now we need to build the ammunition pickup itself.  
+
+     1. We'll start by creating a `trigger` object for our player to interact with.  
+
+         Navigate to **CORE Content**, and drag a `trigger` object from the Gameplay Objects section into your project Hierarchy.
+
+     2. So now we have the object that handles the player running into it, but we need something for the player to actually see in-game.  
+
+         This can be anything you want--for a Fire Staff, a spark-looking object could be cool.  
+
+         Choose whatever object you would like from CORE Content, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.  
+
+         Right click this object and create a group containing this.
+
+     3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
+
+4. That settles the art portion--now for the script that will make the game magic happen!  
+
+     1. Within your project content, create a new script and call it "EmberPickupScript".  
+
+     2. Drag this script onto the Trigger in your project Hierarchy.
+
+     3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.  
+
+         This line is very quick and simple since the script is a child of the trigger:  
+
+         ```lua
+         local trigger = script.parent 
+         ```  
+
+     4. Now we need a function that determines what to do when the player touches the trigger. We want it to add 1 unit of ammo to the player's resources, and then we want to destroy the ammo object so that they cannot keep picking up the same one.  
+
+         We can do all these things in one function--use the code below to get this to happen!  
+
+         ```lua
+         function OnBeginOverlap(whichTrigger, other)
+            if other:IsA("Player") then
+                print(whichTrigger.name .. ": Begin Trigger Overlap with " .. other.name)
+                other:AddResource("embers",1)
+                print("Player has "..tostring(other:GetResource("embers")).." embers.")
+                trigger:Destroy()
+            end
+         end
+         ```  
+
+     5. Lastly, we need to connect the function we just made to the trigger's built-in event for overlapping.  
+
+         Add this code to the very bottom of your script:  
+
+         ```lua
+         trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+         ```  
 
 ### Connecting UI
 
