@@ -20,11 +20,11 @@ There are of course several good editors out there for Lua development, but we s
 
 | Name                                                                                               | Details                                             | CORE Autocomplete | Price                  |
 | -------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
-| :fas fa-external-link-alt: [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
-| :fas fa-external-link-alt: [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
-| :fas fa-external-link-alt: [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
-| :fas fa-external-link-alt: [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
-| :fas fa-external-link-alt: [Notepad++](https://notepad-plus-plus.org/)                             | Very lightweight text editor                        | Not Supported     | Free                   |
+| [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
+| [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
+| [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
+| [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
+| [Notepad++](https://notepad-plus-plus.org/)                             | Very lightweight text editor                        | Not Supported     | Free                   |
 
 ### Plugins / Extensions
 
@@ -34,18 +34,18 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 | Plugin Name                                                                                                       | Details                  |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| :fas fa-external-link-alt: [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
-| :fas fa-external-link-alt: [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
+| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua) | Adds Lua support         |
+| [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
 
 #### Atom
 
 | Plugin Name                                                                              | Details                    |
 | ---------------------------------------------------------------------------------------- | -------------------------- |
-| :fas fa-external-link-alt: [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
-| :fas fa-external-link-alt: [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
-| :fas fa-external-link-alt: [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
-| :fas fa-external-link-alt: [Linter UI](https://atom.io/packages/linter-ui-default)       | Adds a UI to Linter        |
-| :fas fa-external-link-alt: [Linter: Luacheck](https://atom.io/packages/linter-luacheck)  | Adds Lua support to Linter |
+| [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
+| [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
+| [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
+| [Linter UI](https://atom.io/packages/linter-ui-default)       | Adds a UI to Linter        |
+| [Linter: Luacheck](https://atom.io/packages/linter-luacheck)  | Adds Lua support to Linter |
 
 ### Autocomplete
 
@@ -73,10 +73,10 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
 ### Installing a Linter
 
-:fas fa-external-link-alt: [Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their :fas fa-external-link-alt: [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on :fas fa-external-link-alt: [GitHub](https://github.com/mpeterv/luacheck/releases/).
+[Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
 
 * :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
-* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. (:fas fa-external-link-alt: [HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
+* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
 

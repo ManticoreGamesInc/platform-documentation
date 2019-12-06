@@ -68,3 +68,11 @@ for (let i = 0; i < elements.length; i++) {
   lightGallery(elements[i])
 }
 
+
+var links = document.querySelectorAll( '.md-content a' );
+for (var i = 0, length = links.length; i < length; i++) {
+    if (links[i].hostname != window.location.hostname && links[i].title != "Edit this page") {
+        links[i].target = '_blank';
+        links[i].className = "external";
+    }
+}
