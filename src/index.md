@@ -29,7 +29,7 @@ _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.
         </a>
     </figure>
     <figure>
-        <a href="tutorials/art/environ_art_intro/" title="Abilities">
+        <a href="tutorials/gameplay/abilities/" title="Abilities">
             <img src="img/EditorManual/Abilities/FullProcess.gif" alt="Create an Ability"/>
             <figcaption><em>Create an Ability</em></figcaption>
         </a>
