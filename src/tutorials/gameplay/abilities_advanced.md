@@ -53,10 +53,14 @@ The 4 different phases of an ability are:
 
 
 !!! info "A More Natural Example"
-    Try thinking of it like the casting of a magical spell:
-    Cast: The witch charges up her spell, twirling her wand in the air in preparation.
-    Execute: The witch flicks her wand, launching magic sparks at her enemy.
-    Recovery: Out of breath from the power, the witch lowers her arm.
+    Try thinking of it like the casting of a magical spell:  
+
+    Cast: The witch charges up her spell, twirling her wand in the air in preparation.  
+
+    Execute: The witch flicks her wand, launching magic sparks at her enemy.  
+
+    Recovery: Out of breath from the power, the witch lowers her arm.  
+
     Cooldown: The witch waits for her magic powers to return to her.
 
 Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
@@ -94,31 +98,49 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 1. Create an empty `weapon` object by dragging one into your Hierarchy from the Gameplay Objects section of CORE Content.
 
-2. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
+2. With the new `weapon` selected in the Hierarchy, press F2 to change its name to *Fire Staff*.
 
-     1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**, or you can use the Community Content asset [uhhhhhhh] as your fire staff.
+3. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
 
-3. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first.
+     1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**.  
 
-4. Create a bullet template, just like in the first tutorial--go for something thematic like a sphere with a custom Plasma material applied!
+     2. Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
-### Modifying the Ability Animations
+4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!
 
+5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied!
 
-1. Add another `ability` to the `weapon` as a child.
+### Modifying the Animations
+
+1. Since we're making a magic staff and not a typical gun, we get to change the animations to something more fitting!
+
+    1. Select the Fire Staff `weapon`. In the Weapon section of the Properties window, change the **Animation Stance** to "2hand_staff_stance" so that it looks better when you're walking around holding the staff.
+
+    2. On the AttackAbility that already exists on the weapon, change the **Animation** in the Properties window to "2hand_staff_magic_bolt" as well.
+
+    3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvinated.
+
+### Explosive Visual Effects
+
+1. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most *impactful* sections of the weapon to change are:  
+
+     1. The **Muzzle Flash Template**   
+
+         - This is what happens the moment the weapon is fired.  
+
+     2. The **Impact Surface Aligned**   
+
+         - Is activated the moment a projectile hits a surface that is not a player.  
+
+     3. The **Impact Player Effect**   
+
+         - Activated the moment a player is hit with a projectile.
+
+### Fire Bomb Ability
+
+1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of CORE Content.
 
 2. Change the name of the ability to "FireBombAttackAbility".
-
-3. We're going to change the animations first, as this is the most dramatic visual change to make firing look correct.
-
-    1. Change the animation string to "2hand_staff_magic_bolt" so that it looks better when firing.
-
-    2. On the AttackAbility that already exists on the weapon, change the animation string to "2hand_staff_magic_bolt" as well.
-
-    3. On the ReloadAbility, change the animation string to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the gods to be rejuvinated.
-
-6. Use the VFX section of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff.
-
 
 ### Right Click to Aim
 
@@ -493,7 +515,61 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
 3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.  
 
-4. type code dude
+     1. First off we'll want the usual reference to the weapon at the top of our script:  
+
+         ```lua
+         local WEAPON = script:FindAncestorByType('Weapon')
+         if not WEAPON:IsA('Weapon') then
+             error(script.name .. " should be part of Weapon object hierarchy.")
+         end
+         ```  
+
+     2. Next comes creating references to the custom properties we made for damage amounts:  
+
+         ```lua
+         local DAMAGE_AMOUNT = WEAPON:GetCustomProperty("BaseDamage")
+         local DAMAGE_HEADSHOT = WEAPON:GetCustomProperty("HeadshotDamage")
+         ```     
+         
+     3. The biggest and most important section of this is the function for what happens the moment a fireball/bullet/projectile makes impact with something.  
+
+         Weapons come with data for their hit target built-in, so we just need to utilize this data to determine whether or not we apply damage and how much damage we apply.  
+
+         Here is the whole complete function--add this to your script beneath the variables:  
+
+         ```lua
+         local function OnWeaponInteraction(weaponInteraction)
+             local target = weaponInteraction.targetObject
+
+             -- Apply damage to target if it's a player
+             if Object.IsValid(target) and target:IsA("Player") then
+
+                 local weaponOwner = weaponInteraction.weaponOwner
+                 local numberOfHits = #weaponInteraction:GetHitResults()
+
+                 -- Assign a headshot damage if projectile hit enemy's head
+                 local damage = DAMAGE_AMOUNT
+                 if weaponInteraction.isHeadshot then
+                     damage = DAMAGE_HEADSHOT
+                 end
+
+                 -- Creating damage information
+                 local newDamageInfo = Damage.New(damage * numberOfHits)
+                 newDamageInfo.reason = DamageReason.COMBAT
+                 newDamageInfo.sourceAbility = weaponInteraction.sourceAbility
+                 newDamageInfo.sourcePlayer = weaponOwner
+
+                 -- Apply damage to the enemy player
+                 target:ApplyDamage(newDamageInfo)
+             end
+         end
+         ```  
+
+     4. Finally, we're going to connect the function we just made to the built-in event on the weapon:  
+
+         ```lua
+         WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
+         ```   
 
 ### Ammo as a Pickup
 
@@ -568,5 +644,5 @@ You'll likely want to set up User Interface (UI) for your magic staff's abilitie
 
 ## Examples
 
-* _Spellshock_ includes advanced abilities using ability objects.
-* _CORE Content_ includes pre-made and ready-to-use weapons! Check in Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible.
+* **[_Spellshock_](https://www.coregames.com/games)** includes advanced abilities using ability objects.
+* _CORE Content_ includes pre-made and ready-to-use weapons! Check in Game Components Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
