@@ -6,7 +6,7 @@ name: FAQ
 
 ## What are the system requirements for CORE?
 
-At the beginning of Alpha, this minspec will allow you to check out CORE, though your mileage may vary when it comes to playing or developing complex projects. For Alpha, a modern gaming PC is recommended for the best early experience. There are a number of planned optimizations which will greatly improve performance on lower spec machines. 
+At the beginning of Alpha, this minspec will allow you to check out CORE, though your mileage may vary when it comes to playing or developing complex projects. For Alpha, a modern gaming PC is recommended for the best early experience.
 
 ### **Minimum System Requirements**
 
@@ -22,3 +22,4 @@ At the beginning of Alpha, this minspec will allow you to check out CORE, though
 * **GPU:** NVIDIA GeForce GTX 1660 Ti or AMD equivalent
 * **OS:** Windows 10 64-bit
 
+There are a number of planned optimizations during Alpha and beyond which will greatly improve performance on lower spec machines. 
