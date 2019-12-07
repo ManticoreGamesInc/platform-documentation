@@ -14,6 +14,11 @@ categories:
 
 To get started, you'll need two things, the installer and an account. You can get both from [our website](https://coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
 
+Please check your spam folder if you don't see a verification email for your CORE account in your inbox. If you need further help troubleshooting, please join the [CORE Creator Discord](https://discord.gg/85k8A7V) where we have live support!
+
+!!! note
+    It is recommended to install CORE on the default path. Please do not direct CORE to install in "Program Files" or "Program Files (x86)". If you install elsewhere and run into problems, please let us know! 
+
 ## Launcher
 
 Now you'll have a new icon in your startmenu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://www.coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will launch directly into the game.
