@@ -140,7 +140,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
 
-2. Change the name of the ability to "FireBombAttackAbility".
+2. Change the name of the ability to "FireFly".
 
 ### Right Click to Aim
 
