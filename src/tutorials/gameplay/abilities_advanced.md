@@ -146,7 +146,15 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
 
-2. Change the name of the ability to "FireFly".
+2. Change the name of the ability to "FireFly".  
+
+3. Create a new script, and call it "FlyAbilityServer"--this is where all the code for causing the ability to happen will go.
+
+4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
+
+5. Open the script and let's get typing! 
+
+     1. wordswordswords
 
 ### Right Click to Aim
 
