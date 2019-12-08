@@ -241,9 +241,9 @@ Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content
 Next, we need to create the custom parameter to save our game state.
 
 * Create a parameter for `Gameplay Settings`
-    * Select the `Gameplay Settings` object in the hierarchy.
-    * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
-    * Right click the property and click "**Enable Property networking**".
+        * Select the `Gameplay Settings` object in the hierarchy.
+        * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
+        * Right click the property and click "**Enable Property networking**".
 
 Here's the entire Hierarchy at this point:
 
