@@ -38,3 +38,9 @@ templetized
 var
 mkdocs
 &lt;
+deinstance
+Deinstance
+Luacheck
+Misc
+language-lua
+autocomplete-lua
