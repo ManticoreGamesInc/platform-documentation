@@ -24,7 +24,7 @@ The next steps depend on your level of previous programming experience.
 
 After you're done reading this primer, check out this [tutorial](lua_basics_lightbulb.md), and review the [official](https://www.lua.org/pil/contents.html) docs after.
 
-!!! note "Programming In Lua (offical link) is based on Lua 5.0 and missing additions of later version!"
+!!! note "Programming In Lua (official link) is based on Lua 5.0 and missing additions of later version!"
 
 ### Intermediate
 

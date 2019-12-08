@@ -106,7 +106,7 @@ Double clicking on the material will open the Material Editor window.
 
 ![Materials](../../img/Materials/image2.png "Materials Screenshot"){: .center}
 
-You can change the name of each custom material by editing the text field at the top of the material editor. In order to easily edit your material, apply it to an object in your scene. Everytime you change a property of your material, click "Update Material" otherwise you won't see your changes reflected in the viewer.
+You can change the name of each custom material by editing the text field at the top of the material editor. In order to easily edit your material, apply it to an object in your scene. Every time you change a property of your material, click "Update Material" otherwise you won't see your changes reflected in the viewer.
 
 ![Materials](../../img/Materials/image9.png "Materials Screenshot"){: .center}
 

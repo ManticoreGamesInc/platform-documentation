@@ -43,7 +43,7 @@ These larger categories also have subcategories, that can be opened by clicking 
 
 ![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "CORE Content Dropdowns"){: .center}
 
-To use any of these models, simply click and drag one out from the CORE Content a tabnd into the scene or the hierarchy.
+To use any of these models, simply click and drag one out from the CORE Content tab into the scene or the hierarchy.
 
 ![Drag out Assets](../../img/EditorManual/Art/DragOutAsset.gif "Drag out Assets"){: .center}
 
