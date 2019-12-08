@@ -44,3 +44,4 @@ Luacheck
 Misc
 language-lua
 autocomplete-lua
+mkdocs
