@@ -173,13 +173,13 @@ This means that `x:Bar(1, 2)` is the same as `x.Bar(x, 1, 2)`
 For more details, here is how it breaks down:
 
 * Static (**dot**)
-  * Functions
-  * Constructor
-  * Constants
+    * Functions
+    * Constructor
+    * Constants
 * Instance
-  * Methods (**colon**)
-  * Properties (**dot**)
-  * Events
+    * Methods (**colon**)
+    * Properties (**dot**)
+    * Events
 
 For example:
 
