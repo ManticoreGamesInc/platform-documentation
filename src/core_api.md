@@ -1093,7 +1093,7 @@ User defined events can be specified using the Events namespace. The Events name
 | `Connect(string eventName, function eventListener)`                        | EventListener                 | Registers the given function to the event name which will be called every time the event is fired using Broadcast.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.                                                                                                                                                                                                                                                                                                                                                                     | None           |
 | `ConnectForPlayer(string eventName, function eventListener) (Server Only)` | EventListener                 | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.                                                                                                                                                                                                                                                                           | Server Context |
 | `Broadcast(string eventName, args...)`                                     | string                        | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context.                                                                                                                                                                                                                                                                              | None           |
-| `BroadcastToAllPlayers(string eventName, args...)`                         | &lt;resultcode, errorMessage> | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only.                                                                                                    | Server Context |
+| `BroadcastToAllPlayers(string eventName, args...)`                         | &lt;result code, errorMessage> | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only.                                                                                                    | Server Context |
 | `BroadcastToPlayer(Player player, string eventName,args...)`               | &lt;resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context |
 | `BroadcastToServer(string eventName,args...)`                              | &lt;resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only.                                                                                   | Client Context |
 
@@ -1201,7 +1201,7 @@ A UIControl for a button, should be inside client context.
 | `SetHoveredColor(Color)`    | None         | Set button color when hovered.                | None |
 | `GetPressedColor()`         | Color        | Get button color when pressed.                | None |
 | `SetPressedColor(Color)`    | None         | Set button color when pressed.                | None |
-| `GetDisabledColor()`        | Color        | Get button color when it's not intereactable. | None |
+| `GetDisabledColor()`        | Color        | Get button color when it's not interactable. | None |
 | `SetDisabledColor(Color)`   | None         | Set button color when it's not interactable.  | None |
 | `GetFontColor()`            | Color        | Get font color.                               | None |
 | `SetFontColor(Color)`       | None         | Set font color.                               | None |
@@ -1293,7 +1293,6 @@ A UIControl which displays a basic text label.
 | ----------------- | ------------ | ---------------------- | ---- |
 | `GetColor()`      | Color        | The color of the text. | None |
 | `SetColor(Color)` | None         | The color of the text. | None |
-
 
 ### World
 
@@ -1704,6 +1703,7 @@ Currently cannot mix the lower body of this pose with other animation stances (h
 `unarmed_death_spin` - A full body animation that spins 360 and then falls to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is.
 
 ??? note "How to Turn on Ragdoll"
+
     ```lua
     ability.owner.active_pose = "unarmed_death"
     Task.Wait(0.9)
@@ -1837,7 +1837,7 @@ be interrupted (or fail to start) if you execute an active pose animation.
     * Right Alt = ability_extra_15
     * Return = ability_extra_16
     * Spacebar = ability_extra_17
-    * Capslock = ability_extra_18
+    * Caps lock = ability_extra_18
     * Tab = ability_extra_19
     * Q = ability_extra_20
     * W = ability_extra_21

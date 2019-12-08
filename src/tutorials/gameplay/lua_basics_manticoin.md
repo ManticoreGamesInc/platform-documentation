@@ -21,7 +21,7 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the CO
     * Creating a script and using it to:
         * Rotate an object
         * Spawn a template/asset
-        * Despawn a template/asset
+        * De-Spawn a template/asset
         * Create an interactable event
         * Create a custom property
         * Update UI elements
@@ -58,7 +58,7 @@ Since this has been imported from our community content area, it is now listed u
 ### SpinCoin Script
 
 Let's make a new script, call it `SpinCoin` and drag it onto the `Manticoin` object so that the script is its child.
-At this point, the editor will prompt you about a networking state missmatch. In CORE, non-networked objects can't be children of networked objects so we need to make all children networked to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the heirarchy. Now open it up and add the following line of code:
+At this point, the editor will prompt you about a networking state mismatch. In CORE, non-networked objects can't be children of networked objects so we need to make all children networked to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
 
 `script.parent:RotateContinuous(Rotation.New(200, 0, 0))`
 
@@ -75,7 +75,7 @@ Okay, so what did we just do?
 * `script` -> references the script object, i.e. the asset you dragged into the Hierarchy.
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object).
 * `RotateContinuous()` -> Every **CoreObject** (things like scripts, objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work.
-  * Methods are simply functions that belong to an object.
+    * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
 !!! note "If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page."
@@ -105,7 +105,7 @@ Yay, we've got it working! Now if only we could collect these coins...
    * Resize the trigger to match the coin's size.
      * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
      * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
-   * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the heirarchy.
+   * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
    * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
 
 ### Handling Triggers
@@ -133,7 +133,7 @@ script.parent.beginOverlapEvent:Connect(handleOverlap)
 
 `beginOverlapEvent` is a default event that exists within trigger objects. By using `:Connect()` in the code above, we are able to let the event know about the function to call, in this case `handleOverlap`, when the event gets executed.
 
-Lastly, we need to enable networking on the trigger. To do that, right click on it in the heirarchy, select "**Enable Networking**" and confirm.
+Lastly, we need to enable networking on the trigger. To do that, right click on it in the hierarchy, select "**Enable Networking**" and confirm.
 This enables interaction between the player on their client and the coin on the server.
 
 If you now save and press play, you'll notice that while the coin disappears on contact, nothing else seems to happen. This is because we aren't displaying the other part of the code, the currency change, to the player.
@@ -166,9 +166,9 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 ### Creating UI Text
 
 1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
-   * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the heirarchy.
+   * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
    * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
-   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the heirarchy, this will make it a child of it.
+   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
    * Rename the Text Control to `CoinUI`.
    * In the properties panel, set `Text` to be blank by default.
 
@@ -213,8 +213,8 @@ Now let's make a simple map and populate it with coins.
 So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
 
 * Create the player's spawn point
-  * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
-  * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
+    * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
+    * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
 
 Alright, beautiful!
 
@@ -241,9 +241,9 @@ Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content
 Next, we need to create the custom parameter to save our game state.
 
 * Create a parameter for `Gameplay Settings`
-  * Select the `Gameplay Settings` object in the heirarchy.
-  * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
-  * Right click the property and click "**Enable Property networking**".
+    * Select the `Gameplay Settings` object in the hierarchy.
+    * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
+    * Right click the property and click "**Enable Property networking**".
 
 Here's the entire Hierarchy at this point:
 
@@ -267,7 +267,7 @@ function Tick()
 end
 ```
 
-`World.FindObjectByName()` searches the Hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). Make sure to add the `CoinGameLogic` script to the top of the heirarchy.
+`World.FindObjectByName()` searches the Hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). Make sure to add the `CoinGameLogic` script to the top of the hierarchy.
 
 When there are zero coins left, we find the Gameplay Settings and set the value of `gameOver` to `true`. This way, all the players' clients will be able to know when the game is finished!
 
@@ -284,7 +284,7 @@ Now, let's make a script called `DisplayUI` that makes the victory UI visible at
 
 Next, we have to hook up our UI to the Gameplay Settings that knows if the game is over or not.
 
-* Select our `DisplayUI` text control in the heirarchy.
+* Select our `DisplayUI` text control in the hierarchy.
 * Click on "**Add Custom Property**" and select `CoreObject Reference` as a type and put in `Gameplay Settings` for the name.
 * Drag your `Gameplay Settings` from the hierarchy into the `Custom Property` input field that's currently displaying "**Missing Object**".
 

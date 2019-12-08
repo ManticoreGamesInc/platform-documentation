@@ -98,7 +98,7 @@ No pancakes should be eaten without butter. Here's a "**Cube - Rounded**" scaled
 
 ![ModelingBasics](../../img/ModelingBasics/image1.png "Modeling Screenshot"){: .center}
 
-Don't forget the maple syrup! This is the "**Liquid Decal**" set to a light yellow color with "**Shape Index**" set to "**5**" (feel free to experiment with the different decale shapes).
+Don't forget the maple syrup! This is the "**Liquid Decal**" set to a light yellow color with "**Shape Index**" set to "**5**" (feel free to experiment with the different decal shapes).
 
 #### Time for Garnishes
 
