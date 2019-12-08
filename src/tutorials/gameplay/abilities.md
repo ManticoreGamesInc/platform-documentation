@@ -101,7 +101,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
     Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the dodge roll animation.
 
-5. The `Ability` object starts with default settings in the **Properties** window. To make our own dodgeroll, we only need to change two things.
+5. The `Ability` object starts with default settings in the **Properties** window. To make our own dodge roll, we only need to change two things.
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
 
@@ -120,7 +120,7 @@ For this tutorial, we are going to make a quick dodge roll.
 
   1. In the **Properties** window for the ability object, scroll down to the section called **Cooldown**.
 
-  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dodgeroll before you can use it again.
+  2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dodge roll before you can use it again.
 
       Increase or lower this to suit your gameplay needs.
 
@@ -179,7 +179,7 @@ Now the UI element will update automatically once the ability is cast.
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ability's UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
 This has already been done for us in the CORE Content template, so no action is needed!
 

@@ -28,7 +28,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
 
 4. Fork the repository <!-- TODO: Clarify for Manticore Employees -->
 
-5. Clone the forked repositiory
+5. Clone the forked repository
     - Open the command prompt.
     - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
     - Clone this project from GitLab (e.g. `git clone https://gitlab.com/YOURNAME/platform-documentation`)
@@ -39,7 +39,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
 
 6. Install mkdocs
     - Navigate to the `platform-documentation` location (`cd platform-documentation`).
-    - Enter `pip install -r requirements.txt` into the commmand line to install required files.
+    - Enter `pip install -r requirements.txt` into the command line to install required files.
     - Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live.
     - Navigate to `http://127.0.0.1:8000/` in your browser. The page will automatically refresh upon saving.
 

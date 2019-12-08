@@ -12,7 +12,7 @@ categories:
 
 ## Overview
 
-In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition amongs programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
+In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition among programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
 * **Completion Time:** ~25 minutes
 * **Knowledge Level:** No prior knowledge of Lua
@@ -473,7 +473,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `filaments` is the name of our variable defining which objects are the filaments in our scene.
 
-    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
+    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as
 
         ```lua
         local lightBulbFolder = script.parent.parent:GetChildren()[1]
@@ -621,7 +621,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     end
     ```
 
-6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to despawn the light when the light switch is turned off.
+6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn the light when the light switch is turned off.
 
 ### Turning the light off
 
