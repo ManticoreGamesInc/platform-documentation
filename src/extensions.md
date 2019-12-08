@@ -49,7 +49,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 ### Autocomplete
 
-We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
+We provide autocompletion files with all CORE API for VS Code, Atom and soon ZeroBraneStudio:
 
 #### Visual Studio Code & Atom
 
@@ -65,11 +65,13 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
 #### ZeroBraneStudio
 
+!!! note "Coming soon!"
+<!--
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
 * :fa-angle-double-right: Install:
     * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
     * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
-    * Save and restart ZeroBraneStudio.
+    * Save and restart ZeroBraneStudio. -->
 
 ### Installing a Linter
 
@@ -78,7 +80,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 * :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
 * :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
-In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
+In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared global variables:
 
 * :fa-download: Download: <a title=".luacheckrc" href="/assets/luacheckrc.zip">luacheckrc.zip</a>
 * :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
