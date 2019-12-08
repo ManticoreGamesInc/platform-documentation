@@ -162,6 +162,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 
 ### Writing Conventions
 
+* If you are copy-pasting from Google Docs, please make sure you disable "Smart Quotes" in "Tools" -> "Preferences" before.
 * Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide) for scripting.
 * Name your objects in the hierarchy informatively.
 * Favor best practices like using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
