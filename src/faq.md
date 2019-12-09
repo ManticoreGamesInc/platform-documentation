@@ -4,6 +4,13 @@ name: FAQ
 
 # Frequently Asked Questions
 
+
+
+
+## How do I get started with CORE?
+
+
+
 ## What are the system requirements for CORE
 
 At the beginning of Alpha, this minimal spec will allow you to check out CORE, though your mileage may vary when it comes to playing or developing complex projects. For Alpha, a modern gaming PC is recommended for the best early experience.
