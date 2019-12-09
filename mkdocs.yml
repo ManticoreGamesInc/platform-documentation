@@ -72,11 +72,11 @@ extra_css:
 
 extra_javascript:
   - "assets/javascripts/manticore.js"
-  - "assets/sw.js"
+  - "sw.js"
 
 # Additional data
 extra:
-  manifest: "assets/manifest.json"
+  manifest: "manifest.json"
   social:
     - type: "discord"
       link: "https://discord.gg/85k8A7V"
