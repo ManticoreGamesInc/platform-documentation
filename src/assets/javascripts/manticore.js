@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             localStorage.setItem('dark-mode', isDark)
 		});
 
-		if (isDarkSchemePreferred() && localStorage.getItem('dark-mode') === -1) {
-		    darkMode.click();
+		if (isDarkSchemePreferred() && localStorage.getItem('dark-mode') === null) {
+            darkMode.click();
 		}
 	}
 }();
