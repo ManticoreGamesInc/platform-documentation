@@ -18,8 +18,8 @@ There are a bunch of ways you can improve the experience of scripting in CORE. I
 
 There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
 
-| Name                                                                                               | Details                                             | CORE Autocomplete | Price                  |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
+| Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
+| ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
 | [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
 | [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
 | [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
@@ -32,15 +32,15 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 #### Visual Studio Code
 
-| Plugin Name                                                                                                       | Details                  |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua) | Adds Lua support         |
+| Plugin Name                                                                            | Details                  |
+| -------------------------------------------------------------------------------------- | ------------------------ |
+| [VSCode-Lua](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)    | Adds Lua support         |
 | [Lua Language Server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) | Auto Completion and more |
 
 #### Atom
 
-| Plugin Name                                                                              | Details                    |
-| ---------------------------------------------------------------------------------------- | -------------------------- |
+| Plugin Name                                                   | Details                    |
+| ------------------------------------------------------------- | -------------------------- |
 | [language-lua](https://atom.io/packages/language-lua)         | Adds Lua support           |
 | [autocomplete-lua](https://atom.io/packages/autocomplete-lua) | Adds Lua autocomplete      |
 | [Linter](https://atom.io/packages/linter)                     | Adds linting support       |
@@ -49,7 +49,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 ### Autocomplete
 
-We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBrane:
+We provide autocompletion files with all CORE API for VS Code, Atom and soon ZeroBraneStudio:
 
 #### Visual Studio Code & Atom
 
@@ -65,11 +65,13 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 
 #### ZeroBraneStudio
 
+!!! note "Coming soon!"
+<!--
 * :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/manticoreapi.lua">manticoreapi.lua</a>
 * :fa-angle-double-right: Install:
-  * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
-  * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
-  * Save and restart ZeroBraneStudio.
+    * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
+    * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
+    * Save and restart ZeroBraneStudio. -->
 
 ### Installing a Linter
 
@@ -78,7 +80,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and ZeroBran
 * :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
 * :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
-In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared globals:
+In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared global variables:
 
 * :fa-download: Download: <a title=".luacheckrc" href="/assets/luacheckrc.zip">luacheckrc.zip</a>
 * :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
