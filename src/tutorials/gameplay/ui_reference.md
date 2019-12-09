@@ -105,4 +105,4 @@ These are all the current images available to use in CORE:
 
 ## Examples
 
-* ***Spellshock*** contains functioning UI, and can be found in the Community Games section of the CORE Editor.
+* ***Spellshock*** contains functioning UI, and can be found in the Community Games section of the CORE Editor. <!-- TODO: Clarify when Spellshock ships -->
