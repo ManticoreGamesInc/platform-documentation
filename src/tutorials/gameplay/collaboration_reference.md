@@ -30,7 +30,7 @@ Creating a template is fast and easy! To make a template follow these steps:
 
    ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
 
-   !!! note "Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, ther are multiple ways to go about achieving a task. The process is whichever comes natural to you!"
+   !!! note "Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!"
 
 3. Name Your Template and click the New Template button.
 

@@ -6,13 +6,11 @@ categories:
 
 # Examples and Snippets
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Examples
 
 ### Games
+
+* [Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)
 
 Go to each page and click on `edit` to download them locally.
 
