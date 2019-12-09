@@ -150,7 +150,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
 4. In the Properties window, change the "KillLimit" custom property to 3. Now, if you playtest, the winner will be whoever gets 3 kills first!
 
-   ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
+    ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
 
 5. Game rounds now end at 3 kills, but in the upper-left corner of the screen it still says "First to kill 10 enemies wins!". Let's change that UI text to match the Round Kill Limit. In "UI Seetings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
 
@@ -220,5 +220,5 @@ Now's the best part: playtesting! Come invite people to join you in-game in the 
 Excited? Check out these tutorials to build out your game:
 
 * Sculpt your own world! Check the [Terrain Tutorial](../tutorials/gameplay/weapons.md).
-* Create your own Weapon! Try out the [Basic Weapon Tutorial](../tutorials/gameplay/weapons.md)
-* Learn how to add player Abilities! Give players the [Dodgeroll](../tutorials/gameplay/abilities.md).
+* Create your own Weapon! Try out the [Basic Weapon Tutorial](../tutorials/gameplay/weapons.md).
+* Learn how to add player Abilities! Let players celebrate and [Dance Dance Dance](../tutorials/gameplay/abilities.md)!
