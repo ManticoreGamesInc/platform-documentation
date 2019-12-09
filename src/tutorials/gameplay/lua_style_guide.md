@@ -17,7 +17,6 @@ This document aims to provide a general overview of what we at Manticore see as 
 ## File Structure
 
 * Start with any `require` calls, such as:
-<!-- TODO: Clarify why -->
 
 ```lua
 local myImport = require("assetID")
@@ -56,10 +55,6 @@ myImport.Foo()
 | Class.StaticFunction()    | PascalCase -> PascalCase      | Dot          |
 | instance.property         | camelCase -> camelCase        | Dot          |
 | instance:MemberFunction() | camelCase -> PascalCase       | Colon        |
-
-Note: Properties are used instead of getters/setters only when that element has a getter *and* setter.
-
-<!-- TODO: Clarify why -->
 
 ### Examples
 
@@ -232,7 +227,7 @@ Both are perfectly valid, but following convention allows for the usage call to 
 
 * Where possible, use getters and setters
     * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
-    * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them. TODO: Clarify why
+    * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them.
 
 ## Styling
 
