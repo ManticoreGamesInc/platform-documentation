@@ -12,7 +12,7 @@ categories:
 
 ## Overview
 
-In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition amongs programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
+In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition among programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
 * **Completion Time:** ~25 minutes
 * **Knowledge Level:** No prior knowledge of Lua
@@ -357,7 +357,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 11. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
-
+<!-- markdownlint-disable -->
     !!! info "Best Practices: Organizing your code"
         It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of what your functions do. It can also make finding specific functions in your script easier.
 
@@ -380,7 +380,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
         At CORE, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
-
+<!-- markdownlint-restore -->
 ### Spawning a Light
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
@@ -473,7 +473,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `filaments` is the name of our variable defining which objects are the filaments in our scene.
 
-    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very hande if they are nested deep within many groups and folders. We could have defined filaments as
+    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as
 
         ```lua
         local lightBulbFolder = script.parent.parent:GetChildren()[1]
@@ -621,7 +621,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     end
     ```
 
-6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to despawn the light when the light switch is turned off.
+6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn the light when the light switch is turned off.
 
 ### Turning the light off
 

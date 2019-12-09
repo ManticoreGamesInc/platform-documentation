@@ -144,7 +144,7 @@ Setting a `name` is mandatory, `categories` are optional. If you add categories 
 #### Estimated Time for Completion
 
 It is recommended to keep your tutorials short and below the 30 minute mark for estimated time of completion.
-If longer, it is recommendeded to split your tutorial into a series.
+If longer, it is recommended to split your tutorial into a series.
 
 #### Difficulty Level
 
@@ -162,6 +162,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 
 ### Writing Conventions
 
+* If you are copy-pasting from Google Docs, please make sure you disable "Smart Quotes" in "Tools" -> "Preferences" before.
 * Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide) for scripting.
 * Name your objects in the hierarchy informatively.
 * Favor best practices like using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
@@ -171,7 +172,7 @@ If longer, it is recommendeded to split your tutorial into a series.
 * Encourage use of the **Event Log** and use `print()` more than `UI.PrintToScreen()`.
 * Put parentheses around your conditions in any compound conditional.
 * Bold any button or object a user has to click on like `**Edit Terrain*`.
-* Mke sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
+* Make sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
 * Make sure to include `<!-- TODO: XX -->` comments for stuff that needs clarification or you are planning changes for.
 * Please use the Oxford comma.
 

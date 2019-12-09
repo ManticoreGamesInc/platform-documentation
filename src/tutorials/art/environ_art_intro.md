@@ -12,20 +12,20 @@ categories:
 
 ## Overview
 
-Learning modelling basics in CORE by making delicious food. (TODO)
+Learning modelling basics in CORE by making delicious food. <!-- TODO: Intro Text -->
 
-* **Completion Time:** ~20 minutes (TODO)
-* **Knowledge Level:** Basic editor (TODO)
+* **Completion Time:** ~20 minutes <!-- TODO: Completion Time -->
+* **Knowledge Level:** Basic editor <!-- TODO: Knowledge Level -->
 * **Skills you will learn:**
     * Generating terrain
-    * Creating swimable volumes
+    * Creating swimmable volumes
     * Using the Object Generator tool
 
 ![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
 
 ## Tutorial
 
-Learn how to easily and quickly create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to scuplt terrain by walking you through how to create a swimmble oasis.
+Learn how to easily and quickly create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to sculpt terrain by walking you through how to create a swimmable oasis.
 
 ### Generating Terrain
 
@@ -37,13 +37,13 @@ Learn how to easily and quickly create an environment using the Terrain Generato
 
    ![ArtIntro](../../img/EnvironIntro/image17.png "Art Screenshot"){: .center}
 
-   As you can see there are many different terrain types to choose from out of the box. You can also import height maps for a more customised world (link to height map tutorial).
+   As you can see there are many different terrain types to choose from out of the box. You can also import height maps for a more customized world (link to height map tutorial).
 
 3. Select **Rolling Hills** and click **Generate**.
 
    ![ArtIntro](../../img/EnvironIntro/image36.png "Art Screenshot"){: .center}
 
-   Voilá! Let's spruce things up a bit by deleting the floor (which is still visible) and changing the material of the terrain.
+   Voilà! Let's spruce things up a bit by deleting the floor (which is still visible) and changing the material of the terrain.
 
 4. Delete the floor by navigating to the **Object** menu in the top bar and selecting **Remove Old Floor**.
 
@@ -125,8 +125,6 @@ Assign a Textured Paintable material to the terrain by dragging and dropping it 
 
 ![ArtIntro](../../img/EnvironIntro/image26.png "Art Screenshot"){: .center}
 
-TODO: wip chris, explain + and - channels
-
 #### Adding Water
 
 1. Drag a **Cube** into the scene. Place in the middle of your crater.
@@ -141,7 +139,7 @@ TODO: wip chris, explain + and - channels
 
    ![ArtIntro](../../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
 
-   Congrats! Your cube is now a pasable pond. Let's add the ability to swim in it.
+   Congrats! Your cube is now a passable pond. Let's add the ability to swim in it.
 
 #### Creating a Swimmable Volume
 
@@ -165,7 +163,7 @@ TODO: wip chris, explain + and - channels
 
 3. Select the cube we applied the **Generic Water** material to. Go to the **Transform** section in the cube's **Properties** tab and **right click** on the word **Position**. Click **Copy Position**.
 
-   Now select the **Underwater Post Process** volume and go its **Transform** section in its **Properties** tab. Right click on Position and select **Paste Last Copied (...)**. Now the **Underwater** volume is positioned where our water is.
+   Now select the **Underwater Post Process** volume and go its **Transform** section in its **Properties** tab. Right click on Position and select **Paste Last Copied ...**. Now the **Underwater** volume is positioned where our water is.
 
 4. We need to resize the **Underwater Post Process** volume so it is the same size as our water. Repeat the copy and paste process we just used to change the **Underwater** volume's **Transform** properties, but with **Scale**.
 
@@ -278,9 +276,9 @@ You can also spawn individual objects using the **Object Generator**'s settings 
 !!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
 
 Continue using the **Object Generator** to decorate your scene. When you are done, delete the duplicate water cube.
-
+<!--
 ## Summary
 
-TODO: Add text
+ TODO: Add summary text -->
 
 ![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
