@@ -12,9 +12,7 @@ categories:
 
     TODO:
 
-    - Add & Updates Images
-
-    - Complete tutorial sections
+    - Add & Update Images
 
 ## Overview
 
