@@ -11,7 +11,7 @@ Welcome to the official documentation of CORE&trade;, the community-focused game
 
 CORE is a new game creation platform by [Manticore Games](https://www.manticoregames.com) that allows anyone to create, share, and play high quality online games.
 
-[![IntroHeader](img/index_head.png "Intro")](getting_started/my_first_multiplayer_game.md)
+[![IntroHeader](./img/index_head.png "Intro")](getting_started/my_first_multiplayer_game.md)
 _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.md)_
 {: .image-cluster .hero-image}
 
