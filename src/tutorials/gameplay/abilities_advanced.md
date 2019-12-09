@@ -154,27 +154,29 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 5. Open the script and let's get typing!
 
-     1. We're going to create a reference to the `equipment` (which is also the `weapon`--the fire staff object--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
+     1. We're going to create a reference to the `equipment` (which is also the `weapon`--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
 
-     Type the below code to create variables for the `equipment` and the `ability`:
+         Type the below code to create variables for the `equipment` and the `ability`:
 
          ```lua
          local EQUIPMENT = script:FindAncestorByType('Equipment')
          if not EQUIPMENT:IsA('Equipment') then
              error(script.name .. " should be part of Equipment object hierarchy.")
          end
+
          local ABILITY = script:FindAncestorByType('Ability')
          if not ABILITY:IsA('Ability') then
              error(script.name .. " should be part of Ability object hierarchy.")
          end
-         ```
+         ```  
+
      2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
 
          ```lua
          local diedHandle = nil
          ```
 
-     3.  Next is the function that does that turning off of the flying state by activating walking again:
+     3.  Next is the function that does that turning-off of the flying state by activating walking again:
 
          ```lua
          function OnPlayerDied(player, damage)
@@ -182,7 +184,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
          end
          ```
 
-     4. Equipped/Unequipped:
+     4. The next two functions we need to include are what happens when the weapon is equipped or unequipped, which are primarily used for connecting the ability to turn off flying.
 
          ```lua
          function OnEquipped(equipment, player)
@@ -195,30 +197,56 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
          end
          ```
 
-     5. Start/Stop Flying:
+     5. After the equip functions, there are two more functions we'll create that directly turn on and off flying. Add these to the current bottom of your script:
 
-          ```lua
-          function StartFlying(ability)
-              ability.owner:ActivateFlying()
-          end
+         ```lua
+         function StartFlying(ability)
+             ability.owner:ActivateFlying()
+         end
 
-          function StopFlying(ability)
-              ability.owner:ActivateWalking()
-          end
+         function StopFlying(ability)
+             ability.owner:ActivateWalking()
+         end
          ```
 
-     6. Event Connects:
+     6. At the very bottom of the script, we code the main aspect that makes abilities so useful--we connect our functions to the events built within an ability.  
 
-          ```lua
-          ABILITY.executeEvent:Connect(StartFlying)
-          ABILITY.cooldownEvent:Connect(StopFlying)
-          EQUIPMENT.equippedEvent:Connect(OnEquipped)
-          EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+         Being able to connect functions to an ability's events is how we can control how long each phase takes in the `ability` object in the Hierarchy.  
+
+         In this case, we're connecting our functions `StartFlying()` and `StopFlying()` to the execute event and the cooldown event.
+
+         ```lua
+         ABILITY.executeEvent:Connect(StartFlying)
+         ABILITY.cooldownEvent:Connect(StopFlying)
+         EQUIPMENT.equippedEvent:Connect(OnEquipped)
+         EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
          ```
 
-6. Properties window:
+6. Now that we've written the script for flying to work, we can adjust things from simply within the Properties window with the FireFly `ability` object selected.  
 
-     1. Change the numbers
+     This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
+
+     1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
+
+     2. Change the **Animation** to "2hand_staff_magic_up". 
+
+     3. Now in the *Cast* section, change the **Duration** to .15.  
+
+     4. Change the **Facing Mode** to "Movement". 
+
+     5. In the Execute section, change Duration to 3.
+
+     6. Change the Facing Mode to Movement. 
+
+     7. In the Recovery section, change the Duration to 0.
+
+     8. In the Cooldown section, change the Duration to 12.
+
+     9. Make sure all the other check boxes match these images.
+
+7. Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it!  
+
+     Try it out and feel for the time lengths we entered--maybe you want a short or longer fly time, or a lower Cooldown so that it can be used more frequently. Adjust the values in the Execute and Cooldown sections to change these aspects.
 
 ### Right Click to Aim
 
