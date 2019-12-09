@@ -1,18 +1,11 @@
----
-name: CORE API
-hero: IGNORE ME PLEASE -- SUPER OUT OF DATE
-categories:
-    - API
----
 
 # Lua Scripting API
 
 ## Overview
 
-CORE has integrated version 5.3.4 of the Lua library. For detailed technical information, see their [reference manual](https://www.lua.org/manual/5.3/). At a high level, CORE Lua types can be divided into two groups: data structures and [CoreObjects](#coreobject). Data structures are owned by Lua, while [CoreObjects](#coreobject) are owned by the engine and could be destroyed while still referenced by Lua.
+CORE scripts are written in Lua, using version 5.3.4 of the [Lua library](https://www.lua.org/manual/5.3/). Scripts are objects created and added to the hierarchy and/or templates, similar to other object types. Scripts added to the hierarchy will execute as soon as the game loads, while scripts inside templates execute with each newly spawned instance of the template.
 
-Properties, functions, and events inherited by [CoreObject](#coreobject) types are listed below.
-Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:functionName()`.
+Properties, functions, and events inherited by [CoreObject](#coreobject) types are listed below. Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:FunctionName()`. Some types have class functions, which are accessed with `.FunctionName()`.
 
 ## CORE Lua Types
 
@@ -24,7 +17,7 @@ A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You
 
 Abilities are Objects created at runtime and attached to Players. Spawn an ability with `game:SpawnAbility()`. Abilities can be activated by association with an Action Binding. They flow internally through the phases: Ready, Cast, Execute, Recovery and Cooldown.
 
-| Property                | Return Value         | Description                                                                                                                                                               | Tags       |
+| Property                | Return Type         | Description                                                                                                                                                               | Tags       |
 | ----------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `isEnabled`             | bool                 | Turns an ability on/off. It stays on the player but is interrupted if isEnabled is set to False during an active Ability.  True by default.                               | Read-Write |
 | `canActivateWhileDead`  | bool                 | Indicates if the Ability can be used while the owning Player is dead. False by default.                                                                                   | Read-Only  |
@@ -45,11 +38,11 @@ Abilities are Objects created at runtime and attached to Players. Spawn an abili
 | `interruptedEvent`      | Event&lt;Ability>    | Called when the Ability is interrupted.                                                                                                                                   | Read-Only  |
 | `tickEvent`             | Event&lt;Ability>    | Called every tick while the Ability is active (isEnabled = true and phase is not ready).                                                                                  | Read-Write |
 
-| Function                        | Return Value  | Description                                                                                                                                                                                                                       | Tags |
+| Function                        | Return Type  | Description                                                                                                                                                                                                                       | Tags |
 | ------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Activate()`                    | None          | Client-context only. Activates an ability as if the button had been pressed.                                                                                                                                                      | None |
 | `Interrupt()`                   | None          | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase.                                                                                      | None |
-| `GetCurrentPhase()`             | AbilityPhase  | The current ability phase for this ability. These are returned as an AbilityPhaseEnum type which can be accessed as: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY, andAbilityPhase.COOLDOWN | None |
+| `GetCurrentPhase()`             | AbilityPhase  | The current ability phase for this ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY, and AbilityPhase.COOLDOWN | None |
 | `GetPhaseTimeRemaining`         | Number        | Seconds left in the current phase.                                                                                                                                                                                                | None |
 | `GetTargetData()`               | AbilityTarget | Returns information about what the player has targeted this phase.                                                                                                                                                                | None |
 | `SetTargetData (AbilityTarget)` | None          | Updates information about what the player has targeted this phase.  This can affect the execution of the ability.                                                                                                                 | None |
@@ -58,7 +51,7 @@ Abilities are Objects created at runtime and attached to Players. Spawn an abili
 
 Each phase of an Ability can be configured differently, allowing complex and different Abilities. AbilityPhaseSettings is an Object.
 
-| Property                 | Return Value            | Description                                                                                                                                                                                                             | Tags      |
+| Property                 | Return Type            | Description                                                                                                                                                                                                             | Tags      |
 | ------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `duration`               | Number                  | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. Default values per phase: 0.15, 0, 0.5 and 3.                                                                         | Read-Only |
 | `canMove`                | bool                    | Is the Player allowed to move during this phase. True by default.                                                                                                                                                       | Read-Only |
@@ -66,31 +59,31 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 | `canRotate`              | bool                    | Is the Player allowed to rotate during this phase. Default True.                                                                                                                                                        | Read-Only |
 | `preventsOtherAbilities` | bool                    | When True this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to False. Default True in Cast & Execute, default False in Recovery & Cooldown.               | Read-Only |
 | `isTargetDataUpdated`    | bool                    | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date.                                                                                          | Read-Only |
-| `facingMode`             | AbilityFacingMode enum, | How and if this ability rotates the player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are:  AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
+| `facingMode`             | AbilityFacingMode | How and if this ability rotates the player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are:  AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
 
 ### AbilityTarget
 
 A data type containing information about what the player has targeted during a phase of an ability.
 
-| Constructor           | Return Value  | Description                           | Tags |
+| Constructor           | Return Type  | Description                           | Tags |
 | --------------------- | ------------- | ------------------------------------- | ---- |
 | `AbilityTarget.New()` | AbilityTarget | Constructs a new Ability Target data. | None |
 
-| Property           | Return Value | Description                                                                                                      | Tags      |
+| Property           | Return Type | Description                                                                                                      | Tags      |
 | ------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------- | --------- |
 | `hitObject`        | Object       | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, Static Mesh, etc. | Read-Only |
 | `hitPlayer`        | Player       | Convenience property that is the same as hitObject, but only if hitObject is a Player.                           | Read-Only |
 | `spreadHalfAngle`  | Number       | Half-angle of cone of possible target space, in degrees.                                                         | Read-Only |
 | `spreadRandomSeed` | Integer      | Seed that can be used with RandomStream for deterministic RNG.                                                   | Read-Only |
 
-| Function                             | Return Value | Description                                                                                                                                                                                                                                                    | Tags |
+| Function                             | Return Type | Description                                                                                                                                                                                                                                                    | Tags |
 | ------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetOwnerMovementRotation()`         | Rotation     | Gets the direction the player is moving.                                                                                                                                                                                                                       | None |
-| `SetOwnerMovementRotation(Rotation)` | None         | Sets the direction the player face, if the phase settings' playerFacing property is set to AbilitySetFacing.Movement.                                                                                                                                          | None |
-| `GetCameraPosition()`                | Vector3      | Returns the world space position of the camera.                                                                                                                                                                                                                | None |
-| `SetCameraPosition(Vector3)`         | None         | The world space location of the camera.  Setting this currently has no effect on the player's camera.                                                                                                                                                          | None |
-| `GetCameraForwardVector()`           | Vector3      | Returns the direction the camera is facing.                                                                                                                                                                                                                    | None |
-| `SetCameraForwardVector(Vector3)`    | None         | Sets the direction the camera is facing.                                                                                                                                                                                                                       | None |
+| `SetOwnerMovementRotation(Rotation)` | None         | Sets the direction the player faces, if the Ability object has the playerFacing property set to AbilitySetFacing.Movement.                                                                                                                                          | None |
+| `GetAimPosition()`                | Vector3      | Returns the world space position of the camera.                                                                                                                                                                                                                | None |
+| `SetAimPosition(Vector3)`         | None         | The world space location of the camera.  Setting this currently has no effect on the player's camera.                                                                                                                                                          | None |
+| `GetAimDirection()`           | Vector3      | Returns the direction the camera is facing.                                                                                                                                                                                                                    | None |
+| `SetAimDirection(Vector3)`    | None         | Sets the direction the camera is facing.                                                                                                                                                                                                                       | None |
 | `GetHitPosition()`                   | Vector3      | Returns the world space position of the object under the player's reticle. If there is no object, a position under the reticle in the distance. If the player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
 | `SetHitPosition(Vector3)`            | None         | Sets the hit position property.  This may affect weapon behavior.                                                                                                                                                                                              | None |
 | `GetHitResult()`                     | HitResult    | Returns physics information about the point being targeted                                                                                                                                                                                                     | None |
@@ -100,7 +93,7 @@ A data type containing information about what the player has targeted during a p
 
 Audio objects are CoreObjects that wrap sound files. Most properties are exposed in the UI and can be set when placed in the editor, but some functionality (such as playback with fade in/out) requires Lua scripting.
 
-| Property                  | Return Value | Description                                                                                                                                                                                              | Tags                |
+| Property                  | Return Type | Description                                                                                                                                                                                              | Tags                |
 | ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `isPlaying`               | bool         | Returns if the sound is currently playing.                                                                                                                                                               | Read-Only           |
 | `length`                  | Number       | Returns the length (in seconds) of the sound.                                                                                                                                                            | Read-Only           |
@@ -114,50 +107,18 @@ Audio objects are CoreObjects that wrap sound files. Most properties are exposed
 | `radius`                  | Number       | Default 0 (off.) If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume.                          | Read-Write          |
 | `falloff`                 | Number       | Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero.              | Read-Write          |
 
-| Function               | Return Value | Description                                                | Tags |
+| Function               | Return Type | Description                                                | Tags |
 | ---------------------- | ------------ | ---------------------------------------------------------- | ---- |
 | `Play()`               | None         | Begins sound playback.                                     | None |
 | `Stop()`               | None         | Stops sound playback.                                      | None |
 | `FadeIn(Number time)`  | None         | Starts playing and fades in the sound over the given time. | None |
 | `FadeOut(Number time)` | None         | Fades the sound out and stops over time seconds.           | None |
 
-### ButtonUIControl
-
-A UIControl for a button, should be inside client context.
-
-| Property         | Return Value | Description                                                          | Tags |
-| ---------------- | ------------ | -------------------------------------------------------------------- | ---- |
-| `text`           | string       | Returns the button label text.                                       | None |
-| `fontSize`       | string       | Returns the Font size for label text.                                | None |
-| `isInteractable` | bool         | Returns whether button can interact with cursor (click, hover, etc). | None |
-
-| Function                    | Return Value | Description                                   | Tags |
-| --------------------------- | ------------ | --------------------------------------------- | ---- |
-| `GetButtonColor()`          | Color        | Get button default color.                     | None |
-| `SetButtonColor(Color)`     | None         | Set button default color.                     | None |
-| `GetHoveredColor()`         | Color        | Get button color when hovered.                | None |
-| `SetHoveredColor(Color)`    | None         | Set button color when hovered.                | None |
-| `GetPressedColor()`         | Color        | Get button color when pressed.                | None |
-| `SetPressedColor(Color)`    | None         | Set button color when pressed.                | None |
-| `GetDisabledColor()`        | Color        | Get button color when it's not intereactable. | None |
-| `SetDisabledColor(Color)`   | None         | Set button color when it's not interactable.  | None |
-| `GetFontColor()`            | Color        | Get font color.                               | None |
-| `SetFontColor(Color)`       | None         | Set font color.                               | None |
-| `SetImage(brushMuidString)` | None         | Set image.                                    | None |
-
-| Event            | Return Value              | Description                                                                                                                                | Tags      |
-| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| `clickedEvent`   | Event&lt;ButtonUIControl> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only |
-| `pressedEvent`   | Event&lt;ButtonUIControl> | Called when button is pressed (mouse button down).                                                                                         | Read-Only |
-| `releasedEvent`  | Event&lt;ButtonUIControl> | Called when button is released (mouse button up).                                                                                          | Read-Only |
-| `hoveredEvent`   | Event&lt;ButtonUIControl> | Called when button is hovered.                                                                                                             | Read-Only |
-| `unhoveredEvent` | Event&lt;ButtonUIControl> | Called when button is unhovered.                                                                                                           | Read-Only |
-
 ### Camera
 
 Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured to follow a specific player's view as well. Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior (currently) falls back to old and now deprecated behavior. Override cameras generally will be temporary things, like a view when the player is sitting in a mounted turret, while default cameras should be used for main gameplay behavior.
 
-| Property               | Return Value | Description                                                                                                                                                                            | Tags           |
+| Property               | Return Type | Description                                                                                                                                                                            | Tags           |
 | ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `lerpTime`             | Number       | The time over which camera property changes take effect. Clamped to be non-negative.                                                                                                   | None           |
 | `hasFreeControl`       | bool         | Whether the player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player.                                               | None           |
@@ -170,45 +131,41 @@ Camera is a CoreObject which is used both to configure player camera settings as
 | `followPlayer`         | Player       | Which player's view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach.                                                        | None           |
 | `currentDistance`      | Number       | The distance controlled by the player with scroll wheel (by default). Client-only                                                                                                      | Client Context |
 
-| Function                      | Return Value | Description                                                                         | Tags |
+| Function                      | Return Type | Description                                                                         | Tags |
 | ----------------------------- | ------------ | ----------------------------------------------------------------------------------- | ---- |
 | `GetPositionOffset()`         | Vector3      | An offset added to the camera or follow target's eye position to the player's view. | None |
 | `SetPositionOffset(Vector3)`  | None         | An offset added to the camera or follow target's eye position to the player's view. | None |
 | `GetRotationOffset()`         | Rotation     | A rotation added to the camera or follow target's eye position.                     | None |
 | `SetRotationOffset(Rotation)` | None         | A rotation added to the camera or follow target's eye position.                     | None |
 
-### CanvasUIControl
-
-A UIControl which indicates that child UI elements should be rendered. Does not have a position or size (it always is the size of the entire screen).
-
 ### Color
 
 An RGBA representation of a color. Color components have an effective range of `[0.0, 1.0]`, but values greater than 1 may be used.
 
-| Constructor                                           | Return Value | Description                                                                                       | Tags |
+| Constructor                                           | Return Type | Description                                                                                       | Tags |
 | ----------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------- | ---- |
 | `Color.New(Number r, Number g, Number b, [Number a])` | Color        | Construct with the given values. Alpha defaults to 1.0 if no fourth parameter is provided.        | None |
 | `Color.New(Vector3 v)`                                | Color        | Construct using the vector's XYZ components as the color's RGB components. Alpha defaults to 1.0. | None |
 | `Color.New(Vector4 v)`                                | Color        | Construct using the vector's XYZW components as the color's RGBA components.                      | None |
 | `Color.New(Color c)`                                  | Color        | Makes a copy of the given color.                                                                  | None |
 
-| Property | Return Value | Description                   | Tags       |
+| Property | Return Type | Description                   | Tags       |
 | -------- | ------------ | ----------------------------- | ---------- |
 | `r`      | Number       | The R component of the color. | Read-Write |
 | `g`      | Number       | The G component of the color. | Read-Write |
 | `b`      | Number       | The B component of the color. | Read-Write |
 | `a`      | Number       | The A component of the color. | Read-Write |
 
-| Class Function                                | Return Value | Description                                                                                                             | Tags |
+| Function                       | Return Type | Description                                                                                                    | Tags |
+| ------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------- | ---- |
+| `GetDesaturated(Number desaturation)` | Color        | Returns the desaturated version of the color. 0 represents no desaturation and 1 represents full desaturation. | None |
+
+| Class Function                                | Return Type | Description                                                                                                             | Tags |
 | --------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Lerp(Color from, Color to, Number progress)` | Color        | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. | None |
 | `Random()`                                    | Color        | Returns a color with a random hue (H) of HSV form (H, 0, 1).                                                            | None |
 
-| Member Function                       | Return Value | Description                                                                                                    | Tags |
-| ------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetDesaturated(Number desaturation)` | Color        | Returns the desaturated version of the color. 0 represents no desaturation and 1 represents full desaturation. | None |
-
-| Operator         | Return Value | Description                                                      | Tags |
+| Operator         | Return Type | Description                                                      | Tags |
 | ---------------- | ------------ | ---------------------------------------------------------------- | ---- |
 | `Color + Color`  | Color        | Component-wise addition.                                         | None |
 | `Color - Color`  | Color        | Component-wise subtraction                                       | None |
@@ -224,7 +181,7 @@ An RGBA representation of a color. Color components have an effective range of `
 
 CoreObject is an Object placed in the scene hierarchy during edit mode. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these
 
-| Property                        | Return Value                                            | Description                                                                                                                                                                                                                                  | Tags                       |
+| Property                        | Return Type                                            | Description                                                                                                                                                                                                                                  | Tags                       |
 | ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `name`                          | string                                                  | Hello, my name is…                                                                                                                                                                                                                           | Read-Write, Dynamic        |
 | `id`                            | string                                                  | The object's MUID.                                                                                                                                                                                                                           | Read-Only                  |
@@ -245,7 +202,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode. Usually 
 | `destroyEvent`                  | Event&lt;CoreObject>                                    | An event fired when this object is about to be destroyed.                                                                                                                                                                                    | Read-Only                  |
 | `networkedPropertyChangedEvent` | Event&lt;CoreObject owner, string propertyName>         | An event that is fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only                  |
 
-| Function                                                  | Return Value         | Description                                                                                                                                                                                                                                                                                                                                                              | Tags                     |
+| Function                                                  | Return Type         | Description                                                                                                                                                                                                                                                                                                                                                              | Tags                     |
 | --------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
 | `GetTransform()`                                          | Transform            | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                          | None                     |
 | `SetTransform(Transform)`                                 | None                 | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                          | Dynamic                  |
@@ -305,12 +262,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode. Usually 
 
 A reference to a CoreObject which may or may not exist. This type is returned by CoreObject:GetCustomProperty() for Core Object Reference properties, and may be used to find the actual object if it exists. (For networked objects, it is possible to get a CoreObjectReference pointing to a CoreObject that hasn't been received on the client yet.)
 
-| Property     | Return Value | Description                                                                                                                | Tags      |
+| Property     | Return Type | Description                                                                                                                | Tags      |
 | ------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `id`         | string       | The MUID of the referred object.                                                                                           | Read-Only |
 | `isAssigned` | bool         | Returns true if this reference has been assigned a valid ID. (This does not necessarily mean the object currently exists.) | Read-Only |
 
-| Function                  | Return Value | Description                                                                                                                                                                                                                                                                                             | Tags |
+| Function                  | Return Type | Description                                                                                                                                                                                                                                                                                             | Tags |
 | ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetObject()`             | CoreObject   | Returns the CoreObject with a matching ID, if it exists.  Will otherwise return nil.                                                                                                                                                                                                                    | None |
 | `WaitForObject([Number])` | CoreObject   | Returns the CoreObject with a matching ID, if it exists.  If it does not, yields the current task until the object is spawned.  Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None |
@@ -319,14 +276,18 @@ A reference to a CoreObject which may or may not exist. This type is returned by
 
 To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
-| Property        | Return Value  | Description                                                                                                                                                    | Tags       |
-| --------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `amount`        | Number        | The numeric amount of damage to inflict.                                                                                                                       | Read-Write |
-| `reason`        | Damage/Reason | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC | Read-Write |
-| `sourceAbility` | Ability       | Reference to the Ability which caused the Damage. Setting this automatically sets sourceAbilityName.                                                           | Read-Write |
-| `sourcePlayer`  | Player        | Reference to the Player who caused the Damage. Setting this automatically sets sourcePlayerName.                                                               | Read-Write |
+| Constructor                   | Return Type   | Description                                                               | Tags |
+| ----------------------------- | ------------- | ------------------------------------------------------------------------- | ---- |
+| `Damage.New([Number amount])` | Damage        | Construct a damage object. The amount of damage is an optional parameter. | None |
 
-| Function                  | Return Value | Description                                                                         | Tags |
+| Property        | Return Type   | Description                                                                                                                                                      | Tags       |
+| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `amount`        | Number        | The numeric amount of damage to inflict.                                                                                                                         | Read-Write |
+| `reason`        | DamageReason  | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC   | Read-Write |
+| `sourceAbility` | Ability       | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a player.| Read-Write |
+| `sourcePlayer`  | Player        | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a player.    | Read-Write |
+
+| Function                  | Return Type  | Description                                                                         | Tags |
 | ------------------------- | ------------ | ----------------------------------------------------------------------------------- | ---- |
 | `GetHitResult()`          | HitResult    | Get the HitResult information if this damage was caused by a Projectile impact.     | None |
 | `SetHitResult(HitResult)` | None         | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
@@ -335,14 +296,14 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 Equipment is a CoreObject representing an equippable item for players.
 
-| Property          | Return Value                | Description                                                                  | Tags                |
+| Property          | Return Type                | Description                                                                  | Tags                |
 | ----------------- | --------------------------- | ---------------------------------------------------------------------------- | ------------------- |
 | `socket`          | string                      | Determines which point on the avatar's body this equipment will be attached. | Read-Write, Dynamic |
 | `owner`           | Player                      | Which Player the Equipment is attached to.                                   | Read-Only, Dynamic  |
 | `equippedEvent`   | Event&lt;Equipment, Player> | An event fired when this equipment is equipped onto a player.                | Read-Only           |
 | `unequippedEvent` | Event&lt;Equipment, Player> | An event fired when this object is unequipped from a player.                 | Read-Only           |
 
-| Function              | Return Value      | Description                                                                                                                                                                                                                   | Tags |
+| Function              | Return Type      | Description                                                                                                                                                                                                                   | Tags |
 | --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Equip(Player)`       | None              | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | None |
 | `Unequip()`           | None              | Detaches the Equipment from any Player it may currently be attached to. The player loses any abilities granted by the Equipment.                                                                                              | None |
@@ -353,7 +314,7 @@ Equipment is a CoreObject representing an equippable item for players.
 
 When objects have events that can be fired, they're accessed using the Event type.
 
-| Function                          | Return Value  | Description                                                                                                                                                                                         | Tags |
+| Function                          | Return Type  | Description                                                                                                                                                                                         | Tags |
 | --------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Connect(function eventListener)` | EventListener | Registers the given function which will be called every time the event is fired.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
 
@@ -361,11 +322,11 @@ When objects have events that can be fired, they're accessed using the Event typ
 
 EventListeners are returned by Events when you connect a listener function to them.
 
-| Property      | Return Value | Description                                                                                                                | Tags      |
+| Property      | Return Type | Description                                                                                                                | Tags      |
 | ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `isConnected` | bool         | true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
 
-| Function       | Return Value | Description                                                                                       | Tags |
+| Function       | Return Type | Description                                                                                       | Tags |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------- | ---- |
 | `Disconnect()` | None         | Disconnects this listener from its event, so it will no longer be called when the event is fired. | None |
 
@@ -377,41 +338,24 @@ Folder is a CoreObject representing a folder containing other objects. It curren
 
 Contains data pertaining to an impact or raycast.
 
-| Property     | Return Value         | Description                                                                      | Tags      |
+| Property     | Return Type         | Description                                                                      | Tags      |
 | ------------ | -------------------- | -------------------------------------------------------------------------------- | --------- |
 | `other`      | CoreObject or Player | Reference to a CoreObject or Player impacted.                                    | None      |
 | `socketName` | string               | If the hit was on a player, socketName tells you which spot on the body was hit. | Read-Only |
 
-| Function              | Return Value | Description                                                                                                                      | Tags |
+| Function              | Return Type | Description                                                                                                                      | Tags |
 | --------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetImpactPosition()` | Vector3      | The world position where the impact occurred.                                                                                    | None |
 | `GetImpactNormal()`   | Vector3      | Normal direction of the surface which was impacted.                                                                              | None |
 | `GetTransform()`      | Transform    | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
-### ImageUIControl
-
-A UIControl for displaying an image.
-
-| Property          | Return Value | Description                                                                          | Tags |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------ | ---- |
-| `isTeamColorUsed` | bool         | If true, the image will be tinted blue if its team matches the player, or red if not | None |
-| `team`            | Integer      | the team of the image, used for isTeamColorUsed                                      | None |
-
-| Function            | Return Value | Description                                                                          | Tags |
-| ------------------- | ------------ | ------------------------------------------------------------------------------------ | ---- |
-| `GetColor()`        | Color        | The tint to apply to the image                                                       | None |
-| `SetColor(Color)`   | None         | The tint to apply to the image                                                       | None |
-| `SetImage(imageId)` | None         | Set image. You can get this muid from an asset reference.                            | None |
-| `GetImage()`        | string       | Returns the imageId assigned to this Image control.                                  | None |
-| `SetImage(Player)`  | None         | Downloads and sets a Player's profile picture as the texture for this Image control. | None |
-
 ### Light
 
 Light is a light source that is a CoreObject. Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
 
-| Property            | Return Value | Description                                                                                                                                                                                                                                                                                             | Tags                |
+| Property            | Return Type | Description                                                                                                                                                                                                                                                                                             | Tags                |
 | ------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `intensity`         | Number       | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the hasNaturalFallOff property. If true: the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If false: the light's Intensity is a brightness scale. | Read-Write, Dynamic |
+| `intensity`         | Number       | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the hasNaturalFalloff property. If true: the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If false: the light's Intensity is a brightness scale. | Read-Write, Dynamic |
 | `attenuationRadius` | Number       | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more.                                                                                                                                     | Read-Write, Dynamic |
 | `isShadowCaster`    | bool         | Does this light cast shadows?                                                                                                                                                                                                                                                                           | Read-Write, Dynamic |
 | `hasTemperature`    | Number       | true: use temperature value as illuminant. false: use white (D65) as illuminant.                                                                                                                                                                                                                        | Read-Write, Dynamic |
@@ -419,16 +363,10 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 | `team`              | Integer      | Assigns the light to a team. Value range from 0 to 4. 0 is neutral team                                                                                                                                                                                                                                 | Read-Write, Dynamic |
 | `isTeamColorUsed`   | bool         | If true, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red.                                                                                                                                                                 | Read-Write, Dynamic |
 
-| Function          | Return Value | Description             | Tags    |
+| Function          | Return Type | Description             | Tags    |
 | ----------------- | ------------ | ----------------------- | ------- |
 | `GetColor()`      | Color        | The color of the light. | None    |
 | `SetColor(Color)` | None         | The color of the light. | Dynamic |
-
-### MovementSettings
-
-| Function                | Return Value | Description                                                                     | Tags |
-| ----------------------- | ------------ | ------------------------------------------------------------------------------- | ---- |
-| `ApplyToPlayer(Player)` | None         | Apply settings from this settings object to player. Should be called on server. | None |
 
 ### NetworkContext
 
@@ -436,38 +374,22 @@ NetworkContext is a CoreObject representing a special folder containing client-o
 
 ### Object
 
-At a high level, CORE Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include Ability, CoreObject, Player, and Projectile.
+At a high level, CORE Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include CoreObject, Player and Projectile.
 
-| Property         | Return Value | Description                                                      | Tags      |
+| Property         | Return Type | Description                                                      | Tags      |
 | ---------------- | ------------ | ---------------------------------------------------------------- | --------- |
 | `serverUserData` | table        | Table in which users can store any data they want on the server. | Read-Only |
 | `clientUserData` | table        | Table in which users can store any data they want on the client. | Read-Only |
 
-| Static Functions         | Return Value | Description                                                                                                                                                                                    | Tags |
+| Class Function         | Return Type | Description                                                                                                                                                                                    | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `IsValid(Object object)` | bool         | Returns true if object is still a valid Object, or false if it has been destroyed.  Also returns false if passed a nil value or something that's not an Object, such as a Vector3 or a string. | None |
-
-### PanelUIControl
-
-A UIControl which can be used for containing and laying out other UI controls.
-
-| Property                   | Return Value | Description                                                          | Tags |
-| -------------------------- | ------------ | -------------------------------------------------------------------- | ---- |
-| `shouldClipChildren(bool)` | bool         | If True, children of this panel will not draw outside of its bounds. | None |
-
-### PerPlayerReplicator
-
-Per-player replicator is a CoreObject used to replicate data for specific players. They are similar to normal replicators in that you add custom properties for the values you want to replicate, but are accessed quite differently. At runtime, request a player's personal replicator and use the standard Replicator API to retrieve and set data. Note that clients can access other client's replicators.
-
-| Function                      | Return Value | Description                                                                                                     | Tags |
-| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetPlayerReplicator(Player)` | Replicator   | Returns the replicator for the specified player. Can be nil if the replicator hasn't spawned on the client yet. | None |
 
 ### Player
 
 Player is an Object representation of the state of a player connected to the game, as well as their avatar in the world.
 
-| Property                     | Return Value                                 | Description                                                                                                                                                                                                                                                                                                    | Tags                       |
+| Property                     | Return Type                                 | Description                                                                                                                                                                                                                                                                                                    | Tags                       |
 | ---------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `name`                       | string                                       | The player's name.                                                                                                                                                                                                                                                                                             | Read-Only                  |
 | `id`                         | string                                       | The unique id of the player. Consistent across sessions.                                                                                                                                                                                                                                                       | Read-Only                  |
@@ -475,10 +397,12 @@ Player is an Object representation of the state of a player connected to the gam
 | `animationStance`            | string                                       | Which set of animations to use for this player. Example values can be "unarmed_stance", "1hand_melee_stance", "1hand_pistol_stance", "2hand_sword_stance" or "2hand_rifle_stance". See  Animation Stance Information                                                                                           | Read-Write                 |
 | `currentFacingMode`          | FacingMode                                   | Current mode applied to player, including possible overrides. Possible values are FacingMode.STRAFE and FacingMode.LOOSE. See desiredFacingMode for details.                                                                                                                                                   | None                       |
 | `desiredFacingMode`          | FacingMode                                   | Which controls mode to use for this player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.STRAFE and FacingMode.LOOSE.                                                                                                                | Read-Write                 |
+| `defaultRotationRate`                                                   | Rotation              | Determines how quickly the player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis.                                                                 | Read-Write |
+| `currentRotationRate`                                                   | Rotation              | Reports the real rotation rate that results from any active mechanics/movement overrides.                                                                 | Read-Only |
 | `hitPoints`                  | Number                                       | Current amount of hitpoints.                                                                                                                                                                                                                                                                                   | Read-Write                 |
 | `maxHitPoints`               | Number                                       | Maximum amount of hitpoints.                                                                                                                                                                                                                                                                                   | Read-Write                 |
 | `stepHeight`                 | Number                                       | Maximum height in centimeters the player can step up. Range is 0-100, default is 45.                                                                                                                                                                                                                           | Read-Write                 |
-| `walkSpeed`                  | Number                                       | Walk speed as a fraction of default.  Range is 0-10, default is 1.                                                                                                                                                                                                                                             | Read-Write                 |
+| `maxWalkSpeed`                  | Number                                       | The player's top walking/running speed.                                                                                                                                                                                                                                             | Read-Write                 |
 | `swimSpeed`                  | Number                                       | Swim speed as a fraction of default.  Range is 0-10, default is 1.                                                                                                                                                                                                                                             | Read-Write                 |
 | `maxAcceleration`            | Number                                       | Max Acceleration (rate of change of velocity). Default = 1200                                                                                                                                                                                                                                                  | Read-Write                 |
 | `brakingDecelerationFalling` | Number                                       | Deceleration when falling and not applying acceleration. Default = 0                                                                                                                                                                                                                                           | Read-Write                 |
@@ -517,10 +441,10 @@ Player is an Object representation of the state of a player connected to the gam
 | `bindingPressedEvent`        | Event&lt;Player, String>                     | Event fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed under ability binding list                                                                                                                                                 | Read-Only                  |
 | `bindingReleasedEvent`       | Event&lt;Player, String>                     | Event fired when an action binding is released. Second parameter tells you which binding.                                                                                                                                                                                                                      | Read-Only                  |
 | `resourceChangedEvent`       | Event&lt;Player>                             | Event fired when a resource changed                                                                                                                                                                                                                                                                            | Read-Only                  |
-| `movementModeChangedEvent`   | Event&lt;Player, MovementMode, MovementMode> | Event fired when a player's movement mode changes. The first parameter is the player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Values for MovementMode enum are: NONE, WALKING, FALLING, SWIMMING, FLYING and SLIDING. Server only. | Server Context, Read-Only  |
+| `movementModeChangedEvent`   | Event&lt;Player, MovementMode, MovementMode> | Event fired when a player's movement mode changes. The first parameter is the player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Server Context, Read-Only  |
 | `animationEvent`             | Event&lt;Player>,EventName                   | Event fired during certain animations played on a player. Client only.                                                                                                                                                                                                                                         | Client Context             |
 
-| Function                                                              | Return Value          | Description                                                                                                                                                                                                                                                                                                                                                                                                                      | Tags |
+| Function                                                              | Return Type          | Description                                                                                                                                                                                                                                                                                                                                                                                                                      | Tags |
 | --------------------------------------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetTransform()`                                                      | Transform             | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
 | `SetTransform (Transform)`                                            | None                  | The transform relative to this object's parent.                                                                                                                                                                                                                                                                                                                                                                                  | None |
@@ -541,7 +465,6 @@ Player is an Object representation of the state of a player connected to the gam
 | `AddImpulse (Vector3)`                                                | Vector3               | Adds an impulse force to the player.                                                                                                                                                                                                                                                                                                                                                                                             | None |
 | `GetVelocity()`                                                       | Vector3               | Gets current velocity of player                                                                                                                                                                                                                                                                                                                                                                                                  | None |
 | `ResetVelocity()`                                                     | None                  | Resets the player's velocity to zero.                                                                                                                                                                                                                                                                                                                                                                                            | None |
-| `GetRotationRate()`                                                   | Rotation              | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis.                                                                                                                                                                                                                                                                          | None |
 | `SetRotationRate (Rotation)`                                          | None                  | Maximum speed (in degrees) that the player can rotate per second. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis.                                                                                                                                                                                                                                                                          | None |
 | `GetAbilities()`                                                      | array&lt;Ability>     | Array of all Abilities assigned to this Player.                                                                                                                                                                                                                                                                                                                                                                                  | None |
 | `GetEquipment()`                                                      | array&lt;Equipment>   | Array of all Equipment assigned to this Player.                                                                                                                                                                                                                                                                                                                                                                                  | None |
@@ -571,11 +494,17 @@ Player is an Object representation of the state of a player connected to the gam
 | `ActivateFlying()`                                                    | None                  | Activates the player flying mode.                                                                                                                                                                                                                                                                                                                                                                                                | None |
 | `ActivateWalking()`                                                   | None                  | Activate the player walking mode                                                                                                                                                                                                                                                                                                                                                                                                 | None |
 
+### PlayerSettings
+
+| Function                | Return Type | Description                                                                     | Tags |
+| ----------------------- | ------------ | ------------------------------------------------------------------------------- | ---- |
+| `ApplyToPlayer(Player)` | None         | Apply settings from this settings object to player. Should be called on server. | None |
+
 ### PlayerStart
 
 PlayerStart is a CoreObject representing a spawn point for players.
 
-| Property | Return Value | Description                                                    | Tags                |
+| Property | Return Type | Description                                                    | Tags                |
 | -------- | ------------ | -------------------------------------------------------------- | ------------------- |
 | `team`   | string       | A tag controlling which players can spawn at this start point. | Read-Write, Dynamic |
 
@@ -583,31 +512,18 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 PointLight is a placeable light source that is a CoreObject.
 
-| Property            | Return Value | Description                                                                                                                                                                                                                                                                                      | Tags                |
+| Property            | Return Type | Description                                                                                                                                                                                                                                                                                      | Tags                |
 | ------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
 | `hasNaturalFalloff` | bool         | The attenuation method of the light. When enabled, attenuationRadius is used. When disabled, falloffExponent is used. Also changes the interpretation of the intensity property, see intensity for details.                                                                                      | Read-Write, Dynamic |
 | `falloffExponent`   | Number       | Controls the radial falloff of the light when hasNaturalFalloff is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic |
 | `sourceRadius`      | Number       | Radius of light source shape.                                                                                                                                                                                                                                                                    | Read-Write, Dynamic |
 | `sourceLength`      | Number       | Length of light source shape.                                                                                                                                                                                                                                                                    | Read-Write, Dynamic |
 
-### ProgressBarUIControl
-
-A UIControl that displays a filled rectangle which can be used for things such as a health indicator.
-
-| Property   | Return Value | Description                              | Tags |
-| ---------- | ------------ | ---------------------------------------- | ---- |
-| `progress` | Number       | From 0 to 1, how full the bar should be. | None |
-
-| Function              | Return Value | Description            | Tags |
-| --------------------- | ------------ | ---------------------- | ---- |
-| `GetFillColor()`      | Color        | The color of the fill. | None |
-| `SetFillColor(Color)` | None         | The color of the fill. | None |
-
 ### Projectile
 
 Projectile is a specialized Object which moves through the air in a parabolic shape and impacts other objects. To spawn a projectile see `game:SpawnProjectile()`.
 
-| Property                | Return Value                                  | Description                                                                                                                                                                                                                                                                | Tags       |
+| Property                | Return Type                                  | Description                                                                                                                                                                                                                                                                | Tags       |
 | ----------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `owner`                 | Player                                        | The player who fired this projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the projectile if teams are being used in the game.                                                       | Read-Write |
 | `sourceAbility`         | Ability                                       | Reference to the ability from which the projectile was created.                                                                                                                                                                                                            | Read-Write |
@@ -629,16 +545,16 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `lifeSpanEndedEvent`    | Event&lt;Projectile>                          | An event fired when the Projectile reaches the end of its lifespan. Called before it is destroyed.                                                                                                                                                                         | Read-Only  |
 | `homingFailedEvent`     | Event&lt;Projectile>                          | The target is no longer valid, for example the player disconnected from the game or the object was destroyed somehow.                                                                                                                                                      | Read-Only  |
 
-| Function                    | Return Value | Description                                           | Tags |
+| Function                    | Return Type | Description                                           | Tags |
 | --------------------------- | ------------ | ----------------------------------------------------- | ---- |
-| `destroy()`                 | Object       | Immediately destroys the object.                      | None |
+| `Destroy()`                 | Object       | Immediately destroys the object.                      | None |
 | `GetWorldTransform()`       | Transform    | Transform data for the Projectile in world space.     | None |
 | `GetWorldPosition()`        | Vector3      | Position of the Projectile in world space.            | None |
 | `SetWorldPosition(Vector3)` | None         | Position of the Projectile in world space.            | None |
 | `GetVelocity()`             | Vector3      | Current direction and speed vector of the Projectile. | None |
 | `SetVelocity(Vector3)`      | None         | Current direction and speed vector of the Projectile. | None |
 
-| Static Function                                                              | Return Value | Description                                                         | Tags |
+| Class Function                                                              | Return Type | Description                                                         | Tags |
 | ---------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------- | ---- |
 | `Spawn(string child_template_id, Vector3 start_position, Vector3 direction)` | Projectile   | Spawns a Projectile with a child that is an instance of a template. | None |
 
@@ -646,7 +562,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 A quaternion-based representation of a rotation.
 
-| Constructor                                              | Return Value | Description                                                                              | Tags |
+| Constructor                                              | Return Type | Description                                                                              | Tags |
 | -------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------- | ---- |
 | `Quaternion.New(Number x, Number y, Number z, Number w)` | Quaternion   | Construct with the given values.                                                         | None |
 | `Quaternion.New(Rotation r)`                             | Quaternion   | Construct with the given Rotation.                                                       | None |
@@ -655,25 +571,25 @@ A quaternion-based representation of a rotation.
 | `Quaternion.New(Quaternion q)`                           | Quaternion   | Copies the given Quaternion.                                                             | None |
 | `Quaternion.IDENTITY`                                    | Quaternion   | Predefined quaternion with no rotation.                                                  | None |
 
-| Property | Return Value | Description                        | Tags       |
+| Property | Return Type | Description                        | Tags       |
 | -------- | ------------ | ---------------------------------- | ---------- |
 | `x`      | Number       | The X component of the quaternion. | Read-Write |
 | `y`      | Number       | The Y component of the quaternion. | Read-Write |
 | `z`      | Number       | The Z component of the quaternion. | Read-Write |
 | `w`      | Number       | The W component of the quaternion. | Read-Write |
 
-| Function             | Return Value | Description                                        | Tags |
+| Function             | Return Type | Description                                        | Tags |
 | -------------------- | ------------ | -------------------------------------------------- | ---- |
 | `GetRotation()`      | Rotation     | Get the Rotation representation of the quaternion. | None |
 | `GetForwardVector()` | Vector3      | Forward unit vector rotated by the quaternion.     | None |
 | `GetRightVector()`   | Vector3      | Right unit vector rotated by the quaternion.       | None |
 | `GetUpVector()`      | Vector3      | Up unit vector rotated by the quaternion.          | None |
 
-| Class Function                                           | Return Value | Description                                                                                                                        | Tags |
+| Class Function                                           | Return Type | Description                                                                                                                        | Tags |
 | -------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Slerp(Quaternion from, Quaternion to, Number progress)` | Quaternion   | Spherical interpolation between two quaternions by the specified progress amount and returns the resultant, normalized Quaternion. | None |
 
-| Operator                  | Return Value | Description                                                                                                | Tags |
+| Operator                  | Return Type | Description                                                                                                | Tags |
 | ------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------- | ---- |
 | `Quaternion + Quaternion` | Quaternion   | Component-wise addition.                                                                                   | None |
 | `Quaternion - Quaternion` | Quaternion   | Component-wise subtraction.                                                                                | None |
@@ -687,16 +603,16 @@ A quaternion-based representation of a rotation.
 
 Seed-based random stream of numbers. Useful for deterministic RNG problems, for instance, inside a Client Context so all players get the same outcome without the need to replicate lots of data from the server. Bad quality in the lower bits (avoid combining with modulus operations).
 
-| Constructor                 | Return Value | Description                      | Tags |
+| Constructor                 | Return Type | Description                      | Tags |
 | --------------------------- | ------------ | -------------------------------- | ---- |
 | `RandomStream.New()`        | RandomStream | Constructor with seed 0.         | None |
 | `RandomStream.New(Integer)` | RandomStream | Constructor with specified seed. | None |
 
-| Property | Return Value | Description                    | Tags       |
+| Property | Return Type | Description                    | Tags       |
 | -------- | ------------ | ------------------------------ | ---------- |
 | `seed`   | Number       | The current seed used for RNG. | Read-Write |
 
-| Function                                                                              | Return Value | Description                                                                                                                                   | Tags |
+| Function                                                                              | Return Type | Description                                                                                                                                   | Tags |
 | ------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetInitialSeed()`                                                                    | Integer      | The seed that was used to initialize this stream.                                                                                             | None |
 | `Reset()`                                                                             | None         | Function that sets the seed back to the initial seed.                                                                                         | None |
@@ -707,24 +623,11 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 | `GetVector3FromCone(Vector3 Direction, Number HalfAngle)`                             | Vector3      | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction and HalfAngle (in radians).                      | None |
 | `GetVector3FromCone(Vector3 Direction, Number HorizontalAngle, Number VerticalAngle)` | Vector3      | Returns a random unit vector, uniformly distributed, from inside a cone defined by Direction, HorizontalAngle and VerticalAngle (in radians). | None |
 
-### Replicator
-
-Replicators are CoreObjects are used to broadcast data from the server to clients. To use them, add custom properties to a replicator and assign them default values. These properties will be readable on all clients, and read/write on the server.
-
-| Function                   | Return Value | Description                                                                                                                                                                                 | Tags |
-| -------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetValue(string)`         | Object, bool | Returns the named custom property and whether or not the property was found.                                                                                                                | None |
-| `SetValue(string, Object)` | bool         | Sets the named custom property and returns whether or not it was set successfully. Reasons for failure are not being able to find the property or the Object property being the wrong type. | None |
-
-| Event               | Return Value                              | Description                                                                                                                                                                                                                                 | Tags      |
-| ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `valueChangedEvent` | Event&lt;Replicator, string propertyName> | An event that is fired whenever any of the properties managed by the replicator receives an update. The event is fired on the server and the client. Event payload is the Replicator object and the name of the property that just changed. | Read-Only |
-
 ### Rotation
 
 An immutable euler-based rotation around X, Y, and Z axes.
 
-| Constructor                                  | Return Value | Description                                                                                                                                                                                                                                                             | Tags |
+| Constructor                                  | Return Type | Description                                                                                                                                                                                                                                                             | Tags |
 | -------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Rotation.New()`                             | Rotation     | Creates a non-rotation (0, 0, 0).                                                                                                                                                                                                                                       | None |
 | `Rotation.New(Number x, Number y, Number z)` | Rotation     | Construct with the given values.                                                                                                                                                                                                                                        | None |
@@ -733,13 +636,13 @@ An immutable euler-based rotation around X, Y, and Z axes.
 | `Rotation.New(Rotation r)`                   | Rotation     | Copies the given Rotation.                                                                                                                                                                                                                                              | None |
 | `Rotation.ZERO`                              | Rotation     | Constant rotation of (0, 0, 0)                                                                                                                                                                                                                                          | None |
 
-| Property | Return Value | Description                      | Tags       |
+| Property | Return Type | Description                      | Tags       |
 | -------- | ------------ | -------------------------------- | ---------- |
 | `x`      | Number       | The X component of the rotation. | Read-Write |
 | `y`      | Number       | The Y component of the rotation. | Read-Write |
 | `z`      | Number       | The Z component of the rotation. | Read-Write |
 
-| Operator              | Return Value | Description                   | Tags |
+| Operator              | Return Type | Description                   | Tags |
 | --------------------- | ------------ | ----------------------------- | ---- |
 | `Rotation + Rotation` | Rotation     | Add two rotations together.   | None |
 | `Rotation - Rotation` | Rotation     | Subtract a rotation.          | None |
@@ -750,7 +653,7 @@ An immutable euler-based rotation around X, Y, and Z axes.
 
 Script is a CoreObject representing a script.
 
-| Property  | Return Value | Description                                                                                                                                                      | Tags      |
+| Property  | Return Type | Description                                                                                                                                                      | Tags      |
 | --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `context` | table        | Returns the table containing any non-local variables and functions created by the script.  This can be used to call (or overwrite!) functions on another script. | Read-Only |
 
@@ -761,7 +664,7 @@ Script is a CoreObject representing a script.
 
 SpotLight is a Light that shines in a specific direction from the location at which it is placed.
 
-| Property            | Return Value | Description                                                                                                                                                                                                                                                                                      | Tags                |
+| Property            | Return Type | Description                                                                                                                                                                                                                                                                                      | Tags                |
 | ------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
 | `hasNaturalFalloff` | bool         | The attenuation method of the light. When enabled, attenuationRadius is used. When disabled, falloffExponent is used. Also changes the interpretation of the intensity property, see intensity for details.                                                                                      | Read-Write, Dynamic |
 | `falloffExponent`   | Number       | Controls the radial falloff of the light when hasNaturalFalloff is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic |
@@ -774,7 +677,7 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio objects, they have many of the same properties and functions.
 
-| Property                  | Return Value | Description                                                                                                                                                                                              | Tags                |
+| Property                  | Return Type | Description                                                                                                                                                                                              | Tags                |
 | ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `isPlaying`               | bool         | Returns if the sound is currently playing.                                                                                                                                                               | Read-Only           |
 | `isSpatializationEnabled` | bool         | Default true. Set to false to play sound without 3D positioning.                                                                                                                                         | Read-Write, Dynamic |
@@ -786,25 +689,25 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `radius`                  | Number       | Default 0 (off.) If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume.                          | Read-Write          |
 | `falloff`                 | Number       | Default 0 (off). If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero.              | Read-Write          |
 
-| Function | Return Value | Description            | Tags |
+| Function | Return Type | Description            | Tags |
 | -------- | ------------ | ---------------------- | ---- |
 | `Play()` | None         | Begins sound playback. | None |
 | `Stop()` | None         | Stops sound playback.  | None |
 
 ### SmartObject
 
-SmartObject is the top-level container of a blueprint "smart object" that has been placed in the game. It inherits everything from CoreObject. Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by the contents of the blueprint.
+SmartObject is a top-level container for some complex objects and inherits everything from CoreObject. Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by a SmartObject.
 
-| Property                                        | Return Value | Description                                                                                                                                                                                                                               | Tags |
+| Function                                        | Return Type | Description                                                                                                                                                                                                                               | Tags |
 | ----------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `GetSmartProperty(string property_name)`        | value, bool  | Gets the current value of an exposed blueprint variable.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found.  Second return value is a bool, true if found and false if not. | None |
-| `SetSmartProperty(string property_name, value)` | bool         | Sets the value of an exposed blueprint variable.  Value, which can be a Number, bool, string, Vector3, Rotation, or Color, but must match the type of the property on the blueprint.  Returns true if set successfully and false if not.  | None |
+| `GetSmartProperty(string)`        | value, bool  | Given a property name, returns the current value of that property on a SmartObject.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found.  Second return value is a bool, true if the property was found and false if not. | None |
+| `SetSmartProperty(string, value)` | bool         | Sets the value of an exposed property.  Value can be of type Number, bool, string, Vector3, Rotation or Color, but must match the type of the property.  Returns true if the property was set successfully and false if not.  | None |
 
 ### StaticMesh
 
 StaticMesh is a CoreObject representing a static mesh.
 
-| Property                   | Return Value | Description                                                                                                                                                                                   | Tags                |
+| Property                   | Return Type | Description                                                                                                                                                                                   | Tags                |
 | -------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `isSimulatingPhysics`      | bool         | If true, physics will be enabled for the mesh.                                                                                                                                                | Read-Write, Dynamic |
 | `team`                     | Integer      | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team                                                                                                                        | Read-Write, Dynamic |
@@ -813,7 +716,7 @@ StaticMesh is a CoreObject representing a static mesh.
 | `isEnemyCollisionEnabled`  | bool         | If false, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh.                                                                              | Read-Write, Dynamic |
 | `isCameraCollisionEnabled` | bool         | If false, the mesh will not push against the camera. Useful for things like railings or transparent walls.                                                                                    | Read-Write, Dynamic |
 
-| Function                                                         | Return Value | Description                                                                                                                                                                                                                      | Tags    |
+| Function                                                         | Return Type | Description                                                                                                                                                                                                                      | Tags    |
 | ---------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | `GetColor()`                                                     | Color        | Overrides the color of all materials on the mesh, and replicates the new colors.                                                                                                                                                 | None    |
 | `SetColor(Color)`                                                | None         | Overrides the color of all materials on the mesh, and replicates the new colors.                                                                                                                                                 | Dynamic |
@@ -825,18 +728,18 @@ StaticMesh is a CoreObject representing a static mesh.
 
 Task is a representation of a Lua thread. It could be a Script initialization, a repeating tick() function from a Script, an EventListener invocation, or a Task spawned directly by a call to `Task.Spawn()`.
 
-| Property         | Return Value | Description                                                                                                                                                                                                                                                                                              | Tags       |
+| Property         | Return Type | Description                                                                                                                                                                                                                                                                                              | Tags       |
 | ---------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `id`             | Number       | A unique identifier for the task.                                                                                                                                                                                                                                                                        | Read-Only  |
 | `repeatCount`    | Number       | If set to a non-negative number, the Task will execute that many times.  A negative number indicates the Task should repeat indefinitely (until otherwise canceled).  With the default of 0, the Task will execute once.  With a value of 1, the script will repeat once, meaning it will execute twice. | Read-Write |
 | `repeatInterval` | Number       | For repeating Tasks, the number of seconds to wait after the Task completes before running it again.  If set to 0, the Task will wait until the next frame.                                                                                                                                              | Read-Write |
 
-| Function      | Return Value | Description                                                                                                                                                                                                    | Tags |
+| Function      | Return Type | Description                                                                                                                                                                                                    | Tags |
 | ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Cancel()`    | None         | Cancels the Task immediately.  It will no longer be executed, regardless of the state it was in.  If called on the currently executing Task, that Task will halt execution.                                    | None |
 | `GetStatus()` | TaskStatus   | Returns the status of the Task. Possible values include: TaskStatus.UNINITIALIZED, TaskStatus.SCHEDULED, TaskStatus.RUNNING, TaskStatus.COMPLETED, TaskStatus.YIELDED, TaskStatus.FAILED, TaskStatus.CANCELED. | None |
 
-| Class functions                                | Return Value | Description                                                                                                                                                                                                                                                              | Tags |
+| Class functions                                | Return Type | Description                                                                                                                                                                                                                                                              | Tags |
 | ---------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- |
 | `Spawn(function taskFunction, [Number delay])` | Task         | Creates a new Task which will call taskFunction without blocking the current task.  The optional delay parameter specifies how many seconds before the task scheduler should run the Task.  By default, the scheduler will run the Task at the end of the current frame. | None |
 | `GetCurrent()`                                 | Task         | Returns the currently running Task.                                                                                                                                                                                                                                      | None |
@@ -850,39 +753,22 @@ Terrain is a CoreObject representing terrain placed in the world.
 
 Text is an in-world text CoreObject.
 
-| Property          | Return Value | Description                              | Tags                |
+| Property          | Return Type | Description                              | Tags                |
 | ----------------- | ------------ | ---------------------------------------- | ------------------- |
 | `text`            | string       | The text being displayed by this object. | Read-Write, Dynamic |
 | `horizontalScale` | Number       | The horizontal size of the text.         | Read-Write, Dynamic |
 | `verticalScale`   | Number       | The vertical size of the text.           | Read-Write, Dynamic |
 
-| Function          | Return Value | Description            | Tags    |
+| Function          | Return Type | Description            | Tags    |
 | ----------------- | ------------ | ---------------------- | ------- |
 | `GetColor()`      | Color        | The color of the text. | None    |
 | `SetColor(Color)` | None         | The color of the text. | Dynamic |
-
-### TextUIControl
-
-A UIControl which displays a basic text label.
-
-| Property         | Return Value | Description                                                                                                                | Tags |
-| ---------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `text`           | string       | The actual text string to show.                                                                                            | None |
-| `fontSize`       | Number       | Font size                                                                                                                  | None |
-| `justification`  | TextJustify  | Enum that determines alignment of text.  Possible values are: TextJustify.LEFT, TextJustify.Right, and TextJustify.CENTER. | None |
-| `shouldWrapText` | bool         | Whether or not text should be wrapped within the bounds of this control.                                                   | None |
-| `shouldClipText` | bool         | Whether or not text should be clipped when exceeding the bounds of this control.                                           | None |
-
-| Function          | Return Value | Description            | Tags |
-| ----------------- | ------------ | ---------------------- | ---- |
-| `GetColor()`      | Color        | The color of the text. | None |
-| `SetColor(Color)` | None         | The color of the text. | None |
 
 ### Transform
 
 Transforms represent the position, rotation, and scale of objects in the game. They are immutable, but new Transforms can be created when you want to change an object's transform.
 
-| Constructor                                                                          | Return Value | Description                    | Tags |
+| Constructor                                                                          | Return Type | Description                    | Tags |
 | ------------------------------------------------------------------------------------ | ------------ | ------------------------------ | ---- |
 | `Transform.New()`                                                                    | Transform    | Creates an identity transform. | None |
 | `Transform.New(Quaternion rotation, Vector3 position, Vector3 scale)`                | Transform    | Construct with quaternion.     | None |
@@ -891,7 +777,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | `Transform.New(Transform transform)`                                                 | Transform    | Copies the given Transform.    | None |
 | `Transform.IDENTITY`                                                                 | Transform    | Constant identity transform.   | None |
 
-| Function                                | Return Value | Description                                                                                                                                   | Tags |
+| Function                                | Return Type | Description                                                                                                                                   | Tags |
 | --------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetPosition()`                         | Vector3      | Returns a copy of the position component of the transform.                                                                                    | None |
 | `SetPosition (Vector3)`                 | None         | Sets the position component of the transform.                                                                                                 | None |
@@ -908,7 +794,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | `TransformPosition(Vector3 position)`   | Vector3      | Applies the transform to the given position in 3D space.                                                                                      | None |
 | `TransformDirection(Vector3 direction)` | Vector3      | Applies the transform to the given directional Vector3.  This will rotate and scale the Vector3, but does not apply the transform's position. | None |
 
-| Operator                 | Return Value | Description                                                                        | Tags |
+| Operator                 | Return Type | Description                                                                        | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------- | ---- |
 | `Transform * Transform`  | Transform    | Returns a new transform composing the left and right transforms.                   | None |
 | `Transform * Quaternion` | Quaternion   | Returns a new transform composing the left transform then the right side rotation. | None |
@@ -917,7 +803,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 
 A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A player walks into it):
 
-| Property                  | Return Value | Description                                                                                                                        | Tags                |
+| Property                  | Return Type | Description                                                                                                                        | Tags                |
 | ------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `isInteractable`          | bool         | Is the trigger interactable?                                                                                                       | Read-Write, Dynamic |
 | `interactionLabel`        | string       | The text players will see in their HUD when they come into range of interacting with this trigger.                                 | Read-Write, Dynamic |
@@ -925,35 +811,23 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `isTeamCollisionEnabled`  | bool         | If false, and the trigger has been assigned to a valid team, players on that team will not overlap or interact with the trigger.   | Read-Write, Dynamic |
 | `isEnemyCollisionEnabled` | bool         | If false, and the trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the trigger. | Read-Write, Dynamic |
 
-| Property                    | Return Value      | Description                                                                    | Tags |
+| Function                    | Return Type      | Description                                                                    | Tags |
 | --------------------------- | ----------------- | ------------------------------------------------------------------------------ | ---- |
 | `IsOverlapping(CoreObject)` | bool              | Returns true if given core object overlaps with the trigger.                   | None |
 | `IsOverlapping(Player)`     | bool              | Returns true if given player overlaps with the trigger.                        | None |
 | `GetOverlappingObjects()`   | array&lt;Objects> | Returns a list of all objects that are currently overlapping with the trigger. | None |
 
-| Event               | Return Value                               | Description                                                                                                                                                                                                                                                                                                   | Tags      |
+| Event               | Return Type                               | Description                                                                                                                                                                                                                                                                                                   | Tags      |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `beginOverlapEvent` | Event&lt;CoreObject trigger, object other> | An event fired when an object enters the trigger volume.  The first parameter is the trigger itself.  The second is the object overlapping the trigger, which may be a CoreObject, a Player, or some other type.  Call other:IsA() to check the type.  Eg, other:IsA(‘Player'), other:IsA(‘StaticMesh'), etc. | Read-Only |
 | `endOverlapEvent`   | Event&lt;CoreObject trigger, object other> | An event fired when an object exits the trigger volume.  Parameters the same as beginOverlapEvent.                                                                                                                                                                                                            | Read-Only |
 | `interactedEvent`   | Event&lt;CoreObject trigger, Player>       | An event fired when a player uses the interaction on a trigger volume (By default "F" key). The first parameter is the trigger itself and the second parameter is a Player.                                                                                                                                   | Read-Only |
 
-### UIControl
-
-UIControl is a CoreObject which serves as a base class for other UI Control Proxies.
-
-| Property        | Return Value | Description                          | Tags |
-| --------------- | ------------ | ------------------------------------ | ---- |
-| `x`             | Number       | Screen-space offset from the anchor. | None |
-| `y`             | Number       | Screen-space offset from the anchor. | None |
-| `width`         | Number       | Horizontal size of the control.      | None |
-| `height`        | Number       | Vertical size of the control.        | None |
-| `rotationAngle` | Number       | rotation angle of the control.       | None |
-
 ### Vector2
 
 A two-component vector.
 
-| Constructor                       | Return Value | Description                                             | Tags |
+| Constructor                       | Return Type | Description                                             | Tags |
 | --------------------------------- | ------------ | ------------------------------------------------------- | ---- |
 | `Vector2.New()`                   | Vector2      | Creates the vector (0, 0).                              | None |
 | `Vector2.New(Number x, Number y)` | Vector2      | Construct with the given x, y values.                   | None |
@@ -962,18 +836,18 @@ A two-component vector.
 | `Vector2.ZERO`                    | Vector2      | (0, 0, 0)                                               | None |
 | `Vector2.ONE`                     | Vector2      | (1, 1, 1)                                               | None |
 
-| Property      | Return Value | Description                          | Tags       |
+| Property      | Return Type | Description                          | Tags       |
 | ------------- | ------------ | ------------------------------------ | ---------- |
 | `x`           | Number       | The X component of the vector.       | Read-Write |
 | `y`           | Number       | The Y component of the vector.       | Read-Write |
 | `size`        | Number       | The magnitude of the vector.         | Read-Only  |
 | `sizeSquared` | Number       | The squared magnitude of the vector. | Read-Only  |
 
-| Function          | Return Value | Description                                                                                                                               | Tags |
+| Function          | Return Type | Description                                                                                                                               | Tags |
 | ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetNormalized()` | Vector2      | Returns a new Vector2 with size 1, but still pointing in the same direction.  Returns (0, 0) if the vector is too small to be normalized. | None |
 
-| Class Function                                    | Return Value | Description                                                                                                     | Tags |
+| Class Function                                    | Return Type | Description                                                                                                     | Tags |
 | ------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ---- |
 | `Lerp(Vector2 from, Vector2 to, Number progress)` | Vector2      | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2.   | None |
 | `Vector2 + Vector2`                               | Vector2      | Component-wise addition.                                                                                        | None |
@@ -993,7 +867,7 @@ A two-component vector.
 
 A three-component vector.
 
-| Constructor                                 | Return Value | Description                                                              | Tags |
+| Constructor                                 | Return Type | Description                                                              | Tags |
 | ------------------------------------------- | ------------ | ------------------------------------------------------------------------ | ---- |
 | `Vector3.New()`                             | Vector3      | Creates the vector (0, 0, 0).                                            | None |
 | `Vector3.New(Number x, Number y, Number z)` | Vector3      | Construct with the given x, y, z values.                                 | None |
@@ -1006,7 +880,7 @@ A three-component vector.
 | `Vector3.UP`                                | Vector3      | (0, 0, 1)                                                                | None |
 | `Vector3.RIGHT`                             | Vector3      | (0, 1, 0)                                                                | None |
 
-| Property      | Return Value | Description                          | Tags       |
+| Property      | Return Type | Description                          | Tags       |
 | ------------- | ------------ | ------------------------------------ | ---------- |
 | `x`           | Number       | The X component of the vector.       | Read-Write |
 | `y`           | Number       | The Y component of the vector.       | Read-Write |
@@ -1014,11 +888,11 @@ A three-component vector.
 | `size`        | Number       | The magnitude of the vector.         | Read-Only  |
 | `sizeSquared` | Number       | The squared magnitude of the vector. | Read-Only  |
 
-| Function          | Return Value | Description                                                                                                                                  | Tags |
+| Function          | Return Type | Description                                                                                                                                  | Tags |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetNormalized()` | Vector3      | Returns a new Vector3 with size 1, but still pointing in the same direction.  Returns (0, 0, 0) if the vector is too small to be normalized. | None |
 
-| Class Function                                    | Return Value | Description                                                                                                     | Tags |
+| Class Function                                    | Return Type | Description                                                                                                     | Tags |
 | ------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ---- |
 | `Lerp(Vector3 from, Vector3 to, Number progress)` | Vector3      | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3.   | None |
 | `Vector3 + Vector3`                               | Vector3      | Component-wise addition.                                                                                        | None |
@@ -1038,7 +912,7 @@ A three-component vector.
 
 A four-component vector.
 
-| Constructor                                           | Return Value | Description                                                                                | Tags |
+| Constructor                                           | Return Type | Description                                                                                | Tags |
 | ----------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------ | ---- |
 | `Vector4.New()`                                       | Vector4      | Creates the vector (0, 0, 0, 0).                                                           | None |
 | `Vector4.New(Number x, Number y, Number z, Number w)` | Vector4      | Construct with the given x, y, z, w values.                                                | None |
@@ -1050,7 +924,7 @@ A four-component vector.
 | `Vector3.ZERO`                                        | Vector3      | (0, 0, 0, 0)                                                                               | None |
 | `Vector3.ONE`                                         | Vector3      | (1, 1, 1, 1)                                                                               | None |
 
-| Property      | Return Value | Description                          | Tags       |
+| Property      | Return Type | Description                          | Tags       |
 | ------------- | ------------ | ------------------------------------ | ---------- |
 | `x`           | Number       | The X component of the vector.       | Read-Write |
 | `y`           | Number       | The Y component of the vector.       | Read-Write |
@@ -1059,11 +933,11 @@ A four-component vector.
 | `size`        | Number       | The magnitude of the vector.         | Read-Only  |
 | `sizeSquared` | Number       | The squared magnitude of the vector. | Read-Only  |
 
-| Function          | Return Value | Description                                                                                                                                     | Tags |
+| Function          | Return Type | Description                                                                                                                                     | Tags |
 | ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetNormalized()` | Vector4      | Returns a new Vector4 with size 1, but still pointing in the same direction.  Returns (0, 0, 0, 0) if the vector is too small to be normalized. | None |
 
-| Class Function                                    | Return Value | Description                                                                                                     | Tags |
+| Class Function                                    | Return Type | Description                                                                                                     | Tags |
 | ------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ---- |
 | `Lerp(Vector4 from, Vector4 to, Number progress)` | Vector4      | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector4.   | None |
 | `Vector4 + Vector4`                               | Vector4      | Component-wise addition.                                                                                        | None |
@@ -1083,12 +957,12 @@ A four-component vector.
 
 Vfx is a specialized type of SmartObject for visual effects. It inherits everything from SmartObject.
 
-| Function          | Return Value | Description                                                                                                                                                                                 | Tags                |
+| Property          | Return Type | Description                                                                                                                                                                                 | Tags                |
 | ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `team`            | Integer      | Assigns the vfx to a team. Value range from 0 to 4. 0 is neutral team                                                                                                                       | Read-Write, Dynamic |
 | `isTeamColorUsed` | bool         | If true, and the vfx has been assigned to a valid team, players on that team will see a blue vfx, while other players will see red. (Requires a material that supports the color property.) | Read-Write, Dynamic |
 
-| Function | Return Value | Description                | Tags |
+| Function | Return Type | Description                | Tags |
 | -------- | ------------ | -------------------------- | ---- |
 | `Play()` | None         | Starts playing the effect. | None |
 | `Stop()` | None         | Stops playing the effect.  | None |
@@ -1097,9 +971,8 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 
 A Weapon is an Equipment that comes with built-in Abilities and fires Projectiles.
 
-| Property                     | Return Value | Description                                                                                                                                                                                                                                                                    | Tags       |
+| Property                     | Return Type | Description                                                                                                                                                                                                                                                                    | Tags       |
 | ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| `isReticleEnabled`           | bool         | If True, the reticle will appear when this Weapon is equipped.                                                                                                                                                                                                                 | Read-Write |
 | `animationStance`            | string       | When the weapon is equipped this animation stance is applied to the Player.                                                                                                                                                                                                    | Read-Only  |
 | `attackCooldownDuration`     | Number       | Interval between separate burst sequences.                                                                                                                                                                                                                                     | Read-Only  |
 | `multiShotCount`             | Integer      | Number of projectiles/hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack.                                                                                                      | Read-Only  |
@@ -1136,12 +1009,12 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `spreadIncreasePerShot`      | Number       | Amount the Spread increases each time the Weapon attacks.                                                                                                                                                                                                                      | Read-Only  |
 | `spreadPenaltyPerShot`       | Number       | Cumulative penalty to the Spread size for successive attacks. Penalty cools off based on spreadDecreaseSpeed.                                                                                                                                                                  | Read-Only  |
 
-| Function         | Return Value | Description                                                                                                                    | Tags |
+| Function         | Return Type | Description                                                                                                                    | Tags |
 | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------ | ---- |
 | `HasAmmo()`      | bool         | Informs whether the Weapon is able to attack or not.                                                                           | None |
 | `Attack(target)` | None         | Triggers the main ability of the weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None |
 
-| Event                    | Return Value                | Description                                                                                                                                                                                                                                              | Tags                      |
+| Event                    | Return Type                | Description                                                                                                                                                                                                                                              | Tags                      |
 | ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `targetInteractionEvent` | Event&lt;WeaponInteraction> | An event fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which ability was involved in the interaction, etc. Server only. | Server Context, Read-Only |
 | `projectileSpawnedEvent` | Event&lt;WeaponInteraction> | An event fired when a Weapon spawns a projectile.                                                                                                                                                                                                        | Read-Only                 |
@@ -1150,7 +1023,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 A data structure containing all information about a specific weapon interaction, such as collision with a character.
 
-| Property         | Return Value | Description                                                                                                               | Tags      |
+| Property         | Return Type | Description                                                                                                               | Tags      |
 | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `targetObject`   | Object       | Reference to the object/player hit by the weapon.                                                                         | Read-Only |
 | `projectile`     | Projectile   | Reference to a Projectile, if one was produced as part of this interaction.                                               | Read-Only |
@@ -1160,7 +1033,7 @@ A data structure containing all information about a specific weapon interaction,
 | `travelDistance` | Number       | The distance in cm between where the weapon attack started until it impacted something.                                   | Read-Only |
 | `isHeadshot`     | bool         | True if the weapon hit another player in the head.                                                                        | Read-Only |
 
-| Function          | Return Value        | Description                                                                                                                                                                                                             | Tags |
+| Function          | Return Type        | Description                                                                                                                                                                                                             | Tags |
 | ----------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetHitResult()`  | HitResult           | Physics information about the impact between the weapon and the other object.                                                                                                                                           | None |
 | `GetHitResults()` | array&lt;HitResult> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
@@ -1169,11 +1042,11 @@ A data structure containing all information about a specific weapon interaction,
 
 WorldText is an in-world text CoreObject.
 
-| Property | Return Value | Description                              | Tags                |
+| Property | Return Type | Description                              | Tags                |
 | -------- | ------------ | ---------------------------------------- | ------------------- |
 | `text`   | string       | The text being displayed by this object. | Read-Write, Dynamic |
 
-| Function          | Return Value | Description            | Tags    |
+| Function          | Return Type | Description            | Tags    |
 | ----------------- | ------------ | ---------------------- | ------- |
 | `GetColor()`      | Color        | The color of the text. | None    |
 | `SetColor(Color)` | None         | The color of the text. | Dynamic |
@@ -1186,7 +1059,7 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 The CoreDebug API contains functions that may be useful for debugging.
 
-| Function                                                                            | Return Value | Description                                                                                                                                                                 | Tags |
+| Function                                                                            | Return Type | Description                                                                                                                                                                 | Tags |
 | ----------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])`        | Vector3      | draw debug line. optionalParameters is table containing one of the following keys: duration (number) - if &lt;= 0, draw for single frame, thickness (number), color (Color) | None |
 | `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | Vector3      | draw debug box, with dimension specified as a vector. optionalParameters has same options as DrawLine, with addition of: rotation (Rotation) - rotation of the box          | None |
@@ -1207,9 +1080,9 @@ The CoreDebug API contains functions that may be useful for debugging.
 
 ### CoreMath
 
-The CoreMath API contains a group of static math functions.
+The CoreMath API contains a set of math functions.
 
-| Static Function                                            | Return Value | Description                                                                                                                           | Tags |
+| Class Function                                            | Return Type | Description                                                                                                                           | Tags |
 | ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `CoreMath.Clamp(Number value, Number lower, Number upper)` | None         | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1.                           | None |
 | `CoreMath.Lerp(Number from, Number to, Number t)`          | None         | Linear interpolation between from and to.  t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None |
@@ -1217,14 +1090,14 @@ The CoreMath API contains a group of static math functions.
 
 ### Events
 
-User defined events can be specified using the Events namespace. The Events namespace uses the following static functions (called using a `.`):
+User defined events can be specified using the Events namespace. The Events namespace uses the following class functions (called using a `.`):
 
-| Function                                                                   | Return Value                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Tags           |
+| Class Function                                                                   | Return Type                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Tags           |
 | -------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `Connect(string eventName, function eventListener)`                        | EventListener                 | Registers the given function to the event name which will be called every time the event is fired using Broadcast.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.                                                                                                                                                                                                                                                                                                                                                                     | None           |
 | `ConnectForPlayer(string eventName, function eventListener) (Server Only)` | EventListener                 | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.                                                                                                                                                                                                                                                                           | Server Context |
 | `Broadcast(string eventName, args...)`                                     | string                        | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context.                                                                                                                                                                                                                                                                              | None           |
-| `BroadcastToAllPlayers(string eventName, args...)`                         | &lt;resultcode, errorMessage> | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only.                                                                                                    | Server Context |
+| `BroadcastToAllPlayers(string eventName, args...)`                         | &lt;result code, errorMessage> | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only.                                                                                                    | Server Context |
 | `BroadcastToPlayer(Player player, string eventName,args...)`               | &lt;resultcode, errorMessage> | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Server-only. | Server Context |
 | `BroadcastToServer(string eventName,args...)`                              | &lt;resultcode, errorMessage> | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only.                                                                                   | Client Context |
 
@@ -1251,7 +1124,7 @@ User defined events can be specified using the Events namespace. The Events name
 
 Game is a collection of functions and events related to players in the game, rounds of a game, and team scoring.
 
-| Function                                                                    | Return Value     | Description                                                                                                                                                                                                                                                                                   | Tags           |
+| Function                                                                    | Return Type     | Description                                                                                                                                                                                                                                                                                   | Tags           |
 | --------------------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `GetLocalPlayer()`                                                          | Player           | Returns the local player (Client-only).                                                                                                                                                                                                                                                       | Client Context |
 | `GetPlayers([table Parameters])`                                            | array&lt;Player> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned:                                                                                                                                 | None           |
@@ -1271,7 +1144,7 @@ Game is a collection of functions and events related to players in the game, rou
 | `DecreaseTeamScore(team, scoreChange)`                                      | None             | Decreases one team's score.                                                                                                                                                                                                                                                                   | Server Context |
 | `ResetTeamScores()`                                                         | None             | Sets all teams' scores to 0.                                                                                                                                                                                                                                                                  | Server Context |
 
-| Event                   | Return Value        | Description                                                                                      | Tags                      |
+| Event                   | Return Type        | Description                                                                                      | Tags                      |
 | ----------------------- | ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------- |
 | `playerJoinedEvent`     | Event&lt;Player>    | Event fired when a player has joined the game and their character is ready.                      | Read-Only                 |
 | `playerLeftEvent`       | Event&lt;Player>    | Event fired when a player has disconnected from the game or their character has been destroyed.  | Read-Only                 |
@@ -1282,18 +1155,18 @@ Game is a collection of functions and events related to players in the game, rou
 
 ### Teams
 
-The Teams API contains a group of static functions for dealing with teams and team settings.
+The Teams API contains a set of class functions for dealing with teams and team settings.
 
-| Function                                               | Return Value | Description                                                                                                               | Tags |
+| Function                                               | Return Type | Description                                                                                                               | Tags |
 | ------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Teams.AreTeamsEnemies(Integer team1, Integer team2)`  | bool         | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None |
 | `Teams.AreTeamsFriendly(Integer team1, Integer team2)` | bool         | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns true. | None |
 
 ### UI
 
-The UI API contains a group of static functions allowing you to push information to the HUD. All functions take a player as an argument to select which player's UI to modify. In addition, there are a number of UI widgets that will replicate and appear on player screens the same way CoreObjects appear in the world. They must be under a Canvas to be displayed. If Canvases exist only on a client, outside of a NetworkContext, they will always display on top of all other UI valid elements.
+The UI API contains a set of class functions allowing you to get information about a player's display and push information to their HUD. Most functions require the script to be inside a ClientContext and execute for the local player.
 
-| Function                                                                                                   | Return Value | Description                                                                                                                                                                                                                                                                                                                                                                                 | Tags           |
+| Function                                                                                                   | Return Type | Description                                                                                                                                                                                                                                                                                                                                                                                 | Tags           |
 | ---------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `UI.ShowFlyUpText(string message, Vector3, [table])`                                                       | Vector3      | (Client only) Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the text.  Default is white; isBig (boolean) - When true, larger text is used. | Client Context |
 | `UI.ShowDamageDirection(Vector3 world point)`                                                              | Vector3      | (Client only) Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds.                                                                                                                                                                                                                                                                                          | Client Context |
@@ -1314,11 +1187,122 @@ The UI API contains a group of static functions allowing you to push information
 | `UI.GetCursorHitResult()`                                                                                  | HitResult    | Return hit result from local client's view in direction of the projected cursor position. Meant for client-side use only, for ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in topdown camera mode                                                                                                       | None           |
 | `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, Vector3 planeNormal [optional default to up vector])` | Vector       | return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0)).                                                                                                                                          | None           |
 
+### UIButton
+
+A UIControl for a button, should be inside client context.
+
+| Property         | Return Type | Description                                                          | Tags |
+| ---------------- | ------------ | -------------------------------------------------------------------- | ---- |
+| `text`           | string       | Returns the button label text.                                       | None |
+| `fontSize`       | string       | Returns the Font size for label text.                                | None |
+| `isInteractable` | bool         | Returns whether button can interact with cursor (click, hover, etc). | None |
+
+| Function                    | Return Type | Description                                   | Tags |
+| --------------------------- | ------------ | --------------------------------------------- | ---- |
+| `GetButtonColor()`          | Color        | Get button default color.                     | None |
+| `SetButtonColor(Color)`     | None         | Set button default color.                     | None |
+| `GetHoveredColor()`         | Color        | Get button color when hovered.                | None |
+| `SetHoveredColor(Color)`    | None         | Set button color when hovered.                | None |
+| `GetPressedColor()`         | Color        | Get button color when pressed.                | None |
+| `SetPressedColor(Color)`    | None         | Set button color when pressed.                | None |
+| `GetDisabledColor()`        | Color        | Get button color when it's not interactable. | None |
+| `SetDisabledColor(Color)`   | None         | Set button color when it's not interactable.  | None |
+| `GetFontColor()`            | Color        | Get font color.                               | None |
+| `SetFontColor(Color)`       | None         | Set font color.                               | None |
+| `SetImage(brushMuidString)` | None         | Set image.                                    | None |
+
+| Event            | Return Type              | Description                                                                                                                                | Tags      |
+| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| `clickedEvent`   | Event&lt;UIButton> | Called when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only |
+| `pressedEvent`   | Event&lt;UIButton> | Called when button is pressed (mouse button down).                                                                                         | Read-Only |
+| `releasedEvent`  | Event&lt;UIButton> | Called when button is released (mouse button up).                                                                                          | Read-Only |
+| `hoveredEvent`   | Event&lt;UIButton> | Called when button is hovered.                                                                                                             | Read-Only |
+| `unhoveredEvent` | Event&lt;UIButton> | Called when button is unhovered.                                                                                                           | Read-Only |
+
+### UIContainer
+
+A UIControl indicates which child UI elements should be rendered. Does not have a position or size (it always is the size of the entire screen).
+
+Has no properties or functions.
+
+### UIControl
+
+UIControl is a CoreObject which serves as a base class for other UI controls.
+
+| Property        | Return Type | Description                          | Tags |
+| --------------- | ------------ | ------------------------------------ | ---- |
+| `x`             | Number       | Screen-space offset from the anchor. | None |
+| `y`             | Number       | Screen-space offset from the anchor. | None |
+| `width`         | Number       | Horizontal size of the control.      | None |
+| `height`        | Number       | Vertical size of the control.        | None |
+| `rotationAngle` | Number       | rotation angle of the control.       | None |
+
+### UIImage
+
+A UIControl for displaying an image.
+
+| Property          | Return Type | Description                                                                          | Tags |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------ | ---- |
+| `isTeamColorUsed` | bool         | If true, the image will be tinted blue if its team matches the player, or red if not | None |
+| `team`            | Integer      | the team of the image, used for isTeamColorUsed                                      | None |
+
+| Function            | Return Type | Description                                                                          | Tags |
+| ------------------- | ------------ | ------------------------------------------------------------------------------------ | ---- |
+| `GetColor()`        | Color        | The tint to apply to the image                                                       | None |
+| `SetColor(Color)`   | None         | The tint to apply to the image                                                       | None |
+| `GetImage()`        | string       | Returns the imageId assigned to this Image control.                                  | None |
+| `SetImage(imageId)` | None         | Set image. You can get this muid from an asset reference.                            | None |
+| `SetImage(Player)`  | None         | Downloads and sets a Player's profile picture as the texture for this Image control. | None |
+
+### UIPanel
+
+A UIControl which can be used for containing and laying out other UI controls.
+
+| Property                   | Return Type | Description                                                          | Tags |
+| -------------------------- | ------------ | -------------------------------------------------------------------- | ---- |
+| `shouldClipChildren` | bool         | If True, children of this panel will not draw outside of its bounds. | None |
+
+### UIProgressBar
+
+A UIControl that displays a filled rectangle which can be used for things such as a health indicator.
+
+| Property   | Return Type | Description                              | Tags |
+| ---------- | ------------ | ---------------------------------------- | ---- |
+| `progress` | Number       | From 0 to 1, how full the bar should be. | None |
+
+| Function              | Return Type | Description            | Tags |
+| --------------------- | ------------ | ---------------------- | ---- |
+| `GetFillColor()`      | Color        | The color of the fill. | None |
+| `SetFillColor(Color)` | None         | The color of the fill. | None |
+
+### UIScrollPanel
+
+A UIControl that supports scrolling a child UIControl that is larger than itself.
+
+Has no additional API properties or functions.
+
+### UIText
+
+A UIControl which displays a basic text label.
+
+| Property         | Return Type | Description                                                                                                                | Tags |
+| ---------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `text`           | string       | The actual text string to show.                                                                                            | None |
+| `fontSize`       | Number       | Font size                                                                                                                  | None |
+| `justification`  | TextJustify  | Determines the alignment of text.  Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER. | None |
+| `shouldWrapText` | bool         | Whether or not text should be wrapped within the bounds of this control.                                                   | None |
+| `shouldClipText` | bool         | Whether or not text should be clipped when exceeding the bounds of this control.                                           | None |
+
+| Function          | Return Type | Description            | Tags |
+| ----------------- | ------------ | ---------------------- | ---- |
+| `GetColor()`      | Color        | The color of the text. | None |
+| `SetColor(Color)` | None         | The color of the text. | None |
+
 ### World
 
 World is a collection of functions for finding objects in the world.
 
-| Function                                                        | Return Value         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Tags |
+| Function                                                        | Return Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Tags |
 | --------------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetRootObject()`                                               | CoreObject           | Returns the root of the CoreObject hierarchy.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | None |
 | `FindObjectsByName(string name)`                                | array&lt;CoreObject> | Returns a table containing all the objects in the hierarchy with a matching name.  If none match, an empty table is returned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | None |
@@ -1330,7 +1314,7 @@ World is a collection of functions for finding objects in the world.
 
 ### Core Lua Functions
 
-| Function                 | Return Value | Description                                                                                                                                                                                                                                    | Tags |
+| Function                 | Return Type | Description                                                                                                                                                                                                                                    | Tags |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Tick(Number deltaTime)` | Number       | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in ms) between this and the last tick. | None |
 | `time()`                 | Number       | Returns the time in seconds (floating point) since the game started on the server.                                                                                                                                                             | None |
@@ -1438,13 +1422,13 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 8D4B561900000092:Rabbit
 
 The important part is the 16 digits at the start. The colon and everything after it are optional and are there to make it easier to read. Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate. When used in a script, it needs to be surrounded by single quotes to make it a string. For example:
-
+<!-- markdownlint-disable -->
 ```lua
 local spawnTrans = script.parent:GetWorldTransform()
 local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
 game:SpawnTemplate('8D4B561900000092:Rabbit', spawnTrans, anchor)
 ```
-
+<!-- markdownlint-enable -->
 ### Animation
 
 General Ability Animation Information
@@ -1723,6 +1707,7 @@ Currently cannot mix the lower body of this pose with other animation stances (h
 `unarmed_death_spin` - A full body animation that spins 360 and then falls to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is.
 
 ??? note "How to Turn on Ragdoll"
+
     ```lua
     ability.owner.active_pose = "unarmed_death"
     Task.Wait(0.9)
@@ -1856,7 +1841,7 @@ be interrupted (or fail to start) if you execute an active pose animation.
     * Right Alt = ability_extra_15
     * Return = ability_extra_16
     * Spacebar = ability_extra_17
-    * Capslock = ability_extra_18
+    * Caps lock = ability_extra_18
     * Tab = ability_extra_19
     * Q = ability_extra_20
     * W = ability_extra_21

@@ -1,3 +1,6 @@
+* text=auto
+*.md text eol=lf
+src/assets/* linguist-vendored
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
