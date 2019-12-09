@@ -1,6 +1,10 @@
 # Manticore TV
 
+<!-- TODO: Enable when account is unlocked for embedding
+
 ![YOUTUBELIVE](UCBPqo7cK1bktfRfMGAAqnbQ){: .center}
+
+-->
 
 ## Watch and Play with ManticoreTV
 
