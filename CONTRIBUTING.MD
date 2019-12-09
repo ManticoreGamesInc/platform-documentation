@@ -24,9 +24,9 @@ In case you only want to do some small wording changes, just use the GitLab WebU
     - In "**Configuring the terminal emulator**" use "**Use Windows' default console window**".
     - In "**Configuring extra options**", check all three boxes.
 
-3. Create a new [GitLab](https://gitlab.com/) account associated with your Manticore email. <!-- TODO: Adjust when public -->
+3. Create a new [GitLab](https://gitlab.com/) account, use your Manticore email if your are an employee.
 
-4. Fork the repository <!-- TODO: Clarify for Manticore Employees -->
+4. Fork the repository, no need to do this for Manticore employees, use main repo branches instead.
 
 5. Clone the forked repository
     - Open the command prompt.
@@ -44,6 +44,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
     - Navigate to `http://127.0.0.1:8000/` in your browser. The page will automatically refresh upon saving.
 
 7. Install an [EditorConfig](https://editorconfig.org/) extension for your editor.
+8. Install a [MarkdownLint](https://github.com/DavidAnson/markdownlint) extension for your editor.
 
 Now you are ready to write!
 
@@ -55,7 +56,7 @@ Now you are ready to write!
 - Go to `mkdocs.yml` and add it to the index of pages, following the existing format. (e.g. `- Camera Controls: Tutorials/learn_camera.md`)
 - Commit any changes to your branch and push to your repository. (e.g. `git push origin camera-controls`)
 - When you are done and your changes meet all of [our requirements](DOCUMENTATION.md), create a new merge request on GitLab, requesting your feature branch to be merged into `production`.
-- Our system will automatically build a version of the site for you to view live (check `#docs-updates` in Slack). <!-- TODO: Add GitHub CI info if we move -->
+- Our system will automatically build a version of the site for you to view live (check `#docs-updates` in Slack).
 - Others can then comment on the merge request. Once it has been audited it will be merged to `production` and later `production-publish` which will make your content appear on the main site.
 
 ## Staying up to Date
