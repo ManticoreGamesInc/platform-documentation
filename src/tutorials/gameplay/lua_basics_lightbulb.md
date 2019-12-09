@@ -357,7 +357,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 11. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
-
+<!-- markdownlint-disable -->
     !!! info "Best Practices: Organizing your code"
         It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of what your functions do. It can also make finding specific functions in your script easier.
 
@@ -380,7 +380,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
         At CORE, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
-
+<!-- markdownlint-restore -->
 ### Spawning a Light
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
