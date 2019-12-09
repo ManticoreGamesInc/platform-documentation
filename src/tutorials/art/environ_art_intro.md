@@ -163,7 +163,7 @@ Assign a Textured Paintable material to the terrain by dragging and dropping it 
 
 3. Select the cube we applied the **Generic Water** material to. Go to the **Transform** section in the cube's **Properties** tab and **right click** on the word **Position**. Click **Copy Position**.
 
-   Now select the **Underwater Post Process** volume and go its **Transform** section in its **Properties** tab. Right click on Position and select **Paste Last Copied (...)**. Now the **Underwater** volume is positioned where our water is.
+   Now select the **Underwater Post Process** volume and go its **Transform** section in its **Properties** tab. Right click on Position and select **Paste Last Copied ...**. Now the **Underwater** volume is positioned where our water is.
 
 4. We need to resize the **Underwater Post Process** volume so it is the same size as our water. Repeat the copy and paste process we just used to change the **Underwater** volume's **Transform** properties, but with **Scale**.
 
