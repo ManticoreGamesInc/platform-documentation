@@ -1418,13 +1418,13 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 8D4B561900000092:Rabbit
 
 The important part is the 16 digits at the start. The colon and everything after it are optional and are there to make it easier to read. Some Lua functions use MUIDs, for example FindObjectById and SpawnTemplate. When used in a script, it needs to be surrounded by single quotes to make it a string. For example:
-
+<!-- markdownlint-disable -->
 ```lua
 local spawnTrans = script.parent:GetWorldTransform()
 local anchor = game:FindObjectById('8D4B5619000000ED:Anchor')
 game:SpawnTemplate('8D4B561900000092:Rabbit', spawnTrans, anchor)
 ```
-
+<!-- markdownlint-enable -->
 ### Animation
 
 General Ability Animation Information

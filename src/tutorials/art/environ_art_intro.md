@@ -12,10 +12,10 @@ categories:
 
 ## Overview
 
-Learning modelling basics in CORE by making delicious food. (TODO)
+Learning modelling basics in CORE by making delicious food. <!-- TODO: Intro Text -->
 
-* **Completion Time:** ~20 minutes (TODO)
-* **Knowledge Level:** Basic editor (TODO)
+* **Completion Time:** ~20 minutes <!-- TODO: Completion Time -->
+* **Knowledge Level:** Basic editor <!-- TODO: Knowledge Level -->
 * **Skills you will learn:**
     * Generating terrain
     * Creating swimmable volumes
@@ -276,9 +276,9 @@ You can also spawn individual objects using the **Object Generator**'s settings 
 !!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
 
 Continue using the **Object Generator** to decorate your scene. When you are done, delete the duplicate water cube.
-
+<!--
 ## Summary
 
-TODO: Add text
+ TODO: Add summary text -->
 
 ![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
