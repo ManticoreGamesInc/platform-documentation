@@ -146,15 +146,79 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
 
-2. Change the name of the ability to "FireFly".  
+2. Change the name of the ability to "FireFly".
 
 3. Create a new script, and call it "FlyAbilityServer"--this is where all the code for causing the ability to happen will go.
 
 4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
 
-5. Open the script and let's get typing! 
+5. Open the script and let's get typing!
 
-     1. wordswordswords
+     1. We're going to create a reference to the `equipment` (which is also the `weapon`--the fire staff object--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
+
+     Type the below code to create variables for the `equipment` and the `ability`:
+
+         ```lua
+         local EQUIPMENT = script:FindAncestorByType('Equipment')
+         if not EQUIPMENT:IsA('Equipment') then
+             error(script.name .. " should be part of Equipment object hierarchy.")
+         end
+         local ABILITY = script:FindAncestorByType('Ability')
+         if not ABILITY:IsA('Ability') then
+             error(script.name .. " should be part of Ability object hierarchy.")
+         end
+         ```
+     2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
+
+         ```lua
+         local diedHandle = nil
+         ```
+
+     3.  Next is the function that does that turning off of the flying state by activating walking again:
+
+         ```lua
+         function OnPlayerDied(player, damage)
+             player:ActivateWalking()
+         end
+         ```
+
+     4. Equipped/Unequipped:
+
+         ```lua
+         function OnEquipped(equipment, player)
+             diedHandle = player.diedEvent:Connect(OnPlayerDied)
+         end
+
+         function OnUnequipped(equipment, player)
+             if diedHandle then diedHandle:Disconnect() end
+             player:ActivateWalking()
+         end
+         ```
+
+     5. Start/Stop Flying:
+
+          ```lua
+          function StartFlying(ability)
+              ability.owner:ActivateFlying()
+          end
+
+          function StopFlying(ability)
+              ability.owner:ActivateWalking()
+          end
+         ```
+
+     6. Event Connects:
+
+          ```lua
+          ABILITY.executeEvent:Connect(StartFlying)
+          ABILITY.cooldownEvent:Connect(StopFlying)
+          EQUIPMENT.equippedEvent:Connect(OnEquipped)
+          EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+         ```
+
+6. Properties window:
+
+     1. Change the numbers
 
 ### Right Click to Aim
 
