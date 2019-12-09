@@ -86,6 +86,8 @@ Connecting functions to events in an ability is the main task to be done when cr
 
 ## Altering Properties the Easy Way: The Ability Object
 
+[PHOTO HERE]
+
 CORE allows building gameplay with as little or as much scripting as you would like. A powerful aspect of abilities is that they are kept in an Ability Object. This is a single Hierarchy object that holds all the most useful proprties you might want to change to make your specific ability unique.
 
 Using an Ability object in combination with scripting makes it similar to a data structure; an ability object is a nice single location to test different variables.
@@ -110,11 +112,17 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
      1. You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**.
 
-     2. Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
+     2. Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.  
 
-4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!
+     [PHOTO HERE]
+
+4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!  
+
+     [PHOTO HERE]
 
 5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied!
+
+     [PHOTO HERE]
 
 ### Modifying the Animations
 
@@ -124,7 +132,9 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
     2. On the AttackAbility that already exists on the weapon, change the **Animation** in the Properties window to "2hand_staff_magic_bolt" as well.
 
-    3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvinated.
+    3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvinated.  
+
+[PHOTO HERE]
 
 ### Explosive Visual Effects
 
@@ -142,6 +152,8 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
          - Activated the moment a player is hit with a projectile.
 
+[PHOTO HERE]
+
 ### Fire Fly Ability
 
 1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
@@ -151,6 +163,8 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 3. Create a new script, and call it "FlyAbilityServer"--this is where all the code for causing the ability to happen will go.
 
 4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
+
+     [PHOTO HERE - Hierarchy]
 
 5. Open the script and let's get typing!
 
@@ -224,7 +238,9 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 6. Now that we've written the script for flying to work, we can adjust things from simply within the Properties window with the FireFly `ability` object selected.  
 
-     This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
+     This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.  
+
+     [PHOTO HERE]
 
      1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
 
@@ -248,6 +264,8 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
      Try it out and feel for the time lengths we entered--maybe you want a short or longer fly time, or a lower Cooldown so that it can be used more frequently. Adjust the values in the Execute and Cooldown sections to change these aspects.
 
+[PHOTO HERE]
+
 ### Right Click to Aim
 
 We're going to add the ability to focus zoom with right click for better aiming!
@@ -262,7 +280,9 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
      4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
 
-     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
+     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.  
+
+     [PHOTO HERE]
 
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
@@ -469,7 +489,9 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 12. We've written the script, but we can't forget to add it to our fire staff object.
 
-     Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!
+     Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!  
+
+     [PHOTO HERE]
 
 So this was the first half of the camera aim setup--we have created a script for the client context, that only each individual player uses. The next part is the script that will live in a server context, as this is the part that needs to be replicated back to the server.
 
@@ -483,7 +505,9 @@ So let's get started on the server script!
 
      Here is where we will keep our new script!
 
-3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.
+3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.  
+
+[PHOTO HERE]
 
 4. Next is adding in the coding sections--open up the new script to begin.
 
@@ -614,7 +638,9 @@ So let's get started on the server script!
          WEAPON.unequippedEvent:Connect(OnUnequipped)
          ```
 
-Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
+Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!  
+
+[PHOTO HERE]
 
 ### Critical Hit Headshots
 
@@ -626,9 +652,13 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
      1. Add a custom property of type Int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.
 
-     2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
+     2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.  
 
-2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.
+     [PHOTO HERE]
+
+2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.  
+
+     [PHOTO HERE]
 
 3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.
 
@@ -688,7 +718,9 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
          WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
          ```
 
-4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.
+4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.  
+
+     [PHOTO HERE]
 
      1. In **CORE Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
 
