@@ -115,5 +115,6 @@ Some materials have properties specific to them. For example, the ceramic materi
 ![Materials](../../img/Materials/image6.png "Materials Screenshot"){: .center}
 
 ![Materials](../../img/Materials/image4.png "Materials Screenshot"){: .center}
-
+<!-- TODO: Summary Text
 ## Summary
+-->
