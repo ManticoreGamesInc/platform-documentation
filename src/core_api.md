@@ -276,14 +276,18 @@ A reference to a CoreObject which may or may not exist. This type is returned by
 
 To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
-| Property        | Return Type  | Description                                                                                                                                                    | Tags       |
-| --------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `amount`        | Number        | The numeric amount of damage to inflict.                                                                                                                       | Read-Write |
-| `reason`        | Damage/Reason | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC | Read-Write |
-| `sourceAbility` | Ability       | Reference to the Ability which caused the Damage. Setting this automatically sets sourceAbilityName.                                                           | Read-Write |
-| `sourcePlayer`  | Player        | Reference to the Player who caused the Damage. Setting this automatically sets sourcePlayerName.                                                               | Read-Write |
+| Constructor                   | Return Type   | Description                                                               | Tags |
+| ----------------------------- | ------------- | ------------------------------------------------------------------------- | ---- |
+| `Damage.New([Number amount])` | Damage        | Construct a damage object. The amount of damage is an optional parameter. | None |
 
-| Function                  | Return Type | Description                                                                         | Tags |
+| Property        | Return Type   | Description                                                                                                                                                      | Tags       |
+| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `amount`        | Number        | The numeric amount of damage to inflict.                                                                                                                         | Read-Write |
+| `reason`        | DamageReason  | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC   | Read-Write |
+| `sourceAbility` | Ability       | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a player.| Read-Write |
+| `sourcePlayer`  | Player        | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a player.    | Read-Write |
+
+| Function                  | Return Type  | Description                                                                         | Tags |
 | ------------------------- | ------------ | ----------------------------------------------------------------------------------- | ---- |
 | `GetHitResult()`          | HitResult    | Get the HitResult information if this damage was caused by a Projectile impact.     | None |
 | `SetHitResult(HitResult)` | None         | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
