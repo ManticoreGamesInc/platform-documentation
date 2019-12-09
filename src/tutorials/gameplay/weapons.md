@@ -67,9 +67,9 @@ So, let's get started!
 
 3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
 
-   1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibilty of these gizmos.
+   1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibility of these gizmos.
 
-   2. The look of the weapon can be made from any CORE primitaves and shapes, or you can use the **DEFAULT MODEL**.
+   2. The look of the weapon can be made from any CORE primitives and shapes, or you can use the **DEFAULT MODEL**.
 
       This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
@@ -157,9 +157,9 @@ Now all the basics are hooked up! The gun should be able to shoot and kill other
 
 ### Adding Visual Effects
 
-Right now, it's not super satsifying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
+Right now, it's not super satisfying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
 
-CORE has tons of visual effects and sound effects (often abbreviated to *vfx* and *sfx*) built-in that we can drag and drop onto the weapon.
+CORE has tons of visual effects and sound effects (often abbreviated to *VFX* and *SFX*) built-in that we can drag and drop onto the weapon.
 
 Let's start adding in some cool effects--starting with the moment of impact.
 
@@ -169,7 +169,7 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
     This visual effect is a little poof of smoke that happens briefly when played.
 
-   1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poff of dust, try changing the color property to whatever you'd like.
+   1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
 
       TODO: GIF HERE
 
@@ -177,9 +177,9 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
 2. Next, let's grab an audio object to make sounds when a player is shot.
 
-   1. In **CORE Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
+   1. In **CORE Content**, search for "bullet body" and several different bullet impact FX objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact FX" and drag it into our project Hierarchy.
 
-   2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
+   2. With this FX selected in our Hierarchy, look in the **Properties** window. To enable our FX to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
 
       Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
 
