@@ -1468,27 +1468,6 @@ All ability animations have a long "tail" that gracefully transitions the charac
 * This animation supports a variable cast phase time.
 * This animation supports a time stretched execute phase time
 
-`1hand_melee_rm_combo_opener_vertical_slash` - A horizontal melee swing to the left.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as a combo opener.
-
-`1hand_melee_rm_combo_middle_diagonal_slash` - A diagonal melee swing to the right.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
-
-`1hand_melee_rm_combo_closer_uppercut` - an uppercut.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as a combo closer.
-
 `1hand_melee_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
 
 * works best with a cast phase duration of  0.31 or less
@@ -1513,27 +1492,6 @@ All ability animations have a long "tail" that gracefully transitions the charac
 * This animation supports a time stretched execute phase time
 
 `2hand_sword_thrust` - A forward sword thrust melee attack.
-
-`2hand_sword_rm_combo_opener_cone` - A horizontal melee swing to the left.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as a combo opener.
-
-`2hand_sword_rm_combo_middle_spin` - A spin.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as the middle attack in a 3 hit combo.
-
-`2hand_sword_rm_combo_closer_spin` - a jumping spin.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-* has root motion
-* can be used in any context, despite its original intention as a combo closer.
 
 `2hand_sword_unsheathe` - Pulls the one-handed melee weapon from a belt sheath.
 
@@ -1578,11 +1536,6 @@ All ability animations have a long "tail" that gracefully transitions the charac
 * This animation works best with a cast phase duration of  0.22 or less
 
 #### Unarmed Strings
-
-`unarmed_kick_ball` - A kick motion that moves the character forward as well.
-
-* This animation works best with a cast phase duration of  0.18 or less
-* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script.
 
 `unarmed_dance` - Stand in place and dance.
 
@@ -1635,11 +1588,6 @@ All ability animations have a long "tail" that gracefully transitions the charac
 `unarmed_punch_right` - A right punch animation.
 
 * This animation supports a variable cast time.
-
-`unarmed_roll` - A roll animation that moves the character forward.
-
-* This animation has root motion, and is designed to play full body.  Controller/mouse rotation can affect the course of the roll by default, but this behavior can be changed in the ability script.
-* The root motion on this animation leaves the ground and travels upward.  In order for gravity not to affect this animated upward motion, a creator would ideally set the "flying_mode" to true for at least .45 seconds (longer is ok too).  For more information on flying_mode, see the AbilityPhase section above.
 
 `unarmed_throw` - An over-the-shoulder right-handed throw animation.
 
@@ -1722,102 +1670,6 @@ Currently cannot mix the lower body of this pose with other animation stances (h
     ability.owner:EnableRagdoll("right_hip", .6, true)
     ability.owner:EnableRagdoll("left_hip", .6, true)
     ```
-
-### One Shot Animation Information
-
-One Shot Animations will:
-work regardless of which animation skeleton (gender) or outfit you are wearing.
-be interrupted (or fail to start) if you are moving, jumping, or falling.
-be interrupted if you execute an ability with a defined ability animation.
-be interrupted (or fail to start) if you execute an active pose animation.
-
-??? note "One Shot Animation Strings"
-    * base_unarmed_ball_kick
-    * base_unarmed_magic_bolt
-    * base_unarmed_left_punch
-    * base_unarmed_right_punch
-    * base_unarmed_roll
-    * base_unarmed_throw
-    * base_unarmed_dance
-    * base_unarmed_fetal
-    * base_unarmed_carry_object_heavy
-    * base_unarmed_carry_object_high
-    * base_unarmed_carry_object_low
-    * base_unarmed_score_card
-    * base_unarmed_sit_car_low
-    * base_unarmed_idle
-    * base_unarmed_idle_relaxed
-    * base_unarmed_idle_to_idle_relaxed
-    * base_unarmed_jump_begin
-    * base_unarmed_jump_cycle
-    * base_unarmed_jump_end
-    * base_unarmed_run_backward
-    * base_unarmed_run_backward_left
-    * base_unarmed_run_backward_right
-    * base_unarmed_run_forward
-    * base_unarmed_run_forward_left
-    * base_unarmed_run_forward_right
-    * base_unarmed_run_forward_stop
-    * base_unarmed_run_left
-    * base_unarmed_run_right
-    * base_unarmed_walk_backward
-    * base_unarmed_walk_backward_left
-    * base_unarmed_walk_backward_right
-    * base_unarmed_walk_forward
-    * base_unarmed_walk_forward_left
-    * base_unarmed_walk_forward_right
-    * base_unarmed_walk_left
-    * base_unarmed_walk_right
-    * base_1h_left_sweep
-    * base_1h_right_sweep
-    * base_1h_idle
-    * base_1h_idle_relaxed
-    * base_1h_idle_to_idle_relaxed
-    * base_1h_jump_begin
-    * base_1h_jump_cycle
-    * base_1h_jump_end
-    * base_1h_run_backward
-    * base_1h_run_backward_left
-    * base_1h_run_backward_right
-    * base_1h_run_forward
-    * base_1h_run_forward_left
-    * base_1h_run_forward_right
-    * base_1h_run_forward_stop
-    * base_1h_run_left
-    * base_1h_run_right
-    * base_1h_walk_backward
-    * base_1h_walk_backward_left
-    * base_1h_walk_backward_right
-    * base_1h_walk_forward
-    * base_1h_walk_forward_left
-    * base_1h_walk_forward_right
-    * base_1h_walk_left
-    * base_1h_walk_right
-    * base_crossbow_magazine_reload
-    * base_crossbow_shoot
-    * base_crossbow_idle
-    * base_crossbow_idle_relaxed
-    * base_crossbow_idle_to_idle_relaxed
-    * base_crossbow_jump_begin
-    * base_crossbow_jump_cycle
-    * base_crossbow_jump_end
-    * base_crossbow_run_backward
-    * base_crossbow_run_backward_left
-    * base_crossbow_run_backward_right
-    * base_crossbow_run_forward
-    * base_crossbow_run_forward_left
-    * base_crossbow_run_forward_right
-    * base_crossbow_run_forward_stop
-    * base_crossbow_run_left
-    * base_crossbow_run_right
-    * base_crossbow_walk_backward
-    * base_crossbow_walk_backward_left
-    * base_crossbow_walk_backward_right
-    * base_crossbow_walk_forward
-    * base_crossbow_walk_forward_left
-    * base_crossbow_walk_forward_right
-    * base_crossbow_walk_left
-    * base_crossbow_walk_right
 
 ### Ability Binding list
 
