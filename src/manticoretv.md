@@ -1,6 +1,10 @@
 # Manticore TV
 
+<!-- TODO: Enable when account is unlocked for embedding
+
 ![YOUTUBELIVE](UCBPqo7cK1bktfRfMGAAqnbQ){: .center}
+
+-->
 
 ## Watch and Play with ManticoreTV
 
@@ -11,6 +15,6 @@ We want everyone to experience that magic, so we created ManticoreTV. Join us an
 ### Where can I watch ManticoreTV
 
 * :fab fa-facebook: [Facebook](https://www.facebook.com/groups/playcoregames)
-* :fab fa-youtube: [YouTube](https://www.youtube.com/embed/live_stream?channel=UCBPqo7cK1bktfRfMGAAqnbQ)
+* :fab fa-youtube: [YouTube](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ)
 
 ### Upcoming Schedule
