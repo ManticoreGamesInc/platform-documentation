@@ -1333,24 +1333,24 @@ For security reasons, various built-in Lua functions have been restricted or rem
 
 ??? "Built-In Lua Functions"
     * assert
-    * collectgarbage †
+    * collectgarbage (modified)
     * error
-    * getmetatable †
+    * getmetatable (modified)
     * ipairs
     * next
     * pairs
     * pcall
-    * print †
+    * print (modified)
     * rawequal
-    * rawget †
-    * rawset †
-    * require †
+    * rawget (modified)
+    * rawset (modified)
+    * require (modified)
     * select
-    * setmetatable †
+    * setmetatable (modified)
     * tonumber
     * tostring
     * type
-    * \_G †
+    * \_G (modified)
     * \_VERSION
     * xpcall
     * coroutine.create
