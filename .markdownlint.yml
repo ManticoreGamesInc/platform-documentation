@@ -1,8 +1,0 @@
-default: true
-handleRuleFailures: true
-no-hard-tabs: false
-MD007:
-  indent: 4
-MD013: false
-MD033: false
-MD046: "consistent"
