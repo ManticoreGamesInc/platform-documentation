@@ -14,7 +14,7 @@ categories:
 
 With CORE™, there is a massive, in-built library of high quality background music, sound effects, and instruments for a variety of genres and moods. You can drag and drop an Audio CoreObject from the **CORE Content** tab and customize its properties, which is also exposed for use in Lua scripts.
 
-When a player makes an action like jumping or running in CORE, sound effects (like grunts or footsteps) play by default in the client. In addition, sound effects in CORE are dynamic and change depending on whether a character is running over water or brick.
+When a player makes an action like jumping or running in CORE, sound effects (like grunts or footsteps) play by default in the client. There are currently 1000+ sfx, music, and instrument assets for you to create any soundscape you want. The properties you can edit on audio assets allow for you to morph sounds. Most sounds are dynamically produced, meaning you do not have to worry about repeating sounds sounding monotonous and robotic. For example, the gunshot sounds will never sound the exact same every time and footstep sound effects also change depending on whether a character is running over water or brick.
 
 ### How to Play Audio
 
