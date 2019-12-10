@@ -72,11 +72,11 @@ extra_css:
 
 extra_javascript:
   - "assets/javascripts/manticore.js"
-  - "assets/sw.js"
+  - "sw.js"
 
 # Additional data
 extra:
-  manifest: "assets/manifest.json"
+  manifest: "manifest.json"
   social:
     - type: "discord"
       link: "https://discord.gg/85k8A7V"
@@ -136,7 +136,7 @@ edit_uri: edit/production/src
 # Metadata
 site_description: Documentation for the CORE Platform
 site_author: Manticore Games
-site_url: https://docs.coregames.com
+site_url: https://www.coregames.com/docs
 
 # Copyright
 copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
