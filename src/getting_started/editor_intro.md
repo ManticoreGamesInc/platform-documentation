@@ -32,7 +32,7 @@ If you decide to work on something new, you start the Editor directly via CORE L
 1. Character - Your place to customize your CORE Avatar.
 2. Create - Where games directly authored by you live.
 3. Games - A link to the game browser on [coregames.com](https://www.coregames.com/games).
-4. Documentation - A link to our [documentation platform](https://docs.coregames.com) that in addition to our API also houses a ton of tutorials to get you started.
+4. Documentation - A link to our [documentation platform](https://www.coregames.com/docs) that in addition to our API also houses a ton of tutorials to get you started.
 5. Discord - A link to the [CORE Creator Discord](https://discord.gg/85k8A7V).
 6. Feedback - A link to [a form to submit feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform).
 7. User Dropdown - Here you can log out or exit CORE.
