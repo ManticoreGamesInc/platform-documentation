@@ -257,8 +257,6 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **A:** Up to 32 players for Alpha.
 
----
-
 ## Performance
 
 > **Q:** How does kit bashing work with performance?
