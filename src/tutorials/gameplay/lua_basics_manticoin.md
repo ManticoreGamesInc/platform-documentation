@@ -115,10 +115,10 @@ Let's make a script called `PickupCoin` and place it as the child of the trigger
 ```lua
 -- When a player hits the coin, increment a resource on the player and remove the coin
 function handleOverlap(trigger, object)
-	if object ~= nil and object:IsA("Player") then
+    if object ~= nil and object:IsA("Player") then
         object:AddResource("Manticoin", 1)
         trigger:Destroy()
-	end
+    end
 end
 ```
 
@@ -126,10 +126,10 @@ This function takes in the `trigger` that was activated and the `object` that co
 
 Now we need to attach our new `handleOverlap` function to the trigger.
 
-```lua
--- Whenever an object collides with the trigger, run this function
-script.parent.beginOverlapEvent:Connect(handleOverlap)
-```
+    ```lua
+    -- Whenever an object collides with the trigger, run this function
+    script.parent.beginOverlapEvent:Connect(handleOverlap)
+    ```
 
 `beginOverlapEvent` is a default event that exists within trigger objects. By using `:Connect()` in the code above, we are able to let the event know about the function to call, in this case `handleOverlap`, when the event gets executed.
 
@@ -241,9 +241,9 @@ Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content
 Next, we need to create the custom parameter to save our game state.
 
 * Create a parameter for `Gameplay Settings`
-        * Select the `Gameplay Settings` object in the hierarchy.
-        * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
-        * Right click the property and click "**Enable Property networking**".
+    * Select the `Gameplay Settings` object in the hierarchy.
+    * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
+    * Right click the property and click "**Enable Property networking**".
 
 Here's the entire Hierarchy at this point:
 

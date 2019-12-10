@@ -12,8 +12,6 @@
 
 - [Audio Reference](../tutorials/art/audio_reference.md)
 
-- [Costumes in CORE](../tutorials/art/costumes.md)
-
 - [Custom Materials in CORE](../tutorials/art/custom_materials.md)
 
 - [Environmental Art in CORE](../tutorials/art/environ_art_intro.md)
@@ -36,7 +34,7 @@
 
 - [Development Environment](../extensions.md)
 
-- [news](../news/news.md)
+- [News](../news/news.md)
 
 - [Examples and Snippets](../tutorials/examples.md)
 
@@ -54,7 +52,7 @@
 
 - [Scripting in CORE](../tutorials/gameplay/lua_basics_lightbulb.md)
 
-- [Making A Game](../tutorials/gameplay/lua_basics_manticoin.md)
+- [Making A Game (Advanced)](../tutorials/gameplay/lua_basics_manticoin.md)
 
 - [Lua Style Guide](../tutorials/gameplay/lua_style_guide.md)
 
