@@ -36,7 +36,7 @@
 
 - [Development Environment](../extensions.md)
 
-- [news](../news/news.md)
+- [News](../news/news.md)
 
 - [Examples and Snippets](../tutorials/examples.md)
 
@@ -54,7 +54,7 @@
 
 - [Scripting in CORE](../tutorials/gameplay/lua_basics_lightbulb.md)
 
-- [Making A Game](../tutorials/gameplay/lua_basics_manticoin.md)
+- [Making A Game (Advanced)](../tutorials/gameplay/lua_basics_manticoin.md)
 
 - [Lua Style Guide](../tutorials/gameplay/lua_style_guide.md)
 
