@@ -327,6 +327,12 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **A:** Hopefully not that huge. Currently it's a few gigs.
 
+---
+
+> **Q:** Is there no option in games (as a player) to adjust the volume?
+
+> **A:** There currently isn't, but it is on our shortlist!  For an interim work around, you can lower the CORE Editor volume in the Windows Volume Mixer.  Right click on the speaker icon in your system tray and choose 'Open volume mixer.'
+
 ## Monetization
 
 > **Q:** How will monetization work in CORE?
