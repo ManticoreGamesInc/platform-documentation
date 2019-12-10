@@ -188,12 +188,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 | Property                        | Return Type                                             | Description                                                                                                                                                                                                                                  | Tags                       |
 | ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `name`                          | string                                                  | Hello, my name is…                                                                                                                                                                                                                           | Read-Write, Dynamic        |
+| `name`                          | string                                                  | The object's name matches what is seen in the Hierarchy.                                                                                                                                                                                     | Read-Write, Dynamic        |
 | `id`                            | string                                                  | The object's MUID.                                                                                                                                                                                                                           | Read-Only                  |
 | `parent`                        | CoreObject                                              | The object's parent object, may be nil.                                                                                                                                                                                                      | Read-Write, Dynamic        |
-| `isVisible`                     | bool                                                    | Turn on/off the rendering of an object and its children                                                                                                                                                                                      | Read-Write, Dynamic        |
-| `isCollidable`                  | bool                                                    | Turn on/off the collision of an object and its children                                                                                                                                                                                      | Read-Write, Dynamic        |
-| `isEnabled`                     | bool                                                    | Turn on/off an object and its children completely                                                                                                                                                                                            | Read-Write, Dynamic        |
+| `isVisible`                     | bool                                                    | Turn on/off the rendering of an object and its children.                                                                                                                                                                                     | Read-Write, Dynamic        |
+| `isCollidable`                  | bool                                                    | Turn on/off the collision of an object and its children.                                                                                                                                                                                     | Read-Write, Dynamic        |
+| `isEnabled`                     | bool                                                    | Turn on/off an object and its children completely.                                                                                                                                                                                           | Read-Write, Dynamic        |
 | `isStatic`                      | bool                                                    | If true, dynamic properties may not be written to, and dynamic functions may not be called.                                                                                                                                                  | Read-Only, Static, Dynamic |
 | `isClientOnly`                  | bool                                                    | If true, this object was spawned on the client and is not replicated from the server.                                                                                                                                                        | Read-Only                  |
 | `isServerOnly`                  | bool                                                    | If true, this object was spawned on the server and is not replicated to clients.                                                                                                                                                             | Read-Only                  |
@@ -299,9 +299,9 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 ### Equipment
 
-Equipment is a CoreObject representing an equippable item for players.
+Equipment is a CoreObject representing an equippable item for players. They generally have a visual component that attaches to the player, but a visual component is not a requirement. Any Ability objects added as children of the Equipment are added/removed from the Player automatically as it becomes equipped/unequipped.
 
-| Property          | Return Type                | Description                                                                  | Tags                |
+| Property          | Return Type                 | Description                                                                  | Tags                |
 | ----------------- | --------------------------- | ---------------------------------------------------------------------------- | ------------------- |
 | `socket`          | string                      | Determines which point on the avatar's body this equipment will be attached. | Read-Write, Dynamic |
 | `owner`           | Player                      | Which Player the Equipment is attached to.                                   | Read-Only, Dynamic  |
@@ -317,9 +317,9 @@ Equipment is a CoreObject representing an equippable item for players.
 
 ### Event
 
-When objects have events that can be fired, they're accessed using the Event type.
+Events appear as properties on several objects. The goal is to register a function that will be called whenever that event happens. E.g. `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be called whenever `playerA` takes damage.
 
-| Function                          | Return Type  | Description                                                                                                                                                                                         | Tags |
+| Function                          | Return Type   | Description                                                                                                                                                                                         | Tags |
 | --------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Connect(function eventListener)` | EventListener | Registers the given function which will be called every time the event is fired.  Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
 
@@ -327,17 +327,20 @@ When objects have events that can be fired, they're accessed using the Event typ
 
 EventListeners are returned by Events when you connect a listener function to them.
 
-| Property      | Return Type | Description                                                                                                                | Tags      |
+| Property      | Return Type  | Description                                                                                                                | Tags      |
 | ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `isConnected` | bool         | true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
 
-| Function       | Return Type | Description                                                                                       | Tags |
+| Function       | Return Type  | Description                                                                                       | Tags |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------- | ---- |
 | `Disconnect()` | None         | Disconnects this listener from its event, so it will no longer be called when the event is fired. | None |
 
 ### Folder
 
-Folder is a CoreObject representing a folder containing other objects. It currently has no properties or functions of its own, but inherits everything from CoreObject.
+Folder is a CoreObject representing a folder containing other objects.
+
+Folders have no properties or functions of their own, but inherit everything from CoreObject.
+
 
 ### HitResult
 
