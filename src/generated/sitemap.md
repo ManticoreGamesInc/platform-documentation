@@ -12,8 +12,6 @@
 
 - [Audio Reference](../tutorials/art/audio_reference.md)
 
-- [Costumes in CORE](../tutorials/art/costumes.md)
-
 - [Custom Materials in CORE](../tutorials/art/custom_materials.md)
 
 - [Environmental Art in CORE](../tutorials/art/environ_art_intro.md)
