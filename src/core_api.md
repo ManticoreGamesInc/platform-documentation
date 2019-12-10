@@ -20,8 +20,6 @@ Abilities are CoreObjects that can be added to Players and guide the Player's an
 
 Abilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (e.g. Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.
 
-If an Ability is interrupted during its Cast phase it will go back to Ready, but if it's interrupted during Execute or Recovery it will skip to the Cooldown phase.
-
 | Property                | Return Type          | Description                                                                                                                                                               | Tags       |
 | ----------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `isEnabled`             | bool                 | Turns an ability on/off. It stays on the player but is interrupted if isEnabled is set to False during an active Ability.  True by default.                               | Read-Write |
@@ -47,10 +45,10 @@ If an Ability is interrupted during its Cast phase it will go back to Ready, but
 | ------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Activate()`                    | None          | Client-context only. Activates an ability as if the button had been pressed.                                                                                                                                                      | None |
 | `Interrupt()`                   | None          | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase.                                                                                      | None |
-| `GetCurrentPhase()`             | AbilityPhase  | The current ability phase for this ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY, and AbilityPhase.COOLDOWN | None |
-| `GetPhaseTimeRemaining`         | Number        | Seconds left in the current phase.                                                                                                                                                                                                | None |
+| `GetCurrentPhase()`             | AbilityPhase  | The current ability phase for this ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN.                                           | None |
+| `GetPhaseTimeRemaining()`       | Number        | Seconds left in the current phase.                                                                                                                                                                                                | None |
 | `GetTargetData()`               | AbilityTarget | Returns information about what the player has targeted this phase.                                                                                                                                                                | None |
-| `SetTargetData (AbilityTarget)` | None          | Updates information about what the player has targeted this phase.  This can affect the execution of the ability.                                                                                                                 | None |
+| `SetTargetData (AbilityTarget)` | None          | Updates information about what the player has targeted this phase. This can affect the execution of the ability.                                                                                                                  | None |
 
 ### AbilityPhaseSettings
 
@@ -62,7 +60,7 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 | `canMove`                | bool                    | Is the Player allowed to move during this phase. True by default.                                                                                                                                                       | Read-Only |
 | `canJump`                | bool                    | Is the Player allowed to jump during this phase. Default False in Cast & Execute, default True in Recovery & Cooldown.                                                                                                  | Read-Only |
 | `canRotate`              | bool                    | Is the Player allowed to rotate during this phase. Default True.                                                                                                                                                        | Read-Only |
-| `preventsOtherAbilities` | bool                    | When True this phase prevents the player from casting another Ability, unless that other Ability has can_be_prevented set to False. Default True in Cast & Execute, default False in Recovery & Cooldown.               | Read-Only |
+| `preventsOtherAbilities` | bool                    | When True this phase prevents the player from casting another Ability, unless that other Ability has canBePrevented set to False. Default True in Cast & Execute, default False in Recovery & Cooldown.               | Read-Only |
 | `isTargetDataUpdated`    | bool                    | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date.                                                                                          | Read-Only |
 | `facingMode`             | AbilityFacingMode | How and if this ability rotates the player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are:  AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
 
@@ -96,7 +94,7 @@ A data type containing information about what the player has targeted during a p
 
 ### Audio
 
-Audio objects are CoreObjects that wrap sound files. Most properties are exposed in the UI and can be set when placed in the editor, but some functionality (such as playback with fade in/out) requires Lua scripting.
+Audio is a CoreObject that wrap sound files. Most properties are exposed in the UI and can be set when placed in the editor, but some functionality (such as playback with fade in/out) requires Lua scripting.
 
 | Property                  | Return Type | Description                                                                                                                                                                                              | Tags                |
 | ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -982,10 +980,10 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `attackCooldownDuration`     | Number       | Interval between separate burst sequences.                                                                                                                                                                                                                                     | Read-Only  |
 | `multiShotCount`             | Integer      | Number of projectiles/hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack.                                                                                                      | Read-Only  |
 | `burstCount`                 | Integer      | Number of automatic activations of the weapon that generally occur in quick succession.                                                                                                                                                                                        | Read-Only  |
-| `shotsPerSecond`             | Number       | Used in conjunction with burst_count to determine the interval between automatic weapon activations.                                                                                                                                                                           | Read-Write |
+| `shotsPerSecond`             | Number       | Used in conjunction with burstCount to determine the interval between automatic weapon activations.                                                                                                                                                                           | Read-Write |
 | `shouldBurstStopOnRelease`   | bool         | If True, a burst sequence can be interrupted by the player by releasing the action button. If False, the burst continues firing automatically until it completes or the weapon runs out of ammo.                                                                               | Read-Only  |
 | `isHitscan`                  | bool         | If False, the weapon will produce simulated projectiles. If true, it will instead use instantaneous line traces to simulate shots.                                                                                                                                             | Read-Only  |
-| `range`                      | Number       | Max travel distance of the projectile (is_hitscan = False) or range of the line trace (is_hitscan = True).                                                                                                                                                                     | Read-Write |
+| `range`                      | Number       | Max travel distance of the projectile (isHitscan = False) or range of the line trace (isHitscan = True).                                                                                                                                                                     | Read-Write |
 | `projectileTemplateId`       | string       | Asset reference for the visual body of the projectile, for non-hitscan weapons.                                                                                                                                                                                                | Read-Only  |
 | `muzzleFlashTemplateId`      | string       | Asset reference for a VFX to be attached to the muzzle point each time the weapon attacks.                                                                                                                                                                                     | Read-Only  |
 | `trailTemplateId`            | string       | Asset reference for a trail VFX to follow the trajectory of the shot.                                                                                                                                                                                                          | Read-Only  |
@@ -1333,24 +1331,24 @@ For security reasons, various built-in Lua functions have been restricted or rem
 
 ??? "Built-In Lua Functions"
     * assert
-    * collectgarbage†
+    * collectgarbage †
     * error
-    * getmetatable†
+    * getmetatable †
     * ipairs
     * next
     * pairs
     * pcall
-    * print†
+    * print †
     * rawequal
-    * rawget†
-    * rawset†
-    * require†
+    * rawget †
+    * rawset †
+    * require †
     * select
-    * setmetatable†
+    * setmetatable †
     * tonumber
     * tostring
     * type
-    * \_G†
+    * \_G †
     * \_VERSION
     * xpcall
     * coroutine.create
