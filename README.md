@@ -10,7 +10,7 @@ The password is `I love documentation!`
 There are multiple version of the CORE documentation, and therefore multiple branches on this repository that correspond to each.
 
 * [production](https://production--manticore-docs.netlify.com) - the staging site.
-* [production-publish](https://docs.coregames.com/) - the live, production site.
+* [production-publish](https://www.coregames.com/docs) - the live, production site.
 * [PTS](https://pts-publish--manticore-docs.netlify.com/)- the public test server
     version.
 * [Dev](https://dev-publish--manticore-docs.netlify.com/) - for in-development,
