@@ -2,6 +2,10 @@
 name: Abilities in CORE
 categories:
     - Tutorial
+
+    TODO:
+
+    - Images & GIFs are outdated
 ---
 
 # Abilities in CORE
