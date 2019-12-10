@@ -4,14 +4,14 @@ name: FAQ
 
 # Frequently Asked Questions
 
-## CONFIDENTIALITY  
+## CONFIDENTIALITY
 
 * While you cannot share screenshots or videos of the CORE Editor or the games you make in them publicly, you can share them in the CORE Discord channels
 
 ## GETTING STARTED WITH CORE
 
 * **Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)** - This will be the best place to get the latest updates, news, events, and help from both the CORE Alpha Team and the Alpha community.
-* **Check out the [GETTING STARTED](https://docs.coregames.com/getting_started/editor_intro/) section of the [CORE CREATORS' HUB](https://docs.coregames.com/)** - Here you'll find an overview of the editor, a tutorial on making your first game, and how to share and use shared content within CORE
+* **Check out the [GETTING STARTED](https://www.coregames.com/docs/getting_started/editor_intro/) section of the [CORE CREATORS' HUB](https://www.coregames.com/docs/)** - Here you'll find an overview of the editor, a tutorial on making your first game, and how to share and use shared content within CORE
 
 ## ALPHA ACCESS
 
@@ -50,7 +50,7 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 
 > we will have the portal technology in alpha, but no way to pass data from one game/zone to the other
 
---- 
+---
 > **Q:** I really like the seamless game changing. Is that limited to maps that only the creator made? Or could i, for example, make a "hub" that has a curated list of games I like?
 
 > **A:** You could indeed make a hub world that has portals to all the games you like!
@@ -70,7 +70,7 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 
 > in fact, entire games in core are a collection of these definition files, which means entire games are only a few hundred k which is why they load basically instantaneously
 
---- 
+---
 > A lot of stuff in CORE is about finding new and creative ways to use things that are at first maybe "non-obvious" but once you get the hang of it, it becomes really really fun
 
 > Here is a prime example - this Palm Tree in the Pirate game is actually (as you can see in the hierarchy) 2 Ferns on top of 2 tear drop shapes
@@ -99,7 +99,7 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 
 ---
 >> **Q:** Is it possible for custom environment objects like buildings?
->> **A:** Yes, absolutely, using the primitives, smart objects, and templates 
+>> **A:** Yes, absolutely, using the primitives, smart objects, and templates
 
 ## LUA
 
@@ -114,13 +114,13 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 
 ## CONTROL & INPUT
 
-> **Q:** How much control do we have over keybindings? 
+> **Q:** How much control do we have over keybindings?
 
 > **A:** Current status:  Not all keys have keybinds currently and remapping is possible
 
 ## GAME MECHANICS
 
-> **Q:** Can you make team based games? 
+> **Q:** Can you make team based games?
 > **A:** Yes absolutely. MORE ANSWER
 ---
 > **Q:** Do I have to use player CORE avatars?
@@ -146,7 +146,7 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 ## ART
 
 > **Q:** Will there be a tutorial for making custom materials and textures?
-> **A:** Yes, we already have tutorials for that already.  Check out the [Custom Materials](https://docs.coregames.com/tutorials/art/custom_materials/) tutorial in our [Tutorials Section](https://docs.coregames.com/tutorials/)
+> **A:** Yes, we already have tutorials for that already.  Check out the [Custom Materials](https://www.coregames.com/docs/tutorials/art/custom_materials/) tutorial in our [Tutorials Section](https://www.coregames.com/docs/tutorials/)
 
 ## UI
 ## VFX
@@ -159,7 +159,7 @@ Join the CORE Alpha [DISCORD SERVER!](https://discord.gg/85k8A7V)
 
 ## AUDIO
 
-[CORE AUDIO REFERENCE](https://docs.coregames.com/tutorials/art/audio_reference/)
+[CORE AUDIO REFERENCE](https://www.coregames.com/docs/tutorials/art/audio_reference/)
 
 > **Q:** Does the engine support real-time audio effects? For example, applying reverb to an audio listener when a character enters a large room.
 
