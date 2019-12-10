@@ -277,7 +277,6 @@ We want the player to be able to flip the switch to turn on and off our light. T
     `local switchTrigger = script.parent:GetChildren()[4]`
 
     * `switchTrigger` is the name for our trigger variable.
-
     * `script.parent:GetChildren()[4]` defines the object we are using as our trigger - the fourth child of the script's parent group.
 
     Your script should look like this:
@@ -301,9 +300,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     ```
 
     * A `function` is a set of actions that the script carries out every time the function is referenced in the script.
-
     * `OnSwitchInteraction` is the name of our function.
-
     * `end` tells the script the function is over.
 
     This function will define what happens when the player interacts with the trigger.
@@ -418,7 +415,6 @@ We want the player to be able to flip the switch to turn on and off our light. T
     `local lightTemplate = script:GetCustomProperty("Light")`
 
     * `lightTemplate` is the name of our variable. Remember we want to keep our names straightforward. Because we will be using this variable to spawn template we just made, we're going to call it `lightTemplate`.
-
     * `script:GetCustomProperty("Light")` tells the script to look for our scripts custom property called "**Light**" which references our `LightTemplate` object in **Project Content**.
 
 8. Now we need to tell the script to spawn `lightTemplate` when the player interacts with the switch and where to spawn it.
@@ -428,11 +424,8 @@ We want the player to be able to flip the switch to turn on and off our light. T
     `World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
 
     * `World` is a [collection of functions](../../core_api.md/#world) for finding objects in the world.
-
     * `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so
-
     * `lightTemplate` is the variable we'll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script's custom property "**Light**".
-
     * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0 0 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
 
     Your script should now look like this:
@@ -539,7 +532,6 @@ You've turned on the light. If you keep interacting with the light switch you'll
     `print(isLightOn)`
 
     * `print` tells the script to print to the event log.
-
     * `isLightOn` is the variable that will be printing.
 
     It doesn't matter where in the function you typed this as we'll delete this later. Right now we only want to know if the switch is correctly toggling our `isLightOn` variable.
@@ -630,9 +622,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     `local spawnedLight = World.FindObjectByName("LightTemplate")`
 
     * `spawnedLight` is the name we are giving to the light we have just spawned.
-
     * `World.FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named "LightTemplate".
-
     * `"LightTemplate"` is the name of our spawned light.
 
 2. Now that you have defined our spawned light, you can tell the script to destroy it when the switch is turned off. Under the statement you just wrote, type:
@@ -640,7 +630,6 @@ You've turned on the light. If you keep interacting with the light switch you'll
     `spawnedLight:Destroy()`
 
     * `spawnedLight` is the variable we just defined representing the LightTemplate spawned when the light switch is turned on.
-
     * `Destroy()` is a function used to delete objects from a scene.
 
     Your `OnSwitchInteraction` function should now look like this:
