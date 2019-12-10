@@ -119,11 +119,13 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 
 ### Camera
 
-Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured to follow a specific player's view as well. Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior (currently) falls back to old and now deprecated behavior. Override cameras generally will be temporary things, like a view when the player is sitting in a mounted turret, while default cameras should be used for main gameplay behavior.
+Camera is a CoreObject which is used both to configure player camera settings as well as to represent the position and rotation of the camera in the world. Cameras can be configured in various ways, usually following a specific player's view, but can also have a fixed orientation and/or position.
 
-| Property               | Return Type | Description                                                                                                                                                                            | Tags           |
+Each player (on their client) can have a default camera and an override camera. If they have neither, camera behavior falls back to a basic third-person behavior. Default cameras should be used for main gameplay while override cameras are generally employed as a temporary view, such as a when the player is sitting in a mounted turret.
+
+| Property               | Return Type | Description                                                                                                                                                                             | Tags           |
 | ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `lerpTime`             | Number       | The time over which camera property changes take effect. Clamped to be non-negative.                                                                                                   | None           |
+| `lerpTime`             | Number       | The time, over which camera property changes take effect. Clamped to be non-negative.                                                                                                   | None           |
 | `hasFreeControl`       | bool         | Whether the player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player.                                               | None           |
 | `isDistanceAdjustable` | bool         | Whether the player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | None           |
 | `minDistance`          | Number       | The minimum distance the player can zoom in to.                                                                                                                                        | None           |
@@ -152,23 +154,23 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color.New(Vector4 v)`                                | Color        | Construct using the vector's XYZW components as the color's RGBA components.                      | None |
 | `Color.New(Color c)`                                  | Color        | Makes a copy of the given color.                                                                  | None |
 
-| Property | Return Type | Description                   | Tags       |
-| -------- | ------------ | ----------------------------- | ---------- |
-| `r`      | Number       | The R component of the color. | Read-Write |
-| `g`      | Number       | The G component of the color. | Read-Write |
-| `b`      | Number       | The B component of the color. | Read-Write |
-| `a`      | Number       | The A component of the color. | Read-Write |
+| Property | Return Type  | Description                                      | Tags       |
+| -------- | ------------ | ------------------------------------------------ | ---------- |
+| `r`      | Number       | The Red component of the color.                  | Read-Write |
+| `g`      | Number       | The Green component of the color.                | Read-Write |
+| `b`      | Number       | The Blue component of the color.                 | Read-Write |
+| `a`      | Number       | The Alpha (transparency) component of the color. | Read-Write |
 
-| Function                       | Return Type | Description                                                                                                    | Tags |
+| Function                              | Return Type  | Description                                                                                                    | Tags |
 | ------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------- | ---- |
 | `GetDesaturated(Number desaturation)` | Color        | Returns the desaturated version of the color. 0 represents no desaturation and 1 represents full desaturation. | None |
 
-| Class Function                                | Return Type | Description                                                                                                             | Tags |
+| Class Function                                | Return Type  | Description                                                                                                             | Tags |
 | --------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- | ---- |
 | `Lerp(Color from, Color to, Number progress)` | Color        | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. | None |
 | `Random()`                                    | Color        | Returns a color with a random hue (H) of HSV form (H, 0, 1).                                                            | None |
 
-| Operator         | Return Type | Description                                                      | Tags |
+| Operator         | Return Type  | Description                                                      | Tags |
 | ---------------- | ------------ | ---------------------------------------------------------------- | ---- |
 | `Color + Color`  | Color        | Component-wise addition.                                         | None |
 | `Color - Color`  | Color        | Component-wise subtraction                                       | None |
@@ -182,9 +184,9 @@ An RGBA representation of a color. Color components have an effective range of `
 
 ### CoreObject
 
-CoreObject is an Object placed in the scene hierarchy during edit mode. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these
+CoreObject is an Object placed in the scene hierarchy during edit mode or is part of a template. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these properties and functions:
 
-| Property                        | Return Type                                            | Description                                                                                                                                                                                                                                  | Tags                       |
+| Property                        | Return Type                                             | Description                                                                                                                                                                                                                                  | Tags                       |
 | ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `name`                          | string                                                  | Hello, my name is…                                                                                                                                                                                                                           | Read-Write, Dynamic        |
 | `id`                            | string                                                  | The object's MUID.                                                                                                                                                                                                                           | Read-Only                  |
