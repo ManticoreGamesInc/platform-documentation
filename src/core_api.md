@@ -13,7 +13,6 @@ At a high level, CORE Lua types can be divided into two groups: data structures 
 
 A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
-
 ### Ability
 
 Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.
@@ -1304,7 +1303,6 @@ A UIControl which displays a basic text label.
 | ----------------- | ------------ | ---------------------- | ---- |
 | `GetColor()`      | Color        | The color of the text. | None |
 | `SetColor(Color)` | None         | The color of the text. | None |
-
 
 ### World
 
