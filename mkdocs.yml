@@ -133,8 +133,8 @@ docs_dir: src/
 site_name: CORE Creator Hub
 
 # Add repository for easy editing
-repo_url: https://gitlab.com/manticore-games/platform-documentation
-edit_uri: edit/production/src
+#repo_url: https://gitlab.com/manticore-games/platform-documentation
+#edit_uri: edit/production/src
 
 # Metadata
 site_description: Documentation for the CORE Platform
