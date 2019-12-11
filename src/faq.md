@@ -6,11 +6,11 @@ name: FAQ
 
 ## Confidentiality
 
-Please remember all CORE ALPHA information is confidential and cannot be shared publicly! We do encourage you to share your screenshots, videos, and games on our Discord!
+Please remember all information about the CORE Alpha is confidential and cannot be shared publicly! We do encourage you to share your screenshots, videos, and games on our own Discord!
 
 ## Getting Started with CORE
 
-* Join the CORE Alpha :fab fa-discord: [Discord](https://discord.gg/85k8A7V)! - This will be the best place to get the latest updates, news, events, and help from both the CORE Alpha Team and the Alpha community.
+* Join the CORE Alpha :fab fa-discord: [Discord](https://discord.gg/85k8A7V)! - This will be the best place to get the latest updates, news, events, and help from both the CORE Alpha team and the community.
 * Check out the [Getting Started](getting_started/editor_intro.md) section of the Creator Hub - Here you'll find an overview of the editor, a tutorial on making your first game, and how to share and use shared content within CORE.
 
 ## Alpha Access

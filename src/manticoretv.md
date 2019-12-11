@@ -1,4 +1,4 @@
-# Manticore TV
+# :fab fa-youtube: Manticore TV
 
 <!-- TODO: Enable when account is unlocked for embedding
 

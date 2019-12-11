@@ -3,11 +3,13 @@
 # If you add a page, you must also add it to the index here
 nav:
   - Welcome to CORE: index.md
-  - News: news/news.md
+  - News:
+    - news/news.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
+      - Editor Key Bindings: editor_keybindings.md
   - Community:
       - Discord: discord.md
       - ManticoreTV: manticoretv.md
@@ -44,7 +46,6 @@ nav:
       - Examples & Snippets: tutorials/examples.md
       - Community Created:
           - Overview: tutorials/community_created/community_created.md
-  - Editor Key Bindings: editor_keybindings.md
   - FAQ:
     - faq.md
 
