@@ -6,12 +6,12 @@ name: FAQ
 
 ## Confidentiality
 
-Please remember all CORE ALPHA information is confidential and cannot be shared publicly!  We do encourage you to share your screenshots, videos, and games on the Official CORE [Discord server](https://discord.gg/85k8A7V)!
+Please remember all CORE ALPHA information is confidential and cannot be shared publicly! We do encourage you to share your screenshots, videos, and games on our Discord!
 
 ## Getting Started with CORE
 
-* **Join the CORE Alpha [Discord server](https://discord.gg/85k8A7V)!** - This will be the best place to get the latest updates, news, events, and help from both the CORE Alpha Team and the Alpha community.
-* **Check out the [Getting Started](https://docs.coregames.com/getting_started/editor_intro/) section of the [CORE Creators Hub](https://docs.coregames.com/)** - Here you'll find an overview of the editor, a tutorial on making your first game, and how to share and use shared content within CORE.
+* Join the CORE Alpha :fab fa-discord: [Discord](https://discord.gg/85k8A7V)! - This will be the best place to get the latest updates, news, events, and help from both the CORE Alpha Team and the Alpha community.
+* Check out the [Getting Started](getting_started/editor_intro.md) section of the Creator Hub - Here you'll find an overview of the editor, a tutorial on making your first game, and how to share and use shared content within CORE.
 
 ## Alpha Access
 
@@ -27,7 +27,7 @@ Please remember all CORE ALPHA information is confidential and cannot be shared 
 
 ---
 
-> **Q:** Is there a system in place for making cinematics and cut-scenes? 
+> **Q:** Is there a system in place for making cinematics and cut-scenes?
 
 > **A:** Not a specific tool, but you have so much control in CORE that you just need to set it up and record it.
 
@@ -35,11 +35,11 @@ Please remember all CORE ALPHA information is confidential and cannot be shared 
 
 > **A:** What language are scripts written in?
 
-> **Q:** LUA.
+> **Q:** We use [Lua](tutorials/gameplay/lue_reference.md).
 
 ---
 
-> **Q:** Do you plan to support other languages in the future ? Like unity supports JavaScript and c#
+> **Q:** Do you plan to support other languages in the future ? Like unity supports JavaScript and C#
 
 > **A:** No plans at the current time.
 
@@ -60,27 +60,25 @@ Please remember all CORE ALPHA information is confidential and cannot be shared 
 
 > **Q:** Will stuff like the built in chat be editable for users? like if someone wanted to change something about it for their specific game?
 
-> **A:** In-game text chat will happen sometime during Alpha. More details on that as we get closer. We won't have voice chat to start but we can of course use discord!
-
-Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
+> **A:** In-game text chat will happen sometime during Alpha. More details on that as we get closer. We won't have voice chat to start but we can of course use [Discord](https://discord.gg/85k8A7V)!
 
 ## CORE Content
 
 > **Q:** On the off chance that there isn't a sound that we need/want, is there a pipeline or process for requesting new sounds? Or new anything?
 
-> **A:** Yes, feedback link in [Discord](https://discord.gg/85k8A7V) and the [CORE Creators Hub](https://docs.coregames.com/).
+> **A:** Yes, use the feedback link in [Discord](https://discord.gg/85k8A7V) and at the top and bottom of every page on our documentation platform.
 
 ---
 
 > **Q:** One thing I'm unclear on, are the things made in CORE meant to stay within the confines of the community content, or can it build to other platforms as well?
 
-> **A:** Stuff made in CORE is meant to be used on the CORE platform, but 100% sharable across the platform if you so desire.  Want the helicopters from Sniper Alley in Spellshock? Crtl-C, Ctrl-V, done!
+> **A:** Stuff made in CORE is meant to be used on the CORE platform, but 100% sharable across the platform if you so desire. Want the helicopters from Sniper Alley in Spellshock? Crtl-C, Ctrl-V, done!
 
 ---
 
 > **Q:** Are maps the equivalent of scenes in unity?
 
-> **A:**  Sort of - I should actually say "Games" instead of "maps" - we don't have a separate scene concept yet.
+> **A:** Sort of - I should actually say "Games" instead of "maps" - we don't have a separate scene concept yet.
 
 > Scenes is definitely something we want to add in the future.
 
@@ -88,11 +86,11 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **Q:** One of the demos I saw you could transition people to other maps, so I guess that could be a workaround if you wanted multiple levels?
 
-> **A:** Yes, correct!  You could even build an zone style 'MMO' that way if you really wanted to (well, not in Alpha, but eventually).
+> **A:** Yes, correct! You could even build an zone style 'MMO' that way if you really wanted to (well, not in Alpha, but eventually).
 
 > We will have the portal technology in alpha, but no way to pass data from one game/zone to the other.
 
---- 
+---
 
 > **Q:** I really like the seamless game changing. Is that limited to maps that only the creator made? Or could i, for example, make a "hub" that has a curated list of games I like?
 
@@ -126,7 +124,7 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 ![Palm Tree](https://cdn.discordapp.com/attachments/651152898113142807/653639807678939156/unknown.png)
 
-> Here is a set of "retro" kitchen appliances our UI/UX guy was able to make in core - basically from primitives.
+> Here is a set of "retro" kitchen appliances our UI/UX guy was able to make in CORE - basically from primitives.
 
 ![Retro Kitchen Appliances](https://cdn.discordapp.com/attachments/651152898113142807/653641615490940928/unknown.png)
 
@@ -140,13 +138,13 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > So not only is this a cool set-piece, it comes with the scripts needed to make it function.
 
-> And don't worry - we have yet to find anything that cannot be made in core using this method even all our Guns in our shooter games are made from 'gun parts' so you can totally make your own weapons if you want to.
+> And don't worry - we have yet to find anything that cannot be made in CORE using this method even all our Guns in our shooter games are made from 'gun parts' so you can totally make your own weapons if you want to.
 
 ---
 
-> **Q:** Oh there's community content? so anyone can create content - moderated by the core team?
+> **Q:** Oh there's community content? so anyone can create content - moderated by the CORE team?
 
-> **A:** Yes, anyone can create content in CORE and share it with the community - it will be moderated by Manticore and voted on by users
+> **A:** Yes, anyone can create content in CORE and share it with the community - it will be moderated by MantiCORE and voted on by users
 
 ---
 
@@ -156,9 +154,9 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 ## Lua
 
-> **Q:** Does the lua scripting system support use of external editors?
+> **Q:** Does the Lua scripting system support use of external editors?
 
-> **A:** Yes we support external editors for Lua.  We also have a built-in stack frame debugger that allows you to set breakpoints, step into and over functions, and inspect variables.
+> **A:** Yes we support external editors for Lua. We also have a built-in stack frame debugger that allows you to set breakpoints, step into and over functions, and inspect variables. We even have autocomplete files for editors on our [Lua Dev Environment](extensions.md) page.
 
 > Here is a screenshot of the built-in Lua debugger. I've paused execution and I am inspecting the script that handles zooming in my scope on the client - Don't worry if you are not a coder, you won't have to go this deep to make stuff in CORE - but if you want to, you can. That is what we mean by "opt-in complexity."
 
@@ -166,20 +164,19 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 ---
 
-> **Q:** Does Core support modules or classes for Lua?
+> **Q:** Does CORE support modules or classes for Lua?
 
-> **A:** Yes via the require function.  I used a free Lua JSON parser in my game by just including it with require.
-
+> **A:** Yes via the require function. I used a free Lua JSON parser in my game by just including it with require.
 
 ## Marketing
 
 > **Q:** Will CORE have built in analytics or will it use something like GameAnalytics?
 
-> **A:** Will not be in for Alpha, but is on the roadmap.  We will provide as much analytics as you need to create successful games, ramping up from Alpha.
+> **A:** Will not be in for Alpha, but is on the roadmap. We will provide as much analytics as you need to create successful games, ramping up from Alpha.
 
 ## Control & Input
 
-> **Q:** How much control do we have over keybindings? 
+> **Q:** How much control do we have over keybindings?
 
 > **A:** Currently, not all keys have keybinds. Remapping is possible
 
@@ -205,9 +202,9 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 ---
 
-> **Q:** Will we be able to destroy things like structures and objects? 
+> **Q:** Will we be able to destroy things like structures and objects?
 
-> **A:** Can be done with some work. We have a task a bit down the road to find a way to make that a lot simpler.  
+> **A:** Can be done with some work. We have a task a bit down the road to find a way to make that a lot simpler.
 
 <!-- Stay tuned for [NEED] scheduled stream. -->
 
@@ -225,17 +222,17 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 ---
 
-> **Q:** Can you make team based games? 
+> **Q:** Can you make team based games?
 
-> **A:** Yes absolutely. We have a Team  Settings component which currently supports Free For All, Team Versus and Friendly.  Some of our starting projects like Team Deathmatch and Capture and Hold and Battle Royale come with team settings as a default component
+> **A:** Yes absolutely. We have a Team Settings component which currently supports Free For All, Team Versus and Friendly. Some of our starting projects like Team Deathmatch and Capture and Hold and Battle Royale come with team settings as a default component
 
 ---
 
 > **Q:** Do I have to use player CORE avatars?
 
-> **A:** No.  A player's avatar will be the default place character representation in game, but Creators can skin, modify, change or even hide the avatars in their game.
+> **A:** No. A player's avatar will be the default place character representation in game, but Creators can skin, modify, change or even hide the avatars in their game.
 
-<!-- 
+<!--
 [NEED] ship example
 -->
 
@@ -264,7 +261,6 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 > **A:** We provide a performance tool in the CORE Editor to help test your creations
 
 <!--
----
 
 > **Q:** Is there any limit to how many primitives/CORE created assets/scripts can be attached to any one "object."
 
@@ -275,7 +271,7 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **Q:** Will there be a tutorial for making custom materials and textures?
 
-> **A:** Yes, we already have tutorials for that already.  Check out the [Custom Materials](https://docs.coregames.com/tutorials/art/custom_materials/) tutorial in our [Tutorials Section](https://docs.coregames.com/tutorials/).
+> **A:** Yes, we already have tutorials for that already. Check out the [Custom Materials](tutorials/art/custom_materials.md) tutorial in our [Tutorials Section](generated/sitemap.md).
 
 ---
 
@@ -292,7 +288,7 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 <!--
 ## VFX
 
-> **Q:** What kind of visual effects are available in core?
+> **Q:** What kind of visual effects are available in CORE?
 
 > **A:** [NEED]
 -->
@@ -301,29 +297,29 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **Q:** WIll CORE support terrain holes?
 
-> **A:** Terrain is voxel based, so yes.  Holes, caves, whatever you like.
+> **A:** Terrain is voxel based, so yes. Holes, caves, whatever you like.
 
 ---
 
 > **Q:** There are a lot of details around the map such as foliage and rocks and whatnot. It looks great! But do all of those have to be hand placed, or is there a way to populate areas with details automatically?
 
-> **A:**  We have amazing object generator tool that will allow you to cover your entire map with full control over the randomness of the placement
+> **A:** We have amazing object generator tool that will allow you to cover your entire map with full control over the randomness of the placement
 
 ## Audio
 
-[CORE AUDIO REFERENCE](https://docs.coregames.com/tutorials/art/audio_reference/)
+[CORE Audio Reference](tutorials/art/audio_reference.md)
 
 > **Q:** Does the engine support real-time audio effects? For example, applying reverb to an audio listener when a character enters a large room.
 
 > **A:** Matthew Pablo, our CORE Audio Designer, put together sampled and synthesized instruments, fully produced music tracks, and sound effect assets. All of these can be modified using our built-in audio editor. Most music tracks are kit-bashed and you can use them however you'd like. We will have more info, tutorials and guides on this in Alpha
 
-> You can also dynamically adjust lots of things on audio clips besides normal post-effects. Matthew even made Music Construction Kits so you can dynamically adjust music and build up your own tracks from his pieces 
+> You can also dynamically adjust lots of things on audio clips besides normal post-effects. Matthew even made Music Construction Kits so you can dynamically adjust music and build up your own tracks from his pieces
 
-> Just like with our 3D objects and Materials, you can also 'kitbash' audio to do things it wasn't nesc. intended to do.  For instance, to create a creaking windmill sound - we pitched a wooden door opening sound down about 3 octaves and looped it. It made a great creaky windmill.
+> Just like with our 3D objects and Materials, you can also 'kitbash' audio to do things it wasn't nesc. intended to do. For instance, to create a creaking windmill sound - we pitched a wooden door opening sound down about 3 octaves and looped it. It made a great creaky windmill.
 
 ---
 
-> **Q:** Also, will there be a time when downloading core will be like 100gb? Seems difficult to scale - can't say for sure until I see how the editor actually works. seems limiting at first glance but maybe not
+> **Q:** Also, will there be a time when downloading CORE will be like 100gb? Seems difficult to scale - can't say for sure until I see how the editor actually works. seems limiting at first glance but maybe not
 
 > **A:** Hopefully not that huge. Currently it's a few gigs.
 
@@ -331,13 +327,13 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **Q:** Is there no option in games (as a player) to adjust the volume?
 
-> **A:** There currently isn't, but it is on our shortlist!  For an interim work around, you can lower the CORE Editor volume in the Windows Volume Mixer.  Right click on the speaker icon in your system tray and choose 'Open volume mixer.'
+> **A:** There currently isn't, but it is on our shortlist! For an interim work around, you can lower the CORE Editor volume in the Windows Volume Mixer. Right click on the speaker icon in your system tray and choose 'Open volume mixer.'
 
 ## Monetization
 
 > **Q:** How will monetization work in CORE?
 
-> **A:** We aren't ready to talk monetization just yet,  but it's super important to us.
+> **A:** We aren't ready to talk monetization just yet, but it's super important to us.
 
 ## Collaboration
 
@@ -345,7 +341,7 @@ Join the CORE Alpha [Discord Server](https://discord.gg/85k8A7V)!
 
 > **A:** Yes you can use git or svn or pretty much whatever you want. CORE projects are actually very small text files, so they work in git quite well and, if you make folders at the root of your scene hierarchy, those act as file partitions making collaboration even easier as it lessens the chance for collisions.
 
-> NOTE: The one 'gotcha' right now is that you don't want your .git folder to be inside each individual map folder, as currently CORE doesn't ignore it and copies it everywhere, which gets big. So, you want to do one of two things.... make a repro of your entire maps folder, with each game as a subfolder -OR-  make a repro for each game, and put the actual project 1 level deeper however, we will be fixing this during alpha
+> NOTE: The one 'gotcha' right now is that you don't want your .git folder to be inside each individual map folder, as currently CORE doesn't ignore it and copies it everywhere, which gets big. So, you want to do one of two things.... make a repro of your entire maps folder, with each game as a subfolder -OR- make a repro for each game, and put the actual project 1 level deeper however, we will be fixing this during alpha
 
 ---
 
@@ -375,7 +371,6 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 ---
 
-> **Q:** So i noticed in the system reqs it says you need a "NVIDIA GeForce GTX 1050 Ti or AMD equivalent" is it possible to use core without a fancy GPU like this?
+> **Q:** So i noticed in the system reqs it says you need a "NVIDIA GeForce GTX 1050 Ti or AMD equivalent" is it possible to use CORE without a fancy GPU like this?
 
 > **A:** The specs for Alpha are likely higher than they will be for launch, as we haven't done all our optimizations yet our VFX artist was working on a 900 series card for most of the project.
-
