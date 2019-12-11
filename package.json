@@ -22,6 +22,8 @@
   },
   "homepage": "https://gitlab.com/manticore-games/platform-documentation#readme",
   "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
     "imagemin": "^7.0.1",
     "json2md": "^1.6.5",
     "markdown-yaml-metadata-parser": "^2.0.3",
