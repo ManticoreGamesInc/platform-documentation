@@ -240,7 +240,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `IsAncestorOf(CoreObject)`                                | bool                 | Returns true if this coreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise.                                                                                                                                                                                                                                                | None                     |
 | `GetCustomProperty(string propertyName)`                  | value, bool          | Gets data which has been added to an object using the custom property system.  Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not.                                                                                            | None                     |
 | `SetNetworkedCustomProperty(string propertyName, Object)` | None                 | Sets the named custom property if it is marked as replicated and the object it belongs to is non-static, and server-side networked or in a client/server context.                                                                                                                                                                                                        | Client Context, Static   |
-| `AttachToPlayer(Player, string socketName)`               | None                 | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. Socket names are: root, pelvis, spine, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_shoulder, right_elbow, right_prop, left_shoulder, left_elbow, left_prop, topper, camera. | Dynamic                  |
+| `AttachToPlayer(Player, string socketName)`               | None                 | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](#socketnames) for the list of possible values.                                                                                                                                          | Dynamic                  |
 | `AttachToLocalView()`                                     | None                 | Attaches a CoreObject to the local Player's Camera. This should be called inside a Client Context. Reminder to turn off the object's collision otherwise it will cause camera to jitter.                                                                                                                                                                                 | Client Context, Dynamic. |
 | `Detach()`                                                | None                 | Detaches a CoreObject from any Player it has been attached to, or from its parent object.                                                                                                                                                                                                                                                                                | Dynamic                  |
 | `GetAttachedToSocketName()`                               | string               | Returns the name of the socket this object is attached to.                                                                                                                                                                                                                                                                                                               | None                     |
@@ -308,10 +308,10 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 Equipment is a CoreObject representing an equippable item for players. They generally have a visual component that attaches to the Player, but a visual component is not a requirement. Any Ability objects added as children of the Equipment are added/removed from the Player automatically as it becomes equipped/unequipped.
 
-| Property          | Return Type                 | Description                                                                  | Tags                |
-| ----------------- | --------------------------- | ---------------------------------------------------------------------------- | ------------------- |
-| `socket`          | string                      | Determines which point on the avatar's body this equipment will be attached. | Read-Write, Dynamic |
-| `owner`           | Player                      | Which Player the Equipment is attached to.                                   | Read-Only, Dynamic  |
+| Property          | Return Type                 | Description                                                                                                                                    | Tags                |
+| ----------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `socket`          | string                      | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](#socketnames) for the list of possible values. | Read-Write, Dynamic |
+| `owner`           | Player                      | Which Player the Equipment is attached to.                                                                                                     | Read-Only, Dynamic  |
 
 | Function              | Return Type      | Description                                                                                                                                                                                                                   | Tags |
 | --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -356,10 +356,10 @@ They have no properties or functions of their own, but inherit everything from C
 
 Contains data pertaining to an impact or raycast.
 
-| Property     | Return Type          | Description                                                                      | Tags      |
-| ------------ | -------------------- | -------------------------------------------------------------------------------- | --------- |
-| `other`      | CoreObject or Player | Reference to a CoreObject or Player impacted.                                    | None      |
-| `socketName` | string               | If the hit was on a Player, socketName tells you which spot on the body was hit. | Read-Only |
+| Property     | Return Type          | Description                                                                        | Tags      |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `other`      | CoreObject or Player | Reference to a CoreObject or Player impacted.                                      | None      |
+| `socketName` | string               | If the hit was on a Player, `socketName` tells you which spot on the body was hit. | Read-Only |
 
 | Function              | Return Type  | Description                                                                                                                      | Tags |
 | --------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -485,7 +485,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `Die([Damage])`                                                       | None                  | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death.                                                                                                                                                                                                                                                                                             | None |
 | `DisableRagdoll()`                                                    | None                  | Disables all ragdolls that have been set on the Player.                                                                                                                                                                                                                                                                                                                                                                          | None |
 | `SetVisibility(bool, bool)`                                           | None                  | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player.                                                                                                                                                                                                                                                                     | None |
-| `EnableRagdoll(string socketName, Number weight, bool cameraFollows)` | None                  | Enables ragdoll for the Player, starting on "SocketName" weighted by "Weight" (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. Setting CameraFollows to true will force the Player capsule to stay with the mesh. All parameters are optional; SocketName defaults to the root, Weight defaults to 1.0, CameraFollows defaults to true. Multiple bones can have ragdoll enabled simultaneously. | None |
+| `EnableRagdoll([string socketName, Number weight)`                    | None                  | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](#socketnames) for the list of possible values.                                           | None |
 | `Respawn([Vector, Rotation])`                                         | None                  | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location.                                                                                                                                                                                                                                                                  | None |
 | `GetViewWorldPosition()`                                              | Vector3               | Get position of Player's Camera view. Only works for local Player.                                                                                                                                                                                                                                                                                                                                                               | None |
 | `GetViewWorldRotation()`                                              | Rotation              | Get rotation of Player's Camera view. Only works for local Player.                                                                                                                                                                                                                                                                                                                                                               | None |
@@ -1472,6 +1472,13 @@ All Ability animations have a long "tail" that gracefully transitions the charac
 !!! Note
     If the intent is to have an Ability "execute" as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so). This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
 
+
+#### Socket Names
+
+Sockets are different points on a Player's character mesh. They can be used for attacking objects, controlling a ragdoll effect and more.
+
+All socket names: root, pelvis, lower_spine, upper_spine, neck, head, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_clavicle, right_shoulder, right_elbow, right_wrist, right_prop, left_clavicle, left_shoulder, left_elbow, left_wrist left_arm_prop, left_prop, camera, nameplate.
+
 #### 1hand_melee Strings
 
 `1hand_melee_slash_left` - A horizontal melee swing to the left.
@@ -1688,13 +1695,14 @@ Currently cannot mix the lower body of this pose with other animation stances (h
 
 ??? note "How to Turn on Ragdoll"
     ```lua
-    ability.owner.active_pose = "unarmed_death"
-    Task.Wait(0.9)
-    ability.owner:EnableRagdoll("spine", .4, true)
-    ability.owner:EnableRagdoll("right_shoulder", .2, true)
-    ability.owner:EnableRagdoll("left_shoulder", .6, true)
-    ability.owner:EnableRagdoll("right_hip", .6, true)
-    ability.owner:EnableRagdoll("left_hip", .6, true)
+    player.animationStance = "unarmed_death"
+	Task.Wait(0.9)
+	player:EnableRagdoll("lower_spine", .4)
+	player:EnableRagdoll("right_shoulder", .2)
+	player:EnableRagdoll("left_shoulder", .6)
+	player:EnableRagdoll("right_hip", .6)
+	player:EnableRagdoll("left_hip", .6)
+		
     ```
 
 ### Ability Binding list
