@@ -1,5 +1,5 @@
 ---
-name: Development Environment
+name: Lua Development Environment
 categories:
     - Misc
 ---
@@ -78,7 +78,3 @@ In addition, we provide a `.luacheckrc` settings file with all CORE API whitelis
 
 * :fa-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
 * :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
-
-## Summary
-
-That's it! You're now all set up for developing in CORE and Lua.
