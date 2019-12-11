@@ -1,21 +1,19 @@
---[[ CORE API Definitions for ZeroBraneStudio https://studio.zerobrane.com/
+--[[
+	CORE API Definition for ZeroBraneStudio https://studio.zerobrane.com/
 
-types are named with _ in front by convention in this file (_
-when exact table types cannot be deducted, you can use type definitions to trigger auto complete as workaround. for example,
+	Types are named with _ in front by convention in this file (_
+	when exact table types cannot be deducted, you can use type definitions to trigger auto complete as workaround. for example,
 
--- trigger would be treated as a coreobject table, but not trigger table
-local trigger = script.parent
+	-- trigger would be treated as a coreobject table, but not trigger table
+	local trigger = script.parent
 
--- you can type _trigger to have correct auto complete show up, not ideal but a work around
-_trigger.on_begin_overlap(_player, _trigger, etc)
+	-- you can type _trigger to have correct auto complete show up, not ideal but a work around
+	_trigger.on_begin_overlap(_player, _trigger, etc)
 
+	ZeroBrane API Reference: https://studio.zerobrane.com/doc-api-auto-complete
 ]]
 
--- custom api syntax reference --
--- https://studio.zerobrane.com/doc-api-auto-complete
---------------------------------------------------------------------------------
-
-local function def_coreobject()
+local function def_coreObject()
 return {
 	type = "class",
 	description = "core object",
@@ -50,7 +48,22 @@ return {
 			description = "if true, cannot call dynamic functions or modify dynamic properties. read-only",
 			valuetype = "boolean",
 		},
+		isNetworked = {
+			type = "value",
+			description = "",
+			valuetype = "boolean",
+		},
 		isClientOnly = {
+			type = "value",
+			description = "",
+			valuetype = "boolean",
+		},
+		isServerOnly = {
+			type = "value",
+			description = "",
+			valuetype = "boolean",
+		},
+		isDisconnected = {
 			type = "value",
 			description = "",
 			valuetype = "boolean",
@@ -276,6 +289,12 @@ return {
 			returns = "()",
 			description = "attach to player at given socket. Object will be unparented from current hierarchy, and its parent will be nil",
 		},
+		AttachToPlayerCamera = {
+			type = "method",
+			args = "(player: player)",
+			returns = "()",
+			description = "attach to player's camera component",
+		},
 		Detach = {
 			type = "method",
 			args = "()",
@@ -415,6 +434,33 @@ return {
 			args = "(propertyName: string)",
 			returns = "(property_value)",
 			description = "Gets data which has been added to an object using the custom property system.  Returns the value, which can be an integer, float, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found.  Second return value is a bool, true if found and false if not.\n- Note: String return value is “” (an empty string), not nil, if the field is empty.",
+		},
+	}
+}
+end
+
+--------------------------------------------------------------------------------
+local function def_coreObjectReference()
+return {
+	type = "class",
+	description = "core object",
+	childs = {
+		id = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		GetObject = {
+			type = "method",
+			args = "()",
+			returns = "(_coreobject)",
+			description = "get referenced object. May depend on whether object has spawned yet",
+		},
+		WaitForObject = {
+			type = "method",
+			args = "()",
+			returns = "(_coreobject)",
+			description = "wait until the object is spawned, then return the object",
 		},
 	}
 }
@@ -1064,6 +1110,11 @@ return {
 			description = "radius of capsule collision",
 			valuetype = "float",
 		},
+		projectileDrag = {
+			type = "value",
+			description = "TODO: add description",
+			valuetype = "float",
+		},
 		projectileBounceCount = {
 			type = "value",
 			description = "number of bounces before project is destroyed",
@@ -1083,6 +1134,51 @@ return {
 			type = "value",
 			description = "max travel distance of projectile. for hitscan weapon, it's range of trace",
 			valuetype = "float",
+		},
+		projectileTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		muzzleFlashTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		trailTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		beamTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		impactSurfaceTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		impactProjectileTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		impactPlayerTemplateId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		outOfAmmoSoundId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
+		reloadSoundId = {
+			type = "value",
+			description = "",
+			valuetype = "string",
 		},
 		multiShotCount = {
 			type = "value",
@@ -1173,7 +1269,7 @@ return {
 			type = "method",
 			args = "()",
 			returns = "()",
-			valuetype = "",
+			valuetype = "_hitresult",
 			description = "Physics information about the impact between the weapon and the other object",
 		},
 		GetHitResults = {
@@ -1613,6 +1709,16 @@ return {
 			description = "core object or player impacted",
 			valuetype = "_coreObject",
 		},
+		isHeadshot = {
+			type = "value",
+			description = "",
+			valuetype = "boolean",
+		},
+		boneName = {
+			type = "value",
+			description = "",
+			valuetype = "string",
+		},
 	}
 }
 end
@@ -1903,7 +2009,22 @@ return {
 			description = "is mouse cursor visible",
 			valuetype = "boolean",
 		},
+		isCursorLocked = {
+			type = "value",
+			description = "whether to lock cursor in viewport",
+			valuetype = "boolean",
+		},
+		isCursorInteractableWithUI = {
+			type = "value",
+			description = "whether cursor can interact with clickable UI, like buttons",
+			valuetype = "boolean",
+		},
 		spreadModifier = {
+			type = "value",
+			description = "",
+			valuetype = "number",
+		},
+		currentSpread = {
 			type = "value",
 			description = "",
 			valuetype = "number",
@@ -1932,6 +2053,11 @@ return {
 		bindingReleasedEvent = {
 			type = "value",
 			description = "event(player, string): fires when action binding is released",
+			valuetype = "_eventType",
+		},
+		keyValuePairReceivedEvent = {
+			type = "value",
+			description = "event(player, key, value): fires when a key value pair is received from SendKeyValuePairToServer",
 			valuetype = "_eventType",
 		},
 
@@ -2082,6 +2208,12 @@ return {
 			valuetype = "table",
 			description = "return table of equipments",
 		},
+		GetAttachedObjects = {
+			type = "method",
+			args = "()",
+			returns = "(table)",
+			description = "return array of attached core objects, excluding weapons",
+		},
 		IsA = {
 			type = "method",
 			description = "returns true if object type is or extends input type",
@@ -2179,6 +2311,24 @@ return {
 			args = "(show: bool)",
 			returns = "()",
 		},
+		GetCameraForward = {
+			type = "method",
+			description = "get camera forward vector, only valid for local player",
+			args = "()",
+			returns = "(_vector)",
+		},
+		GetCameraPosition = {
+			type = "method",
+			description = "get camera position, only valid for local player",
+			args = "()",
+			returns = "(_vector)",
+		},
+		ForceHideModelOnOwnerClient = {
+			type = "method",
+			description = "hide local client's model only on its own client, intended for sniper scoping, etc",
+			args = "(bool)",
+			returns = "()",
+		},
 		SetReticleVisible = {
 			type = "method",
 			description = "Shows or hides the reticle for the player",
@@ -2249,6 +2399,12 @@ return {
 			type = "method",
 			description = "Play mode only. Transfers player to the game specified by the passed-in game ID.",
 			args = "(gameId: string)",
+			returns = "()",
+		},
+		SendKeyValuePairToServer = {
+			type = "method",
+			description = "send a key value pair to server. Key is string, value can be string, number or vector",
+			args = "(key: string, value)",
 			returns = "()",
 		},
 	}
@@ -2563,6 +2719,10 @@ return {
 			type = "value",
 			description = "",
 		},
+		rotationAngle = {
+			type = "value",
+			description = "",
+		},
 	}
 }
 end
@@ -2612,6 +2772,72 @@ return {
 		ability = {
 			type = "value",
 			valuetype = "_ability",
+		},
+	}
+}
+end
+
+local function def_buttonControl()
+return {
+	type = "class",
+	inherits = "_baseControl",
+	childs = {
+		clickedEvent = {
+			type = "value",
+			description = "event(button) fired when button is clicked",
+			valuetype = "_eventType",
+		},
+		hoveredEvent = {
+			type = "value",
+			description = "event(button) fired when button is hovered",
+			valuetype = "_eventType",
+		},
+		unhoveredEvent = {
+			type = "value",
+			description = "event(button) fired when button is unhovered",
+			valuetype = "_eventType",
+		},
+		GetButtonColor = {
+			type = "method",
+			args = "()",
+			returns = "(color)",
+			valuetype = "_color",
+			description = "get button color",
+		},
+		SetButtonColor = {
+			type = "method",
+			args = "(color)",
+			returns = "()",
+			valuetype = "",
+			description = "set button color",
+		},
+		GetFontSize = {
+			type = "method",
+			args = "()",
+			returns = "(number)",
+			valuetype = "number",
+			description = "get font size",
+		},
+		SetFontSize = {
+			type = "method",
+			args = "(number)",
+			returns = "()",
+			valuetype = "",
+			description = "set font size",
+		},
+		GetFontColor = {
+			type = "method",
+			args = "()",
+			returns = "(color)",
+			valuetype = "_color",
+			description = "get font color",
+		},
+		SetFontColor = {
+			type = "method",
+			args = "(color)",
+			returns = "()",
+			valuetype = "",
+			description = "set font color",
 		},
 	}
 }
@@ -3077,7 +3303,8 @@ end
 local function create_api_main()
 return {
 	-- objects
-	_coreObject = def_coreobject(),
+	_coreObject = def_coreObject(),
+	_coreObjectReference = def_coreObjectReference(),
 
 	_script = {
 		type = "class",
@@ -3188,6 +3415,7 @@ return {
 	_textControl = def_textUIControl(),
 	_statBarControl = def_statBarControl(),
 	_abilityControl = def_abilityControl(),
+	_buttonControl = def_buttonControl(),
 
 	Storage = def_storage(),
 
