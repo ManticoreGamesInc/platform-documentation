@@ -1,8 +1,8 @@
-# Documentation
+# CORE Platform Documentation
 
 [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/mkdocs/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?workflow=mkdocs)
 
-Welcome to the source for the official CORE documentation! Please check out the [contribution](CONTRIBUTING.MD) document if you are interested in
+Welcome to the source of the official CORE platform documentation! Please check out the [contribution](CONTRIBUTING.MD) document if you are interested in
 helping out!
 
 ## Related Repositories
