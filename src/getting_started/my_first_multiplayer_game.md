@@ -130,7 +130,7 @@ Let's take this time to build out our own game! We're going to apply materials t
     ![VibrantLevel](../img/MyFirstMultiplayer/VibrantLevel.png){: .center}
 
 !!! tip
-    In CORE, you even have tons of customizeable post process effects and VFX. Search for "Advanced Bloom Post Process" in CORE Content and try it out!
+    In CORE, you even have tons of customizable post process effects and VFX. Search for "Advanced Bloom Post Process" in CORE Content and try it out!
 
 ### Customizing the Gameplay
 
@@ -152,7 +152,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
     ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
 
-5. Game rounds now end at 3 kills, but in the upper-left corner of the screen it still says "First to kill 10 enemies wins!". Let's change that UI text to match the Round Kill Limit. In "UI Seetings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
+5. Game rounds now end at 3 kills, but in the upper-left corner of the screen it still says "First to kill 10 enemies wins!". Let's change that UI text to match the Round Kill Limit. In "UI Settings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
 
     ![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center}
 
