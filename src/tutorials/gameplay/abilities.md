@@ -25,7 +25,7 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
     * How to use an animation
     * How to set up UI connected to an ability
 
-![Dance](../../img/EditorManual/Abilities/FullProcess.gif){: .center}
+![Dance](../../img/EditorManual/Abilities/dance.gif){: .center}
 
 ---
 
@@ -72,23 +72,23 @@ For this tutorial, we are going to make the player do a dance.
 
     1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
-        ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}
+         ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}  
 
-        Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
+         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
 
-        I went with a simple red gem, and made it a little smaller than the default diamond.
+         I went with a simple red gem, and made it a little smaller than the default diamond.
 
-        ![Red Gem Model](../../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center}
+         ![Red Gem Model](../../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center}
 
     2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem _Networked_, and select "Make Children Networked" when this window appears.
 
-        For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
+         For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
 
-        ![Art Folder](../../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center}
+         ![Art Folder](../../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center}
 
     3. In the **Properties** window, uncheck the `Collidable` box of the art folder. This way the gem won't mess with your camera when it's attached to the player.
 
-        ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
+         ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
      4. Right click the Art folder, and hover over Create Network Context to select "New Client Context Containing This" to ensure better performance for the game by wrapping the art in a Client Context.
 
@@ -98,7 +98,7 @@ For this tutorial, we are going to make the player do a dance.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
-        ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
+         ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
 
     2. Rename the `Ability` object to "Dance" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
@@ -108,11 +108,11 @@ For this tutorial, we are going to make the player do a dance.
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
 
-        The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the `shift` key on keyboards.
+         The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the `shift` key on keyboards.
 
     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_dance`.
 
-        ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
+         ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
 
     **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dance!
 
@@ -147,7 +147,7 @@ When the `Ability` is in the Cooldown phase, it will darken the ability button a
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps:
 
-1. In **CORE Content**, search for the **AbilityBindingDisplay** object, and drag this into your **Hierarchy**.
+1. In **CORE Content**, search for the **Ability Binding Display** object, and drag this into your **Hierarchy**. It can also be found in the category Game Components > UI.
 
 2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
 
@@ -161,18 +161,13 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
 
-3. To make sure our icon symbol is visible, shift-click the AbilityBindingDisplay in the **Hierarchy** to expand all of the children subfolders.
+3. To make sure our icon symbol matches our ability, shift-click the AbilityBindingDisplay in the **Hierarchy** to expand all of the children subfolders.
 
-    Select the **ActiveIcon** object, and from within the **Properties** window, change the **Color** property from white to a darker gray.
+    Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of CORE's other built-in UI icons.
 
-    ![Active Icon Color](../../img/EditorManual/Abilities/ActiveIconColor.png "Active Icon Color"){: .center}
-
-4. To **change the icon that displays** from a fork & knife to something more relevant for our ability, navigate through the AbilityBindingDisplay folders in the **Hierarchy** to the two Icon objects. Select both of these, and within the **Properties** panel change the **Image** property on these to whatever you would like!
-
-    Double-click on the **Image** property to see all options possible.
+    In my case, I chose the "Icon Wind" image!
 
     ![Hierarchy](../../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center}
-    I chose the **Icon Stamina** for this case.
 
 Now the UI element will update automatically once the ability is cast.
 
