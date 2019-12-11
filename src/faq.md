@@ -35,7 +35,7 @@ Please remember all information about the CORE Alpha is confidential and cannot 
 
 > **A:** What language are scripts written in?
 
-> **Q:** We use [Lua](tutorials/gameplay/lue_reference.md).
+> **Q:** We use [Lua](tutorials/gameplay/lua_reference.md).
 
 ---
 
