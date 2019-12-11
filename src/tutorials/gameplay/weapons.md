@@ -70,9 +70,9 @@ So, let's get started!
 
 3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
 
-    1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibilty of these gizmos.
+    1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibility of these gizmos.
 
-    2. The look of the weapon can be made from any CORE primitaves and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
+    2. The look of the weapon can be made from any CORE primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
 
         This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
@@ -82,7 +82,7 @@ So, let's get started!
 
 4. Right click this Art group and select "Create Network Context > New Client Context Containing This" to keep the weapon's visuals within a Client Context folder.
 
-        This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up preformance space.
+        This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
 
         To read more about Client Context and networking in CORE games, read our guide about **[Networking](/gameplay/networking/)**.
 
@@ -145,7 +145,7 @@ Currently, the weapon can't shoot anything! For a bullet to fire out of the gun 
 
 4. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
 
-    Bullets need to be both Client Context, and wrapped in a Networked object to be preform really well in-game.
+    Bullets need to be both Client Context, and wrapped in a Networked object to be perform really well in-game.
 
 5. Next, right click this folder again, and click "Create New Template From This".
 
@@ -177,7 +177,7 @@ Now all the basics are hooked up! The gun should be able to shoot and kill other
 
 ### Adding Visual Effects
 
-Right now, it's not super satsifying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
+Right now, it's not super satisfying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
 
 CORE has tons of visual effects and sound effects (often abbreviated to *vfx* and *sfx*) built-in that we can drag and drop onto the weapon.
 
@@ -191,7 +191,7 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
      This visual effect is a little poof of smoke that happens briefly when played.
 
-     1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poff of dust, try changing the color property to whatever you'd like.
+     1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
 
          ![Impact Settings](../../img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center}
 
