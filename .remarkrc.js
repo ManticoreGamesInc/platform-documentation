@@ -27,5 +27,7 @@ exports.plugins = [
     ["remark-lint-list-item-spacing", { checkBlanks: true }],
     ["remark-lint-list-item-indent", "space"],
     ["remark-lint-list-item-content-indent", false],
-    ["remark-lint-code-block-style", "consistent"]
+    ["remark-lint-code-block-style", "fenced"],
+    require("remark-frontmatter"),
+    ["remark-frontmatter", {type: 'custom', marker: '!'}]
 ];
