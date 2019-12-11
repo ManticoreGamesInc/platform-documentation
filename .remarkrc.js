@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 exports.settings = {
-    bullet: "*",
+    bullet: "consistent",
     listItemIndent: "1",
     rule: "-",
     ruleRepetition: "3",
