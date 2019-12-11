@@ -264,7 +264,7 @@ end
 -- with consecutive integer keys, treated as a list.
 ```
 
-### 3.1 Metatables and Metamethods
+### Metatables and Metamethods
 
 ```lua
 -- A table can have a metatable that gives the table
@@ -331,7 +331,7 @@ eatenBy = myFavs.animal  -- works! thanks, metatable
 -- __call(a, ...)                  for a(...)
 ```
 
-### 3.2 Class-like Tables and Inheritance
+### Class-like Tables and Inheritance
 
 ```lua
 -- Classes aren't built in but there are different ways
