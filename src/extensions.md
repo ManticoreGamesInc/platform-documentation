@@ -6,12 +6,6 @@ categories:
 
 # Development Environment
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
-## Overview
-
 There are a bunch of ways you can improve the experience of scripting in CORE. If you are happy with the in-built editor, feel free to skip this section.
 
 ## External editors
@@ -53,13 +47,13 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 #### Visual Studio Code & Atom
 
-* :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/api/luacompleterc.zip">luacompleterc.zip</a>
-* :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
+* :fa-download: Download: [luacompleterc.zip](/assets/api/luacompleterc.zip "API Autocomplete Files")
+* :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
 !!! note "Note for Visual Studio Code:"
     You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
 
-    Example: `"Lua.workspace.library": {"E:\\CORE\\Dev\\Platform\\Saved\\Maps\\": true}`
+    Example: `"Lua.workspace.library": {"C:\\Users\\Manti\\Documents\\My Games\\Core\\Saved\\Maps": true}`
 
     Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
 
@@ -67,7 +61,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 !!! note "Coming soon!"
 <!--
-* :fa-download: Download: <a title="External Editor Autocomplete" href="/assets/api/manticoreapi.lua">manticoreapi.lua</a>
+* :fa-download: Download: [manticoreapi.lua](/assets/api/manticoreapi.lua "API Autocomplete Files")
 * :fa-angle-double-right: Install:
     * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
     * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
@@ -77,12 +71,12 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 [Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
 
-* :fa-download: Download: <a title="Luacheck" href="https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe">luacheck.exe</a>
+* :fa-download: Download: [Luacheck](https://github.com/mpeterv/luacheck/releases/)
 * :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared global variables:
 
-* :fa-download: Download: <a title=".luacheckrc" href="/assets/api/luacheckrc.zip">luacheckrc.zip</a>
+* :fa-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
 * :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
 
 ## Summary
