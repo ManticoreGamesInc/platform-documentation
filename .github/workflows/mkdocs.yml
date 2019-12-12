@@ -28,5 +28,5 @@ jobs:
       - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/production-publish' && runner.os == 'Linux'
         with:
-          name: ${{ github.repository }}-production-publish-${{ github.sha	}}
+          name: platform-documentation-production-publish-${{ github.sha }}
           path: .site/
