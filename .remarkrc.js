@@ -28,6 +28,7 @@ exports.plugins = [
     ["remark-lint-list-item-indent", "space"],
     ["remark-lint-list-item-content-indent", false],
     ["remark-lint-code-block-style", "fenced"],
+    ["remark-lint-table-cell-padding", 'compact'],
     require("remark-frontmatter"),
     ["remark-frontmatter", {type: 'custom', marker: '!'}]
 ];
