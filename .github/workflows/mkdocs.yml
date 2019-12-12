@@ -27,7 +27,7 @@ jobs:
           mkdocs build
       - uses: actions/upload-artifact@v1
         name: Create Snapshot
-        if: github.ref == 'production-publish'
+        if: github.ref == 'production-publish' && runner.os == 'Linux'
         with:
           name: ${{ github.repository }}-${{ github.ref }}-${{ github.sha	}}
           path: .site/
