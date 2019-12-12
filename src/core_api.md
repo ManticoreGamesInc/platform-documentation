@@ -1052,8 +1052,8 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event                    | Return Type                 | Description                                                                                                                                                                                                                                              | Tags                      |
 | ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `targetInteractionEvent` | Event&lt;WeaponInteraction> | Event called when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which Ability was involved in the interaction, etc. Server only.   | Server Context, Read-Only |
-| `projectileSpawnedEvent` | Event&lt;WeaponInteraction> | Event called when a Weapon spawns a Projectile.                                                                                                                                                                                                          | Read-Only                 |
+| `targetInteractionEvent` | Event&lt;WeaponInteraction | Event called when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the weapon, which Ability was involved in the interaction, etc. Server only.   | Server Context, Read-Only |
+| `projectileSpawnedEvent` | Event&lt;Weapon, Projectile, read-only | An event fired when a Weapon spawns a projectile.                                                                                                                                                                                                          | Read-Only                 |
 
 ### WeaponInteraction
 
