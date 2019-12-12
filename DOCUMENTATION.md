@@ -61,9 +61,11 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
 ## Pictures
 
 1. Create a new folder for your tutorial inside of `src/img/` and name it appropriately.
-2. Reference images using a relative path, examples present throughout.
-3. Please make sure your images are all the same size or at least stick to a common ratio.
-4. If you want to use GIFs, make sure they are not huge or convert them into videos.
+2. Use lowercase file extensions. (eg `.jpg` not `.JPG`)
+3. No spaces in file names.
+4. Reference images using a relative path, examples present throughout.
+5. Please make sure your images are all the same size or at least stick to a common ratio.
+6. If you want to use GIFs, make sure they are not huge or convert them into videos.
 
 ### Converting GIF to Video
 
@@ -174,6 +176,7 @@ If longer, it is recommended to split your tutorial into a series.
 * Bold any button or object a user has to click on like `**Edit Terrain*`.
 * Make sure anything referenced in "**Community Content**" will exist in the future. (e.g. by checking with the gameplay team)
 * Make sure to include `<!-- TODO: XX -->` comments for stuff that needs clarification or you are planning changes for.
+* Use `<kbd>KEY</kbd>` highlight keyboard buttons.
 * Please use the Oxford comma.
 
 **Note**: If we have a file that is no longer "done" due to editor changes, include the following after the `# Title` section of your file.
