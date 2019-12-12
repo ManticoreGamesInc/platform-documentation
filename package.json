@@ -23,8 +23,8 @@
         "url": "https://gitlab.com/manticore-games/platform-documentation/issues"
     },
     "farch": {
-        "{src/img/**/*.!(jpg|png|gif|mp4|webm|webp), {nocase:true}}": ".!(jpg|png|gif|mp4|webm|webp)",
-        "src/img/**/*": "^((?!\\s).)*$"
+        "src/**/*": "^((?!\\s).)*$",
+        "src/img/**/*": "[a-z]{3}"
     },
     "husky": {
         "hooks": {
