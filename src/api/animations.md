@@ -9,7 +9,6 @@ All Ability animations have a long "tail" that gracefully transitions the charac
 !!! Note
     If the intent is to have an Ability "execute" as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so). This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
 
-
 #### Socket Names
 
 Sockets are different points on a Player's character mesh. They can be used for attacking objects, controlling a ragdoll effect and more.
@@ -106,21 +105,6 @@ All socket names: root, pelvis, lower_spine, upper_spine, neck, head, right_hip,
 * This animation works best with a cast phase duration of  0.22 or less
 
 #### Unarmed Strings
-
-`unarmed_dance` - Stand in place and dance.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-
-`unarmed_dance_spooky` - Stand in place and dance.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
-
-`unarmed_flex` - Body builder style flexing animation.
-
-* currently does NOT support a variable cast phase time.
-* currently does NOT support a time stretched execute phase time
 
 `unarmed_thumbs_up` - thumbs up.
 
