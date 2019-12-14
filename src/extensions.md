@@ -47,7 +47,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 #### Visual Studio Code & Atom
 
-* :fa-download: Download: [luacompleterc.zip](/assets/api/luacompleterc.zip "API Autocomplete Files")
+* :fa-download: Download: [luacompleterc.zip](../assets/api/luacompleterc.zip "API Autocomplete Files")
 * :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
 !!! note "Note for Visual Studio Code:"
@@ -61,7 +61,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 !!! note "Coming soon!"
 <!--
-* :fa-download: Download: [manticoreapi.lua](/assets/api/manticoreapi.lua "API Autocomplete Files")
+* :fa-download: Download: [manticoreapi.lua](../assets/api/manticoreapi.lua "API Autocomplete Files")
 * :fa-angle-double-right: Install:
     * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
     * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
@@ -76,5 +76,5 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
 
 In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared global variables:
 
-* :fa-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
+* :fa-download: Download: [luacheckrc.zip](../assets/api/luacheckrc.zip "luacheckrc.zip")
 * :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
