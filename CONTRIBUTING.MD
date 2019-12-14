@@ -23,6 +23,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
     - In "**Configuring the line ending conversions**" use "**Checkout as-is, commit Unix-style endings**".
     - In "**Configuring the terminal emulator**" use "**Use Windows' default console window**".
     - In "**Configuring extra options**", check all three boxes.
+    - In a console, set `git config --global pull.rebase true`
 
 3. Create a new [GitLab](https://gitlab.com/) account, use your Manticore email if your are an employee.
 
@@ -64,8 +65,9 @@ Now you are ready to write!
 To update your local branch to the latest version of `production`:
 
 - Navigate to the `platform-documentation` location via command line.
+- We use rebase instead of merge, so please make sure your client respects that or set `git config --global pull.rebase true`
 - In the command prompt, enter `git pull upstream` (fetches the latest version and merges the latest commits into your branch).
-- To learn more, visit [Git's Documentation](https://git-scm.com/docs/git-pull).
+- To learn more, visit [Git Documentation](https://git-scm.com/docs/git-pull).
 
 ## [Easy Mode](#easy-mode)
 
