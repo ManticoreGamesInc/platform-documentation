@@ -173,11 +173,11 @@ After that is done, embed video like this:
 
 ## Long Tutorial Videos
 
-* Message Tasha to get access to the CORE YouTube account, upload and then use Markdown to embed them into your documents.
+* Message Tasha to get access to the CORE YouTube account, or Max for the VIMEO account, and upload and then use Markdown to embed them into your documents.
 
     Usage:
 
-    `![YOUTUBE](LRLQE2N0DKc)`
+    `![YOUTUBE](LRLQE2N0DKc)` and `![VIMEO](LRLQE2N0DKc)`
 
     Where the part in parentheses is the video ID
 
