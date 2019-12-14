@@ -1,8 +1,8 @@
 ### Ability Binding list
 
-This is a list of the key bindings used for each ability slot.
+This is a list of action bindings that can be used to activate abilities.
 
-| Key | Ability |
+| Key | Action Binding |
 | --- | ------- |
 | <kbd>Mouse 1</kbd> | ability_primary |
 | <kbd>Mouse 2</kbd> | ability_secondary |
