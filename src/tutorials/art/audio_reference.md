@@ -24,7 +24,7 @@ You can drag and drop an Audio CoreObject from the **CORE Content** tab and cust
 
 ### How to Find Audio
 
-You can simply find audio in the CORE Content and look through the many sound types and genres. You can also use the search field to look for something specific. It"s always good to listen and try out different sounds since many sounds could have many uses other than what they are labeled as.
+You can simply find audio in the CORE Content and look through the many sound types and genres. You can also use the search field to look for something specific. It's always good to listen and try out different sounds since many sounds could have many uses other than what they are labeled as.
 
 ### How to Play Audio
 
@@ -32,13 +32,13 @@ You can simply find audio in the CORE Content and look through the many sound ty
 
 After adding your chosen audio asset to the hierarchy, you can you can preview audio by pressing the blue play button to the top right. If you check the button for "Apply Effects" to the right, you will hear a preview of the audio with your customized parameters. If you have attenuation or spatialization options enabled, you will hear those based on your current camera position in the editor.
 
-Alternatively, you can activate audio at any time via script access with the audio function `:Play`. For example, when a player interacts with a doorbell, you may want to activate a bell SFX in a Trigger"s script. In such a case, you may want to reference the audio with a "**CoreObject Reference**" custom property or as a child of a script. You can read more about scripting audio triggers and scripts in Lua via the [Audio section of the API documentation](../../core_api.md#audio).
+Alternatively, you can activate audio at any time via script access with the audio function `:Play`. For example, when a player interacts with a doorbell, you may want to activate a bell SFX in a Trigger's script. In such a case, you may want to reference the audio with a "**CoreObject Reference**" custom property or as a child of a script. You can read more about scripting audio triggers and scripts in Lua via the [Audio section of the API documentation](../../core_api.md#audio).
 
 ### Audio Properties
 
 ![alt_text](../../img/Audio/SimpleSFXProperties.jpg "image_tooltip"){: .center }
 
-There are several customizable properties to any audio asset. Let"s go over what each one does, and how it affects the sound.
+There are several customizable properties to any audio asset. Let's go over what each one does, and how it affects the sound.
 
 #### Enable Spatialization
 
@@ -52,7 +52,7 @@ To achieve full 3D positional sound, ensure that you enable both spatialization 
 
 Background ambience and music is best suited to have spatialization and attenuation disabled.
 
-For example, a simple way to do "audio zones" an area on your map you want to hear certain music, you can disable spatialization and enable attenuation to easily fade in a music track that will be heard in stereo (left and right speakers) where you want players to hear it. You"ll have to adjust radius and falloff accordingly as needed.
+For example, a simple way to do "audio zones" an area on your map you want to hear certain music, you can disable spatialization and enable attenuation to easily fade in a music track that will be heard in stereo (left and right speakers) where you want players to hear it. You'll have to adjust radius and falloff accordingly as needed.
 
 #### Enable Occlusion
 
@@ -70,7 +70,7 @@ You can customize how the audio sounds in an environment with control over spati
 
 #### Repeat
 
-When enabled the sound will repeat and retrigger after it is done playing. Note that sounds such as ambient backgrounds and music that are designed to seamlessly loop will do so without this enabled. These sounds will require scripting to stop them using :Stop after they are called by :Play or if they are set to auto play on spawn.
+When enabled the sound will repeat and retrigger after it is done playing. Note that sounds such as ambient backgrounds and music that are designed to seamlessly loop will do so without this enabled. These sounds will require scripting to stop them using `:Stop` after they are called by `:Play` or if they are set to auto play on spawn.
 
 #### Pitch
 
@@ -104,7 +104,7 @@ Sets the default fade out time in seconds when the audio is played. When played,
 
 The start time of the sound in seconds. Default is 0. Setting this to anything else will skip the audio ahead that many seconds when the audio is played.
 
-While some audio properties can be applied while sounds are playing (such as the audio properties volume and pitch), others (such as isSpatializationEnabled) require the sound to be stopped and restarted to take effect.
+While some audio properties can be applied while sounds are playing (such as the audio properties volume and pitch), others (such as `isSpatializationEnabled`) require the sound to be stopped and restarted to take effect.
 
 ## Audio Networking
 
@@ -112,7 +112,7 @@ By default, playback will be networked to all clients. If an Audio object is sim
 
 ### Best Practices for General Audio
 
-- It"s not always as it may seem; Like many of our assets in CORE, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "Parachute Open 01 SFX" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
+- It's not always as it may seem; Like many of our assets in CORE, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
 
 - Size matters; Generally smaller objects are higher in pitch than ones that are much larger. Same goes for volume. A smaller insect will make less sound than a giant one for example. Also think about the size of your map. If you want things such as explosions or gunshots to be heard across the entirety of your map, adjust the falloff and radius values of your sounds accordingly.
 
@@ -128,11 +128,11 @@ By default, playback will be networked to all clients. If an Audio object is sim
 
 Like many of the other assets in CORE such as VFX and materials, there are a handful of audio assets with various smart properties specific to those assets.
 
-Usually you"ll find that some audio assets have several similar variations that can be selected via a drop down selection menu.
+Usually you'll find that some audio assets have several similar variations that can be selected via a drop down selection menu.
 
 ![alt_text](../../img/Audio/AdvancedGunshotSFXProperties.jpg "image_tooltip"){: .center }
 
-You"ll mostly find this in "**Music Score Sets**" or "**Gunshot Sets**" for example.
+You'll mostly find this in "**Music Score Sets**" or "**Gunshot Sets**" for example.
 
 Note: As a reminder for smart properties, they can be adjusted and modified via script using: `GetSmartProperty(string)` or `SetSmartProperty(string, value)`. See API documentation regarding Smart properties [here](../../core_api.md#smartobject). When referencing drop-down strings, keep in mind that Lua is case-sensitive and they must be referenced exactly as they are listed.
 
@@ -140,7 +140,7 @@ Others will have very specific parameters that pertain to that asset in particul
 
 ![alt_text](../../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center }
 
-In this example we're looking at the "**Gunshot Sniper Rifle Set 01 SFX**" asset. The tooltips will help you better understand what these parameters do. It"s always a good idea to try things out to find what works best for your game!
+In this example we're looking at the "**Gunshot Sniper Rifle Set 01 SFX**" asset. The tooltips will help you better understand what these parameters do. It's always a good idea to try things out to find what works best for your game!
 
 The **Extend Resonance** option will ensure that each gunshot will fully resonate instead of being cut off early. This may be useful for larger-scale open world maps when you want your sniper rifle shots to ring out at far distances.
 
@@ -257,7 +257,7 @@ You'll find that our music assets are broadly categorized by well-known music ge
 
 **Lounge & Jazz** - Music to lounge around to. You'll find various jazz subgenres and general chill lounge music here.
 
-**Rock** - Music driven by distorted/overdriven guitars and heavy hitting drums. You'll find various sub-genres of rock here such as; Metal, classic rock, punk rock and more!
+**Rock** - Music driven by distorted/overdriven guitars and heavy hitting drums. You'll find various sub-genres of rock here such as Metal, classic rock, punk rock and more!
 
 **World** - Music from various cultures and nationalities all over the world, both ancient and modern.
 
@@ -279,7 +279,7 @@ Music Stingers generally are used as a one-shot triggered sound hooked up to gam
 
 ### Best Practices, Tips & Tricks for Background Music
 
-It is best to utilize music with Enable Spatialization disabled so that it can be heard in stereo (left and right speaker channels). If you are looking to have music to sound as if it were coming out of a source inside your game world such as a radio or television, you can simply treat it as any other "world object' sound effect that emits from a 3D object in your scene and enable spatialization, attenuation and occlusion.
+It is best to utilize music with Enable Spatialization disabled so that it can be heard in stereo (left and right speaker channels). If you are looking to have music to sound as if it were coming out of a source inside your game world such as a radio or television, you can simply treat it as any other "world object" sound effect that emits from a 3D object in your scene and enable spatialization, attenuation and occlusion.
 
 - An easy way to simply get background music into your game is to:
     - Add the music track of your choice
