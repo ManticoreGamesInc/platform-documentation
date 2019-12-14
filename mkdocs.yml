@@ -63,7 +63,7 @@ theme:
   palette:
     primary: "manticore-blue"
     accent: "manticore-orange"
-  logo: "assets/CoreIcon_.png"
+  logo: "assets/icons/CoreIcon_.png"
   favicon: "assets/favicon.ico"
 
   # Don't include MkDocs' JavaScript
