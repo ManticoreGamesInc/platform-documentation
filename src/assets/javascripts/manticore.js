@@ -1,6 +1,22 @@
 // Manticore JavaScript Helpers
-
 document.addEventListener('DOMContentLoaded', (event) => {
+    // scroll to top button
+    var btn = document.getElementById("to-top-button")
+    btn.addEventListener("click", function(e) {
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        window.scroll({ top: 0, left: 0, behavior: "smooth" })
+    })
+
+    // Add an icon to all external links
+    var links = document.querySelectorAll( '.md-content a' );
+    for (var i = 0, length = links.length; i < length; i++) {
+        if (links[i].hostname != window.location.hostname && links[i].title != 'Edit this page' && links[i] != btn) {
+            links[i].target = '_blank';
+            links[i].className = 'external';
+        }
+    }
+
     // Load Videos in the Docs
     var elements = document.querySelectorAll('img[alt="YOUTUBE"]');
     var elementsLive = document.querySelectorAll('img[alt="YOUTUBELIVE"]');
@@ -64,6 +80,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var current_title = document.title;
         var headerlinks = document.getElementsByClassName('headerlink');
 
+        if (document.documentElement.scrollTop > 300) {
+            btn.classList.add("show")
+        } else {
+            btn.classList.remove("show")
+        }
+
         Array.prototype.forEach.call(headerlinks, function(el, i) {
             var rect = el.getBoundingClientRect();
             if (y_pos > rect.top + document.documentElement.scrollTop - 90) {
@@ -105,13 +127,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 let elements = document.getElementsByClassName('lightgallery')
 for (let i = 0; i < elements.length; i++) {
   lightGallery(elements[i])
-}
-
-// Add an icon to all external links
-var links = document.querySelectorAll( '.md-content a' );
-for (var i = 0, length = links.length; i < length; i++) {
-    if (links[i].hostname != window.location.hostname && links[i].title != 'Edit this page') {
-        links[i].target = '_blank';
-        links[i].className = 'external';
-    }
 }
