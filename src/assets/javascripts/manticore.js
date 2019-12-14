@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Load Videos in the Docs
     var elements = document.querySelectorAll('img[alt="YOUTUBE"]');
     var elementsLive = document.querySelectorAll('img[alt="YOUTUBELIVE"]');
+    var elementsVimeo = document.querySelectorAll('img[alt="VIMEO"]');
 
     Array.prototype.forEach.call(elements, function(el, i){
         var id = el.getAttribute('src').split('/')[el.getAttribute('src').split('/').length - 1];
@@ -36,6 +37,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         el.replaceWith(iframe);
     });
+
+    Array.prototype.forEach.call(elementsVimeo, function(el, i) {
+        var id = el.getAttribute("src").split("/")[
+            el.getAttribute("src").split("/").length - 1
+        ]
+        var old_class = el.getAttribute("class")
+        var iframe = document.createElement("iframe")
+
+        iframe.src =
+            "https://player.vimeo.com/video/" + id
+
+        if (old_class != "null") {
+            iframe.className = "youtube-video " + old_class
+        } else {
+            iframe.className = "youtube-video"
+        }
+
+        el.replaceWith(iframe)
+    })
 
     // Change browser tab title based on header title near scroll position
 
