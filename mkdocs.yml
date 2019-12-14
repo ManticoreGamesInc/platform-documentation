@@ -20,9 +20,10 @@ nav:
       - API Overview: core_api.md
       - Game Components: api/components.md
       - Animations: api/animations.md
+      - Ability Bindings: api/ability_bindings.md
       - Lua in CORE: tutorials/gameplay/lua_reference.md
       - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
-      - Lua Dev Environment: extensions.md
+      - Editor Extensions: extensions.md
       - Coming from other Engines: getting_started/other_engines.md
   - Tutorials:
       - Overview: generated/sitemap.md
