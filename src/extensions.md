@@ -1,10 +1,10 @@
 ---
-name: Lua Development Environment
+name: Editor Extensions
 categories:
     - Misc
 ---
 
-# Development Environment
+# Editor Extensions
 
 There are a bunch of ways you can improve the experience of scripting in CORE. If you are happy with the in-built editor, feel free to skip this section.
 
