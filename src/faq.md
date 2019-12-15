@@ -148,9 +148,9 @@ Please remember all information about the CORE Alpha is confidential and cannot 
 
 ---
 
->> **Q:** Is it possible for custom environment objects like buildings?
+> **Q:** Is it possible for custom environment objects like buildings?
 
->> **A:** Yes, absolutely, using the primitives, smart objects, and templates.
+> **A:** Yes, absolutely, using the primitives, smart objects, and templates.
 
 ## Lua
 
