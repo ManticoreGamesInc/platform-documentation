@@ -180,11 +180,11 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
 
     ![BasicRifle](../img/MyFirstMultiplayer/BasicRifle.png){: .center}
 
-3. To swap out the starting weapon, drag and drop your imported gun's template into the "EquipmentTemplate" field.
+4. To swap out the starting weapon, drag and drop your imported gun's template into the "EquipmentTemplate" field.
 
     ![SwapWeapons](../img/MyFirstMultiplayer/SwapWeapons.gif){: .center}
 
-4. Press Play and test our your awesome new gun... that shoots tree!
+5. Press Play and test our your awesome new gun... that shoots tree!
 
     ![TreeShot](../img/MyFirstMultiplayer/TreeShot.gif){: .center}
 

@@ -1,7 +1,7 @@
 ---
 name: Audio Reference
 categories:
-      - Reference
+    - Reference
 ---
 
 # Audio in CORE
@@ -86,7 +86,7 @@ This is the radius at which the sound plays at full volume in centimeters (cm). 
 
 #### Falloff
 
-!!! note "This is the radius of the volume falloff distance in centimeters (cm). If the distance from the sound"s   origin is greater than the sound"s radius, the sound will gradually decrease in volume over the falloff distance. The maximum range a sound can be heard is RADIUS + FALLOFF."
+!!! note "This is the radius of the volume falloff distance in centimeters (cm). If the distance from the sound's origin is greater than the sound's radius, the sound will gradually decrease in volume over the falloff distance. The maximum range a sound can be heard is RADIUS + FALLOFF."
 
 When visual gizmos are toggled on (by pressing <kbd>V</kbd> in the editor) Radius and Falloff values can be seen in the editor to help creators have a better visual understanding of how their sounds are heard in their games.
 
@@ -113,15 +113,10 @@ By default, playback will be networked to all clients. If an Audio object is sim
 ### Best Practices for General Audio
 
 - It's not always as it may seem; Like many of our assets in CORE, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
-
 - Size matters; Generally smaller objects are higher in pitch than ones that are much larger. Same goes for volume. A smaller insect will make less sound than a giant one for example. Also think about the size of your map. If you want things such as explosions or gunshots to be heard across the entirety of your map, adjust the falloff and radius values of your sounds accordingly.
-
 - Audio is meant to compliment the visuals and in-game elements on-screen and help immerse players into your game. Pay attention to visual and world elements as they could potentially be things you"d want to implement sound for.
-
 - Know when to enable or disable 3D sound; Is it background music? Is it background nature ambience? Is it emitting from an object inside your 3D world? Make sure you adjust your spatialization, attenuation and radius values accordingly.
-
 - Knobs, parameters, values, oh my! Have fun and experiment. There are more than enough audio properties you can change to create a wide variety of soundscapes in CORE.
-
 - Layering! This is an essential part of sound design where combining different sounds can yield interesting results. As mentioned before, think about complementing the visuals; If you create a lightning sword, perhaps you could layer **Electric Spark Short 01 SFX** on top of a **Sword Swing Swipe 01 SFX** sound.
 
 ## Audio with Special "Smart Property" parameters
@@ -150,7 +145,7 @@ Another great example of an extremely easy to use, powerful and versatile sound 
 
 The parameters at this point should already look familiar to you, but here you will find them in a single asset since explosions are one of those sounds that usually require several layers of sound elements.
 
-If each of these sets were individual assets, you could achieve the same results using those with layers of scripts, however we"ve done the heavy lifting here for you in this case so that you can create an explosion that"s right for you! Remember that each sound, even the individual layers are already dynamic enough as-is and will never sound repetitive or the same every time. You could easily just use one layer of the explosion creation kit if you wish and still have a viable explosion sound.
+If each of these sets were individual assets, you could achieve the same results using those with layers of scripts, however we've done the heavy lifting here for you in this case so that you can create an explosion that's right for you! Remember that each sound, even the individual layers are already dynamic enough as-is and will never sound repetitive or the same every time. You could easily just use one layer of the explosion creation kit if you wish and still have a viable explosion sound.
 
 ![alt_text](../../img/Audio/AdvancedExplosionSFXProperties.jpg "image_tooltip"){: .center }
 
@@ -160,53 +155,53 @@ There are plenty of audio assets with powerful customizable properties to suit a
 
 **Ambience & Backgrounds** - Background ambient sounds that encompasses various environment types
 
-* Industrial
-* Military
-* Nature
-* Room Tones
-* SciFi
-* Synthetic Drones
-* Urban
+- Industrial
+- Military
+- Nature
+- Room Tones
+- SciFi
+- Synthetic Drones
+- Urban
 
 **Game Sounds** - Sounds that generally relate to gameplay elements such as sounds for win/lose popups, leveling up or other similar meta game events
 
-* Fantasy
-* Generic
-* Retro
-* SciFi
+- Fantasy
+- Generic
+- Retro
+- SciFi
 
 **Instruments** - Musical instruments that you can use to script/import your own music into CORE
 
 **Music** - This is where you can find all of the music. More details on music below in the Music section of this doc
 
-* Background Music (BGM)
-* Music Stingers
+- Background Music (BGM)
+- Music Stingers
 
 **Player Sounds** - Sounds that relate to the player movement, impacts and voices
 
-* Body Impacts
-* Clothing and Gear
-* Footsteps
-* Player Voice Over
-* Slides
+- Body Impacts
+- Clothing and Gear
+- Footsteps
+- Player Voice Over
+- Slides
 
 **Sound Effects** - This is where the majority of general purpose sound effects live. There are a wide variety of general sound effect categories to suit a wide variety of game scenarios
 
-* Creature
-* Sound Design Sweeteners
-* Domestic
-* Explosions
-* Fantasy
-* Food
-* Funny
-* Impacts
-* Industrial
-* Magic
-* Military
-* Nature
-* SciFi
-* Sports
-* Vehicles
+- Creature
+- Sound Design Sweeteners
+- Domestic
+- Explosions
+- Fantasy
+- Food
+- Funny
+- Impacts
+- Industrial
+- Magic
+- Military
+- Nature
+- SciFi
+- Sports
+- Vehicles
 
 **UI** - Sounds that are related to user interface interactions and events such as button clicks, pop up window notifications and more
 
@@ -214,18 +209,18 @@ There are plenty of audio assets with powerful customizable properties to suit a
 
 **Voice Over** - Voice over clips
 
-* Announcer Voice Overs
-* Generic Voice Overs
+- Announcer Voice Overs
+- Generic Voice Overs
 
 **Weapons** - Sounds relating to anything and everything relating to weapons
 
-* Firing
-* Gunshot Sweeteners
-* Handling
-* Impact
-* Melee
-* Reload
-* Thrown
+- Firing
+- Gunshot Sweeteners
+- Handling
+- Impact
+- Melee
+- Reload
+- Thrown
 
 ## Background Music and Music Stingers
 
@@ -265,11 +260,11 @@ In each category you'll find a **Music Score Set** of your chosen genre with all
 
 ![alt_text](../../img/Audio/MusicSetGenrePropertiesSFX.jpg "image_tooltip"){: .center }
 
-You'll also find several **Music Construction Kits** for music tracks that have their own construction kit where either the *SECTIONS* of a music track are branched out and separated as individual tracks.
+You'll also find several **Music Construction Kits** for music tracks that have their own construction kit where either the _SECTIONS_ of a music track are branched out and separated as individual tracks.
 
 ![alt_text](../../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center }
 
-There are also kits where various instrument *LAYERS* are individually separated with their own volume controls that you can design your own version of the music track or drive the volume sliders via script to create highly dynamic music.
+There are also kits where various instrument _LAYERS_ are individually separated with their own volume controls that you can design your own version of the music track or drive the volume sliders via script to create highly dynamic music.
 
 For example, you could adjust the drums and heavy strings volumes to be louder as there are more enemies inside a zone, or fade in the volume of those instruments when you either take or do damage, essentially matching the intensity of the music with the intensity of the action on screen.
 
@@ -291,7 +286,6 @@ It is best to utilize music with Enable Spatialization disabled so that it can b
 - If you want music played only in certain areas in your map you could easily achieve this several ways:
 
     - Using the radius and falloff zones without spatialization; Disable spatialization and enable attenuation to easily fade in a music track that will be heard in stereo (left and right speakers) where you want players to hear it. You'll have to adjust radius and falloff accordingly as needed.
-
     - By trigger zone script; Script a trigger zone that will call `:Play()` and `:Stop()` as needed when a player enters and leaves the zone. Setting a Fade In or Fade Out time makes this a bit more seamless if there are several music tracks being triggered on and off concurrently. Please read the [Lua API documentation](../../core_api.md#audio) for more scripting details.
 
 - Experiment with pitch! Sometimes slightly changing the pitch of a music track can result in vastly changing the overall mood and feel of a music track. You could also try taking any two same music tracks and slightly adjusting the pitch up or down to make it sound creepy and unnerving.

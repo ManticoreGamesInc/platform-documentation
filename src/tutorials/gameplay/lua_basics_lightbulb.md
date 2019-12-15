@@ -122,6 +122,7 @@ Now we are going to create a small game that involves a light switch that turns 
 ### Downloading the template
 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
+
 2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
     ![Hard to see](../../img/LightBulb/image22.png "Hard to see")
@@ -190,13 +191,9 @@ We want our light switch to function just like it would in real life: the switch
     `switch:RotateTo(Rotation.New(0, 90, 0), 2)`
 
     * `switch` tells the script to rotate the object attached to this variable.
-
     * `RotateTo` is an function that tells CORE we want to rotate an object.
-
     * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
-
     * `(0, 90, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y-axis by 90 degrees.
-
     * `2` is the animation duration in seconds.
 
     Our script should now look like this:
@@ -221,7 +218,6 @@ We want our light switch to function just like it would in real life: the switch
     `local startingRotation = switch:GetWorldRotation()`
 
     * `startingRotation` is the name of our new variable that will define the switch's starting rotation.
-
     * `switch:GetWorldRotation()` tells the script to get the global rotation coordinates of our first variable, `switch`.
 
     Our script should now look like this:
@@ -325,9 +321,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     `switchTrigger.interactedEvent:Connect(OnSwitchInteraction)`
 
     * `switchTrigger` is the name of our trigger.
-
     * `interactedEvent:Connect()` tells the script every time the player interacts with trigger to execute the function passed to the `Connect()` function.
-
     * `OnSwitchInteraction` is the name of the function we are connecting.
 
     Without this statement the script wouldn't know to call the `OnSwitchInteraction` function when the player interacts with the trigger.
@@ -674,11 +668,8 @@ You've turned on the light. If you keep interacting with the light switch you'll
     `switchTrigger.interactionLabel = "Turn On"`
 
     * `switchTrigger` is the name of the trigger we are editing the label of.
-
     * `interactionLabel` is the property of the trigger we are editing.
-
     * `"Turn On"` is a text string, basically what the label will say.
-
     * `=` is an assignment, meaning we are setting a property to what comes afterwards
 
 2. Press **Play** to see if the label changed from **Interact** to **Turn On**.
@@ -756,9 +747,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     ```
 
     * `if … then` is the syntax needed for our `if` statement.
-
     * `isLightOn == false` is the condition that must be met in order to execute the `if` statement.
-
     * `end` means the `if` statement is done.
 
 7. If `isLightOn` is set to `true`, that means the light is off - so our interaction label should say **Turn On**. Cut and paste the **interactionLabel** line into this `if` statement. Now the `UpdateLabel()` function should look like this:
