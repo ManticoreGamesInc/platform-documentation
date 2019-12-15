@@ -6,7 +6,7 @@ const filesToCache = [
     "assets/icons/CoreIcon_.png"
 ]
 
-const staticCacheName = "pages-cache-v1"
+const staticCacheName = "pages-cache-v2"
 
 self.addEventListener("install", event => {
     console.log("Attempting to install service worker and cache static assets")
@@ -29,7 +29,9 @@ self.addEventListener("fetch", event => {
                 }
                 console.log("Network request for ", event.request.url)
                 return fetch(event.request).then(response => {
-                    // TODO 5 - Respond with custom 404 page
+                    if (response.status === 404) {
+                        return caches.match("404.html")
+                    }
                     return caches.open(staticCacheName).then(cache => {
                         cache.put(event.request.url, response.clone())
                         return response
@@ -37,7 +39,8 @@ self.addEventListener("fetch", event => {
                 })
             })
             .catch(error => {
-                // TODO 6 - Respond with custom offline page
+                console.log("Error, ", error)
+                return caches.match("offline.html")
             })
     )
 })

@@ -143,6 +143,10 @@ site_description: Documentation for the CORE Platform
 site_author: Manticore Games
 site_url: https://www.coregames.com/docs/
 
+static_templates:
+  - 404.html
+  - offline.html
+
 # Copyright
 copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
 
