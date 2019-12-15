@@ -17,6 +17,26 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - uses: actions/cache@v1
+        id: cache-node
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: steps.cache-node.outputs.cache-hit != 'true'
+        run: npm install
+
+      - run: npm run lint
+
       - name: Install dependencies
         run: |
           git submodule update --init --recursive --depth=1
