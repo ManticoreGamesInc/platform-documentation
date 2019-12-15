@@ -72,7 +72,7 @@ For this tutorial, we are going to make the player do a dance.
 
     1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
-         ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}  
+         ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}
 
          Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
 
@@ -154,9 +154,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
     ![Ability Control](../../img/EditorManual/Abilities/AbilityButtonProperties.png "Ability Control"){: .center}
 
     1. Change the **Binding** property from `ability_primary` to `ability_feet`.
-
     2. Change the **Text** field to `Shift`, to stand for Left Shift.
-
     3. Check the **ShowAbilityName** property, so that "Dance" will display over the button.
 
     What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
@@ -196,4 +194,4 @@ To create a more advanced ability system and read more about Ability objects, re
 
 ## Examples
 
-* ***[Spellshock](https://www.coregames.com/games)*** includes advanced abilities using ability objects.
+* **[Spellshock](https://www.coregames.com/games)** includes advanced abilities using ability objects.

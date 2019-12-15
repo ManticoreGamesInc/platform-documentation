@@ -44,11 +44,11 @@ You can change an object's material a few different ways:
 
 2. Drag a material from the CORE Content tab into the material slot in the object's Property tab.
 
-    ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
+   ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
 
 3. Drag a material from the CORE Content tab onto the object in the scene.
 
-    ![Materials](../../img/Materials/image18.png "Materials Screenshot"){: .center}
+   ![Materials](../../img/Materials/image18.png "Materials Screenshot"){: .center}
 
 Changing a material's color is as easy as clicking on the color block in the Materials section of the property tab and selecting a new color with the color picker.
 
@@ -98,7 +98,7 @@ Red brick material with U Tiling and V Tiling both set to 3.
 
 If you want to change more than one color and the U/V Tiling of a material, you'll have to create a custom material. Custom materials allow you to finely tune any material in CORE's engine. By saving a custom material preset you can easily update every object in game using your custom preset with one click.
 
-Create a new custom material by right clicking on a material in the CORE Content. Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom [Name of Material]".
+Create a new custom material by right clicking on a material in the CORE Content. Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom -Name of Material-".
 
 ![Materials](../../img/Materials/image17.png "Materials Screenshot"){: .center}
 
@@ -115,6 +115,7 @@ Some materials have properties specific to them. For example, the ceramic materi
 ![Materials](../../img/Materials/image6.png "Materials Screenshot"){: .center}
 
 ![Materials](../../img/Materials/image4.png "Materials Screenshot"){: .center}
+
 <!-- TODO: Summary Text
 ## Summary
 -->
