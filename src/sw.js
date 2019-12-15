@@ -1,5 +1,6 @@
 const filesToCache = [
     "/",
+    "404.html",
     "assets/api/luacheckrc.zip",
     "assets/api/manticoreapi.lua",
     "assets/icons/CoreIcon_.png"

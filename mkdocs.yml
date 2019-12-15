@@ -129,7 +129,7 @@ plugins:
             'getting_started.md': 'getting_started/editor_intro.md'
 
 # Docs dir
-docs_dir: src/
+docs_dir: src
 
 # Site name
 site_name: CORE Creator Hub
@@ -141,7 +141,7 @@ site_name: CORE Creator Hub
 # Metadata
 site_description: Documentation for the CORE Platform
 site_author: Manticore Games
-site_url: https://www.coregames.com/docs
+site_url: https://www.coregames.com/docs/
 
 # Copyright
 copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
