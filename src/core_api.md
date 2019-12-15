@@ -180,8 +180,8 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color / Color` | Color | Component-wise division. | None |
 | `Color / Number` | Color | Divides each component of the color by the right-side Number. | None |
 
-!!! note
-Predefined Colors include Color.WHITE ,Color.GRAY ,Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
+!!! note Predefined Colors
+    Predefined colors include: Color.WHITE, Color.GRAY, Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
 
 ### CoreObject
 
@@ -681,8 +681,7 @@ Script is a CoreObject representing a script.
 | -------- | ----------- | ----------- | ---- |
 | `context` | table | Returns the table containing any non-local variables and functions created by the script. This can be used to call (or overwrite!) functions on another script. | Read-Only |
 
-!!! Note
-While not technically a property, a script can access itself using the `script` variable.
+!!! Note "While not technically a property, a script can access itself using the `script` variable."
 
 ### SpotLight
 
@@ -1133,22 +1132,23 @@ User defined events can be specified using the Events namespace. The Events name
 | `Events.BroadcastToServer(string eventName,args...)` | &lt;resultcode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. Client-only. | Client Context |
 
 ??? "Broadcast Event Result Codes"
-_ BroadcastEventResultCode.SUCCESS
-_ BroadcastEventResultCode.FAILURE
-_ BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT
-_ BroadcastEventResultCode.EXCEEDED_RATE_LIMIT
+    - BroadcastEventResultCode.SUCCESS
+    - BroadcastEventResultCode.FAILURE
+    - BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT
+    - BroadcastEventResultCode.EXCEEDED_RATE_LIMIT
 
 ??? "Networked Events Supported Types"
-_ Bool
-_ Int32
-_ Float
-_ String
-_ Color
-_ Rotator
-_ Vector2
-_ Vector3
-_ Vector4
-_ Player \* Table
+    - Bool
+    - Int32
+    - Float
+    - String
+    - Color
+    - Rotator
+    - Vector2
+    - Vector3
+    - Vector4
+    - Player
+    - Table
 
 ### Game
 
@@ -1351,94 +1351,94 @@ World is a collection of functions for finding objects in the world.
 For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
-_ assert
-_ collectgarbage (modified)
-_ error
-_ getmetatable (modified)
-_ ipairs
-_ next
-_ pairs
-_ pcall
-_ print (modified)
-_ rawequal
-_ rawget (modified)
-_ rawset (modified)
-_ require (modified)
-_ select
-_ setmetatable (modified)
-_ tonumber
-_ tostring
-_ type
-_ \_G (modified)
-_ \_VERSION
-_ xpcall
-_ coroutine.create
-_ coroutine.isyieldable
-_ coroutine.resume
-_ coroutine.running
-_ coroutine.status
-_ coroutine.wrap
-_ coroutine.yield
-_ math.abs
-_ math.acos
-_ math.asin
-_ math.atan
-_ math.ceil
-_ math.cos
-_ math.deg
-_ math.exp
-_ math.floor
-_ math.fmod
-_ math.huge
-_ math.log
-_ math.max
-_ math.maxinteger
-_ math.min
-_ math.mininteger
-_ math.modf
-_ math.pi
-_ math.rad
-_ math.random
-_ math.randomseed
-_ math.sin
-_ math.sqrt
-_ math.tan
-_ math.tointeger
-_ math.type
-_ math.ult
-_ os.clock
-_ os.date
-_ os.difftime
-_ os.time
-_ string.byte
-_ string.char
-_ string.find
-_ string.format
-_ string.gmatch
-_ string.gsub
-_ string.len
-_ string.lower
-_ string.match
-_ string.pack
-_ string.packsize
-_ string.rep
-_ string.reverse
-_ string.sub
-_ string.unpack
-_ string.upper
-_ table.concat
-_ table.insert
-_ table.move
-_ table.pack
-_ table.remove
-_ table.sort
-_ table.unpack
-_ utf8.char
-_ utf8.charpattern
-_ utf8.codes
-_ utf8.codepoint
-_ utf8.len
-_ utf8.offset
+    - assert
+    - collectgarbage (modified)
+    - error
+    - getmetatable (modified)
+    - ipairs
+    - next
+    - pairs
+    - pcall
+    - print (modified)
+    - rawequal
+    - rawget (modified)
+    - rawset (modified)
+    - require (modified)
+    - select
+    - setmetatable (modified)
+    - tonumber
+    - tostring
+    - type
+    - _G (modified)
+    - _VERSION
+    - xpcall
+    - coroutine.create
+    - coroutine.isyieldable
+    - coroutine.resume
+    - coroutine.running
+    - coroutine.status
+    - coroutine.wrap
+    - coroutine.yield
+    - math.abs
+    - math.acos
+    - math.asin
+    - math.atan
+    - math.ceil
+    - math.cos
+    - math.deg
+    - math.exp
+    - math.floor
+    - math.fmod
+    - math.huge
+    - math.log
+    - math.max
+    - math.maxinteger
+    - math.min
+    - math.mininteger
+    - math.modf
+    - math.pi
+    - math.rad
+    - math.random
+    - math.randomseed
+    - math.sin
+    - math.sqrt
+    - math.tan
+    - math.tointeger
+    - math.type
+    - math.ult
+    - os.clock
+    - os.date
+    - os.difftime
+    - os.time
+    - string.byte
+    - string.char
+    - string.find
+    - string.format
+    - string.gmatch
+    - string.gsub
+    - string.len
+    - string.lower
+    - string.match
+    - string.pack
+    - string.packsize
+    - string.rep
+    - string.reverse
+    - string.sub
+    - string.unpack
+    - string.upper
+    - table.concat
+    - table.insert
+    - table.move
+    - table.pack
+    - table.remove
+    - table.sort
+    - table.unpack
+    - utf8.char
+    - utf8.charpattern
+    - utf8.codes
+    - utf8.codepoint
+    - utf8.len
+    - utf8.offset
 
 ### MUIDs
 
