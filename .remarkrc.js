@@ -23,13 +23,15 @@ exports.plugins = [
     ["remark-lint-maximum-line-length", 999],
     ["remark-lint-unordered-list-marker-style", "consistent"],
     ["remark-lint-ordered-list-marker-style", "consistent"],
+    ["remark-lint-emphasis-marker", "consistent"],
     ["remark-lint-ordered-list-marker-value", "ordered"],
     ["remark-lint-no-file-name-irregular-characters", false],
     ["remark-lint-list-item-spacing", { checkBlanks: true }],
     ["remark-lint-list-item-indent", "space"],
     ["remark-lint-list-item-content-indent", false],
-    ["remark-lint-code-block-style", "fenced"],
-    ["remark-lint-table-cell-padding", 'compact'],
+    ["remark-lint-code-block-style", false],
+    ["remark-lint-table-cell-padding", false],
+    ["remark-lint-table-pipe-alignment", false],
     require("remark-frontmatter"),
     ["remark-frontmatter", {type: 'custom', marker: '!'}]
 ];

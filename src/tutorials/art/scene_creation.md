@@ -104,7 +104,6 @@ There are more degrees of rotation available in the drop down menu.
 ### Decorate
 
 1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **CORE Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
-
 2. Take a screenshot of your room and post it on the `#showcase` channel in CORE's :fab fa-discord: [Creator Discord](../../discord.md).
 
 ![SceneCreation](../../img/SceneCreation/image2.png "image_tooltip"){: .center}
