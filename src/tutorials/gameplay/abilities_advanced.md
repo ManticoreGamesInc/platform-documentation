@@ -105,15 +105,15 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 3. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
 
-     You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**.
+    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**.
 
-     Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
+    Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy1.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy1.png){: .center}
 
 4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!
 
-     ![Is Hitscan?](/img/EditorManual/Weapons/advanced/isHitscan_no.png){: .center}
+    ![Is Hitscan?](/img/EditorManual/Weapons/advanced/isHitscan_no.png){: .center}
 
 5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied!
 
@@ -122,9 +122,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 Since we're making a magic staff and not a typical gun, we get to change the animations to something more fitting!
 
 1. Select the Fire Staff `weapon`. In the Weapon section of the Properties window, change the **Animation Stance** to "2hand_staff_stance" so that it looks better when you're walking around holding the staff.
-
 2. On the AttackAbility that already exists on the weapon, change the **Animation** in the Properties window to "2hand_staff_magic_bolt" as well.
-
 3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvinated.
 
 ### Explosive Visual Effects
@@ -133,15 +131,15 @@ Use the **[VFX section](/tutorials/gameplay/weapons/#adding-visual-effects)** of
 
 1. The **Muzzle Flash Template**
 
-     - This is what happens the moment the weapon is fired.
+    * This is what happens the moment the weapon is fired.
 
 2. The **Impact Surface Aligned**
 
-     - Is activated the moment a projectile hits a surface that is not a player.
+    * Is activated the moment a projectile hits a surface that is not a player.
 
 3. The **Impact Player Effect**
 
-     - Activated the moment a player is hit with a projectile.
+    * Activated the moment a player is hit with a projectile.
 
 ![Fire Impact](/img/EditorManual/Weapons/advanced/staffImpact.gif){: .center}
 
@@ -155,106 +153,111 @@ Use the **[VFX section](/tutorials/gameplay/weapons/#adding-visual-effects)** of
 
 4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy2.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy2.png){: .center}
 
 5. Open the script and let's get typing!
 
-     1. We're going to create a reference to the `equipment` (which is also the `weapon`--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
+    1. We're going to create a reference to the `equipment` (which is also the `weapon`--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
 
-         Type the below code to create variables for the `equipment` and the `ability`:
+        Type the below code to create variables for the `equipment` and the `ability`:
 
-         ```lua
-         local EQUIPMENT = script:FindAncestorByType('Equipment')
-         if not EQUIPMENT:IsA('Equipment') then
+        ```lua
+        local EQUIPMENT = script:FindAncestorByType('Equipment')
+
+        if not EQUIPMENT:IsA('Equipment') then
             error(script.name .. " should be part of Equipment object hierarchy.")
-         end
-         local ABILITY = script:FindAncestorByType('Ability')
-         if not ABILITY:IsA('Ability') then
+        end
+
+        local ABILITY = script:FindAncestorByType('Ability')
+
+        if not ABILITY:IsA('Ability') then
             error(script.name .. " should be part of Ability object hierarchy.")
-         end
-         ```
+        end
+        ```
 
-     2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
+    2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
 
-         ```lua
-         local diedHandle = nil
-         ```
+        ```lua
+        local diedHandle = nil
+        ```
 
-     3. Next is the function that does that turning-off of the flying state by activating walking again:
+    3. Next is the function that does that turning-off of the flying state by activating walking again:
 
-         ```lua
-         function OnPlayerDied(player, damage)
+        ```lua
+        function OnPlayerDied(player, damage)
             player:ActivateWalking()
-         end
-         ```
+        end
+        ```
 
-     4. The next two functions we need to include are what happens when the weapon is equipped or unequipped, which are primarily used for connecting the ability to turn off flying.
+    4. The next two functions we need to include are what happens when the weapon is equipped or unequipped, which are primarily used for connecting the ability to turn off flying.
 
-         ```lua
-         function OnEquipped(equipment, player)
+        ```lua
+        function OnEquipped(equipment, player)
             diedHandle = player.diedEvent:Connect(OnPlayerDied)
-         end
+        end
 
-         function OnUnequipped(equipment, player)
-            if diedHandle then diedHandle:Disconnect() end
+        function OnUnequipped(equipment, player)
+            if diedHandle then
+                diedHandle:Disconnect()
+            end
             player:ActivateWalking()
-         end
-         ```
+        end
+        ```
 
-     5. After the equip functions, there are two more functions we'll create that directly turn on and off flying. Add these to the current bottom of your script:
+    5. After the equip functions, there are two more functions we'll create that directly turn on and off flying. Add these to the current bottom of your script:
 
-         ```lua
-         function StartFlying(ability)
+        ```lua
+        function StartFlying(ability)
             ability.owner:ActivateFlying()
-         end
+        end
 
-         function StopFlying(ability)
+        function StopFlying(ability)
             ability.owner:ActivateWalking()
-         end
-         ```
+        end
+        ```
 
-     6. At the very bottom of the script, we code the main aspect that makes abilities so useful--we connect our functions to the events built within an ability.
+    6. At the very bottom of the script, we code the main aspect that makes abilities so useful--we connect our functions to the events built within an ability.
 
-         Being able to connect functions to an ability's events is how we can control how long each phase takes in the `ability` object in the Hierarchy.
+        Being able to connect functions to an ability's events is how we can control how long each phase takes in the `ability` object in the Hierarchy.
 
-         In this case, we're connecting our functions `StartFlying()` and `StopFlying()` to the execute event and the cooldown event.
+        In this case, we're connecting our functions `StartFlying()` and `StopFlying()` to the execute event and the cooldown event.
 
-         ```lua
-         ABILITY.executeEvent:Connect(StartFlying)
-         ABILITY.cooldownEvent:Connect(StopFlying)
-         EQUIPMENT.equippedEvent:Connect(OnEquipped)
-         EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
-         ```
+        ```lua
+        ABILITY.executeEvent:Connect(StartFlying)
+        ABILITY.cooldownEvent:Connect(StopFlying)
+        EQUIPMENT.equippedEvent:Connect(OnEquipped)
+        EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+        ```
 
 6. Now that we've written the script for flying to work, we can adjust things from simply within the Properties window with the FireFly `ability` object selected.
 
-     This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
+    This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center}
 
-     1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
+    1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
 
-     2. Change the **Animation** to "2hand_staff_magic_up".
+    2. Change the **Animation** to "2hand_staff_magic_up".
 
-         ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center}
+        ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center}
 
-     3. Now in the *Cast* section, change the **Duration** to .15.
+    3. Now in the *Cast* section, change the **Duration** to .15.
 
-     4. Change the **Facing Mode** to "Movement".
+    4. Change the **Facing Mode** to "Movement".
 
-         ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center}
+        ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center}
 
-     5. In the Execute section, change **Duration** to 3.
+    5. In the Execute section, change **Duration** to 3.
 
-     6. Change the **Facing Mode** to Movement.
+    6. Change the **Facing Mode** to Movement.
 
-         ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center}
+        ![Current Hierarchy](/img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center}
 
-     7. In the Recovery section, change the **Duration** to 0.
+    7. In the Recovery section, change the **Duration** to 0.
 
-     8. In the Cooldown section, change the **Duration** to 12.
+    8. In the Cooldown section, change the **Duration** to 12.
 
-         Make sure all the other check boxes match these images.
+        Make sure all the other check boxes match these images.
 
 7. Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it!
 
@@ -268,81 +271,77 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written!
 
-     1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
+    1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
+    2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
+    3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose is used while aiming.
+    4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
+    5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
 
-     2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
-
-     3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose is used while aiming.
-
-     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
-
-     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
-
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/customProps1.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/customProps1.png){: .center}
 
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
 3. Open this script, and let's start by accessing our variables.
 
-     1. We first want to create a reference to the weapon object, so type this at the top of the script:
+    1. We first want to create a reference to the weapon object, so type this at the top of the script:
 
-         ```lua
-         local WEAPON = script:FindAncestorByType('Weapon')
-         ```
+        ```lua
+        local WEAPON = script:FindAncestorByType('Weapon')
+        ```
 
-     2. To protect ourselves from putting this script in the wrong place, we can add an error check into the script. Beneath the above line, add:
+    2. To protect ourselves from putting this script in the wrong place, we can add an error check into the script. Beneath the above line, add:
 
-         ```lua
-         if not WEAPON:IsA('Weapon') then
+        ```lua
+        if not WEAPON:IsA('Weapon') then
             error(script.name .. " should be part of Weapon object hierarchy.")
-         end
-         ```
+        end
+        ```
 
-         This will check if the parent of this script is a `weapon`, based on the line we wrote above first! If it is not, it will give us the error message.
+        This will check if the parent of this script is a `weapon`, based on the line we wrote above first! If it is not, it will give us the error message.
 
-     3. Next we need to create references to those custom properties we made earlier on the weapon. To do this, add the code below to your script:
+    3. Next we need to create references to those custom properties we made earlier on the weapon. To do this, add the code below to your script:
 
-         ```lua
-         local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
-         local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
-         local ZOOM_DISTANCE = WEAPON:GetCustomProperty("AimZoomDistance")
-         ```
+        ```lua
+        local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
+        local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
+        local ZOOM_DISTANCE = WEAPON:GetCustomProperty("AimZoomDistance")
+        ```
 
-         Just like with the `WEAPON` variable, these variables are in all-capitals. This is because they are constants--meaning they will never change while the script is running.
+        Just like with the `WEAPON` variable, these variables are in all-capitals. This is because they are constants--meaning they will never change while the script is running.
 
-     4. Now we need empty variables for use in future functions, so beneath the above variables, add this:
+    4. Now we need empty variables for use in future functions, so beneath the above variables, add this:
 
-         ```lua
-         local pressedHandle = nil
-         local releasedHandle = nil
-         local playerDieHandle = nil
-         ```
+        ```lua
+        local pressedHandle = nil
+        local releasedHandle = nil
+        local playerDieHandle = nil
+        ```
 
-     5. Lastly for variables is creating values to hold the camera settings. Copy or type the text below into your script, below everything else so far:
+    5. Lastly for variables is creating values to hold the camera settings. Copy or type the text below into your script, below everything else so far:
 
-         ```lua
-         local cameraResetDistance = 0
-         local cameraTargetDistance = 0
-         local lerpTime = 0
-         local activeCamera = nil
-         ```
+        ```lua
+        local cameraResetDistance = 0
+        local cameraTargetDistance = 0
+        local lerpTime = 0
+        local activeCamera = nil
+        ```
 
-      Now we have our variables set up! Next is getting into creating the functions that use these variables.
+    Now we have our variables set up! Next is getting into creating the functions that use these variables.
 
 4. To get a better understanding of what we're going to be making, let's set up the `Tick()` function.
 
-     The `Tick()` function happens constantly while the game runs, creating a loop of time flowing. The parameter `deltaTime` within it is the difference in seconds between this tick and the last tick.
+    The `Tick()` function happens constantly while the game runs, creating a loop of time flowing. The parameter `deltaTime` within it is the difference in seconds between this tick and the last tick.
 
-     First, we don't want the script to do anything unless we are actively aiming, so we need a line that breaks out of the `Tick` loop.
+    First, we don't want the script to do anything unless we are actively aiming, so we need a line that breaks out of the `Tick` loop.
 
-     After that line, we use another `if` statement to determine if the weapon already had an owner, and if not, then it runs the `OnEquipped` function to set up the weapon camera's ownership to the player that equipped it.
+    After that line, we use another `if` statement to determine if the weapon already had an owner, and if not, then it runs the `OnEquipped` function to set up the weapon camera's ownership to the player that equipped it.
 
-     Lastly, to stay smooth in movement, we use the function `LerpCameraDistance(deltaTime)` to smoothly move the camera to a new position.
+    Lastly, to stay smooth in movement, we use the function `LerpCameraDistance(deltaTime)` to smoothly move the camera to a new position.
 
-     All of this together reads like this:
+    All of this together reads like this:
 
-     ```lua
-     function Tick(deltaTime)
+    ```lua
+    function Tick(deltaTime)
         if not CAN_AIM then return end
         -- Setup the new weapon camera owner
         if WEAPON and WEAPON.owner and activeCamera == nil then
@@ -350,31 +349,31 @@ We're going to add the ability to focus zoom with right click for better aiming!
         end
         -- Smoothly lerps the camera distance when player aims
         LerpCameraDistance(deltaTime)
-     end
-     ```
+    end
+    ```
 
 5. Now let's tackle one of those functions used in the `Tick()` function.
 
-     First, we'll do the `LerpCameraDistance(deltatime)`.
+    First, we'll do the `LerpCameraDistance(deltatime)`.
 
-     Below is the code for this function:
+    Below is the code for this function:
 
-     ```lua
-     function LerpCameraDistance(deltaTime)
+    ```lua
+    function LerpCameraDistance(deltaTime)
         if lerpTime >= 1 then return end
         if not activeCamera then return end
 
         lerpTime = lerpTime + deltaTime
         activeCamera.currentDistance = CoreMath.Lerp(activeCamera.currentDistance, cameraTargetDistance, lerpTime)
-     end
-     ```
+    end
+    ```
 
 6. Now we need a function that accesses the camera for the local player, so that we can change it when we want to.
 
-     To do this, copy the code below beneath your function from the previous step.
+    To do this, copy the code below beneath your function from the previous step.
 
-     ```lua
-        function GetPlayerActiveCamera(player)
+    ```lua
+    function GetPlayerActiveCamera(player)
         if not Object.IsValid(player) then
             return nil
         end
@@ -384,68 +383,68 @@ We're going to add the ability to focus zoom with right click for better aiming!
         else
             return player:GetDefaultCamera()
         end
-     end
-     ```
+    end
+    ```
 
 7. The above is followed directly by another function--`EnableScoping(player)`. This turns on the aiming!
 
-     Again, beneath the above code, type:
+    Again, beneath the above code, type:
 
-     ```lua
-     function EnableScoping(player)
+    ```lua
+    function EnableScoping(player)
         if player.isDead then return end
         cameraTargetDistance = ZOOM_DISTANCE
         lerpTime = 0
         Events.Broadcast("WeaponAiming", player, true)
-     end
-     ```
+    end
+    ```
 
 8. Now we need a function to reset the aiming back to default when not zoomed in.
 
-     To reset the camera distance, use the code below.
+    To reset the camera distance, use the code below.
 
-     ```lua
-     function ResetScoping(player)
+    ```lua
+    function ResetScoping(player)
         cameraTargetDistance = cameraResetDistance
         lerpTime = 0
         Events.Broadcast("WeaponAiming", player, false)
-     end
-     ```
+    end
+    ```
 
 9. These next two functions are specifically for turning on and off being zoomed in--if the player presses the assigned ability binding key, then it triggers the functions we wrote to enable and reset scoping!
 
-     Add these two functions below to the bottom of your script so far:
+    Add these two functions below to the bottom of your script so far:
 
-     ```lua
-     function OnBindingPressed(player, actionName)
+    ```lua
+    function OnBindingPressed(player, actionName)
         if actionName == AIM_BINDING then
             EnableScoping(player)
         end
-     end
+    end
 
-     function OnBindingReleased(player, actionName)
+    function OnBindingReleased(player, actionName)
         if actionName == AIM_BINDING then
             ResetScoping(player)
         end
-     end
-     ```
+    end
+    ```
 
 10. Now that we've added all these functions for how to initiate aiming, we need to protect for a case that could break how zooming-in works: what happens when the player dies.
 
-      To reset the camera back to normal when the player dies, let's add this function:
+    To reset the camera back to normal when the player dies, let's add this function:
 
-     ```lua
-     function OnPlayerDied(player, damage)
+    ```lua
+    function OnPlayerDied(player, damage)
         ResetScoping(player)
-     end
-     ```
+    end
+    ```
 
 11. So, we've added functions for how to make the camera change zoom amounts, but we still need to pull all of this together to connect our functions to the built-in events of CORE equipment and player events.
 
-     1. We're going to start with making the `OnEquipped()` function that we are calling already in the Tick function we first wrote.
+    1. We're going to start with making the `OnEquipped()` function that we are calling already in the Tick function we first wrote.
 
-         ```lua
-         function OnEquipped(weapon, player)
+        ```lua
+        function OnEquipped(weapon, player)
             if not CAN_AIM then return end
 
             pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
@@ -459,13 +458,13 @@ We're going to add the ability to focus zoom with right click for better aiming!
                 cameraTargetDistance = cameraResetDistance
             end
             lerpTime = 0
-         end
-         ```
+        end
+        ```
 
-     2. Now we need the other half of that, the `OnUnequipped()` function that disconnects things and resets data.
+    2. Now we need the other half of that, the `OnUnequipped()` function that disconnects things and resets data.
 
-         ```lua
-         function OnUnequipped(weapon, player)
+        ```lua
+        function OnUnequipped(weapon, player)
             if not CAN_AIM then return end
 
             if (pressedHandle) then pressedHandle:Disconnect() end
@@ -479,20 +478,20 @@ We're going to add the ability to focus zoom with right click for better aiming!
                 activeCamera.currentDistance = cameraResetDistance
                 activeCamera = nil
             end
-         end
-         ```
+        end
+        ```
 
-     3. Last but not least, all `weapon` objects come with a built-in unequip event that happens when the player unequips the weapon. So, we need to connect the function that we built to this event to cause our function to happen at the right moment.
+    3. Last but not least, all `weapon` objects come with a built-in unequip event that happens when the player unequips the weapon. So, we need to connect the function that we built to this event to cause our function to happen at the right moment.
 
-         ```lua
-         WEAPON.unequippedEvent:Connect(OnUnequipped)
-         ```
+        ```lua
+        WEAPON.unequippedEvent:Connect(OnUnequipped)
+        ```
 
 12. We've written the script, but we can't forget to add it to our fire staff object.
 
-     Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!
+    Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy3.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy3.png){: .center}
 
 So this was the first half of the camera aim setup--we have created a script for the client context, that only each individual player uses. The next part is the script that will live in a server context, as this is the part that needs to be replicated back to the server.
 
@@ -506,120 +505,120 @@ So let's get started on the server script!
 
 2. In your project Hierarchy, nagivate to the Fire Staff `weapon` object. Right click this object, and hover over "*Create Network Context*" to select "*New Server Context*".
 
-     Here is where we will keep our new script!
+    Here is where we will keep our new script!
 
 3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy4.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy4.png){: .center}
 
 4. Next is adding in the coding sections--open up the new script to begin.
 
 5. We first need to access the custom variables we created on the `weapon`. This will look really similar to the *WeaponAimClient* script.
 
-     1. Start with creating a reference to the `weapon` itself so that we can find the variables, and the safety error checking we made just like last time.
+    1. Start with creating a reference to the `weapon` itself so that we can find the variables, and the safety error checking we made just like last time.
 
-         ```lua
-         local WEAPON = script:FindAncestorByType('Weapon')
-         if not WEAPON:IsA('Weapon') then
-                error(script.name .. " should be part of Weapon object hierarchy.")
-         end
-         ```
+        ```lua
+        local WEAPON = script:FindAncestorByType('Weapon')
+        if not WEAPON:IsA('Weapon') then
+            error(script.name .. " should be part of Weapon object hierarchy.")
+        end
+        ```
 
-     2. Now we'll want to create in-script variables that use the custom variables we put on the weapon. To access these, use the code below:
+    2. Now we'll want to create in-script variables that use the custom variables we put on the weapon. To access these, use the code below:
 
-         ```lua
-         local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
-         local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
-         local AIM_WALK_SPEED_PERCENTAGE = WEAPON:GetCustomProperty("AimWalkSpeedPercentage")
-         local AIM_ACTIVE_STANCE = WEAPON:GetCustomProperty("AimActiveStance")
-         ```
+        ```lua
+        local CAN_AIM = WEAPON:GetCustomProperty("EnableAim")
+        local AIM_BINDING = WEAPON:GetCustomProperty("AimBinding")
+        local AIM_WALK_SPEED_PERCENTAGE = WEAPON:GetCustomProperty("AimWalkSpeedPercentage")
+        local AIM_ACTIVE_STANCE = WEAPON:GetCustomProperty("AimActiveStance")
+        ```
 
-     3. Next comes the variables we need to create so that we can use them later:
+    3. Next comes the variables we need to create so that we can use them later:
 
-         ```lua
-         local speedReduced = 0
-         local pressedHandle = nil
-         local releasedHandle = nil
-         local playerDieHandle = nil
-         local UNARMED_STANCE = "unarmed_stance"
-         ```
+        ```lua
+        local speedReduced = 0
+        local pressedHandle = nil
+        local releasedHandle = nil
+        local playerDieHandle = nil
+        local UNARMED_STANCE = "unarmed_stance"
+        ```
 
 6. Now that we've created our variables, we can get into the function writing! We'll start with a function that sets the walking speed of the player while they are aiming.
 
-     Type the following function below all the variables in your script.
+    Type the following function below all the variables in your script.
 
-     ```lua
-     function SetAimingSpeed(player)
-         if Object.IsValid(player) and player == WEAPON.owner then
-            speedReduced = player.maxWalkSpeed * AIM_WALK_SPEED_PERCENTAGE
-            player.maxWalkSpeed = player.maxWalkSpeed - speedReduced
-            player.animationStance = AIM_ACTIVE_STANCE
-         end
-     end
-     ```
+    ```lua
+    function SetAimingSpeed(player)
+        if Object.IsValid(player) and player == WEAPON.owner then
+        speedReduced = player.maxWalkSpeed * AIM_WALK_SPEED_PERCENTAGE
+        player.maxWalkSpeed = player.maxWalkSpeed - speedReduced
+        player.animationStance = AIM_ACTIVE_STANCE
+        end
+    end
+    ```
 
 7. Going along with setting the walk speed, we need a function to reset the player's speed back to normal when they are not zoomed in.
 
-     The code below is a function that will reset the player's walk speed--add this beneath the previous function.
+    The code below is a function that will reset the player's walk speed--add this beneath the previous function.
 
-     ```lua
-     function ResetPlayerSpeed(player)
-         if WEAPON and Object.IsValid(player) then
-            player.maxWalkSpeed = player.maxWalkSpeed + speedReduced
-            player.animationStance = WEAPON.animationStance
-            speedReduced = 0
-         end
-     end
-     ```
+    ```lua
+    function ResetPlayerSpeed(player)
+        if WEAPON and Object.IsValid(player) then
+        player.maxWalkSpeed = player.maxWalkSpeed + speedReduced
+        player.animationStance = WEAPON.animationStance
+        speedReduced = 0
+        end
+    end
+    ```
 
 8. Similar to the *WeaponAimClient* script, we now need functions that trigger our speed-modifying functions by binding them to the buttons the player will press.
 
-     1. First comes the function for when a button is pressed:
+    1. First comes the function for when a button is pressed:
 
-         ```lua
-         function OnBindingPressed(player, actionName)
+        ```lua
+        function OnBindingPressed(player, actionName)
             if actionName == AIM_BINDING then
                 SetAimingSpeed(player)
             end
-         end
-         ```
+        end
+        ```
 
-     2. Followed by a function for when a button is released:
+    2. Followed by a function for when a button is released:
 
-         ```lua
-         function OnBindingReleased(player, actionName)
+        ```lua
+        function OnBindingReleased(player, actionName)
             if actionName == AIM_BINDING then
             ResetPlayerSpeed(player)
-         end
-         end
-         ```
+            end
+        end
+        ```
 
-     3. Another way we need to reset the speed of the player is when they die--check out the code below for doing this, and add it to the current bottom of your script:
+    3. Another way we need to reset the speed of the player is when they die--check out the code below for doing this, and add it to the current bottom of your script:
 
-         ```lua
-         function OnPlayerDied(player, damage)
+        ```lua
+        function OnPlayerDied(player, damage)
             ResetPlayerSpeed(player)
-         end
-         ```
+        end
+        ```
 
 9. The most important functions for bringing this all together are the `OnEquipped()` and `OnUnequipped()` functions. Just like in the other script, but affecting the speed and animations rather than the camera movements, we'll create both.
 
-     1. Use this code for the `OnEquipped()` portion, and as usual, type it directly beneath the previous section:
+    1. Use this code for the `OnEquipped()` portion, and as usual, type it directly beneath the previous section:
 
-         ```lua
-         function OnEquipped(weapon, player)
-             if not CAN_AIM then return end
+        ```lua
+        function OnEquipped(weapon, player)
+            if not CAN_AIM then return end
 
-             pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
-             releasedHandle = player.bindingReleasedEvent:Connect(OnBindingReleased)
-             playerDieHandle = player.diedEvent:Connect(OnPlayerDied)
-         end
-         ```
+            pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
+            releasedHandle = player.bindingReleasedEvent:Connect(OnBindingReleased)
+            playerDieHandle = player.diedEvent:Connect(OnPlayerDied)
+        end
+        ```
 
-     2. Then comes the `OnUnequipped()` section:
+    2. Then comes the `OnUnequipped()` section:
 
-         ```lua
-         function OnUnequipped(weapon, player)
+        ```lua
+        function OnUnequipped(weapon, player)
             if not CAN_AIM then return end
 
             if (pressedHandle) then pressedHandle:Disconnect() end
@@ -629,21 +628,21 @@ So let's get started on the server script!
             -- Reset player speed and animation stance on unequip
             ResetPlayerSpeed(player)
             player.animationStance = UNARMED_STANCE
-         end
-         ```
+        end
+        ```
 
 10. On to the last step for camera movement! Similar to the *WeaponAimClient* script, we need to connect the functions we wrote to the built-in events that happen on a `weapon` object.
 
-     At the very end of your script, beneath all the other functions, add these two lines of code to connect the functions:
+    At the very end of your script, beneath all the other functions, add these two lines of code to connect the functions:
 
-     ```lua
-     WEAPON.equippedEvent:Connect(OnEquipped)
-     WEAPON.unequippedEvent:Connect(OnUnequipped)
-     ```
+    ```lua
+    WEAPON.equippedEvent:Connect(OnEquipped)
+    WEAPON.unequippedEvent:Connect(OnUnequipped)
+    ```
 
-     Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
+    Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
 
-     ![Zoom](/img/EditorManual/Weapons/advanced/zoomIn.gif){: .center}
+    ![Zoom](/img/EditorManual/Weapons/advanced/zoomIn.gif){: .center}
 
 ### Critical Hit Headshots
 
@@ -653,87 +652,86 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
 1. Select the Fire Staff weapon object in the Hierarchy. We need to add two custom properties to it.
 
-     1. Add a custom property of type Int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.
+    1. Add a custom property of type Int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.
+    2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
 
-     2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
-
-     ![Zoom](/img/EditorManual/Weapons/advanced/customProps2.png){: .center}
+    ![Zoom](/img/EditorManual/Weapons/advanced/customProps2.png){: .center}
 
 2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.
 
-     ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy5.png){: .center}
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy5.png){: .center}
 
 3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.
 
-     1. First off we'll want the usual reference to the weapon at the top of our script:
+    1. First off we'll want the usual reference to the weapon at the top of our script:
 
-         ```lua
-         local WEAPON = script:FindAncestorByType('Weapon')
-         if not WEAPON:IsA('Weapon') then
-             error(script.name .. " should be part of Weapon object hierarchy.")
-         end
-         ```
+        ```lua
+        local WEAPON = script:FindAncestorByType('Weapon')
+        if not WEAPON:IsA('Weapon') then
+            error(script.name .. " should be part of Weapon object hierarchy.")
+        end
+        ```
 
-     2. Next comes creating references to the custom properties we made for damage amounts:
+    2. Next comes creating references to the custom properties we made for damage amounts:
 
-         ```lua
-         local DAMAGE_AMOUNT = WEAPON:GetCustomProperty("BaseDamage")
-         local DAMAGE_HEADSHOT = WEAPON:GetCustomProperty("HeadshotDamage")
-         ```
+        ```lua
+        local DAMAGE_AMOUNT = WEAPON:GetCustomProperty("BaseDamage")
+        local DAMAGE_HEADSHOT = WEAPON:GetCustomProperty("HeadshotDamage")
+        ```
 
-     3. The biggest and most important section of this is the function for what happens the moment a fireball/bullet/projectile makes impact with something.
+    3. The biggest and most important section of this is the function for what happens the moment a fireball/bullet/projectile makes impact with something.
 
-         Weapons come with data for their impacted target built-in, so we just need to utilize this data to determine whether or not we apply damage and how much damage we apply.
+        Weapons come with data for their impacted target built-in, so we just need to utilize this data to determine whether or not we apply damage and how much damage we apply.
 
-         Here is the whole complete function--add this to your script beneath the variables:
+        Here is the whole complete function--add this to your script beneath the variables:
 
-         ```lua
-         local function OnWeaponInteraction(weaponInteraction)
-             local target = weaponInteraction.targetObject
+        ```lua
+        local function OnWeaponInteraction(weaponInteraction)
+            local target = weaponInteraction.targetObject
 
-             -- Apply damage to target if it's a player
-             if Object.IsValid(target) and target:IsA("Player") then
+            -- Apply damage to target if it's a player
+            if Object.IsValid(target) and target:IsA("Player") then
 
-                 local weaponOwner = weaponInteraction.weaponOwner
-                 local numberOfHits = #weaponInteraction:GetHitResults()
+                local weaponOwner = weaponInteraction.weaponOwner
+                local numberOfHits = #weaponInteraction:GetHitResults()
 
-                 -- Assign a headshot damage if projectile hit enemy's head
-                 local damage = DAMAGE_AMOUNT
-                 if weaponInteraction.isHeadshot then
-                     damage = DAMAGE_HEADSHOT
-                 end
+                -- Assign a headshot damage if projectile hit enemy's head
+                local damage = DAMAGE_AMOUNT
+                if weaponInteraction.isHeadshot then
+                    damage = DAMAGE_HEADSHOT
+                end
 
-              -- Creating damage information
-              local newDamageInfo = Damage.New(damage * numberOfHits)
-              newDamageInfo.reason = DamageReason.COMBAT
-              newDamageInfo.sourceAbility = weaponInteraction.sourceAbility
-              newDamageInfo.sourcePlayer = weaponOwner
+            -- Creating damage information
+            local newDamageInfo = Damage.New(damage * numberOfHits)
+            newDamageInfo.reason = DamageReason.COMBAT
+            newDamageInfo.sourceAbility = weaponInteraction.sourceAbility
+            newDamageInfo.sourcePlayer = weaponOwner
 
-              -- Apply damage to the enemy player
-              target:ApplyDamage(newDamageInfo)
-             end
-         end
-         ```
+            -- Apply damage to the enemy player
+            target:ApplyDamage(newDamageInfo)
+            end
+        end
+        ```
 
-     4. Finally, we're going to connect the function we just made to the built-in event on the weapon:
+    4. Finally, we're going to connect the function we just made to the built-in event on the weapon:
 
-         ```lua
-         WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
-         ```
+        ```lua
+        WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
+        ```
 
 4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.
 
-     ![Team Settings Object](/img/EditorManual/Weapons/advanced/teamSettings.png){: .center}
+    ![Team Settings Object](/img/EditorManual/Weapons/advanced/teamSettings.png){: .center}
 
-     1. In **CORE Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
+    1. In **CORE Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
 
-     2. With Team Settings selected in your project Hierarchy, check the Properties tab. Change the Team Mode to Free For All.
+    2. With Team Settings selected in your project Hierarchy, check the Properties tab. Change the Team Mode to Free For All.
 
-         Now that we've set the game mode to Free For All, any test AI bots that we spawn we will be able to shoot at.
+        Now that we've set the game mode to Free For All, any test AI bots that we spawn we will be able to shoot at.
 
-     3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
+    3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
 
-         ![Headshot vs Regular Shots](/img/EditorManual/Weapons/advanced/headshot.gif){: .center}
+        ![Headshot vs Regular Shots](/img/EditorManual/Weapons/advanced/headshot.gif){: .center}
 
 ### Ammo as a Pickup
 
@@ -747,76 +745,73 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 1. With the fire staff selected, scroll in the **Properties** window down to the **Ammo** section.
 
-     1. Check the box that says **Finite Ammo Supply** on.
+    1. Check the box that says **Finite Ammo Supply** on.
 
-     2. Change the **Max Ammo** to 10.
+    2. Change the **Max Ammo** to 10.
 
-     3. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
+    3. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
 
-         ![Ammo Settings](/img/EditorManual/Weapons/advanced/ammoSettings.png){: .center}
+        ![Ammo Settings](/img/EditorManual/Weapons/advanced/ammoSettings.png){: .center}
 
-         Now we get to build the ammunition pickup itself!
+        Now we get to build the ammunition pickup itself!
 
 2. We'll start by creating a `trigger` object for our player to interact with.
 
-     Navigate to **CORE Content**, and drag a `trigger` object from the Gameplay Objects section into your project Hierarchy.
+    Navigate to **CORE Content**, and drag a `trigger` object from the Gameplay Objects section into your project Hierarchy.
 
 3. So now we have the object that handles the player running into it, but we need something for the player to actually see in-game.
 
-     This can be anything you want--for a Fire Staff, a spark-looking object could be cool.
+    This can be anything you want--for a Fire Staff, a spark-looking object could be cool.
 
-     1. Choose whatever object you would like from **CORE Content**, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.
+    1. Choose whatever object you would like from **CORE Content**, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.
+    2. Right click this object and create a group containing this.
+    3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
 
-     2. Right click this object and create a group containing this.
+4. That settles the art portion--now for the script that will make the game magic happen!
 
-     3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
+    1. Within your project content, create a new script and call it "EmberPickupScript".
+    2. Drag this script onto the `trigger` we made in your project Hierarchy.
 
-5. That settles the art portion--now for the script that will make the game magic happen!
+    ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
 
-     1. Within your project content, create a new script and call it "EmberPickupScript".
+    3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.
 
-     2. Drag this script onto the `trigger` we made in your project Hierarchy.
+        This line is very quick and simple since the script is a child of the trigger:
 
-      ![Current Hierarchy](/img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
+        ```lua
+        local trigger = script.parent
+        ```
 
-     3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.
+    4. Now we need a function that determines what to do when the player touches the trigger. We want it to add 1 unit of ammo to the player's resources, and then we want to destroy the ammo object so that they cannot keep picking up the same one.
 
-         This line is very quick and simple since the script is a child of the trigger:
+        We can do all these things in one function--use the code below to get this to happen!
 
-         ```lua
-         local trigger = script.parent
-         ```
+        ```lua
+        function OnBeginOverlap(whichTrigger, other)
+            if other:IsA("Player") then
+                print(whichTrigger.name .. ": Begin Trigger Overlap with " .. other.name)
+                other:AddResource("embers",1)
+                print("Player has "..tostring(other:GetResource("embers")).." embers.")
+                trigger:Destroy()
+            end
+        end
+        ```
 
-     4. Now we need a function that determines what to do when the player touches the trigger. We want it to add 1 unit of ammo to the player's resources, and then we want to destroy the ammo object so that they cannot keep picking up the same one.
+        Notice the `print()` statements in the code--these help us by showing in the **Event Log** what is happening. So when we test this, open the Event Log window and check there for the statements showing the player's *embers* resource increasing.
 
-         We can do all these things in one function--use the code below to get this to happen!
+    5. Lastly, we need to connect the function we just made to the trigger's built-in event for overlapping.
 
-         ```lua
-         function OnBeginOverlap(whichTrigger, other)
-          if other:IsA("Player") then
-              print(whichTrigger.name .. ": Begin Trigger Overlap with " .. other.name)
-              other:AddResource("embers",1)
-              print("Player has "..tostring(other:GetResource("embers")).." embers.")
-              trigger:Destroy()
-          end
-         end
-         ```
+        Add this code to the very bottom of your script:
 
-         Notice the `print()` statements in the code--these help us by showing in the **Event Log** what is happening. So when we test this, open the Event Log window and check there for the statements showing the player's *embers* resource increasing.
+        ```lua
+        trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+        ```
 
-     5. Lastly, we need to connect the function we just made to the trigger's built-in event for overlapping.
+5. Once you've set up all the code, the final step is to select the trigger itself (that holds both the art and the script) and right click it. Select "Enable Networking" to enable this to work properly.
 
-         Add this code to the very bottom of your script:
+6. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
 
-         ```lua
-         trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-         ```
-
-6. Once you've set up all the code, the final step is to select the trigger itself (that holds both the art and the script) and right click it. Select "Enable Networking" to enable this to work properly.
-
-7. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
-
-     ![Ammo](/img/EditorManual/Weapons/advanced/ammoShot.gif){: .center}
+    ![Ammo](/img/EditorManual/Weapons/advanced/ammoShot.gif){: .center}
 
 ### Connecting UI
 

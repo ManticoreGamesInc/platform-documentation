@@ -3,7 +3,7 @@
 ## Writing Conventions
 
 * If you are copy-pasting from Google Docs, please make sure you disable "Smart Quotes" in "Tools" -> "Preferences" before.
-* Follow the [CORE Lua Style Guide](tutorials/gameplay/lua_style_guide) for scripting.
+* Follow the [CORE Lua Style Guide](src/tutorials/gameplay/lua_style_guide.md) for scripting.
 * Name your objects in the hierarchy informatively.
 * Favor best practices like using `CoreObject` Asset References rather than `script.parent.parent:GetChildren([3])`.
 * Tutorials should be less than an hour in length, and if higher, should be split into multi-part tutorials as part of a series.
@@ -49,7 +49,7 @@ The following categories are available: <!-- TODO: Talk about which ones we want
 | Weapon            | Intro to Melee Weapons, Intro to Guns    |
 | Ability           | How to Sprint, How to Cast a Magic Spell |
 
-Note: Setting a `name` is mandatory, `categories` are optional. If you add categories to a file, they will be listed on the [sitemap](generated/sitemap.md). (once Ben automates that)
+Note: Setting a `name` is mandatory, `categories` are optional. If you add categories to a file, they will be listed on the [sitemap](src/generated/sitemap.md). (once Ben automates that)
 
 ### Overview
 

@@ -16,7 +16,7 @@ This document aims to provide a general overview of what we at Manticore see as 
 
 ## File Structure
 
-* Start with any `require` calls, such as:
+- Start with any `require` calls, such as:
 
 ```lua
 local myImport = require("assetID")
@@ -32,9 +32,9 @@ myImport.Foo()
 
 ## General
 
-* No whitespace at end of lines
-* No vertical alignment
-* Spell out words fully! Abbreviations generally make code easier to write, but harder to read.
+- No whitespace at end of lines
+- No vertical alignment
+- Spell out words fully! Abbreviations generally make code easier to write, but harder to read.
 
 ### Casing
 
@@ -167,14 +167,14 @@ This means that `x:Bar(1, 2)` is the same as `x.Bar(x, 1, 2)`
 
 For more details, here is how it breaks down:
 
-* Static (**dot**)
-    * Functions
-    * Constructor
-    * Constants
-* Instance
-    * Methods (**colon**)
-    * Properties (**dot**)
-    * Events
+- Static (**dot**)
+  - Functions
+  - Constructor
+  - Constants
+- Instance
+  - Methods (**colon**)
+  - Properties (**dot**)
+  - Events
 
 For example:
 
@@ -225,14 +225,14 @@ end
 
 Both are perfectly valid, but following convention allows for the usage call to consistently use colons for clarity.
 
-* Where possible, use getters and setters
-    * Unless otherwise noted, mutating return types will affect the game object (pass by reference)
-    * Properties use getter/setter methods unless you can both get *and* set the value in which case you can directly access them.
+- Where possible, use getters and setters
+  - Unless otherwise noted, mutating return types will affect the game object (pass by reference)
+  - Properties use getter/setter methods unless you can both get _and_ set the value in which case you can directly access them.
 
 ## Styling
 
-* Use one statement per line, stay away from massive one-liners.
-* Prefer to put function bodies on new lines.
+- Use one statement per line, stay away from massive one-liners.
+- Prefer to put function bodies on new lines.
 
 ```lua
 -- Good
@@ -245,7 +245,7 @@ end)
 table.sort(stuff, function(a, b) local sum = a + b return math.abs(sum) > 3 end)
 ```
 
-* Put a space before and after operators, except when clarifying precedence.
+- Put a space before and after operators, except when clarifying precedence.
 
 ```lua
 -- Good
@@ -255,7 +255,7 @@ print(5 + 5 * 6^2)
 print(5+5* 6 ^2)
 ```
 
-* Put a space after each comma in tables and function calls.
+- Put a space after each comma in tables and function calls.
 
 ```lua
 -- Good
@@ -265,7 +265,7 @@ local familyNames = {"bill", "amy", "joel"}
 local familyNames = {"bill","amy" ,"joel"}
 ```
 
-* When creating blocks, inline any opening syntax elements.
+- When creating blocks, inline any opening syntax elements.
 
 ```lua
 -- Good
@@ -289,15 +289,15 @@ then
 end
 ```
 
-* Only put parenthesis around complicated conditionals to keep your sanity, otherwise they aren't necessary in Lua.
-* Use double quotes for string literals (e.g. `local myMessage = "Here's a message"`)
+- Only put parenthesis around complicated conditionals to keep your sanity, otherwise they aren't necessary in Lua.
+- Use double quotes for string literals (e.g. `local myMessage = "Here's a message"`)
 
 ## Comments
 
 Use block comments for documenting larger elements:
 
-* Use a block comment at the top of files to describe their purpose.
-* Use a block comment before functions or objects to describe their intent.
+- Use a block comment at the top of files to describe their purpose.
+- Use a block comment before functions or objects to describe their intent.
 
 ```lua
 --[[
@@ -311,9 +311,9 @@ local function SaveTheWorld()
 end
 ```
 
-* Use single line comments for inline notes.
-* Comments should generally focus on *why* code is written a certain way instead of *what* the code is doing.
-* Obviously there are exceptions to this rule, the more obfuscated your execution the more true this is.
+- Use single line comments for inline notes.
+- Comments should generally focus on _why_ code is written a certain way instead of _what_ the code is doing.
+- Obviously there are exceptions to this rule, the more obfuscated your execution the more true this is.
 
 ```lua
 -- Good
@@ -332,8 +332,8 @@ if PlayerIsAirborne() then
 end
 ```
 
-* Each line of a block comment starts with `--` and a single space.
-* Inline comments should be separated by at least two spaces from the statement. They should start with `--` and a single space.
+- Each line of a block comment starts with `--` and a single space.
+- Inline comments should be separated by at least two spaces from the statement. They should start with `--` and a single space.
 
 ```lua
 -- One space for block/single-line comments
