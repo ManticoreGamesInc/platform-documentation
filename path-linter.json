@@ -1,0 +1,13 @@
+{
+    "severity": "error",
+    "rules": [
+        {
+            "directory": "src/img/",
+            "rule": ".*\\.[a-z0-9]{1,4}$"
+        },
+        {
+            "directory": "src/",
+            "rule": "^((?!\\s).)*$"
+        }
+    ]
+}
