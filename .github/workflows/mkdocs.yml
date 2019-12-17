@@ -13,8 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: main
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
