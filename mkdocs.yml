@@ -5,6 +5,7 @@ nav:
   - Welcome to CORE: index.md
   - News:
     - news/news.md
+    - Patch Notes: news/patch_notes/patch_notes.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
