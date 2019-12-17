@@ -5,13 +5,11 @@
 ![YOUTUBELIVE](UCBPqo7cK1bktfRfMGAAqnbQ){: .center}
 
 ![VIMEO](19456){: .center}
+![VIMEOEVENT](19456){: .center}
 -->
 
-![VIMEOEVENT](19456){: .center}
 
-
-<iframe src="https://vimeo.com/event/19456" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/380058488">Manticore TV</a> from <a href="https://vimeo.com/user106206431">ManticoreGames</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe src="https://vimeo.com/event/19456/embed" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 ## Watch and Play with ManticoreTV
 
