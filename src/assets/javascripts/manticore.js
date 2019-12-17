@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var old_class = el.getAttribute("class")
         var iframe = document.createElement("iframe")
 
+        iframe.title = "Vimeo"
         iframe.src = "https://vimeo.com/event/" + id + "/embed"
 
         if (old_class != "null") {
