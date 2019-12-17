@@ -3,9 +3,9 @@
 <!-- TODO: Enable when account is unlocked for embedding
 
 ![YOUTUBELIVE](UCBPqo7cK1bktfRfMGAAqnbQ){: .center}
--->
 
 ![VIMEO](379901639){: .center}
+-->
 
 ## Watch and Play with ManticoreTV
 
