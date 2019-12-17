@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var elements = document.querySelectorAll('img[alt="YOUTUBE"]');
     var elementsLive = document.querySelectorAll('img[alt="YOUTUBELIVE"]');
     var elementsVimeo = document.querySelectorAll('img[alt="VIMEO"]');
+    var elementsVimeoEvent = document.querySelectorAll('img[alt="VIMEOEVENT"]')
 
     Array.prototype.forEach.call(elements, function(el, i){
         var id = el.getAttribute('src').split('/')[el.getAttribute('src').split('/').length - 1];
@@ -63,6 +64,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         iframe.src =
             "https://player.vimeo.com/video/" + id
+
+        if (old_class != "null") {
+            iframe.className = "youtube-video " + old_class
+        } else {
+            iframe.className = "youtube-video"
+        }
+
+        el.replaceWith(iframe)
+    })
+
+    Array.prototype.forEach.call(elementsVimeoEvent, function(el, i) {
+        var id = el.getAttribute("src").split("/")[
+            el.getAttribute("src").split("/").length - 1
+        ]
+        var old_class = el.getAttribute("class")
+        var iframe = document.createElement("iframe")
+
+        iframe.src = "https://player.vimeo.com/event/" + id + "/embed"
 
         if (old_class != "null") {
             iframe.className = "youtube-video " + old_class
