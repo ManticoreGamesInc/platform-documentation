@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (links[i].hostname != window.location.hostname && links[i].title != 'Edit this page' && links[i] != btn) {
             links[i].target = '_blank';
             links[i].className = 'external';
+            links[i].rel = "noopener";
         }
     }
 
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var old_class = el.getAttribute('class');
         var iframe = document.createElement('iframe');
 
+        iframe.title = "YouTube"
         iframe.src = 'https://www.youtube.com/embed/' + id + '?modestbranding=1&amp;'
 
         if (old_class != 'null') {
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var old_class = el.getAttribute('class');
         var iframe = document.createElement('iframe');
 
+        iframe.title = "YouTube"
         iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + id + '?modestbranding=1&amp;'
 
         if (old_class != 'null') {
@@ -62,6 +65,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var old_class = el.getAttribute("class")
         var iframe = document.createElement("iframe")
 
+        iframe.title = "Vimeo"
         iframe.src =
             "https://player.vimeo.com/video/" + id
 
