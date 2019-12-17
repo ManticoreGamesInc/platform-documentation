@@ -4,8 +4,8 @@
 
 #### Changes
 
-- Interactable triggers that are in a static or deafult context now fire interacted event on both client and server. An interactable trigger in a client context will fire interacted event on the client only. Interactable triggers will no work under a server context and will throw a warning.
-- Replaced Decal `tick()` function that polled for transform changes with a new `Notify Transform Changed` event.
+- Interactable triggers that are in a static or default context now fire an interacted event on both client and server. An interactable trigger in a client context will fire interacted event on the client only. Interactable triggers will no work under a server context and will throw a warning.
+- Improved Decal performance.
 - All Effects should now properly respect the auto-play flag when effect elements are in a mixed state.
 
 #### New Features
@@ -32,3 +32,4 @@ script.parent.endOverlapEvent:Connect(HandleOverlap, "World!")
 - Updated effects to properly handle auto-play flag when emitters are being enabled or disabled.
 - Fix crash when passing `nil` as Player to `Equip()`.
 - Fix for destorying objects that are spawned on the same frame and client context object spawning afterwards
+- Fix for the crash that happened when you used portals between games.
