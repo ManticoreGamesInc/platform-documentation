@@ -9,6 +9,10 @@
 
 ![VIMEOEVENT](19456){: .center}
 
+
+<iframe src="https://vimeo.com/event/19456" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/380058488">Manticore TV</a> from <a href="https://vimeo.com/user106206431">ManticoreGames</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
 ## Watch and Play with ManticoreTV
 
 While building CORE, we discovered the true magical moments happen when you're creating with friends. Swapping tricks, trading ideas, and throwing "what-if's" around like improv game design.
