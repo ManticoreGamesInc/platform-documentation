@@ -18,7 +18,7 @@ jobs:
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
-          repository: ManticoreGamesInc/mkdocs-material/
+          repository: ManticoreGamesInc/mkdocs-material
           token: ${{ secrets.ACCESS_TOKEN }}
           path: mkdocs-material
       - name: Set up Python 3.7
