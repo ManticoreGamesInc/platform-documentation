@@ -1,6 +1,6 @@
 # Alpha
 
-## December 19th
+## December 17th 2019
 
 #### Changes
 
