@@ -12,15 +12,15 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          path: main
       - name: Checkout submodules
-        shell: bash
-        run: |
-          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-          git submodule sync --recursive
-          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+        uses: actions/checkout@v2
+        with:
+          repository: ManticoreGamesInc/mkdocs-material/
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: mkdocs-material
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
