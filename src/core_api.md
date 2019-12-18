@@ -180,6 +180,9 @@ An RGBA representation of a color. Color components have an effective range of `
 | `b` | Number | The Blue component of the Color. | Read-Write |
 | `a` | Number | The Alpha (transparency) component of the Color. | Read-Write |
 
+!!! note Predefined Colors
+    Predefined colors include: Color.WHITE, Color.GRAY, Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
+
 ### CoreObject
 
 CoreObject is an Object placed in the scene hierarchy during edit mode or is part of a template. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these properties and functions:
