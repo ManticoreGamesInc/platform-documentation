@@ -3,13 +3,3 @@
 .dark-mode .md-typeset table:not([class]) {
     box-shadow: 0 2px 2px 0 rgba(255,255,255,.14),0 1px 5px 0 rgba(255,255,255,.12),0 3px 1px -2px rgba(255,255,255,.2);
 }
-
-/* .dark-mode-slider::before {
-  content: "\f186";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-
-.dark-mode .dark-mode-slider::before {
-    content: "\f185";
-} */
