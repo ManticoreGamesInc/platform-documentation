@@ -386,7 +386,7 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 ### NetworkContext
 
-NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or objects.
+NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or static objects.
 
 They have no properties or functions of their own, but inherit everything from CoreObject.
 
@@ -717,7 +717,7 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 ### StaticMesh
 
-StaticMesh is a CoreObject representing a mesh.
+StaticMesh is a CoreObject representing a static mesh.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
