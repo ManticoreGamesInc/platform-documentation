@@ -1,4 +1,4 @@
-### Ability Binding list
+### Ability Binding List
 
 This is a list of action bindings that can be used to activate abilities.
 
@@ -6,10 +6,10 @@ This is a list of action bindings that can be used to activate abilities.
 | --- | ------- |
 | <kbd>Mouse 1</kbd> | ability_primary |
 | <kbd>Mouse 2</kbd> | ability_secondary |
-| <kbd>Q and Gamepad Left button</kbd> | ability_1 (to be deprecated) |
+| <kbd>Q</kbd> + <kbd>Gamepad Left Button</kbd> | ability_1 (to be deprecated) |
 | <kbd>E</kbd> | ability_2 (to be deprecated) |
 | <kbd>R</kbd> | ability_ult (to be deprecated) |
-| <kbd>Left Shift and Gamepad left shoulder</kbd> | ability_feet |
+| <kbd>Left Shift</kbd> + <kbd>Gamepad Left Shoulder</kbd> | ability_feet |
 | <kbd>0</kbd> | ability_extra_0 |
 | <kbd>1</kbd> | ability_extra_1 |
 | <kbd>2</kbd> | ability_extra_2 |
@@ -78,3 +78,4 @@ This is a list of action bindings that can be used to activate abilities.
 | <kbd>Page Down</kbd> | ability_extra_65 |
 | <kbd>Delete</kbd> | ability_extra_66 |
 | <kbd>End</kbd> | ability_extra_67 |
+{: .even-table}
