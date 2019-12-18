@@ -416,7 +416,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
 | `resourceChangedEvent` | Event&lt;Player&gt; | Fired when a resource changed. | Read-Only |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Read-Only |
-| `animationEvent` | Event&lt;Player&gt;, string eventName | Fired during certain animations played on a player. | Client Context |
+| `animationEvent` | Event&lt;Player&, string eventNamegt; | Fired during certain animations played on a player. | Client Context |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -641,7 +641,7 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 
 ### Rotation
 
-An immutable euler-based rotation around `x`, `y`, and `z` axes.
+An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -690,8 +690,8 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.) | Read-Write |
 | `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.) | Read-Write |
 | `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write |
-| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the Sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write |
-| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the Sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write |
+| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write |
+| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write |
 
 ### SmartObject
 
@@ -736,7 +736,7 @@ StaticMesh is a CoreObject representing a mesh.
 
 ### Task
 
-Task is a representation of a Lua thread. It could be a Script initialization, a repeating `tick()` function from a Script, an EventListener invocation, or a Task spawned directly by a call to `Task.Spawn()`.
+Task is a representation of a Lua thread. It could be a Script initialization, a repeating `Tick()` function from a Script, an EventListener invocation, or a Task spawned directly by a call to `Task.Spawn()`.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -759,21 +759,6 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 
 Terrain is a CoreObject representing terrain placed in the world.
 
-### Text
-
-Text is an in-world text CoreObject.
-
-| Function | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `GetColor(Color string)` | Color | Gets the color of the Text. | None |
-| `SetColor(Color string)` | None | Sets the color of the Text. | Dynamic |
-
-| Property | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `text` | string | The text being displayed by this object. | Read-Write, Dynamic |
-| `horizontalScale` | Number | The horizontal size of the Text. | Read-Write, Dynamic |
-| `verticalScale` | Number | The vertical size of the Text. | Read-Write, Dynamic |
-
 ### Transform
 
 Transforms represent the position, rotation, and scale of objects in the game. They are immutable, but new Transforms can be created when you want to change an object's Transform.
@@ -781,9 +766,9 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Transform.New()` | Transform | Constructs a new identity Transform. | None |
-| `Transform.New(Quaternion rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new identity Transform with a Quaternion. | None |
-| `Transform.New(Rotation rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new identity Transform with a Rotation. | None |
-| `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | Transform | Constructs a new identity Transform from a Matrix. | None |
+| `Transform.New(Quaternion rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Quaternion. | None |
+| `Transform.New(Rotation rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Rotation. | None |
+| `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | Transform | Constructs a new Transform from a Matrix. | None |
 | `Transform.New(Transform transform)` | Transform | Copies the given Transform. | None |
 | `Transform.IDENTITY` | Transform | Constant identity Transform. | None |
 
@@ -823,7 +808,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | -------- | ----------- | ----------- | ---- |
 | `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. | None |
 | `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. | None |
-| `GetOverlappingObjects()` | array&lt;Objects&gt; | Returns a list of all objects that are currently overlapping with the Trigger. | None |
+| `GetOverlappingObjects()` | array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -862,7 +847,7 @@ A UIControl for a button, should be inside client context.
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `text` | string | Returns the button's label text. | None |
-| `fontSize` | Number | Returns the font size of the label text. | None |
+| `fontSize` | Integer | Returns the font size of the label text. | None |
 | `isInteractable` | bool | Returns whether the Button can interact with the cursor (click, hover, etc). | None |
 
 ### UIContainer
