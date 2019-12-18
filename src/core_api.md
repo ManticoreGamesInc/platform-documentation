@@ -76,7 +76,7 @@ A data type containing information about what the Player has targeted during a p
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetOwnerMovementRotation()` | Rotation | Gets the direction the Player is moving. | None |
-| `SetOwnerMovementRotation(Rotation)` | None | Sets the direction the Player faces, if `AbilityFacingMode.facingMode` is set to `AbilitySetFacing.Movement`. | None |
+| `SetOwnerMovementRotation(Rotation)` | None | Sets the direction the Player faces, if `Ability.facingMode` is set to `AbilityFacingMode.MOVEMENT`. | None |
 | `GetAimPosition()` | Vector3 | Returns the world space position of the camera. | None |
 | `SetAimPosition(Vector3)` | None | The world space location of the camera. Setting this currently has no effect on the Player's camera. | None |
 | `GetAimDirection()` | Vector3 | Returns the direction the camera is facing. | None |
@@ -88,7 +88,7 @@ A data type containing information about what the Player has targeted during a p
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `hitObject` | Object | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. | Read-Only, Static |
+| `hitObject` | Object | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. | Read-Only |
 | `hitPlayer` | Player | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Only |
 | `spreadHalfAngle` | Number | Half-angle of cone of possible target space, in degrees. | Read-Only |
 | `spreadRandomSeed` | Integer | Seed that can be used with RandomStream for deterministic RNG. | Read-Only |
@@ -108,15 +108,15 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 | -------- | ----------- | ----------- | ---- |
 | `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only |
 | `length` | Number | Returns the length (in seconds) of the Sound. | Read-Only |
-| `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the Sound. | Read-Only |
+| `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the sound. | Read-Only |
 | `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic |
 | `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only |
 | `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write |
 | `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. | Read-Write |
 | `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). | Read-Write |
 | `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write |
-| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the Sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write |
-| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the Sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write |
+| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write |
+| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write |
 
 ### Camera
 
@@ -151,7 +151,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Color.Lerp(Color from, Color to, Number progress)` | Color | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. | None |
-| `Color.Random()` | Color | Returns a color with a random hue (H) of HSV in the form (H, 0, 1). | None |
+| `Color.Random()` | Color | Returns a new color with random RGB values and Alpha of 1.0. | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -222,14 +222,14 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindChildByName(string name)` | CoreObject | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
 | `FindDescendantByName(string name)` | CoreObject | Returns the first child or descendant whose name matches the provided name. If none match, returns nil. | None |
 | `FindDescendantsByName(string name)` | array&lt;CoreObject&gt; | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
-| `FindAncestorByType(string typeName)` | CoreObject | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first static mesh. If no ancestors match, returns nil. | Static |
+| `FindAncestorByType(string typeName)` | CoreObject | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first mesh. If no ancestors match, returns nil. | None |
 | `FindChildByType(string typeName)` | CoreObject | Returns the first immediate child whose type is or extends the specified type. If none match, returns nil. | None |
 | `FindDescendantByType(string typeName)` | CoreObject | Returns the first child or descendant whose type is or extends the specified type. If none match, returns nil. | None |
 | `FindDescendantsByType(string typeName)` | array&lt;CoreObject&gt; | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
 | `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | bool | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
-| `SetNetworkedCustomProperty(string propertyName, Object)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is non-static, and server-side networked or in a client/server context. | Server Context, Static |
+| `SetNetworkedCustomProperty(string propertyName, Object)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server Context |
 | `AttachToPlayer(Player, string socketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Dynamic |
 | `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client Context, Dynamic |
 | `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. | Dynamic |
@@ -257,7 +257,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `isVisible` | bool | Turn on/off the rendering of an object and its children. | Read-Write, Dynamic |
 | `isCollidable` | bool | Turn on/off the collision of an object and its children. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
-| `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Static, Dynamic |
+| `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
 | `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only |
 | `isServerOnly` | bool | If true, this object was spawned on the server and is not replicated to clients. | Read-Only |
 | `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only |
@@ -383,7 +383,7 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 ### NetworkContext
 
-NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or static objects.
+NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or objects.
 
 They have no properties or functions of their own, but inherit everything from CoreObject.
 
@@ -714,7 +714,7 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 ### StaticMesh
 
-StaticMesh is a CoreObject representing a static mesh.
+StaticMesh is a CoreObject representing a mesh.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1188,7 +1188,7 @@ A few base functions provided by the platform.
 | -------- | ----------- | ----------- | ---- |
 | `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in ms) between this and the last tick. | None |
 | `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
-| `print(string)` | string | Print a message to the event log. Press <kbd>\`</kbd> to view messages. | None |
+| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
 | `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
 
 ### CoreDebug
@@ -1308,11 +1308,11 @@ The UI API contains a set of class functions allowing you to get information abo
 | `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client Context |
 | `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | None |
 | `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | None |
-| `UI.SetCursorVisible(bool isVisible)` | None | Returns whether the cursor is visible. | None |
+| `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | None |
 | `UI.IsCursorLockedToViewport()` | bool | Returns whether to lock cursor in viewport. | None |
-| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Returns whether to lock cursor in viewport. | None |
+| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Sets whether to lock cursor in viewport. | None |
 | `UI.CanCursorInteractWithUI()` | bool | Returns whether the cursor can interact with UI elements like buttons. | None |
-| `UI.SetCanCursorInteractWithUI(bool)` | None | Returns whether the cursor can interact with UI elements like buttons. | None |
+| `UI.SetCanCursorInteractWithUI(bool)` | None | Sets whether the cursor can interact with UI elements like buttons. | None |
 | `UI.IsReticleVisible()` | bool | Check if reticle is visible. | None |
 | `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. | None |
 | `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. | None |
@@ -1329,7 +1329,7 @@ World is a collection of functions for finding objects in the world.
 | `World.FindObjectsByType(string typeName)` | array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type. If none match, an empty table is returned. | None |
 | `World.FindObjectByName(string typeName)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None |
 | `World.FindObjectById(string muid)` | CoreObject | Returns the object with a given MUID. Returns nil if no object has this ID. | None |
-| `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object or the object's Transform. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `Transform (Transform)`: The Transform of the spawned object. If provided, it is an error to specify position, rotation, or scale; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. For example: `World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)})`. | None |
+| `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. For example: `World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)})`. | None |
 | `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array&lt;Integer&gt;)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array&lt;Player&gt;, or boolean)`: Ignore any of the players listed. If true, ignore all players. <br /> Example: `Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers = myPlayer })`. | None |
 
 ### Built-In Lua Functions
