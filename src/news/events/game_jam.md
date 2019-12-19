@@ -1,10 +1,10 @@
-# The First Game Jam 
+# The First Game Jam
 
-## CORE's First Game Jam  
+## CORE's First Game Jam
 
 ![CORE Alpha Logo](../img/Events/core_alpha_logo.png)
 
-Join the Devs in the first ever CORE Alpha Game Jam! :tada:
+Join the Devs in the first ever CORE Alpha Game Jam!
 
 The Manticore team is hard at work cranking out games and assets in our first internal CORE Game Jam. We want to invite all CORE Alpha Creators to Jam along with us!
 
@@ -30,11 +30,11 @@ Three creators will win official CORE hoodies, the same ones the Manticore team 
 **What can I make?**
 
 Anything! It just needs to be useful, fun, and/or inspiring. It can be a full game, or it can be a piece of a game: a script, a prop, a weapon, etc.
- 
+
 **How do I submit it?**
 
 For games, share your entry publicly to play. For content, share it to community content. Tag your entry with welcomejam to be entered.
- 
+
 **How long is the jam?**
 
 - Start: Wednesday, December 18, 16:00 PST
