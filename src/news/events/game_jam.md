@@ -1,34 +1,48 @@
 # The First Game Jam 
 
-![Put The Image Here, Matt!](../img/FolderName/ImageName.png){: .center}
-Join the Devs in the first ever CORE Jam! The Manticore team will be jamming alongside Alpha Creators the entire week. Out of all the eligible entries, one lucky participant will win an exclusive CORE Alpha hoodie-- limited edition apparel that will never be reprinted again. 
+![CORE Alpha Logo](../img/Events/core_alpha_logo.png)
 
-## Jam Theme: Welcome Home
-Make something that can welcome new users to CORE. This can be a helpful script, a customizable environment, a super useful prop, or even a full game.
-We'll be streaming guides and tutorials to help your jam all week. Check it out at [ManticoreTV](../manticoretv/).
+## CORE's First Game Jam  
 
-## What can I make?
+Join the Devs in the first ever CORE Alpha Game Jam! :tada:
+
+The Manticore team is hard at work cranking out games and assets in our first internal CORE Game Jam. We want to invite all CORE Alpha Creators to Jam along with us!
+
+## Theme: Welcome Jam
+To join in: create and share anything that helps the next wave of CORE Alpha Creators create and learn faster!  This can be a helpful script, a customizable environment, a super useful prop, or even a full game.
+
+## How to Enter
+Submit any game or community content by **Sunday, Dec 22, 23:59 PST**. Tag your submission with `welcomejam` when publishing your content to be considered.
+
+## Prizes
+
+We will be featuring ALL Welcome Jam submissions on ManticoreTV on Monday, December 23 at 13:00 PST, including things made by the Manticore team!
+
+Three creators will win official CORE hoodies, the same ones the Manticore team received to commemorate Alpha Launch. The Manticore team will choose three submissions based on:
+- The Most Helpful
+- The Most Creative
+- The Most Fun
+
+![Hoodies](../img/Events/hoodies.png){: .center}
+
+## Details
+
+**What can I make?**
+
 Anything! It just needs to be useful, fun, and/or inspiring. It can be a full game, or it can be a piece of a game: a script, a prop, a weapon, etc.
+ 
+**How do I submit it?**
 
-## How do I submit it?
-For game components, publish your template to Community Content.
-For games and experiences, publish your project publicly as “Open for Editing” which shares your game with the creator community. 
+For games, share your entry publicly to play. For content, share it to community content. Tag your entry with welcomejam to be entered.
+ 
+**How long is the jam?**
 
-## How long is the jam?
-* **Start:** Tuesday, December 17
-* **End:** Monday, December 23, 11:59pm PST
+- Start: Wednesday, December 18, 16:00 PST
+- End: Sunday, December 22, 23:59 PST
 
-## Is there a prize?
-Top entries will be spotlighted on ManticoreTV's stream and on the Core Creators Hub. Additionally, all eligible entries will be entered into a drawing for an exclusive, limited edition CORE Alpha hoodie. 
-
-## Additional Rules
-* Max 3 game jam submissions per person.  
-* You are allowed and encouraged to use Community Content. 
-* You can work in a team of any size, but please credit all your team members in the game’s description. 
-
-## Questions? 
+## Questions?
 * Reach us at alpha@manticoregames.com
-* Or join the [Creator Discord](../discord/)!
+* Or join the [Creator Discord](../discord/)
 
 
 
