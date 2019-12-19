@@ -3,7 +3,7 @@
     <head>
         <title>404: Oh no!</title>
         <meta charset="utf-8" />
-        <link rel="shortcut icon" href="../assets/favicon.ico">
+        <link rel="shortcut icon" href="{{ base_url }}/assets/favicon.ico">
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:300,400,400i,700&display=fallback" />
     </head>
@@ -15,7 +15,7 @@
 
             html {
                 height: 100%;
-                background: #121212 url('../img/shrug_404_outlined.png') no-repeat left 10vh top 10vh;
+                background: #121212 url('{{ base_url }}/img/shrug_404_outlined.png') no-repeat left 10vh top 10vh, url('{{ base_url }}/img/facepalm_404_outlined.png') no-repeat right 10vh top 10vh;
             }
 
             body, a {
@@ -33,7 +33,7 @@
                 width: 100%;
                 height: 100vh;
                 text-align: center;
-                background: url('../assets/icons/CoreIcon_.png') no-repeat center top 10vh;
+                background: url('{{ base_url }}/assets/icons/CoreIcon_.png') no-repeat center top 10vh;
             }
 
             .fof {
@@ -60,7 +60,7 @@
         <div id="main">
             <div class="fof">
                 <h1>Error 404: Page not found!</h1>
-                <h2>Sorry about that, please let us know about it <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform">here</a>.</h2>
+                <h2>Sorry about that, please let us know about it <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform" target="_blank" rel="noopener">here</a>.</h2>
             </div>
         </div>
     </body>
