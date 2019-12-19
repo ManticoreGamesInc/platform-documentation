@@ -3,7 +3,7 @@
     <head>
         <title>404: Oh no!</title>
         <meta charset="utf-8" />
-        <link rel="shortcut icon" href="{{ base_url }}/assets/favicon.ico">
+        <link rel="shortcut icon" href="../../assets/favicon.ico">
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:300,400,400i,700&display=fallback" />
     </head>
@@ -15,7 +15,10 @@
 
             html {
                 height: 100%;
-                background: #121212 url('{{ base_url }}/img/shrug_404_outlined.png') no-repeat left 10vh top 10vh, url('{{ base_url }}/img/facepalm_404_outlined.png') no-repeat right 10vh top 10vh;
+                background-color: #121212;
+                background-image: url('../../img/shrug_404_outlined.png'), url('../../img/facepalm_404_outlined.png');
+                background-repeat: no-repeat, no-repeat;
+                background-position: left 25vh top 10vh, right 25vh top 10vh;
             }
 
             body, a {
@@ -33,7 +36,7 @@
                 width: 100%;
                 height: 100vh;
                 text-align: center;
-                background: url('{{ base_url }}/assets/icons/CoreIcon_.png') no-repeat center top 10vh;
+                background: url('../../assets/icons/CoreIcon_.png') no-repeat center top 10vh;
             }
 
             .fof {
