@@ -1,7 +1,5 @@
 # The First Game Jam 
 
-![CORE Alpha Logo](../img/Events/core_alpha_logo.png)
-
 ## CORE's First Game Jam  
 
 Join the Devs in the first ever CORE Alpha Game Jam! :tada:
@@ -23,7 +21,6 @@ Three creators will win official CORE hoodies, the same ones the Manticore team 
 - The Most Creative
 - The Most Fun
 
-![Hoodies](../img/Events/hoodies.png){: .center}
 
 ## Details
 
