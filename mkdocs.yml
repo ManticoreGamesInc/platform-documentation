@@ -70,6 +70,9 @@ theme:
     accent: "manticore-orange"
   logo: "assets/icons/CoreIcon_.png"
   favicon: "assets/favicon.ico"
+  static_templates:
+    - 404.html
+    - offline.html
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
