@@ -1,17 +1,5 @@
 # Alpha
-<!--
-## January 8th 2020
 
-#### Changes
-- Added Rocket Launcher, Grenade Launcher and Grenades. Updated all weapons to new tunings.
-- Improved Decal performance.
-- All Effects should now properly respect the auto-play flag when effect elements are in a mixed state.
-- Interactable triggers that are in a static or default context now fire an interacted event on both client and server. An interactable trigger in a client context will fire interacted event on the client only. Interactable triggers will not work under a server context and will throw a warning.
-
-#### Fixes
-- Track #21 "Subtle House Club" in "Electronic Music Score Set" did not play the correct track.
-- Fix crash when passing `nil` as Player to `Equip()`.
--->
 ## December 17th 2019
 
 #### New Features
