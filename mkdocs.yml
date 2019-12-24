@@ -2,9 +2,9 @@
 
 # If you add a page, you must also add it to the index here
 nav:
-  - Welcome to CORE: index.md
+  - index.md
   - News:
-    - news/news.md
+    - News: news/news.md
     - Patch Notes: news/patch_notes/patch_notes.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
@@ -12,12 +12,12 @@ nav:
       - Sharing Content: getting_started/community_content.md
       - Editor Key Bindings: editor_keybindings.md
       - Troubleshooting: getting_started/troubleshooting.md
-  - Community:
+  - Community & Events:
       - Discord: discord.md
       - ManticoreTV: manticoretv.md
-      - Special Events: news/events/game_jam.md
-      - Daily Challenges: news/daily_challenge.md
-      - Showcase: news/showcase/showcase.md
+      - Game Jams: news/events/game_jam.md
+      - Daily Challenges: news/events/daily_challenge.md
+      #- Showcase: news/showcase/showcase.md
   - CORE API:
       - API Overview: core_api.md
       - Game Components: api/components.md
