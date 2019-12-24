@@ -68,7 +68,7 @@ theme:
   palette:
     primary: "manticore-blue"
     accent: "manticore-orange"
-  logo: "assets/icons/CoreIcon_.png"
+  logo: "assets/icons/CoreIcon_192x192.png"
   favicon: "assets/favicon.ico"
   static_templates:
     - 404.html
