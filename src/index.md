@@ -1,7 +1,7 @@
 ---
-name: Welcome to CORE
-categories:
-    - Reference
+title: Home
+name: Home
+hide_categories: true
 #hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
 ---
 
