@@ -1,7 +1,7 @@
 {
     "short_name": "CORE Hub",
     "name": "CORE Creator Hub",
-    "start_url": "/",
+    "start_url": "/?utm_source=web_app_manifest",
     "icons": [
         {
             "src": "assets/icons/CoreIcon_192x192.png",
@@ -15,7 +15,6 @@
         }
     ],
     "display": "standalone",
-    "orientation": "portrait",
     "theme_color": "#20232A",
     "background_color": "#20232A"
 }
