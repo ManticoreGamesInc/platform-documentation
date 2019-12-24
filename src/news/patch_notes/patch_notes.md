@@ -1,6 +1,6 @@
-# Alpha
+# Patch Notes
 
-## December 17th 2019
+## Alpha Update 1: December 17th 2019
 
 #### New Features
 
