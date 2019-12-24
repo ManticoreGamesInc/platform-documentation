@@ -7,11 +7,19 @@ self.addEventListener("install", function(event) {
     var now = Date.now()
 
     var urlsToPrefetch = [
-        "/",
         "404.html",
+        "offline.html",
         "assets/api/luacheckrc.zip",
         "assets/api/manticoreapi.lua",
-        "assets/icons/CoreIcon_.png"
+        "assets/fonts/brands.min.css",
+        "assets/fonts/fontawesome.min.css",
+        "assets/fonts/regular.min.css",
+        "assets/fonts/solid.min.css",
+        "assets/fonts/material-icons.min.css",
+        "assets/javascripts/lightgallery.min.js",
+        "assets/icons/apple-icon-180.png",
+        "assets/icons/CoreIcon_192x192.png",
+        "assets/icons/CoreIcon_512x512.png"
     ]
 
     // All of these logging statements should be visible via the "Inspect" interface
