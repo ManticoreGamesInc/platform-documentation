@@ -1,4 +1,4 @@
-var CACHE_VERSION = 1
+var CACHE_VERSION = 2
 var CURRENT_CACHES = {
     prefetch: "prefetch-cache-v" + CACHE_VERSION
 }
