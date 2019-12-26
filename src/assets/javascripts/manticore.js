@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         iframe.src = 'https://www.youtube.com/embed/' + id + '?modestbranding=1&amp;'
 
         if (old_class != 'null') {
-            iframe.className = 'youtube-video ' + old_class
+            iframe.className = 'video-embed ' + old_class
         } else {
-            iframe.className = 'youtube-video'
+            iframe.className = 'video-embed'
         }
 
         el.replaceWith(iframe);
@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + id + '?modestbranding=1&amp;'
 
         if (old_class != 'null') {
-            iframe.className = 'youtube-video ' + old_class
+            iframe.className = 'video-embed ' + old_class
         } else {
-            iframe.className = 'youtube-video'
+            iframe.className = 'video-embed'
         }
 
         el.replaceWith(iframe);
@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             "https://player.vimeo.com/video/" + id
 
         if (old_class != "null") {
-            iframe.className = "youtube-video " + old_class
+            iframe.className = "video-embed " + old_class
         } else {
-            iframe.className = "youtube-video"
+            iframe.className = "video-embed"
         }
 
         el.replaceWith(iframe)
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         iframe.src = "https://vimeo.com/event/" + id + "/embed"
 
         if (old_class != "null") {
-            iframe.className = "youtube-video " + old_class
+            iframe.className = "video-embed " + old_class
         } else {
-            iframe.className = "youtube-video"
+            iframe.className = "video-embed"
         }
 
         el.replaceWith(iframe)
