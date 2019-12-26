@@ -53,11 +53,10 @@ jobs:
         run: |
           mkdocs build
 
-      #- name: Azure Blob Storage Upload
-      #  if: github.ref == 'refs/heads/production-publish' && runner.os == 'Linux'
-      #  uses: bacongobbler/azure-blob-storage-upload@v1.0.0
-      #  with:
-      #    source_dir: site
-      #    container_name: www
-      #    connection_string: ${{ secrets.ConnectionString }}
-      #    extra_args: '--pattern *.tar.gz*'
+      - name: Azure Blob Storage Upload
+        if: github.ref == 'refs/heads/production-publish' && runner.os == 'Linux'
+        uses: bacongobbler/azure-blob-storage-upload@v1.0.0
+        with:
+          source_dir: site
+          container_name: prod
+          connection_string: ${{ secrets.ConnectionString }}
