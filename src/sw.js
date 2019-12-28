@@ -1,4 +1,4 @@
-var CACHE_VERSION = 2
+var CACHE_VERSION = 3
 var CURRENT_CACHES = {
     prefetch: "prefetch-cache-v" + CACHE_VERSION
 }
@@ -7,6 +7,7 @@ self.addEventListener("install", function(event) {
     var now = Date.now()
 
     var urlsToPrefetch = [
+        "./",
         "404.html",
         "offline.html",
         "assets/api/luacheckrc.zip",
