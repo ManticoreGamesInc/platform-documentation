@@ -1,7 +1,7 @@
 {
     "short_name": "CORE Hub",
     "name": "CORE Creator Hub",
-    "start_url": "./docs/?utm_source=web_app_manifest",
+    "start_url": "/?utm_source=web_app_manifest",
     "icons": [
         {
             "src": "./assets/icons/CoreIcon_192x192.png",
