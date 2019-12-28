@@ -1,13 +1,10 @@
 # :fab fa-youtube: Manticore TV
 
-<!-- TODO: Enable when account is unlocked for embedding
-
-![YOUTUBELIVE](/assets/placeholder_720p.png "UCBPqo7cK1bktfRfMGAAqnbQ"){: .center}
-
-![VIMEO](/assets/placeholder_720p.png "19456"){: .center}
-![VIMEOEVENT](/assets/placeholder_720p.png "19456"){: .center}
+<!--
+![YOUTUBELIVE](assets/placeholder_720p.png "UCBPqo7cK1bktfRfMGAAqnbQ"){: .center}
+![VIMEO](assets/placeholder_720p.png "19456"){: .center}
+![VIMEOEVENT](assets/placeholder_720p.png "19456"){: .center}
 -->
-
 
 <iframe src="https://vimeo.com/event/19456/embed" width="1280" height="720" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
@@ -21,5 +18,8 @@ We want everyone to experience that magic, so we created ManticoreTV. Join us an
 
 * :fab fa-facebook: [Facebook](https://www.facebook.com/groups/playcoregames)
 * :fab fa-youtube: [YouTube](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ)
-
+<!--
 ### Upcoming Schedule
+
+* Check out our [Google Calendar](TODO:TashaAddLink) for all the dates!
+-->
