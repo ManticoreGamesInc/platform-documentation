@@ -15,7 +15,7 @@ self.addEventListener("install", function(event) {
         "assets/fonts/fontawesome.min.css",
         "assets/fonts/regular.min.css",
         "assets/fonts/solid.min.css",
-        "assets/fonts/material-icons.min.css",
+        "assets/fonts/material-icons.css",
         "assets/javascripts/lightgallery.min.js",
         "assets/icons/apple-icon-180.png",
         "assets/icons/CoreIcon_192x192.png",
