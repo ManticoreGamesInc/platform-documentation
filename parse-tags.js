@@ -39,7 +39,7 @@ categories.forEach(cat => {
   cat.files.forEach(file => {
     output.push(
       { ul: [
-        { link: { title: file.name, source: file.path.replace(rootPath, "..") } }
+        { link: { title: file.name, source: file.path.replace(rootPath, "") } }
       ] }
     )
   })
