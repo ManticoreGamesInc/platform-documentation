@@ -177,10 +177,10 @@ After that is done, embed video like this:
 
     Usage:
 
-    `![YOUTUBE](LRLQE2N0DKc)` and `![VIMEO](LRLQE2N0DKc)`
+    `![YOUTUBE](/assets/placeholder_720p.png "LRLQE2N0DKc")` and `![VIMEO](/assets/placeholder_720p.png "LRLQE2N0DKc")`
 
-    Where the part in parentheses is the video ID
+    Where the part in quotes is the video ID.
 
-    `![YOUTUBELIVE](LRLQE2N0DKc)`
+    `![YOUTUBELIVE](/assets/placeholder_720p.png "LRLQE2N0DKc")`
 
-    Where the part in parentheses is the channel ID, for live streams.
+    Where the part in quotes is the channel ID, for live streams.
