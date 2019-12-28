@@ -76,15 +76,15 @@ So, let's get started!
 
         This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-        If you'd like more tips on how to model and create art in CORE, visit the **[Art Reference](/tutorials/art/art_reference/)** page or try a **[Tutorial](/tutorials/art/modeling_basics/)**.
+        If you'd like more tips on how to model and create art in CORE, visit the **[Art Reference](../tutorials/art/art_reference/)** page or try a **[Tutorial](../tutorials/art/modeling_basics/)**.
 
         This attaches the visuals of the weapon to the function of the weapon!
 
 4. Right click this Art group and select "Create Network Context > New Client Context Containing This" to keep the weapon's visuals within a Client Context folder.
 
-        This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
+    This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
 
-        To read more about Client Context and networking in CORE games, read our guide about **[Networking](/gameplay/networking/)**.
+    To read more about Client Context and networking in CORE games, read our guide about **[Networking](/networking_reference/)**.
 
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
@@ -103,7 +103,7 @@ So, let's get started!
 
     1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
 
-        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](/core_api/)**.
+        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](../../core_api/)**.
 
     2. Once you've made sure that is happening, scroll down to the *Utility* section of **CORE Content**.
 
