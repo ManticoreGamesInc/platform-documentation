@@ -16,7 +16,7 @@ Collaboration is an important aspect of art and design as well as key to develop
 
 Templates can be created, shared, and updated in real time across the platform. Enabling creators to quickly and dynamically make changes to their scenes and games.
 
-Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](/img/EditorManual/UI/templateicon.png "image_tooltip"){: .center}
+Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "image_tooltip"){: .center}
 
 ## Tutorial
 
@@ -28,19 +28,19 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 2. When satisfied with your creation, select all assets in the hierarchy that you desire to be in the template. Right click and select "Group and Create New Template from These".
 
-   ![TemplateTut1](/img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
+   ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
 
    !!! note "Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!"
 
 3. Name Your Template and click the New Template button.
 
-   ![TemplateTut2](/img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
+   ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
 
    The template is now recognized in your project as its own object and can be found in the Project Content folder of the Asset Manifest and you may quickly and easily drag out multiple instances into your scene.
 
    Once your template is created, you may use it for just this project alone, or you can now publish the template to Community Content. Unpublished templates have white names in the Project Content folder while published template names are green. However, Templates in the hierarchy will always be green, published or not.
 
-   ![TemplateTut3](/img/EditorManual/UI/TemplateTut3.png "image_tooltip"){: .center}
+   ![TemplateTut3](../../img/EditorManual/UI/TemplateTut3.png "image_tooltip"){: .center}
 
 ### Publishing Your Template
 
@@ -48,11 +48,11 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 
-   ![TemplateTut4](/img/EditorManual/UI/TemplateTut4.png "image_tooltip"){: .center}
+   ![TemplateTut4](../../img/EditorManual/UI/TemplateTut4.png "image_tooltip"){: .center}
 
 3. This option box will appear:
 
-   ![TemplateTut3](/img/EditorManual/UI/TemplateTut5.png "image_tooltip"){: .center}
+   ![TemplateTut3](../../img/EditorManual/UI/TemplateTut5.png "image_tooltip"){: .center}
 
    a. Check or create a new template name. A template's name must be between 5 to 30 characters.
 
@@ -66,7 +66,7 @@ Creating a template is fast and easy! To make a template follow these steps:
 
    The template's white name should now be green and the template can be found and downloaded from Community Content. From here, you may edit, re-download or delete templates you've published!
 
-   ![TemplateTut4](/img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
+   ![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
 Congratulations! You've created, edited, and published a template that can be shared and used by other creators in CORE!
 
@@ -78,7 +78,7 @@ Once your template is created, you must "deinstance" it in order to edit the tem
 
 To deinstance a template, right click and select "Deinstance this object".
 
-![TemplateTut5](/img/EditorManual/UI/TemplateTut7.png "image_tooltip"){: .center}
+![TemplateTut5](../../img/EditorManual/UI/TemplateTut7.png "image_tooltip"){: .center}
 
 The object's name will now be blue and you may edit the template as you wish!
 Don't like the changes you made? You can always select "Reset to Template" to restore back to the original template.
