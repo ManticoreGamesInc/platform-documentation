@@ -98,7 +98,7 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
     Usage:
 
     ```markdown
-    ![alt_text](../../img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
+    ![alt_text](/img/EnvironIntro/terrain_subtract.png "image_tooltip") **Subtract Terrain**: Lower the terrain level
     {: .image-inline-text}
     ```
 
@@ -107,8 +107,8 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
     Usage:
 
     ```markdown
-    ![alt_text](../../img/EnvironIntro/image9.png "image_tooltip")
-    ![alt_text](../../img/EnvironIntro/image44.png "image_tooltip")
+    ![alt_text](/img/EnvironIntro/image9.png "image_tooltip")
+    ![alt_text](/img/EnvironIntro/image44.png "image_tooltip")
     _Randomized Color unchecked (left) vs. checked (right)_
     {: .image-cluster}
     ```
@@ -118,7 +118,7 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
     Usage:
 
     ```markdown
-    ![MyFirstScript](../../img/scripting/MyFirstScript.png){: .center}
+    ![MyFirstScript](/img/scripting/MyFirstScript.png){: .center}
     ```
 
 * `{: style="color: $css_color_code"}` to color text elements.

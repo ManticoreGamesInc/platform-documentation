@@ -49,7 +49,7 @@ In CORE, **Community Content** houses many assets you can use in your own games 
 
 To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**max.**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
 
-![Manticoin](../../img/scripting/manticoin.png "Manticoin"){: .center}
+![Manticoin](/img/scripting/manticoin.png "Manticoin"){: .center}
 
 !!! note "The editor will prompt you to save before it adds it to your project."
 
@@ -64,7 +64,7 @@ At this point, the editor will prompt you about a networking state mismatch. In 
 
 We'll explain what this line does in a moment, but for now, make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../../img/getting_started/SpinCoin.png "SpinCoin Location"){: .center}
+![SpinCoinLocation](/img/getting_started/SpinCoin.png "SpinCoin Location"){: .center}
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -78,7 +78,7 @@ Okay, so what did we just do?
     * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
-!!! note "If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page."
+!!! note "If you want to know which other methods are available for every object, check out our [API docs](/core_api/) page."
 
 ### Spin Cleanup
 
@@ -202,7 +202,7 @@ Next, let's place the script `DisplayCoins` as a child of the Text Control. In t
 
 The folder structure at this point should look like this:
 
-![UIText](../../img/getting_started/UIText.png "UI Text"){: .center}
+![UIText](/img/getting_started/UIText.png "UI Text"){: .center}
 
 Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
 
@@ -247,7 +247,7 @@ Next, we need to create the custom parameter to save our game state.
 
 Here's the entire Hierarchy at this point:
 
-![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center}
+![GameLogicHierarchy](/img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center}
 
 !!! note "The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!"
 
@@ -308,7 +308,7 @@ settings.networkedPropertyChangedEvent:Connect(OnChanged)
 
 This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Gameplay Settings`.
 
-![VictoryUI](../../img/getting_started/Replicator.png "VictoryUI"){: .center}
+![VictoryUI](/img/getting_started/Replicator.png "VictoryUI"){: .center}
 
 Your Hierarchy should look like the above now!
 
