@@ -33,7 +33,7 @@ Skim through the beginner content, then try our [Manticoin Game](lua_basics_mant
 ### Advanced
 
 Check out this [primer](https://learnxinyminutes.com/docs/lua/), or this [reference-sheet](http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf) for tips on syntax. Use the
-official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourself familiar with the [CORE API](../../core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
+official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourself familiar with the [CORE API](/core_api/) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
 
 #### Coming from other engines
 
