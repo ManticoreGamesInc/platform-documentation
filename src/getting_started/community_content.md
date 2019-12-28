@@ -31,18 +31,18 @@ The goal is to bring your ideas to life as fast as possible, so that nothing sta
 
 Open up the **Community Content** tab by clicking on it. If the tab isn't already open for you, navigate to `View -> Community Content` in the top menu bar to open the window.
 
-![Community Content Template](/img/getting_started/communitycontent.png "Community Content Template"){: .center}
+![Community Content Template](../img/getting_started/communitycontent.png "Community Content Template"){: .center}
 
 Here you can browse the content or search by username or key words.
 
 Click the blue `+` button on an asset to import the template. It will likely ask you to save your project first.
 
-![Community Content Template](/img/getting_started/CCtemplate.png "Community Content Template"){: .center}
+![Community Content Template](../img/getting_started/CCtemplate.png "Community Content Template"){: .center}
 
 You can then see the template you downloaded in your the **CORE Content** folder.
 `CORE Content -> Imported Content`.
 
-![Imported Content](/img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
+![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
 
 #### Using Your Imported Content
 
@@ -54,7 +54,7 @@ Once you've done this, you will have a **blue**{: style="color: blue"} object in
 
 CORE also then adds the template and its contents to your "**Project Content**" folder.
 
-![Imported Content Asset](/img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
+![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
 
 Within the template, in the section called "**Dependencies**", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
 
