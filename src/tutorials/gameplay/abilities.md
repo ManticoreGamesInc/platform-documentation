@@ -4,7 +4,7 @@ categories:
     - Tutorial
 ---
 
-<!--  TODO: Images & GIFs are outdated -->>
+<!--  TODO: Images & GIFs are outdated -->
 # Abilities in CORE
 
 ## Overview
