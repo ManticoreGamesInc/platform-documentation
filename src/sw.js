@@ -1,4 +1,4 @@
-var CACHE_VERSION = 3
+var CACHE_VERSION = 4
 var CURRENT_CACHES = {
     prefetch: "prefetch-cache-v" + CACHE_VERSION
 }
@@ -18,9 +18,7 @@ self.addEventListener("install", function(event) {
         "assets/fonts/solid.min.css",
         "assets/fonts/material-icons.css",
         "assets/javascripts/lightgallery.min.js",
-        "assets/icons/apple-icon-180.png",
-        "assets/icons/CoreIcon_192x192.png",
-        "assets/icons/CoreIcon_512x512.png"
+        "assets/icons/apple-icon-180.png"
     ]
 
     // All of these logging statements should be visible via the "Inspect" interface
