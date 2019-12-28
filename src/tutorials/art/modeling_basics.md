@@ -14,8 +14,8 @@ categories:
 
 Learning modelling basics in CORE by making delicious food.
 
-* **Completion Time:** ~20 minutes (TODO)
-* **Knowledge Level:** How to use the transform widget, how to change materials (TODO)
+* **Completion Time:** ~20 minutes
+* **Knowledge Level:** How to use the transform widget, how to change materials
 * **Skills you will learn:**
     * Using a reference image
     * Using decals

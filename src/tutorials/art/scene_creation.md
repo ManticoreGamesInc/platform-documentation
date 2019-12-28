@@ -87,7 +87,7 @@ There are more degrees of rotation available in the drop down menu.
 
 1. Drag the bed from the **Project Content** tab > **My Shared Content** > **My Room** into the scene.
 
-   !!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
+!!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
 
 2. Change the color and material of the quilt.
 
