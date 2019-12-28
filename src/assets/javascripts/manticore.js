@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var elementsVimeoEvent = document.querySelectorAll('img[alt="VIMEOEVENT"]')
 
     Array.prototype.forEach.call(elements, function(el, i){
-        var id = el.getAttribute('src').split('/')[el.getAttribute('src').split('/').length - 1];
+        var id = el.getAttribute('title').split('/')[el.getAttribute('title').split('/').length - 1];
         var old_class = el.getAttribute('class');
         var iframe = document.createElement('iframe');
 
@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     Array.prototype.forEach.call(elementsLive, function(el, i){
-        var id = el.getAttribute('src').split('/')[el.getAttribute('src').split('/').length - 1];
+        var id = el.getAttribute('title').split('/')[el.getAttribute('title').split('/').length - 1];
         var old_class = el.getAttribute('class');
         var iframe = document.createElement('iframe');
 
-        iframe.title = "YouTube"
+        iframe.title = "YouTube Live"
         iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + id + '?modestbranding=1&amp;'
 
         if (old_class != 'null') {
@@ -59,15 +59,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     Array.prototype.forEach.call(elementsVimeo, function(el, i) {
-        var id = el.getAttribute("src").split("/")[
-            el.getAttribute("src").split("/").length - 1
-        ]
+        var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
         var old_class = el.getAttribute("class")
         var iframe = document.createElement("iframe")
 
         iframe.title = "Vimeo"
-        iframe.src =
-            "https://player.vimeo.com/video/" + id
+        iframe.src = "https://player.vimeo.com/video/" + id
 
         if (old_class != "null") {
             iframe.className = "video-embed " + old_class
@@ -79,13 +76,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
 
     Array.prototype.forEach.call(elementsVimeoEvent, function(el, i) {
-        var id = el.getAttribute("src").split("/")[
-            el.getAttribute("src").split("/").length - 1
-        ]
+        var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
         var old_class = el.getAttribute("class")
         var iframe = document.createElement("iframe")
 
-        iframe.title = "Vimeo"
+        iframe.title = "Vimeo Event"
         iframe.src = "https://vimeo.com/event/" + id + "/embed"
 
         if (old_class != "null") {
@@ -98,7 +93,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
 
     // Change browser tab title based on header title near scroll position
-
     window.addEventListener('scroll', function(event) {
         var y_pos = window.pageYOffset || document.documentElement.scrollTop;
         var current_title = document.title;

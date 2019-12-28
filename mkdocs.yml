@@ -1,4 +1,3 @@
-# Page index
 
 # If you add a page, you must also add it to the index here
 nav:
@@ -58,7 +57,7 @@ nav:
 # If you make a PR, no need to change data below this point
 theme:
   name: null
-  custom_dir: "mkdocs-material/material"
+  custom_dir: mkdocs-material/material
   language: en
   font:
     text: Roboto
@@ -66,10 +65,10 @@ theme:
   feature:
     tabs: true
   palette:
-    primary: "manticore-blue"
-    accent: "manticore-orange"
-  logo: "assets/icons/CoreIcon_192x192.png"
-  favicon: "assets/favicon.ico"
+    primary: manticore-blue
+    accent: manticore-orange
+  logo: assets/icons/favicon-32x32.png
+  favicon: assets/favicon.ico
   static_templates:
     - 404.html
     - offline.html
@@ -79,26 +78,26 @@ theme:
   search_index_only: true
 
 extra_css:
-  - "assets/stylesheets/manticore.css"
+  - assets/stylesheets/manticore.css
 
 extra_javascript:
-  - "assets/javascripts/manticore.js"
-  - "sw.js"
+  - assets/javascripts/manticore.js
+  - sw.js
 
 # Additional data
 extra:
-  manifest: "manifest.json"
+  manifest: manifest.json
   social:
-    - type: "discord"
-      link: "https://discord.gg/85k8A7V"
-    - type: "youtube"
-      link: "https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ"
-    #- type: 'reddit'
-    #  link: 'https://www.reddit.com/r/PlayCoreGames/' # TODO
-    #- type: 'twitter'
-    #  link: 'https://twitter.com/PlayCoreGames' # TODO
-    - type: "facebook"
-      link: "https://www.facebook.com/groups/playcoregames"
+    - type: discord
+      link: https://discord.gg/85k8A7V
+    - type: youtube
+      link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
+    #- type: reddit
+    #  link: https://www.reddit.com/r/PlayCoreGames # TODO
+    #- type: twitter
+    #  link: https://twitter.com/PlayCoreGames # TODO
+    - type: facebook
+      link: https://www.facebook.com/groups/playcoregames
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -133,7 +132,7 @@ plugins:
   - search
   - redirects:
         redirect_maps:
-            'getting_started.md': 'getting_started/editor_intro.md'
+            getting_started.md: getting_started/editor_intro.md
 
 # Docs dir
 docs_dir: src
@@ -148,12 +147,12 @@ site_name: CORE Creator Hub
 # Metadata
 site_description: Documentation for the CORE Platform
 site_author: Manticore Games
-site_url: https://www.coregames.com
+site_url: https://www.coregames.com/docs/
 
 # Copyright
 copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
 
 # Google Analytics
 google_analytics:
-  - "UA-142884846-4"
+  - UA-142884846-4
   - auto
