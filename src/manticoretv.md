@@ -2,14 +2,14 @@
 
 <!-- TODO: Enable when account is unlocked for embedding
 
-![YOUTUBELIVE](UCBPqo7cK1bktfRfMGAAqnbQ){: .center}
+![YOUTUBELIVE](/assets/placeholder_720p.png "UCBPqo7cK1bktfRfMGAAqnbQ"){: .center}
 
-![VIMEO](19456){: .center}
-![VIMEOEVENT](19456){: .center}
+![VIMEO](/assets/placeholder_720p.png "19456"){: .center}
+![VIMEOEVENT](/assets/placeholder_720p.png "19456"){: .center}
 -->
 
 
-<iframe src="https://vimeo.com/event/19456/embed" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://vimeo.com/event/19456/embed" width="1280" height="720" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 ## Watch and Play with ManticoreTV
 

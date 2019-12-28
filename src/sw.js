@@ -10,6 +10,8 @@ self.addEventListener("install", function(event) {
         "./",
         "404.html",
         "offline.html",
+        "assets/placeholder_480p.png",
+        "assets/placeholder_720p.png",
         "assets/api/luacheckrc.zip",
         "assets/api/manticoreapi.lua",
         "assets/fonts/brands.min.css",
@@ -18,7 +20,9 @@ self.addEventListener("install", function(event) {
         "assets/fonts/solid.min.css",
         "assets/fonts/material-icons.css",
         "assets/javascripts/lightgallery.min.js",
-        "assets/icons/apple-icon-180.png"
+        "assets/icons/apple-icon-180.png",
+        "assets/icons/CoreIcon_192x192.png",
+        "assets/icons/CoreIcon_512x512.png"
     ]
 
     // All of these logging statements should be visible via the "Inspect" interface
