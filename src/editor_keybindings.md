@@ -1,5 +1,5 @@
 ---
-name: CORE Editor Key bindings
+name: CORE Editor Key Bindings
 categories:
     - Reference
 ---
