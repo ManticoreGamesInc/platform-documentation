@@ -49,9 +49,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build
+      - name: Build (Dev)
+        if: github.ref != 'refs/heads/production-publish'
         run: |
           mkdocs build
+
+      - name: Build (Prod)
+        if: github.ref == 'refs/heads/production-publish'
+        run: |
+          mkdocs build --config-file mkdocs-prod.yml
 
       - name: Azure Blob Storage Upload (Dev)
         if: github.ref == 'refs/heads/production' && runner.os == 'Linux'
