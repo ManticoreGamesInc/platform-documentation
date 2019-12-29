@@ -1,4 +1,4 @@
-var VERSION = "v2"
+var VERSION = "v3"
 
 var cacheFirstFiles = [
     "assets/api/luacheckrc.zip",
@@ -11,9 +11,38 @@ var cacheFirstFiles = [
     "assets/javascripts/lightgallery.min.js",
     "assets/placeholder_480p.png",
     "assets/placeholder_720p.png",
-    "assets/icons/apple-icon-180.png",
+    "assets/icons/apple-icon-120.png",
+    "assets/icons/apple-icon-152.png",
+    "assets/icons/apple-icon-167.png",
+    "assets/icons/apple-splash-1125-2436.png",
+    "assets/icons/apple-splash-1136-640.png",
+    "assets/icons/apple-splash-1242-2208.png",
+    "assets/icons/apple-splash-1242-2688.png",
+    "assets/icons/apple-splash-1334-750.png",
+    "assets/icons/apple-splash-1536-2048.png",
+    "assets/icons/apple-splash-1668-2224.png",
+    "assets/icons/apple-splash-1668-2388.png",
+    "assets/icons/apple-splash-1792-828.png",
+    "assets/icons/apple-splash-2048-1536.png",
+    "assets/icons/apple-splash-2048-2732.png",
+    "assets/icons/apple-splash-2208-1242.png",
+    "assets/icons/apple-splash-2224-1668.png",
+    "assets/icons/apple-splash-2388-1668.png",
+    "assets/icons/apple-splash-2436-1125.png",
+    "assets/icons/apple-splash-2688-1242.png",
+    "assets/icons/apple-splash-2732-2048.png",
+    "assets/icons/apple-splash-640-1136.png",
+    "assets/icons/apple-splash-750-1334.png",
+    "assets/icons/apple-splash-828-1792.png",
+    "assets/icons/apple-touch-icon.png",
+    "assets/icons/browserconfig.xml",
     "assets/icons/CoreIcon_192x192.png",
-    "assets/icons/CoreIcon_512x512.png"
+    "assets/icons/CoreIcon_512x512.png",
+    "assets/icons/favicon-16x16.png",
+    "assets/icons/favicon-196.png",
+    "assets/icons/favicon-32x32.png",
+    "assets/icons/mstile-150x150.png",
+    "assets/icons/safari-pinned-tab.svg"
 ]
 
 var networkFirstFiles = ["./", "404.html", "offline.html", "sw.js", "manifest.json"]
