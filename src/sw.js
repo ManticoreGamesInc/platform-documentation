@@ -1,4 +1,4 @@
-var VERSION = "v1"
+var VERSION = "v2"
 
 var cacheFirstFiles = [
     "assets/api/luacheckrc.zip",
@@ -16,7 +16,7 @@ var cacheFirstFiles = [
     "assets/icons/CoreIcon_512x512.png"
 ]
 
-var networkFirstFiles = ["./", "404.html", "offline.html"]
+var networkFirstFiles = ["./", "404.html", "offline.html", "sw.js", "manifest.json"]
 
 var cacheFiles = cacheFirstFiles.concat(networkFirstFiles)
 
