@@ -1,0 +1,158 @@
+
+# If you add a page, you must also add it to the index here
+nav:
+  - index.md
+  - News:
+    - News: news/news.md
+    - Patch Notes: news/patch_notes/patch_notes.md
+  - Getting Started:
+      - Intro to the Editor: getting_started/editor_intro.md
+      - Create your first Game: getting_started/my_first_multiplayer_game.md
+      - Sharing Content: getting_started/community_content.md
+      - Editor Key Bindings: editor_keybindings.md
+      - Troubleshooting: getting_started/troubleshooting.md
+  - Community & Events:
+      - Discord: discord.md
+      - ManticoreTV: manticoretv.md
+      - Game Jams: news/events/game_jam.md
+      - Daily Challenges: news/events/daily_challenge.md
+      #- Showcase: news/showcase/showcase.md
+  - CORE API:
+      - API Overview: core_api.md
+      - Game Components: api/components.md
+      - Animations: api/animations.md
+      - Ability Bindings: api/ability_bindings.md
+      - Lua in CORE: tutorials/gameplay/lua_reference.md
+      - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
+      - Editor Extensions: extensions.md
+      - Coming from other Engines: getting_started/other_engines.md
+  - Tutorials:
+      - Overview: generated/sitemap.md
+      - Gameplay:
+          - Abilities: tutorials/gameplay/abilities.md
+          - Weapons: tutorials/gameplay/weapons.md
+          - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
+          - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
+          - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+      - Art:
+          - Art in CORE: tutorials/art/art_reference.md
+          - Scene Creation: tutorials/art/scene_creation.md
+          - Custom Materials: tutorials/art/custom_materials.md
+          - Environmental Art: tutorials/art/environ_art_intro.md
+          - Modeling Basics: tutorials/art/modeling_basics.md
+          #- Costumes: tutorials/art/costumes.md
+          - Audio: tutorials/art/audio_reference.md
+      - Video Tutorials:
+          - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
+      - Templates: tutorials/gameplay/collaboration_reference.md
+      - UI: tutorials/gameplay/ui_reference.md
+      - Networking: tutorials/gameplay/networking_reference.md
+      - Performance: tutorials/gameplay/performance_reference.md
+      - Examples & Snippets: tutorials/examples.md
+      - Community Created:
+          - Overview: tutorials/community_created/community_created.md
+  - FAQ:
+    - faq.md
+
+# If you make a PR, no need to change data below this point
+theme:
+  name: null
+  custom_dir: mkdocs-material/material
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  feature:
+    tabs: true
+  palette:
+    primary: manticore-blue
+    accent: manticore-orange
+  logo: assets/icons/favicon-32x32.png
+  favicon: assets/favicon.ico
+  static_templates:
+    - 404.html
+    - offline.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+extra_css:
+  - assets/stylesheets/manticore.css
+
+extra_javascript:
+  - assets/javascripts/manticore.js
+  - sw.js
+
+# Additional data
+extra:
+  manifest: manifest.json
+  social:
+    - type: discord
+      link: https://discord.gg/85k8A7V
+    - type: youtube
+      link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
+    #- type: reddit
+    #  link: https://www.reddit.com/r/PlayCoreGames # TODO
+    #- type: twitter
+    #  link: https://twitter.com/PlayCoreGames # TODO
+    - type: facebook
+      link: https://www.facebook.com/groups/playcoregames
+
+markdown_extensions:
+  - admonition # add info/warn/error admonitions
+  - fontawesome_markdown # easily add fontawesome icons in markdown format
+  - pymdownx.arithmatex # fancy math styling
+  - markdown.extensions.attr_list # Customn attributes for elements
+  - pymdownx.betterem: # better bolding styles
+      smart_enable: all
+  - pymdownx.caret # insert and superscript
+  - pymdownx.critic # editing allowed
+  - pymdownx.details # admonition style details
+  - pymdownx.emoji: # emojis
+      emoji_generator: pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite # inline code highlighting
+  - pymdownx.magiclink # autolinks and shorthand
+  - pymdownx.mark # highlights
+  - pymdownx.smartsymbols # special symbols like arrows
+  - pymdownx.superfences # tabbed content (e.g. with code)
+  - pymdownx.tasklist: # task list
+      custom_checkbox: true
+  - pymdownx.tilde # strike-through
+  - codehilite: # highlight code blocks
+      guess_lang: false # language has to be defined explicitly
+      linenums: true
+  - toc: # add linking to headers
+      permalink: true
+  - full_yaml_metadata
+
+# Plugins
+plugins:
+  - git-revision-date-localized
+  - search
+  - redirects:
+        redirect_maps:
+            getting_started.md: getting_started/editor_intro.md
+
+# Docs dir
+docs_dir: src
+
+# Site name
+site_name: CORE Creator Hub
+
+# Add repository for easy editing
+#repo_url: https://gitlab.com/manticore-games/platform-documentation
+#edit_uri: edit/production/src
+
+# Metadata
+site_description: Documentation for the CORE Platform
+site_author: Manticore Games
+site_url: https://www.coregames.com/docs/
+
+# Copyright
+copyright: "&copy; 2019 Manticore Games. CORE&trade; is a trademark of Manticore Games."
+
+# Google Analytics
+google_analytics:
+  - UA-142884846-4
+  - auto
