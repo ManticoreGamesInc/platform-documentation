@@ -9,7 +9,7 @@
             "type": "image/png"
         },
         {
-            "src": "assets/manifest-icon-512.png",
+            "src": "/assets/manifest-icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
