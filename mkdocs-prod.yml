@@ -67,7 +67,7 @@ theme:
   palette:
     primary: manticore-blue
     accent: manticore-orange
-  logo: assets/icons/favicon-196.png
+  logo: assets/icons/favicon-196x196.png
   favicon: assets/favicon.ico
   static_templates:
     - 404.html
@@ -82,11 +82,9 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/manticore.js
-  - sw.js
 
 # Additional data
 extra:
-  manifest: manifest.json
   social:
     - type: discord
       link: https://discord.gg/85k8A7V
