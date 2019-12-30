@@ -82,7 +82,6 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/manticore.js
-  - sw.js
 
 # Additional data
 extra:
