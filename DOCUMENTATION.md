@@ -159,13 +159,13 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
 ### Converting GIF to Video
 
 Get ffmpeg from [here](https://ffmpeg.zeranoe.com/builds/) and put it onto your \\$PATH or the same folder as the GIF.
-Now run `ffmpeg -i input.gif -b:v 0 -crf 25 output.mp4` from the command line.
+Now run `ffmpeg -i file.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" out.mp4` from the command line.
 
 After that is done, embed video like this:
 
 ```html
 <div class="mt-video">
-    <video autoplay loop muted playsinline>
+    <video autoplay loop muted playsinline poster="img/placeholderimagehere">
         <source src="cat.mp4" type="video/mp4" />
     </video>
 </div>
