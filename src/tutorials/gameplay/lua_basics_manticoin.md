@@ -126,10 +126,10 @@ This function takes in the `trigger` that was activated and the `object` that co
 
 Now we need to attach our new `handleOverlap` function to the trigger.
 
-    ```lua
-    -- Whenever an object collides with the trigger, run this function
-    script.parent.beginOverlapEvent:Connect(handleOverlap)
-    ```
+```lua
+-- Whenever an object collides with the trigger, run this function
+script.parent.beginOverlapEvent:Connect(handleOverlap)
+```
 
 `beginOverlapEvent` is a default event that exists within trigger objects. By using `:Connect()` in the code above, we are able to let the event know about the function to call, in this case `handleOverlap`, when the event gets executed.
 
