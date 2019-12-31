@@ -33,7 +33,3 @@
 - [Making A Game](../tutorials/gameplay/lua_basics_manticoin.md)
 - [Lua Style Guide](../tutorials/gameplay/lua_style_guide.md)
 - [Weapons in CORE](../tutorials/gameplay/weapons.md)
-
-## News
-
- - [News](../news/news.md)
