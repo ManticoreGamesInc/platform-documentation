@@ -18,6 +18,7 @@ We want everyone to experience that magic, so we created ManticoreTV. Join us an
 
 * :fab fa-facebook: [Facebook](https://www.facebook.com/groups/playcoregames)
 * :fab fa-youtube: [YouTube](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ)
+
 <!--
 ### Upcoming Schedule
 
