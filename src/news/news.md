@@ -2,8 +2,6 @@
 name: News
 hide_nav: true
 hide_categories: true
-categories:
-   - News
 ---
 
 # News

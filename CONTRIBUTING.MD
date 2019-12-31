@@ -43,6 +43,7 @@ In case you only want to do some small wording changes, just use the GitLab WebU
     - Enter `pip install -r requirements.txt` into the command line to install required files.
     - Enter `mkdocs serve` into the command line to start the server which will watch for changes upon saving and update live.
     - Navigate to `http://127.0.0.1:8000/` in your browser. The page will automatically refresh upon saving.
+    - Right click into the site, select "Inspect", go to "Application" > "Service Workers" and select "Update on reload".
 
 7. Install an [EditorConfig](https://editorconfig.org/) extension for your editor.
 8. Install a [MarkdownLint](https://github.com/DavidAnson/markdownlint) extension for your editor.
