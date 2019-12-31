@@ -57,41 +57,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         el.replaceWith(iframe);
     });
+    if (window.location.hostname != "127.0.0.1") {
+        Array.prototype.forEach.call(elementsVimeo, function(el, i) {
+            var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
+            var old_class = el.getAttribute("class")
+            var iframe = document.createElement("iframe")
 
-    Array.prototype.forEach.call(elementsVimeo, function(el, i) {
-        var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
-        var old_class = el.getAttribute("class")
-        var iframe = document.createElement("iframe")
+            iframe.title = "Vimeo"
+            iframe.src = "https://player.vimeo.com/video/" + id
 
-        iframe.title = "Vimeo"
-        iframe.src = "https://player.vimeo.com/video/" + id
+            if (old_class != "null") {
+                iframe.className = "video-embed " + old_class
+            } else {
+                iframe.className = "video-embed"
+            }
 
-        if (old_class != "null") {
-            iframe.className = "video-embed " + old_class
-        } else {
-            iframe.className = "video-embed"
-        }
+            el.replaceWith(iframe)
+        })
 
-        el.replaceWith(iframe)
-    })
+        Array.prototype.forEach.call(elementsVimeoEvent, function(el, i) {
+            var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
+            var old_class = el.getAttribute("class")
+            var iframe = document.createElement("iframe")
 
-    Array.prototype.forEach.call(elementsVimeoEvent, function(el, i) {
-        var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
-        var old_class = el.getAttribute("class")
-        var iframe = document.createElement("iframe")
+            iframe.title = "Vimeo Event"
+            iframe.src = "https://vimeo.com/event/" + id + "/embed"
 
-        iframe.title = "Vimeo Event"
-        iframe.src = "https://vimeo.com/event/" + id + "/embed"
+            if (old_class != "null") {
+                iframe.className = "video-embed " + old_class
+            } else {
+                iframe.className = "video-embed"
+            }
 
-        if (old_class != "null") {
-            iframe.className = "video-embed " + old_class
-        } else {
-            iframe.className = "video-embed"
-        }
-
-        el.replaceWith(iframe)
-    })
-
+            el.replaceWith(iframe)
+        })
+    }
     // Change browser tab title based on header title near scroll position
     window.addEventListener('scroll', function(event) {
         var y_pos = window.pageYOffset || document.documentElement.scrollTop;

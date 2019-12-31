@@ -276,6 +276,7 @@ You can also spawn individual objects using the **Object Generator**'s settings 
 !!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
 
 Continue using the **Object Generator** to decorate your scene. When you are done, delete the duplicate water cube.
+
 <!-- TODO: Summary Text
 ## Summary
 -->
