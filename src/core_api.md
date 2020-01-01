@@ -461,9 +461,9 @@ Player is an Object representation of the state of a Player connected to the gam
 | `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | Client Context |
 | `ClearResources()` | None | Removes all resources from a player. | None |
 | `GetResource(string name)` | Integer | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
-| `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | None |
-| `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | None |
-| `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | None |
+| `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server Context |
+| `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server Context |
+| `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server Context |
 | `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. | None |
 | `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. | None |
 | `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | None |
