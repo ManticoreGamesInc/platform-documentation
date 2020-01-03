@@ -2,7 +2,6 @@
 title: Home
 name: Home
 hide_categories: true
-hide_nav: true
 #hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
 ---
 
@@ -18,7 +17,7 @@ _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.
 
 <div class="figure-block">
     <figure>
-        <a href="tutorials/gameplay/weapons" title="Weapons">
+        <a href="tutorials/gameplay/weapons/" title="Weapons">
             <img src="img/EditorManual/Weapons/holdingWeaponNew.png" alt="Build a Weapon"/>
             <figcaption><em>Build a Weapon</em></figcaption>
         </a>
