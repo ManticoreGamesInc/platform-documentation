@@ -199,6 +199,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 > No. A player's avatar will be the default place character representation in game, but Creators can skin, modify, change or even hide the avatars in their game.
 <!-- [NEED] ship example -->
+
 >**Can you attach things to your avatar?**
 
 > You can make full body costumes or change your avatar out for something you or someone else has built.
