@@ -1,11 +1,6 @@
 name: Build & Deploy
 
 on:
-  push:
-    branches:
-      - '*'
-      - '!*production*'
-      - '!*-publish'
   pull_request:
     branches:
       - '*'
@@ -63,5 +58,5 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy
+          args: deploy --dir=site
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
