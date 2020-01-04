@@ -107,7 +107,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - Fixed bug with required scripts accessing the wrong context in single-player preview mode.
 - Fixed an issue that allowed client or static scripts to edit player properties or call functions that modify a player in local preview mode.
 
-!!! warning "Projects that previously worked in local preview may now trigger errors to more closely match expected behavior in a multiplayer environment."
+!!! warning "Projects that previously worked in local preview mode may now trigger errors to more closely match expected behavior in a multiplayer environment."
 
 #### Editor
 
