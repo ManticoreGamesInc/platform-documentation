@@ -55,7 +55,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 ---
 
-## Chats & Comms
+## Chats & Communications
 
 >**Will stuff like the built in chat be editable for users? like if someone wanted to change something about it for their specific game?**
 
@@ -71,7 +71,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 >**Are the things made in CORE meant to stay within the confines of the community content, or can it build to other platforms as well?**
 
-> Stuff made in CORE is meant to be used on the CORE platform, but 100% sharable across the platform if you so desire. Want the helicopters from Sniper Alley in Spellshock? Crtl-C, Ctrl-V, done!
+> Stuff made in CORE is meant to be used on the CORE platform, but 100% sharable across the platform if you so desire. Want the helicopters from Sniper Alley in Spellshock? CTRL-C, CTRL-V, done!
 
 >**Are maps the equivalent of scenes in Unity?**
 
@@ -89,7 +89,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 > You could indeed make a hub world that has portals to all the games you like!
 
-> What's super cool about the Hub world is you'd be able to have all your friends join you and follow you from it into each game. Hopefully eventually creators team up to have links back to the most popular hubs etc and it all becomes one cool connected meta-verse.
+> What's super cool about the Hub world is you'd be able to have all your friends join you and follow you from it into each game. Hopefully eventually creators team up to have links back to the most popular hubs etc. and it all becomes one cool connected meta-verse.
 
 >**Can you lock your content from not being shared?**
 
@@ -97,7 +97,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 >**Are all the content/assets premade?**
 
-> At the very base level the answer is 'yes' - We provide all the base 3D objects, materials, sounds, vfx, etc. however, users can then 'kitbash' them together to make whatever they want and share that with each other if they choose via Community Content.
+> At the very base level the answer is 'yes' - We provide all the base 3D objects, materials, sounds, VFX, etc. however, users can then 'kitbash' them together to make whatever they want and share that with each other if they choose via Community Content.
 
 >**Can we import custom assets?**
 
@@ -138,7 +138,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 >**What language are scripts written in? Do you plan to support other languages in the future?**
 
-> We use [Lua](tutorials/gameplay/lua_reference.md) and there currentely no plans to add to that. We really love Lua and think it's a perfect fit for this project.
+> We use [Lua](tutorials/gameplay/lua_reference.md) and there currently no plans to add to that. We really love Lua and think it's a perfect fit for this project.
 
 >**Does the Lua scripting system support use of external editors?**
 
@@ -162,9 +162,9 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 ## Control & Input
 
->**How much control do we have over keybindings?**
+>**How much control do we have over key bindings?**
 
-> Currently, not all keys have keybinds. Remapping is possible.
+> Currently, not all keys have key binds. Remapping is possible.
 
 ---
 
@@ -173,7 +173,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 >**Is there an implemented turn-based system, or a way to implement a combo system in an action game?**
 
 > You can definitely create those in Lua, and eventually we will make components / frameworks for those that we will share.
-<!--**Is there persistence, ie can you handle a Farming sim?** Yes?** [NEED] -->
+<!--**Is there persistence, i.e. can you handle a Farming sim?** Yes?** [NEED] -->
 
 >**Will we have NPCs?**
 
@@ -183,7 +183,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 > Can be done with some work. We have a task a bit down the road to find a way to make that a lot simpler.
 
->**Does changing your avatar change its hitbox/hurtbox?**
+>**Does changing your avatar change its hitbox?**
 
 > A lot of focus was put into making sure that your avatar choice won't have functional advantages/disadvantages.
 
@@ -263,7 +263,7 @@ There are a number of planned optimizations during Alpha and beyond which will g
 
 > Matthew Pablo, our CORE Audio Designer, put together sampled and synthesized instruments, fully produced music tracks, and sound effect assets. All of these can be modified using our built-in audio editor. Most music tracks are kit-bashed and you can use them however you'd like. We will have more info, tutorials and guides on this in Alpha.
 > You can also dynamically adjust lots of things on audio clips besides normal post-effects. Matthew even made Music Construction Kits so you can dynamically adjust music and build up your own tracks from his pieces.
-> Just like with our 3D objects and Materials, you can also 'kitbash' audio to do things it wasn't nesc. intended to do. For instance, to create a creaking windmill sound - we pitched a wooden door opening sound down about 3 octaves and looped it. It made a great creaky windmill. Please see our [CORE Audio Reference](tutorials/art/audio_reference.md).
+> Just like with our 3D objects and Materials, you can also 'kitbash' audio to do things it wasn't necessary. intended to do. For instance, to create a creaking windmill sound - we pitched a wooden door opening sound down about 3 octaves and looped it. It made a great creaky windmill. Please see our [CORE Audio Reference](tutorials/art/audio_reference.md).
 
 >**Will there be a time when downloading CORE will be like 100gb? Seems difficult to scale?**
 
