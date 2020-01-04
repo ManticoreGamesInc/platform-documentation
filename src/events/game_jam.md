@@ -2,7 +2,7 @@
 
 ## CORE's First Game Jam (Completed)
 
-![CORE Alpha Logo](../../img/Events/core_alpha_logo.png)
+![CORE Alpha Logo](../img/Events/core_alpha_logo.png)
 
 Join the Devs in the first ever CORE Alpha Game Jam!
 
@@ -23,7 +23,7 @@ Three creators will win official CORE hoodies, the same ones the Manticore team 
 - The Most Creative
 - The Most Fun
 
-![Hoodies](../../img/Events/hoodies.png){: .center}
+![Hoodies](../img/Events/hoodies.png){: .center}
 
 ### Details
 
@@ -33,7 +33,7 @@ Anything! It just needs to be useful, fun, and/or inspiring. It can be a full ga
 
 **How do I submit it?**
 
-For games, share your entry publicly to play. For content, share it to community content. Tag your entry with welcomejam to be entered.
+For games, share your entry publicly to play. For content, share it to community content. Tag your entry with `welcomejam` to be entered.
 
 **How long is the jam?**
 
