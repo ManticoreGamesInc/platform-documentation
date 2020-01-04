@@ -2,10 +2,7 @@
 # If you add a page, you must also add it to the index here
 nav:
   - index.md
-  - News:
-    - News: news/news.md
-    - Patch Notes: news/patch_notes/patch_notes.md
-    - Showcase: news/showcase/showcase.md
+  - Patch Notes: patch_notes/patch_notes.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
@@ -15,8 +12,8 @@ nav:
   - Community & Events:
       - Discord: discord.md
       - ManticoreTV: manticoretv.md
-      - Game Jams: news/events/game_jam.md
-      - Daily Challenges: news/events/daily_challenge.md
+      - Game Jams: events/game_jam.md
+      - Daily Challenges: events/daily_challenge.md
   - CORE API:
       - API Overview: core_api.md
       - Game Components: api/components.md
@@ -131,6 +128,7 @@ plugins:
   - redirects:
         redirect_maps:
             getting_started.md: getting_started/editor_intro.md
+            news/showcase/just_getting_started.md: showcase/just_getting_started.md
 
 # Docs dir
 docs_dir: src
