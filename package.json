@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "start": "mkdocs serve",
-        "test": "mkdocs build",
+        "build": "mkdocs build",
         "lint:md": "remark .",
         "crush": "",
         "tags": "node parse-tags.js",
@@ -15,19 +15,19 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gitlab.com/manticore-games/platform-documentation.git"
+        "url": "https://github.com/ManticoreGamesInc/platform-documentation.git"
     },
     "author": "Manticore Games, Inc",
     "license": "MIT",
     "bugs": {
-        "url": "https://gitlab.com/manticore-games/platform-documentation/issues"
+        "url": "https://github.com/ManticoreGamesInc/platform-documentation/issues"
     },
     "husky": {
         "hooks": {
             "pre-commit": "npm run lint"
         }
     },
-    "homepage": "https://gitlab.com/manticore-games/platform-documentation#readme",
+    "homepage": "https://github.com/ManticoreGamesInc/platform-documentation/",
     "devDependencies": {
         "@attilagyongyosi/path-linter": "^2.0.0",
         "eslint": "^6.7.2",
