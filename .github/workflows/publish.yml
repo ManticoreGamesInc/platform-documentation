@@ -1,15 +1,14 @@
-name: mkdocs
+name: Build & Deploy (Production-Publish)
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'production-publish'
 
 jobs:
   build:
-    strategy:
-      max-parallel: 4
-      matrix:
-        os: [ubuntu-latest, windows-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -41,7 +40,8 @@ jobs:
       - if: steps.cache-node.outputs.cache-hit != 'true'
         run: npm install
 
-      - run: npm run lint
+      - name: Run Tests
+        run: npm run lint
 
       - name: Install Dependencies
         run: |
@@ -49,26 +49,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build (Dev)
-        if: github.ref != 'refs/heads/production-publish'
-        run: |
-          mkdocs build
+      - name: Build
+        run: mkdocs build --config-file mkdocs-prod.yml
 
-      - name: Build (Prod)
-        if: github.ref == 'refs/heads/production-publish'
-        run: |
-          mkdocs build --config-file mkdocs-prod.yml
-
-      - name: Azure Blob Storage Upload (Dev)
-        if: github.ref == 'refs/heads/production' && runner.os == 'Linux'
-        uses: bacongobbler/azure-blob-storage-upload@v1.0.0
-        with:
-          source_dir: site
-          container_name: dev
-          connection_string: ${{ secrets.ConnectionString }}
-
-      - name: Azure Blob Storage Upload (Prod)
-        if: github.ref == 'refs/heads/production-publish' && runner.os == 'Linux'
+      - name: Azure Blob Storage Upload
         uses: bacongobbler/azure-blob-storage-upload@v1.0.0
         with:
           source_dir: site

@@ -1,0 +1,67 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!*production*'
+      - '!*-publish'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checkout submodules
+        uses: actions/checkout@v2
+        with:
+          repository: ManticoreGamesInc/mkdocs-material
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: mkdocs-material
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - uses: actions/cache@v1
+        id: cache-node
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: steps.cache-node.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Run Tests
+        run: npm run lint
+
+      - name: Install Dependencies
+        run: |
+          git submodule update --init --recursive --depth=1
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build
+        run: mkdocs build
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
