@@ -38,9 +38,9 @@
 - Added Rocket Launcher, Grenade Launcher and Grenades.
 - Thruster VFX now support using color alphas and has expanded gradient controls.
 - You can now find 45-Degree Curved Pipe 3D objects in the BasicShapes folder in CORE!
-- Added Resource Pickup. Can be used to give the player resources and/or heal/damage them. TODO: what is Resource Pickup exactly?
-- Added a Cast Bar.
-- Added a Resource Display.
+- Added a Resource Pickup component. Can be used to give the player resources and/or heal/damage them.
+- Added a Cast Bar component.
+- Added a Resource Display component.
 
 ### Changes
 
