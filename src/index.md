@@ -88,8 +88,8 @@ using the open source [MkDocs](https://www.mkdocs.org/) platform, and host the s
 
 !!! info "Contributions Welcome!"
     Just click on the :far fa-edit: icon on the top right of any page.
-    You'll need a GitLab account, with contribution permissions. If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitLab account to get set up.
-    More specific contribution details can be found on our [repository](https://gitlab.com/manticore-games/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
+    You'll need a GitHub account, with contribution permissions. If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitHub account to get set up.
+    More specific contribution details can be found on our [repository](https://github.com/ManticoreGamesInc/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
 
 ## Organization of the Documentation
 
