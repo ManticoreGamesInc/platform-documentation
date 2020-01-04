@@ -16,7 +16,7 @@
 - Added two new functions `GetLookWorldRotation()` and `SetLookWorldRotation()` to the `Player` object:
     - `GetLookWorldRotation()`: Returns the current rotation of the player's head (rotation at which the player is currently looking). Server/Client
     - `SetLookWorldRotation(Rotation newLookRotation)`: Sets the rotation at which the player should look. Can be used only on a client.
-- Added `Player:GetResources()` function which returns a table containing all of the player's resource amounts. `Player:GetResourceNames()` and `Player:GetResourceNamesStartingWith()` are now deprecated.
+- Added a `Player:GetResources()` function which returns a table containing all of the player's resource amounts. `Player:GetResourceNames()` and `Player:GetResourceNamesStartingWith()` are now deprecated.
 
 #### Editor
 
