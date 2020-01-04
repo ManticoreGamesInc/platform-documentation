@@ -4,7 +4,7 @@ Thanks for your interested in helping out by contributing! Your assistance is mu
 
 ## Getting Started
 
-In case you only want to do some small wording changes, just use the GitLab WebUI and skip ahead to [Easy Mode](#easy-mode).
+In case you only want to do some small wording changes, just use the GitHub WebUI and skip ahead to [Easy Mode](#easy-mode).
 
 ### Set up your Environment ([Hard Mode](#hard-mode))
 
@@ -32,11 +32,11 @@ In case you only want to do some small wording changes, just use the GitLab WebU
 5. Clone the forked repository
     - Open the command prompt.
     - Navigate to the location you want to clone this project to (e.g. `cd folder/to/clone-into/`)
-    - Clone this project from GitLab (e.g. `git clone https://gitlab.com/YOURNAME/platform-documentation`)
+    - Clone this project from GitHub (e.g. `git clone https://github.com/YOURNAME/platform-documentation`)
     - When prompted by popup, sign in with your GitLab account associated with your Manticore email.
       If you mistype your information, you can edit your information: - Navigate to Control Panel > User Accounts > Credential Manager > Windows Credentials. - Find Git credentials in the list (e.g. git:<https://).> - Delete your Git credentials and restart the process to be prompted again.
     - Update the Git submodule via `git submodule update --init --recursive --depth=1`
-    - Add the Manticore repository as a remote (`git remote add upstream https://gitlab.com/manticore-games/platform-documentation`).
+    - Add the Manticore repository as a remote (`git remote add upstream https://github.com/ManticoreGamesInc/platform-documentation`).
 
 6. Install mkdocs
     - Navigate to the `platform-documentation` location (`cd platform-documentation`).
