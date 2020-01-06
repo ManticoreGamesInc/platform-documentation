@@ -156,6 +156,12 @@ In addition to the standard [Markdown](https://github.com/adam-p/markdown-here/w
 5. Please make sure your images are all the same size or at least stick to a common ratio.
 6. If you want to use GIFs, make sure they are not huge or convert them into videos.
 
+### Lightgallery
+
+If you want to use smaller pictures that get shown in full size on click, use the following markup:
+
+`![!Description](/img/pic1.png)`
+
 ### Converting GIF to Video
 
 Get ffmpeg from [here](https://ffmpeg.zeranoe.com/builds/) and put it onto your \\$PATH or the same folder as the GIF.
