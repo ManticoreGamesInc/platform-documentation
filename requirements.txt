@@ -11,3 +11,5 @@ mkdocs-redirects
 mkdocs-git-revision-date-localized-plugin
 # fontawesome-markdown; need to get latest from github
 https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+# lightgallery
+https://github.com/g-provost/lightgallery-markdown/archive/master.zip
