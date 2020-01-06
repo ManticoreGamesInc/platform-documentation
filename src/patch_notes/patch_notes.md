@@ -89,7 +89,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - Changed pause menu options button to say `Preferences`.
 - Improved wording of some Lua error messages.
 - The <kbd>P</kbd> key no longer automatically binds to the pause menu.
-- Networked events will now throw and error if unsupported types are passed as arguments to `Broadcast:()`.
+- Networked events will now throw an error if unsupported types are passed as arguments to `Broadcast:()`.
 
 #### Game Components
 
