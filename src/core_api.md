@@ -260,14 +260,14 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `RotateTo(Rotation/Quaternion, Number, [bool])` | None | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
 | `ScaleTo(Vector3, Number, [bool])` | None | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
 | `MoveContinuous(Vector3, [bool])` | None | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
-| `RotateContinuous(Rotation/Quaternion, [Number, [bool]])` | None | Smoothly rotates the object over time by the given angular velocity. Because the limit is 179&deg;, the second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if this should be done in local space (true) or world space (false (default)). | Dynamic |
+| `RotateContinuous(Rotation/Quaternion/Vector3, [Number, [bool]])` | None | Smoothly rotates the object over time by the given angular velocity. Because the limit is 179&deg;, the second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if this should be done in local space (true) or world space (false (default)). | Dynamic |
 | `ScaleContinuous(Vector3, [bool])` | None | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
 | `StopMove()` | None | Interrupts further movement from MoveTo(), MoveContinuous(), or Follow(). | Dynamic |
 | `StopRotate()` | None | Interrupts further rotation from RotateTo() or RotateContinuous() and LookAt() or LookAtContinuous(). | Dynamic |
 | `StopScale()` | None | Interrupts further movement from ScaleTo() or ScaleContinuous(). | Dynamic |
 | `Follow(CoreObject, [Number, [Number]])` | None | Follows a dynamic object at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic |
 | `LookAt(Vector3 position)` | None | Instantly rotates the object to look at the given position. | Dynamic |
-| `LookAtContinuous(CoreObject, [bool], [Number])` | None | Smoothly rotates a CoreObject to look at another given CoreObject. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target. If speed is not supplied it tracks as fast as possible. | Dynamic |
+| `LookAtContinuous(Object, [bool], [Number])` | None | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target. If speed is not supplied it tracks as fast as possible. | Dynamic |
 | `LookAtLocalView([bool])` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | Client Context, Dynamic |
 | `Destroy()` | None | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | Dynamic |
 
@@ -433,42 +433,46 @@ Player is an Object representation of the state of a Player connected to the gam
 | `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Server Context, Read-Only |
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | Read-Only |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
-| `resourceChangedEvent` | Event&lt;Player&gt; | Fired when a resource changed. | Read-Only |
+| `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | Read-Only |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Read-Only |
 | `animationEvent` | Event&lt;Player&, string eventNamegt; | Fired during certain animations played on a player. | Client Context |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetWorldTransform()` | Transform | The absolute Transform of this object. | None |
-| `SetWorldTransform(Transform)` | None | The absolute Transform of this object. | None |
+| `SetWorldTransform(Transform)` | None | The absolute Transform of this object. | Server Context |
 | `GetWorldPosition()` | Vector3 | The absolute position. | None |
-| `SetWorldPosition(Vector3)` | None | The absolute position. | None |
+| `SetWorldPosition(Vector3)` | None | The absolute position. | Server Context |
 | `GetWorldRotation()` | Rotation | The absolute rotation. | None |
-| `SetWorldRotation(Rotation)` | None | The absolute rotation. | None |
-| `AddImpulse(Vector3)` | None | Adds an impulse force to the Player. | None |
+| `SetWorldRotation(Rotation)` | None | The absolute rotation. | Server Context |
+| `AddImpulse(Vector3)` | None | Adds an impulse force to the Player. | Server Context |
 | `GetVelocity()` | Vector3 | Gets the current velocity of the Player. | None |
-| `ResetVelocity()` | None | Resets the Player's velocity to zero. | None |
+| `SetVelocity(Vector3)` | None | Sets the Player's velocity to the given amount. | Server Context |
+| `ResetVelocity()` | None | Resets the Player's velocity to zero. | Server Context |
 | `GetAbilities()` | Array&lt;Ability&gt; | Array of all Abilities assigned to this Player. | None |
 | `GetEquipment()` | Array&lt;Equipment&gt; | Array of all Equipment assigned to this Player. | None |
-| `ApplyDamage(Damage)` | None | Damages a Player. If their hit points go below 0 they die. | None |
-| `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | None |
-| `DisableRagdoll()` | None | Disables all ragdolls that have been set on the Player. | None |
-| `SetVisibility(bool, [bool])` | None | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | None |
+| `ApplyDamage(Damage)` | None | Damages a Player. If their hit points go below 0 they die. | Server Context |
+| `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | Server Context |
+| `DisableRagdoll()` | None | Disables all ragdolls that have been set on the Player. | Server Context |
+| `SetVisibility(bool, [bool])` | None | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server Context |
 | `GetVisibility()` | bool | Returns whether or not the Player is hidden. | None |
-| `EnableRagdoll([string socketName, Number weight])` | None | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | None |
-| `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | None |
+| `EnableRagdoll([string socketName, Number weight])` | None | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Server Context |
+| `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | Server Context |
 | `GetViewWorldPosition()` | Vector3 | Get position of the Player's camera view. | Client Context |
 | `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | Client Context |
-| `ClearResources()` | None | Removes all resources from a player. | None |
+| `GetLookWorldRotation()` | Rotation | Get the rotation for the direction the Player is facing. | None |
+| `SetLookWorldRotation(Rotation)` | None | Set the rotation for the direction the Player is facing. | Client Context |
+| `ClearResources()` | None | Removes all resources from a player. | Server Context |
+| `GetResources()` | Table&lt;string, Integer&gt; | Returns a table containing the names and amounts of the player's resources. | None |
 | `GetResource(string name)` | Integer | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
 | `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server Context |
 | `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server Context |
 | `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server Context |
-| `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. | None |
-| `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. | None |
-| `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | None |
+| `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
+| `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
+| `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | Server Context |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
-| `SetMounted(bool)` | None | Forces a player in or out of mounted state. | None |
+| `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server Context |
 | `GetDefaultCamera()` | Camera | Returns the default Camera object the Player is currently using. This can only be called on the client. | None |
 | `SetDefaultCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the default Camera object for the Player. This can only be called on the client. | None |
 | `GetOverrideCamera()` | Camera | Returns the override Camera object the Player is currently using. This can only be called on the client. | None |
@@ -1346,7 +1350,7 @@ World is a collection of functions for finding objects in the world.
 | `World.FindObjectByName(string typeName)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None |
 | `World.FindObjectById(string muid)` | CoreObject | Returns the object with a given MUID. Returns nil if no object has this ID. | None |
 | `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. For example: `World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)})`. | None |
-| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array&lt;Integer&gt;)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array&lt;Player&gt;, or boolean)`: Ignore any of the players listed. If true, ignore all players. <br /> Example: `Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers = myPlayer })`. | None |
+| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If true, ignore all players. <br /> Example: `Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers = myPlayer })`. | None |
 
 ### Built-In Lua Functions
 
