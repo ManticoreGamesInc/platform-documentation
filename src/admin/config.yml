@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: ManticoreGamesInc/platform-documentation
   branch: netlifycms
 
