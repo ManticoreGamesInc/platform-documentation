@@ -3,10 +3,10 @@
 ## Alpha Update 2: January 7th 2020
 
 ### Highlights
-- Added API functions based on requests from the community, so can do even more with CORE!
+- Expanded the API with community requests to enable creators to do even more with CORE!
 - More content to play with. Grenades and Curved Pipes! MacGyver anyone?
 - Performance improvements to physics, networking and components.
-- Fix a ton of bugs!
+- Fixed a ton of bugs!
 
 ### New Features
 
@@ -33,7 +33,7 @@
     - `Custom`: The projectile is fired from the muzzle position in the direction specified by the `Muzzle Rotation` property.
 - Support for creating asset reference parameters by drag-and-dropping assets onto the `Properties` tab.
 
-#### Game Components
+#### CORE Content
 
 - Added Rocket Launcher, Grenade Launcher and Grenades.
 - Thruster VFX now support using color alphas and has expanded gradient controls.
@@ -81,18 +81,16 @@ All of these functions should now behave consistently in all cases. Client behav
 - Improved the look + feel of the terrain creator panel.
 - Toggling World Space or Gizmo Visibility will show notifications.
 - Enabled additional logging from Lua scripts.
-- Gamepad support for `Look at Cursor` is now camera relative.
-- In-game options screen title changed to `Preferences`.
 - Improved UI for displaying breakpoints and current line in the Script Editor. Clicking on a line number now selects that line's text. Breakpoints may be toggled on and off by clicking the black gutter to the left of the line numbers.
 - Improved drag select behavior in script editor when dragging outside the window.
-- Changed pause menu options button to say `Preferences`.
+- Changed in-game options screen title and pause menu button to say `Preferences`.
 - Improved wording of some Lua error messages.
 - The <kbd>P</kbd> key no longer automatically binds to the pause menu.
 - Networked events will now throw an error if unsupported types are passed as arguments to `Broadcast:()`.
 
-#### Game Components
+#### CORE Content
 
-- Updated all weapons to new tunings.
+- Updated all weapons to new default tunings.
 - Physics objects now run on client with server correction, creating much smoother behavior.
 - Reorganized structure in CORE Content so no components are hidden.
 - Moved Inventory (and UI) to community content and fixed major issues (look for Basic Inventory).
@@ -110,7 +108,8 @@ All of these functions should now behave consistently in all cases. Client behav
 
 #### Editor
 
-- Fixed bug with script editor marking empty scripts as modified when they weren't. Script editors should now open to the start of the script instead of the end.
+- Fixed bug with script editor marking empty scripts as modified when they weren't.
+- Script editors should now open to the start of the script instead of the end.
 - Fix publish template to remember private setting after taking a screenshot.
 - Publishing `Release` and `Description` text boxes will show vertical scrollbars when needed.
 - Fix publish review buttons sometimes drawing offscreen.
@@ -123,7 +122,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - Fix bug where hiding the player from themselves still cast a shadow.
 - Fixed bug where player appears inside their mounts in certain combinations of crouch, jump and mount.
 
-#### Game Components
+#### CORE Content
 
 - Track #21 "Subtle House Club" in "Electronic Music Score Set" did not play the correct track.
 - Fixed bug where built-in object references on `Weapon` and `Equipment` could break when put in a template.
