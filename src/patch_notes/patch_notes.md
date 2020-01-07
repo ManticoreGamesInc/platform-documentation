@@ -4,7 +4,7 @@
 
 ### Highlights
 - Added API functions based on requests from the community, so can do even more with CORE!
-- More content to play with. Like, who **didn't** want Grenades and Curved Pipes? MacGyver anyone?
+- More content to play with. Grenades and Curved Pipes! MacGyver anyone?
 - Performance improvements to physics, networking and components.
 - Fix a ton of bugs!
 
