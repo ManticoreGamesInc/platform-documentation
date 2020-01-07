@@ -6,7 +6,7 @@
 ![VIMEOEVENT](assets/placeholder_720p.png "19456"){: .center}
 -->
 
-<iframe src="https://vimeo.com/event/19456/embed" width="1280" height="720" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+![VIMEOEVENT](/assets/placeholder_720p.png "19456"){: .center}
 
 ## Watch and Play with ManticoreTV
 
