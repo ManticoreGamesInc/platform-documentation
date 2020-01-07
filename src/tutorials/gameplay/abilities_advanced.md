@@ -386,7 +386,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     end
     ```
 
-7. The above is followed directly by another function--`EnableScoping(player)`. This turns on the aiming!
+7. The above is followed directly by another function, `EnableScoping(player)`. This turns on the aiming!
 
     Again, beneath the above code, type:
 
