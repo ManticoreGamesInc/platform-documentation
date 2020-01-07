@@ -106,12 +106,12 @@ All socket names: root, pelvis, lower_spine, upper_spine, neck, head, right_hip,
 
 #### Unarmed Strings
 
-`unarmed_thumbs_up`- thumbs up.
+`unarmed_thumb_up`- thumbs up.
 
 - currently does NOT support a variable cast phase time.
 - currently does NOT support a time stretched execute phase time
 
-`unarmed_thumbs_down`- thumbs down.
+`unarmed_thumb_down`- thumbs down.
 
 - currently does NOT support a variable cast phase time.
 - currently does NOT support a time stretched execute phase time
