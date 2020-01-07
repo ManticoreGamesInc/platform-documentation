@@ -79,7 +79,6 @@ All of these functions should now behave consistently in all cases. Client behav
 - Framerate is limited to 30FPS while in the main menus to reduce power usage and heat on laptops.
 - Saving a file with a long path will report "File path too long" instead of a generic error message.
 - Improved the look + feel of the terrain creator panel.
-- Move handling of requesting and saving player profile data from the game runtime to player state so it can handle late arrival of a replicated IDs in a network environment and ignore unset ones so the bots won't spam in preview.
 - Toggling World Space or Gizmo Visibility will show notifications.
 - Enabled additional logging from Lua scripts.
 - Gamepad support for `Look at Cursor` is now camera relative.
