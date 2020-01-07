@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: ManticoreGamesInc/platform-documentation
+  branch: netlifycms
+
+public_folder: site
+media_folder: src/img/
+public_folder: /img/
+publish_mode: editorial_workflow
+site_url: https://dev.manticoreplatform.com/docs/
+logo_url: https://i.imgur.com/iqNiYlm.png
+
+collections:
+  - name: news
+    label: news
+    folder: news
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Publish Date", name: "date", widget: "string"}
