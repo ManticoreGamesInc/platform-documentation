@@ -13,7 +13,7 @@ All Ability animations have a long "tail" that gracefully transitions the charac
 
 Sockets are different points on a Player's character mesh. They can be used for attacking objects, controlling a ragdoll effect and more.
 
-All socket names: root, pelvis, lower_spine, upper_spine, neck, head, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_clavicle, right_shoulder, right_elbow, right_wrist, right_prop, left_clavicle, left_shoulder, left_elbow, left_wrist left_arm_prop, left_prop, camera, nameplate.
+All socket names: root, pelvis, lower_spine, upper_spine, neck, head, right_hip, right_knee, right_ankle, left_hip, left_knee, left_ankle, right_clavicle, right_shoulder, right_elbow, right_wrist, right_prop, left_clavicle, left_shoulder, left_elbow, left_wrist, left_arm_prop, left_prop, camera, nameplate.
 
 #### 1hand_melee Strings
 
