@@ -3,10 +3,10 @@
 ## Alpha Update 2: January 7th 2020
 
 ### Highlights
-- Add community requested API to enable creators to do even more with CORE!
-- Fix a ton of bugs so you can game on uninterrupted!
-- Adds new content to play around with. Like, who **didn't** want Grenades and Curved Pipes? MacGyver anyone?
+- Added API functions based on requests from the community, so can do even more with CORE!
+- More content to play with. Like, who **didn't** want Grenades and Curved Pipes? MacGyver anyone?
 - Performance improvements to physics, networking and components.
+- Fix a ton of bugs!
 
 ### New Features
 
@@ -22,7 +22,7 @@
 
 - Added ability aim modes to player settings:
     - `ViewRelative`: Ability aim is calculated from the camera origin along the camera forward direction.
-    - `LookRelative`: Ability aim is calculated from the player camera socket along the player look direction
+    - `LookRelative`: Ability aim is calculated from the player camera socket along the player look direction.
 - Added right click context menu to duplicate custom material and template asset in Project Content.
 - Added hierarchy filter `/hasCustomParamWithWords=` which can show objects with custom parameters. It optionally takes words to match parameter names (ANDed together).
 - Added `Max Allowable Slope` to Object Generator for restricting spawnable surface by angle between world up vector and surface normal.
@@ -76,7 +76,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - All Effects should now properly respect the auto-play flag when effect elements are in a mixed state.
 - Improved Decal performance.
 - Interactable triggers that are in a static or default context now fire an interacted event on both client and server. An interactable trigger in a client context will fire interacted event on the client only. Interactable triggers will not work under a server context and will throw a warning.
-- Framerate is limited to 30FPS when running in the frontend to reduce power usage and heat on laptops.
+- Framerate is limited to 30FPS while in the main menus to reduce power usage and heat on laptops.
 - Saving a file with a long path will report "File path too long" instead of a generic error message.
 - Improved the look + feel of the terrain creator panel.
 - Move handling of requesting and saving player profile data from the game runtime to player state so it can handle late arrival of a replicated IDs in a network environment and ignore unset ones so the bots won't spam in preview.
