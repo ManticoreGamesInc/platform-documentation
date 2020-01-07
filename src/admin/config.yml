@@ -3,7 +3,6 @@ backend:
   repo: ManticoreGamesInc/platform-documentation
   branch: netlifycms
 
-public_folder: site
 media_folder: src/img/
 public_folder: /img/
 publish_mode: editorial_workflow
