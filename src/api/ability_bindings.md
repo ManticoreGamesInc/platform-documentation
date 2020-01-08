@@ -57,7 +57,7 @@ This is a list of action bindings that can be used to activate abilities.
 | <kbd>N</kbd> | ability_extra_44 |
 | <kbd>M</kbd> | ability_extra_45 |
 | <kbd>Up Arrow</kbd> | ability_extra_46 |
-| <kbd>Down Arrow |ability_extra_47 |
+| <kbd>Down Arrow</kbd> |ability_extra_47 |
 | <kbd>Left Arrow</kbd> | ability_extra_48 |
 | <kbd>Right Arrow</kbd> | ability_extra_49 |
 | <kbd>F1</kbd> | ability_extra_50 |
