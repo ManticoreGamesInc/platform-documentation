@@ -127,8 +127,8 @@ plugins:
   - search
   - redirects:
         redirect_maps:
-            getting_started.md: getting_started/editor_intro.md
-            news/showcase/just_getting_started.md: showcase/just_getting_started.md
+            getting_started.md: docs/getting_started/editor_intro.md
+            news/showcase/just_getting_started.md: docs/showcase/just_getting_started.md
 
 # Docs dir
 docs_dir: src
