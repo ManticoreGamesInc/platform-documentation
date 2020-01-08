@@ -8,6 +8,14 @@
 - Performance improvements to physics, networking and components.
 - Fixed a ton of bugs!
 
+### ManticoreTV Patch Review
+
+Manticore engineer Gabriel sat down with the community to review all the changes in this patch live on stream, you can watch the VoD of it right here!
+
+![VIMEO](../assets/placeholder_720p.png "379502469"){: .center}
+
+[ManticoreTV](../manticoretv.md) is streaming almost every day, don't miss it!
+
 ### New Features
 
 #### API
