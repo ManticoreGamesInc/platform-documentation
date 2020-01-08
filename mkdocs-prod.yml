@@ -127,8 +127,8 @@ plugins:
   - search
   - redirects:
         redirect_maps:
-            docs/getting_started.md: docs/getting_started/editor_intro.md
-            docs/news/showcase/just_getting_started.md: docs/showcase/just_getting_started.md
+            getting_started.md: https://www.coregames.com/docs/getting_started/editor_intro/
+            news/showcase/just_getting_started.md: https://www.coregames.com/docs/showcase/just_getting_started/
 
 # Docs dir
 docs_dir: src
