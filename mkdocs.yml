@@ -1,5 +1,5 @@
 
-# If you add a page, you must also add it to the index here
+# If you add or remove a page, you must also add or remove in mkdocs-prod.yml.
 nav:
   - index.md
   - Patch Notes: patch_notes/patch_notes.md
@@ -13,7 +13,7 @@ nav:
       - Discord: discord.md
       - ManticoreTV: manticoretv.md
       - Game Jams: events/game_jam.md
-      - Daily Challenges: events/daily_challenge.md
+      #- Daily Challenges: events/daily_challenge.md
   - CORE API:
       - API Overview: core_api.md
       - Game Components: api/components.md
