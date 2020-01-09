@@ -39,7 +39,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 ### Creating the Script
 
-1. Open up the editor and click the **+** (Create Script) button in the `Project Content` tab.
+1. Open up the editor and click the "Create Script" button in the toolbar at the top of the editor.
     * Name it `TutorialScript` for now.
     * You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>), when it is selected.
 
@@ -132,7 +132,7 @@ Now we are going to create a small game that involves a light switch that turns 
 
 ### Creating a new script
 
-1. Create a new script by clicking the "**+**" button in the **Project Content** tab to the left of the search bar.
+1. Create a new script by clicking the "Create Script" button in the toolbar at the top of the editor.
 
     !["LightBulb1"](../../img/LightBulb/image11.png "LightBulb"){: .center}
 
