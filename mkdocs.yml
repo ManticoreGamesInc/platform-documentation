@@ -24,7 +24,7 @@ nav:
       - Editor Extensions: extensions.md
       - Coming from other Engines: getting_started/other_engines.md
   - Tutorials:
-      - Overview: generated/sitemap.md
+      - Overview: tutorials/overview.md
       - Gameplay:
           - Abilities: tutorials/gameplay/abilities.md
           - Weapons: tutorials/gameplay/weapons.md
