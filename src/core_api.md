@@ -18,6 +18,10 @@ Abilities are CoreObjects that can be added to Players and guide the Player's an
 
 Abilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (e.g. Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.
 
+Only one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The canBePrevented and preventsOtherAbilities properties can be used to customize interruption rules for competing abilities.
+
+If an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.
+
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `readyEvent` | Event&lt;Ability&gt; | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only |
@@ -30,7 +34,7 @@ Abilities can be activated by association with an Action Binding. Their internal
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Activate()` | None | Activates an Ability as if the button had been pressed. | Client Context |
+| `Activate()` | None | Activates an Ability as if the button had been pressed. | Client-Only |
 | `Interrupt()` | None | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None |
 | `GetCurrentPhase()` | AbilityPhase | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
 | `GetPhaseTimeRemaining()` | Number | Seconds left in the current phase. | None |
@@ -158,7 +162,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `fieldOfView` | Number | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write, Dynamic |
 | `viewWidth` | Number | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write, Dynamic |
 | `followPlayer` | Player | Which player's view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach. | Read-Write, Dynamic |
-| `currentDistance` | Number | The distance controlled by the Player with scroll wheel (by default). | Client Context, Read-Write, Dynamic |
+| `currentDistance` | Number | The distance controlled by the Player with scroll wheel (by default). | Client-Only, Read-Write, Dynamic |
 
 ### Color
 
@@ -251,9 +255,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | bool | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
-| `SetNetworkedCustomProperty(string propertyName, value)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server Context |
+| `SetNetworkedCustomProperty(string propertyName, value)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server-Only |
 | `AttachToPlayer(Player, string socketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Dynamic |
-| `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client Context, Dynamic |
+| `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only, Dynamic |
 | `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. | Dynamic |
 | `GetAttachedToSocketName()` | string | Returns the name of the socket this object is attached to. | None |
 | `MoveTo(Vector3, Number, [bool])` | None | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
@@ -265,10 +269,10 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `StopMove()` | None | Interrupts further movement from MoveTo(), MoveContinuous(), or Follow(). | Dynamic |
 | `StopRotate()` | None | Interrupts further rotation from RotateTo() or RotateContinuous() and LookAt() or LookAtContinuous(). | Dynamic |
 | `StopScale()` | None | Interrupts further movement from ScaleTo() or ScaleContinuous(). | Dynamic |
-| `Follow(CoreObject, [Number, [Number]])` | None | Follows a dynamic object at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic |
+| `Follow(Object, [Number, [Number]])` | None | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic |
 | `LookAt(Vector3 position)` | None | Instantly rotates the object to look at the given position. | Dynamic |
 | `LookAtContinuous(Object, [bool], [Number])` | None | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target. If speed is not supplied it tracks as fast as possible. | Dynamic |
-| `LookAtLocalView([bool])` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | Client Context, Dynamic |
+| `LookAtLocalView([bool])` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | Client-Only, Dynamic |
 | `Destroy()` | None | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | Dynamic |
 
 | Property | Return Type | Description | Tags |
@@ -419,8 +423,8 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `serverUserData` | table | Table in which users can store any data they want on the server. | Server Context, Read-Write |
-| `clientUserData` | table | Table in which users can store any data they want on the client. | Client Context, Read-Write |
+| `serverUserData` | table | Table in which users can store any data they want on the server. | Server-Only, Read-Write |
+| `clientUserData` | table | Table in which users can store any data they want on the client. | Client-Only, Read-Write |
 
 ### Player
 
@@ -428,58 +432,58 @@ Player is an Object representation of the state of a Player connected to the gam
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server Context, Read-Only |
-| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server Context, Read-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Server Context, Read-Only |
+| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server-Only, Read-Only |
+| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server-Only, Read-Only |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Server-Only, Read-Only |
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | Read-Only |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | Read-Only |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Read-Only |
-| `animationEvent` | Event&lt;Player&, string eventNamegt; | Fired during certain animations played on a player. | Client Context |
+| `animationEvent` | Event&lt;Player&, string eventNamegt; | Fired during certain animations played on a player. | Client-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetWorldTransform()` | Transform | The absolute Transform of this object. | None |
-| `SetWorldTransform(Transform)` | None | The absolute Transform of this object. | Server Context |
+| `SetWorldTransform(Transform)` | None | The absolute Transform of this object. | Server-Only |
 | `GetWorldPosition()` | Vector3 | The absolute position. | None |
-| `SetWorldPosition(Vector3)` | None | The absolute position. | Server Context |
+| `SetWorldPosition(Vector3)` | None | The absolute position. | Server-Only |
 | `GetWorldRotation()` | Rotation | The absolute rotation. | None |
-| `SetWorldRotation(Rotation)` | None | The absolute rotation. | Server Context |
-| `AddImpulse(Vector3)` | None | Adds an impulse force to the Player. | Server Context |
+| `SetWorldRotation(Rotation)` | None | The absolute rotation. | Server-Only |
+| `AddImpulse(Vector3)` | None | Adds an impulse force to the Player. | Server-Only |
 | `GetVelocity()` | Vector3 | Gets the current velocity of the Player. | None |
-| `SetVelocity(Vector3)` | None | Sets the Player's velocity to the given amount. | Server Context |
-| `ResetVelocity()` | None | Resets the Player's velocity to zero. | Server Context |
+| `SetVelocity(Vector3)` | None | Sets the Player's velocity to the given amount. | Server-Only |
+| `ResetVelocity()` | None | Resets the Player's velocity to zero. | Server-Only |
 | `GetAbilities()` | Array&lt;Ability&gt; | Array of all Abilities assigned to this Player. | None |
 | `GetEquipment()` | Array&lt;Equipment&gt; | Array of all Equipment assigned to this Player. | None |
-| `ApplyDamage(Damage)` | None | Damages a Player. If their hit points go below 0 they die. | Server Context |
-| `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | Server Context |
-| `DisableRagdoll()` | None | Disables all ragdolls that have been set on the Player. | Server Context |
-| `SetVisibility(bool, [bool])` | None | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server Context |
+| `ApplyDamage(Damage)` | None | Damages a Player. If their hit points go below 0 they die. | Server-Only |
+| `Die([Damage])` | None | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | Server-Only |
+| `DisableRagdoll()` | None | Disables all ragdolls that have been set on the Player. | Server-Only |
+| `SetVisibility(bool, [bool])` | None | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server-Only |
 | `GetVisibility()` | bool | Returns whether or not the Player is hidden. | None |
-| `EnableRagdoll([string socketName, Number weight])` | None | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Server Context |
-| `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | Server Context |
-| `GetViewWorldPosition()` | Vector3 | Get position of the Player's camera view. | Client Context |
-| `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | Client Context |
+| `EnableRagdoll([string socketName, Number weight])` | None | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Server-Only |
+| `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | Server-Only |
+| `GetViewWorldPosition()` | Vector3 | Get position of the Player's camera view. | Client-Only |
+| `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | Client-Only |
 | `GetLookWorldRotation()` | Rotation | Get the rotation for the direction the Player is facing. | None |
-| `SetLookWorldRotation(Rotation)` | None | Set the rotation for the direction the Player is facing. | Client Context |
-| `ClearResources()` | None | Removes all resources from a player. | Server Context |
+| `SetLookWorldRotation(Rotation)` | None | Set the rotation for the direction the Player is facing. | Client-Only |
+| `ClearResources()` | None | Removes all resources from a player. | Server-Only |
 | `GetResources()` | Table&lt;string, Integer&gt; | Returns a table containing the names and amounts of the player's resources. | None |
 | `GetResource(string name)` | Integer | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
-| `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server Context |
-| `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server Context |
-| `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server Context |
+| `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server-Only |
+| `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server-Only |
+| `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
 | `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
 | `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
-| `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | Server Context |
+| `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
-| `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server Context |
-| `GetDefaultCamera()` | Camera | Returns the default Camera object the Player is currently using. This can only be called on the client. | None |
-| `SetDefaultCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the default Camera object for the Player. This can only be called on the client. | None |
-| `GetOverrideCamera()` | Camera | Returns the override Camera object the Player is currently using. This can only be called on the client. | None |
-| `SetOverrideCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the override Camera object for the Player. This can only be called on the client. | None |
-| `ClearOverrideCamera([Number lerpTime = 2.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). This can only be called on the client. | None |
-| `ActivateFlying()` | None | Activates the Player flying mode. | None |
-| `ActivateWalking()` | None | Activate the Player walking mode. | None |
+| `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
+| `GetDefaultCamera()` | Camera | Returns the default Camera object the Player is currently using. | Client-Only |
+| `SetDefaultCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the default Camera object for the Player. | Client-Only |
+| `GetOverrideCamera()` | Camera | Returns the override Camera object the Player is currently using. | Client-Only |
+| `SetOverrideCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the override Camera object for the Player. | Client-Only |
+| `ClearOverrideCamera([Number lerpTime = 2.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
+| `ActivateFlying()` | None | Activates the Player flying mode. | Server-Only |
+| `ActivateWalking()` | None | Activate the Player walking mode. | Server-Only |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -524,11 +528,11 @@ Player is an Object representation of the state of a Player connected to the gam
 | `lookControlMode` | LookControlMode | Possible values are LookControlMode.NONE, LookControlMode.RELATIVE. | Read-Write |
 | `lookSensitivity` | Number | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write |
 | `spreadModifier` | Number | Modifier added to the Player's targeting spread. | Read-Write |
-| `currentSpread` | Number | Gets the Player's current targeting spread. | Client Context, Read-Only |
+| `currentSpread` | Number | Gets the Player's current targeting spread. | Client-Only, Read-Only |
 | `buoyancy` | Number | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
 | `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Read-Write |
 | `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Read-Write |
-| `isVisibleToSelf` | bool | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Client Context, Read-Write |
+| `isVisibleToSelf` | bool | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Client-Only, Read-Write |
 
 ### PlayerSettings
 
@@ -536,7 +540,7 @@ Settings that can be applied to a Player.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `ApplyToPlayer(Player)` | None | Apply settings from this settings object to Player. Should be called on server. | None |
+| `ApplyToPlayer(Player)` | None | Apply settings from this settings object to Player. | Server-Only |
 
 ### PlayerStart
 
@@ -544,7 +548,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | string | A tag controlling which players can spawn at this start point. | Server Context, Read-Write, Dynamic |
+| `team` | string | A tag controlling which players can spawn at this start point. | Server-Only, Read-Write, Dynamic |
 
 ### PointLight
 
@@ -1117,7 +1121,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetInteractionEvent` | Event&lt;WeaponInteraction&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server Context, Read-Only |
+| `targetInteractionEvent` | Event&lt;WeaponInteraction&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only |
 | `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | Read-Only |
 
 | Function | Return Type | Description | Tags |
@@ -1213,7 +1217,7 @@ A few base functions provided by the platform.
 
 ### CoreDebug
 
-The CoreDebug API contains functions that may be useful for debugging.
+The CoreDebug namespace contains functions that may be useful for debugging.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -1236,13 +1240,23 @@ The CoreDebug API contains functions that may be useful for debugging.
 
 ### CoreMath
 
-The CoreMath API contains a set of math functions.
+The CoreMath namespace contains a set of math functions.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `CoreMath.Clamp(Number value, [Number lower, Number upper])` | Number | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. | None |
 | `CoreMath.Lerp(Number from, Number to, Number t)` | Number | Linear interpolation between from and to. t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None |
 | `CoreMath.Round(Number value, [Number decimals])` | Number | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. | None |
+
+### CoreString
+
+The CoreString namespace contains a set of string utility functions.
+
+| Class Function | Return Type | Description | Tags |
+| -------------- | ----------- | ----------- | ---- |
+| `CoreString.Join(string delimiter, [...])` | string | Concatenates the given values together, separated by `delimiter`.  If a given value is not a string, it is converted to one using `tostring()`. | None |
+| `CoreString.Split(string s, [string delimiter], [table parameters])` | ... | Splits the string `s` into substrings separated by `delimiter`.<br/>Optional parameters in the `parameters` table include:<br/>`removeEmptyResults (bool)`: If `true`, empty strings will be removed from the results. Defaults to `false`.<br/>`maxResults (integer)`: Limits the number of strings that will be returned. The last result will be any remaining unsplit portion of `s`.<br/>`delimiters (string or Array<string>)`:Allows splitting on multiple delimiters. If both this and the `delimiter` parameter are specified, the combined list is used. If neither is specified, default is to split on any whitespace characters.<br/>Note that this function does not return a table, it returns multiple strings. For example: `local myHello, myCore = CoreString.Split("Hello CORE!")` If a table is desired, wrap the call to `Split()` in curly braces, eg: `local myTable = {CoreString.Split("Hello CORE!")}` | None |
+| `CoreString.Trim(string s, [...])` | string | Trims whitespace from the start and end of `s`, returning the result.  An optional list of strings may be provided to trim those strings from `s` instead of the default whitespace. For example, `CoreString.Trim("(==((Hello!))==)", "(==(", ")==)")` returns "(Hello!)". | None |
 
 ### Events
 
@@ -1251,11 +1265,11 @@ User defined events can be specified using the Events namespace. The Events name
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Events.Connect(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
-| `Events.ConnectForPlayer(string eventName, function eventListener, [...]) (Server Only)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | Server Context |
+| `Events.ConnectForPlayer(string eventName, function eventListener, [...]) (Server Only)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | Server-Only |
 | `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None |
-| `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server Context |
-| `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server Context |
-| `Events.BroadcastToServer(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client Context |
+| `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
+| `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
+| `Events.BroadcastToServer(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client-Only |
 
 ??? "Broadcast Event Result Codes"
     - BroadcastEventResultCode.SUCCESS
@@ -1284,29 +1298,29 @@ Game is a collection of functions and events related to players in the game, rou
 | ----------- | ----------- | ----------- | ---- |
 | `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | Read-Only |
 | `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | Read-Only |
-| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | Fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client Context, Read-Only |
+| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | Fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client-Only, Read-Only |
 | `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | Read-Only |
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | Read-Only |
 | `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | Read-Only |
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Game.GetLocalPlayer()` | Player | Returns the local player. | Client Context |
+| `Game.GetLocalPlayer()` | Player | Returns the local player. | Client-Only |
 | `Game.GetPlayers([table parameters])` | Array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(Integer or table of Integer), includeTeams(Integer or table of Integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
 | `Game.FindNearestPlayer(Vector3 position, [table parameters])` | Player | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. | Server Context |
-| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. | Server Context |
+| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. | Server-Only |
+| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. | Server-Only |
 | `Game.GetTeamScore(Integer team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None |
-| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. | Server Context |
-| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. | Server Context |
-| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. | Server Context |
-| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. | Server Context |
+| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. | Server-Only |
+| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. | Server-Only |
+| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. | Server-Only |
+| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. | Server-Only |
 
 ### Teams
 
-The Teams API contains a set of class functions for dealing with teams and team settings.
+The Teams namespace contains a set of class functions for dealing with teams and team settings.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -1315,28 +1329,28 @@ The Teams API contains a set of class functions for dealing with teams and team 
 
 ### UI
 
-The UI API contains a set of class functions allowing you to get information about a Player's display and push information to their HUD. Most functions require the script to be inside a ClientContext and execute for the local Player.
+The UI namespace contains a set of class functions allowing you to get information about a Player's display and push information to their HUD. Most functions require the script to be inside a ClientContext and execute for the local Player.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `UI.ShowFlyUpText(string message, Vector3 worldPosition, [table parameters])` | None | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the Text. Default is white; isBig (boolean) - When true, larger text is used. | Client Context |
-| `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client Context |
-| `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client Context |
-| `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client Context |
-| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client Context, Client Context |
-| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client Context, Client Context |
-| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client Context, Client Context |
-| `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client Context |
-| `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client Context |
-| `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client Context |
-| `UI.IsCursorLockedToViewport()` | bool | Returns whether to lock cursor in viewport. | Client Context |
-| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Sets whether to lock cursor in viewport. | Client Context |
-| `UI.CanCursorInteractWithUI()` | bool | Returns whether the cursor can interact with UI elements like buttons. | Client Context |
-| `UI.SetCanCursorInteractWithUI(bool)` | None | Sets whether the cursor can interact with UI elements like buttons. | Client Context |
-| `UI.IsReticleVisible()` | bool | Check if reticle is visible. | Client Context |
-| `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. | Client Context |
-| `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. | Client Context |
-| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client Context |
+| `UI.ShowFlyUpText(string message, Vector3 worldPosition, [table parameters])` | None | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the Text. Default is white; isBig (boolean) - When true, larger text is used. | Client-Only |
+| `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
+| `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
+| `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
+| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only, Client-Only |
+| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only, Client-Only |
+| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only, Client-Only |
+| `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
+| `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client-Only |
+| `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client-Only |
+| `UI.IsCursorLockedToViewport()` | bool | Returns whether to lock cursor in viewport. | Client-Only |
+| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Sets whether to lock cursor in viewport. | Client-Only |
+| `UI.CanCursorInteractWithUI()` | bool | Returns whether the cursor can interact with UI elements like buttons. | Client-Only |
+| `UI.SetCanCursorInteractWithUI(bool)` | None | Sets whether the cursor can interact with UI elements like buttons. | Client-Only |
+| `UI.IsReticleVisible()` | bool | Check if reticle is visible. | Client-Only |
+| `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. | Client-Only |
+| `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
+| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
 
 ### World
 
