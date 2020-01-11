@@ -12,6 +12,7 @@
 ### New Features
 
 #### API
+
 - `CoreString.Split(string s, [string delimiter], [table optionalParams])`
     - Splits `s` into a list of substrings separated by `delimiter`. The delimiter is treated as an exact string that must be matched. `optionalParams` may contain the following optional parameters:
         - `removeEmptyResults` - defaults to `false`, filters out empty strings from the returned list.
@@ -35,7 +36,6 @@
 - Added file size warning on save.
 - Added a "More" tile at the end of any marketplace page that has more items to load.
 - You can now delete your local projects by pressing the "More Options" button on your project tile and selecting "Delete".
-
 - The Terrain Creator list now correctly displays the name of the terrain type, plus a % which indicates the file size / complexity.
 
 #### CORE Content
@@ -53,9 +53,6 @@
 
 ### Changes
 
-- The "Publish Game" success dialog will close on <kbd>ESC</kbd>.
-- You can no longer publish a game while in preview mode.
-
 #### API
 
 - `Player.ActivateFlying()` is now server-only.
@@ -65,6 +62,8 @@
 
 #### Editor
 
+- The "Publish Game" success dialog will close on <kbd>ESC</kbd>.
+- You can no longer publish a game while in preview mode.
 - You can no longer publish a game that has missing required assets.
 
 #### CORE Content
