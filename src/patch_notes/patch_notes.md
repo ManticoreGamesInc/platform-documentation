@@ -8,7 +8,6 @@
 - Added new CoreString namespace API with `Split()`, `Join()` and `Trim()` functions.
 - Three new game frameworks: Last Team Standing, Gun Game and Assault!
 
-
 ### New Features
 
 #### API
@@ -17,7 +16,8 @@
     - Splits `s` into a list of substrings separated by `delimiter`. The delimiter is treated as an exact string that must be matched. `optionalParams` may contain the following optional parameters:
         - `removeEmptyResults` - defaults to `false`, filters out empty strings from the returned list.
         - `maxResults` - limits the number of strings that can be returned.
-    - Example: `CoreString.Split("foo:bar:baz", ":" {maxResults = 2})` returns `foo, bar:baz, delimiters` - `delimiters` is a table of delimiter strings to split on, in addition to the delimiter parameter.
+        - `delimiters` is a table of delimiter strings to split on, in addition to the delimiter parameter.
+    - Example: `CoreString.Split("foo:bar:baz", ":" {maxResults = 2})` returns `foo, bar:baz`.
     - Note: `CoreString.Split()` can be called with a delimiter, with `optionalParams`, with both, or with neither. If `delimiter` is not provided and the delimiters optional parameter is also not provided, `s` is split on any whitespace characters. Multiple whitespace characters in a row will result in empty strings in the results, unless you specify `{ removeEmptyResults = true }`.
 - `CoreString.Join(string delimiter, [string s1, [string s2...]])`
     - Concatenates `s1`, `s2`, etc into a single string, separated by `delimiter`.
@@ -31,25 +31,20 @@
 - Added a "New Group" context menu item to create a group to the hierarchy UI.
 - Mousing over an item in the content browser now displays the item's name in a tooltip.
 - Added an icon to the editor's "Filter" buttons.
-- When cloning a game, the terrain files will now be copied over as well.
-- The "Create New" button now opens a dialog that asks what to create the new game from.
 - Added file size warning on save.
-- Added a "More" tile at the end of any marketplace page that has more items to load.
-- You can now delete your local projects by pressing the "More Options" button on your project tile and selecting "Delete".
-- The Terrain Creator list now correctly displays the name of the terrain type, plus a % which indicates the file size / complexity.
+- Added a "More" tile at the end of any Community Content page that has more items to load.
+- Added "Random Spawn Point" option to respawn settings.
+- Added two new respawn options:
+    - Farthest from other players - Respawns the player at a start point which is furthest away from other players.
+    - Farthest from enemy - Respawns the player at a start point which is furthest away from enemy players.
 
 #### CORE Content
 
 - Added "Last Team Standing" framework.
 - Added "Gun Game" framework.
 - Added "Revolver Weapon" to CORE Content.
-- Added "Random Spawn Point" option to respawn settings.
-- Added two new respawn options:
-    - Farthest from other players - Respawns the player at a start point which is furthest away from other players.
-    - Farthest from enemy - Respawns the player at a start point which is furthest away from enemy players.
 - Added "Assault" framework.
-- "Fire" volume now supports an initial velocity to allow it to be used for jet flames, flame throwers etc.
-
+- "Fire Volume VFX" now supports an initial velocity to allow it to be used for jet flames, flame throwers, etc.
 
 ### Changes
 
@@ -58,20 +53,22 @@
 - `Player.ActivateFlying()` is now server-only.
 - `Player.ActivateWalking()` is now server-only.
 - `PlayerSettings.Apply()` is now server-only.
-- Improved error messages for multiple unique-only objects.
+- Improved error messages for multiple unique objects, such as settings and sky objects.
 
 #### Editor
 
 - The "Publish Game" success dialog will close on <kbd>ESC</kbd>.
 - You can no longer publish a game while in preview mode.
 - You can no longer publish a game that has missing required assets.
+- The "Create New" button now opens a dialog that asks what to create the new game from.
+- You can now delete your local projects by pressing the "More Options" button on your project tile and selecting "Delete".
+- The Terrain Creator list now correctly displays the name of the terrain type, plus a % which indicates the file size / complexity.
 
 #### CORE Content
 
 - Improved the "Cape" and "Teddy Bear" back pack dynamics.
 - Renamed "Player Start" to "Spawn Point" in the empty scene.
 - "Sky" templates from CORE content will no longer have "networking" enabled by default when placed in a scene.
-
 
 ### Fixes
 
@@ -88,13 +85,12 @@
 - Fixed a problem where autosaves and regular saves could fight.
 - Fixes networked custom properties on "Equipment" objects.
 - Panel primitives will now have more correct collision when scaled.
-- The "Terrain Creator" list now correctly displays the name of the terrain type, plus a % which indicates the file size / complexity.
 - Dragging an asset into the hierarchy now allows navigation hotkeys to work afterwards.
 - Fixed player settings in the empty scene.
+- When cloning a game, the terrain files will now be copied over as well.
 
 #### CORE Content
 
-- Polish pass on `emote_cheer`.
 - 45 degree pipes should now have working collision!
 - Fixed incorrect pickup label on "Basic Grenade".
 - Kitchen props will now retain correct collision when scaled non-uniformly.
