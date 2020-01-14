@@ -120,7 +120,7 @@ Using a **group** to combine objects will select the entire group at once when c
 
 Use whichever method suits your needs more. Groups have two different modes that can be switched between for selection as well--this way you can use groups but still select the contents individually.
 
-(image)
+![Object Selection Mode](../../img/EditorManual/Art/ObjectContextDropDown.png "Use this drop-down menu to choose how objects in groups are selected."){: .center}
 
 As well as the drop down on the top menu, the hotkey <kbd>C</kbd> can be used to toggled between group select and object select.
 
