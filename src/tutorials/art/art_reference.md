@@ -26,7 +26,7 @@ To find all the 3D models already included in CORE, start by looking in the **CO
 
 This window can also be accessed via the dropdown "**View -> CORE Content**". tab
 
-![CORE Content](../../../../../img/EditorManual/Art/AssetManifest.png "CORE Content"){: .center}
+![CORE Content](../../img/EditorManual/Art/AssetManifest.png "CORE Content"){: .center}
 
 Currently, there are **5 different sections** that contain models to use right away:
 
