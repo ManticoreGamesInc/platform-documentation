@@ -31,7 +31,7 @@
 - Added a "New Group" context menu item to create a group to the hierarchy UI.
 - Mousing over an item in the content browser now displays the item's name in a tooltip.
 - Added an icon to the editor's "Filter" buttons.
-- Added file size warning on save.
+- Added a file size warning for Terrain on save if the terrain is above 50% of the max size.
 - Added a "More" tile at the end of any Community Content page that has more items to load.
 - Added "Random Spawn Point" option to respawn settings.
 - Added two new respawn options:
