@@ -14,7 +14,6 @@ There are of course several good editors out there for Lua development, but we s
 
 | Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
 | ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
-| [ZeroBrane Studio](https://studio.zerobrane.com/download?not-this-time) | Lua based lightweight editor                        | Supported         | Free                   |
 | [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
 | [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
 | [SublimeText](https://www.sublimetext.com/3)                            | Lightweight text editor with plugins                | Not Supported     | Free Evaluation / Paid |
@@ -43,7 +42,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 ### Autocomplete
 
-We provide autocompletion files with all CORE API for VS Code, Atom and soon ZeroBraneStudio:
+We provide autocompletion files with all CORE API for VS Code, Atom and every other editor that supports `.luacompleterc`:
 
 #### Visual Studio Code & Atom
 
@@ -56,16 +55,6 @@ We provide autocompletion files with all CORE API for VS Code, Atom and soon Zer
     Example: `"Lua.workspace.library": {"C:\\Users\\Manti\\Documents\\My Games\\Core\\Saved\\Maps": true}`
 
     Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
-
-#### ZeroBraneStudio
-
-!!! note "Coming soon!"
-<!--
-* :fa-download: Download: [manticoreapi.lua](./assets/api/manticoreapi.lua "API Autocomplete Files")
-* :fa-angle-double-right: Install:
-    * Add `manticoreapi.lua` file to `ZeroBraneStudio/api/lua/` folder.
-    * Go to **Edit -> Preferences -> Settings: System** and add `api = {"manticoreapi"}` to your settings.
-    * Save and restart ZeroBraneStudio. -->
 
 ### Installing a Linter
 
