@@ -16,9 +16,9 @@ The CORE™ editor comes with all sorts of built-in 3D models and props for usin
 
 By resizing and combining different shapes and props, anything can be made!
 
-You won't need to understand 3D software or modeling to create beautiful art in CORE. While some aspects are similar, it's up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **CORE Content** tab, or you could browse through what other creators have shared on **Community Content**.
+**You won't need to understand 3D software or modeling to create beautiful art in CORE.** While some aspects are similar, it's up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **CORE Content** tab, or you could browse through what other creators have shared on **Community Content**.
 
-![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "Carnival"){: .center}
+![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center}
 
 ### Pre-Made Props & Assets
 
@@ -28,18 +28,21 @@ This window can also be accessed via the dropdown "**View -> CORE Content**". ta
 
 ![CORE Content](../../img/EditorManual/Art/AssetManifest.png "CORE Content"){: .center}
 
-Currently, there are 4 different sections that contain models to use right away:
+Currently, there are **5 different sections** that contain models to use right away:
 
 - **3D Text**
     - All 3D letters and symbols found on an English keyboard.
 - **Basic Shapes**
     - Cubes, cylinders, spheres and more.
-- **Environment**
-    - Buildings, foliage, and all props related to setting a scene.
+- **Nature**
+    - Rocks, plant foliage, and all props related to setting the natural world.
 - **Props**
     - Whole objects like benches, shields, tables, and various weapon parts.
+- **Tilesets**
+    - Sets of parts that could be used for constructing houses, cities, and castles.
+    - This category also includes handy whitebox (also known as very basic versions of building parts) pieces for level design and planning a map.
 
-These larger categories also have subcategories, that can be opened by clicking the little gray arrow:
+These larger categories can be found by clicking the little drop down arrow on the left side of the 3D Objects button label. Each of these categories also have subcategories, that can be opened the same way:
 
 ![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "CORE Content Dropdowns"){: .center}
 
@@ -53,7 +56,7 @@ To use any of these models, simply click and drag one out from the CORE Content 
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/MoveRotateScale.png "Move, Rotate, Scale"){: .center}
 
-The red, blue, and green arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
+The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green**{: style="color: green"} arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/TransformManipulators.gif "Move, Rotate, Scale"){: .center}
 
@@ -115,7 +118,11 @@ Using a **group** to combine objects will select the entire group at once when c
 
 ![Group](../../img/EditorManual/Art/groupSelect.gif "Group"){: .center}
 
-Use whichever method suits your needs more.
+Use whichever method suits your needs more. Groups have two different modes that can be switched between for selection as well--this way you can use groups but still select the contents individually.
+
+![Object Selection Mode](../../img/EditorManual/Art/ObjectContextDropDown.png "Use this drop-down menu to choose how objects in groups are selected."){: .center}
+
+As well as the drop down on the top menu, the hotkey <kbd>C</kbd> can be used to toggled between group select and object select.
 
 #### Efficient Game Model Creation
 
@@ -169,7 +176,7 @@ One of the huge benefits of templates is being able to update many objects at th
 ![Update Template](../../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
 
 You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
-A deinstanced template will have text color change from *teal*{: style="color: var(--core-color-deinstanced)"} to *blue*{: style="color: var(--core-color-templetized)"}. It is still a template, but has changes that the other instances of this template will not.
+A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
 
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
 
