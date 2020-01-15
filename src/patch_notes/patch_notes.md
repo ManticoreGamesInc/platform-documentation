@@ -1,6 +1,6 @@
 # Patch Notes
 
-## Alpha Update 3: January 14th 2020
+## Alpha Update 3: January 15th 2020
 
 ### Highlights
 
