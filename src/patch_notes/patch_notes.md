@@ -17,7 +17,7 @@
         - `removeEmptyResults` - defaults to `false`, filters out empty strings from the returned list.
         - `maxResults` - limits the number of strings that can be returned.
         - `delimiters` is a table of delimiter strings to split on, in addition to the delimiter parameter.
-    - Example: `CoreString.Split("foo:bar:baz", ":" {maxResults = 2})` returns `foo, bar:baz`.
+    - Example: `CoreString.Split("foo:bar:baz", ":", {maxResults = 2})` returns `foo, bar:baz`.
     - Note: `CoreString.Split()` can be called with a delimiter, with `optionalParams`, with both, or with neither. If `delimiter` is not provided and the delimiters optional parameter is also not provided, `s` is split on any whitespace characters. Multiple whitespace characters in a row will result in empty strings in the results, unless you specify `{ removeEmptyResults = true }`.
 - `CoreString.Join(string delimiter, [string s1, [string s2...]])`
     - Concatenates `s1`, `s2`, etc into a single string, separated by `delimiter`.
