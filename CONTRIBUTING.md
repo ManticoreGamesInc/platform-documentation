@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interested in helping out by contributing! Your assistance is much appreciated!
+Thanks for your interest in helping out by contributing! Your assistance is very much appreciated!
 
 If you don't want to deal with all the technicalities because you only want to do some small wording changes, you can just use the GitHub WebUI to edit a markdown file directly!
 
@@ -36,7 +36,7 @@ First, make sure that you have:
     - The GUI Method:
         - Download and install [Fork](https://git-fork.com/).
 
-### Cloning the Repository
+### Clone the Repository
 
 - The CLI Method:
 
@@ -62,7 +62,7 @@ First, make sure that you have:
     - **Don't commit changes to the submodule** unless you now what you are doing. If it shows as changed, just leave it like that.
     - Remember to select **Rebase instead of merge** when pulling changes.
 
-### Installing the Platform
+### Install the Platform
 
 1. Install mkdocs
 
@@ -80,7 +80,7 @@ First, make sure that you have:
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
 
-### Spinning up the Platform
+### Spin up the Platform
 
 ```console
 $ mkdocs serve
@@ -111,7 +111,7 @@ $ mkdocs serve
     - Click **Open in** and select **Open in Visual Studio Code**.
     - Right click the folder you want the file to be in and select **New File**.
 
-### Checking in your Changes
+### Check in your Changes
 
 - Make sure to add your new page to the index of pages in `mkdocs.yml` and `mkdocs-prod.yml`.
 - Commit any changes to your branch and push to the repository. (e.g. `git push camera-controls`)
