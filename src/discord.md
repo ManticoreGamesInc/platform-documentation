@@ -1,3 +1,9 @@
+---
+id: discord
+name: Discord
+title: Discord
+---
+
 # :fab fa-discord: Discord
 
 The [CORE Creator Discord](https://discord.gg/85k8A7V) is a place for the community to to share their CORE creations, learn from each other, or just hang out and talk.

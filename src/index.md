@@ -1,4 +1,5 @@
 ---
+id: home
 title: Home
 name: Home
 hide_categories: true
@@ -23,7 +24,7 @@ _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.
         </a>
     </figure>
     <figure>
-        <a href="tutorials/art/environ_art_intro/" title="Environmental Art">
+        <a href="tutorials/art/environmental_art/" title="Environmental Art">
             <img src="img/EnvironIntro/image45.png" alt="Craft an Environment"/>
             <figcaption><em>Craft an Environment</em></figcaption>
         </a>
@@ -81,15 +82,8 @@ We’re excited to share these very early stages of CORE with you. We ask that y
 
 ## About the Documentation
 
-This documentation is continuously written and edited by both Manticore as well as members of the
-community. Contributions are more than welcome! It is easy to do so, as files are simply text files
-with some [Markdown](https://daringfireball.net/projects/markdown/syntax) extras for formatting. We then compile the markdown files into a static website
-using the open source [MkDocs](https://www.mkdocs.org/) platform, and host the site using [Netlify](https://www.netlify.com).
-
-!!! info "Contributions Welcome!"
-    Just click on the :far fa-edit: icon on the top right of any page.
-    You'll need a GitHub account, with contribution permissions. If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitHub account to get set up.
-    More specific contribution details can be found on our [repository](https://github.com/ManticoreGamesInc/platform-documentation/blob/production-publish/CONTRIBUTING.MD).
+This documentation is continuously written and edited by both Manticore as well as members of the community. Contributions are more than welcome!
+If you want to help out, just email [docs@manticoregames.com](mailto:docs@manticoregames.com) with the name of your GitHub account to get set up.
 
 ## Organization of the Documentation
 

@@ -1,5 +1,7 @@
 ---
+id: networking_reference
 name: Networking Reference
+title: Networking Reference
 categories:
     - Reference
 ---

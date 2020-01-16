@@ -1,5 +1,7 @@
 ---
+id: environment_art
 name: Environmental Art in CORE
+title: Environmental Art in CORE
 categories:
     - Reference
 ---
