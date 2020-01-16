@@ -1,5 +1,7 @@
 ---
+id: keybindings
 name: CORE Editor Key Bindings
+title: CORE Editor Key Bindings
 categories:
     - Reference
 ---

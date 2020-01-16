@@ -1,5 +1,7 @@
 ---
+id: weapons
 name: Weapons in CORE
+title: Weapons in CORE
 categories:
     - Tutorial
 ---

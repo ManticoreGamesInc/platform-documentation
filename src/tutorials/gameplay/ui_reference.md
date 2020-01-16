@@ -1,5 +1,7 @@
 ---
+id: ui_reference
 name: UI Reference
+title: UI Reference
 categories:
     - Reference
 ---

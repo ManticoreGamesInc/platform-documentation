@@ -1,3 +1,9 @@
+---
+id: icons
+name: Icons
+title: Icons
+---
+
 # Icons in CORE
 
 Icons are used to visually represent information, here's a full (that's a lie) list of the icons contained within CORE:

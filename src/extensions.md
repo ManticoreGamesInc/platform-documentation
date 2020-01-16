@@ -1,5 +1,7 @@
 ---
+id: extensions
 name: Editor Extensions
+title: Editor Extensions
 categories:
     - Misc
 ---

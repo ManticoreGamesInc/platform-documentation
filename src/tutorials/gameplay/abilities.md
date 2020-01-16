@@ -1,5 +1,7 @@
 ---
+id: abilities
 name: Abilities in CORE
+title: Abilities in CORE
 categories:
     - Tutorial
 ---

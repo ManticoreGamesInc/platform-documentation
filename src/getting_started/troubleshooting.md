@@ -1,5 +1,7 @@
 ---
+id: troubleshooting
 name: Troubleshooting
+title: Troubleshooting
 ---
 
 # Troubleshooting

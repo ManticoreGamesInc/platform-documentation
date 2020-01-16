@@ -1,3 +1,9 @@
+---
+id: api
+name: CORE API
+title: CORE API
+---
+
 # Lua Scripting API
 
 ## Overview

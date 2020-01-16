@@ -1,5 +1,7 @@
 ---
+id: scene_creation
 name: Scene Creation in CORE
+title: Scene Creation in CORE
 categories:
     - Reference
 ---
