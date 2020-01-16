@@ -1,3 +1,10 @@
+---
+id: community_tutorials
+name: Community Tutorials
+title: Community Tutorials
+categories:
+    - Tutorial
+---
 # Community Tutorials
 
 !!! warning

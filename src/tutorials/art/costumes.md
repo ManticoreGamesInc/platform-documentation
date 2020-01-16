@@ -1,5 +1,7 @@
 ---
+id: costumes
 name: Costumes in CORE
+title: Costumes in CORE
 categories:
     - Reference
 ---
