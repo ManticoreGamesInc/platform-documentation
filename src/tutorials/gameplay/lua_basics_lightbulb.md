@@ -1,5 +1,7 @@
 ---
+id: scripting_basics
 name: Scripting in CORE
+title: Scripting in CORE
 categories:
     - Tutorial
 ---

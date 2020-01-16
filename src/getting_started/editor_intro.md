@@ -1,5 +1,7 @@
 ---
+id: editor_intro
 name: Introduction to the CORE Editor
+title: Introduction to the CORE Editor
 categories:
     - Tutorial
 ---

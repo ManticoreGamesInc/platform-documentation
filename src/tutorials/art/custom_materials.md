@@ -1,5 +1,7 @@
 ---
+id: custom_materials
 name: Custom Materials in CORE
+title: Custom Materials in CORE
 categories:
     - Reference
 ---

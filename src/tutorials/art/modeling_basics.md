@@ -1,5 +1,7 @@
 ---
+id: modeling
 name: Modeling Basics
+title: Modeling Basics
 categories:
     - Reference
 ---

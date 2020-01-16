@@ -1,5 +1,7 @@
 ---
+id: abilities_advanced
 name: Advanced Abilities in CORE
+title: Advanced Abilities in CORE
 categories:
     - Tutorial
 ---
@@ -35,7 +37,7 @@ To really see the power that the ability system gives us to make cool gameplay m
 
 ### The 4 Phases of an Ability
 
-In CORE™, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
+In CORE, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
 
 The 4 different phases of an ability are:
 

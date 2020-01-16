@@ -2,7 +2,10 @@
 # If you add or remove a page, you must also add or remove in mkdocs.yml.
 nav:
   - index.md
-  - Patch Notes: patch_notes/patch_notes.md
+  - Patch Notes:
+    - Latest: patch_notes/patch_notes.md
+    - January 7th 2020: patch_notes/january_7_2020.md
+    - December 17th 2019: patch_notes/december_17_2019.md
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
@@ -13,7 +16,6 @@ nav:
       - Discord: discord.md
       - ManticoreTV: manticoretv.md
       - Game Jams: events/game_jam.md
-      #- Daily Challenges: events/daily_challenge.md
   - CORE API:
       - API Overview: core_api.md
       - Game Components: api/components.md
@@ -30,12 +32,12 @@ nav:
           - Weapons: tutorials/gameplay/weapons.md
           - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
           - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
-          - Making a Game (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+          - Scripting (Advanced): tutorials/gameplay/lua_basics_manticoin.md
       - Art:
           - Art in CORE: tutorials/art/art_reference.md
           - Scene Creation: tutorials/art/scene_creation.md
           - Custom Materials: tutorials/art/custom_materials.md
-          - Environmental Art: tutorials/art/environ_art_intro.md
+          - Environmental Art: tutorials/art/environmental_art.md
           - Modeling Basics: tutorials/art/modeling_basics.md
           #- Costumes: tutorials/art/costumes.md
           - Audio: tutorials/art/audio_reference.md

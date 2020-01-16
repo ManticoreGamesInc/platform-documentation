@@ -1,5 +1,7 @@
 ---
+id: performance_reference
 name: Performance Reference
+title: Performance Reference
 categories:
     - Reference
 ---

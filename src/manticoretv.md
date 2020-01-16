@@ -1,3 +1,9 @@
+---
+id: manticoretv
+name: ManticoreTV
+title: ManticoreTV
+---
+
 # :fab fa-youtube: Manticore TV
 
 <!--

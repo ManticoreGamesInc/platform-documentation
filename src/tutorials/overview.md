@@ -1,5 +1,7 @@
 ---
+id: tutorials
 name: Tutorials
+title: Tutorials
 ---
 
 # Tutorials
