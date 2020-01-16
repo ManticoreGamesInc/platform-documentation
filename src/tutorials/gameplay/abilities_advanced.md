@@ -42,18 +42,17 @@ In CORE, an ability is treated as 4 separate steps that happen immediately one r
 The 4 different phases of an ability are:
 
 * **Cast**
-  * The wind-up time--this is the prep phase before the ability actually happens.
+     * The wind-up time--this is the prep phase before the ability actually happens.
 
 * **Execute**
-  * The actual ability.
-  * Whatever the ability is going to do, it happens at this moment.
+     * The actual ability.
+     * Whatever the ability is going to do, it happens at this moment.
 
 * **Recovery**
-  * Additional ability actions that aren’t part of the main action.
+     * Additional ability actions that aren’t part of the main action.
 
 * **Cooldown**
-
-  * The rest period after an ability is finished being cast, and cannot be cast again.
+     * The rest period after an ability is finished being cast, and cannot be cast again.
 
     !!! info "A More Natural Example"
         Try thinking of it like the casting of a magical spell:
@@ -652,12 +651,10 @@ A common aspect of games with player combat is the ability to land a headshot on
 
 For our Fire Staff, let's set it up to do double damage if a player gets a successful headshot.
 
-1. Select the Fire Staff weapon object in the Hierarchy. We need to add two custom properties to it.
+1. Select the Fire Staff weapon object in the Hierarchy. We need to change a property, and add our own custom property to it.
 
-    1. Add a custom property of type Int and call it "BaseDamage". Give it a value of 50. This is the regular damage the weapon will do when not making contact with the head.
-    2. Add another custom property of type Int and call this one "HeadshotDamage". Give this property a value of 100--this way it will kill a player instantly.
-
-    ![Zoom](../../img/EditorManual/Weapons/advanced/customProps2.png){: .center}
+    1. In the Weapon section of the Properties window, look for the property called "Damage" and set its value to 50.
+    2. Using the button at the bottom of the Properties window, add a custom property of type Int and call it "HeadshotDamage". Give this property a value of 100--this way it will kill a player with default health instantly.
 
 2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.
 
@@ -674,10 +671,10 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
         end
         ```
 
-    2. Next comes creating references to the custom properties we made for damage amounts:
+    2. Next comes creating references to the properties we made for damage amount:
 
         ```lua
-        local DAMAGE_AMOUNT = WEAPON:GetCustomProperty("BaseDamage")
+        local DAMAGE_AMOUNT = WEAPON.damage
         local DAMAGE_HEADSHOT = WEAPON:GetCustomProperty("HeadshotDamage")
         ```
 
@@ -688,7 +685,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
         Here is the whole complete function--add this to your script beneath the variables:
 
         ```lua
-        local function OnWeaponInteraction(weaponInteraction)
+        local function OnWeaponInteraction(weapon,weaponInteraction)
             local target = weaponInteraction.targetObject
 
             -- Apply damage to target if it's a player
