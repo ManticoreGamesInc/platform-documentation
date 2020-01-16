@@ -1,5 +1,7 @@
 ---
+id: art_reference
 name: Art in CORE
+title: Art in CORE
 categories:
     - Reference
 ---

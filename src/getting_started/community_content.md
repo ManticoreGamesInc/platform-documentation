@@ -1,5 +1,7 @@
 ---
+id: community_content
 name: Community Content in CORE
+title: Community Content in CORE
 categories:
     - Tutorial
 ---

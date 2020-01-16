@@ -1,5 +1,7 @@
 ---
-name: Audio Reference
+id: audio_reference
+name: Audio in CORE
+title: Audio in CORE
 categories:
     - Reference
 ---

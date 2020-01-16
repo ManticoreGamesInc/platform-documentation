@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         el.replaceWith(iframe);
     });
-    if (window.location.hostname != "127.0.0.1") {
+    if (window.location.hostname != ("localhost")) {
         Array.prototype.forEach.call(elementsVimeo, function(el, i) {
             var id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
             var old_class = el.getAttribute("class")

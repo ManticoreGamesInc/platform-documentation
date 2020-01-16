@@ -1,10 +1,12 @@
 ---
-name: Making A Game
+id: scripting_advanced
+name: Advanced Scripting in CORE
+title: Advanced Scripting in CORE
 categories:
     - Tutorial
 ---
 
-# Making A Game
+# Advanced Scripting in CORE
 
 !!! warning
     Flagged for Review.

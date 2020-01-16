@@ -1,5 +1,7 @@
 ---
-name: Other Engines
+id: other_engines
+name: Differences between CORE and other Engines
+title: Differences between CORE and other Engines
 categories:
     - Reference
 ---

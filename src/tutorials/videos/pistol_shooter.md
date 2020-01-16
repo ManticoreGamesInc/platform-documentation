@@ -1,5 +1,7 @@
 ---
+id: pistol_shooter
 name: Making a Pistol Shooter
+title: Making a Pistol Shooter
 ---
 
 # Making a Pistol Shooter

@@ -1,5 +1,7 @@
 ---
+id: just_getting_started
 name: Just Getting Started
+title: Just Getting Started
 ---
 
 # Just Getting Started - Video
