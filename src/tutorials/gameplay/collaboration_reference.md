@@ -14,11 +14,21 @@ categories:
 
 ## Overview
 
-Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates are a fundamental tool to CORE that enables creators to develop assets and publish them to be used by other creators across the platform.
+Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about CORE is the ability to create and share what we make as **templates** for ourselves and for others to download.
 
-Templates can be created, shared, and updated in real time across the platform. Enabling creators to quickly and dynamically make changes to their scenes and games.
+Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates can be created, shared, and updated in real time across the platform.
 
-Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "image_tooltip"){: .center}
+When one template is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
+
+Templates can be identified in the **CORE Content** tab by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
+
+- **Completion Time:** 5 minutes
+- **Knowledge Level:** None needed!
+- **Skills you will learn:**
+     - How to make a template
+     - How to publish a template to Community Content & what that means
+
+---
 
 ## Tutorial
 
@@ -26,43 +36,52 @@ Templates can be identified in the Asset Manifest by this icon: ![TemplateIcon](
 
 Creating a template is fast and easy! To make a template follow these steps:
 
-1. Drag in your assets from the Asset Manifest. Place them how you'd like.
+1. Drag in your assets from CORE Content. Arrange and organize them how you'd like.
 
-2. When satisfied with your creation, select all assets in the hierarchy that you desire to be in the template. Right click and select "Group and Create New Template from These".
+     Templates can contain 3D objects, scripts, vfx, or whatever you want to combine.
 
-   ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
+2. When satisfied with your creation, select all assets in the project Hierarchy tab that you desire to be in the template. Right click on them and select "Group and Create New Template from These".
 
-   !!! note "Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!"
+     ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
 
-3. Name Your Template and click the New Template button.
+!!! info
+    Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!
 
-   ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
+3. Name your template and click the **New Template** button.
 
-   The template is now recognized in your project as its own object and can be found in the Project Content folder of the Asset Manifest and you may quickly and easily drag out multiple instances into your scene.
+     ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
 
-   Once your template is created, you may use it for just this project alone, or you can now publish the template to Community Content. Unpublished templates have white names in the Project Content folder while published template names are green. However, Templates in the hierarchy will always be green, published or not.
+     The template is now recognized in your project as its own object and can be found in the Project Content folder of CORE Content and you may quickly and easily drag out multiple instances into your scene.
 
-   ![TemplateTut3](../../img/EditorManual/UI/TemplateTut3.png "image_tooltip"){: .center}
+     Once your template is created, you may use it for just this project alone, or you can now publish the template to Community Content. Once something becaomes a template, it's name changes to **blue**{: style="color: blue"} text.
+
+     ![TemplateTut3](../../img/EditorManual/UI/TemplateTut3.png "image_tooltip"){: .center}
 
 ### Publishing Your Template
 
-1. Click on your template in the Project Content Folder of the Asset Manifest.
+1. Click on your template in the Project Content Folder of CORE Content.
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 
-   ![TemplateTut4](../../img/EditorManual/UI/TemplateTut4.png "image_tooltip"){: .center}
+     ![Publish](../../img/EditorManual/Art/publishToCC.png "Publish"){: .center}
 
-3. This option box will appear:
+3. This dialogue box will appear:
 
-   ![TemplateTut3](../../img/EditorManual/UI/TemplateTut5.png "image_tooltip"){: .center}
+     ![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "Publish Dialog Box"){: .center}
 
-   a. Check or create a new template name. A template's name must be between 5 to 30 characters.
+     a. Check or create a new **template name**.
 
-   b. Write a description for your template. A template's description must be between 1 to 255 characters.
+     b. Write a **description** for your template.
 
-   c. Mark your permissions as either public or private. If private, only you can see the template in Community Content. If public, the template can be seen and used by everyone on the platform.
+     c. Mark your **permissions** as either public or private. If private, only you can see the template in Community Content. If public, the template can be seen and used by everyone on the platform.
 
-4. Click Review & Publish and review your settings, but don't worry as they may be edited after publishing.
+     d. **Release notes** are useful as you update and re-publish your template, so that you may explain what changes you have made!
+
+     e. **Tags** are great for helping your template be found easier in Community Content.
+
+     f. **Screenshots** for glamour and fame!
+
+4. Click Review & Publish and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
 
 5. Click Publish.
 
@@ -71,6 +90,8 @@ Creating a template is fast and easy! To make a template follow these steps:
    ![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
 Congratulations! You've created, edited, and published a template that can be shared and used by other creators in CORE!
+
+---
 
 ### Tips and Tricks with Templates
 
