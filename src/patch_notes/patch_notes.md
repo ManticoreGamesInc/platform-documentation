@@ -20,6 +20,9 @@ title: Patch Notes
 
 #### CORE Content
 - Two new characters have been added to CORE: Cruze and Cobra.
+- Added default volume level settings for "Unexplored Wasteland (Layers) Music Kit"
+- Added new "Unexplored Wasteland Layers" kit that only contains the "Full" layers. Now labled and named as "Unexplored Wasteland Layers Simple Music Kit"
+- Added new music kit: "Unexplored Wasteland Kit Sections"
 
 ### Changes
 
@@ -39,10 +42,14 @@ title: Patch Notes
         - Enabling "Orbit around selection" in the camera controls will always use the center of whatever you have selected instead of the focal point.
 
 #### CORE Content
+- Removed "Full" layers from the "Unexplored Wasteland Layers Music Kit"
+- Moved "Unexplored Wasteland" Music kits to Audio > BGM > Action
 
 ### Fixes
 
 #### API
+- The `Events.Broadcast*` family of functions should now properly send player arguments in preview mode.
+- Note: The size of a Player argument as transmitted over the wire has gone up to correct certain behavior, but this means that it is possible for scripts that previously worked to now fail if they are firing events with `Player` arguments. Some calls that previously returned `BroadcastEventResultCode.SUCCESS` may now return `BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT` because of that.
 
 #### Editor
 - Fixed uncommon client crash when equipment is modified.
