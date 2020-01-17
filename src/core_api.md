@@ -453,7 +453,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server-Only, Read-Only |
 | `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server-Only, Read-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Server-Only, Read-Only |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Read-Only |
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | Read-Only |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | Read-Only |
@@ -1140,7 +1140,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetInteractionEvent` | Event&lt;WeaponInteraction&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The WeaponInteraction parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only |
+| `targetInteractionEvent` | Event&lt;Weapon, WeaponInteraction&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `WeaponInteraction` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only, **Breaking Change** |
 | `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | Read-Only |
 
 | Function | Return Type | Description | Tags |
