@@ -6,7 +6,7 @@ categories:
     - Reference
 ---
 
-# Lua in CORE
+# Lua Primer
 
 !!! warning
     Flagged for Review.
@@ -110,6 +110,7 @@ for i = 1, 100 do  -- The range includes both ends.
 end
 
 -- The range is: begin, end[, step], use -1 as the range to count down
+
 fredSum = 0
 for j = 100, 1, -1 do
   fredSum = fredSum + j
@@ -131,6 +132,7 @@ function Fib(n)
 end
 
 -- Closures and anonymous functions are ok:
+
 function Adder(x)
   -- The returned function is created when Adder is
   -- called, and remembers the value of x:
@@ -148,6 +150,7 @@ print(a2(64))  --> "100"
 -- Unmatched senders are discarded.
 
 x, y, z = 1, 2, 3, 4
+
 -- Now x = 1, y = 2, z = 3, and 4 is thrown away.
 
 function Bar(a, b, c)
@@ -160,6 +163,7 @@ x, y = Bar("zaphod")  --> "zaphod  nil nil"
 
 -- Functions are first-class, may be local/global.
 -- These are the same:
+
 function F(x)
   return x * x
 end
@@ -169,6 +173,7 @@ F = function(x)
 end
 
 -- And so are these:
+
 local function G(x)
   return math.sin(x) -- Trigonometry funcs work in radians, by the way.
 end
@@ -183,6 +188,7 @@ end
 ## Tables
 
 ```lua
+
 -- Tables = Lua's only compound data structure;
 --          they are associative arrays.
 -- Similar to php arrays or js objects, they are
@@ -191,27 +197,33 @@ end
 -- Using tables as dictionaries / maps:
 
 -- Dict literals have string keys by default:
+
 t = {key1 = 'value1', key2 = false}
 
 -- String keys can use js-like dot notation:
+
 print(t.key1)  --> "value1"
 t.newKey = {}  -- Adds a new key/value pair.
 t.key2 = nil   -- Removes key2 from the table.
 
 -- Literal notation for any (non-nil) value as key:
+
 u = {["@!#"] = "qbert", [{}] = 1729, [6.28] = "tau"}
 print(u[6.28])  --> "tau"
 
 -- Key matching is basically by value for numbers
 -- and strings, but by identity for tables.
+
 a = u["@!#"]  -- Now a = "qbert".
 b = u[{}]     -- We might expect 1729, but it's nil:
+
 -- b = nil since the lookup fails. It fails
 -- because the key we used is not the same object
 -- as the one used to store the original value. So
 -- strings & numbers are more portable keys.
 
 -- A one-table-param function call needs no parens:
+
 function H(x)
   print(x.key1)
 end
@@ -221,6 +233,7 @@ h{key1 = "Sonmi~451"}  --> "Sonmi~451"
 -- There are two types of table iterators in Lua
 -- pairs() returns key-value pairs and is mostly used for associative tables.
 -- Attention: Key order is unspecified.
+
 u = {}
 u[1] = "a" -- Attention: Indices start at 1 in Lua!
 u[3] = "b"
@@ -231,6 +244,7 @@ u["hello"] = "world"
 for key, val in pairs(u) do
   print(key, val)
 end
+
 -- will print:
 -- 1  a
 -- 2  c
@@ -242,9 +256,11 @@ end
 -- Non numeric keys in an array are ignored, while the index order is in numeric order.
 -- When you create tables without keys, ipairs behaves as a numeric array and therefore the same as pairs.
 -- Attention: ipairs stops when it first encounters a gap.
+
 for index, val in ipairs(u) do
   print(index, val)
 end
+
 -- will print:
 -- 1  a
 -- 2  c
@@ -262,6 +278,7 @@ v = {"value1", "value2", 1.21, "gigawatts"}
 for i = 1, #v do  -- #v is the size of v for lists.
   print(v[i])
 end
+
 -- A 'list' is not a real type. v is just a table
 -- with consecutive integer keys, treated as a list.
 ```
@@ -302,6 +319,7 @@ s = f1 + f2  -- call __add(f1, f2) on f1's metatable
 -- Class-like patterns given below would fix this.
 
 -- An __index on a metatable overloads dot lookups:
+
 defaultFavs = {animal = "gru", food = "donuts"}
 myFavs = {food = "pizza"}
 setmetatable(myFavs, {__index = defaultFavs})
@@ -407,56 +425,8 @@ end
 
 ## Modules
 
-```lua
--- Suppose the file mod.lua looks like this:
-local m = {}
-
-local function SayMyName()
-  print("Hrunkner")
-end
-
-function m.SayHello()
-  print("Why hello there")
-  SayMyName()
-end
-
-return m
-
--- Another file can use mod.lua's functionality:
-local mod = require("mod")  -- Run the file mod.lua.
-
--- require is the standard way to include modules.
--- require acts like:     (if not cached; see below)
-local mod = (function ()
-  <contents of mod.lua>
-end)()
--- It's like mod.lua is a function body, so that
--- locals inside mod.lua are invisible outside it.
-
--- This works because mod here = M in mod.lua:
-mod.SayHello()  -- Says hello to Hrunkner.
-
--- This is wrong; SayMyName only exists in mod.lua:
-mod.SayMyName()  -- error
-
--- require's return values are cached so a file is
--- run at most once, even when require'd many times.
-
--- Suppose mod2.lua contains "print('Hi!')".
-local a = require("mod2")  --> "Hi!"
-local b = require("mod2")  -- Doesn't print because a = b.
-
--- dofile is like require without caching:
-dofile("mod2.lua")  --> "Hi!"
-dofile("mod2.lua")  --> "Hi!" (runs it again)
-
--- loadfile loads a lua file but doesn't run it yet.
-f = loadfile("mod2.lua")  -- Call f() to run it.
-
--- loadstring is loadfile for strings.
-g = loadstring("print(343)")  -- Returns a function.
-g()  --> "343" nothing printed before now.
-```
+Lua in CORE does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slighty from vanilla Lua;
+Instead of giving it a script or file name, you give it the script ID, so you’ll want a custom parameter that’s an asset reference pointing at the script you want to `require()`.
 
 If you're still really hungry for more info, more primers can be found here:
 
