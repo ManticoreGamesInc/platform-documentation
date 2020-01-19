@@ -4,16 +4,16 @@ name: Patch Notes for January 7th 2020
 title: Patch Notes for January 7th 2020
 ---
 
-## Alpha Update 2: January 7th 2020
+# Alpha Update 2: January 7th 2020
 
-### Highlights
+## Highlights
 
 - Expanded the API with community requests to enable creators to do even more with CORE!
 - More content to play with. Grenades and Curved Pipes! MacGyver anyone?
 - Performance improvements to physics, networking and components.
 - Fixed a ton of bugs!
 
-### ManticoreTV Patch Review
+## ManticoreTV Patch Review
 
 Manticore engineer Gabriel sat down with the community to review all the changes in this patch live on stream, you can watch the VoD of it right here!
 
@@ -21,9 +21,9 @@ Manticore engineer Gabriel sat down with the community to review all the changes
 
 [ManticoreTV](../manticoretv.md) is streaming almost every day, don't miss it!
 
-### New Features
+## New Features
 
-#### API
+### API
 
 - Added `Player:SetVelocity(Vector3)`: Sets the velocity of the player to the given value.
 - Added two new functions `GetLookWorldRotation()` and `SetLookWorldRotation()` to the `Player` object:
@@ -31,7 +31,7 @@ Manticore engineer Gabriel sat down with the community to review all the changes
     - `SetLookWorldRotation(Rotation newLookRotation)`: Sets the rotation at which the player should look. Can be used only on a client.
 - Added a `Player:GetResources()` function which returns a table containing all of the player's resource amounts. `Player:GetResourceNames()` and `Player:GetResourceNamesStartingWith()` are now deprecated.
 
-#### Editor
+### Editor
 
 - Added ability aim modes to player settings:
     - `ViewRelative`: Ability aim is calculated from the camera origin along the camera forward direction.
@@ -46,7 +46,7 @@ Manticore engineer Gabriel sat down with the community to review all the changes
     - `Custom`: The projectile is fired from the muzzle position in the direction specified by the `Muzzle Rotation` property.
 - Support for creating asset reference parameters by drag-and-dropping assets onto the `Properties` tab.
 
-#### CORE Content
+### CORE Content
 
 - Added Rocket Launcher, Grenade Launcher and Grenades.
 - Thruster VFX now support using color alphas and has expanded gradient controls.
@@ -55,9 +55,9 @@ Manticore engineer Gabriel sat down with the community to review all the changes
 - Added a Cast Bar component.
 - Added a Resource Display component.
 
-### Changes
+## Changes
 
-#### API
+### API
 
 - `Player.resourceChangedEvent` now passes the modified `Resource` as an argument.
 - `Player.resourceChangedEvent` is now fired after `Player.ClearResources()` is called.
@@ -84,7 +84,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - `LookAt` functions that had an option to lock the pitch component of rotation will now also lock the roll component.
 - Setting the position, rotation, or scale manually will now stop any corresponding operation. For example, if you call `MoveTo()` and then `SetWorldPosition()` on the same object before `MoveTo()` has finished, it will be canceled and the object will remain at the position passed to `SetWorldPosition()`.
 
-#### Editor
+### Editor
 
 - All Effects should now properly respect the auto-play flag when effect elements are in a mixed state.
 - Improved Decal performance.
@@ -101,7 +101,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - The <kbd>P</kbd> key no longer automatically binds to the pause menu.
 - Networked events will now throw an error if unsupported types are passed as arguments to `Broadcast:()`.
 
-#### CORE Content
+### CORE Content
 
 - Updated all weapons to new default tunings.
 - Physics objects now run on client with server correction, creating much smoother behavior.
@@ -109,9 +109,9 @@ All of these functions should now behave consistently in all cases. Client behav
 - Moved Inventory (and UI) to community content and fixed major issues (look for Basic Inventory).
 - Removed Spectator Camera until jitters are fixed.
 
-### Fixes
+## Fixes
 
-#### API
+### API
 
 - Fix crash when passing `nil` as `Player` to `Equip()`.
 - Fixed bug with required scripts accessing the wrong context in single-player preview mode.
@@ -119,7 +119,7 @@ All of these functions should now behave consistently in all cases. Client behav
 
 !!! warning "Projects that previously worked in local preview mode may now trigger errors to more closely match expected behavior in a multiplayer environment."
 
-#### Editor
+### Editor
 
 - Fixed bug with script editor marking empty scripts as modified when they weren't.
 - Script editors should now open to the start of the script instead of the end.
@@ -135,7 +135,7 @@ All of these functions should now behave consistently in all cases. Client behav
 - Fix bug where hiding the player from themselves still cast a shadow.
 - Fixed bug where player appears inside their mounts in certain combinations of crouch, jump and mount.
 
-#### CORE Content
+### CORE Content
 
 - Track #21 "Subtle House Club" in "Electronic Music Score Set" did not play the correct track.
 - Fixed bug where built-in object references on `Weapon` and `Equipment` could break when put in a template.
