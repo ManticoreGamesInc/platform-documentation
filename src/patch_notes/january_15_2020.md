@@ -4,19 +4,17 @@ name: Patch Notes for January 15th 2020
 title: Patch Notes for January 15th 2020
 ---
 
-# Patch Notes
+# Alpha Update 3: January 15th 2020
 
-## Alpha Update 3: January 15th 2020
-
-### Highlights
+## Highlights
 
 - Tons of improvements to the included game frameworks.
 - Added new CoreString namespace API with `Split()`, `Join()` and `Trim()` functions.
 - Three new game frameworks: Last Team Standing, Gun Game and Assault!
 
-### New Features
+## New Features
 
-#### API
+### API
 
 - `CoreString.Split(string s, [string delimiter], [table optionalParams])`
     - Splits `s` into a list of substrings separated by `delimiter`. The delimiter is treated as an exact string that must be matched. `optionalParams` may contain the following optional parameters:
@@ -32,7 +30,7 @@ title: Patch Notes for January 15th 2020
     - Example: `CoreString.Trim("foobarfoo", "foo", "oo")` returns `bar`, but `CoreString.Trim("foobarfoo", "oo", "foo")` returns `barf`.
     - Note: If no trims are specified, this will trim any whitespace from the start and end of `s`.
 
-#### Editor
+### Editor
 
 - Added a "New Group" context menu item to create a group to the hierarchy UI.
 - Mousing over an item in the content browser now displays the item's name in a tooltip.
@@ -44,7 +42,7 @@ title: Patch Notes for January 15th 2020
     - Farthest from other players - Respawns the player at a start point which is furthest away from other players.
     - Farthest from enemy - Respawns the player at a start point which is furthest away from enemy players.
 
-#### CORE Content
+### CORE Content
 
 - Added "Last Team Standing" framework.
 - Added "Gun Game" framework.
@@ -52,16 +50,16 @@ title: Patch Notes for January 15th 2020
 - Added "Assault" framework.
 - "Fire Volume VFX" now supports an initial velocity to allow it to be used for jet flames, flame throwers, etc.
 
-### Changes
+## Changes
 
-#### API
+### API
 
 - `Player.ActivateFlying()` is now server-only.
 - `Player.ActivateWalking()` is now server-only.
 - `PlayerSettings.Apply()` is now server-only.
 - Improved error messages for multiple unique objects, such as settings and sky objects.
 
-#### Editor
+### Editor
 
 - The "Publish Game" success dialog will close on <kbd>ESC</kbd>.
 - You can no longer publish a game while in preview mode.
@@ -70,19 +68,19 @@ title: Patch Notes for January 15th 2020
 - You can now delete your local projects by pressing the "More Options" button on your project tile and selecting "Delete".
 - The Terrain Creator list now correctly displays the name of the terrain type, plus a % which indicates the file size / complexity.
 
-#### CORE Content
+### CORE Content
 
 - Improved the "Cape" and "Teddy Bear" back pack dynamics.
 - Renamed "Player Start" to "Spawn Point" in the empty scene.
 - "Sky" templates from CORE content will no longer have "networking" enabled by default when placed in a scene.
 
-### Fixes
+## Fixes
 
-#### API
+### API
 
 - Fixed "expected number, received number" error to be more specific about expecting an integer.
 
-#### Editor
+### Editor
 
 - Fixed issue where a player would rotate in place on the server as if facing was set to "Look at Aim" while clients behaved in accordance to the correct facing mode.
 - Names of long assets are no longer cut off when the content window is set to "Icon View".
@@ -95,7 +93,7 @@ title: Patch Notes for January 15th 2020
 - Fixed player settings in the empty scene.
 - When cloning a game, the terrain files will now be copied over as well.
 
-#### CORE Content
+### CORE Content
 
 - 45 degree pipes should now have working collision!
 - Fixed incorrect pickup label on "Basic Grenade".

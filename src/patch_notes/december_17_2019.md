@@ -4,9 +4,9 @@ name: Patch Notes for December 17th 2019
 title: Patch Notes for December 17th 2019
 ---
 
-## Alpha Update 1: December 17th 2019
+# Alpha Update 1: December 17th 2019
 
-#### New Features
+### New Features
 
 - Block indent was added to the script editor.
 - Added advanced grenade and update advanced weapon reload binding.
@@ -24,7 +24,7 @@ script.parent.beginOverlapEvent:Connect(OnHandleOverlap, "Hello")
 script.parent.endOverlapEvent:Connect(OnHandleOverlap, "World!")
 ```
 
-#### Changes
+### Changes
 
 - Moving the mouse or using the keyboard now resets the autosave timer.
 - `Player.isDead` Lua property is now read-only.
@@ -34,7 +34,7 @@ script.parent.endOverlapEvent:Connect(OnHandleOverlap, "World!")
 - Edgeline materials now use `Vector3` instead of `Color` for setting material velocity.
 - When spawning objects with X key, the Shift modifier is now interpreted as "use settings from Object Generator", which now takes "Spawn Upright" into account.
 
-#### Fixes
+### Fixes
 
 - Explosion effect now properly makes use of color parameter.
 - Fixed a bug in the selection system that was sometimes making the "audio preview" button not show up after testing a map.
