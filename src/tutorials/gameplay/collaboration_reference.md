@@ -20,6 +20,13 @@ Collaboration is an important aspect of art and design as well as key to develop
 
 When one template is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
 
+!!! info "What IS a template?"
+    Think of a template as a package of things you made, exactly the way you made them.
+
+    You could make a palm tree that drops coconuts when a player walks up to it, and by turning the scripts and objects that make this palm tree into a template, you can share this with anyone so they may make their own palm tree forests!
+
+    Or perhaps they'll modify it to drop a monkey. That's the beauty of template sharing!
+
 Templates can be identified in the **CORE Content** tab by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
 
 - **Completion Time:** 5 minutes
@@ -36,30 +43,30 @@ Templates can be identified in the **CORE Content** tab by this icon: ![Template
 
 Creating a template is fast and easy! To make a template follow these steps:
 
-1. Drag in your assets from CORE Content. Arrange and organize them how you'd like.
+1. Drag in your assets and objects from CORE Content. Arrange and organize them how you'd like.
 
-     Templates can contain 3D objects, scripts, vfx, or whatever you want to combine.
+     Templates can contain 3D objects, scripts, vfx, or whatever else you want to combine.
 
 2. When satisfied with your creation, select all assets in the project Hierarchy tab that you desire to be in the template. Right click on them and select "Group and Create New Template from These".
 
-     ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "image_tooltip"){: .center}
+      ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "Right click all of your selected objects at once in the Hierarchy."){: .center}
 
-!!! info
-    Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!
+      *Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!*
 
 3. Name your template and click the **New Template** button.
 
      ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
 
-     The template is now recognized in your project as its own object and can be found in the Project Content folder of CORE Content and you may quickly and easily drag out multiple instances into your scene.
+     The template is now recognized in your project as its own object and can be found in the **Project Content** folder of **CORE Content** and you may easily drag out as many instances of your template into your scene as you like. *(And that your game can handle--keep an eye on that Perfromance tab to see if you have too many objects!)*
 
-     Once your template is created, you may use it for just this project alone, or you can now publish the template to Community Content. Once something becaomes a template, it's name changes to **blue**{: style="color: blue"} text.
-
-     ![TemplateTut3](../../img/EditorManual/UI/TemplateTut3.png "image_tooltip"){: .center}
+!!! info "The Hierarchy text color changed?"
+     Once something becomes a template, it's name changes to **blue**{: style="color: var(--core-color-templetized)"} text.
 
 ### Publishing Your Template
 
-1. Click on your template in the Project Content Folder of CORE Content.
+Once your template is created, you may use it for just this project alone, or you can now further publish the template to **Community Content** for sharing with others and between different projects.
+
+1. Click on your template in the **Project Content** folder of **CORE Content**.
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 

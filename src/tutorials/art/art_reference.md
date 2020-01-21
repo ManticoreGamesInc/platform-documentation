@@ -146,18 +146,6 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ---
 
-### Share Your Creations: Creating Templates
-
-Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about CORE is the ability to create and share what we make as **templates** for ourselves and for others to download.
-
-Another benefit to using templates is that when one is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
-
-#### Creating New Templates
-
-To make something a template, right click on it in the Hierarchy and choose "**Create New Template From This**". Choose a name for your template, and you'll then notice the color of the text in the Hierarchy change to green.
-
-![Create New Template](../../img/EditorManual/Art/CreateNewTEmplate.png "Create New Template"){: .center}
-
 #### Publishing a Template to Community Content
 
 Now that you've made a template for yourself, let's share it with the world!
