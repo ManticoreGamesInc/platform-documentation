@@ -25,9 +25,6 @@ title: Patch Notes
 
 ### CORE Content
 - Two new characters have been added to CORE: Cruze and Cobra.
-- Added default volume level settings for "Unexplored Wasteland (Layers) Music Kit"
-- Added new "Unexplored Wasteland Layers" kit that only contains the "Full" layers. Now labled and named as "Unexplored Wasteland Layers Simple Music Kit"
-- Added new music kit: "Unexplored Wasteland Kit Sections"
 
 ## Changes
 
@@ -36,19 +33,15 @@ title: Patch Notes
 - **Breaking Change**: `targetInteractionEvent` now returns the parameters `<Weapon, WeaponInteraction>` instead of `<WeaponInteraction>` to ensure consistency with other events.
 
 ### Editor
-- Set default key binding for "Fly Down" and "Swim Down" to <kbd>CTRL (Left)</kbd>.
+- Key bindings for "Fly Down" and "Swim Down" now default to <kbd>CTRL (Left)</kbd>.
 - All subfolders in the CORE Content tab are now sorted by name.
 - <kbd>ALT</kbd> + <kbd>Mouse Right</kbd> dragging now zooms in for down/right movement (and vice versa).
 - The "Publish Game" results dialog will now always show a game link, no longer a play link.
-- Clean up of orbit behavior, the default selection more is now "Object".
+- Clean up of orbit behavior, the default selection mode is now "Object".
     - Details:
         - The camera now has a "focal point" in front of it that is the center of orbit operations. This point is set when you focus on an object, and travels with the camera while flying (right-drag + WASD) and panning (middle-drag).
         - Zooming with the scroll wheel will move the camera forwards and backwards like flying, but holding <kbd>ALT</kbd> (as well as <kbd>ALT</kbd> + right-drag to zoom) will move towards/away from the focal point, keeping it where it is and leaving orbit movements centered on the same location in the scene.
         - Enabling "Orbit around selection" in the camera controls will always use the center of whatever you have selected instead of the focal point.
-
-### CORE Content
-- Removed "Full" layers from the "Unexplored Wasteland Layers Music Kit"
-- Moved "Unexplored Wasteland" Music kits to Audio > BGM > Action
 
 ## Fixes
 
