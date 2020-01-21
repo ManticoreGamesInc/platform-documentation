@@ -4,7 +4,7 @@ name: Patch Notes
 title: Patch Notes
 ---
 
-# Alpha Update 4: January 21st 2020
+# Alpha Update 4: January 22nd 2020
 
 ## Highlights
 - Added "Last Man Standing" framework.
@@ -21,6 +21,7 @@ title: Patch Notes
 - The <kbd>SHIFT</kbd> + <kbd>X</kbd> hotkey to place objects in the viewport now takes into account extra settings from the Object Generator tab like "Only Spawn On Terrain", "Randomize Scale" etc.
 - Added a volume slider to the Options menu.
 - Adding "Orbit around selection" option to camera controls and toolbar.
+- Two new experimental root motion ability animations: "unarmed_roll" and "unarmed_kick_ball".
 
 ### CORE Content
 - Two new characters have been added to CORE: Cruze and Cobra.
