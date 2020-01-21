@@ -4,7 +4,7 @@ name: ManticoreTV
 title: ManticoreTV
 ---
 
-# :fab fa-youtube: Manticore TV
+# :fab fa-youtube: ManticoreTV
 
 <!--
 ![YOUTUBELIVE](assets/placeholder_720p.png "UCBPqo7cK1bktfRfMGAAqnbQ"){: .center}
@@ -25,8 +25,6 @@ We want everyone to experience that magic, so we created ManticoreTV. Join us an
 * :fab fa-facebook: [Facebook](https://www.facebook.com/groups/playcoregames)
 * :fab fa-youtube: [YouTube](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ)
 
-<!--
 ### Upcoming Schedule
 
-* Check out our [Google Calendar](TODO:TashaAddLink) for all the dates!
--->
+* Check out our [Google Calendar](https://calendar.google.com/calendar/r?cid=cnQzbzU1bDlqcmFybWU1ZGk2anQzM2I1cGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) for all the dates!
