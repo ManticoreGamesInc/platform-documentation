@@ -68,6 +68,8 @@ Sockets are different points on a Player's character mesh. They can be used for 
 | `unarmed_throw` | An over-the-shoulder right-handed throw animation. | This animation supports a variable cast time. |
 | `unarmed_wave` | Stand in place and wave. | This animation works best with a cast phase duration of 0.266 or less. |
 | `unarmed_pickup` | Stand in place and pick up items from the ground. | This animation works best with a cast phase duration of 0.266 or less. |
+| `unarmed_kick_ball` | A kick motion that moves the character forward as well. |
+| `unarmed_roll` | A roll animation that moves the character forward. | This animation works best with a cast phase duration of 0.18 or less. This animation has root motion, and is designed to play full body. Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script. |
 
 # General Animation Stance Information
 
