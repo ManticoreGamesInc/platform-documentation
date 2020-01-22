@@ -55,12 +55,12 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 3. Name your template and click the **New Template** button.
 
-     ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "image_tooltip"){: .center}
+     ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "Pick somethin' catchy."){: .center}
 
      The template is now recognized in your project as its own object and can be found in the **Project Content** folder of **CORE Content** and you may easily drag out as many instances of your template into your scene as you like. *(And that your game can handle--keep an eye on that Perfromance tab to see if you have too many objects!)*
 
 !!! info "The Hierarchy text color changed?"
-     Once something becomes a template, it's name changes to **blue**{: style="color: var(--core-color-templetized)"} text.
+     Once something becomes a template, its name changes to **blue**{: style="color: var(--core-color-templetized)"} text.
 
 ### Publishing Your Template
 
@@ -70,11 +70,12 @@ Once your template is created, you may use it for just this project alone, or yo
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 
-     ![Publish](../../img/EditorManual/Art/publishToCC.png "Publish"){: .center}
+     ![Publish](../../img/EditorManual/UI/PublishToCC.png "Publish by right clicking--"){: .center}
+     ![Publish](../../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
 
 3. This dialogue box will appear:
 
-     ![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "Publish Dialog Box"){: .center}
+     ![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center}
 
      a. Check or create a new **template name**.
 
@@ -88,19 +89,44 @@ Once your template is created, you may use it for just this project alone, or yo
 
      f. **Screenshots** for glamour and fame!
 
-4. Click Review & Publish and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
+4. Click **Review & Publish** and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
 
-5. Click Publish.
+5. Click **Publish**.
 
-   The template's white name should now be green and the template can be found and downloaded from Community Content. From here, you may edit, re-download or delete templates you've published!
+   While still within **Project Content**, the template's white name should now be green and the template can be found and downloaded from **Community Content**. From there, anyone can download your template and use it for even more awesome content! Of course, this is only if you set your template to *public*.
 
-   ![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
+   By setting your template to *private*, only you will be able to download it from Community Content into other projects. This can be very handy for working on a template on different computers without having to publish the work-in-progress version of what you are making.
+
+![TemplateTut4](../../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
 
 Congratulations! You've created, edited, and published a template that can be shared and used by other creators in CORE!
+
+![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
 ---
 
 ### Tips and Tricks with Templates
+
+#### Updating and Republishing Templates
+
+One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
+
+![Update Template](../../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
+
+You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
+A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
+
+Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
+
+![Update Template From This](../../img/EditorManual/Art/updateTempFromThis.gif "Update Template From This"){: .center}
+
+This will update the template for your project personally, but in order to update a template that has been published to **Community Content**, we will need to re-publish the template.
+
+In your **Project Content**, find the published template that you wish to update. Right click the template, and click "**Republish**". It'll bring up the same window as for publishing a template, so that you may update the description if you like.
+
+![Republish](../../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
+
+"**Download Latest**" will update your local project template with whatever the most recent published version of template exists on **Community Content**.
 
 #### Deinstancing Templates
 

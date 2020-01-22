@@ -146,40 +146,6 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ---
 
-#### Publishing a Template to Community Content
-
-Now that you've made a template for yourself, let's share it with the world!
-
-Navigate to the template you wish to publish within **Project Content**. Right click it, and select "**Publish to Community Content**". It may prompt you to save, and then a window will open for filling out more details of your template.
-
-![Publish](../../img/EditorManual/Art/publishToCC.png "Publish"){: .center}
-
-![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "Publish Dialog Box"){: .center}
-
-In this window, you can name your template and give it a description. Make sure to check the box **Is Public** for other players to find it. When you're ready, click "**Review & Publish**". Confirm that everything looks right, and click "**Publish**".
-Now other users can find and search for your template on Community Content!
-
-#### Updating and Republishing Templates
-
-One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
-
-![Update Template](../../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
-
-You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
-A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
-
-Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
-
-![Update Template From This](../../img/EditorManual/Art/updateTempFromThis.gif "Update Template From This"){: .center}
-
-This will update the template for your project personally, but in order to update a template that has been published to **Community Content**, we will need to re-publish the template.
-
-In your **Project Content**, find the published template that you wish to update. Right click the template, and click "**Republish**". It'll bring up the same window as for publishing a template, so that you may update the description if you like.
-
-![Republish](../../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
-
-"**Download Latest**" will update your local project template with whatever the most recent published version of template exists on **Community Content**.
-
 #### I Change My Mind: Resetting a Deinstanced Template
 
 When you make a change to an instance of a template, the text turns blue and it is "**Deinstanced**". There might be times when you don't like the changes you've made, and you would like to return to your original template.
