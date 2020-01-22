@@ -407,6 +407,25 @@ Contains data pertaining to an impact or raycast.
 | `other` | CoreObject or Player | Reference to a CoreObject or Player impacted. | Read-Only |
 | `socketName` | string | If the hit was on a Player, `socketName` tells you which spot on the body was hit. | Read-Only |
 
+### ImpactData
+
+A data structure containing all information about a specific Weapon interaction, such as collision with a character.
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetHitResult()` | HitResult | Physics information about the impact between the Weapon and the other object. | None |
+| `GetHitResults()` | Array&lt;HitResult&gt; | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `targetObject` | Object | Reference to the CoreObject/Player hit by the Weapon. | Read-Only |
+| `projectile` | Projectile | Reference to a Projectile, if one was produced as part of this interaction. | Read-Only |
+| `sourceAbility` | Ability | Reference to the Ability which initiated the interaction. | Read-Only |
+| `weapon` | Weapon | Reference to the Weapon that is interacting. | Read-Only |
+| `weaponOwner` | Player | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
+| `travelDistance` | Number | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
+| `isHeadshot` | bool | True if the Weapon hit another player in the head. | Read-Only |
+
 ### Light
 
 Light is a light source that is a CoreObject. Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
@@ -1140,7 +1159,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetInteractionEvent` | Event&lt;Weapon, WeaponInteraction&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `WeaponInteraction` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only, **Breaking Change** |
+| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Renamed from `targetInteractionEvent`. Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only, **Breaking Change** |
 | `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | Read-Only |
 
 | Function | Return Type | Description | Tags |
@@ -1186,10 +1205,6 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `spreadDecreaseSpeed` | Number | Speed at which the spread contracts back from its current value to the minimum cone size. | Read-Only |
 | `spreadIncreasePerShot` | Number | Amount the spread increases each time the Weapon attacks. | Read-Only |
 | `spreadPenaltyPerShot` | Number | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
-
-### WeaponInteraction
-
-A data structure containing all information about a specific Weapon interaction, such as collision with a character.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1387,7 +1402,7 @@ World is a collection of functions for finding objects in the world.
 
 ### Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
+For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
     - assert
@@ -1485,7 +1500,7 @@ MUIDs are internal identifiers for objects and assets within your game. They are
 
 8D4B561900000092:Rabbit
 
-The important part is the 16 digits at the start. The colon and everything after it are optional and are there to make it easier to read. Some Lua functions use MUIDs, for example FindObjectById and SpawnAsset. When used in a script, it needs to be surrounded by quotes to make it a string. For example:
+The important part is the 16 digits at the start. The colon and everything after it are optional and are there to make it easier to read. Some Lua functions use MUIDs, for example `FindObjectById` and `SpawnAsset`. When used in a script, it needs to be surrounded by quotes to make it a string. For example:
 
 ```lua
 local spawnTrans = script.parent:GetWorldTransform()
