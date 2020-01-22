@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         document.title = current_title;
     });
+
+    hljs.initHighlightingOnLoad();
 })
 
 // Dark mode detection

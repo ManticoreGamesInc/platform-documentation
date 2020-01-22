@@ -78,9 +78,11 @@ theme:
 
 extra_css:
   - assets/stylesheets/manticore.css
+  - assets/stylesheets/prism.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
+  - assets/javascripts/prism.js
 
 # Additional data
 extra:
@@ -117,8 +119,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde # strike-through
   - codehilite: # highlight code blocks
-      guess_lang: false # language has to be defined explicitly
       linenums: true
+      use_pygments: false
   - toc: # add linking to headers
       permalink: true
   - full_yaml_metadata
