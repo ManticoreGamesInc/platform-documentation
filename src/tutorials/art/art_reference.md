@@ -146,16 +146,6 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ---
 
-#### I Change My Mind: Resetting a Deinstanced Template
+### Sharing the Glory: Publishing Templates
 
-When you make a change to an instance of a template, the text turns blue and it is "**Deinstanced**". There might be times when you don't like the changes you've made, and you would like to return to your original template.
-
-To do this, right click an object in the template and select "**Reset to Template**". This will revert the template back to the original design!
-
-#### Downloading & Using Other Creator's Templates
-
-Templates made by other people can be downloaded from **Community Content** and re-used as anything you like. This is a great way to focus on getting to your final idea faster than creating everything from scratch!
-
-If you wish to publish a re-used template to Community Content, it must be as its own new and separate template.
-
-![Community Content Template](../../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
+To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](/tutorials/gameplay/collaboration_reference/)!

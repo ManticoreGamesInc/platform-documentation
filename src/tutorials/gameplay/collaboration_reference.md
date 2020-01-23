@@ -8,10 +8,6 @@ categories:
 
 # Templates in CORE
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
 Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about CORE is the ability to create and share what we make as **templates** for ourselves and for others to download.
@@ -126,29 +122,22 @@ In your **Project Content**, find the published template that you wish to update
 
 ![Republish](../../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
 
-"**Download Latest**" will update your local project template with whatever the most recent published version of template exists on **Community Content**.
+"**Download Latest**" will update your local project template with whatever the most recent published version of the template exists on **Community Content**.
 
-#### Deinstancing Templates
+---
 
-Once your template is created, you must "deinstance" it in order to edit the template again. Deinstancing a template still keeps its reference in mind, but allows you to make changes so that you can re-update or re-upload the template.
+#### I Change My Mind: Resetting a Deinstanced Template
 
-To deinstance a template, right click and select "Deinstance this object".
+When you make a change to an instance of a template, the text turns *teal*{: style="color: var(--core-color-deinstanced)"} and it is "**Deinstanced**". There might be times when you don't like the changes you've made, and you would like to return to your original template.
 
-![TemplateTut5](../../img/EditorManual/UI/TemplateTut7.png "image_tooltip"){: .center}
+To do this, right click the template within the Hierarchy and select "**Reset to Template**". This will revert the template back to the original design!
 
-The object's name will now be blue and you may edit the template as you wish!
-Don't like the changes you made? You can always select "Reset to Template" to restore back to the original template.
+---
 
-#### Updating Templates
+#### Downloading & Using Other Creator's Templates
 
-Have tons of instances of a template in your scene but you want to do something as minor as change their material? Have no fear! With templates, you can make changes and update every instance of that template in your scene at once.
+Templates made by other people can be downloaded from **Community Content** and re-used as anything you like. This is a great way to focus on getting to your final idea faster than creating everything from scratch!
 
-Updating templates is based only in your project. If you wish to update a template across the platform, you must select the template in the Project Content Folder and click the Republish button in the Properties menu.
+If you wish to publish a re-used template to Community Content, it must be as its own new and separate template.
 
-To update a template, simply right click on an altered template, deinstanced or not and select "Update template from this". You should be able to see all the instances of that template change in your scene!
-
-#### Downloading Latest
-
-If another creator has re-published their template across the platform, in order to assign the changes to the template in your project you must download the latest version of the shared template.
-
-To download the latest template, either right click on the template in Asset Manifest and select Download Latest OR select the template and click the Download Latest Button.
+![Community Content Template](../../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
