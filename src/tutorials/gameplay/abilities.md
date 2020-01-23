@@ -6,7 +6,6 @@ categories:
     - Tutorial
 ---
 
-<!--  TODO: Images & GIFs are outdated -->
 # Abilities in CORE
 
 ## Overview
@@ -47,7 +46,7 @@ Adding a simple ability to a game is only a couple of steps. We'll go over how t
 
 We're going to make a piece of equipment that the player can pick up, and when they do, they will gain a new ability.
 
-For this tutorial, we are going to make the player do a dance.
+For this tutorial, we are going to make the player wave hello.
 
 ### Getting Started with Equipment
 
