@@ -251,8 +251,6 @@ Here's the entire Hierarchy at this point:
 
 ![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center}
 
-!!! note "The order of items in the Hierarchy is the order in which they'll be executed. Scripts dealing with game logic are best placed at the top!"
-
 Let's make a script for game logic, create a new one called `CoinGameLogic` and add the following code:
 
 ```lua
