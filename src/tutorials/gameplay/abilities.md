@@ -6,7 +6,6 @@ categories:
     - Tutorial
 ---
 
-<!--  TODO: Images & GIFs are outdated -->
 # Abilities in CORE
 
 ## Overview
@@ -27,7 +26,7 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
     * How to use an animation
     * How to set up UI connected to an ability
 
-![Dance](../../img/EditorManual/Abilities/dance.gif){: .center}
+![Wave](../../img/EditorManual/Abilities/unarmed_wave.gif){: .center}
 
 ---
 
@@ -47,7 +46,7 @@ Adding a simple ability to a game is only a couple of steps. We'll go over how t
 
 We're going to make a piece of equipment that the player can pick up, and when they do, they will gain a new ability.
 
-For this tutorial, we are going to make the player do a dance.
+For this tutorial, we are going to make the player wave hello.
 
 ### Getting Started with Equipment
 
@@ -62,7 +61,7 @@ For this tutorial, we are going to make the player do a dance.
 
 2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".
 
-    Change the **Socket** property from "topper" to "pelvis".
+    Change the **Socket** property from "head" to "pelvis".
 
     The **Socket** property determines _where_ the equipment will be attached to the player--we want the equipment to disappear, so for simplicity we will attach it somewhere that it will be hidden by the player's body.
 
@@ -92,7 +91,7 @@ For this tutorial, we are going to make the player do a dance.
 
          ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
-     4. Right click the Art folder, and hover over Create Network Context to select "New Client Context Containing This" to ensure better performance for the game by wrapping the art in a Client Context.
+     4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
 
          Now that we've created a visible object that can be picked up, it needs to do something!
 
@@ -102,21 +101,29 @@ For this tutorial, we are going to make the player do a dance.
 
          ![Ability Object in Hierarchy](../../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
 
-    2. Rename the `Ability` object to "Dance" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
+    2. Rename the `Ability` object to "Wave" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
-    Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the dance animation.
+    Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the wave animation.
 
-5. The `Ability` object starts with default settings in the **Properties** window. To make our own dance, we only need to change two things.
+5. The `Ability` object starts with default settings in the **Properties** window. To make our own wave, we only need to change two things.
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
 
          The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the `shift` key on keyboards.
 
-    2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_dance`.
+    2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_wave`.
 
          ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
 
-    **Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to do a dance!
+6. Abilities also affect how the camera works when the ability is used, and in the case of this wave animation, it would be nice to be able to face the camera when we do it. To make sure this happens:
+
+    1. With the ability selected, in the **Properties** window, scroll down to the **Cast** section. We want to change the Facing Mode from _Aim_ to **_None_** so that our camera is not affected in that stage of the ability.
+
+         ![Facing Mode](../../img/EditorManual/Abilities/FacingModeNone.png "Change the Facing Mode to "None.""){: .center}
+
+    2. Do the same thing to the Facing Mode in the **Execute** section.
+
+**Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to wave hello!
 
 !!! info "Good Object Placement"
     If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
@@ -149,7 +156,7 @@ When the `Ability` is in the Cooldown phase, it will darken the ability button a
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps:
 
-1. In **CORE Content**, search for the **Ability Binding Display** object, and drag this into your **Hierarchy**. It can also be found in the category Game Components > UI.
+1. In **CORE Content**, search for the **Ability Display** object, and drag this into your **Hierarchy**. It can also be found in the category Game Components > UI.
 
 2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
 
@@ -157,7 +164,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     1. Change the **Binding** property from `ability_primary` to `ability_feet`.
     2. Change the **Text** field to `Shift`, to stand for Left Shift.
-    3. Check the **ShowAbilityName** property, so that "Dance" will display over the button.
+    3. Check the **ShowAbilityName** property, so that "Wave" will display over the button.
 
     What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
 
@@ -165,13 +172,15 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of CORE's other built-in UI icons.
 
-    In my case, I chose the "Icon Wind" image!
+    In my case, I chose the "Icon hand" image!
 
     ![Hierarchy](../../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center}
 
 Now the UI element will update automatically once the ability is cast.
 
 **Congrats on creating your first ability!** You are well on your way to making anything you can imagine a reality.
+
+![Wave Full](../../img/EditorManual/Abilities/unarmed_wave_full.gif){: .center}
 
 ---
 
@@ -196,4 +205,4 @@ To create a more advanced ability system and read more about Ability objects, re
 
 ## Examples
 
-* **[Spellshock](https://www.coregames.com/games)** includes advanced abilities using ability objects.
+* **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
