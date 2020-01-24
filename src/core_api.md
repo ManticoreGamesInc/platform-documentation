@@ -206,8 +206,21 @@ An RGBA representation of a color. Color components have an effective range of `
 | `b` | Number | The Blue component of the Color. | Read-Write |
 | `a` | Number | The Alpha (transparency) component of the Color. | Read-Write |
 
-!!! note Predefined Colors
-    Predefined colors include: Color.WHITE, Color.GRAY, Color.BLACK, Color.TRANSPARENT, Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BROWN, Color.PINK, Color.TAN, Color.RUBY, Color.EMERALD, Color.SAPPHIRE, Color.SILVER, Color.SMOKE.
+#### Predefined Colors
+
+| HEX Value | Enum Name | HEX Value | Enum Name |
+| --- | --- | --- | --- |
+| :fa fa-square:{: .Color_WHITE } `#ffffffff` | Color.WHITE            | :fa fa-square:{: .Color_ORANGE }`#cc4c00ff` | Color.ORANGE |
+| :fa fa-square:{: .Color_GRAY } `#7f7f7fff` | Color.GRAY              | :fa fa-square:{: .Color_PURPLE }`#4c0099ff` | Color.PURPLE |
+| :fa fa-square:{: .Color_BLACK } `#000000ff` | Color.BLACK            | :fa fa-square:{: .Color_BROWN } `#721400ff` | Color.BROWN |
+| :fa fa-square:{: .Color_TRANSPARENT }`#ffffff00` | Color.TRANSPARENT | :fa fa-square:{: .Color_PINK } `#ff6666ff` | Color.PINK |
+| :fa fa-square:{: .Color_RED } `#ff0000ff` | Color.RED                 | :fa fa-square:{: .Color_TAN } `#e5bf4cff` | Color.TAN |
+| :fa fa-square:{: .Color_GREEN } `#00ff00ff` | Color.GREEN            | :fa fa-square:{: .Color_RUBY } `#660101ff` | Color.RUBY |
+| :fa fa-square:{: .Color_BLUE } `#0000ffff` | Color.BLUE              | :fa fa-square:{: .Color_EMERALD } `#0c660cff` | Color.EMERALD |
+| :fa fa-square:{: .Color_CYAN } `#00ffffff` | Color.CYAN              | :fa fa-square:{: .Color_SAPPHIRE }`#02024cff` | Color.SAPPHIRE |
+| :fa fa-square:{: .Color_MAGENTA} `#ff00ffff` | Color.MAGENTA         | :fa fa-square:{: .Color_SILVER }`#b2b2b2ff` | Color.SILVER |
+| :fa fa-square:{: .Color_YELLOW }`#ffff00ff` | Color.YELLOW           | :fa fa-square:{: .Color_SMOKE } `#191919ff` | Color.SMOKE |
+
 
 ### CoreObject
 
