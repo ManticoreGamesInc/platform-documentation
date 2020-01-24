@@ -31,9 +31,7 @@ _Start Here: [Create your first game](getting_started/my_first_multiplayer_game.
     </figure>
     <figure>
         <a href="tutorials/gameplay/abilities/" title="Abilities">
-            <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
-                <source src="img/EditorManual/Abilities/FullProcess.mp4" type="video/mp4" alt="Create an Ability"/>
-            </video>
+            <img src="img/EditorManual/Abilities/unarmed_wave.gif" alt="Create an Ability"/>
             <figcaption><em>Create an Ability</em></figcaption>
         </a>
     </figure>
