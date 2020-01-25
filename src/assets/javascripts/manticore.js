@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     btn.addEventListener("click", function(e) {
         e.preventDefault()
         e.stopImmediatePropagation()
-        window.scroll({ top: 0, left: 0, behavior: "smooth" })
+        window.scroll({ top: 0, left: 0, behavior: "auto" })
     })
 
     // Add an icon to all external links
