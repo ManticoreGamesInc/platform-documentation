@@ -274,7 +274,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | bool | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
-| `SetNetworkedCustomProperty(string propertyName, value)` | None | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server-Only |
+| `SetNetworkedCustomProperty(string propertyName, value)` | bool | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server-Only |
 | `AttachToPlayer(Player, string socketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Dynamic |
 | `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only, Dynamic |
 | `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. | Dynamic |
@@ -1036,7 +1036,7 @@ A two-component vector that can represent a position or direction.
 | `Vector2 / Vector2` | Vector2 | Component-wise division. | None |
 | `Vector2 / Number` | Vector2 | Divides each component of the Vector2 by the right-side Number. | None |
 | `-Vector2` | Vector2 | Returns the negation of the Vector2. | None |
-| `Vector2 .. Vector2` | Vector2 | Returns the dot product of the Vector2s. | None |
+| `Vector2 .. Vector2` | Number | Returns the dot product of the Vector2s. | None |
 | `Vector2 ^ Vector2` | Vector2 | Returns the cross product of the Vector2s. | None |
 
 | Property | Return Type | Description | Tags |
@@ -1083,7 +1083,7 @@ A three-component vector that can represent a position or direction.
 | `Vector3 / Vector3` | Vector3 | Component-wise division. | None |
 | `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. | None |
 | `-Vector3` | Vector3 | Returns the negation of the Vector3. | None |
-| `Vector3 .. Vector3` | Vector3 | Returns the dot product of the Vector3s. | None |
+| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
 | `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. | None |
 
 | Property | Return Type | Description | Tags |
@@ -1129,7 +1129,7 @@ A four-component vector.
 | `Vector4 / Vector4` | Vector4 | Component-wise division. | None |
 | `Vector4 / Number` | Vector4 | Divides each component of the Vector4 by the right-side Number. | None |
 | `-Vector4` | Vector4 | Returns the negation of the Vector4. | None |
-| `Vector4 .. Vector4` | Vector4 | Returns the dot product of the Vector4s. | None |
+| `Vector4 .. Vector4` | Number | Returns the dot product of the Vector4s. | None |
 | `Vector4 ^ Vector4` | Vector4 | Returns the cross product of the Vector4s. | None |
 
 | Property | Return Type | Description | Tags |
