@@ -299,15 +299,17 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `name` | string | The object's name as seen in the Hierarchy. | Read-Write, Dynamic |
 | `id` | string | The object's MUID. | Read-Only |
 | `parent` | CoreObject | The object's parent object, may be nil. | Read-Write, Dynamic |
-| `isVisible` | bool | Turn on/off the rendering of an object and its children. | Read-Write, Dynamic |
-| `isCollidable` | bool | Turn on/off the collision of an object and its children. | Read-Write, Dynamic |
+| `isVisible` | bool | See `visibility`. | Read-Write, Dynamic, **Deprecated** |
+| `visibility` | bool | Turn on/off the rendering of an object and its children. Values: `FORCE_ON`, `FORCE_OFF`, `INHERIT`. | Read-Write, Dynamic |
+| `isCollidable` | bool | See `collision`. | Read-Write, Dynamic, **Deprecated** |
+| `collision` | bool | Turn on/off the collision of an object and its children. Values: `FORCE_ON`, `FORCE_OFF`, `INHERIT`. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
 | `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
 | `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only |
 | `isServerOnly` | bool | If true, this object was spawned on the server and is not replicated to clients. | Read-Only |
 | `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only |
 | `lifeSpan` | Number | Duration after which the object is destroyed. | Read-Write, Dynamic |
-| `sourceTemplateId` | string | The ID of the Template from which this CoreObject was instantiated. nil if the object did not come from a Template. | Read-Only |
+| `sourceTemplateId` | string | The ID of the Template from which this CoreObject was instantiated. `nil` if the object did not come from a Template. | Read-Only |
 
 ### CoreObjectReference
 
@@ -764,7 +766,7 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 
 ### SmartObject
 
-SmartObject is a top-level container for some complex objects and inherits everything from CoreObject. Note that some properties, such as `isCollidable` or `isVisible`, may not be respected by a SmartObject.
+SmartObject is a top-level container for some complex objects and inherits everything from CoreObject. Note that some properties, such as `collision` or `visibility`, may not be respected by a SmartObject.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
