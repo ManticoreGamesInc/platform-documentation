@@ -38,7 +38,6 @@ title: Patch Notes
 - Adding "Orbit around selection" option to camera controls and toolbar.
 - Two new experimental root motion ability animations: "unarmed_roll" and "unarmed_kick_ball".
 - Added a Settings button to the drop-down menu in the upper-right corner of the launcher.
-- "Inherit from Parent" visibility/collision option now displays resulting value in option text.
 
 ### CORE Content
 - Two new characters have been added to CORE: Cruze and Cobra.
@@ -110,8 +109,8 @@ title: Patch Notes
 - Fixed uncommon client crash when equipment is modified.
 - Fixed player falling through floor when respawning in place.
 - Fixed terrain error message about size limits.
-- Fixed for manipulator crash.
-- Fixed to prevent debris physics objects stopping projectiles.
+- Fix for manipulator crash.
+- Fix to prevent debris physics objects stopping projectiles.
 - Physics objects now have the correct icon in the hierarchy.
 - <kbd>CTRL</kbd> + <kbd>A</kbd> in the viewport will now highlight objects in the hierarchy as well.
 - Fixed case resulting in incorrect non-uniform scale error.
