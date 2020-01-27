@@ -300,9 +300,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `id` | string | The object's MUID. | Read-Only |
 | `parent` | CoreObject | The object's parent object, may be nil. | Read-Write, Dynamic |
 | `isVisible` | bool | See `visibility`. | Read-Write, Dynamic, **Deprecated** |
-| `visibility` | bool | Turn on/off the rendering of an object and its children. Values: `FORCE_ON`, `FORCE_OFF`, `INHERIT`. | Read-Write, Dynamic |
+| `visibility` | enum | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write, Dynamic |
 | `isCollidable` | bool | See `collision`. | Read-Write, Dynamic, **Deprecated** |
-| `collision` | bool | Turn on/off the collision of an object and its children. Values: `FORCE_ON`, `FORCE_OFF`, `INHERIT`. | Read-Write, Dynamic |
+| `collision` | enum | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
 | `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
 | `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only |
@@ -1207,21 +1207,6 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `spreadDecreaseSpeed` | Number | Speed at which the spread contracts back from its current value to the minimum cone size. | Read-Only |
 | `spreadIncreasePerShot` | Number | Amount the spread increases each time the Weapon attacks. | Read-Only |
 | `spreadPenaltyPerShot` | Number | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
-
-| Function | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `GetHitResult()` | HitResult | Physics information about the impact between the Weapon and the other object. | None |
-| `GetHitResults()` | Array&lt;HitResult&gt; | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
-
-| Property | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `targetObject` | Object | Reference to the CoreObject/Player hit by the Weapon. | Read-Only |
-| `projectile` | Projectile | Reference to a Projectile, if one was produced as part of this interaction. | Read-Only |
-| `sourceAbility` | Ability | Reference to the Ability which initiated the interaction. | Read-Only |
-| `weapon` | Weapon | Reference to the Weapon that is interacting. | Read-Only |
-| `weaponOwner` | Player | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
-| `travelDistance` | Number | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
-| `isHeadshot` | bool | True if the Weapon hit another player in the head. | Read-Only |
 
 ### WorldText
 
