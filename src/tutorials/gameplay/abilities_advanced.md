@@ -8,11 +8,6 @@ categories:
 
 # Advanced Abilities in CORE
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-    TODO: Add & Update Images
-
 ## Overview
 
 While both weapons and abilities can be utilized without having to code, if you *do* use scripting, so much more is possible.
@@ -21,13 +16,22 @@ With the power of Lua scripting, abiliites can cause different chains of events 
 
 In the first tutorials for abilities and weapons, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
 
-If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](/tutorials/gameplay/lua_basics_lightbulb/)**. This will go over some key words and practices you would want to know.
+If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](lua_basics_lightbulb.md)**. This will go over some key words and practices you would want to know.
 
 ![Full Fire Staff](../../img/EditorManual/Weapons/FireStaff.gif){: .center}
 
+* **Completion Time:** ~30 minutes
+* **Knowledge Level:** No knowledge *absolutely* required, but would be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** and completion of the first **[Weapons](weapons.md)** tutorial
+* **Skills you will learn:**
+    * How the Ability system works behind-the-scenes
+    * How to program abilities
+    * How to manipulate the camera view
+    * How to program damage changes
+    * How to make ammo into a pickup for reloading
+
 ---
 
-Before doing this tutorial, make sure you've already gone through the Ability tutorial and the Weapon tutorial to understand the basics of how these things work.
+Before doing this tutorial, make sure you've already gone through the **[Ability](abilities.md)** tutorial and the **[Weapon](weapons.md)** tutorial to understand the basics of how these things work.
 
 We're going to be making a more complex `weapon` that utilizes scripting, and has multiple abilities.
 
@@ -106,7 +110,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 3. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
 
-    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](/tutorials/art/modeling_basics/)** or **[Reference](/tutorials/art/art_reference/)**.
+    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](../art/modeling_basics.md)** or **[Reference](../art/art_reference.md)**.
 
     Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
@@ -128,7 +132,7 @@ Since we're making a magic staff and not a typical gun, we get to change the ani
 
 ### Explosive Visual Effects
 
-Use the **[VFX section](/tutorials/gameplay/weapons/#adding-visual-effects)** of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:
+Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:
 
 1. The **Muzzle Flash Template**
 
@@ -685,25 +689,25 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
         Here is the whole complete function--add this to your script beneath the variables:
 
         ```lua
-        local function OnWeaponInteraction(weapon,weaponInteraction)
-            local target = weaponInteraction.targetObject
+        local function OnTargetImpacted(weapon,impactData)
+            local target = impactData.targetObject
 
             -- Apply damage to target if it's a player
             if Object.IsValid(target) and target:IsA("Player") then
 
-                local weaponOwner = weaponInteraction.weaponOwner
-                local numberOfHits = #weaponInteraction:GetHitResults()
+                local weaponOwner = impactData.weaponOwner
+                local numberOfHits = #impactData:GetHitResults()
 
                 -- Assign a headshot damage if projectile hit enemy's head
                 local damage = DAMAGE_AMOUNT
-                if weaponInteraction.isHeadshot then
+                if impactData.isHeadshot then
                     damage = DAMAGE_HEADSHOT
                 end
 
             -- Creating damage information
             local newDamageInfo = Damage.New(damage * numberOfHits)
             newDamageInfo.reason = DamageReason.COMBAT
-            newDamageInfo.sourceAbility = weaponInteraction.sourceAbility
+            newDamageInfo.sourceAbility = impactData.sourceAbility
             newDamageInfo.sourcePlayer = weaponOwner
 
             -- Apply damage to the enemy player
@@ -715,7 +719,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
     4. Finally, we're going to connect the function we just made to the built-in event on the weapon:
 
         ```lua
-        WEAPON.targetInteractionEvent:Connect(OnWeaponInteraction)
+        WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
         ```
 
 4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.
@@ -814,9 +818,9 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 ### Connecting UI
 
-You'll probably want to set up User Interface (UI) for your fire staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](/tutorials/gameplay/abilities/#core-component-ability-display)**'s section on UI.
+You'll probably want to set up User Interface (UI) for your fire staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](abilities.md#core-component-ability-display)**'s section on UI.
 
 ## Examples
 
-* [**Spellshock**](https://www.coregames.com/games) includes advanced abilities using ability objects.
+* **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
 * **CORE Content** includes pre-made and ready-to-use weapons! Check in Game Components Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
