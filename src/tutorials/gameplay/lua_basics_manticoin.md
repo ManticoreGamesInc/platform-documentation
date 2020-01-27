@@ -297,9 +297,9 @@ local settings = script:GetCustomProperty("Gameplay Settings"):WaitForObject()
 local function OnChanged(settings, key)
 	gameOver = settings:GetCustomProperty("gameOver")
     if gameOver == true then
-	    ui.isVisible = true
+	    ui.visibility = Visibility.FORCE_ON
     else
-    	ui.isVisible = false
+    	ui.visibility = Visibility.FORCE_OFF
     end
 end
 
