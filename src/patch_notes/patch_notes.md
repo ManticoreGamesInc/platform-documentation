@@ -26,6 +26,11 @@ title: Patch Notes
             - `#!lua WEAPON.targetInteractionEvent:Connect(OnProjectileInteracted)` -> `#!lua WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)`
 - A lot of bug fixes!
 
+## About Deprecations during Alpha
+
+We will sometimes need to deprecate code during the course of development.
+Games using deprecated features will continue to work for the near future, but may produce deprecation warnings. Deprecated features may be removed entirely down the line; we recommend affected games eventually remove the feature/code!
+
 ## New Features
 
 ### API
