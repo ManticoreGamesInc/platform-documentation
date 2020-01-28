@@ -1,14 +1,14 @@
 
 # If you add or remove a page, you must also add or remove in mkdocs.yml.
 nav:
-  - Patch Notes:
-    - Patch Notes: https://forums.manticoreplatform.com/c/community/patch-notes/7
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
       - Editor Key Bindings: editor_keybindings.md
       - Troubleshooting: getting_started/troubleshooting.md
+  - Patch Notes:
+      - Patch Notes: https://forums.manticoreplatform.com/c/community/patch-notes/7
   - Forums:
       - Forums: https://forums.manticoreplatform.com/
   - Events:
