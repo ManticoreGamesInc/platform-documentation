@@ -3,20 +3,19 @@
 nav:
   - index.md
   - Patch Notes:
-    - Latest: patch_notes/patch_notes.md
-    - January 15th 2020: patch_notes/january_15_2020.md
-    - January 7th 2020: patch_notes/january_7_2020.md
-    - December 17th 2019: patch_notes/december_17_2019.md
+    - Patch Notes: https://forums.manticoreplatform.com/c/community/patch-notes/7
   - Getting Started:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
       - Editor Key Bindings: editor_keybindings.md
       - Troubleshooting: getting_started/troubleshooting.md
-  - Community & Events:
-      - Discord: discord.md
-      - ManticoreTV: manticoretv.md
-      - Game Jams: events/game_jam.md
+  - Forums:
+      - Forums: https://forums.manticoreplatform.com/
+  - Events:
+      - Events: https://forums.manticoreplatform.com/c/community/events/6
+  - ManticoreTV:
+      - ManticoreTV: https://forums.manticoreplatform.com/t/what-is-manticoretv/39
   - CORE API:
       - API Overview: core_api.md
       - Game Components: api/components.md
@@ -133,8 +132,15 @@ plugins:
   - search
   - redirects:
         redirect_maps:
-            getting_started.md: https://www.coregames.com/docs/getting_started/editor_intro/
-            news/showcase/just_getting_started.md: https://www.coregames.com/docs/showcase/just_getting_started/
+            getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
+            news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
+            patch_notes/patch_notes.md: https://forums.manticoreplatform.com/c/community/patch-notes/7
+            patch_notes/january_15_2020.md: https://forums.manticoreplatform.com/t/alpha-update-3-january-15th-2020/64
+            patch_notes/january_7_2020.md: https://forums.manticoreplatform.com/t/alpha-update-2-january-7th-2020/55
+            patch_notes/december_17_2019.md: https://forums.manticoreplatform.com/t/alpha-update-1-december-17th-2019/54
+            discord.md: https://forums.manticoreplatform.com/t/discord-server/66/
+            manticoretv.md: https://forums.manticoreplatform.com/t/what-is-manticoretv/39
+            events/game_jam.md: https://forums.manticoreplatform.com/c/community/events/6
 
 # Docs dir
 docs_dir: src
