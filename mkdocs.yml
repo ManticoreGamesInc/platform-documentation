@@ -1,7 +1,6 @@
 
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml.
 nav:
-  - index.md
   - Patch Notes:
     - Patch Notes: https://forums.manticoreplatform.com/c/community/patch-notes/7
   - Getting Started:
@@ -48,8 +47,6 @@ nav:
       #- Networking: tutorials/gameplay/networking_reference.md
       #- Performance: tutorials/gameplay/performance_reference.md
       - Examples & Snippets: tutorials/examples.md
-      - Community Created:
-          - Overview: tutorials/community_created/community_created.md
   - FAQ:
     - faq.md
 
@@ -153,12 +150,12 @@ repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/production/src
 
 # Metadata
-site_description: Documentation for the CORE Platform
-site_author: Manticore Games
+site_description: Documentation & Tutorials for the CORE Platform
+site_author: Manticore Games, Inc.
 site_url: https://dev.manticoreplatform.com/docs/
 
 # Copyright
-copyright: "&copy; 2020 Manticore Games. CORE&trade; is a trademark of Manticore Games."
+copyright: "&copy; 2020 Manticore Games, Inc. CORE&trade; is a trademark of Manticore Games."
 
 # Google Analytics
 google_analytics:
