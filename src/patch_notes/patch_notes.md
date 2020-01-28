@@ -11,7 +11,7 @@ title: Patch Notes
 - The <kbd>SHIFT</kbd> + <kbd>X</kbd> hotkey to place objects in the viewport now takes into account extra settings from the Object Generator tab like "Only Spawn On Terrain", "Randomize Scale" etc.
 - **Breaking Change**:
     - `#!lua isVisible` property has been deprecated. Replacement is the `#!lua visibility` property. Possible values: `#!lua Visibility.FORCE_ON/FORCE_OFF/INHERIT`.
-    - `#!lua isCollidable` property has been deprecated. Replacement is the `#!lua collision` property. Possible values: `Collision.FORCE_ON/FORCE_OFF/INHERIT`.
+    - `#!lua isCollidable` property has been deprecated. Replacement is the `#!lua collision` property. Possible values: `#!lua Collision.FORCE_ON/FORCE_OFF/INHERIT`.
     - `#!lua targetInteractionEvent<WeaponInteraction>` has been deprecated. Replacement is `#!lua targetImpactedEvent<Weapon, ImpactData>`.
     - `#!lua WeaponInteraction` type has been renamed to `#!lua ImpactData`.
     - `#!lua targetImpactedEvent` returns the parameters `#!lua <Weapon, ImpactData>` instead of `#!lua <WeaponInteraction>` to ensure consistency with other events.
