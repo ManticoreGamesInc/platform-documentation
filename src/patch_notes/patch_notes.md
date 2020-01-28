@@ -7,6 +7,7 @@ title: Patch Notes
 # Alpha Update 4: January 28th 2020
 
 ## Highlights
+
 - Added "Last Man Standing" framework.
 - The <kbd>SHIFT</kbd> + <kbd>X</kbd> hotkey to place objects in the viewport now takes into account extra settings from the Object Generator tab like "Only Spawn On Terrain", "Randomize Scale" etc.
 - **Breaking Change**:
@@ -34,9 +35,11 @@ Games using deprecated features will continue to work for the near future, but m
 ## New Features
 
 ### API
+
 - Creators can now set `collision` / `visibility` to "Force On," "Force Off," or "Inherit From Parent".
 
 ### Editor
+
 - Added "Last Man Standing" framework.
 - The <kbd>SHIFT</kbd> + <kbd>X</kbd> hotkey to place objects in the viewport now takes into account extra settings from the Object Generator tab like "Only Spawn On Terrain", "Randomize Scale" etc.
 - Added a volume slider to the Options menu.
@@ -45,6 +48,7 @@ Games using deprecated features will continue to work for the near future, but m
 - Added a Settings button to the drop-down menu in the upper-right corner of the launcher.
 
 ### CORE Content
+
 - Two new characters have been added to CORE: Cruze and Cobra.
 - Added new "Unexplored Wasteland Layers" kit.
 - Added several melee weapon props to the 3D Objects folder: A pipe, bat, crowbar, knife, and axe! Knife and axe are each split into a handle and a blade object.
@@ -59,10 +63,11 @@ Games using deprecated features will continue to work for the near future, but m
 ## Changes
 
 ### API
+
 - The `Respawned` event will now fire on both server and client.
 - **Breaking Change**:
-    - `#!lua isVisible` property has been deprecated. Replacement is `visibility` the property. Possible values: `#!lua Visibility.FORCE_ON/FORCE_OFF/INHERIT`.
-    - `#!lua isCollidable` property has been deprecated. Replacement is `collision` the property. Possible values: `#!lua Collision.FORCE_ON/FORCE_OFF/INHERIT`.
+    - `#!lua isVisible` property has been deprecated. Replacement is the `visibility` property. Possible values: `#!lua Visibility.FORCE_ON/FORCE_OFF/INHERIT`.
+    - `#!lua isCollidable` property has been deprecated. Replacement is the `collision` property. Possible values: `#!lua Collision.FORCE_ON/FORCE_OFF/INHERIT`.
     - `#!lua targetInteractionEvent<WeaponInteraction>` has been deprecated. Replacement is `#!lua targetImpactedEvent<Weapon, ImpactData>`.
     - `#!lua WeaponInteraction` type has been renamed to `#!lua ImpactData`.
     - `#!lua targetImpactedEvent` returns the parameters `#!lua <Weapon, ImpactData>` instead of `#!lua <WeaponInteraction>` to ensure consistency with other events.
@@ -77,6 +82,7 @@ Games using deprecated features will continue to work for the near future, but m
             - `#!lua WEAPON.targetInteractionEvent:Connect(OnProjectileInteracted)` -> `#!lua WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)`
 
 ### Editor
+
 - Key bindings for "Fly Down" and "Swim Down" now default to <kbd>CTRL (Left)</kbd>.
 - All subfolders in the CORE Content tab are now sorted by name.
 - <kbd>ALT</kbd> + <kbd>Mouse Right</kbd> dragging now zooms in for down/right movement (and vice versa).
@@ -88,6 +94,7 @@ Games using deprecated features will continue to work for the near future, but m
     - Enabling "Orbit around selection" in the camera controls will always use the center of whatever you have selected instead of the focal point.
 
 ### CORE Content
+
 - Updated advanced weapons with new API visibility calls.
 - Polished and updated Battle Royale and Deathmatch framework.
 - Faucet water material now uses a vector instead of a color for bubble direction.
@@ -105,12 +112,14 @@ Games using deprecated features will continue to work for the near future, but m
 ## Fixes
 
 ### API
+
 - The `#!lua Events.Broadcast*` family of functions should now properly send player arguments in preview mode.
 - Note: The size of a Player argument as transmitted over the wire has gone up to correct certain behavior, but this means that it is possible for scripts that previously worked to now fail if they are firing events with `Player` arguments. Some calls that previously returned `#!lua BroadcastEventResultCode.SUCCESS` may now return `#!lua BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT` because of that.
-- `Game.GetTeamScore()` now returns the correct result when called on server during `Game.teamScoreChangedEvent`. (Reported by Seth Leyens)
+- `#!lua Game.GetTeamScore()` now returns the correct result when called on server during `#!lua Game.teamScoreChangedEvent`. (Reported by Seth Leyens)
 - Fixed `CoreObject` events missing from `Ability` instances. (Reported by RaMo)
 
 ### Editor
+
 - Fixed uncommon client crash when equipment is modified.
 - Fixed player falling through floor when respawning in place.
 - Fixed terrain error message about size limits.
@@ -123,7 +132,8 @@ Games using deprecated features will continue to work for the near future, but m
 - Fixed a bug that caused every category to appear selected upon opening the Settings menu.
 
 ### CORE Content
+
 - Falling Leaves VFX: Non-burning leaves should now not have edge highlight colors when eroding and now work properly for all LODs.
-- Basic Explosion:  Now respects local space flag.
-- Gameplay: Fixed Users are not taking damage on their lower halves.
+- Basic Explosion: Now respects local space flag.
+- Gameplay: Fixed Users not taking damage on their lower halves.
 - Improved tiling/repeating UVs on arcade cube models. These objects will now look better with a wider range of materials. May cause weirdness to existing material changes on arcade cubes, but only to material display size.
