@@ -23,13 +23,11 @@
 - [Editor Extensions](../extensions.md)
 - [Examples and Snippets](../tutorials/examples.md)
 
-
 ## Tutorial
 
 - [Community Content in CORE](../getting_started/community_content.md)
 - [Introduction to the CORE Editor](../getting_started/editor_intro.md)
 - [My First Multiplayer Game](../getting_started/my_first_multiplayer_game.md)
-- [Community Tutorials](../tutorials/community_created/community_created.md)
 - [Abilities in CORE](../tutorials/gameplay/abilities.md)
 - [Advanced Abilities in CORE](../tutorials/gameplay/abilities_advanced.md)
 - [Scripting in CORE](../tutorials/gameplay/lua_basics_lightbulb.md)
