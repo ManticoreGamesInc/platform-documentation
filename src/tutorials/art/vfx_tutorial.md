@@ -12,15 +12,22 @@ categories:
 
 A huge benefit to CORE is the vast amount of visual effects that are built-in and easily editable. You get to start with high quality effects that already exist, and truly make them your own.
 
-Our team at Manticore has built a huge level map that you can explore at any time to see just some of the ways that all of our different VFX could be used.
+Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different VFX could be used.
 
 To get a tour of what is possible with visual effects in CORE, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
 
 **[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
 
-While the map explains many useful things about how to use all the visual effects, this page will go step-by-step through two different ways to use Lua in CORE to make something awesome.
+While the map explains many useful things about how to use all the visual effects, this page includes a video tutorial on how to make wicked cool vfx in CORE using Lua.
 
-![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center}
+<div class="figure-block">
+    <figure>
+        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfxTrails.mp4" type="video/mp4" alt="Whispy Trail VFX"/>
+        </video>
+        <figcaption><em>Trail VFX in CORE</em></figcaption>
+    </figure>
+</div>
 
 ### Dozens of Built-In Effects
 
@@ -53,7 +60,7 @@ Don't be afraid to use any effect for any purpose though--don't let categories r
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
-![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "CORE Content Dropdowns"){: .center}
+![CORE Content Dropdowns](../../img/VFXtutorial/DropDownArrows.png "CORE Content Dropdowns"){: .center}
 
 To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
@@ -61,20 +68,14 @@ All VFX have a ***Play*** button at the top of their **Properties** window, so t
 
 #### Special Effect Materials
 
-Besides all of the more-literal visual effects that CORE includes, there is also a categorey of materials that lend themselves nicely to VFX:
+Besides all of the more literal visual effects that CORE includes, there is also a categorey of Materials that lend themselves nicely to VFX, the SpecialEffects materials:
 
-### Tutorial Part One: A Constant VFX
+![Special Effect Materials](../../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center}
 
-Let's make a VFX that plays constantly, combined of several parts!
+Use these in combination with the Effects objects to get even more variety out of what you can make.
 
-We'll combine several different effects, change lots of the settings, and display several of it around a level.
+---
 
-Perhaps we'll make a torch and light a scene in the darkness.
+### Tutorial Video:
 
-Blue demon flames, perhaps? Combined with custom materials on props?
-
-### Tutorial: Part Two: A Triggerable VFX
-
-Let's make a VFX that gets triggered by the player!
-
-This time we'll make a pickup the player can grab that triggers an effect on the moment of pickup--making things much fancier.
+**Content to be added.**
