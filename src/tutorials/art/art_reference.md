@@ -148,4 +148,4 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ### Sharing the Glory: Publishing Templates
 
-To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](/tutorials/gameplay/collaboration_reference/)!
+To learn about sharing your artwork & models with other users, check out our tutorial on **[Templates](/tutorials/gameplay/collaboration_reference)**!
