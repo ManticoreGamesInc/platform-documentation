@@ -1,7 +1,6 @@
-
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml.
 nav:
-  - Getting Started:
+  - Intro to CORE:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
@@ -81,7 +80,6 @@ extra_javascript:
   - assets/javascripts/manticore.js
   - assets/javascripts/prism.js
 
-# Additional data
 extra:
   social:
     - type: discord
@@ -90,8 +88,8 @@ extra:
       link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
-    #- type: twitter
-    #  link: https://twitter.com/PlayCoreGames # TODO
+    - type: twitter
+      link: https://twitter.com/COREGames
     - type: facebook
       link: https://www.facebook.com/groups/playcoregames
 
@@ -123,7 +121,6 @@ markdown_extensions:
   - full_yaml_metadata
   - lightgallery
 
-# Plugins
 plugins:
   - git-revision-date-localized
   - search
@@ -139,25 +136,20 @@ plugins:
             manticoretv.md: https://forums.manticoreplatform.com/t/what-is-manticoretv/39
             events/game_jam.md: https://forums.manticoreplatform.com/c/community/events/6
 
-# Docs dir
 docs_dir: src
 
-# Site name
 site_name: CORE Creator Hub
 
 # Add repository for easy editing
 repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/production/src
 
-# Metadata
-site_description: Documentation & Tutorials for the CORE Platform
+site_description: Documentation & Tutorials for the CORE Platform.
 site_author: Manticore Games, Inc.
 site_url: https://dev.manticoreplatform.com/docs/
 
-# Copyright
 copyright: "&copy; 2020 Manticore Games, Inc. CORE&trade; is a trademark of Manticore Games."
 
-# Google Analytics
 google_analytics:
   - UA-142884846-4
   - auto
