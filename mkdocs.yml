@@ -47,7 +47,7 @@ nav:
       #- Performance: tutorials/gameplay/performance_reference.md
       - Examples & Snippets: tutorials/examples.md
   - FAQ:
-    - faq.md
+    - https://forums.manticoreplatform.com/t/creation-in-core-faq/83
 
 # If you make a PR, no need to change data below this point
 theme:
