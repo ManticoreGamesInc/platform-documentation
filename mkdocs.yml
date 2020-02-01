@@ -1,5 +1,6 @@
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml.
 nav:
+  - index.md
   - Intro to CORE:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
