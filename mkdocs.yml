@@ -125,6 +125,7 @@ markdown_extensions:
 plugins:
   - git-revision-date-localized
   - search
+  - autolinks
   - redirects:
         redirect_maps:
             getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
