@@ -89,8 +89,8 @@ extra:
       link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
-    - type: twitter
-      link: https://twitter.com/COREGames
+    #- type: twitter
+    #  link: https://twitter.com/COREGames
     - type: facebook
       link: https://www.facebook.com/groups/playcoregames
 
