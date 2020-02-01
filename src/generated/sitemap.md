@@ -17,7 +17,6 @@
 - [Performance Reference](../tutorials/gameplay/performance_reference.md)
 - [UI Reference](../tutorials/gameplay/ui_reference.md)
 
-
 ## Misc
 
 - [Editor Extensions](../extensions.md)
