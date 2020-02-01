@@ -48,7 +48,7 @@ nav:
       #- Performance: tutorials/gameplay/performance_reference.md
       - Examples & Snippets: tutorials/examples.md
   - FAQ:
-    - https://forums.manticoreplatform.com/t/creation-in-core-faq/83
+    - https://forums.coregames.com/t/creation-in-core-faq/83
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -136,6 +136,7 @@ plugins:
             discord.md: https://forums.manticoreplatform.com/t/discord-server/66/
             manticoretv.md: https://forums.manticoreplatform.com/t/what-is-manticoretv/39
             events/game_jam.md: https://forums.manticoreplatform.com/c/community/events/6
+            faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
 
 docs_dir: src
 
