@@ -2,6 +2,7 @@
     "default": true,
     "MD004": false,
     "MD013": { "line_length": 500, "code_blocks": false, "tables": true },
+    "MD025": { "level": 1, "front_matter_title": ""},
     "MD029": { "style": "ordered" },
     "MD007": { "indent": 4 },
     "MD046": false,
