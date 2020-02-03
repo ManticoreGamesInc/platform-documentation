@@ -26,7 +26,7 @@ Some of the most common platforms for source control are **Github** *(Git)* and 
 
 ---
 
-### Collaboration in CORE Only
+### Collaboration in CORE Itself
 
 If you're not too worried about making mistakes, or just want to share quick things, CORE has many ways to share content already built-in.
 
@@ -61,24 +61,54 @@ Setting up source control can sound intimidating if you've never done it before-
      - Use the console / command prompt to connect to github.
      - Use [Github Desktop](https://desktop.github.com/) as a visual program to pull the project and commit changes.
 
-For beginners, using Github Desktop can be much easier.
+     For beginners, using Github Desktop can be much easier. Choose a method and open it up to continue the second half of the tutorial!
 
 ### Initilizing the Repository
 
-You won't want to just initialize git in your game's folder, because with the autosave feature in CORE, a game with many revisions may experience a ~5-10 seconds delay to start a preview as a large number of files are copied into the .git folder from the autosave copies.
+For this explanation, we will continue assuming that you are using Github Desktop for managing the repository on your computer.
+
+We first need to choose a location to clone the repostory, and this will work like you might expect--we're going to make the repo within the folder where your game is located.
+
+You won't want to just initialize git inside your game's folder though, because with the autosave feature in CORE, a game with many revisions may experience a ~5-10 second delay to start a preview as a large number of files are copied into the .git folder from the autosave copies.
 
 For this reason, here are the recommended steps below:
 
 1. Close CORE before starting this process.
 
-2. Move your desired game a folder deeper in the file explorer, like so:
+2. Move your chosen game a folder deeper in the file explorer than it usually is, like so:
 
      ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\data\```
 
      *Note: "User" will be your CORE username, and you can name the last folder, called "data" in this case, whatever you want.*
 
-3. Move all the game files into the folder you just created.
+     Usually, all game files are directly in the folder with the project's name, but we want to package those files up into another folder that we have within the game project folder.
 
-4. Initialize git just outside it.
+3. Move all the game files into the folder you just created *(The one we called "data")*.
 
-It should appear the same in core, and then no worries about the autosave copies into .git slowing anything down.
+4. Open Github desktop, and click ***File > Clone Repository*** to choose where to setup your project. Navigate to your chosen game folder, in the same folder that the previous "data" folder is in.
+
+     Clone your project into that game folder.
+
+5. Now, in the file explorer, drag the "data" folder into the Git folder you just made (it will be the name of your git project). The file path should now look like:
+
+     ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GithubProject\data\```
+
+6. Return to Github Desktop and you'll see a bunch of changes show up--Github has recognized all the new files we dragged in from the "data' folder!
+
+     Add a message in the bottom left corner--something like "Adding the game!" so that you know what you did this commit. Then commit the changes to your project using the blue button, and click "Push" in the top right of the window. Now your project is officially committed safely to Github!
+
+7. Next time you make a change to the game within CORE, the changed files will show up in Github Desktop. Each time you're done working or want to commit a big change, come back to Github Desktop and commit them with a clear message!
+
+Congrats on getting set up, and happy committing!
+
+## Tips on Using CORE with Git
+
+A CORE project will work best with Git when the project **Hierarchy is very efficiently organized**.
+
+This usually means separating parts into different folders. For example, you might keep all the scripts and gameplay objects in one folder, and all art models in another separate folder.
+
+With this split, you could have one team member work on scripting a game, and the other team member work on art. As long as they stay completely within their own Hierarchy folders, they will be able to work from their own computers and commit to the same project.
+
+Here's an example of a project Hierarchy with that basic split of Gameplay / Art:
+
+![CORE Project Hierarchy](../../img/EditorManual/gitProjectHierarchy.png){: .center}
