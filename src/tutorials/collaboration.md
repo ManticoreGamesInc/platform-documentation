@@ -14,7 +14,7 @@ Working on projects with multiple people can get complicated. Now we live in the
 
 **Source control** is a way to maintain history of your projects. You can save files and make changes, but if you soon realize something went very wrong and everything is broken in your more recent changes to the project, you can use source control to return to an earlier & working version of your project. This can save months of time, with big or complex projects--or even for a solo project!
 
-Some of the most common platforms for source control are **Github** *(Git)* and **Perforce** *(P4V)*, and in this tutorial we'll go over the more straightforward and quickly accesible of the two--source control using Git.
+Some of the most common platforms for source control are **Github** *(Git)* and **Perforce** *(P4V)*, and in this tutorial we'll go over the most accesible of the two: source control using Git.
 
 !!! info "Whatever works, works!"
     There are many different kinds of source control--the term just means backing up your project as you save so that you can "go back in time" if you need to. Use whatever form of source control you feel comfortable with.
@@ -34,7 +34,7 @@ If you're working with multiple people, instead of using "formal" source control
 
 You can also publish your games privately, so that only people you give the link to can play and view it.
 
-To read more about how to do this, check out the [Templates](../../gameplay/collaboration_reference/) tutorial. Both tutorials and games could be published privately, so that you can control who may access them.
+To read more about how to do this, check out the [Templates](../../gameplay/collaboration_reference/) tutorial. Both templates and games can be published privately, so that you can control who may access them.
 
 ---
 
@@ -48,18 +48,18 @@ Setting up source control can sound intimidating if you've never done it before-
 
 2. Create a New Project on Github.
 
-     During CORE's closed alpha, you must set the project to **Private**  to maintain the Non-Disclosure Agreement.
+     *During CORE's closed alpha, you must set the project to **Private**  to maintain the Non-Disclosure Agreement.*
 
 3. Change any settings you might want--if you're starting from scratch you'll want to check the *"Initialize this repository with a README"* button.
 
 4. Now you have a GitHub project repository! This is the web location where all your files will be saved each time you commit new changes to the project.
 
-     Next is connecting a CORE project to Github by setting up the repository (often shortened to *repo*) on your computer.
+     Next is connecting a CORE project to Github by setting up the repository (often shortened to *"repo"*) on your computer.
 
-5. There are many ways to clone a github repo onto your own computer. You could:
+5. There are many ways to clone a Github repo onto your own computer. You could:
 
      - Use the console / command prompt to connect to github.
-     - Use [Github Desktop](https://desktop.github.com/) as a visual program to pull the project and commit changes.
+     - Use [Github Desktop](https://desktop.github.com/) as a visual interface to pull the project and commit changes.
 
      For beginners, using Github Desktop can be much easier. Choose a method and open it up to continue the second half of the tutorial!
 
@@ -67,7 +67,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 For this explanation, we will continue assuming that you are using Github Desktop for managing the repository on your computer.
 
-We first need to choose a location to clone the repostory, and this will work like you might expect--we're going to make the repo within the folder where your game is located.
+We first need to choose a location to clone the repostory, and this will work as you might expect--we're going to make the repo within the folder where your game is located.
 
 You won't want to just initialize git inside your game's folder though, because with the autosave feature in CORE, a game with many revisions may experience a ~5-10 second delay to start a preview as a large number of files are copied into the .git folder from the autosave copies.
 
@@ -83,9 +83,9 @@ For this reason, here are the recommended steps below:
 
      Usually, all game files are directly in the folder with the project's name, but we want to package those files up into another folder that we have within the game project folder.
 
-3. Move all the game files into the folder you just created *(The one we called "data")*.
+3. Move all the game files into the folder you just created *(the one we called "data")*.
 
-4. Open Github desktop, and click ***File > Clone Repository*** to choose where to setup your project. Navigate to your chosen game folder, in the same folder that the previous "data" folder is in.
+4. Open Github Desktop, and click ***File > Clone Repository*** to choose where to setup your project. Navigate to your chosen game folder, in the same folder that the previous "data" folder is in.
 
      Clone your project into that game folder.
 
@@ -107,8 +107,8 @@ A CORE project will work best with Git when the project **Hierarchy is very effi
 
 This usually means separating parts into different folders. For example, you might keep all the scripts and gameplay objects in one folder, and all art models in another separate folder.
 
-With this split, you could have one team member work on scripting a game, and the other team member work on art. As long as they stay completely within their own Hierarchy folders, they will be able to work from their own computers and commit to the same project.
+With this split, you could have one team member work on scripting a game, while the other team member works on art. As long as they stay completely within their own Hierarchy folders, they will be able to work from their own computers and commit to the same project.
 
-Here's an example of a project Hierarchy with that basic split of Gameplay / Art:
+Here's an example of a project Hierarchy with that basic split of Art / Gameplay:
 
 ![CORE Project Hierarchy](../../img/EditorManual/gitProjectHierarchy.png){: .center}
