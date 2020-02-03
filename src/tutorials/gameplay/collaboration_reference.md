@@ -28,8 +28,8 @@ Templates can be identified in the **CORE Content** tab by this icon: ![Template
 - **Completion Time:** 5 minutes
 - **Knowledge Level:** None needed!
 - **Skills you will learn:**
-     - How to make a template
-     - How to publish a template to Community Content & what that means
+    - How to make a template
+    - How to publish a template to Community Content & what that means
 
 ---
 
