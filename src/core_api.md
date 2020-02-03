@@ -273,6 +273,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindDescendantsByType(string typeName)` | Array&lt;CoreObject&gt; | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
 | `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | bool | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
+| `GetCustomProperties()` | table | Returns a table containing the names and values of all custom properties on a CoreObject. | None |
 | `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
 | `SetNetworkedCustomProperty(string propertyName, value)` | bool | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. | Server-Only |
 | `AttachToPlayer(Player, string socketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Dynamic |
@@ -770,6 +771,7 @@ SmartObject is a top-level container for some complex objects and inherits every
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
+| `GetSmartProperties()` | table | Returns a table containing the names and values of all smart properties on a SmartObject. | None |
 | `GetSmartProperty(string)` | value, bool | Given a property name, returns the current value of that property on a SmartObject. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found. Second return value is a bool, true if the property was found and false if not. | None |
 | `SetSmartProperty(string, value)` | bool | Sets the value of an exposed property. Value can be of type Number, bool, string, Vector3, Rotation or Color, but must match the type of the property. Returns true if the property was set successfully and false if not. | Dynamic |
 
@@ -1319,7 +1321,7 @@ Game is a collection of functions and events related to players in the game, rou
 | ----------- | ----------- | ----------- | ---- |
 | `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | Read-Only |
 | `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | Read-Only |
-| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | Fired when an ability is spawned. Useful for client contexts to hook up to ability events. | Client-Only, Read-Only |
+| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | This deprecated event is unused. | Read-Only, **Deprecated** |
 | `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | Read-Only |
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | Read-Only |
 | `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | Read-Only |
