@@ -259,10 +259,10 @@ local coinFolder = World.FindObjectByName("Coins")
 
 -- Every second check for how many coins are left in the scene
 function Tick()
-	Task.Wait(1)
-	local coinsLeft = #coinFolder:GetChildren()
+    Task.Wait(1)
+    local coinsLeft = #coinFolder:GetChildren()
     if coinsLeft == 0 then
-	    World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
+     World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
     end
 end
 ```
@@ -295,11 +295,11 @@ local ui = script.parent
 local settings = script:GetCustomProperty("Gameplay Settings"):WaitForObject()
 
 local function OnChanged(settings, key)
-	gameOver = settings:GetCustomProperty("gameOver")
+ gameOver = settings:GetCustomProperty("gameOver")
     if gameOver == true then
-	    ui.visibility = Visibility.INHERIT
+     ui.visibility = Visibility.INHERIT
     else
-    	ui.visibility = Visibility.FORCE_OFF
+     ui.visibility = Visibility.FORCE_OFF
     end
 end
 
@@ -333,11 +333,11 @@ The last step is to add the resetting logic to our main `CoinGameLogic` script. 
 ```lua
 function ResetMap()
     -- Set all coins to be enabled
-	for _, coin in pairs(coinFolder:GetChildren()) do
-		if coin ~= nil then
-			coin.isEnabled = true
-		end
-	end
+ for _, coin in pairs(coinFolder:GetChildren()) do
+  if coin ~= nil then
+   coin.isEnabled = true
+  end
+ end
 
   -- Reset rources for every player
   local players = World.GetPlayers()
@@ -377,17 +377,17 @@ We're almost there! Replace the current `Tick()` function with the following:
 -- Reset the coins and UI
 
 function Tick()
-	Task.Wait(1)
-	local coinsLeft = GetCoinsLeft()
-	if coinsLeft == 0 then
-	    World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
-		for i = 3, 0, -1 do
-			Task.Wait(1)
-			UI.PrintToScreen("New round in "..tostring(i).." seconds")
-		end
-	    World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", false)
-		ResetMap()
-	end
+    Task.Wait(1)
+    local coinsLeft = GetCoinsLeft()
+    if coinsLeft == 0 then
+        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
+        for i = 3, 0, -1 do
+            Task.Wait(1)
+            UI.PrintToScreen("New round in "..tostring(i).." seconds")
+        end
+        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", false)
+        ResetMap()
+    end
 end
 ```
 
