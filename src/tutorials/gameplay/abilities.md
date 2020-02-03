@@ -93,7 +93,7 @@ For this tutorial, we are going to make the player wave hello.
 
          ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
-     4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
+    4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
 
          Now that we've created a visible object that can be picked up, it needs to do something!
 

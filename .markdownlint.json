@@ -9,6 +9,6 @@
     "no-alt-text": true,
     "no-inline-html": false,
     "no-space-in-code": false,
-    "code-block-style": { "style": "consistent" },
+    "code-block-style": false,
     "no-blanks-blockquote": false
 }
