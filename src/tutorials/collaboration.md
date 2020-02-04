@@ -48,7 +48,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 2. Create a New Project on Github.
 
-     *During CORE's closed alpha, you must set the project to **Private**  to maintain the Non-Disclosure Agreement.*
+     *During CORE's closed alpha, you must set the project to Private to maintain the Non-Disclosure Agreement.*
 
 3. Change any settings you might want--if you're starting from scratch you'll want to check the *"Initialize this repository with a README"* button.
 
@@ -59,7 +59,7 @@ Setting up source control can sound intimidating if you've never done it before-
 5. There are many ways to clone a Github repo onto your own computer. You could:
 
      - Use the console / command prompt to connect to github.
-     - Use [Github Desktop](https://desktop.github.com/) as a visual interface to pull the project and commit changes.
+     - Use the [Github Desktop](https://desktop.github.com/) app to manage your local repository.
 
      For beginners, using Github Desktop can be much easier. Choose a method and open it up to continue the second half of the tutorial!
 
