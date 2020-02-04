@@ -54,7 +54,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 4. Now you have a GitHub project repository! This is the web location where all your files will be saved each time you commit new changes to the project.
 
-     Next is connecting a CORE project to Github by setting up the repository (often shortened to *"repo"*) on your computer.
+     Next is connecting a CORE project to GitHub by setting up the repository (often shortened to *"repo"*) on your computer.
 
 5. There are many ways to clone a Github repo onto your own computer. You could:
 
