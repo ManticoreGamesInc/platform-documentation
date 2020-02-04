@@ -85,7 +85,7 @@ For this reason, here are the recommended steps below:
 
 3. Move all the game files into the folder you just created *(the one we called "data")*.
 
-4. Open Github Desktop, and click ***File > Clone Repository*** to choose where to setup your project. Navigate to your chosen game folder, in the same folder that the previous "data" folder is in.
+4. Open GitHub Desktop, and click ***File > Clone Repository*** to choose where to setup your project. Navigate to your chosen game folder, in the same folder that the previous "data" folder is in.
 
      Clone your project into that game folder.
 
