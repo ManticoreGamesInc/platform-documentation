@@ -10,14 +10,14 @@ categories:
 
 ## Overview
 
-Working on projects with multiple people can get complicated. Now we live in the future, where *souce control* exists.
+Working on projects with multiple people can get complicated. Now we live in the future, where *source control* exists.
 
 **Source control** is a way to maintain history of your projects. You can save files and make changes, but if you soon realize something went very wrong and everything is broken in your more recent changes to the project, you can use source control to return to an earlier & working version of your project. This can save months of time, with big or complex projects--or even for a solo project!
 
 Some of the most common solutions for source control are **Git** and **Perforce**, and in this tutorial we'll go over the most accessible of the two: **Git via GitHub**.
 
 !!! info "Whatever works, works!"
-    There are many different kinds of source control--the term just means backing up your project as you save so that you can "go back in time" if you need to. Use whatever form of source control you feel comfortable with.
+    Source control (or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources. Whichever SCM system you use really comes down to personal preference.
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
@@ -46,7 +46,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 1. Go to [github.com](https://github.com/) and either log in or create a new account if you do not have one.
 
-2. Create a New Project on Github.
+2. Create a New Project on GitHub.
 
      *During CORE's closed alpha, you must set the project to Private to maintain the Non-Disclosure Agreement.*
 
