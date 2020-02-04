@@ -32,6 +32,7 @@ Games using deprecated features will continue to work for the near future, but m
 ### CORE Content
 
 - Rocket Trail VFX: Now supports lower alpha values. Smoke or Fire can now be independently controlled.
+- Added Portal VFX: Portals can be used for linking to other games or can be used in game mechanics. Supports location capture as well as live location capture.
 
 ## Changes
 
@@ -43,6 +44,15 @@ Games using deprecated features will continue to work for the near future, but m
 
 - You can no longer interact with the world while the options screen is open.
 - Updated the settings menu to only display tabs related to your current game mode.
+- Terrain Updates:
+    - Upgrade to a much newer version of terrain / voxel libraries (late January 2020 version.)
+    - Terrain brushes / editing has improved performance.
+    - Significant memory improvements when storing and manipulating terrain.
+    - New terrain edit cursor provides accurate preview of what will be sculpted (including showing falloff / brush sharpness.).
+    - Fix for some incorrect warning messages, including about invalid terrain parameters.
+    - Known issues:
+        - Level tool is currently not functional.
+        - Painting is currently not functional.
 
 ### CORE Content
 
