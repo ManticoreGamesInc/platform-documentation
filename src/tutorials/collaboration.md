@@ -93,7 +93,7 @@ For this reason, here are the recommended steps below:
 
      ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GithubProject\data\```
 
-6. Return to Github Desktop and you'll see a bunch of changes show up--Github has recognized all the new files we dragged in from the "data' folder!
+6. Return to GitHub Desktop and you'll see a bunch of changes show up--GitHub has recognized all the new files we dragged in from the "data' folder!
 
      Add a message in the bottom left corner--something like "Adding the game!" so that you know what you did this commit. Then commit the changes to your project using the blue button, and click "Push" in the top right of the window. Now your project is officially committed safely to Github!
 
