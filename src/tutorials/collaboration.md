@@ -14,7 +14,7 @@ Working on projects with multiple people can get complicated. Now we live in the
 
 **Source control** is a way to maintain history of your projects. You can save files and make changes, but if you soon realize something went very wrong and everything is broken in your more recent changes to the project, you can use source control to return to an earlier & working version of your project. This can save months of time, with big or complex projects--or even for a solo project!
 
-Some of the most common platforms for source control are **Github** *(Git)* and **Perforce** *(P4V)*, and in this tutorial we'll go over the most accesible of the two: source control using Git.
+Some of the most common solutions for source control are **Git** and **Perforce**, and in this tutorial we'll go over the most accessible of the two: **Git via GitHub**.
 
 !!! info "Whatever works, works!"
     There are many different kinds of source control--the term just means backing up your project as you save so that you can "go back in time" if you need to. Use whatever form of source control you feel comfortable with.
