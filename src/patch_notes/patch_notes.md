@@ -8,6 +8,9 @@ title: Patch Notes
 
 ## Highlights
 
+- Two new API functions,`CoreObject:GetCustomProperties()` and `SmartObject:GetSmartProperties()`.
+- A lot of bug fixes.
+
 ## About Deprecations during Alpha
 
 We will sometimes need to deprecate code during the course of development.
