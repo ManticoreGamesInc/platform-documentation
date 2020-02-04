@@ -46,17 +46,17 @@ In CORE, an ability is treated as 4 separate steps that happen immediately one r
 The 4 different phases of an ability are:
 
 * **Cast**
-     * The wind-up time--this is the prep phase before the ability actually happens.
+    * The wind-up time--this is the prep phase before the ability actually happens.
 
 * **Execute**
-     * The actual ability.
-     * Whatever the ability is going to do, it happens at this moment.
+    * The actual ability.
+    * Whatever the ability is going to do, it happens at this moment.
 
 * **Recovery**
-     * Additional ability actions that aren’t part of the main action.
+    * Additional ability actions that aren’t part of the main action.
 
 * **Cooldown**
-     * The rest period after an ability is finished being cast, and cannot be cast again.
+    * The rest period after an ability is finished being cast, and cannot be cast again.
 
     !!! info "A More Natural Example"
         Try thinking of it like the casting of a magical spell:
@@ -775,7 +775,7 @@ The main thing to change for our ammo supply is to change the properties of the 
     1. Within your project content, create a new script and call it "EmberPickupScript".
     2. Drag this script onto the `trigger` we made in your project Hierarchy.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
+        ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
 
     3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.
 
