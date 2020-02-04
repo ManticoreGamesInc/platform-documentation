@@ -69,7 +69,7 @@ For this explanation, we will continue assuming that you are using GitHub Deskto
 
 We first need to choose a location to clone the repostory, and this will work as you might expect--we're going to make the repo within the folder where your game is located.
 
-You won't want to just initialize git inside your game's folder though, because with the autosave feature in CORE, a game with many revisions may experience a ~5-10 second delay to start a preview as a large number of files are copied into the .git folder from the autosave copies.
+You won't want to just initialize your repository inside your game's folder though, because with the autosave feature in CORE, a game with many revisions may experience a ~5-10 second delay to start a preview as a large number of files are copied into the .git folder from the autosave copies.
 
 For this reason, here are the recommended steps below:
 
