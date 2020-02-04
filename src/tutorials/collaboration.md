@@ -89,7 +89,7 @@ For this reason, here are the recommended steps below:
 
      Clone your project into that game folder.
 
-5. Now, in the file explorer, drag the "data" folder into the Git folder you just made (it will be the name of your git project). The file path should now look like:
+5. Now, in the file explorer, drag the "data" folder into the Git folder you just made (it will be the name of your Git project). The file path should now look like:
 
      ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GithubProject\data\```
 
