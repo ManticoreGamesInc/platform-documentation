@@ -65,7 +65,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 ### Initilizing the Repository
 
-For this explanation, we will continue assuming that you are using Github Desktop for managing the repository on your computer.
+For this explanation, we will continue assuming that you are using GitHub Desktop for managing the repository on your computer.
 
 We first need to choose a location to clone the repostory, and this will work as you might expect--we're going to make the repo within the folder where your game is located.
 
