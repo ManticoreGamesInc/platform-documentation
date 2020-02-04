@@ -14,7 +14,7 @@ Working on projects with multiple people can get complicated. Now we live in the
 
 **Source control** is a way to maintain history of your projects. You can save files and make changes, but if you soon realize something went very wrong and everything is broken in your more recent changes to the project, you can use source control to return to an earlier & working version of your project. This can save months of time, with big or complex projects--or even for a solo project!
 
-Some of the most common solutions for source control are **Git** and **Perforce**, and in this tutorial we'll go over the most accessible of the two: **Git via GitHub**.
+Some of the most common solutions for source control are **Git** and **Perforce**, and in this tutorial we'll go over the most accessible of the two: **Git** via **GitHub**.
 
 !!! info "Whatever works, works!"
     Source control (or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources. Whichever SCM system you use really comes down to personal preference.
@@ -56,12 +56,12 @@ Setting up source control can sound intimidating if you've never done it before-
 
      Next is connecting a CORE project to GitHub by setting up the repository (often shortened to *"repo"*) on your computer.
 
-5. There are many ways to clone a Github repo onto your own computer. You could:
+5. There are two ways to interact with Git. You could:
 
-     - Use the console / command prompt to connect to github.
-     - Use the [Github Desktop](https://desktop.github.com/) app to manage your local repository.
+     - Use the console / command prompt to connect to GitHub.
+     - Use a graphical client, like [GitHub Desktop](https://desktop.github.com/), to manage your local repository.
 
-     For beginners, using Github Desktop can be much easier. Choose a method and open it up to continue the second half of the tutorial!
+     For beginners, using GitHub Desktop can be much easier. Choose a method and open it up to continue the second half of the tutorial!
 
 ### Initilizing the Repository
 
@@ -91,19 +91,19 @@ For this reason, here are the recommended steps below:
 
 5. Now, in the file explorer, drag the "data" folder into the Git folder you just made (it will be the name of your Git project). The file path should now look like:
 
-     ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GithubProject\data\```
+     ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\```
 
-6. Return to GitHub Desktop and you'll see a bunch of changes show up--GitHub has recognized all the new files we dragged in from the "data' folder!
+6. Return to GitHub Desktop and you'll see a bunch of changes show up--Git has recognized all the new files we dragged in from the "data" folder!
 
-     Add a message in the bottom left corner--something like "Adding the game!" so that you know what you did this commit. Then commit the changes to your project using the blue button, and click "Push" in the top right of the window. Now your project is officially committed safely to Github!
+     Add a commit message in the bottom left corner that describes what you did--something like "Adding the first version of my game!". Then commit the changes to your project using the blue button, and click "Push" in the top right of the window. Now your project is officially committed safely to GitHub!
 
-7. Next time you make a change to the game within CORE, the changed files will show up in Github Desktop. Each time you're done working or want to commit a big change, come back to Github Desktop and commit them with a clear message!
+7. Next time you make a change to the game within CORE, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
 
 Congrats on getting set up, and happy committing!
 
 ## Tips on Using CORE with Git
 
-A CORE project will work best with Git when the project **Hierarchy is very efficiently organized**.
+A CORE project will work best with Git when the **project Hierarchy is very efficiently organized**.
 
 This usually means separating parts into different folders. For example, you might keep all the scripts and gameplay objects in one folder, and all art models in another separate folder.
 
