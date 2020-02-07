@@ -52,7 +52,7 @@ For this tutorial, we are going to make the player wave hello.
 
 ### Getting Started with Equipment
 
-1. With CORE open to a project, navigate to the **CORE Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project Hierarchy.
+1. With CORE open to a project, navigate to the **CORE Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project **Hierarchy**.
 
     ![Hierarchy Collapsed](../../img/EditorManual/Abilities/GameObjects.png "Hierarchy Collapsed"){: .center}
 
@@ -60,6 +60,12 @@ For this tutorial, we are going to make the player wave hello.
 
     ![Hierarchy Collapsed](../../img/EditorManual/Abilities/EquipmentInHierarchy.png "Hierarchy Collapsed"){: .center}
     ![Hierarchy Uncollapsed](../../img/EditorManual/Abilities/EquipmentInHierarchy2.png "Hierarchy Uncollapsed"){: .center}
+
+    When you drag the `Equipment` into the project **Hierarchy**, it will drop into your game scene at the location (0,0,0) which will look like the image below if you started in an empty project. **If you do not see anything**, press "V" on the keyboard to toggle the **gizmos** (all the game-only objects) on.
+
+    ![A trigger at 0,0,0](../../img/EditorManual/Abilities/trigger000.png "This trigger is halfway into the ground."){: .center}
+
+    This box you are seeing is the `PickupTrigger`, which is what allows you to pick up the equipment! When a player walks into this, they will immediately "equip" the equipment.
 
 2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".
 
@@ -89,7 +95,7 @@ For this tutorial, we are going to make the player wave hello.
 
          ![Art Folder](../../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center}
 
-    3. In the **Properties** window, uncheck the `Collidable` box of the art folder. This way the gem won't mess with your camera when it's attached to the player.
+    3. In the **Properties** window, scroll down to the *Scene* section. We need to change the **Collision** section from "Inherit From Parent" to "Force Off". This way the gem won't mess with your camera when it's attached to the player.
 
          ![Art Folder Collision](../../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
@@ -97,7 +103,17 @@ For this tutorial, we are going to make the player wave hello.
 
          Now that we've created a visible object that can be picked up, it needs to do something!
 
-4. Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
+4. Before we set up the animation to work, let's make sure everything is together. So far in this tutorial, if you have been dragging things directly into the project Hierarchy, they should all be sitting at the (0,0,0) position of the game world.
+
+     Make sure everything is together in the spot you expect, and that your art model and equipment trigger are in the same location.
+
+     You might even want to drag the whole thing upwards so that the trigger rests on top of the floor rather than halfway into the floor! When you want to move the whole thing, be sure to move the root folder: the `Equipment` object.
+
+     All together, it should look something like this:
+
+     ![Everything together at 0,0,0](../../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center}
+
+5. Now to set up the animation! Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
@@ -107,7 +123,7 @@ For this tutorial, we are going to make the player wave hello.
 
     Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the wave animation.
 
-5. The `Ability` object starts with default settings in the **Properties** window. To make our own wave, we only need to change two things.
+6. The `Ability` object starts with default settings in the **Properties** window. To make our own wave, we only need to change two things:
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
 
@@ -117,7 +133,7 @@ For this tutorial, we are going to make the player wave hello.
 
          ![Ability Properties Panel](../../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
 
-6. Abilities also affect how the camera works when the ability is used, and in the case of this wave animation, it would be nice to be able to face the camera when we do it. To make sure this happens:
+7. Abilities also affect how the camera works when the ability is used, and in the case of this wave animation, it would be nice to be able to face the camera when we do it. To make sure this happens:
 
     1. With the ability selected, in the **Properties** window, scroll down to the **Cast** section. We want to change the Facing Mode from _Aim_ to **_None_** so that our camera is not affected in that stage of the ability.
 
