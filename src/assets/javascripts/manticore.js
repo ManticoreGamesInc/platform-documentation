@@ -58,13 +58,6 @@ document.addEventListener("DOMContentLoaded", event => {
     } else {
       iframe.className = "video-embed"
     }
-    for (var i = 0, length = tabLinks.length; i < length; i++) {
-        if (tabLinks[i].hostname != window.location.hostname) {
-            // var old_class = tabLinks[i].getAttribute('class')
-            tabLinks[i].target = '_blank';
-            // tabLinks[i].className = 'external ' + old_class;
-        }
-    }
 
     el.replaceWith(iframe)
   })
@@ -117,11 +110,6 @@ document.addEventListener("DOMContentLoaded", event => {
       btn.classList.remove("show")
     }
 
-            if (old_class != "null") {
-                iframe.className = "video-embed " + old_class
-            } else {
-                iframe.className = "video-embed"
-            }
     Array.prototype.forEach.call(headerlinks, (el, i) => {
       const rect = el.getBoundingClientRect()
       if (yPos > rect.top + document.documentElement.scrollTop - 90) {
@@ -129,9 +117,6 @@ document.addEventListener("DOMContentLoaded", event => {
       }
     })
 
-            el.replaceWith(iframe)
-        })
-    }
     document.title = currentTitle
   })
 });
