@@ -1,14 +1,13 @@
 # If you add or remove a page, you must also add or remove in mkdocs.yml.
 nav:
-  - index.md
+  - News:
+      - https://forums.coregames.com/news
   - Intro to CORE:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
       - Editor Key Bindings: editor_keybindings.md
       - Troubleshooting: getting_started/troubleshooting.md
-  - Patch Notes:
-      - Patch Notes: https://forums.coregames.com/c/community/patch-notes/7
   - Forums:
       - Forums: https://forums.coregames.com/
   - Events:
@@ -48,7 +47,9 @@ nav:
       #- Performance: tutorials/gameplay/performance_reference.md
       - Examples & Snippets: tutorials/examples.md
   - FAQ:
-    - https://forums.coregames.com/t/creation-in-core-faq/83
+      - https://forums.coregames.com/t/creation-in-core-faq/83
+  - Feedback:
+      - https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -127,17 +128,17 @@ plugins:
   - search
   - autolinks
   - redirects:
-        redirect_maps:
-            getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
-            news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
-            patch_notes/patch_notes.md: https://forums.coregames.com/c/community/patch-notes/7
-            patch_notes/january_15_2020.md: https://forums.coregames.com/t/alpha-update-3-january-15th-2020/64
-            patch_notes/january_7_2020.md: https://forums.coregames.com/t/alpha-update-2-january-7th-2020/55
-            patch_notes/december_17_2019.md: https://forums.coregames.com/t/alpha-update-1-december-17th-2019/54
-            discord.md: https://forums.coregames.com/t/discord-server/66/
-            manticoretv.md: https://forums.coregames.com/t/what-is-manticoretv/39
-            events/game_jam.md: https://forums.coregames.com/c/community/events/6
-            faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
+      redirect_maps:
+        getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
+        news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
+        patch_notes/patch_notes.md: https://forums.coregames.com/c/community/patch-notes/7
+        patch_notes/january_15_2020.md: https://forums.coregames.com/t/alpha-update-3-january-15th-2020/64
+        patch_notes/january_7_2020.md: https://forums.coregames.com/t/alpha-update-2-january-7th-2020/55
+        patch_notes/december_17_2019.md: https://forums.coregames.com/t/alpha-update-1-december-17th-2019/54
+        discord.md: https://forums.coregames.com/t/discord-server/66/
+        manticoretv.md: https://forums.coregames.com/t/what-is-manticoretv/39
+        events/game_jam.md: https://forums.coregames.com/c/community/events/6
+        faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
 
 docs_dir: src
 
