@@ -417,7 +417,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     In our `OnSwitchInteraction` function under our `RotateTo` statement, type:
 
-    `World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))`
+    `World.SpawnAsset(lightTemplate, {position=Vector3.New(0, 0, 0)})`
 
     * `World` is a [collection of functions](../../core_api.md/#world) for finding objects in the world.
     * `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so
@@ -436,7 +436,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        World.SpawnAsset(lightTemplate, Vector3.New(0, 0, 0))
+        World.SpawnAsset(lightTemplate, {position=Vector3.New(0, 0, 0)})
     end
 
     -- Connect our event to the trigger
@@ -491,7 +491,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        World.SpawnAsset(lightTemplate, bulbPosition)
+        World.SpawnAsset(lightTemplate, {position=bulbPosition})
     end
 
     -- Connect our event to the trigger
@@ -564,7 +564,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, {position=bulbPosition})
         end
     end
     ```
@@ -602,7 +602,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, {position=bulbPosition})
         else
             switch:RotateTo(startingRotation, 0.5)
         end
@@ -639,7 +639,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
         -- Turning the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, {position=bulbPosition})
         -- Turning the light off
         else
             switch:RotateTo(startingRotation, 0.5)
@@ -708,7 +708,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
         -- Turning the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, {position=bulbPosition})
         -- Turning the light off
         else
             switch:RotateTo(startingRotation, 0.5)
@@ -794,7 +794,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
         -- Turns the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, bulbPosition)
+            World.SpawnAsset(lightTemplate, {position=bulbPosition})
         -- Turns the light off
         else
             switch:RotateTo(startingRotation, 0.5)
@@ -840,7 +840,7 @@ local function OnSwitchInteraction()
     -- Turns the light on
     if not isLightOn then
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        World.SpawnAsset(lightTemplate, bulbPosition)
+        World.SpawnAsset(lightTemplate, {position=bulbPosition})
     -- Turns the light off
     else
         switch:RotateTo(startingRotation, 0.5)
