@@ -48,7 +48,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 * Open up the script by double clicking on it.
     * By default this happens via our in-built editor.
     * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-        * We offer [editor integrations](../../extensions.md) for Atom, VS Code, and ZeroBrane that add autocomplete for the CORE API support!
+        * We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the CORE API support!
 
 ### Writing the Script
 
@@ -491,7 +491,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        World.SpawnAsset(lightTemplate, {position=bulbPosition})
+        World.SpawnAsset(lightTemplate, { position = bulbPosition })
     end
 
     -- Connect our event to the trigger
@@ -560,12 +560,12 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     ```lua hl_lines="2 4 7"
     local function OnSwitchInteraction()
-        local isLightOn = not isLightOn
-
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, {position=bulbPosition})
+            World.SpawnAsset(lightTemplate, { position = bulbPosition })
         end
+
+        isLightOn = not isLightOn
     end
     ```
 
@@ -598,14 +598,14 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     ```lua hl_lines="7 8"
     local function OnSwitchInteraction()
-        local isLightOn = not isLightOn
-
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, {position=bulbPosition})
+            World.SpawnAsset(lightTemplate, { position = bulbPosition })
         else
             switch:RotateTo(startingRotation, 0.5)
         end
+
+        isLightOn = not isLightOn
     end
     ```
 
@@ -615,37 +615,37 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 1. In order to turn off the light, you first need to define the light after it is spawned. When the **LightTemplate** is spawned, it shows up at the bottom of the Hierarchy. In your `else` statement, after the `RotateTo` line, type the following:
 
-    `local spawnedLight = World.FindObjectByName("LightTemplate")`
+    `local spawnedLight = World.FindObjectByName("Point Light")`
 
     * `spawnedLight` is the name we are giving to the light we have just spawned.
-    * `World.FindObjectByName("LightTemplate")` tells the script to search through the Hierarchy until it finds the first object named "LightTemplate".
-    * `"LightTemplate"` is the name of our spawned light.
+    * `World.FindObjectByName("Point Light")` tells the script to search through the hierarchy until it finds the first object named "Point Light" which is part of the `LightTemplate` we created.
+    * `"Point Light"` is the name of our spawned light.
 
 2. Now that you have defined our spawned light, you can tell the script to destroy it when the switch is turned off. Under the statement you just wrote, type:
 
     `spawnedLight:Destroy()`
 
-    * `spawnedLight` is the variable we just defined representing the LightTemplate spawned when the light switch is turned on.
+    * `spawnedLight` is the variable we just defined representing the Point Light spawned when the light switch is turned on.
     * `Destroy()` is a function used to delete objects from a scene.
 
     Your `OnSwitchInteraction` function should now look like this:
 
-    ```lua hl_lines="13 14"
+    ```lua hl_lines="11 12"
     -- Rotate the switch and turn on and off the light
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
-        local isLightOn = not isLightOn
-
         -- Turning the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, {position=bulbPosition})
+            World.SpawnAsset(lightTemplate, { position = bulbPosition })
         -- Turning the light off
         else
             switch:RotateTo(startingRotation, 0.5)
-            local spawnedLight = World.FindObjectByName("LightTemplate")
+            local spawnedLight = World.FindObjectByName("Point Light")
             spawnedLight:Destroy()
         end
+
+        isLightOn = not isLightOn
     end
     ```
 
@@ -694,6 +694,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     local lightTemplate = script:GetCustomProperty("Light")
     local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
+    local isLightOn = false
 
     -- Update light switch's label
     local function UpdateLabel()
@@ -703,18 +704,18 @@ You've turned on the light. If you keep interacting with the light switch you'll
     -- Rotate the switch and spawn a light
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
-        local isLightOn = not isLightOn
-
         -- Turning the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, {position=bulbPosition})
+            World.SpawnAsset(lightTemplate, { position = bulbPosition })
         -- Turning the light off
         else
             switch:RotateTo(startingRotation, 0.5)
-            local spawnedLight = World.FindObjectByName("LightTemplate")
+            local spawnedLight = World.FindObjectByName("Point Light")
             spawnedLight:Destroy()
         end
+
+        isLightOn = not isLightOn
     end
 
     -- Connect our event to the trigger
@@ -748,7 +749,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     end
     ```
 
-    * `if … then` is the syntax needed for our `if` statement.
+    * `if ... then` is the syntax needed for our `if` statement.
     * `isLightOn == false` is the condition that must be met in order to execute the `if` statement.
     * `end` means the `if` statement is done.
 
@@ -787,21 +788,19 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
 9. Type `UpdateLabel()` before the `end` of the function and after the `if` statement within it. The `OnSwitchInteraction` function should now look like:
 
-    ```lua hl_lines="15"
+    ```lua hl_lines="16"
     local function OnSwitchInteraction()
-        local isLightOn = not isLightOn
-
         -- Turns the light on
         if not isLightOn then
             switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-            World.SpawnAsset(lightTemplate, {position=bulbPosition})
+            World.SpawnAsset(lightTemplate, { position = bulbPosition })
         -- Turns the light off
         else
             switch:RotateTo(startingRotation, 0.5)
-            local spawnedLight = World.FindObjectByName("LightTemplate")
+            local spawnedLight = World.FindObjectByName("Point Light")
             spawnedLight:Destroy()
         end
-
+        isLightOn = not isLightOn
         UpdateLabel()
     end
     ```
@@ -835,19 +834,18 @@ end
 -- Rotate the switch and spawn a light
 -- when the player interacts with switchTrigger
 local function OnSwitchInteraction()
-    isLightOn = not isLightOn
-
     -- Turns the light on
     if not isLightOn then
         switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)
-        World.SpawnAsset(lightTemplate, {position=bulbPosition})
+        World.SpawnAsset(lightTemplate, { position = bulbPosition })
     -- Turns the light off
     else
         switch:RotateTo(startingRotation, 0.5)
-        local spawnedLight = World.FindObjectByName("LightTemplate")
+        local spawnedLight = World.FindObjectByName("Point Light")
         spawnedLight:Destroy()
     end
 
+    isLightOn = not isLightOn
     UpdateLabel()
 end
 
