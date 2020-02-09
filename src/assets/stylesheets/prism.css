@@ -39,7 +39,17 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: var(--color-text);
+    background: var(--color-text);
+}
+
+:not(pre) > code[class*="language-"] .md-clipboard::before,
+pre[class*="language-"] .md-clipboard::before {
+    color: var(--color-background);
+}
+
+.dark-mode :not(pre) > code[class*="language-"],
+.dark-mode pre[class*="language-"] {
+	background: var(--manti-color-black);
 }
 
 /* Inline code */
