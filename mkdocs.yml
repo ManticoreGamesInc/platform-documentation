@@ -90,10 +90,10 @@ extra:
       link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
-    #- type: twitter
-    #  link: https://twitter.com/COREGames
     - type: facebook
       link: https://www.facebook.com/groups/playcoregames
+    - type: twitter
+      link: https://twitter.com/COREGames
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -139,6 +139,7 @@ plugins:
         manticoretv.md: https://forums.coregames.com/t/what-is-manticoretv/39
         events/game_jam.md: https://forums.coregames.com/c/community/events/6
         faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
+        api.md: https://www.coregames.com/docs/core_api/
 
 docs_dir: src
 
