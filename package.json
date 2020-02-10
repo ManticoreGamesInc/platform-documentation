@@ -37,7 +37,7 @@
         "husky": "^4.2.1",
         "json2md": "^1.6.5",
         "markdown-yaml-metadata-parser": "^2.0.4",
-        "markdownlint-cli": "^0.21.0",
+        "markdownlint-cli": "^0.22.0",
         "prettier": "^1.19.1",
         "recursive-readdir-synchronous": "0.0.4",
         "remark": "^11.0.2",
