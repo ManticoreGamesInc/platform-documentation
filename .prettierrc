@@ -8,5 +8,11 @@
         "options": {
             "tabWidth": 2
         }
+    },
+    {
+        "files": ["*.js"],
+        "options": {
+            "tabWidth": 2
+        }
     }]
 }
