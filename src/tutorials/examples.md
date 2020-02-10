@@ -12,7 +12,7 @@ categories:
 
 In the following examples it's assumed the script is placed as a child of a trigger in the hierarchy.
 
-### beginOverlapEvent
+### `beginOverlapEvent`
 
 In this example, players die when they walk over the trigger.
 
@@ -28,7 +28,7 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### endOverlapEvent
+### `endOverlapEvent`
 
 As players enter/exit the trigger the script keeps a table with all currently overlapping players.
 
@@ -58,7 +58,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 trigger.endOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### interactedEvent
+### `interactedEvent`
 
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the <kbd>F</kbd> key they are propelled into the air.
 
@@ -72,7 +72,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### IsOverlapping(CoreObject)
+### `IsOverlapping(CoreObject)`
 
 In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point.
 
@@ -90,7 +90,7 @@ while true do
 end
 ```
 
-### IsOverlapping(Player)
+### `IsOverlapping(Player)`
 
 In this example, players score points for their teams for each second they are inside the trigger.
 
@@ -110,7 +110,7 @@ while true do
 end
 ```
 
-### GetOverlappingObjects()
+### `GetOverlappingObjects()`
 
 In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error.
 
@@ -126,7 +126,7 @@ function Tick()
 end
 ```
 
-### isInteractable
+### `isInteractable`
 
 In this example, the trigger has a 4 second "cooldown" after it is interacted.
 
@@ -143,7 +143,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### interactionLabel
+### `interactionLabel`
 
 In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger.
 
@@ -174,7 +174,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### team
+### `team`
 
 In this example, players score points when they enter a trigger that belongs to the enemy team.
 
@@ -191,7 +191,7 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### isTeamCollisionEnabled
+### `isTeamCollisionEnabled`
 
 In this example, when a player interracts with a trigger it joins their team and they can no longer interact with it, but enemies can.
 
@@ -206,7 +206,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### isEnemyCollisionEnabled
+### `isEnemyCollisionEnabled`
 
 In this example, when a player interracts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form.
 
@@ -239,10 +239,6 @@ function OnInteracted(theTrigger, player)
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
-
-### Games
-
-* [Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)
 
 ## Needed
 

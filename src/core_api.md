@@ -280,14 +280,14 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only, Dynamic |
 | `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. | Dynamic |
 | `GetAttachedToSocketName()` | string | Returns the name of the socket this object is attached to. | None |
-| `MoveTo(Vector3, Number, [bool])` | None | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
-| `RotateTo(Rotation/Quaternion, Number, [bool])` | None | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
-| `ScaleTo(Vector3, Number, [bool])` | None | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
-| `MoveContinuous(Vector3, [bool])` | None | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
-| `RotateContinuous(Rotation/Quaternion/Vector3, [Number, [bool]])` | None | Smoothly rotates the object over time by the given angular velocity. Because the limit is 179&deg;, the second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if this should be done in local space (true) or world space (false (default)). | Dynamic |
-| `ScaleContinuous(Vector3, [bool])` | None | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if this should be done in local space (true) or world space (false). | Dynamic |
+| `MoveTo(Vector3, Number, [bool])` | None | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if the given destination is in local space (true) or world space (false). | Dynamic |
+| `RotateTo(Rotation/Quaternion, Number, [bool])` | None | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if given rotation is in local space (true) or world space (false). | Dynamic |
+| `ScaleTo(Vector3, Number, [bool])` | None | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if the given scale is in local space (true) or world space (false). | Dynamic |
+| `MoveContinuous(Vector3, [bool])` | None | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). | Dynamic |
+| `RotateContinuous(Rotation/Quaternion/Vector3, [Number, [bool]])` | None | Smoothly rotates the object over time by the given angular velocity. The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). | Dynamic |
+| `ScaleContinuous(Vector3, [bool])` | None | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if the given scale rate is in local space (true) or world space (false). | Dynamic |
 | `StopMove()` | None | Interrupts further movement from MoveTo(), MoveContinuous(), or Follow(). | Dynamic |
-| `StopRotate()` | None | Interrupts further rotation from RotateTo() or RotateContinuous() and LookAt() or LookAtContinuous(). | Dynamic |
+| `StopRotate()` | None | Interrupts further rotation from RotateTo(), RotateContinuous(), LookAtContinuous(), or LookAtLocalView(). | Dynamic |
 | `StopScale()` | None | Interrupts further movement from ScaleTo() or ScaleContinuous(). | Dynamic |
 | `Follow(Object, [Number, [Number]])` | None | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic |
 | `LookAt(Vector3 position)` | None | Instantly rotates the object to look at the given position. | Dynamic |
@@ -480,7 +480,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | Read-Only |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Read-Only |
-| `animationEvent` | Event&lt;Player&, string eventNamegt; | Fired during certain animations played on a player. | Client-Only |
+| `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. | Client-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -565,8 +565,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `isWalking` | bool | True if the Player is in walking mode. | Read-Only |
 | `isDead` | bool | True if the Player is dead, otherwise false. | Read-Only |
 | `isSliding` | bool | True if the Player is currently in sliding mode. | Read-Only |
-| `movementControlMode` | MovementControlMode | Possible values are MovementControlMode.NONE, MovementControlMode.LOOK_RELATIVE, MovementControlMode.VIEW_RELATIVE, MovementControlMode.FIXED_AXES. | Read-Write |
-| `lookControlMode` | LookControlMode | Possible values are LookControlMode.NONE, LookControlMode.RELATIVE. | Read-Write |
+| `movementControlMode` | MovementControlMode | Specify how players control their movement. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
+| `lookControlMode` | LookControlMode | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | Number | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write |
 | `spreadModifier` | Number | Modifier added to the Player's targeting spread. | Read-Write |
 | `currentSpread` | Number | Gets the Player's current targeting spread. | Client-Only, Read-Only |
@@ -878,23 +878,23 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | Read-Only |
-| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | Read-Only |
-| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | Read-Only |
+| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](/tutorials/examples/#beginoverlapevent "Example") | Read-Only |
+| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](/tutorials/examples/#endoverlapevent "Example") | Read-Only |
+| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](/tutorials/examples/#interactedevent "Example") | Read-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. | None |
-| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. | None |
-| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. | None |
+| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. [:fa-info-circle:](/tutorials/examples/#isoverlappingcoreobject "Example") | None |
+| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. [:fa-info-circle:](/tutorials/examples/#isoverlappingplayer "Example") | None |
+| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. [:fa-info-circle:](/tutorials/examples/#getoverlappingobjects "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. | Read-Write, Dynamic |
-| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. | Read-Write, Dynamic |
-| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write, Dynamic |
-| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. | Read-Write, Dynamic |
-| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. | Read-Write, Dynamic |
+| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fa-info-circle:](/tutorials/examples/#isinteractable "Example") | Read-Write, Dynamic |
+| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fa-info-circle:](/tutorials/examples/#interactionlabel "Example") | Read-Write, Dynamic |
+| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fa-info-circle:](/tutorials/examples/#team "Example") | Read-Write, Dynamic |
+| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fa-info-circle:](/tutorials/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
+| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fa-info-circle:](/tutorials/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
 
 ### UIButton
 
@@ -1373,7 +1373,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.IsReticleVisible()` | bool | Check if reticle is visible. | Client-Only |
 | `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. | Client-Only |
 | `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
-| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
+| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector3 | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
 
 ### World
 
