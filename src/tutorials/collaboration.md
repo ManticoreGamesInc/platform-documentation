@@ -14,7 +14,7 @@ Working on projects with multiple people can get complicated. Now we live in the
 
 Using a source control system, you are able to maintain a history of your projects and every change you ever made to them. You can save files and make changes, but if you soon realize something went very wrong and everything is broken you can quickly revert back to an earlier & working version of your project. This can save months of time, with big or complex projects--or even for a solo project!
 
-!!! info What even is Source Control?
+!!! info "What even is Source Control?"
     Source control (or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources. Whichever SCM system you use really comes down to personal preference.
 
 In this tutorial we'll teach you how to use **Git**, the most commonly used and recommended SCM solution, and how to leaverage **GitHub** for hosting your repository.
@@ -31,6 +31,8 @@ In this tutorial we'll teach you how to use **Git**, the most commonly used and 
 If you're not too worried about making mistakes, or just want to share quick things, CORE has many ways to share content already built-in.
 
 If you're working with multiple people, instead of using "formal" source control, you could just publish templates to **Community Content** and have your teammates access what you make that way.
+
+This can quickly get hard to manage with large teams or complex games though, as Community Content fills up fast and ensuring things actually work well together can be hard when they aren't made together and are in separate game projects.
 
 You can also publish your games privately, so that only people you give the link to can play and view it.
 
