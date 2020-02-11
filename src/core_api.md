@@ -219,7 +219,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | :fa fa-square:{: .Color_BLUE } `#0000ffff`        | Color.BLUE        | :fa fa-square:{: .Color_EMERALD } `#0c660cff`  | Color.EMERALD |
 | :fa fa-square:{: .Color_CYAN } `#00ffffff`        | Color.CYAN        | :fa fa-square:{: .Color_SAPPHIRE } `#02024cff` | Color.SAPPHIRE |
 | :fa fa-square:{: .Color_MAGENTA} `#ff00ffff`      | Color.MAGENTA     | :fa fa-square:{: .Color_SILVER } `#b2b2b2ff`   | Color.SILVER |
-| :fa fa-square:{: .Color_YELLOW } `#ffff00ff`       | Color.YELLOW      | :fa fa-square:{: .Color_SMOKE } `#191919ff`    | Color.SMOKE |
+| :fa fa-square:{: .Color_YELLOW } `#ffff00ff`      | Color.YELLOW      | :fa fa-square:{: .Color_SMOKE } `#191919ff`    | Color.SMOKE |
 
 ### CoreObject
 
