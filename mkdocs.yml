@@ -131,6 +131,7 @@ plugins:
       redirect_maps:
         getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
         news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
+        news/daily_challenge.md: https://forums.coregames.com/c/community/events/6
         patch_notes/patch_notes.md: https://forums.coregames.com/c/community/patch-notes/7
         patch_notes/january_28_2020.md: https://forums.coregames.com/t/alpha-update-4-january-28th-2020/65
         patch_notes/january_15_2020.md: https://forums.coregames.com/t/alpha-update-3-january-15th-2020/64
