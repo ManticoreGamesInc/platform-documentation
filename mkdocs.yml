@@ -31,6 +31,7 @@ nav:
           - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
           - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
           - Scripting (Advanced): tutorials/gameplay/lua_basics_manticoin.md
+          - Persistent Storage: tutorials/gameplay/persistent_storage.md
       - Art:
           - Art in CORE: tutorials/art/art_reference.md
           - Scene Creation: tutorials/art/scene_creation.md
