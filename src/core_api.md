@@ -30,13 +30,13 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `readyEvent` | Event&lt;Ability&gt; | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | Read-Only |
-| `castEvent` | Event&lt;Ability&gt; | Fired when the Ability enters the Cast phase. | Read-Only |
-| `executeEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Execute phase. | Read-Only |
-| `recoveryEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Recovery. | Read-Only |
-| `cooldownEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Cooldown. | Read-Only |
-| `interruptedEvent` | Event&lt;Ability&gt; | Fired when the Ability is interrupted. | Read-Only |
-| `tickEvent` | Event&lt;Ability, Number deltaTime&gt; | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | Read-Only |
+| `readyEvent` | Event&lt;Ability&gt; | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
+| `castEvent` | Event&lt;Ability&gt; | Fired when the Ability enters the Cast phase. | None |
+| `executeEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Execute phase. | None |
+| `recoveryEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Recovery. | None |
+| `cooldownEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Cooldown. | None |
+| `interruptedEvent` | Event&lt;Ability&gt; | Fired when the Ability is interrupted. | None |
+| `tickEvent` | Event&lt;Ability, Number deltaTime&gt; | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -353,8 +353,8 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. | Read-Only |
-| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. | Read-Only |
+| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. | None |
+| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -472,13 +472,13 @@ Player is an Object representation of the state of a Player connected to the gam
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server-Only, Read-Only |
-| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server-Only, Read-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | Read-Only |
-| `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | Read-Only |
-| `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | Read-Only |
-| `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | Read-Only |
-| `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | Read-Only |
+| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server-Only |
+| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server-Only |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | None |
+| `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | None |
+| `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | None |
+| `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
+| `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | None |
 | `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. | Client-Only |
 
 | Function | Return Type | Description | Tags |
@@ -611,9 +611,9 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | Read-Only |
-| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | Read-Only |
-| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | Read-Only |
+| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
+| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
+| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -877,9 +877,9 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../tutorials/examples/#beginoverlapevent "Example") | Read-Only |
-| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../tutorials/examples/#endoverlapevent "Example") | Read-Only |
-| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../tutorials/examples/#interactedevent "Example") | Read-Only |
+| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../tutorials/examples/#beginoverlapevent "Example") | None |
+| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../tutorials/examples/#endoverlapevent "Example") | None |
+| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../tutorials/examples/#interactedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -901,11 +901,11 @@ A UIControl for a button, should be inside client context.
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `clickedEvent` | Event&lt;UIButton&gt; | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | Read-Only |
-| `pressedEvent` | Event&lt;UIButton&gt; | Fired when button is pressed. (mouse button down) | Read-Only |
-| `releasedEvent` | Event&lt;UIButton&gt; | Fired when button is released. (mouse button up) | Read-Only |
-| `hoveredEvent` | Event&lt;UIButton&gt; | Fired when button is hovered. | Read-Only |
-| `unhoveredEvent` | Event&lt;UIButton&gt; | Fired when button is unhovered. | Read-Only |
+| `clickedEvent` | Event&lt;UIButton&gt; | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | Event&lt;UIButton&gt; | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | Event&lt;UIButton&gt; | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | Event&lt;UIButton&gt; | Fired when button is hovered. | None |
+| `unhoveredEvent` | Event&lt;UIButton&gt; | Fired when button is unhovered. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1153,17 +1153,14 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 | `Play()` | None | Starts playing the effect. | Dynamic |
 | `Stop()` | None | Stops playing the effect. | Dynamic |
 
-| Property | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-
 ### Weapon
 
 A Weapon is an Equipment that comes with built-in Abilities and fires Projectiles.
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Renamed from `targetInteractionEvent`. Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, Read-Only, **Breaking Change** |
-| `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | Read-Only |
+| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Renamed from `targetInteractionEvent`. Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, **Breaking Change** |
+| `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1318,12 +1315,12 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Class Event | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | Read-Only |
-| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | Read-Only |
-| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | This deprecated event is unused. | Read-Only, **Deprecated** |
-| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | Read-Only |
-| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | Read-Only |
-| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | Read-Only |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | None |
+| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | None |
+| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | This deprecated event is unused. | **Deprecated** |
+| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | None |
+| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | None |
+| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
