@@ -17,7 +17,7 @@ Using a source control system, you are able to maintain a history of your projec
 !!! info "What even is Source Control?"
     Source control (or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources. Whichever SCM system you use really comes down to personal preference.
 
-In this tutorial we'll teach you how to use **Git**, the most commonly used and recommended SCM solution, and how to leaverage **GitHub** for hosting your repository.
+In this tutorial we'll teach you how to use **Git**, the most commonly used and recommended SCM solution, and how to leverage **GitHub** for hosting your repository.
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
@@ -55,7 +55,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 3. Change any settings you might want; if you're starting from scratch you'll want to check the **"Initialize this repository with a README"** button.
 
-     Click "Create Repository" to finalize project creation.
+    Click "Create Repository" to finalize project creation.
 
 4. Now you have a GitHub project repository! This is the web location where all your files will be saved each time you commit new changes to the project.
 
@@ -65,7 +65,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
     For beginners, using GitHub Desktop can be much easier and we'll assume you are using it for the remainder of this tutorial.
 
-### Initilizing the Repository
+### Initializing the Repository
 
 We first need to choose a location to clone the repository to, and this will work as you might expect--we're going to create it within the folder where your game is located.
 
@@ -86,23 +86,23 @@ For this reason, here are the recommended steps below:
 
 4. Open GitHub Desktop, and click **File** > **Clone Repository** to choose where to setup your project. First, click your new project from the **Your repositories** section. Navigate to your chosen game folder, in the same folder that the previous `data` folder is in. Clone your project into this game folder.
 
-     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CloneRepository.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CloneRepository.png "You can tell how seriously I take my project names."){: .center}
 
-     Now, your File Explorer should look like this, with whatever your project name is alongside the `data` folder:
+    Now, your File Explorer should look like this, with whatever your project name is alongside the `data` folder:
 
-     ![File Explorer: Pre-Move](../img/EditorManual/SourceControl/fileExplorer.png "You can tell how seriously I take my project names."){: .center}
+    ![File Explorer: Pre-Move](../img/EditorManual/SourceControl/fileExplorer.png "You can tell how seriously I take my project names."){: .center}
 
 5. Now, in your computer's File Explorer, drag the `data` folder into the Git folder you just made (it will be the name of your Git project). The file path should now look like:
 
-     `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\`
+    `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\`
 
 6. Return to GitHub Desktop and you'll see a bunch of changes show up--Git has recognized all the new files we dragged in from the `data` folder!
 
-     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CommitMessage.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CommitMessage.png "You can tell how seriously I take my project names."){: .center}
 
-     Add a commit message in the bottom left corner that describes what you did--something like "Adding the first version of my game!". You need to fill out both the smaller **Summary** box and the larger **Description** box to be able to submit your new commit. Confirm the changes to your project using the blue Commit button, and click "Push" in the top right of the window. Now your project is officially committed safely to GitHub!
+    Add a commit message in the bottom left corner that describes what you did--something like "Adding the first version of my game!". You need to fill out both the smaller **Summary** box and the larger **Description** box to be able to submit your new commit. Confirm the changes to your project using the blue Commit button, and click "Push" in the top right of the window. Now your project is officially committed safely to GitHub!
 
-     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center}
 
 7. Next time you make a change to the game within CORE, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
 
