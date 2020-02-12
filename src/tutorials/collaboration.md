@@ -94,7 +94,7 @@ For this reason, here are the recommended steps below:
 
 5. Now, in your computer's File Explorer, drag the `data` folder into the Git folder you just made (it will be the name of your Git project). The file path should now look like:
 
-     ```C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\```
+     `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\`
 
 6. Return to GitHub Desktop and you'll see a bunch of changes show up--Git has recognized all the new files we dragged in from the `data` folder!
 
