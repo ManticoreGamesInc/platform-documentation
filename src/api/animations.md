@@ -10,53 +10,54 @@ All Ability animations have a long "tail" that gracefully transitions the charac
 
 Sockets are different points on a Player's character mesh. They can be used for attacking objects, controlling a ragdoll effect and more.
 
-| Left Body | Center Body | Right Body |
+| Left Body       | Center Body   | Right Body       |
 | --------------- | ------------- | ---------------- |
-| `left_clavicle` | `nameplate` | `right_clavicle` |
-| `left_shoulder` | `camera` | `right_shoulder` |
-| `left_elbow` | `root` | `right_elbow` |
-| `left_wrist` | `head` | `right_wrist` |
-| `left_prop` | `neck` | `right_prop` |
-| `left_hip` | `upper_spine` | `right_hip` |
-| `left_knee` | `lower_spine` | `right_knee` |
-| `left_ankle` | `pelvis` | `right_ankle` |
+| `left_clavicle` | `nameplate`   | `right_clavicle` |
+| `left_shoulder` | `camera`      | `right_shoulder` |
+| `left_elbow`    | `root`        | `right_elbow`    |
+| `left_wrist`    | `head`        | `right_wrist`    |
+| `left_prop`     | `neck`        | `right_prop`     |
+| `left_hip`      | `upper_spine` | `right_hip`      |
+| `left_knee`     | `lower_spine` | `right_knee`     |
+| `left_ankle`    | `pelvis`      | `right_ankle`    |
+| `left_arm_prop` |               |                  |
 
 ## Animations
 
 | One-Hand Melee Animations | Description | Notes |
-| --- | --- | --- |
-| `1hand_melee_slash_left` | A horizontal melee swing to the left. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
+| ------------------------- | ----------- | ----- |
+| `1hand_melee_slash_left`  | A horizontal melee swing to the left. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
 | `1hand_melee_slash_right` | A horizontal melee swing to the right. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
-| `1hand_melee_thrust` | A melee forward lunge attack. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
-| `1hand_melee_unsheathe` | Pulls the one-handed melee weapon from a belt sheath. | works best with a cast phase duration of 0.31 or less Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
+| `1hand_melee_thrust`      | A melee forward lunge attack. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
+| `1hand_melee_unsheathe`   | Pulls the one-handed melee weapon from a belt sheath. | works best with a cast phase duration of 0.31 or less Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 
 | Two-Hand Sword Animations | Description | Notes |
-| --- | --- | --- |
+| ------------------------- | ----------- | ----- |
 | `2hand_sword_slash_right` | A horizontal melee swing to the right. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
-| `2hand_sword_slash_left` | A horizontal melee swing to the left. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
+| `2hand_sword_slash_left`  | A horizontal melee swing to the left. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
 | `2hand_sword_slash_vertical` | A downward melee swing. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
 | `2hand_sword_thrust` | A forward sword thrust melee attack. | This animation supports a variable cast phase time. This animation supports a time-stretched execute phase time |
 | `2hand_sword_unsheathe` | Pulls the one-handed melee weapon from a belt sheath. | This animation works best with a cast phase duration of 0.31 or less |
 
 | Two-Hand Staff Animations | Description | Notes |
-| --- | --- | --- |
-| `2hand_staff_magic_bolt` | Magic casting animation which appears to launch a projectile forward from the staff. | This animation supports a variable cast time. |
-| `2hand_staff_magic_up` | Magic casting animation which raises the staff on cast. This animation is not direction specific. | This animation supports a variable cast time. |
+| ------------------------- | ----------- | ----- |
+| `2hand_staff_magic_bolt`  | Magic casting animation which appears to launch a projectile forward from the staff. | This animation supports a variable cast time. |
+| `2hand_staff_magic_up`    | Magic casting animation which raises the staff on cast. This animation is not direction specific. | This animation supports a variable cast time. |
 
 | One-Hand Pistol Animations | Description | Notes |
-| --- | --- | --- |
-| `1hand_pistol_shoot` | A pistol shoot animation. | This animation supports a variable cast time. |
-| `1hand_pistol_unsheathe` | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less |
+| -------------------------- | ----------- | ----- |
+| `1hand_pistol_shoot`       | A pistol shoot animation. | This animation supports a variable cast time. |
+| `1hand_pistol_unsheathe`   | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less |
 | `1hand_pistol_reload_magazine` | Reloads a bottom-loading pistol clip. | This animation supports a variable cast time. |
 
 | Two-Hand Rifle Animations | Description | Notes |
-| --- | --- | --- |
-| `2hand_rifle_shoot` | A rifle shoot animation. | This animation supports a variable cast time. |
-| `2hand_rifle_unsheathe` | Pulls the rifle from a back scabbard. | This animation works best with a cast phase duration of 0.22 or less |
+| ------------------------- | ----------- | ----- |
+| `2hand_rifle_shoot`       | A rifle shoot animation. | This animation supports a variable cast time. |
+| `2hand_rifle_unsheathe`   | Pulls the rifle from a back scabbard. | This animation works best with a cast phase duration of 0.22 or less |
 | `2hand_rifle_reload_magazine` | Reloads an automatic rifle magazine. | This animation supports a variable cast time. |
 
 | Unarmed Animations | Description | Notes |
-| --- | --- | --- |
+| ------------------ | ----------- | ----- |
 | `unarmed_thumb_up` | Thumbs up! | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 | `unarmed_thumb_down` | Thumbs down! | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 | `unarmed_rochambeau_rock` | Rock, paper, scissors game. This chooses rock as the end result. | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
@@ -71,7 +72,7 @@ Sockets are different points on a Player's character mesh. They can be used for 
 | `unarmed_kick_ball` | A kick motion that moves the character forward as well. |
 | `unarmed_roll` | A roll animation that moves the character forward. | This animation works best with a cast phase duration of 0.18 or less. This animation has root motion, and is designed to play full body. Controller/mouse rotation can affect the course of the kick by default, but this behavior can be changed in the ability script. |
 
-# General Animation Stance Information
+## General Animation Stance Information
 
 - All animation stances are valid on either of the available body types.
 - Each animation stance should behave identically across the body types (with regard to timing).
@@ -79,26 +80,26 @@ Sockets are different points on a Player's character mesh. They can be used for 
 - No animation stances have root motion
 - Each animation stance has custom blending behavior for what happens while moving (specified below)
 
-# Animation Stances
+## Animation Stances
 
 | Stance String | Description |
-| --- | --- |
+| ------------- | ----------- |
 | `unarmed_stance` | This will cause the Player to walk or stand with nothing being held in their hands. |
 | `1hand_melee_stance` | This will cause the Player to walk or stand with the right hand posed to hold a one handed weapon, and the left arm is assumed to possibly have a shield. |
 | `1hand_pistol_stance` | This will cause the Player to walk or stand with the right hand posed to hold a pistol. |
 | `2hand_sword_stance` | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed sword. |
 | `2hand_staff_stance` | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed staff. |
 | `2hand_rifle_stance` | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed rifle. |
-| `2hand_rifle_aim_shoulder` | A simple aiming pose in 2hand_rifle set. Has the shoulder stock up to the shoulder. When running/jumping etc, the entire upper body will retain the aiming pose. |
-| `2hand_rifle_aim_hip` | A simple aiming pose in 2hand_rifle set. Has the stock at the hip. When running/jumping etc, the entire upper body will retain the aiming pose. |
-| `1hand_pistol_aim` | A simple aiming pose for pistol. When running/jumping etc, the entire upper body will retain the aiming pose. |
-| `2hand_sword_ready` | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc, the entire upper body will retain the ready pose. |
-| `2hand_sword_block_high` | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc, the entire upper body will retain the ready pose. |
-| `unarmed_carry_object_high` | A one (right) handed carry animation with the arm raised to roughly eye level. Ideal for holding a torch up to see better, etc When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
-| `unarmed_carry_object_low` | A one (right) handed carry animation with the arm at waist height. Ideal for holding a mug, potion, etc When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
-| `unarmed_carry_object_heavy` | A two handed carry animation with the arms in front of the body. When running/jumping etc, the entire upper body will retain the aiming pose. |
-| `unarmed_carry_score_card` | A two handed carry animation with the arms all the way extended above the head. Ideal for holding text signs, etc. When running/jumping etc, the entire upper body will retain the aiming pose. The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign. It also assumes x forward. |
-| `unarmed_sit_car_low` | A full body animation that is sitting at ground level with arms up on a wheel. Ideal for driving a go-kart style vehicle When running/jumping etc, the entire body will retain the sitting pose. Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc). Ability animations, however, can be used. |
+| `2hand_rifle_aim_shoulder` | A simple aiming pose in 2hand_rifle set. Has the shoulder stock up to the shoulder. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `2hand_rifle_aim_hip` | A simple aiming pose in 2hand_rifle set. Has the stock at the hip. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `1hand_pistol_aim` | A simple aiming pose for pistol. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `2hand_sword_ready` | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
+| `2hand_sword_block_high` | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
+| `unarmed_carry_object_high` | A one (right) handed carry animation with the arm raised to roughly eye level. Ideal for holding a torch up to see better, etc. When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
+| `unarmed_carry_object_low` | A one (right) handed carry animation with the arm at waist height. Ideal for holding a mug, potion, etc. When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
+| `unarmed_carry_object_heavy` | A two handed carry animation with the arms in front of the body. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `unarmed_carry_score_card` | A two handed carry animation with the arms all the way extended above the head. Ideal for holding text signs, etc. When running/jumping etc., the entire upper body will retain the aiming pose. The attachment point for the card is the right prop, and it registers to the center of the bottom edge of the card/sign. It also assumes x forward. |
+| `unarmed_sit_car_low` | A full body animation that is sitting at ground level with arms up on a wheel. Ideal for driving a go-kart style vehicle When running/jumping etc., the entire body will retain the sitting pose. Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc). Ability animations, however, can be used. |
 | `unarmed_death` | A full body animation that is falling to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is. Suggested to turn on ragdoll. |
 | `unarmed_death_spin` | A full body animation that spins 360 and then falls to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is. |
 
