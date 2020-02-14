@@ -16,7 +16,7 @@ You might be familiar with this in many other games or projects you have played 
 
 Here are just a few ideas on ways that persistent storage can be used:
 
-* player high scores
+* player high score
 * player level
 * player equipment
 * player resources
@@ -31,25 +31,28 @@ Really, anything that you might want to preserve for the next play session for t
 ![Overview Shot](../../img/EditorManual/PersistentStorage/persistenceOverview.png){: .center}
 
 * **Completion Time:** 10 minutes
-* **Knowledge Level:** No knowledge *absolutely* required, but will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
+* **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
 * **Skills you will learn:**
      * How to store variables persistently between game sessions
 
 ---
 
-**Persistent Player Storage** is available under the namespace called **Storage**. The available lua calls are:
+## Storage in CORE Lua
 
-* table GetPlayerData(player) server-only
+Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
-* errorCode, msg SetPlayerData(player, table) server-only
-the items that can be stored in the table are the same as the ones that can be sent through networked events
+* GetPlayerData(player)
+     * is a table
+     * is server-only
 
-* All successfully stored data in **preview mode can be viewed in /Maps/your_map_name/Storage/** . This data is just for debuging purposes and does not get uploaded.
+* errorCode, msg SetPlayerData(player, table)
+     * is server-only
 
-* Each player table has a **maximum size limit of 16Kb**
+The items or variables that can be stored in the table are the same as the ones that can be sent through networked events. So if you can enable networking on a property, you could also save it to player storage.
 
-NOTE:
-If storage service is enabled in your game a player will be able to join only if that player has valid data, otherwise the player will get kicked from the server. This means as soon as the player joined event is fired all stored data for that player in that game should be available.
+All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to CORE servers.
+
+Each player table has a **maximum size limit of 16Kb**.
 
 ---
 
@@ -65,36 +68,41 @@ To start, we are going to save a video game classic: a player's high score.
 
 2. To turn on persistent game storage, we need a **Game Settings Object**. Navigate to the **CORE Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
 
+    !!! info "Another Location for Settings Objects"
+        Settings objects can also be found in the top menu bar of CORE, under Object > Create Settings Object > Create Game Settings.
+
 3. Now select the Game Settings object in your Hierarchy, and check out the **Properties** window. Check the box for **Enable Player Storage** on.
 
-4. Create a new script, and while you can call it whatever you like, in this tutorial let's call it "AddHighScore".
+4. Create a new script, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
 
-5. We need somewhere to display the changes to our score, so let's create some World Text to edit while the game runs.
+5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
-     1. In CORE Content, under the UI Elements section, drag two WorldText objects into your project Hierarchy.
+     1. In CORE Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
 
      2. Name one of these PlayerName, and the other one PlayerScore.
 
-     3. Feel free to change the color or text properties of these labels, or move them around in the world.
+     3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
 
-     ![WorldText](../../img/EditorManual/PersistentStorage/persistenceOverview.png){: .center}
+     ![WorldText](../../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
 
-6. Next we'll want to create custom property references to this on the AddHighScore script. Select the AddHighScore script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for AddHighScore. This will automatically create a CORE Object Reference to the objects we are dragging in!
+6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
 
-     ![WorldText](../../img/EditorManual/PersistentStorage/persistenceOverview.png){: .center}
+7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a CORE Object Reference to the objects we are dragging in!
 
-7. Now on to the programming itself! Open the AddHighScore script to get started.
+     ![WorldText](../../img/EditorManual/PersistentStorage/DragCustomProps.gif){: .center}
+
+8. Now on to the programming of storage itself! Open the `AddHighScore` script to get started.
 
 ### Writing the Code
 
-1. With our script open, we first need to access those references we added as custom properties. This code looks like:
+1. With our script open, we first need to access those references that we added as custom properties. This code looks like:
 
      ```lua
      local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName_Label"):WaitForObject()
      local SCORE_LABEL = script:GetCustomProperty("PlayerScore_Label"):WaitForObject()
      ```
 
-2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the 1 key. This code is:
+2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the number 1 key. This function looks like:
 
      ```lua
      function OnBindingPressed(whichPlayer, binding)
@@ -117,9 +125,16 @@ To start, we are going to save a video game classic: a player's high score.
      end
      ```
 
-     1. explain what this code is doing in parts
+    !!! info "What is this function doing?"
+        In a nutshell, this is a function for what happens when the player presses any button. The first "if statement" is checking that the button the player pressed is the one that we are looking for, `ability_extra_1`.
 
-3. After that, the next function we need determines what to do when a player joins the game. This is where we can initialize the storage for that player, and set their score to 0 if they don't already have one. This code looks like:
+        It then creates a reference to the player's storage data table. If the player already had an existing data table with `score` in it, it will add +1 to that score. If the player did not already have a data table, it will set the `score` entry of the data table to 0.
+
+        Next it's setting up an error message, so that when the function is activated it will print to the Event Log whether saving the data was successful or not.
+
+        And that's it!
+
+3. After that, the next function we need determines what to do when a player joins the game. This is where we can initialize the storage data table for that player, and set their `score` to 0 if they don't already have one. This code looks like:
 
      ```lua
      function OnPlayerJoined(player)
@@ -135,6 +150,9 @@ To start, we are going to save a video game classic: a player's high score.
          player.bindingPressedEvent:Connect(OnBindingPressed)
      end
      ```
+
+    !!! info "Okay, how about what this function is doing?"
+        This functions will happen every time a new player joins the game. This gives an opportunity to check their data table, plug in their data to the UI we made, and create a starting score for them if they've never played before.
 
 4. Finally, we've got to connect the function that we just wrote to the playerJoinedEvent in the Game namespace:
 
