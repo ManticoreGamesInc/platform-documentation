@@ -20,10 +20,10 @@ In this example, players die when they walk over the trigger.
 local trigger = script.parent
 
 function OnBeginOverlap(theTrigger, player)
- -- The object's type must be checked because CoreObjects also overlap triggers, but we only call :Die() on players.
- if player:IsA("Player") then
-  player:Die()
- end
+  -- The object's type must be checked because CoreObjects also overlap triggers, but we only call :Die() on players.
+  if player:IsA("Player") then
+    player:Die()
+  end
 end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
@@ -37,22 +37,22 @@ local trigger = script.parent
 local activePlayers = {}
 
 function OnBeginOverlap(theTrigger, player)
- if player:IsA("Player") then
-  table.insert(activePlayers, player)
-  print("The trigger contains " .. #activePlayers .. " players")
- end
+  if player:IsA("Player") then
+    table.insert(activePlayers, player)
+    print("The trigger contains " .. #activePlayers .. " players")
+  end
 end
 
 function OnEndOverlap(theTrigger, player)
- if (not player:IsA("Player")) then return end
+  if (not player:IsA("Player")) then return end
 
- for i,p in ipairs(activePlayers) do
-  if (p == player) then
-   table.remove(activePlayers, i)
-   break
+  for i,p in ipairs(activePlayers) do
+    if (p == player) then
+      table.remove(activePlayers, i)
+      break
+    end
   end
- end
- print("The trigger contains " .. #activePlayers .. " players")
+  print("The trigger contains " .. #activePlayers .. " players")
 end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 trigger.endOverlapEvent:Connect(OnEndOverlap)
@@ -67,8 +67,8 @@ local trigger = script.parent
 trigger.isInteractable = true
 
 function OnInteracted(theTrigger, player)
- -- In this case there is no need to check the type with IsA("Player") because only players can trigger the interaction.
- player:SetVelocity(Vector3.New(0, 0, 10000))
+  -- In this case there is no need to check the type with IsA("Player") because only players can trigger the interaction.
+  player:SetVelocity(Vector3.New(0, 0, 10000))
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
@@ -83,11 +83,11 @@ local sphere = World.FindObjectByName("PhysicsSphere")
 local teamToReward = 1
 
 while true do
- Task.Wait(1)
- if (sphere and trigger:IsOverlapping(sphere)) then
-  Game.IncreaseTeamScore(teamToReward, 1)
-  print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
- end
+  Task.Wait(1)
+  if (sphere and trigger:IsOverlapping(sphere)) then
+    Game.IncreaseTeamScore(teamToReward, 1)
+    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+  end
 end
 ```
 
@@ -99,15 +99,15 @@ In this example, players score points for their teams for each second they are i
 local trigger = script.parent
 
 while true do
- Task.Wait(1)
- local allPlayers = Game.GetPlayers()
- for _, player in ipairs(allPlayers) do
-  if (trigger:IsOverlapping(player)) then
-   local teamToReward = player.team
-   Game.IncreaseTeamScore(teamToReward, 1)
-   print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+  Task.Wait(1)
+  local allPlayers = Game.GetPlayers()
+  for _, player in ipairs(allPlayers) do
+    if (trigger:IsOverlapping(player)) then
+      local teamToReward = player.team
+      Game.IncreaseTeamScore(teamToReward, 1)
+      print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+    end
   end
- end
 end
 ```
 
@@ -118,12 +118,12 @@ In this example, any objects that overlap with the trigger are pushed upwards un
 ```lua
 local trigger = script.parent
 function Tick()
- local objects = trigger:GetOverlappingObjects()
- for _, obj in pairs(objects) do
-  local pos = obj:GetWorldPosition()
-  pos = pos + Vector3.New(0, 0, 10)
-  obj:SetWorldPosition(pos)
- end
+  local objects = trigger:GetOverlappingObjects()
+  for _, obj in pairs(objects) do
+    local pos = obj:GetWorldPosition()
+    pos = pos + Vector3.New(0, 0, 10)
+    obj:SetWorldPosition(pos)
+  end
 end
 ```
 
@@ -136,10 +136,10 @@ local trigger = script.parent
 trigger.isInteractable = true
 
 function OnInteracted(theTrigger, player)
- print("INTERACTED!")
- trigger.isInteractable = false
- Task.Wait(4)
- trigger.isInteractable = true
+  print("INTERACTED!")
+  trigger.isInteractable = false
+  Task.Wait(4)
+  trigger.isInteractable = true
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
@@ -157,20 +157,20 @@ local isOpen = false
 trigger.isInteractable = true
 
 function SetState(newState)
- isOpen = newState
+  isOpen = newState
 
- if isOpen then
-  trigger.interactionLabel = "Close"
-  trigger:MoveTo(startPos, slideDuration)
- else
-  trigger.interactionLabel = "Open"
-  trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
- end
+  if isOpen then
+    trigger.interactionLabel = "Close"
+    trigger:MoveTo(startPos, slideDuration)
+  else
+    trigger.interactionLabel = "Open"
+    trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
+  end
 end
 SetState(true)
 
 function OnInteracted(theTrigger, player)
- SetState(not isOpen)
+  SetState(not isOpen)
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
@@ -183,11 +183,11 @@ In this example, players score points when they enter a trigger that belongs to 
 local trigger = script.parent
 
 function OnBeginOverlap(theTrigger, player)
- local teamToReward = player.team
- if (player:IsA("Player") and teamToReward ~= trigger.team) then
-  Game.IncreaseTeamScore(teamToReward, 1)
-  print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
- end
+  local teamToReward = player.team
+  if (player:IsA("Player") and teamToReward ~= trigger.team) then
+    Game.IncreaseTeamScore(teamToReward, 1)
+    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+  end
 end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
@@ -201,9 +201,9 @@ local trigger = script.parent
 trigger.isInteractable = true
 
 function OnInteracted(theTrigger, player)
- trigger.team = player.team
- trigger.isTeamCollisionEnabled = false
- print("The objective now belongs to team " .. player.team)
+  trigger.team = player.team
+  trigger.isTeamCollisionEnabled = false
+  print("The objective now belongs to team " .. player.team)
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
@@ -219,27 +219,27 @@ trigger.team = 0
 local onDiedListener = nil
 
 function OnPlayerDied(player, dmg)
- onDiedListener:Disconnect()
- trigger.team = 0
- trigger.isEnemyCollisionEnabled = true
- print("The objective is neutral again.")
+  onDiedListener:Disconnect()
+  trigger.team = 0
+  trigger.isEnemyCollisionEnabled = true
+  print("The objective is neutral again.")
 end
 
 function OnInteracted(theTrigger, player)
- local teamToReward = player.team
- if (teamToReward == trigger.team) then
-  Game.IncreaseTeamScore(teamToReward, 1)
-  print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
- else
-  trigger.team = teamToReward
-  trigger.isEnemyCollisionEnabled = false
-  print("The objective now belongs to team " .. player.team)
- end
+  local teamToReward = player.team
+  if (teamToReward == trigger.team) then
+    Game.IncreaseTeamScore(teamToReward, 1)
+    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+  else
+    trigger.team = teamToReward
+    trigger.isEnemyCollisionEnabled = false
+    print("The objective now belongs to team " .. player.team)
+  end
 
- if onDiedListener then
-  onDiedListener:Disconnect()
- end
- onDiedListener = player.diedEvent:Connect(OnPlayerDied)
+  if onDiedListener then
+    onDiedListener:Disconnect()
+  end
+  onDiedListener = player.diedEvent:Connect(OnPlayerDied)
 end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
