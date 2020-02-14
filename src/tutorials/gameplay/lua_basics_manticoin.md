@@ -49,7 +49,7 @@ The first step is to use the CORE API to modify objects in the world. We'll star
 
 In CORE, **Community Content** houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the **Manticoin**, which we'll use for this project, instead of making our own coin.
 
-To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**max.**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
+To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
 
 ![Manticoin](../../img/scripting/manticoin.png "Manticoin"){: .center}
 
