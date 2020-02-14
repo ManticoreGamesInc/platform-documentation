@@ -55,7 +55,7 @@ function OnEndOverlap(theTrigger, player)
  print("The trigger contains " .. #activePlayers .. " players")
 end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-trigger.endOverlapEvent:Connect(OnBeginOverlap)
+trigger.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
 ### `interactedEvent`
@@ -64,6 +64,7 @@ In this example, the trigger has the "Interactable" checkbox turned on. When the
 
 ```lua
 local trigger = script.parent
+trigger.isInteractable = true
 
 function OnInteracted(theTrigger, player)
  -- In this case there is no need to check the type with IsA("Player") because only players can trigger the interaction.
@@ -149,7 +150,7 @@ In this example, the trigger moves left and right and changes its label dynamica
 
 ```lua
 local trigger = script.parent
-local slideDuration = 3
+local slideDuration = 2
 local startPos = trigger:GetWorldPosition()
 local isOpen = false
 
@@ -197,6 +198,7 @@ In this example, when a player interracts with a trigger it joins their team and
 
 ```lua
 local trigger = script.parent
+trigger.isInteractable = true
 
 function OnInteracted(theTrigger, player)
  trigger.team = player.team
@@ -212,6 +214,7 @@ In this example, when a player interracts with a trigger it joins their team and
 
 ```lua
 local trigger = script.parent
+trigger.isInteractable = true
 trigger.team = 0
 local onDiedListener = nil
 
@@ -219,6 +222,7 @@ function OnPlayerDied(player, dmg)
  onDiedListener:Disconnect()
  trigger.team = 0
  trigger.isEnemyCollisionEnabled = true
+ print("The objective is neutral again.")
 end
 
 function OnInteracted(theTrigger, player)
