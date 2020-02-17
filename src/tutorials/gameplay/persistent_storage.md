@@ -23,8 +23,8 @@ Here are just a few ideas on ways that persistent storage can be used:
 * Object Location
 * Map Level for a Player
 * Currency
-* Achievments
-* Whatever elsae you can think of!
+* Achievements
+* Whatever else you can think of!
 
 Really, anything that you might want to preserve for the next play session for that same player can be stored.
 
@@ -69,7 +69,7 @@ To start, we are going to save a video game classic: a player's high score.
 2. To turn on persistent game storage, we need a **Game Settings Object**. Navigate to the **CORE Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
 
     !!! info "Another Location for Settings Objects"
-        Settings objects can also be found in the top menu bar of CORE, under Object > Create Settings Object > Create Game Settings.
+        Settings objects can also be found in the top menu bar of CORE, under **Object** > **Create Settings Object** > **Create Game Settings**.
 
 3. Now select the Game Settings object in your Hierarchy, and check out the **Properties** window. Check the box for **Enable Player Storage** on.
 
