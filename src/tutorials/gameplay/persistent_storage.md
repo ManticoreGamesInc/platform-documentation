@@ -16,15 +16,15 @@ You might be familiar with this in many other games or projects you have played 
 
 Here are just a few ideas on ways that persistent storage can be used:
 
-* player high score
-* player level
-* player equipment
-* player resources
-* object location
-* map level for a player
-* currency
-* achievments
-* & whatever else you can think of!
+* Player High Score
+* Player Level
+* Player Equipment
+* Player Resources
+* Object Location
+* Map Level for a Player
+* Currency
+* Achievments
+* Whatever elsae you can think of!
 
 Really, anything that you might want to preserve for the next play session for that same player can be stored.
 
@@ -33,7 +33,7 @@ Really, anything that you might want to preserve for the next play session for t
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
 * **Skills you will learn:**
-     * How to store variables persistently between game sessions
+    * How to store variables persistently between game sessions
 
 ---
 
@@ -42,11 +42,11 @@ Really, anything that you might want to preserve for the next play session for t
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
 * `GetPlayerData(player)`
-     * is a table
-     * is server-only
+    * is a table
+    * is server-only
 
 * `errorCode, msg SetPlayerData(player, table)`
-     * is server-only
+    * is server-only
 
 The items or variables that can be stored in the table are the same as the ones that can be sent through networked events. So if you can enable networking on a property, you could also save it to player storage.
 
@@ -77,21 +77,21 @@ To start, we are going to save a video game classic: a player's high score.
 
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
-     1. In CORE Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
+    1. In CORE Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
 
-     2. Name one of these `PlayerName`, and the other one `PlayerScore`.
+    2. Name one of these `PlayerName`, and the other one `PlayerScore`.
 
-     3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
+    3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
 
-     ![WorldText](../../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
+    ![WorldText](../../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
 
 6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
 
 7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a CORE Object Reference to the objects we are dragging in!
 
-     <video autoplay loop muted playsinline poster="../../../img/EditorManual/Abilities/Gem.png" class="center">
+    <video autoplay loop muted playsinline poster="../../../img/EditorManual/Abilities/Gem.png" class="center">
         <source src="../../../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
-     </video>
+    </video>
 
 8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the test says!
 
@@ -101,59 +101,60 @@ To start, we are going to save a video game classic: a player's high score.
 
 1. With our script open, we first need to access those references that we added as custom properties. This code looks like:
 
-     ```lua
-     local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName"):WaitForObject()
-     local SCORE_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
-     ```
+    ```lua
+    local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName"):WaitForObject()
+    local SCORE_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
+    ```
 
 2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the number 1 key. This function looks like:
 
-     ```lua
-     function OnBindingPressed(whichPlayer, binding)
-         if (binding == "ability_extra_1") then
-             local playerDataTable = Storage.GetPlayerData(whichPlayer)
+    ```lua
+    function OnBindingPressed(whichPlayer, binding)
+        if binding == "ability_extra_1" then
+            local playerDataTable = Storage.GetPlayerData(whichPlayer)
 
-             if playerDataTable.score then
-                 playerDataTable.score = playerDataTable.score + 1
-             else
-                 playerDataTable.score = 0
-             end
+            if playerDataTable.score then
+                playerDataTable.score = playerDataTable.score + 1
+            else
+                playerDataTable.score = 0
+            end
 
-             local errorCode, errorMsg = Storage.SetPlayerData(whichPlayer, playerDataTable)
-             if errorCode == StorageResultCode.SUCCESS then
-                 SCORE_LABEL.text = tostring(playerDataTable.score)
-             else
-                 UI.PrintToScreen(errorMsg)
-             end
-         end
-     end
-     ```
+            local errorCode, errorMsg = Storage.SetPlayerData(whichPlayer, playerDataTable)
+
+            if errorCode == StorageResultCode.SUCCESS then
+                SCORE_LABEL.text = tostring(playerDataTable.score)
+            else
+                UI.PrintToScreen(errorMsg)
+            end
+        end
+    end
+    ```
 
     !!! info "What is this function doing?"
         In a nutshell, this is a function for what happens when the player presses any button. The first "if statement" is checking that the button the player pressed is the one that we are looking for, `ability_extra_1`.
 
-        It then creates a reference to the player's storage data table. If the player already had an existing data table with `score` in it, it will add +1 to that score. If the player did not already have a data table, it will set the `score` entry of the data table to 0.
+    It then creates a reference to the player's storage data table. If the player already had an existing data table with `score` in it, it will add +1 to that score. If the player did not already have a data table, it will set the `score` entry of the data table to 0.
 
-        Next it's setting up an error message, so that when the function is activated it will print to the **Event Log** whether saving the data was successful or not.
+    Next it's setting up an error message, so that when the function is activated it will print to the **Event Log** whether saving the data was successful or not.
 
-        And that's it!
+    And that's it!
 
 3. After that, the next function we need determines what to do when a player joins the game. This is where we can initialize the storage data table for that player, and set their `score` to 0 if they don't already have one. This code looks like:
 
-     ```lua
-     function OnPlayerJoined(player)
-         local playerDataTable = Storage.GetPlayerData(player)
+    ```lua
+    function OnPlayerJoined(player)
+        local playerDataTable = Storage.GetPlayerData(player)
 
-         if not playerDataTable.score then
-             playerDataTable.score = 0
-         end
+        if not playerDataTable.score then
+            playerDataTable.score = 0
+        end
 
-         SCORE_LABEL.text = tostring(playerDataTable.score)
-         PLAYERNAME_LABEL.text = player.name .. " Score:"
+        SCORE_LABEL.text = tostring(playerDataTable.score)
+        PLAYERNAME_LABEL.text = player.name .. " Score:"
 
-         player.bindingPressedEvent:Connect(OnBindingPressed)
-     end
-     ```
+        player.bindingPressedEvent:Connect(OnBindingPressed)
+    end
+    ```
 
     !!! info "Okay, how about what this function is doing?"
         This functions will happen every time a new player joins the game. This gives an opportunity to check their data table, plug in their data *(username and score)* to the UI we made, and create a starting `score` for them if they've never played before.
@@ -162,13 +163,13 @@ To start, we are going to save a video game classic: a player's high score.
 
 4. Finally, we've got to connect the `OnPlayerJoined()` function that we just wrote to the `playerJoinedEvent` in the `Game` namespace. This officially hooks up the function we made to the built-in event that is triggered when a player joins. Check it out below:
 
-     ```lua
-     Game.playerJoinedEvent:Connect(OnPlayerJoined)
-     ```
+    ```lua
+    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+    ```
 
 5. Now press play to jump in the game and test it out!
 
-     Whenever you press `1` on your keyboard, the number on-screen will increase!
+    Whenever you press <kbd>1</kbd> on your keyboard, the number on-screen will increase!
 
 ![Final Result](../../img/EditorManual/PersistentStorage/finalResult.png){: .center}
 
