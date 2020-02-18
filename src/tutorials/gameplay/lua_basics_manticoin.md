@@ -1,23 +1,19 @@
 ---
 id: scripting_advanced
-name: Advanced Scripting in Core
-title: Advanced Scripting in Core
+name: Advanced Scripting in CORE
+title: Advanced Scripting in CORE
 categories:
     - Tutorial
 ---
 
-# Advanced Scripting in Core
-
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
+# Advanced Scripting in CORE
 
 ## Overview
 
-In this tutorial, we are taking a deeper look at what it takes to utilize the Core API to create a simple multiplayer game.
+In this tutorial, we are taking a deeper look at what it takes to utilize the CORE API to create a simple multiplayer game.
 
 * **Completion Time:** ~30 minutes
-* **Knowledge Level:** No prior knowledge of Lua
+* **Knowledge Level:** None absolutely necessary, but will be easier having completed our [first scripting tutorial](lua_basics_lightbulb.md).
 * **Skills you will learn:**
     * Downloading and editing templates
     * Creating a script and using it to:
@@ -33,42 +29,47 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the Co
 
 ---
 
-**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
 
-* For debugging, we have our own script debugger, you can enable it via the **View** menu.
+* For debugging, we have our own script debugger, you can enable it via the **View** menu in the top bar of the CORE editor.
     You can toggle breakpoints by clicking on a line number in the internal editor.
-* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
+* Lastly, we have a section on [code conventions](lua_style_guide.md) that we reccomend as well.
 
 ---
 
 ## Tutorial
 
-The first step is to use the Core API to modify objects in the world. We'll start small, with a coin the player can pick up.
+The first step is to use the CORE API to modify objects in the world. We'll start small, with a coin the player can pick up.
 
 ### Adding Manticoin
 
-In Core, **Community Content** houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the **Manticoin**, which we'll use for this project, instead of making our own coin.
+In CORE, **Community Content** houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the **Manticoin**, which we'll use for this project, instead of making our own coin.
 
-To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big "**+**" (Add to Core Content) button.
+To add the **Manticoin** template to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big blue **"Import"** button.
 
 ![Manticoin](../../img/scripting/manticoin.png "Manticoin"){: .center}
 
-!!! note "The editor will prompt you to save before it adds it to your project."
+!!! note "The CORE editor will prompt you to save before it adds the template to your project."
 
-Since this has been imported from our community content area, it is now listed under **Imports** in the **Core Content** tab. Next, just like we did with `TutorialScript`, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
+Since this has been imported from Community Content, it is now listed under **Imported Content** in the **CORE Content** tab. If you click the name of the Manticoin template on the left side of the CORE Content window, you will see a green template icon in the space on the right. To see the Manticoin and use it, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is--you guessed it--with a script!
 
 ### SpinCoin Script
 
-Let's make a new script, call it `SpinCoin` and drag it onto the `Manticoin` object so that the script is its child.
-At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to make all children networked to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
+Let's make a new script using the button at the top of CORE, call it `SpinCoin` and drag it onto the `Manticoin` object in our project Hierarchy so that the script is its child. You will likely need to first drag the script into the Hierarchy, and then you may try dragging it onto the blue Manticoin template.
 
-`script.parent:RotateContinuous(Rotation.New(200, 0, 0))`
+![Create New Script](../../img/scripting/createNewScript.png "Click this to create a new script."){: .center}
+
+At this point, the editor will prompt you about a networking state mismatch. In CORE, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
+
+`script.parent:RotateContinuous(Rotation.New(0, 0, 200))`
 
 We'll explain what this line does in a moment, but for now, make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../../img/getting_started/SpinCoin.png "SpinCoin Location"){: .center}
+![SpinCoinLocation](../../img/scripting/MyFirstScript.png "SpinCoin Location"){: .center}
 
 Running this should continuously rotate the coin in the air. Shiny!
+
+!!! note "If your coin is halfway into the ground, select the Manticoin template and drag it upwards in the world--or to wherever you like!"
 
 Okay, so what did we just do?
 
@@ -78,20 +79,20 @@ Okay, so what did we just do?
 * `script.parent` -> references the script's parent object, i.e. the item one level above the script in the Hierarchy (in this case, the Manticoin object).
 * `RotateContinuous()` -> Every **CoreObject** (things like scripts, objects, etc.) has methods available to it. `RotateContinuous` is one of these, and we invoke such a function with the `:` syntax. It requires a `Rotation` parameter to work.
     * Methods are simply functions that belong to an object.
-* `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the x axis by 200, spinning the coin along the y axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
+* `Rotation.New(Number x, Number y, Number z)l)` -> Here, we create a vector to rotate the object on the z axis by 200, spinning the coin along the z axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
 !!! note "If you want to know which other methods are available for every object, check out our [API docs](../../core_api.md) page."
 
 ### Spin Cleanup
 
-Writing all that in one line of code makes it a bit confusing, so let's rewrite it to be more clear and explicit.
+Writing all that in one line of code makes it a bit confusing, so let's rewrite it to be more clear.
 
 ```lua
 -- Get the object one level above the script in the hierarchy, in this case our coin
 local coin = script.parent
 
--- Create a rotation along the x axis
-local spinRotation = Rotation.New(200, 0, 0)
+-- Create a rotation along the z axis
+local spinRotation = Rotation.New(0, 0, 200)
 
 -- Rotate the coin using our previously defined rotation
 coin:RotateContinuous(spinRotation)
@@ -103,7 +104,7 @@ Yay, we've got it working! Now if only we could collect these coins...
 
 ### Adding a Trigger
 
-1. From **Core Content -> Gameplay Objects**, drag a **Trigger** object into the world
+1. From **CORE Content -> Gameplay Objects**, drag a **Trigger** object into the world
    * Resize the trigger to match the coin's size.
      * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
      * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
@@ -157,7 +158,7 @@ function Tick()
 end
 ```
 
-Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since Core comes equipped with multiplayer functionality right out of the box.
+Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since CORE comes equipped with multiplayer functionality right out of the box.
 
 Next up, we're going to add a UI element to display this information instead of the bland `UI.PrintToScreen` call we have now.
 
@@ -168,9 +169,9 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 ### Creating UI Text
 
 1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
-   * Go to **Core Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
+   * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
    * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
-   * From **Core Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
+   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
    * Rename the Text Control to `CoinUI`.
    * In the properties panel, set `Text` to be blank by default.
 
@@ -215,7 +216,7 @@ Now let's make a simple map and populate it with coins.
 So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
 
 * Create the player's spawn point
-    * In the **Core Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
+    * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
     * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
 
 Alright, beautiful!
@@ -238,7 +239,7 @@ Now we will write a script to make the game round-based.
 
 Here we go! Create a script called `CoinGameLogic`.
 
-Let's also add a `Gameplay Settings` object to our hierarchy from **Core Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
+Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
 
 Next, we need to create the custom parameter to save our game state.
 
@@ -320,7 +321,7 @@ Lastly, let's add in the logic to reset the map (i.e. add the coins back) after 
 
 Currently we are deleting the coins when they are picked up. We could spawn in new coins at the old locations, but that would involve storing references to the old locations. Sometimes you need to rewrite code as your game changes, and that's exactly what we're going to do here!
 
-An easier solution would be to just hide the coins from the map when they are picked up, and then un-hide them when resetting the map. Fortunately, this is not only a simple thing to do in Core, but also a very quick change.
+An easier solution would be to just hide the coins from the map when they are picked up, and then un-hide them when resetting the map. Fortunately, this is not only a simple thing to do in CORE, but also a very quick change.
 
 ### Resetting Coins
 
@@ -393,4 +394,4 @@ end
 
 ## Summary
 
-In just a few steps, you've created your first multiplayer game in Core by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!
+In just a few steps, you've created your first multiplayer game in CORE by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!
