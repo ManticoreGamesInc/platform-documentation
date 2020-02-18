@@ -31,13 +31,12 @@ ffmpeg
 globals
 img
 language-lua
-lt
 pssstt
 spatialization
 templetized
 var
 mkdocs
-&lt;
+&lt
 deinstance
 Deinstance
 Luacheck
@@ -64,8 +63,8 @@ Collidable
 Tobs
 spatialization
 synthwave
-lt
 Devs
 kitbash
 spawnable
 Edgeline
+&gt
