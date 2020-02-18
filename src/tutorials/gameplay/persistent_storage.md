@@ -41,11 +41,11 @@ Really, anything that you might want to preserve for the next play session for t
 
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
-* `GetPlayerData(player)`
+* `GetPlayerData(Player)`
     * is a table
     * is server-only
 
-* `errorCode, msg SetPlayerData(player, table)`
+* `SetPlayerData(Player, table)`
     * is server-only
 
 The items or variables that can be stored in the table are the same as the ones that can be sent through networked events. So if you can enable networking on a property, you could also save it to player storage.
