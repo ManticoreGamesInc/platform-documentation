@@ -227,12 +227,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `childAddedEvent` | Event&lt;CoreObject parent, CoreObject newChild&gt; | Fired when a child is added to this object. | Read-Only |
-| `childRemovedEvent` | Event&lt;CoreObject parent, CoreObject removedChild&gt; | Fired when a child is removed from this object. | Read-Only |
-| `descendantAddedEvent` | Event&lt;CoreObject ancestor, CoreObject newChild&gt; | Fired when a child is added to this object or any of its descendants. | Read-Only |
-| `descendantRemovedEvent` | Event&lt;CoreObject ancestor, CoreObject removedChild&gt; | Fired when a child is removed from this object or any of its descendants. | Read-Only |
-| `destroyEvent` | Event&lt;CoreObject&gt; | Fired when this object is about to be destroyed. | Read-Only |
-| `networkedPropertyChangedEvent` | Event&lt;CoreObject owner, string propertyName&gt; | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | Read-Only |
+| `childAddedEvent` | Event&lt;CoreObject parent, CoreObject newChild&gt; | Fired when a child is added to this object. | None |
+| `childRemovedEvent` | Event&lt;CoreObject parent, CoreObject removedChild&gt; | Fired when a child is removed from this object. | None |
+| `descendantAddedEvent` | Event&lt;CoreObject ancestor, CoreObject newChild&gt; | Fired when a child is added to this object or any of its descendants. | None |
+| `descendantRemovedEvent` | Event&lt;CoreObject ancestor, CoreObject removedChild&gt; | Fired when a child is removed from this object or any of its descendants. | None |
+| `destroyEvent` | Event&lt;CoreObject&gt; | Fired when this object is about to be destroyed. | None |
+| `networkedPropertyChangedEvent` | Event&lt;CoreObject owner, string propertyName&gt; | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1336,6 +1336,15 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. | Server-Only |
 | `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. | Server-Only |
 | `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. | Server-Only |
+
+### Storage
+
+The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.
+
+| Class Function | Return Type | Description | Tags |
+| -------------- | ----------- | ----------- | ---- |
+| `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. | Server-Only |
+| `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message. See below for possible result codes and supported data types. Player data is limited to 16KB per player.<br/>Possible result codes:<br/>`StorageResultCode.SUCCESS`<br/>`StorageResultCode.FAILURE`<br/>`StorageResultCode.STORAGE_DISABLED`<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`<br/>Supported data types:<br/>Bool<br/>Int32<br/>Float<br/>String<br/>Color<br/>Rotator<br/>Vector2<br/>Vector3<br/>Vector4<br/>Player<br/>Table | Server-Only |
 
 ### Teams
 
