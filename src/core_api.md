@@ -483,12 +483,14 @@ Player is an Object representation of the state of a Player connected to the gam
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetWorldTransform()` | Transform | The absolute Transform of this object. | None |
-| `SetWorldTransform(Transform)` | None | The absolute Transform of this object. | Server-Only |
-| `GetWorldPosition()` | Vector3 | The absolute position. | None |
-| `SetWorldPosition(Vector3)` | None | The absolute position. | Server-Only |
-| `GetWorldRotation()` | Rotation | The absolute rotation. | None |
-| `SetWorldRotation(Rotation)` | None | The absolute rotation. | Server-Only |
+| `GetWorldTransform()` | Transform | The absolute Transform of this player. | None |
+| `SetWorldTransform(Transform)` | None | The absolute Transform of this player. | Server-Only |
+| `GetWorldPosition()` | Vector3 | The absolute position of this player. | None |
+| `SetWorldPosition(Vector3)` | None | The absolute position of this player. | Server-Only |
+| `GetWorldRotation()` | Rotation | The absolute rotation of this player. | None |
+| `SetWorldRotation(Rotation)` | None | The absolute rotation of this player. | Server-Only |
+| `GetWorldScale()` | Vector3 | The absolute scale of this player. | None |
+| `SetWorldScale(Vector3)` | None | The absolute scale of this player (must be uniform). | Server-Only |
 | `AddImpulse(Vector3)` | None | Adds an impulse force to the Player. | Server-Only |
 | `GetVelocity()` | Vector3 | Gets the current velocity of the Player. | None |
 | `SetVelocity(Vector3)` | None | Sets the Player's velocity to the given amount. | Server-Only |
@@ -749,6 +751,8 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | -------- | ----------- | ----------- | ---- |
 | `Play()` | None | Begins sound playback. | Dynamic |
 | `Stop()` | None | Stops sound playback. | Dynamic |
+| `FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. | Dynamic |
+| `FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -763,6 +767,9 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write, Dynamic |
 | `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write, Dynamic |
 | `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write, Dynamic |
+| `fadeInTime` | Number | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write, Dynamic |
+| `fadeOutTime` | Number | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write, Dynamic |
+| `startTime` | Number | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write, Dynamic |
 
 ### SmartObject
 
