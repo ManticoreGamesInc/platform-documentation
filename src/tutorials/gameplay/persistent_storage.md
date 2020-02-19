@@ -34,6 +34,7 @@ Really, anything that you might want to preserve for the next play session for t
 * **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
 * **Skills you will learn:**
     * How to store variables persistently between game sessions
+    * How to spawn stored template save data
 
 ---
 
@@ -41,26 +42,26 @@ Really, anything that you might want to preserve for the next play session for t
 
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
-* `GetPlayerData(Player)`
+* `Storage.GetPlayerData(Player)`
     * is a table
     * is server-only
 
-* `SetPlayerData(Player, table)`
+* `Storage.SetPlayerData(Player, table)`
     * is server-only
-
-The items or variables that can be stored in the table are the same as the ones that can be sent through networked events. So if you can enable networking on a property, you could also save it to player storage.
 
 All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to CORE servers.
 
 Each player table has a **maximum size limit of 16Kb**.
 
+To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [CORE API](/core_api/#storage).
+
 ---
 
-## Tutorial
+## Tutorial: Part One
 
 This tutorial is going to go over some basic examples of using Storage, as the Lua is simple but the possibilities are infinite.
 
-To start, we are going to save a video game classic: a player's high score.
+To start, we are going to save a video game classic: a player's game score.
 
 ### Setting Up Storage
 
@@ -175,10 +176,111 @@ To start, we are going to save a video game classic: a player's high score.
 
 Congrats, you've learned the basics of Persistent Data Storage in CORE. Now go forth, and save awesome things!
 
+If you'd like another example using a different type of object to save, try the second half of this tutorial.
+
+## Tutorial: Part Two
+
+Saving a number is great and fine, but there are so many things that you can save with persistence. Next, let's try saving the player's equipment.
+
+### Modifying Existing Code
+
+We're going to edit the script we already used in the first half of the tutorial, `AddHighScore`. Since we already made an `OnPlayerJoined()` function here, it's easiest to modify this to also work for loading the equipment we are going to save.
+
+1. Open the `AddHighScore` script, and in the `OnPlayerJoined()` function, beneath the `Connect:` line that we wrote, include this code:
+
+    ```lua
+    if not playerDataTable.equipment then
+        print("No player data equipment found.")
+        return
+    end
+    local newWeapon = World.SpawnAsset(playerDataTable.equipment)
+    newWeapon:Equip(player)
+    ```
+
+    This means the whole function should now look like this:
+
+    ```lua
+    function OnPlayerJoined(player)
+        local playerDataTable = Storage.GetPlayerData(player)
+
+        if not playerDataTable.score then
+            playerDataTable.score = 0
+        end
+
+        SCORE_LABEL.text = tostring(playerDataTable.score)
+        PLAYERNAME_LABEL.text = player.name .. " Score:"
+
+        player.bindingPressedEvent:Connect(OnBindingPressed)
+
+        if not playerDataTable.equipment then
+            print("No player data equipment found.")
+            return
+        end
+        local newWeapon = World.SpawnAsset(playerDataTable.equipment)
+        newWeapon:Equip(player)
+    end
+    ```
+
+    !!! info "What's happening in this code change?"
+        We're doing almost exactly the same thing that we did for loading the player score. Instead of giving the player starting equipment by default, we are just printing a line to the **Event Log** alerting us that this player didn't have any saved equipment yet. If they did have saved equipment, then we are spawning an instance of that equipment and equipping it onto the player.
+
+2. Now that we've set up our code to load player equipment that we save, we need the actual equipment to save! For this tutorial, we are going to use one of the *Advanced Weapons* that are included in **CORE Content**.
+
+     Navigate to CORE Content, and drop down the **Game Components** category to find the weapons category. From within here, drag the *Advanced Shotgun* into your viewport window. You can choose any *Advanced Weapon* that you like--we just need to choose an *Advanced* weapon as they already come with the script that we need to modify.
+
+3. Once you've dragged in the Advanced Shotgun, you will be able to access all of its scripts from "**My Scripts**" in your **Project Content**.
+
+     The script we want to modify is called `WeaponPickupTriggerServer`. Open this up to get started!
+
+4. When you open the script, you'll notice it is already full of variables and functions. We're going to scroll down to the `OnEquipped()` function, and add a few lines to it.
+
+    After all the existing content in the function, but still inside of it, add these lines of code:
+
+    ```lua
+    local playerDataTable = Storage.GetPlayerData(player)
+    playerDataTable.equipment = EQUIPMENT.sourceTemplateId
+    print(EQUIPMENT.sourceTemplateId)
+    Storage.SetPlayerData(player, playerDataTable)
+    ```
+
+    So now the whole `OnEquipped()` function should look like this:
+
+    ```lua
+    function OnEquipped(equipment, player)
+
+        -- Turn off trigger once equipped
+        if Object.IsValid(TRIGGER) then
+         TRIGGER.collision = Collision.FORCE_OFF
+        end
+
+        -- Spawn a pickup sound when a player picks up the weapon
+        if PICKUP_SOUND then
+            local pickupSound = World.SpawnAsset(PICKUP_SOUND, {position = script:GetWorldPosition()})
+
+            -- Set a default lifespan if the pickup sound template has 0 lifeSpan
+            if pickupSound.lifeSpan == 0 then
+                pickupSound.lifeSpan = DEFAULT_LIFESPAN
+            end
+        end
+
+        -- Saving equipment to player storage
+        local playerDataTable = Storage.GetPlayerData(player)
+        playerDataTable.equipment = EQUIPMENT.sourceTemplateId
+        print(EQUIPMENT.sourceTemplateId)
+        Storage.SetPlayerData(player, playerDataTable)
+    end
+    ```
+
+    !!! info "So what is happening this time?"
+        This function fires the moment a player picks up and equips the weapon. At that moment, it sets the `.equipment` property of the player storage to be equal to the template ID of the equipment that fired this function. This way, that exact template can be spawned in the `OnPlayerJoined()` function that we wrote in the first step on the `AddHighScore` script.
+
+5. We have everything hooked up now! Press play, and pick up the weapon. When you quit preview mode, this weapon will still be saved. Hit play again, and you will automatically have the weapon equipped to you.
+
+Now you know how to save something that needs to be spawned again on the next play session. More tools in your creator toolbelt!
+
 ---
 
-### Extra Tips & Info
+## Extra Tips & Info
 
 * Persistent storage data does not transfer between games nor can it be accessed between games.
-* Overall, it works fairly similarly to using a networked property variable.
-* Using this same method as the tutorial, you can save all types of data: equipment, weapons, player resources; whatever you would like. The key elements are loading the player storage when a player joins the game, and setting the player storage when you want something to be saved to it.
+* Using this same method as the tutorial, you can save all types of data: weapons, player resources, player or object location; whatever you would like. The key elements are loading the player storage when a player joins the game, and setting the player storage when you want something to be saved to it.
