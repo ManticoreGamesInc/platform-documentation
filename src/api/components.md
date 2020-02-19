@@ -231,7 +231,7 @@ Custom Properties:
 
 Other components (just Compass currently) will show UI or otherwise rely on points of interest. Points of interest may be spawned and removed during gameplay.
 
-Creators can also make their own points of interest from lua by using functions defined in `APIPointOfInterest.lua`.
+Creators can also make their own points of interest from Lua by using functions defined in `APIPointOfInterest.lua`.
 
 ### Capture Points
 
@@ -371,7 +371,7 @@ Custom Properties:
 - `UseRoundTiming (bool) : Game.roundStartEvent and Game.roundEndEvent control the zone`
 - `ActivationDelay (float) : delay after activation to begin first phase`
 
-### Constricting Play Zone UI
+### Constricting Play Zone Display
 
 Tells the player what phase zone is currently active and the remaining phase time
 
