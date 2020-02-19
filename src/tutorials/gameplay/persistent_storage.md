@@ -42,18 +42,18 @@ Really, anything that you might want to preserve for the next play session for t
 
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
-* `GetPlayerData(Player)`
+* `Storage.GetPlayerData(Player)`
     * is a table
     * is server-only
 
-* `SetPlayerData(Player, table)`
+* `Storage.SetPlayerData(Player, table)`
     * is server-only
-
-The items or variables that can be stored in the table are the same as the ones that can be sent through networked events. So if you can enable networking on a property, you could also save it to player storage.
 
 All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to CORE servers.
 
 Each player table has a **maximum size limit of 16Kb**.
+
+To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [CORE API](/core_api/#storage).
 
 ---
 
@@ -283,5 +283,4 @@ Now you know how to save something that needs to be spawned again on the next pl
 ## Extra Tips & Info
 
 * Persistent storage data does not transfer between games nor can it be accessed between games.
-* Overall, it works fairly similarly to using a networked property variable.
 * Using this same method as the tutorial, you can save all types of data: weapons, player resources, player or object location; whatever you would like. The key elements are loading the player storage when a player joins the game, and setting the player storage when you want something to be saved to it.
