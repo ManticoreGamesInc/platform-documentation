@@ -108,7 +108,7 @@ markdown_extensions:
   - pymdownx.critic # editing allowed
   - pymdownx.details # admonition style details
   - pymdownx.emoji: # emojis
-      emoji_generator: pymdownx.emoji.to_svg
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite # inline code highlighting
   - pymdownx.magiclink # autolinks and shorthand
   - pymdownx.mark # highlights
