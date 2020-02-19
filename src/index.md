@@ -64,7 +64,7 @@ Most importantly, we’re all here to **make games and community content that fu
 
 Some things to keep in mind:
 
-- There will be bugs - help us find them!.
+- There will be bugs - help us find them!
 - :fab fa-discord: [Join the community](https://discord.gg/85k8A7V) and help us shape the product in real time.
 - [Share your feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform) with us often. No detail or thought is too small!
 
