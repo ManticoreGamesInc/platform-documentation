@@ -55,7 +55,7 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
     ![PlayMode](../img/MyFirstMultiplayer/PlayMode.png){: .center}
 
-3. But we're all by ourselves. 😞 That's no fun, so let's test out the multiplayer experience by simulating two clients! Near the pause button, click on the **Multiplayer Preview Mode** button and select 2 Players.
+3. But we're all by ourselves. :worried: That's no fun, so let's test out the multiplayer experience by simulating two clients! Near the pause button, click on the **Multiplayer Preview Mode** button and select 2 Players.
 
     ![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center}
 
