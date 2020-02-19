@@ -1351,7 +1351,20 @@ The Storage namespace contains a set of functions for handling persistent storag
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. | Server-Only |
-| `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message. See below for possible result codes and supported data types. Player data is limited to 16KB per player.<br/>Possible result codes:<br/>`StorageResultCode.SUCCESS`<br/>`StorageResultCode.FAILURE`<br/>`StorageResultCode.STORAGE_DISABLED`<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`<br/>Supported data types:<br/>Bool<br/>Int32<br/>Float<br/>String<br/>Color<br/>Rotator<br/>Vector2<br/>Vector3<br/>Vector4<br/>Player<br/>Table | Server-Only |
+| `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message. See below for possible result codes and supported data types. Player data is limited to 16KB per player.<br/>Possible result codes:<br/>`StorageResultCode.SUCCESS`<br/>`StorageResultCode.FAILURE`<br/>`StorageResultCode.STORAGE_DISABLED`<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`. | Server-Only |
+
+??? "Storage Supported Types"
+    - Bool
+    - Int32
+    - Float
+    - String
+    - Color
+    - Rotator
+    - Vector2
+    - Vector3
+    - Vector4
+    - Player
+    - Table
 
 ### Teams
 
