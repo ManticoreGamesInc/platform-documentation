@@ -43,7 +43,7 @@ Really, anything that you might want to preserve for the next play session for t
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
 * `Storage.GetPlayerData(Player)`
-    * is a table
+    * returns a table
     * is server-only
 
 * `Storage.SetPlayerData(Player, table)`
@@ -53,7 +53,7 @@ All successfully stored data in preview mode can be viewed in your computer's Fi
 
 Each player table has a **maximum size limit of 16Kb**.
 
-To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [CORE API](/core_api/#storage).
+To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [CORE API](/docs/core_api/#storage).
 
 ---
 
@@ -74,7 +74,9 @@ To start, we are going to save a video game classic: a player's game score.
 
 3. Now select the Game Settings object in your Hierarchy, and check out the **Properties** window. Check the box for **Enable Player Storage** on.
 
-4. Create a new script, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
+4. Create a new script using the button in the top toolbar of CORE, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
+
+    ![WorldText](../../img/EditorManual/PersistentStorage/createNewScript.png){: .center}
 
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
@@ -94,7 +96,7 @@ To start, we are going to save a video game classic: a player's game score.
         <source src="../../../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
     </video>
 
-8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the test says!
+8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the text says!
 
 9. Now on to the programming of storage itself! Open the `AddHighScore` script to get started.
 
