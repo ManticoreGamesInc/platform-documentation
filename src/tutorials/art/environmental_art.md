@@ -39,7 +39,7 @@ Learn how to easily and quickly create an environment using the Terrain Generato
 
    ![ArtIntro](../../img/EnvironIntro/image17.png "Art Screenshot"){: .center}
 
-   As you can see there are many different terrain types to choose from out of the box. You can also import height maps for a more customized world (link to height map tutorial).
+   As you can see there are many different terrain types to choose from out of the box. You can also import height maps for a more customized world.
 
 3. Select **Rolling Hills** and click **Generate**.
 
