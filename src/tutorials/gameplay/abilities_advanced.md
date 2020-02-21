@@ -1,12 +1,12 @@
 ---
 id: abilities_advanced
-name: Advanced Abilities in CORE
-title: Advanced Abilities in CORE
+name: Advanced Abilities in Core
+title: Advanced Abilities in Core
 categories:
     - Tutorial
 ---
 
-# Advanced Abilities in CORE
+# Advanced Abilities in Core
 
 ## Overview
 
@@ -41,7 +41,7 @@ To really see the power that the ability system gives us to make cool gameplay m
 
 ### The 4 Phases of an Ability
 
-In CORE, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
+In Core, an ability is treated as 4 separate steps that happen immediately one right after another. This allows for distinctly different things to be programmed by a creator in each phase, creating a more complex overall ability.
 
 The 4 different phases of an ability are:
 
@@ -73,7 +73,7 @@ Once an ability is triggered to start, it cycles through **Cast** > **Execute** 
 
 ![Ability States](../../img/EditorManual/Abilities/Ability_States.png){: .center}
 
-To tie functionality to the different phases of an ability, CORE uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
+To tie functionality to the different phases of an ability, Core uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
 
 A created function can be connected to these events, using `:Connect(ability_name)` within a script.
 
@@ -88,7 +88,7 @@ Connecting functions to events in an ability is the main task to be done when cr
 
 ![Ability Object](../../img/EditorManual/Abilities/abilityObject.png){: .center}
 
-CORE allows building gameplay with as little or as much scripting as you would like. A powerful aspect of abilities is that they are kept in an Ability Object. This is a single Hierarchy object that holds all the most useful properties you might want to change to make your specific ability unique.
+Core allows building gameplay with as little or as much scripting as you would like. A powerful aspect of abilities is that they are kept in an Ability Object. This is a single Hierarchy object that holds all the most useful properties you might want to change to make your specific ability unique.
 
 Using an Ability object in combination with scripting makes it similar to a data structure; an ability object is a nice single location to test different variables.
 
@@ -104,7 +104,7 @@ So, let's make magic!
 
 To begin, let's set up the look of the fire staff and create our weapon object. Open the project you wish to use, or an empty project.
 
-1. Create an empty `weapon` object by dragging one into your Hierarchy from the Gameplay Objects section of CORE Content.
+1. Create an empty `weapon` object by dragging one into your Hierarchy from the Gameplay Objects section of Core Content.
 
 2. With the new `weapon` selected in the Hierarchy, press F2 to change its name to *Fire Staff*.
 
@@ -150,7 +150,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
 ### Fire Fly Ability
 
-1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **CORE Content**.
+1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **Core Content**.
 
 2. Change the name of the ability to "FireFly".
 
@@ -444,7 +444,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     end
     ```
 
-11. So, we've added functions for how to make the camera change zoom amounts, but we still need to pull all of this together to connect our functions to the built-in events of CORE equipment and player events.
+11. So, we've added functions for how to make the camera change zoom amounts, but we still need to pull all of this together to connect our functions to the built-in events of Core equipment and player events.
 
     1. We're going to start with making the `OnEquipped()` function that we are calling already in the Tick function we first wrote.
 
@@ -664,7 +664,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
     ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy5.png){: .center}
 
-3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into CORE already.
+3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into Core already.
 
     1. First off we'll want the usual reference to the weapon at the top of our script:
 
@@ -726,7 +726,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
     ![Team Settings Object](../../img/EditorManual/Weapons/advanced/teamSettings.png){: .center}
 
-    1. In **CORE Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
+    1. In **Core Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
 
     2. With Team Settings selected in your project Hierarchy, check the Properties tab. Change the Team Mode to Free For All.
 
@@ -760,13 +760,13 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 2. We'll start by creating a `trigger` object for our player to interact with.
 
-    Navigate to **CORE Content**, and drag a `trigger` object from the Gameplay Objects section into your project Hierarchy.
+    Navigate to **Core Content**, and drag a `trigger` object from the Gameplay Objects section into your project Hierarchy.
 
 3. So now we have the object that handles the player running into it, but we need something for the player to actually see in-game.
 
     This can be anything you want--for a Fire Staff, a spark-looking object could be cool.
 
-    1. Choose whatever object you would like from **CORE Content**, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.
+    1. Choose whatever object you would like from **Core Content**, and drag it onto the `trigger` in the Hierarchy. From there, edit it however you would like.
     2. Right click this object and create a group containing this.
     3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
 
@@ -823,4 +823,4 @@ You'll probably want to set up User Interface (UI) for your fire staff's abiliti
 ## Examples
 
 * **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
-* **CORE Content** includes pre-made and ready-to-use weapons! Check in Game Components Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
+* **Core Content** includes pre-made and ready-to-use weapons! Check in Game Components Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.

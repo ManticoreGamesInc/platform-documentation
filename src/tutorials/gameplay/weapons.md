@@ -1,12 +1,12 @@
 ---
 id: weapons
-name: Weapons in CORE
-title: Weapons in CORE
+name: Weapons in Core
+title: Weapons in Core
 categories:
     - Tutorial
 ---
 
-# Weapons in CORE
+# Weapons in Core
 
 !!! warning
     Flagged for Review.
@@ -16,19 +16,19 @@ categories:
 
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a magical tomato grenade.
 
-Programming a weapon can be the most complicated part of making a game, but to make that easier, CORE™ comes with a built-in weapon system!
+Programming a weapon can be the most complicated part of making a game, but to make that easier, Core™ comes with a built-in weapon system!
 
 **Time to complete:** 15 minutes
 
 **Skills you will gain:**
 
-- how to create a functioning weapon in CORE
+- how to create a functioning weapon in Core
 - how to use Multiplayer Preview Mode effectively
 - how to create templates that can be used in weapons
 
 ![A Sniper Rifle](../../img/EditorManual/Weapons/holdingWeaponNew.png "Cool armed chicks always make a game better."){: .center}
 
-In CORE, a `weapon` is an `equipment` type of object that can be created in any Core project.
+In Core, a `weapon` is an `equipment` type of object that can be created in any Core project.
 
 There are a lot of differences between a piece of `equipment` and a `weapon`, but the main difference is that all weapons come with two built-in `ability` objects that handle the main use of the weapon.
 
@@ -59,9 +59,9 @@ So, let's get started!
 
 !!! info "Basic Rifle Model"
     ![Basic Rifle](../../img/EditorManual/Weapons/steampunkRifle.png "The sort of thing you'd want at parties."){: .center}
-     You could use the model from the Basic Rifle in CORE Content as a weapon model or make your own by combining different props in CORE!
+     You could use the model from the Basic Rifle in Core Content as a weapon model or make your own by combining different props in Core!
 
-1. The first thing to do is to navigate over to **CORE Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
+1. The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
 
 2. A `weapon` in the **Hierarchy** includes two `Ability` Objects and a `PickupTrigger` beneath it--these objects are "children" of the "parent" weapon object.
 
@@ -74,11 +74,11 @@ So, let's get started!
 
     1. If you do not see anything at all in your scene, try pressing "V" to toggle the visibility of these gizmos.
 
-    2. The look of the weapon can be made from any CORE primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
+    2. The look of the weapon can be made from any Core primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
 
         This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-        If you'd like more tips on how to model and create art in CORE, visit the **[Art Reference](../tutorials/art/art_reference/)** page or try a **[Tutorial](../tutorials/art/modeling_basics/)**.
+        If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](../tutorials/art/art_reference/)** page or try a **[Tutorial](../tutorials/art/modeling_basics/)**.
 
         This attaches the visuals of the weapon to the function of the weapon!
 
@@ -86,7 +86,7 @@ So, let's get started!
 
     This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
 
-    To read more about Client Context and networking in CORE games, read our guide about **[Networking](/networking_reference/)**.
+    To read more about Client Context and networking in Core games, read our guide about **[Networking](/networking_reference/)**.
 
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
@@ -107,7 +107,7 @@ So, let's get started!
 
         For a full list of all possible sockets that you could use, check out the **[Lua API Guide](../../core_api/)**.
 
-    2. Once you've made sure that is happening, scroll down to the *Utility* section of **CORE Content**.
+    2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
 
         ![Initial Hierarchy](../../img/EditorManual/Weapons/GunGuide.png "The ghost hands know best."){: .center}
 
@@ -133,7 +133,7 @@ Currently, the weapon can't shoot anything! For a bullet to fire out of the gun 
 
     ![Projectile Template](../../img/EditorManual/Weapons/projectileTemplate.png "Place your projectile template here."){: .center}
 
-    To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **CORE Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
+    To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **Core Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
 
     ![bullet](../../img/EditorManual/Weapons/bullet.png "May be known to explode."){: .center}
 
@@ -143,7 +143,7 @@ Currently, the weapon can't shoot anything! For a bullet to fire out of the gun 
 
 3. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder.
 
-    This needs to be done so that our resizing is saved--whenever a template is spawned in CORE, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
+    This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
 
 4. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
 
@@ -168,7 +168,7 @@ Weapons come with a property for Damage--setting this determines how much gettin
 
     ![Multiplayer Preview](../../img/EditorManual/Weapons/multiplayerPreview.png "See more of yourself."){: .center}
 
-    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **CORE Content** tab, within the **Settings Objects** section.
+    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **Core Content** tab, within the **Settings Objects** section.
     2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
     3. With Multiplayer Preview Mode turned on to four players, press the blue Play button.
     4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
@@ -181,15 +181,15 @@ Now all the basics are hooked up! The gun should be able to shoot and kill other
 
 Right now, it's not super satisfying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
 
-CORE has tons of visual effects and sound effects (often abbreviated to *vfx* and *sfx*) built-in that we can drag and drop onto the weapon.
+Core has tons of visual effects and sound effects (often abbreviated to *vfx* and *sfx*) built-in that we can drag and drop onto the weapon.
 
 Let's start adding in some cool effects--starting with the moment of impact.
 
 ![Visual Effects Subsection](../../img/EditorManual/Weapons/visualEffects.png "For the sparklies!"){: .center}
 
-You might notice if you try dragging an `effect` from CORE Content into the `weapon` object's properties, it doesn't work. This is because the weapon properties only accept a `template` type of object. So, we need to make one!
+You might notice if you try dragging an `effect` from Core Content into the `weapon` object's properties, it doesn't work. This is because the weapon properties only accept a `template` type of object. So, we need to make one!
 
-1. We'll start with a visual effect. In the **CORE Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
+1. We'll start with a visual effect. In the **Core Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
 
      This visual effect is a little poof of smoke that happens briefly when played.
 
@@ -197,11 +197,11 @@ You might notice if you try dragging an `effect` from CORE Content into the `wea
 
          ![Impact Settings](../../img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center}
 
-         All visual effects in CORE can be found in the **Effects** section of **CORE Content**.
+         All visual effects in Core can be found in the **Effects** section of **Core Content**.
 
 2. Next, let's grab an audio object to make sounds when a player is shot.
 
-     1. In **CORE Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
+     1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
 
      2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
 
@@ -252,4 +252,4 @@ If you want to try you hand at some coding to really add complexity to your weap
 ## Examples
 
 - **[Spellshock](https://www.coregames.com/games)** uses all sorts of weapon that you can tear apart and look through to repurpose for your own means.
-- **CORE Content** includes ultra-basic & advanced versions of a Pistol, Rifle, and a Shotgun! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
+- **Core Content** includes ultra-basic & advanced versions of a Pistol, Rifle, and a Shotgun! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!

@@ -8,13 +8,13 @@ categories:
 
 # Editor Extensions
 
-There are a bunch of ways you can improve the experience of scripting in CORE. If you are happy with the in-built editor, feel free to skip this section.
+There are a bunch of ways you can improve the experience of scripting in Core. If you are happy with the in-built editor, feel free to skip this section.
 
 ## External editors
 
 There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
 
-| Name                                                                    | Details                                             | CORE Autocomplete | Price                  |
+| Name                                                                    | Details                                             | Core Autocomplete | Price                  |
 | ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ---------------------- |
 | [Visual Studio Code](https://code.visualstudio.com/download)            | Popular powerful editor with many plugins           | Supported         | Free                   |
 | [Atom](https://atom.io/)                                                | Middle-range power/speed editor with plugin support | Supported         | Free                   |
@@ -23,7 +23,7 @@ There are of course several good editors out there for Lua development, but we s
 
 ### Plugins / Extensions
 
-For Visual Studio Code and Atom, we have collected a few extensions that make developing in CORE and Lua easier:
+For Visual Studio Code and Atom, we have collected a few extensions that make developing in Core and Lua easier:
 
 #### Visual Studio Code
 
@@ -44,7 +44,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 ### Autocomplete
 
-We provide autocompletion files with all CORE API for VS Code, Atom and every other editor that supports `.luacompleterc`:
+We provide autocompletion files with all Core API for VS Code, Atom and every other editor that supports `.luacompleterc`:
 
 #### Visual Studio Code & Atom
 
@@ -65,7 +65,7 @@ We provide autocompletion files with all CORE API for VS Code, Atom and every ot
 * :fa-download: Download: [Luacheck](https://github.com/mpeterv/luacheck/releases/)
 * :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
-In addition, we provide a `.luacheckrc` settings file with all CORE API whitelisted so they don't show up as undeclared global variables:
+In addition, we provide a `.luacheckrc` settings file with all Core API whitelisted so they don't show up as undeclared global variables:
 
 * :fa-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
-* :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `CORE\Prod\Platform\Saved\Maps` folder.
+* :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `Core\Prod\Platform\Saved\Maps` folder.

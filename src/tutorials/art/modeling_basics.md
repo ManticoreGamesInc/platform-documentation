@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-Learning modelling basics in CORE by making delicious food.
+Learning modelling basics in Core by making delicious food.
 
 * **Completion Time:** ~20 minutes
 * **Knowledge Level:** How to use the transform widget, how to change materials
@@ -46,13 +46,13 @@ The key to creating 3D models is to see the basic shapes in your reference image
 
 Plates are a very straightforward shape. This is a cylinder scaled down.
 
-!!! info "CORE Tip: Use <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd> to toggle between *Move*, *Rotate*, and *Scale* respectively when using the transform widget."
+!!! info "Core Tip: Use <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd> to toggle between *Move*, *Rotate*, and *Scale* respectively when using the transform widget."
 
 ![ModelingBasics](../../img/ModelingBasics/image2.png "Modeling Screenshot"){: .center}
 
 Most plates have a lip or edge that runs around them. These small details make the object look more realistic. I used "**Ring Beveled**" and scaled it down until it looked right.
 
-!!! info "CORE Tip: Use *Snap to Grid* (<kbd>G</kbd>) to place approximately in your scene. Turn off *Snap to Grid* to fine tune their placement."
+!!! info "Core Tip: Use *Snap to Grid* (<kbd>G</kbd>) to place approximately in your scene. Turn off *Snap to Grid* to fine tune their placement."
 
 ![ModelingBasics](../../img/ModelingBasics/image10.png "Modeling Screenshot"){: .center}
 
@@ -92,7 +92,7 @@ Copy and paste the "**Chamfered Cylinder and Ring (thin)**". Resize your new pan
 
 Our pancakes looked like they were undercooked, so I added "**Decal Stains Round 01**" to the top in a brown color to give it a nice crisp on top. They're starting to look good.
 
-!!! info "CORE Tip: To easily place a decal on a surface move your cursor to where you want to place a decal and press <kbd>X</kbd>."
+!!! info "Core Tip: To easily place a decal on a surface move your cursor to where you want to place a decal and press <kbd>X</kbd>."
 
 ![ModelingBasics](../../img/ModelingBasics/image6.png "Modeling Screenshot"){: .center}
 
@@ -116,10 +116,10 @@ It's important to remember your player will most likely not be viewing your crea
 
 From far away you can't even tell the raspberries use "**Clear Coat Reflector Triangle 01**".
 
-Try adding your own garnishes using the techniques we used to make the pancakes. Maybe some orange wedges or a side of hash browns? Share your creation on on the `#showcase` channel in CORE's :fab fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/) so others can see what you made!
+Try adding your own garnishes using the techniques we used to make the pancakes. Maybe some orange wedges or a side of hash browns? Share your creation on on the `#showcase` channel in Core's :fab fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/) so others can see what you made!
 
 ## Summary
 
-Through a combination of simple geometry, modified materials, and decals, you can create tons of different props of all shapes and sizes in CORE. Experiment with different settings, shapes, and make sure to check out other people's creations in the Community Content folder for inspiration.
+Through a combination of simple geometry, modified materials, and decals, you can create tons of different props of all shapes and sizes in Core. Experiment with different settings, shapes, and make sure to check out other people's creations in the Community Content folder for inspiration.
 
 ![ModelingBasics](../../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center}

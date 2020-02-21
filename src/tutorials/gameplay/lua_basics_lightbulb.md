@@ -1,12 +1,12 @@
 ---
 id: scripting_basics
-name: Scripting in CORE
-title: Scripting in CORE
+name: Scripting in Core
+title: Scripting in Core
 categories:
     - Tutorial
 ---
 
-# Scripting in CORE
+# Scripting in Core
 
 !!! warning
     Flagged for Review.
@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-In the first part, we are going to introduce you do the basics of scripting in CORE. A good tradition among programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
+In the first part, we are going to introduce you do the basics of scripting in Core. A good tradition among programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
 
 * **Completion Time:** ~25 minutes
 * **Knowledge Level:** No prior knowledge of Lua
@@ -29,7 +29,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 ---
 
-**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
 
 * For debugging, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
@@ -48,7 +48,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 * Open up the script by double clicking on it.
     * By default this happens via our in-built editor.
     * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-        * We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the CORE API support!
+        * We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
 
 ### Writing the Script
 
@@ -64,7 +64,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 * We made a script.
 * We populated it with code.
-    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in CORE API functions](../../core_api.md).
+    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in Core API functions](../../core_api.md).
 * We placed the script into the Hierarchy tree so that it executes when the game runs.
 
 Next step: Adding our own function!
@@ -125,7 +125,7 @@ Now we are going to create a small game that involves a light switch that turns 
 
 1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
 
-2. Now go to the **Imports** section of the **CORE Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
+2. Now go to the **Imports** section of the **Core Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
 
     ![Hard to see](../../img/LightBulb/image22.png "Hard to see")
     ![Well lit](../../img/LightBulb/image6.png "Well lit")
@@ -193,7 +193,7 @@ We want our light switch to function just like it would in real life: the switch
     `switch:RotateTo(Rotation.New(0, 90, 0), 2)`
 
     * `switch` tells the script to rotate the object attached to this variable.
-    * `RotateTo` is an function that tells CORE we want to rotate an object.
+    * `RotateTo` is an function that tells Core we want to rotate an object.
     * `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates. You will almost always use `Rotation.New` when rotating an object, but when applicable you can use `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
     * `(0, 90, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y-axis by 90 degrees.
     * `2` is the animation duration in seconds.
@@ -246,7 +246,7 @@ We want our light switch to function just like it would in real life: the switch
 
 We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
-1. Create a trigger by going to the **CORE Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
+1. Create a trigger by going to the **Core Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
 
     !["LightBulb1"](../../img/LightBulb/trigger.png "Trigger"){: .center}
 
@@ -370,7 +370,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
         ```
 
-        At CORE, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
+        At Core, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
 <!-- markdownlint-restore -->
@@ -378,7 +378,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
 
-    Select the **Lighting** category in the **CORE Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
+    Select the **Lighting** category in the **Core Content** tab. Any of the lights can be used for this tutorial. I'll be using the **Point Light**. Drag the light into your Hierarchy, then adjust the light's smart properties to your liking.
 
     !["LightBulb1"](../../img/LightBulb/image4.png "Point Light"){: .center}
 
@@ -462,7 +462,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     * `filaments` is the name of our variable defining which objects are the filaments in our scene.
 
-    * `FindObjectByName` is a CORE function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as
+    * `FindObjectByName` is a Core function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as
 
         ```lua
         local lightBulbFolder = script.parent.parent:GetChildren()[1]

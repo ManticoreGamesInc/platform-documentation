@@ -1,12 +1,12 @@
 ---
 id: community_content
-name: Community Content in CORE
-title: Community Content in CORE
+name: Community Content in Core
+title: Community Content in Core
 categories:
     - Tutorial
 ---
 
-# Community Content in CORE
+# Community Content in Core
 
 !!! warning
     Flagged for Review.
@@ -15,7 +15,7 @@ categories:
 ## Overview
 
 **Community Content** is one of the most fundamentally awesome aspects of
-creation in CORE. It allows for you to use, improve, and remix creations you or
+creation in Core. It allows for you to use, improve, and remix creations you or
 others have made public. This creates a wealth of content for all game
 creators on the platform - speeding up game development & the spread of ideas more than ever before!
 
@@ -41,20 +41,20 @@ Click the blue `+` button on an asset to import the template. It will likely ask
 
 ![Community Content Template](../img/getting_started/CCtemplate.png "Community Content Template"){: .center}
 
-You can then see the template you downloaded in your the **CORE Content** folder.
-`CORE Content -> Imported Content`.
+You can then see the template you downloaded in your the **Core Content** folder.
+`Core Content -> Imported Content`.
 
 ![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
 
 #### Using Your Imported Content
 
-From within the Imported Content section of CORE Content, you will find any and all templates that you download from Community Content.
+From within the Imported Content section of Core Content, you will find any and all templates that you download from Community Content.
 
 To use this in your game, just drag the **green**{: style="color: green"} template object (in this case called "**My Room**") into your project Hierarchy.
 
 Once you've done this, you will have a **blue**{: style="color: blue"} object in your Hierarchy, which is an instance of the template you downloaded! You're now set to modify it and use it however you like.
 
-CORE also then adds the template and its contents to your "**Project Content**" folder.
+Core also then adds the template and its contents to your "**Project Content**" folder.
 
 ![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
 
@@ -64,7 +64,7 @@ Within the template, in the section called "**Dependencies**", you can find all 
 
 ### Next Steps: Publish Your Own Content
 
-To learn more about these templates that are shared on Community Content, and how to share your own with the world of CORE, follow our quick tutorial on [Templates](../tutorials/gameplay/collaboration_reference.md).
+To learn more about these templates that are shared on Community Content, and how to share your own with the world of Core, follow our quick tutorial on [Templates](../tutorials/gameplay/collaboration_reference.md).
 
 Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
 
@@ -74,8 +74,8 @@ Feel more than free to download as many Community Content templates as you can! 
 
 Another way to speed ahead the creation of your project is to **start with an entire game that somebody else has made.**
 
-Some games published on the CORE website allow other users to download them, enabling you to move things around and change the game however you would like.
+Some games published on the Core website allow other users to download them, enabling you to move things around and change the game however you would like.
 
-To download a game by somebody else and add your own personal flair, go to the CREATE menu of the CORE editor. When you click create, you will have the option to select a base game type from **CORE Games**, or select **Community Games** to see what games other users have published as public for the world to modify.
+To download a game by somebody else and add your own personal flair, go to the CREATE menu of the Core editor. When you click create, you will have the option to select a base game type from **Core Games**, or select **Community Games** to see what games other users have published as public for the world to modify.
 
 Pick a game by clicking it, give it a new project name, click download, and you're ready to go!

@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-Welcome to CORE! We're excited to have you in Closed Alpha and can't wait to see what you create. To get you started, we're going to walk you through creating your first multiplayer game in CORE... in 10 minutes!
+Welcome to Core! We're excited to have you in Closed Alpha and can't wait to see what you create. To get you started, we're going to walk you through creating your first multiplayer game in Core... in 10 minutes!
 
 ![NewWeapon](../img/MyFirstMultiplayer/NewWeapon.png){: .center}
 
@@ -22,7 +22,7 @@ Welcome to CORE! We're excited to have you in Closed Alpha and can't wait to see
 * **Knowledge Level:** Beginner! No experience necessary!
 * **Skills you will learn:**
     * Editor Basics
-    * CORE Content (Props & Materials)
+    * Core Content (Props & Materials)
     * Player Movement Settings
     * Community Content
     * Publishing
@@ -59,7 +59,7 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
     ![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center}
 
-4. Let's press Play again! CORE will launch multiple windows, one for each player. You control whichever character is in the active window.
+4. Let's press Play again! Core will launch multiple windows, one for each player. You control whichever character is in the active window.
 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
@@ -70,12 +70,12 @@ The Deathmatch framework gives a great starting point! Let's try it out ourselve
 
 So we have a whiteboxed map, and that's great and important in testing design! Now, let's customize the map and make it our own.
 
-1. Navigate to the **CORE Content** window. You have access to a massive library of 3D assets, materials, and more for your game creation in CORE!
+1. Navigate to the **Core Content** window. You have access to a massive library of 3D assets, materials, and more for your game creation in Core!
 
     ![Add Props](../img/MyFirstMultiplayer/AddPropsMarked.png){: .center}
 
     !!! note
-        If you can't find the "CORE Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
+        If you can't find the "Core Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
 
 2. Click on "3D Objects" and then drag and drop props into the editor viewport! In this example, we're going to place some bushes.
 
@@ -100,7 +100,7 @@ So we have a whiteboxed map, and that's great and important in testing design! N
 
 Let's take this time to build out our own game! We're going to apply materials to whiteboxed scene, add more props, and add a sky to finish off the scenery.
 
-1. Let's check out the Materials library within **CORE Content**! It's fast and easy to drag and drop any material onto an object to apply it.
+1. Let's check out the Materials library within **Core Content**! It's fast and easy to drag and drop any material onto an object to apply it.
 
     ![WallObjects](../img/MyFirstMultiplayer/MaterialExample.gif){: .center}
 
@@ -132,7 +132,7 @@ Let's take this time to build out our own game! We're going to apply materials t
     ![VibrantLevel](../img/MyFirstMultiplayer/VibrantLevel.png){: .center}
 
 !!! tip
-    In CORE, you even have tons of customizable post process effects and VFX. Search for "Advanced Bloom Post Process" in CORE Content and try it out!
+    In Core, you even have tons of customizable post process effects and VFX. Search for "Advanced Bloom Post Process" in Core Content and try it out!
 
 ### Customizing the Gameplay
 
@@ -174,7 +174,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
     !!! note
         If you can't find the "Community Content" window or accidentally close it, you can reopen the window by going to View > Community Content in the toolbar at the top of the editor.
 
-2. Locate your imported weapon in **CORE Content** under the "Imported" category.
+2. Locate your imported weapon in **Core Content** under the "Imported" category.
 
     ![LocateImport](../img/MyFirstMultiplayer/LocateImportedWeapon.png){: .center}
 

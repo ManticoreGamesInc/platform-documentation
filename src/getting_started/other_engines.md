@@ -1,12 +1,12 @@
 ---
 id: other_engines
-name: Differences between CORE and other Engines
-title: Differences between CORE and other Engines
+name: Differences between Core and other Engines
+title: Differences between Core and other Engines
 categories:
     - Reference
 ---
 
-# Differences between CORE and other Engines
+# Differences between Core and other Engines
 
 !!! warning
     Flagged for Review.
@@ -14,12 +14,12 @@ categories:
 
 ## Overview
 
-The purpose of this page is to outline a few key differences between CORE and the engine you've worked on previously.
+The purpose of this page is to outline a few key differences between Core and the engine you've worked on previously.
 To get a full overview of our API, read our [API Documentation](../core_api.md) instead.
 
 ## Unity
 
-| **Category**  | **Unity**       | **CORE**           |
+| **Category**  | **Unity**       | **Core**           |
 | ------------- | --------------- | ------------------ |
 | **Gameplay**  | GameObject      | CoreObject         |
 |               | Prefabs         | Templates          |
@@ -40,11 +40,11 @@ There is no way to import assets; everything is included in the asset manifest.
 
 Ref: <https://www.townlong-yak.com/framexml/live/>
 
-Instead of 5.1 as in WoW, CORE uses Lua 5.3.4. There have not been that many changes in the language itself but do note that many of the additions Blizzard made will be missing here.
+Instead of 5.1 as in WoW, Core uses Lua 5.3.4. There have not been that many changes in the language itself but do note that many of the additions Blizzard made will be missing here.
 
-* Trigonometry functions: As with Blizzard's versions, CORE's work with degrees. Lua's standard math library works with radians.
+* Trigonometry functions: As with Blizzard's versions, Core's work with degrees. Lua's standard math library works with radians.
 * Events:
-  The most obvious change when coming from WoW, is the event system in CORE. Instead of hooking your events up to your frames, you register functions onto the events of objects.
+  The most obvious change when coming from WoW, is the event system in Core. Instead of hooking your events up to your frames, you register functions onto the events of objects.
 
 As an example:
 
@@ -56,7 +56,7 @@ groupFrame:SetScript("OnEvent", function(self, event)
 end)
 ```
 
-Would look something like this in CORE:
+Would look something like this in Core:
 
 ```lua
 groupFrame.GROUP_ROSTER_UPDATE:Connect(GroupRosterUpdate)
@@ -76,9 +76,9 @@ Events.Connect(“MyEvent”, Foo)
 more details over in the [API Docs](../core_api.md).
 
 * The often (miss)used `OnUpdate` event equivalent is the global `Tick()` function. It is totally fine to overwrite it with your own.
-* Instead of frames, you will mostly work with objects in CORE. Those can be destroyed completely instead of just be hidden like frames in WoW.
-* CORE does have `print` but it prints to the Event Log instead of the chat frame. There is no `dump` for tables.
-* CORE does not include the `bitlib` library.
+* Instead of frames, you will mostly work with objects in Core. Those can be destroyed completely instead of just be hidden like frames in WoW.
+* Core does have `print` but it prints to the Event Log instead of the chat frame. There is no `dump` for tables.
+* Core does not include the `bitlib` library.
 
 ## Garry's Mod
 
