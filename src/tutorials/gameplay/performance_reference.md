@@ -6,7 +6,7 @@ categories:
     - Reference
 ---
 
-# Performance in CORE
+# Performance in Core
 
 !!! warning
     Flagged for Review.

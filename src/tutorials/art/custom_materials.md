@@ -1,12 +1,12 @@
 ---
 id: custom_materials
-name: Custom Materials in CORE
-title: Custom Materials in CORE
+name: Custom Materials in Core
+title: Custom Materials in Core
 categories:
     - Reference
 ---
 
-# Custom Materials in CORE
+# Custom Materials in Core
 
 !!! warning
     Flagged for Review.
@@ -17,7 +17,7 @@ categories:
 Learn how to fully customize a material.
 
 * **Completion Time:** > 10 minutes
-* **Knowledge Level:** No prior knowledge of CORE
+* **Knowledge Level:** No prior knowledge of Core
 * **Skills you will learn:**
     * Smart materials
     * Z-fighting
@@ -44,11 +44,11 @@ You can change an object's material a few different ways:
 
 1. Double clicking the material name in the properties tab will open a window with all available materials. Select one to swap materials.
 
-2. Drag a material from the CORE Content tab into the material slot in the object's Property tab.
+2. Drag a material from the Core Content tab into the material slot in the object's Property tab.
 
    ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
 
-3. Drag a material from the CORE Content tab onto the object in the scene.
+3. Drag a material from the Core Content tab onto the object in the scene.
 
    ![Materials](../../img/Materials/image18.png "Materials Screenshot"){: .center}
 
@@ -98,9 +98,9 @@ Red brick material with U Tiling and V Tiling both set to 3.
 
 ### Creating a New Custom Material
 
-If you want to change more than one color and the U/V Tiling of a material, you'll have to create a custom material. Custom materials allow you to finely tune any material in CORE's engine. By saving a custom material preset you can easily update every object in game using your custom preset with one click.
+If you want to change more than one color and the U/V Tiling of a material, you'll have to create a custom material. Custom materials allow you to finely tune any material in Core's engine. By saving a custom material preset you can easily update every object in game using your custom preset with one click.
 
-Create a new custom material by right clicking on a material in the CORE Content. Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom -Name of Material-".
+Create a new custom material by right clicking on a material in the Core Content. Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom -Name of Material-".
 
 ![Materials](../../img/Materials/image17.png "Materials Screenshot"){: .center}
 

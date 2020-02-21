@@ -1,7 +1,7 @@
 ---
 id: keybindings
-name: CORE Editor Key Bindings
-title: CORE Editor Key Bindings
+name: Core Editor Key Bindings
+title: Core Editor Key Bindings
 categories:
     - Reference
 ---
@@ -16,7 +16,7 @@ categories:
     }
 </style>
 
-# CORE Editor Key Bindings
+# Core Editor Key Bindings
 
 ## Editor Tabs
 
@@ -24,7 +24,7 @@ categories:
 | ---------------------- | ------------ | ------------------------------------------------- | -------------------------- |
 | Open Hierarchy tab     | <kbd>H</kbd> | Opens Hierarchy (Selects It If Already Open)      | None                       |
 | Open Properties tab    | <kbd>I</kbd> | Opens Properties (Selects It If Already Open)     | None                       |
-| Open CORE Content tab  | <kbd>M</kbd> | Opens Core Content (Selects If Already Open)      | None                       |
+| Open Core Content tab  | <kbd>M</kbd> | Opens Core Content (Selects If Already Open)      | None                       |
 | Open Community Content | <kbd>K</kbd> | Opens Community Content (Selects If Already Open) | None                       |
 
 ## Editor Navigation

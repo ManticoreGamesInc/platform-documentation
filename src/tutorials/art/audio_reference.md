@@ -1,12 +1,12 @@
 ---
 id: audio_reference
-name: Audio in CORE
-title: Audio in CORE
+name: Audio in Core
+title: Audio in Core
 categories:
     - Reference
 ---
 
-# Audio in CORE
+# Audio in Core
 
 !!! warning
     Flagged for Review.
@@ -14,19 +14,19 @@ categories:
 
 ## Overview
 
-In **CORE™**, there is a massive, built-in library of high quality audio assets that were designed with the beginner and advanced creator in mind. There are plenty of sound effects, background music tracks, and instruments encompass a wide variety of genres and moods. CORE audio assets come with powerful customizable properties that allow you to create a wide variety of soundscapes for your creations.
+In **Core™**, there is a massive, built-in library of high quality audio assets that were designed with the beginner and advanced creator in mind. There are plenty of sound effects, background music tracks, and instruments encompass a wide variety of genres and moodsCoreRE audio assets come with powerful customizable properties that allow you to create a wide variety of soundscapes for your creations.
 
-When a player makes an action like jumping or running in CORE, sound effects (like grunts or footsteps) play by default in the client.
+When a player makes an action like jumping or running in Core, sound effects (like grunts or footsteps) play by default in the client.
 
 Most sounds are dynamically produced, meaning you do not have to worry about repeating sounds sounding monotonous and robotic. For example, the gunshot sounds will never sound the exact same every time and footstep sound effects also change depending on whether a character is running over water or brick.
 In most sound effect implementation scenarios, a developer would usually have to write a script for a sound to randomly choose from a set of variations and/or have them slightly varied by pitch/volume/texture every time it is triggered.
-The CORE audio engine takes care of this for most sounds and you will still have the flexibility to script more dynamic audio via script if you wish to do so.
+The Core audio engine takes care of this for most sounds and you will still have the flexibility to script more dynamic audio via script if you wish to do so.
 
-You can drag and drop an Audio CoreObject from the **CORE Content** tab and customize its properties, which is also exposed for use in Lua scripts.
+You can drag and drop an Audio CoreObject from the **Core Content** tab and customize its properties, which is also exposed for use in Lua scripts.
 
 ### How to Find Audio
 
-You can simply find audio in the CORE Content and look through the many sound types and genres. You can also use the search field to look for something specific. It's always good to listen and try out different sounds since many sounds could have many uses other than what they are labeled as.
+You can simply find audio in the Core Content and look through the many sound types and genres. You can also use the search field to look for something specific. It's always good to listen and try out different sounds since many sounds could have many uses other than what they are labeled as.
 
 ### How to Play Audio
 
@@ -114,16 +114,16 @@ By default, playback will be networked to all clients. If an Audio object is sim
 
 ### Best Practices for General Audio
 
-- It's not always as it may seem; Like many of our assets in CORE, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
+- It's not always as it may seem; Like many of our assets in Core, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
 - Size matters; Generally smaller objects are higher in pitch than ones that are much larger. Same goes for volume. A smaller insect will make less sound than a giant one for example. Also think about the size of your map. If you want things such as explosions or gunshots to be heard across the entirety of your map, adjust the falloff and radius values of your sounds accordingly.
 - Audio is meant to compliment the visuals and in-game elements on-screen and help immerse players into your game. Pay attention to visual and world elements as they could potentially be things you"d want to implement sound for.
 - Know when to enable or disable 3D sound; Is it background music? Is it background nature ambience? Is it emitting from an object inside your 3D world? Make sure you adjust your spatialization, attenuation and radius values accordingly.
-- Knobs, parameters, values, oh my! Have fun and experiment. There are more than enough audio properties you can change to create a wide variety of soundscapes in CORE.
+- Knobs, parameters, values, oh my! Have fun and experiment. There are more than enough audio properties you can change to create a wide variety of soundscapes in Core.
 - Layering! This is an essential part of sound design where combining different sounds can yield interesting results. As mentioned before, think about complementing the visuals; If you create a lightning sword, perhaps you could layer **Electric Spark Short 01 SFX** on top of a **Sword Swing Swipe 01 SFX** sound.
 
 ## Audio with Special "Smart Property" parameters
 
-Like many of the other assets in CORE such as VFX and materials, there are a handful of audio assets with various smart properties specific to those assets.
+Like many of the other assets in Core such as VFX and materials, there are a handful of audio assets with various smart properties specific to those assets.
 
 Usually you'll find that some audio assets have several similar variations that can be selected via a drop down selection menu.
 
@@ -151,9 +151,9 @@ If each of these sets were individual assets, you could achieve the same results
 
 ![alt_text](../../img/Audio/AdvancedExplosionSFXProperties.jpg "image_tooltip"){: .center }
 
-## CORE Content Audio Library Overview
+## Core Content Audio Library Overview
 
-There are plenty of audio assets with powerful customizable properties to suit a wide variety of game creation ideas. Let's do a quick overview of what you'll be able to find, and how things are organized in the CORE Content library. Audio assets are categorized by a main category based on their ideal usage and have sub-categories.
+There are plenty of audio assets with powerful customizable properties to suit a wide variety of game creation ideas. Let's do a quick overview of what you'll be able to find, and how things are organized in the Core Content library. Audio assets are categorized by a main category based on their ideal usage and have sub-categories.
 
 **Ambience & Backgrounds** - Background ambient sounds that encompasses various environment types
 
@@ -172,7 +172,7 @@ There are plenty of audio assets with powerful customizable properties to suit a
 - Retro
 - SciFi
 
-**Instruments** - Musical instruments that you can use to script/import your own music into CORE
+**Instruments** - Musical instruments that you can use to script/import your own music into Core
 
 **Music** - This is where you can find all of the music. More details on music below in the Music section of this doc
 
@@ -226,7 +226,7 @@ There are plenty of audio assets with powerful customizable properties to suit a
 
 ## Background Music and Music Stingers
 
-Let's talk music! With CORE, you'll be happy to find a wide variety of background music (BGM) tracks of all styles, moods, genres and instrumentation to choose from. We'll always be adding more music tracks through future updates and releases.
+Let's talk music! With Core, you'll be happy to find a wide variety of background music (BGM) tracks of all styles, moods, genres and instrumentation to choose from. We'll always be adding more music tracks through future updates and releases.
 
 Music assets are the same as any other audio assets with the same properties, but music assets are utilized in a vastly different way than most sound effects are used in game creation.
 
