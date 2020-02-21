@@ -1,12 +1,12 @@
 ---
 id: scripting_advanced
-name: Advanced Scripting in CORE
-title: Advanced Scripting in CORE
+name: Advanced Scripting in Core
+title: Advanced Scripting in Core
 categories:
     - Tutorial
 ---
 
-# Advanced Scripting in CORE
+# Advanced Scripting in Core
 
 !!! warning
     Flagged for Review.
@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-In this tutorial, we are taking a deeper look at what it takes to utilize the CORE API to create a simple multiplayer game.
+In this tutorial, we are taking a deeper look at what it takes to utilize the Core API to create a simple multiplayer game.
 
 * **Completion Time:** ~30 minutes
 * **Knowledge Level:** No prior knowledge of Lua
@@ -33,7 +33,7 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the CO
 
 ---
 
-**CORE** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
 
 * For debugging, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
@@ -43,24 +43,24 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the CO
 
 ## Tutorial
 
-The first step is to use the CORE API to modify objects in the world. We'll start small, with a coin the player can pick up.
+The first step is to use the Core API to modify objects in the world. We'll start small, with a coin the player can pick up.
 
 ### Adding Manticoin
 
-In CORE, **Community Content** houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the **Manticoin**, which we'll use for this project, instead of making our own coin.
+In Core, **Community Content** houses many assets you can use in your own games to speed up production and cut down on the amount of work required by you. One of these assets is the **Manticoin**, which we'll use for this project, instead of making our own coin.
 
-To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big "**+**" (Add to CORE Content) button.
+To add the **Manticoin** asset to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big "**+**" (Add to Core Content) button.
 
 ![Manticoin](../../img/scripting/manticoin.png "Manticoin"){: .center}
 
 !!! note "The editor will prompt you to save before it adds it to your project."
 
-Since this has been imported from our community content area, it is now listed under **Imports** in the **CORE Content** tab. Next, just like we did with `TutorialScript`, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
+Since this has been imported from our community content area, it is now listed under **Imports** in the **Core Content** tab. Next, just like we did with `TutorialScript`, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is, you guessed it, with a script.
 
 ### SpinCoin Script
 
 Let's make a new script, call it `SpinCoin` and drag it onto the `Manticoin` object so that the script is its child.
-At this point, the editor will prompt you about a networking state mismatch. In CORE, non-networked objects can't be children of networked objects so we need to make all children networked to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
+At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to make all children networked to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
 
 `script.parent:RotateContinuous(Rotation.New(200, 0, 0))`
 
@@ -103,7 +103,7 @@ Yay, we've got it working! Now if only we could collect these coins...
 
 ### Adding a Trigger
 
-1. From **CORE Content -> Gameplay Objects**, drag a **Trigger** object into the world
+1. From **Core Content -> Gameplay Objects**, drag a **Trigger** object into the world
    * Resize the trigger to match the coin's size.
      * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
      * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
@@ -157,7 +157,7 @@ function Tick()
 end
 ```
 
-Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since CORE comes equipped with multiplayer functionality right out of the box.
+Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since Core comes equipped with multiplayer functionality right out of the box.
 
 Next up, we're going to add a UI element to display this information instead of the bland `UI.PrintToScreen` call we have now.
 
@@ -168,9 +168,9 @@ UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), but
 ### Creating UI Text
 
 1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
-   * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
+   * Go to **Core Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
    * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
-   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
+   * From **Core Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
    * Rename the Text Control to `CoinUI`.
    * In the properties panel, set `Text` to be blank by default.
 
@@ -215,7 +215,7 @@ Now let's make a simple map and populate it with coins.
 So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
 
 * Create the player's spawn point
-    * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
+    * In the **Core Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
     * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
 
 Alright, beautiful!
@@ -238,7 +238,7 @@ Now we will write a script to make the game round-based.
 
 Here we go! Create a script called `CoinGameLogic`.
 
-Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
+Let's also add a `Gameplay Settings` object to our hierarchy from **Core Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
 
 Next, we need to create the custom parameter to save our game state.
 
@@ -320,7 +320,7 @@ Lastly, let's add in the logic to reset the map (i.e. add the coins back) after 
 
 Currently we are deleting the coins when they are picked up. We could spawn in new coins at the old locations, but that would involve storing references to the old locations. Sometimes you need to rewrite code as your game changes, and that's exactly what we're going to do here!
 
-An easier solution would be to just hide the coins from the map when they are picked up, and then un-hide them when resetting the map. Fortunately, this is not only a simple thing to do in CORE, but also a very quick change.
+An easier solution would be to just hide the coins from the map when they are picked up, and then un-hide them when resetting the map. Fortunately, this is not only a simple thing to do in Core, but also a very quick change.
 
 ### Resetting Coins
 
@@ -393,4 +393,4 @@ end
 
 ## Summary
 
-In just a few steps, you've created your first multiplayer game in CORE by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!
+In just a few steps, you've created your first multiplayer game in Core by using simple editor operations and a bit of Lua scripting. You're now able to publish your game and share it with your friends!

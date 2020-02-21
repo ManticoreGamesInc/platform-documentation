@@ -1,12 +1,12 @@
 ---
 id: scene_creation
-name: Scene Creation in CORE
-title: Scene Creation in CORE
+name: Scene Creation in Core
+title: Scene Creation in Core
 categories:
     - Reference
 ---
 
-# Scene Creation in CORE
+# Scene Creation in Core
 
 !!! warning
     Flagged for Review.
@@ -21,7 +21,7 @@ An introduction to the basics of placing and remixing objects.
 * **Skills you will learn:**
     * Placing objects in a scene
     * Community Content
-    * CORE UI
+    * Core UI
     * Changing materials
 
 ![SceneCreation](../../img/SceneCreation/image11.png "image_tooltip"){: .center}
@@ -37,7 +37,7 @@ This tutorial will cover how to place and move images in a scene as well as how 
 
 ![SceneCreation](../../img/SceneCreation/image6.gif){: .center}
 
-!!! note "CORE Concepts: The Transform Widget"
+!!! note "Core Concepts: The Transform Widget"
     Notice the blue, green, and red arrows - this is the **transform widget** and allows you to move, rotate, and scale an object in the **main viewport**.
 
 ![SceneCreation](../../img/SceneCreation/image5.gif){: .center}
@@ -74,7 +74,7 @@ Rotate the house so the interior isn't in the shade. This will make it easier to
 
 ![SceneCreation](../../img/SceneCreation/image12.gif){: .center}
 
-!!! note "CORE Concepts: Snap To Grid"
+!!! note "Core Concepts: Snap To Grid"
     Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing <kbd>G</kbd> or using the **Snap to Grid** button in the toolbar.
 
 ![SceneCreation](../../img/SceneCreation/image3.png "image_tooltip"){: .center}
@@ -89,7 +89,7 @@ There are more degrees of rotation available in the drop down menu.
 
 1. Drag the bed from the **Project Content** tab > **My Shared Content** > **My Room** into the scene.
 
-    !!! info "CORE Tip: To snap an object to the floor press <kbd>END</kbd>."
+    !!! info "Core Tip: To snap an object to the floor press <kbd>END</kbd>."
 
 2. Change the color and material of the quilt.
 
@@ -97,7 +97,7 @@ There are more degrees of rotation available in the drop down menu.
 
    Change the color by clicking once on the color block - this will open the Color Picker.
 
-   Every object in CORE has a material slot. You can change the color and material of everything in the scene to exactly how you want it.
+   Every object in Core has a material slot. You can change the color and material of everything in the scene to exactly how you want it.
 
    If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
 
@@ -105,7 +105,7 @@ There are more degrees of rotation available in the drop down menu.
 
 ### Decorate
 
-1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **CORE Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
-2. Take a screenshot of your room and post it on the `#showcase` channel in CORE's :fab fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
+1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **Core Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
+2. Take a screenshot of your room and post it on the `#showcase` channel in Core's :fab fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
 
 ![SceneCreation](../../img/SceneCreation/image2.png "image_tooltip"){: .center}

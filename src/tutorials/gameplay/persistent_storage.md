@@ -1,12 +1,12 @@
 ---
 id: persistent_storage
-name: Persistent Data Storage in CORE
-title: Persistent Data Storage in CORE
+name: Persistent Data Storage in Core
+title: Persistent Data Storage in Core
 categories:
     - Tutorial
 ---
 
-# Persistent Data Storage in CORE
+# Persistent Data Storage in Core
 
 ## Overview
 
@@ -38,7 +38,7 @@ Really, anything that you might want to preserve for the next play session for t
 
 ---
 
-## Storage in CORE Lua
+## Storage in Core Lua
 
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
@@ -49,11 +49,11 @@ Persistent Player Storage is available under the namespace called **Storage**. T
 * `Storage.SetPlayerData(Player, table)`
     * is server-only
 
-All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to CORE servers.
+All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
 
 Each player table has a **maximum size limit of 16Kb**.
 
-To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [CORE API](/docs/core_api/#storage).
+To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [Core API](/docs/core_api/#storage).
 
 ---
 
@@ -65,22 +65,22 @@ To start, we are going to save a video game classic: a player's game score.
 
 ### Setting Up Storage
 
-1. Open a CORE project.
+1. Open a Core project.
 
-2. To turn on persistent game storage, we need a **Game Settings Object**. Navigate to the **CORE Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
+2. To turn on persistent game storage, we need a **Game Settings Object**. Navigate to the **Core Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
 
     !!! info "Another Location for Settings Objects"
-        Settings objects can also be found in the top menu bar of CORE, under **Object** > **Create Settings Object** > **Create Game Settings**.
+        Settings objects can also be found in the top menu bar of Core, under **Object** > **Create Settings Object** > **Create Game Settings**.
 
 3. Now select the Game Settings object in your Hierarchy, and check out the **Properties** window. Check the box for **Enable Player Storage** on.
 
-4. Create a new script using the button in the top toolbar of CORE, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
+4. Create a new script using the button in the top toolbar of Core, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
 
     ![WorldText](../../img/EditorManual/PersistentStorage/createNewScript.png){: .center}
 
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
-    1. In CORE Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
+    1. In Core Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
 
     2. Name one of these `PlayerName`, and the other one `PlayerScore`.
 
@@ -90,7 +90,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
 
-7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a CORE Object Reference to the objects we are dragging in!
+7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a Core Object Reference to the objects we are dragging in!
 
     <video autoplay loop muted playsinline poster="../../../img/EditorManual/Abilities/Gem.png" class="center">
         <source src="../../../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
@@ -106,7 +106,7 @@ To start, we are going to save a video game classic: a player's game score.
 
     ```lua
     local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName"):WaitForObject()
-    local SCORE_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
+    local SCore_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
     ```
 
 2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the number 1 key. This function looks like:
@@ -125,7 +125,7 @@ To start, we are going to save a video game classic: a player's game score.
             local errorCode, errorMsg = Storage.SetPlayerData(whichPlayer, playerDataTable)
 
             if errorCode == StorageResultCode.SUCCESS then
-                SCORE_LABEL.text = tostring(playerDataTable.score)
+                SCore_LABEL.text = tostring(playerDataTable.score)
             else
                 UI.PrintToScreen(errorMsg)
             end
@@ -152,7 +152,7 @@ To start, we are going to save a video game classic: a player's game score.
             playerDataTable.score = 0
         end
 
-        SCORE_LABEL.text = tostring(playerDataTable.score)
+        SCore_LABEL.text = tostring(playerDataTable.score)
         PLAYERNAME_LABEL.text = player.name .. " Score:"
 
         player.bindingPressedEvent:Connect(OnBindingPressed)
@@ -176,7 +176,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 ![Final Result](../../img/EditorManual/PersistentStorage/finalResult.png){: .center}
 
-Congrats, you've learned the basics of Persistent Data Storage in CORE. Now go forth, and save awesome things!
+Congrats, you've learned the basics of Persistent Data Storage in Core. Now go forth, and save awesome things!
 
 If you'd like another example using a different type of object to save, try the second half of this tutorial.
 
@@ -209,7 +209,7 @@ We're going to edit the script we already used in the first half of the tutorial
             playerDataTable.score = 0
         end
 
-        SCORE_LABEL.text = tostring(playerDataTable.score)
+        SCore_LABEL.text = tostring(playerDataTable.score)
         PLAYERNAME_LABEL.text = player.name .. " Score:"
 
         player.bindingPressedEvent:Connect(OnBindingPressed)
@@ -226,9 +226,9 @@ We're going to edit the script we already used in the first half of the tutorial
     !!! info "What's happening in this code change?"
         We're doing almost exactly the same thing that we did for loading the player score. Instead of giving the player starting equipment by default, we are just printing a line to the **Event Log** alerting us that this player didn't have any saved equipment yet. If they did have saved equipment, then we are spawning an instance of that equipment and equipping it onto the player.
 
-2. Now that we've set up our code to load player equipment that we save, we need the actual equipment to save! For this tutorial, we are going to use one of the *Advanced Weapons* that are included in **CORE Content**.
+2. Now that we've set up our code to load player equipment that we save, we need the actual equipment to save! For this tutorial, we are going to use one of the *Advanced Weapons* that are included in **Core Content**.
 
-    Navigate to CORE Content, and drop down the **Game Components** category to find the weapons category. From within here, drag the *Advanced Shotgun* into your viewport window. You can choose any *Advanced Weapon* that you like--we just need to choose an *Advanced* weapon as they already come with the script that we need to modify.
+    Navigate to Core Content, and drop down the **Game Components** category to find the weapons category. From within here, drag the *Advanced Shotgun* into your viewport window. You can choose any *Advanced Weapon* that you like--we just need to choose an *Advanced* weapon as they already come with the script that we need to modify.
 
 3. Once you've dragged in the Advanced Shotgun, you will be able to access all of its scripts from "**My Scripts**" in your **Project Content**.
 
