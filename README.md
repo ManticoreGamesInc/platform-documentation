@@ -1,9 +1,9 @@
-# CORE Platform Documentation
+# Core Platform Documentation
 
 [![Website Build Status](https://api.netlify.com/api/v1/badges/c0780d7f-a678-49fd-b50e-ffe26f95147f/deploy-status)](https://app.netlify.com/sites/manticore-docs/deploys) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production%29%22) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production-Publish)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production-Publish%29%22)
 
 
-Welcome to the source of the official CORE platform documentation! Please check out the [contribution](CONTRIBUTING.MD) document if you are interested in
+Welcome to the source of the official Core platform documentation! Please check out the [contribution](CONTRIBUTING.MD) document if you are interested in
 helping out!
 
 ## Related Repositories
@@ -14,7 +14,7 @@ helping out!
 
 ## Branch Structure
 
-There are multiple version of the CORE documentation, and therefore multiple branches on this repository that correspond to each.
+There are multiple version of the Core documentation, and therefore multiple branches on this repository that correspond to each.
 
 Production:
 

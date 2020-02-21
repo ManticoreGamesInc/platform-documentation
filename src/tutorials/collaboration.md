@@ -1,12 +1,12 @@
 ---
 id: collaboration
-name: Collaboration & Source Control in CORE
-title: Collaboration & Source Control in CORE
+name: Collaboration & Source Control in Core
+title: Collaboration & Source Control in Core
 categories:
     - Tutorial
 ---
 
-# Collaboration & Source Control in CORE
+# Collaboration & Source Control in Core
 
 ## Overview
 
@@ -22,13 +22,13 @@ In this tutorial we'll teach you how to use **Git**, the most commonly used and 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
 * **Skills you will learn:**
-    * How to use Git with CORE
+    * How to use Git with Core
 
 ---
 
-### Collaboration in CORE Itself
+### Collaboration in Core Itself
 
-If you're not too worried about making mistakes, or just want to share quick things, CORE has many ways to share content already built-in.
+If you're not too worried about making mistakes, or just want to share quick things, Core has many ways to share content already built-in.
 
 If you're working with multiple people, instead of using "formal" source control, you could just publish templates to **Community Content** and have your teammates access what you make that way.
 
@@ -50,8 +50,8 @@ Setting up source control can sound intimidating if you've never done it before-
 
 2. Create a New Project on GitHub. This is the same as "Create Repository" on GitHub, it just depends on which page you are on--both do the same thing.
 
-    !!! warning "CORE's NDA"
-        During CORE's closed alpha, you must set the project to **Private** to maintain the Non-Disclosure Agreement.
+    !!! warning "Core's NDA"
+        During Core's closed alpha, you must set the project to **Private** to maintain the Non-Disclosure Agreement.
 
 3. Change any settings you might want; if you're starting from scratch you'll want to check the **"Initialize this repository with a README"** button.
 
@@ -59,7 +59,7 @@ Setting up source control can sound intimidating if you've never done it before-
 
 4. Now you have a GitHub project repository! This is the web location where all your files will be saved each time you commit new changes to the project.
 
-    Next is connecting a CORE project to GitHub by setting up the repository (often shortened to *"repo"*) on your computer.
+    Next is connecting a Core project to GitHub by setting up the repository (often shortened to *"repo"*) on your computer.
 
 5. There are two ways to interact with Git. You could either use the console / command prompt or a graphical client, like [GitHub Desktop](https://desktop.github.com/).
 
@@ -71,7 +71,7 @@ We first need to choose a location to clone the repository to, and this will wor
 
 For this reason, here are the recommended steps below:
 
-1. Close CORE before starting this process.
+1. Close Core before starting this process.
 
 2. Create a new folder inside of your game's folder, like so:
 
@@ -80,7 +80,7 @@ For this reason, here are the recommended steps below:
     *Note: "User" will be your Windows username, and you can name the last folder, called "data" in this case, whatever you want.*
 
     !!! info "Why the extra folder?"
-        Usually, all game files are directly in the folder with the project's name. However, due to the autosave feature in CORE, a game with many saved revisions may experience a ~5-10 second delay to start up preview mode, as a large number of files are copied into the `.git` folder from the autosave copies. We can avoid this by nesting the folders differently!
+        Usually, all game files are directly in the folder with the project's name. However, due to the autosave feature in Core, a game with many saved revisions may experience a ~5-10 second delay to start up preview mode, as a large number of files are copied into the `.git` folder from the autosave copies. We can avoid this by nesting the folders differently!
 
 3. Move all the game files into the `data` folder we just created.
 
@@ -104,13 +104,13 @@ For this reason, here are the recommended steps below:
 
     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center}
 
-7. Next time you make a change to the game within CORE, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
+7. Next time you make a change to the game within Core, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
 
 Congrats on getting set up, and happy committing!
 
-## Tips on Using CORE with Git
+## Tips on Using Core with Git
 
-* **A CORE project will work best with Git when the project Hierarchy is very efficiently organized**.
+* **A Core project will work best with Git when the project Hierarchy is very efficiently organized**.
 
 This usually means separating parts into different folders. For example, you might keep all the scripts and gameplay objects in one folder, and all art models in another separate folder.
 
@@ -118,7 +118,7 @@ With this split, you could have one team member work on scripting a game, while 
 
 Here's an example of a project Hierarchy with that basic split of Art / Gameplay:
 
-![CORE Project Hierarchy](../img/EditorManual/gitProjectHierarchy.png "Organization keeps your head clear!"){: .center}
+![Core Project Hierarchy](../img/EditorManual/gitProjectHierarchy.png "Organization keeps your head clear!"){: .center}
 
 * **Even if you're not using GitHub Desktop**, this whole process works the same way. The only catch you'll want to keep in mind is the use of a `data` folder to nest your game files one level deeper.
 

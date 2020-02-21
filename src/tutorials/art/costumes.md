@@ -1,12 +1,12 @@
 ---
 id: costumes
-name: Costumes in CORE
-title: Costumes in CORE
+name: Costumes in Core
+title: Costumes in Core
 categories:
     - Reference
 ---
 
-# Costumes in CORE
+# Costumes in Core
 
 !!! warning
     Flagged for Review.

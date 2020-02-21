@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-CORE uses **Lua**, a lightweight and flexible programming language to accomplish
+Core uses **Lua**, a lightweight and flexible programming language to accomplish
 scripting in the engine. It is a [dynamically
 typed](https://en.wikipedia.org/wiki/Type_system#Combining_static_and_dynamic_type_checking)
 language, has no inbuilt conception of classes, and has minimal to no data
@@ -35,11 +35,11 @@ Skim through the beginner content, then try our [Manticoin Game](lua_basics_mant
 ### Advanced
 
 Check out this [primer](https://learnxinyminutes.com/docs/lua/), or this [reference-sheet](http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf) for tips on syntax. Use the
-official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourself familiar with the [CORE API](../../core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
+official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourself familiar with the [Core API](../../core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](../../extensions.md).
 
 #### Coming from other engines
 
-Other engines also have good sources of documentation for Lua. Check out our [other-engines](../../getting_started/other_engines.md) page that has a few hints on what's different between them and **CORE**.
+Other engines also have good sources of documentation for Lua. Check out our [other-engines](../../getting_started/other_engines.md) page that has a few hints on what's different between them and **Core**.
 
 ## Basics
 
@@ -425,7 +425,7 @@ end
 
 ## Modules
 
-Lua in CORE does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slighty from vanilla Lua;
+Lua in Core does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slighty from vanilla Lua;
 Instead of giving it a script or file name, you give it the script ID, so you’ll want a custom parameter that’s an asset reference pointing at the script you want to `require()`.
 
 If you're still really hungry for more info, more primers can be found here:

@@ -6,11 +6,11 @@ categories:
     - Reference
 ---
 
-# Templates in CORE
+# Templates in Core
 
 ## Overview
 
-Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about CORE is the ability to create and share what we make as **templates** for ourselves and for others to download.
+Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about Core is the ability to create and share what we make as **templates** for ourselves and for others to download.
 
 Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates can be created, shared, and updated in real time across the platform.
 
@@ -23,7 +23,7 @@ When one template is updated, it updates every instance of the template. So you 
 
     Or perhaps they'll modify it to drop a monkey. That's the beauty of template sharing!
 
-Templates can be identified in the **CORE Content** tab by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
+Templates can be identified in the **Core Content** tab by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
 
 - **Completion Time:** 5 minutes
 - **Knowledge Level:** None needed!
@@ -39,7 +39,7 @@ Templates can be identified in the **CORE Content** tab by this icon: ![Template
 
 Creating a template is fast and easy! To make a template follow these steps:
 
-1. Drag in your assets and objects from CORE Content. Arrange and organize them how you'd like.
+1. Drag in your assets and objects from Core Content. Arrange and organize them how you'd like.
 
      Templates can contain 3D objects, scripts, vfx, or whatever else you want to combine.
 
@@ -53,7 +53,7 @@ Creating a template is fast and easy! To make a template follow these steps:
 
      ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "Pick somethin' catchy."){: .center}
 
-     The template is now recognized in your project as its own object and can be found in the **Project Content** folder of **CORE Content** and you may easily drag out as many instances of your template into your scene as you like. *(And that your game can handle--keep an eye on that Perfromance tab to see if you have too many objects!)*
+     The template is now recognized in your project as its own object and can be found in the **Project Content** folder of **Core Content** and you may easily drag out as many instances of your template into your scene as you like. *(And that your game can handle--keep an eye on that Perfromance tab to see if you have too many objects!)*
 
 !!! info "The Hierarchy text color changed?"
      Once something becomes a template, its name changes to **blue**{: style="color: var(--core-color-templetized)"} text.
@@ -62,7 +62,7 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 Once your template is created, you may use it for just this project alone, or you can now further publish the template to **Community Content** for sharing with others and between different projects.
 
-1. Click on your template in the **Project Content** folder of **CORE Content**.
+1. Click on your template in the **Project Content** folder of **Core Content**.
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 
@@ -95,7 +95,7 @@ Once your template is created, you may use it for just this project alone, or yo
 
 ![TemplateTut4](../../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
 
-Congratulations! You've created, edited, and published a template that can be shared and used by other creators in CORE!
+Congratulations! You've created, edited, and published a template that can be shared and used by other creators in Core!
 
 ![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 

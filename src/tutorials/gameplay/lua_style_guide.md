@@ -149,7 +149,7 @@ local function Main()
 
     for i = 1, 30 do
         local furColors = cat:GetColors()
-        -- Note: table.contains is native Lua so it doesn't follow CORE's conventions
+        -- Note: table.contains is native Lua so it doesn't follow Core's conventions
         if table.contains(furColors, "grey") then
             currentAge = IncreaseAge(cat.age)
         end

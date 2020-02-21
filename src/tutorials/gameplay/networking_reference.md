@@ -6,7 +6,7 @@ categories:
     - Reference
 ---
 
-# Networking in CORE
+# Networking in Core
 
 !!! warning
     Flagged for Review.

@@ -1,12 +1,12 @@
 ---
 id: art_reference
-name: Art in CORE
-title: Art in CORE
+name: Art in Core
+title: Art in Core
 categories:
     - Reference
 ---
 
-# Art in CORE
+# Art in Core
 
 !!! warning
     Flagged for Review.
@@ -14,21 +14,21 @@ categories:
 
 ## Overview
 
-The CORE™ editor comes with all sorts of built-in 3D models and props for using and combining in any way that you can imagine!
+The Core™ editor comes with all sorts of built-in 3D models and props for using and combining in any way that you can imagine!
 
 By resizing and combining different shapes and props, anything can be made!
 
-**You won't need to understand 3D software or modeling to create beautiful art in CORE.** While some aspects are similar, it's up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **CORE Content** tab, or you could browse through what other creators have shared on **Community Content**.
+**You won't need to understand 3D software or modeling to create beautiful art in Core.** While some aspects are similar, it's up to you how complex you wish to work. You could skip the art-making phase and use the finished props from the **Core Content** tab, or you could browse through what other creators have shared on **Community Content**.
 
 ![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center}
 
 ### Pre-Made Props & Assets
 
-To find all the 3D models already included in CORE, start by looking in the **CORE Content** tab, found in the bottom left window of the editor.
+To find all the 3D models already included in Core, start by looking in the **Core Content** tab, found in the bottom left window of the editor.
 
-This window can also be accessed via the dropdown "**View -> CORE Content**". tab
+This window can also be accessed via the dropdown "**View -> Core Content**". tab
 
-![CORE Content](../../img/EditorManual/Art/AssetManifest.png "CORE Content"){: .center}
+![Core Content](../../img/EditorManual/Art/AssetManifest.png "Core Content"){: .center}
 
 Currently, there are **5 different sections** that contain models to use right away:
 
@@ -46,9 +46,9 @@ Currently, there are **5 different sections** that contain models to use right a
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the 3D Objects button label. Each of these categories also have subcategories, that can be opened the same way:
 
-![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "CORE Content Dropdowns"){: .center}
+![Core Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "Core Content Dropdowns"){: .center}
 
-To use any of these models, simply click and drag one out from the CORE Content tab into the scene or the hierarchy.
+To use any of these models, simply click and drag one out from the Core Content tab into the scene or the hierarchy.
 
 ![Drag out Assets](../../img/EditorManual/Art/DragOutAsset.gif "Drag out Assets"){: .center}
 
@@ -58,7 +58,7 @@ To use any of these models, simply click and drag one out from the CORE Content 
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/MoveRotateScale.png "Move, Rotate, Scale"){: .center}
 
-The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green**{: style="color: green"} arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the CORE editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
+The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green**{: style="color: green"} arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the Core editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
 
 ![Move, Rotate, Scale](../../img/EditorManual/Art/TransformManipulators.gif "Move, Rotate, Scale"){: .center}
 
@@ -66,7 +66,7 @@ The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green*
 
 ### Color Your Way: Changing Model Materials
 
-While CORE does have a distinct art style, all of this can be changed and modified to whatever your vision may be.
+While Core does have a distinct art style, all of this can be changed and modified to whatever your vision may be.
 The colors and patterns on a 3D model are known as "materials". The easiest way to create a dramatic change is to alter the materials of a model, either to a completely different material, or by editing the settings of a material.
 
 ![Different Materials](../../img/EditorManual/Art/differentMats.png "Different Materials"){: .center}
@@ -81,7 +81,7 @@ In the case of this "**Craftsman Chair 01**", there are 3 different material slo
 
 There are two ways to change these material slots:
 
-- **Drag a material** from the **Materials** section of the CORE Content tab to the **Material** slot in the **Properties** window. Check out how it's done below:
+- **Drag a material** from the **Materials** section of the Core Content tab to the **Material** slot in the **Properties** window. Check out how it's done below:
 
 ![Drag a Material](../../img/EditorManual/Art/DragMaterialOut.gif "Drag a Material"){: .center}
 
@@ -105,12 +105,12 @@ In your own project, you have the ability to create **Custom Materials**. This a
 
 ### Getting Complex: Combining Models
 
-Using pre-made models in CORE is not the only way to create art. By arranging different props together, your imagination is the limit!
+Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
 
 ![Bug Ship](../../img/EditorManual/Art/BugShip.gif "Bug Ship"){: .center}
-*All of these objects and scenes were created using basic shapes and props combined in CORE.*
+*All of these objects and scenes were created using basic shapes and props combined in Core.*
 
-The process of making more complex models in CORE is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
+The process of making more complex models in Core is all about groups and folders. Build whatever shapes you would like, and use either folders or groups to combine them.
 
 Using a **folder** to combine objects will allow you to select a single object when clicking. See this below:
 

@@ -1,4 +1,4 @@
-# CORE Game Components
+# Core Game Components
 
 ## Basic Game State
 

@@ -1,7 +1,7 @@
 {
     "name": "manticore-platform-documentation",
     "version": "1.1.0",
-    "description": "Documentation for the CORE Platform",
+    "description": "Documentation for the Core Platform",
     "main": "mkdocs.yml",
     "private": true,
     "scripts": {

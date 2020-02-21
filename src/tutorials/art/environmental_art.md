@@ -1,12 +1,12 @@
 ---
 id: environment_art
-name: Environmental Art in CORE
-title: Environmental Art in CORE
+name: Environmental Art in Core
+title: Environmental Art in Core
 categories:
     - Reference
 ---
 
-# Environmental Art in CORE
+# Environmental Art in Core
 
 !!! warning
     Flagged for Review.
@@ -14,7 +14,7 @@ categories:
 
 ## Overview
 
-Learning modelling basics in CORE by making delicious food. <!-- TODO: Intro Text -->
+Learning modelling basics in Core by making delicious food. <!-- TODO: Intro Text -->
 
 * **Completion Time:** ~20 minutes <!-- TODO: Completion Time -->
 * **Knowledge Level:** Basic editor <!-- TODO: Knowledge Level -->
@@ -51,7 +51,7 @@ Learn how to easily and quickly create an environment using the Terrain Generato
 
    ![ArtIntro](../../img/EnvironIntro/image41.png "Art Screenshot"){: .center}
 
-5. Time to apply a material to the terrain. You can apply any material you wish. If you want to easily find a realistic terrain material go to the search bar in the **CORE Content** tab and search "**Terrain**."
+5. Time to apply a material to the terrain. You can apply any material you wish. If you want to easily find a realistic terrain material go to the search bar in the **Core Content** tab and search "**Terrain**."
 
    Drag the material of your choosing onto the terrain to apply it.
 
@@ -137,7 +137,7 @@ Assign a Textured Paintable material to the terrain by dragging and dropping it 
 
    ![ArtIntro](../../img/EnvironIntro/image14.png "Art Screenshot"){: .center}
 
-3. Find the **Generic Water** material in the materials section of the **CORE Content** tab. (Or search for "**generic water**" in the **CORE Content** tab search bar). Apply it to our resized cube.
+3. Find the **Generic Water** material in the materials section of the **Core Content** tab. (Or search for "**generic water**" in the **Core Content** tab search bar). Apply it to our resized cube.
 
    ![ArtIntro](../../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
 
@@ -155,7 +155,7 @@ Assign a Textured Paintable material to the terrain by dragging and dropping it 
 
    Now you can pass through the water, but once inside it doesn't look like we are underwater at all. We can use the **Underwater Post Process** volume to achieve an underwater effect. The **Underwater** volume will also allow us to swim inside the water.
 
-2. Find the **Underwater Post Process** volume under the **Post Processing > Scene** section in the **CORE Content** tab. Drag it into your scene on top of your water. (Your **Main Viewport** may change color for a second - this is normal).
+2. Find the **Underwater Post Process** volume under the **Post Processing > Scene** section in the **Core Content** tab. Drag it into your scene on top of your water. (Your **Main Viewport** may change color for a second - this is normal).
 
    ![ArtIntro](../../img/EnvironIntro/image30.png "Art Screenshot"){: .center}
 
@@ -185,7 +185,7 @@ Let's add some foliage around our oasis. We can manually place every bush or roc
 
    ![ArtIntro](../../img/EnvironIntro/image43.png "Art Screenshot"){: .center}
 
-2. Let's spawn some grass around our water. In the **CORE Content** tab go to **Environment > Foliage** and find the **Grass Short** asset.
+2. Let's spawn some grass around our water. In the **Core Content** tab go to **Environment > Foliage** and find the **Grass Short** asset.
 
 3. Open the **Object Generator** by going to the **View** menu in the top bar.
 
@@ -195,7 +195,7 @@ Let's add some foliage around our oasis. We can manually place every bush or roc
 
    ![ArtIntro](../../img/EnvironIntro/image10.png "Art Screenshot"){: .center}
 
-   Make sure the **Grass Short** asset is selected in the **CORE Content** tab.
+   Make sure the **Grass Short** asset is selected in the **Core Content** tab.
 
    ![ArtIntro](../../img/EnvironIntro/image40.png "Art Screenshot"){: .center}
 
@@ -273,7 +273,7 @@ Checking **Only Spawn On Terrain** ensures spawned objects will only spawn on th
 
 Keep **Group In Folder** checked to spawn all new objects in a folder. This helps keep your Hierarchy organized.
 
-You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing <kbd>SHIFT</kbd> + <kbd>X</kbd> with an object selected in the **CORE Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color.
+You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing <kbd>SHIFT</kbd> + <kbd>X</kbd> with an object selected in the **Core Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color.
 
 !!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
 
