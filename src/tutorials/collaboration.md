@@ -77,7 +77,7 @@ For this reason, here are the recommended steps below:
 
     `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\data\`
 
-    *Note: "User" will be your CORE username, and you can name the last folder, called "data" in this case, whatever you want.*
+    *Note: "User" will be your Windows username, and you can name the last folder, called "data" in this case, whatever you want.*
 
     !!! info "Why the extra folder?"
         Usually, all game files are directly in the folder with the project's name. However, due to the autosave feature in CORE, a game with many saved revisions may experience a ~5-10 second delay to start up preview mode, as a large number of files are copied into the `.git` folder from the autosave copies. We can avoid this by nesting the folders differently!
