@@ -16,7 +16,7 @@ categories:
 
 In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a magical tomato grenade.
 
-Programming a weapon can be the most complicated part of making a game, but to make that easier, Core™ comes with a built-in weapon system!
+Programming a weapon can be the most complicated part of making a game, but to make that easier, Core comes with a built-in weapon system!
 
 **Time to complete:** 15 minutes
 
