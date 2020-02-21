@@ -1,6 +1,6 @@
 # Animations
 
-In CORE, all Ability animations are valid on any of the available body types. Each of the Ability animations timing and/or translation values should behave identically across the body types.
+In Core, all Ability animations are valid on any of the available body types. Each of the Ability animations timing and/or translation values should behave identically across the body types.
 All Ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the Player does not execute any other Ability or movement. In nearly all practical use cases, the Ability animation tails will be interrupted to do other game mechanics.
 
 !!! Note

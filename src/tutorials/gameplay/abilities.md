@@ -1,18 +1,18 @@
 ---
 id: abilities
-name: Abilities in CORE
-title: Abilities in CORE
+name: Abilities in Core
+title: Abilities in Core
 categories:
     - Tutorial
 ---
 
-# Abilities in CORE
+# Abilities in Core
 
 ## Overview
 
 An ability is anything that the player can do themselves.
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a CORE™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
+Anytime that a player can do something more than just jump and crouch, that should be added to a Core™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
 
 An ability could be to sprint, a cheering emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
@@ -34,7 +34,7 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
 
 ### What is an Ability
 
-In CORE, an `Ability` is an object that holds information about how to behave when used. You can set how long the ability lasts for, how long until the ability can be used a second time, and all sorts of other properties.
+In Core, an `Ability` is an object that holds information about how to behave when used. You can set how long the ability lasts for, how long until the ability can be used a second time, and all sorts of other properties.
 
 While there are ways to utilize all these properties, for your first dive into abilities, we're just going to touch on the very basics.
 
@@ -52,7 +52,7 @@ For this tutorial, we are going to make the player wave hello.
 
 ### Getting Started with Equipment
 
-1. With CORE open to a project, navigate to the **CORE Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project **Hierarchy**.
+1. With Core open to a project, navigate to the **Core Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project **Hierarchy**.
 
     ![Hierarchy Collapsed](../../img/EditorManual/Abilities/GameObjects.png "Hierarchy Collapsed"){: .center}
 
@@ -79,11 +79,11 @@ For this tutorial, we are going to make the player wave hello.
 
     You can choose whatever you would like and would fit your game, but in my case I am going to use a classic gem.
 
-    1. In the **CORE Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
+    1. In the **Core Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
          ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}
 
-         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in CORE, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
+         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
 
          I went with a simple red gem, and made it a little smaller than the default diamond.
 
@@ -113,7 +113,7 @@ For this tutorial, we are going to make the player wave hello.
 
      ![Everything together at 0,0,0](../../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center}
 
-5. Now to set up the animation! Navigate back to the **CORE Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
+5. Now to set up the animation! Navigate back to the **Core Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
@@ -162,11 +162,11 @@ For this tutorial, we are going to make the player wave hello.
 
 ---
 
-### CORE Component: Ability Display
+### Core Component: Ability Display
 
 A crucial part of a video game is the feedback it gives--players need to know that they're using an ability.
 
-While you can make a User Interface _(often abbreviated to UI)_ element yourself, there is a pre-made template within **CORE Content** that we can use to very quickly set up simple UI for our new ability!
+While you can make a User Interface _(often abbreviated to UI)_ element yourself, there is a pre-made template within **Core Content** that we can use to very quickly set up simple UI for our new ability!
 
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
@@ -176,7 +176,7 @@ When the `Ability` is in the Cooldown phase, it will darken the ability button a
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps:
 
-1. In **CORE Content**, search for the **Ability Display** object, and drag this into your **Hierarchy**. It can also be found in the category Game Components > UI.
+1. In **Core Content**, search for the **Ability Display** object, and drag this into your **Hierarchy**. It can also be found in the category Game Components > UI.
 
 2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
 
@@ -190,7 +190,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
 3. To make sure our icon symbol matches our ability, shift-click the AbilityBindingDisplay in the **Hierarchy** to expand all of the children subfolders.
 
-    Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of CORE's other built-in UI icons.
+    Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of Core's other built-in UI icons.
 
     In my case, I chose the "Icon hand" image!
 
@@ -208,9 +208,9 @@ Now the UI element will update automatically once the ability is cast.
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the CORE Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the Core Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
-This has already been done for us in the CORE Content template, so no action is needed!
+This has already been done for us in the Core Content template, so no action is needed!
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the **[Networking Reference](networking_reference.md)**.

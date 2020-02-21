@@ -2,7 +2,7 @@
 nav:
   - News:
       - https://forums.coregames.com/news
-  - Intro to CORE:
+  - Intro to Core:
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Sharing Content: getting_started/community_content.md
@@ -14,12 +14,12 @@ nav:
       - Events: https://forums.coregames.com/c/community/events/6
   - ManticoreTV:
       - ManticoreTV: https://forums.coregames.com/t/what-is-manticoretv/39
-  - CORE API:
+  - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
       - Animations: api/animations.md
       - Ability Bindings: api/ability_bindings.md
-      - Lua in CORE: tutorials/gameplay/lua_reference.md
+      - Lua in Core: tutorials/gameplay/lua_reference.md
       - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
       - Editor Extensions: extensions.md
       - Coming from other Engines: getting_started/other_engines.md
@@ -33,7 +33,7 @@ nav:
           - Scripting (Advanced): tutorials/gameplay/lua_basics_manticoin.md
           - Persistent Storage: tutorials/gameplay/persistent_storage.md
       - Art:
-          - Art in CORE: tutorials/art/art_reference.md
+          - Art in Core: tutorials/art/art_reference.md
           - Scene Creation: tutorials/art/scene_creation.md
           - Custom Materials: tutorials/art/custom_materials.md
           - Environmental Art: tutorials/art/environmental_art.md
@@ -95,7 +95,7 @@ extra:
     - type: facebook
       link: https://www.facebook.com/groups/playcoregames
     - type: twitter
-      link: https://twitter.com/COREGames
+      link: https://twitter.com/CoreGames
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -147,17 +147,17 @@ plugins:
 
 docs_dir: src
 
-site_name: CORE Creator Hub
+site_name: Core Creator Hub
 
 # Add repository for easy editing
 repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/production/src
 
-site_description: Documentation & Tutorials for the CORE Platform.
+site_description: Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
 site_url: https://dev.manticoreplatform.com/docs/
 
-copyright: "&copy; 2020 Manticore Games, Inc. CORE&trade; is a trademark of Manticore Games."
+copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
 
 google_analytics:
   - UA-142884846-4

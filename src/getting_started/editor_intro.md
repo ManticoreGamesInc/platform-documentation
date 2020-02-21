@@ -1,12 +1,12 @@
 ---
 id: editor_intro
-name: Introduction to the CORE Editor
-title: Introduction to the CORE Editor
+name: Introduction to the Core Editor
+title: Introduction to the Core Editor
 categories:
     - Tutorial
 ---
 
-# Introduction to the CORE Editor
+# Introduction to the Core Editor
 
 !!! warning
     Flagged for Review.
@@ -16,28 +16,28 @@ categories:
 
 To get started, you'll need two things, the installer and an account. You can get both from [our website](https://coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
 
-Please check your spam folder if you don't see a verification email for your CORE account in your inbox. If you need further help troubleshooting, please join the [CORE Creator Discord](https://discord.gg/85k8A7V) where we have live support!
+Please check your spam folder if you don't see a verification email for your Core account in your inbox. If you need further help troubleshooting, please join the [Core Creator Discord](https://discord.gg/85k8A7V) where we have live support!
 
 !!! note
-    It is recommended to install CORE on the default path. Please do not direct CORE to install in "Program Files" or "Program Files (x86)". If you install elsewhere and run into problems, please let us know!
+    It is recommended to install Core on the default path. Please do not direct Core to install in "Program Files" or "Program Files (x86)". If you install elsewhere and run into problems, please let us know!
 
 ## Launcher
 
-Now you'll have a new icon in your start menu, CORE Launcher. If you want to start working on a project, launching CORE directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://www.coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open CORE, you hit okay and CORE will launch directly into the game.
+Now you'll have a new icon in your start menu, Core Launcher. If you want to start working on a project, launching Core directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://www.coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open Core, you hit okay and Core will launch directly into the game.
 
 ## Editor
 
-If you decide to work on something new, you start the Editor directly via CORE Launcher. When you open up the editor you'll see the following screen:
+If you decide to work on something new, you start the Editor directly via Core Launcher. When you open up the editor you'll see the following screen:
 
 ![EditorIntro](../img/EditorManual/landing_page.png "Editor Homepage"){: .center}
 
-1. Character - Your place to customize your CORE Avatar.
+1. Character - Your place to customize your Core Avatar.
 2. Create - Where games directly authored by you live.
 3. Games - A link to the game browser on [coregames.com](https://www.coregames.com/games).
 4. Documentation - A link to our [documentation platform](https://www.coregames.com/docs) that in addition to our API also houses a ton of tutorials to get you started.
-5. Discord - A link to the [CORE Creator Discord](https://discord.gg/85k8A7V).
+5. Discord - A link to the [Core Creator Discord](https://discord.gg/85k8A7V).
 6. Feedback - A link to [a form to submit feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform).
-7. User Dropdown - Here you can log out or exit CORE.
+7. User Dropdown - Here you can log out or exit Core.
 
 Now to create a new project, click on the big "**Create New**" button, select "**Empty Project**" and give it a name. Now you're in the Editor!
 
@@ -46,7 +46,7 @@ Now to create a new project, click on the big "**Create New**" button, select "*
 The best way to start is by making a map. Then we'll add functionality with a simple game. Lastly, we'll see how using Community Content can expedite this
 entire process. The editor is divided into different windows or "**Views**" which have distinct roles. If you close a view, you can re-open it via the drop-down toolbar at the top left of the screen.
 
-!!! info "Icons are used to visually represent information, you can view a full list of the icons contained within CORE in our [icon glossary](../icons.md)."
+!!! info "Icons are used to visually represent information, you can view a full list of the icons contained within Core in our [icon glossary](../icons.md)."
 
 We'll now go over each in more depth in their respective sections.
 
@@ -72,11 +72,11 @@ The Asset Manifest is split into three parts, it is the place to add new content
 
 #### Project Content
 
-This contains everything that you added to your project, including stuff from CORE and Community content as well as your own assets.
+This contains everything that you added to your project, including stuff from Core and Community content as well as your own assets.
 
-#### CORE Content
+#### Core Content
 
-Within the CORE content tab you can select an asset type from the drop down menu, then press the "**+**" icon to expand the different categories within that type. These categories include all assets provided by CORE.
+Within the Core content tab you can select an asset type from the drop down menu, then press the "**+**" icon to expand the different categories within that type. These categories include all assets provided by Core.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline>
@@ -118,7 +118,7 @@ The Event Log is a way to quickly view the results of your code, any script can 
 
 ## Summary
 
-Here are a few links to get you started on certain areas in CORE:
+Here are a few links to get you started on certain areas in Core:
 
 * [Art Intro](../tutorials/art/art_reference.md)
 * [Scripting Intro](../tutorials/gameplay/lua_reference.md)
