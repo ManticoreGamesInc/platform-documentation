@@ -35,7 +35,7 @@
         "eslint-plugin-import": "^2.20.1",
         "eslint-plugin-prettier": "^3.1.2",
         "husky": "^4.2.3",
-        "json2md": "^1.6.5",
+        "json2md": "^1.7.0",
         "markdown-yaml-metadata-parser": "^2.0.4",
         "markdownlint-cli": "^0.22.0",
         "prettier": "^1.19.1",
