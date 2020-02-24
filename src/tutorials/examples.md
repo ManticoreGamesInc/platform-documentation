@@ -244,6 +244,50 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
+## Storage
+
+The following examples assume the hierarchy has a GameSettings object with **"Enable Player Storage**" turned on.
+
+### Storage.GetPlayerData(Player)
+
+This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
+
+```lua
+function OnPlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+    -- In case it's the first time for this player we use default values 0 and 1
+    local xp = data["xp"] or 0
+    local level = data["level"] or 1
+    -- Each time they join they gain 1 XP. Stop and play the game again to test that this value keeps going up
+    xp = xp + 1
+    player:SetResource("xp", xp)
+    player:SetResource("level", level)
+    print("Player " .. player.name .. " joined with Level " .. level .. " and XP " .. xp)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### Storage.SetPlayerData(Player, table)
+
+This example detects when a player gains XP or level and saves the new values to storage.
+
+```lua
+function OnResourceChanged(player, resName, resValue)
+    if (resName == "xp" or resName == "level") then
+        local data = Storage.GetPlayerData(player)
+        data[resName] = resValue
+        local resultCode,errorMessage = Storage.SetPlayerData(player, data)
+    end
+end
+
+function OnPlayerJoined(player)
+    player.resourceChangedEvent:Connect(OnResourceChanged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
 ## Needed
 
 * What isn't represented here? Let us know!
