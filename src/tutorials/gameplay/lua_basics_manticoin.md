@@ -104,16 +104,17 @@ Yay, we've got it working! Now if only we could collect these coins...
 
 ### Adding a Trigger
 
-1. From **CORE Content -> Gameplay Objects**, drag a **Trigger** object into the world
+1. From **CORE Content -> Gameplay Objects**, drag a **Trigger** object into the world.
    * Resize the trigger to match the coin's size.
      * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
      * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
    * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
    * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
+   * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
 
 ### Handling Triggers
 
-Let's make a script called `PickupCoin` and place it as the child of the trigger.
+Let's make a script called `PickupCoin` and drag it into the Hierarchy to place it as a **child** of the trigger.
 
 ```lua
 -- When a player hits the coin, increment a resource on the player and remove the coin
@@ -125,7 +126,7 @@ function handleOverlap(trigger, object)
 end
 ```
 
-This function takes in the `trigger` that was activated and the `object` that collided with it as parameters. We first check to make sure that the object is not `nil` and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. In our case, we simply increase the amount of the "**Manticoin**" resources on the player by one. Finally, we use `:Destroy()` to remove the trigger (and all its children) from the game.
+This function takes in the `trigger` that was activated and the `object` that collided with it as parameters. We first check to make sure that the object is not `nil` (this is checking if the object exists) and that it is a `Player`. If it is a `Player`, we add a `Resource` to it. In our case, we simply increase the amount of the "**Manticoin**" resources on the player by one. Finally, we use `:Destroy()` to remove the trigger (and all its children) from the game.
 
 Now we need to attach our new `handleOverlap` function to the trigger.
 
