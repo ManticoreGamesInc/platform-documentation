@@ -1,11 +1,10 @@
-#Mkdocs obviously needed
-mkdocs
-# Base styling
-mkdocs-material
+mkdocs>=1.1
+mkdocs-material>=4.6.3
 # Code highlighting
-pygments
+pygments>=2.4
 # Other extensions
-pymdown-extensions
+pymdown-extensions>=6.3,<7
+markdown>=3.2
 markdown-full-yaml-metadata
 mkdocs-redirects
 mkdocs-git-revision-date-localized-plugin
