@@ -150,7 +150,7 @@ Create a new script and call it `DisplayCoins`. We'll start with the following c
 -- Print out 'Player name: {coin count}' every 2 seconds
 function Tick()
     Task.Wait(2)
-    local players = World.GetPlayers()
+    local players = Game.GetPlayers()
     local numPlayers = #players
     for i = 1, numPlayers do
         local numCoins = players[i]:GetResource("Manticoin")
@@ -159,25 +159,27 @@ function Tick()
 end
 ```
 
+Don't forget to drag your script into the Hierarchy--then press play to check it out!
+
 Now when you walk over the coin, you'll pick it up, and the amount will be displayed every 2 seconds. The `for` loop will show the score of each `Player`, since CORE comes equipped with multiplayer functionality right out of the box.
 
 Next up, we're going to add a UI element to display this information instead of the bland `UI.PrintToScreen` call we have now.
 
 ## Using UI Objects
 
-UI Objects are 2D elements that can be used to show Heads Up Displays (HUD), buttons, and messages to the player. We can leverage these instead of `UI.PrintToScreen` to have more control over what the user sees.
+UI Objects are 2D elements that can be used to show the Heads Up Displays (often abbreviated to HUD), which are buttons, images, and messages to the player. We can leverage these instead of `UI.PrintToScreen` to have more control over what the user sees.
 
 ### Creating UI Text
 
-1. Let's play around and make our game more attractive! In order to use UI elements, we need a UI Container.
+1. Let's play around and make our game more attractive! In order to use UI elements, we need a *UI Container*.
    * Go to **CORE Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
-   * Right click on it in the Hierarchy, hover over **Create Network Context** and create a **Client Context**.
-   * From **CORE Content -> UI Elements** pick the **UI Text** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
+   * Right click on this UI Container in the Hierarchy, hover over **Create Network Context** and create a **Client Context**. This creates a Client Context folder as a child of the UI Container.
+   * From **CORE Content -> UI Elements** pick the **UI Text Box** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
    * Rename the Text Control to `CoinUI`.
-   * In the properties panel, set `Text` to be blank by default.
+   * In the properties panel, set `Text` to be blank by default by deleting the existing text that is already there.
 
 !!! info
-    While visually similar in the Hierarchy, **Client Context** is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client. In other words, the server doesn't care about it.
+    While visually similar in the Hierarchy, **Client Context** is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client (or computer). In other words, the server doesn't care about it.
 
 ### Updating UI Text
 
@@ -187,7 +189,7 @@ Now we are going back to our `DisplayCoins` script and replace the code with the
 -- Display the player's coin amount
 
 Task.Wait()  -- Wait a tick for players to connect
-local player = World.GetLocalPlayer()
+local player = Game.GetLocalPlayer()
 
 -- Every 0.1 seconds update the coin count display
 function Tick()
@@ -198,17 +200,22 @@ function Tick()
 end
 ```
 
-!!! note
+!!! info
     Calling `Task.Wait()` without sending in an argument will default to `1`, a single tick. It supports float arguments and yields the Task for that many seconds.
-    Note: For performance we'd ideally write code that only updates the UI when the coin count changes, but this example favors simple code over robust systems
+    Note: For better performance we'd ideally write code that *only* updates the UI when the coin count changes, but this example favors using simple code over robust systems.
 
-Next, let's place the script `DisplayCoins` as a child of the Text Control. In this script, we set a variable `score` to the player's amount of Manticoin currency every 0.1 seconds. With `script.parent.text`, we access the text from the parent Text Control. Lastly, we overwrite the text appropriately with the player's name and score.
+Next, let's place the script `DisplayCoins` as a child of the Text Box. In this script, we set a variable `score` to the player's amount of Manticoin currency every 0.1 seconds. With `script.parent.text`, we access the text from the parent Text Control. Lastly, we overwrite the text appropriately with the player's name and score.
 
 The folder structure at this point should look like this:
 
 ![UIText](../../img/getting_started/UIText.png "UI Text"){: .center}
 
-Feel free to play around and customize how the Text Control looks. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
+Your Text Box probably came with another UI Container, but as this is already a child of a UI Container, we don't need both. Drag the CoinUI one level higher to just be a child of the Client Context folder. Then you can delete the extra UI Container.
+
+!!! tip
+    All UI Elements come with a UI Container automatically to help you use them more immediately.
+
+Feel free to play around and customize how the Text Control looks and where it is displayed on the screen. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
 
 Now let's make a simple map and populate it with coins.
 
@@ -216,11 +223,18 @@ Now let's make a simple map and populate it with coins.
 
 So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice up our map a bit!
 
-* Create the player's spawn point
-    * In the **CORE Content** tab, select **Gameplay Objects** and drag a **Spawn Point** into the world.
-    * Remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
+* Move the player's spawn point
+    * When you create a new project, you will have these objects in your Hierarchy by default:
 
-Alright, beautiful!
+    ![The Default Hierarchy](../../img/getting_started/defaultHierarchy.png "This is what a blank project starts with."){: .center}
+
+    * This is everything you that see in the viewport. The sky, floor, and the basics for a game: a camera, the spawn point, and the player's settings.
+
+    * Move the spawn point object around wherever you'd like in the world.
+
+    * If you can't see the spawn point, remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
+
+Alright, awesome!
 
 ## Win State
 
@@ -240,12 +254,12 @@ Now we will write a script to make the game round-based.
 
 Here we go! Create a script called `CoinGameLogic`.
 
-Let's also add a `Gameplay Settings` object to our hierarchy from **CORE Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
+Let's also add a `Game Settings` object to our hierarchy from **CORE Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
 
 Next, we need to create the custom parameter to save our game state.
 
-* Create a parameter for `Gameplay Settings`
-    * Select the `Gameplay Settings` object in the hierarchy.
+* To create a parameter for `Game Settings`:
+    * Select the `Game Settings` object in the hierarchy.
     * Click the "**Add Custom Property**" button and select `Boolean` as the type, now put in `gameOver` as the name.
     * Right click the property and click "**Enable Property networking**".
 
@@ -253,7 +267,7 @@ Here's the entire Hierarchy at this point:
 
 ![GameLogicHierarchy](../../img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center}
 
-Let's make a script for game logic, create a new one called `CoinGameLogic` and add the following code:
+Let's open up that script we created called `CoinGameLogic` and add the following code:
 
 ```lua
 -- Get the folder containing all the coin objects
@@ -264,51 +278,58 @@ function Tick()
     Task.Wait(1)
     local coinsLeft = #coinFolder:GetChildren()
     if coinsLeft == 0 then
-     World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
+        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
     end
 end
 ```
 
-`World.FindObjectByName()` searches the Hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). Make sure to add the `CoinGameLogic` script to the top of the hierarchy.
+Make sure it's in your project Hierarchy, and check it out!
 
-When there are zero coins left, we find the Gameplay Settings and set the value of `gameOver` to `true`. This way, all the players' clients will be able to know when the game is finished!
+`World.FindObjectByName()` searches the Hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). Make sure to add the `CoinGameLogic` script to your project Hierarchy.
+
+When there are zero coins left, we find the Gameplay Settings and set the value of `gameOver` to `true`. This way, all the players' clients will be able to know when the game is finished.
+
+So far, nothing actually happens--but that's next!
 
 ### Victory UI
 
-We are going to update the game when all the possible coins are picked up. First, we'll need a new `Text Control` which we'll name `VictoryUI` which will only show up when the game is over, alerting the players that all coins have been collected. After designing the victory UI, we'll want to hide it until it's the appropriate time.
+We are going to update the game when all the possible coins are picked up. First, we'll need a new `UI Text Box` which we'll name `VictoryUI` which will only show up when the game is over, alerting the players that all coins have been collected. After designing the victory UI, we'll want to hide it until it's the appropriate time.
 
-* Create a **Text Control** named `VictoryUI` as a child of `UI Container` under `Client Context`.
+* Create a **UI Text Box** named `VictoryUI` as a child of the `UI Container` we made earlier under `Client Context`.
+
+    !!! tip
+        You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
+
 * In the `text` field in the Properties window, type "**All coins found!**".
-* Toggle the visibility of the Victory UI under **Properties -> Scene -> Visible**.
-* Customize your font color, size, and justification!
+* Customize your font color, size, and justification--do what you like with it!
+* Once you're satisfied, change the visibility of the Victory UI under **Properties -> Scene -> Visibility** to *Force Off*.
 
 Now, let's make a script called `DisplayUI` that makes the victory UI visible at the end of the game! We will parent this script underneath `VictoryUI`.
 
-Next, we have to hook up our UI to the Gameplay Settings that knows if the game is over or not.
+Next, we have to hook up our UI to the Game Settings that knows if the game is over or not.
 
-* Select our `DisplayUI` text control in the hierarchy.
-* Click on "**Add Custom Property**" and select `CoreObject Reference` as a type and put in `Gameplay Settings` for the name.
-* Drag your `Gameplay Settings` from the hierarchy into the `Custom Property` input field that's currently displaying "**Missing Object**".
+* Select our `DisplayUI` script in the hierarchy.
+* With that still selected, drag your `Game Settings` from the hierarchy to the Properties window of the `DisplayUI` script. This will automatically add a reference to the Game Settings object as a custom property on the `DisplayUI` script!
 
 After that is done, open up the `DisplayUI` script and add the following:
 
 ```lua
 local ui = script.parent
-local settings = script:GetCustomProperty("Gameplay Settings"):WaitForObject()
+local settings = script:GetCustomProperty("GameSettings"):WaitForObject()
 
 local function OnChanged(settings, key)
- gameOver = settings:GetCustomProperty("gameOver")
+    gameOver = settings:GetCustomProperty("gameOver")
     if gameOver == true then
-     ui.visibility = Visibility.INHERIT
+        ui.visibility = Visibility.INHERIT
     else
-     ui.visibility = Visibility.FORCE_OFF
+        ui.visibility = Visibility.FORCE_OFF
     end
 end
 
 settings.networkedPropertyChangedEvent:Connect(OnChanged)
 ```
 
-This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Gameplay Settings`.
+This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Game Settings`.
 
 ![VictoryUI](../../img/getting_started/Replicator.png "VictoryUI"){: .center}
 
@@ -328,24 +349,24 @@ An easier solution would be to just hide the coins from the map when they are pi
 
 Open up the `PickupCoin` script and change the line `trigger:Destroy()` to `trigger.isEnabled = false`. This will make it so that when we collide, instead of destroying the `Manticoin`, it disables it. Disabling an object makes it basically not present in the scene. The two biggest things for us is that it disables the collision and visibility, so players won't be able to collide with it or see it after it's been collected.
 
-Next, create a new UI element to display information when the round resets. We'll call it `RoundUI` and make it a sibling to `CoinUI`, by also setting it as a child of your `Client Context`. Like `CoinUI`, we'll set the `Text` property to be blank by default.
+Next, create a new UI Text Box element to display information when the round resets. We'll call it `RoundUI` and make it a sibling to `CoinUI`, by also setting it as a child of your `Client Context`. Like `CoinUI`, we'll set the `Text` property to be blank by default.
 
 The last step is to add the resetting logic to our main `CoinGameLogic` script. For us, resetting the map means looping through all the coins and setting their `.isEnabled` property to be true. The logic will be quite similar to getting the coin count. Place the following code below the `Tick()` function:
 
 ```lua
 function ResetMap()
     -- Set all coins to be enabled
- for _, coin in pairs(coinFolder:GetChildren()) do
-  if coin ~= nil then
-   coin.isEnabled = true
-  end
- end
+    for _, coin in pairs(coinFolder:GetChildren()) do
+        if coin ~= nil then
+            coin.isEnabled = true
+        end
+    end
 
-  -- Reset rources for every player
-  local players = World.GetPlayers()
-  for _, player in pairs(players) do
-    player:SetResource("Manticoin", 0)
-  end
+    -- Reset rources for every player
+    local players = Game.GetPlayers()
+    for _, player in pairs(players) do
+        player:SetResource("Manticoin", 0)
+    end
 end
 ```
 
@@ -382,16 +403,20 @@ function Tick()
     Task.Wait(1)
     local coinsLeft = GetCoinsLeft()
     if coinsLeft == 0 then
-        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
+        World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", true)
         for i = 3, 0, -1 do
             Task.Wait(1)
-            UI.PrintToScreen("New round in "..tostring(i).." seconds")
+            roundUI = World.FindObjectByName("RoundUI")
+            roundUI.text = "New round in "..tostring(i).." seconds"
         end
-        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", false)
+        World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", false)
+        roundUI.text = ""
         ResetMap()
     end
 end
 ```
+
+pls explain this code sierra pls
 
 ## Summary
 
