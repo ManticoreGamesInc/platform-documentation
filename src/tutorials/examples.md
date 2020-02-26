@@ -288,6 +288,60 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+## Contexts
+
+In Core, contexts are like folders and exist in one of two states: networked and non-networked. You can nest multiple contexts but only the outermost one has any effect. Inside of it, every child context acts like a folder.
+
+When a script spawns an object, it inherits the script's state, even if it is somewhere else in the hierarchy. This means that a script in a server context can never spawn objects that client's can see or interact with.
+
+There are five types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context** and **Networked**.
+
+### Client Context
+
+- Objects can change.
+- Objects do not have player collision.
+    - Collision settings still affect collision with physics objects and camera, and possibly other cases.
+- Clients know about default or networked scripts because they occupy a place in the hierarchy.
+    - You could traverse through them, read their position, or read networked properties on them.
+- Scripts run on the client only.
+
+### Non-Networked (default)
+
+- Cannot change.
+- Can have collision.
+- Seen by server and client.
+- Scripts run on the server only.
+
+### Static Context
+
+- Almost like the default state (non-networked).
+- Scripts can spawn objects inside a static context.
+- Scripts run on both the server and the client.
+- Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
+    - Send a single networked value to synchronize the server and clients’ random number generators.
+    - Saves hundreds of transforms being sent from the server to every client.
+
+### Server Context
+
+- Objects do not have player collision.
+    - Collision settings still affect collision with physics objects, and possibly other cases.
+- Objects inside get removed from the client-side copy the game sent to players.
+- Provides a safeguard for creators if they want to conceal game logic.
+- Scripts run on the server only (like a non-networked script, unless you call World.SpawnAsset()).
+
+### Networked
+
+- Can be changed by the server.
+- Clients will see those changes.
+- Scripts run on the server only.
+
+| Context Type       | **Client Context** | **Non-Networked**        | **Static Context** | **Server Context** | **Networked** |
+| ------------------ | -------------------| -------------------------| -------------------| -------------------| --------------|
+| Objects can change | Yes                | No                       |                    |                    |               |
+| Collision          | Objects and Camera | Objects, Camera, Players |                    | Objects and Camera |               |
+| Seen by            | Client and ?       | Client and Server        |                    | Server             | Client        |
+| Can run on         | Client             | Server                   | Client and Server  | Server             | Server        |
+|                    |                    |                          |                    |                    |               |
 ## Needed
 
 * What isn't represented here? Let us know!
