@@ -1,12 +1,12 @@
 ---
 id: scripting_advanced
-name: Advanced Scripting in CORE
-title: Advanced Scripting in CORE
+name: Advanced Scripting in Core
+title: Advanced Scripting in Core
 categories:
     - Tutorial
 ---
 
-# Advanced Scripting in CORE
+# Advanced Scripting in Core
 
 ## Overview
 
@@ -33,7 +33,7 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the Co
 
 * For debugging, we have our own script debugger, you can enable it via the **View** menu in the top bar of the Core editor.
     You can toggle breakpoints by clicking on a line number in the internal editor.
-* Lastly, we have a section on [code conventions](lua_style_guide.md) that we reccomend as well.
+* Lastly, we have a section on [code conventions](lua_style_guide.md) that we recommend as well.
 
 ---
 
@@ -51,7 +51,7 @@ To add the **Manticoin** template to your project, head over to the **Community 
 
 !!! note "The Core editor will prompt you to save before it adds the template to your project."
 
-Since this has been imported from Community Content, it is now listed under **Imported Content** in the **CORE Content** tab. If you click the name of the Manticoin template on the left side of the Core Content window, you will see a green template icon in the space on the right. To see the Manticoin and use it, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is--you guessed it--with a script!
+Since this has been imported from Community Content, it is now listed under **Imported Content** in the **Core Content** tab. If you click the name of the Manticoin template on the left side of the Core Content window, you will see a green template icon in the space on the right. To see the Manticoin and use it, drag it to the world. Now that we have a coin in our world, our goal here is to get it to spin slowly in the air, rather than just sitting there being boring. The way to do this is--you guessed it--with a script!
 
 ### SpinCoin Script
 
@@ -105,12 +105,12 @@ Yay, we've got it working! Now if only we could collect these coins...
 ### Adding a Trigger
 
 1. From **Core Content -> Gameplay Objects**, drag a **Trigger** object into the world.
-   * Resize the trigger to match the coin's size.
-     * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
-     * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
-   * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
-   * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
-   * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
+    * Resize the trigger to match the coin's size.
+        * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
+        * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
+    * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
+    * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
+    * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
 
 ### Handling Triggers
 
