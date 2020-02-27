@@ -120,6 +120,7 @@ The Event Log is a way to quickly view the results of your code, any script can 
 
 Here are a few links to get you started on certain areas in Core:
 
+* [My First Multiplayer Game](my_first_multiplayer_game.md)
 * [Art Intro](../tutorials/art/art_reference.md)
 * [Scripting Intro](../tutorials/gameplay/lua_reference.md)
 * [Community Content](community_content.md)
