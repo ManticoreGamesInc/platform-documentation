@@ -10,34 +10,34 @@ categories:
 
 ## Overview
 
-A huge benefit to CORE is the vast amount of visual effects that are built-in and easily editable. You get to start with high quality effects that already exist, and truly make them your own.
+A huge benefit to Core is the vast amount of visual effects that are built-in and easily editable. You get to start with high quality effects that already exist, and truly make them your own.
 
-Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different VFX could be used.
+Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different visual effetcs (often shorted to VFX) could be used.
 
-To get a tour of what is possible with visual effects in CORE, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
+To get a tour of what is possible with visual effects in Core, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
 
 **[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
 
-While the map explains many useful things about how to use all the visual effects, this page includes a video tutorial on how to make wicked cool vfx in CORE using Lua.
+While the map explains many useful things about how to use all the visual effects, this page includes tutorials on how to make wicked cool VFX in Core using Lua.
 
 <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
             <source src="/img/VFXtutorial/vfxTrails.mp4" type="video/mp4" alt="Whispy Trail VFX"/>
         </video>
-        <figcaption><em>Trail VFX in CORE</em></figcaption>
+        <figcaption><em>Trail VFX in Core</em></figcaption>
     </figure>
 </div>
 
-### Dozens of Built-In Effects
+## Dozens of Built-In Effects
 
-CORE comes with all sorts of visual effects built-in, all with different parameters for altering how it looks and moves.
+Core comes with all sorts of visual effects built-in, all with different parameters for altering how it looks and moves.
 
-To find all these visual effect objects, navigate to the CORE Content tab and click on the **"Effects"** section.
+To find all these visual effect objects, navigate to the Core Content tab and click on the **"Effects"** section.
 
 This window can also be accessed via the dropdown menu "**View -> CORE Content**".
 
-![CORE Content](../../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center}
+![Core Content](../../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center}
 
 Currently, there are **7 different sections** that contain effects you can use right away:
 
@@ -60,22 +60,87 @@ Don't be afraid to use any effect for any purpose though--don't let categories r
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
-![CORE Content Dropdowns](../../img/VFXtutorial/DropDownArrows.png "CORE Content Dropdowns"){: .center}
+![Core Content Dropdowns](../../img/VFXtutorial/DropDownArrows.png "Core Content Dropdowns"){: .center}
 
 To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
 All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties *Play* button!
 
-#### Special Effect Materials
+### Special Effect Materials
 
-Besides all of the more literal visual effects that CORE includes, there is also a categorey of Materials that lend themselves nicely to VFX, the SpecialEffects materials:
+Besides all of the more literal visual effects that Core includes, there is also a categorey of Materials that lend themselves nicely to VFX, the SpecialEffects materials:
 
 ![Special Effect Materials](../../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center}
 
 Use these in combination with the Effects objects to get even more variety out of what you can make.
 
+### Post-Processing Effects
+
+Another category of effects that can make huge changes to your map are post-process effects. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
+
+![Radioactive Post Process](../../img/VFXtutorial/crazyPostProcess.png "Using the Radioactive Trip Sky by Dracowolfie on CC."){: .center}
+![Lens Flares](../../img/VFXtutorial/coolPostProcess.png "From Sniper Alley."){: .center}
+![Magical Fantasy Sparkles](../../img/VFXtutorial/prettyPostProcess.png "Made by Sasha during her stream series."){: .center}
+
+To find all our Post-Process Effects, check out the Post Processing section of Core Content.
+
+![Post Process Effects](../../img/VFXtutorial/postProcessEffects.png "All post process effects can be found here."){: .center}
+
+You'll probably want to always use some combination of these--the amount they can level-up a map visually is huge!
+
 ---
 
-### Tutorial Video:
+## Tutorial Video
 
-**Content to be added.**
+**Content to be added**
+
+## Tutorial
+
+While you can use the video above if that is your preference, we'll next go over different effects in a written tutorial.
+
+Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post-Process Effects**!
+
+Post-process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combinations, but this can eventually get tricky when you've got dozens. There are two main ways to use a post-process effect: as an unbounded effect, or a bounded effect.
+
+- **Unbounded** post-process volumes are limitless in size, and encompass the entire map.
+- **Bounded** post-process volumes use a cube volume to determine what space that post-processing effects in the world.
+
+Several post-processing effects have both a regular version and an **advanced** version. Use whichever suits your needs, but in this tutorial we'll go over the advanced versions of these effects.
+
+### Advanced Bloom Post-Process
+
+**Bloom** is, basically, a glow effect. It gives everything that emits light in your scene a sort of magical halo, as though the atmosphere has thickened.
+
+The best way to test post-process effects is on an already decorated map with some variety in it. For this tutorial, I grabbed some templates from Community Content. Almost all (if not truly all) of these templates were made by students at Cogswell College during Global Game Jam 2020.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
+
+1. Start by dragging the **Advanced Bloom Post Process** effect into the project Hierarchy. With default settings, it'll just make a subtle change.
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom1.png "Default settings for Advanced Bloom."){: .center}
+
+    The overall scene is darker and the contrast is higher. Even though it is called *bloom*, by default it seems to have decreased the bloom from our first scene.
+
+2. Click on the **Advanced Bloom Post Process** effect in the Hierarchy, and check out the Properties window. We can mess with all sorts of values in here.
+
+    To expose all the options we want to change, check the **Advanced Settings** box to make sure it is on.
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom1_properties.png "Getting weird changing values."){: .center}
+
+3. explain all the parameters probably
+
+4. show my own settings and then this image
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom2.png "Getting weird changing values."){: .center}
+
+    As you can see, you can go pretty intense with this effect. I went super dramatic to showcase just how much can change, but feel free to find the right balance for your project.
+
+- how to in general use post-process effects and the instance limitations
+- use lots of before and after shots
+- bloom
+- AO
+- lense flares
+
+- next comes the layering of effects to make one template effect that plays continuously
+
+- then hooking an effect up with lua to trigger it
