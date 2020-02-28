@@ -74,15 +74,15 @@ Besides all of the more literal visual effects that Core includes, there is also
 
 Use these in combination with the Effects objects to get even more variety out of what you can make.
 
-### Post-Processing Effects
+### Post Processing Effects
 
-Another category of effects that can make huge changes to your map are post-process effects. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
+Another category of effects that can make huge changes to your map are post process effects. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
 
 ![Radioactive Post Process](../../img/VFXtutorial/crazyPostProcess.png "Using the Radioactive Trip Sky by Dracowolfie on CC."){: .center}
 ![Lens Flares](../../img/VFXtutorial/coolPostProcess.png "From Sniper Alley."){: .center}
 ![Magical Fantasy Sparkles](../../img/VFXtutorial/prettyPostProcess.png "Made by Sasha during her stream series."){: .center}
 
-To find all our Post-Process Effects, check out the Post Processing section of Core Content.
+To find all our Post Process Effects, check out the Post Processing section of Core Content.
 
 ![Post Process Effects](../../img/VFXtutorial/postProcessEffects.png "All post process effects can be found here."){: .center}
 
@@ -94,24 +94,26 @@ You'll probably want to always use some combination of these--the amount they ca
 
 **Content to be added**
 
-## Tutorial
+## Tutorials
 
 While you can use the video above if that is your preference, we'll next go over different effects in a written tutorial.
 
-Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post-Process Effects**!
+### Post Processing Effects
 
-Post-process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combinations, but this can eventually get tricky when you've got dozens. There are two main ways to use a post-process effect: as an unbounded effect, or a bounded effect.
+Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post Process Effects**!
 
-- **Unbounded** post-process volumes are limitless in size, and encompass the entire map.
-- **Bounded** post-process volumes use a cube volume to determine what space that post-processing effects in the world.
+Post process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combinations, but this can eventually get tricky when you've got dozens. There are two main ways to use a post process effect: as an unbounded effect, or a bounded effect.
 
-Several post-processing effects have both a regular version and an **advanced** version. Use whichever suits your needs, but in this tutorial we'll go over the advanced versions of these effects.
+- **Unbounded** post process volumes are limitless in size, and encompass the entire map.
+- **Bounded** post process volumes use a cube volume to determine what space that post processing effects in the world.
 
-### Advanced Bloom Post-Process
+Several post processing effects have both a regular version and an **advanced** version. Use whichever suits your needs, but in this tutorial we'll go over the advanced versions of these effects.
+
+#### Advanced Bloom Post Process
 
 **Bloom** is, basically, a glow effect. It gives everything that emits light in your scene a sort of magical halo, as though the atmosphere has thickened.
 
-The best way to test post-process effects is on an already decorated map with some variety in it. For this tutorial, I grabbed some templates from Community Content. Almost all (if not truly all) of these templates were made by students at Cogswell College during Global Game Jam 2020.
+The best way to test post process effects is on an already decorated map with some variety in it. For this tutorial, I grabbed some templates from Community Content. Almost all (if not truly all) of these templates were made by students at Cogswell College during Global Game Jam 2020.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
 
@@ -127,19 +129,56 @@ The best way to test post-process effects is on an already decorated map with so
 
     ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom1_properties.png "Getting weird changing values."){: .center}
 
-3. explain all the parameters probably
+    Wiggle all those settings around to see what happens! Trying yourself can be the best way to understand what is happening.
 
-4. show my own settings and then this image
+3. I'll first show you the settings I chose, and then explain a bit about them. I chose these properties:
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom2_properties.png "Getting weird changing values."){: .center}
+
+    Which makes my map look like this:
 
     ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom2.png "Getting weird changing values."){: .center}
 
     As you can see, you can go pretty intense with this effect. I went super dramatic to showcase just how much can change, but feel free to find the right balance for your project.
 
-- how to in general use post-process effects and the instance limitations
-- use lots of before and after shots
-- bloom
-- AO
-- lense flares
+4. Each of the properties you can change has a tooltip to explain what it does. Hover over the name of the property to see the tooltip.
+
+    In general though, **Blend Weight** is the strength of the entire effect on the scene. It is essentially a slider from *off* to *on*.
+
+    That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. While I was able to drag the slider to 15, I instead typed in a value of 100 to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this!
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center}
+
+    !!! tip
+        There are a lot of properties in Core that can be *overdriven*. This means you can manually type in a number higher than what the slider allows. This usually works for properties that act as a multiplier, like the Intensity in this case.
+
+    The other fun properties to change on this post process effect are the different **colors**. This can really change the mood of the entire scene, and is a fun way to affect temperature.
+
+    Have fun experimenting with different settings! If you don't see a change immediately, try changing the number very dramatically to get an idea of what is happening.
+
+#### Ambient Occlusion Post Process
+
+**Ambient Occlusion** (often abbreviated to AO) can be generally reffered to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virutally, we use ambient occlusion!
+
+I'm going to start visually from scratch with this one, so I am back to the first image:
+
+![Post Process Effects](../../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
+
+- turn it on
+- crank it up
+- ruin it
+- maybe explain recolor also?
+
+#### Lensflare Post Process
+
+lens flares are cool dude
+
+- show first image again
+- turn it on
+- crank it up
+- ruin it
+
+### Visual Effects
 
 - next comes the layering of effects to make one template effect that plays continuously
 
