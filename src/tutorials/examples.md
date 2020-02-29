@@ -194,7 +194,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ### `isTeamCollisionEnabled`
 
-In this example, when a player interracts with a trigger it joins their team and they can no longer interact with it, but enemies can.
+In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can.
 
 ```lua
 local trigger = script.parent
@@ -210,7 +210,7 @@ trigger.interactedEvent:Connect(OnInteracted)
 
 ### `isEnemyCollisionEnabled`
 
-In this example, when a player interracts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form.
+In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form.
 
 ```lua
 local trigger = script.parent
@@ -296,6 +296,15 @@ When a script spawns an object, it inherits the script's state, even if it is so
 
 There are five types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context** and **Networked**.
 
+### Overview
+
+|                    | **Client Context** | **Non-Networked** | **Static Context** | **Server Context** | **Networked**        |
+| ------------------ | -------------------| ------------------| -------------------| -------------------| ---------------------|
+| Objects can change | Yes                | No                | No                 | Yes                | Yes (only by server) |
+| Collision          | No                 | Yes               | Yes                | No                 | Yes                  |
+| Objects exist on   | Client             | Client and Server | Client and Server  | Server             | Client and Server    |
+| Scripts run on     | Client             | Server            | Client and Server  | Server             | Server               |
+
 ### Client Context
 
 - Objects can change.
@@ -323,8 +332,7 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 
 ### Server Context
 
-- Objects do not have player collision.
-    - Collision settings still affect collision with physics objects, and possibly other cases.
+- Objects do not have collision.
 - Objects inside get removed from the client-side copy the game sent to players.
 - Provides a safeguard for creators if they want to conceal game logic.
 - Scripts run on the server only (like a non-networked script, unless you call World.SpawnAsset()).
@@ -335,13 +343,6 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 - Clients will see those changes.
 - Scripts run on the server only.
 
-| Context Type       | **Client Context** | **Non-Networked**        | **Static Context** | **Server Context** | **Networked** |
-| ------------------ | -------------------| -------------------------| -------------------| -------------------| --------------|
-| Objects can change | Yes                | No                       |                    |                    |               |
-| Collision          | Objects and Camera | Objects, Camera, Players |                    | Objects and Camera |               |
-| Seen by            | Client and ?       | Client and Server        |                    | Server             | Client        |
-| Can run on         | Client             | Server                   | Client and Server  | Server             | Server        |
-|                    |                    |                          |                    |                    |               |
 ## Needed
 
 * What isn't represented here? Let us know!
