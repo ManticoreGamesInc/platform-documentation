@@ -150,7 +150,7 @@ The best way to test post process effects is on an already decorated map with so
     ![Post Process Effects](../../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center}
 
     !!! tip
-        There are a lot of properties in Core that can be *overdriven*. This means you can manually type in a number higher than what the slider allows. This usually works for properties that act as a multiplier, like the Intensity in this case.
+        There are a lot of properties in Core that can be *overdriven*. This means you can manually type in a number higher than what the slider allows. This usually works for properties that act as a multiplier, like the *Intensity* in this case.
 
     The other fun properties to change on this post process effect are the different **colors**. This can really change the mood of the entire scene, and is a fun way to affect temperature.
 
@@ -164,10 +164,36 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
 
-- turn it on
-- crank it up
-- ruin it
-- maybe explain recolor also?
+1. Drag the **Ambient Occlusion Post Process** into the project Hierarchy from Core Content to get started. The default settings give a subtle effect, but it still makes a difference.
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_AO1.png "The default of AO is subtle but clear."){: .center}
+
+    The main noticable part of the change in this image is underneath the roof close to the camera. It becomes darker, and the shadows of the beams on the ceiling are more dramatic.
+
+2. In the Properties window, make sure to turn on the **Advanced Settings** button to have access to everything.
+
+3. In this case, I want to make the AO dramatic for the scene, so I cranked up the settings. This creates really obvious contact shadows, which grounds everything together. It creates a feeling that things were built intentionally this way, which can help eliminate the feeling of kitbashing one might have in their scene.
+
+    Notice the dark shadows under the roof beams, and the darker shadows on the rubble pile on the left.
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
+
+    For this particular dramatic AO effect, I used these settings:
+
+    ![Post Process Effects](../../img/VFXtutorial/ppe_AO2_properties.png "The default of AO is subtle but clear."){: .center}
+
+    Adjust the settings to whatever feel best for your scene and mood.
+
+#### Ambient Occlusion Recolor Post Process
+
+Something particularly fun and weird you can do with the Ambient Occlusion we made is **recolor** it. This can create some really wacky effects, or in general set a specific color palette for a project.
+
+We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor! The Ambient Occlusion Recolor Post Process only works **in combination** with the Ambient Occlusion Post Process.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center}
+
+That second image is the default settings when dragging the Ambient Occlusion Recolor Post Process into the Hierarchy.
 
 #### Lensflare Post Process
 
