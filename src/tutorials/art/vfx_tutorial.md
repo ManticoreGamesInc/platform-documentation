@@ -188,16 +188,30 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
 Something particularly fun and weird you can do with the Ambient Occlusion we made is **recolor** it. This can create some really wacky effects, or in general set a specific color palette for a project.
 
-We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor! The Ambient Occlusion Recolor Post Process only works **in combination** with the Ambient Occlusion Post Process.
+We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor! The Ambient Occlusion Recolor Post Process **only works in combination** with the Ambient Occlusion Post Process.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
 ![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center}
 
 That second image is the default settings when dragging the Ambient Occlusion Recolor Post Process into the Hierarchy.
 
+It starts with the color brown, which gives a warm darkness to the whole scene. You can alter this to suit whatever helps your scene--perhaps a dark blue would help instead to balance an already warm scene.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center}
+
+Turning on the **Use Two Colors** option will give you a second color option, and using the Color Balance slider you can choose which color is more prominent in the scene. This gives you really strong control over the color palette, and lets you do particularly wacky things. Such as making weird radioactive shadows, if that's what makes you happy.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center}
+
+The other particularly interesting setting on the recolor post process is modifying Blend Weight.
+
 #### Lensflare Post Process
 
 lens flares are cool dude
+
+Starting this one with the combo of Bloom & AO that we already made.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center}
 
 - show first image again
 - turn it on
