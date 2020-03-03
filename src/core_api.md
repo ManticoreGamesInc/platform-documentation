@@ -1301,6 +1301,7 @@ User defined events can be specified using the Events namespace. The Events name
     - BroadcastEventResultCode.SUCCESS
     - BroadcastEventResultCode.FAILURE
     - BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT
+    - BroadcastEventResultCode.EXCEEDED_RATE_WARNING_LIMIT
     - BroadcastEventResultCode.EXCEEDED_RATE_LIMIT
 
 ??? "Networked Events Supported Types"
