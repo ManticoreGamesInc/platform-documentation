@@ -116,6 +116,8 @@ Several post processing effects have both a regular version and an **advanced** 
 
 The best way to test post process effects is on an already decorated map with some variety in it. For this tutorial, I grabbed some templates from Community Content. Almost all (if not truly all) of these templates were made by students at Cogswell College during Global Game Jam 2020.
 
+*Those creator usernames are JaineRoss, mjcortes782, trimun, and TSMVayne.*
+
 ![Post Process Effects](../../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
 
 1. Start by dragging the **Advanced Bloom Post Process** effect into the project Hierarchy. With default settings, it'll just make a subtle change.
@@ -208,27 +210,34 @@ The other particularly interesting setting on the recolor post process is modify
 
 #### Lensflare Post Process
 
-In real life, a lens flare happens when light hits a camera lens and scatters around within all the parts that make up the lens. For some photographers, it can be annoying, but in general it is an unavoidable aspect of filming light.
+![Lens Flare in Real Life](../../img/VFXtutorial/realLife_lensflare.png "Photo credit to Neil Nafus and Josh Tyler, respectively."){: .center}
+
+In real life, a **lens flare** is a streak of light glare and sometimes a light shape floating in an image. This happens when light hits a camera lens and scatters around within all the parts that make up the lens. For some photographers, it can be annoying, but in general it is an unavoidable aspect of filming light.
 
 In the virtual world, adding it in can make a scene feel more realistic and grand.
 
-Starting this one with the combo of Bloom & AO that we already made.
+We'll start this section using two of the effects that we made earlier: the Advanced Bloom Post Process and the Ambient Occlusion Post Process both turned on.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center}
-
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
 
-The second photo here shows what happens in my scene when I drag in the Lensflare Post Process.
+The second photo here shows what happens in my scene when I drag in the **Lensflare Post Process**.
 
 For my scene at this angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center}
 
-The Intensity, Bokeh Size, and Threshold can all be overdriven to create the look you are going for.
+The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
 
-The shapes can be the most fun to change for the theming of your game. In particular, hearts are fun:
+The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center}
+
+The above image also had increases to Intensity and the Bokeh Size.
+
+Now you know how to control several different post process effects. Each one in Core Content has slightly different base settings and options, but now you have enough knowledge to understand how the others work too. Have fun experimenting!
+
+---
 
 ### Visual Effects
 
