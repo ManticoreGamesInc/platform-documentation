@@ -12,7 +12,7 @@ categories:
 
 A huge benefit to Core is the vast amount of visual effects that are built-in and easily editable. You get to start with high quality effects that already exist, and truly make them your own.
 
-Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different visual effetcs (often shorted to VFX) could be used.
+Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different visual effects (often shorted to VFX) could be used.
 
 To get a tour of what is possible with visual effects in Core, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
 
@@ -31,7 +31,7 @@ While the map explains many useful things about how to use all the visual effect
 
 ## Dozens of Built-In Effects
 
-Core comes with all sorts of visual effects built-in, all with different parameters for altering how it looks and moves.
+Core comes with all sorts of visual effects built-in, all with different parameters for altering how they look and move.
 
 To find all these visual effect objects, navigate to the Core Content tab and click on the **"Effects"** section.
 
@@ -50,13 +50,14 @@ Currently, there are **7 different sections** that contain effects you can use r
 - **Magic**
     - More ethereal and sparkly effects.
 - **Misc**
-    - Things that don't fit in other categories--weird stuff!
+    - Things that don't fit into the other categories--weird stuff!
 - **Vehicles**
     - Effects designed to enhance movement and show physical power.
 - **Weapons**
     - These effects were designed specifically with the weapon system, and to go along with attacks.
 
-Don't be afraid to use any effect for any purpose though--don't let categories restrict your creativity!
+!!! tip
+    Don't be afraid to use any effect for any purpose--don't let categories restrict your creativity!
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
@@ -64,11 +65,11 @@ These larger categories can be found by clicking the little drop down arrow on t
 
 To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
-All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties *Play* button!
+All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties' *Play* button!
 
 ### Special Effect Materials
 
-Besides all of the more literal visual effects that Core includes, there is also a categorey of Materials that lend themselves nicely to VFX, the SpecialEffects materials:
+Besides all of the more literal visual effects that Core includes, there is also a categorey of **Materials** that lend themselves nicely to VFX, the SpecialEffects materials:
 
 ![Special Effect Materials](../../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center}
 
@@ -76,7 +77,7 @@ Use these in combination with the Effects objects to get even more variety out o
 
 ### Post Processing Effects
 
-Another category of effects that can make huge changes to your map are post process effects. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
+Another category of effects that can make huge changes to your map are **post process effects**. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
 
 ![Radioactive Post Process](../../img/VFXtutorial/crazyPostProcess.png "Using the Radioactive Trip Sky by Dracowolfie on CC."){: .center}
 ![Lens Flares](../../img/VFXtutorial/coolPostProcess.png "From Sniper Alley."){: .center}
@@ -199,24 +200,35 @@ It starts with the color brown, which gives a warm darkness to the whole scene. 
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center}
 
-Turning on the **Use Two Colors** option will give you a second color option, and using the Color Balance slider you can choose which color is more prominent in the scene. This gives you really strong control over the color palette, and lets you do particularly wacky things. Such as making weird radioactive shadows, if that's what makes you happy.
+Turning on the **Use Two Colors** option will give you a second color option, and using the Color Balance slider you can choose which color is more prominent in the scene. This gives you really strong control over the color palette, and lets you do particularly odd and unique things. Such as making weird radioactive shadows, if that's what makes you happy.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center}
 
-The other particularly interesting setting on the recolor post process is modifying Blend Weight.
+The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire... whatever you can imagine!
 
 #### Lensflare Post Process
 
-lens flares are cool dude
+In real life, a lens flare happens when light hits a camera lens and scatters around within all the parts that make up the lens. For some photographers, it can be annoying, but in general it is an unavoidable aspect of filming light.
+
+In the virtual world, adding it in can make a scene feel more realistic and grand.
 
 Starting this one with the combo of Bloom & AO that we already made.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center}
 
-- show first image again
-- turn it on
-- crank it up
-- ruin it
+![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
+
+The second photo here shows what happens in my scene when I drag in the Lensflare Post Process.
+
+For my scene at this angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
+
+![Post Process Effects](../../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center}
+
+The Intensity, Bokeh Size, and Threshold can all be overdriven to create the look you are going for.
+
+The shapes can be the most fun to change for the theming of your game. In particular, hearts are fun:
+
+![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center}
 
 ### Visual Effects
 
