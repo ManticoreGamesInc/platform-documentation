@@ -93,9 +93,9 @@ extra:
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
     - type: facebook
-      link: https://www.facebook.com/groups/playcoregames
+      link: https://www.facebook.com/groups/coregames
     - type: twitter
-      link: https://twitter.com/CoreGames
+      link: https://twitter.com/coregames
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
