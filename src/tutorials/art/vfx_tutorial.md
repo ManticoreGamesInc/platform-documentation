@@ -196,9 +196,11 @@ We're going to continue with the end result of the Ambient Occlusion section, so
 ![Post Process Effects](../../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
 ![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center}
 
-That second image is the default settings when dragging the Ambient Occlusion Recolor Post Process into the Hierarchy.
+1. Drag the Ambient Occlusion Recolor Post Process into the Hierarchy. This should result in something like the second image above.
 
-It starts with the color brown, which gives a warm darkness to the whole scene. You can alter this to suit whatever helps your scene--perhaps a dark blue would help instead to balance an already warm scene.
+    By default it starts with the color brown, which gives a warm darkness to the whole scene. You can alter this to suit whatever helps your scene--perhaps a dark blue would help instead to balance an already warm scene.
+
+These other two images below are a general explanation, and you don't need to do them for the tutorial. Knowing how to achieve these weird effects is good though!
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center}
 
@@ -216,24 +218,24 @@ In real life, a **lens flare** is a streak of light glare and sometimes a light 
 
 In the virtual world, adding it in can make a scene feel more realistic and grand.
 
-We'll start this section using two of the effects that we made earlier: the Advanced Bloom Post Process and the Ambient Occlusion Post Process both turned on.
+We'll start this section using two of the effects that we made earlier: the Advanced Bloom Post Process and the Ambient Occlusion Post Process **both turned on**.
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center}
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
 
-The second photo here shows what happens in my scene when I drag in the **Lensflare Post Process**.
+1. Drag the **Lensflare Post Process** into your Hierarchy, and you should get something like the second photo above.
 
-For my scene at this angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
+    For my scene at this particular angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
 
-![Post Process Effects](../../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center}
 
-The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
+2. Try turning up different settings. The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
 
-The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
+3. The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
 
-![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center}
 
-The above image also had increases to Intensity and the Bokeh Size.
+    The above image also had increases to Intensity and the Bokeh Size.
 
 Now you know how to control several different post process effects. Each one in Core Content has slightly different base settings and options, but now you have enough knowledge to understand how the others work too. Have fun experimenting!
 
@@ -241,6 +243,9 @@ Now you know how to control several different post process effects. Each one in 
 
 ### Visual Effects
 
-- next comes the layering of effects to make one template effect that plays continuously
+- first we're going to make a cool floaty orb that uses scripting to move up and down and just in general looks cool and weird and uses multiple materials and effects
+    - later we will make it interactable to explode maybe, that'd be cool
 
-- then hooking an effect up with lua to trigger it
+- creating a trigger walkthrough gate that causes fancy effects when walking through. Sort of like a save point, I'm thinking.
+
+- okay perhaps following the flow of the video in opening a treasure chest/as in using the loot system at the same time.
