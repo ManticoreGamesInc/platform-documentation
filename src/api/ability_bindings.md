@@ -1,4 +1,4 @@
-### Ability Binding List
+# Ability Binding List
 
 This is a list of action bindings that can be used to activate abilities.
 
