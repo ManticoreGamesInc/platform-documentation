@@ -103,12 +103,21 @@ While you can use the video above if that is your preference, we'll next go over
 
 Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post Process Effects**!
 
-Post process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combinations, but this can eventually get tricky when you've got dozens. There are two main ways to use a post process effect: as an unbounded effect, or a bounded effect.
+Post process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combination, but this can eventually get tricky when you've got dozens. There are two main ways to use a post process effect: as an unbounded effect, or a bounded effect.
 
 - **Unbounded** post process volumes are limitless in size, and encompass the entire map.
 - **Bounded** post process volumes use a cube volume to determine what space that post processing effects in the world.
 
 Several post processing effects have both a regular version and an **advanced** version. Use whichever suits your needs, but in this tutorial we'll go over the advanced versions of these effects.
+
+**Time to complete:** 10 minutes
+
+**Skills you will gain:**
+
+- how to edit post process effects in Core
+- how to layer post process effects together
+
+![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
 
 #### Advanced Bloom Post Process
 
@@ -243,9 +252,118 @@ Now you know how to control several different post process effects. Each one in 
 
 ### Visual Effects
 
-- first we're going to make a cool floaty orb that uses scripting to move up and down and just in general looks cool and weird and uses multiple materials and effects
-    - later we will make it interactable to explode maybe, that'd be cool
+The next section of this tutorial focuses soley on VFX! Just like the video above, we will be making an interactable treasure chest and using the Core built-in resource system.
 
-- creating a trigger walkthrough gate that causes fancy effects when walking through. Sort of like a save point, I'm thinking.
+Core includes the benefit of having an ever-expanding list of visual effect objects to work with, and thanks to the template system, we can combine these in even more unique ways to achieve whatever your vision may be.
 
-- okay perhaps following the flow of the video in opening a treasure chest/as in using the loot system at the same time.
+**Time to complete:** 20 minutes
+
+**Knowledge Level:** No knowledge required, but this tutorial will use some simple **[Lua](/tutorials/gameplay/lua_basics_lightbulb)** scripting.
+
+**Skills you will gain:**
+
+- how to play a visual effect on a trigger (at a specific moment)
+- how to play a sound effect on a trigger
+- how to use community content
+- how to give the player resources
+- how to combine visual effect objects with sound effects
+
+![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
+
+To start, open up a new project.
+
+1. Navigate to the Core Content window.
+
+    !!! info
+        If it is not already open in your Editor's UI, you can open it up by clicking View > Core Content in the .
+
+2. Type "chest" into the search bar within that window.
+
+    ![Post Process Effects](../../img/VFXtutorial/coreContent_chestOpen.png "The default of AO is subtle but clear."){: .center}
+
+3. Drag the **Chest Small Closed** into your project viewport.
+
+4. Group that chest, make sure transforms are good & 000 on the chest itself
+
+5. drag a **Chest Small Open** into that parent group, now they are in same place wow
+
+6. force off the visibilty of open one
+
+7. now we create a new script called "TreasureChest" and drag it into the TreasureChest group.
+
+8. search for trigger in core content, drag one into the TreasureChest group.
+
+    !!! info
+        It's a good practice to keep scripts at the top
+
+9. check on interact box and give it an interaction label "Open"
+
+    notice how now it prompts you to open it but you can't yet
+
+10. select the script in the Hierarchy, and drag the trigger onto it to become custom property. do this for both open and closed chest.
+
+11. create custom property of asset reference type for OpeningVFX and one for LockedVFX
+
+12. double click script to open it
+
+13. copy all the custom prop references from the script properties
+
+14. now we create a function OnSwitchInteraction()
+
+    ```lua
+    local function OnSwitchInteraction(theTrigger, player)
+        UI.PrintToScreen("hi you triggered an event")
+    end
+    ```
+
+15. Now we need to connect this function to the actual built-in event
+
+    ```lua
+    propTrigger.interactedEvent:Connect(OnSwitchInteraction)
+    ```
+
+16. tada now stuff prints! good job dude
+
+17. now we're going to pivot to making something to open this locked chest, because it is locked
+
+18. Download the Fantasy Loot Bag from CC
+
+19. drag that b into your project viewport. it has stuff we don't need but we're gonna mod it and use it anyways
+
+20. try it by default! animation is dependant on location relative to the player. hear that jingle
+
+21. turn off interactable so we just pick it up automatically
+
+22. delete all the existing art
+
+23. search for crowbar in core content, and drag that into the client contenxt folder.
+
+24. rename resource on the loot bag to Crowbar, change min and max to 1
+
+25. now we are going to make a sound effect template, yay! create a new group and call it something
+
+    1. Look up step metal hollow and drag it onto that new group
+
+    2. gear movement shuffle light and do same thing
+
+    3. enable networking
+
+    4. turn on auto play
+
+    5. set lifespan to 2
+
+    6. create new template from this, and delete it then
+
+26. Return to loot bag, and drag in new template to PickupFX
+
+27. woohoo, test it and it works!
+
+28. now back to scripting. we gotta make sure the player has the crowbar in our interaction code.
+
+    ```lua
+    local function OnSwitchInteraction(theTrigger, player)
+        if player:GetResource("Crowbar") > 0 then
+            player:RemoveResource("Crowbar", 1)
+            propChestSmallClosed.visbility = Vis
+    end
+    ```
