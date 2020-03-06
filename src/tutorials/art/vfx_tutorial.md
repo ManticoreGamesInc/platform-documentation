@@ -364,6 +364,51 @@ To start, open up a new project.
     local function OnSwitchInteraction(theTrigger, player)
         if player:GetResource("Crowbar") > 0 then
             player:RemoveResource("Crowbar", 1)
-            propChestSmallClosed.visbility = Vis
+            propChestSmallClosed.visbility = Visibility.FORCE_OFF
+            propChestSmallOpened.visbility = Visibility.INHERIT
+        else
+            UI.PrintToScreen("No crowbar")
+        end
     end
     ```
+
+29. Make sure that TreasureChest group has enabled networking
+
+    now we make the effects because it all works but it looks stupid!
+
+30. Create two new groups, one called OpenedEffect and the other called LockedEffect
+
+31. For the OpenedEffect, In Core Content, search for health spiral. we're gonna modify some props on it
+
+    1. Radius set to 7.5 to be wider
+    2. spiral speed to 8
+    3. ring Life to 1
+    4. Sound effects: search for meta fantasy treasure 01 sfx & object fantasy treasure chest opened 01
+    5. turn autoplay on for both
+    6. give each a life span of 2
+
+32. enable networking on both FX groups
+
+33. Create template from OpenedVFX, now delete that from in hierarchy
+
+34. drag that template from project content into the custom prop of the treasure chest group
+
+35. now open up that TreasureChest script again so we can spawn the effects at the right time
+
+    ```lua
+    local function OnSwitchInteraction(theTrigger, player)
+        if player:GetResource("Crowbar") > 0 then
+            player:RemoveResource("Crowbar", 1)
+            propChestSmallClosed.visbility = Visibility.FORCE_OFF
+            propChestSmallOpened.visbility = Visibility.INHERIT
+            World.SpawnAsset(propOpeningVFX, (position = theTrigger:GetWorldPosition()))
+            theTrigger:Destroy()
+        else
+            UI.PrintToScreen("No crowbar")
+        end
+    end
+    ```
+
+36. Now the opening effect should work! check it breh
+
+37.
