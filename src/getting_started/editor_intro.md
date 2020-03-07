@@ -1,5 +1,5 @@
 ---
-id: editor_intro_new
+id: editor_intro
 name: Introduction to the Core Editor
 title: Introduction to the Core Editor
 categories:
@@ -114,3 +114,7 @@ The Event Log is where output from scripts, including errors, can be found. It i
 ## Saving the Project
 
 The Core Editor will automatically save your work periodically, but this can also be done manually through **File** > **Save** or <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+
+## Learn More
+
+[Your First Game](https://www.coregames.com/docs/getting_started/my_first_multiplayer_game/) | [Core Editor Keyboard Shortcuts](https://www.coregames.com/docs/editor_keybindings/)
