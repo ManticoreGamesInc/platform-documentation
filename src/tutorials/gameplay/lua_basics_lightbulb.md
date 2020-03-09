@@ -8,16 +8,16 @@ categories:
 
 # Scripting in Core
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
-In the first part, we are going to introduce you do the basics of scripting in Core. A good tradition among programming tutorials is doing that in the form of a "**Hello World**" script. For the second part, we are going to teach you how to take an existing template and enhance it with your own scripts.
+In the first part of this tutorial, we are going to introduce you to the very basics of scripting in Core. A tradition among programming tutorials is doing that in the form of a "**Hello World**" script.
+
+For the second part, we are going to teach you how to take an existing template in Core and enhance it with your scripts you write yourself.
+
+This tutorial is designed for creators who have never done *any* programming before! So, if you're totally new to this all but want to give it a try--give this a go!
 
 * **Completion Time:** ~25 minutes
-* **Knowledge Level:** No prior knowledge of Lua
+* **Knowledge Level:** No prior knowledge of Lua or any programming language. If you are already familiar with programming, you might want to skip this and check out [Advanced Scripting in Core](lua_basics_manticoin.md), the [Lua Primer](lua_reference.md) or [Advanced Abilities in Core](abilities_advanced.md).
 * **Skills you will learn:**
     * Downloading and editing templates
     * Creating a script and using it to:
@@ -31,8 +31,11 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 **Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
 
-* For debugging, we have our own script debugger, you can enable it via the **View** menu.
+* For debugging code, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
+
+* Another page you'll probably be constantly checking is the [Core API](core_api.md) page.
+
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
 ---
@@ -41,24 +44,49 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 ### Creating the Script
 
-1. Open up the editor and click the "Create Script" button in the toolbar at the top of the editor.
+1. Open up the editor and click the "Create Script" button in the toolbar at the top left of the editor.
+
+    ![Create Script Button](../../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center}
+
     * Name it `TutorialScript` for now.
-    * You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>), when it is selected.
+
+    !!! tip
+        You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>) when it is selected.
 
 * Open up the script by double clicking on it.
-    * By default this happens via our in-built editor.
-    * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-        * We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
+    * By default this will open up the script in our in-built editor.
+
+    !!! info
+        You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
+
+        We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
 
 ### Writing the Script
 
-* Type `UI.PrintToScreen("Hello World!")`.
-* Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
+1. Type the text below into your empty script:
+
+    ```lua
+    UI.PrintToScreen("Hello World!")
+    ```
+
+2. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd> on your keyboard.
 
 ### Running the Script
 
-1. To add your script to the game, drag it from the **Scripts** area to the top of the Hierarchy tree on the right side.
-    * Press **Play** at the top of the editor, and see your message appear on screen!
+Now we have created a simple script! However, we need to actually add it to our game for it to do the code we wrote.
+
+1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the top of the **Hierarchy** tab on the right side.
+
+    ![My Scripts](../../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .center}
+
+    ![The Hierarchy](../../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .center}
+
+    !!! info
+        If any of these windows are missing or you accidentally close one, you can open any window again from within the View menu at the very top left of the Core editor.
+
+2. Press **Play** at the top of the editor, and see your message appear on screen!
+
+    ![Play Button](../../img/scripting/playButton.png "Click this to preview your game in single-player mode."){: .center}
 
 ### Hello World Breakdown
 
@@ -67,31 +95,45 @@ In the first part, we are going to introduce you do the basics of scripting in C
     * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in Core API functions](../../core_api.md).
 * We placed the script into the Hierarchy tree so that it executes when the game runs.
 
-Next step: Adding our own function!
+*Next step:* Adding our own function!
 
 ### Functions
 
-In programming, a function is a named section of a program that performs a specific task. In this sense, a function is a type of procedure or routine.
-So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Init`, for simplicity.
+In programming, a function is a named section of a script that performs a specific task. In this sense, a function is a type of procedure or routine.
 
-```lua
--- Our first function!
-local function Init()
-    UI.PrintToScreen("Hello from a function!")
-end
-```
+You could think of it in terms of sandwich making. For a task like slicing an ingredient, you would type out steps like:
 
-!!! note
-    In case you've not read the [Lua Primer](lua_reference.md), putting `--` at the beginning of a line makes that line a comment, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+* locate cutting board
+* grab knife
+* hold object to cut properly
+* begin slicing
 
-If you save and run this code, nothing will happen. How utterly boring! This is because the function is never called in our code. To get our function to work, we can add a function call to the end of the script.
+But for each item you want to slice for the sandwich, you'd have to type out that whole list each time! That would mean so much typing for the tomates, cheese, pickles... If that were a function instead, then you could just type `SliceObject(tomato)` when you want to do all those steps at once.
 
-```lua
--- Calling the function
-Init()
-```
+So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Initialize`.
 
-You should now have the following:
+1. Open up your `TutorialScript` again if you closed it.
+
+2. Replace your existing code with this:
+
+    ```lua
+    -- Our first function!
+    local function Initialize()
+        UI.PrintToScreen("Hello from a function!")
+    end
+    ```
+
+    !!! note
+        In case you've not read the [Lua Primer](lua_reference.md), putting `--` at the beginning of a line makes that line a *comment*, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+
+3. If you save and run this code, nothing will happen. How utterly boring! This is because the function is never actually called to run in our code. To get our function to work, add a function call to the end of the script.
+
+    ```lua
+    -- Calling the function
+    Init()
+    ```
+
+Your entire script should now look like this:
 
 ```lua
 -- Our first function!
@@ -105,13 +147,20 @@ Init()
 
 Now if you save and run this, you'll see your message appear on the screen! Excellent.
 
-!!! note "Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of files."
+!!! note
+    Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of scripts.
 
 If you are having issues, check to see if your `TutorialScript` looks like this in the `Properties` view:
 
-![MyFirstScript](../../img/scripting/MyFirstScript.png "MyFirstScript"){: .center}
+![Tutorial Script Properties](../../img/scripting/MyFirstScript_tutorial.png "The Properties window also shows a preview of the code within a script."){: .center}
 
-Time to put what we've learned to a test, welcome to the main course!
+### Hello World Function Breakdown
+
+* We changed our code to a function.
+* We called the function we wrote so that it may run.
+* We learned what comments are and used them for each section.
+
+Time to put what we've learned to a test; welcome to the main course!
 
 ---
 
