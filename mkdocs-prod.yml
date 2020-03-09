@@ -3,6 +3,7 @@ nav:
   - News:
       - https://forums.coregames.com/news
   - Intro to Core:
+      - index.md
       - Installing Core: getting_started/installing_core.md
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
