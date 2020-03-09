@@ -84,7 +84,7 @@ Now we have created a simple script! However, we need to actually add it to our 
     !!! info
         If any of these windows are missing or you accidentally close one, you can open any window again from within the View menu at the very top left of the Core editor.
 
-2. Press **Play** at the top of the editor, and see your message appear on screen!
+2. Press **Play** at the top of the editor, and see your message appear on screen in the top left!
 
     ![Play Button](../../img/scripting/playButton.png "Click this to preview your game in single-player mode."){: .center}
 
@@ -160,48 +160,68 @@ If you are having issues, check to see if your `TutorialScript` looks like this 
 * We called the function we wrote so that it may run.
 * We learned what comments are and used them for each section.
 
+You can now delete the `TutorialScript` from your project Hierarchy, as we aren't going to use it for the next portion.
+
 Time to put what we've learned to a test; welcome to the main course!
 
 ---
 
 ## Tutorial
 
-Now we are going to create a small game that involves a light switch that turns on and off a light.
+We are going to create something that brightens every room: a light switch!
+
+This involves turning on and off a light switch to illuminate a light bulb.
 
 ![LightSwitchAndBulb](../../img/LightBulb/image9.png "LightSwitchAndBulb"){: .center}
 
-### Downloading the template
+### Downloading the Template
 
-1. Download **Light Switch & Bulb (by Tobs)** from the **Community Content** tab.
+1. Look for the **Community Content** tab in the Core Editor. In here, search for "switch".
 
-2. Now go to the **Imports** section of the **Core Content** tab, expand the **Bundles** header, click on the "**Light Switch & Bulb**" package and drag it into your scene by either dragging it into the game viewer or the hierarchy tab.
+2. Download the template **Light Bulb & Switch** *(by Tobs)* by clicking on the **blue**{: style="color: var(--core-color-templetized)"} Import button on the template.
+
+    ![LightSwitchAndBulb](../../img/LightBulb/LightSwitchTemplate.png "LightSwitchAndBulb"){: .center}
+
+3. Now click over to the **Imported Content** section of the **Core Content** tab.
+
+    Double-click the **gray**{: style="color: var(--core-color-locked)"} stack of three boxes icon for Light Bulb & Switch, *or* click the Light Bulb & Switch in the left listed menu under Imported Content. Both of these actions get you to the actual template--the **green**{: style="color: var(--core-color-published)"} cube with a ring around it. This is what we drag into the game!
+
+4. Click on the **Light Bulb & Switch** package and drag it into your game by either dragging it into the viewport or the Hierarchy tab.
+
+    You're probably going to want to move the template around and rotate it to be able to see it better.
+
+    !!! tip
+        If you want help or tips on moving things around in Core, check out the [Art in Core](art_reference.md) page.
 
     ![Hard to see](../../img/LightBulb/image22.png "Hard to see")
     ![Well lit](../../img/LightBulb/image6.png "Well lit")
     _Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!_
     {: .image-cluster}
 
-### Creating a new script
+### Creating a New Script
 
-1. Create a new script by clicking the "Create Script" button in the toolbar at the top of the editor.
+1. To get started making this light switch work, we're going to create a new script by clicking that "Create Script" button in the toolbar at the top of the editor.
 
-    !["LightBulb1"](../../img/LightBulb/image11.png "LightBulb"){: .center}
+    ![Create Script Button](../../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center}
 
-2. Name this one "**LightToggleScript**".
+2. Name this script "**LightToggleScript**".
 
-3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>. It's important to save your scripts often so you don't lose work in the event of a crash. Scripts don't update in game until you save them, so you won't see any of your new code in action until you save. You cannot save a script while the game is running.
+3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
 
-4. In order to make changes to the template, first we need to deinstance it. Right click on the **Light Switch & Bulb** template and select "**Deinstance This Object**" from the drop down menu.
+    !!! info
+        It's important to save your scripts often so you don't lose work in the event of a problem. Scripts don't update in-game until you save them, so you won't see any of your new code in action until you save. You cannot save a script while the game is running.
+
+4. In order to make changes to the template, we first need to **deinstance**{: style="color: var(--core-color-deinstanced)"} it. Right click on the **Light Switch & Bulb** template in the Hierarchy and select "**Deinstance This Object**" from the drop down menu.
 
     !["LightBulb1"](../../img/LightBulb/image8.png "Deinstance"){: .center}
 
-    The template and objects in the template should change from green to teal. Green objects represent objects in a template. Templates are not editable.
+    The template and objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template is now editable.
 
     !["LightBulb1"](../../img/LightBulb/image10.png "Networked"){: .center}
 
-    Teal objects represent objects that are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
+    **Teal**{: style="color: var(--core-color-deinstanced)"} objects are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
 
-5. Drag "**LightToggleScript**" from the **Project Content** tab into the "**Light switch**" folder within the **Light Switch & Bulb** template (as shown in the picture below).
+5. Drag the "**LightToggleScript**" that we made from the **Project Content** tab into the "**Light switch**" folder within the **Light Switch & Bulb** template (as shown in the picture below).
 
     Make sure the script is first in the "**Light switch**" folder's hierarchy. This makes it easier to find when looking at the hierarchy.
 
