@@ -83,7 +83,7 @@ For this tutorial, we are going to make the player wave hello.
 
          ![Basic Gem Model](../../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}
 
-         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](../../tutorials/art/art_reference.md)** or try a **[Tutorial](../../tutorials/art/modeling_basics.md)**.
+         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](art_reference.md)** or try a **[Tutorial](modeling_basics.md)**.
 
          I went with a simple red gem, and made it a little smaller than the default diamond.
 

@@ -110,7 +110,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 3. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
 
-    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](../art/modeling_basics.md)** or **[Reference](../art/art_reference.md)**.
+    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](modeling_basics.md)** or **[Reference](art_reference.md)**.
 
     Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
