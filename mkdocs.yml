@@ -58,8 +58,8 @@ theme:
   custom_dir: mkdocs-material/material
   language: en
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Lato
+    code: JetBrains Mono
   feature:
     tabs: true
   palette:
