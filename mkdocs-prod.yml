@@ -45,8 +45,8 @@ nav:
       - Forums: https://forums.coregames.com/
   - Events:
       - Events: https://forums.coregames.com/c/community/events/6
-  - CoreLive:
-      - CoreLive: https://forums.coregames.com/t/39
+  - Core Live:
+      - Core Live: https://forums.coregames.com/t/39
   - FAQ:
       - https://forums.coregames.com/t/83
   - Feedback:
@@ -95,6 +95,8 @@ extra:
       link: https://www.facebook.com/groups/playcoregames
     - type: twitter
       link: https://twitter.com/coregames
+    - type: twitch
+      link: https://twitch.tv/corelive
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
