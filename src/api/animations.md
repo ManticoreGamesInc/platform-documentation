@@ -113,6 +113,7 @@ Sockets are different points on a Player's character mesh. They can be used for 
 | `unarmed_sit_car_low` | A full body animation that is sitting at ground level with arms up on a wheel. Ideal for driving a go-kart style vehicle When running/jumping etc., the entire body will retain the sitting pose. Currently cannot mix the lower body of this pose with other animation stances (holding a torch, etc). Ability animations, however, can be used. |
 | `unarmed_death` | A full body animation that is falling to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is. Suggested to turn on ragdoll. |
 | `unarmed_death_spin` | A full body animation that spins 360 and then falls to the floor, face-up. The hips will end roughly on the spot where the game thinks the character is. |
+| `unarmed_steer_ship_wheel` | This will cause the Player to stand with their arms out as if they were steering a ship using the helm (steering wheel) of a ship. |
 
 !!! note "How to Turn on Ragdoll"
     ```lua

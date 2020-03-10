@@ -2,7 +2,7 @@
 id: home
 title: Home
 name: Home
-hide_categories: true
+hide_tags: true
 #hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
 ---
 
@@ -13,7 +13,7 @@ Welcome to the official documentation of Core&trade;, the community-focused game
 Core is a new game creation platform by [Manticore Games](https://www.manticoregames.com) that allows anyone to create, share, and play high quality online games.
 
 ![VIMEO](assets/placeholder_720p.png "381563691")
-_Start Here: [Create your first game](getting_started/my_first_multiplayer_game.md)_
+_Start Here: [Create your first game](my_first_multiplayer_game.md)_
 {: .image-cluster .hero-image}
 
 <div class="figure-block">
@@ -88,12 +88,12 @@ If you want to help out, just email [docs@manticoregames.com](mailto:docs@mantic
 ## Organization of the Documentation
 
 - The **Getting Started** section is the main purpose of this documentation, as it contains all the
-  necessary information on how to [install](getting_started/editor_intro.md) Core and using the engine to make games.
+  necessary information on how to [install](editor_intro.md) Core and using the engine to make games.
 - The **Community** section points to various community channels like Reddit and Discord and contains
   a list of recommended third-party tutorial links.
 - The **Tutorials** section can be read as needed, in any order. It contains both
   full games and various feature-specific tutorials. This is the best place to go for information on
-  larger projects. It includes the [Light Bulb](tutorials/gameplay/lua_basics_lightbulb.md) tutorial, which should be the entry point for all new users. In addition to this you may also want to take a look at our collection of various example projects and templates on the [examples](tutorials/examples.md) page.
+  larger projects. It includes the [Light Bulb](lua_basics_lightbulb.md) tutorial, which should be the entry point for all new users. In addition to this you may also want to take a look at our collection of various example projects and templates on the [examples](examples.md) page.
 - The **Core API** section is intended for all users looking to add gameplay elements, as it
   contains all the information you need to know about scripting in Core. It includes sections on Lua
   (including a primer for programmers and resources for complete beginners), as well as best

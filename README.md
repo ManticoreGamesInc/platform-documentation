@@ -2,7 +2,6 @@
 
 [![Website Build Status](https://api.netlify.com/api/v1/badges/c0780d7f-a678-49fd-b50e-ffe26f95147f/deploy-status)](https://app.netlify.com/sites/manticore-docs/deploys) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production%29%22) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production-Publish)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production-Publish%29%22)
 
-
 Welcome to the source of the official Core platform documentation! Please check out the [contribution](CONTRIBUTING.MD) document if you are interested in
 helping out!
 
@@ -20,16 +19,6 @@ Production:
 
 - [production](https://dev.manticoreplatform.com/docs/) - the staging site, accessible at [https://dev.manticoreplatform.com/docs/](https://dev.manticoreplatform.com/docs/).
 - [production-publish](https://www.coregames.com/docs/) - the live site, accessible at [https://www.coregames.com/docs/](https://www.coregames.com/docs/)
-
-Public Test Server:
-
-- [pts-publish](https://pts-publish--manticore-docs.netlify.com/) - the public test server.
-
-Development:
-
-- [dev-publish](https://dev-publish--manticore-docs.netlify.com/) - for in-development, bleeding edge changes.
-
-**Note:** Currently only `production` and `production-publish` are used.
 
 In addition, we use Netlify to generate preview pages for every pull request and branch. Those URLs will be listed in the status window on every pull request.
 

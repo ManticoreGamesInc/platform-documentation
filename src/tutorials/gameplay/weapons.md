@@ -2,7 +2,7 @@
 id: weapons
 name: Weapons in Core
 title: Weapons in Core
-categories:
+tags:
     - Tutorial
 ---
 
@@ -37,7 +37,7 @@ An `AttackAbility` is bound to Left Click on the keyboard by default, and can be
 A `ReloadAbility` is bound to "R" on the keyboard by default, and could be used for recharging and reloading of the weapon.
 
 !!! info
-    The **[Advanced Weapon & Abilities Tutorial](/tutorials/gameplay/abilities_advanced/)** will go over these concepts in more detail and are best read after going through this tutorial.
+    The **[Advanced Weapon & Abilities Tutorial](abilities_advanced.md)** will go over these concepts in more detail and are best read after going through this tutorial.
 
 When a player picks up or *equips* a `weapon` object, the player is instantly able to use that weapon and all the abilities that it comes with! So to create a weapon like a rifle, all that needs to be done is to spawn a `weapon`, modify the settings for how far the weapon can shoot, and set up the `AttackAbility` to activate.
 
@@ -78,7 +78,7 @@ So, let's get started!
 
         This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-        If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](../tutorials/art/art_reference/)** page or try a **[Tutorial](../tutorials/art/modeling_basics/)**.
+        If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art_reference.md)** page or try a **[Tutorial](modeling_basics.md)**.
 
         This attaches the visuals of the weapon to the function of the weapon!
 
@@ -86,7 +86,7 @@ So, let's get started!
 
     This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
 
-    To read more about Client Context and networking in Core games, read our guide about **[Networking](/networking_reference/)**.
+    To read more about Client Context and networking in Core games, read our guide about **[Networking](networking_reference.md)**.
 
 5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. Uncheck the **Collidable** box. This way the gun won't get stuck on the player and move the camera to weird locations.
 
@@ -105,7 +105,7 @@ So, let's get started!
 
     1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
 
-        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](../../core_api/)**.
+        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](core_api.md)**.
 
     2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
 

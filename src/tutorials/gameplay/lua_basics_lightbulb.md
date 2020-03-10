@@ -2,7 +2,7 @@
 id: scripting_basics
 name: Scripting in Core
 title: Scripting in Core
-categories:
+tags:
     - Tutorial
 ---
 
@@ -48,7 +48,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 * Open up the script by double clicking on it.
     * By default this happens via our in-built editor.
     * You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-        * We offer [editor integrations](../../extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
+        * We offer [editor integrations](extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
 
 ### Writing the Script
 
@@ -64,7 +64,7 @@ In the first part, we are going to introduce you do the basics of scripting in C
 
 * We made a script.
 * We populated it with code.
-    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in Core API functions](../../core_api.md).
+    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in Core API functions](core_api.md).
 * We placed the script into the Hierarchy tree so that it executes when the game runs.
 
 Next step: Adding our own function!
@@ -419,7 +419,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     `World.SpawnAsset(lightTemplate, {position=Vector3.New(0, 0, 0)})`
 
-    * `World` is a [collection of functions](../../core_api.md/#world) for finding objects in the world.
+    * `World` is a [collection of functions](core_api.md#world) for finding objects in the world.
     * `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so
     * `lightTemplate` is the variable we'll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script's custom property "**Light**".
     * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0 0 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
