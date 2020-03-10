@@ -2,7 +2,7 @@
 id: collaboration
 name: Collaboration & Source Control in Core
 title: Collaboration & Source Control in Core
-categories:
+tags:
     - Tutorial
 ---
 

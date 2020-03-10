@@ -45,8 +45,8 @@ nav:
       - Forums: https://forums.coregames.com/
   - Events:
       - Events: https://forums.coregames.com/c/community/events/6
-  - CoreLive:
-      - CoreLive: https://forums.coregames.com/t/39
+  - Core Live:
+      - Core Live: https://forums.coregames.com/t/39
   - FAQ:
       - https://forums.coregames.com/t/83
   - Feedback:
@@ -95,6 +95,8 @@ extra:
       link: https://www.facebook.com/groups/playcoregames
     - type: twitter
       link: https://twitter.com/coregames
+    - type: twitch
+      link: https://twitch.tv/corelive
 
 markdown_extensions:
   - admonition # add info/warn/error admonitions
@@ -130,8 +132,8 @@ plugins:
   - autolinks
   - redirects:
       redirect_maps:
-        getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
-        news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
+        getting_started.md: https://coregames.com/docs/getting_started/editor_intro/
+        news/showcase/just_getting_started.md: https://coregames.com/docs/showcase/just_getting_started/
         news/daily_challenge.md: https://forums.coregames.com/c/community/events/6
         patch_notes/patch_notes.md: https://forums.coregames.com/c/community/patch-notes/7
         patch_notes/january_28_2020.md: https://forums.coregames.com/t/alpha-update-4-january-28th-2020/65

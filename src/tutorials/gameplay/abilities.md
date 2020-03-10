@@ -2,7 +2,7 @@
 id: abilities
 name: Abilities in Core
 title: Abilities in Core
-categories:
+tags:
     - Tutorial
 ---
 
