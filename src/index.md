@@ -7,12 +7,6 @@ hide_categories: true
 
 # Core Documentation
 
-<!-- ![Art Example Town](img/index_screenshot_1.png "Art Example Town")
-{: .center} -->
-
-<!-- ![Art Example Sea](img/index_screenshot_2.png "Art Example Sea")
-{: .image-cluster} -->
-
 Welcome to the official documentation of Core&trade;, the community-focused game creation tool with everything you need to develop and publish high quality games.
 
 ## Core Features
