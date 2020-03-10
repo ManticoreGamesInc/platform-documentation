@@ -2,7 +2,7 @@
 id: installing_core
 name: Installing Core
 title: Installing Core
-categories:
+tags:
     - Tutorial
 ---
 

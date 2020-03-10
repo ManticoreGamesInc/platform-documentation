@@ -2,7 +2,7 @@
 id: scripting_advanced
 name: Advanced Scripting in Core
 title: Advanced Scripting in Core
-categories:
+tags:
     - Tutorial
 ---
 

@@ -2,7 +2,7 @@
 id: weapons
 name: Weapons in Core
 title: Weapons in Core
-categories:
+tags:
     - Tutorial
 ---
 
