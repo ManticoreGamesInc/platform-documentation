@@ -2,7 +2,7 @@
 id: costumes
 name: Costumes in Core
 title: Costumes in Core
-categories:
+tags:
     - Reference
 ---
 

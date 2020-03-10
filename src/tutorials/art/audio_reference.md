@@ -2,7 +2,7 @@
 id: audio_reference
 name: Audio in Core
 title: Audio in Core
-categories:
+tags:
     - Reference
 ---
 

@@ -2,7 +2,7 @@
 id: lua_styleguide
 name: Lua Style Guide
 title: Lua Style Guide
-categories:
+tags:
     - Tutorial
 ---
 

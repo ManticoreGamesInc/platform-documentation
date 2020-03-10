@@ -2,7 +2,7 @@
 id: abilities_advanced
 name: Advanced Abilities in Core
 title: Advanced Abilities in Core
-categories:
+tags:
     - Tutorial
 ---
 

@@ -2,7 +2,7 @@
 id: scene_creation
 name: Scene Creation in Core
 title: Scene Creation in Core
-categories:
+tags:
     - Reference
 ---
 
