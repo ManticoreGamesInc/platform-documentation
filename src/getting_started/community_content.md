@@ -2,7 +2,7 @@
 id: community_content
 name: Community Content in Core
 title: Community Content in Core
-categories:
+tags:
     - Tutorial
 ---
 

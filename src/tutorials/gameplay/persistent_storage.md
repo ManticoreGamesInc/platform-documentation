@@ -2,7 +2,7 @@
 id: persistent_storage
 name: Persistent Data Storage in Core
 title: Persistent Data Storage in Core
-categories:
+tags:
     - Tutorial
 ---
 

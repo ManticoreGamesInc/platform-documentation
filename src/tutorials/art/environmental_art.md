@@ -2,7 +2,7 @@
 id: environment_art
 name: Environmental Art in Core
 title: Environmental Art in Core
-categories:
+tags:
     - Reference
 ---
 

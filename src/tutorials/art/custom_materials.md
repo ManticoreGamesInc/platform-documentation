@@ -2,7 +2,7 @@
 id: custom_materials
 name: Custom Materials in Core
 title: Custom Materials in Core
-categories:
+tags:
     - Reference
 ---
 

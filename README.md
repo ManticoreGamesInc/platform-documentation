@@ -20,16 +20,6 @@ Production:
 - [production](https://dev.manticoreplatform.com/docs/) - the staging site, accessible at [https://dev.manticoreplatform.com/docs/](https://dev.manticoreplatform.com/docs/).
 - [production-publish](https://www.coregames.com/docs/) - the live site, accessible at [https://www.coregames.com/docs/](https://www.coregames.com/docs/)
 
-Public Test Server:
-
-- [pts-publish](https://pts-publish--manticore-docs.netlify.com/) - the public test server.
-
-Development:
-
-- [dev-publish](https://dev-publish--manticore-docs.netlify.com/) - for in-development, bleeding edge changes.
-
-**Note:** Currently only `production` and `production-publish` are used.
-
 In addition, we use Netlify to generate preview pages for every pull request and branch. Those URLs will be listed in the status window on every pull request.
 
 ### Branch Details
