@@ -13,7 +13,7 @@ If you don't want to deal with all the technicalities because you only want to d
 
 ## Setting up your Environment
 
-### Prerequisites:
+### Prerequisites
 
 First, make sure that you have:
 

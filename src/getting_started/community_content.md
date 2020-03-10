@@ -64,7 +64,7 @@ Within the template, in the section called "**Dependencies**", you can find all 
 
 ### Next Steps: Publish Your Own Content
 
-To learn more about these templates that are shared on Community Content, and how to share your own with the world of Core, follow our quick tutorial on [Templates](../tutorials/gameplay/collaboration_reference.md).
+To learn more about these templates that are shared on Community Content, and how to share your own with the world of Core, follow our quick tutorial on [Templates](collaboration_reference.md).
 
 Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
 
