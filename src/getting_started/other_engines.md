@@ -15,7 +15,7 @@ categories:
 ## Overview
 
 The purpose of this page is to outline a few key differences between Core and the engine you've worked on previously.
-To get a full overview of our API, read our [API Documentation](../core_api.md) instead.
+To get a full overview of our API, read our [API Documentation](core_api.md) instead.
 
 ## Unity
 
@@ -73,7 +73,7 @@ end
 Events.Connect(“MyEvent”, Foo)
 ```
 
-more details over in the [API Docs](../core_api.md).
+more details over in the [API Docs](core_api.md).
 
 * The often (miss)used `OnUpdate` event equivalent is the global `Tick()` function. It is totally fine to overwrite it with your own.
 * Instead of frames, you will mostly work with objects in Core. Those can be destroyed completely instead of just be hidden like frames in WoW.
