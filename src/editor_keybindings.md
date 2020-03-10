@@ -2,7 +2,7 @@
 id: keybindings
 name: Core Editor Key Bindings
 title: Core Editor Key Bindings
-categories:
+tags:
     - Reference
 ---
 

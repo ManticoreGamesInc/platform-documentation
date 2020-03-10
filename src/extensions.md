@@ -2,7 +2,7 @@
 id: extensions
 name: Editor Extensions
 title: Editor Extensions
-categories:
+tags:
     - Misc
 ---
 

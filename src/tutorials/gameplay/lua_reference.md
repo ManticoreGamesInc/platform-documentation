@@ -2,7 +2,7 @@
 id: lua_reference
 name: Lua Reference
 title: Lua Reference
-categories:
+tags:
     - Reference
 ---
 

@@ -2,7 +2,7 @@
 id: scripting_basics
 name: Scripting in Core
 title: Scripting in Core
-categories:
+tags:
     - Tutorial
 ---
 

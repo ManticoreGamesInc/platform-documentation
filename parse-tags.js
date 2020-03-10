@@ -5,26 +5,26 @@ const json2md = require("json2md")
 
 const rootPath = "src"
 const outputFile = `${rootPath}/generated/sitemap.md`
-const categories = []
+const tags = []
 const output = []
 
 const files = recursive(rootPath, ["!*.md"])
 files.forEach(file => {
   const data = fs.readFileSync(file, "utf8")
   const result = metadataParser(data)
-  if (result.metadata.categories) {
+  if (result.metadata.tags) {
     const fileObj = { "name": result.metadata.name, "path": file }
-    result.metadata.categories.forEach(cat => {
-      const catFound = categories.find(obj => obj.name === cat)
-      if (!catFound) {
-        categories.push({
-          name: cat,
+    result.metadata.tags.forEach(tag => {
+      const tagFound = tags.find(obj => obj.name === tag)
+      if (!tagFound) {
+        tags.push({
+          name: tag,
           files: [fileObj]
         })
       } else {
-        const fileFound = catFound.files.find(obj => obj.name === fileObj.name && obj.path === fileObj.path)
+        const fileFound = tagFound.files.find(obj => obj.name === fileObj.name && obj.path === fileObj.path)
         if (!fileFound) {
-          catFound.files.push(fileObj)
+          tagFound.files.push(fileObj)
         }
       }
     })
@@ -34,9 +34,9 @@ files.forEach(file => {
 fs.writeFileSync(outputFile, "")
 
 output.push({ h1: "Sitemap" })
-categories.forEach(cat => {
-  output.push({ h2: cat.name })
-  cat.files.forEach(file => {
+tags.forEach(tag => {
+  output.push({ h2: tag.name })
+  tag.files.forEach(file => {
     output.push(
       { ul: [
         { link: { title: file.name, source: file.path.replace(rootPath, "..") } }

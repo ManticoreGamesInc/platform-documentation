@@ -2,7 +2,7 @@
 id: editor_intro
 name: Introduction to the Core Editor
 title: Introduction to the Core Editor
-categories:
+tags:
     - Reference
 ---
 

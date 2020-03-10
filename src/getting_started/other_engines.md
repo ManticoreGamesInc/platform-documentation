@@ -2,7 +2,7 @@
 id: other_engines
 name: Differences between Core and other Engines
 title: Differences between Core and other Engines
-categories:
+tags:
     - Reference
 ---
 

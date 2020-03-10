@@ -2,7 +2,7 @@
 id: art_reference
 name: Art in Core
 title: Art in Core
-categories:
+tags:
     - Reference
 ---
 
