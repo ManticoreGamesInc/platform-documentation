@@ -582,8 +582,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `spreadModifier` | Number | Modifier added to the Player's targeting spread. | Read-Write |
 | `currentSpread` | Number | Gets the Player's current targeting spread. | Client-Only, Read-Only |
 | `buoyancy` | Number | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
-| `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Read-Write |
-| `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Read-Write |
+| `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Server-Only, Read-Write |
+| `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Server-Only, Read-Write |
 | `isVisibleToSelf` | bool | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Client-Only, Read-Write |
 
 ### PlayerSettings
