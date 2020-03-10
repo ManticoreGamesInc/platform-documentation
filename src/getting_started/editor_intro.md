@@ -117,4 +117,4 @@ The Core Editor will automatically save your work periodically, but this can als
 
 ## Learn More
 
-[Your First Game](https://www.coregames.com/docs/getting_started/my_first_multiplayer_game/) | [Core Editor Keyboard Shortcuts](https://www.coregames.com/docs/editor_keybindings/)
+[Your First Game](my_first_multiplayer_game.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
