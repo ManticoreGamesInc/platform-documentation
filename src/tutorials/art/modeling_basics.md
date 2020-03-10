@@ -2,7 +2,7 @@
 id: modeling
 name: Modeling Basics
 title: Modeling Basics
-categories:
+tags:
     - Reference
 ---
 
