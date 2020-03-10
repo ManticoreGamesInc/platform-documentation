@@ -34,7 +34,7 @@ This tutorial is designed for creators who have never done *any* programming bef
 * For debugging code, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
 
-* Another page you'll probably be constantly checking is the [Core API](core_api.md) page.
+* Another page you'll probably be constantly checking is the [Core API](/core_api) page.
 
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
@@ -150,7 +150,7 @@ Now if you save and run this, you'll see your message appear on the screen! Exce
 !!! note
     Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of scripts.
 
-If you are having issues, check to see if your `TutorialScript` looks like this in the `Properties` view:
+If you are having issues, check to see if your `TutorialScript` looks like this in the **Properties** view:
 
 ![Tutorial Script Properties](../../img/scripting/MyFirstScript_tutorial.png "The Properties window also shows a preview of the code within a script."){: .center}
 
@@ -204,7 +204,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
     ![Create Script Button](../../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center}
 
-2. Name this script "**LightToggleScript**".
+2. Name this script `LightToggleScript`.
 
 3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
 
@@ -219,47 +219,51 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
     !["LightBulb1"](../../img/LightBulb/image10.png "Networked"){: .center}
 
-    **Teal**{: style="color: var(--core-color-deinstanced)"} objects are part of a template that's been deinstanced - which means you can edit them and move them around in the hierarchy.
+    **Teal**{: style="color: var(--core-color-deinstanced)"} objects are part of a template that's been deinstanced - which means you can edit them and move them around in the Hierarchy.
 
-5. Drag the "**LightToggleScript**" that we made from the **Project Content** tab into the "**Light switch**" folder within the **Light Switch & Bulb** template (as shown in the picture below).
+5. Open the contents of the **Light bulb & switch** template by clicking the little drop down arrow to the left of it in the Hierarchy. Open up the **Light switch** folder inside the same way.
 
-    Make sure the script is first in the "**Light switch**" folder's hierarchy. This makes it easier to find when looking at the hierarchy.
+6. Drag the `LightToggleScript` that we made from the **Project Content** tab into the "**Switch**" folder within the "**Light switch**" folder of the template.
+
+    Core will ask you if you want to make the script networked. Click the "Make Children Networked" button so that it will be networked along with the other objects in that folder.
+
+    !!! info
+        Any time scripting is used to cause change to an object, that object must have networking enabled or be in a Client Context. Without networking, changes will not happen on all player's screens--a must for multiplayer games!
+
+    Make sure the script is first in the "**Switch**" folder's hierarchy. This makes it easier to find when looking at the Hierarchy. All together your template hierarchy should look like this now:
 
     !["LightBulb1"](../../img/LightBulb/step_1_point_5.png "Hierarchy"){: .center}
 
-### Defining the switch
+### Defining the Switch
 
-We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off. First you'll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It is best practice to define your variables at the beginning of your scripts.
+We want our light switch to function just like it would in real life: the switch will point up or down depending on whether the light is turned on or off.
+
+First you'll need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is. It's best practice to define your variables at the beginning of your scripts.
+
+!!! note
+    In this tutorial we will use several different ways to access other objects in the Hierarchy. In your future as a creator, use whichever methods feel easiest to you!
 
 1. Type the following into Line 1 of `LightToggleScript`:
 
-    `local switch = script.parent:GetChildren()[2]`
+    ```lua
+    local switch = script.parent
+    ```
 
     `local` tells the script that the following variable should only be accessible from this script rather than being accessible from external scripts, or globally.
 
     `switch` is our variable name. We can name it anything but it's important to create variables with self-explanatory names so our scripts are easy to read and understand.
 
-    `script.parent` refers to the script's parent - the group or folder the script is placed in. In this case it refers to the **Light switch group**. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent`.
+    `script.parent` refers to the script's parent - the group or folder the script is placed in. In this case it refers to the **Switch** group. If we wanted to refer to the entire **Light Switch & Bulb template** we would use `script.parent.parent.parent`.
 
-    `GetChildren()[2]` refers to the second child in a hierarchy. Because this is attached to `script.parent`, the script knows this refers to the second child in our **Light switch group**, which is the object we want to rotate.
+    So, all in all, `local switch = script.parent` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
 
-    !["LightBulb1"](../../img/LightBulb/step_3_point_1.png "GetChildren"){: .center}
-
-    `local switch = script.parent:GetChildren()[2]` tells the script we are defining a local variable named `switch` and what object in the hierarchy our new variable corresponds to.
-
-2. Left click on the `Switch` folder and select "**Enable Networking**" from the drop down menu.
-
-    !["LightBulb1"](../../img/LightBulb/image15.png "Networking"){: .center}
-
-    Any time a variable is defined in the script as an object in the hierarchy (like we just did with the `switch` variable) the object in the hierarchy must be marked as networked. You can read more about networking [here](networking_reference.md).
-
-    The `Switch` folder should now read: `Switch (networked)`.
-
-### Rotating the switch
+### Rotating the Switch
 
 1. We now need to rotate the switch. On a new line, type:
 
-    `switch:RotateTo(Rotation.New(0, 90, 0), 2)`
+    ```lua
+    switch:RotateTo(Rotation.New(0, 90, 0), 2)
+    ```
 
     * `switch` tells the script to rotate the object attached to this variable.
     * `RotateTo` is an function that tells Core we want to rotate an object.
@@ -269,8 +273,8 @@ We want our light switch to function just like it would in real life: the switch
 
     Our script should now look like this:
 
-    ```lua hl_lines="3"
-    local switch = script.parent:GetChildren()[2]
+    ```lua
+    local switch = script.parent
 
     switch:RotateTo(Rotation.New(0, 90, 0), 2)
     ```
@@ -282,27 +286,15 @@ We want our light switch to function just like it would in real life: the switch
     Unfortunately that didn't quite work out the way we wanted…
     Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
-    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y-axis, it has to know where the switch's starting rotation.
+    We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y-axis, it needs to know to move only relative to its original position.
 
-2. Let's create a variable that defines the switch's starting rotation. Go to the line 2 of the code and type:
+2. Luckily in this case the `RotateTo()` function has an *optional* parameter that we can add to specify that we want the rotation to happen relative to its own space.
 
-    `local startingRotation = switch:GetWorldRotation()`
-
-    * `startingRotation` is the name of our new variable that will define the switch's starting rotation.
-    * `switch:GetWorldRotation()` tells the script to get the global rotation coordinates of our first variable, `switch`.
-
-    Our script should now look like this:
-
-    ```lua hl_lines="2"
-    local switch = script.parent:GetChildren()[2]
-    local startingRotation = switch:GetWorldRotation()
-
-    switch:RotateTo(Rotation.New(0, 90, 0), 2)
+    ```lua
+    switch:RotateTo(Rotation.New(0, 90, 0), 2, true)
     ```
 
-    Now that we have the switch's starting rotation set to a variable, we just need to include it in our rotation statement:
-
-    `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)`
+    By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If we were to enter `false` instead, or enter nothing like we did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
 
 3. Press **Play** and test it out!
 
@@ -311,19 +303,19 @@ We want our light switch to function just like it would in real life: the switch
     <p style="font-style: italic">Success!</p>
     </div>
 
-### Adding a trigger
+### Using a Trigger
 
-We want the player to be able to flip the switch to turn on and off our light. To do this we need a trigger. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
+We want the player to be able to flip the switch to turn on and off our light. To do this we need a *trigger*. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
 
-1. Create a trigger by going to the **Core Content** tab, scroll down to **Gameplay Objects** and drag a "**Trigger**" into the world.
+1. Our template already includes a trigger inside of it for us to use, but trigger objects can be found in the **Core Content** tab. Scrolling down to **Gameplay Objects** will show the section with "**Trigger**" type objects.
 
     !["LightBulb1"](../../img/LightBulb/trigger.png "Trigger"){: .center}
 
-2. In the hierarchy, select it and press <kbd>F</kbd>, this will find the trigger in our viewer. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
+2. Let's find the trigger already in our template. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press <kbd>F</kbd>. This will find the trigger in our viewport. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
     !!! info "Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights."
 
-3. Drag the trigger over to the light switch. The size of the trigger determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
+3. Notice the size, shape, and position of the trigger. Where and how a trigger is located determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
 
     !["LightBulb1"](../../img/LightBulb/image20.png "Trigger over Switch"){: .center}
 
