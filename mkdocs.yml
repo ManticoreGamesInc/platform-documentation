@@ -92,7 +92,7 @@ extra:
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
     - type: facebook
-      link: https://www.facebook.com/groups/coregames
+      link: https://www.facebook.com/groups/playcoregames
     - type: twitter
       link: https://twitter.com/coregames
 
