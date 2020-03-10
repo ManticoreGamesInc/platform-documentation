@@ -2,7 +2,7 @@
 id: art_reference
 name: Art in Core
 title: Art in Core
-categories:
+tags:
     - Reference
 ---
 
@@ -148,4 +148,4 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ### Sharing the Glory: Publishing Templates
 
-To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](../../gameplay/collaboration_reference/)!
+To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](collaboration_reference.md)!

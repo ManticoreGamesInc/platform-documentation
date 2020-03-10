@@ -2,125 +2,119 @@
 id: editor_intro
 name: Introduction to the Core Editor
 title: Introduction to the Core Editor
-categories:
-    - Tutorial
+tags:
+    - Reference
 ---
 
 # Introduction to the Core Editor
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
+## Creating a New Project
 
-## Setup & Installation
+There are three options for starting a new project:
 
-To get started, you'll need two things, the installer and an account. You can get both from [our website](https://coregames.com/). As soon as you are registered, you'll find a download link to the installer in the user dropdown menu in the top right corner.
+- **New Empty Project** creates a project with just the blank default elements.
+- **Core Game Frameworks** include complete gameplay functionality to modify and customize.
+- **Community Shared Games** are games by Core Creators that have been shared for others to customize or change completely.
 
-Please check your spam folder if you don't see a verification email for your Core account in your inbox. If you need further help troubleshooting, please join the [Core Creator Discord](https://discord.gg/85k8A7V) where we have live support!
+## Editor Windows
+
+The Core Editor is made up of different windows which can be resized and repositioned freely. All of the windows can be opened from the **View** tab in the top menu bar. The Editor layout can be restored to its original form using the **Reset View to Default** option in the **View** menu.
+
+## Main Viewport
+
+The Main Viewport is the window into all visual aspects of a project. It will appear with the name of the project as the title on the Window.
+
+### Changing the View
+
+- Hold the **right mouse button** to change the direction the view is facing.
+    - <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> will move view position forward, left, right, and back.
+    - <kbd>Alt</kbd> will orbit around a selected object.
+- Use the **scroll wheel** to move the view closer or further away.
+- Hold the **wheel button**  to slide the view left, right, up, or down.
+- Press <kbd>F</kbd> with an object selected to move the view to focus on that object.
+
+### Preview Mode
+
+Preview Mode shows a project from a player perspective, allowing you to run through scenes and test features in person.
+
+- ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> will start Preview Mode.
+{: .image-inline-text .image-background}
+- <kbd>Tab</kbd> will pause the preview.
+- ![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
+ {: .image-inline-text .image-background}
+
+### Multiplayer Preview Mode
+
+**Multiplayer Preview Mode** can be used to test how your project behaves in a networked context, with more than one player.
+
+- ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
+    {: .image-inline-text .image-background}
+- Use the dropdown menu to select the number of players to test.
+- ![Play](../img/EditorManual/icons/Icon_Play.png) will start the preview. This will open a separate game window for each player.
+{: .image-inline-text .image-background}
+- ![Stop](../img/EditorManual/icons/Icon_Stop.png) will end the preview and close all windows
+{: .image-inline-text .image-background}
+
+!!! tip
+    **Multiplayer Preview Mode** is always the most accurate way to see how your game will appear over a network. You should use it often to test how your game.
+
+## Hierarchy
+
+The Hierarchy shows all the objects that are currently in the project. These objects can be reordered by dragging and dropping. Dragging an object on top of another will make it a **child** of that object.
+
+**Child objects** are positioned relative to location in the scene of the **parent object** that they are nested under, and can access their parent object's properties in scripts.
+
+## Content
+
+### Core Content
+
+The Core Content window contains all the art objects, sounds, textures, and game components that you need to build a game or scene. They can be found both through the different menu categories, as well as through the **Search** function.
+
+### Community Content
+
+Templates made by other Core Creators to be shared in the community can be found in the Core Content tab.
+
+### Project Content
+
+Objects and scripts that you create will be in this window, as well as those that you import from Community Content.
+
+## Manipulating Objects
+
+The Toolbar contains the different options for manipulating objects.
+
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
+ or <kbd>W</kbd> to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
+{: .image-inline-text .image-background}
+- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or <kbd>G</kbd> to **Snap Position**. It will move the object in whole steps according to the selected size.
+ {: .image-inline-text .image-background}
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or <kbd>E</kbd> to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
+ {: .image-inline-text .image-background}
+- ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or <kbd>G</kbd> to **Snap Rotation**, rotating the object in the selected degree interval.
+{: .image-inline-text .image-background}
+- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or <kbd>R</kbd> to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
+ {: .image-inline-text .image-background}
+- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or <kbd>G</kbd> to **Transform Scale**. It will resize the object in whole units according to the selected size.
+{: .image-inline-text .image-background}
 
 !!! note
-    It is recommended to install Core on the default path. Please do not direct Core to install in "Program Files" or "Program Files (x86)". If you install elsewhere and run into problems, please let us know!
+    All of the **Snap** tools appear in the same location, to the right of the Transform Tools. This icon will change appearance and function depending on which Transform Tool is selected, and can always be turned on with <kbd>G</kbd>.
 
-## Launcher
+## Adding Scripts
 
-Now you'll have a new icon in your start menu, Core Launcher. If you want to start working on a project, launching Core directly is the way to go, if you want to play games others made, you just head to [coregames.com](https://www.coregames.com/games) and hit "**Play**" on any game you like. Your browser will prompt you to open Core, you hit okay and Core will launch directly into the game.
+Scripts allow you to program the behavior of different objects in the project. Core scripts are written in [Lua](https://www.lua.org/manual/5.3/) using the [Core Lua API](https://www.coregames.com/core_api).
 
-## Editor
-
-If you decide to work on something new, you start the Editor directly via Core Launcher. When you open up the editor you'll see the following screen:
-
-![EditorIntro](../img/EditorManual/landing_page.png "Editor Homepage"){: .center}
-
-1. Character - Your place to customize your Core Avatar.
-2. Create - Where games directly authored by you live.
-3. Games - A link to the game browser on [coregames.com](https://www.coregames.com/games).
-4. Documentation - A link to our [documentation platform](https://www.coregames.com/docs) that in addition to our API also houses a ton of tutorials to get you started.
-5. Discord - A link to the [Core Creator Discord](https://discord.gg/85k8A7V).
-6. Feedback - A link to [a form to submit feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform).
-7. User Dropdown - Here you can log out or exit Core.
-
-Now to create a new project, click on the big "**Create New**" button, select "**Empty Project**" and give it a name. Now you're in the Editor!
-
-![EditorIntro](../img/EditorManual/overview.png "The various parts of the editor"){: .center}
-
-The best way to start is by making a map. Then we'll add functionality with a simple game. Lastly, we'll see how using Community Content can expedite this
-entire process. The editor is divided into different windows or "**Views**" which have distinct roles. If you close a view, you can re-open it via the drop-down toolbar at the top left of the screen.
-
-!!! info "Icons are used to visually represent information, you can view a full list of the icons contained within Core in our [icon glossary](../icons.md)."
-
-We'll now go over each in more depth in their respective sections.
-
-### Toolbar
-
-The basic functions like Undo, Redo, Move, Rotate, Scale, Snap To Grid, Grid Size, World / Local Space, Performance, Play, Pause, Multiplayer and Editor Settings live here.
-
-#### Preferences
-
-Here you can change several things:
-
-* General Settings include options for using an external code editor, syntax highlighting and auto complete.
-* Player Controls lets you change your key bindings
-* Gameplay Settings have camera sensitivity and Y-Axes inversion and more.
-
-### Main Viewport
-
-The Main Viewport is where you are designing your game.
-
-### Asset Manifest
-
-The Asset Manifest is split into three parts, it is the place to add new content to your game.
-
-#### Project Content
-
-This contains everything that you added to your project, including stuff from Core and Community content as well as your own assets.
-
-#### Core Content
-
-Within the Core content tab you can select an asset type from the drop down menu, then press the "**+**" icon to expand the different categories within that type. These categories include all assets provided by Core.
-
-<div class="mt-video">
-    <video autoplay loop muted playsinline>
-        <source src="../../img/EditorManual/core_content.mp4" type="video/mp4">
-    </video>
-</div>
-
-#### Community Content
-
-To access assets created by other creators, open the "**Community Content**" view. You can browse content based on a variety of search criteria. These shareable content items are called "**Templates**" and may include scripts, visuals, or even complete games.
-
-![CommunityContent](../img/EditorManual/community_content.png "Community Content"){: .center}
-
-To learn more about templates, including how to make your own to share, checkout our [template guide](../tutorials/gameplay/collaboration_reference.md).
-
-### Hierarchy
-
-The Hierarchy view includes all of the objects in your game. If you add an object, for example a "**Trigger**", it will appear here.
-
-![Hierarchy](../img/EditorManual/hierarchy.png "Hierarchy"){: .center}
-
-You can parent objects by dragging them onto each other. See the example below where we make the "**Child**" object into a child of the "**Parent**" object.
-
-![Hierarchy Child](../img/EditorManual/hierarchy_child.gif "Hierarchy Child"){: .center}
-
-When an object is a child of another, it will be affected by its parent's position, scale, and visibility. See how in the example the child is automatically hidden when we choose to hide the parent.
-
-### Properties
-
-The Properties window is where all the details of a selected object can be found, and changed. Things like world position and visibility can be altered here.
-
-![Properties](../img/EditorManual/properties.png "Properties"){: .center}
+- ![Script](../img/EditorManual/icons/Icon_Script.png) will create a script that will appear in your **Project Content**.
+{: .image-inline-text .image-background}
+- Scripts can be dragged directly into the Hierarchy or onto objects that should be their parent.
 
 ### Event Log
 
-The Event Log is a way to quickly view the results of your code, any script can call the `print()` function to output text directly to this view!
+The Event Log is where output from scripts, including errors, can be found. It is not open by default, but can be opened through the **View** menu.
 
-![Event Log](../img/EditorManual/event_log.png "Event Log"){: .center}
+## Saving the Project
 
-## Summary
+The Core Editor will automatically save your work periodically, but this can also be done manually through **File** > **Save** or <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
-Here are a few links to get you started on certain areas in Core:
+## Learn More
 
-* [My First Multiplayer Game](my_first_multiplayer_game.md)
-* [Art Intro](../tutorials/art/art_reference.md)
-* [Scripting Intro](../tutorials/gameplay/lua_reference.md)
-* [Community Content](community_content.md)
+[Your First Game](my_first_multiplayer_game.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)

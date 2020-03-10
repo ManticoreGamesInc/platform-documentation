@@ -2,7 +2,7 @@
 id: examples
 name: Examples and Snippets
 title: Examples and Snippets
-categories:
+tags:
     - Misc
 ---
 

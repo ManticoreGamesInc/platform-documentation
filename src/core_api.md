@@ -159,16 +159,25 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `lerpTime` | Number | The time, over which camera property changes take effect. Clamped to be non-negative. | Read-Write, Dynamic |
-| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | Read-Write, Dynamic |
-| `isDistanceAdjustable` | bool | Whether the Player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | Read-Write, Dynamic |
-| `minDistance` | Number | The minimum distance the Player can zoom in to. | Read-Write, Dynamic |
-| `maxDistance` | Number | The maximum distance the Player can zoom out to. | Read-Write, Dynamic |
+| `followPlayer` | Player | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write, Dynamic |
 | `isOrthographic` | bool | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write, Dynamic |
 | `fieldOfView` | Number | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write, Dynamic |
 | `viewWidth` | Number | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write, Dynamic |
-| `followPlayer` | Player | Which player's view the camera should follow. Set to the local player for a first or third person camera. Set to nil to detach. | Read-Write, Dynamic |
+| `useCameraSocket` | bool | If you have a followPlayer, then use their camera socket. This is often preferable for first-person cameras, and gives a bit of view bob. | Read-Write, Dynamic |
 | `currentDistance` | Number | The distance controlled by the Player with scroll wheel (by default). | Client-Only, Read-Write, Dynamic |
+| `isDistanceAdjustable` | bool | Whether the Player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | Read-Write, Dynamic |
+| `minDistance` | Number | The minimum distance the Player can zoom in to. | Read-Write, Dynamic |
+| `maxDistance` | Number | The maximum distance the Player can zoom out to. | Read-Write, Dynamic |
+| `rotationMode` | enum | Which base rotation to use. Values: `RotationMode.CAMERA`, `RotationMode.NONE`, `RotationMode.LOOK_ANGLE`. | Read-Write, Dynamic |
+| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | Read-Write, Dynamic |
+| `currentPitch` | Number | The current pitch of the Player's free control. | Client-Only, Read-Write, Dynamic |
+| `minPitch` | Number | The minimum pitch for free control. | Read-Write, Dynamic |
+| `maxPitch` | Number | The maximum pitch for free control. | Read-Write, Dynamic |
+| `isYawLimited` | bool | Whether the Player's yaw has limits. If so, maxYaw must be at least minYaw, (and should be outside the range [0, 360] if needed). | Read-Write, Dynamic |
+| `currentYaw` | Number | The current yaw of the Player's free control. | Client-Only, Read-Write, Dynamic |
+| `minYaw` | Number | The minimum yaw for free control. | Read-Write, Dynamic |
+| `maxYaw` | Number | The maximum yaw for free control. | Read-Write, Dynamic |
+| `lerpTime` | Number | This property is deprecated and has no effect. | Read-Write, Dynamic, **Deprecated** |
 
 ### Color
 
@@ -519,11 +528,12 @@ Player is an Object representation of the state of a Player connected to the gam
 | `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
+| `GetActiveCamera()` | Camera | Returns whichever camera is currently active for the Player. | Client-Only |
 | `GetDefaultCamera()` | Camera | Returns the default Camera object the Player is currently using. | Client-Only |
-| `SetDefaultCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the default Camera object for the Player. | Client-Only |
+| `SetDefaultCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the default Camera object for the Player. | Client-Only |
 | `GetOverrideCamera()` | Camera | Returns the override Camera object the Player is currently using. | Client-Only |
-| `SetOverrideCamera(Camera, [Number lerpTime = 2.0])` | None | Sets the override Camera object for the Player. | Client-Only |
-| `ClearOverrideCamera([Number lerpTime = 2.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
+| `SetOverrideCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the override Camera object for the Player. | Client-Only |
+| `ClearOverrideCamera([Number lerpTime = 0.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
 | `ActivateFlying()` | None | Activates the Player flying mode. | Server-Only |
 | `ActivateWalking()` | None | Activate the Player walking mode. | Server-Only |
 
@@ -533,7 +543,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `id` | string | The unique id of the Player. Consistent across sessions. | Read-Only |
 | `team` | Integer | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
 | `animationStance` | string | Which set of animations to use for this Player. See [Animation Stance Strings](api/animations.md#animation-stance-strings) for possible values. | Read-Write |
-| `currentFacingMode (read)` | FacingMode | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | None |
+| `currentFacingMode` | FacingMode | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
 | `desiredFacingMode` | FacingMode | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Server-Only, Read-Write |
 | `defaultRotationRate` | Rotation | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write |
 | `currentRotationRate` | Rotation | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
@@ -572,8 +582,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `spreadModifier` | Number | Modifier added to the Player's targeting spread. | Read-Write |
 | `currentSpread` | Number | Gets the Player's current targeting spread. | Client-Only, Read-Only |
 | `buoyancy` | Number | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
-| `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Read-Write |
-| `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Read-Write |
+| `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Server-Only, Read-Write |
+| `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Server-Only, Read-Write |
 | `isVisibleToSelf` | bool | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Client-Only, Read-Write |
 
 ### PlayerSettings
@@ -1301,6 +1311,7 @@ User defined events can be specified using the Events namespace. The Events name
     - BroadcastEventResultCode.SUCCESS
     - BroadcastEventResultCode.FAILURE
     - BroadcastEventResultCode.EXCEEDED_SIZE_LIMIT
+    - BroadcastEventResultCode.EXCEEDED_RATE_WARNING_LIMIT
     - BroadcastEventResultCode.EXCEEDED_RATE_LIMIT
 
 ??? "Networked Events Supported Types"

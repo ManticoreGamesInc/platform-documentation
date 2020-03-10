@@ -13,7 +13,7 @@ If you don't want to deal with all the technicalities because you only want to d
 
 ## Setting up your Environment
 
-### Prerequisites:
+### Prerequisites
 
 First, make sure that you have:
 
@@ -67,7 +67,7 @@ First, make sure that you have:
 1. Install mkdocs
 
     ```console
-    $ pip install -r requirements.txt
+    $ pip install -r requirements.txt --upgrade
     ```
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
