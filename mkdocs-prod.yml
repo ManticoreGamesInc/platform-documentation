@@ -127,6 +127,8 @@ markdown_extensions:
   - lightgallery
 
 plugins:
+  #- tags:
+  #    tags_folder: src/generated/
   - git-revision-date-localized
   - search
   - autolinks
@@ -151,8 +153,8 @@ docs_dir: src
 site_name: Core Creator Hub
 
 # Add repository for easy editing
-#repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
-#edit_uri: edit/production/src
+repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
+edit_uri: edit/production/src
 
 site_description: Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
