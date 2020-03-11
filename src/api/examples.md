@@ -290,7 +290,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## Events
 
-Core uses events to communicate data and changes to game state. Events appear as properties on several objects. Scripts can listen to these events by registering a function for each desired event. Events allow two separate scripts to communicate, without the need to reference each other directly.
+Core uses events for a variety of state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. Events allow two separate scripts to communicate, without the need to reference each other directly and can also be used to communicate between scripts.
 
 ### Connect
 
@@ -310,7 +310,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-Connects the `OnPlayerDamaged` function to the `damagedEvent` event to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
+Connects the `OnPlayerDamaged` function to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
 
 `Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
 
