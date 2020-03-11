@@ -310,7 +310,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-Connects the `OnPlayerDamaged` function to the `damagedEvent` event on the `playerA` object. Now every time `playerA` takes damage, `OnPlayerDamaged` will be called.
+Connects the `OnPlayerDamaged` function to the `damagedEvent` event to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
 
 `Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
 
@@ -341,8 +341,7 @@ script.destroyEvent:Connect(OnDestroyed)
 
 ### Broadcast
 
-If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability object
-s `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
+If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability objects `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
 
 ```lua
 function OnExecute(ability)
