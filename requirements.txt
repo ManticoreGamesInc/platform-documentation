@@ -13,3 +13,5 @@ mkdocs-autolinks-plugin
 https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
+# mkdocs-plugin-tags
+#https://github.com/jldiaz/mkdocs-plugin-tags/archive/master.zip
