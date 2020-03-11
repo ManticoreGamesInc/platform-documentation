@@ -290,8 +290,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## Events
 
-Core uses events to communicate data. They appear as properties on several objects and can be used to register a function with them that will be called whenever that event happens.
-Only thing that needs to be added is an example at the top of why you would want to use it
+Core uses events to communicate data and changes to game state. Events appear as properties on several objects. Scripts can listen to these events by registering a function for each desired event. Events allow two separate scripts to communicate, without the need to reference each other directly.
 
 ### Connect
 
@@ -300,44 +299,67 @@ To hook up your function to an event, you have to call `Connect(function YourFun
 Example:
 
 ```lua
-playerA.damagedEvent:Connect(OnPlayerDamaged)`
+function OnPlayerDamaged(player, dmg)
+    print("Player " .. player.name .. " took " .. dmg.amount .. " damage. New health = " .. player.hitPoints)
+end
+
+function OnPlayerJoined(player)
+    player.damagedEvent:Connect(OnPlayerDamaged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-Connects the `OnPlayerDamage` function to the `damagedEvent` event on the `playerA` object. Now every time `playerA` takes damage, `OnPlayerDamage` will be called.
+Connects the `OnPlayerDamaged` function to the `damagedEvent` event on the `playerA` object. Now every time `playerA` takes damage, `OnPlayerDamaged` will be called.
 
 `Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
 
 ### Disconnect
 
-Pretty simple, you just call `Disconnect()` to disconnect a listener from its event, so it will no longer be called when the event is fired.
+Pretty simple, you just call `Disconnect()` on the returned `EventListener` to disconnect a listener from its event, so it will no longer be called when the event is fired.
 
 Example:
 
 ```lua
-playerA.damagedEvent:Disconnect(OnPlayerDamager)
+local damagedEventListener
+
+function OnPlayerJoined(player)
+    damagedEventListener = player.damagedEvent:Connect(OnPlayerDamaged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+
+function OnDestroyed(obj)
+    if damagedEventListener then
+        damagedEventListener:Disconnect()
+        damagedEventListener = nil
+    end
+end
+
+script.destroyEvent:Connect(OnDestroyed)
 ```
 
 ### Broadcast
 
-If your script runs on a server, you will have to broadcast the results to your players. In this example the `OnExecute` function was connected to an ability object
+If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability object
 s `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
 
 ```lua
 function OnExecute(ability)
-    if not HaveBandages(ability.owner) then
+    if ability.owner:GetResource("Bandages") <= 0 then
         Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "No Bandages to Apply")
         return
     end
 
     if ability.owner.hitPoints < ability.owner.maxHitPoints then
-        ABILITY.owner:ApplyDamage(Damage.New(-30))
-        ABILITY.owner:RemoveResource("Bandages", 1)
+        ability.owner:ApplyDamage(Damage.New(-30))
+        ability.owner:RemoveResource("Bandages", 1)
     else
         Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "Full Health")
     end
 end
 
-ABILITY.executeEvent:Connect(OnExecute)
+myAbility.executeEvent:Connect(OnExecute)
 ```
 
 Both error and success cases get communicated back to the client via `BroadcastToPlayer`. If you want to do the reverse, to update a server side stored value from a player script, you'd use `BroadcastToServer` instead.
