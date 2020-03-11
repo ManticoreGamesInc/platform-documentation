@@ -815,7 +815,7 @@ StaticMesh is a CoreObject representing a static mesh.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | Overrides the color of all materials on the mesh, and replicates the new colors. | None |
+| `GetColor()` | Color | Returns the color override previously set from script, or `0, 0, 0, 0` if no such color has been set. | None |
 | `SetColor(Color)` | None | Overrides the color of all materials on the mesh, and replicates the new colors. | Dynamic |
 | `ResetColor()` | None | Turns off the color override, if there is one. | Dynamic |
 
