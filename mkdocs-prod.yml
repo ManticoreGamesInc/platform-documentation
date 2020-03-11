@@ -147,6 +147,7 @@ plugins:
         events/game_jam.md: https://forums.coregames.com/c/community/events/6
         faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
         api.md: https://www.coregames.com/docs/core_api/
+        tutorials/examples.md: https://coregames.com/docs/api/examples.md
 
 docs_dir: src
 
