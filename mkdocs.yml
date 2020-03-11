@@ -127,6 +127,8 @@ markdown_extensions:
   - lightgallery
 
 plugins:
+  #- tags:
+  #    tags_folder: src/generated/
   - git-revision-date-localized
   - search
   - autolinks
