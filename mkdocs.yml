@@ -31,7 +31,6 @@ nav:
         - Templates: tutorials/gameplay/collaboration_reference.md
         - Collaboration & Source Control: tutorials/collaboration.md
         - UI: tutorials/gameplay/ui_reference.md
-        - Examples & Snippets: tutorials/examples.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
@@ -41,6 +40,7 @@ nav:
         - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
         - Editor Extensions: extensions.md
         - Coming from other Engines: getting_started/other_engines.md
+        - Examples & Snippets: api/examples.md
   - Forums:
       - Forums: https://forums.coregames.com/
   - Events:
