@@ -319,36 +319,37 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     !["LightBulb1"](../../img/LightBulb/image20.png "Trigger over Switch"){: .center}
 
-    This looks like a good size.
+    This size will work fine for this purpose.
 
-4. Look at the properties of the trigger by selecting it within the Hierarchy. Under "**Gameplay**" there is a parameter called "**Interactable**," check the box next to it to enable it. Otherwise we won't be able to interact with the trigger.
+4. Look at the Properties of the trigger by selecting it within the Hierarchy. Under the "**Gameplay**" section there is an option called "**Interactable**." Check the box next to it to enable it.
+
+    This way, it will ask us if we want to interact with it in-game, and a player must press a button to cause the interaction. If the **Interactable** option is off, then the player walking into the trigger will cause the interaction to happen instantly rather than at a button press.
 
     !["LightBulb1"](../../img/LightBulb/image17.png "Interactable"){: .center}
 
-5. Drag the trigger into the **Light switch group**. It should be the 4th child in the group. Since we'll be referencing the trigger in our script, make sure it's marked as networked. Right click on the trigger and select "**Enable Networking**".
+5. Now that we know what a trigger is and where it is set up, we can get back to our script. We need to tell the script what our trigger is and what should happen when the player interacts with it.
 
-    Our hierarchy should now look like this:
+    So now, under our `switch` variable but above our `RotateTo()` function, add this line of code:
 
-    !["LightBulb1"](../../img/LightBulb/step_3_point_5.png "Light Switch Group"){: .center}
-
-6. Now we need to tell the script what our trigger is and what should happen when the player interacts with it. Under our `switch` variable definition type:
-
-    `local switchTrigger = script.parent:GetChildren()[4]`
+    ```lua
+    local switchTrigger = switch.parent:GetChildren()[3]
+    ```
 
     * `switchTrigger` is the name for our trigger variable.
-    * `script.parent:GetChildren()[4]` defines the object we are using as our trigger - the fourth child of the script's parent group.
+    * `script.parent:GetChildren()[3]` defines the object we are using as our trigger - the third child of the switch's parent group.
+
+    !["LightBulb1"](../../img/LightBulb/step_3_point_1.png "Interactable"){: .center}
 
     Your script should look like this:
 
-    ```lua hl_lines="3"
-    local switch = script.parent:GetChildren()[2]
-    local startingRotation = switch:GetWorldRotation()
-    local switchTrigger = script.parent:GetChildren()[4]
+    ```lua
+    local switch = script.parent
+    local switchTrigger = switch.parent:GetChildren()[3]
 
-    switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)
+    switch:RotateTo(Rotation.New(0, 90, 0), 2,true)
     ```
 
-7. Now that the script knows which object we are using as a trigger we need to define what happens when we interact with the trigger.
+6. Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
 
     After your rotation statement, type:
 
@@ -366,22 +367,23 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
 
-8. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
+7. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
     It should now look like this:
 
-    ```lua hl_lines="6"
-    local switch = script.parent:GetChildren()[2]
-    local startingRotation = switch:GetWorldRotation()
-    local switchTrigger = script.parent:GetChildren()[4]
+    ```lua
+    local switch = script.parent
+    local switchTrigger = switch.parent:GetChildren()[3]
 
     local function OnSwitchInteraction()
-        switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 2)
+    switch:RotateTo(Rotation.New(0, 90, 0), 2,true)
     end
     ```
 
-9. Lastly, you'll need an event statement that tells the script to execute the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
+8. Lastly, you'll need an event statement that tells the script to actually do the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
 
-    `switchTrigger.interactedEvent:Connect(OnSwitchInteraction)`
+    ```lua
+    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+    ```
 
     * `switchTrigger` is the name of our trigger.
     * `interactedEvent:Connect()` tells the script every time the player interacts with trigger to execute the function passed to the `Connect()` function.
@@ -392,8 +394,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     Our script should now look like this:
 
     ```lua hl_lines="9"
-    local switch = script.parent:GetChildren()[2]
-    local startingRotation = switch:GetWorldRotation()
+    local switch = script.parent
     local switchTrigger = script.parent:GetChildren()[4]
 
     local function OnSwitchInteraction()
@@ -404,20 +405,20 @@ We want the player to be able to flip the switch to turn on and off our light. T
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
     ```
 
-10. Press **Play** and see if our trigger is working properly.
+9. Press **Play** and see if our trigger is working properly.
 
     Perfect! When the player presses <kbd>F</kbd> to interact with the trigger, our switch rotates up!
 
-11. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
+10. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(startingRotation + Rotation.New(0, 90, 0), 0.5)`
-<!-- markdownlint-disable -->
+
     !!! info "Best Practices: Organizing your code"
         It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of what your functions do. It can also make finding specific functions in your script easier.
 
-        Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script.
+    Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script.
 
-        ```lua hl_lines="7"
+    ```lua hl_lines="7"
         local switch = script.parent:GetChildren()[2]
         local startingRotation = switch:GetWorldRotation()
         local switchTrigger = script.parent:GetChildren()[4]
@@ -429,12 +430,12 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
         -- Connect our event to the trigger
         switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-        ```
+    ```
 
         At Core, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
 
         As our script gets longer, these practices will make our script easier to read and edit.
-<!-- markdownlint-restore -->
+
 ### Spawning a Light
 
 1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
