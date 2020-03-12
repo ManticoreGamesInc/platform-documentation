@@ -103,7 +103,7 @@ Core projects also include multiplayer networking by default. Because this is a 
 Core gives you a massive library of 3D assets, materials, sounds, and components for making games, which can be found in the **Core Content** Window.
 
 !!! note
-    You can reopen the "Core Content" window by going to **View** > **Core Content** in the top menu bar.
+    You can reopen the **Core Content** window by going to **View** > **Core Content** in the top menu bar.
 
 1. Click **Core Content**.
 2. Drop down the **3D Objects** menu to see the props and objects that can be added to the scene.
@@ -124,56 +124,74 @@ You can move, turn, and resize objects.
 - ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or <kbd>G</kbd> activates Scale Mode.
 {: .image-inline-text .image-background}
 
+![Move](../img/MyFirstMultiplayer/MoveBushes.gif){: .center}
+
 1. Click on the bush and press <kbd>G</kbd> to move it.
 2. Use the arrows to move it into a good hiding place for a player.
 3. Press <kbd>W</kbd> to change the size of the bush.
 4. Click and drag the white box at the center of the bush to resize it proportionately.
 5. Move, rotate, and scale the rest of the objects to enhance the scene.
-6. Press play to
 
-    ![Move](../img/MyFirstMultiplayer/MoveBushes.gif){: .center}
+### Turn Off Collision
 
-    <!-- ![Stuck](../img/MyFirstMultiplayer/StuckInBushes.png){: .center} -->
+By default, Core objects have collision, so players can't just walk into bushes yet.
 
-7. Bushes are great as environmental props to hide players, but it'd be great to let players push past them to surprise enemies in this game! Let's click on a Bush and check out the Properties window. By default, this Bush is "Collideable" but with a simple click, we can turn that off.
+1. Test this by pressing ![Play](../img/EditorManual/icons/Icon_Play.png) to preview the game.
+{: .image-inline-text .image-background}
+2. Look at your props from a player perspective. You should be able to walk up to a bush, but collide with it once you touch it.
+3. Click on the bush to select it, and open the **Properties** window.
+4. Find the **Collision** property and change it to **Force Off**
 
-    ![Collison](../img/MyFirstMultiplayer/NoCollisonBush.gif){: .center}
+![Collison](../img/MyFirstMultiplayer/NoCollisonBush.gif){: .center}
+
+You should now be able to walk into a bush. Test this in **Multiplayer Preview Mode** to see how well it works for concealment.
 
 !!! note
-    If you can't find the "Properties" window or accidentally close it, you can reopen the window by going to View > Properties in the toolbar at the top of the editor.
+    You can reopen the **Properties** window by going to **View** > **Properties** in the top menu bar.
 
-### Designing Your Level
+## Finishing the Arena
 
-Let's take this time to build out our own game! We're going to apply materials to whiteboxed scene, add more props, and add a sky to finish off the scenery.
+### Add a Material to an Object
 
-1. Let's check out the Materials library within **Core Content**! It's fast and easy to drag and drop any material onto an object to apply it.
+**Materials** allow you to add colors and textures to the objects in the scene, by dragging and dropping them onto objects.
+
+1. In the **Core Content** window, drop down the **Materials** menu to see the options.
+2. Pick a material, and drag it onto one of the objects in the scene.
 
     ![WallObjects](../img/MyFirstMultiplayer/MaterialExample.gif){: .center}
 
-2. But there's a really fast way to apply materials to all the objects in our game! To the right of the editor, game objects are listed in the "Hierarchy." Let's use the search bar to find all the "Wall" objects. Then, click the "Select" button to the right.
+### Cover the Walls
 
-    ![WallObjects](../img/MyFirstMultiplayer/SelectWalls.gif){: .center}
+You can apply a material to multiple objects by selecting them.
 
-3. Search for "Bark Oak 01" (or choose any material you like!) and drag it back into the hierarchy where all the selected walls are currently highlighted.
+- Use <kbd>Shift</kbd> + left click to select more objects.
+- Left click and drag to select objects in an area.
+
+1. In the **Heirarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
+2. Press <kbd>Enter</kbd> to select everything from the search
+3. Choose a material, and drag it onto one of the walls.
 
     ![WallObjects](../img/MyFirstMultiplayer/WoodWalls.gif){: .center}
 
-4. Looking good! Let's practice some more. Try searching the Hierarchy for "windows", using the Select button, and applying the same material.
+!!! note
+    You can also select the entire list by clicking the first object in the list, then holding <kbd>Shift</kbd> and scroll down to click the last.
+
+1. Looking good! Let's practice some more. Try searching the Hierarchy for "windows", using the Select button, and applying the same material.
 
     ![WoodLevel](../img/MyFirstMultiplayer/WoodLevel.png){: .center}
 
-5. Let's switch out this whitebox floor! Search the hierarchy for "floor", use the "Select" button to select all floor pieces, and drag and drop the material "Grass Clumps" onto the selected floor.
+2. Let's switch out this whitebox floor! Search the hierarchy for "floor", use the "Select" button to select all floor pieces, and drag and drop the material "Grass Clumps" onto the selected floor.
 
     ![WoodFloor](../img/MyFirstMultiplayer/WoodFloor.png){: .center}
 
-6. Now, it's your turn! Apply a material to the stairs and add more props to your game! Remember you can scale, rotate, and transform objects as well as explore an object's Properties!
+3. Now, it's your turn! Apply a material to the stairs and add more props to your game! Remember you can scale, rotate, and transform objects as well as explore an object's Properties!
 
     ![FinishArt](../img/MyFirstMultiplayer/FinishArt.png){: .center}
 
     !!! info "How do I make my own material?"
         If you want to learn more about customizing materials, check out our [Custom Material tutorial](custom_materials.md).
 
-7. Awesome! This scene looks rather dark though. Let's make it more vibrant with some better lighting! In "Core Content," search for sky. Then, drag and drop "Sky Whimsical Sunny Saturation."
+4. Awesome! This scene looks rather dark though. Let's make it more vibrant with some better lighting! In "Core Content," search for sky. Then, drag and drop "Sky Whimsical Sunny Saturation."
 
     ![VibrantLevel](../img/MyFirstMultiplayer/VibrantLevel.png){: .center}
 
