@@ -32,4 +32,4 @@ Core is in Open Alpha, which means it is still in early stages, with many featur
 
 ## About the Documentation
 
-The Core documentation is continuously written by Manticore and members of the Creator Community. To contribute, click the :fas fa-pencil-alt:{: style="color: #17a1e6;" } **Edit** icon to  any page of the documentation.
+The Core documentation is continuously written by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon"></a> **Edit** icon to  any page of the documentation.
