@@ -2,13 +2,13 @@
 id: first_multiplayer_game
 name: My First Multiplayer Game
 title: My First Multiplayer Game
-tags:
+categories:
     - Tutorial
 ---
 
-# My First Multiplayer Game
+# Build Your First Game In Core
 
-!!! warning
+<!-- !!! warning
     Flagged for Review.
     Incomplete or outdated information may be present.
 
@@ -25,71 +25,117 @@ Welcome to Core! We're excited to have you in Closed Alpha and can't wait to see
     * Core Content (Props & Materials)
     * Player Movement Settings
     * Community Content
-    * Publishing
+    * Publishing -->
 
-## Create a New Game
+## Start a New Project
 
-To get started, we're going to create a new project.
+To get started, use the **Create** menu to make a new project
 
-1. Click on **Create New**.
+### Click **Create New**
 
-    ![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center}
+![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center}
 
-2. Select the **Deathmatch** framework!
+1. With Core open, click the **Create** Tab on the left side menu.
+2. Click **Create New Game**.
 
-    ![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center}
+### Select the **Deathmatch** framework
 
-3. Name your project `MyFirstMultiplayerGame` or whatever you like! Then, click Create.
+![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center}
 
-    ![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center}
+<!-- ### Create a new Project
 
-### Explore the Map
+![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center} -->
 
-The Deathmatch framework gives a great starting point! Let's try it out ourselves.
+1. Click **View Frameworks** in the **Core Game Frameworks** option.
+2. Click **Deathmatch**.
+3. Name your project. `MyFirstGame` works well, but choose any name you like.
+4. Click **Create**.
 
-1. Behold the magnificence of this whiteboxed, free-for-all game framework! Let's jump in by pressing **Play**.
+## Explore the Project
 
-    ![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center}
+The Deathmatch framework gives you a complete game arena and shooter functionality out of the box.
 
-2. Out of the box, you have a character who can move and jump! Explore the map by moving your character with the <kbd>WASD</kbd> keys and jumping with <kbd>Space</kbd>. Shoot the default gun with your left mouse click and interact with the door with <kbd>F</kbd>.
+![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center}
 
-    ![PlayMode](../img/MyFirstMultiplayer/PlayMode.png){: .center}
+### Test Player Movement
 
-3. But we're all by ourselves. :worried: That's no fun, so let's test out the multiplayer experience by simulating two clients! Near the pause button, click on the **Multiplayer Preview Mode** button and select 2 Players.
+- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to experience your project as a player.
+  {: .image-inline-text .image-background}
+- Press <kbd>Tab</kbd> to pause the preview.
+- You can![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
+ {: .image-inline-text .image-background}
 
-    ![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center}
+As in any Core game project, you already have a working character controller.
 
-4. Let's press Play again! Core will launch multiple windows, one for each player. You control whichever character is in the active window.
+- Move the character with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys
+- Jump with <kbd>Space</kbd>
+- Crouch with <kbd>C</kbd>
+- Ride a mount with <kbd>G</kbd>
+
+### Test Shooter Mechanics
+
+Besides player movement, **Deathmatch** also gives each player a gun to shoot, and the ability to open and close doors.
+
+- Shoot the default gun with the left mouse button.
+- Open and close a door with <kbd>F</kbd>.
+
+![PlayMode](../img/MyFirstMultiplayer/PlayMode.png){: .center}
+
+### Test Multiplayer Gameplay
+
+Core projects also include multiplayer networking by default. Because this is a crucial component of this game, it is important to test using **Multiplayer Preview Mode** as much as possible.
+![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center}
+
+1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
+    {: .image-inline-text .image-background}
+2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
+    {: .image-inline-text .image-background}
 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
 !!! tip
-    Note that you can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
+     You can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
 
-## Make It Your Own
+## Customize the Arena
 
-So we have a whiteboxed map, and that's great and important in testing design! Now, let's customize the map and make it our own.
+### Explore Core Content
 
-1. Navigate to the **Core Content** window. You have access to a massive library of 3D assets, materials, and more for your game creation in Core!
+Core gives you a massive library of 3D assets, materials, sounds, and components for making games, which can be found in the **Core Content** Window.
 
-    ![Add Props](../img/MyFirstMultiplayer/AddPropsMarked.png){: .center}
+!!! note
+    You can reopen the "Core Content" window by going to **View** > **Core Content** in the top menu bar.
 
-    !!! note
-        If you can't find the "Core Content" window or accidentally close it, you can reopen the window by going to View > Core Content in the toolbar at the top of the editor.
+1. Click **Core Content**.
+2. Drop down the **3D Objects** menu to see the props and objects that can be added to the scene.
+3. Click on the **Nature** subcategory.
+4. Choose a bush and some other props to drag into the scene.
 
-2. Click on "3D Objects" and then drag and drop props into the editor viewport! In this example, we're going to place some bushes.
+![DragDrop](../img/MyFirstMultiplayer/DragDropBushes.gif){: .center}
 
-    ![DragDrop](../img/MyFirstMultiplayer/DragDropBushes.gif){: .center}
+### Create Hiding Places
 
-3. You can move, rotate, and scale all these objects! `W` activates Translation Mode to move objects; `E` activates Rotation mode; and `R` activates Scale Mode to resize objects. Let's click and drag on an arrow to move the object along that axis.
+You can move, turn, and resize objects.
+
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
+ or <kbd>W</kbd> activates Translation Mode.
+{: .image-inline-text .image-background}
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or <kbd>E</kbd> activates Rotation Mode.
+{: .image-inline-text .image-background}
+- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or <kbd>G</kbd> activates Scale Mode.
+{: .image-inline-text .image-background}
+
+1. Click on the bush and press <kbd>G</kbd> to move it.
+2. Use the arrows to move it into a good hiding place for a player.
+3. Press <kbd>W</kbd> to change the size of the bush.
+4. Click and drag the white box at the center of the bush to resize it proportionately.
+5. Move, rotate, and scale the rest of the objects to enhance the scene.
+6. Press play to
 
     ![Move](../img/MyFirstMultiplayer/MoveBushes.gif){: .center}
 
-4. Press Play. Currently, if you try to move through a bush, you'll be stopped once you collide with the object.
+    <!-- ![Stuck](../img/MyFirstMultiplayer/StuckInBushes.png){: .center} -->
 
-    ![Stuck](../img/MyFirstMultiplayer/StuckInBushes.png){: .center}
-
-5. Bushes are great as environmental props to hide players, but it'd be great to let players push past them to surprise enemies in this game! Let's click on a Bush and check out the Properties window. By default, this Bush is "Collideable" but with a simple click, we can turn that off.
+7. Bushes are great as environmental props to hide players, but it'd be great to let players push past them to surprise enemies in this game! Let's click on a Bush and check out the Properties window. By default, this Bush is "Collideable" but with a simple click, we can turn that off.
 
     ![Collison](../img/MyFirstMultiplayer/NoCollisonBush.gif){: .center}
 
