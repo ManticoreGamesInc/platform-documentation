@@ -34,7 +34,7 @@ This tutorial is designed for creators who have never done *any* programming bef
 * For debugging code, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
 
-* Another page you'll probably be constantly checking is the [Core API](/core_api) page.
+* Another page you'll probably be constantly checking is the [Core API](core_api.md) page.
 
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
