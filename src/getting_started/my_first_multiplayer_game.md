@@ -2,7 +2,7 @@
 id: first_multiplayer_game
 name: My First Multiplayer Game
 title: My First Multiplayer Game
-categories:
+tags:
     - Tutorial
 ---
 
@@ -125,7 +125,7 @@ Let's take this time to build out our own game! We're going to apply materials t
     ![FinishArt](../img/MyFirstMultiplayer/FinishArt.png){: .center}
 
     !!! info "How do I make my own material?"
-        If you want to learn more about customizing materials, check out our [Custom Material tutorial](../tutorials/art/custom_materials.md).
+        If you want to learn more about customizing materials, check out our [Custom Material tutorial](custom_materials.md).
 
 7. Awesome! This scene looks rather dark though. Let's make it more vibrant with some better lighting! In "Core Content," search for sky. Then, drag and drop "Sky Whimsical Sunny Saturation."
 
@@ -163,7 +163,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
     ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.png){: .center}
 
 !!! tip
-    With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](../editor_keybindings.md)!
+    With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](editor_keybindings.md)!
 
 ### Choose Your Weapon from Community Content
 
@@ -191,7 +191,7 @@ The map's in good shape now! Let's change up the gameplay itself now. There are 
     ![TreeShot](../img/MyFirstMultiplayer/TreeShot.gif){: .center}
 
 !!! info "That's too cool. How do I make my own weapon?"
-    It's easy! Check out our [Basic Weapons Tutorial](../tutorials/gameplay/weapons.md).
+    It's easy! Check out our [Basic Weapons Tutorial](weapons.md).
 
 ## Publishing Your Game
 
@@ -221,6 +221,6 @@ Now's the best part: playtesting! Come invite people to join you in-game in the 
 
 Excited? Check out these tutorials to build out your game:
 
-* Sculpt your own world! Check the [Terrain Tutorial](../tutorials/gameplay/weapons.md).
-* Create your own Weapon! Try out the [Basic Weapon Tutorial](../tutorials/gameplay/weapons.md).
-* Learn how to add player Abilities! Let players celebrate and [Dance Dance Dance](../tutorials/gameplay/abilities.md)!
+* Sculpt your own world! Check the [Terrain Tutorial](environmental_art.md).
+* Create your own Weapon! Try out the [Basic Weapon Tutorial](weapons.md).
+* Learn how to add player Abilities! Let players celebrate and [Dance Dance Dance](abilities.md)!

@@ -2,7 +2,7 @@
 id: collaboration
 name: Collaboration Reference
 title: Collaboration Reference
-categories:
+tags:
     - Reference
 ---
 
