@@ -2,7 +2,7 @@
 id: publishing
 name: Publish a Game
 title: Publish a Game
-categories:
+tags:
     - Tutorial
 ---
 
