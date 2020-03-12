@@ -248,7 +248,7 @@ trigger.interactedEvent:Connect(OnInteracted)
 
 The following examples assume the hierarchy has a GameSettings object with **"Enable Player Storage**" turned on.
 
-### Storage.GetPlayerData(Player)
+### `Storage.GetPlayerData(Player)`
 
 This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
 
@@ -268,7 +268,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Storage.SetPlayerData(Player, table)
+### `Storage.SetPlayerData(Player, table)`
 
 This example detects when a player gains XP or level and saves the new values to storage.
 
@@ -292,7 +292,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 Core uses events for a variety of state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. Events allow two separate scripts to communicate, without the need to reference each other directly and can also be used to communicate between scripts.
 
-### Connect
+### `Connect()`
 
 To hook up your function to an event, you have to call `Connect(function YourFunction, [...])` to register it. Now it will be called every time the event is fired.
 
@@ -314,7 +314,7 @@ Connects the `OnPlayerDamaged` function to the `damagedEvent` event on all playe
 
 `Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
 
-### Disconnect
+### `Disconnect()`
 
 Pretty simple, you just call `Disconnect()` on the returned `EventListener` to disconnect a listener from its event, so it will no longer be called when the event is fired.
 
@@ -339,7 +339,7 @@ end
 script.destroyEvent:Connect(OnDestroyed)
 ```
 
-### Broadcast
+### `Broadcast()`
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability objects `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
 
@@ -362,6 +362,171 @@ myAbility.executeEvent:Connect(OnExecute)
 ```
 
 Both error and success cases get communicated back to the client via `BroadcastToPlayer`. If you want to do the reverse, to update a server side stored value from a player script, you'd use `BroadcastToServer` instead.
+
+## Damage
+
+### `Damage.New([Number amount])`
+
+In this example players take 50 damage whenever they press 'D'.
+
+```lua
+function OnBindingPressed(player, action)
+    if (action == "ability_extra_32") then --The 'D' key
+        local dmg = Damage.New(50)
+        player:ApplyDamage(dmg)
+    end
+end
+
+function OnPlayerJoined(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `GetHitResult()`
+
+This example listens to the player's `damagedEvent` and takes a closer look at the [link]HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
+
+```lua
+function OnPlayerDamaged(player, dmg)
+    local hitResult = dmg:GetHitResult()
+    if hitResult then
+        print(player.name .. " was hit on the " .. hitResult.socketName)
+    end
+end
+
+function OnPlayerJoined(player)
+    player.damagedEvent:Connect(OnPlayerDamaged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `SetHitResult(HitResult)`
+
+This example spawns a custom [link]Projectile and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
+
+```lua
+local projectileBodyTemplate = script:GetCustomProperty("ProjectileTemplate")
+
+function OnProjectileImpact(projectile, other, hitResult)
+    if other:IsA("Player") then
+        local dmg = Damage.New(25)
+        dmg:SetHitResult(hitResult)
+        dmg.reason = DamageReason.NPC
+        other:ApplyDamage(dmg)
+    end
+end
+
+function ShootAtPlayer(player)
+    local startPos = script:GetWorldPosition()
+    local playerPos = player:GetWorldPosition()
+    local direction = playerPos - startPos
+    local projectile = Projectile.Spawn(projectileBodyTemplate, startPos, direction)
+    projectile.speed = 4000
+    projectile.impactEvent:Connect(OnProjectileImpact)
+end
+```
+
+### `amount`
+
+While Damage amount can be set when constructing the Damage object (e.g. Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
+
+```lua
+function DamagePlayerAdvanced(player, dmg)
+    local shieldAmount = player:GetResource("Shield")
+    if (shieldAmount > 0 and dmg.amount > 0) then
+        if shieldAmount >= dmg.amount then
+            player:RemoveResource("Shield", CoreMath.Round(dmg.amount))
+            dmg.amount = 0
+
+        elseif dmg.amount > shieldAmount then
+            player:SetResource("Shield", 0)
+            dmg.amount = dmg.amount - shieldAmount
+        end
+    end
+    player:ApplyDamage(dmg)
+end
+```
+
+### `reason`
+
+The damage `reason` can be used to specify the source of the damage and is useful, for example, when attributing score based on kills. In this example, players take 1 damage per second when they are within 20 meters of the center of the map. If another part of the game listens to the Player's diedEvent, it would be able to tell the difference between players being killed by the environment as opposed to killed by another player.
+
+```lua
+function Tick()
+    Task.Wait(1)
+    for _,player in ipairs(Game.GetPlayers()) do
+        local position = player:GetWorldPosition()
+        if position.size <= 2000 then
+            local dmg = Damage.New(1)
+            dmg.reason = DamageReason.MAP
+            player:ApplyDamage(dmg)
+        end
+    end
+end
+
+function OnPlayerDied(player, dmg)
+    if dmg.reason == DamageReason.MAP then
+        print("Player " .. player.name .. " was killed by the environment.")
+    end
+end
+
+function OnPlayerJoined(player)
+    player.diedEvent:Connect(OnPlayerDied)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `sourceAbility`
+
+In this example, knowing the source of the damage was an ability allows complex rules, such as magic resistance.
+
+```lua
+function OnPlayerDamaged(player, dmg)
+    if Object.IsValid(dmg.sourceAbility) then
+        local magicResist = player:GetResource("MagicResist")
+        if (magicResist > 0) then
+            local amount = dmg.amount
+            local newDmgAmount = amount / magicResist
+            -- Heal back some of the lost hitPoints due to magic resist
+            local newHitPoints = player.hitPoints + (amount - newDmgAmount)
+            newHitPoints = CoreMath.Clamp(newHitPoints, 0, player.maxHitPoints)
+            player.hitPoints = newHitPoints
+        end
+    end
+end
+
+function OnPlayerJoined(player)
+    player.damagedEvent:Connect(OnPlayerDamaged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `sourcePlayer`
+
+In this example, the source player scores a point for their team each time they get a kill.
+
+```lua
+function OnPlayerDied(player, dmg)
+    if Object.IsValid(dmg.sourcePlayer) then
+        print(player.name .. " was killed by " .. dmg.sourcePlayer.name)
+
+        Game.IncreaseTeamScore(dmg.sourcePlayer.team, 1)
+    else
+        print(player.name .. " died from an unknown source")
+    end
+end
+
+function OnPlayerJoined(player)
+    player.diedEvent:Connect(OnPlayerDied)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
 
 ## Needed
 
