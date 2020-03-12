@@ -29,7 +29,7 @@ To get started, use the **Create** menu to make a new project
 
 1. Click **View Frameworks** in the **Core Game Frameworks** option.
 2. Click **Deathmatch**.
-3. Name your project. `MyFirstGame` works well, but choose any name you like.
+3. Name your project. `MyFirstGame` works well, but choose any name.
 4. Click **Create**.
 
 ## Explore the Project
@@ -40,18 +40,18 @@ The Deathmatch framework gives you a complete game arena and shooter functionali
 
 ### Test Player Movement
 
-- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to experience your project as a player.
+- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to preview your project as a player.
   {: .image-inline-text .image-background}
 - Press <kbd>Tab</kbd> to pause the preview.
-- You can![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
+- Press ![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
  {: .image-inline-text .image-background}
 
 As in any Core game project, you already have a working character controller.
 
-- Move the character with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys
-- Jump with <kbd>Space</kbd>
-- Crouch with <kbd>C</kbd>
-- Ride a mount with <kbd>G</kbd>
+- Move the character with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys.
+- Jump with <kbd>Space</kbd>.
+- Crouch with <kbd>C</kbd>.
+- Ride a mount with <kbd>G</kbd>.
 
 ### Test Shooter Mechanics
 
@@ -75,7 +75,7 @@ Core projects also include multiplayer networking by default. Because this is a 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
 
 !!! tip
-     You can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side like above!
+     You can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side.
 
 ## Customize the Arena
 
@@ -102,7 +102,7 @@ You can move, turn, and resize objects.
 {: .image-inline-text .image-background}
 - ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or <kbd>E</kbd> activates Rotation Mode.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or <kbd>G</kbd> activates Scale Mode.
+- ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or <kbd>R</kbd> activates Scale Mode.
 {: .image-inline-text .image-background}
 
 ![Move](../img/MyFirstMultiplayer/MoveBushes.gif){: .center}
@@ -148,11 +148,11 @@ You can apply a material to multiple objects by selecting them.
 - Use <kbd>Shift</kbd> + left click to select more objects.
 - Left click and drag to select objects in an area.
 
+![WallObjects](../img/MyFirstMultiplayer/WoodWalls.gif){: .center}
+
 1. In the **Heirarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
 2. Press <kbd>Enter</kbd> to select everything from the search
 3. Choose a material, and drag it onto one of the walls.
-
-    ![WallObjects](../img/MyFirstMultiplayer/WoodWalls.gif){: .center}
 
 !!! note
     You can also select the entire list by clicking the first object in the list, then holding <kbd>Shift</kbd> and scroll down to click the last.
@@ -167,12 +167,12 @@ You can continue using these techniques to complete the appearance of your Death
 
     ![FinishArt](../img/MyFirstMultiplayer/FinishArt.png){: .center}
 
-    !!! info
-        There are different ways to customize each of these materials, which you can learn about in the [Custom Material Tutorial](custom_materials.md).
+!!! info
+    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
 
 ## Customizing Gameplay
 
-In this final section, you will find different ways to change the gameplay itself, not just the space it is played in.
+In this final section, you will find different ways to change the gameplay itself.
 
 ### Add Double Jumping
 
@@ -220,7 +220,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press `V`
 ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.png){: .center}
 
 !!! tip
-    Press  `0` to create a spawn point at your cursor's location. Check out more editor shortcuts [here](editor_keybindings.md)!
+    Press  `0` to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
 
 ## Publishing a Game
 
@@ -228,4 +228,4 @@ You now have a complete and unique deathmatch-style game. If you are ready to te
 
 ## Next Steps
 
-[Terrain Tutorial](environmental_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)!
+[Publish a Game](publishing.md) | [Terrain Tutorial](environmental_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)
