@@ -8,25 +8,6 @@ categories:
 
 # Build Your First Game In Core
 
-<!-- !!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
-## Overview
-
-Welcome to Core! We're excited to have you in Closed Alpha and can't wait to see what you create. To get you started, we're going to walk you through creating your first multiplayer game in Core... in 10 minutes!
-
-![NewWeapon](../img/MyFirstMultiplayer/NewWeapon.png){: .center}
-
-* **Completion Time:** 10 minutes
-* **Knowledge Level:** Beginner! No experience necessary!
-* **Skills you will learn:**
-    * Editor Basics
-    * Core Content (Props & Materials)
-    * Player Movement Settings
-    * Community Content
-    * Publishing -->
-
 ## Start a New Project
 
 To get started, use the **Create** menu to make a new project
@@ -176,115 +157,75 @@ You can apply a material to multiple objects by selecting them.
 !!! note
     You can also select the entire list by clicking the first object in the list, then holding <kbd>Shift</kbd> and scroll down to click the last.
 
-1. Looking good! Let's practice some more. Try searching the Hierarchy for "windows", using the Select button, and applying the same material.
+### Give Everything a Material
 
-    ![WoodLevel](../img/MyFirstMultiplayer/WoodLevel.png){: .center}
+You can continue using these techniques to complete the appearance of your Deathmatch arena. Try searching for each of these labels to apply materials in groups:
 
-2. Let's switch out this whitebox floor! Search the hierarchy for "floor", use the "Select" button to select all floor pieces, and drag and drop the material "Grass Clumps" onto the selected floor.
-
-    ![WoodFloor](../img/MyFirstMultiplayer/WoodFloor.png){: .center}
-
-3. Now, it's your turn! Apply a material to the stairs and add more props to your game! Remember you can scale, rotate, and transform objects as well as explore an object's Properties!
+- ``stairs``
+- ``window insert``
+- ``floor``
 
     ![FinishArt](../img/MyFirstMultiplayer/FinishArt.png){: .center}
 
-    !!! info "How do I make my own material?"
-        If you want to learn more about customizing materials, check out our [Custom Material tutorial](custom_materials.md).
+    !!! info
+        There are different ways to customize each of these materials, which you can learn about in the [Custom Material Tutorial](custom_materials.md).
 
-4. Awesome! This scene looks rather dark though. Let's make it more vibrant with some better lighting! In "Core Content," search for sky. Then, drag and drop "Sky Whimsical Sunny Saturation."
+## Customizing Gameplay
 
-    ![VibrantLevel](../img/MyFirstMultiplayer/VibrantLevel.png){: .center}
+In this final section, you will find different ways to change the gameplay itself, not just the space it is played in.
 
-!!! tip
-    In Core, you even have tons of customizable post process effects and VFX. Search for "Advanced Bloom Post Process" in Core Content and try it out!
+### Add Double Jumping
 
-### Customizing the Gameplay
+![PlayerSettings](../img/MyFirstMultiplayer/PlayerSettings.png){: .center}
 
-The map's in good shape now! Let's change up the gameplay itself now. There are lot of props on the map now, so let's give the player more power to hop over them.
-
-1. Find the "Player Settings" in the "Game Settings" folder or search the Hierarchy for it.
-
-    ![PlayerSettings](../img/MyFirstMultiplayer/PlayerSettings.png){: .center}
-
-2. In the Properties window of "Player Settings," change the Jump Max Count to 2 so all players have a double jump! Press Play and try it out with <kbd>Space</kbd>.
+1. Find **Player Settings** by searching for it in the **Hierarchy**.
+2. Open the **Properties** window to see all the settings that can be changed for each player
+3. In the **Jump** section, change **Jump Max Count** to ``2``,
+4. Press ![Play](../img/EditorManual/icons/Icon_Play.png)  to test out double-jumping with <kbd>Space</kbd>.
+{: .image-inline-text .image-background}
 
     ![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center}
 
-3. Great! Now, let's make this game have shorter rounds since 10 Kills may take a while. Let's go into the "Gameplay Settings" folder and select "Round Kill Limit."
+### Change The Round Kill Limit
 
-    ![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center}
+In the top left corner of the screen in game, you can see that you win the Deathmatch by killing 10 oponents. This can be changed in **Game Settings**.
 
-4. In the Properties window, change the "KillLimit" custom property to 3. Now, if you playtest, the winner will be whoever gets 3 kills first!
+![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center}
+
+1. Search for **Round Kill Limit** in the **Hierarchy**.
+2. Open the **Properties** window.
+3. Find the **KillLimit** property and change it to ``2``.
+4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an oponent twice.
+{: .image-inline-text .image-background}
 
     ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
 
-5. Game rounds now end at 3 kills, but in the upper-left corner of the screen it still says "First to kill 10 enemies wins!". Let's change that UI text to match the Round Kill Limit. In "UI Settings", find "Game Instructions" and click on the "UI Text Box." In Properties, change the Text field to 3.
+### Change the UI Instructions
 
-    ![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center}
+Although the game now ends after two kills, the instructions shown on the screen still tell players to shoot for ten.
 
-6. Let's move the "Player Start" where players spawn to be further apart. Press `V` to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+1. Search for **UI Text Box** under **Game Instructions** in the **Hierarchy**.
+2. Open the **Properties** window.
+3. Change the **Text** property to match your game's win condition.
 
-    ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.png){: .center}
+![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center}
+
+### Move the Player Start
+
+Let's move the "Player Start" where players spawn to be further apart. Press `V` to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+
+1. Search for **Spawn Point** in the **Hierarchy**.
+2. Move the spawn points around the map the same way you would any object.
+
+![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.png){: .center}
 
 !!! tip
-    With the shortcut key `0`, you can create a spawn point at your cursor's location. Check out more editor shortcuts [here](editor_keybindings.md)!
+    Press  `0` to create a spawn point at your cursor's location. Check out more editor shortcuts [here](editor_keybindings.md)!
 
-### Choose Your Weapon from Community Content
+## Publishing a Game
 
-1. Navigate to **Community Content**, where creators can publish and share their creations with the community! Let's search for a weapon and then click on the `Import` button to download the template into your local project. In this example, the "Tree Gun" by Buckmonster will be imported.
-
-    ![CCSearch](../img/MyFirstMultiplayer/CCSearchMarked.png){: .center}
-
-    !!! note
-        If you can't find the "Community Content" window or accidentally close it, you can reopen the window by going to View > Community Content in the toolbar at the top of the editor.
-
-2. Locate your imported weapon in **Core Content** under the "Imported" category.
-
-    ![LocateImport](../img/MyFirstMultiplayer/LocateImportedWeapon.png){: .center}
-
-3. Now, in the "Gameplay Settings" folder in the hierarchy, locate the "Starting Weapon" folder. In Properties, there is an "EquipmentTemplate" custom property which currently is the "Basic Rifle".
-
-    ![BasicRifle](../img/MyFirstMultiplayer/BasicRifle.png){: .center}
-
-4. To swap out the starting weapon, drag and drop your imported gun's template into the "EquipmentTemplate" field.
-
-    ![SwapWeapons](../img/MyFirstMultiplayer/SwapWeapons.gif){: .center}
-
-5. Press Play and test our your awesome new gun... that shoots tree!
-
-    ![TreeShot](../img/MyFirstMultiplayer/TreeShot.gif){: .center}
-
-!!! info "That's too cool. How do I make my own weapon?"
-    It's easy! Check out our [Basic Weapons Tutorial](weapons.md).
-
-## Publishing Your Game
-
-Almost there! Now to make your game live for the world.
-
-1. Locate the `Publish` button in the top right of the editor and press it.
-
-    ![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center}
-
-2. Fill out all the relevant information! Give your game a name, write up a description blurb, add relevant tags, and take a screenshot for your game! For your game's screenshots, you can either take snapshots in-editor with the camera button or select an image file from your directory via the folder button.
-
-    ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center}
-
-3. Click "Publish" in the bottom right corner. Anytime you're republishing the game with changes or updates, you can follow the exact same flow, except with a "Review & Update" button instead. When your game has been successfully published, a new window will pop up!
-
-    ![PublishSuccess](../img/MyFirstMultiplayer/PublishSuccess.png){: .center}
-
-4. Your game's now live! Visit your game's page and press play to try it out online.
-
-    ![GamePage](../img/MyFirstMultiplayer/GamePage.png){: .center}
+You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.md)
 
 ## Next Steps
 
-Congrats! You've made your first multiplayer game! 🎉
-
-Now's the best part: playtesting! Come invite people to join you in-game in the #playtest channel on :fab fa-discord: [Discord](https://discordapp.com/invite/3H4j3YJ). Manticore devs will be hanging out there too, and we can't wait to see what you create! If you need any help or have questions, there'll be live support there too.
-
-Excited? Check out these tutorials to build out your game:
-
-* Sculpt your own world! Check the [Terrain Tutorial](environmental_art.md).
-* Create your own Weapon! Try out the [Basic Weapon Tutorial](weapons.md).
-* Learn how to add player Abilities! Let players celebrate and [Dance Dance Dance](abilities.md)!
+[Terrain Tutorial](environmental_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)!
