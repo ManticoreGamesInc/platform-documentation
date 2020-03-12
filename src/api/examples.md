@@ -8,7 +8,7 @@ tags:
 
 # Examples and Snippets
 
-## Trigger Examples
+## Triggers
 
 In the following examples it's assumed the script is placed as a child of a trigger in the hierarchy.
 
