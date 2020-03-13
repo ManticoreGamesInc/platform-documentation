@@ -8,6 +8,22 @@ tags:
 
 # Build Your First Game In Core
 
+## Overview
+
+Jump in and build a game using Core's Deathmatch framework. Customize as much or as little as you want to build this multiplayer arena shooter.
+
+- **Completion Time:** 10 minutes.
+- **Previous Knowledge:** [Installing Core](installing_core.md)
+- **Skills you will learn:**
+    - Core Frameworks
+    - Core Content
+    - Manipulating Objects
+    - Applying Materials
+    - Collision
+    - Player Settings
+    - Game Settings
+    - Spawn Points
+
 ## Start a New Project
 
 To get started, use the **Create** menu to make a new project
