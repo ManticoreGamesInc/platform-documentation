@@ -17,7 +17,7 @@ Welcome to the official documentation of Core&trade;, the community-focused game
 - **Community collaboration**: Bolster your creation with objects, scripts, and games shared by other Core Creators.
 - **The tools you need**: VFX, audio, materials, textures, skyboxes, terrain sculpting, heightmaps, scripting, and an expansive list of features in the works.
 
-### Ready to get started? [Create Your First Game.](my_first_multiplayer_game.md)
+### Ready to get started? [Create your first game!](my_first_multiplayer_game.md)
 
 ## Organization of the Documentation
 
@@ -32,4 +32,4 @@ Core is in Open Alpha, which means it is still in early stages, with many featur
 
 ## About the Documentation
 
-The Core documentation is continuously written by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon"></a> **Edit** icon on any page of the documentation.
+The Core documentation is continuously written by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon">edit</a> icon in the top right corner of any page of the documentation.
