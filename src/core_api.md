@@ -651,7 +651,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
 | `capsuleRadius` | Number | Shape of the Projectile's collision. Default 22. | Read-Write |
 | `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
-| `homingTarget` | Player | The projectile accelerates towards its target. | Read-Write |
+| `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are ment to be used with spawned projectiles and will not work with weapons. | Read-Write |
 | `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
 | `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
 
