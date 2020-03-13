@@ -9,9 +9,11 @@ markdown-full-yaml-metadata
 mkdocs-redirects
 mkdocs-git-revision-date-localized-plugin
 mkdocs-autolinks-plugin
+mkdocs-htmlproofer-plugin
 # fontawesome-markdown; need to get latest from github
 https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
 # mkdocs-plugin-tags
 #https://github.com/jldiaz/mkdocs-plugin-tags/archive/master.zip
+
