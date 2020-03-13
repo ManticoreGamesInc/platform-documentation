@@ -41,11 +41,11 @@ First, make sure that you have:
 - The CLI Method:
 
     ```console
-    $ cd folder/to/clone-into/
-    $ git clone https://github.com/ManticoreGamesInc/platform-documentation
-    $ cd platform-documentation
-    $ git submodule update --init --recursive --depth=1
-    $ git config --global pull.rebase true # We use rebases instead of merges
+    cd folder/to/clone-into/
+    git clone https://github.com/ManticoreGamesInc/platform-documentation
+    cd platform-documentation
+    git submodule update --init --recursive --depth=1
+    git config pull.rebase true # We use rebases instead of merges
     ```
 
     - When prompted by a popup, sign in with your GitHub account.
@@ -67,7 +67,7 @@ First, make sure that you have:
 1. Install mkdocs
 
     ```console
-    $ pip install -r requirements.txt --upgrade
+    pip install -r requirements.txt --upgrade
     ```
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
@@ -75,7 +75,7 @@ First, make sure that you have:
 2. Install Node.js Packages
 
     ```console
-    $ npm install
+    npm install
     ```
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
@@ -83,7 +83,7 @@ First, make sure that you have:
 ### Spin up the Platform
 
 ```console
-$ mkdocs serve
+mkdocs serve
 ```
 
 - Navigate to `http://127.0.0.1:8000/` in your browser. The page will automatically refresh upon saving files.
@@ -96,16 +96,16 @@ $ mkdocs serve
 - The CLI Method:
 
     ```console
-    $ git checkout production
-    $ git pull # Make sure `production` is up to date with upstream
-    $ git checkout -b camera-controls # Create a new branch using your feature as the name
-    $ cd src/tutorials # Navigate to the correct folder
-    $ echo some-text > learn-camera.md # Create a new markdown file
+    git checkout development
+    git pull # Make sure `development` is up to date with upstream
+    git checkout -b camera-controls # Create a new branch using your feature as the name
+    cd src/tutorials # Navigate to the correct folder
+    echo some-text > learn-camera.md # Create a new markdown file
     ```
 
 - The GUI Method
 
-    - Double click the `production` branch.
+    - Double click the `development` branch.
     - Click **Pull** and check **Rebase instead of merge** if unchecked.
     - Click **New Branch**, check **Check out after create**, enter **camera-controls** and click **Create and checkout**.
     - Click **Open in** and select **Open in Visual Studio Code**.
@@ -114,25 +114,25 @@ $ mkdocs serve
 ### Check in your Changes
 
 - Make sure to add your new page to the index of pages in `mkdocs.yml` and `mkdocs-prod.yml`.
-- Commit any changes to your branch and push to the repository. (e.g. `git push camera-controls`)
-- When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `production`.
-- Our system will automatically build a version of the site for you to view live (check `#docs-updates` in Slack).
-- Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `production` and later `production-publish` which will make your content appear on the main site.
+- Commit any changes to your branch and push to the repository. (e.g. `git push origin camera-controls`)
+- When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `development`.
+- Our system will automatically build a version of the site for you to view live.
+- Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `development` and later `production` which will make your content appear on the main site.
 
 ## Staying up to Date
 
-Always make sure your `production` branch is up to date before creating a new feature branch! To update your local version to the latest version:
+Always make sure your `development` branch is up to date before creating a new feature branch! To update your local version to the latest version:
 
 - The CLI Method:
 
     ```console
-    $ git checkout production
-    $ git pull # Make sure `production` is up to date with upstream
+    git checkout development
+    git pull # Make sure `development` is up to date with upstream
     ```
 
 - The GUI Method:
 
-    - Double click the `production` branch.
+    - Double click the `development` branch.
     - Press the **Pull** button and check **Rebase instead of merge**.
     - Double click your feature branch.
-    - Right click the `production` branch in the sidebar and select **Rebase your-feature-branch on production**.
+    - Right click the `development` branch in the sidebar and select **Rebase your-feature-branch on development**.
