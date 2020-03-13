@@ -8,50 +8,54 @@ tags:
 
 # Environmental Art in Core
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
-Learning modelling basics in Core by making delicious food. <!-- TODO: Intro Text -->
+Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator by making a desert map.
 
-* **Completion Time:** ~20 minutes <!-- TODO: Completion Time -->
-* **Knowledge Level:** Basic editor <!-- TODO: Knowledge Level -->
-* **Skills you will learn:**
-    * Generating terrain
+- **Completion Time:** 20 minutes
+- **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
+- **Skills you will learn:**
+    * Creating and sculpting terrain
     * Creating swimmable volumes
     * Using the Object Generator tool
 
 ![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
+<!-- Image says "Generate Terrain" -->
 
-## Tutorial
+## The Terrain Creator
 
-Learn how to easily and quickly create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to sculpt terrain by walking you through how to create a swimmable oasis.
+Learn how to create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to sculpt terrain by walking you through how to create a swimmable oasis.
 
-### Generating Terrain
+### Open the Terrain Creator
 
-1. Generate terrain by navigating to the toolbar and clicking on the **Terrain Creator** button. Click **Generate Terrain** from the drop down menu,
+1. Start from an new empty project.
+2. Click the ![Terrain](../../img/EditorManual/icons/Icon_Terrain.png) button to open the **Terrain Creator**.
+ {: .image-inline-text .image-background}
+3. Choose **Generate New Terrain** from the drop down menu.
 
    ![ArtIntro](../../img/EnvironIntro/image11.png "Art Screenshot"){: .center}
 
-2. The **Generate Terrain** window will pop up.
+### Generate Terrain
 
-   ![ArtIntro](../../img/EnvironIntro/image17.png "Art Screenshot"){: .center}
+There are different options for types of terrain that can be generated in Core. You can click any of the terrain types to see a description of what it will generate.
 
-   As you can see there are many different terrain types to choose from out of the box. You can also import height maps for a more customized world.
-
-3. Select **Rolling Hills** and click **Generate**.
+1. Select **Rolling Hills**.
+2. Click **Generate**.
+3. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
 
    ![ArtIntro](../../img/EnvironIntro/image36.png "Art Screenshot"){: .center}
+   <!-- Image has "Heightmap" before pre-defined maps -->
 
-   Voilà! Let's spruce things up a bit by deleting the floor (which is still visible) and changing the material of the terrain.
+### Rearrange the Scene
 
-4. Delete the floor by navigating to the **Object** menu in the top bar and selecting **Remove Old Floor**.
+You may have fallen through your terrain, and you may see an unusually flat area where the default.
 
-   ![ArtIntro](../../img/EnvironIntro/image41.png "Art Screenshot"){: .center}
+1. Find the **Spawn Point** in the **Hierarchy** and move it too a new spot, above the terrain and just outside of the default floor.
+2. Find **Default Floor** in the **Heirarchy**, and rename to **Water**.
 
-5. Time to apply a material to the terrain. You can apply any material you wish. If you want to easily find a realistic terrain material go to the search bar in the **Core Content** tab and search "**Terrain**."
+### Apply Materials
+
+Time to apply a material to the terrain. You can apply any material you wish. If you want to easily find a realistic terrain material go to the search bar in the **Core Content** tab and search **Terrain**.
 
    Drag the material of your choosing onto the terrain to apply it.
 
