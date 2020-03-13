@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Build & Deploy (Pull Request)
 
 on:
   pull_request:
@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +32,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - if: steps.cache-node.outputs.cache-hit != 'true'
         run: npm install
