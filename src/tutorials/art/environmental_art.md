@@ -59,7 +59,7 @@ You may have fallen through your terrain, and you may see an unusually flat area
 
 ### Apply Materials
 
-Any material can be added to a terrain. However, materials that begin with **Terrain** are designed to be used for terrain and will have more variation in how they are applied.
+Any material can be added to a terrain. However, materials that begin with "Terrain" are designed to be used for terrain and will have more variation in how they are applied.
 
 1. Open the **Materials** tab of **Core Content**.
 2. Test out different materials by dragging them onto the terrain.
@@ -159,7 +159,7 @@ Core makes it easy to copy properties from one object to another. We can use thi
 
 ## Generating Foliage
 
-The Object Generator is a way to take any object, and let Core place several copies of on the terrain, according to customizable settings.
+The Object Generator is a way to take any object and let Core place several copies of on the terrain, according to customizable settings.
 
 ### Duplicate the Water Object
 
@@ -184,7 +184,7 @@ To use the Object Generator, you need to select both the object to generate and 
 
 ### Spawn Grass
 
-1. Open the 4. Open the **Object Generator** by going to the **View** in the menu top bar. by going to the **View** in the menu top bar.
+1. Open the **Object Generator** by going to the **View** in the menu top bar. by going to the **View** in the menu top bar.
 2. In the **Object Generator** menu, check the **Randomize Scale** box, and change the **Max Scale** value to two
     - **Randomize Scale** makes the objects generated vary in size.
     - Make the **Min Scale** and **Max Scale** values closer for less variation in size.
