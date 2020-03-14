@@ -8,23 +8,24 @@ tags:
 
 # Environmental Art in Core
 
+![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .hero}
+
 ## Overview
 
-Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator by making a desert map.
+Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator. This tutorial will focus on making a desert landscape with a hidden green oasis, but can be customize to build any natural scene with an area where players swim.
 
 - **Completion Time:** 20 minutes
 - **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
 - **Skills you will learn:**
-    * Creating and sculpting terrain
-    * Creating swimmable volumes
-    * Using the Object Generator tool
+    - Creating and sculpting terrain
+    - Creating swimmable volumes
+    - Using the Object Generator tool
 
-![ArtIntro](../../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
 <!-- Image says "Generate Terrain" -->
 
 ## The Terrain Creator
 
-Learn how to create an environment using the Terrain Generator tool and the Object Generator tool. This tutorial will also show you how to sculpt terrain by walking you through how to create a swimmable oasis.
+The Terrain Generator tool creates a different landscapes, either from a premade HeightMap, or through random generation.
 
 ### Open the Terrain Creator
 
@@ -41,113 +42,83 @@ There are different options for types of terrain that can be generated in Core. 
 
 1. Select **Rolling Hills**.
 2. Click **Generate**.
-3. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
+3. Press ![Play](../../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
 
    ![ArtIntro](../../img/EnvironIntro/image36.png "Art Screenshot"){: .center}
    <!-- Image has "Heightmap" before pre-defined maps -->
 
 ### Rearrange the Scene
 
-You may have fallen through your terrain, and you may see an unusually flat area where the default.
+You may have fallen through your terrain, and you may see an unusually flat area where Default Floor still exists in the scene.
 
 1. Find the **Spawn Point** in the **Hierarchy** and move it too a new spot, above the terrain and just outside of the default floor.
-2. Find **Default Floor** in the **Heirarchy**, and rename to **Water**.
+2. Right click on **Default Floor** in the **Heirarchy** and select **Delete**.
+3. Click the ![Terrain](../../img/EditorManual/icons/Icon_Terrain.png) **Terrain** button again to see that it now lists the **Terrain(Rolling Hills)** as **Primary**
+
+!!! note "Tip: Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one will have collision."
 
 ### Apply Materials
 
-Time to apply a material to the terrain. You can apply any material you wish. If you want to easily find a realistic terrain material go to the search bar in the **Core Content** tab and search **Terrain**.
+Any material can be added to a terrain. However, materials that begin with **Terrain** are designed to be used for terrain and will have more variation in how they are applied.
 
-   Drag the material of your choosing onto the terrain to apply it.
+1. Open the **Materials** tab of **Core Content**.
+2. Test out different materials by dragging them onto the terrain.
+3. Search the **Core Content** tab for  `terrain`.
+4. Find **Terrain - Desert** and drag it onto the terrain.
 
    ![ArtIntro](../../img/EnvironIntro/image32.gif "Art Screenshot"){: .center}
 
-   ![ArtIntro](../../img/EnvironIntro/image2.png "Art Screenshot"){: .center}
+### Open the Sculpt Menu
 
-### Editing Terrain
+The shape of terrain can be changed using sculpting tools in the **Properties** menu.
 
-Let's carve out an area to make an oasis in this rolling desert. You can edit the terrain by clicking on the pencil icon next to your **Primary** terrain in the **Terrain Creator** drop down menu.
+1. Click on the terrain, either in the Main Viewport or the Hierarchy.
+2. Open the **Properties** window.
+3. Click on the ![Terrain Sculpt](../../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text style="width:2em; background:#15181e"} **Sculpt** tab.
 
-!!! note "Tip: Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one can have collision."
+### Sculpt the Terrain
 
-![ArtIntro](../../img/EnvironIntro/image27.png "Art Screenshot"){: .center}
+The sculpting menu contains tools to change the landscape according to the intended style.
 
-#### Mode and Shape
-
-![ArtIntro](../../img/EnvironIntro/image19.png "Art Screenshot"){: .center}
-
-**Mode** allows you to change how you are affecting the terrain.
-
-* ![ArtIntro](../../img/EnvironIntro/image1.png "Art Screenshot") **Add Terrain**: Raise the terrain level
-  {: .image-inline-text}
-* ![ArtIntro](../../img/EnvironIntro/terrain_subtract.png "Art Screenshot") **Subtract Terrain**: Lower the terrain level
-  {: .image-inline-text}
-* ![ArtIntro](../../img/EnvironIntro/terrain_smooth.png "Art Screenshot") **Smooth Terrain**: Make terrain edges less jagged and hills less prominent
-  {: .image-inline-text}
-* ![ArtIntro](../../img/EnvironIntro/terrain_level.png "Art Screenshot") **Level Terrain**: Create a flat plane
-  {: .image-inline-text}
-* ![ArtIntro](../../img/EnvironIntro/terrain_paint.png "Art Screenshot") **Paint Terrain material**: Change the terrain material with a brush
-  {: .image-inline-text}
-
-**Shape** allows you to customize the brush you use to change the terrain.
-
-* **Brush Type**: Change the style of the brush you are using. Current options are: Project, Sphere, and Cube.
-* **Size**: Control how large or small the brush is.
-* **Falloff**: Controls how steep changes to the terrain are.
-* **Stride**: Controls how much you need to move the mouse to affect the terrain.
-
-![ArtIntro](../../img/EnvironIntro/image19.png "Art Screenshot"){: .center}
-
-1. Click and drag on the terrain to lower the terrain level. Experiment with the shape controls. When you find shape settings you like, make a crater in the terrain.
+1. In the **Tool** menu, select the ![Terrain Sculpt](../../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** tool.
+2. Change the mode from ![Additive](../../img/EditorManual/icons/Icon_TerrainPull.png){: .image-inline-text style="width:2em; background:#15181e"} **Additive** to ![Destructive](../../img/EditorManual/icons/Icon_TerrainPush.png){: .image-inline-text style="width:2em; background:#15181e"} **Destructive**.
+{: .image-inline-text}
+3. Lower the **Strength** value in the **General** subcategory to ``0.1``
+4. Click and drag on the terrain to make a crater deep enough to fill with water.
 
    ![ArtIntro](../../img/EnvironIntro/image28.png "Art Screenshot"){: .center}
 
-   Here are the settings I used:
+### Smooth the Terrain
 
-   ![ArtIntro](../../img/EnvironIntro/image22.png "Art Screenshot"){: .center}
-
-2. Smooth the terrain by changing the mode from **Subtract Terrain** to **Smooth Terrain**. Note that changing to **Smooth Terrain** mode automatically sets the **Brush Type** to **Sphere**.
+1. Change the sculpting tool from ![Terrain Sculpt](../../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** to ![Terrain Smooth](../../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text style="width:2em; background:#15181e"} **Smooth**.
+2. Click and drag the crater to give it a more natural appearance.
 
    ![ArtIntro](../../img/EnvironIntro/image7.png "Art Screenshot"){: .center}
 
-#### Painting
+## Water and Swimming
 
-!!! warning "Terrain painting is an experimental feature and it may be disabled."
+### Add a Cube to the Scene
 
-The paint tools allow you to write an RGBA color value to the terrain. The terrain material then interprets that color value to determine what the surface looks like.
-
-There are three broad categories of materials:
-
-1. Basic materials (non-paintable): These materials provide a predetermined texture and aren't altered by the RGBA color painting. Most materials in the catalog are like this.
-2. Color paintable materials: Select materials can be tinted with an RGB color.
-3. Textured paintable materials: Select materials can blend between five different materials, based on the values in the RGBA color channel.
-
-The color paintable and texture paintable materials can currently be found in the experimental Terrain Materials section of the library:
-
-![ArtIntro](../../img/EnvironIntro/image4.png "Art Screenshot"){: .center}
-
-!!! warning "The Textured Paintable materials you want to use here are named "4-way Blend". Materials marked "4-way Alpha" are obsolete, incompatible with the painting tools - and will be removed."
-
-Assign a Textured Paintable material to the terrain by dragging and dropping it onto the terrain surface (eg: "Terrain 4-way Blend"). Once assigned, the following section of the Terrain Editor panel allows you to select a material blend:
-
-![ArtIntro](../../img/EnvironIntro/image26.png "Art Screenshot"){: .center}
-
-#### Adding Water
-
-1. Drag a **Cube** into the scene. Place in the middle of your crater.
+1. Search for a cube in the **Core Content** window.
+2. Drag the cube into the scene, in the middle of your crater.
 
    ![ArtIntro](../../img/EnvironIntro/image29.png "Art Screenshot"){: .center}
 
-2. Resize the cube until it fills your crater.
+### Resize and Reposition the Cube
+
+1. Resize the cube until it fills your crater.
+2. Move the cube down until it looks like a pool of water inside the sand dunes.
 
    ![ArtIntro](../../img/EnvironIntro/image14.png "Art Screenshot"){: .center}
 
-3. Find the **Generic Water** material in the materials section of the **Core Content** tab. (Or search for "**generic water**" in the **Core Content** tab search bar). Apply it to our resized cube.
+### Add a Material
 
+1. Search **Core Content**  for ``water``.
+2. Choose a water material, and drag it onto the cube.
    ![ArtIntro](../../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
+3. Preview the scene to see the water in person.
 
-   Congrats! Your cube is now a passable pond. Let's add the ability to swim in it.
-
-#### Creating a Swimmable Volume
+### Make the Water Swimmable
 
 1. Select the cube we applied the **Generic Water** material to. Under the **Scene** section, uncheck **Collidable**. This will allow the player to pass through the water.
 
