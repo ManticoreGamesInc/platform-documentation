@@ -5,6 +5,7 @@ title: The Object Generator Tool
 tags:
     - Reference
 ---
+# The Object Generator
 
 ## Customizing the Object Generator
 
