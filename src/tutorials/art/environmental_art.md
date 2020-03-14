@@ -115,71 +115,81 @@ The sculpting menu contains tools to change the landscape according to the inten
 
 1. Search **Core Content**  for ``water``.
 2. Choose a water material, and drag it onto the cube.
-   ![ArtIntro](../../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
 3. Preview the scene to see the water in person.
 
-### Make the Water Swimmable
+   ![ArtIntro](../../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
 
-1. Select the cube we applied the **Generic Water** material to. Under the **Scene** section, uncheck **Collidable**. This will allow the player to pass through the water.
+!!! note
+    Double-click **Cube** in the Hierarchy to rename it to **Water** to make it easier to navigate your project in the future.
+
+### Disable Collision on the Water
 
    ![ArtIntro](../../img/EnvironIntro/image12.png "Art Screenshot"){: .center}
 
-   Press play and walk into the water
+1. Select the water cube.
+2. On the **Properties** window, and find the **Scene** section.
+3. Change the **Collision** property to **Force Off**.
+4. Preview again to test that you can now pass through the water as a player.
 
-   ![ArtIntro](../../img/EnvironIntro/image34.png "Art Screenshot"){: .center}
+### Use the Underwater Post Process
 
-   Now you can pass through the water, but once inside it doesn't look like we are underwater at all. We can use the **Underwater Post Process** volume to achieve an underwater effect. The **Underwater** volume will also allow us to swim inside the water.
+Now you can pass through the water, but once inside it looks like the volume disappears. We can use the **Underwater Post Process** volume to achieve an underwater effect.
 
-2. Find the **Underwater Post Process** volume under the **Post Processing > Scene** section in the **Core Content** tab. Drag it into your scene on top of your water. (Your **Main Viewport** may change color for a second - this is normal).
-
-   ![ArtIntro](../../img/EnvironIntro/image30.png "Art Screenshot"){: .center}
+1. Find the **Underwater Post Process** volume under the **Post Processing** section of **Core Content**.
+2. Drag it into your scene on top of your water.
 
    ![ArtIntro](../../img/EnvironIntro/image13.png "Art Screenshot"){: .center}
 
-   If you can't see the blue outline of the **Underwater** volume, press <kbd>V</kbd> to enable Gizmos.
+### Resize the Underwater Post Process
 
-3. Select the cube we applied the **Generic Water** material to. Go to the **Transform** section in the cube's **Properties** tab and **right click** on the word **Position**. Click **Copy Position**.
+Core makes it easy to copy properties from one object to another. We can use this to make the Underwater Post Process match the size and position of the Water cube.
 
-   Now select the **Underwater Post Process** volume and go its **Transform** section in its **Properties** tab. Right click on Position and select **Paste Last Copied ...**. Now the **Underwater** volume is positioned where our water is.
-
-4. We need to resize the **Underwater Post Process** volume so it is the same size as our water. Repeat the copy and paste process we just used to change the **Underwater** volume's **Transform** properties, but with **Scale**.
-
-   Press play and jump in!
+1. Select the cube that represents the water and open **Properties** window.
+2. Click the  **Copy Properties** button in the top right corner.
+3. Select the **Underwater Post Process** volume and return to the **Properties** window.
+4. Click the **Paste Properties** button, in the top right corner.
+5. Check **Position**, **Rotation** and **Scale** in the menu that pops up and press **Paste Selected Parameter Values**
+6. Start a preview to test out swimming. The Underwater Post Process should now be in the same place and the same size as the water object.
 
    ![ArtIntro](../../img/EnvironIntro/image15.png "Art Screenshot"){: .center}
 
-   Success!
+## Generating Foliage
 
-5. (Optional) You can customize the **Underwater Post Process** volume so your water looks exactly how you want it to. Select the **Underwater** volume and check out the **Smart** section under its **Properties** tab. You can hover over each property name to read its tooltip and find out what it does
+The Object Generator is a way to take any object, and let Core place several copies of on the terrain, according to customizable settings.
 
-#### Adding Details
+### Duplicate the Water Object
 
-Let's add some foliage around our oasis. We can manually place every bush or rock, which is time consuming, or we can use the Object Generator to randomly spawn plants (or anything we want) very quickly.
-
-1. Let's start by duplicating our water cube. Select the cube and press <kbd>CTRL</kbd> + <kbd>W</kbd> to quickly duplicate the cube. Drag our newly cloned cube above our pond. It will look weird but don't worry.
+1. Select the water object and press <kbd>Ctrl</kbd> + <kbd>W</kbd> to dublicate it.
+2. Drag the duplicate cube up above the terrain.
 
    ![ArtIntro](../../img/EnvironIntro/image43.png "Art Screenshot"){: .center}
 
-2. Let's spawn some grass around our water. In the **Core Content** tab go to **Environment > Foliage** and find the **Grass Short** asset.
+### Select the Objects
 
-3. Open the **Object Generator** by going to the **View** menu in the top bar.
+To use the Object Generator, you need to select both an object to generate, and another object in the scene for the objects to generate *beneath*, in this case, the duplicated water.
 
-   ![ArtIntro](../../img/EnvironIntro/image24.png "Art Screenshot"){: .center}
+![ArtIntro](../../img/EnvironIntro/image40.png "Art Screenshot"){: .center}
 
-4. Make sure our duplicate cube is selected in the **Hierarchy**.
+1. In the **Core Content** tab open the **3D Objects** menu to find the **Nature** menu.
+2. Select a grass object.
+3. Make sure that the duplicate water is also selected in the Hierarchy.
 
-   ![ArtIntro](../../img/EnvironIntro/image10.png "Art Screenshot"){: .center}
+!!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
 
-   Make sure the **Grass Short** asset is selected in the **Core Content** tab.
+### Spawn Grass
 
-   ![ArtIntro](../../img/EnvironIntro/image40.png "Art Screenshot"){: .center}
+1. Open the 4. Open the **Object Generator** by going to the **View** in the menu top bar. by going to the **View** in the menu top bar.
+2. In the **Object Generator** menu, check the **Randomize Scale** box, and change the **Max Scale** value to two
+    - **Randomize Scale** makes the objects generated vary in size.
+    - Make the **Min Scale** and **Max Scale** values closer for less variation in size.
+3. Check the **Randomize Yaw** box.
+    - This will place the grasses at different angles relative to the ground
+4. Check the **Use Random Color** Box, and change **Min G** to ``0.5`` and **Max B** to 0.
+   - This will randomize the grasses color between yellow (100% red with 100% green) and 100% green with no red.
+5. Check the **Only Spawn On Terrain** box to put grass on the sand, but not the water object.
+6. Click **Spawn Selected Asset Under Selected Hierarchy Object**.
 
-   Both the **Cube** and **Grass Short** asset should be highlighted in blue.
-
-   Click **Spawn Selected Asset Under Selected Hierarchy Object**. You now have randomly generated grass!
-   If you don't like how it looks, you can delete the grass and experiment with the settings in the **Object Generator** tab until you settle on something you like.
-
-##### Using the Object Generator
+<!-- ## Using the Object Generator
 
 ![ArtIntro](../../img/EnvironIntro/image35.png "Art Screenshot"){: .center}
 
@@ -248,9 +258,9 @@ Checking **Only Spawn On Terrain** ensures spawned objects will only spawn on th
 
 Keep **Group In Folder** checked to spawn all new objects in a folder. This helps keep your Hierarchy organized.
 
-You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing <kbd>SHIFT</kbd> + <kbd>X</kbd> with an object selected in the **Core Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color.
+You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing <kbd>SHIFT</kbd> + <kbd>X</kbd> with an object selected in the **Core Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color. -->
 
-!!! info "Tip: Templates you've created or downloaded from Community Content also work with the object generator!"
+### Spawn More Desert Objects
 
 Continue using the **Object Generator** to decorate your scene. When you are done, delete the duplicate water cube.
 
