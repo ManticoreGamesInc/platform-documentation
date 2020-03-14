@@ -21,8 +21,6 @@ Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generat
     - Creating swimmable volumes
     - Using the Object Generator tool
 
-<!-- Image says "Generate Terrain" -->
-
 ## The Terrain Creator
 
 The Terrain Generator tool creates a different landscapes, either from a premade HeightMap, or through random generation.
