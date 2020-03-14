@@ -10,7 +10,6 @@ nav:
       - Publish a Game: getting_started/publishing.md
       - Sharing Content: getting_started/community_content.md
       - Editor Shortcuts: editor_keybindings.md
-      - Troubleshooting: getting_started/troubleshooting.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Gameplay:
@@ -42,6 +41,7 @@ nav:
         - Editor Extensions: extensions.md
         - Coming from other Engines: getting_started/other_engines.md
         - Examples & Snippets: api/examples.md
+      - Troubleshooting: getting_started/troubleshooting.md
   - Forums:
       - Forums: https://forums.coregames.com/
   - Events:
