@@ -588,6 +588,24 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Random number generators with different seeds.
     - Logic based around local `time()`.
 
+## Player
+
+### `TransferToGame(string)`
+
+Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
+
+```lua
+local trigger = script.parent
+
+function OnBeginOverlap(theTrigger, player)
+  -- The object's type must be checked because CoreObjects also overlap triggers
+    if player:IsA("Player") then
+        player:TransferToGame("577d80/core-royale")
+    end
+end
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
 ## Needed
 
 * What isn't represented here? Let us know!
