@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +32,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - if: steps.cache-node.outputs.cache-hit != 'true'
         run: npm install
@@ -50,11 +45,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build
-        run: mkdocs build
-
-      - name: Azure Blob Storage Upload
-        uses: bacongobbler/azure-blob-storage-upload@v1.0.0
-        with:
-          source_dir: site
-          container_name: dev
-          connection_string: ${{ secrets.ConnectionString }}
+        run: mkdocs build --config-file mkdocs-prod.yml

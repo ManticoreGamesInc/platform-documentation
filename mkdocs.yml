@@ -88,7 +88,7 @@ extra_javascript:
 extra:
   social:
     - type: discord
-      link: https://discord.gg/85k8A7V
+      link: https://discord.gg/core-creators
     - type: youtube
       link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
     #- type: reddit
@@ -132,22 +132,13 @@ plugins:
   #- tags:
   #    tags_folder: src/generated/
   - git-revision-date-localized
+  #- htmlproofer
   - search
   - autolinks
   - redirects:
       redirect_maps:
         getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
         news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
-        news/daily_challenge.md: https://forums.coregames.com/c/community/events/6
-        patch_notes/patch_notes.md: https://forums.coregames.com/c/community/patch-notes/7
-        patch_notes/january_28_2020.md: https://forums.coregames.com/t/alpha-update-4-january-28th-2020/65
-        patch_notes/january_15_2020.md: https://forums.coregames.com/t/alpha-update-3-january-15th-2020/64
-        patch_notes/january_7_2020.md: https://forums.coregames.com/t/alpha-update-2-january-7th-2020/55
-        patch_notes/december_17_2019.md: https://forums.coregames.com/t/alpha-update-1-december-17th-2019/54
-        discord.md: https://forums.coregames.com/t/discord-server/66/
-        manticoretv.md: https://forums.coregames.com/t/what-is-manticoretv/39
-        events/game_jam.md: https://forums.coregames.com/c/community/events/6
-        faq.md: https://forums.coregames.com/t/creation-in-core-faq/83
         api.md: https://dev.manticoreplatform.com/docs/core_api/
         tutorials/examples.md: https://dev.manticoreplatform.com/docs/api/examples.md
 
@@ -156,8 +147,8 @@ docs_dir: src
 site_name: Core Creator Hub
 
 # Add repository for easy editing
-repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
-edit_uri: edit/production/src
+#repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
+#edit_uri: edit/development/src
 
 site_description: Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
@@ -165,6 +156,6 @@ site_url: https://dev.manticoreplatform.com/docs/
 
 copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
 
-google_analytics:
-  - UA-142884846-4
-  - auto
+#google_analytics:
+#  - UA-142884846-4
+#  - auto

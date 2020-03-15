@@ -581,7 +581,7 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Send a single networked value to synchronize the server and clientsâ€™ random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
-!!! warning Beware of desync issues!
+!!! warning "Beware of desync issues!"
     Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause desync issues.
     Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
     - Server-only or client-only objects.
