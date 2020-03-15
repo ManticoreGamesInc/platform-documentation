@@ -89,11 +89,11 @@ extra:
     - type: discord
       link: https://discord.gg/core-creators
     - type: youtube
-      link: https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ
+      link: https://www.youtube.com/CoreGamesOfficial
     #- type: reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
     - type: facebook
-      link: https://www.facebook.com/groups/playcoregames
+      link: https://www.facebook.com/playcoregames
     - type: twitter
       link: https://twitter.com/coregames
     - type: twitch
