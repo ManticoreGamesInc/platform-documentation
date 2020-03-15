@@ -206,4 +206,4 @@ You have now built a natural environment that you can use as a basis for a game,
 
 ## Learn More
 
-[Custom Materials](custom_materials.md) | [The Object Generator](objectgenerator.md) | [Sharing Content](community_content.md)
+[Custom Materials](custom_materials.md) | [The Object Generator](object_generator.md) | [Sharing Content](community_content.md)
