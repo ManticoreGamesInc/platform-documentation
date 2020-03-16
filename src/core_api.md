@@ -525,7 +525,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
 | `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
 | `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
-| `TransferToGame(string)` | None | Only works in play off web portal. Transfers player to the game specified by the passed-in game ID (the string from the web portal link). | Server-Only |
+| `TransferToGame(string)` | None | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
 | `GetActiveCamera()` | Camera | Returns whichever camera is currently active for the Player. | Client-Only |
