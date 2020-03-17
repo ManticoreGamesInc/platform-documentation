@@ -16,7 +16,6 @@ jobs:
         with:
           repository: ManticoreGamesInc/mkdocs-material
           ref: manticore
-          token: ${{ secrets.ACCESS_TOKEN }}
           path: mkdocs-material
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
