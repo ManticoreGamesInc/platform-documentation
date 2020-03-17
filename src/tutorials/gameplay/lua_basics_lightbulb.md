@@ -110,7 +110,7 @@ You could think of it in terms of sandwich making. For a task like slicing an in
 
 But for each item you want to slice for the sandwich, you'd have to type out that whole list each time! That would mean so much typing for the tomates, cheese, pickles... If that were a function instead, then you could just type `SliceObject(tomato)` when you want to do all those steps at once.
 
-So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Initialize`.
+So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Init`.
 
 1. Open up your `TutorialScript` again if you closed it.
 
@@ -118,7 +118,7 @@ So in order to be able to perform our task exactly when and how we want to, we'r
 
     ```lua
     -- Our first function!
-    local function Initialize()
+    local function Init()
         UI.PrintToScreen("Hello from a function!")
     end
     ```
