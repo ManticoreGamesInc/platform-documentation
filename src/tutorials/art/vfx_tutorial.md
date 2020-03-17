@@ -252,13 +252,15 @@ Now you know how to control several different post process effects. Each one in 
 
 ### Visual Effects
 
-The next section of this tutorial focuses soley on VFX! Just like the video above, we will be making an interactable treasure chest and using the Core built-in resource system.
+The next section of this tutorial focuses exclusively on VFX! Just like the video above, we will be making an interactable treasure chest and using the Core built-in resource system.
 
 Core includes the benefit of having an ever-expanding list of visual effect objects to work with, and thanks to the template system, we can combine these in even more unique ways to achieve whatever your vision may be.
 
+We'll be making a treasure chest that requires an item to open!
+
 **Time to complete:** 20 minutes
 
-**Knowledge Level:** No knowledge required, but this tutorial will use some simple **[Lua](/tutorials/gameplay/lua_basics_lightbulb)** scripting.
+**Knowledge Level:** No knowledge required, but this tutorial will use some simple Lua scripting. If you've never programmed before, you might want to check out the **[Lua](/tutorials/gameplay/lua_basics_lightbulb)** tutorial first.
 
 **Skills you will gain:**
 
@@ -270,35 +272,54 @@ Core includes the benefit of having an ever-expanding list of visual effect obje
 
 ![Post Process Effects](../../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
 
-To start, open up a new project.
+To start, open up a new project or whatever project you'd like to make this treasure chest in.
 
-1. Navigate to the Core Content window.
+1. Navigate to the **Core Content** window.
 
     !!! info
-        If it is not already open in your Editor's UI, you can open it up by clicking View > Core Content in the .
+        If it is not already open in your Editor's UI, you can open it up by clicking View > Core Content in the top menu bar.
 
 2. Type "chest" into the search bar within that window.
 
     ![Post Process Effects](../../img/VFXtutorial/coreContent_chestOpen.png "The default of AO is subtle but clear."){: .center}
 
-3. Drag the **Chest Small Closed** into your project viewport.
+3. Click on and drag the **Chest Small Closed** into your project viewport.
 
-4. Group that chest, make sure transforms are good & 000 on the chest itself
+4. Right click that chest in your project **Hierarchy**, and click "New Group Containing This".
 
-5. drag a **Chest Small Open** into that parent group, now they are in same place wow
+    The transform data on the Small Chest Closed should now be all at default of 0,0,0. All the position data should now be on the parent group that we just created.
 
-6. force off the visibilty of open one
+5. Next, drag a **Small Chest Opened** into that group we created.
 
-7. now we create a new script called "TreasureChest" and drag it into the TreasureChest group.
+    This will place the opened chest in the exact same spot as the closed chest.
 
-8. search for trigger in core content, drag one into the TreasureChest group.
+6. With the Chest Small Opened selected in the project Hierarchy, navigate to the Properties window.
 
-    !!! info
-        It's a good practice to keep scripts at the top
+    Scroll down to the section called *Scene*. In here, change the setting for Visibility from Inherit from Parent to Force Off. We're going to hide this chest and unhide it later when we want the chest to be opened.
 
-9. check on interact box and give it an interaction label "Open"
+7. Click the button at the top left of the Core Editor to create a new script; let's call it `TreasureChest`.
 
-    notice how now it prompts you to open it but you can't yet
+    Drag this script into your TreasureChest group in the Hierarchy.
+
+8. In the **Core Content** window, search for "trigger". Click and drag one into the TreasureChest group in your project Hierarchy.
+
+    !!! note
+        Overall in your group structure, it's typically best practice to keep your scripts at the top. You're most likely to want to click on them again later, so keeping them at the top helps them be easier to find!
+
+9. With the Trigger selected in the Hierarchy, check out the Properties window. Scroll down to the **Gameplay** section.
+
+    1. Find the *Interactable* property. Turn this on.
+
+        !!! tip
+            A trigger can operate in two distinct ways. If **Interactable** is *on*, it will turn into a player-confirmed switch. This means the player will have to walk up to it and press <kbd>F</kbd> to cause the trigger to active its functions. This works perfectly for things like switches or dialogue.
+
+            If **Interactable** is *off*, the functions connected to the trigger will happen instantly whenever a player simple walks into a trigger. This case is more useful for things like traps, or in general things you don't want the player to know about/have to think about activating.
+
+    2. In the *Interaction Label* property, type "Open."
+
+    At this stage, if you press play to try it out, you'll notice that walking up to the treasure chest prompts you to press <kbd>F</kbd> to open the chest, but when you press it nothing happens.
+
+    That's where the cool stuff we're going to make comes in!
 
 10. select the script in the Hierarchy, and drag the trigger onto it to become custom property. do this for both open and closed chest.
 
@@ -387,13 +408,13 @@ To start, open up a new project.
     5. turn autoplay on for both
     6. give each a life span of 2
 
-32. enable networking on both FX groups
+32. enable networking on the OpenedEffect group
 
 33. Create template from OpenedVFX, now delete that from in hierarchy
 
 34. drag that template from project content into the custom prop of the treasure chest group
 
-35. now open up that TreasureChest script again so we can spawn the effects at the right time
+35. now open up that TreasureChest script again so we can spawn the effect at the right time
 
     ```lua
     local function OnSwitchInteraction(theTrigger, player)
@@ -409,6 +430,44 @@ To start, open up a new project.
     end
     ```
 
-36. Now the opening effect should work! check it breh
+36. Notice that we are destroying the trigger at this step so we don't gotta worry about reinteracting with it.
 
-37.
+37. Now the opening effect should work! check it breh
+
+38. Now let's do the LockedEffect next
+
+    1. Search for impact lines, press play on it to see
+    2. Mechanical Gear Lock 01 for audio effect
+    3. set it to auto play
+
+39. Right click an enable networking
+
+40. Now make this a tempalte
+
+41. Delete it from hierarchy and then drag that template into the treasure chest template
+
+42. Now we need to add the spawning of the template to the else part of the interaction function
+
+    ```lua
+    local function OnSwitchInteraction(theTrigger, player)
+        if player:GetResource("Crowbar") > 0 then
+            player:RemoveResource("Crowbar", 1)
+            propChestSmallClosed.visbility = Visibility.FORCE_OFF
+            propChestSmallOpened.visbility = Visibility.INHERIT
+            World.SpawnAsset(propOpeningVFX, (position = theTrigger:GetWorldPosition()))
+            theTrigger:Destroy()
+        else
+            World.SpawnAsset(propLockedVFX, (position = theTrigger:GetWorldPosition()))
+        end
+    end
+    ```
+
+43. Let's move it up higher so the position of the locked effect makes sense
+
+Ta-da you're done!!
+
+## More Tips & Info
+
+In most cases you won't need to code to use the visual effects in Core. Often times templates will have a custom property for more effect templates, so you can make your own effects as templates and just drag and drop them into other content.
+
+There are so many ways that you can make effects unique. By combining several of them, changing their properties dramatically, and using them connected through code you can change the timing and positions of effects in whatever ways you can dream up.
