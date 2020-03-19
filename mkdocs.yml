@@ -72,12 +72,15 @@ theme:
   font:
     text: Lato
     code: JetBrains Mono
-  feature:
-    tabs: true
+  features:
+    - tabs
+    - instant
   palette:
     primary: manticore-blue
     accent: manticore-orange
   logo: assets/icons/favicon-196x196.png
+  icon:
+    repo: fontawesome/brands/github
   favicon: assets/favicon.ico
   static_templates:
     - 404.html
@@ -97,17 +100,17 @@ extra_javascript:
 
 extra:
   social:
-    - type: discord
+    - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
-    - type: youtube
+    - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
-    #- type: reddit
+    #- icon: fontawesome/brands/reddit
     #  link: https://www.reddit.com/r/PlayCoreGames # TODO
-    - type: facebook
+    - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/coregames
-    - type: twitch
+    - icon: fontawesome/brands/twitch
       link: https://twitch.tv/corelive
 
 markdown_extensions:
