@@ -50,7 +50,15 @@ nav:
   - Core Live:
       - Core Live: https://forums.coregames.com/t/39
   - Core API:
-      - Core API: core_api.md
+      - API Overview: core_api.md
+      - Game Components: api/components.md
+      - Animations: api/animations.md
+      - Ability Bindings: api/ability_bindings.md
+      - Lua in Core: tutorials/gameplay/lua_reference.md
+      - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
+      - Editor Extensions: extensions.md
+      - Coming from other Engines: getting_started/other_engines.md
+      - Examples & Snippets: api/examples.md
   - FAQ:
       - https://forums.coregames.com/t/83
   - Feedback:
