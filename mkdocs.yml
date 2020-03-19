@@ -49,6 +49,8 @@ nav:
       - Events: https://forums.coregames.com/c/community/events/6
   - Core Live:
       - Core Live: https://forums.coregames.com/t/39
+  - Core API:
+    - Core API: core_api.md
   - FAQ:
       - https://forums.coregames.com/t/83
   - Feedback:
@@ -147,8 +149,8 @@ docs_dir: src
 site_name: Core Creator Hub
 
 # Add repository for easy editing
-#repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
-#edit_uri: edit/development/src
+repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
+edit_uri: edit/development/src
 
 site_description: Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
