@@ -342,19 +342,19 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Damage.New([Number amount])` | Damage | Constructs a damage object with the given number, defaults to 0. | None |
+| `Damage.New([Number amount])` | Damage | Constructs a damage object with the given number, defaults to 0. [:fa-info-circle:](../api/examples/#damagenewnumber-amount "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetHitResult()` | HitResult | Get the HitResult information if this damage was caused by a Projectile impact. | None |
-| `SetHitResult(HitResult)` | None | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
+| `GetHitResult()` | HitResult | Get the HitResult information if this damage was caused by a Projectile impact. [:fa-info-circle:](../api/examples/#gethitresult "Example") | None |
+| `SetHitResult(HitResult)` | None | Forward the HitResult information if this damage was caused by a Projectile impact. [:fa-info-circle:](../api/examples/#sethitresult "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `amount` | Number | The numeric amount of damage to inflict. | Read-Write |
-| `reason` | DamageReason | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC | Read-Write |
-| `sourceAbility` | Ability | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
-| `sourcePlayer` | Player | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
+| `amount` | Number | The numeric amount of damage to inflict. [:fa-info-circle:](../api/examples/#amount "Example") | Read-Write |
+| `reason` | DamageReason | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC. [:fa-info-circle:](../api/examples/#reason "Example") | Read-Write |
+| `sourceAbility` | Ability | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. [:fa-info-circle:](../api/examples/#sourceability "Example") | Read-Write |
+| `sourcePlayer` | Player | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. [:fa-info-circle:](../api/examples/#sourceplayer "Example") | Read-Write |
 
 ### Equipment
 
@@ -383,7 +383,7 @@ Events appear as properties on several objects. The goal is to register a functi
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
+| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fa-info-circle:](../api/examples/#connect "Example") | None |
 
 ### EventListener
 
@@ -391,7 +391,7 @@ EventListeners are returned by Events when you connect a listener function to th
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Disconnect()` | None | Disconnects this listener from its event, so it will no longer be called when the event is fired. | None |
+| `Disconnect()` | None | Disconnects this listener from its event, so it will no longer be called when the event is fired. [:fa-info-circle:](../api/examples/#disconnect "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -525,7 +525,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
 | `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
 | `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
-| `TransferToGame(string)` | None | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. | Server-Only |
+| `TransferToGame(string)` | None | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. [:fa-info-circle:](../api/examples/#transfertogamestring "Example") | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
 | `GetActiveCamera()` | Camera | Returns whichever camera is currently active for the Player. | Client-Only |
@@ -894,23 +894,23 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../tutorials/examples/#beginoverlapevent "Example") | None |
-| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../tutorials/examples/#endoverlapevent "Example") | None |
-| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../tutorials/examples/#interactedevent "Example") | None |
+| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../api/examples/#beginoverlapevent "Example") | None |
+| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../api/examples/#endoverlapevent "Example") | None |
+| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../api/examples/#interactedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. [:fa-info-circle:](../tutorials/examples/#isoverlappingcoreobject "Example") | None |
-| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. [:fa-info-circle:](../tutorials/examples/#isoverlappingplayer "Example") | None |
-| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. [:fa-info-circle:](../tutorials/examples/#getoverlappingobjects "Example") | None |
+| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. [:fa-info-circle:](../api/examples/#isoverlappingcoreobject "Example") | None |
+| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. [:fa-info-circle:](../api/examples/#isoverlappingplayer "Example") | None |
+| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. [:fa-info-circle:](../api/examples/#getoverlappingobjects "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fa-info-circle:](../tutorials/examples/#isinteractable "Example") | Read-Write, Dynamic |
-| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fa-info-circle:](../tutorials/examples/#interactionlabel "Example") | Read-Write, Dynamic |
-| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fa-info-circle:](../tutorials/examples/#team "Example") | Read-Write, Dynamic |
-| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fa-info-circle:](../tutorials/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
-| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fa-info-circle:](../tutorials/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
+| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fa-info-circle:](../api/examples/#isinteractable "Example") | Read-Write, Dynamic |
+| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fa-info-circle:](../api/examples/#interactionlabel "Example") | Read-Write, Dynamic |
+| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fa-info-circle:](../api/examples/#team "Example") | Read-Write, Dynamic |
+| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fa-info-circle:](../api/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
+| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fa-info-circle:](../api/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
 
 ### UIButton
 
@@ -1302,7 +1302,7 @@ User defined events can be specified using the Events namespace. The Events name
 | -------------- | ----------- | ----------- | ---- |
 | `Events.Connect(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
 | `Events.ConnectForPlayer(string eventName, function eventListener, [...]) (Server Only)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | Server-Only |
-| `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None |
+| `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. [:fa-info-circle:](../api/examples/#broadcast "Example") | None |
 | `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
 | `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
 | `Events.BroadcastToServer(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client-Only |
@@ -1361,8 +1361,8 @@ The Storage namespace contains a set of functions for handling persistent storag
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. | Server-Only |
-| `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message. See below for possible result codes and supported data types. Player data is limited to 16KB per player.<br/>Possible result codes:<br/>`StorageResultCode.SUCCESS`<br/>`StorageResultCode.FAILURE`<br/>`StorageResultCode.STORAGE_DISABLED`<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`. | Server-Only |
+| `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. [:fa-info-circle:](../api/examples/#storagegetplayerdataplayer "Example") | Server-Only |
+| `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message. See below for possible result codes and supported data types. Player data is limited to 16KB per player.<br/>Possible result codes:<br/>`StorageResultCode.SUCCESS`<br/>`StorageResultCode.FAILURE`<br/>`StorageResultCode.STORAGE_DISABLED`<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`. [:fa-info-circle:](../api/examples/#storagesetplayerdataplayer-table "Example") | Server-Only |
 
 ??? "Storage Supported Types"
     - Bool
@@ -1417,13 +1417,13 @@ World is a collection of functions for finding objects in the world.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `World.GetRootObject()` | CoreObject | Returns the root of the CoreObject hierarchy. | None |
-| `World.FindObjectsByName(string name)` | Array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy with a matching name. If none match, an empty table is returned. | None |
-| `World.FindObjectsByType(string typeName)` | Array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type. If none match, an empty table is returned. | None |
-| `World.FindObjectByName(string typeName)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. | None |
-| `World.FindObjectById(string muid)` | CoreObject | Returns the object with a given MUID. Returns nil if no object has this ID. | None |
-| `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. For example: `World.SpawnAsset(myAssetId, {parent = script.parent, position = Vector3.New(0, 0, 100)})`. | None |
-| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If true, ignore all players. <br /> Example: `Raycast(myPlayer.GetWorldPosition(), Vector3.ZERO, { ignorePlayers = myPlayer })`. | None |
+| `World.GetRootObject()` | CoreObject | Returns the root of the CoreObject hierarchy. [:fa-info-circle:](../api/examples/#worldgetrootobject "Example") | None |
+| `World.FindObjectsByName(string name)` | Array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy with a matching name. If none match, an empty table is returned. [:fa-info-circle:](../api/examples/#worldfindobjectsbynamestring "Example") | None |
+| `World.FindObjectsByType(string typeName)` | Array&lt;CoreObject&gt; | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type. If none match, an empty table is returned. [:fa-info-circle:](../api/examples/#worldfindobjectsbytypestring "Example") | None |
+| `World.FindObjectByName(string typeName)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. [:fa-info-circle:](../api/examples/#worldfindobjectbynamestring "Example") | None |
+| `World.FindObjectById(string muid)` | CoreObject | Returns the object with a given MUID. Returns nil if no object has this ID. [:fa-info-circle:](../api/examples/#worldfindobjectbyidstring "Example") | None |
+| `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. [:fa-info-circle:](../api/examples/#worldspawnassetstring-optional-parameters "Example") | None |
+| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If true, ignore all players. [:fa-info-circle:](../api/examples/#worldraycastvector3-start-vector3-end-optional-parameters "Example") | None |
 
 ### Built-In Lua Functions
 
