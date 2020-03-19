@@ -177,7 +177,6 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `currentYaw` | Number | The current yaw of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minYaw` | Number | The minimum yaw for free control. | Read-Write, Dynamic |
 | `maxYaw` | Number | The maximum yaw for free control. | Read-Write, Dynamic |
-| `lerpTime` | Number | This property is deprecated and has no effect. | Read-Write, Dynamic, **Deprecated** |
 
 ### Color
 
@@ -308,9 +307,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `name` | string | The object's name as seen in the Hierarchy. | Read-Write, Dynamic |
 | `id` | string | The object's MUID. | Read-Only |
 | `parent` | CoreObject | The object's parent object, may be nil. | Read-Write, Dynamic |
-| `isVisible` | bool | See `visibility`. | Read-Write, Dynamic, **Deprecated** |
 | `visibility` | enum | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write, Dynamic |
-| `isCollidable` | bool | See `collision`. | Read-Write, Dynamic, **Deprecated** |
 | `collision` | enum | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
 | `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
@@ -523,8 +520,6 @@ Player is an Object representation of the state of a Player connected to the gam
 | `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server-Only |
 | `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server-Only |
 | `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
-| `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
-| `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
 | `TransferToGame(string)` | None | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. [:fa-info-circle:](../api/examples/#transfertogamestring "Example") | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
@@ -1176,7 +1171,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Renamed from `targetInteractionEvent`. Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, **Breaking Change** |
+| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
 | `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | None |
 
 | Function | Return Type | Description | Tags |
@@ -1335,7 +1330,6 @@ Game is a collection of functions and events related to players in the game, rou
 | ----------- | ----------- | ----------- | ---- |
 | `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | None |
 | `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | None |
-| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | This deprecated event is unused. | **Deprecated** |
 | `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | None |
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | None |
 | `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
@@ -1396,9 +1390,9 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
 | `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
 | `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
-| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only, Client-Only |
-| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only, Client-Only |
-| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only, Client-Only |
+| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only |
+| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only |
+| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only |
 | `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
 | `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client-Only |
 | `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client-Only |
