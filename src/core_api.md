@@ -894,23 +894,23 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../tutorials/examples/#beginoverlapevent "Example") | None |
-| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../tutorials/examples/#endoverlapevent "Example") | None |
-| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../tutorials/examples/#interactedevent "Example") | None |
+| `beginOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. [:fa-info-circle:](../api/examples/#beginoverlapevent "Example") | None |
+| `endOverlapEvent` | Event&lt;Trigger trigger, Object other&gt; | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` [:fa-info-circle:](../api/examples/#endoverlapevent "Example") | None |
+| `interactedEvent` | Event&lt;Trigger trigger, Player&gt; | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. [:fa-info-circle:](../api/examples/#interactedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. [:fa-info-circle:](../tutorials/examples/#isoverlappingcoreobject "Example") | None |
-| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. [:fa-info-circle:](../tutorials/examples/#isoverlappingplayer "Example") | None |
-| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. [:fa-info-circle:](../tutorials/examples/#getoverlappingobjects "Example") | None |
+| `IsOverlapping(CoreObject)` | bool | Returns true if given CoreObject overlaps with the Trigger. [:fa-info-circle:](../api/examples/#isoverlappingcoreobject "Example") | None |
+| `IsOverlapping(Player)` | bool | Returns true if given player overlaps with the Trigger. [:fa-info-circle:](../api/examples/#isoverlappingplayer "Example") | None |
+| `GetOverlappingObjects()` | Array&lt;Object&gt; | Returns a list of all objects that are currently overlapping with the Trigger. [:fa-info-circle:](../api/examples/#getoverlappingobjects "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fa-info-circle:](../tutorials/examples/#isinteractable "Example") | Read-Write, Dynamic |
-| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fa-info-circle:](../tutorials/examples/#interactionlabel "Example") | Read-Write, Dynamic |
-| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fa-info-circle:](../tutorials/examples/#team "Example") | Read-Write, Dynamic |
-| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fa-info-circle:](../tutorials/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
-| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fa-info-circle:](../tutorials/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
+| `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fa-info-circle:](../api/examples/#isinteractable "Example") | Read-Write, Dynamic |
+| `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fa-info-circle:](../api/examples/#interactionlabel "Example") | Read-Write, Dynamic |
+| `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fa-info-circle:](../api/examples/#team "Example") | Read-Write, Dynamic |
+| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fa-info-circle:](../api/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
+| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fa-info-circle:](../api/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
 
 ### UIButton
 
