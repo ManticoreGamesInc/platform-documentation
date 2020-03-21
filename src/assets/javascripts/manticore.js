@@ -132,16 +132,16 @@ document.addEventListener("DOMContentLoaded", event => {
       e.preventDefault()
       e.stopImmediatePropagation()
 
-      const isDark = document.documentElement.classList.contains("dark-mode") ? 0 : 1
+      const isDark = document.documentElement.hasAttribute("data-theme") ? "light" : "dark"
 
       this.href = `?dark=${1 - isDark}`
 
-      // If prefers-color-scheme is dark, and user disables dark mode, we need to keep the local storage as dark-mode = 0
-      document.documentElement.classList.toggle("dark-mode", isDark)
-      localStorage.setItem("dark-mode", isDark)
+      // If prefers-color-scheme is dark, and user disables dark mode, we need to keep the local storage as data-theme = light
+      document.documentElement.setAttribute("data-theme", isDark)
+      localStorage.setItem("theme", isDark)
     })
 
-    if (isDarkSchemePreferred() && localStorage.getItem("dark-mode") === null) {
+    if (isDarkSchemePreferred() && localStorage.getItem("theme") === null) {
       darkMode.click()
     }
   }
