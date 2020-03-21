@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable no-invalid-this */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
@@ -119,30 +120,36 @@ document.addEventListener("DOMContentLoaded", event => {
 
     document.title = currentTitle
   })
-});
+})
 
-// Dark mode detection
-(function() {
-  const darkMode = document.getElementById("dark-mode-toggle")
+// Theme Toggle
+const currentTheme = localStorage.getItem("theme")
+const isDarkSchemePreferred = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+const toggleSwitch = document.querySelector(".theme-switch input[type='checkbox']")
 
-  if (darkMode) {
-    const isDarkSchemePreferred = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme)
 
-    darkMode.addEventListener("click", e => {
-      e.preventDefault()
-      e.stopImmediatePropagation()
-
-      const isDark = document.documentElement.hasAttribute("data-theme") ? "light" : "dark"
-
-      this.href = `?dark=${1 - isDark}`
-
-      // If prefers-color-scheme is dark, and user disables dark mode, we need to keep the local storage as data-theme = light
-      document.documentElement.setAttribute("data-theme", isDark)
-      localStorage.setItem("theme", isDark)
-    })
-
-    if (isDarkSchemePreferred() && localStorage.getItem("theme") === null) {
-      darkMode.click()
-    }
+  if (currentTheme === "dark") {
+    localStorage.setItem("theme", "dark")
+    toggleSwitch.checked = true
   }
-}())
+} else {
+  if (isDarkSchemePreferred()) {
+    document.documentElement.setAttribute("data-theme", "dark")
+    localStorage.setItem("theme", "dark")
+    toggleSwitch.checked = true
+  }
+}
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "dark")
+    localStorage.setItem("theme", "dark")
+  } else {
+    document.documentElement.setAttribute("data-theme", "light")
+    localStorage.setItem("theme", "light")
+  }
+}
+
+toggleSwitch.addEventListener("change", switchTheme, false)
