@@ -38,7 +38,7 @@
         "json2md": "^1.7.0",
         "markdown-yaml-metadata-parser": "^2.0.4",
         "markdownlint-cli": "^0.22.0",
-        "prettier": "^1.19.1",
+        "prettier": "^2.0.1",
         "recursive-readdir-synchronous": "0.0.4",
         "remark": "^11.0.2",
         "remark-cli": "^7.0.1",
