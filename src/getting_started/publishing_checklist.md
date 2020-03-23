@@ -90,10 +90,10 @@ The goal of this checklist is to outline the essentials that you should check be
 
 ### Teams
 
-- **Players are divided even into teams.**
+- **Players are divided evenly into teams.**
 - **Players can tell what team they are on.**
 - Players can tell which points on the map are assigned to each team.
-- *Score and User Interface information quickly identify the relevant team*
+- *Score and User Interface information quickly identify the relevant team.*
 
 ### Networking
 
@@ -114,7 +114,7 @@ The goal of this checklist is to outline the essentials that you should check be
 
 - Players can read about how to play the game.
 - *Players can refer back to tutorial information throughout the game.*
-- *There are hints for players who get stuck*
+- *There are hints for players who get stuck.*
 
 ### Accessibility
 
