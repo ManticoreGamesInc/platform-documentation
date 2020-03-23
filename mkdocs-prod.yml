@@ -7,6 +7,7 @@ nav:
       - Install Core: getting_started/installing_core.md
       - Intro to the Editor: getting_started/editor_intro.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
+      - Publishing Checklist: getting_started/publishing_checklist.md
       - Publish a Game: getting_started/publishing.md
       - Sharing Content: getting_started/community_content.md
       - Editor Shortcuts: editor_keybindings.md
