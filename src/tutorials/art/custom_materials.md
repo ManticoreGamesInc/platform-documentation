@@ -8,116 +8,146 @@ tags:
 
 # Custom Materials in Core
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
-Learn how to fully customize a material.
-
-* **Completion Time:** > 10 minutes
-* **Knowledge Level:** No prior knowledge of Core
-* **Skills you will learn:**
-    * Smart materials
-    * Z-fighting
-    * UV Tiling
-    * Creating a custom material
+Materials are the way to change the appearance of an object. Core has a variety of different materials to chose from, and each can be modified in different ways to create **custom materials**.
 
 ![Materials](../../img/Materials/image19.png "Materials Screenshot"){: .center}
 
-## Tutorial
+## Applying Materials
 
-### Changing Materials
+### Find the Current Material
 
-Materials can be changed by looking at an object's Property tab. If you have experimented with applying different materials to objects in your game, you may have noticed most shapes have the blue "Grid Basic" applied to them. This is the default primitive material.
-
-![Materials](../../img/Materials/image1.png "Materials Screenshot"){: .center}
+The material on an object can be found by in the **Properties** menu. If you have experimented with applying different materials to objects in your game, you may have noticed most shapes have the blue **Grid Basic** material, which is the default for all basic shapes.
 
 ![Materials](../../img/Materials/image5.png "Materials Screenshot"){: .center}
 
-Some objects have multiple material slots, such as the Cube - Arcade 04 object, allowing you to further customize the look of your game.
+### Multiple Materials
+
+Some objects have multiple material slots, such as the **Cube - Arcade 04** object, allowing you to further customize the look of your game.
 
 ![Materials](../../img/Materials/image13.png "Materials Screenshot"){: .center}
 
-You can change an object's material a few different ways:
+### Change Materials by Dragging and Dropping from Core Content
 
-1. Double clicking the material name in the properties tab will open a window with all available materials. Select one to swap materials.
-
-2. Drag a material from the Core Content tab into the material slot in the object's Property tab.
-
-   ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
-
-3. Drag a material from the Core Content tab onto the object in the scene.
+The easiest way to change materials is to drag the material onto an object in the **Main Viewport**. You can also drag the material into a specific slot in the **Properties** window.
 
    ![Materials](../../img/Materials/image18.png "Materials Screenshot"){: .center}
 
-Changing a material's color is as easy as clicking on the color block in the Materials section of the property tab and selecting a new color with the color picker.
+### Change Materials Using the Properties Window
 
-### Smart Materials
+The **Material Picker** allows you to select a new material for an object from a list of all the available materials.
+
+1. Select the object and open the **Properties** window.
+2. Double click the image of the material to open the **Material Picker**.
+3. Select a material to be applied to the object.
+
+   ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
+
+### Change the Color of a Material
+
+The base color of a material can be changed using the **Material Override** property.
+
+1. Open the object's **Properties** window and scroll to the appropriate material section.
+2. Double click the colored box next to the **Material Override**.
+3. Select a color in the **Color Picker** window that pops open, and click **OK** to apply the color to the material.
+
+## Smart Material
+
+Smart Materials are textures that align to the world, not the object. This makes it easy to seamlessly connect two objects using the same material.
+
+### Enable and Disable Smart Material
+
+**Use Smart Material** is enabled by default on materials that have repeating patterns.
+
+1. Select an object and open the **Properties** window.
+2. Scroll down to the Material section.
+3. Check or uncheck **Use Smart Material**.
 
 ![Materials](../../img/Materials/image16.png "Materials Screenshot"){: .center}
 
-"Use Smart Material" is usually checked by default. Smart Materials are textures that align to the world, not the object. This makes it easier to seamlessly connect two objects using the same material.
+#### Smart Materials On
+
+These two cubes both have the red brick material applied. Because they both have **Use Smart Material** checked, the brick pattern is projected the same way onto the two objects.
 
 ![Materials](../../img/Materials/image10.png "Materials Screenshot"){: .center}
 
-These two cubes both have the red brick material applied. Because they both have "Use Smart Material" checked, the brick pattern is perfectly projected onto the two objects.
-
-![Materials](../../img/Materials/image11.png "Materials Screenshot"){: .center}
+#### Smart Materials Off
 
 These two cubes both have the red brick material applied but they do not have "Use Smart Material" checked. The texture is aligned to the object, so it is stretched and looks different on these two differently sized cubes.
 
+![Materials](../../img/Materials/image11.png "Materials Screenshot"){: .center}
+
+### Z Fighting
+
+Objects with different materials or objects not using the Smart Materials feature may exhibit **z-fighting**. This flickering is caused when different materials are layered over one another. Z-fighting can be distracting when playing games, so it's best to avoid it.
+
 ![Materials](../../img/Materials/image14.gif "Materials Screenshot"){: .center}
 
-Additionally, objects with different materials or objects not using the Smart Materials feature may exhibit z-fighting, pictured above. This flickering is caused when different materials are layered over one another. Z-fighting can be distracting when playing games, so it's best to avoid it when you can.
+### U/V Tiling
 
-### U and V Tiling Factor
+When you uncheck **Use Smart Material**, two more customization options appear: **U Tiling Override** and **V Tiling Override**.
 
-Notice when you uncheck "Use Smart Material" two more customization options appear. "U Tiling Factor" and "V Tiling Factor" sliders are now available for you to further customize the look of your material.
+- **U Tiling Factor** controls how many times the pattern repeats on the X axis.
+- **V Tiling Factor** controls how many times the pattern repeats on the Y axis.
 
-U Tilling Factor controls how many times the pattern repeats on the X axis.
-
-V Tilling Factor controls how many times the pattern repeats on the Y axis.
+#### U Tiling and V Tiling both set to 1
 
 ![Materials](../../img/Materials/image7.png "Materials Screenshot"){: .center}
 
-Red brick material with U Tiling and V Tiling both set to 1.
+#### U Tiling set to 3 and V Tiling set to 1
 
 ![Materials](../../img/Materials/image8.png "Materials Screenshot"){: .center}
 
-Red brick material with U Tiling set to 3 and V Tiling set to 1.
+#### U Tiling set to 1 and V Tiling set to 3
 
 ![Materials](../../img/Materials/image3.png "Materials Screenshot"){: .center}
 
-Red brick material with U Tiling set to 1 and V Tiling set to 3.
+#### U Tiling and V Tiling both set to 3
 
 ![Materials](../../img/Materials/image12.png "Materials Screenshot"){: .center}
 
-Red brick material with U Tiling and V Tiling both set to 3.
+## Custom Materials
 
-### Creating a New Custom Material
+Custom materials allow you to finely tune any Core material beyond one color and the U/V tiling.
 
-If you want to change more than one color and the U/V Tiling of a material, you'll have to create a custom material. Custom materials allow you to finely tune any material in Core's engine. By saving a custom material preset you can easily update every object in game using your custom preset with one click.
+### Create a Custom Material
 
-Create a new custom material by right clicking on a material in the Core Content. Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom -Name of Material-".
+There are two ways to create a custom material for your project.
+
+#### From Core Content
+
+1. Find a material to customize in **Core Content**.
+2. Right-click and select **New Custom Material**.
+3. Open the **Project Content** window and select **My Materials**.
+4. Double click on the new custom material to open the **Material Editor**.
+
+Your new custom material can be found in the My Content > Local Materials section under the Project Content tab. Edit your custom material by double clicking its name. It will be called "Custom -Name of Material-".
 
 ![Materials](../../img/Materials/image17.png "Materials Screenshot"){: .center}
 
-Double clicking on the material will open the Material Editor window.
+#### From an Object
+
+1. Select an object and open the **Properties** window.
+2. Scroll down to the material.
+3. Click the **New Custom Material** button.
+4. Click the ![Pencil](../../img/EditorManual/icons/Icon_Edit.png) icon to open the **Material Editor**.
+{: .image-inline-text .image-background}
+
+### Use the Material Editor
+
+The **Material Editor** allows you to customize values for each type of material.
 
 ![Materials](../../img/Materials/image2.png "Materials Screenshot"){: .center}
 
-You can change the name of each custom material by editing the text field at the top of the material editor. In order to easily edit your material, apply it to an object in your scene. Every time you change a property of your material, click "Update Material" otherwise you won't see your changes reflected in the viewer.
-
-![Materials](../../img/Materials/image9.png "Materials Screenshot"){: .center}
-
-Some materials have properties specific to them. For example, the ceramic materials have "Damage Amount" and "Cracks" allowing for a more distressed look. The easiest way to discover how each property visually affects the material is by reading the tool tip (hover over the property's name) or by simply experimenting.
+Some materials have properties specific to them. For example, the ceramic materials have **Damage Amount** and **Cracks**, allowing for a more distressed look. Hover over any property name to read what it does.
 
 ![Materials](../../img/Materials/image6.png "Materials Screenshot"){: .center}
 
-![Materials](../../img/Materials/image4.png "Materials Screenshot"){: .center}
+### Rename a Custom Material
 
-<!-- TODO: Summary Text
-## Summary
--->
+Change the name of each custom material by editing the text field at the top of the **Material Editor**. This will allow you to easily find and re-use the material on different objects in the game.
+
+## Learn More
+
+[Environmental Art](environmental_art.md) | [Modeling Basics](modeling_basics.md)
