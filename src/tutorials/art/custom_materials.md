@@ -12,7 +12,7 @@ tags:
 
 Materials are the way to change the appearance of an object. Core has a variety of different materials to chose from, and each can be modified in different ways to create **custom materials**.
 
-![Materials](../../img/Materials/image19.png "Materials Screenshot"){: .center}
+![Sample Materials](../../img/Materials/SampleMaterials.png){: .center}
 
 ## Applying Materials
 
@@ -42,7 +42,7 @@ The **Material Picker** allows you to select a new material for an object from a
 2. Double click the image of the material to open the **Material Picker**.
 3. Select a material to be applied to the object.
 
-   ![Materials](../../img/Materials/image15.png "Materials Screenshot"){: .center}
+   ![Materials](../../img/Materials/MaterialPicker.png "Materials Screenshot"){: .center}
 
 ### Change the Color of a Material
 
@@ -51,6 +51,8 @@ The base color of a material can be changed using the **Material Override** prop
 1. Open the object's **Properties** window and scroll to the appropriate material section.
 2. Double click the colored box next to the **Material Override**.
 3. Select a color in the **Color Picker** window that pops open, and click **OK** to apply the color to the material.
+
+![Materials](../../img/Materials/ColorPicker.png "Materials Screenshot"){: .center}
 
 ## Smart Material
 
@@ -138,7 +140,7 @@ Your new custom material can be found in the My Content > Local Materials sectio
 
 The **Material Editor** allows you to customize values for each type of material.
 
-![Materials](../../img/Materials/image2.png "Materials Screenshot"){: .center}
+![Materials](../../img/Materials/MaterialEditor.png){: .center}
 
 Some materials have properties specific to them. For example, the ceramic materials have **Damage Amount** and **Cracks**, allowing for a more distressed look. Hover over any property name to read what it does.
 
