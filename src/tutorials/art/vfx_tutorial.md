@@ -321,13 +321,23 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     That's where the cool stuff we're going to make comes in!
 
-10. select the script in the Hierarchy, and drag the trigger onto it to become custom property. do this for both open and closed chest.
+10. First, in order to use that trigger in our script, we need to access it. Select your `TreasureChest` script in the Hierarchy. While it is selected, click and drag the trigger onto the Properties window for the script.
 
-11. create custom property of asset reference type for OpeningVFX and one for LockedVFX
+    This adds the trigger as a *custom property* on the `TreasureChest` script. Custom properties are wonderfully simple ways to use any part of the project or hierarchy that you need to in your code.
 
-12. double click script to open it
+    Do this same action--dragging the objects from the Hierarchy into the script Properties window--for the Chest Small Opened and the Chest Small Closed.
 
-13. copy all the custom prop references from the script properties
+    [IMAGE]
+
+11. We need two other custom properties on our script. At the bottom of the Properties window, click the "Add Custom Property" button. Choose the type AssetRefernce, as we'll be adding something here that we haven't created yet. Name this one OpeningVFX, and the second one (also an AssetReference type) LockedVFX.
+
+12. Now that we've got everything we need, double click the TreasureChest script to open it up!
+
+13. We'll want all those custom properties we created. To use the code for accessing them, copy it from the Properties window of the script.
+
+    1. A handy prepared snippet of code for everything you need is listed beneath the custom properties of the script. Right click in this black box of text, and click *select all*, then again and click *copy*.
+
+    2. Now in your script, right click and paste everything in there!
 
 14. now we create a function OnSwitchInteraction()
 
