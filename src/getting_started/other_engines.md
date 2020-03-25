@@ -15,46 +15,45 @@ To get a full overview of our API, read our [API Documentation](core_api.md) ins
 
 ## Unity
 
+> Imagine you have all Unity Asset Store assets for free in one place with built-in multiplayer networking.
+
 ### Assets and Content
 
-> Imagine you have all Unity Asset Store assets for free in one place and you can use all of it to make multiplayer games!
+In general, everything used to create games in Core comes originally from Core Content. You cannot import outside assets into Core, and instead build them from the objects that are part of Core.
 
 #### Core Content
 
-- You cannot import assets
-- Core Content includes sounds, basic shape objects, developed props, complete game objects with functionality (like weapons), materials (textures), and they are all customizable
-- Having objects that are pulled from [I do not know where] significantly decreases load time, so editing and playing Core-created games is lightning fast.
+Core Content includes sounds, basic shape objects, visual props, objects with functionality (like weapons), materials that combine textures and shaders, and game components like health bars and spawn points, all customizable. Objects are all downloaded with the Core install, which makes editing and playing Core-created games very fast.
 
 #### Community Content
 
-- Scenes and props are made by "kitbashing"
-- Templates: You can share things you make, and modify the creations of others
+Original props and scenes are made by modifying Core objects, and grouping them to be treated like a single object. Packages of these groups can be shared as **Templates**, allowing other Core Creators to use and customize them.
 
 ### Player Controller and Multiplayer
 
+Core includes complete multiplayer functionality out of the box, included a player controller, camera, and networking.
+
 #### Player
 
-- Full WASD movement
-- Camera and Mouse control
-- Jump, Crouch, Mount
+Project previewing can be done "in person" with a moving player in the scene right away.
+
+Players can move with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys, and change facing direction with the mouse. They can also crouch with <kbd>C</kbd>, jump with <kbd>W</kbd>, and ride a mount with <kbd>G</kbd>.
 
 #### Multiplayer
 
-- Built-in
-- Architecture for teams
+Multiplayer networking is also included in all Core projects, as well as a **Multiplayer Preview Mode** which generates a specified number of instances of the game which can each be individually controlled.
 
-### Networking
+<!-- ### Networking -->
 
 ### Exporting Games
 
-- Core is also the sharing platform
-- No downloadable executables
-- Rapid access for Core users, built-in audience
+Core is a complete platform that includes a Launcher to see and play Core-created games. There is no executable file download or exporting, but games can be published through the editor and shared with a URL. Core showcases published games and comes with a built-in audience.
 
 ### Scripting
 
-- Scripts are objects, not attached to objects. Must be added to the Heirarchy.
-- Lua is dynamically typed and not object-oriented.
+Core scripting is done in the [Lua](lua_reference.md) language, which is does not specify data types, and is not object-oriented. This allows for considerable flexibility in designing and organizing code.
+
+Scripts are objects themselves, not attached to objects. They have to be added to the project **Hierarchy** and networked, and all Lua scripts run when the project runs.
 
 ### Terminology
 
@@ -70,10 +69,6 @@ To get a full overview of our API, read our [API Documentation](core_api.md) ins
 |               | Console         | Event Log          |
 |               | Inspector       | Properties         |
 | **Scripting** | C#              | Lua                |
-
-## Projects and Files
-
-There is no way to import assets; everything is included in the asset manifest.
 
 <!-- ## World of Warcraft
 
