@@ -274,6 +274,8 @@ We'll be making a treasure chest that requires an item to open!
 
 To start, open up a new project or whatever project you'd like to make this treasure chest in.
 
+#### Setting up the Treasure Chest
+
 1. Navigate to the **Core Content** window.
 
     !!! info
@@ -329,39 +331,62 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     [IMAGE]
 
-11. We need two other custom properties on our script. At the bottom of the Properties window, click the "Add Custom Property" button. Choose the type AssetRefernce, as we'll be adding something here that we haven't created yet. Name this one OpeningVFX, and the second one (also an AssetReference type) LockedVFX.
+11. We need two other custom properties on our script. At the bottom of the Properties window, click the "Add Custom Property" button. Choose the type AssetReference, as we'll be adding something here that we haven't created yet. Name this one **OpeningVFX**, and the second one (also an AssetReference type) **LockedVFX**.
 
-12. Now that we've got everything we need, double click the TreasureChest script to open it up!
+12. Now that we've got everything we need, double click the `TreasureChest` script to open it up!
 
-13. We'll want all those custom properties we created. To use the code for accessing them, copy it from the Properties window of the script.
+#### Writing the Interaction Script
+
+1. We'll want all those custom properties we created. To use the code for accessing them, copy it from the Properties window of the script.
 
     1. A handy prepared snippet of code for everything you need is listed beneath the custom properties of the script. Right click in this black box of text, and click *select all*, then again and click *copy*.
 
     2. Now in your script, right click and paste everything in there!
 
-14. now we create a function OnSwitchInteraction()
+14. Next we need to create a function for the moment the player interacts with the treasure chest! This is what happens when the player presses <kbd>F</kbd> when prompted by the trigger we placed.
+
+    In your script, beneath all the *variables* we just pasted in, add this code:
 
     ```lua
     local function OnSwitchInteraction(theTrigger, player)
-        UI.PrintToScreen("hi you triggered an event")
+        UI.PrintToScreen("Hi! You've triggered an event.")
     end
     ```
 
-15. Now we need to connect this function to the actual built-in event
+15. So now we have the function, but in order for it to work, it needs to be connected to the *event* called interactedEvent of the trigger. Copy this code into the end of your script:
 
     ```lua
     propTrigger.interactedEvent:Connect(OnSwitchInteraction)
     ```
 
-16. tada now stuff prints! good job dude
+    !!! info
+        *Events* are built-into many objects in Core. To read more about different events on various objects, check out the [API Overview](../../core_api.md).
 
-17. now we're going to pivot to making something to open this locked chest, because it is locked
+16. Now try pressing Play!
 
-18. Download the Fantasy Loot Bag from CC
+    When you walk up to the treasure chest and intereact with it by pressing <kbd>F</kbd>, our message appears on the screen. Woohoo!
 
-19. drag that b into your project viewport. it has stuff we don't need but we're gonna mod it and use it anyways
+    Now it'd be real cool if this treasure chest required an item to open it. So, let's create that item!
 
-20. try it by default! animation is dependant on location relative to the player. hear that jingle
+#### Creating a Pickup to Unlock the Chest
+
+18. [Community Content](../../../getting_started/community_content/) is an insanely valuable resource for making your life easier. Others users (and hopefully you too!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality models to use in their games, and art people who need coding help resources to do that.
+
+    In our case, we want an item the player can pick up. Luckily, there is something like that already on Community Content!
+
+    Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this!
+
+19. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
+
+    Move it around so that it's somewhere you can see it and get to it.
+
+20. Press play to check out how it works by default! When you walk up to it, it'll prompt you with " Press F to pick up" and if you do, there is a sound effect and flash of light that happens while your character does an animation to grab it.
+
+    Depending on where the Loot Bag is in relation to the player, a different animation will play.
+
+    [GIF]
+
+    There's several things we're going to change about the Loot Bag to suit our needs here with the Treasure Chest.
 
 21. turn off interactable so we just pick it up automatically
 
@@ -370,6 +395,8 @@ To start, open up a new project or whatever project you'd like to make this trea
 23. search for crowbar in core content, and drag that into the client contenxt folder.
 
 24. rename resource on the loot bag to Crowbar, change min and max to 1
+
+#### Creating a Pickup Effect Template
 
 25. now we are going to make a sound effect template, yay! create a new group and call it something
 
@@ -406,6 +433,8 @@ To start, open up a new project or whatever project you'd like to make this trea
 29. Make sure that TreasureChest group has enabled networking
 
     now we make the effects because it all works but it looks stupid!
+
+#### Creating the Opening and Closing Effects
 
 30. Create two new groups, one called OpenedEffect and the other called LockedEffect
 
