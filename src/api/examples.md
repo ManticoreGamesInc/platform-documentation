@@ -739,6 +739,609 @@ function Tick()
 end
 ```
 
+## Equipment
+
+### `equippedEvent` / `unequippedEvent`
+
+Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
+
+```lua
+local primaryEquipment = script.parent
+local secondaryEquipment = primaryEquipment:FindDescendantByType("Equipment")
+local secondaryDefaultTransform = secondaryEquipment:GetTransform()
+
+function OnEquipped(equipment, player)
+    secondaryEquipment:Equip(player)
+end
+
+function OnUnequipped(equipment, player)
+    secondaryEquipment:Unequip()
+    secondaryEquipment.parent = primaryEquipment
+    secondaryEquipment:SetTransform(secondaryDefaultTransform)
+end
+
+primaryEquipment.equippedEvent:Connect(OnEquipped)
+primaryEquipment.unequippedEvent:Connect(OnUnequipped)
+
+```
+
+### `Equip(Player)`
+
+This example shows how players can be given default equipment when they join a game.
+
+```lua
+local EQUIPMENT_TEMPLATE = script:GetCustomProperty("EquipmentTemplate")
+
+function OnPlayerJoined(player)
+    local equipment = World.SpawnAsset(EQUIPMENT_TEMPLATE)
+    equipment:Equip(player)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `Unequip()`
+
+In this example, when a player dies all equipment they have is unequipped and dropped to the ground.
+
+```lua
+function DropToGround(equipment)
+    equipment:Unequip()
+    -- The pickup trigger needs to be re-enabled (if there is one)
+    local pickupTrigger = equipment:FindDescendantByType("Trigger")
+
+    if pickupTrigger then
+        pickupTrigger.collision = Collision.FORCE_ON
+    end
+    -- Move it to the ground
+    local rayStart = equipment:GetWorldPosition()
+    local rayEnd = rayStart + Vector3.UP * -500
+    local hitResult = World.Raycast(rayStart, rayEnd, {ignorePlayers = true})
+
+    if hitResult then
+        local dropPos = hitResult:GetImpactPosition() + Vector3.UP * 40
+        equipment:SetWorldPosition(dropPos)
+    end
+end
+
+function OnPlayerDied(player)
+    for _, equipment in ipairs(player:GetEquipment()) do
+        DropToGround()
+    end
+end
+
+function OnPlayerJoined(player)
+    player.diedEvent:Connect(OnPlayerDied)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `AddAbility(Ability)`
+
+One of the primary roles of equipment is to contain several abilities. Those abilities are automatically added/removed from the player when they equip/unequip the item. This example shows how an equipment can be spawned and then procedurally assembled with different abilities depending on RNG.
+
+```lua
+local EQUIPMENT = script.parent
+local ABILITY_TEMPLATE_1 = script:GetCustomProperty("Ability1")
+local ABILITY_TEMPLATE_2 = script:GetCustomProperty("Ability2")
+local ABILITY_TEMPLATE_3 = script:GetCustomProperty("Ability3")
+
+function Add(abilityTemplate)
+    local newAbility = World.SpawnAsset(abilityTemplate, {parent = EQUIPMENT})
+    EQUIPMENT:AddAbility(newAbility)
+end
+
+local permutation = math.random(3)
+
+if permutation == 1 then
+    Add(ABILITY_TEMPLATE_1)
+    Add(ABILITY_TEMPLATE_2)
+elseif permutation == 2 then
+    Add(ABILITY_TEMPLATE_1)
+    Add(ABILITY_TEMPLATE_3)
+else
+    Add(ABILITY_TEMPLATE_2)
+    Add(ABILITY_TEMPLATE_3)
+end
+
+for i,ability in ipairs(EQUIPMENT:GetAbilities()) do
+    print("Ability " .. i .. " = " .. ability.name)
+end
+```
+
+### `GetAbilities()`
+
+Weapons are a specialized type of Equipment that have lots of built-in functionality, including two abilities that are usually included: One for attacking and the second one for reloading. In this example, a cosmetic part of a weapon is hidden after the attack happens and is enabled again after it reloads. This could be used, for instance, in a rocket launcher or a crossbow. The script should be a descendant of a `Weapon`. It works best if under a Client Context and the "ObjectToHide" custom property must be hooked up.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local ATTACK_ABILITY = WEAPON:GetAbilities()[1]
+local RELOAD_ABILITY = WEAPON:GetAbilities()[2]
+local OBJECT_TO_HIDE = script:GetCustomProperty("ObjectToHide"):WaitForObject()
+
+function onExecuteAttack()
+    OBJECT_TO_HIDE.visibility = Visibility.FORCE_OFF
+end
+
+ATTACK_ABILITY.executeEvent:Connect(onExecuteAttack)
+
+function onExecuteReload()
+    OBJECT_TO_HIDE.visibility = Visibility.FORCE_ON
+end
+
+RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
+```
+
+### `socket`
+
+The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function.
+
+```lua
+local EQUIPMENT = script.parent
+local TRIGGER = script.parent:FindDescendantByType("Trigger")
+
+function Drop(equipment)
+    equipment:Unequip()
+    -- The pickup trigger needs to be re-enabled (if there is one)
+    local pickupTrigger = equipment:FindDescendantByType("Trigger")
+
+    if pickupTrigger then
+        pickupTrigger.collision = Collision.FORCE_ON
+    end
+end
+
+function OnEquipped(equipment, player)
+    for _, e in ipairs(player:GetEquipment()) do
+        if e ~= equipment and e.socket == equipment.socket then
+            Drop(e)
+        end
+    end
+end
+
+function OnInteracted(trigger, player)
+    TRIGGER.collision = Collision.FORCE_OFF
+    EQUIPMENT:Equip(player)
+end
+
+EQUIPMENT.equippedEvent:Connect(OnEquipped)
+TRIGGER.interactedEvent:Connect(OnInteracted)
+```
+
+### `owner`
+
+In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
+
+```lua
+function OnTargetImpactedEvent(weapon, impactData)
+    if impactData.other and impactData.other:IsA("Player") then
+        weapon.owner.hitPoints = weapon.owner.hitPoints + 2
+    end
+end
+
+script.parent.targetImpactedEvent:Connect(OnTargetImpactedEvent)
+```
+
+## HitResult
+
+### `GetImpactPosition()` / `GetImpactNormal()`
+
+This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot rococheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
+
+```lua
+function Tick()
+    local player = Game.GetLocalPlayer()
+
+    local rayStart = player:GetViewWorldPosition()
+    local cameraForward = player:GetViewWorldRotation() * Vector3.FORWARD
+    local rayEnd = rayStart + cameraForward * 10000
+
+    local hitResult = World.Raycast(rayStart, rayEnd, {ignorePlayers = true})
+
+    if hitResult then
+        local hitPos = hitResult:GetImpactPosition()
+        local normal = hitResult:GetImpactNormal()
+        local mirror = cameraForward - 2 * (cameraForward .. normal) * normal
+        -- The green line is the impact normal
+        CoreDebug.DrawLine(hitPos, hitPos + normal * 100, {thickness = 3, color = Color.GREEN, duration = 0.03})
+        -- The blue line connects the camera to the impact point
+        CoreDebug.DrawLine(rayStart, hitPos, {thickness = 2, color = Color.BLUE, duration = 0.03})
+        -- The magenta line represents the reflection off the surface
+        CoreDebug.DrawLine(hitPos, hitPos + mirror * 1000, {thickness = 2, color = Color.MAGENTA, duration = 0.03})
+    end
+end
+```
+
+### `GetTransform()`
+
+HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
+
+```lua
+local impactTemplate = script:GetCustomProperty("ImpactObject")
+local weapon = script.parent
+
+function OnTargetImpacted(_, impactData)
+    local hitResult = impactData:GetHitResult()
+
+    if hitResult then
+        local hitT = hitResult:GetTransform()
+        World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
+    end
+end
+
+weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+```
+
+### `other` / `socketName`
+
+HitResult is used by Weapons transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
+
+```lua
+local weapon = script.parent
+
+function OnTargetImpacted(_, impactData)
+    local hitResult = impactData:GetHitResult()
+
+    if hitResult and hitResult.other and hitResult.other:IsA("Player") then
+        local playerName = hitResult.other.name
+        local socketName = hitResult.socketName
+        print("Player " .. playerName .. " was hit in the " .. socketName)
+    end
+end
+
+weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+```
+
+## `Game`
+
+### `Game.playerJoinedEvent` / `Game.playerLeftEvent`
+
+Events that fire when players join or leave the game. Both server and client scripts detect these events. In the following example teams are kept balanced at a ratio of 1 to 2. E.g. if there are 6 players two of them will be on team 1 and the other four will be on team 2.
+
+```lua
+local BALANCE_RATIO = 1 / 2
+local playerCount = 0
+local team1Count = 0
+local team2Count = 0
+
+function OnPlayerJoined(player)
+    player.team = NextTeam()
+end
+
+function OnPlayerLeft(player)
+    playerCount = 0
+    team1Count = 0
+    team2Count = 0
+
+    local allPlayers = Game.GetPlayers()
+    for _,p in ipairs(allPlayers) do
+        if p ~= player then
+            p.team = NextTeam()
+        end
+    end
+end
+
+function NextTeam()
+    local team = 1
+
+    if playerCount == 0 then
+        team1Count = 1
+    elseif team2Count == 0 then
+        team2Count = 1
+        team = 2
+    else
+        local ratio = team1Count / team2Count
+        if ratio < BALANCE_RATIO then
+            team1Count = team1Count + 1
+        else
+            team2Count = team2Count + 1
+            team = 2
+        end
+    end
+
+    playerCount = playerCount + 1
+    return team
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerLeftEvent:Connect(OnPlayerLeft)
+```
+
+### `Game.roundStartEvent`
+
+Several functions and events in the `Game` namespace are convenient for controlling the flow of a game. In this example, the game requires two players to join. It begins in a lobby state and transitions to a playing state when there are enough players.
+
+```lua
+local gameState = "LOBBY"
+
+print("Waiting for 2 players to join...")
+
+function OnRoundStart()
+    gameState = "PLAYING"
+    print("New round starting...")
+end
+
+Game.roundStartEvent:Connect(OnRoundStart)
+
+function Tick()
+    if gameState == "LOBBY" then
+        -- The condition for starting a round
+        local playerCount = #Game.GetPlayers()
+
+        if playerCount >= 2 then
+            Game.StartRound()
+        end
+    end
+end
+```
+
+### `Game.roundEndEvent`
+
+Several operations need to be made when rounds start and end. In this example, when the game ends it transitions to a "round ended" state for three seconds, then respawns all players to spawn points. The advantage of using events is that the different scripts can be separated from each other to improve organization of the project. The condition for ending the round is set here as one team reaching 5 points and can be located in one script. Meanwhile the various outcomes/cleanups can be broken up into different scripts in a way that makes the most sense per game, all listening to the `roundEndEvent`.
+
+```lua
+local gameState = "PLAYING"
+
+function OnRoundEnd()
+    gameState = "END"
+
+    print("Round ended. Team " .. winningTeam .. " won!")
+
+    -- Waits for 3 seconds then continues
+    Task.Wait(3)
+
+    -- Respawn all the players
+    local allPlayers = Game.GetPlayers()
+
+    for _,player in ipairs(allPlayers) do
+        player:Respawn()
+    end
+
+    Game.ResetTeamScores()
+    gameState = "LOBBY"
+end
+
+Game.roundEndEvent:Connect(OnRoundEnd)
+
+function Tick()
+    if gameState == "PLAYING" then
+        local scoreObjective = 5
+
+        if Game.GetTeamScore(1) == scoreObjective then
+            winningTeam = 1
+            Game.EndRound()
+        elseif Game.GetTeamScore(2) == scoreObjective then
+            winningTeam = 2
+            Game.EndRound()
+        end
+    end
+end
+```
+
+### `Game.teamScoreChangedEvent`
+
+In this example, when a player jumps their team gains 1 point and when they crouch their team loses 1 point. The `OnTeamScoreChanged` function is connected to the event and prints the new score to the Event Log each time they change. We're going to use `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` and `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` to manipulate the scores.
+
+```lua
+function OnTeamScoreChanged(team)
+    local score = Game.GetTeamScore(team)
+    print("Score changed for team " .. team .. ", new value = " .. score)
+end
+
+Game.teamScoreChangedEvent:Connect(OnTeamScoreChanged)
+
+function HandlePlayerJumped(player)
+    Game.IncreaseTeamScore(player.team, 1)
+end
+
+function HandlePlayerCrouched(player)
+    Game.DecreaseTeamScore(player.team, 1)
+end
+
+local playersJumping = {}
+local playersCrouching = {}
+
+function Tick()
+    local allPlayers = Game.GetPlayers()
+    for _, player in ipairs(allPlayers) do
+        -- Jump
+        if player.isJumping and player.isJumping ~= playersJumping[player] then
+            HandlePlayerJumped(player)
+        end
+        playersJumping[player] = player.isJumping
+
+        -- Crouch
+        if player.isCrouching and not player.isJumping and player.isCrouching ~= playersCrouching[player] then
+            HandlePlayerCrouched(player)
+        end
+        playersCrouching[player] = player.isCrouching
+    end
+end
+```
+
+### `Game.GetLocalPlayer()`
+
+This function can only be called in a client script, as the server does not have a local player. This example prints the names of all players to the upper-left corner of the screen. The local player appears in green, while other player names appear blue. To test this example, place the script under a Client Context. From the point of view of each player, name colors appear different. That's because on each computer the local player is different.
+
+```lua
+function Tick()
+    local allPlayers = Game.GetPlayers()
+    for _, player in ipairs(allPlayers) do
+        if player == Game.GetLocalPlayer() then
+            UI.PrintToScreen(player.name, Color.GREEN)
+        else
+            UI.PrintToScreen(player.name, Color.BLUE)
+        end
+    end
+    Task.Wait(3)
+end
+```
+
+### `Game.GetPlayers([table parameters])`
+
+This function is commonly used without any options. However, it can be very powerful and computationally efficient to pass a table of optional parameters, getting exactly the list of players that are needed for a certain condition. In this example, when the round ends it prints the number of alive players on team 1, as well as the number of dead players on team 2.
+
+```lua
+function OnRoundEnd()
+    local playersAlive = Game.GetPlayers({ignoreDead = true, includeTeams = 1})
+    local playersDead = Game.GetPlayers({ignoreLiving = true, includeTeams = 2})
+
+    print(#playersAlive .. " players on team 1 are still alive.")
+    print(#playersDead .. " players on team 2 are dead.")
+end
+
+Game.roundEndEvent:Connect(OnRoundEnd)
+```
+
+### `Game.FindNearestPlayer(Vector3 position, [table parameters])`
+
+In this example, the player who is closest to the script's position is made twice as big. All other players are set to regular size.
+
+```lua
+function Tick()
+    local allPlayers = Game.GetPlayers()
+    local nearestPlayer = Game.FindNearestPlayer(script:GetWorldPosition(), {ignoreDead = true})
+
+    for _, player in ipairs(allPlayers) do
+        if player == nearestPlayer then
+            player:SetWorldScale(Vector3.ONE * 2)
+        else
+            player:SetWorldScale(Vector3.ONE)
+        end
+    end
+    Task.Wait(1)
+end
+```
+
+### `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])`
+
+Searches for players in a vertically-infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
+
+```lua
+function Tick()
+    local playersInRange = Game.FindPlayersInCylinder(script:GetWorldPosition(), 500, {includeTeams = {1, 2, 3, 4}})
+
+    for _, player in ipairs(playersInRange) do
+        local vel = player:GetVelocity()
+        vel = vel + Vector3.UP * 250
+        player:SetVelocity(vel)
+    end
+    Task.Wait(0.1)
+end
+```
+
+### `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])`
+
+Similar to `FindPlayersInCylinder()`, but the volume of a sphere is considered in the search instead. Also note that the player's center is at the pelvis. The moment that point exits the sphere area the effect ends, as the extent of their collision capsules is not taken into account for these searches.
+
+```lua
+function Tick()
+    local playersInRange = Game.FindPlayersInSphere(script:GetWorldPosition(), 500)
+
+    for _, player in ipairs(playersInRange) do
+        local vel = player:GetVelocity()
+        vel = vel + Vector3.UP * 250
+        player:SetVelocity(vel)
+    end
+    Task.Wait(0.1)
+end
+```
+
+### `Game.StartRound()` / `Game.EndRound()`
+
+In this example, when one of the teams reaches a score of 10 they win the round. Five seconds later a new round starts.
+
+```lua
+local roundCount = 1
+local roundRestarting = false
+function OnTeamScoreChanged(team)
+    local score = Game.GetTeamScore(team)
+
+    if score >= 10 and not roundRestarting then
+        Game.EndRound()
+        print("Team " .. team .. " wins!")
+
+        roundRestarting = true
+        print("5...")
+        Task.Wait(1)
+        print("4...")
+        Task.Wait(1)
+        print("3...")
+        Task.Wait(1)
+        print("2...")
+        Task.Wait(1)
+        print("1...")
+        Task.Wait(1)
+        Game.ResetTeamScores()
+        Game.StartRound()
+        roundCount = roundCount + 1
+        roundRestarting = false
+        print("Starting new round")
+    end
+end
+
+Game.teamScoreChangedEvent:Connect(OnTeamScoreChanged)
+```
+
+### `Game.GetTeamScore(Integer team)`
+
+This example checks the score for all four teams and prints them to the screen. Note: Other than in preview mode, the scores will only appear on screen if the script is placed inside a Client Context.
+
+```lua
+function Tick()
+    local teamA = Game.GetTeamScore(1)
+    local teamB = Game.GetTeamScore(2)
+    local teamC = Game.GetTeamScore(3)
+    local teamD = Game.GetTeamScore(4)
+    UI.PrintToScreen("Team A: " .. teamA)
+    UI.PrintToScreen("Team B: " .. teamB)
+    UI.PrintToScreen("Team C: " .. teamC)
+    UI.PrintToScreen("Team D: " .. teamD)
+    Task.Wait(2.98)
+end
+```
+
+### `Game.SetTeamScore(Integer team, Integer score)`
+
+Team scores don't have to represent things such as kills or points -- they can be used for keeping track of and displaying abstract gameplay state. In this example, score for each team is used to represent how many players of that team are within 8 meters of the script.
+
+```lua
+function Tick()
+    local pos = script:GetWorldPosition()
+
+    for team = 1, 4 do
+    local teamPlayers = Game.FindPlayersInCylinder(pos, 800, {includeTeams = team})
+        Game.SetTeamScore(team, #teamPlayers)
+    end
+
+    Task.Wait(0.25)
+end
+```
+
+### `Game.ResetTeamScores()`
+
+In this example, when the round ends team scores are evaluated to figure out which one is the highest, then all scores are reset.
+
+```lua
+function OnRoundEnd()
+    -- Figure out which team has the best score
+    local winningTeam = 0
+    local bestScore = -1
+    for i = 1, 4 do
+        local score = Game.GetTeamScore(i)
+        if score > bestScore then
+            winningTeam = i
+            bestScore = score
+        end
+    end
+
+    print("Round ended. Team " .. winningTeam .." Resetting scores.")
+    Game.ResetTeamScores()
+end
+
+Game.roundEndEvent:Connect(OnRoundEnd)
+```
+
 ## Needed
 
 * What isn't represented here? Let us know!
