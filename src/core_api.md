@@ -359,15 +359,15 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. | None |
-| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. | None |
+| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. [:fa-info-circle:](../api/examples/#equippedevent-unequippedevent "Example") | None |
+| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. [:fa-info-circle:](../api/examples/#equippedevent-unequippedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | Dynamic |
-| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. | Dynamic |
-| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. | Dynamic |
-| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
+| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. [:fa-info-circle:](../api/examples/#equipplayer "Example") | None |
+| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. [:fa-info-circle:](../api/examples/#unequip "Example") | None |
+| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. [:fa-info-circle:](../api/examples/#addabilityability "Example") | None |
+| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. [:fa-info-circle:](../api/examples/#getabilities "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -406,9 +406,9 @@ Contains data pertaining to an impact or raycast.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. | None |
-| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. | None |
-| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
+| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. [:fa-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
+| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. [:fa-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
+| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. [:fa-info-circle:](../api/examples/#gettransform "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1328,26 +1328,26 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Class Event | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | None |
-| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | None |
-| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | None |
-| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | None |
-| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fa-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fa-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fa-info-circle:](../api/examples/#gameroundstartevent "Example") | None |
+| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fa-info-circle:](../api/examples/#gameroundendevent "Example") | None |
+| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | None |
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Game.GetLocalPlayer()` | Player | Returns the local player. | Client-Only |
-| `Game.GetPlayers([table parameters])` | Array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(Integer or table of Integer), includeTeams(Integer or table of Integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
-| `Game.FindNearestPlayer(Vector3 position, [table parameters])` | Player | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. | Server-Only |
-| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. | Server-Only |
-| `Game.GetTeamScore(Integer team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None |
-| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. | Server-Only |
-| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. | Server-Only |
-| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. | Server-Only |
-| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. | Server-Only |
+| `Game.GetLocalPlayer()` | Player | Returns the local player. [:fa-info-circle:](../api/examples/#gamegetlocalplayer "Example") | Client-Only |
+| `Game.GetPlayers([table parameters])` | Array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(Integer or table of Integer), includeTeams(Integer or table of Integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. [:fa-info-circle:](../api/examples/#gamegetplayerstable-parameters "Example") | None |
+| `Game.FindNearestPlayer(Vector3 position, [table parameters])` | Player | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindnearestplayervector3-position-table-parameters "Example") | None |
+| `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindplayersincylindervector3-position-number-radius-table-parameters "Example") | None |
+| `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindplayersinspherevector3-position-number-radius-table-parameters "Example") | None |
+| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. [:fa-info-circle:](../api/examples/#gamestartround-gameendround "Example") | Server-Only |
+| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. [:fa-info-circle:](../api/examples/#gamestartround-gameendround "Example") | Server-Only |
+| `Game.GetTeamScore(Integer team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. [:fa-info-circle:](../api/examples/#gamegetteamscoreinteger-team "Example") | None |
+| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. [:fa-info-circle:](../api/examples/#gamesetteamscoreinteger-team-integer-score "Example") | Server-Only |
+| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
+| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
+| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. [:fa-info-circle:](../api/examples/#gameresetteamscores "Example") | Server-Only |
 
 ### Storage
 
