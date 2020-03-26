@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-Materials are the way to change the appearance of an object. Core has a variety of different materials to chose from, and each can be modified in different ways to create **custom materials**.
+Materials are the way to change the appearance of an object, using a complete package of shaders and textures. Core has a variety of different materials to chose from, and each can be modified in different ways to create **custom materials**.
 
 ![Sample Materials](../../img/Materials/SampleMaterials.png){: .center}
 
@@ -18,7 +18,7 @@ Materials are the way to change the appearance of an object. Core has a variety 
 
 ### Find the Current Material
 
-The material on an object can be found by in the **Properties** menu. If you have experimented with applying different materials to objects in your game, you may have noticed most shapes have the blue **Grid Basic** material, which is the default for all basic shapes.
+The material on an object can be found by in the **Properties** menu. Most shapes start out with the blue **Grid Basic** material, which is the default for all basic shapes.
 
 ![Materials](../../img/Materials/image5.png "Materials Screenshot"){: .center}
 
@@ -56,7 +56,7 @@ The base color of a material can be changed using the **Material Override** prop
 
 ## Smart Material
 
-Smart Materials are textures that align to the world, not the object. This makes it easy to seamlessly connect two objects using the same material.
+**Smart Materials** are textures that align to the world, rather than the object. This makes it easy to seamlessly connect two objects using the same material.
 
 ### Enable and Disable Smart Material
 
