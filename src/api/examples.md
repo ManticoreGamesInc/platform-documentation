@@ -743,7 +743,7 @@ end
 
 ### `equippedEvent` / `unequippedEvent`
 
-Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It’s not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
+Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
 
 ```lua
 local primaryEquipment = script.parent
@@ -875,7 +875,7 @@ RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
 
 ### `socket`
 
-The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there’s a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment’s default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function.
+The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function.
 
 ```lua
 local EQUIPMENT = script.parent
@@ -954,7 +954,7 @@ end
 
 ### `GetTransform()`
 
-HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult’s transform data. This example assumes the script is placed as a child of a Weapon.
+HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
 
 ```lua
 local impactTemplate = script:GetCustomProperty("ImpactObject")
@@ -974,7 +974,7 @@ weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ### `other` / `socketName`
 
-HitResult is used by Weapons transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player’s body the hit occurred, allowing more detailed gameplay systems.
+HitResult is used by Weapons transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
 
 ```lua
 local weapon = script.parent
@@ -1195,7 +1195,7 @@ Game.roundEndEvent:Connect(OnRoundEnd)
 
 ### `Game.FindNearestPlayer(Vector3 position, [table parameters])`
 
-In this example, the player who is closest to the script’s position is made twice as big. All other players are set to regular size.
+In this example, the player who is closest to the script's position is made twice as big. All other players are set to regular size.
 
 ```lua
 function Tick()
@@ -1232,7 +1232,7 @@ end
 
 ### `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])`
 
-Similar to `FindPlayersInCylinder()`, but the volume of a sphere is considered in the search instead. Also note that the player’s center is at the pelvis. The moment that point exits the sphere area the effect ends, as the extent of their collision capsules is not taken into account for these searches.
+Similar to `FindPlayersInCylinder()`, but the volume of a sphere is considered in the search instead. Also note that the player's center is at the pelvis. The moment that point exits the sphere area the effect ends, as the extent of their collision capsules is not taken into account for these searches.
 
 ```lua
 function Tick()
@@ -1303,7 +1303,7 @@ end
 
 ### `Game.SetTeamScore(Integer team, Integer score)`
 
-Team scores don’t have to represent things such as kills or points--they can be used for keeping track of and displaying abstract gameplay state. In this example, score for each team is used to represent how many players of that team are within 8 meters of the script.
+Team scores don't have to represent things such as kills or points -- they can be used for keeping track of and displaying abstract gameplay state. In this example, score for each team is used to represent how many players of that team are within 8 meters of the script.
 
 ```lua
 function Tick()
