@@ -993,7 +993,7 @@ end
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-## `Game`
+## Game
 
 ### `Game.playerJoinedEvent` / `Game.playerLeftEvent`
 
