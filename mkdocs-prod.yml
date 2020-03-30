@@ -6,7 +6,7 @@ nav:
       - Home: index.md
       - Install Core: getting_started/installing_core.md
       - Intro to the Editor: getting_started/editor_intro.md
-      - Coming to Core from Other Platforms: getting_started/other_engines.md
+      - Coming to Core from Other Platforms: getting_started/other_platforms.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Publishing Checklist: getting_started/publishing_checklist.md
       - Publish a Game: getting_started/publishing.md

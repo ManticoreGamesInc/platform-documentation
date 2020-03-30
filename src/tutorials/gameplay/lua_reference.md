@@ -39,7 +39,7 @@ official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourse
 
 #### Coming from other engines
 
-Other engines also have good sources of documentation for Lua. Check out our [other-engines](other_engines.md) page that has a few hints on what's different between them and **Core**.
+Other engines also have good sources of documentation for Lua. Check out [Coming to Core from Other Platforms](other_platforms.md) for a few hints on what's different in **Core**.
 
 ## Basics
 
