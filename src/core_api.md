@@ -371,8 +371,8 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Read-Write, Dynamic |
-| `owner` | Player | Which Player the Equipment is attached to. | Read-Only, Dynamic |
+| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. [:fa-info-circle:](../api/examples/#socket "Example") | Read-Write, Dynamic |
+| `owner` | Player | Which Player the Equipment is attached to. [:fa-info-circle:](../api/examples/#owner "Example") | Read-Only, Dynamic |
 
 ### Event
 
