@@ -7,7 +7,7 @@ exports.settings = {
     ruleRepetition: "3",
     ruleSpaces: false,
     emphasis: "*",
-    paddedTable: false
+    tableCellPadding: false
 }
 
 const personalDictionaryPath = path.join(__dirname, ".vscode/spellright.dict")
