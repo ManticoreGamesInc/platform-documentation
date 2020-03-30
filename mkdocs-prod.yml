@@ -59,9 +59,10 @@ nav:
       - Editor Extensions: extensions.md
       - Examples & Snippets: api/examples.md
   - FAQ:
-      - https://forums.coregames.com/t/83
+      - Frequent Asked Questions: https://forums.coregames.com/t/83
   - Feedback:
-      - https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
+      - Suggestions: https://forums.coregames.com/c/feedback/31
+      - Bug Reports: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
 # If you make a PR, no need to change data below this point
 theme:
