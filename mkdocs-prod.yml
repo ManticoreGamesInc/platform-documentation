@@ -1,10 +1,9 @@
 # If you add or remove a page, you must also add or remove in mkdocs.yml
 nav:
-  - News:
-      - https://forums.coregames.com/news
+  - News: https://forums.coregames.com/news
   - Documentation:
+      - Home: index.md
       - Getting Started:
-        - Home: index.md
         - Install Core: getting_started/installing_core.md
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
@@ -43,27 +42,11 @@ nav:
         - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
         - Editor Extensions: extensions.md
         - Examples & Snippets: api/examples.md
-  - Forums:
-      - Forums: https://forums.coregames.com/
-  - Events:
-      - Events: https://forums.coregames.com/c/community/events/6
-  - Core Live:
-      - Core Live: https://forums.coregames.com/t/39
-  - Core API:
-      - API Overview: core_api.md
-      - Game Components: api/components.md
-      - Animations: api/animations.md
-      - Ability Bindings: api/ability_bindings.md
-      - Lua in Core: tutorials/gameplay/lua_reference.md
-      - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
-      - Editor Extensions: extensions.md
-      - Examples & Snippets: api/examples.md
-  - FAQ:
-      - Frequent Asked Questions: https://forums.coregames.com/t/83
-  - Feedback:
-      - Suggestions: https://forums.coregames.com/c/feedback/31
-      - Bug Reports: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
-
+  - Forums: https://forums.coregames.com/
+  - Events: https://forums.coregames.com/c/community/events/6
+  - Core Live: https://forums.coregames.com/t/39
+  - FAQ: https://forums.coregames.com/t/83
+  - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 # If you make a PR, no need to change data below this point
 theme:
   name: null
