@@ -729,6 +729,7 @@ function Tick()
     for _, player in pairs(Game.GetPlayers()) do
         local playerPos = player:GetWorldPosition()
         local hitResult = World.Raycast(playerPos, playerPos + downV, {ignorePlayers = true})
+
         if (player.isFlying and hitResult) then
             player:ActivateWalking()
         elseif (not player.isFlying and not hitResult) then
@@ -867,7 +868,7 @@ end
 ATTACK_ABILITY.executeEvent:Connect(onExecuteAttack)
 
 function onExecuteReload()
-    OBJECT_TO_HIDE.visibility = Visibility.FORCE_ON
+    OBJECT_TO_HIDE.visibility = Visibility.INHERIT
 end
 
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
@@ -992,7 +993,7 @@ end
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-## `Game`
+## Game
 
 ### `Game.playerJoinedEvent` / `Game.playerLeftEvent`
 
@@ -1219,7 +1220,8 @@ Searches for players in a vertically-infinite cylindrical volume. In this exampl
 
 ```lua
 function Tick()
-    local playersInRange = Game.FindPlayersInCylinder(script:GetWorldPosition(), 500, {includeTeams = {1, 2, 3, 4}})
+    local pos = script:GetWorldPosition()
+    local playersInRange = Game.FindPlayersInCylinder(pos, 500, {includeTeams = {1, 2, 3, 4}})
 
     for _, player in ipairs(playersInRange) do
         local vel = player:GetVelocity()
@@ -1254,6 +1256,7 @@ In this example, when one of the teams reaches a score of 10 they win the round.
 ```lua
 local roundCount = 1
 local roundRestarting = false
+
 function OnTeamScoreChanged(team)
     local score = Game.GetTeamScore(team)
 
@@ -1310,7 +1313,7 @@ function Tick()
     local pos = script:GetWorldPosition()
 
     for team = 1, 4 do
-    local teamPlayers = Game.FindPlayersInCylinder(pos, 800, {includeTeams = team})
+        local teamPlayers = Game.FindPlayersInCylinder(pos, 800, {includeTeams = team})
         Game.SetTeamScore(team, #teamPlayers)
     end
 

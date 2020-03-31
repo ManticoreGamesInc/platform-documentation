@@ -1,5 +1,5 @@
 ---
-id: other_engines
+id: other_platforms
 name: Coming to Core from Other Platforms
 title: Coming to Core from Other Platforms
 tags:
@@ -25,7 +25,7 @@ Everything used to create games in Core is made up of Core Content. While outsid
 
 #### Core Content
 
-Core Content includes everything from basic shape objects to  game components like health bars and spawn points, all customizable. Objects are all downloaded with the Core install, which makes editing and playing Core-created games very fast.
+Core Content includes everything from basic shape objects to game components like health bars and spawn points, all customizable. Objects are all downloaded with Core on install, which makes for virtually instanteneous loading of Core games and assets.
 
 #### Community Content
 
@@ -41,23 +41,23 @@ Players can move with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</
 
 Multiplayer networking is also included in all Core projects, as well as a **Multiplayer Preview Mode** which generates up to four clients locally which can each be individually controlled for instant project testing.
 
-Core players have consistent characters that are used across Core games with customizable outfits, emotes, and mount choices that can be overwritten for individual game artistic choices.
+Core players have persistent avatars that are used across Core games with customizable outfits, emotes, and mount choices that can be overwritten for individual game artistic choices.
 
 ### Networking
 
 Core allows straight-forward networking through the Heirarchy with **Server Context** and **Client Context** folders, and one-click networking of objects through the interface.
 
-It also includes free server hosting and matchmaking, as well as analytics.
+It also includes free server hosting and analytics, automatically creating more server instances for player overflow.
 
 ### Exporting Games
 
-Core is a complete platform that includes a Launcher to see and play Core-created games. There is no executable file download or exporting, but games can be [published](publishing.md) through the editor and shared with a URL. Core showcases published games and comes with a built-in audience.
+Core is a complete platform that includes a Launcher to see and play Core-created games. There is no executable file download or exporting, but games can be [published](publishing.md) through the editor and shared with a URL. Core games can be found within the Core launcher, and outstanding work will be promoted.
 
 ### Scripting
 
 Core scripting is written in the [Lua](lua_reference.md) language, which does not specify data types, and is not inherently object-oriented. This allows for considerable flexibility in designing and organizing code.
 
-Scripts can be added as children of objects, but they do not necessarily have to be associated any object, only networked and added to the project **Hierarchy**. All Lua scripts run when the project runs.
+Scripts can be added as children of objects, but they do not necessarily have to be associated any object, only networked and added to the project **Hierarchy**.
 
 ### Terminology
 
