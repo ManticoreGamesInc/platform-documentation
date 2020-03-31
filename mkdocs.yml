@@ -6,6 +6,7 @@ nav:
       - Home: index.md
       - Install Core: getting_started/installing_core.md
       - Intro to the Editor: getting_started/editor_intro.md
+      - Coming to Core from Other Platforms: getting_started/other_platforms.md
       - Create your first Game: getting_started/my_first_multiplayer_game.md
       - Publishing Checklist: getting_started/publishing_checklist.md
       - Publish a Game: getting_started/publishing.md
@@ -42,7 +43,6 @@ nav:
         - Lua in Core: tutorials/gameplay/lua_reference.md
         - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
         - Editor Extensions: extensions.md
-        - Coming from other Engines: getting_started/other_engines.md
         - Examples & Snippets: api/examples.md
   - Forums:
       - Forums: https://forums.coregames.com/
@@ -58,7 +58,6 @@ nav:
       - Lua in Core: tutorials/gameplay/lua_reference.md
       - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
       - Editor Extensions: extensions.md
-      - Coming from other Engines: getting_started/other_engines.md
       - Examples & Snippets: api/examples.md
   - FAQ:
       - https://forums.coregames.com/t/83
