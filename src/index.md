@@ -21,9 +21,9 @@ Welcome to the official documentation of Core&trade;, the community-focused game
 
 ## Organization of the Documentation
 
-- [**Getting Started**](editor_intro.md) explains the essential information  you need to start using [the Core Editor](editor_intro.md), from [installation](installing_core.md) to [making a game](my_first_multiplayer_game.md).
-- [**Tutorials**](tutorials/overview.md) contains step-by-step instructions to make specific features or
-  full games. It includes an [introduction to Lua scripting in Core](lua_basics_lightbulb.md), and a collection of [examples](examples.md) to learn from and use.
+- [**Getting Started**](editor_intro.md) explains the essential information  you need to start using Core, from [installation](installing_core.md) to [making a game](my_first_multiplayer_game.md).
+- [**Tutorials**](tutorials/overview.md) contains step-by-step instructions to make specific features or full games. It includes an [introduction to Lua scripting in Core](lua_basics_lightbulb.md), and a collection of [examples](examples.md) to learn from and use.
+- [**Editor Manual**](editor_intro.md) explains the tools of the Core Editor, and how to customize them for specific uses.
 - [**Core API**](core_api.md) holds formal information about scripting in Core, including a [Lua style guide](lua_style_guide.md) and references for all [game components](components.md).
 
 ## About Open Alpha
@@ -32,4 +32,4 @@ Core is in Open Alpha, which means it is still in early stages, with many featur
 
 ## About the Documentation
 
-The Core documentation is continuously written by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon">edit</a> icon in the top right corner of any page of the documentation.
+The Core documentation is continuously written and edited by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon">edit</a> icon in the top right corner of any page of the documentation.

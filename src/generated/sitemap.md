@@ -12,31 +12,31 @@
 
 - [Introduction to the Core Editor](../getting_started/editor_intro.md)
 
-- [Differences between Core and other Engines](../getting_started/other_engines.md)
+- [Differences between Core and other Engines](../getting_started/other_platforms.md)
 
-- [Art in Core](../tutorials/art/art_reference.md)
+- [Art in Core](../tutorials/art_reference.md)
 
-- [Audio in Core](../tutorials/art/audio_reference.md)
+- [Audio in Core](../tutorials/audio_reference.md)
 
-- [Costumes in Core](../tutorials/art/costumes.md)
+- [Costumes in Core](../tutorials/costumes.md)
 
-- [Custom Materials in Core](../tutorials/art/custom_materials.md)
+- [Custom Materials in Core](../tutorials/custom_materials.md)
 
-- [Environmental Art in Core](../tutorials/art/environmental_art.md)
+- [Environmental Art in Core](../tutorials/environmental_art.md)
 
-- [Modeling Basics](../tutorials/art/modeling_basics.md)
+- [Modeling Basics](../tutorials/modeling_basics.md)
 
-- [Scene Creation in Core](../tutorials/art/scene_creation.md)
+- [Scene Creation in Core](../tutorials/scene_creation.md)
 
-- [Collaboration Reference](../tutorials/gameplay/collaboration_reference.md)
+- [Collaboration Reference](../tutorials/collaboration_reference.md)
 
-- [Lua Reference](../tutorials/gameplay/lua_reference.md)
+- [Lua Reference](../tutorials/lua_reference.md)
 
-- [Networking Reference](../tutorials/gameplay/networking_reference.md)
+- [Networking Reference](../tutorials/networking_reference.md)
 
-- [Performance Reference](../tutorials/gameplay/performance_reference.md)
+- [Performance Reference](../tutorials/performance_reference.md)
 
-- [UI Reference](../tutorials/gameplay/ui_reference.md)
+- [UI Reference](../tutorials/ui_reference.md)
 
 ## Tutorial
 
@@ -50,16 +50,16 @@
 
 - [Collaboration & Source Control in Core](../tutorials/collaboration.md)
 
-- [Abilities in Core](../tutorials/gameplay/abilities.md)
+- [Abilities in Core](../tutorials/abilities.md)
 
-- [Advanced Abilities in Core](../tutorials/gameplay/abilities_advanced.md)
+- [Advanced Abilities in Core](../tutorials/abilities_advanced.md)
 
-- [Scripting in Core](../tutorials/gameplay/lua_basics_lightbulb.md)
+- [Scripting in Core](../tutorials/lua_basics_lightbulb.md)
 
-- [Advanced Scripting in Core](../tutorials/gameplay/lua_basics_manticoin.md)
+- [Advanced Scripting in Core](../tutorials/lua_basics_manticoin.md)
 
-- [Lua Style Guide](../tutorials/gameplay/lua_style_guide.md)
+- [Lua Style Guide](../tutorials/lua_style_guide.md)
 
-- [Persistent Data Storage in Core](../tutorials/gameplay/persistent_storage.md)
+- [Persistent Data Storage in Core](../tutorials/persistent_storage.md)
 
-- [Weapons in Core](../tutorials/gameplay/weapons.md)
+- [Weapons in Core](../tutorials/weapons.md)

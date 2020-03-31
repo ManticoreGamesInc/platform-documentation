@@ -23,7 +23,7 @@ When one template is updated, it updates every instance of the template. So you 
 
     Or perhaps they'll modify it to drop a monkey. That's the beauty of template sharing!
 
-Templates can be identified in the **Core Content** tab by this icon: ![TemplateIcon](../../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
+Templates can be identified in the **Core Content** tab by this icon: ![TemplateIcon](../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .center}
 
 - **Completion Time:** 5 minutes
 - **Knowledge Level:** None needed!
@@ -45,13 +45,13 @@ Creating a template is fast and easy! To make a template follow these steps:
 
 2. When satisfied with your creation, select all assets in the project Hierarchy tab that you desire to be in the template. Right click on them and select "Group and Create New Template from These".
 
-      ![TemplateTut1](../../img/EditorManual/UI/TemplateTut1.png "Right click all of your selected objects at once in the Hierarchy."){: .center}
+      ![TemplateTut1](../img/EditorManual/UI/TemplateTut1.png "Right click all of your selected objects at once in the Hierarchy."){: .center}
 
       *Alternatively you can group the assets first and then create the template. You'll find that like a lot of game development software, there are multiple ways to go about achieving a task. The process is whichever comes natural to you!*
 
 3. Name your template and click the **New Template** button.
 
-     ![TemplateTut2](../../img/EditorManual/UI/TemplateTut2.png "Pick somethin' catchy."){: .center}
+     ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png "Pick somethin' catchy."){: .center}
 
      The template is now recognized in your project as its own object and can be found in the **Project Content** folder of **Core Content** and you may easily drag out as many instances of your template into your scene as you like. *(And that your game can handle--keep an eye on that Perfromance tab to see if you have too many objects!)*
 
@@ -66,12 +66,12 @@ Once your template is created, you may use it for just this project alone, or yo
 
 2. You may either right click and select Publish to Community Content OR click the Publish to Community Content button in the Properties menu.
 
-     ![Publish](../../img/EditorManual/UI/PublishToCC.png "Publish by right clicking--"){: .center}
-     ![Publish](../../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
+     ![Publish](../img/EditorManual/UI/PublishToCC.png "Publish by right clicking--"){: .center}
+     ![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
 
 3. This dialogue box will appear:
 
-     ![Publish Dialog Box](../../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center}
+     ![Publish Dialog Box](../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center}
 
      a. Check or create a new **template name**.
 
@@ -93,11 +93,11 @@ Once your template is created, you may use it for just this project alone, or yo
 
    By setting your template to *private*, only you will be able to download it from Community Content into other projects. This can be very handy for working on a template on different computers without having to publish the work-in-progress version of what you are making.
 
-![TemplateTut4](../../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
+![TemplateTut4](../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
 
 Congratulations! You've created, edited, and published a template that can be shared and used by other creators in Core!
 
-![TemplateTut4](../../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
+![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
 ---
 
@@ -107,20 +107,20 @@ Congratulations! You've created, edited, and published a template that can be sh
 
 One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
 
-![Update Template](../../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
+![Update Template](../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
 
 You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
 A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
 
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
 
-![Update Template From This](../../img/EditorManual/Art/updateTempFromThis.gif "Update Template From This"){: .center}
+![Update Template From This](../img/EditorManual/Art/updateTempFromThis.gif "Update Template From This"){: .center}
 
 This will update the template for your project personally, but in order to update a template that has been published to **Community Content**, we will need to re-publish the template.
 
 In your **Project Content**, find the published template that you wish to update. Right click the template, and click "**Republish**". It'll bring up the same window as for publishing a template, so that you may update the description if you like.
 
-![Republish](../../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
+![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
 
 "**Download Latest**" will update your local project template with whatever the most recent published version of the template exists on **Community Content**.
 
@@ -140,4 +140,4 @@ Templates made by other people can be downloaded from **Community Content** and 
 
 If you wish to publish a re-used template to Community Content, it must be as its own new and separate template.
 
-![Community Content Template](../../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
+![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
