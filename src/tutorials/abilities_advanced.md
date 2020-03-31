@@ -18,7 +18,7 @@ In the first tutorials for abilities and weapons, we went over the quickest poss
 
 If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](lua_basics_lightbulb.md)**. This will go over some key words and practices you would want to know.
 
-![Full Fire Staff](../../img/EditorManual/Weapons/FireStaff.gif){: .center}
+![Full Fire Staff](../img/EditorManual/Weapons/FireStaff.gif){: .center}
 
 * **Completion Time:** ~30 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but would be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** and completion of the first **[Weapons](weapons.md)** tutorial
@@ -71,7 +71,7 @@ The 4 different phases of an ability are:
 
 Once an ability is triggered to start, it cycles through **Cast** > **Execute** > **Recovery** > **Cooldown**. The amount of time that each phase lasts can be set in the code. These timings would be very different depending on the type of ability being created.
 
-![Ability States](../../img/EditorManual/Abilities/Ability_States.png){: .center}
+![Ability States](../img/EditorManual/Abilities/Ability_States.png){: .center}
 
 To tie functionality to the different phases of an ability, Core uses **Events**. Each phase has an event that is activated at the very beginning of that phase.
 
@@ -86,7 +86,7 @@ Connecting functions to events in an ability is the main task to be done when cr
 
 ## Altering Properties the Easy Way: The Ability Object
 
-![Ability Object](../../img/EditorManual/Abilities/abilityObject.png){: .center}
+![Ability Object](../img/EditorManual/Abilities/abilityObject.png){: .center}
 
 Core allows building gameplay with as little or as much scripting as you would like. A powerful aspect of abilities is that they are kept in an Ability Object. This is a single Hierarchy object that holds all the most useful properties you might want to change to make your specific ability unique.
 
@@ -114,11 +114,11 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
     Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy1.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy1.png){: .center}
 
 4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!
 
-    ![Is Hitscan?](../../img/EditorManual/Weapons/advanced/isHitscan_no.png){: .center}
+    ![Is Hitscan?](../img/EditorManual/Weapons/advanced/isHitscan_no.png){: .center}
 
 5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied!
 
@@ -146,7 +146,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
     * Activated the moment a player is hit with a projectile.
 
-![Fire Impact](../../img/EditorManual/Weapons/advanced/staffImpact.gif){: .center}
+![Fire Impact](../img/EditorManual/Weapons/advanced/staffImpact.gif){: .center}
 
 ### Fire Fly Ability
 
@@ -158,7 +158,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
 4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy2.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy2.png){: .center}
 
 5. Open the script and let's get typing!
 
@@ -238,25 +238,25 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
     This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center}
 
     1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
 
     2. Change the **Animation** to "2hand_staff_magic_up".
 
-        ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center}
+        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center}
 
     3. Now in the *Cast* section, change the **Duration** to .15.
 
     4. Change the **Facing Mode** to "Movement".
 
-        ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center}
+        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center}
 
     5. In the Execute section, change **Duration** to 3.
 
     6. Change the **Facing Mode** to Movement.
 
-        ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center}
+        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center}
 
     7. In the Recovery section, change the **Duration** to 0.
 
@@ -282,7 +282,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/customProps1.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/customProps1.png){: .center}
 
 2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
 
@@ -496,7 +496,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
     Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy3.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy3.png){: .center}
 
 So this was the first half of the camera aim setup--we have created a script for the client context, that only each individual player uses. The next part is the script that will live in a server context, as this is the part that needs to be replicated back to the server.
 
@@ -514,7 +514,7 @@ So let's get started on the server script!
 
 3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy4.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy4.png){: .center}
 
 4. Next is adding in the coding sections--open up the new script to begin.
 
@@ -647,7 +647,7 @@ So let's get started on the server script!
 
     Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
 
-    ![Zoom](../../img/EditorManual/Weapons/advanced/zoomIn.gif){: .center}
+    ![Zoom](../img/EditorManual/Weapons/advanced/zoomIn.gif){: .center}
 
 ### Critical Hit Headshots
 
@@ -662,7 +662,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
 2. Create a new script and call it "WeaponDamageServerShoot", and drag it into the project Hierarchy on top of the Server Context folder within the Fire Staff. This way it is also contained within the server context.
 
-    ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy5.png){: .center}
+    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy5.png){: .center}
 
 3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into Core already.
 
@@ -724,7 +724,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
 4. To test this and make sure everything is working correctly, we'll need to add a Team Settings object to our game.
 
-    ![Team Settings Object](../../img/EditorManual/Weapons/advanced/teamSettings.png){: .center}
+    ![Team Settings Object](../img/EditorManual/Weapons/advanced/teamSettings.png){: .center}
 
     1. In **Core Content**, scroll down to the *Game Objects* section and select the *Settings Objects* category. Drag a **Team Settings** object into your project Hierarchy. Make sure it is not within the Fire Staff.
 
@@ -734,7 +734,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
     3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
 
-        ![Headshot vs Regular Shots](../../img/EditorManual/Weapons/advanced/headshot.gif){: .center}
+        ![Headshot vs Regular Shots](../img/EditorManual/Weapons/advanced/headshot.gif){: .center}
 
 ### Ammo as a Pickup
 
@@ -742,7 +742,7 @@ One way to really change gameplay and force players to explore a map and be more
 
 With this fire staff, we could use something thematic and firey like *ember* as an ammo pickup.
 
-![A Hot Pickup](../../img/EditorManual/Weapons/advanced/emberPickup.gif){: .center}
+![A Hot Pickup](../img/EditorManual/Weapons/advanced/emberPickup.gif){: .center}
 
 The main thing to change for our ammo supply is to change the properties of the `weapon` itself.
 
@@ -754,7 +754,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
     3. Change the **Ammo Type** to "*embers*". This name will need to match the resource we create for our player to pick up.
 
-        ![Ammo Settings](../../img/EditorManual/Weapons/advanced/ammoSettings.png){: .center}
+        ![Ammo Settings](../img/EditorManual/Weapons/advanced/ammoSettings.png){: .center}
 
         Now we get to build the ammunition pickup itself!
 
@@ -775,7 +775,7 @@ The main thing to change for our ammo supply is to change the properties of the 
     1. Within your project content, create a new script and call it "EmberPickupScript".
     2. Drag this script onto the `trigger` we made in your project Hierarchy.
 
-        ![Current Hierarchy](../../img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
+        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
 
     3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.
 
@@ -814,7 +814,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 6. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
 
-    ![Ammo](../../img/EditorManual/Weapons/advanced/ammoShot.gif){: .center}
+    ![Ammo](../img/EditorManual/Weapons/advanced/ammoShot.gif){: .center}
 
 ### Connecting UI
 
