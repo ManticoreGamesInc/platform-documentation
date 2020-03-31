@@ -42,7 +42,7 @@ nav:
         - Lua in Core: tutorials/lua_reference.md
         - Lua Style Guide: tutorials/lua_style_guide.md
         - Editor Extensions: extensions.md
-        - Coming from other Platforms: getting_started/other_engines.md
+        - Coming from other Platforms: getting_started/other_platforms.md
         - Examples & Snippets: api/examples.md
   - Forums:
       - Forums: https://forums.coregames.com/
@@ -58,7 +58,7 @@ nav:
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
-      - Coming from other Platforms: getting_started/other_engines.md
+      - Coming from other Platforms: getting_started/other_platforms.md
       - Examples & Snippets: api/examples.md
   - FAQ:
       - Frequently Asked Questions: https://forums.coregames.com/t/83
@@ -163,6 +163,7 @@ plugins:
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
+        getting_started/other_engines.md: getting_started/other_platforms.md
 
 docs_dir: src
 

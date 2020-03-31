@@ -12,7 +12,7 @@
 
 - [Introduction to the Core Editor](../getting_started/editor_intro.md)
 
-- [Differences between Core and other Engines](../getting_started/other_engines.md)
+- [Differences between Core and other Engines](../getting_started/other_platforms.md)
 
 - [Art in Core](../tutorials/art_reference.md)
 
