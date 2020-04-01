@@ -343,6 +343,16 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     2. Now in your script, right click and paste everything in there!
 
+    3. With all these variables pasted in, your script should look like this:
+
+        ```lua
+        local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+        local propChestSmallOpened = script:GetCustomProperty("ChestSmallOpened"):WaitForObject()
+        local propChestSmallClosed = script:GetCustomProperty("ChestSmallClosed"):WaitForObject()
+        local propOpeningVFX = script:GetCustomProperty("OpeningVFX")
+        local propLockedVFX = script:GetCustomProperty("LockedVFX")
+        ```
+
 14. Next we need to create a function for the moment the player interacts with the treasure chest! This is what happens when the player presses <kbd>F</kbd> when prompted by the trigger we placed.
 
     In your script, beneath all the *variables* we just pasted in, add this code:
