@@ -935,7 +935,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ### `context`
 
-With `context` two scripts can communicate directly by calling on each other’s functions and properties. Notice that '.' is used instead of ':' when accessing context functions. In the following example, the first script is placed directly in the hierarchy and the second script is placed inside a template of some sort. When a new player joins, the first script spawns a copy of the template and tells it about the new player. The template then follows the player around as they move.
+With `context` two scripts can communicate directly by calling on each other's functions and properties. Notice that '.' is used instead of ':' when accessing context functions. In the following example, the first script is placed directly in the hierarchy and the second script is placed inside a template of some sort. When a new player joins, the first script spawns a copy of the template and tells it about the new player. The template then follows the player around as they move.
 
 ```lua
 -- Script directly in hierarchy
@@ -1414,7 +1414,7 @@ end
 
 ### `text`
 
-Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It’s also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
+Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It's also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
 
 ```lua
 local nameTextObject = script.parent
