@@ -440,7 +440,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ### `Disconnect()` / `isConnected`
 
-When `Connect()` is called, an `EventListener` structure is returned. In some situations it’s good to save the listener in order to disconnect from the event later. In the following example, we are listening for the local player gaining or losing resources. However, if this script is destroyed for some reason, then it will be hanging in memory due to the event connection. In this case it’s important to `Disconnect()` or a small memory leak is created. This script presumes to be in a Client Context.
+When `Connect()` is called, an `EventListener` structure is returned. In some situations it's good to save the listener in order to disconnect from the event later. In the following example, we are listening for the local player gaining or losing resources. However, if this script is destroyed for some reason, then it will be hanging in memory due to the event connection. In this case it's important to `Disconnect()` or a small memory leak is created. This script presumes to be in a Client Context.
 
 ```lua
 function OnResourceChanged(player, resName, resValue)
@@ -505,7 +505,7 @@ Events.Connect("GameStateChanged", OnStateChanged)
 
 ### `Events.ConnectForPlayer(string eventName, function eventListener, [...])` / `Events.BroadcastToServer(string eventName, [...])`
 
-This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client cand send input data to the server, in this case their cursor’s position.
+This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client cand send input data to the server, in this case their cursor's position.
 
 ```lua
 -- Server script
@@ -561,7 +561,7 @@ Events.Connect("FlagCaptured", OnFlagCaptured)
 
 Events.BroadcastToPlayer(Player player, string eventName, [...])
 
-If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object’s executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
+If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
 ```lua
 function OnExecute(ability)
