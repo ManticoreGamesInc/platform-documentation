@@ -416,60 +416,152 @@ end
 script.parent.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-## Events
+## Event
 
-Core uses events for a variety of state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. Events allow two separate scripts to communicate, without the need to reference each other directly and can also be used to communicate between scripts.
+### `Connect(function eventListener, [...])`
 
-### `Connect()`
-
-To hook up your function to an event, you have to call `Connect(function YourFunction, [...])` to register it. Now it will be called every time the event is fired.
-
-Example:
+Core uses events for a variety of built-in state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. In this example, both `Game.playerJoinedEvent` and `player.damagedEvent` are connected to. The `OnPlayerDamaged()` function will be called each time a player takes damage. Any number of extra parameters can be added when connecting and those values will be passed back to the listening function.
 
 ```lua
-function OnPlayerDamaged(player, dmg)
-    print("Player " .. player.name .. " took " .. dmg.amount .. " damage. New health = " .. player.hitPoints)
+function OnPlayerDamaged(player, dmg, joinTime)
+    local elapsedTime = time() - joinTime
+    print("Player " .. player.name .. " took " .. dmg.amount .. " damage after joining the game for " .. elapsedTime .. " seconds.")
 end
 
 function OnPlayerJoined(player)
-    player.damagedEvent:Connect(OnPlayerDamaged)
+    -- Passing extra float parameter
+    player.damagedEvent:Connect(OnPlayerDamaged, time())
 end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-Connects the `OnPlayerDamaged` function to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
+## EventListener
 
-`Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
+### `Disconnect()` / `isConnected`
 
-### `Disconnect()`
-
-Pretty simple, you just call `Disconnect()` on the returned `EventListener` to disconnect a listener from its event, so it will no longer be called when the event is fired.
-
-Example:
+When `Connect()` is called, an `EventListener` structure is returned. In some situations it’s good to save the listener in order to disconnect from the event later. In the following example, we are listening for the local player gaining or losing resources. However, if this script is destroyed for some reason, then it will be hanging in memory due to the event connection. In this case it’s important to `Disconnect()` or a small memory leak is created. This script presumes to be in a Client Context.
 
 ```lua
-local damagedEventListener
-
-function OnPlayerJoined(player)
-    damagedEventListener = player.damagedEvent:Connect(OnPlayerDamaged)
+function OnResourceChanged(player, resName, resValue)
+    print("Resource " .. resName .. " = " .. resValue)
 end
 
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+local resourceChangedListener = nil
+
+function OnPlayerJoined(player)
+    if player == Game.GetLocalPlayer() then
+        resourceChangedListener = player.resourceChangedEvent:Connect(OnResourceChanged)
+    end
+end
+
+if Game.GetLocalPlayer() then
+    OnPlayerJoined(Game.GetLocalPlayer())
+else
+    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+end
 
 function OnDestroyed(obj)
-    if damagedEventListener then
-        damagedEventListener:Disconnect()
-        damagedEventListener = nil
+    if resourceChangedListener and resourceChangedListener.isConnected then
+        resourceChangedListener:Disconnect()
+        resourceChangedListener = nil
     end
 end
 
 script.destroyEvent:Connect(OnDestroyed)
 ```
 
-### `Broadcast()`
+## Events
 
-If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability objects `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
+### `Events.Connect(string eventName, function eventListener, [...])` / `Events.Broadcast(string eventName, [...])`
+
+The `Events` namespace allows two separate scripts to communicate without the need to reference each other directly. In this example, two scripts communicate through a custom "GameStateChanged" event. The first one has the beginnings of a state machine and broadcasts the event each time the state changes. The second script listens for that specific event. This is a non-networked message.
+
+```lua
+-- Primary script that drives the state machine
+local currentState = ""
+
+function SetState(newState)
+    currentState = newState
+    Events.Broadcast("GameStateChanged", newState)
+end
+
+function Tick(deltaTime)
+    SetState("Lobby")
+    Task.Wait(1)
+    SetState("Playing")
+    Task.Wait(3)
+end
+```
+
+```lua
+-- A separate script that listens to event changes
+function OnStateChanged(newState)
+    print("New State = " .. newState)
+end
+
+Events.Connect("GameStateChanged", OnStateChanged)
+```
+
+### `Events.ConnectForPlayer(string eventName, function eventListener, [...])` / `Events.BroadcastToServer(string eventName, [...])`
+
+This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client cand send input data to the server, in this case their cursor’s position.
+
+```lua
+-- Server script
+function OnPlayerInputData(player, data)
+    print("Player " .. player.name .. " sent  data = " .. tostring(data))
+end
+
+Events.ConnectForPlayer("CursorPosition", OnPlayerInputData)
+```
+
+```lua
+-- Client script
+UI.SetCursorVisible(true)
+
+function Tick(deltaTime)
+    local cursorPos = UI.GetCursorPosition()
+    Events.BroadcastToServer("CursorPosition", cursorPos)
+    Task.Wait(0.25)
+end
+```
+
+### `Events.BroadcastToAllPlayers(string eventName, [...])`
+
+This event connection allows the server to send a message to all players. In this example, two scripts communicate over the network. The first one is on the server as child of a Trigger and the second one is in a Client Context. The server is authoritative over the state of the flag being captured and listens for overlaps on the Trigger. When a new team captures the flag a message is sent to all clients with information about who captured and what team they belong to.
+
+```lua
+-- Server script
+local teamHasFlag = 0
+
+function OnBeginOverlap(trigger, other)
+    if other:IsA("Player") and other.team ~= teamHasFlag then
+        teamHasFlag = other.team
+
+        local resultCode, errorMsg = Events.BroadcastToAllPlayers("FlagCaptured", other.name, other.team)
+        print("Server sent FlagCaptured event. Result Code = " .. resultCode .. ", error message = " .. errorMsg)
+    end
+end
+
+script.parent.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+```lua
+-- Client script
+function OnFlagCaptured(playerName, playerTeam)
+    local message = playerName .. " captured the flag for team " .. playerTeam
+
+    UI.PrintToScreen(message, Color.MAGENTA)
+    print(message)
+end
+
+Events.Connect("FlagCaptured", OnFlagCaptured)
+```
+
+Events.BroadcastToPlayer(Player player, string eventName, [...])
+
+If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object’s executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
 ```lua
 function OnExecute(ability)
@@ -488,8 +580,6 @@ end
 
 myAbility.executeEvent:Connect(OnExecute)
 ```
-
-Both error and success cases get communicated back to the client via `BroadcastToPlayer`. If you want to do the reverse, to update a server side stored value from a player script, you'd use `BroadcastToServer` instead.
 
 ## Game
 
