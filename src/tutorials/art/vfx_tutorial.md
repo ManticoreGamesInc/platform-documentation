@@ -380,17 +380,17 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 #### Creating a Pickup to Unlock the Chest
 
-18. [Community Content](../../../getting_started/community_content/) is an insanely valuable resource for making your life easier. Others users (and hopefully you too!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality models to use in their games, and art people who need coding help resources to do that.
+1. [Community Content](../../../getting_started/community_content/) is an insanely valuable resource for making your life easier. Others users (and hopefully you too!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality models to use in their games, and art people who need coding help resources to do that.
 
     In our case, we want an item the player can pick up. Luckily, there is something like that already on Community Content!
 
     Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this!
 
-19. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
+2. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
 
     Move it around so that it's somewhere you can see it and get to it.
 
-20. Press play to check out how it works by default! When you walk up to it, it'll prompt you with " Press F to pick up" and if you do, there is a sound effect and flash of light that happens while your character does an animation to grab it.
+3. Press play to check out how it works by default! When you walk up to it, it'll prompt you with " Press F to pick up" and if you do, there is a sound effect and flash of light that happens while your character does an animation to grab it.
 
     Depending on where the Loot Bag is in relation to the player, a different animation will play.
 
@@ -398,57 +398,78 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     There's several things we're going to change about the Loot Bag to suit our needs here with the Treasure Chest.
 
-21. turn off interactable so we just pick it up automatically
+4. Click the Loot Bag in the **Hierarchy**, and drop down the folde structure to see the contents. We're looking for the **Trigger** right now. Click this, and check out the **Properties** tab. Scroll down to the Gameplay section, and uncheck the box for *Interactable*.
 
-22. delete all the existing art
+    Now when a player walks over it, they will instantly grab it, rather than have to press <kbd>F</kbd> first!
 
-23. search for crowbar in core content, and drag that into the client contenxt folder.
+5. We can use whatever art we want in this object, so instead of a coin pouch let's try... a crowbar! For prying that chest open with.
 
-24. rename resource on the loot bag to Crowbar, change min and max to 1
+    Beneath that trigger, there is a *ClientContext* folder. Within this folder are all the objects that make up the visual component of the Loot Bag. Don't delete the whole folder, but delete all of these contents so that we can start fresh.
+
+23. Click over to the Core Content tab, and type "crowbar" into the saerch box.
+
+    Drag the red object that shows up into the ClientContext folder that we just emptied. Now our Loot Bag is a crowbar!
+
+24. The only other important thing we'll want to change is on the **root folder** of the Loot Bag.
+
+    One of the custom properties is called "ResourceName". Be default it is "Gold" and therefore that's what resource is given to the player when they pick it up. We want ours to be crowbar... so let's just call it Crowbar!
+
+    !!! tip
+        Make sure to pay attention to your casing of a resource. The resource "Crowbar" is completely different from "crowbar".
+
+Now when walking up the crowbar, the player will automaticall pick it up! But, it still has the coin sound effect by default, and that feels pretty weird with this object. So, let's create a new effect to play!
 
 #### Creating a Pickup Effect Template
 
-25. now we are going to make a sound effect template, yay! create a new group and call it something
+1. To start creating an effects template, let's create a folder. Right click in the empty space of the Hierarchy to create a New Folder. Name it "CrowbarPickupFX".
 
-    1. Look up step metal hollow and drag it onto that new group
+    1. In **Core Content**, search "step metal hollow" and drag it onto that new folder we made.
 
-    2. gear movement shuffle light and do same thing
+    2. Next look up "gear movement shuffle light" in Core Content and drag that one into the folder as well.
 
-    3. enable networking
+    3. Right click this folder, and select "Enable Networking" to enable this and all children to be networked. This means the state of it is known by the server, and all game clients.
 
-    4. turn on auto play
+    4. Select both of those sound effects we added at once, and in the Properties window, turn the **Auto Play** box on. We want these sounds to play the moment they are created.
 
-    5. set lifespan to 2
+    5. Scroll up a bit in the Properties window, and set the Life Span to 2.
 
-    6. create new template from this, and delete it then
+    6. Now we've got it all set! To use it in other places, we're going to make it into a template. Right click the root folder, and select "Create New Template from This". Now we have a custom sound effect template to use anywhere.
 
-26. Return to loot bag, and drag in new template to PickupFX
+    7. Since all templates in the Hierarchy are only instances of a template saved into Project Content, we can delete this one. We want our script to spawn the sound effect at the right moment.
 
-27. woohoo, test it and it works!
+2. Click back onto the Loot Bag object. In the Properties window, notice the custom property "PickupFX".
 
-28. now back to scripting. we gotta make sure the player has the crowbar in our interaction code.
+    In the Project Content tab, find your new CrowbarPickupFX template. Drag this into that custom property on the Loot Bag.
+
+3. Now when you press play to test, it should play your new sound effect when picking up the crowbar. Ta-da!
+
+4. Now we come back to scripting. We need to make sure the player has the crowbar when trying to open the treasure chest in our interaction code we wrote earlier.
+
+    Replace all the code of your `OnSwitchInteraction` function with this:
 
     ```lua
     local function OnSwitchInteraction(theTrigger, player)
         if player:GetResource("Crowbar") > 0 then
             player:RemoveResource("Crowbar", 1)
-            propChestSmallClosed.visbility = Visibility.FORCE_OFF
-            propChestSmallOpened.visbility = Visibility.INHERIT
+            propChestSmallClosed.visibility = Visibility.FORCE_OFF
+            propChestSmallOpened.visibility = Visibility.INHERIT
         else
             UI.PrintToScreen("No crowbar")
         end
     end
     ```
 
-29. Make sure that TreasureChest group has enabled networking
+5. Now we just want to make sure that our **TreasureChest** root group has networking enabled. Right click it do enable this.
 
-    now we make the effects because it all works but it looks stupid!
+Now if we test it--everything works correctly! But it sure looks weird and that feels bad. Let's add more effects to accomplish this.
 
 #### Creating the Opening and Closing Effects
 
-30. Create two new groups, one called OpenedEffect and the other called LockedEffect
+1. Create two new groups in the project Hierarchy by right clicking in the open space. Name one `OpenedEffect` and the other `LockedEffect`.
 
-31. For the OpenedEffect, In Core Content, search for health spiral. we're gonna modify some props on it
+2. We'll start with the opening effect. In Core Content, search for "health spiral". Drag this into the `OpenedEffect` group--We're gonna modify some properties on it to use.
+
+    All of these settings will be found in the Properties window with the Health Spiral VFX selected in the project Hierarchy.
 
     1. Radius set to 7.5 to be wider
     2. spiral speed to 8
