@@ -8,360 +8,65 @@ tags:
 
 # Examples and Snippets
 
-## Triggers
-
-In the following examples it's assumed the script is placed as a child of a trigger in the hierarchy.
-
-### `beginOverlapEvent`
-
-In this example, players die when they walk over the trigger.
-
-```lua
-local trigger = script.parent
-
-function OnBeginOverlap(theTrigger, player)
-  -- The object's type must be checked because CoreObjects also overlap triggers, but we only call :Die() on players.
-  if player:IsA("Player") then
-    player:Die()
-  end
-end
-trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-```
-
-### `endOverlapEvent`
-
-As players enter/exit the trigger the script keeps a table with all currently overlapping players.
-
-```lua
-local trigger = script.parent
-local activePlayers = {}
-
-function OnBeginOverlap(theTrigger, player)
-  if player:IsA("Player") then
-    table.insert(activePlayers, player)
-    print("The trigger contains " .. #activePlayers .. " players")
-  end
-end
-
-function OnEndOverlap(theTrigger, player)
-  if (not player:IsA("Player")) then return end
-
-  for i,p in ipairs(activePlayers) do
-    if (p == player) then
-      table.remove(activePlayers, i)
-      break
-    end
-  end
-  print("The trigger contains " .. #activePlayers .. " players")
-end
-trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-trigger.endOverlapEvent:Connect(OnEndOverlap)
-```
-
-### `interactedEvent`
-
-In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the <kbd>F</kbd> key they are propelled into the air.
-
-```lua
-local trigger = script.parent
-trigger.isInteractable = true
-
-function OnInteracted(theTrigger, player)
-  -- In this case there is no need to check the type with IsA("Player") because only players can trigger the interaction.
-  player:SetVelocity(Vector3.New(0, 0, 10000))
-end
-trigger.interactedEvent:Connect(OnInteracted)
-```
-
-### `IsOverlapping(CoreObject)`
-
-In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point.
-
-```lua
-local trigger = script.parent
-local sphere = World.FindObjectByName("PhysicsSphere")
-local teamToReward = 1
-
-while true do
-  Task.Wait(1)
-  if (sphere and trigger:IsOverlapping(sphere)) then
-    Game.IncreaseTeamScore(teamToReward, 1)
-    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-  end
-end
-```
-
-### `IsOverlapping(Player)`
-
-In this example, players score points for their teams for each second they are inside the trigger.
-
-```lua
-local trigger = script.parent
-
-while true do
-  Task.Wait(1)
-  local allPlayers = Game.GetPlayers()
-  for _, player in ipairs(allPlayers) do
-    if (trigger:IsOverlapping(player)) then
-      local teamToReward = player.team
-      Game.IncreaseTeamScore(teamToReward, 1)
-      print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-    end
-  end
-end
-```
-
-### `GetOverlappingObjects()`
-
-In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error.
-
-```lua
-local trigger = script.parent
-function Tick()
-  local objects = trigger:GetOverlappingObjects()
-  for _, obj in pairs(objects) do
-    local pos = obj:GetWorldPosition()
-    pos = pos + Vector3.New(0, 0, 10)
-    obj:SetWorldPosition(pos)
-  end
-end
-```
-
-### `isInteractable`
-
-In this example, the trigger has a 4 second "cooldown" after it is interacted.
-
-```lua
-local trigger = script.parent
-trigger.isInteractable = true
-
-function OnInteracted(theTrigger, player)
-  print("INTERACTED!")
-  trigger.isInteractable = false
-  Task.Wait(4)
-  trigger.isInteractable = true
-end
-trigger.interactedEvent:Connect(OnInteracted)
-```
-
-### `interactionLabel`
-
-In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger.
-
-```lua
-local trigger = script.parent
-local slideDuration = 2
-local startPos = trigger:GetWorldPosition()
-local isOpen = false
-
-trigger.isInteractable = true
-
-function SetState(newState)
-  isOpen = newState
-
-  if isOpen then
-    trigger.interactionLabel = "Close"
-    trigger:MoveTo(startPos, slideDuration)
-  else
-    trigger.interactionLabel = "Open"
-    trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
-  end
-end
-SetState(true)
-
-function OnInteracted(theTrigger, player)
-  SetState(not isOpen)
-end
-trigger.interactedEvent:Connect(OnInteracted)
-```
-
-### `team`
-
-In this example, players score points when they enter a trigger that belongs to the enemy team.
-
-```lua
-local trigger = script.parent
-
-function OnBeginOverlap(theTrigger, player)
-  local teamToReward = player.team
-  if (player:IsA("Player") and teamToReward ~= trigger.team) then
-    Game.IncreaseTeamScore(teamToReward, 1)
-    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-  end
-end
-trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-```
-
-### `isTeamCollisionEnabled`
-
-In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can.
-
-```lua
-local trigger = script.parent
-trigger.isInteractable = true
-
-function OnInteracted(theTrigger, player)
-  trigger.team = player.team
-  trigger.isTeamCollisionEnabled = false
-  print("The objective now belongs to team " .. player.team)
-end
-trigger.interactedEvent:Connect(OnInteracted)
-```
-
-### `isEnemyCollisionEnabled`
-
-In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form.
-
-```lua
-local trigger = script.parent
-trigger.isInteractable = true
-trigger.team = 0
-local onDiedListener = nil
-
-function OnPlayerDied(player, dmg)
-  onDiedListener:Disconnect()
-  trigger.team = 0
-  trigger.isEnemyCollisionEnabled = true
-  print("The objective is neutral again.")
-end
+## Contexts
 
-function OnInteracted(theTrigger, player)
-  local teamToReward = player.team
-  if (teamToReward == trigger.team) then
-    Game.IncreaseTeamScore(teamToReward, 1)
-    print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-  else
-    trigger.team = teamToReward
-    trigger.isEnemyCollisionEnabled = false
-    print("The objective now belongs to team " .. player.team)
-  end
-
-  if onDiedListener then
-    onDiedListener:Disconnect()
-  end
-  onDiedListener = player.diedEvent:Connect(OnPlayerDied)
-end
-trigger.interactedEvent:Connect(OnInteracted)
-```
+In Core, contexts are like folders and exist in one of two states: networked and non-networked. You can nest multiple contexts but only the outermost one has any effect. Inside of it, every child context acts like a folder.
 
-## Storage
+When a script spawns an object, it inherits the script's context, even if it is somewhere else in the hierarchy. This means that a script in a server context can never spawn objects that clients can see or interact with.
 
-The following examples assume the hierarchy has a GameSettings object with **"Enable Player Storage**" turned on.
+There are five types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context** and **Networked**.
 
-### `Storage.GetPlayerData(Player)`
-
-This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
+### Overview
 
-```lua
-function OnPlayerJoined(player)
-    local data = Storage.GetPlayerData(player)
-    -- In case it's the first time for this player we use default values 0 and 1
-    local xp = data["xp"] or 0
-    local level = data["level"] or 1
-    -- Each time they join they gain 1 XP. Stop and play the game again to test that this value keeps going up
-    xp = xp + 1
-    player:SetResource("xp", xp)
-    player:SetResource("level", level)
-    print("Player " .. player.name .. " joined with Level " .. level .. " and XP " .. xp)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-### `Storage.SetPlayerData(Player, table)`
-
-This example detects when a player gains XP or level and saves the new values to storage.
-
-```lua
-function OnResourceChanged(player, resName, resValue)
-    if (resName == "xp" or resName == "level") then
-        local data = Storage.GetPlayerData(player)
-        data[resName] = resValue
-        local resultCode,errorMessage = Storage.SetPlayerData(player, data)
-    end
-end
-
-function OnPlayerJoined(player)
-    player.resourceChangedEvent:Connect(OnResourceChanged)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-## Events
-
-Core uses events for a variety of state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. Events allow two separate scripts to communicate, without the need to reference each other directly and can also be used to communicate between scripts.
-
-### `Connect()`
-
-To hook up your function to an event, you have to call `Connect(function YourFunction, [...])` to register it. Now it will be called every time the event is fired.
-
-Example:
-
-```lua
-function OnPlayerDamaged(player, dmg)
-    print("Player " .. player.name .. " took " .. dmg.amount .. " damage. New health = " .. player.hitPoints)
-end
-
-function OnPlayerJoined(player)
-    player.damagedEvent:Connect(OnPlayerDamaged)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-Connects the `OnPlayerDamaged` function to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
-
-`Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
-
-### `Disconnect()`
-
-Pretty simple, you just call `Disconnect()` on the returned `EventListener` to disconnect a listener from its event, so it will no longer be called when the event is fired.
-
-Example:
-
-```lua
-local damagedEventListener
-
-function OnPlayerJoined(player)
-    damagedEventListener = player.damagedEvent:Connect(OnPlayerDamaged)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-
-function OnDestroyed(obj)
-    if damagedEventListener then
-        damagedEventListener:Disconnect()
-        damagedEventListener = nil
-    end
-end
-
-script.destroyEvent:Connect(OnDestroyed)
-```
-
-### `Broadcast()`
-
-If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability objects `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
-
-```lua
-function OnExecute(ability)
-    if ability.owner:GetResource("Bandages") <= 0 then
-        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "No Bandages to Apply")
-        return
-    end
-
-    if ability.owner.hitPoints < ability.owner.maxHitPoints then
-        ability.owner:ApplyDamage(Damage.New(-30))
-        ability.owner:RemoveResource("Bandages", 1)
-    else
-        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "Full Health")
-    end
-end
-
-myAbility.executeEvent:Connect(OnExecute)
-```
-
-Both error and success cases get communicated back to the client via `BroadcastToPlayer`. If you want to do the reverse, to update a server side stored value from a player script, you'd use `BroadcastToServer` instead.
+|                    | **Default (Non-Networked)** | **Networked**        | **Client Context** | **Server Context** | **Static Context** |
+| ------------------ | ----------------------------| ---------------------| -------------------| -------------------| -------------------|
+| Objects can change | No                          | Yes (only by server) | Yes                | Yes                | No                 |
+| Collision          | Yes                         | Yes                  | No                 | No                 | Yes                |
+| Objects exist on   | Client and Server           | Client and Server    | Client             | Server             | Client and Server  |
+| Scripts run on     | Server                      | Server               | Client             | Server             | Client and Server  |
+
+### Default (Non-Networked)
+
+- Cannot change.
+- Can have collision.
+- Seen by server and client.
+- Scripts run on the server only.
+
+### Networked
+
+- Can be changed by the server.
+- Clients will see those changes.
+- Scripts run on the server only.
+
+### Client Context
+
+- Objects can change.
+- Objects will block any cameras unless explicitly set otherwise.
+- Scripts can access "Default" or "Networked" scripts because they occupy a place in the hierarchy.
+- Scripts run on the client only.
+
+### Server Context
+
+- Objects do not have collision.
+- Objects inside get removed from the client-side copy of the game sent to players.
+- Provides a safeguard for creators if they want to conceal game logic.
+- Scripts run on the server only.
+
+### Static Context
+
+- Almost like the default state (non-networked).
+- Scripts can spawn objects inside a static context.
+- Scripts run on both the server and the client.
+- Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
+    - Send a single networked value to synchronize the server and clientsâ€™ random number generators.
+    - Saves hundreds of transforms being sent from the server to every client.
+
+!!! warning "Beware of desync issues!"
+    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause desync issues.
+    Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
+    - Server-only or client-only objects.
+    - Random number generators with different seeds.
+    - Logic based around local `time()`.
 
 ## Damage
 
@@ -526,218 +231,6 @@ function OnPlayerJoined(player)
 end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-## Contexts
-
-In Core, contexts are like folders and exist in one of two states: networked and non-networked. You can nest multiple contexts but only the outermost one has any effect. Inside of it, every child context acts like a folder.
-
-When a script spawns an object, it inherits the script's context, even if it is somewhere else in the hierarchy. This means that a script in a server context can never spawn objects that clients can see or interact with.
-
-There are five types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context** and **Networked**.
-
-### Overview
-
-|                    | **Default (Non-Networked)** | **Networked**        | **Client Context** | **Server Context** | **Static Context** |
-| ------------------ | ----------------------------| ---------------------| -------------------| -------------------| -------------------|
-| Objects can change | No                          | Yes (only by server) | Yes                | Yes                | No                 |
-| Collision          | Yes                         | Yes                  | No                 | No                 | Yes                |
-| Objects exist on   | Client and Server           | Client and Server    | Client             | Server             | Client and Server  |
-| Scripts run on     | Server                      | Server               | Client             | Server             | Client and Server  |
-
-### Default (Non-Networked)
-
-- Cannot change.
-- Can have collision.
-- Seen by server and client.
-- Scripts run on the server only.
-
-### Networked
-
-- Can be changed by the server.
-- Clients will see those changes.
-- Scripts run on the server only.
-
-### Client Context
-
-- Objects can change.
-- Objects will block any cameras unless explicitly set otherwise.
-- Scripts can access "Default" or "Networked" scripts because they occupy a place in the hierarchy.
-- Scripts run on the client only.
-
-### Server Context
-
-- Objects do not have collision.
-- Objects inside get removed from the client-side copy of the game sent to players.
-- Provides a safeguard for creators if they want to conceal game logic.
-- Scripts run on the server only.
-
-### Static Context
-
-- Almost like the default state (non-networked).
-- Scripts can spawn objects inside a static context.
-- Scripts run on both the server and the client.
-- Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
-    - Send a single networked value to synchronize the server and clientsâ€™ random number generators.
-    - Saves hundreds of transforms being sent from the server to every client.
-
-!!! warning "Beware of desync issues!"
-    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause desync issues.
-    Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
-    - Server-only or client-only objects.
-    - Random number generators with different seeds.
-    - Logic based around local `time()`.
-
-## Player
-
-### `TransferToGame(string)`
-
-Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
-
-```lua
-local trigger = script.parent
-
-function OnBeginOverlap(theTrigger, player)
-  -- The object's type must be checked because CoreObjects also overlap triggers
-    if player:IsA("Player") then
-        player:TransferToGame("577d80/core-royale")
-    end
-end
-trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-```
-
-## World
-
-### `World.GetRootObject()`
-
-There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
-
-```lua
-local worldRoot = World.GetRootObject()
-
-function PrintAllNames(node)
-    for _, child in ipairs(node:GetChildren()) do
-        print(child.name .. " + " .. child.type)
-        PrintAllNames(child)
-    end
-end
-
-PrintAllNames(worldRoot)
-```
-
-### `World.FindObjectsByName(string)`
-
-This example counts all the spawn points in the game for teams 1, 2 and 3, then prints how many belong to each team.
-
-```lua
-local team1Count = 0
-local team2Count = 0
-local team3Count = 0
-local allSpawnPoints = World.FindObjectsByName("Spawn Point")
-
-for _, point in ipairs(allSpawnPoints) do
-    if point.team == 1 then
-        team1Count = team1Count + 1
-    elseif point.team == 2 then
-        team2Count = team2Count + 1
-    elseif point.team == 3 then
-        team3Count = team3Count + 1
-    end
-end
-
-print("Team 1 has " .. team1Count .. " spawn points.")
-print("Team 2 has " .. team2Count .. " spawn points.")
-print("Team 3 has " .. team2Count .. " spawn points.")
-```
-
-### `World.FindObjectsByType(string)`
-
-This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
-
-```lua
-function OnBindingPressed(player, binding)
-    if binding == "ability_extra_26" then
-        local containers = World.FindObjectsByType("UIContainer")
-        for _, c in pairs(containers) do
-            c.visibility = Visibility.FORCE_OFF
-        end
-    end
-end
-
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-### `World.FindObjectByName(string)`
-
-Returns only one object with the given name. This example searches the entire hierarchy for the default floor object and prints a warning if it's found.
-
-```lua
-local floorObject = World.FindObjectByName("Default Floor")
--- Protect against error if the floor is missing from the game
-if floorObject then
-    warn(" Don't forget to replace the default floor with something better!")
-end
-```
-
-### `World.FindObjectById(string)`
-
-Finds an object in the hierarchy based on it's unique ID. To find an object's ID, right-click them in the hierarchy and select "Copy MUID". An object's ID can also be obtained at runtime through the .id property. In this example we search for the default sky folder and print a warning if we find it.
-
-```lua
-local objectId = "8AD92A81CCE73D72:Default Sky"
-local defaultSkyFolder = World.FindObjectById(objectId)
-
-if defaultSkyFolder then
-    warn(" The default sky is pretty good, but customizing the sky has a huge impact on your game's mood!")
-end
-```
-
-### `World.SpawnAsset(string, [optional parameters])`
-
-In this example, whenever a player dies, an explosion VFX template is spawned  in their place and their body is flown upwards. The SpawnAsset() function also returns a reference to the new object, which allows us to do any number of adjustments to it--in this case a custom life span. This example assumes an explosion template exists in the project and it was added as a custom property onto the script object.
-
-```lua
-local EXPLOSION_TEMPLATE = script:GetCustomProperty("ExplosionVFX")
-
-function OnPlayerDied(player, dmg)
-    local playerPos = player:GetWorldPosition()
-    local explosionObject = World.SpawnAsset(EXPLOSION_TEMPLATE, {position = playerPos})
-    explosionObject.lifeSpan = 3
-    player:AddImpulse(Vector3.UP * 1000)
-end
-
-function OnPlayerJoined(player)
-    player.diedEvent:Connect(OnPlayerDied)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-### `World.Raycast(Vector3 start, Vector3 end, [optional parameters])`
-
-This example causes all players in the game to fly when they step off a ledge or jump. It does this by using the `Raycast()` function to measure each player's distance to the ground below them.
-
-```lua
-local GROUND_DISTANCE = script:GetCustomProperty("GroundDistance") or 200
-local downV = Vector3.New(0, 0, -GROUND_DISTANCE - 103)
-
-function Tick()
-    for _, player in pairs(Game.GetPlayers()) do
-        local playerPos = player:GetWorldPosition()
-        local hitResult = World.Raycast(playerPos, playerPos + downV, {ignorePlayers = true})
-
-        if (player.isFlying and hitResult) then
-            player:ActivateWalking()
-        elseif (not player.isFlying and not hitResult) then
-            player:ActivateFlying()
-        end
-    end
-    Task.Wait(0.1)
-end
 ```
 
 ## Equipment
@@ -923,75 +416,80 @@ end
 script.parent.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-## HitResult
+## Events
 
-### `GetImpactPosition()` / `GetImpactNormal()`
+Core uses events for a variety of state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. Events allow two separate scripts to communicate, without the need to reference each other directly and can also be used to communicate between scripts.
 
-This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot rococheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
+### `Connect()`
 
-```lua
-function Tick()
-    local player = Game.GetLocalPlayer()
+To hook up your function to an event, you have to call `Connect(function YourFunction, [...])` to register it. Now it will be called every time the event is fired.
 
-    local rayStart = player:GetViewWorldPosition()
-    local cameraForward = player:GetViewWorldRotation() * Vector3.FORWARD
-    local rayEnd = rayStart + cameraForward * 10000
-
-    local hitResult = World.Raycast(rayStart, rayEnd, {ignorePlayers = true})
-
-    if hitResult then
-        local hitPos = hitResult:GetImpactPosition()
-        local normal = hitResult:GetImpactNormal()
-        local mirror = cameraForward - 2 * (cameraForward .. normal) * normal
-        -- The green line is the impact normal
-        CoreDebug.DrawLine(hitPos, hitPos + normal * 100, {thickness = 3, color = Color.GREEN, duration = 0.03})
-        -- The blue line connects the camera to the impact point
-        CoreDebug.DrawLine(rayStart, hitPos, {thickness = 2, color = Color.BLUE, duration = 0.03})
-        -- The magenta line represents the reflection off the surface
-        CoreDebug.DrawLine(hitPos, hitPos + mirror * 1000, {thickness = 2, color = Color.MAGENTA, duration = 0.03})
-    end
-end
-```
-
-### `GetTransform()`
-
-HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
+Example:
 
 ```lua
-local impactTemplate = script:GetCustomProperty("ImpactObject")
-local weapon = script.parent
-
-function OnTargetImpacted(_, impactData)
-    local hitResult = impactData:GetHitResult()
-
-    if hitResult then
-        local hitT = hitResult:GetTransform()
-        World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
-    end
+function OnPlayerDamaged(player, dmg)
+    print("Player " .. player.name .. " took " .. dmg.amount .. " damage. New health = " .. player.hitPoints)
 end
 
-weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+function OnPlayerJoined(player)
+    player.damagedEvent:Connect(OnPlayerDamaged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### `other` / `socketName`
+Connects the `OnPlayerDamaged` function to the `damagedEvent` event on all players who join the game. Now every time a player takes damage, `OnPlayerDamaged` will be called.
 
-HitResult is used by Weapons transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
+`Connect()` also returns an `EventListener` which can be used to disconnect from the event or check if the event is still connected via the `isConnected` property. It also accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters.
+
+### `Disconnect()`
+
+Pretty simple, you just call `Disconnect()` on the returned `EventListener` to disconnect a listener from its event, so it will no longer be called when the event is fired.
+
+Example:
 
 ```lua
-local weapon = script.parent
+local damagedEventListener
 
-function OnTargetImpacted(_, impactData)
-    local hitResult = impactData:GetHitResult()
+function OnPlayerJoined(player)
+    damagedEventListener = player.damagedEvent:Connect(OnPlayerDamaged)
+end
 
-    if hitResult and hitResult.other and hitResult.other:IsA("Player") then
-        local playerName = hitResult.other.name
-        local socketName = hitResult.socketName
-        print("Player " .. playerName .. " was hit in the " .. socketName)
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+
+function OnDestroyed(obj)
+    if damagedEventListener then
+        damagedEventListener:Disconnect()
+        damagedEventListener = nil
     end
 end
 
-weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+script.destroyEvent:Connect(OnDestroyed)
 ```
+
+### `Broadcast()`
+
+If your script runs on a server, you can broadcast game-changing information to your players. In this example the `OnExecute` function was connected to an ability objects `executeEvent`. It adds a few checks to using an ability, a bandage in this case.
+
+```lua
+function OnExecute(ability)
+    if ability.owner:GetResource("Bandages") <= 0 then
+        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "No Bandages to Apply")
+        return
+    end
+
+    if ability.owner.hitPoints < ability.owner.maxHitPoints then
+        ability.owner:ApplyDamage(Damage.New(-30))
+        ability.owner:RemoveResource("Bandages", 1)
+    else
+        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "Full Health")
+    end
+end
+
+myAbility.executeEvent:Connect(OnExecute)
+```
+
+Both error and success cases get communicated back to the client via `BroadcastToPlayer`. If you want to do the reverse, to update a server side stored value from a player script, you'd use `BroadcastToServer` instead.
 
 ## Game
 
@@ -1343,6 +841,587 @@ function OnRoundEnd()
 end
 
 Game.roundEndEvent:Connect(OnRoundEnd)
+```
+
+## HitResult
+
+### `GetImpactPosition()` / `GetImpactNormal()`
+
+This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot rococheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
+
+```lua
+function Tick()
+    local player = Game.GetLocalPlayer()
+
+    local rayStart = player:GetViewWorldPosition()
+    local cameraForward = player:GetViewWorldRotation() * Vector3.FORWARD
+    local rayEnd = rayStart + cameraForward * 10000
+
+    local hitResult = World.Raycast(rayStart, rayEnd, {ignorePlayers = true})
+
+    if hitResult then
+        local hitPos = hitResult:GetImpactPosition()
+        local normal = hitResult:GetImpactNormal()
+        local mirror = cameraForward - 2 * (cameraForward .. normal) * normal
+        -- The green line is the impact normal
+        CoreDebug.DrawLine(hitPos, hitPos + normal * 100, {thickness = 3, color = Color.GREEN, duration = 0.03})
+        -- The blue line connects the camera to the impact point
+        CoreDebug.DrawLine(rayStart, hitPos, {thickness = 2, color = Color.BLUE, duration = 0.03})
+        -- The magenta line represents the reflection off the surface
+        CoreDebug.DrawLine(hitPos, hitPos + mirror * 1000, {thickness = 2, color = Color.MAGENTA, duration = 0.03})
+    end
+end
+```
+
+### `GetTransform()`
+
+HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
+
+```lua
+local impactTemplate = script:GetCustomProperty("ImpactObject")
+local weapon = script.parent
+
+function OnTargetImpacted(_, impactData)
+    local hitResult = impactData:GetHitResult()
+
+    if hitResult then
+        local hitT = hitResult:GetTransform()
+        World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
+    end
+end
+
+weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+```
+
+### `other` / `socketName`
+
+HitResult is used by Weapons transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
+
+```lua
+local weapon = script.parent
+
+function OnTargetImpacted(_, impactData)
+    local hitResult = impactData:GetHitResult()
+
+    if hitResult and hitResult.other and hitResult.other:IsA("Player") then
+        local playerName = hitResult.other.name
+        local socketName = hitResult.socketName
+        print("Player " .. playerName .. " was hit in the " .. socketName)
+    end
+end
+
+weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+```
+
+## Player
+
+### `TransferToGame(string)`
+
+Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
+
+```lua
+local trigger = script.parent
+
+function OnBeginOverlap(theTrigger, player)
+  -- The object's type must be checked because CoreObjects also overlap triggers
+    if player:IsA("Player") then
+        player:TransferToGame("577d80/core-royale")
+    end
+end
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+## Script
+
+### `context`
+
+With `context` two scripts can communicate directly by calling on each other�s functions and properties. Notice that '.' is used instead of ':' when accessing context functions. In the following example, the first script is placed directly in the hierarchy and the second script is placed inside a template of some sort. When a new player joins, the first script spawns a copy of the template and tells it about the new player. The template then follows the player around as they move.
+
+```lua
+-- Script directly in hierarchy
+local followTemplate = script:GetCustomProperty("FollowTemplate")
+
+Game.playerJoinedEvent:Connect(function(player)
+    local obj = World.SpawnAsset(followTemplate)
+    -- Locate the script inside
+    local followScript = obj:FindDescendantByType("Script")
+    -- Call the context function
+    followScript.context.SetTarget(player)
+end)
+```
+
+```lua
+-- Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be accessed externally through the context.
+targetPlayer = nil
+
+function SetTarget(player)
+    targetPlayer = player
+    script:FindTemplateRoot():Follow(player, 400, 300)
+end
+```
+
+## Storage
+
+The following examples assume the hierarchy has a GameSettings object with **"Enable Player Storage**" turned on.
+
+### `Storage.GetPlayerData(Player)`
+
+This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
+
+```lua
+function OnPlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+    -- In case it's the first time for this player we use default values 0 and 1
+    local xp = data["xp"] or 0
+    local level = data["level"] or 1
+    -- Each time they join they gain 1 XP. Stop and play the game again to test that this value keeps going up
+    xp = xp + 1
+    player:SetResource("xp", xp)
+    player:SetResource("level", level)
+    print("Player " .. player.name .. " joined with Level " .. level .. " and XP " .. xp)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `Storage.SetPlayerData(Player, table)`
+
+This example detects when a player gains XP or level and saves the new values to storage.
+
+```lua
+function OnResourceChanged(player, resName, resValue)
+    if (resName == "xp" or resName == "level") then
+        local data = Storage.GetPlayerData(player)
+        data[resName] = resValue
+        local resultCode,errorMessage = Storage.SetPlayerData(player, data)
+    end
+end
+
+function OnPlayerJoined(player)
+    player.resourceChangedEvent:Connect(OnResourceChanged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+## Triggers
+
+In the following examples it's assumed the script is placed as a child of a trigger in the hierarchy.
+
+### `beginOverlapEvent`
+
+In this example, players die when they walk over the trigger.
+
+```lua
+local trigger = script.parent
+
+function OnBeginOverlap(theTrigger, player)
+    -- The object's type must be checked because CoreObjects also overlap triggers, but we only call :Die() on players.
+    if player:IsA("Player") then
+        player:Die()
+    end
+end
+
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+### `endOverlapEvent`
+
+As players enter/exit the trigger the script keeps a table with all currently overlapping players.
+
+```lua
+local trigger = script.parent
+local activePlayers = {}
+
+function OnBeginOverlap(theTrigger, player)
+    if player:IsA("Player") then
+        table.insert(activePlayers, player)
+        print("The trigger contains " .. #activePlayers .. " players")
+    end
+end
+
+function OnEndOverlap(theTrigger, player)
+    if (not player:IsA("Player")) then return end
+
+    for i,p in ipairs(activePlayers) do
+        if (p == player) then
+            table.remove(activePlayers, i)
+            break
+        end
+    end
+    print("The trigger contains " .. #activePlayers .. " players")
+end
+
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+trigger.endOverlapEvent:Connect(OnEndOverlap)
+```
+
+### `interactedEvent`
+
+In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the <kbd>F</kbd> key they are propelled into the air.
+
+```lua
+local trigger = script.parent
+trigger.isInteractable = true
+
+function OnInteracted(theTrigger, player)
+    -- In this case there is no need to check the type with IsA("Player") because only players can trigger the interaction.
+    player:SetVelocity(Vector3.New(0, 0, 10000))
+end
+
+trigger.interactedEvent:Connect(OnInteracted)
+```
+
+### `IsOverlapping(CoreObject)`
+
+In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point.
+
+```lua
+local trigger = script.parent
+local sphere = World.FindObjectByName("PhysicsSphere")
+local teamToReward = 1
+
+while true do
+    Task.Wait(1)
+    if (sphere and trigger:IsOverlapping(sphere)) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+    end
+end
+```
+
+### `IsOverlapping(Player)`
+
+In this example, players score points for their teams for each second they are inside the trigger.
+
+```lua
+local trigger = script.parent
+
+while true do
+    Task.Wait(1)
+    local allPlayers = Game.GetPlayers()
+
+    for _, player in ipairs(allPlayers) do
+        if (trigger:IsOverlapping(player)) then
+            local teamToReward = player.team
+            Game.IncreaseTeamScore(teamToReward, 1)
+            print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+        end
+    end
+end
+```
+
+### `GetOverlappingObjects()`
+
+In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error.
+
+```lua
+local trigger = script.parent
+
+function Tick()
+    local objects = trigger:GetOverlappingObjects()
+
+    for _, obj in pairs(objects) do
+        local pos = obj:GetWorldPosition()
+        pos = pos + Vector3.New(0, 0, 10)
+        obj:SetWorldPosition(pos)
+    end
+end
+```
+
+### `isInteractable`
+
+In this example, the trigger has a 4 second "cooldown" after it is interacted.
+
+```lua
+local trigger = script.parent
+trigger.isInteractable = true
+
+function OnInteracted(theTrigger, player)
+    print("INTERACTED!")
+    trigger.isInteractable = false
+    Task.Wait(4)
+    trigger.isInteractable = true
+end
+
+trigger.interactedEvent:Connect(OnInteracted)
+```
+
+### `interactionLabel`
+
+In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger.
+
+```lua
+local trigger = script.parent
+local slideDuration = 2
+local startPos = trigger:GetWorldPosition()
+local isOpen = false
+
+trigger.isInteractable = true
+
+function SetState(newState)
+    isOpen = newState
+
+    if isOpen then
+        trigger.interactionLabel = "Close"
+        trigger:MoveTo(startPos, slideDuration)
+    else
+        trigger.interactionLabel = "Open"
+        trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
+    end
+end
+
+SetState(true)
+
+function OnInteracted(theTrigger, player)
+    SetState(not isOpen)
+end
+
+trigger.interactedEvent:Connect(OnInteracted)
+```
+
+### `team`
+
+In this example, players score points when they enter a trigger that belongs to the enemy team.
+
+```lua
+local trigger = script.parent
+
+function OnBeginOverlap(theTrigger, player)
+    local teamToReward = player.team
+
+    if (player:IsA("Player") and teamToReward ~= trigger.team) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+    end
+end
+
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+### `isTeamCollisionEnabled`
+
+In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can.
+
+```lua
+local trigger = script.parent
+trigger.isInteractable = true
+
+function OnInteracted(theTrigger, player)
+    trigger.team = player.team
+    trigger.isTeamCollisionEnabled = false
+    print("The objective now belongs to team " .. player.team)
+end
+
+trigger.interactedEvent:Connect(OnInteracted)
+```
+
+### `isEnemyCollisionEnabled`
+
+In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form.
+
+```lua
+local trigger = script.parent
+trigger.isInteractable = true
+trigger.team = 0
+local onDiedListener = nil
+
+function OnPlayerDied(player, dmg)
+    onDiedListener:Disconnect()
+    trigger.team = 0
+    trigger.isEnemyCollisionEnabled = true
+    print("The objective is neutral again.")
+end
+
+function OnInteracted(theTrigger, player)
+    local teamToReward = player.team
+
+    if (teamToReward == trigger.team) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+    else
+        trigger.team = teamToReward
+        trigger.isEnemyCollisionEnabled = false
+        print("The objective now belongs to team " .. player.team)
+    end
+
+    if onDiedListener then
+        onDiedListener:Disconnect()
+    end
+
+    onDiedListener = player.diedEvent:Connect(OnPlayerDied)
+end
+
+trigger.interactedEvent:Connect(OnInteracted)
+```
+
+## World
+
+### `World.GetRootObject()`
+
+There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
+
+```lua
+local worldRoot = World.GetRootObject()
+
+function PrintAllNames(node)
+    for _, child in ipairs(node:GetChildren()) do
+        print(child.name .. " + " .. child.type)
+        PrintAllNames(child)
+    end
+end
+
+PrintAllNames(worldRoot)
+```
+
+### `World.FindObjectsByName(string)`
+
+This example counts all the spawn points in the game for teams 1, 2 and 3, then prints how many belong to each team.
+
+```lua
+local team1Count = 0
+local team2Count = 0
+local team3Count = 0
+local allSpawnPoints = World.FindObjectsByName("Spawn Point")
+
+for _, point in ipairs(allSpawnPoints) do
+    if point.team == 1 then
+        team1Count = team1Count + 1
+    elseif point.team == 2 then
+        team2Count = team2Count + 1
+    elseif point.team == 3 then
+        team3Count = team3Count + 1
+    end
+end
+
+print("Team 1 has " .. team1Count .. " spawn points.")
+print("Team 2 has " .. team2Count .. " spawn points.")
+print("Team 3 has " .. team2Count .. " spawn points.")
+```
+
+### `World.FindObjectsByType(string)`
+
+This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
+
+```lua
+function OnBindingPressed(player, binding)
+    if binding == "ability_extra_26" then
+        local containers = World.FindObjectsByType("UIContainer")
+        for _, c in pairs(containers) do
+            c.visibility = Visibility.FORCE_OFF
+        end
+    end
+end
+
+function OnPlayerJoined(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `World.FindObjectByName(string)`
+
+Returns only one object with the given name. This example searches the entire hierarchy for the default floor object and prints a warning if it's found.
+
+```lua
+local floorObject = World.FindObjectByName("Default Floor")
+-- Protect against error if the floor is missing from the game
+if floorObject then
+    warn(" Don't forget to replace the default floor with something better!")
+end
+```
+
+### `World.FindObjectById(string)`
+
+Finds an object in the hierarchy based on it's unique ID. To find an object's ID, right-click them in the hierarchy and select "Copy MUID". An object's ID can also be obtained at runtime through the .id property. In this example we search for the default sky folder and print a warning if we find it.
+
+```lua
+local objectId = "8AD92A81CCE73D72:Default Sky"
+local defaultSkyFolder = World.FindObjectById(objectId)
+
+if defaultSkyFolder then
+    warn(" The default sky is pretty good, but customizing the sky has a huge impact on your game's mood!")
+end
+```
+
+### `World.SpawnAsset(string, [optional parameters])`
+
+In this example, whenever a player dies, an explosion VFX template is spawned  in their place and their body is flown upwards. The SpawnAsset() function also returns a reference to the new object, which allows us to do any number of adjustments to it--in this case a custom life span. This example assumes an explosion template exists in the project and it was added as a custom property onto the script object.
+
+```lua
+local EXPLOSION_TEMPLATE = script:GetCustomProperty("ExplosionVFX")
+
+function OnPlayerDied(player, dmg)
+    local playerPos = player:GetWorldPosition()
+    local explosionObject = World.SpawnAsset(EXPLOSION_TEMPLATE, {position = playerPos})
+    explosionObject.lifeSpan = 3
+    player:AddImpulse(Vector3.UP * 1000)
+end
+
+function OnPlayerJoined(player)
+    player.diedEvent:Connect(OnPlayerDied)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### `World.Raycast(Vector3 start, Vector3 end, [optional parameters])`
+
+This example causes all players in the game to fly when they step off a ledge or jump. It does this by using the `Raycast()` function to measure each player's distance to the ground below them.
+
+```lua
+local GROUND_DISTANCE = script:GetCustomProperty("GroundDistance") or 200
+local downV = Vector3.New(0, 0, -GROUND_DISTANCE - 103)
+
+function Tick()
+    for _, player in pairs(Game.GetPlayers()) do
+        local playerPos = player:GetWorldPosition()
+        local hitResult = World.Raycast(playerPos, playerPos + downV, {ignorePlayers = true})
+
+        if (player.isFlying and hitResult) then
+            player:ActivateWalking()
+        elseif (not player.isFlying and not hitResult) then
+            player:ActivateFlying()
+        end
+    end
+    Task.Wait(0.1)
+end
+```
+
+## WorldText
+
+### `GetColor() / SetColor(Color)`
+
+In this example, a WorldText object that is placed in the scene changes color gradually from white to black. The script expects to be a child of the WorldText. Notice that if you run this in multiplayer mode, the color changes will not be as smooth as in single-player preview. To fix that place the WorldText + Script hierarchy under a Client Context.
+
+```lua
+local nameTextObject = script.parent
+
+function Tick(deltaTime)
+    local c = nameTextObject:GetColor()
+
+    if c.r < 0.03 then
+        -- Start over from white (x3 so it stays on white for a bit longer)
+        c = Color.WHITE * 3
+    else
+        c = Color.Lerp(c, Color.BLACK, deltaTime * 2)
+    end
+
+    nameTextObject:SetColor(c)
+end
+```
+
+### `text`
+
+Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It�s also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
+
+```lua
+local nameTextObject = script.parent
+
+Game.playerJoinedEvent:Connect(function (player)
+    nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
+end)
 ```
 
 ## Needed
