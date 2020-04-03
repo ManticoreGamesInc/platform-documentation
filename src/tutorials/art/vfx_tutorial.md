@@ -471,20 +471,22 @@ Now if we test it--everything works correctly! But it sure looks weird and that 
 
     All of these settings will be found in the Properties window with the Health Spiral VFX selected in the project Hierarchy.
 
-    1. Radius set to 7.5 to be wider
-    2. spiral speed to 8
-    3. ring Life to 1
-    4. Sound effects: search for meta fantasy treasure 01 sfx & object fantasy treasure chest opened 01
-    5. turn autoplay on for both
-    6. give each a life span of 2
+    1. Scroll down to the section called "Smart" and change the **Radius** to 7.5 to be wider.
+    2. Increase the **Spiral Speed** to 8.
+    3. Set the **Ring Life** to 1.
+    4. Now we need some sound effects: search for `Meta Fantasy Treasure 01 SFX` in Core Content and the `Object Fantasy Treasure Chest Open 01 SFX` and drag each one into the `OpenedEffect` folder.
+    5. Select both of these effects in the Hierarchy, and turn **Autoplay** on for both in the Properties window.
+    6. Give each one a **Life Span** of 2.
 
-32. enable networking on the OpenedEffect group
+3. Now that we've got all the contents of our new efefct set up, we need to enable networking on its root folder via the right-click menu.
 
-33. Create template from OpenedVFX, now delete that from in hierarchy
+4. Right click this group and create a template from it. After making it into a template, delete it from the project Hierarchy.
 
-34. drag that template from project content into the custom prop of the treasure chest group
+5. Click back onto the `TreasureChest` script from earlier. Drag your new effect into the custom property for the **OpeningVFX** on the `TreasureChest` script.
 
-35. now open up that TreasureChest script again so we can spawn the effect at the right time
+6. Now we need to spawn this effect in our code!
+
+    By adding this new code, your function should look like this:
 
     ```lua
     local function OnSwitchInteraction(theTrigger, player)
