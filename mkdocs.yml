@@ -91,12 +91,10 @@ theme:
   search_index_only: true
 
 extra_css:
-  - assets/stylesheets/manticore.css
-  - assets/stylesheets/prism.css
+#  - assets/stylesheets/manticore.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
-  - assets/javascripts/prism.js
 
 extra:
   social:
@@ -104,8 +102,8 @@ extra:
       link: https://discord.gg/core-creators
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
-    #- icon: fontawesome/brands/reddit
-    #  link: https://www.reddit.com/r/PlayCoreGames # TODO
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/r/coregamesdev
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
     - icon: fontawesome/brands/twitter
@@ -114,30 +112,41 @@ extra:
       link: https://twitch.tv/corelive
 
 markdown_extensions:
-  - admonition # add info/warn/error admonitions
-  - fontawesome_markdown # easily add fontawesome icons in markdown format
-  - pymdownx.arithmatex # fancy math styling
-  - markdown.extensions.attr_list # Customn attributes for elements
-  - pymdownx.betterem: # better bolding styles
-      smart_enable: all
-  - pymdownx.caret # insert and superscript
-  - pymdownx.critic # editing allowed
-  - pymdownx.details # admonition style details
-  - pymdownx.emoji: # emojis
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite # inline code highlighting
-  - pymdownx.magiclink # autolinks and shorthand
-  - pymdownx.mark # highlights
-  - pymdownx.smartsymbols # special symbols like arrows
-  - pymdownx.superfences # tabbed content (e.g. with code)
-  - pymdownx.tasklist: # task list
-      custom_checkbox: true
-  - pymdownx.tilde # strike-through
-  - codehilite: # highlight code blocks
-      linenums: true
-      use_pygments: false
-  - toc: # add linking to headers
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
       permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  #- pymdownx.highlight:
+      #linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
   - full_yaml_metadata
   - lightgallery
 
@@ -145,7 +154,6 @@ plugins:
   #- tags:
   #    tags_folder: src/generated/
   - git-revision-date-localized
-  #- htmlproofer
   - search
   - autolinks
   - redirects:
