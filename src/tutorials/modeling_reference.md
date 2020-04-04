@@ -25,25 +25,21 @@ The **Community Content** window in the Core Editor includes examples of the wha
 
 ### Manipulating Objects
 
-Creating new 3D models in Core can be done by positioning, scaling, and rotating existing props and basic shapes. To learn more about adding Core Content to a project and manipulating objects, see the [Introduction to the Editor](editor_intro.md).
+Creating new 3D models in Core can be done by positioning, scaling, and rotating existing props and Basic Shapes. To learn more about adding Core Content to a project and manipulating objects, see the [Introduction to the Editor](editor_intro.md).
 
 ### Customizing Materials
 
-Materials can be added by dragging and dropping them onto an object, and customized through the **Properties** window. To learn more about materials and customization, see the [Custom Materials reference](custom_materials.md).
+Materials can be added by dragging and dropping them onto an object, and customized through the **Properties** window. To learn more about Materials and customization, see the [Custom Materials reference](custom_materials.md).
 
-## Combining Objects into New Models
+## Combining Objects
 
 There are different ways to combine objects into units that can be manipulated together, and doing so allows you to handle the different pieces together in a convenient way.
 
-### Renaming
-
-Renaming custom objects and parts of complex objects makes future editing quicker, as well as making it possible to search for parts easily in the Hierarchy. Select an object and press <kbd>F2</kbd> to rename it.
-
 ### Folders
 
-Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without having to treat them like a single object.
+Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without defining them as a single object.
 
-![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center loading="lazy" }
+![Folder Example](../img/EditorManual/Art/FolderSelect.gif){.center}
 
 #### Creating a Folder
 
@@ -53,18 +49,13 @@ Folders can be used to organize projects according to your individual preference
 
 #### Adding Objects to a Folder
 
-To add an object to a folder, drag it onto the folder name until it is highlighted with a blue box around it. Toggling the arrow on the left side of the folder name will open it to display the contents, or close it to hide them.
-
-![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){.center loading="lazy" }
+To add an object, to a folder, drag it onto the folder name until it is highlighted with a blue box around it. Toggling the arrow on the left side of the folder name will open it to display the folder contents, or close it to hide them.
 
 #### Creating a Folder with Existing Objects
 
 1. Select the objects to be added to the folder in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
 2. Press <kbd>Ctrl</kbd> + <kbd>N</kbd> or right click and select **New Folder Containing These**.
 3. Type a name for the folder and press <kbd>Enter</kbd>.
-
-!!! note
-    Use <kbd>Shift</kbd> + left click to select all of the objects between the last selected and the one you select next.
 
 ### Groups
 
@@ -73,14 +64,14 @@ Creating a group allows you to unite a collection of 3D objects into a single en
 #### Creating a Group from Existing Objects
 
 1. Select the objects to be added to the group in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
-2. Right click one of the selected objects and click **New Group Containing These**.
+2. Right click one of the select objects and click **New Group Containing These**.
 3. Type a name for the group and press <kbd>Enter</kbd>.
 
 #### Switching between Group and Object Selection Mode
 
-1. Find the ![Group Mode](../img/EditorManual/icons/Icon_GroupMode.png) or ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) icons in the **Toolbar** at the top of the Editor.
+1. Find the ![Group Mode](../img/EditorManual/icons/Icon_GroupMode.png) or ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) icons in the **Toolbar**
 {: .image-inline-text .image-background}
-2. Click the drop down arrow next to the mode.
+2. Select the drop down arrow next to the mode.
 3. Select **Object Mode** to select individual objects within the group when clicked.
 4. Select **Group Mode** to select the entire group when any object within the group is clicked.
 
@@ -90,8 +81,25 @@ Folders and groups can be added to other folders and groups. This allows for cle
 
 ### Templates
 
-Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. They also allow you to share your creations on Community Content. See the [Template tutorial](template_reference.md) to learn more.
+Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. Templates can also be used to share your creations on Community Content. See the [Template tutorial](collaboration_reference.md) to learn more.
+
+## Best Practices with Models
+
+### Renaming
+
+Renaming custom objects and parts of complex objects makes future editing quicker, as well as making it possible to search for parts easily in the Hierarchy. Select an object and press <kbd>F2</kbd> to rename it.
+
+### Collision
+
+To simplify collision on complex objects, it is often helpful to add a larger invisible object that represents the edges for the purpose of deciding if another game object is touching it.
+
+#### Creating a Collision Object
+
+1. Select all the objects in the group, and in their **Properties** menu, set **Collision** to **Force Off**
+2. Add a 3D Shape to the object group, and resize it to fit the collision area of the object. Larger collision volumes bump into players and other objects more easily, while smaller volumes are easier to avoid.
+3. Open the collision object's **Properties** menu, and set **Visibility** to **Force Off**.
+4. Set the object's **Collision** property to **Force On**
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](collaboration_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
