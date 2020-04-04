@@ -614,13 +614,13 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. | None |
+| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | None |
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
-| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
-| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
+| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. [:fa-info-circle:](../api/examples/#projectileimpactevent "Example") | None |
+| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | None |
+| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. [:fa-info-circle:](../api/examples/#projectilehomingfailedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -633,22 +633,22 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `owner` | Player | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. | Read-Write |
-| `sourceAbility` | Ability | Reference to the Ability from which the Projectile was created. | Read-Write |
-| `speed` | Number | Centimeters per second movement. Default 5000. | Read-Write |
-| `maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. | Read-Write |
-| `gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write |
-| `drag` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. | Read-Write |
-| `bouncesRemaining` | Integer | Number of bounces remaining before it dies. Default 0. | Read-Write |
-| `bounciness` | Number | Velocity % maintained after a bounce. Default 0.6. | Read-Write |
-| `lifeSpan` | Number | Max seconds the Projectile will exist. Default 10. | Read-Write |
-| `shouldBounceOnPlayers` | bool | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. | Read-Write |
-| `piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
-| `capsuleRadius` | Number | Shape of the Projectile's collision. Default 22. | Read-Write |
-| `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
-| `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. | Read-Write |
-| `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
-| `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
+| `owner` | Player | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. [:fa-info-circle:](../api/examples/#projectileowner "Example") | Read-Write |
+| `sourceAbility` | Ability | Reference to the Ability from which the Projectile was created. [:fa-info-circle:](../api/examples/#projectilesourceability "Example") | Read-Write |
+| `speed` | Number | Centimeters per second movement. Default 5000. [:fa-info-circle:](../api/examples/#projectilespeed-projectilemaxspeed "Example") | Read-Write |
+| `maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. [:fa-info-circle:](../api/examples/#projectilespeed-projectilemaxspeed "Example") | Read-Write |
+| `gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `drag` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `bouncesRemaining` | Integer | Number of bounces remaining before it dies. Default 0. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `bounciness` | Number | Velocity % maintained after a bounce. Default 0.6. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `lifeSpan` | Number | Max seconds the Projectile will exist. Default 10. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | Read-Write |
+| `shouldBounceOnPlayers` | bool | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. [:fa-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
+| `capsuleRadius` | Number | Shape of the Projectile's collision. Default 22. [:fa-info-circle:](../api/examples/#projectilecapsulelength-projectilecapsuleradius "Example") | Read-Write |
+| `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. [:fa-info-circle:](../api/examples/#projectilecapsulelength-projectilecapsuleradius "Example") | Read-Write |
+| `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. [:fa-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
 
 ### Quaternion
 
@@ -1067,47 +1067,47 @@ A three-component vector that can represent a position or direction.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | Vector3 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
+| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | Vector3 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. [:fa-info-circle:](../api/examples/#vector3lerp "Example") | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector3.New([Number x, Number y, Number z])` | Vector3 | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). | None |
-| `Vector3.New(Number v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. | None |
-| `Vector3.New(Vector2 xy, Number z)` | Vector3 | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. | None |
-| `Vector3.New(Vector3 v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
-| `Vector3.New(Vector4 v)` | Vector4 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
-| `Vector3.ZERO` | Vector3 | (0, 0, 0) | None |
-| `Vector3.ONE` | Vector3 | (1, 1, 1) | None |
-| `Vector3.FORWARD` | Vector3 | (1, 0, 0) | None |
-| `Vector3.UP` | Vector3 | (0, 0, 1) | None |
-| `Vector3.RIGHT` | Vector3 | (0, 1, 0) | None |
+| `Vector3.New([Number x, Number y, Number z])` | Vector3 | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Number v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector2 xy, Number z)` | Vector3 | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector3 v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector4 v)` | Vector4 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.ZERO` | Vector3 | (0, 0, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.ONE` | Vector3 | (1, 1, 1) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.FORWARD` | Vector3 | (1, 0, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.UP` | Vector3 | (0, 0, 1) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.RIGHT` | Vector3 | (0, 1, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
+| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. [:fa-info-circle:](../api/examples/#vector3getnormalized-vector3-vector3 "Example") | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Vector3 + Vector3` | Vector3 | Component-wise addition. | None |
-| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. | None |
-| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. | None |
-| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. | None |
-| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. | None |
-| `Vector3 / Vector3` | Vector3 | Component-wise division. | None |
-| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. | None |
-| `-Vector3` | Vector3 | Returns the negation of the Vector3. | None |
-| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
-| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. | None |
+| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | Number | The `x` component of the Vector3. | Read-Write |
-| `y` | Number | The `y` component of the Vector3. | Read-Write |
-| `z` | Number | The `z` component of the Vector3. | Read-Write |
-| `size` | Number | The magnitude of the Vector3. | Read-Only |
-| `sizeSquared` | Number | The squared magnitude of the Vector3. | Read-Only |
+| `x` | Number | The `x` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `y` | Number | The `y` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `z` | Number | The `z` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `size` | Number | The magnitude of the Vector3. [:fa-info-circle:](../api/examples/#vector3size-vector3sizesquared "Example") | Read-Only |
+| `sizeSquared` | Number | The squared magnitude of the Vector3. [:fa-info-circle:](../api/examples/#vector3size-vector3sizesquared "Example") | Read-Only |
 
 ### Vector4
 
