@@ -39,7 +39,7 @@ There are different ways to combine objects into units that can be manipulated t
 
 Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without defining them as a single object.
 
-![Folder Example](../img/EditorManual/Art/FolderSelect.gif){.center}
+![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center}
 
 #### Creating a Folder
 
@@ -50,6 +50,8 @@ Folders can be used to organize projects according to your individual preference
 #### Adding Objects to a Folder
 
 To add an object, to a folder, drag it onto the folder name until it is highlighted with a blue box around it. Toggling the arrow on the left side of the folder name will open it to display the folder contents, or close it to hide them.
+
+![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){.center}
 
 #### Creating a Folder with Existing Objects
 
