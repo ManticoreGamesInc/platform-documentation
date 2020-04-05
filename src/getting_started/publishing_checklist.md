@@ -151,7 +151,7 @@ The goal of this checklist is to outline the essentials that you should check be
 
 ### Code
 
-- [x] Code follows the [Lua Style Guide](../tutorials/gameplay/lua_style_guide.md).
+- [x] Code follows the [Lua Style Guide](lua_style_guide.md).
 
 ## Creativity
 

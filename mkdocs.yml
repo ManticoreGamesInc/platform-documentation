@@ -1,48 +1,48 @@
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml
 nav:
   - News:
-      - https://forums.coregames.com/news
+      - News: https://forums.coregames.com/news
   - Documentation:
       - Home: index.md
-      - Install Core: getting_started/installing_core.md
-      - Intro to the Editor: getting_started/editor_intro.md
-      - Coming to Core from Other Platforms: getting_started/other_platforms.md
-      - Create your first Game: getting_started/my_first_multiplayer_game.md
-      - Publishing Checklist: getting_started/publishing_checklist.md
-      - Publish a Game: getting_started/publishing.md
-      - Sharing Content: getting_started/community_content.md
-      - Editor Shortcuts: editor_keybindings.md
-      - Troubleshooting: getting_started/troubleshooting.md
+      - Getting Started:
+        - Install Core: getting_started/installing_core.md
+        - Create your first Game: getting_started/my_first_multiplayer_game.md
+        - Publish a Game: getting_started/publishing.md
+        - Getting Help in Core: core_help.md
       - Tutorials:
         - Overview: tutorials/overview.md
-        - Gameplay:
-            - Abilities: tutorials/gameplay/abilities.md
-            - Weapons: tutorials/gameplay/weapons.md
-            - Weapons & Abilities (Advanced): tutorials/gameplay/abilities_advanced.md
-            - Scripting: tutorials/gameplay/lua_basics_lightbulb.md
-            - Scripting (Advanced): tutorials/gameplay/lua_basics_manticoin.md
-            - Persistent Storage: tutorials/gameplay/persistent_storage.md
-        - Art:
-            - Art in Core: tutorials/art/art_reference.md
-            - Scene Creation: tutorials/art/scene_creation.md
-            - Custom Materials: tutorials/art/custom_materials.md
-            - Environmental Art: tutorials/art/environmental_art.md
-            - Modeling Basics: tutorials/art/modeling_basics.md
-            - Audio: tutorials/art/audio_reference.md
-            - Object Generator: tutorials/art/object_generator.md
+        - Abilities: tutorials/abilities.md
+        - Weapons: tutorials/weapons.md
+        - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
+        - Scripting: tutorials/lua_basics_lightbulb.md
+        - Scripting (Advanced): tutorials/lua_basics_manticoin.md
+        - Persistent Storage: tutorials/persistent_storage.md
+        - Scene Creation: tutorials/scene_creation.md
+        - Environmental Art: tutorials/environmental_art.md
+        - Modeling Basics: tutorials/modeling_basics.md
         - Video Tutorials:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
-        - Templates: tutorials/gameplay/collaboration_reference.md
         - Collaboration & Source Control: tutorials/collaboration.md
-        - UI: tutorials/gameplay/ui_reference.md
+      - Core Editor Manual:
+        - Intro to the Editor: getting_started/editor_intro.md
+        - Editor Shortcuts: editor_keybindings.md
+        - Art in Core: tutorials/art_reference.md
+        - Custom Materials: tutorials/custom_materials.md
+        - Object Generator: tutorials/object_generator.md
+        - Templates: tutorials/collaboration_reference.md
+        - Sharing Content: getting_started/community_content.md
+        - Audio: tutorials/audio_reference.md
+        - UI: tutorials/ui_reference.md
+        - Publishing Checklist: getting_started/publishing_checklist.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
         - Animations: api/animations.md
         - Ability Bindings: api/ability_bindings.md
-        - Lua in Core: tutorials/gameplay/lua_reference.md
-        - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
+        - Lua in Core: tutorials/lua_reference.md
+        - Lua Style Guide: tutorials/lua_style_guide.md
         - Editor Extensions: extensions.md
+        - Coming from other Platforms: getting_started/other_platforms.md
         - Examples & Snippets: api/examples.md
   - Forums:
       - Forums: https://forums.coregames.com/
@@ -55,14 +55,14 @@ nav:
       - Game Components: api/components.md
       - Animations: api/animations.md
       - Ability Bindings: api/ability_bindings.md
-      - Lua in Core: tutorials/gameplay/lua_reference.md
-      - Lua Style Guide: tutorials/gameplay/lua_style_guide.md
+      - Lua in Core: tutorials/lua_reference.md
+      - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
+      - Coming from other Platforms: getting_started/other_platforms.md
       - Examples & Snippets: api/examples.md
   - FAQ:
-      - https://forums.coregames.com/t/83
-  - Feedback:
-      - https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
+      - Frequently Asked Questions: https://forums.coregames.com/t/83
+  - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -101,8 +101,8 @@ extra:
       link: https://discord.gg/core-creators
     - type: youtube
       link: https://www.youtube.com/CoreGamesOfficial
-    #- type: reddit
-    #  link: https://www.reddit.com/r/PlayCoreGames # TODO
+#    - type: reddit
+#      link: https://www.reddit.com/r/coregamesdev
     - type: facebook
       link: https://www.facebook.com/playcoregames
     - type: twitter
@@ -147,10 +147,23 @@ plugins:
   - autolinks
   - redirects:
       redirect_maps:
-        getting_started.md: https://dev.manticoreplatform.com/docs/getting_started/editor_intro/
-        news/showcase/just_getting_started.md: https://dev.manticoreplatform.com/docs/showcase/just_getting_started/
-        api.md: https://dev.manticoreplatform.com/docs/core_api/
-        tutorials/examples.md: https://dev.manticoreplatform.com/docs/api/examples.md
+        getting_started.md: https://coregames.com/docs/getting_started/editor_intro/
+        news/showcase/just_getting_started.md: https://coregames.com/docs/showcase/just_getting_started/
+        api.md: https://docs.coregames.com/core_api/
+        tutorials/examples.md: https://docs.coregames.com/api/examples.md
+        tutorials/overview.md: tutorials/overview.md
+        tutorials/gameplay/abilities.md: tutorials/abilities.md
+        tutorials/gameplay/weapons.md: tutorials/weapons.md
+        tutorials/gameplay/abilities_advanced.md: tutorials/abilities_advanced.md
+        tutorials/gameplay/lua_basics_lightbulb.md: tutorials/lua_basics_lightbulb.md
+        tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
+        tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
+        tutorials/art/scene_creation.md: tutorials/scene_creation.md
+        tutorials/art/environmental_art.md: tutorials/environmental_art.md
+        tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
+        tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
+        tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
+        getting_started/other_engines.md: getting_started/other_platforms.md
 
 docs_dir: src
 
