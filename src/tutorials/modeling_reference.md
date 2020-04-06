@@ -99,4 +99,4 @@ To simplify collision on complex objects, it is often helpful to add a larger in
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](collaboration_reference.md) | [Modeling Ttutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](collaboration_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
