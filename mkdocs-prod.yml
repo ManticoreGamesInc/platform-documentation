@@ -151,7 +151,6 @@ markdown_extensions:
   - lightgallery
   - fontawesome_markdown # easily add fontawesome icons in markdown format
 
-
 plugins:
   #- tags:
   #    tags_folder: src/generated/
