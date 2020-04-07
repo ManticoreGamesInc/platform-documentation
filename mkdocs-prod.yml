@@ -72,7 +72,7 @@ theme:
   font:
     text: Lato
     code: JetBrains Mono
-  feature:
+  features:
     - tabs
     - instant
   palette:
