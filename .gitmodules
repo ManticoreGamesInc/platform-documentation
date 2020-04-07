@@ -1,4 +1,4 @@
 [submodule "mkdocs-material"]
     path = mkdocs-material
     url = https://github.com/ManticoreGamesInc/mkdocs-material.git
-    branch = manticore-v1
+    branch = manticore

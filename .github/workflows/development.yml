@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ManticoreGamesInc/mkdocs-material
-          ref: manticore-v1
+          ref: manticore
           path: mkdocs-material
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
