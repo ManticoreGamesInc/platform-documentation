@@ -177,7 +177,6 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `currentYaw` | Number | The current yaw of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minYaw` | Number | The minimum yaw for free control. | Read-Write, Dynamic |
 | `maxYaw` | Number | The maximum yaw for free control. | Read-Write, Dynamic |
-| `lerpTime` | Number | This property is deprecated and has no effect. | Read-Write, Dynamic, **Deprecated** |
 
 ### Color
 
@@ -308,9 +307,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `name` | string | The object's name as seen in the Hierarchy. | Read-Write, Dynamic |
 | `id` | string | The object's MUID. | Read-Only |
 | `parent` | CoreObject | The object's parent object, may be nil. | Read-Write, Dynamic |
-| `isVisible` | bool | See `visibility`. | Read-Write, Dynamic, **Deprecated** |
 | `visibility` | enum | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write, Dynamic |
-| `isCollidable` | bool | See `collision`. | Read-Write, Dynamic, **Deprecated** |
 | `collision` | enum | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
 | `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
@@ -362,20 +359,20 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. | None |
-| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. | None |
+| `equippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this equipment is equipped onto a player. [:fa-info-circle:](../api/examples/#equippedevent-unequippedevent "Example") | None |
+| `unequippedEvent` | Event&lt;Equipment, Player&gt; | Fired when this object is unequipped from a player. [:fa-info-circle:](../api/examples/#equippedevent-unequippedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | Dynamic |
-| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. | Dynamic |
-| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. | Dynamic |
-| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
+| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. [:fa-info-circle:](../api/examples/#equipplayer "Example") | None |
+| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. [:fa-info-circle:](../api/examples/#unequip "Example") | None |
+| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. [:fa-info-circle:](../api/examples/#addabilityability "Example") | None |
+| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. [:fa-info-circle:](../api/examples/#getabilities "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Read-Write, Dynamic |
-| `owner` | Player | Which Player the Equipment is attached to. | Read-Only, Dynamic |
+| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. [:fa-info-circle:](../api/examples/#socket "Example") | Read-Write, Dynamic |
+| `owner` | Player | Which Player the Equipment is attached to. [:fa-info-circle:](../api/examples/#owner "Example") | Read-Only, Dynamic |
 
 ### Event
 
@@ -409,9 +406,9 @@ Contains data pertaining to an impact or raycast.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. | None |
-| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. | None |
-| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
+| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. [:fa-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
+| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. [:fa-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
+| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. [:fa-info-circle:](../api/examples/#gettransform "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -523,8 +520,6 @@ Player is an Object representation of the state of a Player connected to the gam
 | `SetResource(string name, Integer amount)` | None | Sets a specific amount of a resource on a player. | Server-Only |
 | `AddResource(string name, Integer amount)` | None | Adds an amount of a resource to a player. | Server-Only |
 | `RemoveResource(string name, Integer amount)` | None | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
-| `GetResourceNames()` | Array&lt;string&gt; | Returns an array containing resource names. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
-| `GetResourceNamesStartingWith(string prefix)` | Array&lt;string&gt; | Returns an array containing resource names starting with given prefix. **Note:** This function is deprecated. Please use `GetResources()` instead. | **Deprecated** |
 | `TransferToGame(string)` | None | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. [:fa-info-circle:](../api/examples/#transfertogamestring "Example") | Server-Only |
 | `GetAttachedObjects()` | Array&lt;CoreObject&gt; | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. | Server-Only |
@@ -619,13 +614,13 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. | None |
+| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | Projectile | Spawns a Projectile with a child that is an instance of a template. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | None |
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
-| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
-| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
+| `impactEvent` | Event&lt;Projectile, Object other, HitResult&gt; | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. [:fa-info-circle:](../api/examples/#projectileimpactevent "Example") | None |
+| `lifeSpanEndedEvent` | Event&lt;Projectile&gt; | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | None |
+| `homingFailedEvent` | Event&lt;Projectile&gt; | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. [:fa-info-circle:](../api/examples/#projectilehomingfailedevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -638,22 +633,22 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `owner` | Player | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. | Read-Write |
-| `sourceAbility` | Ability | Reference to the Ability from which the Projectile was created. | Read-Write |
-| `speed` | Number | Centimeters per second movement. Default 5000. | Read-Write |
-| `maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. | Read-Write |
-| `gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write |
-| `drag` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. | Read-Write |
-| `bouncesRemaining` | Integer | Number of bounces remaining before it dies. Default 0. | Read-Write |
-| `bounciness` | Number | Velocity % maintained after a bounce. Default 0.6. | Read-Write |
-| `lifeSpan` | Number | Max seconds the Projectile will exist. Default 10. | Read-Write |
-| `shouldBounceOnPlayers` | bool | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. | Read-Write |
-| `piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
-| `capsuleRadius` | Number | Shape of the Projectile's collision. Default 22. | Read-Write |
-| `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
-| `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. | Read-Write |
-| `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
-| `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
+| `owner` | Player | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. [:fa-info-circle:](../api/examples/#projectileowner "Example") | Read-Write |
+| `sourceAbility` | Ability | Reference to the Ability from which the Projectile was created. [:fa-info-circle:](../api/examples/#projectilesourceability "Example") | Read-Write |
+| `speed` | Number | Centimeters per second movement. Default 5000. [:fa-info-circle:](../api/examples/#projectilespeed-projectilemaxspeed "Example") | Read-Write |
+| `maxSpeed` | Number | Max cm/s. Default 0. Zero means no limit. [:fa-info-circle:](../api/examples/#projectilespeed-projectilemaxspeed "Example") | Read-Write |
+| `gravityScale` | Number | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `drag` | Number | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `bouncesRemaining` | Integer | Number of bounces remaining before it dies. Default 0. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `bounciness` | Number | Velocity % maintained after a bounce. Default 0.6. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `lifeSpan` | Number | Max seconds the Projectile will exist. Default 10. [:fa-info-circle:](../api/examples/#projectilespawn-projectilelifespanendedevent-projectilelifespan "Example") | Read-Write |
+| `shouldBounceOnPlayers` | bool | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. [:fa-info-circle:](../api/examples/#projectilegravityscale-projectilebouncesremaining-projectilebounciness-projectileshouldbounceonplayers "Example") | Read-Write |
+| `piercesRemaining` | Integer | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. [:fa-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
+| `capsuleRadius` | Number | Shape of the Projectile's collision. Default 22. [:fa-info-circle:](../api/examples/#projectilecapsulelength-projectilecapsuleradius "Example") | Read-Write |
+| `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. [:fa-info-circle:](../api/examples/#projectilecapsulelength-projectilecapsuleradius "Example") | Read-Write |
+| `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. [:fa-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
+| `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. [:fa-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
 
 ### Quaternion
 
@@ -751,7 +746,7 @@ Script is a CoreObject representing a script. While not technically a property, 
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `context` | table | Returns the table containing any non-local variables and functions created by the script. This can be used to call (or overwrite!) functions on another script. | Read-Only |
+| `context` | table | Returns the table containing any non-local variables and functions created by the script. This can be used to call (or overwrite!) functions on another script. [:fa-info-circle:](../api/examples/#context "Example") | Read-Only |
 
 ### SmartAudio
 
@@ -1072,47 +1067,47 @@ A three-component vector that can represent a position or direction.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | Vector3 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
+| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | Vector3 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. [:fa-info-circle:](../api/examples/#vector3lerp "Example") | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector3.New([Number x, Number y, Number z])` | Vector3 | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). | None |
-| `Vector3.New(Number v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. | None |
-| `Vector3.New(Vector2 xy, Number z)` | Vector3 | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. | None |
-| `Vector3.New(Vector3 v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
-| `Vector3.New(Vector4 v)` | Vector4 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
-| `Vector3.ZERO` | Vector3 | (0, 0, 0) | None |
-| `Vector3.ONE` | Vector3 | (1, 1, 1) | None |
-| `Vector3.FORWARD` | Vector3 | (1, 0, 0) | None |
-| `Vector3.UP` | Vector3 | (0, 0, 1) | None |
-| `Vector3.RIGHT` | Vector3 | (0, 1, 0) | None |
+| `Vector3.New([Number x, Number y, Number z])` | Vector3 | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Number v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector2 xy, Number z)` | Vector3 | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector3 v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.New(Vector4 v)` | Vector4 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. [:fa-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.ZERO` | Vector3 | (0, 0, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.ONE` | Vector3 | (1, 1, 1) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.FORWARD` | Vector3 | (1, 0, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.UP` | Vector3 | (0, 0, 1) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
+| `Vector3.RIGHT` | Vector3 | (0, 1, 0) [:fa-info-circle:](../api/examples/[:fa-info-circle:](../api/examples/#vector3new "Example") "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
+| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. [:fa-info-circle:](../api/examples/#vector3getnormalized-vector3-vector3 "Example") | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Vector3 + Vector3` | Vector3 | Component-wise addition. | None |
-| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. | None |
-| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. | None |
-| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. | None |
-| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. | None |
-| `Vector3 / Vector3` | Vector3 | Component-wise division. | None |
-| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. | None |
-| `-Vector3` | Vector3 | Returns the negation of the Vector3. | None |
-| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
-| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. | None |
+| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
+| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fa-info-circle:](../api/examples/#vector3vector3-vector3number-vector3-vector3-vector3-number-vector3vector3-vector3number-numbervector3-vector3vector3-vector3number-vector3 "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | Number | The `x` component of the Vector3. | Read-Write |
-| `y` | Number | The `y` component of the Vector3. | Read-Write |
-| `z` | Number | The `z` component of the Vector3. | Read-Write |
-| `size` | Number | The magnitude of the Vector3. | Read-Only |
-| `sizeSquared` | Number | The squared magnitude of the Vector3. | Read-Only |
+| `x` | Number | The `x` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `y` | Number | The `y` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `z` | Number | The `z` component of the Vector3. [:fa-info-circle:](../api/examples/#vector3x-vector3y-vector3z "Example") | Read-Write |
+| `size` | Number | The magnitude of the Vector3. [:fa-info-circle:](../api/examples/#vector3size-vector3sizesquared "Example") | Read-Only |
+| `sizeSquared` | Number | The squared magnitude of the Vector3. [:fa-info-circle:](../api/examples/#vector3size-vector3sizesquared "Example") | Read-Only |
 
 ### Vector4
 
@@ -1176,7 +1171,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Renamed from `targetInteractionEvent`. Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only, **Breaking Change** |
+| `targetImpactedEvent` | Event&lt;Weapon, ImpactData&gt; | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
 | `projectileSpawnedEvent` | Event&lt;Weapon, Projectile&gt; | Fired when a Weapon spawns a projectile. | None |
 
 | Function | Return Type | Description | Tags |
@@ -1229,12 +1224,12 @@ WorldText is an in-world text CoreObject.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | The color of the Text. | None |
-| `SetColor(Color)` | None | The color of the Text. | Dynamic |
+| `GetColor()` | Color | The color of the Text. [:fa-info-circle:](../api/examples/#getcolor-setcolorcolor "Example") | None |
+| `SetColor(Color)` | None | The color of the Text. [:fa-info-circle:](../api/examples/#getcolor-setcolorcolor "Example") | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `text` | string | The text being displayed by this object. | Read-Write, Dynamic |
+| `text` | string | The text being displayed by this object. [:fa-info-circle:](../api/examples/#text "Example") | Read-Write, Dynamic |
 
 ## Core Lua Namespaces
 
@@ -1301,7 +1296,7 @@ User defined events can be specified using the Events namespace. The Events name
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Events.Connect(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
-| `Events.ConnectForPlayer(string eventName, function eventListener, [...]) (Server Only)` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | Server-Only |
+| `Events.ConnectForPlayer(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
 | `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. [:fa-info-circle:](../api/examples/#broadcast "Example") | None |
 | `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
 | `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
@@ -1333,27 +1328,26 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Class Event | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. | None |
-| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. | None |
-| `Game.abilitySpawnedEvent` | Event&lt;Ability&gt; | This deprecated event is unused. | **Deprecated** |
-| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. | None |
-| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. | None |
-| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fa-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fa-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fa-info-circle:](../api/examples/#gameroundstartevent "Example") | None |
+| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fa-info-circle:](../api/examples/#gameroundendevent "Example") | None |
+| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | None |
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Game.GetLocalPlayer()` | Player | Returns the local player. | Client-Only |
-| `Game.GetPlayers([table parameters])` | Array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(Integer or table of Integer), includeTeams(Integer or table of Integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
-| `Game.FindNearestPlayer(Vector3 position, [table parameters])` | Player | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. | Server-Only |
-| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. | Server-Only |
-| `Game.GetTeamScore(Integer team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None |
-| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. | Server-Only |
-| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. | Server-Only |
-| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. | Server-Only |
-| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. | Server-Only |
+| `Game.GetLocalPlayer()` | Player | Returns the local player. [:fa-info-circle:](../api/examples/#gamegetlocalplayer "Example") | Client-Only |
+| `Game.GetPlayers([table parameters])` | Array&lt;Player&gt; | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(Integer or table of Integer), includeTeams(Integer or table of Integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. [:fa-info-circle:](../api/examples/#gamegetplayerstable-parameters "Example") | None |
+| `Game.FindNearestPlayer(Vector3 position, [table parameters])` | Player | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindnearestplayervector3-position-table-parameters "Example") | None |
+| `Game.FindPlayersInCylinder(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindplayersincylindervector3-position-number-radius-table-parameters "Example") | None |
+| `Game.FindPlayersInSphere(Vector3 position, Number radius, [table parameters])` | Array&lt;Player&gt; | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). [:fa-info-circle:](../api/examples/#gamefindplayersinspherevector3-position-number-radius-table-parameters "Example") | None |
+| `Game.StartRound()` | None | Fire all events attached to roundStartEvent. [:fa-info-circle:](../api/examples/#gamestartround-gameendround "Example") | Server-Only |
+| `Game.EndRound()` | None | Fire all events attached to roundEndEvent. [:fa-info-circle:](../api/examples/#gamestartround-gameendround "Example") | Server-Only |
+| `Game.GetTeamScore(Integer team)` | Integer | Returns the current score for the specified team. Only teams 0 - 4 are valid. [:fa-info-circle:](../api/examples/#gamegetteamscoreinteger-team "Example") | None |
+| `Game.SetTeamScore(Integer team, Integer score)` | None | Sets one team's score. [:fa-info-circle:](../api/examples/#gamesetteamscoreinteger-team-integer-score "Example") | Server-Only |
+| `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
+| `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. [:fa-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
+| `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. [:fa-info-circle:](../api/examples/#gameresetteamscores "Example") | Server-Only |
 
 ### Storage
 
@@ -1396,9 +1390,9 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
 | `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
 | `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
-| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only, Client-Only |
-| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only, Client-Only |
-| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only, Client-Only |
+| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only |
+| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only |
+| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only |
 | `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
 | `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client-Only |
 | `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client-Only |

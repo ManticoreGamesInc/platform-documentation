@@ -9,7 +9,7 @@ title: Tutorials
 | Tutorial                                                   | Category                 | Time    | Description                                                                            |
 | -----------------------------------------------------------| ------------------------ | ------- | -------------------------------------------------------------------------------------- |
 | [Introduction to the Core Editor](editor_intro.md)         | Editor                   | 5 Mins  | Before you start, we'll introduce you to the Core editor                               |
-| [My First Multiplayer Game](my_first_multiplayer_game/)    | Game                     | 15 Mins | Make your first multiplayer game in under 20 minutes!                                  |
+| [My First Multiplayer Game](my_first_multiplayer_game.md)    | Game                     | 15 Mins | Make your first multiplayer game in under 20 minutes!                                  |
 | [Weapons in Core](weapons.md)                              | Equipment & Weapons      | 15 Mins | Create your first custom weapon in Core                                                |
 | [Abilities in Core](abilities.md)                          | Abilities                | 10 Mins | Learn how to give your characters new powers and abilities                             |
 | [Advanced Abilities in Core](abilities_advanced.md)        | Equipment & Abilities    | 20 Mins | Make a magical staff, learn to fly, visual FX                                          |

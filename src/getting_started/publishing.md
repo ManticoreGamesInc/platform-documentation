@@ -8,7 +8,9 @@ tags:
 
 # Publishing A Game
 
-Publishing your Core project opens it to the world for testing and feedback, as well as building community familiarity with your game and brand.
+Publishing your Core project opens it to the world for testing and feedback, as well as building community familiarity with your game and brand. You can decide if your project is ready to be published with the [Publishing Checklist](publishing_checklist.md).
+
+## Publish from the Core Editor
 
 1. Open your project in the **Core Editor**
 2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.
@@ -47,3 +49,7 @@ Good game information is essential to helping players find your game and underst
 Your game is now live! Visit your game's page in the Core **Games** tab to try it out online.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.png){: .center}
+
+## Learn More
+
+[Publishing Checklist](publishing_checklist.md) | [Sharing Content](community_content.md) | [Collaboration with other Core Creators](collaboration_reference.md)

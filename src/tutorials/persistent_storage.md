@@ -28,7 +28,7 @@ Here are just a few ideas on ways that persistent storage can be used:
 
 Really, anything that you might want to preserve for the next play session for that same player can be stored.
 
-![Overview Shot](../../img/EditorManual/PersistentStorage/enablePlayerStorage.png){: .center}
+![Overview Shot](../img/EditorManual/PersistentStorage/enablePlayerStorage.png){: .center}
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
@@ -76,7 +76,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 4. Create a new script using the button in the top toolbar of Core, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
 
-    ![WorldText](../../img/EditorManual/PersistentStorage/createNewScript.png){: .center}
+    ![WorldText](../img/EditorManual/PersistentStorage/createNewScript.png){: .center}
 
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
@@ -86,14 +86,14 @@ To start, we are going to save a video game classic: a player's game score.
 
     3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
 
-    ![WorldText](../../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
+    ![WorldText](../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
 
 6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
 
 7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a Core Object Reference to the objects we are dragging in!
 
-    <video autoplay loop muted playsinline poster="../../../img/EditorManual/Abilities/Gem.png" class="center">
-        <source src="../../../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
+    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png" class="center">
+        <source src="../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
     </video>
 
 8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the text says!
@@ -174,7 +174,7 @@ To start, we are going to save a video game classic: a player's game score.
 
     Whenever you press <kbd>1</kbd> on your keyboard, the number on-screen will increase!
 
-![Final Result](../../img/EditorManual/PersistentStorage/finalResult.png){: .center}
+![Final Result](../img/EditorManual/PersistentStorage/finalResult.png){: .center}
 
 Congrats, you've learned the basics of Persistent Data Storage in Core. Now go forth, and save awesome things!
 

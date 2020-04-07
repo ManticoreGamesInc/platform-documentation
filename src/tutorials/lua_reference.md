@@ -26,7 +26,7 @@ The next steps depend on your level of previous programming experience.
 
 After you're done reading this primer, check out this [tutorial](lua_basics_lightbulb.md), and review the [official](https://www.lua.org/pil/contents.html) docs after.
 
-!!! note "Programming In Lua (official link) is based on Lua 5.0 and missing additions of later version!"
+!!! warning "Programming In Lua (official link) is based on Lua 5.0 and missing additions of later version!"
 
 ### Intermediate
 
@@ -37,9 +37,9 @@ Skim through the beginner content, then try our [Manticoin Game](lua_basics_mant
 Check out this [primer](https://learnxinyminutes.com/docs/lua/), or this [reference-sheet](http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51.pdf) for tips on syntax. Use the
 official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourself familiar with the [Core API](core_api.md) and take a look at our [style guide](lua_style_guide.md) and [Editor extensions](extensions.md).
 
-#### Coming from other engines
+#### Coming from other platforms
 
-Other engines also have good sources of documentation for Lua. Check out our [other-engines](other_engines.md) page that has a few hints on what's different between them and **Core**.
+Other platforms also have good sources of documentation for Lua. Check out [Coming to Core from Other Platforms](other_platforms.md) for a few hints on what's different in **Core**.
 
 ## Basics
 
