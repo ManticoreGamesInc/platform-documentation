@@ -8,6 +8,8 @@ tags:
 
 # Introduction to the Core Editor
 
+![YOUTUBE](/assets/placeholder_720p.png "TKOtPN9ujEE")
+
 ## Creating a New Project
 
 There are three options for starting a new project:
