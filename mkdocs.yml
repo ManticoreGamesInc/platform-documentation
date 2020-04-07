@@ -8,7 +8,7 @@ nav:
         - Install Core: getting_started/installing_core.md
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
-        - Getting Help in Core: core_help.md
+        - Getting Help in Core: getting_started/core_help.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
@@ -102,9 +102,6 @@ extra:
       link: https://discord.gg/core-creators
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
-#    - type: reddit
-#      link: https://www.reddit.com/r/coregamesdev
-    - type: facebook
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/r/coregamesdev
     - icon: fontawesome/brands/facebook
@@ -178,6 +175,7 @@ plugins:
         tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: getting_started/other_platforms.md
+        getting_started/troubleshooting.md: getting_started/core_help.md
 
 docs_dir: src
 
