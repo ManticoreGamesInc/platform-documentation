@@ -38,13 +38,14 @@ Click on any template to see more details about it, including a description and 
 
 A template can be imported through the project directly from the search page, by clicking the **Import** button.
 
-![Community Content Template](../img/getting_started/CCtemplate.png "Community Content Template"){: .center}
+![Community Content Template](../img/CommunityContent/CommunityContent_FunctionalTwinBed.png){: .center}
 
 ### Locate Imported Content
 
-Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initial appear with the grey mixed package icon. You can click this, or the name of the Template in the Core Content navigation to access the template.
+Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initial appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
-![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){style="margin:10px"}
+ ![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){style="margin:10px"}
 
 ### Use Imported Content
 
