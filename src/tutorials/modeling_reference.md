@@ -8,12 +8,7 @@ tags:
 
 # Modeling Complex Objects in Core
 
-<div class="mt-video">
-    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
-        <source src="/img/EditorManual/Art/BugShip.webm" type="video/webm" />
-        <source src="/img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
-    </video>
-</div>
+![Bug Ship](../img/EditorManual/Art/BugShip.gif "Bug Ship"){: .center}
 
 ## Introduction
 
@@ -37,7 +32,7 @@ There are different ways to combine objects into units that can be manipulated t
 
 ### Folders
 
-Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without defining them as a single object.
+Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without definining them as a single object.
 
 ![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center}
 
@@ -74,7 +69,7 @@ Creating a group allows you to unite a collection of 3D objects into a single en
 1. Find the ![Group Mode](../img/EditorManual/icons/Icon_GroupMode.png) or ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) icons in the **Toolbar**
 {: .image-inline-text .image-background}
 2. Select the drop down arrow next to the mode.
-3. Select **Object Mode** to select individual objects within the group when clicked.
+3. Select **Object Mode** to select invididual objects within the group when clicked.
 4. Select **Group Mode** to select the entire group when any object within the group is clicked.
 
 ### Parenting
@@ -83,7 +78,7 @@ Folders and groups can be added to other folders and groups. This allows for cle
 
 ### Templates
 
-Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. Templates can also be used to share your creations on Community Content. See the [Template tutorial](collaboration_reference.md) to learn more.
+Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. Templates can also be used to share your creations on Community Content. See the [Template tutorial](template_reference.md) to learn more.
 
 ## Best Practices with Models
 
@@ -104,4 +99,4 @@ To simplify collision on complex objects, it is often helpful to add a larger in
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](collaboration_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
