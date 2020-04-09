@@ -76,7 +76,7 @@ Besides player movement, **Deathmatch** also gives each player a gun to shoot, a
 - Shoot the default gun with the left mouse button.
 - Open and close a door with <kbd>F</kbd>.
 
-![PlayMode](../img/MyFirstMultiplayer/PlayMode.png){: .center}
+![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center}
 
 ### Test Multiplayer Gameplay
 
@@ -181,7 +181,7 @@ You can continue using these techniques to complete the appearance of your Death
 - ``window insert``
 - ``floor``
 
-    ![FinishArt](../img/MyFirstMultiplayer/FinishArt.png){: .center}
+    ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center}
 
 !!! info
     You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
@@ -233,7 +233,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press `V`
 1. Search for **Spawn Point** in the **Hierarchy**.
 2. Move the spawn points around the map the same way you would any object.
 
-![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.png){: .center}
+![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center}
 
 !!! tip
     Press  `0` to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
