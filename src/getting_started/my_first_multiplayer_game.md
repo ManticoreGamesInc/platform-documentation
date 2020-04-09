@@ -107,7 +107,11 @@ Core gives you a massive library of 3D assets, materials, sounds, and components
 3. Click on the **Nature** subcategory.
 4. Choose a bush and some other props to drag into the scene.
 
-![DragDrop](../img/MyFirstMultiplayer/DragDropBushes.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/DragDropBushes.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Create Hiding Places
 
@@ -121,7 +125,11 @@ You can move, turn, and resize objects.
 - ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or <kbd>R</kbd> activates Scale Mode.
 {: .image-inline-text .image-background}
 
-![Move](../img/MyFirstMultiplayer/MoveBushes.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/MoveBushes.mp4" type="video/mp4" />
+    </video>
+</div>
 
 1. Click on the bush and press <kbd>G</kbd> to move it.
 2. Use the arrows to move it into a good hiding place for a player.
@@ -139,7 +147,11 @@ By default, Core objects have collision, so players can't just walk into bushes 
 3. Click on the bush to select it, and open the **Properties** window.
 4. Find the **Collision** property and change it to **Force Off**
 
-![Collison](../img/MyFirstMultiplayer/NoCollisonBush.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/NoCollisonBush.mp4" type="video/mp4" />
+    </video>
+</div>
 
 You should now be able to walk into a bush. Test this in **Multiplayer Preview Mode** to see how well it works for concealment.
 
@@ -155,7 +167,11 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
 1. In the **Core Content** window, drop down the **Materials** menu to see the options.
 2. Pick a material, and drag it onto one of the objects in the scene.
 
-    ![WallObjects](../img/MyFirstMultiplayer/MaterialExample.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/MaterialExample.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Cover the Walls
 
@@ -164,7 +180,11 @@ You can apply a material to multiple objects by selecting them.
 - Use <kbd>Shift</kbd> + left click to select more objects.
 - Left click and drag to select objects in an area.
 
-![WallObjects](../img/MyFirstMultiplayer/WoodWalls.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/WoodWalls.mp4" type="video/mp4" />
+    </video>
+</div>
 
 1. In the **Heirarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
 2. Press <kbd>Enter</kbd> to select everything from the search
