@@ -14,9 +14,9 @@ article ul li{
 
 # Publishing Checklist
 
-> When deciding whether to publish a game, the question is not *is this game finished* but *is this game ready to be tested by the supportive strangers of the Core Creator community?*
+> When deciding whether to publish a game, the question is not *is this game finished* but *is this game ready to be tested by the supportive members of the Core Creator community?*
 
-If you are ready to jump in and [publish your game](publishing.md) right away, these are the minium questions you should consider.
+If you are ready to jump in and [publish your game](publishing.md) right away, these are the minimum questions you should consider.
 
 1. Will players understand how to play and what the goals are?
 2. Does the game have an ending, and will players have a reason to play again?
@@ -24,7 +24,7 @@ If you are ready to jump in and [publish your game](publishing.md) right away, t
 4. Have you tested the game in **Multiplayer Preview Mode**
 5. Do the description and screenshots help players find the game and understand what it is?
 
-The goal of this checklist is to outline the essentials that you should check before you publish, then give you areas to continually check as you revise and republish your game. Not everything in this list will apply to all the possible Core creations, and there will more to consider based on the unique aspects of your design.
+The goal of this checklist is to outline the essentials that you should check before you publish, then give you areas to continually check as you revise and republish your game. Not everything in this list will apply to all the possible Core creations, and there will be more to consider based on the unique aspects of your design.
 
 ## Reading the Checklist
 
@@ -143,7 +143,7 @@ The goal of this checklist is to outline the essentials that you should check be
 
 ## Project Organization
 
-### Heirarchy
+### Hierarchy
 
 - [x] Objects are renamed so that they are easy to search for later.
 - [x] Basic shapes are grouped into the objects they make up.
@@ -185,7 +185,7 @@ The goal of this checklist is to outline the essentials that you should check be
 
 - [x] **Announce your game on the Core Creator Hub Discord server in the Showcase channel**
 - [x] Share your game on social media channels.
-- [x] Make videos or hold livestreams showcasing the game and its features.
+- [x] Make videos or hold live streams showcasing the game and its features.
 - [x] Develop a way of gathering and saving feedback from users who test the game.
 - [x] *Share major updates and patches as the game evolves.*
 
