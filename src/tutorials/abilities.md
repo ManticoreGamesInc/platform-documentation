@@ -213,7 +213,7 @@ Abilities themselves work in multiplayer games perfectly without any extra progr
 This has already been done for us in the Core Content template, so no action is needed!
 
 !!! info "Client Context"
-    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the **[Networking Reference](networking_reference.md)**.
+    Generally speaking, all UI related to the player should be in a Client Context folder.
 
 ---
 
