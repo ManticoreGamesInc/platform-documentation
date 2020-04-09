@@ -558,7 +558,14 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
 
     Test it out! Now the opening effect that we made should play when opening the chest. This helps the action to feel more intentional and rewarding as a player.
 
-    ![OpenedFX](../../img/VFXtutorial/vfx11_OpeningFX.gif){: .center}
+    <div class="figure-block">
+    <figure>
+        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx11_OpeningFX.mp4" type="video/mp4" alt="The basic loop of the treasure chest."/>
+        </video>
+        <figcaption><em>Now we've got a sparkly little opening effect!</em></figcaption>
+    </figure>
+    </div>
 
 7. Next let's create the `LockedFX` for when a player tries to open the chest without having the crowbar first.
 
@@ -590,7 +597,14 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
     end
     ```
 
-![LockedFX](../../img/VFXtutorial/vfx11_LockedFX.gif){: .center}
+    <div class="figure-block">
+    <figure>
+        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx11_LockedFX.mp4" type="video/mp4" alt="The basic loop of the treasure chest."/>
+        </video>
+        <figcaption><em>This makes it easier to tell that the player is indeed interacting with the chest--just not in the right way.</em></figcaption>
+    </figure>
+    </div>
 
 Now you've got some basic effects set up for your treasure chest! You have learned how to create effect templates by combining various visual effects with sound effects, and how to spawn them at specific times! Go forth, and make more awesome stuff.
 
