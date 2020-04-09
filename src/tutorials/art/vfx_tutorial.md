@@ -10,50 +10,60 @@ categories:
 
 ## Overview
 
-VFX is awesome!! We have lots of pre-made effects.
+A huge benefit to CORE is the vast amount of visual effects that are built-in and easily editable. You get to start with high quality effects that already exist, and truly make them your own.
 
-This tutorial goes hand-in-hand with the VFX level that is playable on coregames.com
+Our team at Manticore has built a huge level map that you can explore at any time to see just some of the ways that all of our different VFX could be used.
 
-To get a tour of what is possible with visual effects in CORE, run around this map and then come back to this tutorial to learn how to make effects like this map!
+To get a tour of what is possible with visual effects in CORE, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
 
-While the map explains many useful things about how to use all the visual effects, this page will go step-by-step through two different ways to use lua in CORE to make something awesome.
+**[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
+
+While the map explains many useful things about how to use all the visual effects, this page will go step-by-step through two different ways to use Lua in CORE to make something awesome.
 
 ![Carnival](../../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center}
 
-### Pre-Made VFX & SFX
+### Dozens of Built-In Effects
 
-CORE comes with tons of visual effects built-in, all with different parameters for messing with.
+CORE comes with all sorts of visual effects built-in, all with different parameters for altering how it looks and moves.
 
-This window can also be accessed via the dropdown "**View -> CORE Content**". tab
+To find all these visual effect objects, navigate to the CORE Content tab and click on the **"Effects"** section.
 
-![CORE Content](../../img/EditorManual/Art/AssetManifest.png "CORE Content"){: .center}
+This window can also be accessed via the dropdown menu "**View -> CORE Content**".
 
-Currently, there are **5 different sections** that contain models to use right away:
+![CORE Content](../../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center}
+
+Currently, there are **7 different sections** that contain effects you can use right away:
 
 - **Character**
     - These vfx are specifically human or character-focused.
 - **Environmental**
     - Elemental effects, and effects that are more nature-oriented.
 - **Explosions**
-    - Definitely things that blow up!!
+    - Definitely things that blow up!
 - **Magic**
     - More ethereal and sparkly effects.
 - **Misc**
     - Things that don't fit in other categories--weird stuff!
 - **Vehicles**
-    - Effects designed to enhance movement and show industrial power.
+    - Effects designed to enhance movement and show physical power.
 - **Weapons**
-    - These effects were designed specifically with the weapon system, and to go with attacks.
+    - These effects were designed specifically with the weapon system, and to go along with attacks.
+
+Don't be afraid to use any effect for any purpose though--don't let categories restrict your creativity!
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
 ![CORE Content Dropdowns](../../img/EditorManual/Art/AssetManifestDropDowns.png "CORE Content Dropdowns"){: .center}
 
-To use any of these models, simply click and drag one out from the CORE Content tab into the scene or the hierarchy.
+To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
-![Drag out Assets](../../img/EditorManual/Art/DragOutAsset.gif "Drag out Assets"){: .center}
+All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties *Play* button!
 
-### Tutorial: Part One
+#### Special Effect Materials
+
+Besides all of the more-literal visual effects that CORE includes, there is also a categorey of materials that lend themselves nicely to VFX:
+
+### Tutorial Part One: A Constant VFX
 
 Let's make a VFX that plays constantly, combined of several parts!
 
@@ -63,7 +73,7 @@ Perhaps we'll make a torch and light a scene in the darkness.
 
 Blue demon flames, perhaps? Combined with custom materials on props?
 
-### Tutorial: Part Two
+### Tutorial: Part Two: A Triggerable VFX
 
 Let's make a VFX that gets triggered by the player!
 
