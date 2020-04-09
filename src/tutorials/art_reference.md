@@ -8,10 +8,6 @@ tags:
 
 # Art in Core
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
 The Core™ editor comes with all sorts of built-in 3D models and props for using and combining in any way that you can imagine!
@@ -189,4 +185,4 @@ This is a great way to create **fake collision**. The player will collide with t
 
 ### Sharing the Glory: Publishing Templates
 
-To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](collaboration_reference.md)!
+To learn about sharing your artwork & models with other users, check out our tutorial on [Templates](template_reference.md)!

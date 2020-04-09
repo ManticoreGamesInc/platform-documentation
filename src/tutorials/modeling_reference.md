@@ -78,7 +78,7 @@ Folders and groups can be added to other folders and groups. This allows for cle
 
 ### Templates
 
-Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. Templates can also be used to share your creations on Community Content. See the [Template tutorial](collaboration_reference.md) to learn more.
+Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. Templates can also be used to share your creations on Community Content. See the [Template tutorial](template_reference.md) to learn more.
 
 ## Best Practices with Models
 
@@ -99,4 +99,4 @@ To simplify collision on complex objects, it is often helpful to add a larger in
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](collaboration_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)

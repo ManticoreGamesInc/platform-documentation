@@ -44,8 +44,8 @@ A template can be imported through the project directly from the search page, by
 
 Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initial appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
-![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){style="margin:10px"}
- ![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){style="margin:10px"}
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){style="margin:30px"}
+ ![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){style="margin:30px"}
 
 ### Use Imported Content
 
@@ -55,7 +55,7 @@ To use the template in your project, click and drag the green template icon into
 
 ## Publishing Your Own Content
 
-To share your own templates on Community Content, see the [Template reference](collaboration_reference.md).
+To share your own templates on Community Content, see the [Template reference](template_reference.md).
 
 ## Community Shared Games
 
@@ -65,4 +65,4 @@ To start a game from a Community Created framework, open **Create** menu of the 
 
 ## Learn More
 
-[Templates](collaboration_reference.md) | [Complex Models](modeling_reference.md) | [Publishing](publishing.md)
+[Templates](template_reference.md) | [Complex Models](modeling_reference.md) | [Publishing](publishing.md)
