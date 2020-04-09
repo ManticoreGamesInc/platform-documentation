@@ -37,6 +37,7 @@ This tutorial will cover how to place and move images in a scene as well as how 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image6.webm" type="video/webm" />
         <source src="../img/SceneCreation/image6.mp4" type="video/mp4" />
     </video>
 </div>
@@ -46,6 +47,7 @@ This tutorial will cover how to place and move images in a scene as well as how 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image5.webm" type="video/webm" />
         <source src="../img/SceneCreation/image5.mp4" type="video/mp4" />
     </video>
 </div>
@@ -54,6 +56,7 @@ The arrows show the **transform widget** is in **translation mode**, allowing yo
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image4.webm" type="video/webm" />
         <source src="../img/SceneCreation/image4.mp4" type="video/mp4" />
     </video>
 </div>
@@ -62,6 +65,7 @@ The circles show the **transform widget** is in **rotation mode**, allowing you 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image9.webm" type="video/webm" />
         <source src="../img/SceneCreation/image9.mp4" type="video/mp4" />
     </video>
 </div>
@@ -72,6 +76,7 @@ You can easily switch between **translation**, **rotation**, and **scale mode** 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image8.webm" type="video/webm" />
         <source src="../img/SceneCreation/image8.mp4" type="video/mp4" />
     </video>
 </div>
@@ -94,6 +99,7 @@ Rotate the house so the interior isn't in the shade. This will make it easier to
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/SceneCreation/image12.webm" type="video/webm" />
         <source src="../img/SceneCreation/image12.mp4" type="video/mp4" />
     </video>
 </div>

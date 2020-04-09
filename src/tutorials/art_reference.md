@@ -52,6 +52,7 @@ To use any of these models, simply click and drag one out from the Core Content 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/DragOutAsset.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/DragOutAsset.mp4" type="video/mp4" />
     </video>
 </div>
@@ -66,6 +67,7 @@ The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green*
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/TransformManipulators.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/TransformManipulators.mp4" type="video/mp4" />
     </video>
 </div>
@@ -93,6 +95,7 @@ There are two ways to change these material slots:
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/DragMaterialOut.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/DragMaterialOut.mp4" type="video/mp4" />
     </video>
 </div>
@@ -103,6 +106,7 @@ Or:
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/DoubleClickMaterialSlot.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/DoubleClickMaterialSlot.mp4" type="video/mp4" />
     </video>
 </div>
@@ -125,6 +129,7 @@ Using pre-made models in Core is not the only way to create art. By arranging di
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/BugShip.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
     </video>
 </div>
@@ -137,6 +142,7 @@ Using a **folder** to combine objects will allow you to select a single object w
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/FolderSelect.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/FolderSelect.mp4" type="video/mp4" />
     </video>
 </div>
@@ -145,6 +151,7 @@ Using a **group** to combine objects will select the entire group at once when c
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/groupSelect.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/groupSelect.mp4" type="video/mp4" />
     </video>
 </div>
@@ -169,6 +176,7 @@ On the other end, you might make a model that **does move during game runtime**:
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/ClientContextCollision.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/ClientContextCollision.mp4" type="video/mp4" />
     </video>
 </div>

@@ -27,6 +27,7 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
     * How to set up UI connected to an ability
 
 <video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="../../img/EditorManual/Abilities/unarmed_wave.webm" type="video/webm" alt="Create an Ability"/>
     <source src="../../img/EditorManual/Abilities/unarmed_wave.mp4" type="video/mp4" alt="Create an Ability"/>
 </video>
 
@@ -171,6 +172,7 @@ While you can make a User Interface _(often abbreviated to UI)_ element yourself
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
 <video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="../../img/EditorManual/Abilities/abilityDisplay.webm" type="video/webm" alt="Ability Display"/>
     <source src="../../img/EditorManual/Abilities/abilityDisplay.mp4" type="video/mp4" alt="Ability Display"/>
 </video>
 
@@ -201,6 +203,7 @@ Now the UI element will update automatically once the ability is cast.
 **Congrats on creating your first ability!** You are well on your way to making anything you can imagine a reality.
 
 <video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="../../img/EditorManual/Abilities/unarmed_wave_full.webm" type="video/webm" alt="Wave Full"/>
     <source src="../../img/EditorManual/Abilities/unarmed_wave_full.mp4" type="video/mp4" alt="Wave Full"/>
 </video>
 

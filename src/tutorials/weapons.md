@@ -235,6 +235,7 @@ You might notice if you try dragging an `effect` from Core Content into the `wea
 Now that you've made one effect, try making other types of effect templates for the other sections of the `weapon`'s effects! A good one to add is the Impact Surface Aligned effect--this happens when the player shoots something that isn't a player, like a wall or the floor.
 
 <video autoplay loop muted playsinline poster="../img/EditorManual/Weapons/holdingWeaponNew.png" class="center">
+    <source src="../img/EditorManual/Weapons/finalSimpleGun.webm" type="video/webm" alt="The whole shabang!"/>
     <source src="../img/EditorManual/Weapons/finalSimpleGun.mp4" type="video/mp4" alt="The whole shabang!"/>
 </video>
 

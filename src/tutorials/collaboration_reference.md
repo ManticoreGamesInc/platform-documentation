@@ -109,6 +109,7 @@ One of the huge benefits of templates is being able to update many objects at th
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
     </video>
 </div>
@@ -120,6 +121,7 @@ Once you have made changes you would like to send to all other instances of the 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Art/updateTempFromThis.webm" type="video/webm" />
         <source src="../img/EditorManual/Art/updateTempFromThis.mp4" type="video/mp4" />
     </video>
 </div>

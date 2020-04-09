@@ -23,6 +23,7 @@ While the map explains many useful things about how to use all the visual effect
 <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfxTrails.webm" type="video/webm" alt="Whispy Trail VFX"/>
             <source src="/img/VFXtutorial/vfxTrails.mp4" type="video/mp4" alt="Whispy Trail VFX"/>
         </video>
         <figcaption><em>Trail VFX in Core</em></figcaption>
@@ -414,6 +415,7 @@ To start, open up a new project or whatever project you'd like to make this trea
     <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx6_FantasyLootBagPickup.webm" type="video/webm" alt="Varied Animations"/>
             <source src="/img/VFXtutorial/vfx6_FantasyLootBagPickup.mp4" type="video/mp4" alt="Varied Animations"/>
         </video>
         <figcaption><em>The varied animations of the Fantasy Loot Bag</em></figcaption>
@@ -502,6 +504,7 @@ Now when walking up the crowbar, the player will automaticall pick it up! But, i
     <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx10_FirstWholeLoop.webm" type="video/webm" alt="The basic loop of the treasure chest."/>
             <source src="/img/VFXtutorial/vfx10_FirstWholeLoop.mp4" type="video/mp4" alt="The basic loop of the treasure chest."/>
         </video>
         <figcaption><em>It works--but it looks basic.</em></figcaption>
@@ -561,6 +564,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
     <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx11_OpeningFX.webm" type="video/webm" alt="The basic loop of the treasure chest."/>
             <source src="/img/VFXtutorial/vfx11_OpeningFX.mp4" type="video/mp4" alt="The basic loop of the treasure chest."/>
         </video>
         <figcaption><em>Now we've got a sparkly little opening effect!</em></figcaption>
@@ -600,6 +604,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
     <div class="figure-block">
     <figure>
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/VFXtutorial/vfx11_LockedFX.webm" type="video/webm" alt="The basic loop of the treasure chest."/>
             <source src="/img/VFXtutorial/vfx11_LockedFX.mp4" type="video/mp4" alt="The basic loop of the treasure chest."/>
         </video>
         <figcaption><em>This makes it easier to tell that the player is indeed interacting with the chest--just not in the right way.</em></figcaption>

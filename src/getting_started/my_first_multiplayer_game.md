@@ -109,6 +109,7 @@ Core gives you a massive library of 3D assets, materials, sounds, and components
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/DragDropBushes.webm" type="video/webm" />
         <source src="../img/MyFirstMultiplayer/DragDropBushes.mp4" type="video/mp4" />
     </video>
 </div>
@@ -127,6 +128,7 @@ You can move, turn, and resize objects.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/MoveBushes.webm" type="video/webm" />
         <source src="../img/MyFirstMultiplayer/MoveBushes.mp4" type="video/mp4" />
     </video>
 </div>
@@ -149,6 +151,7 @@ By default, Core objects have collision, so players can't just walk into bushes 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/NoCollisonBush.webm" type="video/webm" />
         <source src="../img/MyFirstMultiplayer/NoCollisonBush.mp4" type="video/mp4" />
     </video>
 </div>
@@ -169,6 +172,7 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/MaterialExample.webm" type="video/webm" />
         <source src="../img/MyFirstMultiplayer/MaterialExample.mp4" type="video/mp4" />
     </video>
 </div>
@@ -182,6 +186,7 @@ You can apply a material to multiple objects by selecting them.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/MyFirstMultiplayer/WoodWalls.webm" type="video/webm" />
         <source src="../img/MyFirstMultiplayer/WoodWalls.mp4" type="video/mp4" />
     </video>
 </div>

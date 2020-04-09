@@ -66,6 +66,7 @@ Any material can be added to a terrain. However, materials that begin with "Terr
 
     <div class="mt-video">
         <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+            <source src="../img/EnvironIntro/image32.webm" type="video/webm" />
             <source src="../img/EnvironIntro/image32.mp4" type="video/mp4" />
         </video>
     </div>

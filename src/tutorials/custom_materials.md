@@ -86,6 +86,7 @@ Objects with different materials or objects not using the Smart Materials featur
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/Materials/image14.webm" type="video/webm" />
         <source src="../img/Materials/image14.mp4" type="video/mp4" />
     </video>
 </div>

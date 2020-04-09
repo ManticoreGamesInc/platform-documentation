@@ -20,6 +20,7 @@ If you're fresh and new to any kind of programming, it would be good to visit th
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Weapons/FireStaff.webm" type="video/webm" />
         <source src="../img/EditorManual/Weapons/FireStaff.mp4" type="video/mp4" />
     </video>
 </div>
@@ -152,6 +153,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Weapons/advanced/staffImpact.webm" type="video/webm" />
         <source src="../img/EditorManual/Weapons/advanced/staffImpact.mp4" type="video/mp4" />
     </video>
 </div>
@@ -657,6 +659,7 @@ So let's get started on the server script!
 
     <div class="mt-video">
         <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+            <source src="../img/EditorManual/Weapons/advanced/zoomIn.webm" type="video/webm" />
             <source src="../img/EditorManual/Weapons/advanced/zoomIn.mp4" type="video/mp4" />
         </video>
     </div>
@@ -748,6 +751,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
         <div class="mt-video">
             <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+                <source src="../img/EditorManual/Weapons/advanced/headshot.webm" type="video/webm" />
                 <source src="../img/EditorManual/Weapons/advanced/headshot.mp4" type="video/mp4" />
             </video>
         </div>
@@ -760,6 +764,7 @@ With this fire staff, we could use something thematic and firey like *ember* as 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Weapons/advanced/emberPickup.webm" type="video/webm" />
         <source src="../img/EditorManual/Weapons/advanced/emberPickup.mp4" type="video/mp4" />
     </video>
 </div>
@@ -836,6 +841,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="img/EditorManual/Abilities/Gem.png">
+        <source src="../img/EditorManual/Weapons/advanced/ammoShot.webm" type="video/webm" />
         <source src="../img/EditorManual/Weapons/advanced/ammoShot.mp4" type="video/mp4" />
     </video>
 </div>
