@@ -42,10 +42,13 @@ A template can be imported through the project directly from the search page, by
 
 ### Locate Imported Content
 
-Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initial appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
+Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initially appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
-![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){style="margin:30px"}
- ![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){style="margin:30px"}
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){.center}
+
+You can click this, or the name of the template in the Core Content navigation to access the template.
+
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){.center}
 
 ### Use Imported Content
 
@@ -59,9 +62,9 @@ To share your own templates on Community Content, see the [Template reference](t
 
 ## Community Shared Games
 
-Beyond sharing templates, Core creators can publish entire games as **public**, allowing the creator community to use and modify them as the base for new games.
+Beyond sharing templates, Core creators can publish entire games as **public**, allowing the creator community to use and modify them for new games.
 
-To start a game from a Community Created framework, open **Create** menu of the Core Launcher. Select **Create New** and choose the **Community Shared Games** option to see what games other users have published as open source.
+To start a game from a community framework, open the **Create** menu of the Core Launcher. Select **Create New** and choose the **Community Shared Games** option to see what games other users have published as open source.
 
 ## Learn More
 
