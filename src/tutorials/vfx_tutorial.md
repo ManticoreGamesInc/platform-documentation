@@ -92,9 +92,11 @@ You'll probably want to always use some combination of these--the amount they ca
 
 ---
 
-## Tutorial Video
+## Tutorial Videos
 
-**Content to be added**
+![YOUTUBE](/assets/placeholder_720p.png "oIV50fDcZkQ")
+
+![YOUTUBE](/assets/placeholder_720p.png "MSso2Jq66gg")
 
 ## Tutorials
 
