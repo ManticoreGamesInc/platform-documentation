@@ -1,12 +1,12 @@
 ---
 id: vfx_tutorial
-name: Visual Effects in CORE
-title: Visual Effects in CORE
+name: Visual Effects in Core
+title: Visual Effects in Core
 categories:
     - Tutorial
 ---
 
-# Visual Effects in CORE
+# Visual Effects in Core
 
 ## Overview
 
