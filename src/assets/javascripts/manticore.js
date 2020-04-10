@@ -25,9 +25,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
   // Load Videos in the Docs
   const elements = document.querySelectorAll("img[alt=\"YOUTUBE\"]")
-  const elementsLive = document.querySelectorAll("img[alt=\"YOUTUBELIVE\"]")
   const elementsVimeo = document.querySelectorAll("img[alt=\"VIMEO\"]")
-  const elementsVimeoEvent = document.querySelectorAll("img[alt=\"VIMEOEVENT\"]")
 
   Array.prototype.forEach.call(elements, (el, i) => {
     const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
@@ -46,23 +44,6 @@ document.addEventListener("DOMContentLoaded", event => {
     el.replaceWith(iframe)
   })
 
-  Array.prototype.forEach.call(elementsLive, (el, i) => {
-    const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
-    const oldClass = el.getAttribute("class")
-    const iframe = document.createElement("iframe")
-
-    iframe.title = "YouTube Live"
-    iframe.src = `https://www.youtube.com/embed/live_stream?channel=${id}?modestbranding=1&amp;`
-
-    if (oldClass !== "null") {
-      iframe.className = `video-embed ${oldClass}`
-    } else {
-      iframe.className = "video-embed"
-    }
-
-    el.replaceWith(iframe)
-  })
-
   if (window.location.hostname !== ("localhost")) {
     Array.prototype.forEach.call(elementsVimeo, (el, i) => {
       const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
@@ -71,23 +52,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
       iframe.title = "Vimeo"
       iframe.src = `https://player.vimeo.com/video/${id}`
-
-      if (oldClass !== "null") {
-        iframe.className = `video-embed ${oldClass}`
-      } else {
-        iframe.className = "video-embed"
-      }
-
-      el.replaceWith(iframe)
-    })
-
-    Array.prototype.forEach.call(elementsVimeoEvent, (el, i) => {
-      const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
-      const oldClass = el.getAttribute("class")
-      const iframe = document.createElement("iframe")
-
-      iframe.title = "Vimeo Event"
-      iframe.src = `https://vimeo.com/event/${id}/embed`
 
       if (oldClass !== "null") {
         iframe.className = `video-embed ${oldClass}`
