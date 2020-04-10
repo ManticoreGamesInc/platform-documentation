@@ -20,6 +20,7 @@ nav:
         - Scene Creation: tutorials/scene_creation.md
         - Environmental Art: tutorials/environmental_art.md
         - Modeling Basics: tutorials/modeling_basics.md
+        - Visual Effects in Core: tutorials/vfx_tutorial.md
         - Video Tutorials:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
         - Collaboration & Source Control: tutorials/collaboration.md
