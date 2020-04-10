@@ -48,7 +48,7 @@ Good game information is essential to helping players find your game and underst
 
 Your game is now live! Visit your game's page in the Core **Games** tab to try it out online.
 
-![GamePage](../img/MyFirstMultiplayer/GamePage.png){: .center}
+![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center}
 
 ## Learn More
 
