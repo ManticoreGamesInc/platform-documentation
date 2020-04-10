@@ -10,31 +10,29 @@
 
 - [Core Editor Key Bindings](../editor_keybindings.md)
 
+- [Getting Help in Core](../getting_started/core_help.md)
+
 - [Introduction to the Core Editor](../getting_started/editor_intro.md)
 
-- [Differences between Core and other Engines](../getting_started/other_platforms.md)
+- [Coming to Core from Other Platforms](../getting_started/other_platforms.md)
+
+- [Publishing Checklist](../getting_started/publishing_checklist.md)
 
 - [Art in Core](../tutorials/art_reference.md)
 
 - [Audio in Core](../tutorials/audio_reference.md)
 
-- [Costumes in Core](../tutorials/costumes.md)
+- [Collaboration Reference](../tutorials/collaboration_reference.md)
 
 - [Custom Materials in Core](../tutorials/custom_materials.md)
 
-- [Environmental Art in Core](../tutorials/environmental_art.md)
+- [Lua Reference](../tutorials/lua_reference.md)
 
 - [Modeling Basics](../tutorials/modeling_basics.md)
 
+- [The Object Generator Tool](../tutorials/object_generator.md)
+
 - [Scene Creation in Core](../tutorials/scene_creation.md)
-
-- [Collaboration Reference](../tutorials/collaboration_reference.md)
-
-- [Lua Reference](../tutorials/lua_reference.md)
-
-- [Networking Reference](../tutorials/networking_reference.md)
-
-- [Performance Reference](../tutorials/performance_reference.md)
 
 - [UI Reference](../tutorials/ui_reference.md)
 
@@ -48,11 +46,13 @@
 
 - [Publish a Game](../getting_started/publishing.md)
 
-- [Collaboration & Source Control in Core](../tutorials/collaboration.md)
-
 - [Abilities in Core](../tutorials/abilities.md)
 
 - [Advanced Abilities in Core](../tutorials/abilities_advanced.md)
+
+- [Collaboration & Source Control in Core](../tutorials/collaboration.md)
+
+- [Environmental Art in Core](../tutorials/environmental_art.md)
 
 - [Scripting in Core](../tutorials/lua_basics_lightbulb.md)
 
