@@ -58,7 +58,7 @@ To add an object to a folder, drag it onto the folder name until it is highlight
 2. Press <kbd>Ctrl</kbd> + <kbd>N</kbd> or right click and select **New Folder Containing These**.
 3. Type a name for the folder and press <kbd>Enter</kbd>.
 
-!!! note:
+!!! note
     Use <kbd>Shift</kbd> + left click to select all of the objects between the last selected and the one you select next.
 
 ### Groups
