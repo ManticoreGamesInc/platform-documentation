@@ -1,7 +1,7 @@
 ---
-id: collaboration
-name: Collaboration Reference
-title: Collaboration Reference
+id: template_reference
+name: Template Reference
+title: Template Reference
 tags:
     - Reference
 ---
@@ -10,15 +10,19 @@ tags:
 
 ## Overview
 
-Have you made something awesome or weird? Want to use it in your other future projects? What about letting others use it in their own games? One of the best parts about Core is the ability to create and share what we make as **templates** for ourselves and for others to download.
-
-Collaboration is an important aspect of art and design as well as key to developing rich and unique games. Templates can be created, shared, and updated in real time across the platform.
-
-When one template is updated, it updates every instance of the template. So you could make a castle using a complex tower template, make a change to one tower, update the template, and then all other towers will be updated automatically for you.
+**Templates** are a way to create convenient, reusable packages in Core. They can be single modified 3D objects, complex objects, scripts, completely scripted objects, or collections of all of these.
 
 Templates can be identified in the **Project Content** window by this icon: ![TemplateIcon](../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .image-inline-text .image-background}
 
+### Reasons to Use Templates
+
+- **Saving templates locally** allows you to make changes across every copy of the template across a project. When one template is updated, it updates every instance of the template.
+- **Publishing a template privately** allows you to import the template into other projects, re-using assets across games.
+- **Publicly publishing templates** adds them to **Community Content** for others to use and modify for their own projects. This allows multiple creators to work on a template, adding different variations, or more functionality.
+
 ## Creating Templates
+
+To learn how to create groups and folders, see the [Complex Objects reference](modeling_reference.md).
 
 ### Create a Template from a Group
 
@@ -32,7 +36,7 @@ Templates can be identified in the **Project Content** window by this icon: ![Te
 3. Right click on them and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
-     ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png "Pick somethin' catchy."){: .center}
+     ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
 
 Once a group becomes a template, it will appear in blue in the Hierarchy. New templates can be found in the **Project Content** window. From there you can drag out as many copies of the template as needed.
 
@@ -48,7 +52,7 @@ Once your template is created, you may use it for just this project alone, or yo
      ![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
 
 !!! note
-You can also right click the template and select **Publish to Community Content**
+    You can also right click the template and select **Publish to Community Content**
 
 ### Name and Describe the Template
 
@@ -71,30 +75,28 @@ Uploading a screen shot allows you to use an external image editing software to 
 
 #### Use the Screenshot Tool
 
-c. Mark your **permissions** as either public or private. If private, only you can see the template in Community Content. If public, the template can be seen and used by everyone on the platform.
-d. **Release notes** are useful as you update and re-publish your template, so that you may explain what changes you have made!
-e. **Tags** are great for helping your template be found easier in Community Content.
-f.
+### Publish to Community Content
 
-1. Click **Review & Publish** and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
+1. Mark your **permissions** as either public or private.
+      - **Private** templates can only be seen in **Community Content** by the creator who published them.
+      - **Public templates** can be seen and used by everyone in **Community Content**.
+2. Click **Review & Publish** and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
+3. Click **Publish**.
 
-2. Click **Publish**.
-
-   While still within **Project Content**, the template's white name should now be green and the template can be found and downloaded from **Community Content**. From there, anyone can download your template and use it for even more awesome content! Of course, this is only if you set your template to *public*.
-
-   By setting your template to *private*, only you will be able to download it from Community Content into other projects. This can be very handy for working on a template on different computers without having to publish the work-in-progress version of what you are making.
+In **Project Content**, the template's name should turn from white to green and the template can be found and downloaded from **Community Content**.
 
 ![TemplateTut4](../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
 
-Congratulations! You've created, edited, and published a template that can be shared and used by other creators in Core!
+You can search for the template in the **Community Content** window. Templates are displayed chronologically, so it will most likely be the most recent one.
 
 ![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
-### Changing and Updating Templates
+## Changing and Updating Templates
 
-#### Deinstance a Template
+Once a 3D model is made into a template, it will resist changes besides positioning and resizing all of its dimensions together to preserve its basic shape. To make changes to the materials, dimensions, or individual pieces of a template, it will need to be **deinstanced**.
 
-One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
+!!! info "What is an instance?"
+    A template can be understood as a recipe. Each time the recipe is made, that product is an **instance** of the template. **Deinstancing** would be making a change in the final product of the recipe, so that it is now different from the exact copies of the recipe. Changing the recipe itself -- updating the template -- should change every single instance of the recipe.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -106,7 +108,15 @@ One of the huge benefits of templates is being able to update many objects at th
 You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
 A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
 
+### Update All Template Copies
+
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
+
+
+
+One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
+
+![Update Template](../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -123,20 +133,20 @@ In your **Project Content**, find the published template that you wish to update
 
 "**Download Latest**" will update your local project template with whatever the most recent published version of the template exists on **Community Content**.
 
----
-
-#### I Change My Mind: Resetting a Deinstanced Template
+### Reset a Deinstanced Template
 
 When you make a change to an instance of a template, the text turns *teal*{: style="color: var(--core-color-deinstanced)"} and it is "**Deinstanced**". There might be times when you don't like the changes you've made, and you would like to return to your original template.
 
 To do this, right click the template within the Hierarchy and select "**Reset to Template**". This will revert the template back to the original design!
 
----
+## Using Templates from Other Creators
 
-#### Downloading & Using Other Creator's Templates
+Templates made by other creators can be imported from **Community Content** and used in a project or modified and published as a new template.
 
-Templates made by other people can be downloaded from **Community Content** and re-used as anything you like. This is a great way to focus on getting to your final idea faster than creating everything from scratch!
-
-If you wish to publish a re-used template to Community Content, it must be as its own new and separate template.
+To learn more about importing and using **Community Content** templates, see the [Community Content reference](community_content.md).
 
 ![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
+
+## Learn More
+
+[Community Content](community_content.md) | [Modeling Complex Objects](modeling_reference.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
