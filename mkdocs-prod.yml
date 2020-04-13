@@ -129,8 +129,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.twemoji
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.material
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   #- pymdownx.highlight:
       #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
@@ -150,7 +150,6 @@ markdown_extensions:
   - pymdownx.tilde
   - full_yaml_metadata
   - lightgallery
-  - fontawesome_markdown # easily add fontawesome icons in markdown format
 
 plugins:
   #- tags:
