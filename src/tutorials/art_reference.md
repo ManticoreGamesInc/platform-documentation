@@ -14,7 +14,7 @@ The Core editor comes with a variety of built-in 3D shapes, props, and materials
 
 Creators can make games entirely using the finished props provided by Core in the **Core Content** window and models made by other creators in the **Community Content** window.
 
-![Carnival](../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center}
+![Carnival](../img/EditorManual/Art/carneval_screenshot.jpg "Carnival: made by Anna Hegyaljai"){: .center loading="lazy" }
 
 ## Modeling
 
@@ -22,7 +22,7 @@ Creators can make games entirely using the finished props provided by Core in th
 
 All the 3D models already included in Core, start by looking in the **Core Content** tab, found in the bottom left window of the editor.
 
-![Core Content](../img/EditorManual/Art/AssetManifest.png "Core Content"){: .center}
+![Core Content](../img/EditorManual/Art/AssetManifest.png "Core Content"){: .center loading="lazy" }
 
 Currently, there are **5 different sections** that contain models to use right away:
 
@@ -55,7 +55,6 @@ Models, scripts, and whole collections of useful pieces for games can be found i
 
 ### Materials
 
-While Core does have a distinct art style, all of this can be changed and modified to whatever your vision may be.
 The colors and patterns on a 3D model are known as **materials**. The easiest way to create a dramatic change is to alter the materials of a model, either to a completely different material, or by editing the settings of a material.
 
 Materials can be entirely customized, and saved changes to them synchronized across a project. See the [Custom Materials](custom_materials.md) reference to learn more.

@@ -8,7 +8,12 @@ tags:
 
 # Modeling Complex Objects in Core
 
-![Bug Ship](../img/EditorManual/Art/BugShip.gif "Bug Ship"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/BugShip.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ## Introduction
 
@@ -38,7 +43,7 @@ Renaming custom objects and parts of complex objects makes future editing quicke
 
 Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without having to treat them like a single object.
 
-![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center}
+![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){: .center loading="lazy" }
 
 #### Creating a Folder
 
@@ -50,7 +55,7 @@ Folders can be used to organize projects according to your individual preference
 
 To add an object to a folder, drag it onto the folder name until it is highlighted with a blue box around it. Toggling the arrow on the left side of the folder name will open it to display the contents, or close it to hide them.
 
-![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){.center}
+![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){: .center loading="lazy" }
 
 #### Creating a Folder with Existing Objects
 
@@ -89,4 +94,4 @@ Templates can be used to save grouped objects, collections of created objects, s
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
