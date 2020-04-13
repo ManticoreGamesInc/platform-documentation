@@ -153,8 +153,7 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  - tags:
-      tags_folder: src/
+  - tags
   - git-revision-date-localized
   - search
   - autolinks
