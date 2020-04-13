@@ -77,4 +77,4 @@ See the [Environmental Art](environmental_art.md) to learn about the Core Terrai
 
 ## Visual Effects
 
-See the [Visual Effects](vfx.md) tutorial to learn more about using Visual Effects in Core.
+See the [Visual Effects](vfx_tutorial.md) tutorial to learn more about using Visual Effects in Core.
