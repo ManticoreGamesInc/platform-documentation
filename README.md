@@ -15,8 +15,8 @@ helping out!
 
 There are multiple version of the Core documentation, and therefore multiple branches on this repository that correspond to each.
 
-- [development](https://dev.manticoreplatform.com/docs/) - the staging site, accessible at [https://dev.manticoreplatform.com/docs/](https://dev.manticoreplatform.com/docs/). (Manticore only)
-- [production](https://docs.coregames.com) - the live site, accessible at [https://docs.coregames.com](https://docs.coregames.com). (public)
+- [development](https://development.docs.coregames.com) - the staging site, accessible at [https://development.docs.coregames.com](https://development.docs.coregames.com).
+- [production](https://docs.coregames.com) - the live site, accessible at [https://docs.coregames.com](https://docs.coregames.com).
 
 Note: `production` is a protected branch and _cannot_ be pushed to directly! Instead, all changes must go through the `development` branch which gets then merged into `production` via an approval process by the documentation team.
 
