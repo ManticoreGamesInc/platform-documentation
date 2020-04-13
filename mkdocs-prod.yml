@@ -164,7 +164,6 @@ plugins:
         news/showcase/just_getting_started.md: https://coregames.com/docs/showcase/just_getting_started/
         api.md: https://docs.coregames.com/core_api/
         tutorials/examples.md: https://docs.coregames.com/api/examples.md
-        tutorials/overview.md: tutorials/overview.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
         tutorials/gameplay/weapons.md: tutorials/weapons.md
         tutorials/gameplay/abilities_advanced.md: tutorials/abilities_advanced.md
