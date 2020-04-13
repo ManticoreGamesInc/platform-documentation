@@ -108,9 +108,9 @@ Congratulations! You've created, edited, and published a template that can be sh
 One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -120,9 +120,9 @@ A deinstanced template will have text color change from *blue*{: style="color: v
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/updateTempFromThis.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/updateTempFromThis.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/updateTempFromThis.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/updateTempFromThis.mp4" type="video/mp4" />
     </video>
 </div>
 
