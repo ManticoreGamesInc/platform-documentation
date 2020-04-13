@@ -51,9 +51,9 @@ These larger categories can be found by clicking the little drop down arrow on t
 To use any of these models, simply click and drag one out from the Core Content tab into the scene or the hierarchy.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/DragOutAsset.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/DragOutAsset.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/DragOutAsset.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/DragOutAsset.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -66,9 +66,9 @@ To use any of these models, simply click and drag one out from the Core Content 
 The **red**{: style="color: red"}, **blue**{: style="color: blue"}, and **green**{: style="color: green"} arrows indicate the different directions a model can be moved along. Modeling and placement uses 3 main functions: **Move**, **Rotate**, and **Scale**. These different modes can be toggled between by either clicking the different buttons at the top left of the Core editor, or by using the keys <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd>, respectively.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/TransformManipulators.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/TransformManipulators.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/TransformManipulators.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/TransformManipulators.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -94,9 +94,9 @@ There are two ways to change these material slots:
 - **Drag a material** from the **Materials** section of the Core Content tab to the **Material** slot in the **Properties** window. Check out how it's done below:
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/DragMaterialOut.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/DragMaterialOut.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/DragMaterialOut.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/DragMaterialOut.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -105,9 +105,9 @@ Or:
 - **Double-click the Material slot** and select a material from the pop-up window:
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/DoubleClickMaterialSlot.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/DoubleClickMaterialSlot.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/DoubleClickMaterialSlot.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/DoubleClickMaterialSlot.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -128,9 +128,9 @@ In your own project, you have the ability to create **Custom Materials**. This a
 Using pre-made models in Core is not the only way to create art. By arranging different props together, your imagination is the limit!
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/BugShip.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/BugShip.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -141,18 +141,18 @@ The process of making more complex models in Core is all about groups and folder
 Using a **folder** to combine objects will allow you to select a single object when clicking. See this below:
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/FolderSelect.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/FolderSelect.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/FolderSelect.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/FolderSelect.mp4" type="video/mp4" />
     </video>
 </div>
 
 Using a **group** to combine objects will select the entire group at once when clicking a single object:
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/groupSelect.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/groupSelect.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/groupSelect.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/groupSelect.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -175,9 +175,9 @@ On the other end, you might make a model that **does move during game runtime**:
 ![Client Context](../img/EditorManual/Art/ClientContextFolder.png "Client Context"){: .center}
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/EditorManual/Art/ClientContextCollision.webm" type="video/webm" />
-        <source src="../img/EditorManual/Art/ClientContextCollision.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/ClientContextCollision.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/ClientContextCollision.mp4" type="video/mp4" />
     </video>
 </div>
 

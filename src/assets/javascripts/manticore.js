@@ -7,11 +7,13 @@ document.addEventListener("DOMContentLoaded", event => {
 
   // Scroll-to-Top button
   const btn = document.getElementById("to-top-button")
-  btn.addEventListener("click", e => {
-    e.preventDefault()
-    e.stopImmediatePropagation()
-    window.scroll({ top: 0, left: 0, behavior: "auto" })
-  })
+  if (btn) {
+    btn.addEventListener("click", e => {
+      e.preventDefault()
+      e.stopImmediatePropagation()
+      window.scroll({ top: 0, left: 0, behavior: "auto" })
+    })
+  }
 
   // Add an icon to all external links
   const links = document.querySelectorAll(".md-content a")

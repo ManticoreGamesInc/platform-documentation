@@ -36,9 +36,9 @@ This tutorial will cover how to place and move images in a scene as well as how 
 2. Go to the **Project Content** tab > **Imported Content** and find the "**My Room**" template. Drag it into your scene.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image6.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image6.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image6.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image6.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -46,27 +46,27 @@ This tutorial will cover how to place and move images in a scene as well as how 
     Notice the blue, green, and red arrows - this is the **transform widget** and allows you to move, rotate, and scale an object in the **main viewport**.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image5.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image5.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image5.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image5.mp4" type="video/mp4" />
     </video>
 </div>
 
 The arrows show the **transform widget** is in **translation mode**, allowing you to move any object around in the scene. You can easily switch to **translation mode** by pressing <kbd>W</kbd>, or selecting the **translation mode** button in the **top toolbar**.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image4.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image4.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image4.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image4.mp4" type="video/mp4" />
     </video>
 </div>
 
 The circles show the **transform widget** is in **rotation mode**, allowing you to rotate any object along the x, y, and z planes.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image9.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image9.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image9.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image9.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -75,9 +75,9 @@ The boxes show the **transform widget** is in **scale mode**. Clicking and dragg
 You can easily switch between **translation**, **rotation**, and **scale mode** by pressing <kbd>W</kbd>, <kbd>E</kbd>, or <kbd>R</kbd> respectively, or by selecting the corresponding button in the **top toolbar**.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image8.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image8.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image8.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image8.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -98,9 +98,9 @@ Turn off the visibility of the roof and 1-2 walls by clicking the orange eye nex
 Rotate the house so the interior isn't in the shade. This will make it easier to see where you are placing objects.
 
 <div class="mt-video">
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-        <source src="../img/SceneCreation/image12.webm" type="video/webm" />
-        <source src="../img/SceneCreation/image12.mp4" type="video/mp4" />
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image12.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image12.mp4" type="video/mp4" />
     </video>
 </div>
 
