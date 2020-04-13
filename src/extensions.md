@@ -48,8 +48,8 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 
 #### Visual Studio Code & Atom
 
-* :fa-download: Download: [luacompleterc.zip](./assets/api/luacompleterc.zip "API Autocomplete Files")
-* :fa-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
+* :fontawesome-solid-download: Download: [luacompleterc.zip](./assets/api/luacompleterc.zip "API Autocomplete Files")
+* :fontawesome-solid-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
 !!! note "Note for Visual Studio Code:"
     You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
@@ -62,10 +62,10 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 
 [Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).
 
-* :fa-download: Download: [Luacheck](https://github.com/mpeterv/luacheck/releases/)
-* :fa-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
+* :fontawesome-solid-download: Download: [Luacheck](https://github.com/mpeterv/luacheck/releases/)
+* :fontawesome-solid-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all Core API whitelisted so they don't show up as undeclared global variables:
 
-* :fa-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
-* :fa-angle-double-right: Install: Extract the `.luacheckrc` file to your `Core\Prod\Platform\Saved\Maps` folder.
+* :fontawesome-solid-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
+* :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `Core\Prod\Platform\Saved\Maps` folder.
