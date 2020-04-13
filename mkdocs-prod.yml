@@ -28,6 +28,7 @@ nav:
         - Intro to the Editor: getting_started/editor_intro.md
         - Editor Shortcuts: editor_keybindings.md
         - Art in Core: tutorials/art_reference.md
+        - Modeling Reference: tutorials/modeling_reference.md
         - Custom Materials: tutorials/custom_materials.md
         - Object Generator: tutorials/object_generator.md
         - Templates: tutorials/template_reference.md
