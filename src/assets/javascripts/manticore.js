@@ -1,11 +1,11 @@
 /* eslint-disable require-jsdoc */
-/* eslint-disable no-invalid-this */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 
 // Manticore JavaScript Helpers
 document.addEventListener("DOMContentLoaded", event => {
-  // scroll to top button
+
+  // Scroll-to-Top button
   const btn = document.getElementById("to-top-button")
   btn.addEventListener("click", e => {
     e.preventDefault()
@@ -23,9 +23,8 @@ document.addEventListener("DOMContentLoaded", event => {
     }
   }
 
-  // Load Videos in the Docs
+  // Transform special markdown into YouTube embeds
   const elements = document.querySelectorAll("img[alt=\"YOUTUBE\"]")
-  const elementsVimeo = document.querySelectorAll("img[alt=\"VIMEO\"]")
 
   Array.prototype.forEach.call(elements, (el, i) => {
     const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
@@ -43,25 +42,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
     el.replaceWith(iframe)
   })
-
-  if (window.location.hostname !== ("localhost")) {
-    Array.prototype.forEach.call(elementsVimeo, (el, i) => {
-      const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
-      const oldClass = el.getAttribute("class")
-      const iframe = document.createElement("iframe")
-
-      iframe.title = "Vimeo"
-      iframe.src = `https://player.vimeo.com/video/${id}`
-
-      if (oldClass !== "null") {
-        iframe.className = `video-embed ${oldClass}`
-      } else {
-        iframe.className = "video-embed"
-      }
-
-      el.replaceWith(iframe)
-    })
-  }
 
   // Change browser tab title based on header title near scroll position
   window.addEventListener("scroll", event => {
