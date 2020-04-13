@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-**Templates** are a way to create convenient, reusable packages in Core. They can be single modified 3D objects, complex objects, scripts, completely scripted objects, or collections of all of these.
+**Templates** are a way to create convenient, reusable packages in Core. They can be modified 3D objects, complex models, scripts, completely scripted objects, or collections of all of these.
 
 Templates can be identified in the **Project Content** window by this icon: ![TemplateIcon](../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .image-inline-text .image-background}
 
@@ -33,12 +33,12 @@ To learn how to create groups and folders, see the [Complex Objects reference](m
 
 1. If the assets are not in the **Hierarchy**, drag them from **Project Content** onto the **Hierarchy** or **Main Viewport**.
 2. Select the assets to be added to the template in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
-3. Right click on them and select **Group and Create New Template from These**.
+3. Right click on one of the objects and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
      ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
 
-Once a group becomes a template, it will appear in blue in the Hierarchy. New templates can be found in the **Project Content** window. From there you can drag out as many copies of the template as needed.
+Once a group becomes a template, it will be blue in the Hierarchy. New templates can be found in the **Project Content** window in the section called **My Templates**. From there you can drag out as many copies of the template as needed.
 
 ## Publishing Templates
 
@@ -134,7 +134,7 @@ Updating templates with change all the instances in your game, but to update the
 
 1. In your **Project Content** window.
 2. Find the **My Shared Content** folder on the right side.
-3. Right click the template, and select **Republish**.
+3. Right click the template *in the left-side navigation*, and select **Republish**.
 4. In the publishing prompt, add a description of the most recent changes to the **Release Notes** section, so that creators know what to expect.
 
 ![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
