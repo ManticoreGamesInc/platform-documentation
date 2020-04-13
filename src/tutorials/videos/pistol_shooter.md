@@ -6,6 +6,6 @@ title: Making a Pistol Shooter
 
 # Making a Pistol Shooter
 
-![VIMEO](../../assets/placeholder_720p.png "379502469"){: .center}
+![YOUTUBE](../../assets/placeholder_720p.png "k4JzElJ3pTc"){: .center}
 
-![VIMEO](../../assets/placeholder_720p.png "379502503"){: .center}
+![YOUTUBE](../../assets/placeholder_720p.png "CQe0bOBUoSo"){: .center}
