@@ -63,7 +63,8 @@ nav:
       - Examples & Snippets: api/examples.md
   - FAQ:
       - Frequently Asked Questions: https://forums.coregames.com/t/83
-  - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
+  - Feedback:
+      - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -152,8 +153,8 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  #- tags:
-  #    tags_folder: src/generated/
+  - tags:
+      tags_folder: src/
   - git-revision-date-localized
   - search
   - autolinks
