@@ -1,15 +1,15 @@
-mkdocs>=1.1
-# Code highlighting
-pygments>=2.4
-# Other extensions
-pymdown-extensions>=7.0b2
-markdown>=3.2.1
 markdown-full-yaml-metadata
-mkdocs-redirects
-mkdocs-git-revision-date-localized-plugin
+markdown>=3.2.1
 mkdocs-autolinks-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocs-material-extensions>=1.0b1
+mkdocs-redirects
+mkdocs>=1.1
+pygments>=2.6.0
+pymdown-extensions>=7.0.0
+
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
+
 # mkdocs-plugin-tags
-#https://github.com/jldiaz/mkdocs-plugin-tags/archive/master.zip
-mkdocs-material-extensions>=1.0b1
+https://github.com/jldiaz/mkdocs-plugin-tags/archive/master.zip
