@@ -14,7 +14,7 @@ tags:
 
 Templates can be identified in the **Project Content** window by this icon: ![TemplateIcon](../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .image-inline-text .image-background}
 
-### Reasons to Use Templates
+### When to Use Templates
 
 - **Saving templates locally** allows you to make changes across every copy of the template across a project. When one template is updated, it updates every instance of the template.
 - **Publishing a template privately** allows you to import the template into other projects, re-using assets across games.
@@ -79,15 +79,15 @@ Uploading a screen shot allows you to use an external image editing software to 
 
 1. Mark your **permissions** as either public or private.
       - **Private** templates can only be seen in **Community Content** by the creator who published them.
-      - **Public templates** can be seen and used by everyone in **Community Content**.
+      - **Public** templates can be seen and used by everyone in **Community Content**.
 2. Click **Review & Publish** and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
 3. Click **Publish**.
 
-In **Project Content**, the template's name should turn from white to green and the template can be found and downloaded from **Community Content**.
+In **Project Content**, the template's name should turn from white to green.
 
 ![TemplateTut4](../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
 
-You can search for the template in the **Community Content** window. Templates are displayed chronologically, so it will most likely be the most recent one.
+You can search for the published template in the **Community Content** window. Templates are displayed chronologically, so it will most likely be at the top of the list.
 
 ![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
 
@@ -105,18 +105,21 @@ Once a 3D model is made into a template, it will resist changes besides position
     </video>
 </div>
 
-You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
-A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
+To make changes to a template, you will need to first **deinstance** it. This can be done automatically by making a change to a the template.
+
+1. Make a change to a component or property of an object in the template.
+2. Click **Yes** when the prompt appears asking if you want to deinstance the template.
+
+A deinstanced template will change color from blue to teal. Changes made to a deinstanced template will not affect other copies of the template.
 
 ### Update All Template Copies
 
-Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
-
-
-
-One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
+To change all of the instances of a template, you will need to deinstance and modify an instance of the template, and then update the others to match it.
 
 ![Update Template](../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
+
+1. Right click on a deinstanced template with the latest changes.
+2. Click **Update Template From This** to update all the instances of the template to match it.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -125,19 +128,24 @@ One of the huge benefits of templates is being able to update many objects at th
     </video>
 </div>
 
-This will update the template for your project personally, but in order to update a template that has been published to **Community Content**, we will need to re-publish the template.
+### Republish a Template
 
-In your **Project Content**, find the published template that you wish to update. Right click the template, and click "**Republish**". It'll bring up the same window as for publishing a template, so that you may update the description if you like.
+Updating templates with change all the instances in your game, but to update the version that has been published to **Community Content**, we will need to re-publish the template.
+
+1. In your **Project Content** window.
+2. Find the **My Shared Content** folder on the right side.
+3. Right click the template, and select **Republish**.
+4. In the publishing prompt, add a description of the most recent changes to the **Release Notes** section, so that creators know what to expect.
 
 ![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
 
-"**Download Latest**" will update your local project template with whatever the most recent published version of the template exists on **Community Content**.
+Creators will be able to get updates to the template by right-clicking the template and selecting **Download Latest**.
 
 ### Reset a Deinstanced Template
 
-When you make a change to an instance of a template, the text turns *teal*{: style="color: var(--core-color-deinstanced)"} and it is "**Deinstanced**". There might be times when you don't like the changes you've made, and you would like to return to your original template.
+Another benefit of templates is creating a saved version of an model that can be restored.
 
-To do this, right click the template within the Hierarchy and select "**Reset to Template**". This will revert the template back to the original design!
+To revert the template back to the original design, right click the template within the **Hierarchy** and select **Reset to Template**.
 
 ## Using Templates from Other Creators
 
