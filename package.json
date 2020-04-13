@@ -8,8 +8,6 @@
         "start": "mkdocs serve",
         "build": "mkdocs build",
         "lint:md": "remark .",
-        "crush": "",
-        "tags": "node parse-tags.js",
         "lint:paths": "path-linter --config path-linter.json --colorize",
         "lint": "npm run lint:md && npm run lint:paths"
     },
