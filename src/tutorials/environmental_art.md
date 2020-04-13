@@ -8,7 +8,7 @@ tags:
 
 # Environmental Art in Core
 
-![ArtIntro](../img/EnvironIntro/image45.png "Art Screenshot"){: .hero}
+![ArtIntro](../img/EnvironIntro/image45.png "Art Screenshot"){: .center}
 
 ## Overview
 
@@ -65,9 +65,9 @@ Any material can be added to a terrain. However, materials that begin with "Terr
 4. Find **Terrain - Desert** and drag it onto the terrain.
 
     <div class="mt-video">
-        <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png">
-            <source src="../img/EnvironIntro/image32.webm" type="video/webm" />
-            <source src="../img/EnvironIntro/image32.mp4" type="video/mp4" />
+        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/EnvironIntro/image32.webm" type="video/webm" />
+            <source src="/img/EnvironIntro/image32.mp4" type="video/mp4" />
         </video>
     </div>
 
