@@ -74,7 +74,7 @@ To learn how to create and share templates, see the [Template](template_referenc
 
 ## Environmental Art
 
-See the [Environmental Art](environmental_art.md) for a tutorial on the Core Terrain Tools
+See the [Environmental Art](environmental_art.md) to learn about the Core Terrain Tools.
 
 ## Visual Effects
 
