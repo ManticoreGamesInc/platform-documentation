@@ -26,8 +26,9 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
     * How to use an animation
     * How to set up UI connected to an ability
 
-<video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
-    <source src="../../img/EditorManual/Abilities/unarmed_wave.mp4" type="video/mp4" alt="Create an Ability"/>
+<video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="/img/EditorManual/Abilities/unarmed_wave.webm" type="video/webm" alt="Create an Ability"/>
+    <source src="/img/EditorManual/Abilities/unarmed_wave.mp4" type="video/mp4" alt="Create an Ability"/>
 </video>
 
 ---
@@ -170,8 +171,9 @@ While you can make a User Interface _(often abbreviated to UI)_ element yourself
 
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
-<video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
-    <source src="../../img/EditorManual/Abilities/abilityDisplay.mp4" type="video/mp4" alt="Ability Display"/>
+<video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="/img/EditorManual/Abilities/abilityDisplay.webm" type="video/webm" alt="Ability Display"/>
+    <source src="/img/EditorManual/Abilities/abilityDisplay.mp4" type="video/mp4" alt="Ability Display"/>
 </video>
 
 To get this to work correctly with the `Ability` we made above, there are only a few steps:
@@ -200,8 +202,9 @@ Now the UI element will update automatically once the ability is cast.
 
 **Congrats on creating your first ability!** You are well on your way to making anything you can imagine a reality.
 
-<video autoplay loop muted playsinline poster="../../img/EditorManual/Abilities/Gem.png" class="center">
-    <source src="../../img/EditorManual/Abilities/unarmed_wave_full.mp4" type="video/mp4" alt="Wave Full"/>
+<video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
+    <source src="/img/EditorManual/Abilities/unarmed_wave_full.webm" type="video/webm" alt="Wave Full"/>
+    <source src="/img/EditorManual/Abilities/unarmed_wave_full.mp4" type="video/mp4" alt="Wave Full"/>
 </video>
 
 ---
@@ -213,7 +216,7 @@ Abilities themselves work in multiplayer games perfectly without any extra progr
 This has already been done for us in the Core Content template, so no action is needed!
 
 !!! info "Client Context"
-    Generally speaking, all UI related to the player should be in a Client Context folder. For more info on how networking works, visit the **[Networking Reference](networking_reference.md)**.
+    Generally speaking, all UI related to the player should be in a Client Context folder.
 
 ---
 

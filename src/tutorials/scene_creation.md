@@ -35,26 +35,51 @@ This tutorial will cover how to place and move images in a scene as well as how 
 1. In the **Community Content** tab, search for **"My Room" (by Tobs)** and download it to your project.
 2. Go to the **Project Content** tab > **Imported Content** and find the "**My Room**" template. Drag it into your scene.
 
-![SceneCreation](../img/SceneCreation/image6.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image6.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image6.mp4" type="video/mp4" />
+    </video>
+</div>
 
 !!! note "Core Concepts: The Transform Widget"
     Notice the blue, green, and red arrows - this is the **transform widget** and allows you to move, rotate, and scale an object in the **main viewport**.
 
-![SceneCreation](../img/SceneCreation/image5.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image5.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image5.mp4" type="video/mp4" />
+    </video>
+</div>
 
 The arrows show the **transform widget** is in **translation mode**, allowing you to move any object around in the scene. You can easily switch to **translation mode** by pressing <kbd>W</kbd>, or selecting the **translation mode** button in the **top toolbar**.
 
-![SceneCreation](../img/SceneCreation/image4.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image4.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image4.mp4" type="video/mp4" />
+    </video>
+</div>
 
 The circles show the **transform widget** is in **rotation mode**, allowing you to rotate any object along the x, y, and z planes.
 
-![SceneCreation](../img/SceneCreation/image9.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image9.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image9.mp4" type="video/mp4" />
+    </video>
+</div>
 
 The boxes show the **transform widget** is in **scale mode**. Clicking and dragging on any of the boxes will resize your selected object. Clicking and dragging the white center box allows you to size up and down the entire object.
 
 You can easily switch between **translation**, **rotation**, and **scale mode** by pressing <kbd>W</kbd>, <kbd>E</kbd>, or <kbd>R</kbd> respectively, or by selecting the corresponding button in the **top toolbar**.
 
-![SceneCreation](../img/SceneCreation/image8.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image8.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image8.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Turning off Wall Visibility
 
@@ -72,7 +97,12 @@ Turn off the visibility of the roof and 1-2 walls by clicking the orange eye nex
 
 Rotate the house so the interior isn't in the shade. This will make it easier to see where you are placing objects.
 
-![SceneCreation](../img/SceneCreation/image12.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/SceneCreation/image12.webm" type="video/webm" />
+        <source src="/img/SceneCreation/image12.mp4" type="video/mp4" />
+    </video>
+</div>
 
 !!! note "Core Concepts: Snap To Grid"
     Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing <kbd>G</kbd> or using the **Snap to Grid** button in the toolbar.
@@ -106,6 +136,6 @@ There are more degrees of rotation available in the drop down menu.
 ### Decorate
 
 1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **Core Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
-2. Take a screenshot of your room and post it on the `#showcase` channel in Core's :fab fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
+2. Take a screenshot of your room and post it on the `#showcase` channel in Core's :fontawesome-solid-b fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
 
 ![SceneCreation](../img/SceneCreation/image2.png "image_tooltip"){: .center}

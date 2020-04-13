@@ -84,7 +84,12 @@ These two cubes both have the red brick material applied but they do not have "U
 
 Objects with different materials or objects not using the Smart Materials feature may exhibit **z-fighting**. This flickering is caused when different materials are layered over one another. Z-fighting can be distracting when playing games, so it's best to avoid it.
 
-![Materials](../img/Materials/image14.gif "Materials Screenshot"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/Materials/image14.webm" type="video/webm" />
+        <source src="/img/Materials/image14.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### U/V Tiling
 

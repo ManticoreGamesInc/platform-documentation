@@ -8,7 +8,7 @@ nav:
         - Install Core: getting_started/installing_core.md
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
-        - Getting Help in Core: core_help.md
+        - Getting Help in Core: getting_started/core_help.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
@@ -20,6 +20,7 @@ nav:
         - Scene Creation: tutorials/scene_creation.md
         - Environmental Art: tutorials/environmental_art.md
         - Modeling Basics: tutorials/modeling_basics.md
+        - Visual Effects in Core: tutorials/vfx_tutorial.md
         - Video Tutorials:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
         - Collaboration & Source Control: tutorials/collaboration.md
@@ -62,7 +63,8 @@ nav:
       - Examples & Snippets: api/examples.md
   - FAQ:
       - Frequently Asked Questions: https://forums.coregames.com/t/83
-  - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
+  - Feedback:
+      - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
 # If you make a PR, no need to change data below this point
 theme:
@@ -72,12 +74,15 @@ theme:
   font:
     text: Lato
     code: JetBrains Mono
-  feature:
-    tabs: true
+  features:
+    - tabs
+    - instant
   palette:
     primary: manticore-blue
     accent: manticore-orange
   logo: assets/icons/favicon-196x196.png
+  icon:
+    repo: fontawesome/brands/github
   favicon: assets/favicon.ico
   static_templates:
     - 404.html
@@ -88,59 +93,68 @@ theme:
   search_index_only: true
 
 extra_css:
-  - assets/stylesheets/manticore.css
-  - assets/stylesheets/prism.css
+#  - assets/stylesheets/manticore.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
-  - assets/javascripts/prism.js
 
 extra:
   social:
-    - type: discord
+    - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
-    - type: youtube
+    - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
-#    - type: reddit
-#      link: https://www.reddit.com/r/coregamesdev
-    - type: facebook
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/r/coregamesdev
+    - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/coregames
-    - type: twitch
+    - icon: fontawesome/brands/twitch
       link: https://twitch.tv/corelive
 
 markdown_extensions:
-  - admonition # add info/warn/error admonitions
-  - fontawesome_markdown # easily add fontawesome icons in markdown format
-  - pymdownx.arithmatex # fancy math styling
-  - markdown.extensions.attr_list # Customn attributes for elements
-  - pymdownx.betterem: # better bolding styles
-      smart_enable: all
-  - pymdownx.caret # insert and superscript
-  - pymdownx.critic # editing allowed
-  - pymdownx.details # admonition style details
-  - pymdownx.emoji: # emojis
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite # inline code highlighting
-  - pymdownx.magiclink # autolinks and shorthand
-  - pymdownx.mark # highlights
-  - pymdownx.smartsymbols # special symbols like arrows
-  - pymdownx.superfences # tabbed content (e.g. with code)
-  - pymdownx.tasklist: # task list
-      custom_checkbox: true
-  - pymdownx.tilde # strike-through
-  - codehilite: # highlight code blocks
-      linenums: true
-      use_pygments: false
-  - toc: # add linking to headers
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
       permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  #- pymdownx.highlight:
+      #linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
   - full_yaml_metadata
   - lightgallery
 
 plugins:
-  #- tags:
-  #    tags_folder: src/generated/
+  - tags:
+      tags_folder: src/generated
   - git-revision-date-localized
   - search
   - autolinks
@@ -150,7 +164,6 @@ plugins:
         news/showcase/just_getting_started.md: https://coregames.com/docs/showcase/just_getting_started/
         api.md: https://docs.coregames.com/core_api/
         tutorials/examples.md: https://docs.coregames.com/api/examples.md
-        tutorials/overview.md: tutorials/overview.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
         tutorials/gameplay/weapons.md: tutorials/weapons.md
         tutorials/gameplay/abilities_advanced.md: tutorials/abilities_advanced.md
@@ -163,6 +176,7 @@ plugins:
         tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: getting_started/other_platforms.md
+        getting_started/troubleshooting.md: getting_started/core_help.md
 
 docs_dir: src
 
@@ -174,10 +188,9 @@ edit_uri: edit/development/src
 
 site_description: Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
-site_url: https://dev.manticoreplatform.com/docs/
+site_url: https://development.docs.coregames.com
 
 copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
-
 #google_analytics:
 #  - UA-142884846-4
 #  - auto

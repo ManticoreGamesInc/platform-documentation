@@ -107,14 +107,24 @@ Congratulations! You've created, edited, and published a template that can be sh
 
 One of the huge benefits of templates is being able to update many objects at the same time! When using several of the same template, changes can be made to one and then automatically sent to update all the others.
 
-![Update Template](../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
+    </video>
+</div>
 
 You will notice when making changes to a template, it will ask if you would like to "**Deinstance**" the template. Click "**Yes**" when this prompt appears.
 A deinstanced template will have text color change from *blue*{: style="color: var(--core-color-templetized)"} to *teal*{: style="color: var(--core-color-deinstanced)"}. It is still a template, but has changes that the other instances of this template will not.
 
 Once you have made changes you would like to send to all other instances of the template, right click the altered template. Click "**Update Template From This**" to send changes. All the templates will now match the updated one!
 
-![Update Template From This](../img/EditorManual/Art/updateTempFromThis.gif "Update Template From This"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/updateTempFromThis.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/updateTempFromThis.mp4" type="video/mp4" />
+    </video>
+</div>
 
 This will update the template for your project personally, but in order to update a template that has been published to **Community Content**, we will need to re-publish the template.
 

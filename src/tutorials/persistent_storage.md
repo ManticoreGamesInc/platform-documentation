@@ -92,8 +92,9 @@ To start, we are going to save a video game classic: a player's game score.
 
 7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a Core Object Reference to the objects we are dragging in!
 
-    <video autoplay loop muted playsinline poster="../img/EditorManual/Abilities/Gem.png" class="center">
-        <source src="../img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
+        <source src="/img/EditorManual/PersistentStorage/DragCustomProps.webm" type="video/webm" alt="Drag the labels onto the script."/>
+        <source src="/img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
     </video>
 
 8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the text says!

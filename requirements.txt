@@ -1,19 +1,15 @@
-mkdocs>=1.1
-mkdocs-material>=4.6.3
-# Code highlighting
-pygments>=2.4
-# Other extensions
-pymdown-extensions>=6.3,<7
-markdown>=3.2.1
 markdown-full-yaml-metadata
-mkdocs-redirects
-mkdocs-git-revision-date-localized-plugin
+markdown>=3.2.1
 mkdocs-autolinks-plugin
-#mkdocs-htmlproofer-plugin
-# fontawesome-markdown; need to get latest from github
-https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+mkdocs-git-revision-date-localized-plugin
+mkdocs-material-extensions>=1.0b1
+mkdocs-redirects
+mkdocs>=1.1
+pygments>=2.6.0
+pymdown-extensions>=7.0.0
+
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
-# mkdocs-plugin-tags
-#https://github.com/jldiaz/mkdocs-plugin-tags/archive/master.zip
 
+# mkdocs-plugin-tags
+https://github.com/stanzilla/mkdocs-plugin-tags/archive/master.zip

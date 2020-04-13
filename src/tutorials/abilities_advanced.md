@@ -18,7 +18,12 @@ In the first tutorials for abilities and weapons, we went over the quickest poss
 
 If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](lua_basics_lightbulb.md)**. This will go over some key words and practices you would want to know.
 
-![Full Fire Staff](../img/EditorManual/Weapons/FireStaff.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Weapons/FireStaff.webm" type="video/webm" />
+        <source src="/img/EditorManual/Weapons/FireStaff.mp4" type="video/mp4" />
+    </video>
+</div>
 
 * **Completion Time:** ~30 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but would be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** and completion of the first **[Weapons](weapons.md)** tutorial
@@ -146,7 +151,12 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
     * Activated the moment a player is hit with a projectile.
 
-![Fire Impact](../img/EditorManual/Weapons/advanced/staffImpact.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Weapons/advanced/staffImpact.webm" type="video/webm" />
+        <source src="/img/EditorManual/Weapons/advanced/staffImpact.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Fire Fly Ability
 
@@ -647,7 +657,12 @@ So let's get started on the server script!
 
     Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
 
-    ![Zoom](../img/EditorManual/Weapons/advanced/zoomIn.gif){: .center}
+    <div class="mt-video">
+        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/EditorManual/Weapons/advanced/zoomIn.webm" type="video/webm" />
+            <source src="/img/EditorManual/Weapons/advanced/zoomIn.mp4" type="video/mp4" />
+        </video>
+    </div>
 
 ### Critical Hit Headshots
 
@@ -734,7 +749,12 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
     3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
 
-        ![Headshot vs Regular Shots](../img/EditorManual/Weapons/advanced/headshot.gif){: .center}
+        <div class="mt-video">
+            <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+                <source src="/img/EditorManual/Weapons/advanced/headshot.webm" type="video/webm" />
+                <source src="/img/EditorManual/Weapons/advanced/headshot.mp4" type="video/mp4" />
+            </video>
+        </div>
 
 ### Ammo as a Pickup
 
@@ -742,7 +762,12 @@ One way to really change gameplay and force players to explore a map and be more
 
 With this fire staff, we could use something thematic and firey like *ember* as an ammo pickup.
 
-![A Hot Pickup](../img/EditorManual/Weapons/advanced/emberPickup.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Weapons/advanced/emberPickup.webm" type="video/webm" />
+        <source src="/img/EditorManual/Weapons/advanced/emberPickup.mp4" type="video/mp4" />
+    </video>
+</div>
 
 The main thing to change for our ammo supply is to change the properties of the `weapon` itself.
 
@@ -814,7 +839,12 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 6. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
 
-    ![Ammo](../img/EditorManual/Weapons/advanced/ammoShot.gif){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Weapons/advanced/ammoShot.webm" type="video/webm" />
+        <source src="/img/EditorManual/Weapons/advanced/ammoShot.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Connecting UI
 
