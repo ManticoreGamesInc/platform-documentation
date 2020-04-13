@@ -8,7 +8,12 @@ tags:
 
 # Modeling Complex Objects in Core
 
-![Bug Ship](../img/EditorManual/Art/BugShip.gif "Bug Ship"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/BugShip.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/BugShip.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ## Introduction
 
