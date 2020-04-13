@@ -36,7 +36,7 @@ To learn how to create groups and folders, see the [Complex Objects reference](m
 3. Right click on one of the objects and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
-     ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
+    ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
 
 Once a group becomes a template, it will be blue in the Hierarchy. New templates can be found in the **Project Content** window in the section called **My Templates**. From there you can drag out as many copies of the template as needed.
 
@@ -49,7 +49,7 @@ Once your template is created, you may use it for just this project alone, or yo
 1. Find the template in the **Project Content** window.
 2. Click the **Publish Content** button in the Properties menu.
 
-     ![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
+    ![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
 
 !!! note
     You can also right click the template and select **Publish to Community Content**
@@ -69,17 +69,17 @@ Screenshots are the most effective way to showcase a template, and help others u
 
 Uploading a screen shot allows you to use an external image editing software to improve your screenshot. This can be most useful when you need to convey for abstract information, like what a script does.
 
-  1. Use the <kbd>Print Screen</kbd> key to copy a screenshot to your clipboard.
-  2. Paste the captured image into an image editor, and save the file when you have finished editing it.
-  3. Select the **Screenshots** button to upload a screenshot from your computer.
+1. Use the <kbd>Print Screen</kbd> key to copy a screenshot to your clipboard.
+2. Paste the captured image into an image editor, and save the file when you have finished editing it.
+3. Select the **Screenshots** button to upload a screenshot from your computer.
 
 #### Use the Screenshot Tool
 
 ### Publish to Community Content
 
 1. Mark your **permissions** as either public or private.
-      - **Private** templates can only be seen in **Community Content** by the creator who published them.
-      - **Public** templates can be seen and used by everyone in **Community Content**.
+    - **Private** templates can only be seen in **Community Content** by the creator who published them.
+    - **Public** templates can be seen and used by everyone in **Community Content**.
 2. Click **Review & Publish** and review your settings. Don't worry about it being perfect, as this may all be edited after publishing.
 3. Click **Publish**.
 
@@ -98,12 +98,7 @@ Once a 3D model is made into a template, it will resist changes besides position
 !!! info "What is an instance?"
     A template can be understood as a recipe. Each time the recipe is made, that product is an **instance** of the template. **Deinstancing** would be making a change in the final product of the recipe, so that it is now different from the exact copies of the recipe. Changing the recipe itself -- updating the template -- should change every single instance of the recipe.
 
-<div class="mt-video">
-    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
-        <source src="/img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
-        <source src="/img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
-    </video>
-</div>
+### Deinstance a Template
 
 To make changes to a template, you will need to first **deinstance** it. This can be done automatically by making a change to a the template.
 
@@ -116,7 +111,12 @@ A deinstanced template will change color from blue to teal. Changes made to a de
 
 To change all of the instances of a template, you will need to deinstance and modify an instance of the template, and then update the others to match it.
 
-![Update Template](../img/EditorManual/Art/updateTemplate.gif "Update Template"){: .center}
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EditorManual/Art/updateTemplate.webm" type="video/webm" />
+        <source src="/img/EditorManual/Art/updateTemplate.mp4" type="video/mp4" />
+    </video>
+</div>
 
 1. Right click on a deinstanced template with the latest changes.
 2. Click **Update Template From This** to update all the instances of the template to match it.

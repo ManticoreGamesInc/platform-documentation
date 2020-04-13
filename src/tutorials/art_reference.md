@@ -55,7 +55,6 @@ Models, scripts, and whole collections of useful pieces for games can be found i
 
 ### Materials
 
-While Core does have a distinct art style, all of this can be changed and modified to whatever your vision may be.
 The colors and patterns on a 3D model are known as **materials**. The easiest way to create a dramatic change is to alter the materials of a model, either to a completely different material, or by editing the settings of a material.
 
 Materials can be entirely customized, and saved changes to them synchronized across a project. See the [Custom Materials](custom_materials.md) reference to learn more.
