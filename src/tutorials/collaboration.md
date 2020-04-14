@@ -34,7 +34,7 @@ If you're working with multiple people, instead of using "formal" source control
 
 You can also publish your games privately, so that only people you give the link to can play and view it.
 
-To read more about how to do this, check out the [Templates](collaboration_reference.md) tutorial. Both templates and games can be published privately, so that you can control who may access them.
+To read more about how to do this, check out the [Templates](template_reference.md) tutorial. Both templates and games can be published privately, so that you can control who may access them.
 
 This *can* quickly get hard to manage with large teams or complex games. Community Content fills up fast, and ensuring things actually work well together can be hard when they aren't made in the same project. This is why we have written this tutorial for you!
 
