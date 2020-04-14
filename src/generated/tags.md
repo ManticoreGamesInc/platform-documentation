@@ -15,6 +15,8 @@ title: Tags
 
 - [Core Editor Key Bindings](editor_keybindings.md)
 
+- [Community Content](community_content.md)
+
 - [Getting Help in Core](core_help.md)
 
 - [Introduction to the Core Editor](editor_intro.md)
@@ -27,24 +29,24 @@ title: Tags
 
 - [Audio in Core](audio_reference.md)
 
-- [Collaboration Reference](collaboration_reference.md)
-
 - [Custom Materials in Core](custom_materials.md)
 
 - [Lua Reference](lua_reference.md)
 
 - [Modeling Basics](modeling_basics.md)
 
+- [Modeling Complex Objects](modeling_reference.md)
+
 - [The Object Generator Tool](object_generator.md)
 
 - [Scene Creation in Core](scene_creation.md)
+
+- [Template Reference](template_reference.md)
 
 - [UI Reference](ui_reference.md)
 
 
 ## Tutorial
-
-- [Community Content in Core](community_content.md)
 
 - [Installing Core](installing_core.md)
 
