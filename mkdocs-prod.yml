@@ -28,10 +28,11 @@ nav:
         - Intro to the Editor: getting_started/editor_intro.md
         - Editor Shortcuts: editor_keybindings.md
         - Art in Core: tutorials/art_reference.md
+        - Modeling Reference: tutorials/modeling_reference.md
         - Custom Materials: tutorials/custom_materials.md
         - Object Generator: tutorials/object_generator.md
-        - Templates: tutorials/collaboration_reference.md
-        - Sharing Content: getting_started/community_content.md
+        - Templates: tutorials/template_reference.md
+        - Community Content: getting_started/community_content.md
         - Audio: tutorials/audio_reference.md
         - UI: tutorials/ui_reference.md
         - Publishing Checklist: getting_started/publishing_checklist.md
