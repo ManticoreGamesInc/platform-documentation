@@ -595,7 +595,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | string | A tag controlling which players can spawn at this start point. | Server-Only, Read-Write, Dynamic |
+| `team` | Integer | Determines which players are eligible to spawn/respawn at this point. | Server-Only, Read-Write, Dynamic |
 
 ### PointLight
 
@@ -742,11 +742,25 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ### Script
 
-Script is a CoreObject representing a script. While not technically a property, a script can access itself using the `script` variable.
+Script is a CoreObject representing a script in the hierarchy. While not technically a property, a script can access itself using the `script` variable.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `context` | table | Returns the table containing any non-local variables and functions created by the script. This can be used to call (or overwrite!) functions on another script. [:fontawesome-solid-info-circle:](../api/examples/#context "Example") | Read-Only |
+
+### ScriptAsset
+
+ScriptAsset is an Object representing a script asset in Project Content. When a script is executed from a call to `require()`, it can access the script asset using the `script` variable. This can be used to read custom properties from the script asset.
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetCustomProperties()` | table | Returns a table containing the names and values of all custom properties on the script asset. | None |
+| `GetCustomProperty(string propertyName)` | value, bool | Gets an individual custom property from the script asset. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `name` | string | The name of the script in Project Content. | Read-Only |
+| `id` | string | The script asset's MUID. | Read-Only |
 
 ### SmartAudio
 
