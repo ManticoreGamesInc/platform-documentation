@@ -73,8 +73,6 @@ Uploading a screen shot allows you to use an external image editing software to 
 2. Paste the captured image into an image editor, and save the file when you have finished editing it.
 3. Select the **Screenshots** button to upload a screenshot from your computer.
 
-#### Use the Screenshot Tool
-
 ### Publish to Community Content
 
 1. Mark your **permissions** as either public or private.
