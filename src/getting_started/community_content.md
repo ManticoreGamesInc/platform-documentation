@@ -1,81 +1,71 @@
 ---
 id: community_content
-name: Community Content in Core
-title: Community Content in Core
+name: Community Content
+title: Community Content
 tags:
-    - Tutorial
+    - Reference
 ---
 
-# Community Content in Core
-
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
+# Community Content
 
 ## Overview
 
-**Community Content** is one of the most fundamentally awesome aspects of
-creation in Core. It allows for you to use, improve, and remix creations you or
-others have made public. This creates a wealth of content for all game
-creators on the platform - speeding up game development & the spread of ideas more than ever before!
+Creations published as open-source [templates](template_reference.md) can be found in the **Community Content** window. These templates can be small models, packages of props, scripts, or fully scripted objects.
 
-With that in mind, here's how to best use it.
+Community content creates a wider variety of assets to choose from while building a project, and sharing templates with Community Content allows Core Creators to collaborate on models and tools and share their innovations within Core.
 
----
+## Importing Community Content
 
-## Tutorial
+Any template in community content has to be imported into the project before it can be used.
 
-### Using Community Content: Downloading Content
+### Open the Community Content Window
 
-Community Content exists as a free exchange of creations, both of models & art, as well as programming & game logic. All sorts of things can be found here, made by users just like you.
+In the default project view, the **Community Content** window is open in the bottom panel, along with **Core Content** and **Project Content**.
 
-The goal is to bring your ideas to life as fast as possible, so that nothing stands between you and sharing your mind with the world! Building on top of what others have done before you leaves room to come up with even more new ideas and focus on what really speaks to you.
+If the window is closed, open it by clicking **View** in the top menu bar and selecting **Community Content**.
 
-Open up the **Community Content** tab by clicking on it. If the tab isn't already open for you, navigate to `View -> Community Content` in the top menu bar to open the window.
+### Find and Import New Content
 
-![Community Content Template](../img/getting_started/communitycontent.png "Community Content Template"){: .center}
+By default, community content displays the most recently published templates first. The left and right arrows below the displayed content can be used to get more results.
 
-Here you can browse the content or search by username or key words.
+#### Search Community Content
 
-Click the blue `+` button on an asset to import the template. It will likely ask you to save your project first.
+The search bar at the top of the **Community Content** window can be used to find specific templates.
 
-![Community Content Template](../img/getting_started/CCtemplate.png "Community Content Template"){: .center}
+Click on any template to see more details about it, including a description and screenshots.
 
-You can then see the template you downloaded in your the **Core Content** folder.
-`Core Content -> Imported Content`.
+#### Import a Template
 
-![Imported Content](../img/getting_started/ProjectContent_importedcontent.png "Imported Template"){: .center}
+A template can be imported through the project directly from the search page, by clicking the **Import** button.
 
-#### Using Your Imported Content
+![Community Content Template](../img/CommunityContent/CommunityContent_FunctionalTwinBed.png){: .center}
 
-From within the Imported Content section of Core Content, you will find any and all templates that you download from Community Content.
+### Locate Imported Content
 
-To use this in your game, just drag the **green**{: style="color: green"} template object (in this case called "**My Room**") into your project Hierarchy.
+Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initially appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
-Once you've done this, you will have a **blue**{: style="color: blue"} object in your Hierarchy, which is an instance of the template you downloaded! You're now set to modify it and use it however you like.
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){.center}
 
-Core also then adds the template and its contents to your "**Project Content**" folder.
+You can click this, or the name of the template in the Core Content navigation to access the template.
+
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){.center}
+
+### Use Imported Content
+
+To use the template in your project, click and drag the green template icon into the **Main Viewport** or the project **Hierarchy**. This will automatically add it to the **Project Content** window.
 
 ![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
 
-Within the template, in the section called "**Dependencies**", you can find all the parts that make up the template and that it uses. These will be things like scripts, objects, and custom materials.
+## Publishing Your Own Content
 
----
+To share your own templates on Community Content, see the [Template reference](template_reference.md).
 
-### Next Steps: Publish Your Own Content
+## Community Shared Games
 
-To learn more about these templates that are shared on Community Content, and how to share your own with the world of Core, follow our quick tutorial on [Templates](collaboration_reference.md).
+Beyond sharing templates, Core creators can publish entire games as **public**, allowing the creator community to use and modify them for new games.
 
-Feel more than free to download as many Community Content templates as you can! Getting help to create your vision can be as easy as searching for what you seek.
+To start a game from a community framework, open the **Create** menu of the Core Launcher. Select **Create New** and choose the **Community Shared Games** option to see what games other users have published as open source.
 
----
+## Learn More
 
-### Remixing Games: Starting from an Existing Game
-
-Another way to speed ahead the creation of your project is to **start with an entire game that somebody else has made.**
-
-Some games published on the Core website allow other users to download them, enabling you to move things around and change the game however you would like.
-
-To download a game by somebody else and add your own personal flair, go to the CREATE menu of the Core editor. When you click create, you will have the option to select a base game type from **Core Games**, or select **Community Games** to see what games other users have published as public for the world to modify.
-
-Pick a game by clicking it, give it a new project name, click download, and you're ready to go!
+[Templates](template_reference.md) | [Complex Models](modeling_reference.md) | [Publishing](publishing.md)

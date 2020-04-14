@@ -14,7 +14,7 @@ tags:
 
 ## Overview
 
-In **Core™**, there is a massive, built-in library of high quality audio assets that were designed with the beginner and advanced creator in mind. There are plenty of sound effects, background music tracks, and instruments encompass a wide variety of genres and moodsCoreRE audio assets come with powerful customizable properties that allow you to create a wide variety of soundscapes for your creations.
+In **Core**, there is a massive, built-in library of high quality audio assets that were designed with the beginner and advanced creator in mind. There are plenty of sound effects, background music tracks, and instruments encompass a wide variety of genres and moodsCoreRE audio assets come with powerful customizable properties that allow you to create a wide variety of soundscapes for your creations.
 
 When a player makes an action like jumping or running in Core, sound effects (like grunts or footsteps) play by default in the client.
 
