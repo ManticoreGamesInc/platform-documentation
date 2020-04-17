@@ -298,7 +298,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `StopScale()` | None | Interrupts further movement from ScaleTo() or ScaleContinuous(). | Dynamic |
 | `Follow(Object, [Number, [Number]])` | None | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | Dynamic |
 | `LookAt(Vector3 position)` | None | Instantly rotates the object to look at the given position. | Dynamic |
-| `LookAtContinuous(Object, [bool], [Number])` | None | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target. If speed is not supplied it tracks as fast as possible. | Dynamic |
+| `LookAtContinuous(Object, [bool], [Number])` | None | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target (in radians/second). If speed is not supplied it tracks as fast as possible. | Dynamic |
 | `LookAtLocalView([bool])` | None | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | Client-Only, Dynamic |
 | `Destroy()` | None | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | Dynamic |
 
@@ -484,7 +484,6 @@ Player is an Object representation of the state of a Player connected to the gam
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | None |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | None |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
-| `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING and MovementMode.SLIDING. | None |
 | `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. | Client-Only |
 
 | Function | Return Type | Description | Tags |
@@ -570,7 +569,6 @@ Player is an Object representation of the state of a Player connected to the gam
 | `isSwimming` | bool | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | bool | True if the Player is in walking mode. | Read-Only |
 | `isDead` | bool | True if the Player is dead, otherwise false. | Read-Only |
-| `isSliding` | bool | True if the Player is currently in sliding mode. | Read-Only |
 | `movementControlMode` | MovementControlMode | Specify how players control their movement. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | LookControlMode | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | Number | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write |
