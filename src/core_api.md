@@ -478,13 +478,13 @@ Player is an Object representation of the state of a Player connected to the gam
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. | Server-Only |
-| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. | Server-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. | None |
-| `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | None |
-| `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. | None |
-| `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
-| `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. | Client-Only |
+| `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | Server-Only |
+| `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | Server-Only |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | None |
+| `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | None |
+| `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | None |
+| `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | None |
+| `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. [:fontawesome-solid-info-circle:](../api/examples/#events_3 "Example") | Client-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1264,9 +1264,9 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | None | Draws a debug line. optionalParameters are: duration (Number) - if <= 0, draw for single frame, thickness (Number), color (Color). | None |
-| `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | None | Draws a debug box, with dimension specified as a vector. optionalParameters has same options as DrawLine, with addition of: rotation (Rotation) - rotation of the box | None |
-| `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | None | Draws a debug sphere. | None |
+| `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | None | Draws a debug line. `optionalParameters: duration (Number), thickness (Number), color (Color)`. 0 or negative duration results in a single frame. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
+| `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | None | Draws a debug box, with dimension specified as a vector. `optionalParameters` has same options as `DrawLine()`, with addition of: `rotation (Rotation)` - rotation of the box. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
+| `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | None | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 
 ??? "CoreDebug Code Example"
 
