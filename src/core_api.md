@@ -1338,14 +1338,6 @@ User defined events can be specified using the Events namespace. The Events name
 
 Game is a collection of functions and events related to players in the game, rounds of a game, and team scoring.
 
-| Class Event | Return Type | Description | Tags |
-| ----------- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
-| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
-| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundstartevent "Example") | None |
-| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundendevent "Example") | None |
-| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. [:fontawesome-solid-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | None |
-
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Game.GetLocalPlayer()` | Player | Returns the local player. [:fontawesome-solid-info-circle:](../api/examples/#gamegetlocalplayer "Example") | Client-Only |
@@ -1360,6 +1352,14 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.IncreaseTeamScore(Integer team, Integer scoreChange)` | None | Increases one team's score. [:fontawesome-solid-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
 | `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | None | Decreases one team's score. [:fontawesome-solid-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | Server-Only |
 | `Game.ResetTeamScores()` | None | Sets all teams' scores to 0. [:fontawesome-solid-info-circle:](../api/examples/#gameresetteamscores "Example") | Server-Only |
+
+| Event | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent-gameplayerleftevent "Example") | None |
+| `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundstartevent "Example") | None |
+| `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundendevent "Example") | None |
+| `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. [:fontawesome-solid-info-circle:](../api/examples/#gameteamscorechangedevent "Example") | None |
 
 ### Storage
 
