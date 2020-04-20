@@ -11,5 +11,5 @@ insert_final_newline = true
 [*.yml]
 indent_size = 2
 
-[*.md]
+[{*.md,*.txt}]
 insert_final_newline = false
