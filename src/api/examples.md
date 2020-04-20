@@ -68,6 +68,53 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Random number generators with different seeds.
     - Logic based around local `time()`.
 
+## CoreDebug
+
+### Class Functions
+
+- **CoreDebug.DrawLine**
+- **CoreDebug.DrawBox**
+- **CoreDebug.DrawSphere**
+
+Core contains several useful functions for drawing in the 3d world, that are intended for use when debugging. If you are trying to visualize values in a 3d world,
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+
+local myProjectile = Projectile.Spawn(propCubeTemplate,
+    Vector3.New(500, 0, 200), -- starting position
+    Vector3.New(0, 1, 1))     -- direction
+myProjectile.speed = 500
+myProjectile.lifeSpan = 3
+myProjectile.gravityScale = 0.25
+
+
+-- This function will draw some debug graphics around the projectile ever 1/10 second:
+Task.Spawn(function()
+    while Object.IsValid(myProjectile) do
+        local pos = myProjectile:GetWorldPosition();
+        CoreDebug.DrawSphere(pos , 50, {
+            duration = 2,
+            color = Color.GREEN
+        })
+
+        CoreDebug.DrawLine(pos, pos  + myProjectile:GetWorldTransform():GetForwardVector() * 50, {
+            duration = 2,
+            color = Color.WHITE,
+            thickness = 3
+        })
+
+        CoreDebug.DrawBox(pos, Vector3.New(50), {
+            duration = 2,
+            color = Color.BLUE,
+            thickness = 3
+        })
+
+        Task.Wait(0.1)
+    end
+end)
+```
+
 ## Damage
 
 ### `Damage.New([Number amount])`
@@ -1020,6 +1067,128 @@ function OnBeginOverlap(theTrigger, player)
 end
 
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+### Events
+
+#### `damagedEvent` / `diedEvent` / `respawnedEvent`
+
+There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
+
+One important thing to note - `player.damagedEvent` and `player.diedEvent` only execute on the server, so if you are writing a script that runs inside of a client context, it will not receive these events!
+
+```lua
+function OnPlayerDamage(player, damage)
+    print("Player " .. player.name .. " just took " .. damage.amount .. " damage!")
+end
+
+function OnPlayerDied(player, damage)
+    print("Player " .. player.name .. " has been killed!")
+
+    -- Now, revive them after 2 seconds at a spawn point:
+    Task.Wait(2)
+    player:Respawn()
+end
+
+function OnPlayerRespawn(player)
+    print("Player " .. player.name .. " is back!")
+end
+
+-- Set up listeners:
+for _, p in pairs(Game.GetPlayers()) do
+    p.damagedEvent:Connect(OnPlayerDamage)
+    p.diedEvent:Connect(OnPlayerDied)
+    p.respawnedEvent:Connect(OnPlayerRespawn)
+end
+
+player:ApplyDamage(Damage.New(25))
+Task.Wait(1)
+player:ApplyDamage(Damage.New(50))
+Task.Wait(1)
+player:ApplyDamage(Damage.New(100))
+Task.Wait(2.1)
+```
+
+#### `bindingPressedEvent` / `bindingReleasedEvent`
+
+Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
+
+This sample uses the `bindingKeypressed` and `bindingKeyReleased` events to allow the player to sprint whenever the `"ability_extra_12"` keybind is held down. (Left-Shift by default)
+
+```lua
+local shiftKeyBinding = "ability_extra_12"
+local baseSpeed = 640
+local sprintingSpeed = 1280
+
+function OnShiftPressed(player, bindingPressed)
+    if bindingPressed == shiftKeyBinding then
+        player.maxWalkSpeed = sprintingSpeed
+    end
+end
+
+function OnShiftReleased(player, bindingReleased)
+    if bindingReleased == shiftKeyBinding then
+        player.maxWalkSpeed = baseSpeed
+    end
+end
+
+function OnPlayerRespawn(player)
+    print("Player " .. player.name .. " is back!")
+end
+
+-- Set up listeners:
+for _,p in pairs(Game.GetPlayers()) do
+    p.bindingPressedEvent:Connect(OnShiftPressed)
+    p.bindingReleasedEvent:Connect(OnShiftReleased)
+end
+```
+
+#### `resourceChangedEvent`
+
+While scripting, you can assign "resources" to players. These are just integer values, accessed via a string key, that are tied to a player. They are useful for storing values about game-specific resources a player might have, such as coins collected, mana remaining, levels completed, puppies pet, etc.
+
+You can manipulate these values via several methods on the player class, as well as registering for an event when they are changed.
+
+This sample registeres a listener to ensure that values are in the [0-100] range, and demonstrates several examples of how to change the values.
+
+```lua
+local resource2 = "CoinsCollected"
+local resource1 = "PuppiesSeen"
+
+-- Make sure that resources never go outside the [0, 100] range:
+function OnResourceChanged(player, resourceId, newValue)
+    if newValue > 100 then player:SetResource(resourceId, 100) end
+    if newValue < 0 then player:SetResource(resourceId, 0) end
+end
+
+player.resourceChangedEvent:Connect(OnResourceChanged)
+
+player:SetResource(resource1, 5)
+-- Player now has 5 "CoinsCollected"
+
+player:AddResource(resource1, 15)
+-- Player now has 20 "CoinsCollected".
+
+player:AddResource(resource1, 500)
+-- This should give us 520 "CoinsCollected", but our event listener limits it to 100.
+print("Coins collected: " .. player:GetResource(resource1))
+
+player:SetResource(resource2, 2)
+-- Player now has 2 "PuppiesSeen", as well as still having 100 "CoinsCollected"
+
+player:RemoveResource(resource1, 10)
+-- Player now has 90 "CoinsCollected"
+
+-- We can also get all the resources in one go as a table:
+local resourceTable = player:GetResources()
+for k, v in pairs(resourceTable) do
+    print("Resource ["..k.."]: " .. v)
+end
+
+player:ClearResources()
+-- All resources have been removed from the player
+print("Coins collected: " .. player:GetResource(resource1))
+print("Puppies seen: " .. player:GetResource(resource2))
 ```
 
 ## Projectile
