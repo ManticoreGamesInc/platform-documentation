@@ -12,7 +12,7 @@ tags:
 
 An ability is anything that the player can do themselves.
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a Core™ project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
+Anytime that a player can do something more than just jump and crouch, that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
 
 An ability could be to sprint, a cheering emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
 
@@ -96,7 +96,7 @@ For this tutorial, we are going to make the player wave hello.
 
          ![Art Folder](../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center}
 
-    3. In the **Properties** window, scroll down to the *Scene* section. We need to change the **Collision** section from "Inherit From Parent" to "Force Off". This way the gem won't mess with your camera when it's attached to the player.
+    3. In the **Properties** window, scroll down to the _Scene_ section. We need to change the **Collision** section from "Inherit From Parent" to "Force Off". This way the gem won't mess with your camera when it's attached to the player.
 
          ![Art Folder Collision](../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
 
@@ -211,7 +211,7 @@ Now the UI element will update automatically once the ability is cast.
 
 ### Networking for Multiplayer Games
 
-Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ablity UI icon and did not use the Core Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
+Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ability UI icon and did not use the Core Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
 This has already been done for us in the Core Content template, so no action is needed!
 

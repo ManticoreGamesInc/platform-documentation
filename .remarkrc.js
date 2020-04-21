@@ -22,6 +22,7 @@ exports.plugins = [
     ["lint-maximum-line-length", 999],
     ["lint-emphasis-marker", "consistent"],
     ["lint-ordered-list-marker-value", "ordered"],
+    ["lint-unordered-list-marker-style", "consistent"],
     ["lint-no-file-name-irregular-characters", false],
     ["lint-list-item-spacing", { checkBlanks: true }],
     ["lint-list-item-indent", "space"],

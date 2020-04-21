@@ -301,8 +301,8 @@ We are going to update the game when all the possible coins are picked up. First
 
 * Create a **UI Text Box** named `VictoryUI` as a child of the `UI Container` we made earlier under `Client Context`.
 
-    !!! tip
-        You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
+!!! tip
+    You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
 
 * In the `text` field in the Properties window, type "**All coins found!**".
 * Customize your font color, size, and justification--do what you like with it!
@@ -366,7 +366,7 @@ function ResetMap()
         end
     end
 
-    -- Reset rources for every player
+    -- Reset resources for every player
     local players = Game.GetPlayers()
     for _, player in pairs(players) do
         player:SetResource("Manticoin", 0)

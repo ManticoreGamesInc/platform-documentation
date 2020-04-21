@@ -188,49 +188,49 @@ You might notice if you try dragging an `effect` from Core Content into the `wea
 
 1. We'll start with a visual effect. In the **Core Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
 
-     This visual effect is a little poof of smoke that happens briefly when played.
+    This visual effect is a little poof of smoke that happens briefly when played.
 
-     1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
+    1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
 
-         ![Impact Settings](/img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center}
+        ![Impact Settings](/img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center}
 
-         All visual effects in Core can be found in the **Effects** section of **Core Content**.
+        All visual effects in Core can be found in the **Effects** section of **Core Content**.
 
-     2. To preview the effect, press the **Play** button at the top right of the **Properties** tab for the effect.
+    2. To preview the effect, press the **Play** button at the top right of the **Properties** tab for the effect.
 
 2. Next, let's grab an audio object to make sounds when a player is shot.
 
-     1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
+    1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
 
-     2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
+    2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
 
-         Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
+        Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
 
-         ![Audio Settings](/img/EditorManual/Weapons/audioSettings.png "For the bang!"){: .center}
+        ![Audio Settings](/img/EditorManual/Weapons/audioSettings.png "For the bang!"){: .center}
 
-         We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
+        We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
 
-         Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
+        Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
 
-         We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
+        We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
 
-         **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
+        **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
 
 3. Now that we have these two effects in our Hierarchy, hold shift to select them both and right click to open the context menu.
 
-     Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
+    Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
 
 4. Right click this new Client Context folder, and click **"New Group Containing This"** to wrap the whole thing in a group. This is the usual best practice for making templates with Client Context content.
 
-     Name the group "Player Impact Effect".
+    Name the group "Player Impact Effect".
 
 5. Right click this new group, and click **"Create New Template From This"** to make this whole little effect we made a template that we can use elsewhere, or even publish to Community Content should you so choose!
 
-     ![Your VFX Template](/img/EditorManual/Weapons/handmadeVFX.png "Pull it all together now."){: .center}
+    ![Your VFX Template](/img/EditorManual/Weapons/handmadeVFX.png "Pull it all together now."){: .center}
 
 6. Now that it is a template, it can be found in our Project Content tab. Just like the bullet from earlier, delete the template we just made from the Hierarchy and then select the `weapon` object.
 
-     Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
+    Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
 
 Now that you've made one effect, try making other types of effect templates for the other sections of the `weapon`'s effects! A good one to add is the Impact Surface Aligned effect--this happens when the player shoots something that isn't a player, like a wall or the floor.
 
@@ -255,5 +255,5 @@ If you want to try you hand at some coding to really add complexity to your weap
 
 ## Examples
 
-- **[Spellshock](https://www.coregames.com/games/e23e99/spellshock)** uses all sorts of weapon that you can tear apart and look through to repurpose for your own means.
-- **Core Content** includes ultra-basic & advanced versions of a Pistol, Rifle, and a Shotgun! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
+* **[Spellshock](https://www.coregames.com/games/e23e99/spellshock)** uses all sorts of weapon that you can tear apart and look through to repurpose for your own means.
+* **Core Content** includes ultra-basic & advanced versions of a Pistol, Rifle, and a Shotgun! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
