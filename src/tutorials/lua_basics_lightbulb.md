@@ -33,9 +33,7 @@ This tutorial is designed for creators who have never done *any* programming bef
 
 * For debugging code, we have our own script debugger, you can enable it via the **View** menu.
     You can toggle breakpoints by clicking on a line number in the internal editor.
-
 * Another page you'll probably be constantly checking is the [Core API](core_api.md) page.
-
 * Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
 
 ---
@@ -195,7 +193,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
     ![Hard to see](../img/LightBulb/image22.png "Hard to see")
     ![Well lit](../img/LightBulb/image6.png "Well lit")
-    _Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!_
+    *Left: halfway through the ground, in the shade - hard to see. Right: Well lit and constructed - good to go!*
     {: .image-cluster}
 
 ### Creating a New Script
@@ -283,7 +281,7 @@ First you'll need to tell the script which object in the scene is the switch, so
 
     !["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .center}
 
-    Unfortunately that didn't quite work out the way we wanted…
+    Unfortunately that didn't quite work out the way we wanted...
     Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
 
     We want the script to rotate our switch 90 degrees up. But our problem is that the script is rotating the switch globally while we want to rotate it locally; it's changing the switch's global rotation from `(0, 0, 180)` to `(0, 90, 0)`. In order to get the script to rotate the switch the way we want, only along the y-axis, it needs to know to move only relative to its original position.
@@ -471,7 +469,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 6. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
-    !["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of cutom property variables to use them in your scripts."){: .center}
+    !["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center}
 
     First, we add a new variable to our `LightToggleScript`. When you make custom properties, Core generates a small script of all those variable references in Lua. To copy those into our script real quick, right click into that black box and select all & copy it into the top of our script.
 
@@ -545,7 +543,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
         but `FindObjectByName` does the same thing with less lines of code.
 
         !!! tip
-            In this tutorial we have been showing you many ways of referencing objects: cutom properties, `GetChildren()`, `FindObjectByName()`--use whichever you like best and suits your needs at the time.
+            In this tutorial we have been showing you many ways of referencing objects: custom properties, `GetChildren()`, `FindObjectByName()`--use whichever you like best and suits your needs at the time.
 
     * `Filaments` is the name of the object in the hierarchy we want to reference. If you have many objects in your game named the same thing, the script will use the first one it finds. If we made a copy of the **filaments** group in the same folder, the script would use whichever one comes first in the hierarchy (i.e. the first child of the folder will be chosen over the second child, how mean.).
 
@@ -577,7 +575,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     <!-- TODO: Replace with gif -->
     ![LightBulb1](../img/LightBulb/image3.png "It's working!")
-    _Excellent!_
+    *Excellent!*
     {: .image-cluster}
 
 You've turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that's what you wanted (and you're not the one footing the electric bill) but we want to flip the switch back and turn off the light.

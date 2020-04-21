@@ -36,7 +36,7 @@ To learn how to create groups and folders, see the [Complex Objects reference](m
 3. Right click on one of the objects and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
-    ![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
+![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
 
 Once a group becomes a template, it will be blue in the Hierarchy. New templates can be found in the **Project Content** window in the section called **My Templates**. From there you can drag out as many copies of the template as needed.
 
@@ -49,7 +49,7 @@ Once your template is created, you may use it for just this project alone, or yo
 1. Find the template in the **Project Content** window.
 2. Click the **Publish Content** button in the Properties menu.
 
-    ![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
+![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
 
 !!! note
     You can also right click the template and select **Publish to Community Content**

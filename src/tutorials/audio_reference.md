@@ -114,7 +114,7 @@ By default, playback will be networked to all clients. If an Audio object is sim
 
 ### Best Practices for General Audio
 
-- It's not always as it may seem; Like many of our assets in Core, just because something is named or labeled as something specific doesn"t necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn"t expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
+- It's not always as it may seem; Like many of our assets in Core, just because something is named or labeled as something specific doesn't necessarily mean it is only for that use. In professional sound design a lot of commonly heard sounds in games, TV and film are created by using objects and sources you wouldn't expect. For example, you can use "**Parachute Open 01 SFX**" asset for something else entirely such as a sail unfurling or a flag waving in the wind.
 - Size matters; Generally smaller objects are higher in pitch than ones that are much larger. Same goes for volume. A smaller insect will make less sound than a giant one for example. Also think about the size of your map. If you want things such as explosions or gunshots to be heard across the entirety of your map, adjust the falloff and radius values of your sounds accordingly.
 - Audio is meant to compliment the visuals and in-game elements on-screen and help immerse players into your game. Pay attention to visual and world elements as they could potentially be things you"d want to implement sound for.
 - Know when to enable or disable 3D sound; Is it background music? Is it background nature ambience? Is it emitting from an object inside your 3D world? Make sure you adjust your spatialization, attenuation and radius values accordingly.
@@ -248,7 +248,7 @@ You'll find that our music assets are broadly categorized by well-known music ge
 
 **Fantasy** - Epic and lush high fantasy music that work for all and any fantasy game scenarios.
 
-**Hip-Hop** - Music that bumps! There are many sub-genres of hip-hop here including trap, lofi, chill and more!
+**Hip-Hop** - Music that bumps! There are many sub-genres of hip-hop here including trap, lo-fi, chill and more!
 
 **Horror & Dark** - Music that will bring horror, fear and uneasiness to your games. Great for jump scares, horror scenes, disturbing atmospheres and dark mods.
 

@@ -45,7 +45,6 @@ Persistent Player Storage is available under the namespace called **Storage**. T
 * `Storage.GetPlayerData(Player)`
     * returns a table
     * is server-only
-
 * `Storage.SetPlayerData(Player, table)`
     * is server-only
 
@@ -81,9 +80,7 @@ To start, we are going to save a video game classic: a player's game score.
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
     1. In Core Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
-
     2. Name one of these `PlayerName`, and the other one `PlayerScore`.
-
     3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
 
     ![WorldText](../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}

@@ -32,7 +32,7 @@ The Terrain Generator tool creates a different landscapes, either from a premade
  {: .image-inline-text .image-background}
 3. Choose **Generate New Terrain** from the drop down menu.
 
-   ![Open Terrain Creator](../img/EnvironIntro/edits/TerrainTutorial/OpenTerrainCreator.png){: .center}
+![Open Terrain Creator](../img/EnvironIntro/edits/TerrainTutorial/OpenTerrainCreator.png){: .center}
 
 ### Generate Terrain
 
@@ -43,14 +43,14 @@ There are different options for types of terrain that can be generated in Core. 
 3. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
  {: .image-inline-text .image-background}
 
-   ![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center}
 
 ### Rearrange the Scene
 
 You may have fallen through your terrain, and you may see an unusually flat area where Default Floor still exists in the scene.
 
 1. Find the **Spawn Point** in the **Hierarchy** and move it too a new spot, above the terrain and just outside of the default floor.
-2. Right click on **Default Floor** in the **Heirarchy** and select **Delete**.
+2. Right click on **Default Floor** in the **Hierarchy** and select **Delete**.
 3. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) **Terrain** button again to see that it now lists the **Terrain(Rolling Hills)** as **Primary**
 
 !!! note "Tip: Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one will have collision."
@@ -64,12 +64,12 @@ Any material can be added to a terrain. However, materials that begin with "Terr
 3. Search the **Core Content** tab for  `terrain`.
 4. Find **Terrain - Desert** and drag it onto the terrain.
 
-    <div class="mt-video">
-        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
-            <source src="/img/EnvironIntro/image32.webm" type="video/webm" />
-            <source src="/img/EnvironIntro/image32.mp4" type="video/mp4" />
-        </video>
-    </div>
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+        <source src="/img/EnvironIntro/image32.webm" type="video/webm" />
+        <source src="/img/EnvironIntro/image32.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Open the Sculpt Menu
 
@@ -91,14 +91,14 @@ The sculpting menu contains tools to change the landscape according to the inten
 3. Lower the **Strength** value in the **General** subcategory to ``0.1``
 4. Click and drag on the terrain to make a crater deep enough to fill with water.
 
-   ![ArtIntro](../img/EnvironIntro/image28.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image28.png "Art Screenshot"){: .center}
 
 ### Smooth the Terrain
 
 1. Change the sculpting tool from ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** to ![Terrain Smooth](../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text style="width:2em; background:#15181e"} **Smooth**.
 2. Click and drag the crater to give it a more natural appearance.
 
-   ![ArtIntro](../img/EnvironIntro/image7.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image7.png "Art Screenshot"){: .center}
 
 ## Water and Swimming
 
@@ -107,14 +107,14 @@ The sculpting menu contains tools to change the landscape according to the inten
 1. Search for a cube in the **Core Content** window.
 2. Drag the cube into the scene, in the middle of your crater.
 
-   ![ArtIntro](../img/EnvironIntro/image29.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image29.png "Art Screenshot"){: .center}
 
 ### Resize and Reposition the Cube
 
 1. Resize the cube until it fills your crater.
 2. Move the cube down until it looks like a pool of water inside the sand dunes.
 
-   ![ArtIntro](../img/EnvironIntro/image14.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image14.png "Art Screenshot"){: .center}
 
 ### Add a Material
 
@@ -122,7 +122,7 @@ The sculpting menu contains tools to change the landscape according to the inten
 2. Choose a water material, and drag it onto the cube.
 3. Preview the scene to see the water in person.
 
-   ![ArtIntro](../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image18.png "Art Screenshot"){: .center}
 
 !!! note
     Double-click **Cube** in the Hierarchy to rename it to **Water** to make it easier to navigate your project in the future.
@@ -131,7 +131,7 @@ The sculpting menu contains tools to change the landscape according to the inten
 
 The water cube now has the appearance of water, but a player will walk over it, rather than into it, because the cube has collision by default.
 
-   ![Force Off Collision](../img/EnvironIntro/edits/TerrainTutorial/ForceOffCollision.png){: .center}
+![Force Off Collision](../img/EnvironIntro/edits/TerrainTutorial/ForceOffCollision.png){: .center}
 
 1. Select the water cube.
 2. On the **Properties** window, and find the **Scene** section.
@@ -145,7 +145,7 @@ Now you can pass through the water, but once inside it looks like the volume dis
 1. Find the **Underwater Post Process** volume under the **Post Processing** section of **Core Content**.
 2. Drag it into your scene on top of your water.
 
-   ![ArtIntro](../img/EnvironIntro/image13.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image13.png "Art Screenshot"){: .center}
 
 ### Resize the Underwater Post Process
 
@@ -158,7 +158,7 @@ Core makes it easy to copy properties from one object to another. We can use thi
 5. Check **Position**, **Rotation** and **Scale** in the menu that pops up and press **Paste Selected Parameter Values**
 6. Start a preview to test out swimming. The Underwater Post Process should now be in the same place and the same size as the water object.
 
-   ![ArtIntro](../img/EnvironIntro/image15.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image15.png "Art Screenshot"){: .center}
 
 ## Generating Foliage
 
@@ -171,7 +171,7 @@ To generate objects, you need both an object to generate, and another object in 
 1. Select the water object and press <kbd>Ctrl</kbd> + <kbd>W</kbd> to duplicate it.
 2. Drag the duplicate cube up above the terrain.
 
-   ![ArtIntro](../img/EnvironIntro/image43.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image43.png "Art Screenshot"){: .center}
 
 ### Select the Objects
 
@@ -194,9 +194,7 @@ To use the Object Generator, you need to select both the object to generate and 
 3. Check the **Randomize Yaw** box.
     - This will place the grasses at different angles relative to the ground
 4. Check the **Use Random Color** Box, and change **Min G** to ``0.5`` and **Max B** to ``0``.
-
-      - This will randomize the grasses color between yellow (100% red with 100% green) and 100% green with no red.
-
+    - This will randomize the grasses color between yellow (100% red with 100% green) and 100% green with no red.
 5. Check the **Only Spawn On Terrain** box to put grass on the sand, but not the water object.
 6. Change the **Positional Randomness** value to ``3``
 7. Click **Spawn Selected Asset Under Selected Hierarchy Object**.
