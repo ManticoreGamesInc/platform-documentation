@@ -32,7 +32,7 @@ Some objects have multiple material slots, such as the **Cube - Arcade 04** obje
 
 The easiest way to change materials is to drag the material onto an object in the **Main Viewport**. You can also drag the material into a specific slot in the **Properties** window.
 
-   ![Materials](../img/Materials/image18.png "Materials Screenshot"){: .center}
+![Materials](../img/Materials/image18.png "Materials Screenshot"){: .center}
 
 ### Change Materials Using the Properties Window
 
@@ -42,7 +42,7 @@ The **Material Picker** allows you to select a new material for an object from a
 2. Double click the image of the material to open the **Material Picker**.
 3. Select a material to be applied to the object.
 
-   ![Materials](../img/Materials/MaterialPicker.png "Materials Screenshot"){: .center}
+![Materials](../img/Materials/MaterialPicker.png "Materials Screenshot"){: .center}
 
 ### Change the Color of a Material
 
