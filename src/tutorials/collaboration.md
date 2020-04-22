@@ -50,9 +50,6 @@ Setting up source control can sound intimidating if you've never done it before-
 
 2. Create a New Project on GitHub. This is the same as "Create Repository" on GitHub, it just depends on which page you are on--both do the same thing.
 
-    !!! warning "Core's NDA"
-        During Core's closed alpha, you must set the project to **Private** to maintain the Non-Disclosure Agreement.
-
 3. Change any settings you might want; if you're starting from scratch you'll want to check the **"Initialize this repository with a README"** button.
 
     Click "Create Repository" to finalize project creation.
