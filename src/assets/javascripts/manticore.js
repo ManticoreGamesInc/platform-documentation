@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", event => {
       }
     })
 
-    document.title = currentTitle
+    document.title = `${currentTitle} | Core Creator Hub`
   })
 })
 
