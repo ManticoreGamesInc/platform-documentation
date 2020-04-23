@@ -85,6 +85,7 @@ Core projects also include multiplayer networking by default. Because this is a 
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
     {: .image-inline-text .image-background}
+
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
     {: .image-inline-text .image-background}
 
@@ -135,7 +136,7 @@ You can move, turn, and resize objects.
 
 1. Click on the bush and press <kbd>G</kbd> to move it.
 2. Use the arrows to move it into a good hiding place for a player.
-3. Press <kbd>W</kbd> to change the size of the bush.
+3. Press <kbd>R</kbd> to change the size of the bush.
 4. Click and drag the white box at the center of the bush to resize it proportionately.
 5. Move, rotate, and scale the rest of the objects to enhance the scene.
 
@@ -147,7 +148,7 @@ By default, Core objects have collision, so players can't just walk into bushes 
 {: .image-inline-text .image-background}
 2. Look at your props from a player perspective. You should be able to walk up to a bush, but collide with it once you touch it.
 3. Click on the bush to select it, and open the **Properties** window.
-4. Find the **Collision** property and change it to **Force Off**
+4. Find the **Collision** property and change it to **Force Off**.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -181,7 +182,7 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
 
 You can apply a material to multiple objects by selecting them.
 
-- Use <kbd>Shift</kbd> + left click to select more objects.
+- Use <kbd>Shift</kbd> + <kbd>Left Click</kbd> to select more objects.
 - Left click and drag to select objects in an area.
 
 <div class="mt-video">
@@ -191,7 +192,7 @@ You can apply a material to multiple objects by selecting them.
     </video>
 </div>
 
-1. In the **Heirarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
+1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
 2. Press <kbd>Enter</kbd> to select everything from the search
 3. Choose a material, and drag it onto one of the walls.
 
@@ -202,11 +203,11 @@ You can apply a material to multiple objects by selecting them.
 
 You can continue using these techniques to complete the appearance of your Deathmatch arena. Try searching for each of these labels to apply materials in groups:
 
-- ``stairs``
-- ``window insert``
-- ``floor``
+- `stairs`
+- `window insert`
+- `floor`
 
-    ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center}
+![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center}
 
 !!! info
     You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
@@ -221,25 +222,25 @@ In this final section, you will find different ways to change the gameplay itsel
 
 1. Find **Player Settings** by searching for it in the **Hierarchy**.
 2. Open the **Properties** window to see all the settings that can be changed for each player
-3. In the **Jump** section, change **Jump Max Count** to ``2``,
-4. Press ![Play](../img/EditorManual/icons/Icon_Play.png)  to test out double-jumping with <kbd>Space</kbd>.
+3. In the **Jump** section, change **Jump Max Count** to `2`,
+4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with <kbd>Space</kbd>.
 {: .image-inline-text .image-background}
 
-    ![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center}
+![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center}
 
 ### Change The Round Kill Limit
 
-In the top left corner of the screen in game, you can see that you win the Deathmatch by killing 10 oponents. This can be changed in **Game Settings**.
+In the top left corner of the screen in game, you can see that you win the Deathmatch by killing 10 opponents. This can be changed in **Game Settings**.
 
 ![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center}
 
 1. Search for **Round Kill Limit** in the **Hierarchy**.
 2. Open the **Properties** window.
-3. Find the **KillLimit** property and change it to ``2``.
-4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an oponent twice.
+3. Find the **KillLimit** property and change it to `2`.
+4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an opponent twice.
 {: .image-inline-text .image-background}
 
-    ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
+![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
 
 ### Change the UI Instructions
 
@@ -253,7 +254,7 @@ Although the game now ends after two kills, the instructions shown on the screen
 
 ### Move the Player Start
 
-Let's move the "Player Start" where players spawn to be further apart. Press `V` to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+Let's move the "Player Start" where players spawn to be further apart. Press <kbd>V</kbd> to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
 
 1. Search for **Spawn Point** in the **Hierarchy**.
 2. Move the spawn points around the map the same way you would any object.
@@ -261,7 +262,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press `V`
 ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center}
 
 !!! tip
-    Press  `0` to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
+    Press <kbd>0</kbd> to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
 
 ## Publishing a Game
 

@@ -50,9 +50,6 @@ Setting up source control can sound intimidating if you've never done it before-
 
 2. Create a New Project on GitHub. This is the same as "Create Repository" on GitHub, it just depends on which page you are on--both do the same thing.
 
-    !!! warning "Core's NDA"
-        During Core's closed alpha, you must set the project to **Private** to maintain the Non-Disclosure Agreement.
-
 3. Change any settings you might want; if you're starting from scratch you'll want to check the **"Initialize this repository with a README"** button.
 
     Click "Create Repository" to finalize project creation.
@@ -77,7 +74,7 @@ For this reason, here are the recommended steps below:
 
     `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\data\`
 
-    *Note: "User" will be your Windows username, and you can name the last folder, called "data" in this case, whatever you want.*
+    *Note:* "User" will be your Windows username, and you can name the last folder, called "data" in this case, whatever you want.
 
     !!! info "Why the extra folder?"
         Usually, all game files are directly in the folder with the project's name. However, due to the autosave feature in Core, a game with many saved revisions may experience a ~5-10 second delay to start up preview mode, as a large number of files are copied into the `.git` folder from the autosave copies. We can avoid this by nesting the folders differently!
@@ -121,9 +118,6 @@ Here's an example of a project Hierarchy with that basic split of Art / Gameplay
 ![Core Project Hierarchy](../img/EditorManual/gitProjectHierarchy.png "Organization keeps your head clear!"){: .center}
 
 * **Even if you're not using GitHub Desktop**, this whole process works the same way. The only catch you'll want to keep in mind is the use of a `data` folder to nest your game files one level deeper.
-
 * **Merge conflicts will only happen when two users edit the same file.** So, as long as everything is split between different folders and these objects aren't referencing objects outside of their own folder in the project Hierarchy, you are good!
-
 * If you want, **you can create a new project/repository directly within GitHub Desktop**, rather than on the GitHub website.
-
 * **This tutorial covers everything you need to get started!** There are no other downloads necessary. You can manage your GitHub project using GitHub Desktop, or using the website [GitHub.com](https://github.com/) itself.

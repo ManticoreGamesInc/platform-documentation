@@ -41,7 +41,7 @@ Yaw is an object's rotation along the Y-axis. Checking **Randomize Yaw** ensures
 
 ### Randomize Color
 
-If you would like to randomize the color of your spawned objects check **Use Random Color**. Most objects in real life aren't the same color, however setting the correct min and max RGB values can be tricky… it can be hard to understand if you aren't already familiar with how RGB values are assigned. Unfortunately we won't be covering it in this tutorial!
+If you would like to randomize the color of your spawned objects check **Use Random Color**. Most objects in real life aren't the same color, however setting the correct min and max RGB values can be tricky; it can be hard to understand if you aren't already familiar with how RGB values are assigned. Unfortunately we won't be covering it in this tutorial!
 
 ![ArtIntro1](../img/EnvironIntro/image9.png "Art Screenshot1")
 ![ArtIntro2](../img/EnvironIntro/image44.png "Art Screenshot2")

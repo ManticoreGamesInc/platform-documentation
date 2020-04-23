@@ -16,7 +16,7 @@ Our team at Manticore has built a huge level map that you can explore at any tim
 
 To get a tour of what is possible with visual effects in Core, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
 
-**[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
+- **[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
 
 While the map explains many useful things about how to use all the visual effects, this page includes tutorials on how to make wicked cool VFX in Core using Lua.
 
@@ -128,7 +128,7 @@ Several post processing effects have both a regular version and an **advanced** 
 
 The best way to test post process effects is on an already decorated map with some variety in it. For this tutorial, I grabbed some templates from Community Content. Almost all (if not truly all) of these templates were made by students at Cogswell College during Global Game Jam 2020.
 
-*Those creator usernames are JaineRoss, mjcortes782, trimun, and TSMVayne.*
+!!! info Those creator usernames are: JaineRoss, mjcortes782, trimun, and TSMVayne.
 
 ![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
 
@@ -173,7 +173,7 @@ The best way to test post process effects is on an already decorated map with so
 
 #### Ambient Occlusion Post Process
 
-**Ambient Occlusion** (often abbreviated to AO) can be generally reffered to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virutally, we use ambient occlusion!
+**Ambient Occlusion** (often abbreviated to AO) can be generally referred to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virtually, we use ambient occlusion!
 
 I'm going to start visually from scratch with this one, so I am back to the first image:
 
@@ -183,7 +183,7 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
     ![Post Process Effects](../img/VFXtutorial/ppe_AO1.png "The default of AO is subtle but clear."){: .center}
 
-    The main noticable part of the change in this image is underneath the roof close to the camera. It becomes darker, and the shadows of the beams on the ceiling are more dramatic.
+    The main noticeable part of the change in this image is underneath the roof close to the camera. It becomes darker, and the shadows of the beams on the ceiling are more dramatic.
 
 2. In the Properties window, make sure to turn on the **Advanced Settings** button to have access to everything.
 
@@ -404,7 +404,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this!
 
-    ![The Famtasy Loot Bag](../img/VFXtutorial/vfx4_FantasyLootBag.png){: .center}
+    ![The Fantasy Loot Bag](../img/VFXtutorial/vfx4_FantasyLootBag.png){: .center}
 
 2. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
 
@@ -525,10 +525,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
 
     1. Scroll down to the section called "Smart" and change the **Radius** to 7.5 to be wider.
     2. Increase the **Spiral Speed** to 8.
-    3. Set the **Ring Life** to 1.
-
-        So we've got a neat visual effect now!
-
+    3. Set the **Ring Life** to 1. So we've got a neat visual effect now!
     4. Now we need some sound effects: search for `Meta Fantasy Treasure 01 SFX` in Core Content and the `Object Fantasy Treasure Chest Open 01 SFX` and drag each one into the `OpenedFX` folder.
     5. Select both of these effects in the Hierarchy, and turn **Autoplay** on for both in the Properties window.
     6. Give each one a **Life Span** of 2.

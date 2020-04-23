@@ -12,9 +12,9 @@ tags:
 
 While both weapons and abilities can be utilized without having to code, if you *do* use scripting, so much more is possible.
 
-With the power of Lua scripting, abiliites can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
+With the power of Lua scripting, abilities can cause different chains of events to happen, as well as trigger visual effects and sound effects to really make something awesome.
 
-In the first tutorials for abilities and weapons, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutuorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
+In the first tutorials for abilities and weapons, we went over the quickest possible way to get something cool happening at the press of a button. In this more advanced tutorial, we are going to utilize the Lua scripting language to make something much more powerful and fun.
 
 If you're fresh and new to any kind of programming, it would be good to visit the **[Intro to Lua tutorial](lua_basics_lightbulb.md)**. This will go over some key words and practices you would want to know.
 
@@ -52,14 +52,11 @@ The 4 different phases of an ability are:
 
 * **Cast**
     * The wind-up time--this is the prep phase before the ability actually happens.
-
 * **Execute**
     * The actual ability.
     * Whatever the ability is going to do, it happens at this moment.
-
 * **Recovery**
     * Additional ability actions that aren’t part of the main action.
-
 * **Cooldown**
     * The rest period after an ability is finished being cast, and cannot be cast again.
 
@@ -133,7 +130,7 @@ Since we're making a magic staff and not a typical gun, we get to change the ani
 
 1. Select the Fire Staff `weapon`. In the Weapon section of the Properties window, change the **Animation Stance** to "2hand_staff_stance" so that it looks better when you're walking around holding the staff.
 2. On the AttackAbility that already exists on the weapon, change the **Animation** in the Properties window to "2hand_staff_magic_bolt" as well.
-3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvinated.
+3. On the ReloadAbility, change the **Animation** to "2hand_staff_magic_up" to make it look like you're calling upon the magic of the fire gods to be rejuvenated.
 
 ### Explosive Visual Effects
 
@@ -518,7 +515,7 @@ So let's get started on the server script!
 
 1. Create a new script and call it "*WeaponAimServer*".
 
-2. In your project Hierarchy, nagivate to the Fire Staff `weapon` object. Right click this object, and hover over "*Create Network Context*" to select "*New Server Context*".
+2. In your project Hierarchy, navigate to the Fire Staff `weapon` object. Right click this object, and hover over "*Create Network Context*" to select "*New Server Context*".
 
     Here is where we will keep our new script!
 
@@ -760,7 +757,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
 One way to really change gameplay and force players to explore a map and be more resourceful is to give the weapon a limited ammo supply. Eventually, they'll have to go look for more.
 
-With this fire staff, we could use something thematic and firey like *ember* as an ammo pickup.
+With this fire staff, we could use something thematic and fiery like *ember* as an ammo pickup.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -798,17 +795,12 @@ The main thing to change for our ammo supply is to change the properties of the 
 4. That settles the art portion--now for the script that will make the game magic happen!
 
     1. Within your project content, create a new script and call it "EmberPickupScript".
-    2. Drag this script onto the `trigger` we made in your project Hierarchy.
 
+    2. Drag this script onto the `trigger` we made in your project Hierarchy.
         ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy6.png){: .center}
 
     3. Open the script. The first thing we'll need is a reference to the trigger itself, so that we can access the events that it comes with.
-
-        This line is very quick and simple since the script is a child of the trigger:
-
-        ```lua
-        local trigger = script.parent
-        ```
+        This line is very quick and simple since the script is a child of the trigger: `local trigger = script.parent`
 
     4. Now we need a function that determines what to do when the player touches the trigger. We want it to add 1 unit of ammo to the player's resources, and then we want to destroy the ammo object so that they cannot keep picking up the same one.
 

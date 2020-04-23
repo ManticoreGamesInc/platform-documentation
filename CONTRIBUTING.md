@@ -20,9 +20,7 @@ First, make sure that you have:
 - [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup)
 - [Python](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l)
 - [Node.js](https://nodejs.org/en/download/) >= 12.0.0
-- A [GitHub](https://github.com) account, use your Manticore email if your are an employee.
 - [Git](https://git-scm.com/downloads)
-
     - The CLI Method:
         - Download [Git](https://git-scm.com/downloads).
         - In the **Select Components** window, leave all default options checked and check any other additional components you want installed.
@@ -32,7 +30,6 @@ First, make sure that you have:
         - In **Configuring the line ending conversions** use **Checkout as-is, commit Unix-style endings**.
         - In **Configuring the terminal emulator** use **Use Windows' default console window**.
         - In **Configuring extra options**, check all three boxes.
-
     - The GUI Method:
         - Download and install [Fork](https://git-fork.com/).
 
@@ -45,7 +42,7 @@ First, make sure that you have:
     git clone https://github.com/ManticoreGamesInc/platform-documentation
     cd platform-documentation
     git submodule update --init --recursive --depth=1
-    git config pull.rebase true # We use rebases instead of merges
+    git config pull.rebase true # We use rebase instead of merge
     ```
 
     - When prompted by a popup, sign in with your GitHub account.

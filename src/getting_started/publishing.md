@@ -32,7 +32,7 @@ Good game information is essential to helping players find your game and underst
    - You can take snapshots in-editor with the camera button.
    - You can also select an image file from your directory via the folder button.
 
-    ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center}
+![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center}
 
 !!! info
     Checking the **Open for Editing** box will allow other Core Creators to use a copy of your game as a starting point to make their own.
