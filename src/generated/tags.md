@@ -43,6 +43,8 @@ title: Tags
 
 - [Template Reference](template_reference.md)
 
+- [Terrain Reference](terrain_reference.md)
+
 - [UI Reference](ui_reference.md)
 
 

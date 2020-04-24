@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator. This tutorial will focus on making a desert landscape with a hidden green oasis, but can be customize to build any natural scene with an area where players swim.
+Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator. This tutorial will focus on making a landscape with a path and river, but can be customize to build any natural environment.
 
 - **Completion Time:** 20 minutes
 - **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
@@ -39,8 +39,9 @@ The Terrain Generator tool creates a different landscapes, either from a premade
 There are different options for types of terrain that can be generated in Core. You can click any of the terrain types to see a description of what it will generate.
 
 1. Select **Rolling Hills**.
-2. Click **Generate**.
-3. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
+2. Change the size to ``256 x 256`` voxels and ``0.50`` meters.
+3. Click **Generate**.
+4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
  {: .image-inline-text .image-background}
 
 ![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center loading="lazy" }
@@ -49,20 +50,21 @@ There are different options for types of terrain that can be generated in Core. 
 
 You may have fallen through your terrain, and you may see an unusually flat area where Default Floor still exists in the scene.
 
-1. Find the **Spawn Point** in the **Hierarchy** and move it too a new spot, above the terrain and just outside of the default floor.
+1. Find the **Spawn Point** in the **Hierarchy** and move it to a new spot, above the terrain and just outside of the default floor.
 2. Right click on **Default Floor** in the **Hierarchy** and select **Delete**.
 3. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) **Terrain** button again to see that it now lists the **Terrain(Rolling Hills)** as **Primary**
 
-!!! note "Tip: Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one will have collision."
+!!! note
+    Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one that players can actually walk on.
 
-### Apply Materials
+### Apply a Material
 
-Any material can be added to a terrain. However, materials that begin with "Terrain" are designed to be used for terrain and will have more variation in how they are applied.
+Any material can be added to a terrain. However, materials that begin with "Terrain" are designed to be used for terrain and will apply different textures to the steeper part of the terrain.
 
 1. Open the **Materials** tab of **Core Content**.
 2. Test out different materials by dragging them onto the terrain.
 3. Search the **Core Content** tab for  `terrain`.
-4. Find **Terrain - Desert** and drag it onto the terrain.
+4. Find **Terrain - Grass** and drag it onto the terrain.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -75,28 +77,30 @@ Any material can be added to a terrain. However, materials that begin with "Terr
 
 The shape of terrain can be changed using sculpting tools in the **Properties** menu.
 
-1. Click on the terrain, either in the Main Viewport or the Hierarchy.
+1. Select the terrain in the **Hierarchy**.
 2. Open the **Properties** window.
-3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text style="width:2em; background:#15181e"} **Sculpt** tab.
+3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text style="width:2em; background:#15181e"} icon to open the **Sculpt** menu..
 
-### Sculpt the Terrain
+   ![Sculpt Tool Menu](../img/EnvironIntro/edits/TerrainTutorial/SculptToolSetup.png){: .center}
 
-The sculpting menu contains tools to change the landscape according to the intended style.
+### Create a Flat Area
 
-   ![Sculpt Tool Menu](../img/EnvironIntro/edits/TerrainTutorial/SculptToolSetup.png){: .center loading="lazy" }
+1. In the **Tool** menu, select the ![Level](../img/EditorManual/icons/Icon_TerrainLevel.png){: .image-inline-text style="width:2em; background:#15181e"} **Level** tool.
 
-1. In the **Tool** menu, select the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** tool.
+### Carve out a Pond and Stream
+
+1. In the **Tool** menu, select the ![Surface](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** tool.
 2. Change the mode from ![Additive](../img/EditorManual/icons/Icon_TerrainPull.png){: .image-inline-text style="width:2em; background:#15181e"} **Additive** to ![Destructive](../img/EditorManual/icons/Icon_TerrainPush.png){: .image-inline-text style="width:2em; background:#15181e"} **Destructive**.
 {: .image-inline-text}
 3. Lower the **Strength** value in the **General** subcategory to ``0.1``
-4. Click and drag on the terrain to make a crater deep enough to fill with water.
+4. Click and drag on the terrain to carve bowl shape for a river, and
 
 ![ArtIntro](../img/EnvironIntro/image28.png "Art Screenshot"){: .center loading="lazy" }
 
 ### Smooth the Terrain
 
 1. Change the sculpting tool from ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** to ![Terrain Smooth](../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text style="width:2em; background:#15181e"} **Smooth**.
-2. Click and drag the crater to give it a more natural appearance.
+2. Click and drag the pond to give it a more natural appearance.
 
 ![ArtIntro](../img/EnvironIntro/image7.png "Art Screenshot"){: .center loading="lazy" }
 
@@ -160,7 +164,7 @@ Core makes it easy to copy properties from one object to another. We can use thi
 
 ![ArtIntro](../img/EnvironIntro/image15.png "Art Screenshot"){: .center loading="lazy" }
 
-## Generating Foliage
+## Generating Objects
 
 The Object Generator is a way to take any object and let Core place several copies of on the terrain, according to customizable settings.
 
