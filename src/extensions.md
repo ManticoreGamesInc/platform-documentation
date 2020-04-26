@@ -68,4 +68,4 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 In addition, we provide a `.luacheckrc` settings file with all Core API whitelisted so they don't show up as undeclared global variables:
 
 * :fontawesome-solid-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
-* :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `Core\Prod\Platform\Saved\Maps` folder.
+* :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `Documents\My Games\Core\Saved\Maps` folder.
