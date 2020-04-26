@@ -2,6 +2,8 @@
 nav:
   - News:
       - News: https://forums.coregames.com/news
+  - Core:
+      - Core: https://www.coregames.com
   - Documentation:
       - Home: index.md
       - Getting Started:
