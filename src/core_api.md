@@ -510,8 +510,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `GetVisibility()` | bool | Returns whether or not the Player is hidden. | None |
 | `EnableRagdoll([string socketName, Number weight])` | None | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](api/animations.md#socket-names) for the list of possible values. | Server-Only |
 | `Respawn([Vector, Rotation])` | None | Resurrects a dead Player based on respawn settings in the game (default in-place). Optional position and rotation parameters can be used to specify a location. | Server-Only |
-| `GetViewWorldPosition()` | Vector3 | Get position of the Player's camera view. | Client-Only |
-| `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | Client-Only |
+| `GetViewWorldPosition()` | Vector3 | Get position of the Player's camera view. | None |
+| `GetViewWorldRotation()` | Rotation | Get rotation of the Player's camera view. | None |
 | `GetLookWorldRotation()` | Rotation | Get the rotation for the direction the Player is facing. | None |
 | `SetLookWorldRotation(Rotation)` | None | Set the rotation for the direction the Player is facing. | Client-Only |
 | `ClearResources()` | None | Removes all resources from a player. | Server-Only |
@@ -830,11 +830,12 @@ StaticMesh is a CoreObject representing a static mesh.
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isSimulatingDebrisPhysics` | bool | If true, physics will be enabled for the mesh. | Read-Write, Dynamic |
-| `team` | Integer | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write, Dynamic |
 | `isTeamColorUsed` | bool | If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. Requires a material that supports the color property. | Read-Write, Dynamic |
 | `isTeamCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic |
 | `isEnemyCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic |
 | `isCameraCollisionEnabled` | bool | If false, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write, Dynamic |
+| `meshAssetId` | string | The ID of the mesh asset used by this mesh. | Read-Only |
+| `team` | Integer | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write, Dynamic |
 
 ### Task
 
