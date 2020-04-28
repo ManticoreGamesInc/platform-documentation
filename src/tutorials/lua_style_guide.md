@@ -6,12 +6,6 @@ tags:
     - Tutorial
 ---
 
-# Lua Style Guide
-
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present. Deprecated API needs to be replaced
-
 ## Overview
 
 This document aims to provide a general overview of what we at Manticore see as sensible defaults for writing code in Lua.
@@ -22,6 +16,7 @@ This document aims to provide a general overview of what we at Manticore see as 
 
 ```lua
 local myImport = require("assetID")
+
 myImport.Foo()
 ```
 
@@ -29,6 +24,7 @@ Current syntax:
 
 ```lua
 local myImport = World.FindObjectByID("assetID")
+
 myImport.Foo()
 ```
 
@@ -72,7 +68,6 @@ local DogClass = require('DogClass')
 
 -- Functions are PascalCase
 local function GiveDog(player)
-
     -- Local variables use camelCase, classes use PascalCase
     local doggo = DogClass.New()
 
@@ -113,6 +108,7 @@ trigger.beginOverlapEvent:Connect(HandleOverlap)
 -- Spawn player 30 units higher than normal, and print out new position
 local function HandlePlayerJoined(player)
     local x, y, z = player:GetPosition()
+
     player:SetPosition(Vector3.New(x, y + 30, z))
     UI.PrintToScreen("New Position: " .. x .. y .. z)
 end
@@ -123,10 +119,10 @@ World.playerJoinedEvent:Connect(HandlePlayerJoined)
 ```lua
 -- Handle picking up a coin
 local function HandleOverlap(trigger, object)
- if object ~= nil and object:IsA("Player") then
+    if object ~= nil and object:IsA("Player") then
         object:AddResource("Manticoin", 1)
         trigger.parent:Destroy()
- end
+    end
 end
 
 script.parent.beginOverlapEvent:Connect(HandleOverlap)
@@ -138,9 +134,11 @@ local DEBUG_PRINT = false
 
 local function IncreaseAge(currentAge)
     currentAge = currentAge + 1
+
     if DEBUG_PRINT then
         print("Current age updated to" .. currentAge)
     end
+
     return currentAge
 end
 
@@ -153,6 +151,7 @@ local function Main()
         if table.contains(furColors, "grey") then
             currentAge = IncreaseAge(cat.age)
         end
+
         if DEBUG_PRINT then
             local meowText = cat:Meow()
             print(meowText)
@@ -240,6 +239,7 @@ Both are perfectly valid, but following convention allows for the usage call to 
 -- Good
 table.sort(stuff, function(a, b)
     local sum = a + b
+
     return math.abs(sum) > 3
 end)
 
