@@ -23,3 +23,6 @@ To get started, you will need an account.
 2. Click **Download Core** to dowload the Core installer.
 3. Once the download finishes, open the `CoreLauncherInstall.exe` file  to install the Core Launcher.
 4. Click the **Core Launcher** icon from your Desktop to update to the latest version of Core.
+
+!!! note
+    If you're having problems downloading or installing Core, please contact **[Customer Support!](https://support.coregames.com)**
