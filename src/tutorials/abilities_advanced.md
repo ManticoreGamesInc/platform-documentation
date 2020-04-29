@@ -710,20 +710,16 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
                 local weaponOwner = impactData.weaponOwner
                 local numberOfHits = #impactData:GetHitResults()
 
-                -- Assign a headshot damage if projectile hit enemy's head
-                local damage = DAMAGE_AMOUNT
+                -- Assign additional headshot damage if projectile hit enemy's head
                 if impactData.isHeadshot then
-                    damage = DAMAGE_HEADSHOT
+                    local additionalDamageInfo = Damage.New(DAMAGE_HEADSHOT * numberOfHits)
+                    additionalDamageInfo.reason = DamageReason.COMBAT
+                    additionalDamageInfo.sourceAbility = impactData.sourceAbility
+                    additionalDamageInfo.sourcePlayer = weaponOwner
+
+                    -- Apply additionaldamage to the enemy player
+                    target:ApplyDamage(additionalDamageInfo)
                 end
-
-            -- Creating damage information
-            local newDamageInfo = Damage.New(damage * numberOfHits)
-            newDamageInfo.reason = DamageReason.COMBAT
-            newDamageInfo.sourceAbility = impactData.sourceAbility
-            newDamageInfo.sourcePlayer = weaponOwner
-
-            -- Apply damage to the enemy player
-            target:ApplyDamage(newDamageInfo)
             end
         end
         ```
