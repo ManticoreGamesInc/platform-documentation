@@ -53,10 +53,16 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 
 !!! note "Note for Visual Studio Code:"
     You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
+    To do this, open up the VS Code settings via <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, type "Open Settings (JSON)" and hit enter.
 
-    Example: `"Lua.workspace.library": {"C:\\Users\\Manti\\Documents\\My Games\\Core\\Saved\\Maps": true}`
+    Now add the following to the end:
 
-    Also we are going to set `Diagnostics: Enable` to `off` since we are going to use the luacheck integration that comes with VSCode-Lua.
+    ```json
+    "Lua.workspace.library": { "C:\\Users\\YOURUSERNAME\\Documents\\My Games\\Core\\Saved\\Maps": true },
+    "Lua.diagnostics.enable": false,
+    ```
+
+    We are setting Lua diagnostics to `false` since we are going to use the Luacheck integration that comes with VSCode-Lua.
 
 ### Installing a Linter
 
@@ -68,4 +74,4 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 In addition, we provide a `.luacheckrc` settings file with all Core API whitelisted so they don't show up as undeclared global variables:
 
 * :fontawesome-solid-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
-* :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `Documents\My Games\Core\Saved\Maps` folder.
+* :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `C:\\Users\YOURUSERNAME\Documents\My Games\Core\Saved\Maps` folder.
