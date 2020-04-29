@@ -8,10 +8,6 @@ tags:
 
 # Lua Primer
 
-!!! warning
-    Flagged for Review.
-    Incomplete or outdated information may be present.
-
 ## Overview
 
 Core uses **Lua**, a lightweight and flexible programming language to accomplish
@@ -425,8 +421,8 @@ end
 
 ## Modules
 
-Lua in Core does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slighty from vanilla Lua;
-Instead of giving it a script or file name, you give it the script ID, so you’ll want a custom parameter that’s an asset reference pointing at the script you want to `require()`.
+Lua in Core does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slightly from vanilla Lua;
+Instead of giving it a script or file name, you give it the script ID, so you'll want a custom parameter that's an asset reference pointing at the script you want to `require()`.
 
 If you're still really hungry for more info, more primers can be found here:
 
