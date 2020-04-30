@@ -282,7 +282,7 @@ function Tick()
     Task.Wait(1)
     local coinsLeft = #coinFolder:GetChildren()
     if coinsLeft == 0 then
-        World.FindObjectByName("Gameplay Settings"):SetNetworkedCustomProperty("gameOver", true)
+        World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", true)
     end
 end
 ```
@@ -291,7 +291,7 @@ Make sure it's in your project Hierarchy, and check it out!
 
 `World.FindObjectByName()` searches the Hierarchy for the object with the name passed in. The first time we use it to find `coinFolder`. We then look at how many coins are left by seeing how full the folder of coins in the hierarchy is (`:GetChildren()` returns the child elements, and `#` checks the length of the array, which is the number of objects the folder contains). Make sure to add the `CoinGameLogic` script to your project Hierarchy.
 
-When there are zero coins left, we find the Gameplay Settings and set the value of `gameOver` to `true`. This way, all the players' clients will be able to know when the game is finished.
+When there are zero coins left, we find the Game Settings and set the value of `gameOver` to `true`. This way, all the players' clients will be able to know when the game is finished.
 
 So far, nothing actually happens--but that's next!
 
@@ -399,7 +399,7 @@ We're almost there! Replace the current `Tick()` function you have with the foll
 
 ```lua
 -- Check the number of enabled coins
--- If the game should end, send a message through the Gameplay Settings
+-- If the game should end, send a message through the Game Settings
 -- Cue a new round to start
 -- Reset the coins and UI
 
