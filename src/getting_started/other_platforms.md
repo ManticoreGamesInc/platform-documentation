@@ -25,7 +25,7 @@ Everything used to create games in Core is made up of Core Content. While outsid
 
 #### Core Content
 
-Core Content includes everything from basic shape objects to game components like health bars and spawn points, all customizable. Objects are all downloaded with Core on install, which makes for virtually instanteneous loading of Core games and assets.
+Core Content includes everything from basic shape objects to game components like health bars and spawn points, all customizable. Objects are all downloaded with Core on install, which makes for virtually instantaneous loading of Core games and assets.
 
 #### Community Content
 
@@ -45,7 +45,7 @@ Core players have persistent avatars that are used across Core games with custom
 
 ### Networking
 
-Core allows straight-forward networking through the Heirarchy with **Server Context** and **Client Context** folders, and one-click networking of objects through the interface.
+Core allows straight-forward networking through the Hierarchy with **Server Context** and **Client Context** folders, and one-click networking of objects through the interface.
 
 It also includes free server hosting and analytics, automatically creating more server instances for player overflow.
 
