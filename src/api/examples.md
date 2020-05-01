@@ -58,7 +58,7 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 - Scripts can spawn objects inside a static context.
 - Scripts run on both the server and the client.
 - Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
-    - Send a single networked value to synchronize the server and clients random number generators.
+    - Send a single networked value to synchronize the server and client's random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
 !!! warning "Beware of desync issues!"
