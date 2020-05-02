@@ -138,7 +138,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ### `GetHitResult()`
 
-This example listens to the player's `damagedEvent` and takes a closer look at the [link]HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
+This example listens to the player's `damagedEvent` and takes a closer look at the [HitResult](core_api.md#hitresult) object. This object is most commonly generated as a result of shooting a player with a weapon.
 
 ```lua
 function OnPlayerDamaged(player, dmg)
@@ -157,7 +157,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ### `SetHitResult(HitResult)`
 
-This example spawns a custom [link]Projectile and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
+This example spawns a custom [Projectile](core_api.md#projectile) and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
 
 ```lua
 local projectileBodyTemplate = script:GetCustomProperty("ProjectileTemplate")
@@ -606,7 +606,7 @@ end
 Events.Connect("FlagCaptured", OnFlagCaptured)
 ```
 
-Events.BroadcastToPlayer(Player player, string eventName, [...])
+`Events.BroadcastToPlayer(Player player, string eventName, [...])`
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
@@ -1149,7 +1149,7 @@ While scripting, you can assign "resources" to players. These are just integer v
 
 You can manipulate these values via several methods on the player class, as well as registering for an event when they are changed.
 
-This sample registers a listener to ensure that values are in the [0-100] range, and demonstrates several examples of how to change the values.
+This sample registers a listener to ensure that values are in the (0-100) range, and demonstrates several examples of how to change the values.
 
 ```lua
 local resource2 = "CoinsCollected"
@@ -2304,5 +2304,5 @@ end)
 
 ## Needed
 
-* What isn't represented here? Let us know!
-* To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).
+- What isn't represented here? Let us know!
+- To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).
