@@ -126,8 +126,7 @@ Core is still in Open Alpha, which means there are a number of features that are
 |               | Package         | Template           |
 |               | Explorer        | Hierarchy          |
 |               | Scene           | Main Viewport      |
-|               | Test            | Multiplayer Preview Mode
-|
+|               | Test            | Multiplayer Preview Mode |
 |               | Market Place    | Community Content  |
 |               | Terrain Editor  | Terrain Generator and Terrain Properties |
 |               | Spawn Location  | Spawn Point        |
