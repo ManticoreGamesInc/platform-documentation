@@ -16,7 +16,7 @@ Properties, functions, and events inherited by [CoreObject](#coreobject) types a
 
 At a high level, Core Lua types can be divided into two groups: Data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Objects all inherit from a single base type: Object. Data structures have no common parent. However, all data structures and Objects share a common `type` property, which is a string indicating its type. The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc. All Core types also share an `IsA()` function. The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not. For example, `myObject:IsA("StaticMesh")`.
 
-A lowercase type denotates a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
 ### Ability
 
@@ -480,7 +480,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
 | `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |

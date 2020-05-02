@@ -58,7 +58,7 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 - Scripts can spawn objects inside a static context.
 - Scripts run on both the server and the client.
 - Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
-    - Send a single networked value to synchronize the server and clientsâ€™ random number generators.
+    - Send a single networked value to synchronize the server and client's random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
 !!! warning "Beware of desync issues!"
@@ -138,7 +138,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ### `GetHitResult()`
 
-This example listens to the player's `damagedEvent` and takes a closer look at the [link]HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
+This example listens to the player's `damagedEvent` and takes a closer look at the [HitResult](core_api.md#hitresult) object. This object is most commonly generated as a result of shooting a player with a weapon.
 
 ```lua
 function OnPlayerDamaged(player, dmg)
@@ -157,13 +157,13 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ### `SetHitResult(HitResult)`
 
-This example spawns a custom [link]Projectile and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
+This example spawns a custom [Projectile](core_api.md#projectile) and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
 
 ```lua
 local projectileBodyTemplate = script:GetCustomProperty("ProjectileTemplate")
 
 function OnProjectileImpact(projectile, other, hitResult)
-    if other:IsA("Player") then
+    if other and other:IsA("Player") then
         local dmg = Damage.New(25)
         dmg:SetHitResult(hitResult)
         dmg.reason = DamageReason.NPC
@@ -552,7 +552,7 @@ Events.Connect("GameStateChanged", OnStateChanged)
 
 ### `Events.ConnectForPlayer(string eventName, function eventListener, [...])` / `Events.BroadcastToServer(string eventName, [...])`
 
-This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client cand send input data to the server, in this case their cursor's position.
+This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client can't send input data to the server, in this case their cursor's position.
 
 ```lua
 -- Server script
@@ -583,7 +583,7 @@ This event connection allows the server to send a message to all players. In thi
 local teamHasFlag = 0
 
 function OnBeginOverlap(trigger, other)
-    if other:IsA("Player") and other.team ~= teamHasFlag then
+    if other and other:IsA("Player") and other.team ~= teamHasFlag then
         teamHasFlag = other.team
 
         local resultCode, errorMsg = Events.BroadcastToAllPlayers("FlagCaptured", other.name, other.team)
@@ -606,7 +606,7 @@ end
 Events.Connect("FlagCaptured", OnFlagCaptured)
 ```
 
-Events.BroadcastToPlayer(Player player, string eventName, [...])
+`Events.BroadcastToPlayer(Player player, string eventName, [...])`
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
@@ -984,7 +984,7 @@ Game.roundEndEvent:Connect(OnRoundEnd)
 
 ### `GetImpactPosition()` / `GetImpactNormal()`
 
-This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot rococheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
+This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot ricocheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
 
 ```lua
 function Tick()
@@ -1061,7 +1061,7 @@ local trigger = script.parent
 
 function OnBeginOverlap(theTrigger, player)
   -- The object's type must be checked because CoreObjects also overlap triggers
-    if player:IsA("Player") then
+    if player and player:IsA("Player") then
         player:TransferToGame("577d80/core-royale")
     end
 end
@@ -1149,7 +1149,7 @@ While scripting, you can assign "resources" to players. These are just integer v
 
 You can manipulate these values via several methods on the player class, as well as registering for an event when they are changed.
 
-This sample registeres a listener to ensure that values are in the [0-100] range, and demonstrates several examples of how to change the values.
+This sample registers a listener to ensure that values are in the (0-100) range, and demonstrates several examples of how to change the values.
 
 ```lua
 local resource2 = "CoinsCollected"
@@ -1238,8 +1238,8 @@ Vector3.New(1000, 0, 200), -- starting position
 Vector3.New(0, 0, -1))     -- direction
 
 myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
-    print("Hit object: " .. other.name .. " with an impact normal of " .. tostring(hitresult:GetImpactNormal()))
-    if other:IsA("Player") then
+    print("Hit object: " .. (other or { name = "nil" }).name .. " with an impact normal of " .. tostring(hitresult:GetImpactNormal()))
+    if other and other:IsA("Player") then
         print("We hit player " .. other.name .. "!!!")
     end
 end)
@@ -1283,7 +1283,7 @@ end)
 
 If a projectile has its `homingTarget` set, and then the target disappears for some reason, it will fire a `HomingFailedEvent`. This is usually because the CoreObject that the projectile is following was `Destroy`ed, or the player it was following logged out.
 
-In this example, we spawn an object, fire a projectile at it, (and set the `homingTarget` property) and then immedietely remove the target, leaving the projectile to feel dejected and confused.
+In this example, we spawn an object, fire a projectile at it, (and set the `homingTarget` property) and then immediately remove the target, leaving the projectile to feel dejected and confused.
 
 ```lua
 -- A template of a basic cube, attached to the script as a custom property:
@@ -1311,7 +1311,7 @@ objectInWorld:Destroy()
 
 ### `Projectile.Destroy`
 
-Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet.  When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immedietely removed from the game and no events are generated.
+Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet.  When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immediately removed from the game and no events are generated.
 
 We can test if an object still exists via the Object:IsValid() function. This can be useful because sometimes things other than program code can remove an object from our game.  (Existing for longer than the `lifeSpan`, or colliding with an object, in the case of projectiles.)
 
@@ -1362,7 +1362,7 @@ print("This projectile's speed is " .. tostring(myProjectile.speed))
 
 ### `Projectile.gravityScale` / `Projectile.bouncesRemaining` / `Projectile.bounciness` / `Projectile.shouldBounceOnPlayers`
 
-By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controled via the `bounciness` property.
+By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controlled via the `bounciness` property.
 
 `gravityScale` can be used to change the trajectory of projectiles in flight. Setting it to 0 means that the projectiles are unaffected by gravity, and will simply fly in a straight line until they hit something. Setting it to greater than zero means that the projectile will arc downwards like a normal thrown object. And setting it to less than zero means the projectile will arc upwards like a helium balloon.
 
@@ -1466,7 +1466,7 @@ local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
 function OnImpact(projectile, other, hitresult)
     --Count how many times each projectile hits the player:
-    if other:IsA("Player") then
+    if other and other:IsA("Player") then
         print("Urk! I've been shot!")
     end
 end
@@ -1488,7 +1488,7 @@ for i = -4, 4 do
     FireAtPlayer(Vector3.New(1000, 250 * i, 500), targetPlayer)
 end
 
--- Player will not be hit (and the hit messaage will never be printed) because
+-- Player will not be hit (and the hit message will never be printed) because
 -- the projectiles are all owned by the player.
 ```
 
@@ -1592,7 +1592,7 @@ Here is an example of a weapon script that tests if the projectiles came from an
 
 ```lua
 function OnImpact(projectile, other, hitresult)
-    if other:IsA("Player") then
+    if other and other:IsA("Player") then
         local damageScale = 1.0
         if projectile.sourceAbility ~= nil and projectile.sourceAbility.name == "FlameThrower" then
             local fireResistance = other:GetResource("fireResist")
@@ -1698,7 +1698,7 @@ local trigger = script.parent
 
 function OnBeginOverlap(theTrigger, player)
     -- The object's type must be checked because CoreObjects also overlap triggers, but we only call :Die() on players.
-    if player:IsA("Player") then
+    if player and player:IsA("Player") then
         player:Die()
     end
 end
@@ -1715,14 +1715,14 @@ local trigger = script.parent
 local activePlayers = {}
 
 function OnBeginOverlap(theTrigger, player)
-    if player:IsA("Player") then
+    if player and player:IsA("Player") then
         table.insert(activePlayers, player)
         print("The trigger contains " .. #activePlayers .. " players")
     end
 end
 
 function OnEndOverlap(theTrigger, player)
-    if (not player:IsA("Player")) then return end
+    if (not player or not player:IsA("Player")) then return end
 
     for i,p in ipairs(activePlayers) do
         if (p == player) then
@@ -1871,7 +1871,7 @@ local trigger = script.parent
 function OnBeginOverlap(theTrigger, player)
     local teamToReward = player.team
 
-    if (player:IsA("Player") and teamToReward ~= trigger.team) then
+    if (player and player:IsA("Player") and teamToReward ~= trigger.team) then
         Game.IncreaseTeamScore(teamToReward, 1)
         print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
     end
@@ -2005,7 +2005,7 @@ print(myVector3)
 
 ### `Vector3.size` / `Vector3.sizeSquared`
 
-A lot of vector math requires knowing the magntude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
+A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
 
 In Lua, you can get that value via the `size` property.  There is also the `sizeSquared` property, which is sometimes useful as a slightly faster option.  (Typically used in distance comparisons, since if `a.size < b.size`, then `a.sizeSquared < b.sizeSquared`.)
 
@@ -2058,13 +2058,13 @@ print(Vector3.UP) -- (0, 0, 1)
 
 ### `Vector3+Vector3` / `Vector3+Number` / `Vector3-Vector3` / `Vector3-Number` / `Vector3*Vector3` / `Vector3*Number` / `Number*Vector3` / `Vector3/Vector3` / `Vector3/Number` / `-Vector3`
 
-Most arithmatic operators will work on Vector3s in straightforward ways.
+Most arithmetic operators will work on Vector3s in straightforward ways.
 
 ```lua
 local a = Vector3.New(1, 2, 3)
 local b = Vector3.New(4, 5, 6)
 
--- Adding and subtracting vectors is the same as adding or subtracting each of their compoents.
+-- Adding and subtracting vectors is the same as adding or subtracting each of their components.
 print(a + b) -- (5, 7, 9)
 print(b - a) -- (3, 3, 3)
 
@@ -2089,9 +2089,9 @@ print(-a) -- -1, -2, -3
 
 ### `Vector3.GetNormalized()` / `Vector3(..)` / `Vector3(^)`
 
-A Normalized vector is a vector who's magnitude (size) is equal to 1.0.  Vector3 variables have a `GetNormalized()` function, which returns this vaule.  It is equivalent to dividing the vector by its own size, and is useful in linear algebra.
+A Normalized vector is a vector who's magnitude (size) is equal to 1.0.  Vector3 variables have a `GetNormalized()` function, which returns this value.  It is equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
-Dot Proudct and Cross Product are two other common linear algebra operations, which can be represented in Lua byh the `..` and `^` operators respectively.
+Dot Product and Cross Product are two other common linear algebra operations, which can be represented in Lua byh the `..` and `^` operators respectively.
 
 Here is a sample that uses these operations to determine if an object is aimed within 15 degrees of a player.
 
@@ -2304,5 +2304,5 @@ end)
 
 ## Needed
 
-* What isn't represented here? Let us know!
-* To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).
+- What isn't represented here? Let us know!
+- To add more, enter the details in the form [here](https://forms.gle/br8ZjanQGU2LkBvPA).

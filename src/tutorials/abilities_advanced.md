@@ -175,16 +175,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
         ```lua
         local EQUIPMENT = script:FindAncestorByType('Equipment')
-
-        if not EQUIPMENT:IsA('Equipment') then
-            error(script.name .. " should be part of Equipment object hierarchy.")
-        end
-
         local ABILITY = script:FindAncestorByType('Ability')
-
-        if not ABILITY:IsA('Ability') then
-            error(script.name .. " should be part of Ability object hierarchy.")
-        end
         ```
 
     2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
@@ -304,7 +295,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     2. To protect ourselves from putting this script in the wrong place, we can add an error check into the script. Beneath the above line, add:
 
         ```lua
-        if not WEAPON:IsA('Weapon') then
+        if not WEAPON then
             error(script.name .. " should be part of Weapon object hierarchy.")
         end
         ```
@@ -531,7 +522,7 @@ So let's get started on the server script!
 
         ```lua
         local WEAPON = script:FindAncestorByType('Weapon')
-        if not WEAPON:IsA('Weapon') then
+        if not WEAPON then
             error(script.name .. " should be part of Weapon object hierarchy.")
         end
         ```
@@ -682,7 +673,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
         ```lua
         local WEAPON = script:FindAncestorByType('Weapon')
-        if not WEAPON:IsA('Weapon') then
+        if not WEAPON then
             error(script.name .. " should be part of Weapon object hierarchy.")
         end
         ```
@@ -804,7 +795,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
         ```lua
         function OnBeginOverlap(whichTrigger, other)
-            if other:IsA("Player") then
+            if other then
                 print(whichTrigger.name .. ": Begin Trigger Overlap with " .. other.name)
                 other:AddResource("embers",1)
                 print("Player has "..tostring(other:GetResource("embers")).." embers.")
