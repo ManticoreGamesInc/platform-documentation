@@ -480,7 +480,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player takes damage. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
 | `diedEvent` | Event&lt;Player, Damage&gt; | Fired when the Player dies. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
-| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
+| `respawnedEvent` | Event&lt;Player&gt; | Fired when the Player respawns. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Server-Only |
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
