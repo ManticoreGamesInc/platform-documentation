@@ -93,7 +93,18 @@ For this reason, here are the recommended steps below:
 
     `C:\Users\User\Documents\My Games\Core\Saved\Maps\GameName\GitHubProject\data\`
 
-6. Return to GitHub Desktop and you'll see a bunch of changes show up--Git has recognized all the new files we dragged in from the `data` folder!
+6. Core automantically generates some files every time something changes and those don't need to be included in your repository as they would just cause merge conflicts all the time, so we're going to ignore them via `.gitignore`. While inside `data`, right click and create a new file, call it `.gitignore.` and hit enter. This will name the file `.gitignore`. Now open it and add the following:
+
+    ```none
+    #Exports folder is entirely generated
+    Exports/
+    #User settings are per user
+    UserSettings/
+    #Local storage for testing persistent storage
+    Storage/
+    ```
+
+7. Return to GitHub Desktop and you'll see a bunch of changes show up. Git has recognized all the new files we dragged in from the `data` folder!
 
     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CommitMessage.png "You can tell how seriously I take my project names."){: .center}
 
@@ -101,7 +112,7 @@ For this reason, here are the recommended steps below:
 
     ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center}
 
-7. Next time you make a change to the game within Core, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
+8. Next time you make a change to the game within Core, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
 
 Congrats on getting set up, and happy committing!
 
