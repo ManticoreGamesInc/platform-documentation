@@ -10,6 +10,8 @@ tags:
 
 There are a bunch of ways you can improve the experience of scripting in Core. If you are happy with the in-built editor, feel free to skip this section.
 
+If you want Core to use an external editor by default when you open a script file, press <kbd>ESC</kbd> to open up the options, then go to "**Settings**" and then change the path for "**External Script Editor**" to the one you prefer.
+
 ## External editors
 
 There are of course several good editors out there for Lua development, but we suggest one of the following since they have tons of good plugins available.
