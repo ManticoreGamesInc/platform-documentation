@@ -174,8 +174,8 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
         Type the below code to create variables for the `equipment` and the `ability`:
 
         ```lua
-        local EQUIPMENT = assert(script:FindAncestorByType('Equipment'), script.name .. " should be part of Equipment object hierarchy.")
-        local ABILITY = assert(script:FindAncestorByType('Ability'), script.name .. " should be part of Ability object hierarchy.")
+        local EQUIPMENT = script:FindAncestorByType('Equipment')
+        local ABILITY = script:FindAncestorByType('Ability')
         ```
 
     2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
@@ -795,7 +795,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
         ```lua
         function OnBeginOverlap(whichTrigger, other)
-            if other and other:IsA("Player") then
+            if other then
                 print(whichTrigger.name .. ": Begin Trigger Overlap with " .. other.name)
                 other:AddResource("embers",1)
                 print("Player has "..tostring(other:GetResource("embers")).." embers.")
