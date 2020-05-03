@@ -44,7 +44,7 @@ This tutorial is designed for creators who have never done *any* programming bef
 
 1. Open up the editor and click the "Create Script" button in the toolbar at the top left of the editor.
 
-    ![Create Script Button](../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center}
+    ![Create Script Button](../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center loading="lazy" }
 
     * Name it `TutorialScript` for now.
 
@@ -75,16 +75,16 @@ Now we have created a simple script! However, we need to actually add it to our 
 
 1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the top of the **Hierarchy** tab on the right side.
 
-    ![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .center}
+    ![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .center loading="lazy" }
 
-    ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .center}
+    ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .center loading="lazy" }
 
     !!! info
         If any of these windows are missing or you accidentally close one, you can open any window again from within the View menu at the very top left of the Core editor.
 
 2. Press **Play** at the top of the editor, and see your message appear on screen in the top left!
 
-    ![Play Button](../img/scripting/playButton.png "Click this to preview your game in single-player mode."){: .center}
+    ![Play Button](../img/scripting/playButton.png "Click this to preview your game in single-player mode."){: .center loading="lazy" }
 
 ### Hello World Breakdown
 
@@ -150,7 +150,7 @@ Now if you save and run this, you'll see your message appear on the screen! Exce
 
 If you are having issues, check to see if your `TutorialScript` looks like this in the **Properties** view:
 
-![Tutorial Script Properties](../img/scripting/MyFirstScript_tutorial.png "The Properties window also shows a preview of the code within a script."){: .center}
+![Tutorial Script Properties](../img/scripting/MyFirstScript_tutorial.png "The Properties window also shows a preview of the code within a script."){: .center loading="lazy" }
 
 ### Hello World Function Breakdown
 
@@ -170,7 +170,7 @@ We are going to create something that brightens every room: a light switch!
 
 This involves turning on and off a light switch to illuminate a light bulb.
 
-![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center}
+![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center loading="lazy" }
 
 ### Downloading the Template
 
@@ -178,7 +178,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 2. Download the template **Light Bulb & Switch** *(by Tobs)* by clicking on the **blue**{: style="color: var(--core-color-templetized)"} Import button on the template.
 
-    ![Light Switch And Bulb CC](../img/LightBulb/LightSwitchTemplate.png "Our template on Community Content."){: .center}
+    ![Light Switch And Bulb CC](../img/LightBulb/LightSwitchTemplate.png "Our template on Community Content."){: .center loading="lazy" }
 
 3. Now click over to the **Imported Content** section of the **Core Content** tab.
 
@@ -200,7 +200,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 1. To get started making this light switch work, we're going to create a new script by clicking that "Create Script" button in the toolbar at the top of the editor.
 
-    ![Create Script Button](../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center}
+    ![Create Script Button](../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center loading="lazy" }
 
 2. Name this script `LightToggleScript`.
 
@@ -211,11 +211,11 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 4. In order to make changes to the template, we first need to **deinstance**{: style="color: var(--core-color-deinstanced)"} it. Right click on the **Light Switch & Bulb** template in the Hierarchy and select "**Deinstance This Object**" from the drop down menu.
 
-    !["Right Click Content Menu"](../img/LightBulb/image8.png "The right-click menu in the Hierarchy."){: .center}
+    !["Right Click Content Menu"](../img/LightBulb/image8.png "The right-click menu in the Hierarchy."){: .center loading="lazy" }
 
     The template and objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template is now editable.
 
-    !["Deinstanced Color Change"](../img/LightBulb/image10.png "Deinstanced vs. not."){: .center}
+    !["Deinstanced Color Change"](../img/LightBulb/image10.png "Deinstanced vs. not."){: .center loading="lazy" }
 
     **Teal**{: style="color: var(--core-color-deinstanced)"} objects are part of a template that's been deinstanced - which means you can edit them and move them around in the Hierarchy.
 
@@ -230,7 +230,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
     Make sure the script is first in the "**Switch**" folder's hierarchy. This makes it easier to find when looking at the Hierarchy. All together your template hierarchy should look like this now:
 
-    !["Template Hierarchy"](../img/LightBulb/step_1_point_5.png "Template Hierarchy"){: .center}
+    !["Template Hierarchy"](../img/LightBulb/step_1_point_5.png "Template Hierarchy"){: .center loading="lazy" }
 
 ### Defining the Switch
 
@@ -279,7 +279,7 @@ First you'll need to tell the script which object in the scene is the switch, so
 
     Let's press **Play** and see how our switch moves!
 
-    !["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .center}
+    !["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .center loading="lazy" }
 
     Unfortunately that didn't quite work out the way we wanted...
     Depending on where in the scene you placed your light switch, it might look like the above animation, where the switch rotated sideways instead of up. That's because we didn't take into account the switch's initial rotation in the scene.
@@ -297,7 +297,7 @@ First you'll need to tell the script which object in the scene is the switch, so
 3. Press **Play** and test it out!
 
     <div align="center"><!-- TODO: Replace with gif -->
-    !["Moving Switch"](../img/LightBulb/image7.png "Switch in Action"){: .center}
+    !["Moving Switch"](../img/LightBulb/image7.png "Switch in Action"){: .center loading="lazy" }
     <p style="font-style: italic">Success!</p>
     </div>
 
@@ -307,7 +307,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 1. Our template already includes a trigger inside of it for us to use, but trigger objects can be found in the **Core Content** tab. Scrolling down to **Gameplay Objects** will show the section with "**Trigger**" type objects.
 
-    !["Trigger Location"](../img/LightBulb/trigger.png "The trigger in Core Content."){: .center}
+    !["Trigger Location"](../img/LightBulb/trigger.png "The trigger in Core Content."){: .center loading="lazy" }
 
 2. Let's find the trigger already in our template. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press <kbd>F</kbd>. This will find the trigger in our viewport. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
 
@@ -315,7 +315,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 3. Notice the size, shape, and position of the trigger. Where and how a trigger is located determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
 
-    !["Trigger Location"](../img/LightBulb/image20.png "Trigger well-placed over the switch."){: .center}
+    !["Trigger Location"](../img/LightBulb/image20.png "Trigger well-placed over the switch."){: .center loading="lazy" }
 
     This size will work fine for this purpose.
 
@@ -323,7 +323,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     This way, it will ask us if we want to interact with it in-game, and a player must press a button to cause the interaction. If the **Interactable** option is off, then the player walking into the trigger will cause the interaction to happen instantly rather than at a button press.
 
-    !["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .center}
+    !["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .center loading="lazy" }
 
 5. Now that we know what a trigger is and where it is set up, we can get back to our script. We need to tell the script what our trigger is and what should happen when the player interacts with it.
 
@@ -336,7 +336,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     * `switchTrigger` is the name for our trigger variable.
     * `script.parent:GetChildren()[3]` defines the object we are using as our trigger - the third child of the switch's parent group.
 
-    !["Hierarchy"](../img/LightBulb/step_3_point_1.png "Hierarchy Order"){: .center}
+    !["Hierarchy"](../img/LightBulb/step_3_point_1.png "Hierarchy Order"){: .center loading="lazy" }
 
     Your script should look like this:
 
@@ -441,7 +441,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     To see this whole list of options, turn on the **Advanced Settings**.
 
-    !["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .center}
+    !["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .center loading="lazy" }
 
     I chose to turn down the light's *Intensity* because it was very bright in my scene. I also turned *Use Temperature* on and lowered the number to give the light a soft warm color.
 
@@ -451,7 +451,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 3. Right click on the **Point Light** in your Hierarchy and select "**Create New Template from This**" under *Templates* in the menu. Let's call our new template "**LightTemplate**".
 
-    !["Create New Template"](../img/LightBulb/LightTemplate.png "This window pops up when you create a new template."){: .center}
+    !["Create New Template"](../img/LightBulb/LightTemplate.png "This window pops up when you create a new template."){: .center loading="lazy" }
 
 4. Delete the **LightTemplate** from the Hierarchy. We don't want the light in our scene until we turn on the light switch.
 
@@ -459,17 +459,17 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     So with the Properties of the `LightToggleScript` open, drag the **LightTemplate** from Project Content into the Properties window of the `LightToggleScript`. This will add the template as a custom property to our script so that we can easily access it!
 
-    !["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .center}
+    !["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .center loading="lazy" }
 
     You could also do this same thing by clicking the *Add Custom Property* button at the bottom of the Properties window, and selecting the type "Asset Reference". Then drag your template from Project Content into the new custom property.
 
-    !["Adding a New Custom Property"](../img/LightBulb/image14.png "This window pops up when adding a new custom property."){: .center}
+    !["Adding a New Custom Property"](../img/LightBulb/image14.png "This window pops up when adding a new custom property."){: .center loading="lazy" }
 
     Congrats! You just added your first custom property to a script.
 
 6. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
 
-    !["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center}
+    !["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center loading="lazy" }
 
     First, we add a new variable to our `LightToggleScript`. When you make custom properties, Core generates a small script of all those variable references in Lua. To copy those into our script real quick, right click into that black box and select all & copy it into the top of our script.
 
@@ -753,7 +753,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     There are two ways to change a trigger's label, by going to the trigger's properties tab and simply editing the **Interaction Label** field, or with a script. Or both!
 
-    !["Interaction Label"](../img/LightBulb/interactionLabel.png "You can set the Interaction Label here if you aren't changing it."){: .center}
+    !["Interaction Label"](../img/LightBulb/interactionLabel.png "You can set the Interaction Label here if you aren't changing it."){: .center loading="lazy" }
 
     Editing the **Interaction Field** property is great for when your label will always say the same thing, no matter what. Because we want to create a label that changes based on whether the switch is already on or off, we'll use our script to update the label.
 
