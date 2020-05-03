@@ -105,16 +105,22 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
+      name: Discord
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
+      name: YouTube
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/r/coregamesdev
+      name: Reddit
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
+      name: Facebook
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/coregames
+      name: Twitter
     - icon: fontawesome/brands/twitch
       link: https://twitch.tv/corelive
+      name: Twitch
 
 markdown_extensions:
   - markdown.extensions.admonition
