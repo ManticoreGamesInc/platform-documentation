@@ -55,16 +55,16 @@ For this tutorial, we are going to make the player wave hello.
 
 1. With Core open to a project, navigate to the **Core Content tab**, and scroll down to the bottom of the left side panel list to the **GAME OBJECTS** section. Select **Gameplay Objects**, and drag an **Equipment Object** into the project **Hierarchy**.
 
-    ![Hierarchy Collapsed](../img/EditorManual/Abilities/GameObjects.png "Hierarchy Collapsed"){: .center}
+    ![Hierarchy Collapsed](../img/EditorManual/Abilities/GameObjects.png "Hierarchy Collapsed"){: .center loading="lazy" }
 
     This will add an **Equipment** object to your project Hierarchy. `Equipment` comes with a `PickupTrigger` that allows players to equip the object when the player touches it.
 
-    ![Hierarchy Collapsed](../img/EditorManual/Abilities/EquipmentInHierarchy.png "Hierarchy Collapsed"){: .center}
-    ![Hierarchy Uncollapsed](../img/EditorManual/Abilities/EquipmentInHierarchy2.png "Hierarchy Uncollapsed"){: .center}
+    ![Hierarchy Collapsed](../img/EditorManual/Abilities/EquipmentInHierarchy.png "Hierarchy Collapsed"){: .center loading="lazy" }
+    ![Hierarchy Uncollapsed](../img/EditorManual/Abilities/EquipmentInHierarchy2.png "Hierarchy Uncollapsed"){: .center loading="lazy" }
 
     When you drag the `Equipment` into the project **Hierarchy**, it will drop into your game scene at the location (0,0,0) which will look like the image below if you started in an empty project. **If you do not see anything**, press "V" on the keyboard to toggle the **gizmos** (all the game-only objects) on.
 
-    ![A trigger at 0,0,0](../img/EditorManual/Abilities/trigger000.png "This trigger is halfway into the ground."){: .center}
+    ![A trigger at 0,0,0](../img/EditorManual/Abilities/trigger000.png "This trigger is halfway into the ground."){: .center loading="lazy" }
 
     This box you are seeing is the `PickupTrigger`, which is what allows you to pick up the equipment! When a player walks into this, they will immediately "equip" the equipment.
 
@@ -82,23 +82,23 @@ For this tutorial, we are going to make the player wave hello.
 
     1. In the **Core Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
-         ![Basic Gem Model](../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center}
+         ![Basic Gem Model](../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center loading="lazy" }
 
          Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](art_reference.md)** or try a **[Tutorial](modeling_basics.md)**.
 
          I went with a simple red gem, and made it a little smaller than the default diamond.
 
-         ![Red Gem Model](../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center}
+         ![Red Gem Model](../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center loading="lazy" }
 
     2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem _Networked_, and select "Make Children Networked" when this window appears.
 
          For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
 
-         ![Art Folder](../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center}
+         ![Art Folder](../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center loading="lazy" }
 
     3. In the **Properties** window, scroll down to the _Scene_ section. We need to change the **Collision** section from "Inherit From Parent" to "Force Off". This way the gem won't mess with your camera when it's attached to the player.
 
-         ![Art Folder Collision](../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center}
+         ![Art Folder Collision](../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center loading="lazy" }
 
     4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
 
@@ -112,13 +112,13 @@ For this tutorial, we are going to make the player wave hello.
 
      All together, it should look something like this:
 
-     ![Everything together at 0,0,0](../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center}
+     ![Everything together at 0,0,0](../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center loading="lazy" }
 
 5. Now to set up the animation! Navigate back to the **Core Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
-         ![Ability Object in Hierarchy](../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center}
+         ![Ability Object in Hierarchy](../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center loading="lazy" }
 
     2. Rename the `Ability` object to "Wave" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
@@ -132,13 +132,13 @@ For this tutorial, we are going to make the player wave hello.
 
     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_wave`.
 
-         ![Ability Properties Panel](../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center}
+         ![Ability Properties Panel](../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center loading="lazy" }
 
 7. Abilities also affect how the camera works when the ability is used, and in the case of this wave animation, it would be nice to be able to face the camera when we do it. To make sure this happens:
 
     1. With the ability selected, in the **Properties** window, scroll down to the **Cast** section. We want to change the Facing Mode from _Aim_ to **_None_** so that our camera is not affected in that stage of the ability.
 
-         ![Facing Mode](../img/EditorManual/Abilities/FacingModeNone.png "Change the Facing Mode to "None.""){: .center}
+         ![Facing Mode](../img/EditorManual/Abilities/FacingModeNone.png "Change the Facing Mode to "None.""){: .center loading="lazy" }
 
     2. Do the same thing to the Facing Mode in the **Execute** section.
 
@@ -155,7 +155,7 @@ For this tutorial, we are going to make the player wave hello.
 
       Increase or lower this to suit your gameplay needs.
 
-      ![Ability Properties Panel: Cooldown](../img/EditorManual/Abilities/CooldownDuration.png "Ability Properties Panel: Cooldown"){: .center}
+      ![Ability Properties Panel: Cooldown](../img/EditorManual/Abilities/CooldownDuration.png "Ability Properties Panel: Cooldown"){: .center loading="lazy" }
 
   Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.
 
@@ -182,7 +182,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
 2. If you now click this object from within the **Hierarchy**, the **Properties** tab will show a few custom properties that we need to change to set up the ability display.
 
-    ![Ability Control](../img/EditorManual/Abilities/AbilityButtonProperties.png "Ability Control"){: .center}
+    ![Ability Control](../img/EditorManual/Abilities/AbilityButtonProperties.png "Ability Control"){: .center loading="lazy" }
 
     1. Change the **Binding** property from `ability_primary` to `ability_feet`.
     2. Change the **Text** field to `Shift`, to stand for Left Shift.
@@ -196,7 +196,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     In my case, I chose the "Icon hand" image!
 
-    ![Hierarchy](../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center}
+    ![Hierarchy](../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center loading="lazy" }
 
 Now the UI element will update automatically once the ability is cast.
 

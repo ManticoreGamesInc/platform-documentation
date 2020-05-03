@@ -38,7 +38,7 @@ To find all these visual effect objects, navigate to the Core Content tab and cl
 
 This window can also be accessed via the dropdown menu "**View -> Core Content**".
 
-![Core Content](../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center}
+![Core Content](../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center loading="lazy"}
 
 Currently, there are **7 different sections** that contain effects you can use right away:
 
@@ -62,7 +62,7 @@ Currently, there are **7 different sections** that contain effects you can use r
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
-![Core Content Dropdowns](../img/VFXtutorial/DropDownArrows.png "Core Content Dropdowns"){: .center}
+![Core Content Dropdowns](../img/VFXtutorial/DropDownArrows.png "Core Content Dropdowns"){: .center loading="lazy" }
 
 To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
@@ -72,7 +72,7 @@ All VFX have a ***Play*** button at the top of their **Properties** window, so t
 
 Besides all of the more literal visual effects that Core includes, there is also a categorey of **Materials** that lend themselves nicely to VFX, the SpecialEffects materials:
 
-![Special Effect Materials](../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center}
+![Special Effect Materials](../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center loading="lazy" }
 
 Use these in combination with the Effects objects to get even more variety out of what you can make.
 
@@ -80,13 +80,13 @@ Use these in combination with the Effects objects to get even more variety out o
 
 Another category of effects that can make huge changes to your map are **post process effects**. As their name implies, these are applied on top of everything else in your game at the end, so they can be used to change everything visually about the game at once.
 
-![Radioactive Post Process](../img/VFXtutorial/crazyPostProcess.png "Using the Radioactive Trip Sky by Dracowolfie on CC."){: .center}
-![Lens Flares](../img/VFXtutorial/coolPostProcess.png "From Sniper Alley."){: .center}
-![Magical Fantasy Sparkles](../img/VFXtutorial/prettyPostProcess.png "Made by Sasha during her stream series."){: .center}
+![Radioactive Post Process](../img/VFXtutorial/crazyPostProcess.png "Using the Radioactive Trip Sky by Dracowolfie on CC."){: .center loading="lazy" }
+![Lens Flares](../img/VFXtutorial/coolPostProcess.png "From Sniper Alley."){: .center loading="lazy" }
+![Magical Fantasy Sparkles](../img/VFXtutorial/prettyPostProcess.png "Made by Sasha during her stream series."){: .center loading="lazy" }
 
 To find all our Post Process Effects, check out the Post Processing section of Core Content.
 
-![Post Process Effects](../img/VFXtutorial/postProcessEffects.png "All post process effects can be found here."){: .center}
+![Post Process Effects](../img/VFXtutorial/postProcessEffects.png "All post process effects can be found here."){: .center loading="lazy" }
 
 You'll probably want to always use some combination of these--the amount they can level-up a map visually is huge!
 
@@ -120,7 +120,7 @@ Several post processing effects have both a regular version and an **advanced** 
 - how to edit post process effects in Core
 - how to layer post process effects together
 
-![Post Process Effects](../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 #### Advanced Bloom Post Process
 
@@ -130,11 +130,11 @@ The best way to test post process effects is on an already decorated map with so
 
 !!! info Those creator usernames are: JaineRoss, mjcortes782, trimun, and TSMVayne.
 
-![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center loading="lazy" }
 
 1. Start by dragging the **Advanced Bloom Post Process** effect into the project Hierarchy. With default settings, it'll just make a subtle change.
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom1.png "Default settings for Advanced Bloom."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom1.png "Default settings for Advanced Bloom."){: .center loading="lazy" }
 
     The overall scene is darker and the contrast is higher. Even though it is called *bloom*, by default it seems to have decreased the bloom from our first scene.
 
@@ -142,17 +142,17 @@ The best way to test post process effects is on an already decorated map with so
 
     To expose all the options we want to change, check the **Advanced Settings** box to make sure it is on.
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom1_properties.png "Getting weird changing values."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom1_properties.png "Getting weird changing values."){: .center loading="lazy" }
 
     Wiggle all those settings around to see what happens! Trying yourself can be the best way to understand what is happening.
 
 3. I'll first show you the settings I chose, and then explain a bit about them. I chose these properties:
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2_properties.png "Getting weird changing values."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2_properties.png "Getting weird changing values."){: .center loading="lazy" }
 
     Which makes my map look like this:
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2.png "Getting weird changing values."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2.png "Getting weird changing values."){: .center loading="lazy" }
 
     As you can see, you can go pretty intense with this effect. I went super dramatic to showcase just how much can change, but feel free to find the right balance for your project.
 
@@ -162,7 +162,7 @@ The best way to test post process effects is on an already decorated map with so
 
     That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. While I was able to drag the slider to 15, I instead typed in a value of 100 to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this!
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center loading="lazy" }
 
     !!! tip
         There are a lot of properties in Core that can be *overdriven*. This means you can manually type in a number higher than what the slider allows. This usually works for properties that act as a multiplier, like the *Intensity* in this case.
@@ -177,11 +177,11 @@ The best way to test post process effects is on an already decorated map with so
 
 I'm going to start visually from scratch with this one, so I am back to the first image:
 
-![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center loading="lazy" }
 
 1. Drag the **Ambient Occlusion Post Process** into the project Hierarchy from Core Content to get started. The default settings give a subtle effect, but it still makes a difference.
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_AO1.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_AO1.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
     The main noticeable part of the change in this image is underneath the roof close to the camera. It becomes darker, and the shadows of the beams on the ceiling are more dramatic.
 
@@ -191,11 +191,11 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
     Notice the dark shadows under the roof beams, and the darker shadows on the rubble pile on the left.
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
     For this particular dramatic AO effect, I used these settings:
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_AO2_properties.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_AO2_properties.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
     Adjust the settings to whatever feel best for your scene and mood.
 
@@ -205,8 +205,8 @@ Something particularly fun and weird you can do with the Ambient Occlusion we ma
 
 We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor! The Ambient Occlusion Recolor Post Process **only works in combination** with the Ambient Occlusion Post Process.
 
-![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center}
-![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
+![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 1. Drag the Ambient Occlusion Recolor Post Process into the Hierarchy. This should result in something like the second image above.
 
@@ -214,17 +214,17 @@ We're going to continue with the end result of the Ambient Occlusion section, so
 
 These other two images below are a general explanation, and you don't need to do them for the tutorial. Knowing how to achieve these weird effects is good though!
 
-![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 Turning on the **Use Two Colors** option will give you a second color option, and using the Color Balance slider you can choose which color is more prominent in the scene. This gives you really strong control over the color palette, and lets you do particularly odd and unique things. Such as making weird radioactive shadows, if that's what makes you happy.
 
-![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire... whatever you can imagine!
 
 #### Lensflare Post Process
 
-![Lens Flare in Real Life](../img/VFXtutorial/realLife_lensflare.png "Photo credit to Neil Nafus and Josh Tyler, respectively."){: .center}
+![Lens Flare in Real Life](../img/VFXtutorial/realLife_lensflare.png "Photo credit to Neil Nafus and Josh Tyler, respectively."){: .center loading="lazy" }
 
 In real life, a **lens flare** is a streak of light glare and sometimes a light shape floating in an image. This happens when light hits a camera lens and scatters around within all the parts that make up the lens. For some photographers, it can be annoying, but in general it is an unavoidable aspect of filming light.
 
@@ -232,20 +232,20 @@ In the virtual world, adding it in can make a scene feel more realistic and gran
 
 We'll start this section using two of the effects that we made earlier: the Advanced Bloom Post Process and the Ambient Occlusion Post Process **both turned on**.
 
-![Post Process Effects](../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center}
-![Post Process Effects](../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center}
+![Post Process Effects](../img/VFXtutorial/ppe_LensFlare0.png "The default of AO is subtle but clear."){: .center loading="lazy" }
+![Post Process Effects](../img/VFXtutorial/ppe_LensFlare1.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 1. Drag the **Lensflare Post Process** into your Hierarchy, and you should get something like the second photo above.
 
     For my scene at this particular angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 2. Try turning up different settings. The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
 
 3. The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
 
-    ![Post Process Effects](../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
     The above image also had increases to Intensity and the Bokeh Size.
 
@@ -273,7 +273,7 @@ We'll be making a treasure chest that requires an item to open!
 - how to give the player resources
 - how to combine visual effect objects with sound effects
 
-![Treasure Chest](../img/VFXtutorial/ChestPreviewShot.png "A treasure chest can be such a grand sight, even to a skeleton."){: .center}
+![Treasure Chest](../img/VFXtutorial/ChestPreviewShot.png "A treasure chest can be such a grand sight, even to a skeleton."){: .center loading="lazy" }
 
 To start, open up a new project or whatever project you'd like to make this treasure chest in.
 
@@ -286,7 +286,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 2. Type "chest" into the search bar within that window.
 
-    ![Post Process Effects](../img/VFXtutorial/coreContent_chestOpen.png "The default of AO is subtle but clear."){: .center}
+    ![Post Process Effects](../img/VFXtutorial/coreContent_chestOpen.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
 3. Click on and drag the **Chest Small Closed** into your project viewport.
 
@@ -294,7 +294,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     The transform data on the Small Chest Closed (seen in the **Properties** window while the object is selected) should now be all at default of 0,0,0. All the position data should now be on the parent group that we just created.
 
-    ![Treasure Chest Closed](../img/VFXtutorial/vfx1_chestClosed.png "The Position, Rotation, and Scale of the object should be 0,0,0 to make organizing easier."){: .center}
+    ![Treasure Chest Closed](../img/VFXtutorial/vfx1_chestClosed.png "The Position, Rotation, and Scale of the object should be 0,0,0 to make organizing easier."){: .center loading="lazy" }
 
 5. Next, drag a **Small Chest Opened** from Core Content into that group we created.
 
@@ -304,11 +304,11 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Scroll down to the section called *Scene*. In here, change the setting for **Visibility** from *Inherit from Parent* to *Force Off*. We're going to hide this chest and unhide it later when we want the chest to be opened.
 
-    ![Treasure Chest Open](../img/VFXtutorial/vfx2_chestOpenHide.png){: .center}
+    ![Treasure Chest Open](../img/VFXtutorial/vfx2_chestOpenHide.png){: .center loading="lazy" }
 
 7. Click the button at the top left of the Core Editor to create a new script; let's call it `TreasureChest`.
 
-    ![Create New Script](../img/scripting/createNewScript.png){: .center}
+    ![Create New Script](../img/scripting/createNewScript.png){: .center loading="lazy" }
 
     Drag this script into your TreasureChest group in the Hierarchy.
 
@@ -343,7 +343,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Do this same action--dragging the objects from the Hierarchy into the script Properties window--for the Chest Small Opened and the Chest Small Closed.
 
-    ![Custom Properties](../img/VFXtutorial/vfx3_scriptCustomProps.png){: .center}
+    ![Custom Properties](../img/VFXtutorial/vfx3_scriptCustomProps.png){: .center loading="lazy" }
 
 11. We need two other custom properties on our script. At the bottom of the Properties window, click the "Add Custom Property" button. Choose the type AssetReference, as we'll be adding something here that we haven't created yet. Name this one **OpeningVFX**, and the second one (also an AssetReference type) **LockedVFX**.
 
@@ -404,7 +404,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this!
 
-    ![The Fantasy Loot Bag](../img/VFXtutorial/vfx4_FantasyLootBag.png){: .center}
+    ![The Fantasy Loot Bag](../img/VFXtutorial/vfx4_FantasyLootBag.png){: .center loading="lazy" }
 
 2. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
 
@@ -438,7 +438,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Drag the red object that shows up into the ClientContext folder that we just emptied. Now our Loot Bag is a crowbar!
 
-    ![The Crowbar](../img/VFXtutorial/vfx5_Crowbar.png){: .center}
+    ![The Crowbar](../img/VFXtutorial/vfx5_Crowbar.png){: .center loading="lazy" }
 
     Check that all the transforms on the Client Context folder are at 0,0,0 to be sure the crowbar is at the right size and location.
 
@@ -464,7 +464,7 @@ Now when walking up the crowbar, the player will automaticall pick it up! But, i
     4. Select both of those sound effects we added at once, and in the **Properties** window, turn the *Auto Play* box on. We want these sounds to play the moment they are created.
 
         !!! tip
-            ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center}
+            ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center loading="lazy" }
             The top right of the Properties window includes a play button for testing a sound. If you turn Apply Effects on, it will take into account whatever you change about the Properties!
 
     5. Scroll up a bit in the Properties window, and set the Life Span to 2.
@@ -477,7 +477,7 @@ Now when walking up the crowbar, the player will automaticall pick it up! But, i
 
     In the Project Content tab, find your new CrowbarPickupFX template. Drag this into that custom property on the Loot Bag.
 
-    ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center}
+    ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center loading="lazy" }
 
 3. Now when you press play to test, it should play your new sound effect when picking up the crowbar. Ta-da!
 
@@ -536,7 +536,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
 
 5. Click back onto the `TreasureChest` script from earlier. Drag your new effect into the custom property for the **OpeningVFX** on the `TreasureChest` script.
 
-    ![OpenedFX](../img/VFXtutorial/vfx9_TreasureChestProps.png){: .center}
+    ![OpenedFX](../img/VFXtutorial/vfx9_TreasureChestProps.png){: .center loading="lazy" }
 
 6. Now we need to spawn this effect in our code!
 

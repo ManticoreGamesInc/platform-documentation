@@ -36,7 +36,7 @@ To learn how to create groups and folders, see the [Complex Objects reference](m
 3. Right click on one of the objects and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
-![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center}
+![TemplateTut2](../img/EditorManual/UI/TemplateTut2.png){: .center loading="lazy" }
 
 Once a group becomes a template, it will be blue in the Hierarchy. New templates can be found in the **Project Content** window in the section called **My Templates**. From there you can drag out as many copies of the template as needed.
 
@@ -49,14 +49,14 @@ Once your template is created, you may use it for just this project alone, or yo
 1. Find the template in the **Project Content** window.
 2. Click the **Publish Content** button in the Properties menu.
 
-![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center}
+![Publish](../img/EditorManual/UI/PublishToCC_properts.png "Or publish via the Properties window!"){: .center loading="lazy" }
 
 !!! note
     You can also right click the template and select **Publish to Community Content**
 
 ### Name and Describe the Template
 
-![Publish Dialog Box](../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center}
+![Publish Dialog Box](../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center loading="lazy" }
 
 1. Give the template a name. This does not need to match the template name in the project, and can be more descriptive or specific help creators understand the template.
 2. Write a **description** for your template. This section can include list of the individual objects in the template, possible uses, and attributions to other creators who helped with the template.
@@ -83,11 +83,11 @@ Uploading a screen shot allows you to use an external image editing software to 
 
 In **Project Content**, the template's name should turn from white to green.
 
-![TemplateTut4](../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center}
+![TemplateTut4](../img/EditorManual/UI/greenUserTemplate.png "Your template has been greenlit!"){: .center loading="lazy" }
 
 You can search for the published template in the **Community Content** window. Templates are displayed chronologically, so it will most likely be at the top of the list.
 
-![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center}
+![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center loading="lazy" }
 
 ## Changing and Updating Templates
 
@@ -135,7 +135,7 @@ Updating templates with change all the instances in your game, but to update the
 3. Right click the template *in the left-side navigation*, and select **Republish**.
 4. In the publishing prompt, add a description of the most recent changes to the **Release Notes** section, so that creators know what to expect.
 
-![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center}
+![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center loading="lazy" }
 
 Creators will be able to get updates to the template by right-clicking the template and selecting **Download Latest**.
 
@@ -151,7 +151,7 @@ Templates made by other creators can be imported from **Community Content** and 
 
 To learn more about importing and using **Community Content** templates, see the [Community Content reference](community_content.md).
 
-![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center}
+![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center loading="lazy" }
 
 ## Learn More
 

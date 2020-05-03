@@ -30,18 +30,18 @@ To get started, use the **Create** menu to make a new project
 
 ### Click **Create New**
 
-![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center}
+![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
 
 1. With Core open, click the **Create** Tab on the left side menu.
 2. Click **Create New Game**.
 
 ### Select the **Deathmatch** framework
 
-![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center}
+![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
 
 <!-- ### Create a new Project
 
-![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center} -->
+![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
 
 1. Click **View Frameworks** in the **Core Game Frameworks** option.
 2. Click **Deathmatch**.
@@ -52,7 +52,7 @@ To get started, use the **Create** menu to make a new project
 
 The Deathmatch framework gives you a complete game arena and shooter functionality out of the box.
 
-![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center}
+![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center loading="lazy" }
 
 ### Test Player Movement
 
@@ -76,12 +76,12 @@ Besides player movement, **Deathmatch** also gives each player a gun to shoot, a
 - Shoot the default gun with the left mouse button.
 - Open and close a door with <kbd>F</kbd>.
 
-![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center}
+![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
 
 ### Test Multiplayer Gameplay
 
 Core projects also include multiplayer networking by default. Because this is a crucial component of this game, it is important to test using **Multiplayer Preview Mode** as much as possible.
-![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center}
+![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
     {: .image-inline-text .image-background}
@@ -89,7 +89,7 @@ Core projects also include multiplayer networking by default. Because this is a 
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
     {: .image-inline-text .image-background}
 
-    ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center}
+    ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center loading="lazy" }
 
 !!! tip
      You can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side.
@@ -207,7 +207,7 @@ You can continue using these techniques to complete the appearance of your Death
 - `window insert`
 - `floor`
 
-![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center}
+![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center loading="lazy" }
 
 !!! info
     You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
@@ -218,7 +218,7 @@ In this final section, you will find different ways to change the gameplay itsel
 
 ### Add Double Jumping
 
-![PlayerSettings](../img/MyFirstMultiplayer/PlayerSettings.png){: .center}
+![PlayerSettings](../img/MyFirstMultiplayer/PlayerSettings.png){: .center loading="lazy" }
 
 1. Find **Player Settings** by searching for it in the **Hierarchy**.
 2. Open the **Properties** window to see all the settings that can be changed for each player
@@ -226,13 +226,13 @@ In this final section, you will find different ways to change the gameplay itsel
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with <kbd>Space</kbd>.
 {: .image-inline-text .image-background}
 
-![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center}
+![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center loading="lazy" }
 
 ### Change The Round Kill Limit
 
 In the top left corner of the screen in game, you can see that you win the Deathmatch by killing 10 opponents. This can be changed in **Game Settings**.
 
-![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center}
+![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center loading="lazy" }
 
 1. Search for **Round Kill Limit** in the **Hierarchy**.
 2. Open the **Properties** window.
@@ -240,7 +240,7 @@ In the top left corner of the screen in game, you can see that you win the Death
 4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an opponent twice.
 {: .image-inline-text .image-background}
 
-![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center}
+![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center loading="lazy" }
 
 ### Change the UI Instructions
 
@@ -250,7 +250,7 @@ Although the game now ends after two kills, the instructions shown on the screen
 2. Open the **Properties** window.
 3. Change the **Text** property to match your game's win condition.
 
-![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center}
+![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center loading="lazy" }
 
 ### Move the Player Start
 
@@ -259,7 +259,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press <kb
 1. Search for **Spawn Point** in the **Hierarchy**.
 2. Move the spawn points around the map the same way you would any object.
 
-![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center}
+![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center loading="lazy" }
 
 !!! tip
     Press <kbd>0</kbd> to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.

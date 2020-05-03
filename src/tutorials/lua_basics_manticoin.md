@@ -47,7 +47,7 @@ In Core, **Community Content** houses many assets you can use in your own games 
 
 To add the **Manticoin** template to your project, head over to the **Community Content** tab inside the editor. Type **Manticoin** into the search bar and click on the one by "**Dracowolfie**" All you have to do to add it to your project is to click the big blue **"Import"** button.
 
-![Manticoin](../img/scripting/manticoin.png "Manticoin"){: .center}
+![Manticoin](../img/scripting/manticoin.png "Manticoin"){: .center loading="lazy" }
 
 !!! note "The Core editor will prompt you to save before it adds the template to your project."
 
@@ -57,7 +57,7 @@ Since this has been imported from Community Content, it is now listed under **Im
 
 Let's make a new script using the button at the top of Core, call it `SpinCoin` and drag it onto the `Manticoin` object in our project Hierarchy so that the script is its child. You will likely need to first drag the script into the Hierarchy, and then you may try dragging it onto the blue Manticoin template.
 
-![Create New Script](../img/scripting/createNewScript.png "Click this to create a new script."){: .center}
+![Create New Script](../img/scripting/createNewScript.png "Click this to create a new script."){: .center loading="lazy" }
 
 At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
 
@@ -65,7 +65,7 @@ At this point, the editor will prompt you about a networking state mismatch. In 
 
 We'll explain what this line does in a moment, but for now, make sure your `Manticoin` object looks similar to the following:
 
-![SpinCoinLocation](../img/scripting/MyFirstScript.png "SpinCoin Location"){: .center}
+![SpinCoinLocation](../img/scripting/MyFirstScript.png "SpinCoin Location"){: .center loading="lazy" }
 
 Running this should continuously rotate the coin in the air. Shiny!
 
@@ -212,7 +212,7 @@ Next, let's place the script `DisplayCoins` as a child of the Text Box. In this 
 
 The folder structure at this point should look like this:
 
-![UIText](../img/getting_started/UIText.png "UI Text"){: .center}
+![UIText](../img/getting_started/UIText.png "UI Text"){: .center loading="lazy" }
 
 Your Text Box probably came with another UI Container, but as this is already a child of a UI Container, we don't need both. Drag the CoinUI one level higher to just be a child of the Client Context folder. Then you can delete the extra UI Container.
 
@@ -230,7 +230,7 @@ So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice 
 * Move the player's spawn point
     * When you create a new project, you will have these objects in your Hierarchy by default:
 
-    ![The Default Hierarchy](../img/getting_started/defaultHierarchy.png "This is what a blank project starts with."){: .center}
+    ![The Default Hierarchy](../img/getting_started/defaultHierarchy.png "This is what a blank project starts with."){: .center loading="lazy" }
 
     * This is everything you that see in the viewport. The sky, floor, and the basics for a game: a camera, the spawn point, and the player's settings.
 
@@ -269,7 +269,7 @@ Next, we need to create the custom parameter to save our game state.
 
 Here's the entire Hierarchy at this point:
 
-![GameLogicHierarchy](../img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center}
+![GameLogicHierarchy](../img/getting_started/GameLogicHierarchy.png "GameLogic Hierarchy"){: .center loading="lazy" }
 
 Let's open up that script we created called `CoinGameLogic` and add the following code:
 
@@ -335,7 +335,7 @@ settings.networkedPropertyChangedEvent:Connect(OnChanged)
 
 This will toggle the visibility property of `VictoryUI` based on the current state of the game, determined by our `Game Settings`.
 
-![VictoryUI](../img/getting_started/Replicator.png "VictoryUI"){: .center}
+![VictoryUI](../img/getting_started/Replicator.png "VictoryUI"){: .center loading="lazy" }
 
 Your Hierarchy should look like the above now!
 

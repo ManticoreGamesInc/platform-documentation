@@ -30,7 +30,7 @@ You can simply find audio in the Core Content and look through the many sound ty
 
 ### How to Play Audio
 
-![alt_text](../img/Audio/AudioPreview.png "image_tooltip"){: .center }
+![alt_text](../img/Audio/AudioPreview.png "image_tooltip"){: .center loading="lazy" }
 
 After adding your chosen audio asset to the hierarchy, you can you can preview audio by pressing the blue play button to the top right. If you check the button for "Apply Effects" to the right, you will hear a preview of the audio with your customized parameters. If you have attenuation or spatialization options enabled, you will hear those based on your current camera position in the editor.
 
@@ -38,7 +38,7 @@ Alternatively, you can activate audio at any time via script access with the aud
 
 ### Audio Properties
 
-![alt_text](../img/Audio/SimpleSFXProperties.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/SimpleSFXProperties.jpg "image_tooltip"){: .center loading="lazy" }
 
 There are several customizable properties to any audio asset. Let's go over what each one does, and how it affects the sound.
 
@@ -92,7 +92,7 @@ This is the radius at which the sound plays at full volume in centimeters (cm). 
 
 When visual gizmos are toggled on (by pressing <kbd>V</kbd> in the editor) Radius and Falloff values can be seen in the editor to help creators have a better visual understanding of how their sounds are heard in their games.
 
-![alt_text](../img/Audio/RadiusGizmo.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/RadiusGizmo.jpg "image_tooltip"){: .center loading="lazy" }
 
 #### Fade In Time
 
@@ -127,7 +127,7 @@ Like many of the other assets in Core such as VFX and materials, there are a han
 
 Usually you'll find that some audio assets have several similar variations that can be selected via a drop down selection menu.
 
-![alt_text](../img/Audio/AdvancedGunshotSFXProperties.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/AdvancedGunshotSFXProperties.jpg "image_tooltip"){: .center loading="lazy" }
 
 You'll mostly find this in "**Music Score Sets**" or "**Gunshot Sets**" for example.
 
@@ -135,7 +135,7 @@ Note: As a reminder for smart properties, they can be adjusted and modified via 
 
 Others will have very specific parameters that pertain to that asset in particular, so be sure to read the tooltips when modifying these options.
 
-![alt_text](../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center loading="lazy" }
 
 In this example we're looking at the "**Gunshot Sniper Rifle Set 01 SFX**" asset. The tooltips will help you better understand what these parameters do. It's always a good idea to try things out to find what works best for your game!
 
@@ -149,7 +149,7 @@ The parameters at this point should already look familiar to you, but here you w
 
 If each of these sets were individual assets, you could achieve the same results using those with layers of scripts, however we've done the heavy lifting here for you in this case so that you can create an explosion that's right for you! Remember that each sound, even the individual layers are already dynamic enough as-is and will never sound repetitive or the same every time. You could easily just use one layer of the explosion creation kit if you wish and still have a viable explosion sound.
 
-![alt_text](../img/Audio/AdvancedExplosionSFXProperties.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/AdvancedExplosionSFXProperties.jpg "image_tooltip"){: .center loading="lazy" }
 
 ## Core Content Audio Library Overview
 
@@ -260,17 +260,17 @@ You'll find that our music assets are broadly categorized by well-known music ge
 
 In each category you'll find a **Music Score Set** of your chosen genre with all of the music tracks in that genre.
 
-![alt_text](../img/Audio/MusicSetGenrePropertiesSFX.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/MusicSetGenrePropertiesSFX.jpg "image_tooltip"){: .center loading="lazy" }
 
 You'll also find several **Music Construction Kits** for music tracks that have their own construction kit where either the _SECTIONS_ of a music track are branched out and separated as individual tracks.
 
-![alt_text](../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/MusicKitSectionsPropertiesSFX.jpg "image_tooltip"){: .center loading="lazy" }
 
 There are also kits where various instrument _LAYERS_ are individually separated with their own volume controls that you can design your own version of the music track or drive the volume sliders via script to create highly dynamic music.
 
 For example, you could adjust the drums and heavy strings volumes to be louder as there are more enemies inside a zone, or fade in the volume of those instruments when you either take or do damage, essentially matching the intensity of the music with the intensity of the action on screen.
 
-![alt_text](../img/Audio/MusicKitLayersPropertiesSFX.jpg "image_tooltip"){: .center }
+![alt_text](../img/Audio/MusicKitLayersPropertiesSFX.jpg "image_tooltip"){: .center loading="lazy" }
 
 Music Stingers generally are used as a one-shot triggered sound hooked up to gameplay events such as win or lose conditions or when achievements are unlocked/earned.
 
