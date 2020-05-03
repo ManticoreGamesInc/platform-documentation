@@ -24,7 +24,7 @@ An introduction to the basics of placing and remixing objects.
     * Core UI
     * Changing materials
 
-![SceneCreation](../img/SceneCreation/image11.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image11.png "image_tooltip"){: .center loading="lazy" }
 
 ## Tutorial
 
@@ -89,9 +89,9 @@ If you would like to see into the room without having to move your viewport into
 
 Turn off the visibility of the roof and 1-2 walls by clicking the orange eye next to the corresponding assets.
 
-![SceneCreation](../img/SceneCreation/image7.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image7.png "image_tooltip"){: .center loading="lazy" }
 
-![SceneCreation](../img/SceneCreation/image13.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image13.png "image_tooltip"){: .center loading="lazy" }
 
 ### Rotating the House
 
@@ -107,13 +107,13 @@ Rotate the house so the interior isn't in the shade. This will make it easier to
 !!! note "Core Concepts: Snap To Grid"
     Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing <kbd>G</kbd> or using the **Snap to Grid** button in the toolbar.
 
-![SceneCreation](../img/SceneCreation/image3.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image3.png "image_tooltip"){: .center loading="lazy" }
 
 In the above GIF the widget is set to **Rotation mode** and **Snap to Grid** is enabled. The degree of rotation is set to 90, which means the selected object will be rotated by 90 degrees.
 
 There are more degrees of rotation available in the drop down menu.
 
-![SceneCreation](../img/SceneCreation/image1.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image1.png "image_tooltip"){: .center loading="lazy" }
 
 ### Placing and customizing the Bed
 
@@ -131,11 +131,11 @@ There are more degrees of rotation available in the drop down menu.
 
    If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
 
-   ![SceneCreation](../img/SceneCreation/image10.png "image_tooltip"){: .center}
+   ![SceneCreation](../img/SceneCreation/image10.png "image_tooltip"){: .center loading="lazy" }
 
 ### Decorate
 
 1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **Core Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
 2. Take a screenshot of your room and post it on the `#showcase` channel in Core's :fontawesome-solid-b fa-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
 
-![SceneCreation](../img/SceneCreation/image2.png "image_tooltip"){: .center}
+![SceneCreation](../img/SceneCreation/image2.png "image_tooltip"){: .center loading="lazy" }
