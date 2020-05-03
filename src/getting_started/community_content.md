@@ -38,23 +38,23 @@ Click on any template to see more details about it, including a description and 
 
 A template can be imported through the project directly from the search page, by clicking the **Import** button.
 
-![Community Content Template](../img/CommunityContent/CommunityContent_FunctionalTwinBed.png){: .center}
+![Community Content Template](../img/CommunityContent/CommunityContent_FunctionalTwinBed.png){: .center loading="lazy" }
 
 ### Locate Imported Content
 
 Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initially appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
-![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){.center}
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){.center loading="lazy" }
 
 You can click this, or the name of the template in the Core Content navigation to access the template.
 
-![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){.center}
+![Imported Content](../img/CommunityContent/CommunityContent_ImportedTemplateGreen.png){.center loading="lazy" }
 
 ### Use Imported Content
 
 To use the template in your project, click and drag the green template icon into the **Main Viewport** or the project **Hierarchy**. This will automatically add it to the **Project Content** window.
 
-![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center}
+![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center loading="lazy" }
 
 ## Publishing Your Own Content
 

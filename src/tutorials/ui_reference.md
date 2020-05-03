@@ -41,13 +41,13 @@ Below is an example using the "Text Box" control:
 
 4. Next, from that UI Elements section of Core Content, click the **UI Text Box**, and drag this on top of the UI Container we just made. It should now be displaying on-screen in the viewport as well!
 
-   ![New Hierarchy](../img/EditorManual/UI/Hierarchy.png "The text box is a child of the UI container."){: .center}
+   ![New Hierarchy](../img/EditorManual/UI/Hierarchy.png "The text box is a child of the UI container."){: .center loading="lazy" }
 
 5. With the UI Text Box in the Hierarchy selected, look in the Properties window.
 
 6. Move the Text Box into the desired location using either the white dotted bounding box around the element in the editor window, or by adjusting the numbers of the X / Y Offset in the Properties window.
 
-   ![TextBoxPropertiesWindow](../img/EditorManual/UI/WidgetExampole.png "TextBoxPropertiesWindow"){: .center}
+   ![TextBoxPropertiesWindow](../img/EditorManual/UI/WidgetExampole.png "TextBoxPropertiesWindow"){: .center loading="lazy" }
 
 7. The Text Box has several properties that can be changed via the Properties window, that all alter the display and behavior of a UI element on different screens.
 
@@ -55,7 +55,7 @@ Below is an example using the "Text Box" control:
      UI elements need to be **anchored** to a part of the screen so that the elements still snap to the correct locations on different screen resolutions. These positions can be changed in the Properties window.
      So if you want your UI to always stay in the very center of the screen, change the **Dock** property to *Middle Center*.
 
-![TransformBoundingBox](../img/EditorManual/UI/TextBoxUiElement.png "TransformBoundingBox"){: .center}
+![TransformBoundingBox](../img/EditorManual/UI/TextBoxUiElement.png "TransformBoundingBox"){: .center loading="lazy" }
 
 Adjustable properties of the Text Box:
 
@@ -97,10 +97,10 @@ There is a large collection of different images to use in Core. These could be s
 
 These are all the current images available to use in Core:
 
-![UI Borders](../img/EditorManual/UI/uiAssets_borders.png "UI Borders"){: .center}
-![UI Buttons](../img/EditorManual/UI/uiAssets_buttons.png "UI Buttons"){: .center}
-![UI Icons](../img/EditorManual/UI/uiAssets_icons.png "UI Icons"){: .center}
-![UI Reticles](../img/EditorManual/UI/uiAssets_reticles.png "UI Reticles"){: .center}
+![UI Borders](../img/EditorManual/UI/uiAssets_borders.png "UI Borders"){: .center loading="lazy" }
+![UI Buttons](../img/EditorManual/UI/uiAssets_buttons.png "UI Buttons"){: .center loading="lazy" }
+![UI Icons](../img/EditorManual/UI/uiAssets_icons.png "UI Icons"){: .center loading="lazy" }
+![UI Reticles](../img/EditorManual/UI/uiAssets_reticles.png "UI Reticles"){: .center loading="lazy" }
 
 ---
 

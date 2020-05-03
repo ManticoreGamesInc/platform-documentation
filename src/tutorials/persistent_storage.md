@@ -28,7 +28,7 @@ Here are just a few ideas on ways that persistent storage can be used:
 
 Really, anything that you might want to preserve for the next play session for that same player can be stored.
 
-![Overview Shot](../img/EditorManual/PersistentStorage/enablePlayerStorage.png){: .center}
+![Overview Shot](../img/EditorManual/PersistentStorage/enablePlayerStorage.png){: .center loading="lazy" }
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
@@ -75,7 +75,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 4. Create a new script using the button in the top toolbar of Core, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
 
-    ![WorldText](../img/EditorManual/PersistentStorage/createNewScript.png){: .center}
+    ![WorldText](../img/EditorManual/PersistentStorage/createNewScript.png){: .center loading="lazy" }
 
 5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
 
@@ -83,7 +83,7 @@ To start, we are going to save a video game classic: a player's game score.
     2. Name one of these `PlayerName`, and the other one `PlayerScore`.
     3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
 
-    ![WorldText](../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center}
+    ![WorldText](../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center loading="lazy" }
 
 6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
 
@@ -172,7 +172,7 @@ To start, we are going to save a video game classic: a player's game score.
 
     Whenever you press <kbd>1</kbd> on your keyboard, the number on-screen will increase!
 
-![Final Result](../img/EditorManual/PersistentStorage/finalResult.png){: .center}
+![Final Result](../img/EditorManual/PersistentStorage/finalResult.png){: .center loading="lazy" }
 
 Congrats, you've learned the basics of Persistent Data Storage in Core. Now go forth, and save awesome things!
 

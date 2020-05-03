@@ -83,11 +83,11 @@ For this reason, here are the recommended steps below:
 
 4. Open GitHub Desktop, and click **File** > **Clone Repository** to choose where to setup your project. First, click your new project from the **Your repositories** section. Navigate to your chosen game folder, in the same folder that the previous `data` folder is in. Clone your project into this game folder.
 
-    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CloneRepository.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CloneRepository.png "You can tell how seriously I take my project names."){: .center loading="lazy" }
 
     Now, your File Explorer should look like this, with whatever your project name is alongside the `data` folder:
 
-    ![File Explorer: Pre-Move](../img/EditorManual/SourceControl/fileExplorer.png "You can tell how seriously I take my project names."){: .center}
+    ![File Explorer: Pre-Move](../img/EditorManual/SourceControl/fileExplorer.png "You can tell how seriously I take my project names."){: .center loading="lazy" }
 
 5. Now, in your computer's File Explorer, drag the `data` folder into the Git folder you just made (it will be the name of your Git project). The file path should now look like:
 
@@ -106,11 +106,11 @@ For this reason, here are the recommended steps below:
 
 7. Return to GitHub Desktop and you'll see a bunch of changes show up. Git has recognized all the new files we dragged in from the `data` folder!
 
-    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CommitMessage.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/CommitMessage.png "You can tell how seriously I take my project names."){: .center loading="lazy" }
 
     Add a commit message in the bottom left corner that describes what you did--something like "Adding the first version of my game!". You need to fill out both the smaller **Summary** box and the larger **Description** box to be able to submit your new commit. Confirm the changes to your project using the blue Commit button, and click "Push" in the top right of the window. Now your project is officially committed safely to GitHub!
 
-    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center}
+    ![GitHub Desktop: Clone Repository](../img/EditorManual/SourceControl/PushCommit.png "You can tell how seriously I take my project names."){: .center loading="lazy" }
 
 8. Next time you make a change to the game within Core, Git will pick up the changed files for you. Each time you're done working or want to commit a big change, come back to GitHub Desktop and commit them with a clear message!
 
@@ -126,7 +126,7 @@ With this split, you could have one team member work on scripting a game, while 
 
 Here's an example of a project Hierarchy with that basic split of Art / Gameplay:
 
-![Core Project Hierarchy](../img/EditorManual/gitProjectHierarchy.png "Organization keeps your head clear!"){: .center}
+![Core Project Hierarchy](../img/EditorManual/gitProjectHierarchy.png "Organization keeps your head clear!"){: .center loading="lazy" }
 
 * **Even if you're not using GitHub Desktop**, this whole process works the same way. The only catch you'll want to keep in mind is the use of a `data` folder to nest your game files one level deeper.
 * **Merge conflicts will only happen when two users edit the same file.** So, as long as everything is split between different folders and these objects aren't referencing objects outside of their own folder in the project Hierarchy, you are good!
