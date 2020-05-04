@@ -232,7 +232,29 @@ Masks allow you to use more complex shapes in applying a new material.
 3. In the **Mask** section, check the **Use Mask** box.
 4. Click the image icon in the **Mask** property, and select **Cells**
 
-#### Using the Wetness Channel
+#### Using Wetness
+
+Terrain materials can be further customized **Wetness**. It allows you to make areas look soaked by making them darker and shinier.
+
+1. Select **Wetness** from the **Modifiers** section of the Palette.
+2. Click and drag on the edge of the riverbank to give an impression that it is soaked on the edges.
+
+## Foliage
+
+In addition to painting textures, objects can be automatically randomly added to the terrain materials
+
+### Open the Foliage Tool
+
+In the **Properties** window with the terrain selected, click the tab next to **Paint** called **Foliage**
+
+### Choose Foliage
+
+1. Click the **Add Foliage** button.
+2. In the **Static Mesh Picker**, search for ``oak`` to find **Tree Oak 01**.
+
+### Customize Foliage Settings
+
+You should have oak trees springing up on your terrain as soon as you add the object.
 
 ## Learn More
 
