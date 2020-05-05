@@ -1,7 +1,7 @@
 ---
 id: environment_art
-name: Environmental Art in Core
-title: Environmental Art in Core
+name: Environment Art in Core
+title: Environment Art in Core
 tags:
     - Tutorial
 ---
@@ -66,12 +66,7 @@ Any material can be added to a terrain. However, materials that begin with "Terr
 3. Search the **Core Content** tab for  `terrain`.
 4. Find **Terrain - Grass** and drag it onto the terrain.
 
-    <!-- <div class="mt-video">
-        <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
-            <source src="/img/EnvironIntro/image32.webm" type="video/webm" />
-            <source src="/img/EnvironIntro/image32.mp4" type="video/mp4" />
-        </video>
-    </div> -->
+![Add a Material to the Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_AddGrassMaterial.png)
 
 ## Terrain Sculpting
 
