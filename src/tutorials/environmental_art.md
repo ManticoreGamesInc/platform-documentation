@@ -14,20 +14,22 @@ tags:
 
 Learn how to generate, sculpt, and paint terrain, as well as adding foliage and a swimmable water post-process effect. This tutorial will focus on making a landscape with a path and river, but can be customize to build any natural environment.
 
-- **Completion Time:** 20 minutes
+- **Completion Time:** 30 minutes
 - **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
 - **Skills you will learn:**
     - Creating and sculpting terrain
     - Creating swimmable volumes
-    - Using the Object Generator tool
+    - Painting terrain and foliage
+    - Customizing sky templates
+    - Adding rain visual effects
 
 ## The Terrain Creator
 
-The Terrain Generator tool creates a different landscapes, either from a premade HeightMap, or through random generation.
+The Terrain Creator tool creates different landscapes using premade HeightMaps.
 
 ### Open the Terrain Creator
 
-1. Start from an new empty project.
+1. Start from a new empty project.
 2. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) button to open the **Terrain Creator**.
  {: .image-inline-text .image-background}
 3. Choose **Generate New Terrain** from the drop down menu.
@@ -53,6 +55,7 @@ You may have fallen through your terrain, and you may see an unusually flat area
 1. Find the **Spawn Point** in the **Hierarchy** and move it to a new spot, above the terrain and just outside of the default floor.
 2. Right click on **Default Floor** in the **Hierarchy** and select **Delete**.
 3. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) **Terrain** button again to see that it now lists the **Terrain (Rolling Hills)** as **Primary**
+ {: .image-inline-text .image-background}
 
 !!! note
     Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one that players can actually walk on.
@@ -87,7 +90,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 1. In the **Tool** menu, select the ![Level](../img/EditorManual/icons/Icon_TerrainLevel.png){: .image-inline-text style="width:2em; background:#15181e"} **Level** tool.
 2. Click on an area that is the ideal height, then drag around it to make the rest of the terrain match.
 
-![Leveled Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_LeveledArea.png){ .center loading="lazy" }S
+![Leveled Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_LeveledArea.png){ .center loading="lazy" }
 
 ### Carve out a Pond and Stream
 
@@ -105,7 +108,6 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 2. Click and drag the pond  and rivers to give it a more natural appearance.
 
 ![Smoothed Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SmoothedPond.png){: .center loading="lazy"}
-
 
 ## Water and Swimming
 
@@ -138,7 +140,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 
 The water cube now has the appearance of water, but a player will walk over it, rather than into it, because the cube has collision by default.
 
-   ![Force Off Collision](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ForceOffCollision.png){: .center loading="lazy"
+   ![Force Off Collision](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ForceOffCollision.png){: .center loading="lazy" }
 
 1. Select the water cube.
 2. On the **Properties** window, and find the **Scene** section.
@@ -176,7 +178,7 @@ With the Underwater Post Process in the same area as the water, you should now s
 
 ### Open the Terrain Painting Tool
 
-The terrain painting tool is also found the the terrain properties tab. Terrains must have painting enabled, and this can be done through the painting menu.
+The terrain painting tool is also found in the terrain **Properties** tab. Terrains must have painting enabled, and this can be done through the painting menu.
 
 1. Select the terrain in the **Hierarchy**.
 2. Open the **Properties** window.
