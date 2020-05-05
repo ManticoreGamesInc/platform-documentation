@@ -43,6 +43,8 @@ title: Tags
 
 - [Template Reference](template_reference.md)
 
+- [Terrain Reference](terrain_reference.md)
+
 - [UI Reference](ui_reference.md)
 
 
@@ -60,7 +62,7 @@ title: Tags
 
 - [Collaboration & Source Control in Core](collaboration.md)
 
-- [Environmental Art in Core](environmental_art.md)
+- [Environment Art in Core](environmental_art.md)
 
 - [Scripting in Core](lua_basics_lightbulb.md)
 
