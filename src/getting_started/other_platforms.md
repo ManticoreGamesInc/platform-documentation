@@ -88,9 +88,17 @@ Like Roblox, Core includes multiplayer networking built in, hosted by Manticore 
 
 Editor controls are very similar to Roblox, and most keyboard shortcuts are the same between the platforms. One difference, however, is that objects are generally added by clicking and dragging into the **Main Viewport**, the equivalent of the Project Workspace or Scene.
 
+### Collaboration
+
+Game files are stored locally on your machine, usually under ``Documents/My Games/Core/Saved/Maps``. This means that you can use conventional version control, like git, and Core files are small enough to also be shared through cloud drives.
+
+Published Core games can also be marked as editable, allowing others to customize and modify them, and many successful Core Games are available to use as starting points.
+
+A culture of collaboration is part of the Core Community, and is a powerful tool for creators who want to produce quality, professional games quickly.
+
 ### Scripting
 
-Core also uses the Lua scripting language, which is extremely flexible, and also connects to an similar event system. However, the Core API is distinct from the Roblox API, and so similar functions have different names, and will work differently. You can check out the [Core API](core_api.md) for more details.
+Core also uses the Lua scripting language, which is extremely flexible, and connects to a similar event system. However, the Core API is distinct from the Roblox API, and so similar functions have different names, and will work differently. You can check out the [Core API](core_api.md) for more details and example code.
 
 In general, scripts are created without parents, and have to be added into the project **Hierarchy**, equivalent ot the Explorer in Roblox. They can still be made children of objects to reference them, and it is also possible to define **Custom Property** variables that can be changed through the script's **Properties** window, rather than editing the script itself.
 
@@ -114,7 +122,7 @@ They also have **Smart Materials** which applies a material uniformly based on t
 
 ### Core is in Alpha
 
-Core is still in Open Alpha, which means there are a number of features that are yet to come, like monetization and cross-platform support. As an Open Alpha Creator, you are in a position to build some of the first, ground-breaking games in Core and to influence it's direction through feedback and creation.
+Core is still in Open Alpha, which means there are a number of features that are yet to come, like monetization and cross-platform support. As an Open Alpha Creator, you are in a position to build some of the first ground-breaking games in Core and to influence its direction through feedback and creation.
 
 ### Terminology
 
