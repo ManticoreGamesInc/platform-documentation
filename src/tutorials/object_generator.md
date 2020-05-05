@@ -11,7 +11,7 @@ tags:
 
 ### Randomize Scale
 
-![ArtIntro](../img/EnvironIntro/image35.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image35.png "Art Screenshot"){: .center loading="lazy" }
 
 Checking **Randomize Scale** will generate differently sized objects. If you want your scene to feel more realistic, check this box. It is pretty unrealistic to have bushes or rocks that are all the same size - when was the last time you saw that in nature? Even varying the scale a little will make your environment feel more lifelike.
 
@@ -26,7 +26,7 @@ You can set the **Min Scale** and **Max Scale** to control the range of how big 
 
 Check **Use Non-Uniform Scale** if you would like to further fine tune the scale of your objects. You can set the **Min** and **Max Scale** for each of an object's axis (X, Y, and Z).
 
-![ArtIntro](../img/EnvironIntro/image6.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image6.png "Art Screenshot"){: .center loading="lazy" }
 
 ### Randomize Yaw
 
@@ -37,7 +37,7 @@ Yaw is an object's rotation along the Y-axis. Checking **Randomize Yaw** ensures
 *Randomized Yaw unchecked (left) vs. checked (right)*
 {: .image-cluster}
 
-![ArtIntro](../img/EnvironIntro/image23.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image23.png "Art Screenshot"){: .center loading="lazy" }
 
 ### Randomize Color
 
@@ -48,7 +48,7 @@ If you would like to randomize the color of your spawned objects check **Use Ran
 *Randomized Color unchecked (left) vs. checked (right)*
 {: .image-cluster}
 
-![ArtIntro](../img/EnvironIntro/image25.png "Art Screenshot"){: .center}
+![ArtIntro](../img/EnvironIntro/image25.png "Art Screenshot"){: .center loading="lazy" }
 
 ### In-Between Distance
 

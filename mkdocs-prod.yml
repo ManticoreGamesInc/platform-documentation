@@ -8,8 +8,10 @@ nav:
       - Home: index.md
       - Getting Started:
         - Install Core: getting_started/installing_core.md
+        - Intro to the Editor: getting_started/editor_intro.md
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
+        - Coming from other Platforms: getting_started/other_platforms.md
         - Getting Help in Core: getting_started/core_help.md
       - Tutorials:
         - Overview: tutorials/overview.md
@@ -27,7 +29,6 @@ nav:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
         - Collaboration & Source Control: tutorials/collaboration.md
       - Core Editor Manual:
-        - Intro to the Editor: getting_started/editor_intro.md
         - Editor Shortcuts: editor_keybindings.md
         - Art in Core: tutorials/art_reference.md
         - Modeling Reference: tutorials/modeling_reference.md
@@ -46,7 +47,6 @@ nav:
         - Lua in Core: tutorials/lua_reference.md
         - Lua Style Guide: tutorials/lua_style_guide.md
         - Editor Extensions: extensions.md
-        - Coming from other Platforms: getting_started/other_platforms.md
         - Examples & Snippets: api/examples.md
   - Forums:
       - Forums: https://forums.coregames.com/
@@ -105,16 +105,22 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
+      name: Discord
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial
+      name: YouTube
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/r/coregamesdev
+      name: Reddit
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
+      name: Facebook
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/coregames
+      name: Twitter
     - icon: fontawesome/brands/twitch
       link: https://twitch.tv/corelive
+      name: Twitch
 
 markdown_extensions:
   - markdown.extensions.admonition

@@ -43,7 +43,7 @@ Renaming custom objects and parts of complex objects makes future editing quicke
 
 Folders can be used to organize projects according to your individual preferences. They are the best option for putting objects with similar purposes or in similar areas together without having to treat them like a single object.
 
-![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center}
+![Folder Example](../img/ComplexModels/ComplexModels_FolderExample.png){.center loading="lazy" }
 
 #### Creating a Folder
 
@@ -55,7 +55,7 @@ Folders can be used to organize projects according to your individual preference
 
 To add an object to a folder, drag it onto the folder name until it is highlighted with a blue box around it. Toggling the arrow on the left side of the folder name will open it to display the contents, or close it to hide them.
 
-![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){.center}
+![Highlighted Folder](../img/ComplexModels/ComplexModels_HighlightedFolder.png){.center loading="lazy" }
 
 #### Creating a Folder with Existing Objects
 

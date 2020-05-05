@@ -16,7 +16,7 @@ Publishing your Core project opens it to the world for testing and feedback, as 
 2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.
 {: .image-inline-text .image-background}
 
-![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center}
+![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center loading="lazy" }
 
 !!! note
     You can also publish from **File** > **Publish**
@@ -32,7 +32,7 @@ Good game information is essential to helping players find your game and underst
    - You can take snapshots in-editor with the camera button.
    - You can also select an image file from your directory via the folder button.
 
-![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center}
+![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
 !!! info
     Checking the **Open for Editing** box will allow other Core Creators to use a copy of your game as a starting point to make their own.
@@ -42,13 +42,13 @@ Good game information is essential to helping players find your game and underst
 1. Click **Publish** in the bottom right corner.
 2. Anytime you are ready to update the published version of the game, you will need to republish using the **Review & Update** button.
 
-![PublishSuccess](../img/MyFirstMultiplayer/PublishSuccess.png){: .center}
+![PublishSuccess](../img/MyFirstMultiplayer/PublishSuccess.png){: .center loading="lazy" }
 
 ## Success
 
 Your game is now live! Visit your game's page in the Core **Games** tab to try it out online.
 
-![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center}
+![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 
 ## Learn More
 
