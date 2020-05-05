@@ -6,13 +6,13 @@ tags:
     - Tutorial
 ---
 
-# Environmental Art in Core
+# Environment Art in Core
 
 <!-- ![ArtIntro](../img/EnvironIntro/image45.png "Art Screenshot"){: .center} -->
 
 ## Overview
 
-Learn how to use the Terrain Creator, swimmable volumes, and  the Object Generator. This tutorial will focus on making a landscape with a path and river, but can be customize to build any natural environment.
+Learn how to generate, sculpt, and paint terrain, as well as adding foliage and a swimmable water post-process effect. This tutorial will focus on making a landscape with a path and river, but can be customize to build any natural environment.
 
 - **Completion Time:** 20 minutes
 - **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
@@ -196,7 +196,7 @@ Each of the Materials, labeled **Material1** through **Material4** corresponds t
 3. Select **Bricks Cobblestone Floor 01**
 4. Close the Edit Materials menu.
 5. Select the second Material in the Paint menu **Palette**
-6. In the **Brush** section, increase the **Stride** value to ``0.25``.
+6. In the **General** section, increase the **Target Value** value to ``0.4`` to blend the brick material with the grass.
 7. Click and drag where you want a path to create some stones coming out of the grass.
 
 !!! Hint
@@ -241,7 +241,7 @@ Terrain materials can be further customized **Wetness**. It allows you to make a
 
 ## Foliage
 
-In addition to painting textures, objects can be automatically randomly added to the terrain materials
+In addition to painting textures, objects can be added to the terrain materials as **foliage**. These will not have collision and will be made to work better on a machine than just adding lots of objects.
 
 ### Open the Foliage Tool
 
@@ -250,12 +250,55 @@ In the **Properties** window with the terrain selected, click the tab next to **
 ### Choose Foliage
 
 1. Click the **Add Foliage** button.
-2. In the **Static Mesh Picker**, search for ``oak`` to find **Tree Oak 01**.
+2. In the **Static Mesh Picker**, search for ``grass`` to find **Grass Tall**.
 
-### Customize Foliage Settings
+### Access Foliage Settings
 
-You should have oak trees springing up on your terrain as soon as you add the object.
+You should have grass springing up on your terrain as soon as you add the object. Click on the object image that appears now in the **Foliage** tab to see its customizable properties.
+
+### Grow Grass along the River
+
+Next, we're going to change the river to look more like a marsh by filling it with tall grasses.
+
+1. In the **General** section,  change the **Material Channel** to the third material, the one used to paint the river.
+2. Change the **Distance Between Instances** to ``2.0m``.
+3. In the **Spawn Settings**, change the **Scale** property to have a ``Min 3.0x``.
+4. You can now return to the **Paint** menu to repaint with the River bottom material any areas that are missing grasses. The foliage will generate with the terrain paint.
+
+!!! Hint
+   If foliage is spawning in unexpected places, use the **Show Debug Material** option in the **Paint** terrain **Palette** menu to check which material is being applied in any area of the terrain.
+
+## Stormy Ambience
+
+In the next few steps, we will focus on making the scene overcast and rainy, as well as adding props. There are many options to customize for different effects.
+
+### Change the Sky
+
+The **Default Sky** in Core is composed of three parts, **Sun Light** and **Sky Light** which are currently the only two sources of light in the scene, and **Sky Dome** which controls the appearance of the sky. Each of these can be customized through the **Properties** menu.
+
+There are other complete sky templates available, as well as the different versions of these individual components.
+
+1. Search for ``sky overcast`` in **Core Content** and find the **Sky Overcast 01** template.
+2. Drag the sky template into the scene.
+3. Delete the **Default Sky** template.
+
+### Customize the Sky
+
+1. Open up the **Sky Overcast 01** folder in the **Hierarchy**.
+2. Select the **Environment Fog Default VFX** and open the **Properties** window.
+3. In the **Smart** section, change the **Color** property to a bright white.
+4. Increase the **Fog Density** property to whatever value gives the scene a misty look.
+
+### Add Rain
+
+1. In **Core Content** search for ``rain`` and add the **Rain Volume VFX** and **Rain Splash Volume VFX** objects to your scene.
+2. Place the **Rain Volume VFX** object up in the sky, and expand it using the **Transform Scale** tool to cover the area with droplets falling from the sky
+3. Place the **Rain Splash Volume VFX** on the ground and expand it to cover the area under the rain to create splashes on the ground.
+
+### Finish the Scene
+
+The final step is to add structures and props that finish the scene. See the [Complex Modeling](modeling_reference.md) and [Community Content](community_content.md) reference to learn about creating props and using props made by other Core creators.
 
 ## Learn More
 
-[Custom Materials](custom_materials.md) | [The Object Generator](object_generator.md) | [Sharing Content](community_content.md)
+[Custom Materials](custom_materials.md) | [Complex Modeling](modeling_reference.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
