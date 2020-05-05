@@ -34,7 +34,7 @@ The Terrain Creator tool creates different landscapes using premade HeightMaps.
  {: .image-inline-text .image-background}
 3. Choose **Generate New Terrain** from the drop down menu.
 
-   ![Open Terrain Creator](../img/EnvironIntro/edits/TerrainTutorial/OpenTerrainCreator.png){: .center}
+![Open Terrain Creator](../img/EnvironIntro/edits/TerrainTutorial/OpenTerrainCreator.png){: .center}
 
 ### Generate Terrain
 
@@ -46,7 +46,7 @@ There are different options for types of terrain that can be generated in Core. 
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
  {: .image-inline-text .image-background}
 
-   ![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center loading="lazy" }
+![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center loading="lazy" }
 
 ### Rearrange the Scene
 
@@ -81,7 +81,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 2. Open the **Properties** window.
 3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text style="width:2em; background:#15181e"} icon to open the **Sculpt** menu..
 
-   ![Sculpt Tool Menu](../img/EnvironIntro/edits/TerrainTutorial/SculptToolSetup.png){: .center}
+![Sculpt Tool Menu](../img/EnvironIntro/edits/TerrainTutorial/SculptToolSetup.png){: .center}
 
 ### Create a Flat Area
 
@@ -100,14 +100,14 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 3. Lower the **Strength** value in the **General** subcategory to ``0.1``
 4. Click and drag on the terrain to carve bowl shape for a pond, and extend it to a river on either side.
 
-   ![Carved Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_CarvePondAndRiver.png){: .center loading="lazy"}
+![Carved Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_CarvePondAndRiver.png){: .center loading="lazy" }
 
 ### Smooth the Terrain
 
 1. Change the sculpting tool from ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** to ![Terrain Smooth](../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text style="width:2em; background:#15181e"} **Smooth**.
 2. Click and drag the pond  and rivers to give it a more natural appearance.
 
-![Smoothed Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SmoothedPond.png){: .center loading="lazy"}
+![Smoothed Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SmoothedPond.png){: .center loading="lazy" }
 
 ## Water and Swimming
 
@@ -116,14 +116,14 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 1. Search for a cube in the **Core Content** window.
 2. Drag the cube into the scene, above the spaces sculpted for the water.
 
-   ![Add Cube to Scene](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ResizeACube.png){: .center loading="lazy"}
+![Add Cube to Scene](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ResizeACube.png){: .center loading="lazy" }
 
 ### Resize and Reposition the Cube
 
 1. Resize the cube until it fills your crater.
 2. Move the cube down until it looks like a pool of water inside the sand dunes.
 
- ![Move Cube Down for Water](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PositionTheCube.png){: .center loading="lazy"}
+![Move Cube Down for Water](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PositionTheCube.png){: .center loading="lazy" }
 
 ### Add a Material
 
@@ -131,7 +131,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 2. Choose a water material, and drag it onto the cube.
 3. Preview the scene to see the water in person.
 
-   ![Cube with Water Material](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_AddWaterMaterial.png){: .center loading="lazy"}
+![Cube with Water Material](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_AddWaterMaterial.png){: .center loading="lazy" }
 
 !!! note
     Select the **Cube** in the Hierarchy and press <kbd>F2</kbd> to rename it to **Water Cube**.
@@ -140,7 +140,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 
 The water cube now has the appearance of water, but a player will walk over it, rather than into it, because the cube has collision by default.
 
-   ![Force Off Collision](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ForceOffCollision.png){: .center loading="lazy" }
+![Force Off Collision](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ForceOffCollision.png){: .center loading="lazy" }
 
 1. Select the water cube.
 2. On the **Properties** window, and find the **Scene** section.
@@ -154,7 +154,7 @@ Now you can pass through the water, but once inside it looks like the volume dis
 1. Find the **Underwater Post Process** volume under the **Post Processing** section of **Core Content**.
 2. Drag it into your scene on top of your water.
 
-   ![Find Underwater Post Process](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FindUnderwaterPostProcess.png){: .center loading="lazy"}
+![Find Underwater Post Process](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FindUnderwaterPostProcess.png){: .center loading="lazy" }
 
 ### Resize the Underwater Post Process
 
@@ -166,13 +166,13 @@ Core makes it easy to copy properties from one object to another. We can use thi
 4. Click the ![Paste Properties](../img/EnvironIntro/edits/TerrainTutorial/Icon_PropertyPaste.png){: .image-inline-text} **Paste Properties** button, in the top right corner.
 5. Check **Position**, **Rotation** and **Scale** in the menu that pops up and press **Paste Selected Parameter Values**
 
-![Copy and Paste Properties](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_CopyPasteProperties.png){: .center loading="lazy"}
+![Copy and Paste Properties](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_CopyPasteProperties.png){: .center loading="lazy" }
 
 ### Test Swimming
 
 With the Underwater Post Process in the same area as the water, you should now start swimming automatically when you enter it. Press **Play** to preview and jump in the water. If it is deep enough, your character should switch to the swimming animation. You will also notice some distortion and color in the water. You can change how these work in the **Properties** menu for the Underwater Post Process.
 
-![Swimming](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_Swimming.png){: .center loading="lazy"}
+![Swimming](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_Swimming.png){: .center loading="lazy" }
 
 ## Terrain Painting
 
@@ -203,7 +203,7 @@ Each of the Materials, labeled **Material1** through **Material4** corresponds t
 6. In the **General** section, increase the **Target Value** value to ``0.4`` to blend the brick material with the grass.
 7. Click and drag where you want a path to create some stones coming out of the grass.
 
-![Terrain Painted Path](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_StonePath.png){: .center loading="lazy"}
+![Terrain Painted Path](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_StonePath.png){: .center loading="lazy" }
 
 !!! Hint
     You can hold <kbd>Alt</kbd> while dragging on the scene to unpaint materials from areas that you recently painted.
@@ -212,7 +212,7 @@ Each of the Materials, labeled **Material1** through **Material4** corresponds t
 
 #### Choose the Materials
 
-![Choose Riverbed Materials](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SelectRiverBottom.png){: .center loading="lazy"}
+![Choose Riverbed Materials](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SelectRiverBottom.png){: .center loading="lazy" }
 
 1. In the Hierarchy, click the **eye** icon next to the Water Cube to hide it temporarily.
 2. In the Edit Materials menu, find **Material3**
@@ -225,13 +225,13 @@ Each of the Materials, labeled **Material1** through **Material4** corresponds t
 2. Click and drag along the river to cover it with the new materials.
 3. Click the **eye** icon next to the Water Cube to show it again
 
-![Painted River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintedRiver.png){: .center loading="lazy"}
+![Painted River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintedRiver.png){: .center loading="lazy" }
 
 #### Preview the Materials Underwater
 
 Press the **Play** button to preview the new materials under the Underwater Post Process effect by swimming through the river.
 
-![River Materials Underwater](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SwimmingTheRiver.png){: .center loading="lazy"}
+![River Materials Underwater](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SwimmingTheRiver.png){: .center loading="lazy" }
 
 ### Paint the River Bank
 
@@ -244,7 +244,7 @@ Masks allow you to use more complex shapes in applying a new material.
 3. In the **Mask** section, check the **Use Mask** box.
 4. Click the image icon in the **Mask** property, and select **Cells**
 
-![Cells Mask for Painting Materials](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintWithMask.png){: .center loading="lazy"}
+![Cells Mask for Painting Materials](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintWithMask.png){: .center loading="lazy" }
 
 #### Using Wetness
 
@@ -253,7 +253,7 @@ Terrain materials can be further customized **Wetness**. It allows you to make a
 1. Select **Wetness** from the **Modifiers** section of the Palette.
 2. Click and drag on the edge of the riverbank to give an impression that it is soaked on the edges.
 
-![Painted Wetness Channel](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintedWetnessChannel.png){: .center loading="lazy"}
+![Painted Wetness Channel](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_PaintedWetnessChannel.png){: .center loading="lazy" }
 
 ## Foliage
 
@@ -272,20 +272,20 @@ In the **Properties** window with the terrain selected, click the tab next to **
 
 You should have grass springing up on your terrain as soon as you add the object. Click on the object image that appears now in the **Foliage** tab to see its customizable properties.
 
-![Grass on the Grassy Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_GrassOnGrass.png){: .center loading="lazy"}
+![Grass on the Grassy Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_GrassOnGrass.png){: .center loading="lazy" }
 
 ### Grow Grass along the River
 
 Next, we're going to change the river to look more like a marsh by filling it with tall grasses.
 
-![Foliage with Tall Grass Selected](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FoliageProperties.png){: .center loading="lazy"}
+![Foliage with Tall Grass Selected](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FoliageProperties.png){: .center loading="lazy" }
 
 1. In the **General** section,  change the **Material Channel** to the third material, the one used to paint the river.
 2. Change the **Distance Between Instances** to ``2.0m``.
 3. In the **Spawn Settings**, change the **Scale** property to have a ``Min 3.0x``.
 4. You can now return to the **Paint** menu to repaint with the River bottom material any areas that are missing grasses. The foliage will generate with the terrain paint.
 
-![Grass along the River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_GrassTaller.png){: .center loading="lazy"}
+![Grass along the River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_GrassTaller.png){: .center loading="lazy" }
 
 !!! Hint
    If foliage is spawning in unexpected places, use the **Show Debug Material** option in the **Paint** terrain **Palette** menu to check which material is being applied in any area of the terrain.
@@ -304,7 +304,7 @@ There are other complete sky templates available, as well as the different versi
 2. Drag the sky template into the scene.
 3. Delete the **Default Sky** template.
 
-![Overcast Sky](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_Overcast.png){: .center loading="lazy"}
+![Overcast Sky](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_Overcast.png){: .center loading="lazy" }
 
 ### Customize the Sky
 
@@ -319,8 +319,7 @@ There are other complete sky templates available, as well as the different versi
 2. Place the **Rain Volume VFX** object up in the sky, and expand it using the **Transform Scale** tool to cover the area with droplets falling from the sky
 3. Place the **Rain Splash Volume VFX** on the ground and expand it to cover the area under the rain to create splashes on the ground.
 
-![Overcast Sky](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FinishedScene.png){: .center loading="lazy"}
-
+![Overcast Sky](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_FinishedScene.png){: .center loading="lazy" }
 
 ### Finish the Scene
 
