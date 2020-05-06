@@ -553,7 +553,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 512.0. | Read-Write |
 | `groundFriction` | Number | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | Number | Multiplier for friction when braking. Default = 0.6. | Read-Write |
-| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44.765. | Read-Write |
+| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44. | Read-Write |
 | `maxJumpCount` | Integer | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
 | `jumpVelocity` | Number | Vertical speed applied to Player when they jump. | Read-Write |
 | `gravityScale` | Number | Multiplier on gravity applied. Default = 1.9. | Read-Write |
