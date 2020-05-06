@@ -548,14 +548,14 @@ Player is an Object representation of the state of a Player connected to the gam
 | `deaths` | Integer | The number of times the player has died. | Read-Write |
 | `stepHeight` | Number | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
 | `maxWalkSpeed` | Number | Maximum speed while the player is on the ground. Default = 640. | Read-Write |
-| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1200. | Read-Write |
+| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1800. | Read-Write |
 | `brakingDecelerationFalling` | Number | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
-| `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 512.0. | Read-Write |
+| `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
 | `groundFriction` | Number | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | Number | Multiplier for friction when braking. Default = 0.6. | Read-Write |
-| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44.765. | Read-Write |
+| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44. | Read-Write |
 | `maxJumpCount` | Integer | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
-| `jumpVelocity` | Number | Vertical speed applied to Player when they jump. | Read-Write |
+| `jumpVelocity` | Number | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
 | `gravityScale` | Number | Multiplier on gravity applied. Default = 1.9. | Read-Write |
 | `maxSwimSpeed` | Number | Maximum speed while the player is swimming. Default = 420. | Read-Write |
 | `touchForceFactor` | Number | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
