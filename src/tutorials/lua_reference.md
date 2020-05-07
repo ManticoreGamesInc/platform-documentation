@@ -35,7 +35,7 @@ official [reference](http://www.lua.org/manual/5.3/) as needed, then make yourse
 
 #### Coming from other platforms
 
-Other platforms also have good sources of documentation for Lua. Check out [Coming to Core from Other Platforms](other_platforms.md) for a few hints on what's different in **Core**.
+Other platforms also have good sources of documentation for Lua. Check out our "Coming to Core from Other Platforms" section for a few hints on what's different in **Core**.
 
 ## Basics
 
