@@ -8,7 +8,7 @@ tags:
 
 # Build Your First Game In Core
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-rIbd612sUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![YOUTUBE](../assets/placeholder_720p.png "-rIbd612sUM"){: .center loading="lazy" }
 
 ## Overview
 
