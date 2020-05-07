@@ -8,6 +8,8 @@ tags:
 
 # Build Your First Game In Core
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-rIbd612sUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Overview
 
 Jump in and build a game using Core's Deathmatch framework. Customize as much or as little as you want to build this multiplayer arena shooter.
