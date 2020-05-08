@@ -21,9 +21,13 @@ title: Tags
 
 - [Introduction to the Core Editor](editor_intro.md)
 
-- [Coming to Core from Other Platforms](other_platforms.md)
-
 - [Publishing Checklist](publishing_checklist.md)
+
+- [Coming to Core from Roblox](roblox.md)
+
+- [Coming to Core from Unity](unity.md)
+
+- [Coming to Core from World of Warcraft](world_of_warcraft.md)
 
 - [Art in Core](art_reference.md)
 

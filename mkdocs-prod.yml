@@ -11,8 +11,11 @@ nav:
         - Intro to the Editor: getting_started/editor_intro.md
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
-        - Coming from other Platforms: getting_started/other_platforms.md
         - Getting Help in Core: getting_started/core_help.md
+      - Coming from other Platforms:
+        - Unity: other_platforms/unity.md
+        - Roblox: other_platforms/roblox.md
+        - World of Warcraft: other_platforms/world_of_warcraft.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
@@ -62,7 +65,6 @@ nav:
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
-      - Coming from other Platforms: getting_started/other_platforms.md
       - Examples & Snippets: api/examples.md
   - FAQ:
       - Frequently Asked Questions: https://forums.coregames.com/t/83
@@ -184,8 +186,9 @@ plugins:
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
-        getting_started/other_engines.md: getting_started/other_platforms.md
+        getting_started/other_engines.md: other_platforms/unity.md
         getting_started/troubleshooting.md: getting_started/core_help.md
+        getting_started/other_platforms.md: other_platforms/unity.md
 
 docs_dir: src
 

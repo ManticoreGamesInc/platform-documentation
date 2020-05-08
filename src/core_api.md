@@ -548,14 +548,14 @@ Player is an Object representation of the state of a Player connected to the gam
 | `deaths` | Integer | The number of times the player has died. | Read-Write |
 | `stepHeight` | Number | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
 | `maxWalkSpeed` | Number | Maximum speed while the player is on the ground. Default = 640. | Read-Write |
-| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1200. | Read-Write |
+| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1800. | Read-Write |
 | `brakingDecelerationFalling` | Number | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
-| `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 512.0. | Read-Write |
+| `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
 | `groundFriction` | Number | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | Number | Multiplier for friction when braking. Default = 0.6. | Read-Write |
-| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44.765. | Read-Write |
+| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44. | Read-Write |
 | `maxJumpCount` | Integer | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
-| `jumpVelocity` | Number | Vertical speed applied to Player when they jump. | Read-Write |
+| `jumpVelocity` | Number | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
 | `gravityScale` | Number | Multiplier on gravity applied. Default = 1.9. | Read-Write |
 | `maxSwimSpeed` | Number | Maximum speed while the player is swimming. Default = 420. | Read-Write |
 | `touchForceFactor` | Number | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
@@ -1255,7 +1255,7 @@ A few base functions provided by the platform.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in ms) between this and the last tick. | None |
+| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
 | `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
 | `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
 | `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
@@ -1269,19 +1269,8 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | None | Draws a debug line. `optionalParameters: duration (Number), thickness (Number), color (Color)`. 0 or negative duration results in a single frame. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 | `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | None | Draws a debug box, with dimension specified as a vector. `optionalParameters` has same options as `DrawLine()`, with addition of: `rotation (Rotation)` - rotation of the box. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | None | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
-
-??? "CoreDebug Code Example"
-
-    ```lua
-    -- draw red line for 3 seconds
-    CoreDebug.DrawLine(Vector3.New(0, 0, 0), Vector3.New(0, 0, 1000), {color = Color.RED, duration = 3.0})
-
-    -- draw box with dimension (100x200x300) for 10 seconds, rotated 45 degrees along Z axis
-    CoreDebug.DrawBox(Vector3.New(1000, 0, 0), Vector3.New(100, 200, 300), {color = Color.BLUE, duration = 10.0, rotation = Rotation.New(0, 0, 45)})
-
-    -- draw cyan sphere with radius 50 for single frame
-    CoreDebug.DrawSphere(Vector3.New(0, 0, 100), 50, {color = Color.CYAN })
-    ```
+| `CoreDebug.GetTaskStackTrace([Task task])` | string | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
+| `CoreDebug.GetStackTrace()` | string | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
 
 ### CoreMath
 
