@@ -17,7 +17,7 @@ tags:
 
 ## Introduction
 
-Assets in Core are downloaded with the installation of the Core Launcher and Editor, and all unique 3D objects made for games are created out of this content. This allows for extremely fast loading of any Core project, for both players and creators. See the [Modeling Basics tutorial](modeling_basics) for a hands-on introduction.
+Assets in Core are downloaded with the installation of the Core Launcher and Editor, and all unique 3D objects made for games are created out of this content. This allows for extremely fast loading of any Core project, for both players and creators. See the [Modeling Basics tutorial](modeling_basics.md) for a hands-on introduction.
 
 ### Community Content
 
@@ -94,4 +94,4 @@ Templates can be used to save grouped objects, collections of created objects, s
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
