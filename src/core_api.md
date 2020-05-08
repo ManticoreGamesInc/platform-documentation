@@ -1090,11 +1090,11 @@ A three-component vector that can represent a position or direction.
 | `Vector3.New(Vector2 xy, Number z)` | Vector3 | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. [:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
 | `Vector3.New(Vector3 v)` | Vector3 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
 | `Vector3.New(Vector4 v)` | Vector4 | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
-| `Vector3.ZERO` | Vector3 | (0, 0, 0) [:fontawesome-solid-info-circle:](../api/examples/[:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
-| `Vector3.ONE` | Vector3 | (1, 1, 1) [:fontawesome-solid-info-circle:](../api/examples/[:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
-| `Vector3.FORWARD` | Vector3 | (1, 0, 0) [:fontawesome-solid-info-circle:](../api/examples/[:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
-| `Vector3.UP` | Vector3 | (0, 0, 1) [:fontawesome-solid-info-circle:](../api/examples/[:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
-| `Vector3.RIGHT` | Vector3 | (0, 1, 0) [:fontawesome-solid-info-circle:](../api/examples/[:fontawesome-solid-info-circle:](../api/examples/#vector3new "Example") | None |
+| `Vector3.ZERO` | Vector3 | (0, 0, 0) [:fontawesome-solid-info-circle:](../api/examples/#vector3zero-vector3one-vector3forward-vector3up-vector3right "Example") | None |
+| `Vector3.ONE` | Vector3 | (1, 1, 1) [:fontawesome-solid-info-circle:](../api/examples/#vector3zero-vector3one-vector3forward-vector3up-vector3right "Example") | None |
+| `Vector3.FORWARD` | Vector3 | (1, 0, 0) [:fontawesome-solid-info-circle:](../api/examples/#vector3zero-vector3one-vector3forward-vector3up-vector3right "Example") | None |
+| `Vector3.UP` | Vector3 | (0, 0, 1) [:fontawesome-solid-info-circle:](../api/examples/#vector3zero-vector3one-vector3forward-vector3up-vector3right "Example") | None |
+| `Vector3.RIGHT` | Vector3 | (0, 1, 0) [:fontawesome-solid-info-circle:](../api/examples/#vector3zero-vector3one-vector3forward-vector3up-vector3right "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
