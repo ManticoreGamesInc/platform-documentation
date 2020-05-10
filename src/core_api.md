@@ -72,7 +72,7 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 | `canJump` | bool | Is the Player allowed to jump during this phase. False by default in Cast & Execute, default True in Recovery & Cooldown. | Read-Only |
 | `canRotate` | bool | Is the Player allowed to rotate during this phase. True by default. | Read-Only |
 | `preventsOtherAbilities` | bool | When true this phase prevents the Player from casting another Ability, unless that other Ability has canBePrevented set to False. True by default in Cast & Execute, false in Recovery & Cooldown. | Read-Only |
-| `isTargetDataUpdated` | bool | If true, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Only |
+| `isTargetDataUpdated` | bool | If `true`, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Only |
 | `facingMode` | AbilityFacingMode | How and if this Ability rotates the Player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are: AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
 
 ### AbilityTarget
@@ -102,6 +102,32 @@ A data type containing information about what the Player has targeted during a p
 | `hitPlayer` | Player | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Write |
 | `spreadHalfAngle` | Number | Half-angle of cone of possible target space, in degrees. | Read-Write |
 | `spreadRandomSeed` | Integer | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
+
+### AnimatedMesh
+
+AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked into them. They also have sockets exposed to which any CoreObject can be attached.
+
+| Event | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `animationEvent` | Event&lt;AnimatedMesh, string&gt; | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetAnimationNames()` | Array&lt;string&gt; | Returns an array of all available animations on this object. | None |
+| `GetAnimationStanceNames()` | Array&lt;string&gt; | Returns an array of all available animation stances on this object. | None |
+| `GetSocketNames()` | Array&lt;string&gt; | Returns an array of all available sockets on this object. | None |
+| `GetAnimationEventNames(string animationName)` | Array&lt;string&gt; | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+| `AttachCoreObject(CoreObject objectToAttach, string socketName)` | None | Attaches the specified object to the specified socket on the mesh if they exist. | Client-Only |
+| `PlayAnimation(string animationName, [table parameters])` | None | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays; `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
+| `StopAnimations()` | None | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
+| `GetAnimationDuration(string animationName)` | Number | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `animationStance` | string | The stance the animated mesh plays. | Client-Only, Read-Write |
+| `animationStancePlaybackRate` | Number | The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Client-Only, Read-Write |
+| `animationStanceShouldLoop` | bool | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only, Read-Write |
+| `playbackRateMultiplier` | Number | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Client-Only, Read-Write |
 
 ### AreaLight
 
@@ -173,7 +199,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `currentPitch` | Number | The current pitch of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minPitch` | Number | The minimum pitch for free control. | Read-Write, Dynamic |
 | `maxPitch` | Number | The maximum pitch for free control. | Read-Write, Dynamic |
-| `isYawLimited` | bool | Whether the Player's yaw has limits. If so, maxYaw must be at least minYaw, (and should be outside the range [0, 360] if needed). | Read-Write, Dynamic |
+| `isYawLimited` | bool | Whether the Player's yaw has limits. If so, maxYaw must be at least minYaw, (and should be outside the range `[0, 360]` if needed). | Read-Write, Dynamic |
 | `currentYaw` | Number | The current yaw of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minYaw` | Number | The minimum yaw for free control. | Read-Write, Dynamic |
 | `maxYaw` | Number | The maximum yaw for free control. | Read-Write, Dynamic |
@@ -228,6 +254,25 @@ An RGBA representation of a color. Color components have an effective range of `
 | :fontawesome-solid-square:{: .Color_CYAN } `#00ffffff`        | Color.CYAN        | :fontawesome-solid-square:{: .Color_SAPPHIRE } `#02024cff` | Color.SAPPHIRE |
 | :fontawesome-solid-square:{: .Color_MAGENTA} `#ff00ffff`      | Color.MAGENTA     | :fontawesome-solid-square:{: .Color_SILVER } `#b2b2b2ff`   | Color.SILVER |
 | :fontawesome-solid-square:{: .Color_YELLOW } `#ffff00ff`      | Color.YELLOW      | :fontawesome-solid-square:{: .Color_SMOKE } `#191919ff`    | Color.SMOKE |
+
+### CoreMesh
+
+CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It is the parent type for both AnimatedMesh and StaticMesh.
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetColor()` | Color | Returns the color override previously set from script, or `0, 0, 0, 0` if no such color has been set. | None |
+| `SetColor(Color)` | None | Overrides the color of all materials on the mesh, and replicates the new colors. | Dynamic |
+| `ResetColor()` | None | Turns off the color override, if there is one. | Dynamic |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `team` | Integer | Assigns the mesh to a team. Value range from `0` to `4`. `0` is neutral team. | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. Requires a material that supports the color property. | Read-Write, Dynamic |
+| `isTeamCollisionEnabled` | bool | If `false`, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic |
+| `isEnemyCollisionEnabled` | bool | If `false`, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic |
+| `isCameraCollisionEnabled` | bool | If `false`, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write, Dynamic |
+| `meshAssetId` | string | The ID of the mesh asset used by this mesh. | Read-Only |
 
 ### CoreObject
 
@@ -310,10 +355,10 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `visibility` | enum | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write, Dynamic |
 | `collision` | enum | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write, Dynamic |
 | `isEnabled` | bool | Turn on/off an object and its children completely. | Read-Write, Dynamic |
-| `isStatic` | bool | If true, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
-| `isClientOnly` | bool | If true, this object was spawned on the client and is not replicated from the server. | Read-Only |
-| `isServerOnly` | bool | If true, this object was spawned on the server and is not replicated to clients. | Read-Only |
-| `isNetworked` | bool | If true, this object replicates from the server to clients. | Read-Only |
+| `isStatic` | bool | If `true`, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only, Dynamic |
+| `isClientOnly` | bool | If `true`, this object was spawned on the client and is not replicated from the server. | Read-Only |
+| `isServerOnly` | bool | If `true`, this object was spawned on the server and is not replicated to clients. | Read-Only |
+| `isNetworked` | bool | If `true`, this object replicates from the server to clients. | Read-Only |
 | `lifeSpan` | Number | Duration after which the object is destroyed. | Read-Write, Dynamic |
 | `sourceTemplateId` | string | The ID of the Template from which this CoreObject was instantiated. `nil` if the object did not come from a Template. | Read-Only |
 
@@ -445,13 +490,13 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If true, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If false, the light's Intensity is a brightness scale. | Read-Write, Dynamic |
+| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If `true`, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If `false`, the light's Intensity is a brightness scale. | Read-Write, Dynamic |
 | `attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. | Read-Write, Dynamic |
 | `isShadowCaster` | bool | Does this light cast shadows? | Read-Write, Dynamic |
 | `hasTemperature` | bool | true: use temperature value as illuminant. false: use white (D65) as illuminant. | Read-Write, Dynamic |
 | `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic |
 | `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write, Dynamic |
-| `isTeamColorUsed` | bool | If true, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
 
 ### NetworkContext
 
@@ -577,7 +622,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `currentSpread` | Number | Gets the Player's current targeting spread. | Client-Only, Read-Only |
 | `buoyancy` | Number | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
 | `canMount` | bool | Returns whether the Player can manually toggle on/off the mount. | Server-Only, Read-Write |
-| `shouldDismountWhenDamaged` | bool | If true, and the Player is mounted they will dismount if they take damage. | Server-Only, Read-Write |
+| `shouldDismountWhenDamaged` | bool | If `true`, and the Player is mounted they will dismount if they take damage. | Server-Only, Read-Write |
 | `isVisibleToSelf` | bool | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Client-Only, Read-Write |
 
 ### PlayerSettings
@@ -647,7 +692,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `capsuleLength` | Number | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. [:fontawesome-solid-info-circle:](../api/examples/#projectilecapsulelength-projectilecapsuleradius "Example") | Read-Write |
 | `homingTarget` | CoreObject | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. [:fontawesome-solid-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
 | `homingAcceleration` | Number | Magnitude of acceleration towards the target. Default 10,000. [:fontawesome-solid-info-circle:](../api/examples/#projectilehomingtarget-projectiledrag-projectilehomingacceleration "Example") | Read-Write |
-| `shouldDieOnImpact` | bool | If true, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. [:fontawesome-solid-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
+| `shouldDieOnImpact` | bool | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. [:fontawesome-solid-info-circle:](../api/examples/#projectilepiercesremaining-projectileshoulddieonimpact "Example") | Read-Write |
 
 ### Quaternion
 
@@ -819,23 +864,11 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 ### StaticMesh
 
-StaticMesh is a CoreObject representing a static mesh.
-
-| Function | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | Returns the color override previously set from script, or `0, 0, 0, 0` if no such color has been set. | None |
-| `SetColor(Color)` | None | Overrides the color of all materials on the mesh, and replicates the new colors. | Dynamic |
-| `ResetColor()` | None | Turns off the color override, if there is one. | Dynamic |
+StaticMesh is a static CoreMesh. StaticMeshes can be placed in the scene and (if networked or client-only) moved at runtime, but the mesh itself cannot be animated. See AnimatedMesh for meshes with animations.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isSimulatingDebrisPhysics` | bool | If true, physics will be enabled for the mesh. | Read-Write, Dynamic |
-| `isTeamColorUsed` | bool | If true, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. Requires a material that supports the color property. | Read-Write, Dynamic |
-| `isTeamCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write, Dynamic |
-| `isEnemyCollisionEnabled` | bool | If false, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write, Dynamic |
-| `isCameraCollisionEnabled` | bool | If false, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write, Dynamic |
-| `meshAssetId` | string | The ID of the mesh asset used by this mesh. | Read-Only |
-| `team` | Integer | Assigns the mesh to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write, Dynamic |
+| `isSimulatingDebrisPhysics` | bool | If `true`, physics will be enabled for the mesh. | Read-Write, Dynamic |
 
 ### Task
 
@@ -918,8 +951,8 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `isInteractable` | bool | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. [:fontawesome-solid-info-circle:](../api/examples/#isinteractable "Example") | Read-Write, Dynamic |
 | `interactionLabel` | string | The text players will see in their HUD when they come into range of interacting with this trigger. [:fontawesome-solid-info-circle:](../api/examples/#interactionlabel "Example") | Read-Write, Dynamic |
 | `team` | Integer | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. [:fontawesome-solid-info-circle:](../api/examples/#team "Example") | Read-Write, Dynamic |
-| `isTeamCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fontawesome-solid-info-circle:](../api/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
-| `isEnemyCollisionEnabled` | bool | If false, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fontawesome-solid-info-circle:](../api/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
+| `isTeamCollisionEnabled` | bool | If `false`, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. [:fontawesome-solid-info-circle:](../api/examples/#isteamcollisionenabled "Example") | Read-Write, Dynamic |
+| `isEnemyCollisionEnabled` | bool | If `false`, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. [:fontawesome-solid-info-circle:](../api/examples/#isenemycollisionenabled "Example") | Read-Write, Dynamic |
 
 ### UIButton
 
@@ -985,7 +1018,7 @@ A UIControl for displaying an image.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isTeamColorUsed` | bool | If true, the image will be tinted blue if its team matches the Player, or red if not. | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, the image will be tinted blue if its team matches the Player, or red if not. | Read-Write, Dynamic |
 | `team` | Integer | the team of the image, used for `isTeamColorUsed`. | Read-Write, Dynamic |
 
 ### UIPanel
@@ -994,7 +1027,7 @@ A UIControl which can be used for containing and laying out other UI controls.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `shouldClipChildren` | bool | If true, children of this UIPanel will not draw outside of its bounds. | Read-Write, Dynamic |
+| `shouldClipChildren` | bool | If `true`, children of this UIPanel will not draw outside of its bounds. | Read-Write, Dynamic |
 
 ### UIProgressBar
 
@@ -1200,8 +1233,8 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `multiShotCount` | Integer | Number of Projectiles/Hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Only |
 | `burstCount` | Integer | Number of automatic activations of the Weapon that generally occur in quick succession. | Read-Only |
 | `shotsPerSecond` | Number | Used in conjunction with burstCount to determine the interval between automatic weapon activations. | Read-Write |
-| `shouldBurstStopOnRelease` | bool | If true, a burst sequence can be interrupted by the Player by releasing the action button. If false, the burst continues firing automatically until it completes or the Weapon runs out of ammo. | Read-Only |
-| `isHitscan` | bool | If false, the Weapon will produce simulated Projectiles. If true, it will instead use instantaneous line traces to simulate shots. | Read-Only |
+| `shouldBurstStopOnRelease` | bool | If `true`, a burst sequence can be interrupted by the Player by releasing the action button. If `false`, the burst continues firing automatically until it completes or the Weapon runs out of ammo. | Read-Only |
+| `isHitscan` | bool | If `false`, the Weapon will produce simulated Projectiles. If `true`, it will instead use instantaneous line traces to simulate shots. | Read-Only |
 | `range` | Number | Max travel distance of the Projectile (isHitscan = False) or range of the line trace (isHitscan = True). | Read-Only |
 | `damage` | Number | Damage applied to a Player when the weapon attack hits a player target. If set to zero, no damage is applied. | Read-Only |
 | `projectileTemplateId` | string | Asset reference for the visual body of the Projectile, for non-hitscan Weapons. | Read-Only |
@@ -1222,7 +1255,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `maxAmmo` | Integer | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn't need to reload. | Read-Only |
 | `currentAmmo` | Integer | Current amount of ammo stored in this Weapon. | Read-Write, Dynamic |
 | `ammoType` | string | A unique identifier for the ammunition type. | Read-Only |
-| `isAmmoFinite` | bool | Determines where the ammo comes from. If true, then ammo will be drawn from the Player's Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If false, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only |
+| `isAmmoFinite` | bool | Determines where the ammo comes from. If `true`, then ammo will be drawn from the Player's Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If `false`, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only |
 | `outOfAmmoSoundId` | string | Asset reference for a sound effect to be played when the Weapon tries to activate, but is out of ammo. | Read-Only |
 | `reloadSoundId` | string | Asset reference for a sound effect to be played when the Weapon reloads ammo. | Read-Only |
 | `spreadMin` | Number | Smallest size in degrees for the Weapon's cone of probability space to fire Projectiles in. | Read-Only |
@@ -1420,101 +1453,101 @@ World is a collection of functions for finding objects in the world.
 | `World.FindObjectByName(string typeName)` | CoreObject | Returns the first object found with a matching name. In none match, nil is returned. [:fontawesome-solid-info-circle:](../api/examples/#worldfindobjectbynamestring "Example") | None |
 | `World.FindObjectById(string muid)` | CoreObject | Returns the object with a given MUID. Returns nil if no object has this ID. [:fontawesome-solid-info-circle:](../api/examples/#worldfindobjectbyidstring "Example") | None |
 | `World.SpawnAsset(string assetId, [table parameters])` | CoreObject | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. [:fontawesome-solid-info-circle:](../api/examples/#worldspawnassetstring-optional-parameters "Example") | None |
-| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If true, ignore all players. [:fontawesome-solid-info-circle:](../api/examples/#worldraycastvector3-start-vector3-end-optional-parameters "Example") | None |
+| `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | HitResult | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. [:fontawesome-solid-info-circle:](../api/examples/#worldraycastvector3-start-vector3-end-optional-parameters "Example") | None |
 
 ### Built-In Lua Functions
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
-    - assert
-    - collectgarbage (modified)
-    - error
-    - getmetatable (modified)
-    - ipairs
-    - next
-    - pairs
-    - pcall
-    - print (modified)
-    - rawequal
-    - rawget (modified)
-    - rawset (modified)
-    - require (modified)
-    - select
-    - setmetatable (modified)
-    - tonumber
-    - tostring
-    - type
-    - _G (modified)
-    - _VERSION
-    - xpcall
-    - coroutine.create
-    - coroutine.isyieldable
-    - coroutine.resume
-    - coroutine.running
-    - coroutine.status
-    - coroutine.wrap
-    - coroutine.yield
-    - math.abs
-    - math.acos
-    - math.asin
-    - math.atan
-    - math.ceil
-    - math.cos
-    - math.deg
-    - math.exp
-    - math.floor
-    - math.fmod
-    - math.huge
-    - math.log
-    - math.max
-    - math.maxinteger
-    - math.min
-    - math.mininteger
-    - math.modf
-    - math.pi
-    - math.rad
-    - math.random
-    - math.randomseed
-    - math.sin
-    - math.sqrt
-    - math.tan
-    - math.tointeger
-    - math.type
-    - math.ult
-    - os.clock
-    - os.date
-    - os.difftime
-    - os.time
-    - string.byte
-    - string.char
-    - string.find
-    - string.format
-    - string.gmatch
-    - string.gsub
-    - string.len
-    - string.lower
-    - string.match
-    - string.pack
-    - string.packsize
-    - string.rep
-    - string.reverse
-    - string.sub
-    - string.unpack
-    - string.upper
-    - table.concat
-    - table.insert
-    - table.move
-    - table.pack
-    - table.remove
-    - table.sort
-    - table.unpack
-    - utf8.char
-    - utf8.charpattern
-    - utf8.codes
-    - utf8.codepoint
-    - utf8.len
-    - utf8.offset
+    - `assert`
+    - `collectgarbage (modified)`
+    - `error`
+    - `getmetatable (modified)`
+    - `ipairs`
+    - `next`
+    - `pairs`
+    - `pcall`
+    - `print (modified)`
+    - `rawequal`
+    - `rawget (modified)`
+    - `rawset (modified)`
+    - `require (modified)`
+    - `select`
+    - `setmetatable (modified)`
+    - `tonumber`
+    - `tostring`
+    - `type`
+    - `_G (modified)`
+    - `_VERSION`
+    - `xpcall`
+    - `coroutine.create`
+    - `coroutine.isyieldable`
+    - `coroutine.resume`
+    - `coroutine.running`
+    - `coroutine.status`
+    - `coroutine.wrap`
+    - `coroutine.yield`
+    - `math.abs`
+    - `math.acos`
+    - `math.asin`
+    - `math.atan`
+    - `math.ceil`
+    - `math.cos`
+    - `math.deg`
+    - `math.exp`
+    - `math.floor`
+    - `math.fmod`
+    - `math.huge`
+    - `math.log`
+    - `math.max`
+    - `math.maxinteger`
+    - `math.min`
+    - `math.mininteger`
+    - `math.modf`
+    - `math.pi`
+    - `math.rad`
+    - `math.random`
+    - `math.randomseed`
+    - `math.sin`
+    - `math.sqrt`
+    - `math.tan`
+    - `math.tointeger`
+    - `math.type`
+    - `math.ult`
+    - `os.clock`
+    - `os.date`
+    - `os.difftime`
+    - `os.time`
+    - `string.byte`
+    - `string.char`
+    - `string.find`
+    - `string.format`
+    - `string.gmatch`
+    - `string.gsub`
+    - `string.len`
+    - `string.lower`
+    - `string.match`
+    - `string.pack`
+    - `string.packsize`
+    - `string.rep`
+    - `string.reverse`
+    - `string.sub`
+    - `string.unpack`
+    - `string.upper`
+    - `table.concat`
+    - `table.insert`
+    - `table.move`
+    - `table.pack`
+    - `table.remove`
+    - `table.sort`
+    - `table.unpack`
+    - `utf8.char`
+    - `utf8.charpattern`
+    - `utf8.codes`
+    - `utf8.codepoint`
+    - `utf8.len`
+    - `utf8.offset`
 
 ### MUIDs
 
