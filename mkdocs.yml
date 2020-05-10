@@ -1,7 +1,7 @@
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml
 nav:
   - News:
-      - News: https://forums.coregames.com/news
+      - News: https://forums.coregames.com/c/community/5
   - Core:
       - Core: https://www.coregames.com
   - Documentation:
