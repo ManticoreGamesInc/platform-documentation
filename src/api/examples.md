@@ -1951,9 +1951,11 @@ local endPosition = Vector3.New(500, 500, 500)
 
 myObject:SetWorldPosition(startPosition)
 
+-- Note: You generally would not want to call SetWorldPosition except in a client context. (Otherwise,
+-- it would "jitter" due to network lag.)  If you want to do this kind of effect for objects on the server,
+-- consider using CoreObject:MoveTo() and similar functions!
 for i = 1, 30 do
     myObject:SetWorldPosition(Vector3.Lerp(startPosition, endPosition, i/300))
-    ut.EXPECT_VEC3_EQUAL(Vector3.Lerp(startPosition, endPosition, i/300), (endPosition - startPosition) * i / 300 + startPosition, "LERP should equal our hand-calculated value")
     Task.Wait()
 end
 
@@ -2014,8 +2016,8 @@ This sample creates a healing aura around an object, that heals the player more,
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 local healNode = World.SpawnAsset(propCubeTemplate, {
-    position = Vector3.New(500, 0, 0)
-})
+            position = Vector3.New(500, 0, 0)
+        })
 
 local healRadius = 1000
 
@@ -2032,8 +2034,6 @@ for i = 1, 50 do
             player:ApplyDamage(Damage.New(-healAmount))
             print("Player is being healed for " .. tostring(healAmount))
 
-            ut.EXPECT_NEARLY_EQUAL(healAmount, 2.4482, "Heal amount should be about right")
-            ut.EXPECT_NEARLY_EQUAL(distance, math.sqrt(distanceSquared), "distance squared")
         end
     end
     Task.Wait(0.2)
@@ -2098,32 +2098,36 @@ Here is a sample that uses these operations to determine if an object is aimed w
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 local myObject = World.SpawnAsset(propCubeTemplate, {
-    position = Vector3.New(500, 0, 250)
-})
+        position = Vector3.New(500, 0, 250)
+    })
 
-fred = Quaternion.New(Vector3.UP, 360)
-    myObject:RotateContinuous(Rotation.New(0, 0, 40))
+myObject:RotateContinuous(Rotation.New(0, 0, 40))
 
-    for i = 1, 10, 0.05 do
-        local playerPos = player:GetWorldPosition()
-        local objectPos = myObject:GetWorldPosition()
-        local objectAim = myObject:GetWorldTransform():GetForwardVector()
-        local objToPlayer = (playerPos - objectPos):GetNormalized()
+for i = 1, 10, 0.05 do
+    local playerPos = player:GetWorldPosition()
+    local objectPos = myObject:GetWorldPosition()
+    local objectAim = myObject:GetWorldTransform():GetForwardVector()
+    local objToPlayer = (playerPos - objectPos):GetNormalized()
 
-        -- draw a line so we can see where it is "looking"
-        CoreDebug.DrawLine(objectPos, objectPos + objectAim * 1000, {duration = 0.05, thickness = 5, color = Color.Red })
+    -- draw a line so we can see where it is "looking"
+    CoreDebug.DrawLine(objectPos, objectPos + objectAim * 1000,
+        {
+            duration = 0.05,
+            thickness = 5,
+            color = Color.RED
+        })
 
-        -- Is the object facing the player?  (And not 180 degrees the opposite direction?)
-        -- When the vectors are normalized, (which these are), the dot product is equal to
-        -- the cosin of the angle between the vectors.  Which means it will be positive,
-        -- if the two vectors aren't more than 90 degrees apart.  This makes it a great way to check
-        -- if something is "generally facing" something else!
-        if (objToPlayer .. objectAim > 0) then
+    -- Is the object facing the player?  (And not 180 degrees the opposite direction?)
+    -- When the vectors are normalized, (which these are), the dot product is equal to
+    -- the cosine of the angle between the vectors. Which means it will be positive,
+    -- if the two vectors aren't more than 90 degrees apart. This makes it a great way to check
+    -- if something is "generally facing" something else!
+    if (objToPlayer .. objectAim > 0) then
         -- Here we check if the player is actually within 15 degrees of the aim.
         -- we can do this, because if the input vectors are normalized (which again, these are),
         -- then the output vector has a magnitude equal to the sin of the angle between them.
         -- So this makes it a really easy way to check if a vector is within a certain angle
-        -- of another vector.  (Especially if we combine it with the previous check to make sure
+        -- of another vector. (Especially if we combine it with the previous check to make sure
         -- they're facing the same direction!)
         if (objToPlayer ^ objectAim).size < math.sin(15) then
             print("I see you!")
