@@ -3,7 +3,15 @@
 /* eslint-disable no-shadow */
 
 // Manticore JavaScript Helpers
-document.addEventListener("DOMContentLoaded", event => {
+
+function addListenerMulti(element, eventNames, listener) {
+  const events = eventNames.split(" ")
+  for (let i = 0, iLen = events.length; i < iLen; i++) {
+    element.addEventListener(events[i], listener, false)
+  }
+}
+
+addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
 
   // Scroll-to-Top button
   const btn = document.getElementById("to-top-button")
