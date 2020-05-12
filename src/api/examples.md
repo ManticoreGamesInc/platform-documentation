@@ -14,7 +14,7 @@ Animated mesh objects are skeletal meshes with parameterized animations baked in
 
 ## `animationEvent`
 
-Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This even is only fired client side.  The server cannot directly respond to animation events!
+Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This event is only fired client side.  The server cannot directly respond to animation events!
 
 ```lua
 local propDragonMob = script:GetCustomProperty("DragonMob")
