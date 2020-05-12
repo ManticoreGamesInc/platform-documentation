@@ -8,7 +8,7 @@ All Ability animations have a long "tail" that gracefully transitions the charac
 
 ## Socket Names
 
-Sockets are different points on a Player's character mesh. They can be used for attacking objects, controlling a ragdoll effect and more.
+Sockets are different points on a Player's character mesh. They can be used for attaching objects, controlling a ragdoll effect and more.
 
 | Left Body       | Center Body   | Right Body       |
 | --------------- | ------------- | ---------------- |
