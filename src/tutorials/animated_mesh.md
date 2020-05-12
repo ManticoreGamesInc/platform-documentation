@@ -68,4 +68,4 @@ To attach objects to the appropriate mesh, you can use a script and the ```Attac
 
 ## Learn More
 
-[Example Code](examples.md) | [Player Animations](ability_bindings.md) | [Custom Materials](custom_materials.md)
+[Example Code](examples.md) | [Player Animations](animations.md) | [Custom Materials](custom_materials.md)
