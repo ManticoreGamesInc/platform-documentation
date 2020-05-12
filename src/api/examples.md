@@ -171,7 +171,7 @@ function Tick(deltaTime)
 end
 ```
 
-### `StopAnimations()
+### `StopAnimations()`
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
