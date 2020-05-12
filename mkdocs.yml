@@ -39,6 +39,7 @@ nav:
         - Object Generator: tutorials/object_generator.md
         - Templates: tutorials/template_reference.md
         - Community Content: getting_started/community_content.md
+        - Animated Mesh: tutorials/animated_mesh.md
         - Audio: tutorials/audio_reference.md
         - UI: tutorials/ui_reference.md
         - Publishing Checklist: getting_started/publishing_checklist.md
@@ -60,7 +61,7 @@ nav:
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
-      - Animations: api/animations.md
+      - Player Animations: api/animations.md
       - Ability Bindings: api/ability_bindings.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
