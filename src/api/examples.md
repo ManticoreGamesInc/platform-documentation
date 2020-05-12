@@ -35,18 +35,22 @@ dragonMesh:PlayAnimation("unarmed_claw")
 In this example, we want to attach multiple objects to an animated mesh to create a costume, such as equipment on a skeleton enemy or horns on the head of a raptor. For it to work, setup the animated mesh in its "binding" stance and without any animations playing at the start. Place this script along with any costume parts to be attached as children of the animated mesh. Position and rotate the costume parts to align them with their destinations on the mesh. The costume parts are expected to be groups/folders with their names matching the socket names they are destined to. When the script runs, it searches through all the mesh's children and attaches them to the sockets.
 
 ```lua
-function OnBindingPressed(player, action)
-    if (action == "ability_extra_32") then --The 'D' key
-        local dmg = Damage.New(50)
-        player:ApplyDamage(dmg)
+local MESH = script.parent
+
+local allObjects = MESH:GetChildren()
+
+for _,obj in ipairs(allObjects) do
+    if obj:IsA("Folder") then
+        local socketName = obj.name
+        local pos = obj:GetWorldPosition()
+        local rot = obj:GetWorldRotation()
+
+        MESH:AttachCoreObject(obj, socketName)
+
+        obj:SetWorldPosition(pos)
+        obj:SetWorldRotation(rot)
     end
 end
-
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ### `GetAnimationNames()` / `GetAnimationStanceNames()` / `GetSocketNames()` / `GetAnimationEventNames(animationName)` / `GetAnimationDuration(animationName)`
