@@ -29,6 +29,8 @@ title: Tags
 
 - [Coming to Core from World of Warcraft](world_of_warcraft.md)
 
+- [Animated Mesh Reference](animated_mesh.md)
+
 - [Art in Core](art_reference.md)
 
 - [Audio in Core](audio_reference.md)
