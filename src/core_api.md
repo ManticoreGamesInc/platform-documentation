@@ -109,25 +109,25 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `animationEvent` | Event&lt;AnimatedMesh, string&gt; | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
+| `animationEvent` | Event&lt;AnimatedMesh, string&gt; | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetAnimationNames()` | Array&lt;string&gt; | Returns an array of all available animations on this object. | None |
-| `GetAnimationStanceNames()` | Array&lt;string&gt; | Returns an array of all available animation stances on this object. | None |
-| `GetSocketNames()` | Array&lt;string&gt; | Returns an array of all available sockets on this object. | None |
-| `GetAnimationEventNames(string animationName)` | Array&lt;string&gt; | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
-| `AttachCoreObject(CoreObject objectToAttach, string socketName)` | None | Attaches the specified object to the specified socket on the mesh if they exist. | Client-Only |
-| `PlayAnimation(string animationName, [table parameters])` | None | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays; `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
-| `StopAnimations()` | None | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
-| `GetAnimationDuration(string animationName)` | Number | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+| `GetAnimationNames()` | Array&lt;string&gt; | Returns an array of all available animations on this object. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | None |
+| `GetAnimationStanceNames()` | Array&lt;string&gt; | Returns an array of all available animation stances on this object. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | None |
+| `GetSocketNames()` | Array&lt;string&gt; | Returns an array of all available sockets on this object. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | None |
+| `GetAnimationEventNames(string animationName)` | Array&lt;string&gt; | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | None |
+| `AttachCoreObject(CoreObject objectToAttach, string socketName)` | None | Attaches the specified object to the specified socket on the mesh if they exist. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only |
+| `PlayAnimation(string animationName, [table parameters])` | None | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays; `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only |
+| `StopAnimations()` | None | Stops all in-progress animations played via `PlayAnimation` on this object. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only |
+| `GetAnimationDuration(string animationName)` | Number | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `animationStance` | string | The stance the animated mesh plays. | Client-Only, Read-Write |
-| `animationStancePlaybackRate` | Number | The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Client-Only, Read-Write |
-| `animationStanceShouldLoop` | bool | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only, Read-Write |
-| `playbackRateMultiplier` | Number | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Client-Only, Read-Write |
+| `animationStance` | string | The stance the animated mesh plays. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only, Read-Write |
+| `animationStancePlaybackRate` | Number | The playback rate for the animation stance being played. Negative values will play the animation in reverse. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only, Read-Write |
+| `animationStanceShouldLoop` | bool | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only, Read-Write |
+| `playbackRateMultiplier` | Number | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. [:fontawesome-solid-info-circle:](../api/examples/#animatedmesh "Example") | Client-Only, Read-Write |
 
 ### AreaLight
 
@@ -199,7 +199,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `currentPitch` | Number | The current pitch of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minPitch` | Number | The minimum pitch for free control. | Read-Write, Dynamic |
 | `maxPitch` | Number | The maximum pitch for free control. | Read-Write, Dynamic |
-| `isYawLimited` | bool | Whether the Player's yaw has limits. If so, maxYaw must be at least minYaw, (and should be outside the range `[0, 360]` if needed). | Read-Write, Dynamic |
+| `isYawLimited` | bool | Whether the Player's yaw has limits. If so, `maxYaw` must be at least `minYaw`, and should be outside the range `[0, 360]` if needed. | Read-Write, Dynamic |
 | `currentYaw` | Number | The current yaw of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minYaw` | Number | The minimum yaw for free control. | Read-Write, Dynamic |
 | `maxYaw` | Number | The maximum yaw for free control. | Read-Write, Dynamic |
@@ -820,13 +820,13 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only |
-| `isSpatializationEnabled` | bool | Default true. Set to false to play the sound without 3D positioning. | Read-Write, Dynamic |
+| `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic |
 | `isAttenuationEnabled` | bool | Default true, meaning sounds will fade with distance. | Read-Write, Dynamic |
 | `isOcclusionEnabled` | bool | Default true. Changes attenuation if there is geometry between the player and the audio source. | Read-Write, Dynamic |
 | `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only |
-| `isTransient (read/write )` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write, Dynamic |
-| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't (can be useful for looping music.) | Read-Write, Dynamic |
-| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (so 0.2-1 will work, above 1 might not.) | Read-Write, Dynamic |
+| `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write, Dynamic |
+| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. | Read-Write, Dynamic |
+| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). | Read-Write, Dynamic |
 | `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write, Dynamic |
 | `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write, Dynamic |
 | `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write, Dynamic |
