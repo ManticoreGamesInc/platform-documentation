@@ -196,4 +196,4 @@ The [Core API](core_api.md) document lists all the functions and parameters you 
 
 ## Learn More
 
-[Networking](networking_reference.md)
+[Lua Tutorial](lua_basics_lightbulb.md) | [Lua Style Guide](lua_style_guide.md) | [API Examples](examples.md)
