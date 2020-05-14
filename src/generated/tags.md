@@ -47,6 +47,8 @@ title: Tags
 
 - [Scene Creation in Core](scene_creation.md)
 
+- [Intro to Scripting](scripting_intro.md)
+
 - [Template Reference](template_reference.md)
 
 - [Terrain Reference](terrain_reference.md)
