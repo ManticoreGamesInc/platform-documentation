@@ -32,6 +32,7 @@ nav:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
         - Collaboration & Source Control: tutorials/collaboration.md
       - Core Editor Manual:
+        - Scripting Introduction: tutorials/scripting_intro.md
         - Editor Shortcuts: editor_keybindings.md
         - Art in Core: tutorials/art_reference.md
         - Modeling Reference: tutorials/modeling_reference.md
