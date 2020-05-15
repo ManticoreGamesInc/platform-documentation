@@ -67,7 +67,7 @@ local quote = "Something inspirational"
 local aNumber = 21
 local anotherNumber = 7
 local aThirdNumber = aNumber / anotherNumber
--- The variable aThirdNumber will equal 3
+-- The variable aThirdNumber will be 3
 ```
 
 #### Booleans
