@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The goal of this doc is to introduce the central ideas of what a script is and how they are used to make games in Core. If you have no experience with programming, or understand some code but now how it can be used for game development in Core, this is the ideal starting point. Developers with some experience will be better off starting with our [Intro to Lua](lua_basics_lightbulb.md) tutorial, or looking at [Example Code](examples.md).
+The goal of this doc is to introduce the central ideas of what a script is and how they are used to make games in Core. If you have no experience with programming, or understand some code but not how it can be used for game development in Core, this is the ideal starting point. Developers with some experience will be better off starting with our [Intro to Lua](lua_basics_lightbulb.md) tutorial, or looking at [Example Code](examples.md).
 
 ## Scripting
 
@@ -18,7 +18,7 @@ The goal of this doc is to introduce the central ideas of what a script is and h
 
 **Scripting**, also known as **coding** or **programming** is the way to write instructions for the execution of the game, using very specific language that can be understood by the computers that are responsible for running the game.
 
-Instructions on a board game are similar because they explain different procedures - the order of turns and determining the first player, the steps of a turn, different options at a particular moment. The difference is that board game instructions are written to be understood by humans.
+This is similar to rules for a board game, where the different procedures are explained - the order of turns and determining the first player, the steps of a turn, different options at a particular moment. The difference is that board game instructions are written to be understood by humans.
 
 ### What You Can Do with Scripts
 
@@ -42,7 +42,7 @@ local my_variable = 54
 
 ### Data Types
 
-Variables can be used to keep track of a number values, but numbers are only one of the  **data types** that they can be used to keep track of. The three most useful data types to know about are **strings**, **numbers**, and **booleans**.
+Variables can be used to keep track of number values, but numbers are only one of the  **data types** that they can be used to keep track of. The three most useful data types to know about are **strings**, **numbers**, and **booleans**.
 
 #### Strings
 
@@ -67,7 +67,7 @@ local quote = "Something inspirational"
 local aNumber = 21
 local anotherNumber = 7
 local aThirdNumber = aNumber / anotherNumber
--- aThirdNumber will be 3
+-- The variable aThirdNumber will be 3
 ```
 
 #### Booleans
@@ -143,7 +143,7 @@ Example:
 
 ```lua
 function DeclareWinner(winnerName)
-    print(winnerName + "wins!") -- will display whatever name is given in parentheses and say that they win.
+    print(winnerName .. " wins!") -- will display whatever name is given in parentheses and say that they win.
 end
 ```
 
@@ -174,9 +174,9 @@ You can create a script with the **Create Script** button in the **Top Toolbar**
 
 To see errors and outputs, you will also need to open the **Event Log**, which is where any ``print()`` will display text.
 
-### Core Objects
+### Objects
 
-Core objects are more complicated that data types. They have **properties** which are aspects that change about them, and are usually different between different individual members of the object category, called **instances.**
+Objects are more complex data types. They have **properties** which are aspects that change about them, and are usually different between different individual members of the object category, called **instances.**
 
 For example, a **Player** is an object in Core that has properties like world position and name. Individual players will have different positions and names.
 
@@ -184,7 +184,7 @@ For example, a **Player** is an object in Core that has properties like world po
 
 To be able to talk about Core Objects in scripts, you need a way to make variables for them, called a **reference**.
 
-The easiest way to be able to refer to an object is to drag the script onto it in the **Hierarchy**. The object is now a **parent** of the script, and you can reference it in code by using ```script.parent```.
+The easiest way to refer to an object is to drag the script onto that object in the **Hierarchy**. The object is now a **parent** of the script, and you can reference it in code by using ```script.parent```.
 
 Another way to use an object in a script, especially if it needs to be created by the script, is to select the script and open the **Properties** window. Drag the object onto the script properties, making a new **Custom Property**. This will also generate a line that you can copy and paste into your code to create a variable reference to the object.
 
@@ -192,7 +192,7 @@ Another way to use an object in a script, especially if it needs to be created b
 
 **API** stands for Application Programming Interface, and is a set of functions made for other people to write code that uses a program without changing the program itself. You could compare it to the tools you have to drive a car, because you have a variety of options of how you want to drive, but they don't change how the car works.
 
-The [Core API](core_api.md) document lists all the functions and parameters you can use, most of which are methods, which are functions specific to a type of object.
+The [Core API](core_api.md) document lists all the functions, properties and events that you can use in scripts, for every object type in Core.
 
 ## Learn More
 
