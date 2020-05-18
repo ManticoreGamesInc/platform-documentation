@@ -53,8 +53,10 @@ nav:
         - Lua Style Guide: tutorials/lua_style_guide.md
         - Editor Extensions: extensions.md
         - Examples & Snippets: api/examples.md
+  - Learn:
+      - Learn: https://learn.coregames.com
   - Forums:
-      - Forums: https://forums.coregames.com/
+      - Forums: https://forums.coregames.com
   - Events:
       - Events: https://forums.coregames.com/c/community/events/6
   - Core Live:
