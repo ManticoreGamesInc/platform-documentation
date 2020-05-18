@@ -19,7 +19,7 @@ Some animations have events that fire when certain parts of the animations are r
 ```lua
 local propDragonMob = script:GetCustomProperty("DragonMob")
 local dragonMesh = World.SpawnAsset(propDragonMob)
-	
+
 function AnimEventListener(mesh, eventName)
     print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
     -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
@@ -59,8 +59,8 @@ You can find out most of the interesting data about an Animated Mesh at runtime,
 
 ```lua
 local propDragonMob = script:GetCustomProperty("DragonMob")
-	
--- This function prints out all of the animations, socets, stances, and events associated
+
+-- This function prints out all of the animations, sockets, stances, and events associated
 -- with an animated mesh!
 function PrintAnimatedMeshData(mesh)
     print("Animation names:")
@@ -80,7 +80,7 @@ function PrintAnimatedMeshData(mesh)
         print("    " .. v)
     end
 end
-	
+
 local dragonMesh = World.SpawnAsset(propDragonMob)
 PrintAnimatedMeshData(dragonMesh)
 ```
@@ -131,7 +131,7 @@ This example demonstrates how to dynamically control the walking stances and to 
 
 ```lua
 local MESH = script.parent
-	
+
 -- 0.9 is an approximate scale for the Fox mesh
 -- 2 is an approximate for the Raptor and humanoids
 local WALK_SCALE = 2
