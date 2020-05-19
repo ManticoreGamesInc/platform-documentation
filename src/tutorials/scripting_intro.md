@@ -26,7 +26,7 @@ Using Core frameworks, gameplay objects, and environment design tools, you can m
 
 ### The Lua Programming Language
 
-[**Lua**] is a language very popular in game development because it is both easy to learn, like [Python](https://www.python.org/), and powerful, like [C++](https://isocpp.org/). You will not need to rigorously study Lua in order to write scripts in Core, but if you are interested in an introduction to learning the language itself, [this Lua tutorial](http://luatut.com/crash_course.html) is a great starting point.
+[**Lua**](https://www.lua.org/) is a language very popular in game development because it is both easy to learn, like [Python](https://www.python.org/), and powerful, like [C++](https://isocpp.org/). You will not need to rigorously study Lua in order to write scripts in Core, but if you are interested in an introduction to learning the language itself, [this Lua tutorial](http://luatut.com/crash_course.html) is a great starting point.
 
 ## Essential Concepts
 
@@ -37,7 +37,7 @@ When a basic calculator does a computation, it can give you a result, but will n
 You can create a variable using the keyword **local**. Variable names cannot include spaces
 
 ```lua
-local my_variable = 54
+local myVariable = 54
 ```
 
 ### Data Types
@@ -49,7 +49,7 @@ Variables can be used to keep track of number values, but numbers are only one o
 **Strings** are any collection of numbers, letters and punctuation. They need to be written in double quotes (``" "``) so that the computer does not mistake them for code.
 
 ```lua
-local my_id = "123456789:Tiger"
+local myId = "123456789:Tiger"
 local quote = "Something inspirational"
 ```
 
