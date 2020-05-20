@@ -95,12 +95,14 @@ For this reason, here are the recommended steps below:
 
 6. Core automantically generates some files every time something changes and those don't need to be included in your repository as they would just cause merge conflicts all the time, so we're going to ignore them via `.gitignore`. While inside `data`, right click and create a new file, call it `.gitignore.` and hit enter. This will name the file `.gitignore`. Now open it and add the following:
 
-    ```none
-    #Exports folder is entirely generated
+    ```sh
+    # Exports folder is entirely generated
     Exports/
-    #User settings are per user
+
+    # User settings are per user
     UserSettings/
-    #Local storage for testing persistent storage
+
+    # Local storage for testing persistent storage
     Storage/
     ```
 
