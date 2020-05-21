@@ -1267,8 +1267,6 @@ print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 -- These are both true now because the parent is no longer disabled.
 ```
 
-## CoreObject
-
 - **CoreObject.networkedPropertyChangedEvent**
 - **CoreObject.SetNetworkedCustomProperty**
 - **CoreObject.GetReference**
@@ -1535,7 +1533,6 @@ end
 
 primaryEquipment.equippedEvent:Connect(OnEquipped)
 primaryEquipment.unequippedEvent:Connect(OnUnequipped)
-
 ```
 
 ### `Equip(Player)`
@@ -1560,12 +1557,14 @@ In this example, when a player dies all equipment they have is unequipped and dr
 ```lua
 function DropToGround(equipment)
     equipment:Unequip()
+
     -- The pickup trigger needs to be re-enabled (if there is one)
     local pickupTrigger = equipment:FindDescendantByType("Trigger")
 
     if pickupTrigger then
         pickupTrigger.collision = Collision.FORCE_ON
     end
+
     -- Move it to the ground
     local rayStart = equipment:GetWorldPosition()
     local rayEnd = rayStart + Vector3.UP * -500
@@ -1618,7 +1617,7 @@ else
     Add(ABILITY_TEMPLATE_3)
 end
 
-for i,ability in ipairs(EQUIPMENT:GetAbilities()) do
+for i, ability in ipairs(EQUIPMENT:GetAbilities()) do
     print("Ability " .. i .. " = " .. ability.name)
 end
 ```
@@ -1640,7 +1639,7 @@ end
 ATTACK_ABILITY.executeEvent:Connect(onExecuteAttack)
 
 function onExecuteReload()
-    OBJECT_TO_HIDE.visibility = Visibility.INHERIT
+    OBJECT_TO_HIDE.visibility = Visibility.FORCE_ON
 end
 
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
@@ -1686,8 +1685,10 @@ TRIGGER.interactedEvent:Connect(OnInteracted)
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
 ```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
 function OnTargetImpactedEvent(weapon, impactData)
-    if impactData.other and impactData.other:IsA("Player") then
+    if impactData.targetObject and impactData.targetObject:IsA("Player") then
         weapon.owner.hitPoints = weapon.owner.hitPoints + 2
     end
 end
