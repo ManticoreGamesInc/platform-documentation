@@ -494,29 +494,11 @@ end
 ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
-## Animated Mesh
+## AnimatedMesh
 
-Animated mesh objects are skeletal meshes with parameterized animations baked into them. These can be dragged into the hierarchy or placed in the scene like any other mesh object.
+- **AnimatedMesh.AttachCoreObject**
 
-## `animationEvent`
-
-Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This event is only fired client side.  The server cannot directly respond to animation events!
-
-```lua
-local propDragonMob = script:GetCustomProperty("DragonMob")
-local dragonMesh = World.SpawnAsset(propDragonMob)
-
-function AnimEventListener(mesh, eventName)
-    print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
-    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
-    hitEvent = true -- UT_STRIP
-end
-
-dragonMesh.animationEvent:Connect(AnimEventListener)
-dragonMesh:PlayAnimation("unarmed_claw")
-```
-
-### `AttachCoreObject(CoreObject, socket)`
+Attaches the specified object to the specified socket on the mesh if they exist.
 
 In this example, we want to attach multiple objects to an animated mesh to create a costume, such as equipment on a skeleton enemy or horns on the head of a raptor. For it to work, setup the animated mesh in its "binding" stance and without any animations playing at the start. Place this script along with any costume parts to be attached as children of the animated mesh. Position and rotate the costume parts to align them with their destinations on the mesh. The costume parts are expected to be groups/folders with their names matching the socket names they are destined to. When the script runs, it searches through all the mesh's children and attaches them to the sockets.
 
@@ -539,44 +521,10 @@ for _,obj in ipairs(allObjects) do
 end
 ```
 
-### `GetAnimationNames()` / `GetAnimationStanceNames()` / `GetSocketNames()` / `GetAnimationEventNames(animationName)` / `GetAnimationDuration(animationName)`
+- **AnimatedMesh.PlayAnimation**
+- **AnimatedMesh.playbackRateMultiplier**
 
-You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
-
-```lua
-local propDragonMob = script:GetCustomProperty("DragonMob")
-
--- This function prints out all of the animations, sockets, stances, and events associated
--- with an animated mesh!
-function PrintAnimatedMeshData(mesh)
-    print("Animation names:")
-    for _,v in ipairs(mesh:GetAnimationNames()) do
-        print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
-        -- Print out any events that are associated with this animation:
-        for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
-            print("        Event: " .. e)
-        end
-    end
-    print("\nAnimation stance names:")
-    for _,v in ipairs(mesh:GetAnimationStanceNames()) do
-        print("    " .. v)
-    end
-    print("\nSocket names:")
-    for _,v in ipairs(mesh:GetSocketNames()) do
-        print("    " .. v)
-    end
-end
-
-local dragonMesh = World.SpawnAsset(propDragonMob)
-PrintAnimatedMeshData(dragonMesh)
-```
-
-### `PlayAnimation(animationName, [params])` / `playbackRateMultiplier`
-
-Plays an animation on the animated mesh.
-Optional parameters can be provided to control the animation playback:
-`playbackRate (Number)`: Controls how fast the animation plays.
-`shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
+Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
 In this example, a humanoid animated mesh has its laughing and death animations controlled by pressing the primary and secondary action bindings (PC default is mouse left-click and right-click respectively).
 
@@ -609,7 +557,11 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-### `animationStance` / `animationStancePlaybackRate` / `animationStanceShouldLoop`
+### Properties
+
+- **AnimatedMesh.animationStance**
+- **AnimatedMesh.animationStancePlaybackRate**
+- **AnimatedMesh.animationStanceShouldLoop**
 
 The stance the animated mesh plays.
 
@@ -657,7 +609,45 @@ function Tick(deltaTime)
 end
 ```
 
-### `StopAnimations()`
+### Functions
+
+- **AnimatedMesh.GetAnimationNames**
+- **AnimatedMesh.GetAnimationStanceNames**
+- **AnimatedMesh.GetSocketNames**
+- **AnimatedMesh.GetAnimationEventNames**
+- **AnimatedMesh.GetAnimationDuration**
+
+You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
+
+```lua
+local propDragonMob = script:GetCustomProperty("DragonMob")
+
+-- This function prints out all of the animations, sockets, stances, and events associated
+-- with an animated mesh!
+function PrintAnimatedMeshData(mesh)
+    print("Animation names:")
+    for _,v in ipairs(mesh:GetAnimationNames()) do
+        print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
+        -- Print out any events that are associated with this animation:
+        for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
+            print("        Event: " .. e)
+        end
+    end
+    print("\nAnimation stance names:")
+    for _,v in ipairs(mesh:GetAnimationStanceNames()) do
+        print("    " .. v)
+    end
+    print("\nSocket names:")
+    for _,v in ipairs(mesh:GetSocketNames()) do
+        print("    " .. v)
+    end
+end
+
+local dragonMesh = World.SpawnAsset(propDragonMob)
+PrintAnimatedMeshData(dragonMesh)
+```
+
+- **AnimatedMesh.StopAnimations**
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -668,6 +658,26 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 dragonMesh:PlayAnimation("unarmed_slash")
 Task.Wait(0.25)
 dragonMesh:StopAnimations()
+```
+
+## AnimatedMesh on Client
+
+- **AnimatedMesh.animationEvent**
+
+Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This event is only fired client side.  The server cannot directly respond to animation events!
+
+```lua
+local propDragonMob = script:GetCustomProperty("DragonMob")
+local dragonMesh = World.SpawnAsset(propDragonMob)
+
+function AnimEventListener(mesh, eventName)
+    print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
+    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
+end
+
+
+dragonMesh.animationEvent:Connect(AnimEventListener)
+dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
 ## Contexts
@@ -723,8 +733,8 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Send a single networked value to synchronize the server and client's random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
-!!! warning "Beware of desync issues!"
-    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause desync issues.
+!!! warning "Beware of de-sync issues!"
+    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause de-sync issues.
     Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
     - Server-only or client-only objects.
     - Random number generators with different seeds.
