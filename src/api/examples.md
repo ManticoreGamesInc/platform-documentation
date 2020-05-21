@@ -3369,6 +3369,419 @@ for i = 1, 10, 0.05 do
 end
 ```
 
+## Weapon
+
+- **Weapon.targetImpactedEvent**
+
+In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+function OnTargetImpactedEvent(weapon, impactData)
+    if impactData.other and impactData.other:IsA("Player") then
+        weapon.owner.hitPoints = weapon.owner.hitPoints + 2
+    end
+end
+
+WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
+```
+
+- **Weapon.projectileSpawnedEvent**
+
+Although it is ineffective to modify a projectile that comes through the `projectileSpawnedEvent`, it's still a useful event for various gameplay mechanics. In this example, a weapon script adds recoil impulse in the opposite direction of shots.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local KNOCKBACK_SPEED = 1000
+
+-- Adds impulse to the owner once the attack ability is executed
+function OnProjectileSpawned(weapon, projectile)
+    local player = weapon.owner
+
+    local projectileDirection = projectile:GetWorldTransform():GetForwardVector()
+    local knockbackVector = projectileDirection * player.mass * -KNOCKBACK_SPEED
+
+    -- Push the player away from the spawned projectile
+    player:AddImpulse(knockbackVector)
+end
+
+WEAPON.projectileSpawnedEvent:Connect(OnProjectileSpawned)
+```
+
+- **Weapon.HasAmmo**
+
+In this example, a custom sound is played when someone picks up a weapon that has no ammo in it. For this hypothetical game, weapons can be found without any ammo and it's an important mechanic. It should be displayed in the user interface. However, players hear sound effects much faster than they can read UI.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local EMPTY_PICKUP_SOUND = script:GetCustomProperty("EmptyPickupSound")
+
+function OnEquipped(weapon, player)
+    if (not weapon:HasAmmo()) then
+        World.SpawnAsset(EMPTY_PICKUP_SOUND, {position = weapon:GetWorldPosition()})
+    end
+end
+
+WEAPON.equippedEvent:Connect(OnEquipped)
+```
+
+- **Weapon.isAmmoFinite**
+- **Weapon.reloadSoundId**
+
+While various properties are read-only, they are still useful in determining what behavior should occur, leading to more general purpose scripts. In this example, a script controls auto-reloading of weapons. It expects to be in a client context, because the ability's `Activate()` function is client-only.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+local RELOAD_ABILITY = nil
+-- Grabs reload ability from the weapon. Keep trying in case the client hasn't loaded the object yet
+while not Object.IsValid(RELOAD_ABILITY) do
+    Task.Wait()
+    RELOAD_ABILITY = WEAPON:GetAbilities()[2]
+end
+-- The client script can now keep going, after it has acquired a reference to the reload ability
+-- The above could also have been implemented with a :GetCustomProperty(...):WaitForObject()
+
+local autoReloaded = false
+
+-- Manually spawn the reloading audio
+function SpawnReloadingAudio()
+    if WEAPON.reloadSoundId ~= nil then
+        World.SpawnAsset(WEAPON.reloadSoundId, {position = WEAPON:GetWorldPosition()})
+    end
+end
+
+function Tick(deltaTime)
+
+    -- Makes sure that the weapon owner is the local player
+    if not Object.IsValid(WEAPON) then return end
+    if not WEAPON.owner == Game.GetLocalPlayer() then return end
+
+    if not WEAPON.isAmmoFinite then
+        -- Checks when the weapon has empty ammo to reload
+        if WEAPON.currentAmmo == 0
+        and not autoReloaded then
+            SpawnReloadingAudio()
+            RELOAD_ABILITY:Activate()
+            autoReloaded = true
+            Task.Wait(RELOAD_ABILITY.castPhaseSettings.duration)
+        end
+
+        -- Interrupts the reloading animation,
+        -- If the weapon is in different state and the ammo is not empty
+        if WEAPON.currentAmmo > 0
+        and RELOAD_ABILITY ~= AbilityPhase.READY
+        and autoReloaded then
+            RELOAD_ABILITY:Interrupt()
+            autoReloaded = false
+        end
+
+        -- Reset autoReloaded bool on ready phase
+        if RELOAD_ABILITY == AbilityPhase.READY
+        and autoReloaded then
+            autoReloaded = false
+        end
+    end
+end
+```
+
+- **Weapon.Attack**
+
+Generally, weapons are thought to be equipped on players. However, a weapon can be used on an NPC such as a vehicle or tower by calling the `Attack()` function. In this example, a weapon simply fires each second. Shots will go out straight in the direction the weapon is pointing.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+function Tick()
+    WEAPON:Attack()
+    Task.Wait(1)
+end
+```
+
+- **Weapon.animationStance**
+
+A weapon's `animationStance` is assigned to the player automatically when the item is equipped. In this example, we add an additional stance to the weapon in the form of a defensive posture that players can trigger by holding down the secondary ability button (mouse right-click). The script alternates betwen the shield block stance and the weapon's default stance, as the secondary button is pressed/released.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local ACTION_BINDING = "ability_secondary"
+local ACTIVE_STANCE = "1hand_melee_shield_block"
+
+function EnableStance(player)
+    if Object.IsValid(player) and player == WEAPON.owner then
+        player.animationStance = ACTIVE_STANCE
+    end
+end
+
+function DisableStance(player)
+    if WEAPON and Object.IsValid(player) then
+        player.animationStance = WEAPON.animationStance
+    end
+end
+
+function OnBindingPressed(player, actionName)
+    if actionName == ACTION_BINDING then
+        EnableStance(player)
+    end
+end
+
+function OnBindingReleased(player, actionName)
+    if actionName == ACTION_BINDING then
+        DisableStance(player)
+    end
+end
+
+function OnPlayerDied(player, damage)
+    DisableStance(player)
+end
+
+function OnEquipped(weapon, player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+    player.bindingReleasedEvent:Connect(OnBindingReleased)
+end
+
+WEAPON.equippedEvent:Connect(OnEquipped)
+```
+
+- **Weapon.isHitscan**
+- **Weapon.range**
+- **Weapon.damage**
+- **Weapon.projectileTemplateId**
+- **Weapon.trailTemplateId**
+- **Weapon.impactSurfaceTemplateId**
+- **Weapon.impactProjectileTemplateId**
+- **Weapon.impactPlayerTemplateId**
+- **Weapon.projectileSpeed**
+- **Weapon.projectileLifeSpan**
+- **Weapon.projectileGravity**
+- **Weapon.projectileLength**
+- **Weapon.projectileRadius**
+- **Weapon.projectileDrag**
+
+This script implements a Wall Bang mechanic, allowing shots to go through walls.
+
+Configuring walls/objects to be penetrable: For each wall or object that should be penetrable, add to them the "WallBang" custom property (float). Only objects with this property will be penetrable. Higher values mean the wall reduces more damage from shots that go through them. Objects with a "WallBang" value of 0 will let shots through but will not affect the damage amount.
+
+Configuring this script on a weapon: Set this script's "WallBang" property to affect the weapon's penetrability when it's compared against objects. A higher value means it penetrates tougher walls and takes less damage reduction. A weapon can further control how much of its damage is reduced by setting the "DamageReduction" property on this script (Between zero and 1).
+
+```lua
+local WEAPON = script:FindAncestorByType("Weapon")
+local WALL_BANG = script:GetCustomProperty("WallBang") or 2
+local DAMAGE_REDUCTION = script:GetCustomProperty("DamageReduction") or 1
+
+if WALL_BANG <= 0 then return end
+
+function OnTargetImpactedEvent(weapon, impactData)
+    if not Object.IsValid(weapon) then return end
+
+    local wall = impactData.targetObject
+    if not wall or not wall:IsA("StaticMesh") then return end
+
+    -- If the wall hasn't defined the WallBang property it's impenetrable
+    local wallBangResistance = wall:GetCustomProperty("WallBang")
+    if not wallBangResistance or wallBangResistance >= WALL_BANG then return end
+
+    -- Calculate damage
+    local damage = weapon.damage
+    if DAMAGE_REDUCTION > 0 then
+        local percent = (WALL_BANG - wallBangResistance) / WALL_BANG
+        damage = CoreMath.Lerp(0, weapon.damage, percent)
+
+        percent = CoreMath.Clamp(DAMAGE_REDUCTION)
+        damage = CoreMath.Lerp(weapon.damage, damage, percent)
+    end
+
+    -- Gather info about position and direction of the shot
+    local impactPos = impactData:GetHitResult():GetImpactPosition()
+    local direction = impactPos - weapon:GetWorldPosition()
+    local remainingTravel = weapon.range - impactData.travelDistance
+
+    -- TODO : Perhaps do more if the weapon is of hitscan type
+    if not weapon.isHitscan then
+        if impactData.projectile then
+            direction = impactData.projectile:GetVelocity()
+        end
+    end
+    direction = direction:GetNormalized()
+
+    -- Do a series of raycasts to figure out where is the bullet's exit point
+    local rayStart = impactPos + direction * 5
+    local rayEnd = rayStart + direction * remainingTravel
+    local rayParams = {}
+    if Object.IsValid(impactData.weaponOwner) and impactData.weaponOwner.team > 0 then
+        rayParams.ignoreTeams = weapon.owner.team
+    end
+    local hit = World.Raycast(rayStart, rayEnd, rayParams)
+    if hit then
+        rayEnd = rayStart
+        rayStart = hit:GetImpactPosition()
+    else
+        local swapValue = rayEnd
+        rayEnd = rayStart
+        rayStart = swapValue
+    end
+    -- The 'hitInverted' is the info about the bullet's exit point
+    local hitInverted = World.Raycast(rayStart, rayEnd, rayParams)
+    if not hitInverted then return end
+
+    -- Spawn the surface impact VFX on the opposite side of the object
+    if weapon.impactSurfaceTemplateId then
+        local t = hitInverted:GetTransform()
+        SpawnVfx(weapon.impactSurfaceTemplateId, t:GetPosition(), t:GetRotation())
+    end
+
+    -- Spawn a new projectile to continue on the trajectory
+    local projLength = 5 + weapon.projectileLength + weapon.projectileRadius
+    startPos = hitInverted:GetImpactPosition() + direction * projLength
+    local projectile = Projectile.Spawn(weapon.projectileTemplateId, startPos, direction)
+    -- Copy properties from the weapon to the new projectile
+    projectile.owner = impactData.weaponOwner
+    projectile.sourceAbility = impactData.sourceAbility
+    projectile.speed = weapon.projectileSpeed
+    projectile.gravityScale = weapon.projectileGravity
+    projectile.drag = weapon.projectileDrag
+    projectile.lifeSpan = weapon.projectileLifeSpan * remainingTravel / weapon.range
+    projectile.capsuleLength = weapon.projectileLength
+    projectile.capsuleRadius = weapon.projectileRadius
+    -- If some weapon properties are needed later it's safer to stash them in serverUserData,
+    -- because the weapon might be destroyed while the projectile is still in the air:
+    projectile.serverUserData.impactSurfaceTemplateId = weapon.impactSurfaceTemplateId
+    projectile.serverUserData.impactPlayerTemplateId = weapon.impactPlayerTemplateId
+    projectile.serverUserData.impactProjectileTemplateId = weapon.impactProjectileTemplateId
+    projectile.serverUserData.direction = direction
+    -- Store damage calculation onto the projectile because there may be multiple ones
+    projectile.serverUserData.damage = damage
+
+    -- Listen for the impact, to spawn effects and apply damage
+    projectile.impactEvent:Connect(OnProjectileImpacted)
+
+    -- Spawn a trail to follow the projectile
+    if weapon.trailTemplateId and projectile.speed > 0 then
+        local pos = hitInverted:GetImpactPosition()
+        local trailLifeSpan = (rayStart - pos).size / projectile.speed
+        trailLifeSpan = math.min(projectile.lifeSpan, trailLifeSpan)
+        if trailLifeSpan > 0 then
+            local rot = Rotation.New(direction, Vector3.UP)
+            local trail = World.SpawnAsset(weapon.trailTemplateId, {position = pos, rotation = rot})
+            trail:MoveContinuous(direction * projectile.speed)
+            trail.lifeSpan = trailLifeSpan
+        end
+    end
+end
+
+function OnProjectileImpacted(projectile, other, hitResult)
+    if not Object.IsValid(projectile) then return end
+
+    local impactTemplate = nil
+
+    if other:IsA("Player") then
+        -- Construct and apply damage to player
+        local dmg = Damage.New(projectile.serverUserData.damage)
+        dmg.reason = DamageReason.COMBAT
+        dmg:SetHitResult(hitResult)
+        dmg.sourceAbility = projectile.sourceAbility
+        dmg.sourcePlayer = projectile.owner
+        other:ApplyDamage(dmg)
+
+        impactTemplate = projectile.serverUserData.impactPlayerTemplateId
+    else
+        impactTemplate = projectile.serverUserData.impactSurfaceTemplateId
+       end
+
+    -- Spawn impact VFX
+    local t = hitResult:GetTransform()
+    if impactTemplate then
+        SpawnVfx(impactTemplate, t:GetPosition(), t:GetRotation())
+    end
+
+    impactTemplate = projectile.serverUserData.impactProjectileTemplateId
+    if impactTemplate then
+        local rot = Rotation.New(projectile.serverUserData.direction, Vector3.UP)
+        SpawnVfx(impactTemplate, t:GetPosition(), rot)
+    end
+end
+
+function SpawnVfx(template, pos, rot)
+    local vfx = World.SpawnAsset(template, {position = pos, rotation = rot})
+    if vfx.lifeSpan <= 0 then
+        vfx.lifeSpan = 1.2
+    end
+end
+
+WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
+```
+
+- **Weapon.currentAmmo**
+- **Weapon.maxAmmo**
+
+This script plays audio to the weapon owner when the weapon reaches 20% amount of ammo. It works best if the script is in a client context under the weapon, that way the audio is heard only by the player who is using the weapon.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local SHOOT_ABILITY = script:GetCustomProperty("ShootAbility"):WaitForObject()
+local LOW_AMMO_SOUND = WEAPON:GetCustomProperty("LowAmmoSound")
+local LOW_AMMO_PERCENTAGE = 0.2
+
+function OnShootExecute(ability)
+    if Object.IsValid(WEAPON) and ability.owner == WEAPON.owner then
+        if WEAPON.currentAmmo / WEAPON.maxAmmo <= LOW_AMMO_PERCENTAGE then
+            if LOW_AMMO_SOUND then
+                World.SpawnAsset(LOW_AMMO_SOUND, {position = WEAPON:GetWorldPosition()})
+            end
+        end
+    end
+end
+
+SHOOT_ABILITY.executeEvent:Connect(OnShootExecute)
+```
+
+- **Weapon.spreadMin**
+- **Weapon.spreadMax**
+- **Weapon.spreadDecreaseSpeed**
+
+Often in shooting games, the weapon loses precision while moving. For weapons in Core this is achieved by modifying the player's `spreadModifier` property, and can be implemented in many different ways. In this example, a client-context script uses the weapon's configured `spreadMin` and `spreadMax` properties to determine the maximum penalty when the player is moving. The weapon's `spreadDecreaseSpeed` is then used as an interpolation coefficient to smoothly move the spread penalty up and down, non-linearly, as the player moves or stops moving.
+
+```lua
+local WEAPON = script:FindAncestorByType("Weapon")
+local MOVING_THRESHOLD = 250
+
+local wasMoving = false
+local targetSpreadModifier = 0
+
+function Tick()
+    local player = WEAPON.owner
+    if not Object.IsValid(player) then return end
+
+    -- Evaluate if the player is moving right now
+    local isMovingNow = false
+    if player.isJumping then
+        isMovingNow = true
+    else
+        local playerSpeed = player:GetVelocity().size
+        if playerSpeed >= MOVING_THRESHOLD then
+            isMovingNow = true
+        end
+    end
+
+    -- Select target spread modifier based on current movement
+    if isMovingNow ~= wasMoving then
+        if isMovingNow then
+            -- Moving
+            targetSpreadModifier = WEAPON.spreadMax - WEAPON.spreadMin
+        else
+            -- Not moving
+            targetSpreadModifier = 0
+        end
+    end
+    wasMoving = isMovingNow
+
+    -- Adjust the player spread modify gradually over time
+    local t = WEAPON.spreadDecreaseSpeed / 100
+    player.spreadModifier = CoreMath.Lerp(player.spreadModifier, targetSpreadModifier, t)
+end
+```
+
 ## World
 
 ### `World.GetRootObject()`
