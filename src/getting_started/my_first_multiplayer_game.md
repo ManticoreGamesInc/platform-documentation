@@ -272,4 +272,4 @@ You now have a complete and unique deathmatch-style game. If you are ready to te
 
 ## Next Steps
 
-[Publish a Game](publishing.md) | [Terrain Tutorial](environmental_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)
+[Publish a Game](publishing.md) | [Terrain Tutorial](environment_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)
