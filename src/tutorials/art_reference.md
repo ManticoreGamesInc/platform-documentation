@@ -71,9 +71,9 @@ Templates allow you to synchronize changes to one model across all of its copies
 
 To learn how to create and share templates, see the [Template](template_reference.md) reference.
 
-## Environmental Art
+## Environment Art
 
-See the [Environmental Art](environmental_art.md) to learn about the Core Terrain Tools.
+See the [Environment Art](environment_art.md) to learn about the Core Terrain Tools.
 
 ## Visual Effects
 
