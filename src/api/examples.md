@@ -843,7 +843,6 @@ template3.parent = template2
 - **CoreObject.FindDescendantsByType**
 - **CoreObject.FindTemplateRoot**
 - **CoreObject.IsAncestorOf**
-
 - **CoreObject.parent**
 
 You can inspect most of the hierarchy at runtime.
@@ -1205,7 +1204,6 @@ sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 - **CoreObject.IsVisibleInHierarchy**
 - **CoreObject.IsCollidableInHierarchy**
 - **CoreObject.IsEnabledInHierarchy**
-
 - **CoreObject.visibility**
 - **CoreObject.collision**
 - **CoreObject.isEnabled**

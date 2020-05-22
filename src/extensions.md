@@ -66,6 +66,8 @@ We provide autocompletion files with all Core API for VS Code, Atom and every ot
 
     We are setting Lua diagnostics to `false` since we are going to use the Luacheck integration that comes with VSCode-Lua.
 
+!!! warning "You need to open your project in VS Code directly, not via double-clicking the script file in Core, otherwise autocomplete will not work."
+
 ### Installing a Linter
 
 [Luacheck](https://github.com/mpeterv/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/mpeterv/luacheck/releases/).

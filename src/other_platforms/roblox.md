@@ -80,4 +80,3 @@ Core is still in Open Alpha, which means there are a number of features that are
 | **Scripting** | Output          | Event Log          |
 |               | Server Script Service | Server Context|
 |               | Lua (Roblox API)| Lua (Core API)     |
-
