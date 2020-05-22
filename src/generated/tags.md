@@ -70,7 +70,7 @@ title: Tags
 
 - [Collaboration & Source Control in Core](collaboration.md)
 
-- [Environment Art in Core](environmental_art.md)
+- [Environment Art in Core](environment_art.md)
 
 - [Scripting in Core](lua_basics_lightbulb.md)
 

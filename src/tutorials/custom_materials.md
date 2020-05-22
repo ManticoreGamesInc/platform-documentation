@@ -157,4 +157,4 @@ Change the name of each custom material by editing the text field at the top of 
 
 ## Learn More
 
-[Environmental Art](environmental_art.md) | [Modeling Basics](modeling_basics.md)
+[Environment Art](environment_art.md) | [Modeling Basics](modeling_basics.md)
