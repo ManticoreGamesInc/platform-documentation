@@ -70,7 +70,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 
 | Two-Hand Melee Animations                    | Description | Notes |
 | -------------------------------------------- | ----------- | ----- |
-| `2hand_melee_dig_shovel`                     | A shoveling animation | This animation is intended to be used with a shovel. |
+| `2hand_melee_dig_shovel`                     | A simple dig animation using a shovel. | Supports variable cast phase time. Supports time-stretched execute phase time. |
 
 | Two-Hand Sword Animations | Description | Notes |
 | ------------------------- | ----------- | ----- |
