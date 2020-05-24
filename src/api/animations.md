@@ -1,14 +1,14 @@
 # Animations
 
-In Core, all Ability animations are valid on any of the available body types. Each of the Ability animations timing and/or translation values should behave identically across the body types.
-All Ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the Player does not execute any other Ability or movement. In nearly all practical use cases, the Ability animation tails will be interrupted to do other game mechanics.
+In Core, all ability animations are valid on any of the available body types. Each of the ability animations timing and/or translation values should behave identically across the body types.
+All ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the player does not execute any other ability or movement. In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
 
 !!! Note
-    If the intent is to have an Ability "execute" as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so). This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
+    If the intent is to have an ability "execute" as quickly as possible after the button press, it is still generally a good idea to have a very small cast phase value (0.1 second or so). This will help with minor server/client latency issues and will also help to ensure smoother playback of character animations.
 
-## Socket Names
+## Sockets
 
-Sockets are different points on a Player's character mesh. They can be used for attaching objects, controlling a ragdoll effect and more.
+Sockets are different points on a player's character mesh. They can be used for attaching objects, controlling a ragdoll effect and more.
 
 | Left Body       | Center Body   | Right Body       |
 | --------------- | ------------- | ---------------- |
@@ -24,49 +24,7 @@ Sockets are different points on a Player's character mesh. They can be used for 
 
 ## Animations
 
-| One-Hand Melee Animations                    | Description | Notes |
-| -------------------------------------------- | ----------- | ----- |
-| `1hand_melee_shield_bash`                    | A bash attack using a shield on the left arm (assumes shield geometry attached to `left_arm_prop`) | Supports variable cast time. Supports time-stretched execute phase time. |
-| `1hand_melee_slash_left`                     | A horizontal melee swing to the left. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `1hand_melee_slash_right`                    | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `1hand_melee_slash_vertical`                 | An overhead vertical slash. | Supports variable cast time. Supports time-stretched execute phase time. |
-| `1hand_melee_thrust`                         | A melee forward lunge attack. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `1hand_melee_unsheathe`                      | Pulls the one-handed melee weapon from a belt sheath. | works best with a cast phase duration of 0.31 or less. Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
-| `1hand_melee_rm_combo_opener_vertical_slash` | A one handed overhead slash. | This animation is intended to be the first attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `1hand_melee_rm_combo_middle_diagonal_slash` | A one handed overhead slash from the upper left to bottom right. | This animation is intended to be the middle attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `1hand_melee_rm_combo_closer_uppercut`       | A one handed weapon upward slash that takes the player slightly in the air. | This animation is intended to be the third attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-
-| Two-Hand Sword Animations | Description | Notes |
-| ------------------------- | ----------- | ----- |
-| `2hand_sword_slash_right` | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `2hand_sword_slash_left`  | A horizontal melee swing to the left. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `2hand_sword_slash_vertical` | A downward melee swing. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `2hand_sword_thrust` | A forward sword thrust melee attack. | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `2hand_sword_unsheathe` | Pulls the one-handed melee weapon from a belt sheath. | This animation works best with a cast phase duration of 0.31 or less. |
-| `2hand_sword_rm_combo_opener_cone` | A two handed sword attack that swings from right to left in a horizontal cone in front of the player. | This animation is intended to be the first attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `2hand_sword_rm_combo_middle_spin` | A two handed sword attack that pins from left to right horizontally, hitting targets in a 360 degree arc. | This animation is intended to be the second attack in the two hand sword combo  However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `2hand_sword_rm_combo_closer_spin` | A two handed sword attack that swings from right to left in a horizontal cone in front of the player. | This animation is intended to be the third attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-
-| Two-Hand Staff Animations                    | Description | Notes |
-| -------------------------------------------- | ----------- | ----- |
-| `2hand_staff_magic_bolt`                     | Magic casting animation which appears to launch a projectile forward from the staff. | Supports variable cast time. |
-| `2hand_staff_magic_up`                       | Magic casting animation which raises the staff on cast. This animation is not direction specific. | Supports variable cast time. |
-| `2hand_staff_rm_combo_opener_upward_slash`   | A two handed staff attack that swings the bottom of the staff upwards in front of the player. | This animation is intended to be the first attack in the two hand staff combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `2hand_staff_rm_combo_middle_thrust`         | A two handed staff attack thrusts the weapon far out in front of the player. | This animation is intended to be the second attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-| `2hand_staff_rm_combo_closer_vertical_slash` | A two handed staff attack that slaps the weapon down vertically in front of the player. | This animation is intended to be the third attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
-
-| One-Hand Pistol Animations     | Description | Notes |
-| ------------------------------ | ----------- | ----- |
-| `1hand_pistol_shoot`           | A pistol shoot animation. | Supports variable cast time. |
-| `1hand_pistol_unsheathe`       | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less. |
-| `1hand_pistol_reload_magazine` | Reloads a bottom-loading pistol clip. | Supports variable cast time. |
-
-| Two-Hand Rifle Animations      | Description | Notes |
-| ------------------------------ | ----------- | ----- |
-| `2hand_rifle_shoot`            | A rifle shoot animation. | Supports variable cast time. |
-| `2hand_rifle_unsheathe`        | Pulls the rifle from a back scabbard. | This animation works best with a cast phase duration of 0.22 or less. |
-| `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
-| `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
+### Unarmed
 
 | Unarmed Animations            | Description | Notes |
 | ----------------------------- | ------------------------------------------------------------------------------------ | ----- |
@@ -88,7 +46,59 @@ Sockets are different points on a Player's character mesh. They can be used for 
 | `unarmed_use_bandage`         | The player wraps a bandage around their forearms.                                    | Supports variable cast phase time. Does NOT support a time-stretched execute phase time. |
 | `unarmed_shove`               | A simple forward shove with both hands.                                              | Supports variable cast time. Supports time-stretched execute phase time. |
 
-## General Animation Stance Information
+### One-Hand
+
+| One-Hand Melee Animations                    | Description | Notes |
+| -------------------------------------------- | ----------- | ----- |
+| `1hand_melee_shield_bash`                    | A bash attack using a shield on the left arm (assumes shield geometry attached to `left_arm_prop`) | Supports variable cast time. Supports time-stretched execute phase time. |
+| `1hand_melee_slash_left`                     | A horizontal melee swing to the left. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `1hand_melee_slash_right`                    | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `1hand_melee_slash_vertical`                 | An overhead vertical slash. | Supports variable cast time. Supports time-stretched execute phase time. |
+| `1hand_melee_thrust`                         | A melee forward lunge attack. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `1hand_melee_unsheathe`                      | Pulls the one-handed melee weapon from a belt sheath. | works best with a cast phase duration of 0.31 or less. Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
+| `1hand_melee_rm_combo_opener_vertical_slash` | A one handed overhead slash. | This animation is intended to be the first attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `1hand_melee_rm_combo_middle_diagonal_slash` | A one handed overhead slash from the upper left to bottom right. | This animation is intended to be the middle attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `1hand_melee_rm_combo_closer_uppercut`       | A one handed weapon upward slash that takes the player slightly in the air. | This animation is intended to be the third attack in the one hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+
+| One-Hand Pistol Animations     | Description | Notes |
+| ------------------------------ | ----------- | ----- |
+| `1hand_pistol_shoot`           | A pistol shoot animation. | Supports variable cast time. |
+| `1hand_pistol_unsheathe`       | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less. |
+| `1hand_pistol_reload_magazine` | Reloads a bottom-loading pistol clip. | Supports variable cast time. |
+
+### Two-Hand
+
+| Two-Hand Melee Animations                    | Description | Notes |
+| -------------------------------------------- | ----------- | ----- |
+| `2hand_melee_dig_shovel`                     | A simple dig animation using a shovel. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+
+| Two-Hand Sword Animations | Description | Notes |
+| ------------------------- | ----------- | ----- |
+| `2hand_sword_slash_right` | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_sword_slash_left`  | A horizontal melee swing to the left. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_sword_slash_vertical` | A downward melee swing. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_sword_thrust` | A forward sword thrust melee attack. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_sword_unsheathe` | Pulls the one-handed melee weapon from a belt sheath. | This animation works best with a cast phase duration of 0.31 or less. |
+| `2hand_sword_rm_combo_opener_cone` | A two handed sword attack that swings from right to left in a horizontal cone in front of the player. | This animation is intended to be the first attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_sword_rm_combo_middle_spin` | A two handed sword attack that pins from left to right horizontally, hitting targets in a 360 degree arc. | This animation is intended to be the second attack in the two hand sword combo  However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_sword_rm_combo_closer_spin` | A two handed sword attack that swings from right to left in a horizontal cone in front of the player. | This animation is intended to be the third attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+
+| Two-Hand Staff Animations                    | Description | Notes |
+| -------------------------------------------- | ----------- | ----- |
+| `2hand_staff_magic_bolt`                     | Magic casting animation which appears to launch a projectile forward from the staff. | Supports variable cast time. |
+| `2hand_staff_magic_up`                       | Magic casting animation which raises the staff on cast. This animation is not direction specific. | Supports variable cast time. |
+| `2hand_staff_rm_combo_opener_upward_slash`   | A two handed staff attack that swings the bottom of the staff upwards in front of the player. | This animation is intended to be the first attack in the two hand staff combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_staff_rm_combo_middle_thrust`         | A two handed staff attack thrusts the weapon far out in front of the player. | This animation is intended to be the second attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_staff_rm_combo_closer_vertical_slash` | A two handed staff attack that slaps the weapon down vertically in front of the player. | This animation is intended to be the third attack in the two hand sword combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+
+| Two-Hand Rifle Animations      | Description | Notes |
+| ------------------------------ | ----------- | ----- |
+| `2hand_rifle_shoot`            | A rifle shoot animation. | Supports variable cast time. |
+| `2hand_rifle_unsheathe`        | Pulls the rifle from a back scabbard. | This animation works best with a cast phase duration of 0.22 or less. |
+| `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
+| `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
+
+## Animation Stances
 
 - All animation stances are valid on either of the available body types.
 - Each animation stance should behave identically across the body types (with regard to timing).
@@ -96,22 +106,11 @@ Sockets are different points on a Player's character mesh. They can be used for 
 - No animation stances have root motion
 - Each animation stance has custom blending behavior for what happens while moving (specified below)
 
-## Animation Stances
+### Unarmed
 
-| Stance String                | Description |
+| Unarmed Stances              | Description |
 | ---------------------------- | ----------- |
 | `unarmed_stance`             | This will cause the Player to walk or stand with nothing being held in their hands. |
-| `1hand_melee_shield_block`   | An animation that has the left arm drawn up as if defensively holding a shield. Assume shield geometry is attached to `left_arm_prop.` |
-| `1hand_melee_stance`         | This will cause the Player to walk or stand with the right hand posed to hold a one handed weapon, and the left arm is assumed to possibly have a shield. |
-| `1hand_pistol_stance`        | This will cause the Player to walk or stand with the right hand posed to hold a pistol. |
-| `2hand_sword_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed sword. |
-| `2hand_staff_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed staff. |
-| `2hand_rifle_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed rifle. |
-| `2hand_rifle_aim_shoulder`   | A simple aiming pose in 2hand_rifle set. Has the shoulder stock up to the shoulder. When running/jumping etc., the entire upper body will retain the aiming pose. |
-| `2hand_rifle_aim_hip`        | A simple aiming pose in 2hand_rifle set. Has the stock at the hip. When running/jumping etc., the entire upper body will retain the aiming pose. |
-| `1hand_pistol_aim`           | A simple aiming pose for pistol. When running/jumping etc., the entire upper body will retain the aiming pose. |
-| `2hand_sword_ready`          | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
-| `2hand_sword_block_high`     | A simple ready pose 2hand_sword set. Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
 | `unarmed_carry_object_high`  | A one (right) handed carry animation with the arm raised to roughly eye level. Ideal for holding a torch up to see better, etc. When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
 | `unarmed_carry_object_low`   | A one (right) handed carry animation with the arm at waist height. Ideal for holding a mug, potion, etc. When running/jumping, the right arm will retain the lifted arm pose. The left arm will inherit the animation underneath. This works best if the animation set is unarmed. This animation assumes the prop is attached to the right_prop socket. |
 | `unarmed_carry_object_heavy` | A two handed carry animation with the arms in front of the body. When running/jumping etc., the entire upper body will retain the aiming pose. |
@@ -126,13 +125,38 @@ Sockets are different points on a Player's character mesh. They can be used for 
 | `unarmed_stun_dizzy`         | A looping animation that has the player swaying as if dizzy. This animation does not have root motion, and will not inhibit or influence player control unless specifically scripted to do so. |
 | `unarmed_stun_electric`      | A looping animation that has the player tense and twitching as if being electrocuted. This animation does not have root motion, and will not inhibit or influence player control unless specifically scripted to do so. |
 
-!!! note "How to Turn on Ragdoll"
-    ```lua
-    player.animationStance = "unarmed_death"
-    Task.Wait(0.9)
-    player:EnableRagdoll("lower_spine", .4)
-    player:EnableRagdoll("right_shoulder", .2)
-    player:EnableRagdoll("left_shoulder", .6)
-    player:EnableRagdoll("right_hip", .6)
-    player:EnableRagdoll("left_hip", .6)
-    ```
+### One-Hand
+
+| One-Hand Stances             | Description |
+| ---------------------------- | ----------- |
+| `1hand_melee_shield_block`   | An animation that has the left arm drawn up as if defensively holding a shield. Assume shield geometry is attached to `left_arm_prop.` |
+| `1hand_melee_stance`         | This will cause the Player to walk or stand with the right hand posed to hold a one handed weapon, and the left arm is assumed to possibly have a shield. |
+| `1hand_pistol_aim`           | A simple aiming pose for pistol. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `1hand_pistol_stance`        | This will cause the Player to walk or stand with the right hand posed to hold a pistol. |
+
+### Two-Hand
+
+| Two-Hand Stances             | Description |
+| ---------------------------- | ----------- |
+| `2hand_melee_stance`         | This will cause the Player to walk or stand posed to hold a two handed weapon. |
+| `2hand_sword_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed sword. |
+| `2hand_staff_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed staff. |
+| `2hand_rifle_stance`         | This will cause the Player to walk or stand with the left and right hand posed to hold a two handed rifle. |
+| `2hand_rifle_aim_shoulder`   | Has the shoulder stock up to the shoulder. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `2hand_rifle_aim_hip`        | Has the stock at the hip. When running/jumping etc., the entire upper body will retain the aiming pose. |
+| `2hand_sword_ready`          | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
+| `2hand_sword_block_high`     | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
+
+## How to Turn on Ragdoll
+
+If you want to turn on the [ragdoll](https://en.wikipedia.org/wiki/Ragdoll_physics) effect on players, use the following:
+
+```lua
+player.animationStance = "unarmed_death"
+Task.Wait(0.9)
+player:EnableRagdoll("lower_spine", .4)
+player:EnableRagdoll("right_shoulder", .2)
+player:EnableRagdoll("left_shoulder", .6)
+player:EnableRagdoll("right_hip", .6)
+player:EnableRagdoll("left_hip", .6)
+```

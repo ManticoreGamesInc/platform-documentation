@@ -25,7 +25,7 @@ nav:
         - Scripting (Advanced): tutorials/lua_basics_manticoin.md
         - Persistent Storage: tutorials/persistent_storage.md
         - Scene Creation: tutorials/scene_creation.md
-        - Environmental Art: tutorials/environmental_art.md
+        - Environment Art: tutorials/environment_art.md
         - Modeling Basics: tutorials/modeling_basics.md
         - Visual Effects in Core: tutorials/vfx_tutorial.md
         - Video Tutorials:
@@ -168,6 +168,7 @@ markdown_extensions:
   - lightgallery
 
 plugins:
+  - mkdocs-new-features-notifier
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
@@ -186,13 +187,14 @@ plugins:
         tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
         tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
-        tutorials/art/environmental_art.md: tutorials/environmental_art.md
+        tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
         getting_started/troubleshooting.md: getting_started/core_help.md
         getting_started/other_platforms.md: other_platforms/unity.md
+        tutorials/environmental_art.md: tutorials/environment_art.md
 
 docs_dir: src
 

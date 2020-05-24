@@ -8,29 +8,497 @@ tags:
 
 # Examples and Snippets
 
-## Animated Mesh
+## Ability
 
-Animated mesh objects are skeletal meshes with parameterized animations baked into them. These can be dragged into the hierarchy or placed in the scene like any other mesh object.
+- **Ability.readyEvent**
 
-## `animationEvent`
-
-Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This event is only fired client side.  The server cannot directly respond to animation events!
+The Ready phase begins when an ability comes off cooldown and is "ready" to be used again. In this example, we create an invisibility effect that takes advantage of the `readyEvent`, leveraging the cooldown duration of the ability as a clock to determine when to make the player visible again.
 
 ```lua
-local propDragonMob = script:GetCustomProperty("DragonMob")
-local dragonMesh = World.SpawnAsset(propDragonMob)
+local ability = script.parent
 
-function AnimEventListener(mesh, eventName)
-    print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
-    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
-    hitEvent = true -- UT_STRIP
+function OnExecute(ability)
+    -- Hide the player
+    ability.owner:SetVisibility(false)
 end
 
-dragonMesh.animationEvent:Connect(AnimEventListener)
-dragonMesh:PlayAnimation("unarmed_claw")
+function OnReady(ability)
+    -- Show the player
+    ability.owner:SetVisibility(true)
+end
+
+ability.readyEvent:Connect(OnReady)
+ability.executeEvent:Connect(OnExecute)
 ```
 
-### `AttachCoreObject(CoreObject, socket)`
+- **Ability.castEvent**
+
+The Cast phase begins as soon as an ability is activated. By checking if the player casting the ability `isGrounded` we can create an effect that propels you upwards, but it doesn't work if you are already jumping or flying. We detect this is the `castEvent`, which is early enough for an `Interrupt()` to reset the ability.
+
+```lua
+local ability = script.parent
+
+function OnCast(ability)
+    if ability.owner.isGrounded then
+        ability.owner:SetVelocity(Vector3.UP * 2000)
+    else
+        ability:Interrupt()
+    end
+end
+
+ability.castEvent:Connect(OnCast)
+```
+
+- **Ability.executeEvent**
+
+Weapons implement lots of built-in gameplay that doesn't require any scripting, such as attack and reload abilities. However, they can be augmented with additional mechanics. In this example, a special sound effect is played when a weapon shoots while low on ammunition. The script expects to be a child of a weapon's "Shoot" ability.
+
+```lua
+local ability = script.parent
+local weapon = script:FindAncestorByType('Weapon')
+local lowAmmoSound = script:GetCustomProperty("LowAmmoSound")
+
+local LOW_AMMO_PERCENTAGE = 0.2
+
+function OnExecute(ability)
+    if weapon.currentAmmo / weapon.maxAmmo <= LOW_AMMO_PERCENTAGE then
+        World.SpawnAsset(lowAmmoSound, {position = weapon:GetWorldPosition()})
+    end
+end
+
+ability.executeEvent:Connect(OnExecute)
+```
+
+- **Ability.recoveryEvent**
+
+The `recoveryEvent` marks the end of an ability's Execute phase and the beginning of its Recovery phase. In this example, a melee punch ability has a trigger that causes damage to enemies who overlap it. For it to work the trigger is only enabled for a brief moment, during the Execute phase.
+
+```lua
+local ability = script.parent
+local trigger = script:GetCustomProperty("ImpactTrigger"):WaitForObject()
+trigger.collision = Collision.FORCE_OFF
+
+local DAMAGE_AMOUNT = 10
+
+function OnExecute(ability)
+    trigger.collision = Collision.FORCE_ON
+end
+
+function OnRecovery(ability)
+    trigger.collision = Collision.FORCE_OFF
+end
+
+ability.executeEvent:Connect(OnExecute)
+ability.recoveryEvent:Connect(OnRecovery)
+
+function OnBeginOverlap(trigger, other)
+    -- Only damage enemy players
+    if other:IsA("Player") and other.team ~= ability.owner.team then
+        other:ApplyDamage(Damage.New(DAMAGE_AMOUNT))
+    end
+end
+
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+- **Ability.cooldownEvent**
+
+In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
+
+```lua
+local ability = script.parent
+
+function OnCast(ability)
+    ability.owner:AddResource("invincible", 1)
+end
+
+function OnCooldown(ability)
+    ability.owner:RemoveResource("invincible", 1)
+end
+
+ability.castEvent:Connect(OnCast)
+ability.cooldownEvent:Connect(OnCooldown)
+```
+
+- **Ability.interruptedEvent**
+
+The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
+
+```lua
+local ability = script.parent
+local interruptedVfx = script:GetCustomProperty("InterruptedVfx")
+
+function OnInterrupted(ability)
+    if Object.IsValid(ability.owner) then
+        World.SpawnAsset(interruptedVfx, {position = ability.owner:GetWorldPosition()})
+    end
+end
+
+ability.interruptedEvent:Connect(OnInterrupted)
+```
+
+- **Ability.tickEvent**
+
+Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them.
+
+```lua
+local equipment = script.parent
+local allAbilities = equipment:GetAbilities()
+
+function OnTick(ability, deltaTime)
+    print("Updating ability " .. ability.name)
+end
+
+for _,ability in ipairs(allAbilities) do
+    ability.tickEvent:Connect(OnTick)
+end
+```
+
+- **Ability.Activate**
+
+The Ability `Activate()` function is client-only, behaving as if the player had pressed the key binding. In order for a server gameplay decision to result in an ability activation, it must be communicated over the network somehow. In this example, a trigger overlap is representative of an arbitrary gameplay decision on the server. A broadcast message is sent to the client, who receives the event and activates the ability.
+
+Server script:
+
+```lua
+local trigger = script.parent
+
+trigger.beginOverlapEvent(function(trigger, other)
+    if other:IsA("Player") then
+        Events.BroadcastToPlayer(other, "SteppedOnObject")
+    end
+end)
+```
+
+ Client context script under the ability:
+
+```lua
+local ability = script:FindAncestorByType("Ability")
+
+function OnPlayAnimation()
+    if ability.owner and ability.owner == Game.GetLocalPlayer() then
+        ability:Activate()
+    end
+end
+
+Events.Connect("SteppedOnObject", OnPlayAnimation)
+```
+
+- **Ability.Interrupt**
+
+Interrupting an ability either sends it back into ready state (if it was still in the Cast phase) or puts it on cooldown. In this example, we have an ability that searches for all enemies in a 10 meter radius and interrupts their abilities.
+
+```lua
+local ability = script.parent
+local RADIUS = 1000 -- 10 meters
+
+function OnExecute(ability)
+    local center = ability.owner:GetWorldPosition()
+    -- Search for enemies
+    local enemies = Game.FindPlayersInCylinder(center, RADIUS, {ignoreTeams = ability.owner.team})
+    for _, enemy in ipairs(enemies) do
+        -- Interrupt all their abilities
+        local enemyAbilities = enemy:GetAbilities()
+        for _,a in ipairs(enemyAbilities) do
+            a:Interrupt()
+        end
+    end
+end
+
+ability.executeEvent:Connect(OnExecute)
+```
+
+- **Ability.GetCurrentPhase**
+- **Ability.GetPhaseTimeRemaining**
+
+In this example, while the ability is on cooldown the percent completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
+
+```lua
+local ability = script:FindAncestorByType("Ability")
+
+function Tick()
+    if ability:GetCurrentPhase() == AbilityPhase.COOLDOWN then
+        local duration = ability.cooldownPhaseSettings.duration
+        local remaining = ability:GetPhaseTimeRemaining()
+        local percent = 100 * (1 - remaining / duration)
+
+        print("Cooldown remaining: %" .. string.format("%.2f",percent))
+    end
+end
+```
+
+- **Ability.GetTargetData**
+- **Ability.SetTargetData**
+
+The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
+
+```lua
+local ability = script:FindAncestorByType("Ability")
+
+function OnCast(ability)
+    local abilityTarget = ability:GetTargetData()
+    local pos = abilityTarget:GetHitPosition()
+
+    pos.z = ability.owner:GetWorldPosition().z + 50
+
+    abilityTarget:SetHitPosition(pos)
+    ability:SetTargetData(abilityTarget)
+end
+
+ability.castEvent:Connect(OnCast)
+```
+
+- **Ability.isEnabled**
+
+In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
+
+```lua
+local equipment = script:FindAncestorByType("Equipment")
+local abilities = {}
+local abilityIndex = 1
+
+function OnAbilityRecovery(ability)
+    if (#abilities > 1) then
+        abilities[abilityIndex].isEnabled = false
+        abilities[abilityIndex].owner = nil
+
+        abilityIndex = abilityIndex + 1
+        if (abilityIndex > #abilities) then
+            abilityIndex = 1
+        end
+
+        abilities[abilityIndex].isEnabled = true
+        abilities[abilityIndex].owner = equipment.owner
+    end
+end
+
+for _, child in pairs(equipment:FindDescendantsByType("Ability")) do
+    table.insert(abilities, child)
+
+    child.isEnabled = (#abilities == 1)
+
+    child.recoveryEvent:Connect(OnAbilityRecovery)
+end
+```
+
+- **Ability.owner**
+
+Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property. --
+
+```lua
+local abilityTemplate = script:GetCustomProperty("AbilityTemplate")
+
+function OnPlayerJoined(player)
+    local ability = World.SpawnAsset(abilityTemplate)
+    ability.owner = player
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+- **Ability.canActivateWhileDead**
+
+Some games may have abilities that can be used while the player is dead. In this example, we have abilities that can **only** be activated while dead. If not dead, then it's interrupted.
+
+```lua
+local ability = script:FindAncestorByType("Ability")
+
+function OnCast(ability)
+    if ability.canActivateWhileDead and not ability.owner.isDead then
+        ability:Interrupt()
+    end
+end
+
+ability.castEvent:Connect(OnCast)
+```
+
+On the client context, a user interface component that displays ability details is hidden until the player dies:
+
+```lua
+local abilityCanvas = script:GetCustomProperty("Canvas")
+local BINDING = script:GetCustomProperty("Binding")
+
+function Tick(deltaTime)
+    local ability = GetLocalPlayerAbilityWithBinding()
+
+    if ability
+    and ability.isEnabled
+    and ability.canActivateWhileDead
+    and ability.owner
+    and ability.owner.isDead then
+
+        abilityCanvas.visibility = Visibility.INHERIT
+    else
+        abilityCanvas.visibility = Visibility.FORCE_OFF
+    end
+end
+
+-- Searches the local player's abilities until one with a matching action binding is found
+-- The BINDING search criteria should be set in the custom property
+function GetLocalPlayerAbilityWithBinding()
+    local abilities = Game.GetLocalPlayer():GetAbilities()
+    for _, ability in pairs(abilities) do
+        if ability.actionBinding == BINDING then
+            return ability
+        end
+    end
+
+    return nil
+end
+```
+
+- **Ability.name**
+- **Ability.actionBinding**
+
+Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
+
+```lua
+local BINDING = script:GetCustomProperty("Binding")
+local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
+
+function GetLocalPlayerAbilityWithBinding()
+    local player = Game.GetLocalPlayer()
+    local abilities = player:GetAbilities()
+
+    for _, ability in pairs(abilities) do
+        if ability.actionBinding == BINDING then
+            return ability
+        end
+    end
+
+    return nil
+end
+
+function Tick()
+    local ability = GetLocalPlayerAbilityWithBinding()
+    if ability then
+        NAME_UI.text = ability.name
+    end
+end
+```
+
+- **Ability.castPhaseSettings**
+- **Ability.executePhaseSettings**
+- **Ability.recoveryPhaseSettings**
+- **Ability.cooldownPhaseSettings**
+
+In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
+
+```lua
+local COUNTDOWN_TEXT = script:GetCustomProperty("CountdownText"):WaitForObject()
+
+function UpdateForAbility(ability)
+    local currentPhase = ability:GetCurrentPhase()
+
+    local percent = 1
+    local cooldownText = "Ready"
+
+    if currentPhase ~= AbilityPhase.READY then
+        local phaseDuration
+        local timeRemaining = ability:GetPhaseTimeRemaining()
+
+        if currentPhase == AbilityPhase.CAST then
+            phaseDuration = ability.castPhaseSettings.duration
+        elseif currentPhase == AbilityPhase.EXECUTE then
+            -- In the case of Execute and Recovery phases, we can show those as a single one
+            local recoveryD = ability.recoveryPhaseSettings.duration
+            phaseDuration = ability.executePhaseSettings.duration + recoveryD
+            timeRemaining = timeRemaining + recoveryD
+        elseif currentPhase == AbilityPhase.RECOVERY then
+            phaseDuration = ability.recoveryPhaseSettings.duration
+        else --currentPhase == AbilityPhase.COOLDOWN
+            phaseDuration = ability.cooldownPhaseSettings.duration
+        end
+
+        if phaseDuration > 0 then
+            percent = 1 - timeRemaining / phaseDuration
+        end
+        cooldownText = string.format("%.1f", timeRemaining)
+    end
+
+    COUNTDOWN_TEXT.text = cooldownText
+
+    local c = Color.Lerp(Color.BLACK, Color.WHITE, percent)
+    COUNTDOWN_TEXT:SetColor(c)
+end
+```
+
+- **Ability.animation**
+
+In this example, the `ProcessAbilities()` function can be called once, such as at the beginning of a round, to take inventory of a player's abilities and classify them based on animation. This example also demonstrates how to disconnect event listeners so that we don't listen for the same event multiple times.
+
+```lua
+function OnMelee1HandCast(ability)
+    print("One-handed melee attack")
+end
+
+function OnMelee2HandCast(ability)
+    print("Two-handed melee attack")
+end
+
+local abilityEventListeners = {}
+
+function CleanupListeners(player)
+    -- If we have previously processed this player, cleanup all listeners
+    if abilityEventListeners[player] then
+        for i, eventListener in ipairs(abilityEventListeners[player]) do
+            eventListener:Disconnect()
+        end
+        abilityEventListeners[player] = nil
+    end
+end
+
+function ProcessAbilities(player)
+    CleanupListeners(player)
+
+    local allAbilities = player:GetAbilities()
+
+    for _, ability in ipairs(allAbilities) do
+        if string.match(ability.animation, "melee") then
+            local eventListener
+            if string.match(ability.animation, "1h") then
+                eventListener = ability.castEvent:Connect(OnMelee1HandCast)
+            else
+                eventListener = ability.castEvent:Connect(OnMelee2HandCast)
+            end
+            table.insert(abilityEventListeners[player], eventListener)
+        end
+    end
+end
+
+-- Lets also cleanup when a player leaves the game, as perhaps their ability objects might stay in the game.
+Game.playerLeftEvent:Connect(CleanupListeners)
+```
+
+- **Ability.canBePrevented**
+
+In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
+
+```lua
+local ability = script.parent
+local cancelSound = script:GetCustomProperty("CancelSound")
+
+function OnInterrupted(ability)
+    local player = ability.owner
+    if not Object.IsValid(player) then return end
+
+    for _, a in ipairs(player:GetAbilities()) do
+        if a:GetCurrentPhase() ~= AbilityPhase.READY and not a.canBePrevented then
+            player:AddImpulse(Vector3.UP * 1000)
+            World.SpawnAsset(cancelSound, {position = player:GetWorldPosition()})
+            return
+        end
+    end
+end
+
+ability.interruptedEvent:Connect(OnInterrupted)
+```
+
+## AnimatedMesh
+
+- **AnimatedMesh.AttachCoreObject**
+
+Attaches the specified object to the specified socket on the mesh if they exist.
 
 In this example, we want to attach multiple objects to an animated mesh to create a costume, such as equipment on a skeleton enemy or horns on the head of a raptor. For it to work, setup the animated mesh in its "binding" stance and without any animations playing at the start. Place this script along with any costume parts to be attached as children of the animated mesh. Position and rotate the costume parts to align them with their destinations on the mesh. The costume parts are expected to be groups/folders with their names matching the socket names they are destined to. When the script runs, it searches through all the mesh's children and attaches them to the sockets.
 
@@ -53,44 +521,10 @@ for _,obj in ipairs(allObjects) do
 end
 ```
 
-### `GetAnimationNames()` / `GetAnimationStanceNames()` / `GetSocketNames()` / `GetAnimationEventNames(animationName)` / `GetAnimationDuration(animationName)`
+- **AnimatedMesh.PlayAnimation**
+- **AnimatedMesh.playbackRateMultiplier**
 
-You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
-
-```lua
-local propDragonMob = script:GetCustomProperty("DragonMob")
-
--- This function prints out all of the animations, sockets, stances, and events associated
--- with an animated mesh!
-function PrintAnimatedMeshData(mesh)
-    print("Animation names:")
-    for _,v in ipairs(mesh:GetAnimationNames()) do
-        print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
-        -- Print out any events that are associated with this animation:
-        for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
-            print("        Event: " .. e)
-        end
-    end
-    print("\nAnimation stance names:")
-    for _,v in ipairs(mesh:GetAnimationStanceNames()) do
-        print("    " .. v)
-    end
-    print("\nSocket names:")
-    for _,v in ipairs(mesh:GetSocketNames()) do
-        print("    " .. v)
-    end
-end
-
-local dragonMesh = World.SpawnAsset(propDragonMob)
-PrintAnimatedMeshData(dragonMesh)
-```
-
-### `PlayAnimation(animationName, [params])` / `playbackRateMultiplier`
-
-Plays an animation on the animated mesh.
-Optional parameters can be provided to control the animation playback:
-`playbackRate (Number)`: Controls how fast the animation plays.
-`shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
+Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
 In this example, a humanoid animated mesh has its laughing and death animations controlled by pressing the primary and secondary action bindings (PC default is mouse left-click and right-click respectively).
 
@@ -123,7 +557,11 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-### `animationStance` / `animationStancePlaybackRate` / `animationStanceShouldLoop`
+### Properties
+
+- **AnimatedMesh.animationStance**
+- **AnimatedMesh.animationStancePlaybackRate**
+- **AnimatedMesh.animationStanceShouldLoop**
 
 The stance the animated mesh plays.
 
@@ -171,7 +609,45 @@ function Tick(deltaTime)
 end
 ```
 
-### `StopAnimations()`
+### Functions
+
+- **AnimatedMesh.GetAnimationNames**
+- **AnimatedMesh.GetAnimationStanceNames**
+- **AnimatedMesh.GetSocketNames**
+- **AnimatedMesh.GetAnimationEventNames**
+- **AnimatedMesh.GetAnimationDuration**
+
+You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
+
+```lua
+local propDragonMob = script:GetCustomProperty("DragonMob")
+
+-- This function prints out all of the animations, sockets, stances, and events associated
+-- with an animated mesh!
+function PrintAnimatedMeshData(mesh)
+    print("Animation names:")
+    for _,v in ipairs(mesh:GetAnimationNames()) do
+        print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
+        -- Print out any events that are associated with this animation:
+        for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
+            print("        Event: " .. e)
+        end
+    end
+    print("\nAnimation stance names:")
+    for _,v in ipairs(mesh:GetAnimationStanceNames()) do
+        print("    " .. v)
+    end
+    print("\nSocket names:")
+    for _,v in ipairs(mesh:GetSocketNames()) do
+        print("    " .. v)
+    end
+end
+
+local dragonMesh = World.SpawnAsset(propDragonMob)
+PrintAnimatedMeshData(dragonMesh)
+```
+
+- **AnimatedMesh.StopAnimations**
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -182,6 +658,26 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 dragonMesh:PlayAnimation("unarmed_slash")
 Task.Wait(0.25)
 dragonMesh:StopAnimations()
+```
+
+## AnimatedMesh on Client
+
+- **AnimatedMesh.animationEvent**
+
+Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note!  This event is only fired client side.  The server cannot directly respond to animation events!
+
+```lua
+local propDragonMob = script:GetCustomProperty("DragonMob")
+local dragonMesh = World.SpawnAsset(propDragonMob)
+
+function AnimEventListener(mesh, eventName)
+    print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
+    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
+end
+
+
+dragonMesh.animationEvent:Connect(AnimEventListener)
+dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
 ## Contexts
@@ -237,8 +733,8 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Send a single networked value to synchronize the server and client's random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
-!!! warning "Beware of desync issues!"
-    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause desync issues.
+!!! warning "Beware of de-sync issues!"
+    Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause de-sync issues.
     Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
     - Server-only or client-only objects.
     - Random number generators with different seeds.
@@ -289,6 +785,562 @@ Task.Spawn(function()
         Task.Wait(0.1)
     end
 end)
+```
+
+## CoreObject
+
+- **CoreObject.childAddedEvent**
+- **CoreObject.childRemovedEvent**
+- **CoreObject.descendantAddedEvent**
+- **CoreObject.descendantRemovedEvent**
+
+Child/descendent event listeners fire when something is added to an object as a child, either directly, or to one of its children.
+
+The child event listeners (`childAddedEvent`, `childRemovedEvent`) fire whenever an object is added as a direct child to a CoreObject.
+
+The descendent events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a chiled, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+
+local template1 = World.SpawnAsset(propCubeTemplate)
+local template2 = World.SpawnAsset(propCubeTemplate)
+local template3 = World.SpawnAsset(propCubeTemplate)
+
+function OnChildAdded()
+    print("A child has been added to template 1!")
+end
+
+function OnDescendantAdded()
+    print("A descendant has been added to template 1!")
+end
+
+template1.childAddedEvent:Connect(OnChildAdded)
+template1.descendantAddedEvent:Connect(OnDescendantAdded)
+template2.parent = template1
+template3.parent = template2
+
+-- The hierarchy should now look like this:
+--
+-- template 1
+--   +-Template 2
+--       +-Template 3
+
+-- Output:
+-- A child has been added to template 1!
+-- A descendant has been added to template 1!
+-- A descendant has been added to template 1!
+```
+
+- **CoreObject.GetChildren**
+- **CoreObject.FindAncestorByName**
+- **CoreObject.FindChildByName**
+- **CoreObject.FindDescendantByName**
+- **CoreObject.FindDescendantsByName**
+- **CoreObject.FindAncestorByType**
+- **CoreObject.FindChildByType**
+- **CoreObject.FindDescendantByType**
+- **CoreObject.FindDescendantsByType**
+- **CoreObject.FindTemplateRoot**
+- **CoreObject.IsAncestorOf**
+- **CoreObject.parent**
+
+You can inspect most of the hierarchy at runtime.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local propSampleSoundFX = script:GetCustomProperty("SampleSoundFX")
+
+local template1 = World.SpawnAsset(propCubeTemplate)
+local template2 = World.SpawnAsset(propSampleSoundFX, {parent = template1})
+local template3 = World.SpawnAsset(propCubeTemplate, {parent = template2})
+local template4 = World.SpawnAsset(propSampleSoundFX, {parent = template2})
+
+template1.name = "template1"
+template2.name = "template2"
+template3.name = "child"
+template4.name = "child"
+
+-- The hierarchy should now look like this:
+--
+-- template 1
+--   +-template 2      -- Note that this one is an audio object!
+--       +-template 3
+--       +-template 4  -- This is also audio
+
+-- We can get references to other things in the tree if we know their string name:
+local ancestor = template4:FindAncestorByName("template1")
+
+-- This one only looks at direct children.
+local child = template1:FindChildByName("template2")
+
+-- You can also get a list of all direct children:
+local childList = template2:GetChildren()
+
+-- CoreObjects are also aware of their own parents, if any:
+print(template2.parent.name) -- template1
+
+if ancestor:IsAncestorOf(child) then
+    print("This is an ancestor!")
+end
+
+-- FindDescendantByName will return the *first* descendant that matches the name.
+local descendant = template1:FindDescendantByName("child")
+-- descendant now equals template3
+
+-- FindDescendantsByName will return an array of ALL the descendants who match the name.
+local descendantList = template1:FindDescendantsByName("child")
+-- descendantList is an array that contains {template3, template4}
+
+-- We can also search by object type. template2 is an Audio object, so we can search for it:
+local audioDescendant = template1:FindDescendantByType("Audio")
+local audioDescendantList = template1:FindDescendantsByType("Audio")
+-- audioDescendantList is an array that contains {template2, template4}
+
+-- FindChildByType will only look at direct children.
+local child = template1:FindChildByType("Audio")
+-- Should give us template2
+
+-- We can search up the tree by type as well:
+local ancestorByType = template3:FindAncestorByType("StaticMesh")
+-- This one goes all the way up the tree and returns template 1, because template3's direct
+-- parent is an Audio object and not a StaticMesh.
+
+-- If we have a reference to an object in a template, we can also find the root of the template.
+local templateRoot = template1:FindTemplateRoot()
+-- this should just give us back Template1, because it is already the root.
+```
+
+- **CoreObject.destroyEvent**
+- **CoreObject.Destroy**
+- **CoreObject.lifeSpan**
+
+There are several ways of destroying coreobjects, and noticing when they are destroyed.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+
+function OnDestroyListener(obj)
+    print(obj.name .. " has been destroyed!")
+end
+
+local template1 = World.SpawnAsset(propCubeTemplate)
+local template2 = World.SpawnAsset(propCubeTemplate, {parent = template1})
+
+-- You can destroy an object directly, via the Destroy() method.
+-- Children are also automatically destroyed when their parent is destroyed.
+
+template1.destroyEvent:Connect(OnDestroyListener)
+template2.destroyEvent:Connect(OnDestroyListener)
+
+template1.name = "Template 1"
+template2.name = "Template 2"
+
+template1:Destroy()
+
+-- output:
+-- Template 2 has been destroyed!
+-- Template 1 has been destroyed!
+
+-- You can also set the lifeSpan of objects. They will destroy themselves in
+-- that many seconds.
+local template3 = World.SpawnAsset(propCubeTemplate)
+template3.name = "Template 3"
+template3.destroyEvent:Connect(OnDestroyListener)
+template3.lifeSpan = 1
+Task.Wait(1.5)
+-- Template 3 has been destroyed.
+
+
+-- The timer for lifespans is set when the lifeSpan property is changed.
+-- So even though the object has existed for 1 second already, setting the
+-- lifeSpan to 0.5 does not immediately destroy it - instead, the object
+-- is destroyed 0.5 seconds after the lifeSpan is set.
+local template4 = World.SpawnAsset(propCubeTemplate)
+template4.name = "Template 4"
+template4.destroyEvent:Connect(OnDestroyListener)
+Task.Wait(1)
+template4.lifeSpan = 0.5
+Task.Wait(1)
+```
+
+- **CoreObject.name**
+- **CoreObject.id**
+- **CoreObject.sourceTemplateId**
+- **CoreObject.isStatic**
+- **CoreObject.isClientOnly**
+- **CoreObject.isServerOnly**
+- **CoreObject.isNetworked**
+
+You can find out a lot about an object via its CoreProperties.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+
+local template = World.SpawnAsset(propCubeTemplate)
+
+-- The name of the object is its name in the hierarchy, or the name of the
+-- template it was spawned from.
+print("Name: " .. template.name)
+-- The ID of the object is its core object reference.  (A MUID)
+print("Id: " .. template.id)
+-- The source template id is the MUID of template it was spawned from.
+-- (Or nil if it was just placed in the hierarchy at edit-time.)
+print("sourceTemplateId: " .. template.sourceTemplateId)
+
+
+-- You can also tell if an object is networked, and if it is in a static, client, or server context:
+if template.isNetworked then
+    print("It is networked!")
+else
+    print("It is not networked!")
+end
+if template.isClientOnly then print("It is Client only!") end
+if template.isServerOnly then print("It is Server only!") end
+if template.isStatic then print("It is Static") end
+
+-- Output:
+--    Name: GoldCube
+--    Id: E355483D7F78F3B1:GoldCube
+--    sourceTemplateId: AF4DDC200B982801
+--    It is networked!
+```
+
+- **CoreObject.GetTransform**
+- **CoreObject.SetTransform**
+- **CoreObject.GetPosition**
+- **CoreObject.SetPosition**
+- **CoreObject.GetRotation**
+- **CoreObject.SetRotation**
+- **CoreObject.GetScale**
+- **CoreObject.SetScale**
+- **CoreObject.GetWorldTransform**
+- **CoreObject.SetWorldTransform**
+- **CoreObject.GetWorldPosition**
+- **CoreObject.SetWorldPosition**
+- **CoreObject.GetWorldRotation**
+- **CoreObject.SetWorldRotation**
+- **CoreObject.GetWorldScale**
+- **CoreObject.SetWorldScale**
+
+One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are.  You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local cube1 = World.SpawnAsset(propCubeTemplate)
+local cube2 = World.SpawnAsset(propCubeTemplate)
+
+cube2.parent = cube1
+
+cube1:SetWorldPosition(Vector3.New(0, 500, 100))
+cube2:SetPosition(Vector3.New(0, 200, 0))
+-- Cube 1 has been placed in the world, and cube2 has been placed, relative to cube1.
+
+print("cube2 relative position: " .. tostring(cube2:GetPosition()))      -- X=0.000 Y=200.000 Z=0.000
+print("cube2 world position:    " .. tostring(cube2:GetWorldPosition())) -- X=0.000 Y=700.000 Z=100.000
+
+cube1:SetWorldRotation(cube1:GetWorldRotation() + Rotation.New(0, 0, 90))
+cube2:SetRotation(cube2:GetRotation() + Rotation.New(0, 0, 90))
+-- Both cubes have been rotated by 90 degrees, but cube2 gets the combined rotation
+-- because it is the child of cube1.
+
+print("cube2 relative rotation: " .. tostring(cube2:GetRotation()))      -- X=0.000 Y=0.000 Z=90.000
+print("cube2 world rotation:    " .. tostring(cube2:GetWorldRotation())) -- X=0.000 Y=0.000 Z=180.000
+
+cube1:SetWorldScale(cube1:GetWorldScale() * 2)
+cube2:SetScale(cube2:GetScale() * 2)
+-- Both cubes have been doubled in size.  But again, the child cube (cube2) also takes the scale
+-- of the parent. (cube1)
+print("cube2 relative scale:    " .. tostring(cube2:GetScale()))      -- X=2.000 Y=2.000 Z=2.000
+print("cube2 world scale:       " .. tostring(cube2:GetWorldScale())) -- X=4.000 Y=4.000 Z=4.000
+
+
+-- It's also possible to read and write the entire transform at once!
+local cube3 = World.SpawnAsset(propCubeTemplate)
+local cube4 = World.SpawnAsset(propCubeTemplate)
+cube4.parent = cube1
+
+cube3:SetWorldTransform(cube1:GetWorldTransform())
+cube4:SetTransform(cube2:GetTransform())
+
+-- Cube1 and cube3 now have the same transforms, and cube2 and cube4 also match.
+```
+
+- **CoreObject.MoveTo**
+- **CoreObject.RotateTo**
+- **CoreObject.ScaleTo**
+- **CoreObject.MoveContinuous**
+- **CoreObject.RotateContinuous**
+- **CoreObject.ScaleContinuous**
+- **CoreObject.StopMove**
+- **CoreObject.StopRotate**
+- **CoreObject.StopScale**
+
+There are quite a few functions that make it easy to animate `CoreObject`s in your game.  Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
+
+`MoveTo()`, `RotateTo()` and `ScaleTo()` are the most basic, and they allow you to change a `CoreObject`'s position, rotation, or scale over time.  The base version of these functions just takes a destination position/scale/rotation, and how much time it should take to get there.
+
+There are also continuous versions of these functions, that cause a `CoreObject` to continuously change position/scale/rotation forever, or until told to stop.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local movingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, -200, 100)})
+local spinningCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 0, 100)})
+local shrinkingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
+
+local transitionTime = 5
+
+-- These functions will make cubes rise, spin, and shrink, over the next 5 seconds.
+movingCube:MoveTo(movingCube:GetWorldPosition() + Vector3.UP * 1000, transitionTime)
+spinningCube:RotateTo(Rotation.New(0, 0, 179), transitionTime)
+shrinkingCube:ScaleTo(Vector3.ZERO, transitionTime)
+
+Task.Wait(transitionTime)
+
+-- These functions will make the cubes fall, spin, and grow indefinitely, until stopped.
+movingCube:MoveContinuous(Vector3.UP * -100)
+spinningCube:RotateContinuous(Rotation.New(0, 0, 20))
+shrinkingCube:ScaleContinuous(Vector3.New(0.2, 0.2, 0.2))
+
+-- And here, 2 seconds later, we stop them!
+Task.Wait(2)
+movingCube:StopMove()
+spinningCube:StopRotate()
+shrinkingCube:StopScale()
+```
+
+- **CoreObject.Follow**
+- **CoreObject.LookAt**
+- **CoreObject.LookAtContinuous**
+- **CoreObject.LookAtLocalView**
+
+There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world.  There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object.  And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local movingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, -200, 100)})
+local followingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 0, 100)})
+local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
+
+-- We can make an object turn to face any given point in the world:
+watchingCube:LookAt(movingCube:GetWorldPosition())
+
+-- We can also have an object keep facing a player or object, until we
+-- call stopRotate.  This example makes a cube move, while an other
+-- cube watches it, while yet a third cube tries to follow it. (While
+-- staying 200 units away.)
+movingCube:MoveTo(movingCube:GetWorldPosition() + Vector3.UP * 1000, 5)
+followingCube:Follow(movingCube, 500, 200)
+watchingCube:LookAtContinuous(movingCube)
+Task.Wait(5)
+```
+
+ It's also possible to make an object always look at EVERY player.  This obviously only works on objects that are in a client context, but the `LookAtLocalView` function causes a client-context object to always turn and face the local player.
+
+```lua
+    local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
+    watchingCube:LookAtLocalView() -- This only works in a client context!
+```
+
+- **CoreObject.GetCustomProperties**
+- **CoreObject.GetCustomProperty**
+
+Almost any object in the hierarchy can have "custom properties" associated with it.  These are values that you can change in the editor, but that scripts can easily access.  They're useful for making modular components that can be configured without needing to modify Lua code.  You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
+
+In this example, we've added some custom properties onto the script, to demonstrate how to access them.
+
+Specifically, we've added the following custom types to our script:
+
+`BestFood` : String
+
+`NumberOfCats` : Int
+
+`FavoriteColor` : Color
+
+```lua
+-- We can read from custom properties directly, if we know their name:
+-- When you add a custom property, code like this is auto-generated in the
+-- inspector window, and can be easily cut-and-pasted into your script!
+local propBestFood = script:GetCustomProperty("BestFood")
+local propNumberOfCats = script:GetCustomProperty("NumberOfCats")
+local propFavoriteColor = script:GetCustomProperty("FavoriteColor")
+
+-- In some cases, a script might not know which custom properties exist.
+-- We can request a list of ALL custom properties, in table form:
+
+for propName, propValue in pairs(script:GetCustomProperties()) do
+    print("Found property [" .. propName .. "] with value [" .. tostring(propValue) .. "]")
+end
+```
+
+- **CoreObject.GetVelocity**
+- **CoreObject.SetVelocity**
+- **CoreObject.GetAngularVelocity**
+- **CoreObject.SetAngularVelocity**
+- **CoreObject.SetLocalAngularVelocity**
+
+Some core objects are handled by the physics system.  Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
+
+For objects like this, you can set their velocity and angular velocity directly.
+
+```lua
+local propPhysicsSphere = script:GetCustomProperty("PhysicsSphere")
+local sphere = World.SpawnAsset(propPhysicsSphere, {position = Vector3.New(500, -200, 300)})
+
+sphere:SetVelocity(Vector3.UP * 1000)
+sphere:SetAngularVelocity(Vector3.UP * 1000)
+
+Task.Wait(2)
+-- Cut the velocity (and angular velocity) down to 25%
+sphere:SetVelocity(sphere:GetVelocity() * 0.25)
+sphere:SetAngularVelocity(sphere:GetAngularVelocity() * 0.25)
+
+
+-- You can also set the angular velocity in local space, relative to the angular
+-- velocity of its parent, if any:
+sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
+```
+
+- **CoreObject.IsVisibleInHierarchy**
+- **CoreObject.IsCollidableInHierarchy**
+- **CoreObject.IsEnabledInHierarchy**
+- **CoreObject.visibility**
+- **CoreObject.collision**
+- **CoreObject.isEnabled**
+
+You can make objects appear and disappear in the world in several different ways.
+
+By changing their `visibility` property, you can make them appear or disappear, but they will otherwise still exist.  (Players can collide with them, etc.)
+
+By changing their `collision` property, you can make the object something that players (and other objects) can no longer collide with.  The object will still be visible though.
+
+You can also completely disable an object, via the `isEnabled` property.  Objects with `isEnabled` set to `false` cannot be seen or collided with, nor can any of their children.
+
+Both collision and visibility have three possible values:  `FORCE_ON`, `FORCE_OFF` and `INHERIT`.  By default, things are set to `INHERIT`, which means they will have whatever visibility or collision settings their parent object has.  This makes it convenient to hide or remove collision from a whole group of things, by simply changing the settings of the root object.
+
+`FORCE_ON` and `FORCE_OFF` override this, and force the object to be collidable or visible (or not) regardless of the state of their parents.
+
+It is sometimes useful to know if an object is currently visible/collidable/enabled. Because this may depend on the state of its parents, there are several convenience functions that allow you to check, without having to climb the hierarchy yourself.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local cube1 = World.SpawnAsset(propCubeTemplate)
+local cube2 = World.SpawnAsset(propCubeTemplate)
+cube2.parent = cube1
+
+
+-- Cube2 is now the child of cube1.
+-- By default they both off with Visibility.INHERIT and Collision.INHERIT
+print("default state:")
+print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
+print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
+print("cube2 enabled?    " .. tostring(cube2:IsEnabledInHierarchy()))
+-- These should all be true when we start.
+
+-- If we set cube1 to be disabled, then cube2 is no longer visible or collidable:
+cube1.isEnabled = false
+print("parent disabled:")
+print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
+print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
+print("cube2 enabled?    " .. tostring(cube2:IsEnabledInHierarchy()))
+
+-- Note that isEnabled overrides visibility/collision settings.  So even
+-- if we set cube2 to force its visibility and collision on, they are
+-- still overridden as long as its parent is disabled:
+print("parent disabled, but forcing things on:")
+cube2.visibility = Visibility.FORCE_ON
+cube2.collision = Collision.FORCE_ON
+print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
+print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
+-- These are both false because the parent is still disabled.
+
+-- On the other hand, if we set cube1 to enabled, but FORCE_OFF for
+-- collision and visibility, cube2 is now visible and collidable, because
+-- it is still FORCE_ON for both values, meaning it ignores its parent.
+cube1.visibility = Visibility.FORCE_OFF
+cube1.collision = Collision.FORCE_OFF
+cube1.isEnabled = true
+print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
+print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
+-- These are both true now because the parent is no longer disabled.
+```
+
+- **CoreObject.networkedPropertyChangedEvent**
+- **CoreObject.SetNetworkedCustomProperty**
+- **CoreObject.GetReference**
+
+Networked custom properties are a special kind of custom property that can be used to communicate with client contexts.  (They're actually one of the few ways that the server can send data that a client context can respond to!)
+
+To create a networked custom property, right click a custom property in the Core editor, and select "Enable Property Networking."
+
+Once a custom property has been set to be networked, the server can change its value at runtime via `SetNetworkedCustomProperty()`, and the client can listen for changes to that property via `networkedPropertyChangedEvent`.
+
+In this sample, it is assumed that the script has a custom networked property.
+
+In a client context, we can set up listeners to tell us when a custom property changes, and what its current value is:
+
+```lua
+
+-- Client context:
+script.networkedPropertyChangedEvent:Connect(function(coreObject, propertyName)
+    print("The networked property [" .. coreObject.name .. "] just had its ["
+            .. propertyName .. "] property changed.")
+
+    local newValue = script:GetCustomProperty(propertyName)
+    print("New value: " .. tostring(newValue))
+end)
+```
+
+ Now, if the server changes the custom property, the client is notified:
+
+```lua
+
+-- Server context:
+script:SetNetworkedCustomProperty("NetworkedGreeting", "Buenos Dias")
+
+-- The client should print out:
+-- The networked property [test_CoreObject] just had its [NetworkedGreeting] property changed.
+-- New value: Buenos Dias
+```
+
+ In addition to basic types (strings, integers, colors, etc) you can also pass references to core objects via networked custom properties.  This is really useful if you want to have a client-side script know about a particular networked object.
+
+To do this, you need to first convert the `CoreObject` into a `CoreObjectReference`.
+
+```lua
+-- Server context:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local cube = World.SpawnAsset(propCubeTemplate)
+script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetReference())
+```
+
+- **CoreObject.AttachToPlayer**
+- **CoreObject.AttachToLocalView**
+- **CoreObject.Detach**
+- **CoreObject.GetAttachedToSocketName**
+
+Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
+
+When attaching an object to a player you need to specify the "socket" you want to attach it to.  The list of legal sockets can be found on its own page in the documentation.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local cube = World.SpawnAsset(propCubeTemplate)
+cube.collision = Collision.FORCE_OFF
+
+-- attach the cube to the player's head
+cube:AttachToPlayer(player, "head")
+
+-- We can also check what socket an object is attached to.
+print(cube:GetAttachedToSocketName())   -- Head
+
+cube:Detach()
+```
+
+ It's also possible to attach objects to the local view on the client. Note that this only works from inside a client context:
+
+```lua
+cube:AttachToLocalView()
 ```
 
 ## Damage
@@ -479,7 +1531,6 @@ end
 
 primaryEquipment.equippedEvent:Connect(OnEquipped)
 primaryEquipment.unequippedEvent:Connect(OnUnequipped)
-
 ```
 
 ### `Equip(Player)`
@@ -504,12 +1555,14 @@ In this example, when a player dies all equipment they have is unequipped and dr
 ```lua
 function DropToGround(equipment)
     equipment:Unequip()
+
     -- The pickup trigger needs to be re-enabled (if there is one)
     local pickupTrigger = equipment:FindDescendantByType("Trigger")
 
     if pickupTrigger then
         pickupTrigger.collision = Collision.FORCE_ON
     end
+
     -- Move it to the ground
     local rayStart = equipment:GetWorldPosition()
     local rayEnd = rayStart + Vector3.UP * -500
@@ -562,7 +1615,7 @@ else
     Add(ABILITY_TEMPLATE_3)
 end
 
-for i,ability in ipairs(EQUIPMENT:GetAbilities()) do
+for i, ability in ipairs(EQUIPMENT:GetAbilities()) do
     print("Ability " .. i .. " = " .. ability.name)
 end
 ```
@@ -584,7 +1637,7 @@ end
 ATTACK_ABILITY.executeEvent:Connect(onExecuteAttack)
 
 function onExecuteReload()
-    OBJECT_TO_HIDE.visibility = Visibility.INHERIT
+    OBJECT_TO_HIDE.visibility = Visibility.FORCE_ON
 end
 
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
@@ -630,8 +1683,10 @@ TRIGGER.interactedEvent:Connect(OnInteracted)
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
 ```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
 function OnTargetImpactedEvent(weapon, impactData)
-    if impactData.other and impactData.other:IsA("Player") then
+    if impactData.targetObject and impactData.targetObject:IsA("Player") then
         weapon.owner.hitPoints = weapon.owner.hitPoints + 2
     end
 end
@@ -2310,6 +3365,419 @@ for i = 1, 10, 0.05 do
         end
     end
     Task.Wait(0.05)
+end
+```
+
+## Weapon
+
+- **Weapon.targetImpactedEvent**
+
+In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+function OnTargetImpactedEvent(weapon, impactData)
+    if impactData.other and impactData.other:IsA("Player") then
+        weapon.owner.hitPoints = weapon.owner.hitPoints + 2
+    end
+end
+
+WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
+```
+
+- **Weapon.projectileSpawnedEvent**
+
+Although it is ineffective to modify a projectile that comes through the `projectileSpawnedEvent`, it's still a useful event for various gameplay mechanics. In this example, a weapon script adds recoil impulse in the opposite direction of shots.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local KNOCKBACK_SPEED = 1000
+
+-- Adds impulse to the owner once the attack ability is executed
+function OnProjectileSpawned(weapon, projectile)
+    local player = weapon.owner
+
+    local projectileDirection = projectile:GetWorldTransform():GetForwardVector()
+    local knockbackVector = projectileDirection * player.mass * -KNOCKBACK_SPEED
+
+    -- Push the player away from the spawned projectile
+    player:AddImpulse(knockbackVector)
+end
+
+WEAPON.projectileSpawnedEvent:Connect(OnProjectileSpawned)
+```
+
+- **Weapon.HasAmmo**
+
+In this example, a custom sound is played when someone picks up a weapon that has no ammo in it. For this hypothetical game, weapons can be found without any ammo and it's an important mechanic. It should be displayed in the user interface. However, players hear sound effects much faster than they can read UI.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local EMPTY_PICKUP_SOUND = script:GetCustomProperty("EmptyPickupSound")
+
+function OnEquipped(weapon, player)
+    if (not weapon:HasAmmo()) then
+        World.SpawnAsset(EMPTY_PICKUP_SOUND, {position = weapon:GetWorldPosition()})
+    end
+end
+
+WEAPON.equippedEvent:Connect(OnEquipped)
+```
+
+- **Weapon.isAmmoFinite**
+- **Weapon.reloadSoundId**
+
+While various properties are read-only, they are still useful in determining what behavior should occur, leading to more general purpose scripts. In this example, a script controls auto-reloading of weapons. It expects to be in a client context, because the ability's `Activate()` function is client-only.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+local RELOAD_ABILITY = nil
+-- Grabs reload ability from the weapon. Keep trying in case the client hasn't loaded the object yet
+while not Object.IsValid(RELOAD_ABILITY) do
+    Task.Wait()
+    RELOAD_ABILITY = WEAPON:GetAbilities()[2]
+end
+-- The client script can now keep going, after it has acquired a reference to the reload ability
+-- The above could also have been implemented with a :GetCustomProperty(...):WaitForObject()
+
+local autoReloaded = false
+
+-- Manually spawn the reloading audio
+function SpawnReloadingAudio()
+    if WEAPON.reloadSoundId ~= nil then
+        World.SpawnAsset(WEAPON.reloadSoundId, {position = WEAPON:GetWorldPosition()})
+    end
+end
+
+function Tick(deltaTime)
+
+    -- Makes sure that the weapon owner is the local player
+    if not Object.IsValid(WEAPON) then return end
+    if not WEAPON.owner == Game.GetLocalPlayer() then return end
+
+    if not WEAPON.isAmmoFinite then
+        -- Checks when the weapon has empty ammo to reload
+        if WEAPON.currentAmmo == 0
+        and not autoReloaded then
+            SpawnReloadingAudio()
+            RELOAD_ABILITY:Activate()
+            autoReloaded = true
+            Task.Wait(RELOAD_ABILITY.castPhaseSettings.duration)
+        end
+
+        -- Interrupts the reloading animation,
+        -- If the weapon is in different state and the ammo is not empty
+        if WEAPON.currentAmmo > 0
+        and RELOAD_ABILITY ~= AbilityPhase.READY
+        and autoReloaded then
+            RELOAD_ABILITY:Interrupt()
+            autoReloaded = false
+        end
+
+        -- Reset autoReloaded bool on ready phase
+        if RELOAD_ABILITY == AbilityPhase.READY
+        and autoReloaded then
+            autoReloaded = false
+        end
+    end
+end
+```
+
+- **Weapon.Attack**
+
+Generally, weapons are thought to be equipped on players. However, a weapon can be used on an NPC such as a vehicle or tower by calling the `Attack()` function. In this example, a weapon simply fires each second. Shots will go out straight in the direction the weapon is pointing.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+
+function Tick()
+    WEAPON:Attack()
+    Task.Wait(1)
+end
+```
+
+- **Weapon.animationStance**
+
+A weapon's `animationStance` is assigned to the player automatically when the item is equipped. In this example, we add an additional stance to the weapon in the form of a defensive posture that players can trigger by holding down the secondary ability button (mouse right-click). The script alternates betwen the shield block stance and the weapon's default stance, as the secondary button is pressed/released.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local ACTION_BINDING = "ability_secondary"
+local ACTIVE_STANCE = "1hand_melee_shield_block"
+
+function EnableStance(player)
+    if Object.IsValid(player) and player == WEAPON.owner then
+        player.animationStance = ACTIVE_STANCE
+    end
+end
+
+function DisableStance(player)
+    if WEAPON and Object.IsValid(player) then
+        player.animationStance = WEAPON.animationStance
+    end
+end
+
+function OnBindingPressed(player, actionName)
+    if actionName == ACTION_BINDING then
+        EnableStance(player)
+    end
+end
+
+function OnBindingReleased(player, actionName)
+    if actionName == ACTION_BINDING then
+        DisableStance(player)
+    end
+end
+
+function OnPlayerDied(player, damage)
+    DisableStance(player)
+end
+
+function OnEquipped(weapon, player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+    player.bindingReleasedEvent:Connect(OnBindingReleased)
+end
+
+WEAPON.equippedEvent:Connect(OnEquipped)
+```
+
+- **Weapon.isHitscan**
+- **Weapon.range**
+- **Weapon.damage**
+- **Weapon.projectileTemplateId**
+- **Weapon.trailTemplateId**
+- **Weapon.impactSurfaceTemplateId**
+- **Weapon.impactProjectileTemplateId**
+- **Weapon.impactPlayerTemplateId**
+- **Weapon.projectileSpeed**
+- **Weapon.projectileLifeSpan**
+- **Weapon.projectileGravity**
+- **Weapon.projectileLength**
+- **Weapon.projectileRadius**
+- **Weapon.projectileDrag**
+
+This script implements a Wall Bang mechanic, allowing shots to go through walls.
+
+Configuring walls/objects to be penetrable: For each wall or object that should be penetrable, add to them the "WallBang" custom property (float). Only objects with this property will be penetrable. Higher values mean the wall reduces more damage from shots that go through them. Objects with a "WallBang" value of 0 will let shots through but will not affect the damage amount.
+
+Configuring this script on a weapon: Set this script's "WallBang" property to affect the weapon's penetrability when it's compared against objects. A higher value means it penetrates tougher walls and takes less damage reduction. A weapon can further control how much of its damage is reduced by setting the "DamageReduction" property on this script (Between zero and 1).
+
+```lua
+local WEAPON = script:FindAncestorByType("Weapon")
+local WALL_BANG = script:GetCustomProperty("WallBang") or 2
+local DAMAGE_REDUCTION = script:GetCustomProperty("DamageReduction") or 1
+
+if WALL_BANG <= 0 then return end
+
+function OnTargetImpactedEvent(weapon, impactData)
+    if not Object.IsValid(weapon) then return end
+
+    local wall = impactData.targetObject
+    if not wall or not wall:IsA("StaticMesh") then return end
+
+    -- If the wall hasn't defined the WallBang property it's impenetrable
+    local wallBangResistance = wall:GetCustomProperty("WallBang")
+    if not wallBangResistance or wallBangResistance >= WALL_BANG then return end
+
+    -- Calculate damage
+    local damage = weapon.damage
+    if DAMAGE_REDUCTION > 0 then
+        local percent = (WALL_BANG - wallBangResistance) / WALL_BANG
+        damage = CoreMath.Lerp(0, weapon.damage, percent)
+
+        percent = CoreMath.Clamp(DAMAGE_REDUCTION)
+        damage = CoreMath.Lerp(weapon.damage, damage, percent)
+    end
+
+    -- Gather info about position and direction of the shot
+    local impactPos = impactData:GetHitResult():GetImpactPosition()
+    local direction = impactPos - weapon:GetWorldPosition()
+    local remainingTravel = weapon.range - impactData.travelDistance
+
+    -- TODO : Perhaps do more if the weapon is of hitscan type
+    if not weapon.isHitscan then
+        if impactData.projectile then
+            direction = impactData.projectile:GetVelocity()
+        end
+    end
+    direction = direction:GetNormalized()
+
+    -- Do a series of raycasts to figure out where is the bullet's exit point
+    local rayStart = impactPos + direction * 5
+    local rayEnd = rayStart + direction * remainingTravel
+    local rayParams = {}
+    if Object.IsValid(impactData.weaponOwner) and impactData.weaponOwner.team > 0 then
+        rayParams.ignoreTeams = weapon.owner.team
+    end
+    local hit = World.Raycast(rayStart, rayEnd, rayParams)
+    if hit then
+        rayEnd = rayStart
+        rayStart = hit:GetImpactPosition()
+    else
+        local swapValue = rayEnd
+        rayEnd = rayStart
+        rayStart = swapValue
+    end
+    -- The 'hitInverted' is the info about the bullet's exit point
+    local hitInverted = World.Raycast(rayStart, rayEnd, rayParams)
+    if not hitInverted then return end
+
+    -- Spawn the surface impact VFX on the opposite side of the object
+    if weapon.impactSurfaceTemplateId then
+        local t = hitInverted:GetTransform()
+        SpawnVfx(weapon.impactSurfaceTemplateId, t:GetPosition(), t:GetRotation())
+    end
+
+    -- Spawn a new projectile to continue on the trajectory
+    local projLength = 5 + weapon.projectileLength + weapon.projectileRadius
+    startPos = hitInverted:GetImpactPosition() + direction * projLength
+    local projectile = Projectile.Spawn(weapon.projectileTemplateId, startPos, direction)
+    -- Copy properties from the weapon to the new projectile
+    projectile.owner = impactData.weaponOwner
+    projectile.sourceAbility = impactData.sourceAbility
+    projectile.speed = weapon.projectileSpeed
+    projectile.gravityScale = weapon.projectileGravity
+    projectile.drag = weapon.projectileDrag
+    projectile.lifeSpan = weapon.projectileLifeSpan * remainingTravel / weapon.range
+    projectile.capsuleLength = weapon.projectileLength
+    projectile.capsuleRadius = weapon.projectileRadius
+    -- If some weapon properties are needed later it's safer to stash them in serverUserData,
+    -- because the weapon might be destroyed while the projectile is still in the air:
+    projectile.serverUserData.impactSurfaceTemplateId = weapon.impactSurfaceTemplateId
+    projectile.serverUserData.impactPlayerTemplateId = weapon.impactPlayerTemplateId
+    projectile.serverUserData.impactProjectileTemplateId = weapon.impactProjectileTemplateId
+    projectile.serverUserData.direction = direction
+    -- Store damage calculation onto the projectile because there may be multiple ones
+    projectile.serverUserData.damage = damage
+
+    -- Listen for the impact, to spawn effects and apply damage
+    projectile.impactEvent:Connect(OnProjectileImpacted)
+
+    -- Spawn a trail to follow the projectile
+    if weapon.trailTemplateId and projectile.speed > 0 then
+        local pos = hitInverted:GetImpactPosition()
+        local trailLifeSpan = (rayStart - pos).size / projectile.speed
+        trailLifeSpan = math.min(projectile.lifeSpan, trailLifeSpan)
+        if trailLifeSpan > 0 then
+            local rot = Rotation.New(direction, Vector3.UP)
+            local trail = World.SpawnAsset(weapon.trailTemplateId, {position = pos, rotation = rot})
+            trail:MoveContinuous(direction * projectile.speed)
+            trail.lifeSpan = trailLifeSpan
+        end
+    end
+end
+
+function OnProjectileImpacted(projectile, other, hitResult)
+    if not Object.IsValid(projectile) then return end
+
+    local impactTemplate = nil
+
+    if other:IsA("Player") then
+        -- Construct and apply damage to player
+        local dmg = Damage.New(projectile.serverUserData.damage)
+        dmg.reason = DamageReason.COMBAT
+        dmg:SetHitResult(hitResult)
+        dmg.sourceAbility = projectile.sourceAbility
+        dmg.sourcePlayer = projectile.owner
+        other:ApplyDamage(dmg)
+
+        impactTemplate = projectile.serverUserData.impactPlayerTemplateId
+    else
+        impactTemplate = projectile.serverUserData.impactSurfaceTemplateId
+       end
+
+    -- Spawn impact VFX
+    local t = hitResult:GetTransform()
+    if impactTemplate then
+        SpawnVfx(impactTemplate, t:GetPosition(), t:GetRotation())
+    end
+
+    impactTemplate = projectile.serverUserData.impactProjectileTemplateId
+    if impactTemplate then
+        local rot = Rotation.New(projectile.serverUserData.direction, Vector3.UP)
+        SpawnVfx(impactTemplate, t:GetPosition(), rot)
+    end
+end
+
+function SpawnVfx(template, pos, rot)
+    local vfx = World.SpawnAsset(template, {position = pos, rotation = rot})
+    if vfx.lifeSpan <= 0 then
+        vfx.lifeSpan = 1.2
+    end
+end
+
+WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
+```
+
+- **Weapon.currentAmmo**
+- **Weapon.maxAmmo**
+
+This script plays audio to the weapon owner when the weapon reaches 20% amount of ammo. It works best if the script is in a client context under the weapon, that way the audio is heard only by the player who is using the weapon.
+
+```lua
+local WEAPON = script:FindAncestorByType('Weapon')
+local SHOOT_ABILITY = script:GetCustomProperty("ShootAbility"):WaitForObject()
+local LOW_AMMO_SOUND = WEAPON:GetCustomProperty("LowAmmoSound")
+local LOW_AMMO_PERCENTAGE = 0.2
+
+function OnShootExecute(ability)
+    if Object.IsValid(WEAPON) and ability.owner == WEAPON.owner then
+        if WEAPON.currentAmmo / WEAPON.maxAmmo <= LOW_AMMO_PERCENTAGE then
+            if LOW_AMMO_SOUND then
+                World.SpawnAsset(LOW_AMMO_SOUND, {position = WEAPON:GetWorldPosition()})
+            end
+        end
+    end
+end
+
+SHOOT_ABILITY.executeEvent:Connect(OnShootExecute)
+```
+
+- **Weapon.spreadMin**
+- **Weapon.spreadMax**
+- **Weapon.spreadDecreaseSpeed**
+
+Often in shooting games, the weapon loses precision while moving. For weapons in Core this is achieved by modifying the player's `spreadModifier` property, and can be implemented in many different ways. In this example, a client-context script uses the weapon's configured `spreadMin` and `spreadMax` properties to determine the maximum penalty when the player is moving. The weapon's `spreadDecreaseSpeed` is then used as an interpolation coefficient to smoothly move the spread penalty up and down, non-linearly, as the player moves or stops moving.
+
+```lua
+local WEAPON = script:FindAncestorByType("Weapon")
+local MOVING_THRESHOLD = 250
+
+local wasMoving = false
+local targetSpreadModifier = 0
+
+function Tick()
+    local player = WEAPON.owner
+    if not Object.IsValid(player) then return end
+
+    -- Evaluate if the player is moving right now
+    local isMovingNow = false
+    if player.isJumping then
+        isMovingNow = true
+    else
+        local playerSpeed = player:GetVelocity().size
+        if playerSpeed >= MOVING_THRESHOLD then
+            isMovingNow = true
+        end
+    end
+
+    -- Select target spread modifier based on current movement
+    if isMovingNow ~= wasMoving then
+        if isMovingNow then
+            -- Moving
+            targetSpreadModifier = WEAPON.spreadMax - WEAPON.spreadMin
+        else
+            -- Not moving
+            targetSpreadModifier = 0
+        end
+    end
+    wasMoving = isMovingNow
+
+    -- Adjust the player spread modify gradually over time
+    local t = WEAPON.spreadDecreaseSpeed / 100
+    player.spreadModifier = CoreMath.Lerp(player.spreadModifier, targetSpreadModifier, t)
 end
 ```
 

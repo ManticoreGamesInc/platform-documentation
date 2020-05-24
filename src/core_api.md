@@ -1229,7 +1229,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `animationStance` | string | When the Weapon is equipped this animation stance is applied to the Player. | Read-Only |
-| `attackCooldownDuration` | Number | Interval between separate burst sequences. | Read-Only |
+| `attackCooldownDuration` | Number | Interval between separate burst sequences. The value is set by the Shoot ability's Cooldown duration. | Read-Only |
 | `multiShotCount` | Integer | Number of Projectiles/Hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Only |
 | `burstCount` | Integer | Number of automatic activations of the Weapon that generally occur in quick succession. | Read-Only |
 | `shotsPerSecond` | Number | Used in conjunction with burstCount to determine the interval between automatic weapon activations. | Read-Write |

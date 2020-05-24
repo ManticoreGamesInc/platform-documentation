@@ -44,7 +44,7 @@ Currently, there are **7 different sections** that contain effects you can use r
 
 - **Character**
     - These vfx are specifically human or character-focused.
-- **Environmental**
+- **Environment**
     - Elemental effects, and effects that are more nature-oriented.
 - **Explosions**
     - Definitely things that blow up!
