@@ -1,0 +1,10965 @@
+{
+	"Classes": [
+		{
+			"Name": "Ability",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "actionBinding",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "canActivateWhileDead",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "animation",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "canBePrevented",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "castPhaseSettings",
+					"Type": "AbilityPhaseSettings",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "executePhaseSettings",
+					"Type": "AbilityPhaseSettings",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "recoveryPhaseSettings",
+					"Type": "AbilityPhaseSettings",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "cooldownPhaseSettings",
+					"Type": "AbilityPhaseSettings",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "owner",
+					"Type": "Object",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "readyEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "castEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "executeEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "recoveryEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "cooldownEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "interruptedEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "tickEvent",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						},
+						{
+							"Type": "number"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetTargetData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AbilityTarget"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetTargetData",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "AbilityTarget",
+									"Name": "target"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCurrentPhase",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AbilityPhase"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetPhaseTimeRemaining",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Interrupt",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Activate",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "AbilityPhaseSettings",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "duration",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "canMove",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "canJump",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "canRotate",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "preventsOtherAbilities",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isTargetDataUpdated",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "facingMode",
+					"Type": "AbilityFacingMode",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "AbilityTarget",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AbilityTarget"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "hitPlayer",
+					"Type": "Player"
+				},
+				{
+					"Name": "hitObject",
+					"Type": "Object"
+				},
+				{
+					"Name": "spreadHalfAngle",
+					"Type": "number"
+				},
+				{
+					"Name": "spreadRandomSeed",
+					"Type": "integer"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetOwnerMovementRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetOwnerMovementRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetAimPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetAimPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetAimDirection",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetAimDirection",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "direction"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetHitPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetHitPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetHitResult",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetHitResult",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "HitResult",
+									"Name": "hitResult"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "AnimatedMesh",
+			"BaseType": "CoreMesh",
+			"Properties": [
+				{
+					"Name": "animationStance",
+					"Type": "string",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "animationStancePlaybackRate",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "animationStanceShouldLoop",
+					"Type": "bool",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "playbackRateMultiplier",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "animationEvent",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "AnimatedMesh"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetAnimationNames",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetAnimationStanceNames",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetSocketNames",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetAnimationEventNames",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "animationName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "AttachCoreObject",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "objectToAttach"
+								},
+								{
+									"Type": "string",
+									"Name": "socket"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "PlayAnimation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "animationName"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "StopAnimations",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetAnimationDuration",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "animationName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "AreaLight",
+			"BaseType": "Light",
+			"Properties": [
+				{
+					"Name": "sourceWidth",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceHeight",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "barnDoorAngle",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "barnDoorLength",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Audio",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "isSpatializationEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAttenuationEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isOcclusionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAutoPlayEnabled",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isTransient",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAutoRepeatEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "pitch",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "volume",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "radius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "falloff",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isPlaying",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "length",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "currentPlaybackTime",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "fadeInTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fadeOutTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "startTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Play",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Stop",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "FadeIn",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "FadeOut",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Camera",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "followPlayer",
+					"Type": "Player",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isOrthographic",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fieldOfView",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "viewWidth",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "useCameraSocket",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "currentDistance",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "isDistanceAdjustable",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "minDistance",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxDistance",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "rotationMode",
+					"Type": "RotationMode",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "hasFreeControl",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "currentPitch",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "minPitch",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxPitch",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isYawLimited",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "currentYaw",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "minYaw",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxYaw",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "lerpTime",
+					"IsDeprecated": true,
+					"DeprecationMessage": "lerpTime is deprecated. Use MoveTo() or RotateTo() instead.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isUsingCameraRotation",
+					"IsDeprecated": true,
+					"DeprecationMessage": "isUsingCameraRotation is deprecated. Use rotationMode and hasFreeControl instead.",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetPositionOffset",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetPositionOffset",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "positionOffset"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetRotationOffset",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetRotationOffset",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotationOffset"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Color",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector4",
+									"Name": "rgbaVector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "rgbVector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "red"
+								},
+								{
+									"Type": "number",
+									"Name": "green"
+								},
+								{
+									"Type": "number",
+									"Name": "blue"
+								},
+								{
+									"Type": "number",
+									"Name": "alpha"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "red"
+								},
+								{
+									"Type": "number",
+									"Name": "green"
+								},
+								{
+									"Type": "number",
+									"Name": "blue"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "WHITE",
+					"Type": "Color"
+				},
+				{
+					"Name": "GRAY",
+					"Type": "Color"
+				},
+				{
+					"Name": "BLACK",
+					"Type": "Color"
+				},
+				{
+					"Name": "TRANSPARENT",
+					"Type": "Color"
+				},
+				{
+					"Name": "RED",
+					"Type": "Color"
+				},
+				{
+					"Name": "GREEN",
+					"Type": "Color"
+				},
+				{
+					"Name": "BLUE",
+					"Type": "Color"
+				},
+				{
+					"Name": "CYAN",
+					"Type": "Color"
+				},
+				{
+					"Name": "MAGENTA",
+					"Type": "Color"
+				},
+				{
+					"Name": "YELLOW",
+					"Type": "Color"
+				},
+				{
+					"Name": "ORANGE",
+					"Type": "Color"
+				},
+				{
+					"Name": "PURPLE",
+					"Type": "Color"
+				},
+				{
+					"Name": "BROWN",
+					"Type": "Color"
+				},
+				{
+					"Name": "PINK",
+					"Type": "Color"
+				},
+				{
+					"Name": "TAN",
+					"Type": "Color"
+				},
+				{
+					"Name": "RUBY",
+					"Type": "Color"
+				},
+				{
+					"Name": "EMERALD",
+					"Type": "Color"
+				},
+				{
+					"Name": "SAPPHIRE",
+					"Type": "Color"
+				},
+				{
+					"Name": "SILVER",
+					"Type": "Color"
+				},
+				{
+					"Name": "SMOKE",
+					"Type": "Color"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "r",
+					"Type": "number"
+				},
+				{
+					"Name": "g",
+					"Type": "number"
+				},
+				{
+					"Name": "b",
+					"Type": "number"
+				},
+				{
+					"Name": "a",
+					"Type": "number"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetDesaturated",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "desaturation"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Random",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Lerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "from"
+								},
+								{
+									"Type": "Color",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreMesh",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "meshAssetId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamColorUsed",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamCollisionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isEnemyCollisionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isCameraCollisionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "ResetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreObject",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isVisible",
+					"IsDeprecated": true,
+					"DeprecationMessage": "CoreObject.isVisible is deprecated.  Please use CoreObject.visibility and IsVisibleInHierarchy() instead.",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "visibility",
+					"Type": "Visibility",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isCollidable",
+					"IsDeprecated": true,
+					"DeprecationMessage": "CoreObject.isCollidable is deprecated.  Please use CoreObject.collision and IsCollidableInHierarchy() instead.",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "collision",
+					"Type": "Collision",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "lifeSpan",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isStatic",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isNetworked",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isClientOnly",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isServerOnly",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "parent",
+					"Type": "CoreObject",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "childAddedEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						},
+						{
+							"Type": "CoreObject"
+						}
+					]
+				},
+				{
+					"Name": "childRemovedEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						},
+						{
+							"Type": "CoreObject"
+						}
+					]
+				},
+				{
+					"Name": "descendantAddedEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						},
+						{
+							"Type": "CoreObject"
+						}
+					]
+				},
+				{
+					"Name": "descendantRemovedEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						},
+						{
+							"Type": "CoreObject"
+						}
+					]
+				},
+				{
+					"Name": "destroyEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						}
+					]
+				},
+				{
+					"Name": "networkedPropertyChangedEvent",
+					"Parameters": [
+						{
+							"Type": "CoreObject"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetReference",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObjectReference"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetTransform",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetTransform",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Transform",
+									"Name": "localTransform"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "localPosition"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "localRotation"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetScale",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetScale",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "localScale"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetWorldTransform",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldTransform",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Transform",
+									"Name": "worldTransform"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "worldRotation"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetWorldScale",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldScale",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldScale"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetVelocity",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "velocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetAngularVelocity",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetAngularVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "angularVelocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "SetLocalAngularVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "localAngularVelocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetChildren",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "AttachToPlayer",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "socketName"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "AttachToLocalView",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"ClientOnly",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Detach",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetAttachedToSocketName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsVisibleInHierarchy",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsCollidableInHierarchy",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsEnabledInHierarchy",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "FindAncestorByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindChildByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindDescendantByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindDescendantsByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindAncestorByType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindChildByType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindDescendantByType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindDescendantsByType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindTemplateRoot",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsAncestorOf",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "coreObject"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "MoveTo",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalPosition"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "MoveContinuous",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldVelocity"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalVelocity"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldVelocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Follow",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								},
+								{
+									"Type": "number",
+									"Name": "minimumDistance"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								},
+								{
+									"Type": "number",
+									"Name": "minimumDistance"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "StopMove",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "RotateTo",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "rotation"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalRotation"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "worldRotation"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalRotation"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "worldRotation"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "RotateContinuous",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "angularVelocity"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalAngularVelocity"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "angularVelocity"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternionSpeed"
+								},
+								{
+									"Type": "number",
+									"Name": "multiplier"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalQuaternionSpeed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternionSpeed"
+								},
+								{
+									"Type": "number",
+									"Name": "multiplier"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternionSpeed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotationSpeed"
+								},
+								{
+									"Type": "number",
+									"Name": "multiplier"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalRotationSpeed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotationSpeed"
+								},
+								{
+									"Type": "number",
+									"Name": "multiplier"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotationSpeed"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "LookAt",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "LookAtContinuous",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								},
+								{
+									"Type": "bool",
+									"Name": "isPitchLocked"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								},
+								{
+									"Type": "bool",
+									"Name": "isPitchLocked"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								},
+								{
+									"Type": "bool",
+									"Name": "isPitchLocked"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								},
+								{
+									"Type": "number",
+									"Name": "speed"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								},
+								{
+									"Type": "bool",
+									"Name": "isPitchLocked"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "target"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "LookAtLocalView",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isPitchLocked"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"ClientOnly",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "StopRotate",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "ScaleTo",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								},
+								{
+									"Type": "bool",
+									"Name": "isScaleLocal"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldScale"
+								},
+								{
+									"Type": "number",
+									"Name": "duration"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "ScaleContinuous",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "scaleRate"
+								},
+								{
+									"Type": "bool",
+									"Name": "isLocalScaleRate"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "scaleRate"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "StopScale",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Destroy",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetCustomProperties",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCustomProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								},
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetNetworkedCustomProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "value",
+									"Name": "propertyValue"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreObjectReference",
+			"Properties": [
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isAssigned",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetObject",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "WaitForObject",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "timeout",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Damage",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Damage"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "amount"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Damage"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "amount",
+					"Type": "number"
+				},
+				{
+					"Name": "reason",
+					"Type": "DamageReason"
+				},
+				{
+					"Name": "sourceAbility",
+					"Type": "Ability"
+				},
+				{
+					"Name": "sourcePlayer",
+					"Type": "Player"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetHitResult",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetHitResult",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "HitResult",
+									"Name": "hitResult"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Decal",
+			"BaseType": "SmartObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Equipment",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "owner",
+					"Type": "Player",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "socket",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "equippedEvent",
+					"Parameters": [
+						{
+							"Type": "Equipment"
+						},
+						{
+							"Type": "Player"
+						}
+					]
+				},
+				{
+					"Name": "unequippedEvent",
+					"Parameters": [
+						{
+							"Type": "Equipment"
+						},
+						{
+							"Type": "Player"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetAbilities",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Ability>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Equip",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Unequip",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "AddAbility",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Ability",
+									"Name": "ability"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Event",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Connect",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "function",
+									"Name": "listener"
+								},
+								{
+									"Name": "additionalParameters",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "EventListener",
+			"Properties": [
+				{
+					"Name": "isConnected",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Disconnect",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Folder",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "HitResult",
+			"Properties": [
+				{
+					"Name": "other",
+					"Type": "Object",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "socketName",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetImpactPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetImpactNormal",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetTransform",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "ImpactData",
+			"Properties": [
+				{
+					"Name": "targetObject",
+					"Type": "Object",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectile",
+					"Type": "Projectile",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sourceAbility",
+					"Type": "Ability",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "weapon",
+					"Type": "Weapon",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "weaponOwner",
+					"Type": "Player",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isHeadshot",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "travelDistance",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetHitResult",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetHitResults",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<HitResult>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Light",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "intensity",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "attenuationRadius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isShadowCaster",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "hasTemperature",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "temperature",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamColorUsed",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "NetworkContext",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Object",
+			"Properties": [
+				{
+					"Name": "serverUserData",
+					"Type": "table",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "clientUserData",
+					"Type": "table",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "IsValid",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "value",
+									"Name": "object"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Player",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "hitPoints",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "maxHitPoints",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "kills",
+					"Type": "integer",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "deaths",
+					"Type": "integer",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "isDead",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "mass",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isAccelerating",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isCrouching",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isFlying",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isGrounded",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isJumping",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isMounted",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isSwimming",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isWalking",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isSliding",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxWalkSpeed",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "stepHeight",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "maxAcceleration",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "brakingDecelerationFalling",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "brakingDecelerationWalking",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "groundFriction",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "brakingFrictionFactor",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "walkableFloorAngle",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "lookSensitivity",
+					"Type": "number",
+					"Tags": [
+						"ClientOnly",
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "animationStance",
+					"Type": "string",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "currentFacingMode",
+					"Type": "FacingMode",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "desiredFacingMode",
+					"Type": "FacingMode",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "maxJumpCount",
+					"Type": "integer",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "jumpVelocity",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "gravityScale",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "maxSwimSpeed",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "touchForceFactor",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "isCrouchEnabled",
+					"Type": "bool",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "buoyancy",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "isVisibleToSelf",
+					"Type": "bool",
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "spreadModifier",
+					"Type": "number"
+				},
+				{
+					"Name": "currentSpread",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly",
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "canMount",
+					"Type": "bool",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "shouldDismountWhenDamaged",
+					"Type": "bool",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "movementControlMode",
+					"Type": "MovementControlMode",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "lookControlMode",
+					"Type": "LookControlMode",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "currentRotationRate",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "defaultRotationRate",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "damagedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "Damage"
+						}
+					]
+				},
+				{
+					"Name": "diedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "Damage"
+						}
+					]
+				},
+				{
+					"Name": "respawnedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						}
+					]
+				},
+				{
+					"Name": "bindingPressedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				},
+				{
+					"Name": "bindingReleasedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				},
+				{
+					"Name": "resourceChangedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						},
+						{
+							"Type": "integer"
+						}
+					]
+				},
+				{
+					"Name": "movementModeChangedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "MovementMode"
+						},
+						{
+							"Type": "MovementMode"
+						}
+					]
+				},
+				{
+					"Name": "animationEvent",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetWorldTransform",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldTransform",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Transform",
+									"Name": "worldTransform"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "worldRotation"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetWorldScale",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldScale",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldScale"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetVelocity",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetAbilities",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Ability>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetEquipment",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Equipment>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetAttachedObjects",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "AddImpulse",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "impulse"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "velocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ResetVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ApplyDamage",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "EnableRagdoll",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "socketName"
+								},
+								{
+									"Type": "number",
+									"Name": "weight"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "socketName"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "DisableRagdoll",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetVisibility",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isVisible"
+								},
+								{
+									"Type": "bool",
+									"Name": "includeAttachments"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isVisible"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetVisibility",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetViewWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetViewWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "Die",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "Respawn",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								},
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ClearResources",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetResources",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetResource",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "resourceName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetResource",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "resourceName"
+								},
+								{
+									"Type": "integer",
+									"Name": "amount"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "AddResource",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "resourceName"
+								},
+								{
+									"Type": "integer",
+									"Name": "amount"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "RemoveResource",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "resourceName"
+								},
+								{
+									"Type": "integer",
+									"Name": "amount"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetResourceNames",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player:GetResourceNames() is deprecated.  Please use Player:GetResources() instead to retrieve a table of resource names and amounts.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetResourceNamesStartingWith",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player:GetResourceNamesStartingWith() is deprecated.  Please use Player:GetResources() instead to retrieve a table of resource names and amounts.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "resourceNamePrefix"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "TransferToGame",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "gameId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ActivateFlying",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ActivateWalking",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetMounted",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isMounted"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetActiveCamera",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Camera"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetDefaultCamera",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Camera"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetDefaultCamera",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Camera",
+									"Name": "camera"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Camera",
+									"Name": "camera"
+								},
+								{
+									"Type": "number",
+									"Name": "lerpTime"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetOverrideCamera",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Camera"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetOverrideCamera",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Camera",
+									"Name": "camera"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Camera",
+									"Name": "camera"
+								},
+								{
+									"Type": "number",
+									"Name": "lerpTime"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "ClearOverrideCamera",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "lerpTime"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetLookWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetLookWorldRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "newLookRotation"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "PlayerSettings",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "ApplyToPlayer",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "PlayerStart",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"ServerOnly",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "PointLight",
+			"BaseType": "Light",
+			"Properties": [
+				{
+					"Name": "hasNaturalFalloff",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "falloffExponent",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceRadius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceLength",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Projectile",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "sourceAbility",
+					"Type": "Ability",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "shouldBounceOnPlayers",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "shouldDieOnImpact",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "owner",
+					"Type": "Player",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "speed",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "maxSpeed",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "gravityScale",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "drag",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "bouncesRemaining",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "bounciness",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "piercesRemaining",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "lifeSpan",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "capsuleRadius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "capsuleLength",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "homingTarget",
+					"Type": "Object",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "homingAcceleration",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "impactEvent",
+					"Parameters": [
+						{
+							"Type": "Projectile"
+						},
+						{
+							"Type": "Object"
+						},
+						{
+							"Type": "HitResult"
+						}
+					]
+				},
+				{
+					"Name": "lifeSpanEndedEvent",
+					"Parameters": [
+						{
+							"Type": "Projectile"
+						}
+					]
+				},
+				{
+					"Name": "homingFailedEvent",
+					"Parameters": [
+						{
+							"Type": "Projectile"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetWorldTransform",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetWorldPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "GetVelocity",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetVelocity",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "velocity"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "Destroy",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Spawn",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Projectile"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "templateId"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "direction"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Quaternion",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternion"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "fromDirection"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "toDirection"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "axis"
+								},
+								{
+									"Type": "number",
+									"Name": "angle"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "y"
+								},
+								{
+									"Type": "number",
+									"Name": "z"
+								},
+								{
+									"Type": "number",
+									"Name": "w"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "IDENTITY",
+					"Type": "Quaternion"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number"
+				},
+				{
+					"Name": "y",
+					"Type": "number"
+				},
+				{
+					"Name": "z",
+					"Type": "number"
+				},
+				{
+					"Name": "w",
+					"Type": "number"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetForwardVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetRightVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetUpVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Slerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "from"
+								},
+								{
+									"Type": "Quaternion",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "RandomStream",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "RandomStream"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "seed"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "RandomStream"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "seed",
+					"Type": "integer"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetInitialSeed",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Reset",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Mutate",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetNumber",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": []
+						},
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "min"
+								},
+								{
+									"Type": "number",
+									"Name": "max"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetInteger",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "min"
+								},
+								{
+									"Type": "integer",
+									"Name": "max"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetVector3",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetVector3FromCone",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "direction"
+								},
+								{
+									"Type": "number",
+									"Name": "horizontalHalfAngle"
+								},
+								{
+									"Type": "number",
+									"Name": "verticalHalfAngle"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "direction"
+								},
+								{
+									"Type": "number",
+									"Name": "coneHalfAngle"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Rotation",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "forwardVector"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "upVector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternion"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "y"
+								},
+								{
+									"Type": "number",
+									"Name": "z"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "ZERO",
+					"Type": "Rotation"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number"
+				},
+				{
+					"Name": "y",
+					"Type": "number"
+				},
+				{
+					"Name": "z",
+					"Type": "number"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Script",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "context",
+					"Type": "table",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "ScriptAsset",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetCustomProperties",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCustomProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								},
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "SmartAudio",
+			"BaseType": "SmartObject",
+			"Properties": [
+				{
+					"Name": "isSpatializationEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAttenuationEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isOcclusionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fadeInTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fadeOutTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "startTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAutoPlayEnabled",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isTransient",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isAutoRepeatEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "pitch",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "volume",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "radius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "falloff",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isPlaying",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Play",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Stop",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "FadeIn",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "FadeOut",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "SmartObject",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamColorUsed",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetSmartProperties",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetSmartProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								},
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetSmartProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "value",
+									"Name": "propertyValue"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "SpotLight",
+			"BaseType": "Light",
+			"Properties": [
+				{
+					"Name": "hasNaturalFalloff",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "falloffExponent",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceRadius",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "sourceLength",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "innerConeAngle",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "outerConeAngle",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "StaticMesh",
+			"BaseType": "CoreMesh",
+			"Properties": [
+				{
+					"Name": "isSimulatingDebrisPhysics",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Task",
+			"Properties": [
+				{
+					"Name": "repeatInterval",
+					"Type": "number"
+				},
+				{
+					"Name": "repeatCount",
+					"Type": "integer"
+				},
+				{
+					"Name": "id",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Cancel",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetStatus",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "TaskStatus"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Spawn",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Task",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "function",
+									"Name": "function"
+								},
+								{
+									"Type": "number",
+									"Name": "delay",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCurrent",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Task",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Wait",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "delay",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Terrain",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Transform",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Transform",
+									"Name": "transform"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "xAxis"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "yAxis"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "zAxis"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "rotation"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "IDENTITY",
+					"Type": "Transform"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetRotation",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetRotation",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Rotation",
+									"Name": "rotation"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetPosition",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetScale",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetScale",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetQuaternion",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Quaternion"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetQuaternion",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Quaternion",
+									"Name": "quaternion"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetForwardVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetRightVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetUpVector",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetInverse",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Transform"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "TransformPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "TransformDirection",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "direction"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Trigger",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "isInteractable",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "interactionLabel",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamCollisionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isEnemyCollisionEnabled",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "beginOverlapEvent",
+					"Parameters": [
+						{
+							"Type": "Trigger"
+						},
+						{
+							"Type": "Object"
+						}
+					]
+				},
+				{
+					"Name": "endOverlapEvent",
+					"Parameters": [
+						{
+							"Type": "Trigger"
+						},
+						{
+							"Type": "Object"
+						}
+					]
+				},
+				{
+					"Name": "interactedEvent",
+					"Parameters": [
+						{
+							"Type": "Trigger"
+						},
+						{
+							"Type": "Player"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsOverlapping",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Object",
+									"Name": "OtherObject"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetOverlappingObjects",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Object>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIButton",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "text",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fontSize",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isInteractable",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "clickedEvent",
+					"Parameters": [
+						{
+							"Type": "UIButton"
+						}
+					]
+				},
+				{
+					"Name": "pressedEvent",
+					"Parameters": [
+						{
+							"Type": "UIButton"
+						}
+					]
+				},
+				{
+					"Name": "releasedEvent",
+					"Parameters": [
+						{
+							"Type": "UIButton"
+						}
+					]
+				},
+				{
+					"Name": "hoveredEvent",
+					"Parameters": [
+						{
+							"Type": "UIButton"
+						}
+					]
+				},
+				{
+					"Name": "unhoveredEvent",
+					"Parameters": [
+						{
+							"Type": "UIButton"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "SetImage",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "imageId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetButtonColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetButtonColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetHoveredColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetHoveredColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetPressedColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetPressedColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetDisabledColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetDisabledColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetFontColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetFontColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIContainer",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIControl",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "y",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "width",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "height",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "rotationAngle",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIImage",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "isTeamColorUsed",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "team",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "SetImage",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "imageId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetImage",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIPanel",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "shouldClipChildren",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIProgressBar",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "progress",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetFillColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetFillColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIScrollPanel",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UIText",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "text",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "fontSize",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "justification",
+					"Type": "TextJustify",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "shouldWrapText",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "shouldClipText",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Vector2",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "xy"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "vector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "vector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "y"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "ZERO",
+					"Type": "Vector2"
+				},
+				{
+					"Name": "ONE",
+					"Type": "Vector2"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number"
+				},
+				{
+					"Name": "y",
+					"Type": "number"
+				},
+				{
+					"Name": "size",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sizeSquared",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetNormalized",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Lerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "from"
+								},
+								{
+									"Type": "Vector2",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Vector3",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "xyz"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector4",
+									"Name": "vector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "vector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "xy"
+								},
+								{
+									"Type": "number",
+									"Name": "z"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "y"
+								},
+								{
+									"Type": "number",
+									"Name": "z"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "ZERO",
+					"Type": "Vector3"
+				},
+				{
+					"Name": "ONE",
+					"Type": "Vector3"
+				},
+				{
+					"Name": "FORWARD",
+					"Type": "Vector3"
+				},
+				{
+					"Name": "UP",
+					"Type": "Vector3"
+				},
+				{
+					"Name": "RIGHT",
+					"Type": "Vector3"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number"
+				},
+				{
+					"Name": "y",
+					"Type": "number"
+				},
+				{
+					"Name": "z",
+					"Type": "number"
+				},
+				{
+					"Name": "size",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sizeSquared",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetNormalized",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Lerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "from"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Vector4",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "xy"
+								},
+								{
+									"Type": "Vector2",
+									"Name": "zw"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "xyzw"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "xyz"
+								},
+								{
+									"Type": "number",
+									"Name": "w"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector4",
+									"Name": "vector"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "y"
+								},
+								{
+									"Type": "number",
+									"Name": "z"
+								},
+								{
+									"Type": "number",
+									"Name": "w"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Constants": [
+				{
+					"Name": "ZERO",
+					"Type": "Vector4"
+				},
+				{
+					"Name": "ONE",
+					"Type": "Vector4"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "x",
+					"Type": "number"
+				},
+				{
+					"Name": "y",
+					"Type": "number"
+				},
+				{
+					"Name": "z",
+					"Type": "number"
+				},
+				{
+					"Name": "w",
+					"Type": "number"
+				},
+				{
+					"Name": "size",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sizeSquared",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetNormalized",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Lerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector4",
+									"Name": "from"
+								},
+								{
+									"Type": "Vector4",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Vfx",
+			"BaseType": "SmartObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Play",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Stop",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Weapon",
+			"BaseType": "Equipment",
+			"Properties": [
+				{
+					"Name": "attackCooldownDuration",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "animationStance",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "multiShotCount",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "burstCount",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "shotsPerSecond",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "shouldBurstStopOnRelease",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isHitscan",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "range",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "damage",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "directDamage",
+					"IsDeprecated": true,
+					"DeprecationMessage": "directDamage is deprecated. Please use damage instead.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "muzzleFlashTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "trailTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "beamTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "impactSurfaceTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "impactProjectileTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "impactPlayerTemplateId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileSpeed",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileLifeSpan",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileGravity",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileLength",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileRadius",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileDrag",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectileBounceCount",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "projectilePierceCount",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxAmmo",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "currentAmmo",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "ammoType",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isAmmoFinite",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "outOfAmmoSoundId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "reloadSoundId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadMin",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadMax",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadAperture",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadDecreaseSpeed",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadIncreasePerShot",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spreadPenaltyPerShot",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "projectileSpawnedEvent",
+					"Parameters": [
+						{
+							"Type": "Weapon"
+						},
+						{
+							"Type": "Projectile"
+						}
+					]
+				},
+				{
+					"Name": "targetImpactedEvent",
+					"Parameters": [
+						{
+							"Type": "Weapon"
+						},
+						{
+							"Type": "ImpactData"
+						}
+					]
+				},
+				{
+					"Name": "targetInteractionEvent",
+					"IsDeprecated": true,
+					"DeprecationMessage": "targetInteractionEvent is deprecated. Please use targetImpactedEvent instead.",
+					"Parameters": [
+						{
+							"Type": "ImpactData"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "HasAmmo",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Attack",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "targetPlayer"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "targetObject"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "targetWorldPosition"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "WorldText",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "text",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"Namespaces": [
+		{
+			"Name": "CoreDebug",
+			"StaticFunctions": [
+				{
+					"Name": "DrawLine",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "parameters"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "DrawBox",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "centerPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								},
+								{
+									"Type": "table",
+									"Name": "parameters"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "centerPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "scale"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "DrawSphere",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "centerPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "parameters"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "centerPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetStackTrace",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetTaskStackTrace",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						},
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Task",
+									"Name": "task"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreMath",
+			"StaticFunctions": [
+				{
+					"Name": "Round",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "integer",
+									"Name": "decimals",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Lerp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "from"
+								},
+								{
+									"Type": "number",
+									"Name": "to"
+								},
+								{
+									"Type": "number",
+									"Name": "progress",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Clamp",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "x"
+								},
+								{
+									"Type": "number",
+									"Name": "min",
+									"IsOptional": true
+								},
+								{
+									"Type": "number",
+									"Name": "max",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreString",
+			"StaticFunctions": [
+				{
+					"Name": "Split",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"IsVariadic": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "string"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"IsVariadic": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "string"
+								},
+								{
+									"Type": "string",
+									"Name": "delimiter",
+									"IsOptional": true
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"IsVariadic": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "string"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"IsVariadic": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "string"
+								},
+								{
+									"Type": "string",
+									"Name": "delimiter"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Join",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "delimiter"
+								},
+								{
+									"Name": "strings",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Trim",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "string"
+								},
+								{
+									"Name": "trimmedStrings",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Events",
+			"StaticFunctions": [
+				{
+					"Name": "Connect",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Type": "function",
+									"Name": "listener"
+								},
+								{
+									"Name": "additionalParameters",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "ConnectForPlayer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Type": "function",
+									"Name": "listener"
+								},
+								{
+									"Name": "additionalParameters",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Broadcast",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "BroadcastToServer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "BroadcastEventResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "BroadcastToAllPlayers",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "BroadcastEventResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "BroadcastToPlayer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "BroadcastEventResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "eventName"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Game",
+			"StaticFunctions": [
+				{
+					"Name": "GetLocalPlayer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Player"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetPlayers",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Player>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindPlayersInCylinder",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Player>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindPlayersInSphere",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Player>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindNearestPlayer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Player"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "StartRound",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "EndRound",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetTeamScore",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetTeamScore",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team"
+								},
+								{
+									"Type": "integer",
+									"Name": "score"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IncreaseTeamScore",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team"
+								},
+								{
+									"Type": "integer",
+									"Name": "scoreChange"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "DecreaseTeamScore",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team"
+								},
+								{
+									"Type": "integer",
+									"Name": "scoreChange"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "ResetTeamScores",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"StaticEvents": [
+				{
+					"Name": "playerJoinedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						}
+					]
+				},
+				{
+					"Name": "playerLeftEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						}
+					]
+				},
+				{
+					"Name": "abilitySpawnedEvent",
+					"IsDeprecated": true,
+					"DeprecationMessage": "abilitySpawnedEvent is deprecated.",
+					"Parameters": [
+						{
+							"Type": "Ability"
+						}
+					]
+				},
+				{
+					"Name": "roundStartEvent",
+					"Parameters": []
+				},
+				{
+					"Name": "roundEndEvent",
+					"Parameters": []
+				},
+				{
+					"Name": "teamScoreChangedEvent",
+					"Parameters": [
+						{
+							"Type": "integer"
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Storage",
+			"StaticFunctions": [
+				{
+					"Name": "GetPlayerData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetPlayerData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "table",
+									"Name": "data"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Teams",
+			"StaticFunctions": [
+				{
+					"Name": "AreTeamsFriendly",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team1"
+								},
+								{
+									"Type": "integer",
+									"Name": "team2"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "AreTeamsEnemies",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "team1"
+								},
+								{
+									"Type": "integer",
+									"Name": "team2"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "UI",
+			"StaticFunctions": [
+				{
+					"Name": "ShowFlyUpText",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "text"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "ShowDamageDirection",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "sourceObject"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "sourcePlayer"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "sourceWorldPosition"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetScreenPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "worldPosition"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetScreenSize",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "PrintToScreen",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "message"
+								},
+								{
+									"Type": "Color",
+									"Name": "color",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCursorPosition",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCursorHitResult",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCursorPlaneIntersection",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "pointOnPlane"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "planeNormal"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "pointOnPlane"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsCursorVisible",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetCursorVisible",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isVisible"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsCursorLockedToViewport",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetCursorLockedToViewport",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isLocked"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "CanCursorInteractWithUI",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetCanCursorInteractWithUI",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "canInteract"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsReticleVisible",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetReticleVisible",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "bool",
+									"Name": "isVisible"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "World",
+			"StaticFunctions": [
+				{
+					"Name": "GetRootObject",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "FindObjectById",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "id"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindObjectByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindObjectsByName",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindObjectsByType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SpawnAsset",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "assetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Raycast",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"Enums": [
+		{
+			"Name": "AbilityFacingMode",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Value": 0
+				},
+				{
+					"Name": "MOVEMENT",
+					"Value": 1
+				},
+				{
+					"Name": "AIM",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "AbilityPhase",
+			"Values": [
+				{
+					"Name": "READY",
+					"Value": 0
+				},
+				{
+					"Name": "CAST",
+					"Value": 1
+				},
+				{
+					"Name": "EXECUTE",
+					"Value": 2
+				},
+				{
+					"Name": "RECOVERY",
+					"Value": 3
+				},
+				{
+					"Name": "COOLDOWN",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "BroadcastEventResultCode",
+			"Values": [
+				{
+					"Name": "SUCCESS",
+					"Value": 0
+				},
+				{
+					"Name": "FAILURE",
+					"Value": 1
+				},
+				{
+					"Name": "EXCEEDED_SIZE_LIMIT",
+					"Value": 2
+				},
+				{
+					"Name": "EXCEEDED_RATE_WARNING_LIMIT",
+					"Value": 3
+				},
+				{
+					"Name": "EXCEEDED_RATE_LIMIT",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Collision",
+			"Values": [
+				{
+					"Name": "INHERIT",
+					"Value": 0
+				},
+				{
+					"Name": "FORCE_ON",
+					"Value": 1
+				},
+				{
+					"Name": "FORCE_OFF",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "DamageReason",
+			"Values": [
+				{
+					"Name": "UNKNOWN",
+					"Value": 0
+				},
+				{
+					"Name": "COMBAT",
+					"Value": 1
+				},
+				{
+					"Name": "FRIENDLY_FIRE",
+					"Value": 2
+				},
+				{
+					"Name": "MAP",
+					"Value": 3
+				},
+				{
+					"Name": "NPC",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "FacingMode",
+			"Values": [
+				{
+					"Name": "FACE_AIM_WHEN_ACTIVE",
+					"Value": 0
+				},
+				{
+					"Name": "FACE_AIM_ALWAYS",
+					"Value": 1
+				},
+				{
+					"Name": "FACE_MOVEMENT",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "LookControlMode",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Value": 0
+				},
+				{
+					"Name": "RELATIVE",
+					"Value": 1
+				},
+				{
+					"Name": "LOOK_AT_CURSOR",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "MovementControlMode",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Value": 0
+				},
+				{
+					"Name": "LOOK_RELATIVE",
+					"Value": 1
+				},
+				{
+					"Name": "VIEW_RELATIVE",
+					"Value": 2
+				},
+				{
+					"Name": "FACING_RELATIVE",
+					"Value": 3
+				},
+				{
+					"Name": "FIXED_AXES",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "MovementMode",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Value": 0
+				},
+				{
+					"Name": "WALKING",
+					"Value": 1
+				},
+				{
+					"Name": "FALLING",
+					"Value": 3
+				},
+				{
+					"Name": "SWIMMING",
+					"Value": 4
+				},
+				{
+					"Name": "FLYING",
+					"Value": 5
+				},
+				{
+					"Name": "SLIDING",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "RotationMode",
+			"Values": [
+				{
+					"Name": "CAMERA",
+					"Value": 0
+				},
+				{
+					"Name": "NONE",
+					"Value": 1
+				},
+				{
+					"Name": "LOOK_ANGLE",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "StorageResultCode",
+			"Values": [
+				{
+					"Name": "SUCCESS",
+					"Value": 0
+				},
+				{
+					"Name": "FAILURE",
+					"Value": 2
+				},
+				{
+					"Name": "STORAGE_DISABLED",
+					"Value": 1
+				},
+				{
+					"Name": "EXCEEDED_SIZE_LIMIT",
+					"Value": 3
+				}
+			]
+		},
+		{
+			"Name": "TaskStatus",
+			"Values": [
+				{
+					"Name": "UNINITIALIZED",
+					"Value": 0
+				},
+				{
+					"Name": "SCHEDULED",
+					"Value": 1
+				},
+				{
+					"Name": "RUNNING",
+					"Value": 2
+				},
+				{
+					"Name": "COMPLETED",
+					"Value": 3
+				},
+				{
+					"Name": "YIELDED",
+					"Value": 4
+				},
+				{
+					"Name": "FAILED",
+					"Value": 5
+				},
+				{
+					"Name": "CANCELED",
+					"Value": 6
+				},
+				{
+					"Name": "BLOCKED",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "TextJustify",
+			"Values": [
+				{
+					"Name": "LEFT",
+					"Value": 0
+				},
+				{
+					"Name": "CENTER",
+					"Value": 1
+				},
+				{
+					"Name": "RIGHT",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Visibility",
+			"Values": [
+				{
+					"Name": "INHERIT",
+					"Value": 0
+				},
+				{
+					"Name": "FORCE_ON",
+					"Value": 1
+				},
+				{
+					"Name": "FORCE_OFF",
+					"Value": 2
+				}
+			]
+		}
+	]
+}
