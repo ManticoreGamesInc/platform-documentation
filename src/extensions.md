@@ -50,23 +50,27 @@ While we do not provide our own editor extensions, we supply an API JSON dump th
 
 * :fontawesome-solid-download: Download: [CoreLuaAPI-Prod.json](./assets/api/CoreLuaAPI-Prod.json "CoreLuaAPI-Prod.json")
 
-#### Visual Studio Code & Atom
+#### Atom
 
 * :fontawesome-solid-download: Download: [luacompleterc.zip](./assets/api/luacompleterc.zip "API Autocomplete Files")
 * :fontawesome-solid-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
-!!! note "Note for Visual Studio Code:"
-    You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
-    To do this, open up the VS Code settings via <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, type "Open Settings (JSON)" and hit enter.
+#### Visual Studio Code
 
-    Now add the following to the end:
+* :fontawesome-solid-download: Download: [luacompleterc.zip](./assets/api/luacompleterc.zip "API Autocomplete Files")
+* :fontawesome-solid-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
-    ```json
-    "Lua.workspace.library": { "C:\\Users\\YOURUSERNAME\\Documents\\My Games\\Core\\Saved\\Maps": true },
-    "Lua.diagnostics.enable": false,
-    ```
+You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
+To do this, open up the VS Code settings via <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, type "Open Settings (JSON)" and hit enter.
 
-    We are setting Lua diagnostics to `false` since we are going to use the Luacheck integration that comes with VSCode-Lua.
+Now add the following to the end:
+
+```json
+"Lua.workspace.library": { "C:\\Users\\YOURUSERNAME\\Documents\\My Games\\Core\\Saved\\Maps": true },
+"Lua.diagnostics.enable": false,
+```
+
+We are setting Lua diagnostics to `false` since we are going to use the Luacheck integration that comes with VSCode-Lua.
 
 !!! warning "You need to open your project in VS Code directly, not via double-clicking the script file in Core, otherwise autocomplete will not work."
 
