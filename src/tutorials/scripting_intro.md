@@ -157,6 +157,7 @@ Example:
 EndGame()
 DeclareWinner("slinkous")
 ```
+
 Output:
 
 <pre><output>
