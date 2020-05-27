@@ -330,7 +330,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     So now, under our `switch` variable but above our `RotateTo()` function, add this line of code:
 
     ```lua
-    local switchTrigger = switch.parent:GetChildren()[3]
+    local switchTrigger = script.parent:GetChildren()[3]
     ```
 
     * `switchTrigger` is the name for our trigger variable.
