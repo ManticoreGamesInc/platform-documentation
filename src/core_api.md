@@ -195,7 +195,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minDistance` | Number | The minimum distance the Player can zoom in to. | Read-Write, Dynamic |
 | `maxDistance` | Number | The maximum distance the Player can zoom out to. | Read-Write, Dynamic |
 | `rotationMode` | enum | Which base rotation to use. Values: `RotationMode.CAMERA`, `RotationMode.NONE`, `RotationMode.LOOK_ANGLE`. | Read-Write, Dynamic |
-| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | Read-Write, Dynamic |
+| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). Requires movement mode `RotationMode.CAMERA`. This has no effect if the camera is following a player. | Read-Write, Dynamic |
 | `currentPitch` | Number | The current pitch of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minPitch` | Number | The minimum pitch for free control. | Read-Write, Dynamic |
 | `maxPitch` | Number | The maximum pitch for free control. | Read-Write, Dynamic |
