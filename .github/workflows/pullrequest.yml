@@ -57,7 +57,7 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      - name: Running Page Speed Insights
-        uses: jakepartusch/psi-action@v1
-        with:
-          url: ${{ steps.waitFor200.outputs.url }}
+      # - name: Running Page Speed Insights
+      #   uses: jakepartusch/psi-action@v1
+      #   with:
+      #     url: ${{ steps.waitFor200.outputs.url }}
