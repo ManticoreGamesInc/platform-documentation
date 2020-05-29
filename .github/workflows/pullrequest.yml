@@ -1,9 +1,6 @@
 name: Build & Deploy (Pull Request)
 
-on:
-  pull_request:
-    branches:
-      - '*'
+on: [pull_request]
 
 jobs:
   build:
@@ -51,10 +48,11 @@ jobs:
         id: waitFor200
         with:
           site_name: "manticore-docs"
+          max_timeout: 180
 
       - name: Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.3.x
+          npm install -g @lhci/cli@0.4.x
           lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.waitFor200.outputs.url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
