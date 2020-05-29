@@ -868,7 +868,7 @@ StaticMesh is a static CoreMesh. StaticMeshes can be placed in the scene and (if
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isSimulatingDebrisPhysics` | bool | If `true`, physics will be enabled for the mesh. | Read-Write, Dynamic |
+| `isSimulatingDebrisPhysics` | bool | If `true`, physics will be enabled for the mesh. | Client-Only, Read-Write |
 
 ### Task
 
