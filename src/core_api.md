@@ -585,8 +585,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `animationStance` | string | Which set of animations to use for this Player. See [Animation Stance Strings](api/animations.md#animation-stance-strings) for possible values. | Read-Write |
 | `currentFacingMode` | FacingMode | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
 | `desiredFacingMode` | FacingMode | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Server-Only, Read-Write |
-| `defaultRotationRate` | Rotation | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Server-Only, Read-Write |
-| `currentRotationRate` | Rotation | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
+| `defaultRotationRate` | Number | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Server-Only, Read-Write |
+| `currentRotationRate` | Number | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
 | `hitPoints` | Number | Current amount of hitpoints. | Read-Write |
 | `maxHitPoints` | Number | Maximum amount of hitpoints. | Read-Write |
 | `kills` | Integer | The number of times the player has killed another player. | Read-Write |
@@ -868,7 +868,7 @@ StaticMesh is a static CoreMesh. StaticMeshes can be placed in the scene and (if
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isSimulatingDebrisPhysics` | bool | If `true`, physics will be enabled for the mesh. | Read-Write, Dynamic |
+| `isSimulatingDebrisPhysics` | bool | If `true`, physics will be enabled for the mesh. | Client-Only, Read-Write, Dynamic |
 
 ### Task
 
