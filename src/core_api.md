@@ -195,7 +195,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minDistance` | Number | The minimum distance the Player can zoom in to. | Read-Write, Dynamic |
 | `maxDistance` | Number | The maximum distance the Player can zoom out to. | Read-Write, Dynamic |
 | `rotationMode` | enum | Which base rotation to use. Values: `RotationMode.CAMERA`, `RotationMode.NONE`, `RotationMode.LOOK_ANGLE`. | Read-Write, Dynamic |
-| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). This has no effect if the camera is following a player. | Read-Write, Dynamic |
+| `hasFreeControl` | bool | Whether the Player can freely control their rotation (with mouse or thumbstick). Requires movement mode `RotationMode.CAMERA`. This has no effect if the camera is following a player. | Read-Write, Dynamic |
 | `currentPitch` | Number | The current pitch of the Player's free control. | Client-Only, Read-Write, Dynamic |
 | `minPitch` | Number | The minimum pitch for free control. | Read-Write, Dynamic |
 | `maxPitch` | Number | The maximum pitch for free control. | Read-Write, Dynamic |
@@ -1172,8 +1172,8 @@ A four-component vector.
 | `Vector4.New(Vector4 v)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z`, `w` values from the given Vector4. | None |
 | `Vector4.New(Vector2 xy, Vector2 zw)` | Vector4 | Constructs a Vector4 with `x`, `y` values from the first Vector2 and `z`, `w` values from the second Vector2. | None |
 | `Vector4.New(Color v)` | Color | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. | None |
-| `Vector3.ZERO` | Vector3 | (0, 0, 0, 0) | None |
-| `Vector3.ONE` | Vector3 | (1, 1, 1, 1) | None |
+| `Vector4.ZERO` | Vector4 | (0, 0, 0, 0) | None |
+| `Vector4.ONE` | Vector4 | (1, 1, 1, 1) | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
