@@ -199,11 +199,11 @@ If you are using a project created by someone else, and want to be able to push 
 
 When you click the **Clone** button on a GitHub repository, you will see the option to **Open in Desktop**. Click this to use GitHub desktop to clone.
 
-![Clone with Desktop]()
+![Clone with Desktop](../img/VersionControl/VersionControl_CloneDialogue.png)
 
 Change the location to the **Maps** folder where your other Core projects are stored.
 
-![Core Maps Directory]()
+![Core Maps Directory](../img/VersionControl/VersionControl_CloneInDirectory.png)
 
 ### Check Core for the Project
 
