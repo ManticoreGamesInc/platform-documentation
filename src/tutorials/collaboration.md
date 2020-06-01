@@ -6,7 +6,7 @@ tags:
     - Tutorial
 ---
 
-# Back Up Your Project Using GitHub
+# GitHub and Core
 
 ## Overview
 
@@ -44,7 +44,7 @@ GitHub Desktop is a program that allows you to easily using Git and GitHub for s
 
 You can install GitHub Desktop using [the link to download on their website](https://desktop.github.com/).
 
-![GitHub Desktop Install Link](../img/VersionControl/VersionControl_GHDesktopDownloadLink.png)
+![GitHub Desktop Install Link](../img/VersionControl/VersionControl_GHDesktopDownloadLink.png){: .center loading="lazy" }
 
 ### Create a GitHub Account
 
@@ -63,7 +63,7 @@ Projects saved using **Git** are called **repositories**.
 Click **File** and select **Add local repository...**.
 
 !!! note
-    The "New repository..." option will not work for an existing project. Although the Menu option looks identical to the menu that you are redirected to you, the "New repository..." choice will actually create a folder inside of your project, and only keep track of things that are inside that folder. [This will hopefully be fixed in the future](https://github.com/desktop/desktop/issues/9651)
+    The "New repository..." option will not work for an existing project. Although the Menu option looks identical to the menu that you are redirected to you, the "New repository..." choice will actually create a folder inside of your project, and only keep track of things that are inside that folder.
 
 1. In the **Local path** field, click **Choose** and navigate to your project folder.
 2. You will see a warning that says:
@@ -78,7 +78,7 @@ You can add a license, which determines the ways other people are allowed to use
 
 Once you have added the project, you can see all the files that got saved the first time by clicking thing **History** tab. The **Changes** tab shows files that have been changed but not saved using a **commit**, which you will learn how to do in the next section.
 
-![Initial Commit](../img/VersionControl/VersionControl_InitialCommit.png)
+![Initial Commit](../img/VersionControl/VersionControl_InitialCommit.png){: .center loading="lazy" }
 
 ## Saving Project Changes
 
@@ -113,7 +113,7 @@ Below the changed files, find the **Summary** field. Here is where you write a q
 
 What you write here will be your reference for the most recent changes made, so that if you needed to go back, you would know the state of the project at that point.
 
-![Sample Commit](../img/VersionControl/VersionControl_MakeCommit.png){.center}
+![Sample Commit](../img/VersionControl/VersionControl_MakeCommit.png){: .center loading="lazy" }
 
 ## Uploading a Project
 
@@ -123,13 +123,13 @@ With a local git repository, you have a saved record of the different stages of 
 
 Once you have committed all your changes, you will see an option suggesting that you publish your repository on GitHub.
 
-![Publish Repository Button](../img/VersionControl/VersionControl_PublishRepoButton.png)
+![Publish Repository Button](../img/VersionControl/VersionControl_PublishRepoButton.png){: .center loading="lazy" }
 
 Click the **Publish repository** button to open a dialogue to put the project on the GitHub website.
 
 You can change the title, or keep the one from the local repository. Check the **Keep this code private** box if you do not want others to be able to copy the project.
 
-![Publish Repository Dialogue](../img/VersionControl/VersionControl_PublishRepoDialogue.png)
+![Publish Repository Dialogue](../img/VersionControl/VersionControl_PublishRepoDialogue.png){: .center loading="lazy" }
 
 ### Find the Project on GitHub
 
@@ -137,7 +137,7 @@ With a remote repository, you can see the files of the project, and the history 
 
 Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, or select **Repository** in the top menu bar, and click **View on GitHub** to see the project page.
 
-![GitHub Project Page](../img/VersionControl/VersionControl_GitHubProjectPage.png)
+![GitHub Project Page](../img/VersionControl/VersionControl_GitHubProjectPage.png){: .center loading="lazy" }
 
 ### Add a README
 
@@ -149,7 +149,7 @@ This step is optional, and probably not necessary if you made your code private.
 
 Click the **Add a README** button at the bottom of the project.
 
-![Create README Button](../img/VersionControl/VersionControl_CreateReadme.png)
+![Create README Button](../img/VersionControl/VersionControl_CreateReadme.png){: .center loading="lazy" }
 
 This will open a new file that contains the title and description you created for your project. This is written in the **Markdown** language, which allows you to format text in document. [Learn more about writing in Markdown here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
@@ -171,11 +171,11 @@ However, if you added a new README, then currently there are changes on the remo
 
 **Origin** is how GitHub Desktop will refer to remote repository. To get those changes locally, click either of the **Pull origin** buttons that are displayed.
 
-![Pull Origin](../img/VersionControl/VersionControl_PullOriginButton.png)
+![Pull Origin](../img/VersionControl/VersionControl_PullOriginButton.png){: .center loading="lazy" }
 
 Once the project is finished pulling the changes, click the **History** tab to confirm. You should see the commit message you made to add the README at the top.
 
-![Most Recent Commit in History](../img/VersionControl/VersionControl_ReadmeCommitHistory.png)
+![Most Recent Commit in History](../img/VersionControl/VersionControl_ReadmeCommitHistory.png){: .center loading="lazy" }
 
 ### Push New Changes
 
@@ -199,11 +199,11 @@ If you are using a project created by someone else, and want to be able to push 
 
 When you click the **Clone** button on a GitHub repository, you will see the option to **Open in Desktop**. Click this to use GitHub desktop to clone.
 
-![Clone with Desktop](../img/VersionControl/VersionControl_CloneDialogue.png)
+![Clone with Desktop](../img/VersionControl/VersionControl_CloneDialogue.png){: .center loading="lazy" }
 
 Change the location to the **Maps** folder where your other Core projects are stored.
 
-![Core Maps Directory](../img/VersionControl/VersionControl_CloneInDirectory.png)
+![Core Maps Directory](../img/VersionControl/VersionControl_CloneInDirectory.png){: .center loading="lazy" }
 
 ### Check Core for the Project
 
@@ -223,7 +223,7 @@ The easiest way to avoid this is work on separate parts of the project. **Folder
 
 Up until now, you have only used the default branch, **master**. **Branches** allow you to separate your changes from the main project, and then integrate them back in when you are finished, by **merging**.
 
-![Create a New Branch](../img/VersionControl/VersionControl_NewBranch.png)
+![Create a New Branch](../img/VersionControl/VersionControl_NewBranch.png){: .center loading="lazy" }
 
 1. Click the **Current branch** tab in the project, which is most likely on **master**.
 2. Select **New branch**, and give the branch the name of the feature that you will be creating on it.
