@@ -18,4 +18,4 @@ title: Tutorials
 | [Environment Art](environment_art.md)                      | Tutorial                 | 20 Mins    | Learn how to use the Terrain Creator, swimmable volumes, and the Object Generator.      |
 | [Modeling Basics](modeling_basics.md)                      | Tutorial                 | 20 Mins    | Learning modelling basics in Core by making delicious food.                             |
 | [Visual Effects](vfx_tutorial.md)                          | Tutorial                 | 10 Mins    | This page includes tutorials on how to make wicked cool VFX in Core using Lua.          |
-| [Collaboration & Source Control in Core](collaboration.md) | Tutorial                 | 10 Mins    | How to use Git to collaborate on Core projects.                                         |
+| [GitHub and Core](github.md)                               | Tutorial                 | 20 Mins    | How to use Git and GitHub to collaborate on Core projects.                              |
