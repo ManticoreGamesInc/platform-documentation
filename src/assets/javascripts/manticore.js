@@ -1,6 +1,4 @@
-/* eslint-disable require-jsdoc */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
 
 // Manticore JavaScript Helpers
 
@@ -36,7 +34,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
   // Transform special markdown into YouTube embeds
   const elements = document.querySelectorAll("img[alt=\"YOUTUBE\"]")
 
-  Array.prototype.forEach.call(elements, (el, i) => {
+  Array.prototype.forEach.call(elements, (el) => {
     const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
     const oldClass = el.getAttribute("class")
     const iframe = document.createElement("iframe")
@@ -65,7 +63,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
       btn.classList.remove("show")
     }
 
-    Array.prototype.forEach.call(headerlinks, (el, i) => {
+    Array.prototype.forEach.call(headerlinks, (el) => {
       const rect = el.getBoundingClientRect()
       if (yPos > rect.top + document.documentElement.scrollTop - 90) {
         currentTitle = el.parentElement.textContent.slice(0, -1)
