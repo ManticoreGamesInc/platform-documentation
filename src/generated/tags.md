@@ -68,9 +68,9 @@ title: Tags
 
 - [Advanced Abilities in Core](abilities_advanced.md)
 
-- [Collaboration & Source Control in Core](collaboration.md)
-
 - [Environment Art in Core](environment_art.md)
+
+- [GitHub and Core](github.md)
 
 - [Scripting in Core](lua_basics_lightbulb.md)
 
