@@ -195,4 +195,4 @@ With all these considerations in mind, [publish](publishing.md) your game, and g
 
 ## Learn More
 
-[Publishing on Core](publishing.md) | [Sharing Content](community_content.md) | [UI Reference](ui_reference.md) | [Lua Style Guide](lua_style_guide) | [Collaboration with other Core Creators](collaboration.md)
+[Publishing on Core](publishing.md) | [Sharing Content](community_content.md) | [UI Reference](ui_reference.md) | [Lua Style Guide](lua_style_guide) | [Collaboration with other Core Creators](github.md)
