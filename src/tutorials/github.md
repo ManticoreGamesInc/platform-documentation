@@ -1,7 +1,7 @@
 ---
-id: collaboration
-name: Collaboration & Source Control in Core
-title: Collaboration & Source Control in Core
+id: github
+name: GitHub and Core
+title: GitHub and Core
 tags:
     - Tutorial
 ---
@@ -248,24 +248,24 @@ Creating **templates** is an easy way to have multiple contributors to a project
 
 ## Version Control Terminology
 
-|   |   |
-|---|---|
-| **Git**       | A system for tracking changes in a project. |
-| **GitHub**   | One of several websites that allows cloud storage of Git projects  |
-| **History** | The list of changes to files in a project  |
-| **.gitignore**  | A special file that lists all the files and folders that do not need to be tracked with Git  |
-| **Repository**  | A project that is tracked with Git. Sometimes shortened to **repo**  |
-| **Local Repository** | The tracked version of a project saved on your computer |
+|                       |     |
+|---------------------- | --- |
+| **Git**               | A system for tracking changes in a project. |
+| **GitHub**            | One of several websites that allows cloud storage of Git projects  |
+| **History**           | The list of changes to files in a project  |
+| **.gitignore**        | A special file that lists all the files and folders that do not need to be tracked with Git  |
+| **Repository**        | A project that is tracked with Git. Sometimes shortened to **repo**  |
+| **Local Repository**  | The tracked version of a project saved on your computer |
 | **Remote Repository** | An online version of the project, which can be shared and downloaded onto other computers |
-| **Commit**  | A record of a set of changes  |
-| **README** | A file in a repository that will be shown on the main repository page on GitHub |
-| **Push**  | Send changes from a local repository to the remote repository |
-| **Pull**  | Get changes from a remote repository on a local repository |
-| **Fork**  | Make a copy on your own GitHub of a project |
-| **Clone**  | Download a local copy of a project |
-| **Branch**  | A way of separating changes from the main project |
-| **Merge** | The way to move changes from one branch onto another |
-| **Merge Conflict**  | The result of changing the same file on different branches that must be resolved by choosing which changes to keep in each file. |
+| **Commit**            | A record of a set of changes  |
+| **README**            | A file in a repository that will be shown on the main repository page on GitHub |
+| **Push**              | Send changes from a local repository to the remote repository |
+| **Pull**              | Get changes from a remote repository on a local repository |
+| **Fork**              | Make a copy on your own GitHub of a project |
+| **Clone**             | Download a local copy of a project |
+| **Branch**            | A way of separating changes from the main project |
+| **Merge**             | The way to move changes from one branch onto another |
+| **Merge Conflict**    | The result of changing the same file on different branches that must be resolved by choosing which changes to keep in each file. |
 
 ## Learn More
 
