@@ -17,7 +17,10 @@
 # deploy contexts will inherit these settings.
 [context.production]
   publish = "site"
-  command = "mkdocs build --config-file mkdocs-prod.yml"
+  command = """
+  pip install mkdocs-minify-plugin
+  mkdocs build --config-file mkdocs-prod.yml
+  """
 
 # Deploy Preview context: all deploys generated from a pull/merge request will
 # inherit these settings.
