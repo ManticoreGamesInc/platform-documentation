@@ -47,7 +47,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
-          pip install mkdocs-minify-plugin>=0.3
+          pip install mkdocs-minify-plugin
 
       - name: Build
         run: mkdocs build --config-file mkdocs-prod.yml
