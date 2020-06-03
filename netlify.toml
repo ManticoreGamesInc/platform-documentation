@@ -26,7 +26,10 @@
 # inherit these settings.
 [context.deploy-preview]
   publish = "site"
-  command = "mkdocs build"
+  command = """
+  pip install mkdocs-minify-plugin
+  mkdocs build --config-file mkdocs-prod.yml
+  """
 
 # Branch Deploy context: all deploys that are not from a pull/merge request or
 # from the Production branch will inherit these settings.
