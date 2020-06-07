@@ -517,7 +517,19 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 | `serverUserData` | table | Table in which users can store any data they want on the server. | Server-Only, Read-Write |
 | `clientUserData` | table | Table in which users can store any data they want on the client. | Client-Only, Read-Write |
 
-### Player
+### [Other](Other.md)
+
+Other
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `IsA()` | bool | Expects a string parameter representing an object type. E.g. `myObject:IsA("Equipment")`. Returns `true` if the object is of the given type or one of its subtypes, returns `false` otherwise. | None |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `type` | string | All data structures and Objects share the common `type` property. | Read-Only |
+
+### [Player](Player.md)
 
 Player is an Object representation of the state of a Player connected to the game, as well as their avatar in the world.
 
@@ -530,7 +542,6 @@ Player is an Object representation of the state of a Player connected to the gam
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | None |
-| `animationEvent` | Event&lt;Player, string eventName&gt; | Fired during certain animations played on a player. [:fontawesome-solid-info-circle:](../api/examples/#events_1 "Example") | Client-Only |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -592,13 +603,13 @@ Player is an Object representation of the state of a Player connected to the gam
 | `kills` | Integer | The number of times the player has killed another player. | Read-Write |
 | `deaths` | Integer | The number of times the player has died. | Read-Write |
 | `stepHeight` | Number | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
-| `maxWalkSpeed` | Number | Maximum speed while the player is on the ground. Default = 640. | Read-Write |
-| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Default = 1800. | Read-Write |
+| `maxWalkSpeed` | Number | Maximum speed while the player is on the ground. Clients can only read. Default = 640. | Read-Write |
+| `maxAcceleration` | Number | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. | Read-Write |
 | `brakingDecelerationFalling` | Number | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
 | `brakingDecelerationWalking` | Number | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
 | `groundFriction` | Number | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | Number | Multiplier for friction when braking. Default = 0.6. | Read-Write |
-| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Default = 44. | Read-Write |
+| `walkableFloorAngle` | Number | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
 | `maxJumpCount` | Integer | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
 | `jumpVelocity` | Number | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
 | `gravityScale` | Number | Multiplier on gravity applied. Default = 1.9. | Read-Write |
@@ -615,7 +626,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `isSwimming` | bool | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | bool | True if the Player is in walking mode. | Read-Only |
 | `isDead` | bool | True if the Player is dead, otherwise false. | Read-Only |
-| `movementControlMode` | MovementControlMode | Specify how players control their movement. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
+| `movementControlMode` | MovementControlMode | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | LookControlMode | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | Number | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Client-Only, Read-Write |
 | `spreadModifier` | Number | Modifier added to the Player's targeting spread. | Read-Write |
@@ -878,7 +889,7 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 | -------------- | ----------- | ----------- | ---- |
 | `Task.Spawn(function taskFunction, [Number delay])` | Task | Creates a new Task which will call taskFunction without blocking the current task. The optional delay parameter specifies how many seconds before the task scheduler should run the Task. By default, the scheduler will run the Task at the end of the current frame. | None |
 | `Task.GetCurrent()` | Task | Returns the currently running Task. | None |
-| `Task.Wait([Number delay])` | Number | Yields the current Task, resuming in delay seconds, or during the next frame if delay is not specified. | None |
+| `Task.Wait([Number delay])` | Number, Number | Yields the current Task, resuming in delay seconds, or during the next frame if delay is not specified. Returns the amount of time that was actually waited, as well as how long a wait was requested. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1282,17 +1293,6 @@ WorldText is an in-world text CoreObject.
 
 Some sets of related functionality are grouped within namespaces, which are similar to the types above, but cannot be instantiated. They are only ever accessed by calling functions within these namespaces.
 
-### Core Lua Functions
-
-A few base functions provided by the platform.
-
-| Function | Return Type | Description | Tags |
-| -------- | ----------- | ----------- | ---- |
-| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
-| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
-| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
-| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
-
 ### CoreDebug
 
 The CoreDebug namespace contains functions that may be useful for debugging.
@@ -1304,6 +1304,18 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | None | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 | `CoreDebug.GetTaskStackTrace([Task task])` | string | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
 | `CoreDebug.GetStackTrace()` | string | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
+
+### CoreLuaFunctions
+
+A few base functions provided by the platform.
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
+| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
+| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
+| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
+| `require(string)` | table | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |
 
 ### CoreMath
 
