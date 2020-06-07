@@ -48,19 +48,19 @@ jobs:
       - name: Build
         run: mkdocs build
 
-      - name: Waiting for 200 from the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: waitFor200
-        with:
-          site_name: "manticore-docs"
-          max_timeout: 180
+      # - name: Waiting for 200 from the Netlify Preview
+      #   uses: jakepartusch/wait-for-netlify-action@v1
+      #   id: waitFor200
+      #   with:
+      #     site_name: "manticore-docs"
+      #     max_timeout: 180
 
-      - name: Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.4.x
-          lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.waitFor200.outputs.url }}
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      # - name: Lighthouse CI
+      #   run: |
+      #     npm install -g @lhci/cli@0.4.x
+      #     lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.waitFor200.outputs.url }}
+      #   env:
+      #     LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
       # - name: Running Page Speed Insights
       #   uses: jakepartusch/psi-action@v1
