@@ -487,7 +487,7 @@ end
 
 ### Ability.owner
 
-Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property. --
+Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property.
 
 ```lua
 local abilityTemplate = script:GetCustomProperty("AbilityTemplate")
@@ -4120,10 +4120,6 @@ player.isVisibleToSelf = false
 ### Player.lookSensitivity
 
 You can also make the player's input more or less sensitive, when aiming. This can be useful for aiming down sights, etc.
-
-```lua
-
-```
 
 ```lua
 -- This will double the sensitivity:
