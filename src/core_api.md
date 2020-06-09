@@ -517,7 +517,7 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 | `serverUserData` | table | Table in which users can store any data they want on the server. | Server-Only, Read-Write |
 | `clientUserData` | table | Table in which users can store any data they want on the client. | Client-Only, Read-Write |
 
-### [Other](Other.md)
+### Other
 
 Other
 
@@ -529,7 +529,7 @@ Other
 | -------- | ----------- | ----------- | ---- |
 | `type` | string | All data structures and Objects share the common `type` property. | Read-Only |
 
-### [Player](Player.md)
+### Player
 
 Player is an Object representation of the state of a Player connected to the game, as well as their avatar in the world.
 
