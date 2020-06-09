@@ -170,7 +170,7 @@ trigger.beginOverlapEvent(function(trigger, other)
 end)
 ```
 
- Client context script under the ability:
+Client context script under the ability:
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
@@ -313,7 +313,7 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
- On the client context, a user interface component that displays ability details is hidden until the player dies:
+On the client context, a user interface component that displays ability details is hidden until the player dies:
 
 ```lua
 local abilityCanvas = script:GetCustomProperty("Canvas")
@@ -1620,7 +1620,7 @@ end
 cube:Detach()
 ```
 
- It's also possible to attach objects to the local view on the client. Note that this only works from inside a client context:
+It's also possible to attach objects to the local view on the client. Note that this only works from inside a client context:
 
 ```lua
 cube:AttachToLocalView()
@@ -1655,7 +1655,7 @@ watchingCube:LookAtContinuous(movingCube)
 Task.Wait(5)
 ```
 
- It's also possible to make an object always look at EVERY player. This obviously only works on objects that are in a client context, but the `LookAtLocalView` function causes a client-context object to always turn and face the local player.
+It's also possible to make an object always look at EVERY player. This obviously only works on objects that are in a client context, but the `LookAtLocalView` function causes a client-context object to always turn and face the local player.
 
 ```lua
     local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
@@ -1970,7 +1970,7 @@ script.networkedPropertyChangedEvent:Connect(function(coreObject, propertyName)
 end)
 ```
 
- Now, if the server changes the custom property, the client is notified:
+Now, if the server changes the custom property, the client is notified:
 
 ```lua
 
@@ -1982,7 +1982,7 @@ script:SetNetworkedCustomProperty("NetworkedGreeting", "Buenos Dias")
 -- New value: Buenos Dias
 ```
 
- In addition to basic types (strings, integers, colors, etc) you can also pass references to core objects via networked custom properties. This is really useful if you want to have a client-side script know about a particular networked object.
+In addition to basic types (strings, integers, colors, etc) you can also pass references to core objects via networked custom properties. This is really useful if you want to have a client-side script know about a particular networked object.
 
 To do this, you need to first convert the `CoreObject` into a `CoreObjectReference`.
 
@@ -2582,7 +2582,7 @@ end
 script.parent.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
- Client script:
+Client script:
 
 ```lua
 function OnFlagCaptured(playerName, playerTeam)
@@ -2643,7 +2643,7 @@ function Tick(deltaTime)
 end
 ```
 
- A separate script that listens to event changes:
+A separate script that listens to event changes:
 
 ```lua
 function OnStateChanged(newState)
@@ -2668,7 +2668,7 @@ end
 Events.ConnectForPlayer("CursorPosition", OnPlayerInputData)
 ```
 
- Client script:
+Client script:
 
 ```lua
 UI.SetCursorVisible(true)
@@ -3319,7 +3319,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
- Combat manager script that is required by the weapon:
+Combat manager script that is required by the weapon:
 
 ```lua
 function TargetImpacted(impactData)
@@ -4020,7 +4020,7 @@ player.desiredFacingMode = FacingMode.FACE_AIM_ALWAYS
 player.desiredFacingMode = FacingMode.FACE_AIM_WHEN_ACTIVE
 ```
 
- Note that this is the _desired_ facing mode. The actual facing mode is not always guaranteed to be this, as certain player states can override this. (When the player is swimming, for example.
+Note that this is the _desired_ facing mode. The actual facing mode is not always guaranteed to be this, as certain player states can override this. (When the player is swimming, for example.
 
 You can check the actual current facing mode using the `currentFacingMode` property.
 
@@ -4185,7 +4185,7 @@ player.movementControlMode = MovementControlMode.FACING_RELATIVE
 player.defaultRotationRate = 200
 ```
 
- You can also change how the player's look input is processed:
+You can also change how the player's look input is processed:
 
 ```lua
 -- Player look input is ignored. The player cannot move their view.
@@ -4291,7 +4291,7 @@ local jumpEndListener = player.movementModeChangedEvent:Connect(
     end)
 ```
 
- You can also check the player's current (total) spread, although this only works from the client context.
+You can also check the player's current (total) spread, although this only works from the client context.
 
 ```lua
     print(player.currentSpread)
@@ -5033,7 +5033,7 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
- Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be accessed externally through the context.
+Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be accessed externally through the context.
 
 ```lua
 targetPlayer = nil
