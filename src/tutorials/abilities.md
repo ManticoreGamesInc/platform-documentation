@@ -126,9 +126,9 @@ For this tutorial, we are going to make the player wave hello.
 
 6. The `Ability` object starts with default settings in the **Properties** window. To make our own wave, we only need to change two things:
 
-    1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Key Binding** property to "Ability Feet".
+    1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Action Binding** property to "Ability Feet".
 
-         The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the `shift` key on keyboards.
+         The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the <kbd>Shift</kbd> key on keyboards.
 
     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_wave`.
 
@@ -142,7 +142,7 @@ For this tutorial, we are going to make the player wave hello.
 
     2. Do the same thing to the Facing Mode in the **Execute** section.
 
-**Now the ability is fully useable!** When you play your game, pick up the object, and then press `shift`, you will be able to wave hello!
+**Now the ability is fully useable!** When you play your game, pick up the object, and then press <kbd>Shift</kbd>, you will be able to wave hello!
 
 !!! info "Good Object Placement"
     If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
@@ -185,7 +185,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
     ![Ability Control](../img/EditorManual/Abilities/AbilityButtonProperties.png "Ability Control"){: .center loading="lazy" }
 
     1. Change the **Binding** property from `ability_primary` to `ability_feet`.
-    2. Change the **Text** field to `Shift`, to stand for Left Shift.
+    2. Change the **Text** field to <kbd>Shift</kbd> , to stand for Left Shift.
     3. Check the **ShowAbilityName** property, so that "Wave" will display over the button.
 
     What is really the key here is the **Binding** property--this connects whatever ability is currently connected to that binding to the Ability Display.
