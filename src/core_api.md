@@ -30,38 +30,38 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `readyEvent` | Event&lt;Ability&gt; | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
-| `castEvent` | Event&lt;Ability&gt; | Fired when the Ability enters the Cast phase. | None |
-| `executeEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Execute phase. | None |
-| `recoveryEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Recovery. | None |
-| `cooldownEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Cooldown. | None |
-| `interruptedEvent` | Event&lt;Ability&gt; | Fired when the Ability is interrupted. | None |
-| `tickEvent` | Event&lt;Ability, Number deltaTime&gt; | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
+| `readyEvent` | Event&lt;Ability&gt; | Fired when the Ability becomes ready. In this phase it is possible to activate it again. [:fontawesome-solid-info-circle:](../api/examples/#abilityreadyevent "Example") | None |
+| `castEvent` | Event&lt;Ability&gt; | Fired when the Ability enters the Cast phase. [:fontawesome-solid-info-circle:](../api/examples/#abilitycastevent "Example") | None |
+| `executeEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Execute phase. [:fontawesome-solid-info-circle:](../api/examples/#abilityexecuteevent "Example") | None |
+| `recoveryEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Recovery. [:fontawesome-solid-info-circle:](../api/examples/#abilityrecoveryevent "Example") | None |
+| `cooldownEvent` | Event&lt;Ability&gt; | Fired when the Ability enters Cooldown. [:fontawesome-solid-info-circle:](../api/examples/#abilitycooldownevent "Example") | None |
+| `interruptedEvent` | Event&lt;Ability&gt; | Fired when the Ability is interrupted. [:fontawesome-solid-info-circle:](../api/examples/#abilityinterruptedevent "Example") | None |
+| `tickEvent` | Event&lt;Ability, Number deltaTime&gt; | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). [:fontawesome-solid-info-circle:](../api/examples/#abilitytickevent "Example") | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Activate()` | None | Activates an Ability as if the button had been pressed. | Client-Only |
-| `Interrupt()` | None | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None |
-| `GetCurrentPhase()` | AbilityPhase | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
-| `GetPhaseTimeRemaining()` | Number | Seconds left in the current phase. | None |
-| `GetTargetData()` | AbilityTarget | Returns information about what the Player has targeted this phase. | None |
-| `SetTargetData(AbilityTarget)` | None | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
+| `Activate()` | None | Activates an Ability as if the button had been pressed. [:fontawesome-solid-info-circle:](../api/examples/#abilityactivate "Example") | Client-Only |
+| `Interrupt()` | None | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. [:fontawesome-solid-info-circle:](../api/examples/#abilityinterrupt "Example") | None |
+| `GetCurrentPhase()` | AbilityPhase | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. [:fontawesome-solid-info-circle:](../api/examples/#abilitygetcurrentphase "Example") | None |
+| `GetPhaseTimeRemaining()` | Number | Seconds left in the current phase. [:fontawesome-solid-info-circle:](../api/examples/#abilitygetphasetimeremaining "Example") | None |
+| `GetTargetData()` | AbilityTarget | Returns information about what the Player has targeted this phase. [:fontawesome-solid-info-circle:](../api/examples/#abilitygettargetdata "Example") | None |
+| `SetTargetData(AbilityTarget)` | None | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. [:fontawesome-solid-info-circle:](../api/examples/#abilitysettargetdata "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isEnabled` | bool | Turns an Ability on/off. It stays on the Player but is interrupted if `isEnabled` is set to `false` during an active Ability. True by default. | Read-Write |
-| `canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only |
-| `name` | string | The name of the Ability. | Read-Only |
-| `actionBinding` | string | Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. | Read-Only |
-| `owner` | Player | Assigning an owner applies the Ability to that Player. | Read-Write |
-| `castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase (see below). | Read-Only |
-| `executePhaseSettings` | AbilityPhaseSettings | Config data for the Execute phase. | Read-Only |
-| `recoveryPhaseSettings` | AbilityPhaseSettings | Config data for the Recovery phase. | Read-Only |
-| `cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. | Read-Only |
-| `animation` | string | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](api/animations.md) for strings and other info. | Read-Only |
-| `canBePrevented` | bool | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
+| `isEnabled` | bool | Turns an Ability on/off. It stays on the Player but is interrupted if `isEnabled` is set to `false` during an active Ability. True by default. [:fontawesome-solid-info-circle:](../api/examples/#abilityisenabled "Example") | Read-Write |
+| `canActivateWhileDead` | bool | Indicates if the Ability can be used while the owning Player is dead. False by default. [:fontawesome-solid-info-circle:](../api/examples/#abilitycanactivatewhiledead "Example") | Read-Only |
+| `name` | string | The name of the Ability. [:fontawesome-solid-info-circle:](../api/examples/#abilityname "Example") | Read-Only |
+| `actionBinding` | string | Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. [:fontawesome-solid-info-circle:](../api/examples/#abilityactionbinding "Example") | Read-Only |
+| `owner` | Player | Assigning an owner applies the Ability to that Player. [:fontawesome-solid-info-circle:](../api/examples/#abilityowner "Example") | Read-Write |
+| `castPhaseSettings` | AbilityPhaseSettings | Config data for the Cast phase (see below). [:fontawesome-solid-info-circle:](../api/examples/#abilitycastphasesettings "Example") | Read-Only |
+| `executePhaseSettings` | AbilityPhaseSettings | Config data for the Execute phase. [:fontawesome-solid-info-circle:](../api/examples/#abilityexecutephasesettings "Example") | Read-Only |
+| `recoveryPhaseSettings` | AbilityPhaseSettings | Config data for the Recovery phase. [:fontawesome-solid-info-circle:](../api/examples/#abilityrecoveryphasesettings "Example") | Read-Only |
+| `cooldownPhaseSettings` | AbilityPhaseSettings | Config data for the Cooldown phase. [:fontawesome-solid-info-circle:](../api/examples/#abilitycooldownphasesettings "Example") | Read-Only |
+| `animation` | string | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](api/animations.md) for strings and other info. [:fontawesome-solid-info-circle:](../api/examples/#abilityanimation "Example") | Read-Only |
+| `canBePrevented` | bool | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. [:fontawesome-solid-info-circle:](../api/examples/#abilitycanbeprevented "Example") | Read-Only |
 
-### AbilityPhaseSettings
+### [AbilityPhaseSettings](AbilityPhaseSettings.md)
 
 Each phase of an Ability can be configured differently, allowing complex and different Abilities. AbilityPhaseSettings is an Object.
 
@@ -409,15 +409,15 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. [:fontawesome-solid-info-circle:](../api/examples/#equipplayer "Example") | None |
-| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. [:fontawesome-solid-info-circle:](../api/examples/#unequip "Example") | None |
-| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. [:fontawesome-solid-info-circle:](../api/examples/#addabilityability "Example") | None |
-| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. [:fontawesome-solid-info-circle:](../api/examples/#getabilities "Example") | None |
+| `Equip(Player)` | None | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. [:fontawesome-solid-info-circle:](../api/examples/#equipmentequip "Example") | None |
+| `Unequip()` | None | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. [:fontawesome-solid-info-circle:](../api/examples/#equipmentunequip "Example") | None |
+| `AddAbility(Ability)` | None | Adds an Ability to the list of abilities on this Equipment. [:fontawesome-solid-info-circle:](../api/examples/#equipmentaddability "Example") | None |
+| `GetAbilities()` | Array&lt;Ability&gt; | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. [:fontawesome-solid-info-circle:](../api/examples/#equipmentgetabilities "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. [:fontawesome-solid-info-circle:](../api/examples/#socket "Example") | Read-Write, Dynamic |
-| `owner` | Player | Which Player the Equipment is attached to. [:fontawesome-solid-info-circle:](../api/examples/#owner "Example") | Read-Only, Dynamic |
+| `socket` | string | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](api/animations.md#socket-names) for the list of possible values. [:fontawesome-solid-info-circle:](../api/examples/#equipmentsocket "Example") | Read-Write, Dynamic |
+| `owner` | Player | Which Player the Equipment is attached to. [:fontawesome-solid-info-circle:](../api/examples/#equipmentowner "Example") | Read-Only, Dynamic |
 
 ### Event
 
@@ -425,7 +425,7 @@ Events appear as properties on several objects. The goal is to register a functi
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fontawesome-solid-info-circle:](../api/examples/#connect "Example") | None |
+| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fontawesome-solid-info-circle:](../api/examples/#eventconnect "Example") | None |
 
 ### EventListener
 
@@ -433,11 +433,11 @@ EventListeners are returned by Events when you connect a listener function to th
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Disconnect()` | None | Disconnects this listener from its event, so it will no longer be called when the event is fired. [:fontawesome-solid-info-circle:](../api/examples/#disconnect "Example") | None |
+| `Disconnect()` | None | Disconnects this listener from its event, so it will no longer be called when the event is fired. [:fontawesome-solid-info-circle:](../api/examples/#eventlistenerdisconnect "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isConnected` | bool | Returns true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
+| `isConnected` | bool | Returns true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. [:fontawesome-solid-info-circle:](../api/examples/#eventlistenerisconnected "Example") | Read-Only |
 
 ### Folder
 
@@ -451,14 +451,14 @@ Contains data pertaining to an impact or raycast.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. [:fontawesome-solid-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
-| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. [:fontawesome-solid-info-circle:](../api/examples/#getimpactposition-getimpactnormal "Example") | None |
-| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. [:fontawesome-solid-info-circle:](../api/examples/#gettransform "Example") | None |
+| `GetImpactPosition()` | Vector3 | The world position where the impact occurred. [:fontawesome-solid-info-circle:](../api/examples/#hitresultgetimpactposition "Example") | None |
+| `GetImpactNormal()` | Vector3 | Normal direction of the surface which was impacted. [:fontawesome-solid-info-circle:](../api/examples/#hitresultgetimpactnormal "Example") | None |
+| `GetTransform()` | Transform | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. [:fontawesome-solid-info-circle:](../api/examples/#hitresultgettransform "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `other` | CoreObject or Player | Reference to a CoreObject or Player impacted. | Read-Only |
-| `socketName` | string | If the hit was on a Player, `socketName` tells you which spot on the body was hit. | Read-Only |
+| `other` | CoreObject or Player | Reference to a CoreObject or Player impacted. [:fontawesome-solid-info-circle:](../api/examples/#hitresultother "Example") | Read-Only |
+| `socketName` | string | If the hit was on a Player, `socketName` tells you which spot on the body was hit. [:fontawesome-solid-info-circle:](../api/examples/#hitresultsocketname "Example") | Read-Only |
 
 ### ImpactData
 
@@ -466,18 +466,18 @@ A data structure containing all information about a specific Weapon interaction,
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetHitResult()` | HitResult | Physics information about the impact between the Weapon and the other object. | None |
-| `GetHitResults()` | Array&lt;HitResult&gt; | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
+| `GetHitResult()` | HitResult | Physics information about the impact between the Weapon and the other object. [:fontawesome-solid-info-circle:](../api/examples/#impactdatagethitresult "Example") | None |
+| `GetHitResults()` | Array&lt;HitResult&gt; | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. [:fontawesome-solid-info-circle:](../api/examples/#impactdatagethitresults "Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `targetObject` | Object | Reference to the CoreObject/Player hit by the Weapon. | Read-Only |
-| `projectile` | Projectile | Reference to a Projectile, if one was produced as part of this interaction. | Read-Only |
-| `sourceAbility` | Ability | Reference to the Ability which initiated the interaction. | Read-Only |
-| `weapon` | Weapon | Reference to the Weapon that is interacting. | Read-Only |
-| `weaponOwner` | Player | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
-| `travelDistance` | Number | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
-| `isHeadshot` | bool | True if the Weapon hit another player in the head. | Read-Only |
+| `targetObject` | Object | Reference to the CoreObject/Player hit by the Weapon. [:fontawesome-solid-info-circle:](../api/examples/#impactdatatargetobject "Example") | Read-Only |
+| `projectile` | Projectile | Reference to a Projectile, if one was produced as part of this interaction. [:fontawesome-solid-info-circle:](../api/examples/#impactdataprojectile "Example") | Read-Only |
+| `sourceAbility` | Ability | Reference to the Ability which initiated the interaction. [:fontawesome-solid-info-circle:](../api/examples/#impactdatasourceability "Example") | Read-Only |
+| `weapon` | Weapon | Reference to the Weapon that is interacting. [:fontawesome-solid-info-circle:](../api/examples/#impactdataweapon "Example") | Read-Only |
+| `weaponOwner` | Player | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. [:fontawesome-solid-info-circle:](../api/examples/#impactdataweaponowner "Example") | Read-Only |
+| `travelDistance` | Number | The distance in cm between where the Weapon attack started until it impacted something. [:fontawesome-solid-info-circle:](../api/examples/#impactdatatraveldistance "Example") | Read-Only |
+| `isHeadshot` | bool | True if the Weapon hit another player in the head. [:fontawesome-solid-info-circle:](../api/examples/#impactdataisheadshot "Example") | Read-Only |
 
 ### Light
 
@@ -485,18 +485,18 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | The color of the light. | None |
-| `SetColor(Color)` | None | The color of the light. | Dynamic |
+| `GetColor()` | Color | The color of the light. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | None |
+| `SetColor(Color)` | None | The color of the light. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If `true`, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If `false`, the light's Intensity is a brightness scale. | Read-Write, Dynamic |
-| `attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. | Read-Write, Dynamic |
-| `isShadowCaster` | bool | Does this light cast shadows? | Read-Write, Dynamic |
-| `hasTemperature` | bool | true: use temperature value as illuminant. false: use white (D65) as illuminant. | Read-Write, Dynamic |
-| `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic |
-| `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write, Dynamic |
-| `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
+| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If `true`, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If `false`, the light's Intensity is a brightness scale. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `isShadowCaster` | bool | Does this light cast shadows? [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `hasTemperature` | bool | true: use temperature value as illuminant. false: use white (D65) as illuminant. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | Read-Write, Dynamic |
 
 ### NetworkContext
 
@@ -1302,8 +1302,8 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | None | Draws a debug line. `optionalParameters: duration (Number), thickness (Number), color (Color)`. 0 or negative duration results in a single frame. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 | `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | None | Draws a debug box, with dimension specified as a vector. `optionalParameters` has same options as `DrawLine()`, with addition of: `rotation (Rotation)` - rotation of the box. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | None | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. [:fontawesome-solid-info-circle:](../api/examples/#coredebug "Example") | None |
-| `CoreDebug.GetTaskStackTrace([Task task])` | string | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
-| `CoreDebug.GetStackTrace()` | string | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
+| `CoreDebug.GetTaskStackTrace([Task task])` | string | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | None |
+| `CoreDebug.GetStackTrace()` | string | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. [:fontawesome-solid-info-circle:](../api/examples/ "Example") | None |
 
 ### CoreLuaFunctions
 
@@ -1311,10 +1311,10 @@ A few base functions provided by the platform.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
-| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
-| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
-| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
+| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. [:fontawesome-solid-info-circle:](../api/examples/#coreluatick "Example") | None |
+| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. [:fontawesome-solid-info-circle:](../api/examples/#coreluatime "Example") | None |
+| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. [:fontawesome-solid-info-circle:](../api/examples/#coreluaprint "Example") | None |
+| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. [:fontawesome-solid-info-circle:](../api/examples/#coreluawarn "Example") | None |
 | `require(string)` | table | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |
 
 ### CoreMath
