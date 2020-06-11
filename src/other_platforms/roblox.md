@@ -39,7 +39,7 @@ A culture of collaboration is part of the Core Community, and is a powerful tool
 
 Core also uses the Lua scripting language, which is extremely flexible, and connects to a similar event system. However, the Core API is distinct from the Roblox API, and so similar functions have different names, and will work differently. You can check out the [Core API](core_api.md) for more details and example code.
 
-In general, scripts are created without parents, and have to be added into the project **Hierarchy**, equivalent ot the Explorer in Roblox. They can still be made children of objects to reference them, and it is also possible to define **Custom Property** variables that can be changed through the script's **Properties** window, rather than editing the script itself.
+In general, scripts are created without parents, and have to be added into the project **Hierarchy**, equivalent of the Explorer in Roblox. They can still be made children of objects to reference them, and it is also possible to define **Custom Property** variables that can be changed through the script's **Properties** window, rather than editing the script itself.
 
 #### Server and Client
 
