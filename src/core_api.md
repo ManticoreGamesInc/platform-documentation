@@ -67,13 +67,13 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `duration` | Number | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. Default values per phase: 0.15, 0, 0.5 and 3. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingsduration "Abilityphasesettings: duration Example") | Read-Only |
-| `canMove` | bool | Is the Player allowed to move during this phase. True by default. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingscanmove "Abilityphasesettings: canMove Example") | Read-Only |
-| `canJump` | bool | Is the Player allowed to jump during this phase. False by default in Cast & Execute, default True in Recovery & Cooldown. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingscanjump "Abilityphasesettings: canJump Example") | Read-Only |
-| `canRotate` | bool | Is the Player allowed to rotate during this phase. True by default. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingscanrotate "Abilityphasesettings: canRotate Example") | Read-Only |
-| `preventsOtherAbilities` | bool | When true this phase prevents the Player from casting another Ability, unless that other Ability has canBePrevented set to False. True by default in Cast & Execute, false in Recovery & Cooldown. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingspreventsotherabilities "Abilityphasesettings: preventsOtherAbilities Example") | Read-Only |
-| `isTargetDataUpdated` | bool | If `true`, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingsistargetdataupdated "Abilityphasesettings: isTargetDataUpdated Example") | Read-Only |
-| `facingMode` | AbilityFacingMode | How and if this Ability rotates the Player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are: AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM [:fontawesome-solid-info-circle:](../api/examples/#abilityphasesettingsfacingmode "Abilityphasesettings: facingMode Example") | Read-Only |
+| `duration` | Number | Length in seconds of the phase. After this time the Ability moves to the next phase. Can be zero. Default values per phase: 0.15, 0, 0.5 and 3. | Read-Only |
+| `canMove` | bool | Is the Player allowed to move during this phase. True by default. | Read-Only |
+| `canJump` | bool | Is the Player allowed to jump during this phase. False by default in Cast & Execute, default True in Recovery & Cooldown. | Read-Only |
+| `canRotate` | bool | Is the Player allowed to rotate during this phase. True by default. | Read-Only |
+| `preventsOtherAbilities` | bool | When true this phase prevents the Player from casting another Ability, unless that other Ability has canBePrevented set to False. True by default in Cast & Execute, false in Recovery & Cooldown. | Read-Only |
+| `isTargetDataUpdated` | bool | If `true`, there will be updated target information at the start of the phase. Otherwise, target information may be out of date. | Read-Only |
+| `facingMode` | AbilityFacingMode | How and if this Ability rotates the Player during execution. Cast and Execute default to "Aim", other phases default to "None". Options are: AbilityFacingMode.NONE, AbilityFacingMode.MOVEMENT, AbilityFacingMode.AIM | Read-Only |
 
 ### AbilityTarget
 
@@ -85,23 +85,23 @@ A data type containing information about what the Player has targeted during a p
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetOwnerMovementRotation()` | Rotation | Gets the direction the Player is moving. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetgetownermovementrotation "Abilitytarget: GetOwnerMovementRotation Example") | None |
-| `SetOwnerMovementRotation(Rotation)` | None | Sets the direction the Player faces, if `Ability.facingMode` is set to `AbilityFacingMode.MOVEMENT`. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetsetownermovementrotation "Abilitytarget: SetOwnerMovementRotation Example") | None |
+| `GetOwnerMovementRotation()` | Rotation | Gets the direction the Player is moving. | None |
+| `SetOwnerMovementRotation(Rotation)` | None | Sets the direction the Player faces, if `Ability.facingMode` is set to `AbilityFacingMode.MOVEMENT`. | None |
 | `GetAimPosition()` | Vector3 | Returns the world space position of the camera. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetgetaimposition "Abilitytarget: GetAimPosition Example") | None |
-| `SetAimPosition(Vector3)` | None | The world space location of the camera. Setting this currently has no effect on the Player's camera. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetsetaimposition "Abilitytarget: SetAimPosition Example") | None |
+| `SetAimPosition(Vector3)` | None | The world space location of the camera. Setting this currently has no effect on the Player's camera. | None |
 | `GetAimDirection()` | Vector3 | Returns the direction the camera is facing. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetgetaimdirection "Abilitytarget: GetAimDirection Example") | None |
-| `SetAimDirection(Vector3)` | None | Sets the direction the camera is facing. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetsetaimdirection "Abilitytarget: SetAimDirection Example") | None |
+| `SetAimDirection(Vector3)` | None | Sets the direction the camera is facing. | None |
 | `GetHitPosition()` | Vector3 | Returns the world space position of the object under the Player's reticle. If there is no object, a position under the reticle in the distance. If the Player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetgethitposition "Abilitytarget: GetHitPosition Example") | None |
 | `SetHitPosition(Vector3)` | None | Sets the hit position property. This may affect weapon behavior. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetsethitposition "Abilitytarget: SetHitPosition Example") | None |
 | `GetHitResult()` | HitResult | Returns physics information about the point being targeted [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetgethitresult "Abilitytarget: GetHitResult Example") | None |
-| `SetHitResult(HitResult)` | None | Sets the hit result property. Setting this value has no affect on the Ability. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetsethitresult "Abilitytarget: SetHitResult Example") | None |
+| `SetHitResult(HitResult)` | None | Sets the hit result property. Setting this value has no affect on the Ability. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `hitObject` | Object | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargethitobject "Abilitytarget: hitObject Example") | Read-Write |
 | `hitPlayer` | Player | Convenience property that is the same as hitObject, but only if hitObject is a Player. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargethitplayer "Abilitytarget: hitPlayer Example") | Read-Write |
-| `spreadHalfAngle` | Number | Half-angle of cone of possible target space, in degrees. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetspreadhalfangle "Abilitytarget: spreadHalfAngle Example") | Read-Write |
-| `spreadRandomSeed` | Integer | Seed that can be used with RandomStream for deterministic RNG. [:fontawesome-solid-info-circle:](../api/examples/#abilitytargetspreadrandomseed "Abilitytarget: spreadRandomSeed Example") | Read-Write |
+| `spreadHalfAngle` | Number | Half-angle of cone of possible target space, in degrees. | Read-Write |
+| `spreadRandomSeed` | Integer | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
 
 ### AnimatedMesh
 
@@ -135,10 +135,10 @@ AreaLight is a Light that emits light from a rectangular plane. It also has prop
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `sourceWidth` | Number | The width of the plane from which light is emitted. Must be greater than 0. [:fontawesome-solid-info-circle:](../api/examples/#arealightsourcewidth "Arealight: sourceWidth Example") | Read-Write, Dynamic |
-| `sourceHeight` | Number | The height of the plane from which light is emitted. Must be greater than 0. [:fontawesome-solid-info-circle:](../api/examples/#arealightsourceheight "Arealight: sourceHeight Example") | Read-Write, Dynamic |
-| `barnDoorAngle` | Number | The angle of the barn doors, in degrees. Valid values are in the range from 0 to 90. Has no effect if barnDoorLength is 0. [:fontawesome-solid-info-circle:](../api/examples/#arealightbarndoorangle "Arealight: barnDoorAngle Example") | Read-Write, Dynamic |
-| `barnDoorLength` | Number | The length of the barn doors. Must be non-negative. [:fontawesome-solid-info-circle:](../api/examples/#arealightbarndoorlength "Arealight: barnDoorLength Example") | Read-Write, Dynamic |
+| `sourceWidth` | Number | The width of the plane from which light is emitted. Must be greater than 0. | Read-Write, Dynamic |
+| `sourceHeight` | Number | The height of the plane from which light is emitted. Must be greater than 0. | Read-Write, Dynamic |
+| `barnDoorAngle` | Number | The angle of the barn doors, in degrees. Valid values are in the range from 0 to 90. Has no effect if barnDoorLength is 0. | Read-Write, Dynamic |
+| `barnDoorLength` | Number | The length of the barn doors. Must be non-negative. | Read-Write, Dynamic |
 
 ### Audio
 
@@ -146,29 +146,29 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Play()` | None | Begins sound playback. [:fontawesome-solid-info-circle:](../api/examples/#audioplay "Audio: Play Example") | Dynamic |
-| `Stop()` | None | Stops sound playback. [:fontawesome-solid-info-circle:](../api/examples/#audiostop "Audio: Stop Example") | Dynamic |
-| `FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. [:fontawesome-solid-info-circle:](../api/examples/#audiofadein "Audio: FadeIn Example") | Dynamic |
-| `FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. [:fontawesome-solid-info-circle:](../api/examples/#audiofadeout "Audio: FadeOut Example") | Dynamic |
+| `Play()` | None | Begins sound playback. | Dynamic |
+| `Stop()` | None | Stops sound playback. | Dynamic |
+| `FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. | Dynamic |
+| `FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isPlaying` | bool | Returns if the sound is currently playing. [:fontawesome-solid-info-circle:](../api/examples/#audioisplaying "Audio: isPlaying Example") | Read-Only |
-| `length` | Number | Returns the length (in seconds) of the Sound. [:fontawesome-solid-info-circle:](../api/examples/#audiolength "Audio: length Example") | Read-Only |
-| `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the sound. [:fontawesome-solid-info-circle:](../api/examples/#audiocurrentplaybacktime "Audio: currentPlaybackTime Example") | Read-Only |
-| `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. [:fontawesome-solid-info-circle:](../api/examples/#audioisspatializationenabled "Audio: isSpatializationEnabled Example") | Read-Write, Dynamic |
-| `isAttenuationEnabled` | bool | Default true, meaning sounds will fade with distance. [:fontawesome-solid-info-circle:](../api/examples/#audioisattenuationenabled "Audio: isAttenuationEnabled Example") | Read-Write, Dynamic |
-| `isOcclusionEnabled` | bool | Default true. Changes attenuation if there is geometry between the player and the audio source. [:fontawesome-solid-info-circle:](../api/examples/#audioisocclusionenabled "Audio: isOcclusionEnabled Example") | Read-Write, Dynamic |
-| `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. [:fontawesome-solid-info-circle:](../api/examples/#audioisautoplayenabled "Audio: isAutoPlayEnabled Example") | Read-Only |
-| `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. [:fontawesome-solid-info-circle:](../api/examples/#audioistransient "Audio: isTransient Example") | Read-Write, Dynamic |
-| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. [:fontawesome-solid-info-circle:](../api/examples/#audioisautorepeatenabled "Audio: isAutoRepeatEnabled Example") | Read-Write, Dynamic |
-| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). [:fontawesome-solid-info-circle:](../api/examples/#audiopitch "Audio: pitch Example") | Read-Write, Dynamic |
-| `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. [:fontawesome-solid-info-circle:](../api/examples/#audiovolume "Audio: volume Example") | Read-Write, Dynamic |
-| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. [:fontawesome-solid-info-circle:](../api/examples/#audioradius "Audio: radius Example") | Read-Write, Dynamic |
-| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. [:fontawesome-solid-info-circle:](../api/examples/#audiofalloff "Audio: falloff Example") | Read-Write, Dynamic |
-| `fadeInTime` | Number | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. [:fontawesome-solid-info-circle:](../api/examples/#audiofadeintime "Audio: fadeInTime Example") | Read-Write, Dynamic |
-| `fadeOutTime` | Number | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. [:fontawesome-solid-info-circle:](../api/examples/#audiofadeouttime "Audio: fadeOutTime Example") | Read-Write, Dynamic |
-| `startTime` | Number | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. [:fontawesome-solid-info-circle:](../api/examples/#audiostarttime "Audio: startTime Example") | Read-Write, Dynamic |
+| `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only |
+| `length` | Number | Returns the length (in seconds) of the Sound. | Read-Only |
+| `currentPlaybackTime` | Number | Returns the playback position (in seconds) of the sound. | Read-Only |
+| `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic |
+| `isAttenuationEnabled` | bool | Default true, meaning sounds will fade with distance. | Read-Write, Dynamic |
+| `isOcclusionEnabled` | bool | Default true. Changes attenuation if there is geometry between the player and the audio source. | Read-Write, Dynamic |
+| `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only |
+| `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write, Dynamic |
+| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. | Read-Write, Dynamic |
+| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). | Read-Write, Dynamic |
+| `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write, Dynamic |
+| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write, Dynamic |
+| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write, Dynamic |
+| `fadeInTime` | Number | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write, Dynamic |
+| `fadeOutTime` | Number | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write, Dynamic |
+| `startTime` | Number | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write, Dynamic |
 
 ### Camera
 
@@ -211,34 +211,34 @@ An RGBA representation of a color. Color components have an effective range of `
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Color.Lerp(Color from, Color to, Number progress)` | Color | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. [:fontawesome-solid-info-circle:](../api/examples/#colorlerp "Color: Lerp Example") | None |
-| `Color.Random()` | Color | Returns a new color with random RGB values and Alpha of 1.0. [:fontawesome-solid-info-circle:](../api/examples/#colorrandom "Color: Random Example") | None |
+| `Color.Random()` | Color | Returns a new color with random RGB values and Alpha of 1.0. | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Color.New(Number r, Number g, Number b, [Number a])` | Color | Constructs a Color with the given values, alpha defaults to 1.0. [:fontawesome-solid-info-circle:](../api/examples/#colornew "Color: New Example") | None |
-| `Color.New(Vector3 v)` | Color | Constructs a Color using the vector's XYZ components as the color's RGB components, alpha defaults to 1.0. [:fontawesome-solid-info-circle:](../api/examples/#colornew "Color: New Example") | None |
-| `Color.New(Vector4 v)` | Color | Constructs a Color using the vector's XYZW components as the color's RGBA components. [:fontawesome-solid-info-circle:](../api/examples/#colornew "Color: New Example") | None |
-| `Color.New(Color c)` | Color | Makes a copy of the given color. [:fontawesome-solid-info-circle:](../api/examples/#colornew "Color: New Example") | None |
+| `Color.New(Number r, Number g, Number b, [Number a])` | Color | Constructs a Color with the given values, alpha defaults to 1.0. | None |
+| `Color.New(Vector3 v)` | Color | Constructs a Color using the vector's XYZ components as the color's RGB components, alpha defaults to 1.0. | None |
+| `Color.New(Vector4 v)` | Color | Constructs a Color using the vector's XYZW components as the color's RGBA components. | None |
+| `Color.New(Color c)` | Color | Makes a copy of the given color. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetDesaturated(Number desaturation)` | Color | Returns the desaturated version of the Color. 0 represents no desaturation and 1 represents full desaturation. [:fontawesome-solid-info-circle:](../api/examples/#colorgetdesaturated "Color: GetDesaturated Example") | None |
+| `GetDesaturated(Number desaturation)` | Color | Returns the desaturated version of the Color. 0 represents no desaturation and 1 represents full desaturation. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Color + Color` | Color | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-color "Color: Color + Color Example") | None |
-| `Color - Color` | Color | Component-wise subtraction [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-color "Color: Color - Color Example") | None |
-| `Color * Color` | Color | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-color "Color: Color * Color Example") | None |
-| `Color * Number` | Color | Multiplies each component of the Color by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-number "Color: Color * Number Example") | None |
-| `Color / Color` | Color | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-color "Color: Color / Color Example") | None |
-| `Color / Number` | Color | Divides each component of the Color by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#colorcolor-number "Color: Color / Number Example") | None |
+| `Color + Color` | Color | Component-wise addition. | None |
+| `Color - Color` | Color | Component-wise subtraction | None |
+| `Color * Color` | Color | Component-wise multiplication. | None |
+| `Color * Number` | Color | Multiplies each component of the Color by the right-side Number. | None |
+| `Color / Color` | Color | Component-wise division. | None |
+| `Color / Number` | Color | Divides each component of the Color by the right-side Number. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `r` | Number | The Red component of the Color. [:fontawesome-solid-info-circle:](../api/examples/#colorr "Color: r Example") | Read-Write |
-| `g` | Number | The Green component of the Color. [:fontawesome-solid-info-circle:](../api/examples/#colorg "Color: g Example") | Read-Write |
-| `b` | Number | The Blue component of the Color. [:fontawesome-solid-info-circle:](../api/examples/#colorb "Color: b Example") | Read-Write |
-| `a` | Number | The Alpha (transparency) component of the Color. [:fontawesome-solid-info-circle:](../api/examples/#colora "Color: a Example") | Read-Write |
+| `r` | Number | The Red component of the Color. | Read-Write |
+| `g` | Number | The Green component of the Color. | Read-Write |
+| `b` | Number | The Blue component of the Color. | Read-Write |
+| `a` | Number | The Alpha (transparency) component of the Color. | Read-Write |
 
 #### Predefined Colors
 
@@ -425,7 +425,7 @@ Events appear as properties on several objects. The goal is to register a functi
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fontawesome-solid-info-circle:](../api/examples/#event- "Event: ]) Example") | None |
+| `Connect(function eventListener, [...])` | EventListener | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
 
 ### EventListener
 
@@ -485,18 +485,18 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | The color of the light. [:fontawesome-solid-info-circle:](../api/examples/#lightgetcolor "Light: GetColor Example") | None |
-| `SetColor(Color)` | None | The color of the light. [:fontawesome-solid-info-circle:](../api/examples/#lightsetcolor "Light: SetColor Example") | Dynamic |
+| `GetColor()` | Color | The color of the light. | None |
+| `SetColor(Color)` | None | The color of the light. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If `true`, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If `false`, the light's Intensity is a brightness scale. [:fontawesome-solid-info-circle:](../api/examples/#lightintensity "Light: intensity Example") | Read-Write, Dynamic |
-| `attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. [:fontawesome-solid-info-circle:](../api/examples/#lightattenuationradius "Light: attenuationRadius Example") | Read-Write, Dynamic |
-| `isShadowCaster` | bool | Does this light cast shadows? [:fontawesome-solid-info-circle:](../api/examples/#lightisshadowcaster "Light: isShadowCaster Example") | Read-Write, Dynamic |
-| `hasTemperature` | bool | true: use temperature value as illuminant. false: use white (D65) as illuminant. [:fontawesome-solid-info-circle:](../api/examples/#lighthastemperature "Light: hasTemperature Example") | Read-Write, Dynamic |
-| `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. [:fontawesome-solid-info-circle:](../api/examples/#lighttemperature "Light: temperature Example") | Read-Write, Dynamic |
-| `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. [:fontawesome-solid-info-circle:](../api/examples/#lightteam "Light: team Example") | Read-Write, Dynamic |
-| `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. [:fontawesome-solid-info-circle:](../api/examples/#lightisteamcolorused "Light: isTeamColorUsed Example") | Read-Write, Dynamic |
+| `intensity` | Number | The intensity of the light. For PointLights and SpotLights, this has two interpretations, depending on the value of the `hasNaturalFallOff` property. If `true`, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb. If `false`, the light's Intensity is a brightness scale. | Read-Write, Dynamic |
+| `attenuationRadius` | Number | Bounds the light's visible influence. This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more. | Read-Write, Dynamic |
+| `isShadowCaster` | bool | Does this light cast shadows? | Read-Write, Dynamic |
+| `hasTemperature` | bool | true: use temperature value as illuminant. false: use white (D65) as illuminant. | Read-Write, Dynamic |
+| `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic |
+| `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
 
 ### NetworkContext
 
@@ -523,11 +523,11 @@ Other
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `IsA()` | bool | Expects a string parameter representing an object type. E.g. `myObject:IsA("Equipment")`. Returns `true` if the object is of the given type or one of its subtypes, returns `false` otherwise. [:fontawesome-solid-info-circle:](../api/examples/#otherisa "Other: IsA Example") | None |
+| `IsA()` | bool | Expects a string parameter representing an object type. E.g. `myObject:IsA("Equipment")`. Returns `true` if the object is of the given type or one of its subtypes, returns `false` otherwise. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `type` | string | All data structures and Objects share the common `type` property. [:fontawesome-solid-info-circle:](../api/examples/#othertype "Other: type Example") | Read-Only |
+| `type` | string | All data structures and Objects share the common `type` property. | Read-Only |
 
 ### Player
 
@@ -581,10 +581,10 @@ Player is an Object representation of the state of a Player connected to the gam
 | `SetMounted(bool)` | None | Forces a player in or out of mounted state. [:fontawesome-solid-info-circle:](../api/examples/#playersetmounted "Player: SetMounted Example") | Server-Only |
 | `GetActiveCamera()` | Camera | Returns whichever camera is currently active for the Player. [:fontawesome-solid-info-circle:](../api/examples/#playergetactivecamera "Player: GetActiveCamera Example") | Client-Only |
 | `GetDefaultCamera()` | Camera | Returns the default Camera object the Player is currently using. [:fontawesome-solid-info-circle:](../api/examples/#playergetdefaultcamera "Player: GetDefaultCamera Example") | Client-Only |
-| `SetDefaultCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the default Camera object for the Player. [:fontawesome-solid-info-circle:](../api/examples/#player0- "Player: 0]) Example") | Client-Only |
+| `SetDefaultCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the default Camera object for the Player. | Client-Only |
 | `GetOverrideCamera()` | Camera | Returns the override Camera object the Player is currently using. [:fontawesome-solid-info-circle:](../api/examples/#playergetoverridecamera "Player: GetOverrideCamera Example") | Client-Only |
-| `SetOverrideCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the override Camera object for the Player. [:fontawesome-solid-info-circle:](../api/examples/#player0- "Player: 0]) Example") | Client-Only |
-| `ClearOverrideCamera([Number lerpTime = 0.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). [:fontawesome-solid-info-circle:](../api/examples/#player0- "Player: 0]) Example") | Client-Only |
+| `SetOverrideCamera(Camera, [Number lerpTime = 0.0])` | None | Sets the override Camera object for the Player. | Client-Only |
+| `ClearOverrideCamera([Number lerpTime = 0.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
 | `ActivateFlying()` | None | Activates the Player flying mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivateflying "Player: ActivateFlying Example") | Server-Only |
 | `ActivateWalking()` | None | Activate the Player walking mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivatewalking "Player: ActivateWalking Example") | Server-Only |
 
@@ -642,7 +642,7 @@ Settings that can be applied to a Player.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `ApplyToPlayer(Player)` | None | Apply settings from this settings object to Player. [:fontawesome-solid-info-circle:](../api/examples/#playersettingsapplytoplayer "Playersettings: ApplyToPlayer Example") | Server-Only |
+| `ApplyToPlayer(Player)` | None | Apply settings from this settings object to Player. | Server-Only |
 
 ### PlayerStart
 
@@ -650,7 +650,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | Integer | Determines which players are eligible to spawn/respawn at this point. [:fontawesome-solid-info-circle:](../api/examples/#playerstartteam "Playerstart: team Example") | Server-Only, Read-Write, Dynamic |
+| `team` | Integer | Determines which players are eligible to spawn/respawn at this point. | Server-Only, Read-Write, Dynamic |
 
 ### PointLight
 
@@ -658,10 +658,10 @@ PointLight is a placeable light source that is a CoreObject.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, `attenuationRadius` is used. When disabled, `falloffExponent` is used. Also changes the interpretation of the intensity property, see intensity for details. [:fontawesome-solid-info-circle:](../api/examples/#pointlighthasnaturalfalloff "Pointlight: hasNaturalFalloff Example") | Read-Write, Dynamic |
-| `falloffExponent` | Number | Controls the radial falloff of the light when `hasNaturalFalloff` is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. [:fontawesome-solid-info-circle:](../api/examples/#pointlightfalloffexponent "Pointlight: falloffExponent Example") | Read-Write, Dynamic |
-| `sourceRadius` | Number | Radius of light source shape. [:fontawesome-solid-info-circle:](../api/examples/#pointlightsourceradius "Pointlight: sourceRadius Example") | Read-Write, Dynamic |
-| `sourceLength` | Number | Length of light source shape. [:fontawesome-solid-info-circle:](../api/examples/#pointlightsourcelength "Pointlight: sourceLength Example") | Read-Write, Dynamic |
+| `hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, `attenuationRadius` is used. When disabled, `falloffExponent` is used. Also changes the interpretation of the intensity property, see intensity for details. | Read-Write, Dynamic |
+| `falloffExponent` | Number | Controls the radial falloff of the light when `hasNaturalFalloff` is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic |
+| `sourceRadius` | Number | Radius of light source shape. | Read-Write, Dynamic |
+| `sourceLength` | Number | Length of light source shape. | Read-Write, Dynamic |
 
 ### Projectile
 
@@ -682,7 +682,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `Destroy()` | Object | Immediately destroys the object. [:fontawesome-solid-info-circle:](../api/examples/#projectiledestroy "Projectile: Destroy Example") | None |
 | `GetWorldTransform()` | Transform | Transform data for the Projectile in world space. [:fontawesome-solid-info-circle:](../api/examples/#projectilegetworldtransform "Projectile: GetWorldTransform Example") | None |
 | `GetWorldPosition()` | Vector3 | Position of the Projectile in world space. [:fontawesome-solid-info-circle:](../api/examples/#projectilegetworldposition "Projectile: GetWorldPosition Example") | None |
-| `SetWorldPosition(Vector3)` | None | Position of the Projectile in world space. [:fontawesome-solid-info-circle:](../api/examples/#projectilesetworldposition "Projectile: SetWorldPosition Example") | None |
+| `SetWorldPosition(Vector3)` | None | Position of the Projectile in world space. | None |
 | `GetVelocity()` | Vector3 | Current direction and speed vector of the Projectile. [:fontawesome-solid-info-circle:](../api/examples/#projectilegetvelocity "Projectile: GetVelocity Example") | None |
 | `SetVelocity(Vector3)` | None | Current direction and speed vector of the Projectile. [:fontawesome-solid-info-circle:](../api/examples/#projectilesetvelocity "Projectile: SetVelocity Example") | None |
 
@@ -731,13 +731,13 @@ A quaternion-based representation of a rotation.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Quaternion + Quaternion` | Quaternion | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-quaternion "Quaternion: Quaternion + Quaternion Example") | None |
-| `Quaternion - Quaternion` | Quaternion | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-quaternion "Quaternion: Quaternion - Quaternion Example") | None |
-| `Quaternion * Quaternion` | Quaternion | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-quaternion "Quaternion: Quaternion * Quaternion Example") | None |
-| `Quaternion * Number` | Quaternion | Multiplies each component by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-number "Quaternion: Quaternion * Number Example") | None |
-| `Quaternion * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-vector3 "Quaternion: Quaternion * Vector3 Example") | None |
-| `Quaternion / Number` | Quaternion | Divides each component by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion-number "Quaternion: Quaternion / Number Example") | None |
-| `-Quaternion` | Quaternion | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#quaternion-quaternion "Quaternion: -Quaternion Example") | None |
+| `Quaternion + Quaternion` | Quaternion | Component-wise addition. | None |
+| `Quaternion - Quaternion` | Quaternion | Component-wise subtraction. | None |
+| `Quaternion * Quaternion` | Quaternion | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. | None |
+| `Quaternion * Number` | Quaternion | Multiplies each component by the right-side Number. | None |
+| `Quaternion * Vector3` | Vector3 | Rotates the right-side vector and returns the result. | None |
+| `Quaternion / Number` | Quaternion | Divides each component by the right-side Number. | None |
+| `-Quaternion` | Quaternion | Returns the inverse rotation. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -752,22 +752,22 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `RandomStream.New([Integer seed])` | RandomStream | Constructor with specified seed, defaults to 0. [:fontawesome-solid-info-circle:](../api/examples/#randomstreamnew "Randomstream: New Example") | None |
+| `RandomStream.New([Integer seed])` | RandomStream | Constructor with specified seed, defaults to 0. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetInitialSeed()` | Integer | The seed that was used to initialize this stream. [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetinitialseed "Randomstream: GetInitialSeed Example") | None |
-| `Reset()` | None | Function that sets the seed back to the initial seed. [:fontawesome-solid-info-circle:](../api/examples/#randomstreamreset "Randomstream: Reset Example") | None |
-| `Mutate()` | None | Moves the seed forward to the next seed. [:fontawesome-solid-info-circle:](../api/examples/#randomstreammutate "Randomstream: Mutate Example") | None |
-| `GetNumber([Number min, Number max])` | Number | Returns a floating point number between `min` and `max` (inclusive), defaults to `0` and `1` (exclusive). [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetnumber "Randomstream: GetNumber Example") | None |
-| `GetInteger(Integer min, Integer max)` | Number | Returns an integer number between `min` and `max` (inclusive). [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetinteger "Randomstream: GetInteger Example") | None |
-| `GetVector3()` | Vector3 | Returns a random unit vector. [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetvector3 "Randomstream: GetVector3 Example") | None |
-| `GetVector3FromCone(Vector3 direction, Number halfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction` and `halfAngle` (in degrees). [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetvector3fromcone "Randomstream: GetVector3FromCone Example") | None |
-| `GetVector3FromCone(Vector3 direction, Number horizontalHalfAngle, Number verticalHalfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction`, `horizontalHalfAngle` and `verticalHalfAngle` (in degrees). [:fontawesome-solid-info-circle:](../api/examples/#randomstreamgetvector3fromcone "Randomstream: GetVector3FromCone Example") | None |
+| `GetInitialSeed()` | Integer | The seed that was used to initialize this stream. | None |
+| `Reset()` | None | Function that sets the seed back to the initial seed. | None |
+| `Mutate()` | None | Moves the seed forward to the next seed. | None |
+| `GetNumber([Number min, Number max])` | Number | Returns a floating point number between `min` and `max` (inclusive), defaults to `0` and `1` (exclusive). | None |
+| `GetInteger(Integer min, Integer max)` | Number | Returns an integer number between `min` and `max` (inclusive). | None |
+| `GetVector3()` | Vector3 | Returns a random unit vector. | None |
+| `GetVector3FromCone(Vector3 direction, Number halfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction` and `halfAngle` (in degrees). | None |
+| `GetVector3FromCone(Vector3 direction, Number horizontalHalfAngle, Number verticalHalfAngle)` | Vector3 | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction`, `horizontalHalfAngle` and `verticalHalfAngle` (in degrees). | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `seed` | Integer | The current seed used for RNG. [:fontawesome-solid-info-circle:](../api/examples/#randomstreamseed "Randomstream: seed Example") | Read-Write |
+| `seed` | Integer | The current seed used for RNG. | Read-Write |
 
 ### Rotation
 
@@ -783,11 +783,11 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Rotation + Rotation` | Rotation | Add two rotations together. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-rotation "Rotation: Rotation + Rotation Example") | None |
-| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-rotation "Rotation: Rotation - Rotation Example") | None |
-| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-number "Rotation: Rotation * Number Example") | None |
-| `-Rotation` | Rotation | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: -Rotation Example") | None |
-| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-vector3 "Rotation: Rotation * Vector3 Example") | None |
+| `Rotation + Rotation` | Rotation | Add two rotations together. | None |
+| `Rotation - Rotation` | Rotation | Subtract a rotation. | None |
+| `Rotation * Number` | Rotation | Returns the scaled rotation. | None |
+| `-Rotation` | Rotation | Returns the inverse rotation. | None |
+| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -809,13 +809,13 @@ ScriptAsset is an Object representing a script asset in Project Content. When a 
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetCustomProperties()` | table | Returns a table containing the names and values of all custom properties on the script asset. [:fontawesome-solid-info-circle:](../api/examples/#scriptassetgetcustomproperties "Scriptasset: GetCustomProperties Example") | None |
-| `GetCustomProperty(string propertyName)` | value, bool | Gets an individual custom property from the script asset. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. [:fontawesome-solid-info-circle:](../api/examples/#scriptassetgetcustomproperty "Scriptasset: GetCustomProperty Example") | None |
+| `GetCustomProperties()` | table | Returns a table containing the names and values of all custom properties on the script asset. | None |
+| `GetCustomProperty(string propertyName)` | value, bool | Gets an individual custom property from the script asset. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `name` | string | The name of the script in Project Content. [:fontawesome-solid-info-circle:](../api/examples/#scriptassetname "Scriptasset: name Example") | Read-Only |
-| `id` | string | The script asset's MUID. [:fontawesome-solid-info-circle:](../api/examples/#scriptassetid "Scriptasset: id Example") | Read-Only |
+| `name` | string | The name of the script in Project Content. | Read-Only |
+| `id` | string | The script asset's MUID. | Read-Only |
 
 ### SmartAudio
 
@@ -823,27 +823,27 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Play()` | None | Begins sound playback. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioplay "Smartaudio: Play Example") | Dynamic |
-| `Stop()` | None | Stops sound playback. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiostop "Smartaudio: Stop Example") | Dynamic |
-| `FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiofadein "Smartaudio: FadeIn Example") | Dynamic |
-| `FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiofadeout "Smartaudio: FadeOut Example") | Dynamic |
+| `Play()` | None | Begins sound playback. | Dynamic |
+| `Stop()` | None | Stops sound playback. | Dynamic |
+| `FadeIn(Number time)` | None | Starts playing and fades in the sound over the given time. | Dynamic |
+| `FadeOut(Number time)` | None | Fades the sound out and stops over time seconds. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isPlaying` | bool | Returns if the sound is currently playing. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisplaying "Smartaudio: isPlaying Example") | Read-Only |
-| `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisspatializationenabled "Smartaudio: isSpatializationEnabled Example") | Read-Write, Dynamic |
-| `isAttenuationEnabled` | bool | Default true, meaning sounds will fade with distance. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisattenuationenabled "Smartaudio: isAttenuationEnabled Example") | Read-Write, Dynamic |
-| `isOcclusionEnabled` | bool | Default true. Changes attenuation if there is geometry between the player and the audio source. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisocclusionenabled "Smartaudio: isOcclusionEnabled Example") | Read-Write, Dynamic |
-| `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisautoplayenabled "Smartaudio: isAutoPlayEnabled Example") | Read-Only |
-| `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioistransient "Smartaudio: isTransient Example") | Read-Write, Dynamic |
-| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioisautorepeatenabled "Smartaudio: isAutoRepeatEnabled Example") | Read-Write, Dynamic |
-| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). [:fontawesome-solid-info-circle:](../api/examples/#smartaudiopitch "Smartaudio: pitch Example") | Read-Write, Dynamic |
-| `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiovolume "Smartaudio: volume Example") | Read-Write, Dynamic |
-| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. [:fontawesome-solid-info-circle:](../api/examples/#smartaudioradius "Smartaudio: radius Example") | Read-Write, Dynamic |
-| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiofalloff "Smartaudio: falloff Example") | Read-Write, Dynamic |
-| `fadeInTime` | Number | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiofadeintime "Smartaudio: fadeInTime Example") | Read-Write, Dynamic |
-| `fadeOutTime` | Number | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiofadeouttime "Smartaudio: fadeOutTime Example") | Read-Write, Dynamic |
-| `startTime` | Number | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. [:fontawesome-solid-info-circle:](../api/examples/#smartaudiostarttime "Smartaudio: startTime Example") | Read-Write, Dynamic |
+| `isPlaying` | bool | Returns if the sound is currently playing. | Read-Only |
+| `isSpatializationEnabled` | bool | Default true. Set to false to play sound without 3D positioning. | Read-Write, Dynamic |
+| `isAttenuationEnabled` | bool | Default true, meaning sounds will fade with distance. | Read-Write, Dynamic |
+| `isOcclusionEnabled` | bool | Default true. Changes attenuation if there is geometry between the player and the audio source. | Read-Write, Dynamic |
+| `isAutoPlayEnabled` | bool | Default false. If set to true when placed in the editor (or included in a template), the sound will be automatically played when loaded. | Read-Only |
+| `isTransient` | bool | Default false. If set to true, the sound will automatically destroy itself after it finishes playing. | Read-Write, Dynamic |
+| `isAutoRepeatEnabled` | bool | Loops when playback has finished. Some sounds are designed to automatically loop, this flag will force others that don't. Useful for looping music. | Read-Write, Dynamic |
+| `pitch` | Number | Default 1. Multiplies the playback pitch of a sound. Note that some sounds have clamped pitch ranges (0.2 to 1). | Read-Write, Dynamic |
+| `volume` | Number | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write, Dynamic |
+| `radius` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write, Dynamic |
+| `falloff` | Number | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write, Dynamic |
+| `fadeInTime` | Number | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write, Dynamic |
+| `fadeOutTime` | Number | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write, Dynamic |
+| `startTime` | Number | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write, Dynamic |
 
 ### SmartObject
 
@@ -851,14 +851,14 @@ SmartObject is a top-level container for some complex objects and inherits every
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetSmartProperties()` | table | Returns a table containing the names and values of all smart properties on a SmartObject. [:fontawesome-solid-info-circle:](../api/examples/#smartobjectgetsmartproperties "Smartobject: GetSmartProperties Example") | None |
-| `GetSmartProperty(string)` | value, bool | Given a property name, returns the current value of that property on a SmartObject. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found. Second return value is a bool, true if the property was found and false if not. [:fontawesome-solid-info-circle:](../api/examples/#smartobjectgetsmartproperty "Smartobject: GetSmartProperty Example") | None |
-| `SetSmartProperty(string, value)` | bool | Sets the value of an exposed property. Value can be of type Number, bool, string, Vector3, Rotation or Color, but must match the type of the property. Returns true if the property was set successfully and false if not. [:fontawesome-solid-info-circle:](../api/examples/#smartobjectsetsmartproperty "Smartobject: SetSmartProperty Example") | Dynamic |
+| `GetSmartProperties()` | table | Returns a table containing the names and values of all smart properties on a SmartObject. | None |
+| `GetSmartProperty(string)` | value, bool | Given a property name, returns the current value of that property on a SmartObject. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, or nil if not found. Second return value is a bool, true if the property was found and false if not. | None |
+| `SetSmartProperty(string, value)` | bool | Sets the value of an exposed property. Value can be of type Number, bool, string, Vector3, Rotation or Color, but must match the type of the property. Returns true if the property was set successfully and false if not. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | Integer | Assigns the SmartObject to a team. Value range from 0 to 4. 0 is neutral team. [:fontawesome-solid-info-circle:](../api/examples/#smartobjectteam "Smartobject: team Example") | Read-Write, Dynamic |
-| `isTeamColorUsed` | bool | If `true`, and the SmartObject has been assigned to a valid team, players on that team will see one color, while other players will see another color. Requires a SmartObject that supports team colors. [:fontawesome-solid-info-circle:](../api/examples/#smartobjectisteamcolorused "Smartobject: isTeamColorUsed Example") | Read-Write, Dynamic |
+| `team` | Integer | Assigns the SmartObject to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, and the SmartObject has been assigned to a valid team, players on that team will see one color, while other players will see another color. Requires a SmartObject that supports team colors. | Read-Write, Dynamic |
 
 ### SpotLight
 
@@ -866,12 +866,12 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, `attenuationRadius` is used. When disabled, `falloffExponent` is used. Also changes the interpretation of the intensity property, see intensity for details. [:fontawesome-solid-info-circle:](../api/examples/#spotlighthasnaturalfalloff "Spotlight: hasNaturalFalloff Example") | Read-Write, Dynamic |
-| `falloffExponent` | Number | Controls the radial falloff of the light when `hasNaturalFalloff` is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. [:fontawesome-solid-info-circle:](../api/examples/#spotlightfalloffexponent "Spotlight: falloffExponent Example") | Read-Write, Dynamic |
-| `sourceRadius` | Number | Radius of light source shape. [:fontawesome-solid-info-circle:](../api/examples/#spotlightsourceradius "Spotlight: sourceRadius Example") | Read-Write, Dynamic |
-| `sourceLength` | Number | Length of light source shape. [:fontawesome-solid-info-circle:](../api/examples/#spotlightsourcelength "Spotlight: sourceLength Example") | Read-Write, Dynamic |
-| `innerConeAngle` | Number | The angle (in degrees) of the cone within which the projected light achieves full brightness. [:fontawesome-solid-info-circle:](../api/examples/#spotlightinnerconeangle "Spotlight: innerConeAngle Example") | Read-Write, Dynamic |
-| `outerConeAngle` | Number | The outer angle (in degrees) of the cone of light emitted by this SpotLight. [:fontawesome-solid-info-circle:](../api/examples/#spotlightouterconeangle "Spotlight: outerConeAngle Example") | Read-Write, Dynamic |
+| `hasNaturalFalloff` | bool | The attenuation method of the light. When enabled, `attenuationRadius` is used. When disabled, `falloffExponent` is used. Also changes the interpretation of the intensity property, see intensity for details. | Read-Write, Dynamic |
+| `falloffExponent` | Number | Controls the radial falloff of the light when `hasNaturalFalloff` is false. 2.0 is almost linear and very unrealistic and around 8.0 it looks reasonable. With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents. | Read-Write, Dynamic |
+| `sourceRadius` | Number | Radius of light source shape. | Read-Write, Dynamic |
+| `sourceLength` | Number | Length of light source shape. | Read-Write, Dynamic |
+| `innerConeAngle` | Number | The angle (in degrees) of the cone within which the projected light achieves full brightness. | Read-Write, Dynamic |
+| `outerConeAngle` | Number | The outer angle (in degrees) of the cone of light emitted by this SpotLight. | Read-Write, Dynamic |
 
 ### StaticMesh
 
@@ -912,34 +912,34 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Transform.New()` | Transform | Constructs a new identity Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformnew "Transform: New Example") | None |
-| `Transform.New(Quaternion rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Quaternion. [:fontawesome-solid-info-circle:](../api/examples/#transformnew "Transform: New Example") | None |
-| `Transform.New(Rotation rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Rotation. [:fontawesome-solid-info-circle:](../api/examples/#transformnew "Transform: New Example") | None |
-| `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | Transform | Constructs a new Transform from a Matrix. [:fontawesome-solid-info-circle:](../api/examples/#transformnew "Transform: New Example") | None |
-| `Transform.New(Transform transform)` | Transform | Copies the given Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformnew "Transform: New Example") | None |
-| `Transform.IDENTITY` | Transform | Constant identity Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformidentity "Transform: IDENTITY Example") | None |
+| `Transform.New()` | Transform | Constructs a new identity Transform. | None |
+| `Transform.New(Quaternion rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Quaternion. | None |
+| `Transform.New(Rotation rotation, Vector3 position, Vector3 scale)` | Transform | Constructs a new Transform with a Rotation. | None |
+| `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | Transform | Constructs a new Transform from a Matrix. | None |
+| `Transform.New(Transform transform)` | Transform | Copies the given Transform. | None |
+| `Transform.IDENTITY` | Transform | Constant identity Transform. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetPosition()` | Vector3 | Returns a copy of the position component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetposition "Transform: GetPosition Example") | None |
-| `SetPosition(Vector3)` | None | Sets the position component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformsetposition "Transform: SetPosition Example") | None |
-| `GetRotation()` | Rotation | Returns a copy of the Rotation component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetrotation "Transform: GetRotation Example") | None |
-| `SetRotation(Rotation)` | None | Sets the rotation component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformsetrotation "Transform: SetRotation Example") | None |
-| `GetQuaternion()` | Quaternion | Returns a quaternion-based representation of the Rotation. [:fontawesome-solid-info-circle:](../api/examples/#transformgetquaternion "Transform: GetQuaternion Example") | None |
-| `SetQuaternion(Quaternion)` | None | Sets the quaternion-based representation of the Rotation. [:fontawesome-solid-info-circle:](../api/examples/#transformsetquaternion "Transform: SetQuaternion Example") | None |
-| `GetScale()` | Vector3 | Returns a copy of the scale component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetscale "Transform: GetScale Example") | None |
-| `SetScale(Vector3)` | None | Sets the scale component of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformsetscale "Transform: SetScale Example") | None |
-| `GetForwardVector()` | Vector3 | Forward vector of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetforwardvector "Transform: GetForwardVector Example") | None |
-| `GetRightVector()` | Vector3 | Right vector of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetrightvector "Transform: GetRightVector Example") | None |
-| `GetUpVector()` | Vector3 | Up vector of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetupvector "Transform: GetUpVector Example") | None |
-| `GetInverse()` | Transform | Inverse of the Transform. [:fontawesome-solid-info-circle:](../api/examples/#transformgetinverse "Transform: GetInverse Example") | None |
-| `TransformPosition(Vector3 position)` | Vector3 | Applies the Transform to the given position in 3D space. [:fontawesome-solid-info-circle:](../api/examples/#transformtransformposition "Transform: TransformPosition Example") | None |
-| `TransformDirection(Vector3 direction)` | Vector3 | Applies the Transform to the given directional Vector3. This will rotate and scale the Vector3, but does not apply the Transform's position. [:fontawesome-solid-info-circle:](../api/examples/#transformtransformdirection "Transform: TransformDirection Example") | None |
+| `GetPosition()` | Vector3 | Returns a copy of the position component of the Transform. | None |
+| `SetPosition(Vector3)` | None | Sets the position component of the Transform. | None |
+| `GetRotation()` | Rotation | Returns a copy of the Rotation component of the Transform. | None |
+| `SetRotation(Rotation)` | None | Sets the rotation component of the Transform. | None |
+| `GetQuaternion()` | Quaternion | Returns a quaternion-based representation of the Rotation. | None |
+| `SetQuaternion(Quaternion)` | None | Sets the quaternion-based representation of the Rotation. | None |
+| `GetScale()` | Vector3 | Returns a copy of the scale component of the Transform. | None |
+| `SetScale(Vector3)` | None | Sets the scale component of the Transform. | None |
+| `GetForwardVector()` | Vector3 | Forward vector of the Transform. | None |
+| `GetRightVector()` | Vector3 | Right vector of the Transform. | None |
+| `GetUpVector()` | Vector3 | Up vector of the Transform. | None |
+| `GetInverse()` | Transform | Inverse of the Transform. | None |
+| `TransformPosition(Vector3 position)` | Vector3 | Applies the Transform to the given position in 3D space. | None |
+| `TransformDirection(Vector3 direction)` | Vector3 | Applies the Transform to the given directional Vector3. This will rotate and scale the Vector3, but does not apply the Transform's position. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Transform * Transform` | Transform | Returns a new Transform composing the left and right Transforms. [:fontawesome-solid-info-circle:](../api/examples/#transformtransform-transform "Transform: Transform * Transform Example") | None |
-| `Transform * Quaternion` | Transform | Returns a new Transform composing the left Transform then the right side rotation. [:fontawesome-solid-info-circle:](../api/examples/#transformtransform-quaternion "Transform: Transform * Quaternion Example") | None |
+| `Transform * Transform` | Transform | Returns a new Transform composing the left and right Transforms. | None |
+| `Transform * Quaternion` | Transform | Returns a new Transform composing the left Transform then the right side rotation. | None |
 
 ### Trigger
 
@@ -971,31 +971,31 @@ A UIControl for a button, should be inside client context.
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `clickedEvent` | Event&lt;UIButton&gt; | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonclickedevent "Uibutton: clickedEvent Example") | None |
-| `pressedEvent` | Event&lt;UIButton&gt; | Fired when button is pressed. (mouse button down) [:fontawesome-solid-info-circle:](../api/examples/#uibuttonpressedevent "Uibutton: pressedEvent Example") | None |
-| `releasedEvent` | Event&lt;UIButton&gt; | Fired when button is released. (mouse button up) [:fontawesome-solid-info-circle:](../api/examples/#uibuttonreleasedevent "Uibutton: releasedEvent Example") | None |
-| `hoveredEvent` | Event&lt;UIButton&gt; | Fired when button is hovered. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonhoveredevent "Uibutton: hoveredEvent Example") | None |
-| `unhoveredEvent` | Event&lt;UIButton&gt; | Fired when button is unhovered. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonunhoveredevent "Uibutton: unhoveredEvent Example") | None |
+| `clickedEvent` | Event&lt;UIButton&gt; | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | Event&lt;UIButton&gt; | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | Event&lt;UIButton&gt; | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | Event&lt;UIButton&gt; | Fired when button is hovered. | None |
+| `unhoveredEvent` | Event&lt;UIButton&gt; | Fired when button is unhovered. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetButtonColor()` | Color | Gets the button's default color. [:fontawesome-solid-info-circle:](../api/examples/#uibuttongetbuttoncolor "Uibutton: GetButtonColor Example") | None |
-| `SetButtonColor(Color)` | None | Sets the button's default color. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsetbuttoncolor "Uibutton: SetButtonColor Example") | Dynamic |
-| `GetHoveredColor()` | Color | Gets the button's color when hovered. [:fontawesome-solid-info-circle:](../api/examples/#uibuttongethoveredcolor "Uibutton: GetHoveredColor Example") | None |
-| `SetHoveredColor(Color)` | None | Sets the button's color when hovered. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsethoveredcolor "Uibutton: SetHoveredColor Example") | Dynamic |
-| `GetPressedColor()` | Color | Gets the button's color when pressed. [:fontawesome-solid-info-circle:](../api/examples/#uibuttongetpressedcolor "Uibutton: GetPressedColor Example") | None |
-| `SetPressedColor(Color)` | None | Sets the button's color when pressed. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsetpressedcolor "Uibutton: SetPressedColor Example") | Dynamic |
-| `GetDisabledColor()` | Color | Gets the button's color when it's not interactable. [:fontawesome-solid-info-circle:](../api/examples/#uibuttongetdisabledcolor "Uibutton: GetDisabledColor Example") | None |
-| `SetDisabledColor(Color)` | None | Sets the button's color when it's not interactable. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsetdisabledcolor "Uibutton: SetDisabledColor Example") | Dynamic |
-| `GetFontColor()` | Color | Gets the font's color. [:fontawesome-solid-info-circle:](../api/examples/#uibuttongetfontcolor "Uibutton: GetFontColor Example") | None |
-| `SetFontColor(Color)` | None | Sets the font's color. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsetfontcolor "Uibutton: SetFontColor Example") | Dynamic |
-| `SetImage(string brushMUID)` | None | Sets the image to a new MUID. You can get this MUID from an Asset Reference. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonsetimage "Uibutton: SetImage Example") | Dynamic |
+| `GetButtonColor()` | Color | Gets the button's default color. | None |
+| `SetButtonColor(Color)` | None | Sets the button's default color. | Dynamic |
+| `GetHoveredColor()` | Color | Gets the button's color when hovered. | None |
+| `SetHoveredColor(Color)` | None | Sets the button's color when hovered. | Dynamic |
+| `GetPressedColor()` | Color | Gets the button's color when pressed. | None |
+| `SetPressedColor(Color)` | None | Sets the button's color when pressed. | Dynamic |
+| `GetDisabledColor()` | Color | Gets the button's color when it's not interactable. | None |
+| `SetDisabledColor(Color)` | None | Sets the button's color when it's not interactable. | Dynamic |
+| `GetFontColor()` | Color | Gets the font's color. | None |
+| `SetFontColor(Color)` | None | Sets the font's color. | Dynamic |
+| `SetImage(string brushMUID)` | None | Sets the image to a new MUID. You can get this MUID from an Asset Reference. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `text` | string | Returns the button's label text. [:fontawesome-solid-info-circle:](../api/examples/#uibuttontext "Uibutton: text Example") | Read-Write, Dynamic |
-| `fontSize` | Integer | Returns the font size of the label text. [:fontawesome-solid-info-circle:](../api/examples/#uibuttonfontsize "Uibutton: fontSize Example") | Read-Write, Dynamic |
-| `isInteractable` | bool | Returns whether the Button can interact with the cursor (click, hover, etc). [:fontawesome-solid-info-circle:](../api/examples/#uibuttonisinteractable "Uibutton: isInteractable Example") | Read-Write, Dynamic |
+| `text` | string | Returns the button's label text. | Read-Write, Dynamic |
+| `fontSize` | Integer | Returns the font size of the label text. | Read-Write, Dynamic |
+| `isInteractable` | bool | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write, Dynamic |
 
 ### UIContainer
 
@@ -1009,11 +1009,11 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | Number | Screen-space offset from the anchor. [:fontawesome-solid-info-circle:](../api/examples/#uicontrolx "Uicontrol: x Example") | Read-Write, Dynamic |
-| `y` | Number | Screen-space offset from the anchor. [:fontawesome-solid-info-circle:](../api/examples/#uicontroly "Uicontrol: y Example") | Read-Write, Dynamic |
-| `width` | Number | Horizontal size of the control. [:fontawesome-solid-info-circle:](../api/examples/#uicontrolwidth "Uicontrol: width Example") | Read-Write, Dynamic |
-| `height` | Number | Vertical size of the control. [:fontawesome-solid-info-circle:](../api/examples/#uicontrolheight "Uicontrol: height Example") | Read-Write, Dynamic |
-| `rotationAngle` | Number | rotation angle of the control. [:fontawesome-solid-info-circle:](../api/examples/#uicontrolrotationangle "Uicontrol: rotationAngle Example") | Read-Write, Dynamic |
+| `x` | Number | Screen-space offset from the anchor. | Read-Write, Dynamic |
+| `y` | Number | Screen-space offset from the anchor. | Read-Write, Dynamic |
+| `width` | Number | Horizontal size of the control. | Read-Write, Dynamic |
+| `height` | Number | Vertical size of the control. | Read-Write, Dynamic |
+| `rotationAngle` | Number | rotation angle of the control. | Read-Write, Dynamic |
 
 ### UIImage
 
@@ -1021,16 +1021,16 @@ A UIControl for displaying an image.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | Returns the current color of the UIImage. [:fontawesome-solid-info-circle:](../api/examples/#uiimagegetcolor "Uiimage: GetColor Example") | None |
-| `SetColor(Color)` | None | Sets the UIImage to a color. [:fontawesome-solid-info-circle:](../api/examples/#uiimagesetcolor "Uiimage: SetColor Example") | Dynamic |
-| `GetImage()` | string | Returns the imageId assigned to this UIImage control. [:fontawesome-solid-info-circle:](../api/examples/#uiimagegetimage "Uiimage: GetImage Example") | None |
-| `SetImage(MUID imageId)` | None | Sets the UIImage to a new MUID. You can get this MUID from an Asset Reference. [:fontawesome-solid-info-circle:](../api/examples/#uiimagesetimage "Uiimage: SetImage Example") | Dynamic |
-| `SetImage(Player)` | None | Downloads and sets a Player's profile picture as the texture for this UIImage control. [:fontawesome-solid-info-circle:](../api/examples/#uiimagesetimage "Uiimage: SetImage Example") | Dynamic |
+| `GetColor()` | Color | Returns the current color of the UIImage. | None |
+| `SetColor(Color)` | None | Sets the UIImage to a color. | Dynamic |
+| `GetImage()` | string | Returns the imageId assigned to this UIImage control. | None |
+| `SetImage(MUID imageId)` | None | Sets the UIImage to a new MUID. You can get this MUID from an Asset Reference. | Dynamic |
+| `SetImage(Player)` | None | Downloads and sets a Player's profile picture as the texture for this UIImage control. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isTeamColorUsed` | bool | If `true`, the image will be tinted blue if its team matches the Player, or red if not. [:fontawesome-solid-info-circle:](../api/examples/#uiimageisteamcolorused "Uiimage: isTeamColorUsed Example") | Read-Write, Dynamic |
-| `team` | Integer | the team of the image, used for `isTeamColorUsed`. [:fontawesome-solid-info-circle:](../api/examples/#uiimageteam "Uiimage: team Example") | Read-Write, Dynamic |
+| `isTeamColorUsed` | bool | If `true`, the image will be tinted blue if its team matches the Player, or red if not. | Read-Write, Dynamic |
+| `team` | Integer | the team of the image, used for `isTeamColorUsed`. | Read-Write, Dynamic |
 
 ### UIPanel
 
@@ -1038,7 +1038,7 @@ A UIControl which can be used for containing and laying out other UI controls.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `shouldClipChildren` | bool | If `true`, children of this UIPanel will not draw outside of its bounds. [:fontawesome-solid-info-circle:](../api/examples/#uipanelshouldclipchildren "Uipanel: shouldClipChildren Example") | Read-Write, Dynamic |
+| `shouldClipChildren` | bool | If `true`, children of this UIPanel will not draw outside of its bounds. | Read-Write, Dynamic |
 
 ### UIProgressBar
 
@@ -1046,12 +1046,12 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetFillColor()` | Color | The color of the fill. [:fontawesome-solid-info-circle:](../api/examples/#uiprogressbargetfillcolor "Uiprogressbar: GetFillColor Example") | None |
-| `SetFillColor(Color)` | None | The color of the fill. [:fontawesome-solid-info-circle:](../api/examples/#uiprogressbarsetfillcolor "Uiprogressbar: SetFillColor Example") | Dynamic |
+| `GetFillColor()` | Color | The color of the fill. | None |
+| `SetFillColor(Color)` | None | The color of the fill. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `progress` | Number | From 0 to 1, how full the bar should be. [:fontawesome-solid-info-circle:](../api/examples/#uiprogressbarprogress "Uiprogressbar: progress Example") | Read-Write, Dynamic |
+| `progress` | Number | From 0 to 1, how full the bar should be. | Read-Write, Dynamic |
 
 ### UIScrollPanel
 
@@ -1065,16 +1065,16 @@ A UIControl which displays a basic text label.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | Color | The color of the Text. [:fontawesome-solid-info-circle:](../api/examples/#uitextgetcolor "Uitext: GetColor Example") | None |
-| `SetColor(Color)` | None | The color of the Text. [:fontawesome-solid-info-circle:](../api/examples/#uitextsetcolor "Uitext: SetColor Example") | Dynamic |
+| `GetColor()` | Color | The color of the Text. | None |
+| `SetColor(Color)` | None | The color of the Text. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `text` | string | The actual text string to show. [:fontawesome-solid-info-circle:](../api/examples/#uitexttext "Uitext: text Example") | Read-Write, Dynamic |
-| `fontSize` | Number | The font size of the UIText control. [:fontawesome-solid-info-circle:](../api/examples/#uitextfontsize "Uitext: fontSize Example") | Read-Write, Dynamic |
-| `justification` | TextJustify | Determines the alignment of `text`. Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER. [:fontawesome-solid-info-circle:](../api/examples/#uitextjustification "Uitext: justification Example") | Read-Write, Dynamic |
-| `shouldWrapText` | bool | Whether or not text should be wrapped within the bounds of this control. [:fontawesome-solid-info-circle:](../api/examples/#uitextshouldwraptext "Uitext: shouldWrapText Example") | Read-Write, Dynamic |
-| `shouldClipText` | bool | Whether or not text should be clipped when exceeding the bounds of this control. [:fontawesome-solid-info-circle:](../api/examples/#uitextshouldcliptext "Uitext: shouldClipText Example") | Read-Write, Dynamic |
+| `text` | string | The actual text string to show. | Read-Write, Dynamic |
+| `fontSize` | Number | The font size of the UIText control. | Read-Write, Dynamic |
+| `justification` | TextJustify | Determines the alignment of `text`. Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER. | Read-Write, Dynamic |
+| `shouldWrapText` | bool | Whether or not text should be wrapped within the bounds of this control. | Read-Write, Dynamic |
+| `shouldClipText` | bool | Whether or not text should be clipped when exceeding the bounds of this control. | Read-Write, Dynamic |
 
 ### Vector2
 
@@ -1082,42 +1082,42 @@ A two-component vector that can represent a position or direction.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector2.Lerp(Vector2 from, Vector2 to, Number progress)` | Vector2 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2lerp "Vector2: Lerp Example") | None |
+| `Vector2.Lerp(Vector2 from, Vector2 to, Number progress)` | Vector2 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2. | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector2.New([Number x, Number y])` | Vector2 | Constructs a Vector2 with the given `x`, `y` values, defaults to (0, 0). [:fontawesome-solid-info-circle:](../api/examples/#vector2new "Vector2: New Example") | None |
-| `Vector2.New(Number)` | Vector2 | Constructs a Vector2 with `x`, `y` values both set to the given value. [:fontawesome-solid-info-circle:](../api/examples/#vector2new "Vector2: New Example") | None |
-| `Vector2.New(Vector3 v)` | Vector3 | Constructs a Vector2 with `x`, `y` values from the given Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector2new "Vector2: New Example") | None |
-| `Vector2.New(Vector2 v)` | Vector2 | Constructs a Vector2 with `x`, `y` values from the given Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2new "Vector2: New Example") | None |
-| `Vector2.ZERO` | Vector2 | (0, 0) [:fontawesome-solid-info-circle:](../api/examples/#vector2zero "Vector2: ZERO Example") | None |
-| `Vector2.ONE` | Vector2 | (1, 1) [:fontawesome-solid-info-circle:](../api/examples/#vector2one "Vector2: ONE Example") | None |
+| `Vector2.New([Number x, Number y])` | Vector2 | Constructs a Vector2 with the given `x`, `y` values, defaults to (0, 0). | None |
+| `Vector2.New(Number)` | Vector2 | Constructs a Vector2 with `x`, `y` values both set to the given value. | None |
+| `Vector2.New(Vector3 v)` | Vector3 | Constructs a Vector2 with `x`, `y` values from the given Vector3. | None |
+| `Vector2.New(Vector2 v)` | Vector2 | Constructs a Vector2 with `x`, `y` values from the given Vector2. | None |
+| `Vector2.ZERO` | Vector2 | (0, 0) | None |
+| `Vector2.ONE` | Vector2 | (1, 1) | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | Vector2 | Returns a new Vector2 with size 1, but still pointing in the same direction. Returns (0, 0) if the vector is too small to be normalized. [:fontawesome-solid-info-circle:](../api/examples/#vector2getnormalized "Vector2: GetNormalized Example") | None |
+| `GetNormalized()` | Vector2 | Returns a new Vector2 with size 1, but still pointing in the same direction. Returns (0, 0) if the vector is too small to be normalized. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector2 + Vector2` | Vector2 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-vector2 "Vector2: Vector2 + Vector2 Example") | None |
-| `Vector2 + Number` | Vector2 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-number "Vector2: Vector2 + Number Example") | None |
-| `Vector2 - Vector2` | Vector2 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-vector2 "Vector2: Vector2 - Vector2 Example") | None |
-| `Vector2 - Number` | Vector2 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-number "Vector2: Vector2 - Number Example") | None |
-| `Vector2 * Vector2` | Vector2 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-vector2 "Vector2: Vector2 * Vector2 Example") | None |
-| `Vector2 * Number` | Vector2 | Multiplies each component of the Vector2 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-number "Vector2: Vector2 * Number Example") | None |
-| `Number * Vector2` | Vector2 | Multiplies each component of the Vector2 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector2number-vector2 "Vector2: Number * Vector2 Example") | None |
-| `Vector2 / Vector2` | Vector2 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-vector2 "Vector2: Vector2 / Vector2 Example") | None |
-| `Vector2 / Number` | Vector2 | Divides each component of the Vector2 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-number "Vector2: Vector2 / Number Example") | None |
-| `-Vector2` | Vector2 | Returns the negation of the Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2-vector2 "Vector2: -Vector2 Example") | None |
-| `Vector2 .. Vector2` | Number | Returns the dot product of the Vector2s. [:fontawesome-solid-info-circle:](../api/examples/#vector2-vector2 "Vector2:  Vector2 Example") | None |
-| `Vector2 ^ Vector2` | Vector2 | Returns the cross product of the Vector2s. [:fontawesome-solid-info-circle:](../api/examples/#vector2vector2-vector2 "Vector2: Vector2 ^ Vector2 Example") | None |
+| `Vector2 + Vector2` | Vector2 | Component-wise addition. | None |
+| `Vector2 + Number` | Vector2 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector2. | None |
+| `Vector2 - Vector2` | Vector2 | Component-wise subtraction. | None |
+| `Vector2 - Number` | Vector2 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector2. | None |
+| `Vector2 * Vector2` | Vector2 | Component-wise multiplication. | None |
+| `Vector2 * Number` | Vector2 | Multiplies each component of the Vector2 by the right-side Number. | None |
+| `Number * Vector2` | Vector2 | Multiplies each component of the Vector2 by the left-side Number. | None |
+| `Vector2 / Vector2` | Vector2 | Component-wise division. | None |
+| `Vector2 / Number` | Vector2 | Divides each component of the Vector2 by the right-side Number. | None |
+| `-Vector2` | Vector2 | Returns the negation of the Vector2. | None |
+| `Vector2 .. Vector2` | Number | Returns the dot product of the Vector2s. | None |
+| `Vector2 ^ Vector2` | Vector2 | Returns the cross product of the Vector2s. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | Number | The `x` component of the Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2x "Vector2: x Example") | Read-Write |
-| `y` | Number | The `y` component of the Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2y "Vector2: y Example") | Read-Write |
-| `size` | Number | The magnitude of the Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2size "Vector2: size Example") | Read-Only |
-| `sizeSquared` | Number | The squared magnitude of the Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector2sizesquared "Vector2: sizeSquared Example") | Read-Only |
+| `x` | Number | The `x` component of the Vector2. | Read-Write |
+| `y` | Number | The `y` component of the Vector2. | Read-Write |
+| `size` | Number | The magnitude of the Vector2. | Read-Only |
+| `sizeSquared` | Number | The squared magnitude of the Vector2. | Read-Only |
 
 ### Vector3
 
@@ -1142,22 +1142,22 @@ A three-component vector that can represent a position or direction.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. [:fontawesome-solid-info-circle:](../api/examples/#vector3getnormalized "Vector3: GetNormalized Example") | None |
+| `GetNormalized()` | Vector3 | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector3 + Vector3` | Vector3 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3 + Vector3 Example") | None |
-| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3 + Number Example") | None |
-| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3 - Vector3 Example") | None |
-| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3 - Number Example") | None |
-| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3 * Vector3 Example") | None |
-| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3 * Number Example") | None |
-| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3number-vector3 "Vector3: Number * Vector3 Example") | None |
-| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3 / Vector3 Example") | None |
-| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3 / Number Example") | None |
-| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3-vector3 "Vector3: -Vector3 Example") | None |
-| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. [:fontawesome-solid-info-circle:](../api/examples/#vector3-vector3 "Vector3:  Vector3 Example") | None |
-| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3 ^ Vector3 Example") | None |
+| `Vector3 + Vector3` | Vector3 | Component-wise addition. | None |
+| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
+| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. | None |
+| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
+| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. | None |
+| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. | None |
+| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. | None |
+| `Vector3 / Vector3` | Vector3 | Component-wise division. | None |
+| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. | None |
+| `-Vector3` | Vector3 | Returns the negation of the Vector3. | None |
+| `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
+| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1173,46 +1173,46 @@ A four-component vector.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector4.Lerp(Vector4 from, Vector4 to, Number progress)` | Vector4 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4lerp "Vector4: Lerp Example") | None |
+| `Vector4.Lerp(Vector4 from, Vector4 to, Number progress)` | Vector4 | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector4. | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector4.New([Number x, Number y, Number z, Number w])` | Vector4 | Constructs a Vector4 with the given `x`, `y`, `z`, `w` values, defaults to (0, 0, 0, 0). [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.New(Number v)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z`, `w` values all set to the given value. [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.New(Vector3 xyz, Number w)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z` values from the given Vector3 and the given `w` value. [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.New(Vector4 v)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z`, `w` values from the given Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.New(Vector2 xy, Vector2 zw)` | Vector4 | Constructs a Vector4 with `x`, `y` values from the first Vector2 and `z`, `w` values from the second Vector2. [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.New(Color v)` | Color | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. [:fontawesome-solid-info-circle:](../api/examples/#vector4new "Vector4: New Example") | None |
-| `Vector4.ZERO` | Vector4 | (0, 0, 0, 0) [:fontawesome-solid-info-circle:](../api/examples/#vector4zero "Vector4: ZERO Example") | None |
-| `Vector4.ONE` | Vector4 | (1, 1, 1, 1) [:fontawesome-solid-info-circle:](../api/examples/#vector4one "Vector4: ONE Example") | None |
+| `Vector4.New([Number x, Number y, Number z, Number w])` | Vector4 | Constructs a Vector4 with the given `x`, `y`, `z`, `w` values, defaults to (0, 0, 0, 0). | None |
+| `Vector4.New(Number v)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z`, `w` values all set to the given value. | None |
+| `Vector4.New(Vector3 xyz, Number w)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z` values from the given Vector3 and the given `w` value. | None |
+| `Vector4.New(Vector4 v)` | Vector4 | Constructs a Vector4 with `x`, `y`, `z`, `w` values from the given Vector4. | None |
+| `Vector4.New(Vector2 xy, Vector2 zw)` | Vector4 | Constructs a Vector4 with `x`, `y` values from the first Vector2 and `z`, `w` values from the second Vector2. | None |
+| `Vector4.New(Color v)` | Color | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. | None |
+| `Vector4.ZERO` | Vector4 | (0, 0, 0, 0) | None |
+| `Vector4.ONE` | Vector4 | (1, 1, 1, 1) | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | Vector4 | Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized. [:fontawesome-solid-info-circle:](../api/examples/#vector4getnormalized "Vector4: GetNormalized Example") | None |
+| `GetNormalized()` | Vector4 | Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector4 + Vector4` | Vector4 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-vector4 "Vector4: Vector4 + Vector4 Example") | None |
-| `Vector4 + Number` | Vector4 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-number "Vector4: Vector4 + Number Example") | None |
-| `Vector4 - Vector4` | Vector4 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-vector4 "Vector4: Vector4 - Vector4 Example") | None |
-| `Vector4 - Number` | Vector4 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-number "Vector4: Vector4 - Number Example") | None |
-| `Vector4 * Vector4` | Vector4 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-vector4 "Vector4: Vector4 * Vector4 Example") | None |
-| `Vector4 * Number` | Vector4 | Multiplies each component of the Vector4 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-number "Vector4: Vector4 * Number Example") | None |
-| `Number * Vector4` | Vector4 | Multiplies each component of the Vector4 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector4number-vector4 "Vector4: Number * Vector4 Example") | None |
-| `Vector4 / Vector4` | Vector4 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-vector4 "Vector4: Vector4 / Vector4 Example") | None |
-| `Vector4 / Number` | Vector4 | Divides each component of the Vector4 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-number "Vector4: Vector4 / Number Example") | None |
-| `-Vector4` | Vector4 | Returns the negation of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4-vector4 "Vector4: -Vector4 Example") | None |
-| `Vector4 .. Vector4` | Number | Returns the dot product of the Vector4s. [:fontawesome-solid-info-circle:](../api/examples/#vector4-vector4 "Vector4:  Vector4 Example") | None |
-| `Vector4 ^ Vector4` | Vector4 | Returns the cross product of the Vector4s. [:fontawesome-solid-info-circle:](../api/examples/#vector4vector4-vector4 "Vector4: Vector4 ^ Vector4 Example") | None |
+| `Vector4 + Vector4` | Vector4 | Component-wise addition. | None |
+| `Vector4 + Number` | Vector4 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector4. | None |
+| `Vector4 - Vector4` | Vector4 | Component-wise subtraction. | None |
+| `Vector4 - Number` | Vector4 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector4. | None |
+| `Vector4 * Vector4` | Vector4 | Component-wise multiplication. | None |
+| `Vector4 * Number` | Vector4 | Multiplies each component of the Vector4 by the right-side Number. | None |
+| `Number * Vector4` | Vector4 | Multiplies each component of the Vector4 by the left-side Number. | None |
+| `Vector4 / Vector4` | Vector4 | Component-wise division. | None |
+| `Vector4 / Number` | Vector4 | Divides each component of the Vector4 by the right-side Number. | None |
+| `-Vector4` | Vector4 | Returns the negation of the Vector4. | None |
+| `Vector4 .. Vector4` | Number | Returns the dot product of the Vector4s. | None |
+| `Vector4 ^ Vector4` | Vector4 | Returns the cross product of the Vector4s. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | Number | The `x` component of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4x "Vector4: x Example") | Read-Write |
-| `y` | Number | The `y` component of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4y "Vector4: y Example") | Read-Write |
-| `z` | Number | The `z` component of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4z "Vector4: z Example") | Read-Write |
-| `w` | Number | The `w` component of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4w "Vector4: w Example") | Read-Write |
-| `size` | Number | The magnitude of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4size "Vector4: size Example") | Read-Only |
-| `sizeSquared` | Number | The squared magnitude of the Vector4. [:fontawesome-solid-info-circle:](../api/examples/#vector4sizesquared "Vector4: sizeSquared Example") | Read-Only |
+| `x` | Number | The `x` component of the Vector4. | Read-Write |
+| `y` | Number | The `y` component of the Vector4. | Read-Write |
+| `z` | Number | The `z` component of the Vector4. | Read-Write |
+| `w` | Number | The `w` component of the Vector4. | Read-Write |
+| `size` | Number | The magnitude of the Vector4. | Read-Only |
+| `sizeSquared` | Number | The squared magnitude of the Vector4. | Read-Only |
 
 ### Vfx
 
@@ -1251,7 +1251,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `projectileTemplateId` | string | Asset reference for the visual body of the Projectile, for non-hitscan Weapons. [:fontawesome-solid-info-circle:](../api/examples/#weaponprojectiletemplateid "Weapon: projectileTemplateId Example") | Read-Only |
 | `muzzleFlashTemplateId` | string | Asset reference for a Vfx to be attached to the muzzle point each time the Weapon attacks. [:fontawesome-solid-info-circle:](../api/examples/#weaponmuzzleflashtemplateid "Weapon: muzzleFlashTemplateId Example") | Read-Only |
 | `trailTemplateId` | string | Asset reference for a trail Vfx to follow the trajectory of the shot. [:fontawesome-solid-info-circle:](../api/examples/#weapontrailtemplateid "Weapon: trailTemplateId Example") | Read-Only |
-| `beamTemplateId` | string | Asset reference for a beam Vfx to be placed along the trajectory of the shot. Useful for hitscan Weapons or very fast Projectiles. [:fontawesome-solid-info-circle:](../api/examples/#weaponbeamtemplateid "Weapon: beamTemplateId Example") | Read-Only |
+| `beamTemplateId` | string | Asset reference for a beam Vfx to be placed along the trajectory of the shot. Useful for hitscan Weapons or very fast Projectiles. | Read-Only |
 | `impactSurfaceTemplateId` | string | Asset reference of a Vfx to be attached to the surface of any CoreObjects hit by the attack. [:fontawesome-solid-info-circle:](../api/examples/#weaponimpactsurfacetemplateid "Weapon: impactSurfaceTemplateId Example") | Read-Only |
 | `impactProjectileTemplateId` | string | Asset reference of a Vfx to be spawned at the interaction point. It will be aligned with the trajectory. If the impacted object is a CoreObject, then the Vfx will attach to it as a child. [:fontawesome-solid-info-circle:](../api/examples/#weaponimpactprojectiletemplateid "Weapon: impactProjectileTemplateId Example") | Read-Only |
 | `impactPlayerTemplateId` | string | Asset reference of a Vfx to be spawned at the interaction point, if the impacted object is a player. [:fontawesome-solid-info-circle:](../api/examples/#weaponimpactplayertemplateid "Weapon: impactPlayerTemplateId Example") | Read-Only |
@@ -1311,11 +1311,11 @@ A few base functions provided by the platform.
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. [:fontawesome-solid-info-circle:](../api/examples/#coreluafunctionstick "Coreluafunctions: Tick Example") | None |
-| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. [:fontawesome-solid-info-circle:](../api/examples/#coreluafunctionstime "Coreluafunctions: time Example") | None |
-| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. [:fontawesome-solid-info-circle:](../api/examples/#coreluafunctionsprint "Coreluafunctions: print Example") | None |
-| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. [:fontawesome-solid-info-circle:](../api/examples/#coreluafunctionswarn "Coreluafunctions: warn Example") | None |
-| `require(string)` | table | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. [:fontawesome-solid-info-circle:](../api/examples/#coreluafunctionsrequire "Coreluafunctions: require Example") | None |
+| `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
+| `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
+| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
+| `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
+| `require(string)` | table | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |
 
 ### CoreMath
 
@@ -1323,9 +1323,9 @@ The CoreMath namespace contains a set of math functions.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `CoreMath.Clamp(Number value, [Number lower, Number upper])` | Number | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. [:fontawesome-solid-info-circle:](../api/examples/#coremathclamp "Coremath: Clamp Example") | None |
-| `CoreMath.Lerp(Number from, Number to, Number t)` | Number | Linear interpolation between from and to. t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. [:fontawesome-solid-info-circle:](../api/examples/#coremathlerp "Coremath: Lerp Example") | None |
-| `CoreMath.Round(Number value, [Number decimals])` | Number | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. [:fontawesome-solid-info-circle:](../api/examples/#coremathround "Coremath: Round Example") | None |
+| `CoreMath.Clamp(Number value, [Number lower, Number upper])` | Number | Clamps value between lower and upper, inclusive. If lower and upper are not specified, defaults to 0 and 1. | None |
+| `CoreMath.Lerp(Number from, Number to, Number t)` | Number | Linear interpolation between from and to. t should be a floating point number from 0 to 1, with 0 returning from and 1 returning to. | None |
+| `CoreMath.Round(Number value, [Number decimals])` | Number | Rounds value to an integer, or to an optional number of decimal places, and returns the rounded value. | None |
 
 ### CoreString
 
@@ -1333,9 +1333,9 @@ The CoreString namespace contains a set of string utility functions.
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `CoreString.Join(string delimiter, [...])` | string | Concatenates the given values together, separated by `delimiter`.  If a given value is not a string, it is converted to one using `tostring()`. [:fontawesome-solid-info-circle:](../api/examples/#corestring- "Corestring: ]) Example") | None |
-| `CoreString.Split(string s, [string delimiter], [table parameters])` | ... | Splits the string `s` into substrings separated by `delimiter`.<br/>Optional parameters in the `parameters` table include:<br/>`removeEmptyResults (bool)`: If `true`, empty strings will be removed from the results. Defaults to `false`.<br/>`maxResults (integer)`: Limits the number of strings that will be returned. The last result will be any remaining unsplit portion of `s`.<br/>`delimiters (string or Array<string>)`:Allows splitting on multiple delimiters. If both this and the `delimiter` parameter are specified, the combined list is used. If neither is specified, default is to split on any whitespace characters.<br/>Note that this function does not return a table, it returns multiple strings. For example: `local myHello, myCore = CoreString.Split("Hello Core!")` If a table is desired, wrap the call to `Split()` in curly braces, eg: `local myTable = {CoreString.Split("Hello Core!")}` [:fontawesome-solid-info-circle:](../api/examples/#corestringsplit "Corestring: Split Example") | None |
-| `CoreString.Trim(string s, [...])` | string | Trims whitespace from the start and end of `s`, returning the result.  An optional list of strings may be provided to trim those strings from `s` instead of the default whitespace. For example, `CoreString.Trim("(==((Hello!))==)", "(==(", ")==)")` returns "(Hello!)". [:fontawesome-solid-info-circle:](../api/examples/#corestring- "Corestring: ]) Example") | None |
+| `CoreString.Join(string delimiter, [...])` | string | Concatenates the given values together, separated by `delimiter`.  If a given value is not a string, it is converted to one using `tostring()`. | None |
+| `CoreString.Split(string s, [string delimiter], [table parameters])` | ... | Splits the string `s` into substrings separated by `delimiter`.<br/>Optional parameters in the `parameters` table include:<br/>`removeEmptyResults (bool)`: If `true`, empty strings will be removed from the results. Defaults to `false`.<br/>`maxResults (integer)`: Limits the number of strings that will be returned. The last result will be any remaining unsplit portion of `s`.<br/>`delimiters (string or Array<string>)`:Allows splitting on multiple delimiters. If both this and the `delimiter` parameter are specified, the combined list is used. If neither is specified, default is to split on any whitespace characters.<br/>Note that this function does not return a table, it returns multiple strings. For example: `local myHello, myCore = CoreString.Split("Hello Core!")` If a table is desired, wrap the call to `Split()` in curly braces, eg: `local myTable = {CoreString.Split("Hello Core!")}` | None |
+| `CoreString.Trim(string s, [...])` | string | Trims whitespace from the start and end of `s`, returning the result.  An optional list of strings may be provided to trim those strings from `s` instead of the default whitespace. For example, `CoreString.Trim("(==((Hello!))==)", "(==(", ")==)")` returns "(Hello!)". | None |
 
 ### Events
 
@@ -1343,12 +1343,12 @@ User defined events can be specified using the Events namespace. The Events name
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Events.Connect(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | None |
-| `Events.ConnectForPlayer(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | Server-Only |
-| `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | None |
-| `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | Server-Only |
-| `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | Server-Only |
-| `Events.BroadcastToServer(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. [:fontawesome-solid-info-circle:](../api/examples/#events- "Events: ]) Example") | Client-Only |
+| `Events.Connect(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using Broadcast. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
+| `Events.ConnectForPlayer(string eventName, function eventListener, [...])` | EventListener | Registers the given function to the event name which will be called every time the event is fired using BroadcastToServer. The first parameter the function receives will be the Player that fired the event. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | Server-Only |
+| `Events.Broadcast(string eventName, [...])` | string | Broadcasts the given event and fires all listeners attached to the given event name if any exists. Parameters after event name specifies the arguments passed to the listener. Any number of arguments can be passed to the listener function. The events are not networked and can fire events defined in the same context. | None |
+| `Events.BroadcastToAllPlayers(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to all clients over the network and fires all listeners attached to the given event name if any exists. Parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
+| `Events.BroadcastToPlayer(Player player, string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
+| `Events.BroadcastToServer(string eventName, [...])` | &lt;BroadcastEventResultCode, string errorMessage&gt; | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client-Only |
 
 ??? "Broadcast Event Result Codes"
     - BroadcastEventResultCode.SUCCESS
@@ -1425,8 +1425,8 @@ The Teams namespace contains a set of class functions for dealing with teams and
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Teams.AreTeamsEnemies(Integer team1, Integer team2)` | bool | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. [:fontawesome-solid-info-circle:](../api/examples/#teamsareteamsenemies "Teams: AreTeamsEnemies Example") | None |
-| `Teams.AreTeamsFriendly(Integer team1, Integer team2)` | bool | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns true. [:fontawesome-solid-info-circle:](../api/examples/#teamsareteamsfriendly "Teams: AreTeamsFriendly Example") | None |
+| `Teams.AreTeamsEnemies(Integer team1, Integer team2)` | bool | Returns true if teams are considered enemies under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns false. | None |
+| `Teams.AreTeamsFriendly(Integer team1, Integer team2)` | bool | Returns true if teams are considered friendly under the current TeamMode. If either team is TEAM_NEUTRAL=0, returns true. | None |
 
 ### UI
 
@@ -1434,24 +1434,24 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `UI.ShowFlyUpText(string message, Vector3 worldPosition, [table parameters])` | None | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the Text. Default is white; isBig (boolean) - When true, larger text is used. [:fontawesome-solid-info-circle:](../api/examples/#uishowflyuptext "Ui: ShowFlyUpText Example") | Client-Only |
-| `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. [:fontawesome-solid-info-circle:](../api/examples/#uishowdamagedirection "Ui: ShowDamageDirection Example") | Client-Only |
-| `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. [:fontawesome-solid-info-circle:](../api/examples/#uishowdamagedirection "Ui: ShowDamageDirection Example") | Client-Only |
-| `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. [:fontawesome-solid-info-circle:](../api/examples/#uishowdamagedirection "Ui: ShowDamageDirection Example") | Client-Only |
-| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. [:fontawesome-solid-info-circle:](../api/examples/#uigetcursorposition "Ui: GetCursorPosition Example") | Client-Only |
-| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. [:fontawesome-solid-info-circle:](../api/examples/#uigetscreenposition "Ui: GetScreenPosition Example") | Client-Only |
-| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. [:fontawesome-solid-info-circle:](../api/examples/#uigetscreensize "Ui: GetScreenSize Example") | Client-Only |
-| `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. [:fontawesome-solid-info-circle:](../api/examples/#uiprinttoscreen "Ui: PrintToScreen Example") | Client-Only |
-| `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. [:fontawesome-solid-info-circle:](../api/examples/#uiiscursorvisible "Ui: IsCursorVisible Example") | Client-Only |
-| `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. [:fontawesome-solid-info-circle:](../api/examples/#uisetcursorvisible "Ui: SetCursorVisible Example") | Client-Only |
-| `UI.IsCursorLockedToViewport()` | bool | Returns whether to lock cursor in viewport. [:fontawesome-solid-info-circle:](../api/examples/#uiiscursorlockedtoviewport "Ui: IsCursorLockedToViewport Example") | Client-Only |
-| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Sets whether to lock cursor in viewport. [:fontawesome-solid-info-circle:](../api/examples/#uisetcursorlockedtoviewport "Ui: SetCursorLockedToViewport Example") | Client-Only |
-| `UI.CanCursorInteractWithUI()` | bool | Returns whether the cursor can interact with UI elements like buttons. [:fontawesome-solid-info-circle:](../api/examples/#uicancursorinteractwithui "Ui: CanCursorInteractWithUI Example") | Client-Only |
-| `UI.SetCanCursorInteractWithUI(bool)` | None | Sets whether the cursor can interact with UI elements like buttons. [:fontawesome-solid-info-circle:](../api/examples/#uisetcancursorinteractwithui "Ui: SetCanCursorInteractWithUI Example") | Client-Only |
-| `UI.IsReticleVisible()` | bool | Check if reticle is visible. [:fontawesome-solid-info-circle:](../api/examples/#uiisreticlevisible "Ui: IsReticleVisible Example") | Client-Only |
-| `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. [:fontawesome-solid-info-circle:](../api/examples/#uisetreticlevisible "Ui: SetReticleVisible Example") | Client-Only |
-| `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. [:fontawesome-solid-info-circle:](../api/examples/#uigetcursorhitresult "Ui: GetCursorHitResult Example") | Client-Only |
-| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector3 | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. [:fontawesome-solid-info-circle:](../api/examples/#uigetcursorplaneintersection "Ui: GetCursorPlaneIntersection Example") | Client-Only |
+| `UI.ShowFlyUpText(string message, Vector3 worldPosition, [table parameters])` | None | Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (Number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the Text. Default is white; isBig (boolean) - When true, larger text is used. | Client-Only |
+| `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
+| `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
+| `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
+| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only |
+| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only |
+| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only |
+| `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
+| `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client-Only |
+| `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client-Only |
+| `UI.IsCursorLockedToViewport()` | bool | Returns whether to lock cursor in viewport. | Client-Only |
+| `UI.SetCursorLockedToViewport(bool isLocked)` | None | Sets whether to lock cursor in viewport. | Client-Only |
+| `UI.CanCursorInteractWithUI()` | bool | Returns whether the cursor can interact with UI elements like buttons. | Client-Only |
+| `UI.SetCanCursorInteractWithUI(bool)` | None | Sets whether the cursor can interact with UI elements like buttons. | Client-Only |
+| `UI.IsReticleVisible()` | bool | Check if reticle is visible. | Client-Only |
+| `UI.SetReticleVisible(bool show)` | None | Shows or hides the reticle for the Player. | Client-Only |
+| `UI.GetCursorHitResult()` | HitResult | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use ability:GetTargetData():GetHitPosition(), which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
+| `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | Vector3 | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
 
 ### World
 
