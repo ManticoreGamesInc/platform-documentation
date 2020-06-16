@@ -206,7 +206,7 @@ site_name: Core Creator Hub
 repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/development/src
 
-site_description: Documentation & Tutorials for the Core Platform.
+site_description: API Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
 site_url: https://docs.coregames.com
 
