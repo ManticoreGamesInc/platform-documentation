@@ -1552,11 +1552,11 @@ AssignMeshToTeam(cube, 1)
 
 ### CoreObject.descendantRemovedEvent
 
-Child/descendent event listeners fire when something is added to an object as a child, either directly, or to one of its children.
+Child/descendant event listeners fire when something is added to an object as a child, either directly, or to one of its children.
 
 The child event listeners (`childAddedEvent`, `childRemovedEvent`) fire whenever an object is added as a direct child to a CoreObject.
 
-The descendent events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a chiled, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
+The descendant events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a child, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -2500,7 +2500,7 @@ end
 
 function OnPlayerDied(player)
     for _, equipment in ipairs(player:GetEquipment()) do
-        DropToGround()
+        DropToGround(equipment)
     end
 end
 
