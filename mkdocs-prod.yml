@@ -170,7 +170,6 @@ markdown_extensions:
 plugins:
   - minify:
       minify_html: true
-  - mkdocs-new-features-notifier
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
