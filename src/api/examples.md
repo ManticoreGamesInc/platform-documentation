@@ -2529,7 +2529,7 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 
 ### Equipment.socket
 
-The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function.
+The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function. Without re-implementing our own interactedEvent, by default the old equipment would simply be destroyed when there is competition for a socket!
 
 ```lua
 local EQUIPMENT = script.parent
