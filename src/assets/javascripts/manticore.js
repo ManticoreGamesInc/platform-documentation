@@ -24,7 +24,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
   // Add an icon to all external links
   const links = document.querySelectorAll(".md-content a")
   for (let i = 0, length = links.length; i < length; i++) {
-    if (links[i].hostname !== window.location.hostname && links[i].title !== "Edit this page" && links[i] !== btn) {
+    if (links[i].hostname !== window.location.hostname && links[i].hostname !== '' && links[i].title !== "Edit this page" && links[i] !== btn) {
       links[i].target = "_blank"
       links[i].className = "external"
       links[i].rel = "noopener"

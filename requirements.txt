@@ -13,3 +13,6 @@ https://github.com/g-provost/lightgallery-markdown/archive/master.zip
 
 # mkdocs-plugin-tags
 https://github.com/stanzilla/mkdocs-plugin-tags/archive/master.zip
+
+# pymdown-custom-slugs
+https://github.com/Stanzilla/pymdown-custom-slugs/archive/master.zip
