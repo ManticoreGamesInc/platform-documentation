@@ -10,6 +10,7 @@ helping out!
 - [external-editor-api-support](https://github.com/ManticoreGamesInc/external-editor-api-support) - Generates the files in the `src/assets/api` directory. (private)
 - [LuaAPIDocumentation](https://github.com/ManticoreGamesInc/LuaAPIDocumentation) - Generates `src/core_api.md`. (private)
 - [mkdocs-material](https://github.com/ManticoreGamesInc/mkdocs-material) - Is the submodule that provides the theme. (public)
+- [SampleCodeTests](https://github.com/ManticoreGamesInc/SampleCodeTests) - Generates `src/examples.md`. (private)
 
 ## Branch Structure
 
