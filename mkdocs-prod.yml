@@ -137,6 +137,7 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.meta
   - markdown.extensions.toc:
+      slugify: !!python/name:custom_slugs.uslugify_custom
       permalink: true
   - pymdownx.arithmatex
   - pymdownx.betterem:
