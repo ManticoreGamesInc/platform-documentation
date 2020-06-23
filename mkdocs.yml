@@ -47,7 +47,7 @@ nav:
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
-        - Animations: api/animations.md
+        - Animations & Sockets: api/animations.md
         - Ability Bindings: api/ability_bindings.md
         - Lua in Core: tutorials/lua_reference.md
         - Lua Style Guide: tutorials/lua_style_guide.md
@@ -64,7 +64,7 @@ nav:
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
-      - Player Animations: api/animations.md
+      - Animations & Sockets: api/animations.md
       - Ability Bindings: api/ability_bindings.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
@@ -137,6 +137,7 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.meta
   - markdown.extensions.toc:
+      slugify: !!python/name:custom_slugs.uslugify_custom
       permalink: true
   - pymdownx.arithmatex
   - pymdownx.betterem:
@@ -168,7 +169,6 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  - mkdocs-new-features-notifier
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
@@ -205,11 +205,12 @@ site_name: Core Creator Hub
 repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/development/src
 
-site_description: Documentation & Tutorials for the Core Platform.
+site_description: API Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
 site_url: https://development.docs.coregames.com
 
 copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
+
 #google_analytics:
 #  - UA-142884846-4
 #  - auto

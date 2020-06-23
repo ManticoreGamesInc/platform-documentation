@@ -10,7 +10,7 @@ tags:
 
 ## Ability
 
-### Ability.castEvent
+### <a id="event:Ability.castEvent"></a>Ability.castEvent
 
 The Cast phase begins as soon as an ability is activated. By checking if the player casting the ability `isGrounded` we can create an effect that propels you upwards, but it doesn't work if you are already jumping or flying. We detect this is the `castEvent`, which is early enough for an `Interrupt()` to reset the ability.
 
@@ -28,7 +28,7 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### Ability.cooldownEvent
+### <a id="event:Ability.cooldownEvent"></a>Ability.cooldownEvent
 
 In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
 
@@ -47,7 +47,7 @@ ability.castEvent:Connect(OnCast)
 ability.cooldownEvent:Connect(OnCooldown)
 ```
 
-### Ability.executeEvent
+### <a id="event:Ability.executeEvent"></a>Ability.executeEvent
 
 Weapons implement lots of built-in gameplay that doesn't require any scripting, such as attack and reload abilities. However, they can be augmented with additional mechanics. In this example, a special sound effect is played when a weapon shoots while low on ammunition. The script expects to be a child of a weapon's "Shoot" ability.
 
@@ -67,7 +67,7 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### Ability.interruptedEvent
+### <a id="event:Ability.interruptedEvent"></a>Ability.interruptedEvent
 
 The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
 
@@ -84,7 +84,7 @@ end
 ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
-### Ability.readyEvent
+### <a id="event:Ability.readyEvent"></a>Ability.readyEvent
 
 The Ready phase begins when an ability comes off cooldown and is "ready" to be used again. In this example, we create an invisibility effect that takes advantage of the `readyEvent`, leveraging the cooldown duration of the ability as a clock to determine when to make the player visible again.
 
@@ -105,7 +105,7 @@ ability.readyEvent:Connect(OnReady)
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### Ability.recoveryEvent
+### <a id="event:Ability.recoveryEvent"></a>Ability.recoveryEvent
 
 The `recoveryEvent` marks the end of an ability's Execute phase and the beginning of its Recovery phase. In this example, a melee punch ability has a trigger that causes damage to enemies who overlap it. For it to work the trigger is only enabled for a brief moment, during the Execute phase.
 
@@ -137,7 +137,7 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### Ability.tickEvent
+### <a id="event:Ability.tickEvent"></a>Ability.tickEvent
 
 Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them.
 
@@ -154,7 +154,7 @@ for _,ability in ipairs(allAbilities) do
 end
 ```
 
-### Ability.Activate
+### <a id="method:Ability.Activate"></a>Ability.Activate
 
 The Ability `Activate()` function is client-only, behaving as if the player had pressed the key binding. In order for a server gameplay decision to result in an ability activation, it must be communicated over the network somehow. In this example, a trigger overlap is representative of an arbitrary gameplay decision on the server. A broadcast message is sent to the client, who receives the event and activates the ability.
 
@@ -184,9 +184,9 @@ end
 Events.Connect("SteppedOnObject", OnPlayAnimation)
 ```
 
-### Ability.GetCurrentPhase
+### <a id="method:Ability.GetCurrentPhase"></a>Ability.GetCurrentPhase
 
-### Ability.GetPhaseTimeRemaining
+### <a id="method:Ability.GetPhaseTimeRemaining"></a>Ability.GetPhaseTimeRemaining
 
 In this example, while the ability is on cooldown the percent completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
 
@@ -204,9 +204,9 @@ function Tick()
 end
 ```
 
-### Ability.GetTargetData
+### <a id="method:Ability.GetTargetData"></a>Ability.GetTargetData
 
-### Ability.SetTargetData
+### <a id="method:Ability.SetTargetData"></a>Ability.SetTargetData
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -226,7 +226,7 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### Ability.Interrupt
+### <a id="method:Ability.Interrupt"></a>Ability.Interrupt
 
 Interrupting an ability either sends it back into ready state (if it was still in the Cast phase) or puts it on cooldown. In this example, we have an ability that searches for all enemies in a 10 meter radius and interrupts their abilities.
 
@@ -250,7 +250,7 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### Ability.animation
+### <a id="property:Ability.animation"></a>Ability.animation
 
 In this example, the `ProcessAbilities()` function can be called once, such as at the beginning of a round, to take inventory of a player's abilities and classify them based on animation. This example also demonstrates how to disconnect event listeners so that we don't listen for the same event multiple times.
 
@@ -297,7 +297,7 @@ end
 Game.playerLeftEvent:Connect(CleanupListeners)
 ```
 
-### Ability.canActivateWhileDead
+### <a id="property:Ability.canActivateWhileDead"></a>Ability.canActivateWhileDead
 
 Some games may have abilities that can be used while the player is dead. In this example, we have abilities that can **only** be activated while dead. If not dead, then it's interrupted.
 
@@ -348,7 +348,7 @@ function GetLocalPlayerAbilityWithBinding()
 end
 ```
 
-### Ability.canBePrevented
+### <a id="property:Ability.canBePrevented"></a>Ability.canBePrevented
 
 In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
 
@@ -372,13 +372,13 @@ end
 ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
-### Ability.castPhaseSettings
+### <a id="property:Ability.castPhaseSettings"></a>Ability.castPhaseSettings
 
-### Ability.executePhaseSettings
+### <a id="property:Ability.executePhaseSettings"></a>Ability.executePhaseSettings
 
-### Ability.recoveryPhaseSettings
+### <a id="property:Ability.recoveryPhaseSettings"></a>Ability.recoveryPhaseSettings
 
-### Ability.cooldownPhaseSettings
+### <a id="property:Ability.cooldownPhaseSettings"></a>Ability.cooldownPhaseSettings
 
 In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
 
@@ -421,7 +421,7 @@ function UpdateForAbility(ability)
 end
 ```
 
-### Ability.isEnabled
+### <a id="property:Ability.isEnabled"></a>Ability.isEnabled
 
 In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
 
@@ -454,9 +454,9 @@ for _, child in pairs(equipment:FindDescendantsByType("Ability")) do
 end
 ```
 
-### Ability.name
+### <a id="property:Ability.name"></a>Ability.name
 
-### Ability.actionBinding
+### <a id="property:Ability.actionBinding"></a>Ability.actionBinding
 
 Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
 
@@ -485,7 +485,7 @@ function Tick()
 end
 ```
 
-### Ability.owner
+### <a id="property:Ability.owner"></a>Ability.owner
 
 Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property.
 
@@ -502,7 +502,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## AbilityTarget
 
-### AbilityTarget.New
+### <a id="constructor:AbilityTarget.New"></a>AbilityTarget.New
 
 The ability's targeting data can be generated programatically, for specific results. In this example, We create a target that is always at the world origin (Vector3.ZERO). If added to a rifle's Shoot ability, all shots will go to (0,0,0). For this to work the script should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -519,9 +519,9 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### AbilityTarget.GetAimPosition
+### <a id="method:AbilityTarget.GetAimPosition"></a>AbilityTarget.GetAimPosition
 
-### AbilityTarget.GetAimDirection
+### <a id="method:AbilityTarget.GetAimDirection"></a>AbilityTarget.GetAimDirection
 
 In this example, a non-weapon ability needs to know where the player is aiming in order to spawn the effect correctly. It creates an effect that moves down the center of where the camera is aiming. However, if the effect were to begin at the camera's position that could be weird in a third-person game. Instead, the player's position is projected onto the camera's vector to determine a more suitable starting point.
 
@@ -550,9 +550,9 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### AbilityTarget.GetHitPosition
+### <a id="method:AbilityTarget.GetHitPosition"></a>AbilityTarget.GetHitPosition
 
-### AbilityTarget.SetHitPosition
+### <a id="method:AbilityTarget.SetHitPosition"></a>AbilityTarget.SetHitPosition
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -572,7 +572,7 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### AbilityTarget.GetHitResult
+### <a id="method:AbilityTarget.GetHitResult"></a>AbilityTarget.GetHitResult
 
 At any phase of an ability's activation, you can get data about what is under the cursor and would be hit.
 
@@ -592,9 +592,9 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### AbilityTarget.hitObject
+### <a id="property:AbilityTarget.hitObject"></a>AbilityTarget.hitObject
 
-### AbilityTarget.hitPlayer
+### <a id="property:AbilityTarget.hitPlayer"></a>AbilityTarget.hitPlayer
 
 In this example, an ability casts a magical area of effect (AOE) in front of the player. In case the player was aiming at another player or object that position is used instead.
 
@@ -628,7 +628,7 @@ ability.executeEvent:Connect(OnExecute)
 
 ## AnimatedMesh
 
-### AnimatedMesh.animationEvent
+### <a id="event:AnimatedMesh.animationEvent"></a>AnimatedMesh.animationEvent
 
 Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
 
@@ -645,7 +645,7 @@ dragonMesh.animationEvent:Connect(AnimEventListener)
 dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
-### AnimatedMesh.AttachCoreObject
+### <a id="function:AnimatedMesh.AttachCoreObject"></a>AnimatedMesh.AttachCoreObject
 
 Attaches the specified object to the specified socket on the mesh if they exist.
 
@@ -670,15 +670,15 @@ for _, obj in ipairs(allObjects) do
 end
 ```
 
-### AnimatedMesh.GetAnimationNames
+### <a id="function:AnimatedMesh.GetAnimationNames"></a>AnimatedMesh.GetAnimationNames
 
-### AnimatedMesh.GetAnimationStanceNames
+### <a id="function:AnimatedMesh.GetAnimationStanceNames"></a>AnimatedMesh.GetAnimationStanceNames
 
-### AnimatedMesh.GetSocketNames
+### <a id="function:AnimatedMesh.GetSocketNames"></a>AnimatedMesh.GetSocketNames
 
-### AnimatedMesh.GetAnimationEventNames
+### <a id="function:AnimatedMesh.GetAnimationEventNames"></a>AnimatedMesh.GetAnimationEventNames
 
-### AnimatedMesh.GetAnimationDuration
+### <a id="function:AnimatedMesh.GetAnimationDuration"></a>AnimatedMesh.GetAnimationDuration
 
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
 
@@ -710,9 +710,9 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 PrintAnimatedMeshData(dragonMesh)
 ```
 
-### AnimatedMesh.PlayAnimation
+### <a id="function:AnimatedMesh.PlayAnimation"></a>AnimatedMesh.PlayAnimation
 
-### AnimatedMesh.playbackRateMultiplier
+### <a id="property:AnimatedMesh.playbackRateMultiplier"></a>AnimatedMesh.playbackRateMultiplier
 
 Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
@@ -747,7 +747,7 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-### AnimatedMesh.StopAnimations
+### <a id="function:AnimatedMesh.StopAnimations"></a>AnimatedMesh.StopAnimations
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -760,11 +760,11 @@ Task.Wait(0.25)
 dragonMesh:StopAnimations()
 ```
 
-### AnimatedMesh.animationStance
+### <a id="property:AnimatedMesh.animationStance"></a>AnimatedMesh.animationStance
 
-### AnimatedMesh.animationStancePlaybackRate
+### <a id="property:AnimatedMesh.animationStancePlaybackRate"></a>AnimatedMesh.animationStancePlaybackRate
 
-### AnimatedMesh.animationStanceShouldLoop
+### <a id="property:AnimatedMesh.animationStanceShouldLoop"></a>AnimatedMesh.animationStanceShouldLoop
 
 The stance the animated mesh plays.
 
@@ -814,9 +814,9 @@ end
 
 ## Camera
 
-### Camera.GetPositionOffset
+### <a id="method:Camera.GetPositionOffset"></a>Camera.GetPositionOffset
 
-### Camera.SetPositionOffset
+### <a id="method:Camera.SetPositionOffset"></a>Camera.SetPositionOffset
 
 The following example implements a camera shake based on movement of the camera's z-axis. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
 
@@ -856,9 +856,9 @@ end
 Events.Connect("CameraShake", StartShake)
 ```
 
-### Camera.GetRotationOffset
+### <a id="method:Camera.GetRotationOffset"></a>Camera.GetRotationOffset
 
-### Camera.SetRotationOffset
+### <a id="method:Camera.SetRotationOffset"></a>Camera.SetRotationOffset
 
 The following example implements a camera shake based on rotation of the camera's pitch. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
 
@@ -898,9 +898,9 @@ end
 Events.Connect("CameraShake", StartShake)
 ```
 
-### Camera.currentPitch
+### <a id="property:Camera.currentPitch"></a>Camera.currentPitch
 
-### Camera.currentYaw
+### <a id="property:Camera.currentYaw"></a>Camera.currentYaw
 
 This sample explores the parallel between the player's rotation, the camera's rotation and the camera's view angles expressed in the `currentPitch` and `currentYaw` properties. The camera's "free control" and "rotation mode" are adjusted so the view angle properties give useful information--that's because if "free control" is disabled the view angles always return zero. This script expects to be in a client context. Results will vary depending on player settings (e.g. Facing Mode) as well as other camera settings.
 
@@ -935,13 +935,13 @@ function Tick()
 end
 ```
 
-### Camera.fieldOfView
+### <a id="property:Camera.fieldOfView"></a>Camera.fieldOfView
 
-### Camera.isOrthographic
+### <a id="property:Camera.isOrthographic"></a>Camera.isOrthographic
 
-### Camera.currentDistance
+### <a id="property:Camera.currentDistance"></a>Camera.currentDistance
 
-### Camera.isDistanceAdjustable
+### <a id="property:Camera.isDistanceAdjustable"></a>Camera.isDistanceAdjustable
 
 The following example implements a zoom/scoping effect that activates by holding the secondary action (right mouse button, by default). The effect smoothly interpolates a few camera properties, in addition to making the player invisible to the local view, so they don't obstruct the camera during the zoom. This kind of mechanic is generally attached to a weapon, but in this case the script expects to be a child of the camera directly--no equipment is involved in this example.
 
@@ -1027,7 +1027,7 @@ player.bindingPressedEvent:Connect(OnBindingPressed)
 player.bindingReleasedEvent:Connect(OnBindingReleased)
 ```
 
-### Camera.followPlayer
+### <a id="property:Camera.followPlayer"></a>Camera.followPlayer
 
 In this example, players can change their view to look at another player by pressing the secondary action (default is right mouse button). The script expects to be a child of the game's camera, which is usually in a client context.
 
@@ -1072,25 +1072,23 @@ end
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-### Camera.followPlayer
+### <a id="property:Camera.rotationMode"></a>Camera.rotationMode
 
-### Camera.rotationMode
+### <a id="property:Camera.hasFreeControl"></a>Camera.hasFreeControl
 
-### Camera.hasFreeControl
+### <a id="property:Camera.minPitch"></a>Camera.minPitch
 
-### Camera.minPitch
+### <a id="property:Camera.maxPitch"></a>Camera.maxPitch
 
-### Camera.maxPitch
+### <a id="property:Camera.isYawLimited"></a>Camera.isYawLimited
 
-### Camera.isYawLimited
+### <a id="property:Camera.minYaw"></a>Camera.minYaw
 
-### Camera.minYaw
+### <a id="property:Camera.maxYaw"></a>Camera.maxYaw
 
-### Camera.maxYaw
+### <a id="property:Camera.minDistance"></a>Camera.minDistance
 
-### Camera.minDistance
-
-### Camera.maxDistance
+### <a id="property:Camera.maxDistance"></a>Camera.maxDistance
 
 In this example of an advanced spectator implementation, suitable for a third-person game, players are able to look through the view of others by pressing the secondary action (default is right mouse button). This example demonstrates how the spectator can be constrained (or not) to the look angle of the player they are following. If the `CONSTRAIN_SPECTATOR_LOOK` constant is set to true, then players will not be able to rotate the camera freely while they are spectating.
 
@@ -1186,7 +1184,7 @@ end
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-### Camera.useCameraSocket
+### <a id="property:Camera.useCameraSocket"></a>Camera.useCameraSocket
 
 The following client script allows players in a first-person game to turn on/off the head-bob effect that is associated with the camera being attached to the camera socket. To toggle the head-bob press 0.
 
@@ -1202,7 +1200,7 @@ local localPlayer = Game.GetLocalPlayer()
 localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-### Camera.viewWidth
+### <a id="property:Camera.viewWidth"></a>Camera.viewWidth
 
 In this example, designed to work with a top-down orthographic camera, the view is zoomed in when the secondary action is pressed (default is right mouse button). Works best in a client context.
 
@@ -1255,7 +1253,7 @@ player.bindingReleasedEvent:Connect(OnBindingReleased)
 
 ## Color
 
-### Color.Lerp
+### <a id="classfunction:Color.Lerp"></a>Color.Lerp
 
 This utility function calculates a color useful for a health bar.
 
@@ -1343,11 +1341,11 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 
 ## CoreDebug
 
-### CoreDebug.DrawLine
+### <a id="classfunction:CoreDebug.DrawLine"></a>CoreDebug.DrawLine
 
-### CoreDebug.DrawBox
+### <a id="classfunction:CoreDebug.DrawBox"></a>CoreDebug.DrawBox
 
-### CoreDebug.DrawSphere
+### <a id="classfunction:CoreDebug.DrawSphere"></a>CoreDebug.DrawSphere
 
 Core contains several useful functions for drawing in the 3d world, that are intended for use when debugging. If you are trying to visualize values in a 3d world,
 
@@ -1387,9 +1385,9 @@ Task.Spawn(function()
 end)
 ```
 
-### CoreDebug.GetTaskStackTrace
+### <a id="classfunction:CoreDebug.GetTaskStackTrace"></a>CoreDebug.GetTaskStackTrace
 
-### CoreDebug.GetStackTrace
+### <a id="classfunction:CoreDebug.GetStackTrace"></a>CoreDebug.GetStackTrace
 
 When debugging, it can often be useful to see exactly which code is executing, and which code called it. You a "stack trace" will give you this information. It is a list of every function on the call stack.
 
@@ -1430,9 +1428,9 @@ print(generalStackTrace)
 
 ## CoreLuaFunctions
 
-### CoreLua.print
+### <a id="corelua:CoreLua.print"></a>CoreLua.print
 
-### CoreLua.warn
+### <a id="corelua:CoreLua.warn"></a>CoreLua.warn
 
 The common lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
 
@@ -1446,9 +1444,9 @@ print("Hello world!")
 warn("Something is amiss!")
 ```
 
-### CoreLua.time
+### <a id="corelua:CoreLua.time"></a>CoreLua.time
 
-### CoreLua.Tick
+### <a id="corelua:CoreLua.Tick"></a>CoreLua.Tick
 
 Functions named `Tick()` are special - if you have a script with a `Tick()` function, then that function will be called every frame of the game. This is not something you want to do often, because of performance costs, but can be used to set up animations. (Ideally inside of client contexts.)
 
@@ -1477,11 +1475,11 @@ end
 
 ## CoreMesh
 
-### CoreMesh.GetColor
+### <a id="method:CoreMesh.GetColor"></a>CoreMesh.GetColor
 
-### CoreMesh.SetColor
+### <a id="method:CoreMesh.SetColor"></a>CoreMesh.SetColor
 
-### CoreMesh.ResetColor
+### <a id="method:CoreMesh.ResetColor"></a>CoreMesh.ResetColor
 
 You can set a color override for a mesh. Exactly what this means will depend on the material of the mesh, but in general, setting a mesh's color will make the mesh be tinted to match that color.
 
@@ -1498,7 +1496,7 @@ end
 cube:ResetColor()
 ```
 
-### CoreMesh.meshAssetId
+### <a id="property:CoreMesh.meshAssetId"></a>CoreMesh.meshAssetId
 
 You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from!
 
@@ -1507,15 +1505,15 @@ local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0,
 print("The asset ID is " .. cube.meshAssetId)
 ```
 
-### CoreMesh.team
+### <a id="property:CoreMesh.team"></a>CoreMesh.team
 
-### CoreMesh.isTeamColorUsed
+### <a id="property:CoreMesh.isTeamColorUsed"></a>CoreMesh.isTeamColorUsed
 
-### CoreMesh.isTeamCollisionEnabled
+### <a id="property:CoreMesh.isTeamCollisionEnabled"></a>CoreMesh.isTeamCollisionEnabled
 
-### CoreMesh.isEnemyCollisionEnabled
+### <a id="property:CoreMesh.isEnemyCollisionEnabled"></a>CoreMesh.isEnemyCollisionEnabled
 
-### CoreMesh.isCameraCollisionEnabled
+### <a id="property:CoreMesh.isCameraCollisionEnabled"></a>CoreMesh.isCameraCollisionEnabled
 
 You can set a mesh to belong to a particular "team". These match the teams that players can be set to. (0-4)  There are also several properties that are keyed to what team an object is on.
 
@@ -1544,19 +1542,19 @@ AssignMeshToTeam(cube, 1)
 
 ## CoreObject
 
-### CoreObject.childAddedEvent
+### <a id="event:CoreObject.childAddedEvent"></a>CoreObject.childAddedEvent
 
-### CoreObject.childRemovedEvent
+### <a id="event:CoreObject.childRemovedEvent"></a>CoreObject.childRemovedEvent
 
-### CoreObject.descendantAddedEvent
+### <a id="event:CoreObject.descendantAddedEvent"></a>CoreObject.descendantAddedEvent
 
-### CoreObject.descendantRemovedEvent
+### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
 
-Child/descendent event listeners fire when something is added to an object as a child, either directly, or to one of its children.
+Child/descendant event listeners fire when something is added to an object as a child, either directly, or to one of its children.
 
 The child event listeners (`childAddedEvent`, `childRemovedEvent`) fire whenever an object is added as a direct child to a CoreObject.
 
-The descendent events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a chiled, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
+The descendant events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a child, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -1590,11 +1588,11 @@ template3.parent = template2
 -- A descendant has been added to template 1!
 ```
 
-### CoreObject.destroyEvent
+### <a id="event:CoreObject.destroyEvent"></a>CoreObject.destroyEvent
 
-### CoreObject.Destroy
+### <a id="function:CoreObject.Destroy"></a>CoreObject.Destroy
 
-### CoreObject.lifeSpan
+### <a id="property:CoreObject.lifeSpan"></a>CoreObject.lifeSpan
 
 There are several ways of destroying coreobjects, and noticing when they are destroyed.
 
@@ -1645,15 +1643,15 @@ template4.lifeSpan = 0.5
 Task.Wait(1)
 ```
 
-### CoreObject.AttachToPlayer
+### <a id="function:CoreObject.AttachToPlayer"></a>CoreObject.AttachToPlayer
 
-### CoreObject.AttachToLocalView
+### <a id="function:CoreObject.AttachToLocalView"></a>CoreObject.AttachToLocalView
 
-### CoreObject.Detach
+### <a id="function:CoreObject.Detach"></a>CoreObject.Detach
 
-### CoreObject.GetAttachedToSocketName
+### <a id="function:CoreObject.GetAttachedToSocketName"></a>CoreObject.GetAttachedToSocketName
 
-### Player.GetAttachedObjects
+### <a id="function:Player.GetAttachedObjects"></a>Player.GetAttachedObjects
 
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
 
@@ -1686,13 +1684,13 @@ It's also possible to attach objects to the local view on the client. Note that 
 cube:AttachToLocalView()
 ```
 
-### CoreObject.Follow
+### <a id="function:CoreObject.Follow"></a>CoreObject.Follow
 
-### CoreObject.LookAt
+### <a id="function:CoreObject.LookAt"></a>CoreObject.LookAt
 
-### CoreObject.LookAtContinuous
+### <a id="function:CoreObject.LookAtContinuous"></a>CoreObject.LookAtContinuous
 
-### CoreObject.LookAtLocalView
+### <a id="function:CoreObject.LookAtLocalView"></a>CoreObject.LookAtLocalView
 
 There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world. There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object. And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
 
@@ -1722,29 +1720,29 @@ It's also possible to make an object always look at EVERY player. This obviously
     watchingCube:LookAtLocalView() -- This only works in a client context!
 ```
 
-### CoreObject.GetChildren
+### <a id="function:CoreObject.GetChildren"></a>CoreObject.GetChildren
 
-### CoreObject.FindAncestorByName
+### <a id="function:CoreObject.FindAncestorByName"></a>CoreObject.FindAncestorByName
 
-### CoreObject.FindChildByName
+### <a id="function:CoreObject.FindChildByName"></a>CoreObject.FindChildByName
 
-### CoreObject.FindDescendantByName
+### <a id="function:CoreObject.FindDescendantByName"></a>CoreObject.FindDescendantByName
 
-### CoreObject.FindDescendantsByName
+### <a id="function:CoreObject.FindDescendantsByName"></a>CoreObject.FindDescendantsByName
 
-### CoreObject.FindAncestorByType
+### <a id="function:CoreObject.FindAncestorByType"></a>CoreObject.FindAncestorByType
 
-### CoreObject.FindChildByType
+### <a id="function:CoreObject.FindChildByType"></a>CoreObject.FindChildByType
 
-### CoreObject.FindDescendantByType
+### <a id="function:CoreObject.FindDescendantByType"></a>CoreObject.FindDescendantByType
 
-### CoreObject.FindDescendantsByType
+### <a id="function:CoreObject.FindDescendantsByType"></a>CoreObject.FindDescendantsByType
 
-### CoreObject.FindTemplateRoot
+### <a id="function:CoreObject.FindTemplateRoot"></a>CoreObject.FindTemplateRoot
 
-### CoreObject.IsAncestorOf
+### <a id="function:CoreObject.IsAncestorOf"></a>CoreObject.IsAncestorOf
 
-### CoreObject.parent
+### <a id="property:CoreObject.parent"></a>CoreObject.parent
 
 You can inspect most of the hierarchy at runtime.
 
@@ -1813,9 +1811,9 @@ local templateRoot = template1:FindTemplateRoot()
 -- this should just give us back Template1, because it is already the root.
 ```
 
-### CoreObject.GetCustomProperties
+### <a id="function:CoreObject.GetCustomProperties"></a>CoreObject.GetCustomProperties
 
-### CoreObject.GetCustomProperty
+### <a id="function:CoreObject.GetCustomProperty"></a>CoreObject.GetCustomProperty
 
 Almost any object in the hierarchy can have "custom properties" associated with it. These are values that you can change in the editor, but that scripts can easily access. They're useful for making modular components that can be configured without needing to modify Lua code. You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
 
@@ -1845,37 +1843,37 @@ for propName, propValue in pairs(script:GetCustomProperties()) do
 end
 ```
 
-### CoreObject.GetTransform
+### <a id="function:CoreObject.GetTransform"></a>CoreObject.GetTransform
 
-### CoreObject.SetTransform
+### <a id="function:CoreObject.SetTransform"></a>CoreObject.SetTransform
 
-### CoreObject.GetPosition
+### <a id="function:CoreObject.GetPosition"></a>CoreObject.GetPosition
 
-### CoreObject.SetPosition
+### <a id="function:CoreObject.SetPosition"></a>CoreObject.SetPosition
 
-### CoreObject.GetRotation
+### <a id="function:CoreObject.GetRotation"></a>CoreObject.GetRotation
 
-### CoreObject.SetRotation
+### <a id="function:CoreObject.SetRotation"></a>CoreObject.SetRotation
 
-### CoreObject.GetScale
+### <a id="function:CoreObject.GetScale"></a>CoreObject.GetScale
 
-### CoreObject.SetScale
+### <a id="function:CoreObject.SetScale"></a>CoreObject.SetScale
 
-### CoreObject.GetWorldTransform
+### <a id="function:CoreObject.GetWorldTransform"></a>CoreObject.GetWorldTransform
 
-### CoreObject.SetWorldTransform
+### <a id="function:CoreObject.SetWorldTransform"></a>CoreObject.SetWorldTransform
 
-### CoreObject.GetWorldPosition
+### <a id="function:CoreObject.GetWorldPosition"></a>CoreObject.GetWorldPosition
 
-### CoreObject.SetWorldPosition
+### <a id="function:CoreObject.SetWorldPosition"></a>CoreObject.SetWorldPosition
 
-### CoreObject.GetWorldRotation
+### <a id="function:CoreObject.GetWorldRotation"></a>CoreObject.GetWorldRotation
 
-### CoreObject.SetWorldRotation
+### <a id="function:CoreObject.SetWorldRotation"></a>CoreObject.SetWorldRotation
 
-### CoreObject.GetWorldScale
+### <a id="function:CoreObject.GetWorldScale"></a>CoreObject.GetWorldScale
 
-### CoreObject.SetWorldScale
+### <a id="function:CoreObject.SetWorldScale"></a>CoreObject.SetWorldScale
 
 One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
 
@@ -1920,15 +1918,15 @@ cube4:SetTransform(cube2:GetTransform())
 -- Cube1 and cube3 now have the same transforms, and cube2 and cube4 also match.
 ```
 
-### CoreObject.GetVelocity
+### <a id="function:CoreObject.GetVelocity"></a>CoreObject.GetVelocity
 
-### CoreObject.SetVelocity
+### <a id="function:CoreObject.SetVelocity"></a>CoreObject.SetVelocity
 
-### CoreObject.GetAngularVelocity
+### <a id="function:CoreObject.GetAngularVelocity"></a>CoreObject.GetAngularVelocity
 
-### CoreObject.SetAngularVelocity
+### <a id="function:CoreObject.SetAngularVelocity"></a>CoreObject.SetAngularVelocity
 
-### CoreObject.SetLocalAngularVelocity
+### <a id="function:CoreObject.SetLocalAngularVelocity"></a>CoreObject.SetLocalAngularVelocity
 
 Some core objects are handled by the physics system. Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
 
@@ -1952,23 +1950,23 @@ sphere:SetAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 ```
 
-### CoreObject.MoveTo
+### <a id="function:CoreObject.MoveTo"></a>CoreObject.MoveTo
 
-### CoreObject.RotateTo
+### <a id="function:CoreObject.RotateTo"></a>CoreObject.RotateTo
 
-### CoreObject.ScaleTo
+### <a id="function:CoreObject.ScaleTo"></a>CoreObject.ScaleTo
 
-### CoreObject.MoveContinuous
+### <a id="function:CoreObject.MoveContinuous"></a>CoreObject.MoveContinuous
 
-### CoreObject.RotateContinuous
+### <a id="function:CoreObject.RotateContinuous"></a>CoreObject.RotateContinuous
 
-### CoreObject.ScaleContinuous
+### <a id="function:CoreObject.ScaleContinuous"></a>CoreObject.ScaleContinuous
 
-### CoreObject.StopMove
+### <a id="function:CoreObject.StopMove"></a>CoreObject.StopMove
 
-### CoreObject.StopRotate
+### <a id="function:CoreObject.StopRotate"></a>CoreObject.StopRotate
 
-### CoreObject.StopScale
+### <a id="function:CoreObject.StopScale"></a>CoreObject.StopScale
 
 There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
 
@@ -2003,11 +2001,11 @@ spinningCube:StopRotate()
 shrinkingCube:StopScale()
 ```
 
-### CoreObject.SetNetworkedCustomProperty
+### <a id="function:CoreObject.SetNetworkedCustomProperty"></a>CoreObject.SetNetworkedCustomProperty
 
-### CoreObject.networkedPropertyChangedEvent
+### <a id="event:CoreObject.networkedPropertyChangedEvent"></a>CoreObject.networkedPropertyChangedEvent
 
-### CoreObject.GetReference
+### <a id="function:CoreObject.GetReference"></a>CoreObject.GetReference
 
 Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
 
@@ -2053,19 +2051,19 @@ local cube = World.SpawnAsset(propCubeTemplate)
 script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetReference())
 ```
 
-### CoreObject.name
+### <a id="property:CoreObject.name"></a>CoreObject.name
 
-### CoreObject.id
+### <a id="property:CoreObject.id"></a>CoreObject.id
 
-### CoreObject.sourceTemplateId
+### <a id="property:CoreObject.sourceTemplateId"></a>CoreObject.sourceTemplateId
 
-### CoreObject.isStatic
+### <a id="property:CoreObject.isStatic"></a>CoreObject.isStatic
 
-### CoreObject.isClientOnly
+### <a id="property:CoreObject.isClientOnly"></a>CoreObject.isClientOnly
 
-### CoreObject.isServerOnly
+### <a id="property:CoreObject.isServerOnly"></a>CoreObject.isServerOnly
 
-### CoreObject.isNetworked
+### <a id="property:CoreObject.isNetworked"></a>CoreObject.isNetworked
 
 You can find out a lot about an object via its CoreProperties.
 
@@ -2101,17 +2099,17 @@ if template.isStatic then print("It is Static") end
 --    It is networked!
 ```
 
-### CoreObject.visibility
+### <a id="property:CoreObject.visibility"></a>CoreObject.visibility
 
-### CoreObject.collision
+### <a id="property:CoreObject.collision"></a>CoreObject.collision
 
-### CoreObject.isEnabled
+### <a id="property:CoreObject.isEnabled"></a>CoreObject.isEnabled
 
-### CoreObject.IsVisibleInHierarchy
+### <a id="function:CoreObject.IsVisibleInHierarchy"></a>CoreObject.IsVisibleInHierarchy
 
-### CoreObject.IsCollidableInHierarchy
+### <a id="function:CoreObject.IsCollidableInHierarchy"></a>CoreObject.IsCollidableInHierarchy
 
-### CoreObject.IsEnabledInHierarchy
+### <a id="function:CoreObject.IsEnabledInHierarchy"></a>CoreObject.IsEnabledInHierarchy
 
 You can make objects appear and disappear in the world in several different ways.
 
@@ -2172,13 +2170,13 @@ print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 
 ## CoreObjectReference
 
-### CoreObjectReference.GetObject
+### <a id="function:CoreObjectReference.GetObject"></a>CoreObjectReference.GetObject
 
-### CoreObjectReference.WaitForObject
+### <a id="function:CoreObjectReference.WaitForObject"></a>CoreObjectReference.WaitForObject
 
-### CoreObjectReference.id
+### <a id="property:CoreObjectReference.id"></a>CoreObjectReference.id
 
-### CoreObjectReference.isAssigned
+### <a id="property:CoreObjectReference.isAssigned"></a>CoreObjectReference.isAssigned
 
 Sometimes you need to pass around a reference to a core object, instead of the actual object itself. This is most common when accessing custom properties - any core objects you have attached as custom properties are stored as `CoreObjectReferences`.
 
@@ -2211,7 +2209,7 @@ end
 
 ## Damage
 
-### Damage.New
+### <a id="constructor:Damage.New"></a>Damage.New
 
 In this example players take 50 damage whenever they press 'D'.
 
@@ -2230,7 +2228,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.GetHitResult
+### <a id="method:Damage.GetHitResult"></a>Damage.GetHitResult
 
 This example listens to the player's damagedEvent and takes a closer look at the HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
 
@@ -2249,7 +2247,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.SetHitResult
+### <a id="method:Damage.SetHitResult"></a>Damage.SetHitResult
 
 This example spawns a custom Projectile and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
 
@@ -2275,7 +2273,7 @@ function ShootAtPlayer(player)
 end
 ```
 
-### Damage.amount
+### <a id="property:Damage.amount"></a>Damage.amount
 
 While Damage amount can be set when constructing the Damage object (e.g. Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
 
@@ -2296,7 +2294,7 @@ function DamagePlayerAdvanced(player, dmg)
 end
 ```
 
-### Damage.reason
+### <a id="property:Damage.reason"></a>Damage.reason
 
 The damage reason can be used to specify the source of the damage and is useful, for example, when attributing score based on kills. In this example, players take 1 damage per second when they are within 20 meters of the center of the map. If another part of the game listens to the Player's diedEvent, it would be able to tell the difference between players being killed by the environment as opposed to killed by another player.
 
@@ -2326,7 +2324,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.sourceAbility
+### <a id="property:Damage.sourceAbility"></a>Damage.sourceAbility
 
 In this example, knowing the source of the damage was an ability allows complex rules, such as magic resistance.
 
@@ -2352,7 +2350,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.sourcePlayer
+### <a id="property:Damage.sourcePlayer"></a>Damage.sourcePlayer
 
 In this example, the source player scores a point for their team each time they get a kill.
 
@@ -2376,9 +2374,9 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## Equipment
 
-### Equipment.equippedEvent
+### <a id="event:Equipment.equippedEvent"></a>Equipment.equippedEvent
 
-### Equipment.unequippedEvent
+### <a id="event:Equipment.unequippedEvent"></a>Equipment.unequippedEvent
 
 Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
 
@@ -2401,7 +2399,7 @@ primaryEquipment.equippedEvent:Connect(OnEquipped)
 primaryEquipment.unequippedEvent:Connect(OnUnequipped)
 ```
 
-### Equipment.AddAbility
+### <a id="method:Equipment.AddAbility"></a>Equipment.AddAbility
 
 One of the primary roles of equipment is to contain several abilities. Those abilities are automatically added/removed from the player when they equip/unequip the item. This example shows how an equipment can be spawned and then procedurally assembled with different abilities depending on RNG.
 
@@ -2434,7 +2432,7 @@ for i, ability in ipairs(EQUIPMENT:GetAbilities()) do
 end
 ```
 
-### Equipment.Equip
+### <a id="method:Equipment.Equip"></a>Equipment.Equip
 
 This example shows how players can be given default equipment when they join a game.
 
@@ -2449,7 +2447,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Equipment.GetAbilities
+### <a id="method:Equipment.GetAbilities"></a>Equipment.GetAbilities
 
 Weapons are a specialized type of Equipment that have lots of built-in functionality, including two abilities that are usually included: One for attacking and the second one for reloading. In this example, a cosmetic part of a weapon is hidden after the attack happens and is enabled again after it reloads. This could be used, for instance, in a rocket launcher or a crossbow. The script should be a descendant of a `Weapon`. It works best if under a Client Context and the "ObjectToHide" custom property must be hooked up.
 
@@ -2472,7 +2470,7 @@ end
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
 ```
 
-### Equipment.Unequip
+### <a id="method:Equipment.Unequip"></a>Equipment.Unequip
 
 In this example, when a player dies all equipment they have is unequipped and dropped to the ground.
 
@@ -2500,7 +2498,7 @@ end
 
 function OnPlayerDied(player)
     for _, equipment in ipairs(player:GetEquipment()) do
-        DropToGround()
+        DropToGround(equipment)
     end
 end
 
@@ -2511,7 +2509,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Equipment.owner
+### <a id="property:Equipment.owner"></a>Equipment.owner
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
@@ -2527,9 +2525,9 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-### Equipment.socket
+### <a id="property:Equipment.socket"></a>Equipment.socket
 
-The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function.
+The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function. Without re-implementing our own `interactedEvent`, by default the old equipment would be destroyed, instead of dropped, when there is competition for a socket.
 
 ```lua
 local EQUIPMENT = script.parent
@@ -2564,7 +2562,7 @@ TRIGGER.interactedEvent:Connect(OnInteracted)
 
 ## Event
 
-### Event.Connect
+### <a id="method:Event.Connect"></a>Event.Connect
 
 Core uses events for a variety of built-in state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. In this example, both `Game.playerJoinedEvent` and `player.damagedEvent` are connected to. The `OnPlayerDamaged()` function will be called each time a player takes damage. Any number of extra parameters can be added when connecting and those values will be passed back to the listening function.
 
@@ -2584,9 +2582,9 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## EventListener
 
-### EventListener.Disconnect
+### <a id="method:EventListener.Disconnect"></a>EventListener.Disconnect
 
-### EventListener.isConnected
+### <a id="property:EventListener.isConnected"></a>EventListener.isConnected
 
 When `Connect()` is called, an `EventListener` structure is returned. In some situations it's good to save the listener in order to disconnect from the event later. In the following example, we are listening for the local player gaining or losing resources. However, if this script is destroyed for some reason, then it will be hanging in memory due to the event connection. In this case it's important to `Disconnect()` or a small memory leak is created. This script presumes to be in a Client Context.
 
@@ -2621,7 +2619,7 @@ script.destroyEvent:Connect(OnDestroyed)
 
 ## Events
 
-### Events.BroadcastToAllPlayers
+### <a id="classfunction:Events.BroadcastToAllPlayers"></a>Events.BroadcastToAllPlayers
 
 This event connection allows the server to send a message to all players. In this example, two scripts communicate over the network. The first one is on the server as child of a Trigger and the second one is in a Client Context. The server is authoritative over the state of the flag being captured and listens for overlaps on the Trigger. When a new team captures the flag a message is sent to all clients with information about who captured and what team they belong to.
 
@@ -2655,7 +2653,7 @@ end
 Events.Connect("FlagCaptured", OnFlagCaptured)
 ```
 
-### Events.BroadcastToPlayer
+### <a id="classfunction:Events.BroadcastToPlayer"></a>Events.BroadcastToPlayer
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
@@ -2679,9 +2677,9 @@ end
 ABILITY.executeEvent:Connect(OnExecute)
 ```
 
-### Events.Connect
+### <a id="classfunction:Events.Connect"></a>Events.Connect
 
-### Events.Broadcast
+### <a id="classfunction:Events.Broadcast"></a>Events.Broadcast
 
 The `Events` namespace allows two separate scripts to communicate without the need to reference each other directly. In this example, two scripts communicate through a custom "GameStateChanged" event. The first one has the beginnings of a state machine and broadcasts the event each time the state changes. The second script listens for that specific event. This is a non-networked message.
 
@@ -2712,9 +2710,9 @@ end
 Events.Connect("GameStateChanged", OnStateChanged)
 ```
 
-### Events.ConnectForPlayer
+### <a id="classfunction:Events.ConnectForPlayer"></a>Events.ConnectForPlayer
 
-### Events.BroadcastToServer
+### <a id="classfunction:Events.BroadcastToServer"></a>Events.BroadcastToServer
 
 This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client can send input data to the server, in this case their cursor's position.
 
@@ -2742,7 +2740,7 @@ end
 
 ## Game
 
-### Game.FindNearestPlayer
+### <a id="classfunction:Game.FindNearestPlayer"></a>Game.FindNearestPlayer
 
 In this example, the player who is closest to the script's position is made twice as big. All other players are set to regular size.
 
@@ -2762,7 +2760,7 @@ function Tick()
 end
 ```
 
-### Game.FindPlayersInCylinder
+### <a id="classfunction:Game.FindPlayersInCylinder"></a>Game.FindPlayersInCylinder
 
 Searches for players in a vertically-infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
 
@@ -2779,7 +2777,7 @@ function Tick()
 end
 ```
 
-### Game.FindPlayersInSphere
+### <a id="classfunction:Game.FindPlayersInSphere"></a>Game.FindPlayersInSphere
 
 Similar to `FindPlayersInCylinder()`, but the volume of a sphere is considered in the search instead. Also note that the player's center is at the pelvis. The moment that point exits the sphere area the effect ends, as the extent of their collision capsules is not taken into account for these searches.
 
@@ -2796,7 +2794,7 @@ function Tick()
 end
 ```
 
-### Game.GetLocalPlayer
+### <a id="classfunction:Game.GetLocalPlayer"></a>Game.GetLocalPlayer
 
 This function can only be called in a client script, as the server does not have a local player. This example prints the names of all players to the upper-left corner of the screen. The local player appears in green, while other player names appear blue. To test this example, place the script under a Client Context. From the point of view of each player, name colors appear different. That's because on each computer the local player is different.
 
@@ -2815,7 +2813,7 @@ function Tick()
 end
 ```
 
-### Game.GetPlayers
+### <a id="classfunction:Game.GetPlayers"></a>Game.GetPlayers
 
 This function is commonly used without any options. However, it can be very powerful and computationally efficient to pass a table of optional parameters, getting exactly the list of players that are needed for a certain condition. In this example, when the round ends it prints the number of alive players on team 1, as well as the number of dead players on team 2.
 
@@ -2830,7 +2828,7 @@ end
 Game.roundEndEvent:Connect(OnRoundEnd)
 ```
 
-### Game.GetTeamScore
+### <a id="classfunction:Game.GetTeamScore"></a>Game.GetTeamScore
 
 This example checks the score for all four teams and prints them to the screen. Note: Other than in preview mode, the scores will only appear on screen if the script is placed inside a Client Context.
 
@@ -2849,7 +2847,7 @@ function Tick()
 end
 ```
 
-### Game.ResetTeamScores
+### <a id="classfunction:Game.ResetTeamScores"></a>Game.ResetTeamScores
 
 In this example, when the round ends team scores are evaluated to figure out which one is the highest, then all scores are reset.
 
@@ -2876,7 +2874,7 @@ end
 Game.roundEndEvent:Connect(OnRoundEnd)
 ```
 
-### Game.SetTeamScore
+### <a id="classfunction:Game.SetTeamScore"></a>Game.SetTeamScore
 
 Team scores don't have to represent things such as kills or points--they can be used for keeping track of and displaying abstract gameplay state. In this example, score for each team is used to represent how many players of that team are within 8 meters of the script.
 
@@ -2893,9 +2891,9 @@ function Tick()
 end
 ```
 
-### Game.StartRound
+### <a id="classfunction:Game.StartRound"></a>Game.StartRound
 
-### Game.EndRound
+### <a id="classfunction:Game.EndRound"></a>Game.EndRound
 
 In this example, when one of the teams reaches a score of 10 they win the round. Five seconds later a new round starts.
 
@@ -2932,9 +2930,9 @@ end
 Game.teamScoreChangedEvent:Connect(OnTeamScoreChanged)
 ```
 
-### Game.playerJoinedEvent
+### <a id="staticevent:Game.playerJoinedEvent"></a>Game.playerJoinedEvent
 
-### Game.playerLeftEvent
+### <a id="staticevent:Game.playerLeftEvent"></a>Game.playerLeftEvent
 
 Events that fire when players join or leave the game. Both server and client scripts detect these events. In the following example teams are kept balanced at a ratio of 1 to 2. E.g. if there are 6 players two of them will be on team 1 and the other four will be on team 2.
 
@@ -2987,7 +2985,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-### Game.roundEndEvent
+### <a id="staticevent:Game.roundEndEvent"></a>Game.roundEndEvent
 
 Several operations need to be made when rounds start and end. In this example, when the game ends it transitions to a "round ended" state for three seconds, then respawns all players to spawn points. The advantage of using events is that the different scripts can be separated from each other to improve organization of the project. The condition for ending the round is set here as one team reaching 5 points and can be located in one script. Meanwhile the various outcomes/cleanups can be broken up into different scripts in a way that makes the most sense per game, all listening to the `roundEndEvent`.
 
@@ -3029,7 +3027,7 @@ function Tick()
 end
 ```
 
-### Game.roundStartEvent
+### <a id="staticevent:Game.roundStartEvent"></a>Game.roundStartEvent
 
 Several functions and events in the `Game` namespace are convenient for controlling the flow of a game. In this example, the game requires two players to join. It begins in a lobby state and transitions to a playing state when there are enough players.
 
@@ -3055,11 +3053,11 @@ function Tick()
 end
 ```
 
-### Game.teamScoreChangedEvent
+### <a id="staticevent:Game.teamScoreChangedEvent"></a>Game.teamScoreChangedEvent
 
-### Game.IncreaseTeamScore
+### <a id="classfunction:Game.IncreaseTeamScore"></a>Game.IncreaseTeamScore
 
-### Game.DecreaseTeamScore
+### <a id="classfunction:Game.DecreaseTeamScore"></a>Game.DecreaseTeamScore
 
 In this example, when a player jumps their team gains 1 point and when they crouch their team loses 1 point. The `OnTeamScoreChanged` function is connected to the event and prints the new score to the Event Log each time they change.
 
@@ -3103,9 +3101,9 @@ end
 
 ## HitResult
 
-### HitResult.GetImpactPosition
+### <a id="method:HitResult.GetImpactPosition"></a>HitResult.GetImpactPosition
 
-### HitResult.GetImpactNormal
+### <a id="method:HitResult.GetImpactNormal"></a>HitResult.GetImpactNormal
 
 This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot ricocheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
 
@@ -3133,7 +3131,7 @@ function Tick()
 end
 ```
 
-### HitResult.GetTransform
+### <a id="method:HitResult.GetTransform"></a>HitResult.GetTransform
 
 HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
 
@@ -3151,9 +3149,9 @@ end
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### HitResult.other
+### <a id="property:HitResult.other"></a>HitResult.other
 
-### HitResult.socketName
+### <a id="property:HitResult.socketName"></a>HitResult.socketName
 
 HitResult is used by Weapons to transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
 
@@ -3174,7 +3172,7 @@ weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ## ImpactData
 
-### ImpactData.GetHitResult
+### <a id="method:ImpactData.GetHitResult"></a>ImpactData.GetHitResult
 
 HitResult is used by Weapons to transmit data about the interaction. In this example, the `socketName` property is used in determining how much damage to apply, depending on what part of the target's body was hit. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -3224,13 +3222,13 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### ImpactData.GetHitResults
+### <a id="method:ImpactData.GetHitResults"></a>ImpactData.GetHitResults
 
-### ImpactData.targetObject
+### <a id="property:ImpactData.targetObject"></a>ImpactData.targetObject
 
-### ImpactData.weaponOwner
+### <a id="property:ImpactData.weaponOwner"></a>ImpactData.weaponOwner
 
-### ImpactData.isHeadshot
+### <a id="property:ImpactData.isHeadshot"></a>ImpactData.isHeadshot
 
 When it comes to weapons damaging players, there is a built-in damage value that works. However, additional mechanics can be layered on top, with scripts. In this example, some weapons can have multiple shots at once (e.g. Shotgun) and headshots are defined to have a different damage value. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -3269,7 +3267,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### ImpactData.projectile
+### <a id="property:ImpactData.projectile"></a>ImpactData.projectile
 
 Projectiles that are fired from weapons cannot be controlled in the same was as projectiles that are created with `Projectile.Spawn()`. That's because they are client-predicted, which is a tradeoff that usually leads to better gameplay fidelity. That said, there are still mechanics that can be explored with access to the `ImpactData`'s projectile object. In this example, the weapon is setup with a value on the `Projectile Pierces` property. This causes shots to go through objects. In this hypothetical game we want shots that hit player limbs to go through them and hit objects behind. If the impact happened on any other object or part of their body, then we destroy the projectile.
 
@@ -3302,7 +3300,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### ImpactData.sourceAbility
+### <a id="property:ImpactData.sourceAbility"></a>ImpactData.sourceAbility
 
 In this example, the shoot ability is manipulated as a result of the `targetImpactEvent`. If the shot was a headshot the ability continues as normal and will immediately refresh. However, if it was not a headshot there is an additional 1 second delay during which the player can't use the shoot ability.
 
@@ -3327,7 +3325,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### ImpactData.travelDistance
+### <a id="property:ImpactData.travelDistance"></a>ImpactData.travelDistance
 
 The `travelDistance` property tells us the distance (in centimeters) between the origin of the shot and the impact point. In this example, we use that information to create a weapon that deals variable damage, depending on the distance. It could be configured to do either maximum damage at maximum range or minimum damage at the max range, all dependant upon custom property values. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -3364,7 +3362,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-### ImpactData.weapon
+### <a id="property:ImpactData.weapon"></a>ImpactData.weapon
 
 While the `targetImpactedEvent` conveniently provides the weapon as the first parameter, the `ImpactData` that comes as the second parameter also contains a reference to the weapon. This is useful if we are forwarding the logic off to another script. In this case we only need to pass the `ImpactData` and the other script will have all the information it needs. In this example, a damage manager script is `required()` by the weapon and the combat decision is forwarded to the manager.
 
@@ -3405,7 +3403,7 @@ end
 
 ## Object
 
-### Object.IsValid
+### <a id="classfunction:Object.IsValid"></a>Object.IsValid
 
 The example below shows the importance of using `Object.IsValid()` instead of a simple nil check (i.e. `if object then`). An object can be in a situation where it's invalid, but not yet nil. This can happen if a script is retaining a reference to it or it began the destroy process but hasn't completed it yet.
 
@@ -3447,7 +3445,7 @@ CUBE = nil
 PrintCubeInfo()
 ```
 
-### Object.clientUserData
+### <a id="property:Object.clientUserData"></a>Object.clientUserData
 
 In this example, multiple copies of the same script are placed into the scene. At startup, they search for each other and build a follow chain. The last script that can't find another script to follow is set to follow the local player. As the player moves around the chain of objects follows along in a smooth motion. The `clientUserData` property is leveraged in building the chain of object references.
 
@@ -3490,7 +3488,7 @@ function Tick()
 end
 ```
 
-### Object.serverUserData
+### <a id="property:Object.serverUserData"></a>Object.serverUserData
 
 In this example we are trying to figure out which player was the first to join the game and promote them with some gameplay advantage. That's easy for the first player joining, but because players can join and leave at any moment, the first player to join might leave, at which point we need to promote the next (oldest) player. To accomplish this, we keep count of how many players have joined and save that number onto each player's `serverUserData`--a kind of waiting list.
 
@@ -3541,11 +3539,11 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## Other
 
-### IsA
+### <a id="other:IsA"></a>IsA
 
-### type
+### <a id="other:type"></a>type
 
-### type(property)
+### <a id="other:type(property)"></a>type(property)
 
 Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more!
 
@@ -3585,13 +3583,13 @@ print(type(number)) -- number
 
 ## Player
 
-### Player.bindingPressedEvent
+### <a id="event:Player.bindingPressedEvent"></a>Player.bindingPressedEvent
 
-### Player.bindingReleasedEvent
+### <a id="event:Player.bindingReleasedEvent"></a>Player.bindingReleasedEvent
 
-### Player.maxWalkSpeed
+### <a id="property:Player.maxWalkSpeed"></a>Player.maxWalkSpeed
 
-### Player.maxSwimSpeed
+### <a id="property:Player.maxSwimSpeed"></a>Player.maxSwimSpeed
 
 Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
 
@@ -3623,17 +3621,17 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Player.damagedEvent
+### <a id="event:Player.damagedEvent"></a>Player.damagedEvent
 
-### Player.diedEvent
+### <a id="event:Player.diedEvent"></a>Player.diedEvent
 
-### Player.respawnedEvent
+### <a id="event:Player.respawnedEvent"></a>Player.respawnedEvent
 
-### Player.ApplyDamage
+### <a id="method:Player.ApplyDamage"></a>Player.ApplyDamage
 
-### Player.Die
+### <a id="method:Player.Die"></a>Player.Die
 
-### Player.Respawn
+### <a id="method:Player.Respawn"></a>Player.Respawn
 
 There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
 
@@ -3674,7 +3672,7 @@ Task.Wait(2.1)
 player:Die()
 ```
 
-### Player.movementModeChangedEvent
+### <a id="event:Player.movementModeChangedEvent"></a>Player.movementModeChangedEvent
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
 
@@ -3724,19 +3722,19 @@ player:SetWorldPosition(Vector3.New(0, 0, 1000))
 print("done waiting")
 ```
 
-### Player.resourceChangedEvent
+### <a id="event:Player.resourceChangedEvent"></a>Player.resourceChangedEvent
 
-### Player.ClearResources
+### <a id="method:Player.ClearResources"></a>Player.ClearResources
 
-### Player.GetResource
+### <a id="method:Player.GetResource"></a>Player.GetResource
 
-### Player.GetResources
+### <a id="method:Player.GetResources"></a>Player.GetResources
 
-### Player.SetResource
+### <a id="method:Player.SetResource"></a>Player.SetResource
 
-### Player.AddResource
+### <a id="method:Player.AddResource"></a>Player.AddResource
 
-### Player.RemoveResource
+### <a id="method:Player.RemoveResource"></a>Player.RemoveResource
 
 While scripting, you can assign "resources" to players. These are just integer values, accessed via a string key, that are tied to a player. They are useful for storing values about game-specific resources a player might have, such as coins collected, mana remaining, levels completed, puppies pet, etc.
 
@@ -3784,9 +3782,9 @@ print("Coins collected: " .. player:GetResource(resource1))
 print("Puppies seen: " .. player:GetResource(resource2))
 ```
 
-### Player.ActivateFlying
+### <a id="method:Player.ActivateFlying"></a>Player.ActivateFlying
 
-### Player.ActivateWalking
+### <a id="method:Player.ActivateWalking"></a>Player.ActivateWalking
 
 You can set different movement modes for the player. `ActivateWalking()` will give the player normal walking physics. (They fall down, slide down slopes, etc.) `ActivateFlying`, on the other hand, makes them ignore gravity and fly around freely.
 
@@ -3815,15 +3813,15 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Player.AddImpulse
+### <a id="method:Player.AddImpulse"></a>Player.AddImpulse
 
-### Player.GetVelocity
+### <a id="method:Player.GetVelocity"></a>Player.GetVelocity
 
-### Player.SetVelocity
+### <a id="method:Player.SetVelocity"></a>Player.SetVelocity
 
-### Player.ResetVelocity
+### <a id="method:Player.ResetVelocity"></a>Player.ResetVelocity
 
-### Player.mass
+### <a id="property:Player.mass"></a>Player.mass
 
 If you want to fling a player using the physics system, it is possible to directly affect their velocity. You can either add a physics impulse to their current velocity, or just set the player's velocity directly. You can also zero out their velocity using `Player.ResetVelocity()`.
 
@@ -3846,11 +3844,11 @@ Task.Wait(0.5)
 player:ResetVelocity()
 ```
 
-### Player.DisableRagdoll
+### <a id="method:Player.DisableRagdoll"></a>Player.DisableRagdoll
 
-### Player.EnableRagdoll
+### <a id="method:Player.EnableRagdoll"></a>Player.EnableRagdoll
 
-### Player.animationStance
+### <a id="property:Player.animationStance"></a>Player.animationStance
 
 You can enable ragdoll on a player, and make their joints all floppy. This can be useful for various effects, such as indicating when a player has died, or otherwise  needs to be limp.
 
@@ -3875,9 +3873,9 @@ Task.Wait(3)
 player.animationStance = "unarmed_stance"
 ```
 
-### Player.GetAbilities
+### <a id="method:Player.GetAbilities"></a>Player.GetAbilities
 
-### Player.GetEquipment
+### <a id="method:Player.GetEquipment"></a>Player.GetEquipment
 
 Lots of things can end up attached to a player. `CoreObject` objects, stuck to sockets. `Ability` and `Equipment` objects granting them new powers. Etc.
 
@@ -3904,17 +3902,17 @@ for _, obj in ipairs(player:GetAttachedObjects()) do
 end
 ```
 
-### Player.GetActiveCamera
+### <a id="method:Player.GetActiveCamera"></a>Player.GetActiveCamera
 
-### Player.GetDefaultCamera
+### <a id="method:Player.GetDefaultCamera"></a>Player.GetDefaultCamera
 
-### Player.SetDefaultCamera
+### <a id="method:Player.SetDefaultCamera"></a>Player.SetDefaultCamera
 
-### Player.GetOverrideCamera
+### <a id="method:Player.GetOverrideCamera"></a>Player.GetOverrideCamera
 
-### Player.SetOverrideCamera
+### <a id="method:Player.SetOverrideCamera"></a>Player.SetOverrideCamera
 
-### Player.ClearOverrideCamera
+### <a id="method:Player.ClearOverrideCamera"></a>Player.ClearOverrideCamera
 
 It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context!
 
@@ -3944,13 +3942,13 @@ player:ClearOverrideCamera()
 Task.Wait()
 ```
 
-### Player.GetViewWorldPosition
+### <a id="method:Player.GetViewWorldPosition"></a>Player.GetViewWorldPosition
 
-### Player.GetViewWorldRotation
+### <a id="method:Player.GetViewWorldRotation"></a>Player.GetViewWorldRotation
 
-### Player.GetLookWorldRotation
+### <a id="method:Player.GetLookWorldRotation"></a>Player.GetLookWorldRotation
 
-### Player.SetLookWorldRotation
+### <a id="method:Player.SetLookWorldRotation"></a>Player.SetLookWorldRotation
 
 The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context!
 
@@ -3965,17 +3963,17 @@ print("Its rotation is " .. tostring(player:GetViewWorldRotation()))
 player:SetLookWorldRotation(player:GetLookWorldRotation() + Rotation.New(0, 0, 90))
 ```
 
-### Player.GetWorldTransform
+### <a id="method:Player.GetWorldTransform"></a>Player.GetWorldTransform
 
-### Player.SetWorldTransform
+### <a id="method:Player.SetWorldTransform"></a>Player.SetWorldTransform
 
-### Player.GetWorldPosition
+### <a id="method:Player.GetWorldPosition"></a>Player.GetWorldPosition
 
-### Player.SetWorldPosition
+### <a id="method:Player.SetWorldPosition"></a>Player.SetWorldPosition
 
-### Player.GetWorldRotation
+### <a id="method:Player.GetWorldRotation"></a>Player.GetWorldRotation
 
-### Player.SetWorldRotation
+### <a id="method:Player.SetWorldRotation"></a>Player.SetWorldRotation
 
 It is possible to read and change the position of the player. You can either change the position or rotation directly, or change the entire transformation all at once.
 
@@ -3994,9 +3992,9 @@ player:SetWorldRotation(player:GetWorldRotation() + Rotation.New(0, 0, 90))
 player:SetWorldTransform(originalTransform)
 ```
 
-### Player.SetVisibility
+### <a id="method:Player.SetVisibility"></a>Player.SetVisibility
 
-### Player.GetVisibility
+### <a id="method:Player.GetVisibility"></a>Player.GetVisibility
 
 You can make a player visible or invisible with `SetVisibility()`, and can check on their status with `GetVisibility()`. This sample gives the player the ability to turn invisible by pressing the shift key.
 
@@ -4023,9 +4021,9 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Player.SetWorldScale
+### <a id="method:Player.SetWorldScale"></a>Player.SetWorldScale
 
-### Player.GetWorldScale
+### <a id="method:Player.GetWorldScale"></a>Player.GetWorldScale
 
 You can scale the size of the player. This sample causes all players to slowly grow until they get too big, and then reset.
 
@@ -4044,7 +4042,7 @@ Task.Spawn(function()
 end)
 ```
 
-### Player.TransferToGame
+### <a id="method:Player.TransferToGame"></a>Player.TransferToGame
 
 Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
 
@@ -4061,9 +4059,9 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### Player.currentFacingMode
+### <a id="property:Player.currentFacingMode"></a>Player.currentFacingMode
 
-### Player.desiredFacingMode
+### <a id="property:Player.desiredFacingMode"></a>Player.desiredFacingMode
 
 There are several modes the game can use to decide which direction the player's avatar is facing, based on the camera look direction.
 
@@ -4091,13 +4089,13 @@ if (player.currentFacingMode == FacingMode.FACE_AIM_ALWAYS) then
 end
 ```
 
-### Player.hitPoints
+### <a id="property:Player.hitPoints"></a>Player.hitPoints
 
-### Player.maxHitPoints
+### <a id="property:Player.maxHitPoints"></a>Player.maxHitPoints
 
-### Player.kills
+### <a id="property:Player.kills"></a>Player.kills
 
-### Player.deaths
+### <a id="property:Player.deaths"></a>Player.deaths
 
 You can get various vital statistics off of the player object, such as hit points, max hit points, kills and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
 
@@ -4117,23 +4115,23 @@ for i, p in ipairs(playerList) do
 end
 ```
 
-### Player.isAccelerating
+### <a id="property:Player.isAccelerating"></a>Player.isAccelerating
 
-### Player.isCrouching
+### <a id="property:Player.isCrouching"></a>Player.isCrouching
 
-### Player.isFlying
+### <a id="property:Player.isFlying"></a>Player.isFlying
 
-### Player.isGrounded
+### <a id="property:Player.isGrounded"></a>Player.isGrounded
 
-### Player.isJumping
+### <a id="property:Player.isJumping"></a>Player.isJumping
 
-### Player.isMounted
+### <a id="property:Player.isMounted"></a>Player.isMounted
 
-### Player.isSwimming
+### <a id="property:Player.isSwimming"></a>Player.isSwimming
 
-### Player.isWalking
+### <a id="property:Player.isWalking"></a>Player.isWalking
 
-### Player.isDead
+### <a id="property:Player.isDead"></a>Player.isDead
 
 You can get a lot of useful information about the player's current movement, via a series of read-only boolean properties on the `Player` object.
 
@@ -4167,7 +4165,7 @@ for i = 0, 10 do
 end
 ```
 
-### Player.isVisibleToSelf
+### <a id="property:Player.isVisibleToSelf"></a>Player.isVisibleToSelf
 
 It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context!
 
@@ -4177,7 +4175,7 @@ It's possible to hide the player's model from the player controlling it. This ca
 player.isVisibleToSelf = false
 ```
 
-### Player.lookSensitivity
+### <a id="property:Player.lookSensitivity"></a>Player.lookSensitivity
 
 You can also make the player's input more or less sensitive, when aiming. This can be useful for aiming down sights, etc.
 
@@ -4186,15 +4184,15 @@ You can also make the player's input more or less sensitive, when aiming. This c
 player.lookSensitivity = 5
 ```
 
-### Player.maxAcceleration
+### <a id="property:Player.maxAcceleration"></a>Player.maxAcceleration
 
-### Player.brakingDecelerationFalling
+### <a id="property:Player.brakingDecelerationFalling"></a>Player.brakingDecelerationFalling
 
-### Player.brakingDecelerationWalking
+### <a id="property:Player.brakingDecelerationWalking"></a>Player.brakingDecelerationWalking
 
-### Player.groundFriction
+### <a id="property:Player.groundFriction"></a>Player.groundFriction
 
-### Player.brakingFrictionFactor
+### <a id="property:Player.brakingFrictionFactor"></a>Player.brakingFrictionFactor
 
 Through scripts, you can control the player's ability to accelerate their character.
 
@@ -4215,13 +4213,13 @@ player.groundFriction = 2
 player.brakingFrictionFactor = 0.2
 ```
 
-### Player.movementControlMode
+### <a id="property:Player.movementControlMode"></a>Player.movementControlMode
 
-### Player.lookControlMode
+### <a id="property:Player.lookControlMode"></a>Player.lookControlMode
 
-### Player.defaultRotationRate
+### <a id="property:Player.defaultRotationRate"></a>Player.defaultRotationRate
 
-### Player.currentRotationRate
+### <a id="property:Player.currentRotationRate"></a>Player.currentRotationRate
 
 Player motion and facing can be set to several modes, depending on the gameplay needed.
 
@@ -4259,34 +4257,11 @@ player.lookControlMode = LookControlMode.RELATIVE
 player.lookControlMode = LookControlMode.LOOK_AT_CURSOR
 ```
 
-### Player.name
+### <a id="property:Player.name"></a>Player.name
 
-### Player.id
+### <a id="property:Player.id"></a>Player.id
 
-### Player.team
-
-There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
-
-Players do, however, have a unique ID assigned to them. (Accessed via the `id` property.) It is guaranteed to be distinct from other players, and it is stable across sessions, so it won't change if they log out and log back in again.
-
-This sample grabs the list of all current players, and prints out their name, ID, and what team they are on.
-
-```lua
-local players = Game.GetPlayers()
-print("---There are currently " .. tostring(#players) .. " Player(s):")
-for _, p in pairs(players) do
-    print("Player [" .. p.name .. "]:")
-    print("  - id:   " .. p.id)
-    print("  - team: " .. p.team)
-    print()
-end
-```
-
-### Player.name
-
-### Player.id
-
-### Player.team
+### <a id="property:Player.team"></a>Player.team
 
 There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
 
@@ -4305,11 +4280,34 @@ for _, p in pairs(players) do
 end
 ```
 
-### Player.shouldDismountWhenDamaged
+### <a id="property:Player.name"></a>Player.name
 
-### Player.SetMounted
+### <a id="property:Player.id"></a>Player.id
 
-### Player.canMount
+### <a id="property:Player.team"></a>Player.team
+
+There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
+
+Players do, however, have a unique ID assigned to them. (Accessed via the `id` property.) It is guaranteed to be distinct from other players, and it is stable across sessions, so it won't change if they log out and log back in again.
+
+This sample grabs the list of all current players, and prints out their name, ID, and what team they are on.
+
+```lua
+local players = Game.GetPlayers()
+print("---There are currently " .. tostring(#players) .. " Player(s):")
+for _, p in pairs(players) do
+    print("Player [" .. p.name .. "]:")
+    print("  - id:   " .. p.id)
+    print("  - team: " .. p.team)
+    print()
+end
+```
+
+### <a id="property:Player.shouldDismountWhenDamaged"></a>Player.shouldDismountWhenDamaged
+
+### <a id="method:Player.SetMounted"></a>Player.SetMounted
+
+### <a id="property:Player.canMount"></a>Player.canMount
 
 The player can mount or dismount. We can also force the player to mount or dismount via the `Player:SetMounted()` function. Also, if `Player.shouldDismountWhenDamaged` is set, they will automatically dismount whenever they take damage.
 
@@ -4330,9 +4328,9 @@ player:ApplyDamage(Damage.New(1))
 player.canMount = false
 ```
 
-### Player.spreadModifier
+### <a id="property:Player.spreadModifier"></a>Player.spreadModifier
 
-### Player.currentSpread
+### <a id="property:Player.currentSpread"></a>Player.currentSpread
 
 Players shooting weapons have a spread modifier applied to their accuracy. This can be used to simulate things like loss of aim after jumping, or other activities.
 
@@ -4357,19 +4355,19 @@ You can also check the player's current (total) spread, although this only works
     print(player.currentSpread)
 ```
 
-### Player.stepHeight
+### <a id="property:Player.stepHeight"></a>Player.stepHeight
 
-### Player.walkableFloorAngle
+### <a id="property:Player.walkableFloorAngle"></a>Player.walkableFloorAngle
 
-### Player.maxJumpCount
+### <a id="property:Player.maxJumpCount"></a>Player.maxJumpCount
 
-### Player.jumpVelocity
+### <a id="property:Player.jumpVelocity"></a>Player.jumpVelocity
 
-### Player.gravityScale
+### <a id="property:Player.gravityScale"></a>Player.gravityScale
 
-### Player.buoyancy
+### <a id="property:Player.buoyancy"></a>Player.buoyancy
 
-### Player.isCrouchEnabled
+### <a id="property:Player.isCrouchEnabled"></a>Player.isCrouchEnabled
 
 Most of the aspects of a player's movement can be controlled at runtime via scripting!
 
@@ -4396,7 +4394,7 @@ player.buoyancy = 2
 player.isCrouchEnabled = false
 ```
 
-### Player.touchForceFactor
+### <a id="property:Player.touchForceFactor"></a>Player.touchForceFactor
 
 When the player runs into physics objects, they exert force. You can affect how much force with the `touchForceFactor` property.
 
@@ -4407,11 +4405,11 @@ player.touchForceFactor = 5
 
 ## Projectile
 
-### Projectile.Spawn
+### <a id="classfunction:Projectile.Spawn"></a>Projectile.Spawn
 
-### Projectile.lifeSpanEndedEvent
+### <a id="event:Projectile.lifeSpanEndedEvent"></a>Projectile.lifeSpanEndedEvent
 
-### Projectile.lifeSpan
+### <a id="event:Projectile.lifeSpan"></a>Projectile.lifeSpan
 
 Like `CoreObjects`, Projectiles have a `lifeSpan` property, which is the maximum number of seconds a projectile can be kept around. Once that time is up, the projectile is automatically destroyed by the engine.
 
@@ -4436,7 +4434,7 @@ end)
 mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
 
-### Projectile.homingFailedEvent
+### <a id="event:Projectile.homingFailedEvent"></a>Projectile.homingFailedEvent
 
 If a projectile has its `homingTarget` set, and then the target disappears for some reason, it will fire a `HomingFailedEvent`. This is usually because the CoreObject that the projectile is following was `Destroy`ed, or the player it was following logged out.
 
@@ -4467,7 +4465,7 @@ objectInWorld:Destroy()
 -- The event should fire now and the "target lost" message should be displayed.
 ```
 
-### Projectile.impactEvent
+### <a id="event:Projectile.impactEvent"></a>Projectile.impactEvent
 
 When a projectile hits a surface, it triggers an `impactEvent`, which is given various information about exactly what collided with what, and where.
 
@@ -4494,7 +4492,7 @@ myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
 end)
 ```
 
-### Projectile.Destroy
+### <a id="method:Projectile.Destroy"></a>Projectile.Destroy
 
 Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet. When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immediately removed from the game and no events are generated.
 
@@ -4518,13 +4516,13 @@ print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
 -- The projectile is no longer in the game.
 ```
 
-### Projectile.GetWorldTransform
+### <a id="method:Projectile.GetWorldTransform"></a>Projectile.GetWorldTransform
 
-### Projectile.GetWorldPosition
+### <a id="method:Projectile.GetWorldPosition"></a>Projectile.GetWorldPosition
 
-### Projectile.GetVelocity
+### <a id="method:Projectile.GetVelocity"></a>Projectile.GetVelocity
 
-### Projectile.SetVelocity
+### <a id="method:Projectile.SetVelocity"></a>Projectile.SetVelocity
 
 We can get various information about a projectile's position and velocity via several functions. `GetWorldTransform()` and `GetWorldPosition()` functions can tell us where it is and where it is facing. `GetVelocity()` tells us where it is moving and how fast. And `SetVelocity()` allows us to change its direction in mid-flight.
 
@@ -4571,9 +4569,9 @@ local MagicShieldTask = Task.Spawn(function()
 end)
 ```
 
-### Projectile.capsuleLength
+### <a id="property:Projectile.capsuleLength"></a>Projectile.capsuleLength
 
-### Projectile.capsuleRadius
+### <a id="property:Projectile.capsuleRadius"></a>Projectile.capsuleRadius
 
 When Core performs collision checks (to see if a projectile has hit anything) it assumes the projectile is a _capsule._  That is, a cylinder with a hemisphere on each flat end.
 
@@ -4618,13 +4616,13 @@ sphereProjectile.capsuleRadius = 40
 sphereProjectile.capsuleLength = 0
 ```
 
-### Projectile.gravityScale
+### <a id="property:Projectile.gravityScale"></a>Projectile.gravityScale
 
-### Projectile.bouncesRemaining
+### <a id="property:Projectile.bouncesRemaining"></a>Projectile.bouncesRemaining
 
-### Projectile.bounciness
+### <a id="property:Projectile.bounciness"></a>Projectile.bounciness
 
-### Projectile.shouldBounceOnPlayers
+### <a id="property:Projectile.shouldBounceOnPlayers"></a>Projectile.shouldBounceOnPlayers
 
 By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controlled via the `bounciness` property.
 
@@ -4673,11 +4671,11 @@ lessBouncyProjectile.bouncesRemaining = 5
 lessBouncyProjectile.bounciness = 0.2
 ```
 
-### Projectile.homingTarget
+### <a id="property:Projectile.homingTarget"></a>Projectile.homingTarget
 
-### Projectile.drag
+### <a id="property:Projectile.drag"></a>Projectile.drag
 
-### Projectile.homingAcceleration
+### <a id="property:Projectile.homingAcceleration"></a>Projectile.homingAcceleration
 
 Projectiles can be set to home in on targets, via the `homingTarget` property. This can be either a player or a CoreObject.
 
@@ -4712,7 +4710,7 @@ end)
 -- The projectile will hit home towards the target object, and print out a message when it hits.
 ```
 
-### Projectile.owner
+### <a id="property:Projectile.owner"></a>Projectile.owner
 
 Projectiles have a property, `owner`, which stores data about who spawned the projectile. This is populated automatically, if the projectile is generated from a weapon interaction. Otherwise, we have to set it ourselves.
 
@@ -4751,9 +4749,9 @@ end
 -- the projectiles are all owned by the player.
 ```
 
-### Projectile.piercesRemaining
+### <a id="property:Projectile.piercesRemaining"></a>Projectile.piercesRemaining
 
-### Projectile.shouldDieOnImpact
+### <a id="property:Projectile.shouldDieOnImpact"></a>Projectile.shouldDieOnImpact
 
 Projectiles have the `piercesRemaining` property, which controls how many times they penetrate objects and keep going. In this sample, we spawn several walls and fire several projectiles at them, with different penetration numbers.
 
@@ -4796,7 +4794,7 @@ local DontDieOnImpact = FirePiercingProjectile(0)
 DontDieOnImpact.shouldDieOnImpact = false
 ```
 
-### Projectile.sourceAbility
+### <a id="property:Projectile.sourceAbility"></a>Projectile.sourceAbility
 
 Projectiles have a field to report what ability spawned them. If the projectile is fired by a weapon, then the weapon automatically populates the sourceAbility property. If you spawn projectiles manually via spawnProjectile, then you are responsible for populating it yourself.
 
@@ -4825,9 +4823,9 @@ weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
 end)
 ```
 
-### Projectile.speed
+### <a id="property:Projectile.speed"></a>Projectile.speed
 
-### Projectile.maxSpeed
+### <a id="property:Projectile.maxSpeed"></a>Projectile.maxSpeed
 
 You can set the speed of a projectile directly, via the `speed` property. Note that this does not change the direction of a projectile - only how fast it is moving in whatever direction it is already pointing in.
 
@@ -4856,15 +4854,15 @@ print("This projectile's speed is " .. tostring(myProjectile.speed))
 
 ## Quaternion
 
-### Quaternion.Slerp
+### <a id="classfunction:Quaternion.Slerp"></a>Quaternion.Slerp
 
-### Quaternion.GetRotation
+### <a id="method:Quaternion.GetRotation"></a>Quaternion.GetRotation
 
-### Quaternion.GetRightVector
+### <a id="method:Quaternion.GetRightVector"></a>Quaternion.GetRightVector
 
-### Quaternion.GetUpVector
+### <a id="method:Quaternion.GetUpVector"></a>Quaternion.GetUpVector
 
-### Quaternion.GetForwardVector
+### <a id="method:Quaternion.GetForwardVector"></a>Quaternion.GetForwardVector
 
 `Quaternion.Slerp` is a function for finding a quaternion that is part way between two other quaternions. Since quaternions represent rotations, this means a rotation that is part way between two other rotations. When combined with a tick function or loop, we can use it to smoothly animate something rotating.
 
@@ -4901,9 +4899,9 @@ end
 print("Tah dah!")
 ```
 
-### Quaternion.New
+### <a id="constructor:Quaternion.New"></a>Quaternion.New
 
-### Quaternion.IDENTITY
+### <a id="constructor:Quaternion.IDENTITY"></a>Quaternion.IDENTITY
 
 There are several different ways to create new Quaternions.
 
@@ -4935,11 +4933,11 @@ local copyQuaternion = Quaternion.New(rotationQuaternion)
 local directQuaternion = Quaternion.New(0, 0, sqrt2over2, sqrt2over2)
 ```
 
-### Quaternion * Quaternion
+### <a id="operator:Quaternion*Quaternion"></a>Quaternion*Quaternion
 
-### Quaternion * Vector3
+### <a id="operator:Quaternion*Vector3"></a>Quaternion*Vector3
 
-### -Quaternion
+### <a id="operator:-Quaternion"></a>-Quaternion
 
 Multiplying a vector (or another quaternion!) by a quaternion applies the quaternion to the vector/quaternion.
 
@@ -4959,13 +4957,13 @@ local rotatedVector = rotate90Degrees * Vector3.FORWARD
 local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD
 ```
 
-### Quaternion.x
+### <a id="property:Quaternion.x"></a>Quaternion.x
 
-### Quaternion.y
+### <a id="property:Quaternion.y"></a>Quaternion.y
 
-### Quaternion.z
+### <a id="property:Quaternion.z"></a>Quaternion.z
 
-### Quaternion.w
+### <a id="property:Quaternion.w"></a>Quaternion.w
 
 You can read or set the components of a quaternion directly, although this is not recommended unless you are extremely familiar with quaternions.
 
@@ -4980,9 +4978,9 @@ myQuaternion.w = math.sqrt(2)/2
 
 ## Rotation
 
-### Rotation.New
+### <a id="constructor:Rotation.New"></a>Rotation.New
 
-### Rotation.ZERO
+### <a id="constructor:Rotation.ZERO"></a>Rotation.ZERO
 
 There are several different ways to create new Rotations.
 
@@ -5016,15 +5014,15 @@ local newVec1 = Rotation.ZERO * vec1
 -- newVec1 is still the same as vec1, because it hasn't rotated.
 ```
 
-### Rotation + Rotation
+### <a id="operator:Rotation+Rotation"></a>Rotation+Rotation
 
-### Rotation - Rotation
+### <a id="operator:Rotation-Rotation"></a>Rotation-Rotation
 
-### Rotation * Number
+### <a id="operator:Rotation*Number"></a>Rotation*Number
 
-### -Rotation
+### <a id="operator:-Rotation"></a>-Rotation
 
-### Rotation * Vector3
+### <a id="operator:Rotation*Vector3"></a>Rotation*Vector3
 
 You can add and subtract rotations from each other, scale them, and apply them to vectors via arithmetic operators.
 
@@ -5056,11 +5054,11 @@ local rotate90x_negative = -rotate90x
 -- This is now (-90, 0, 0)
 ```
 
-### Rotation.x
+### <a id="property:Rotation.x"></a>Rotation.x
 
-### Rotation.y
+### <a id="property:Rotation.y"></a>Rotation.y
 
-### Rotation.z
+### <a id="property:Rotation.z"></a>Rotation.z
 
 The x, y, and z components of a rotation can be accessed directly. These numbers represent the number of degrees to rotate around their respective axis.
 
@@ -5075,7 +5073,7 @@ newRotation.z = 180
 
 ## Script
 
-### Script.context
+### <a id="property:Script.context"></a>Script.context
 
 With `context` two scripts can communicate directly by calling on each other's functions and properties. Notice that '.' is used instead of ':' when accessing context functions. In the following example, the first script is placed directly in the hierarchy and the second script is placed inside a template of some sort. When a new player joins, the first script spawns a copy of the template and tells it about the new player. The template then follows the player around as they move.
 
@@ -5106,7 +5104,7 @@ end
 
 ## StaticMesh
 
-### StaticMesh.isSimulatingDebrisPhysics
+### <a id="property:StaticMesh.isSimulatingDebrisPhysics"></a>StaticMesh.isSimulatingDebrisPhysics
 
 The debris physics simulation is a client-only feature. The exact movement of simulated meshes is not expected to be the same across clients and should be used for visual effects, not for determining gameplay outcomes.
 
@@ -5148,7 +5146,7 @@ end
 
 ## Storage
 
-### Storage.GetPlayerData
+### <a id="classfunction:Storage.GetPlayerData"></a>Storage.GetPlayerData
 
 This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
 
@@ -5168,7 +5166,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Storage.SetPlayerData
+### <a id="classfunction:Storage.SetPlayerData"></a>Storage.SetPlayerData
 
 This example detects when a player gains XP or level and saves the new values to storage.
 
@@ -5190,11 +5188,11 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## Task
 
-### Task.Spawn
+### <a id="classfunction:Task.Spawn"></a>Task.Spawn
 
-### Task.GetCurrent
+### <a id="classfunction:Task.GetCurrent"></a>Task.GetCurrent
 
-### Task.id
+### <a id="property:Task.id"></a>Task.id
 
 You can spawn new tasks via `Task.Spawn()`, and leave them to execute without blocking your main Lua script. This has a lot of potential uses, from animation, to code organization.
 
@@ -5235,7 +5233,7 @@ local task2 = SpawnCountdown("Bob")
     ]]
 ```
 
-### Task.Wait
+### <a id="classfunction:Task.Wait"></a>Task.Wait
 
 `Task.Wait()` is an extremely useful function that you can use to make your current Lua thread pause for an amount of time. If you provide a number as an argument, the task will yield for that many seconds. If no argument is provided, it yields until the next update frame.
 
@@ -5250,9 +5248,9 @@ print("timeElapsed = " .. timeElapsed)
 print("timeRequested = " .. timeRequested)
 ```
 
-### Task.Cancel
+### <a id="method:Task.Cancel"></a>Task.Cancel
 
-### Task.GetStatus
+### <a id="method:Task.GetStatus"></a>Task.GetStatus
 
 Tasks started via `Task.Spawn()` continue until they are completed. But you can end them early, via their `Cancel()` method.
 
@@ -5277,9 +5275,9 @@ myTask:Cancel()
 print("Current status is Canceled? " .. tostring(myTask:GetStatus() == TaskStatus.CANCELED))
 ```
 
-### Task.repeatCount
+### <a id="property:Task.repeatCount"></a>Task.repeatCount
 
-### Task.repeatInterval
+### <a id="property:Task.repeatInterval"></a>Task.repeatInterval
 
 You can schedule tasks to run a specific number of times, and to wait a specific number of times between repeats. This sample creates a task that prints out "hello world", and then has it repeat itself thee times, once per second.
 
@@ -5307,7 +5305,7 @@ Output:
 
 ## Trigger
 
-### Trigger.beginOverlapEvent
+### <a id="event:Trigger.beginOverlapEvent"></a>Trigger.beginOverlapEvent
 
 In this example, players die when they walk over the trigger. The script assumes to be a child of the trigger.
 
@@ -5325,7 +5323,7 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### Trigger.endOverlapEvent
+### <a id="event:Trigger.endOverlapEvent"></a>Trigger.endOverlapEvent
 
 As players enter/exit the trigger the script keeps a table with all currently overlapping players. The script assumes to be a child of the trigger.
 
@@ -5356,7 +5354,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 trigger.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
-### Trigger.interactedEvent
+### <a id="event:Trigger.interactedEvent"></a>Trigger.interactedEvent
 
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the F key they are propelled into the air. The script assumes to be a child of the trigger.
 
@@ -5373,7 +5371,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### Trigger.GetOverlappingObjects
+### <a id="method:Trigger.GetOverlappingObjects"></a>Trigger.GetOverlappingObjects
 
 In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error. The script assumes to be a child of the trigger.
 
@@ -5391,7 +5389,7 @@ function Tick()
 end
 ```
 
-### Trigger.IsOverlapping
+### <a id="method:Trigger.IsOverlapping"></a>Trigger.IsOverlapping
 
 In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point. The script assumes to be a child of the trigger.
 
@@ -5409,7 +5407,7 @@ while true do
 end
 ```
 
-### Trigger.IsOverlapping
+### <a id="method:Trigger.IsOverlapping"></a>Trigger.IsOverlapping
 
 In this example, players score points for their teams for each second they are inside the trigger. The script assumes to be a child of the trigger.
 
@@ -5430,7 +5428,7 @@ while true do
 end
 ```
 
-### Trigger.interactionLabel
+### <a id="property:Trigger.interactionLabel"></a>Trigger.interactionLabel
 
 In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger. The script assumes to be a child of the trigger.
 
@@ -5463,7 +5461,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### Trigger.isEnemyCollisionEnabled
+### <a id="property:Trigger.isEnemyCollisionEnabled"></a>Trigger.isEnemyCollisionEnabled
 
 In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form. The script assumes to be a child of the trigger.
 
@@ -5502,7 +5500,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### Trigger.isInteractable
+### <a id="property:Trigger.isInteractable"></a>Trigger.isInteractable
 
 In this example, the trigger has a 4 second "cooldown" after it is interacted. The script assumes to be a child of the trigger.
 
@@ -5520,7 +5518,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### Trigger.isTeamCollisionEnabled
+### <a id="property:Trigger.isTeamCollisionEnabled"></a>Trigger.isTeamCollisionEnabled
 
 In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can. The script assumes to be a child of the trigger.
 
@@ -5537,7 +5535,7 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
-### Trigger.team
+### <a id="property:Trigger.team"></a>Trigger.team
 
 In this example, players score points when they enter a trigger that belongs to the enemy team. The script assumes to be a child of the trigger.
 
@@ -5558,7 +5556,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ## Vector3
 
-### Vector3.Lerp
+### <a id="classfunction:Vector3.Lerp"></a>Vector3.Lerp
 
 Vector3.Lerp is a function for finding a spot part way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
 
@@ -5582,7 +5580,7 @@ end
 print("Tah dah!")
 ```
 
-### Vector3.New
+### <a id="constructor:Vector3.New"></a>Vector3.New
 
 There are several different ways to create Vector3s. You can directly specify the x, y, z coordinates, or you can feed it a Vector2 or Vector4 to pull coordinates from, or you can just give it a single number to apply to x y and z.
 
@@ -5605,15 +5603,15 @@ local myVector3_3 = Vector3.New(6)
 local copyOfVector3_3 = Vector3.New(myVector3_3)
 ```
 
-### Vector3.ZERO
+### <a id="constructor:Vector3.ZERO"></a>Vector3.ZERO
 
-### Vector3.ONE
+### <a id="constructor:Vector3.ONE"></a>Vector3.ONE
 
-### Vector3.FORWARD
+### <a id="constructor:Vector3.FORWARD"></a>Vector3.FORWARD
 
-### Vector3.UP
+### <a id="constructor:Vector3.UP"></a>Vector3.UP
 
-### Vector3.RIGHT
+### <a id="constructor:Vector3.RIGHT"></a>Vector3.RIGHT
 
 The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
 
@@ -5629,25 +5627,25 @@ print(Vector3.RIGHT)    -- (0, 1, 0)
 print(Vector3.UP)    -- (0, 0, 1)
 ```
 
-### Vector3 + Vector3
+### <a id="operator:Vector3+Vector3"></a>Vector3+Vector3
 
-### Vector3 + Number
+### <a id="operator:Vector3+Number"></a>Vector3+Number
 
-### Vector3 - Vector3
+### <a id="operator:Vector3-Vector3"></a>Vector3-Vector3
 
-### Vector3 - Number
+### <a id="operator:Vector3-Number"></a>Vector3-Number
 
-### Vector3 * Vector3
+### <a id="operator:Vector3*Vector3"></a>Vector3*Vector3
 
-### Vector3 * Number
+### <a id="operator:Vector3*Number"></a>Vector3*Number
 
-### Number * Vector3
+### <a id="operator:Number*Vector3"></a>Number*Vector3
 
-### Vector3 / Vector3
+### <a id="operator:Vector3/Vector3"></a>Vector3/Vector3
 
-### Vector3 / Number
+### <a id="operator:Vector3/Number"></a>Vector3/Number
 
-### -Vector3
+### <a id="operator:-Vector3"></a>-Vector3
 
 Most arithmetic operators will work on Vector3s in straightforward ways.
 
@@ -5678,11 +5676,11 @@ print(b / 4) -- (1, 1.25, 1.5)
 print(-a) -- -1, -2, -3
 ```
 
-### Vector3.GetNormalized()
+### <a id="operator:Vector3.GetNormalized()"></a>Vector3.GetNormalized()
 
-### Vector3 .. Vector3
+### <a id="operator:Vector3..Vector3"></a>Vector3..Vector3
 
-### Vector3 ^ Vector3
+### <a id="operator:Vector3^Vector3"></a>Vector3^Vector3
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
@@ -5732,9 +5730,9 @@ for i = 1, 10, 0.05 do
 end
 ```
 
-### Vector3.size
+### <a id="property:Vector3.size"></a>Vector3.size
 
-### Vector3.sizeSquared
+### <a id="property:Vector3.sizeSquared"></a>Vector3.sizeSquared
 
 A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
 
@@ -5769,11 +5767,11 @@ for i = 1, 50 do
 end
 ```
 
-### Vector3.x
+### <a id="property:Vector3.x"></a>Vector3.x
 
-### Vector3.y
+### <a id="property:Vector3.y"></a>Vector3.y
 
-### Vector3.z
+### <a id="property:Vector3.z"></a>Vector3.z
 
 After creating a `Vector3`, we can read or write to its x, y, z components directly.
 
@@ -5795,7 +5793,7 @@ print(myVector3)
 
 ## Vfx
 
-### Vfx.Play
+### <a id="method:Vfx.Play"></a>Vfx.Play
 
 In this example, a script is placed as a child of a Visual Effect object (e.g. Spark Explosion VFX). The `Play()` function is called periodically, with a random delay between 2 and 4 seconds. VFXs work best when they are under a client context.
 
@@ -5813,7 +5811,7 @@ while true do
 end
 ```
 
-### Vfx.Stop
+### <a id="method:Vfx.Stop"></a>Vfx.Stop
 
 In this example, a script detects when players enter and exit a trigger. If there are any players in the trigger, a looping visual effect is played (e.g. Fire Volume VFX). Once all players have left the trigger the VFX stops playing. The `Stop()` function is also called in the very beginning in case the VFX comes with "Auto Play" enabled and we are assuming no players begin inside the trigger.
 
@@ -5851,7 +5849,7 @@ TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 
 ## Weapon
 
-### Weapon.projectileSpawnedEvent
+### <a id="event:Weapon.projectileSpawnedEvent"></a>Weapon.projectileSpawnedEvent
 
 Although it is ineffective to modify a projectile that comes through the `projectileSpawnedEvent`, it's still a useful event for various gameplay mechanics. In this example, a weapon script adds recoil impulse in the opposite direction of shots.
 
@@ -5873,7 +5871,7 @@ end
 WEAPON.projectileSpawnedEvent:Connect(OnProjectileSpawned)
 ```
 
-### Weapon.targetImpactedEvent
+### <a id="event:Weapon.targetImpactedEvent"></a>Weapon.targetImpactedEvent
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
@@ -5889,7 +5887,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-### Weapon.Attack
+### <a id="method:Weapon.Attack"></a>Weapon.Attack
 
 Generally, weapons are thought to be equipped on players. However, a weapon can be used on an NPC such as a vehicle or tower by calling the `Attack()` function. In this example, a weapon simply fires each second. Shots will go out straight in the direction the weapon is pointing.
 
@@ -5902,7 +5900,7 @@ function Tick()
 end
 ```
 
-### Weapon.HasAmmo
+### <a id="method:Weapon.HasAmmo"></a>Weapon.HasAmmo
 
 In this example, a custom sound is played when someone picks up a weapon that has no ammo in it. For this hypothetical game, weapons can be found without any ammo and it's an important mechanic. It should be displayed in the user interface. However, players hear sound effects much faster than they can read UI.
 
@@ -5919,7 +5917,7 @@ end
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
-### Weapon.ammoType
+### <a id="property:Weapon.ammoType"></a>Weapon.ammoType
 
 In this simple auto-reload script, the weapon's current ammo is monitored. If it goes to zero and the player has ammo of the correct type, then the reload ability is activated. This script only works in a client-context and expects the Reload ability to be assigned as a custom property.
 
@@ -5945,7 +5943,7 @@ function Tick(deltaTime)
 end
 ```
 
-### Weapon.animationStance
+### <a id="property:Weapon.animationStance"></a>Weapon.animationStance
 
 A weapon's `animationStance` is assigned to the player automatically when the item is equipped. In this example, we add an additional stance to the weapon in the form of a defensive posture that players can trigger by holding down the secondary ability button (mouse right-click). The script alternates betwen the shield block stance and the weapon's default stance, as the secondary button is pressed/released.
 
@@ -5990,13 +5988,13 @@ end
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
-### Weapon.attackCooldownDuration
+### <a id="property:Weapon.attackCooldownDuration"></a>Weapon.attackCooldownDuration
 
-### Weapon.multiShotCount
+### <a id="property:Weapon.multiShotCount"></a>Weapon.multiShotCount
 
-### Weapon.burstCount
+### <a id="property:Weapon.burstCount"></a>Weapon.burstCount
 
-### Weapon.shotsPerSecond
+### <a id="property:Weapon.shotsPerSecond"></a>Weapon.shotsPerSecond
 
 The following function approximates a weapon's effective damage per second (DPS).
 
@@ -6021,9 +6019,9 @@ end
 print("DPS = " .. ComputeDPS(WEAPON))
 ```
 
-### Weapon.currentAmmo
+### <a id="property:Weapon.currentAmmo"></a>Weapon.currentAmmo
 
-### Weapon.maxAmmo
+### <a id="property:Weapon.maxAmmo"></a>Weapon.maxAmmo
 
 This script plays audio to the weapon owner when the weapon reaches 20% amount of ammo. It works best if the script is in a client context under the weapon, that way the audio is heard only by the player who is using the weapon.
 
@@ -6046,9 +6044,9 @@ end
 SHOOT_ABILITY.executeEvent:Connect(OnShootExecute)
 ```
 
-### Weapon.isAmmoFinite
+### <a id="property:Weapon.isAmmoFinite"></a>Weapon.isAmmoFinite
 
-### Weapon.reloadSoundId
+### <a id="property:Weapon.reloadSoundId"></a>Weapon.reloadSoundId
 
 While various properties are read-only, they are still useful in determining what behavior should occur, leading to more general purpose scripts. In this example, a script controls auto-reloading of weapons. It expects to be in a client context, because the ability's `Activate()` function is client-only.
 
@@ -6088,33 +6086,33 @@ function Tick(deltaTime)
 end
 ```
 
-### Weapon.isHitscan
+### <a id="property:Weapon.isHitscan"></a>Weapon.isHitscan
 
-### Weapon.range
+### <a id="property:Weapon.range"></a>Weapon.range
 
-### Weapon.damage
+### <a id="property:Weapon.damage"></a>Weapon.damage
 
-### Weapon.projectileTemplateId
+### <a id="property:Weapon.projectileTemplateId"></a>Weapon.projectileTemplateId
 
-### Weapon.trailTemplateId
+### <a id="property:Weapon.trailTemplateId"></a>Weapon.trailTemplateId
 
-### Weapon.impactSurfaceTemplateId
+### <a id="property:Weapon.impactSurfaceTemplateId"></a>Weapon.impactSurfaceTemplateId
 
-### Weapon.impactProjectileTemplateId
+### <a id="property:Weapon.impactProjectileTemplateId"></a>Weapon.impactProjectileTemplateId
 
-### Weapon.impactPlayerTemplateId
+### <a id="property:Weapon.impactPlayerTemplateId"></a>Weapon.impactPlayerTemplateId
 
-### Weapon.projectileSpeed
+### <a id="property:Weapon.projectileSpeed"></a>Weapon.projectileSpeed
 
-### Weapon.projectileLifeSpan
+### <a id="property:Weapon.projectileLifeSpan"></a>Weapon.projectileLifeSpan
 
-### Weapon.projectileGravity
+### <a id="property:Weapon.projectileGravity"></a>Weapon.projectileGravity
 
-### Weapon.projectileLength
+### <a id="property:Weapon.projectileLength"></a>Weapon.projectileLength
 
-### Weapon.projectileRadius
+### <a id="property:Weapon.projectileRadius"></a>Weapon.projectileRadius
 
-### Weapon.projectileDrag
+### <a id="property:Weapon.projectileDrag"></a>Weapon.projectileDrag
 
 This script implements a Wall Bang mechanic, allowing shots to go through walls.
 
@@ -6271,7 +6269,7 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-### Weapon.muzzleFlashTemplateId
+### <a id="property:Weapon.muzzleFlashTemplateId"></a>Weapon.muzzleFlashTemplateId
 
 This sample demonstrates several things. First, it creates a copy of the weapon's muzzle flash effect and attaches it to where the script is. Then, it shows how to traverse an object's hierarchy and create a custom table of objects to operate upon later--in this case it's trying to find smart objects that have both the `Stop()` and `Play()` functions. Finally, It shows how sound and VFX from a single spawned template can be played and stopped randomly--in other words, they are reused without having to spawn a new copy of the template each time.
 
@@ -6322,7 +6320,7 @@ while true do
 end
 ```
 
-### Weapon.outOfAmmoSoundId
+### <a id="property:Weapon.outOfAmmoSoundId"></a>Weapon.outOfAmmoSoundId
 
 Weapons are also of type Equipment. In this example we listen to when a player equips the weapon. When they do, if the weapon is out of ammo then we play the "out of ammo" sound effect which normally only plays after trying to shoot while empty.
 
@@ -6338,9 +6336,9 @@ end
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
-### Weapon.projectileBounceCount
+### <a id="property:Weapon.projectileBounceCount"></a>Weapon.projectileBounceCount
 
-### Weapon.projectilePierceCount
+### <a id="property:Weapon.projectilePierceCount"></a>Weapon.projectilePierceCount
 
 A weapon-viewing interface can show detailed specs about each weapon to players. In this example, the weapon's damage, as well as indicators if the shots bounce or pierce are setup for the player to view. This script would exist as part of a greater user interface, with various images and texts, and the ShowUI() function would be called depending on the game state (e.g. the player is browsing a shop).
 
@@ -6376,7 +6374,7 @@ function HideUI()
 end
 ```
 
-### Weapon.shouldBurstStopOnRelease
+### <a id="property:Weapon.shouldBurstStopOnRelease"></a>Weapon.shouldBurstStopOnRelease
 
 The following function evaluates a weapon and returns the "type" of weapon it thinks it is, based on some of its properties.
 
@@ -6407,17 +6405,17 @@ function ClassifyWeapon(weapon)
 end
 ```
 
-### Weapon.spreadMin
+### <a id="property:Weapon.spreadMin"></a>Weapon.spreadMin
 
-### Weapon.spreadMax
+### <a id="property:Weapon.spreadMax"></a>Weapon.spreadMax
 
-### Weapon.spreadAperture
+### <a id="property:Weapon.spreadAperture"></a>Weapon.spreadAperture
 
-### Weapon.spreadDecreaseSpeed
+### <a id="property:Weapon.spreadDecreaseSpeed"></a>Weapon.spreadDecreaseSpeed
 
-### Weapon.spreadIncreasePerShot
+### <a id="property:Weapon.spreadIncreasePerShot"></a>Weapon.spreadIncreasePerShot
 
-### Weapon.spreadPenaltyPerShot
+### <a id="property:Weapon.spreadPenaltyPerShot"></a>Weapon.spreadPenaltyPerShot
 
 It can be hard to understand the implications of spread on the efficacy of a weapon, especially as there is a complex relationship with firing rate. This example demonstrates a data-driven approach to studying gameplay. If this script is added to each weapon they will register their stats into a global table, which could then be analyzed to draw conclusions about the game's balance.
 
@@ -6518,11 +6516,11 @@ Task.Wait(1)
 RateMyGun()
 ```
 
-### Weapon.spreadMin
+### <a id="property:Weapon.spreadMin"></a>Weapon.spreadMin
 
-### Weapon.spreadMax
+### <a id="property:Weapon.spreadMax"></a>Weapon.spreadMax
 
-### Weapon.spreadDecreaseSpeed
+### <a id="property:Weapon.spreadDecreaseSpeed"></a>Weapon.spreadDecreaseSpeed
 
 Often in shooting games, the weapon loses precision while moving. For weapons in Core this is achieved by modifying the player's `spreadModifier` property, and can be implemented in many different ways. In this example, a client-context script uses the weapon's configured `spreadMin` and `spreadMax` properties to determine the maximum penalty when the player is moving. The weapon's `spreadDecreaseSpeed` is then used as an interpolation coefficient to smoothly move the spread penalty up and down, non-linearly, as the player moves or stops moving.
 
@@ -6568,7 +6566,7 @@ end
 
 ## World
 
-### World.FindObjectById
+### <a id="classfunction:World.FindObjectById"></a>World.FindObjectById
 
 Finds an object in the hierarchy based on it's unique ID. To find an object's ID, right-click them in the hierarchy and select "Copy MUID". An object's ID can also be obtained at runtime through the `id` property. In this example we search for the default sky folder and print a warning if we find it.
 
@@ -6580,7 +6578,7 @@ if defaultSkyFolder then
 end
 ```
 
-### World.FindObjectByName
+### <a id="classfunction:World.FindObjectByName"></a>World.FindObjectByName
 
 Returns only one object with the given name. This example searches the entire hierarchy for the default floor object and prints a warning if it's found.
 
@@ -6592,7 +6590,7 @@ if floorObject then
 end
 ```
 
-### World.FindObjectsByName
+### <a id="classfunction:World.FindObjectsByName"></a>World.FindObjectsByName
 
 This example counts all the spawn points in the game for teams 1, 2 and 3, then prints how many belong to each team.
 
@@ -6619,7 +6617,7 @@ print("Team 2 has " .. team2Count .. " spawn points.")
 print("Team 3 has " .. team2Count .. " spawn points.")
 ```
 
-### World.FindObjectsByType
+### <a id="classfunction:World.FindObjectsByType"></a>World.FindObjectsByType
 
 This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
 
@@ -6640,7 +6638,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### World.GetRootObject
+### <a id="classfunction:World.GetRootObject"></a>World.GetRootObject
 
 There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
 
@@ -6655,7 +6653,7 @@ local worldRoot = World.GetRootObject()
 PrintAllNames(worldRoot)
 ```
 
-### World.Raycast
+### <a id="classfunction:World.Raycast"></a>World.Raycast
 
 This example causes all players in the game to fly when they step off a ledge or jump. It does thy by using the Raycast() function to measure each player's distance to the ground below them.
 
@@ -6679,7 +6677,7 @@ function Tick()
 end
 ```
 
-### World.SpawnAsset
+### <a id="classfunction:World.SpawnAsset"></a>World.SpawnAsset
 
 In this example, whenever a player dies, an explosion VFX template is spawned  in their place and their body is flown upwards. The SpawnAsset() function also returns a reference to the new object, which allows us to do any number of adjustments to it--in this case a custom life span. This example assumes an explosion template exists in the project and it was added as a custom property onto the script object.
 
@@ -6703,9 +6701,9 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ## WorldText
 
-### WorldText.GetColor
+### <a id="method:WorldText.GetColor"></a>WorldText.GetColor
 
-### WorldText.SetColor
+### <a id="method:WorldText.SetColor"></a>WorldText.SetColor
 
 In this example, a WorldText object that is placed in the scene changes color gradually from white to black. The script expects to be a child of the WorldText. Notice that if you run this in multiplayer mode, the color changes will not be as smooth as in single-player preview. To fix that place the WorldText + Script hierarchy under a Client Context.
 
@@ -6726,7 +6724,7 @@ function Tick(deltaTime)
 end
 ```
 
-### WorldText.text
+### <a id="property:WorldText.text"></a>WorldText.text
 
 Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It's also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
 

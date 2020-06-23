@@ -7,10 +7,12 @@ mkdocs-redirects
 mkdocs>=1.1.2
 pygments>=2.6.1
 pymdown-extensions>=7.0.0
-mkdocs-new-features-notifier
 
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
 
 # mkdocs-plugin-tags
 https://github.com/stanzilla/mkdocs-plugin-tags/archive/master.zip
+
+# pymdown-custom-slugs
+https://github.com/Stanzilla/pymdown-custom-slugs/archive/master.zip

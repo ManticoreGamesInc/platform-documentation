@@ -733,11 +733,11 @@ A quaternion-based representation of a rotation.
 | -------- | ----------- | ----------- | ---- |
 | `Quaternion + Quaternion` | Quaternion | Component-wise addition. | None |
 | `Quaternion - Quaternion` | Quaternion | Component-wise subtraction. | None |
-| `Quaternion * Quaternion` | Quaternion | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. | None |
+| `Quaternion * Quaternion` | Quaternion | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion*quaternion "Quaternion: Quaternion*Quaternion Example") | None |
 | `Quaternion * Number` | Quaternion | Multiplies each component by the right-side Number. | None |
-| `Quaternion * Vector3` | Vector3 | Rotates the right-side vector and returns the result. | None |
+| `Quaternion * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#quaternionquaternion*vector3 "Quaternion: Quaternion*Vector3 Example") | None |
 | `Quaternion / Number` | Quaternion | Divides each component by the right-side Number. | None |
-| `-Quaternion` | Quaternion | Returns the inverse rotation. | None |
+| `-Quaternion` | Quaternion | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#quaternion-quaternion "Quaternion: -Quaternion Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -752,7 +752,7 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `RandomStream.New([Integer seed])` | RandomStream | Constructor with specified seed, defaults to 0. | None |
+| `RandomStream.New([Integer seed])` | RandomStream | Constructor with specified seed, defaults to a random value. | None |
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -783,11 +783,11 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Rotation + Rotation` | Rotation | Add two rotations together. | None |
-| `Rotation - Rotation` | Rotation | Subtract a rotation. | None |
-| `Rotation * Number` | Rotation | Returns the scaled rotation. | None |
-| `-Rotation` | Rotation | Returns the inverse rotation. | None |
-| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. | None |
+| `Rotation + Rotation` | Rotation | Add two rotations together. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation+rotation "Rotation: Rotation+Rotation Example") | None |
+| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-rotation "Rotation: Rotation-Rotation Example") | None |
+| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation*number "Rotation: Rotation*Number Example") | None |
+| `-Rotation` | Rotation | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: -Rotation Example") | None |
+| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation*vector3 "Rotation: Rotation*Vector3 Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1046,8 +1046,10 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetFillColor()` | Color | The color of the fill. | None |
-| `SetFillColor(Color)` | None | The color of the fill. | Dynamic |
+| `GetFillColor()` | Color | Returns the color of the fill. | None |
+| `SetFillColor(Color)` | None | Sets the color of the fill. | Dynamic |
+| `GetBackgroundColor()` | Color | Returns the color of the background. | None |
+| `SetBackgroundColor(Color)` | None | Sets the color of the background. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1146,18 +1148,18 @@ A three-component vector that can represent a position or direction.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector3 + Vector3` | Vector3 | Component-wise addition. | None |
-| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. | None |
-| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. | None |
-| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. | None |
-| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. | None |
-| `Vector3 / Vector3` | Vector3 | Component-wise division. | None |
-| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. | None |
-| `-Vector3` | Vector3 | Returns the negation of the Vector3. | None |
+| `Vector3 + Vector3` | Vector3 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3+vector3 "Vector3: Vector3+Vector3 Example") | None |
+| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3+number "Vector3: Vector3+Number Example") | None |
+| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3-Vector3 Example") | None |
+| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3-Number Example") | None |
+| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3*vector3 "Vector3: Vector3*Vector3 Example") | None |
+| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3*number "Vector3: Vector3*Number Example") | None |
+| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3number*vector3 "Vector3: Number*Vector3 Example") | None |
+| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3/vector3 "Vector3: Vector3/Vector3 Example") | None |
+| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3/number "Vector3: Vector3/Number Example") | None |
+| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3-vector3 "Vector3: -Vector3 Example") | None |
 | `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
-| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. | None |
+| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3^vector3 "Vector3: Vector3^Vector3 Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
