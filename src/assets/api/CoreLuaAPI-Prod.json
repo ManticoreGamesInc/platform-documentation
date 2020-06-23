@@ -3158,6 +3158,10 @@
 								}
 							]
 						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -4840,9 +4844,6 @@
 							],
 							"Parameters": []
 						}
-					],
-					"Tags": [
-						"ClientOnly"
 					]
 				},
 				{
@@ -4856,9 +4857,6 @@
 							],
 							"Parameters": []
 						}
-					],
-					"Tags": [
-						"ClientOnly"
 					]
 				},
 				{
@@ -8064,6 +8062,37 @@
 				},
 				{
 					"Name": "SetFillColor",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetBackgroundColor",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetBackgroundColor",
 					"Signatures": [
 						{
 							"Returns": [],
