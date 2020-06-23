@@ -1046,8 +1046,10 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetFillColor()` | Color | The color of the fill. | None |
-| `SetFillColor(Color)` | None | The color of the fill. | Dynamic |
+| `GetFillColor()` | Color | Returns the color of the fill. | None |
+| `SetFillColor(Color)` | None | Sets the color of the fill. | Dynamic |
+| `GetBackgroundColor()` | Color | Returns the color of the background. | None |
+| `SetBackgroundColor(Color)` | None | Sets the color of the background. | Dynamic |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
