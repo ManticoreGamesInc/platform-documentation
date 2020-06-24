@@ -1314,7 +1314,7 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 - Objects can change.
 - Objects will block any cameras unless explicitly set otherwise.
 - Scripts can access "Default" or "Networked" scripts because they occupy a place in the hierarchy.
-- Scripts run on the client only.
+- Scripts can see "Default" or "Networked" objects because they occupy a place in the hierarchy.
 
 ### Server Context
 
