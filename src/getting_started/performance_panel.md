@@ -22,17 +22,17 @@ With both the visualizations, the key point to make is "**Lower is Better**". Th
 
 - The **number** serves to give a slightly more granular view of the effect of the current content in the scene on the estimated performance over the grid of machine specs and video settings.
 
-- **Green zone | Value < 0.67**
+- **Green zone | Value < 0.67**{: style="color: var(--core-color-green)" }
 
     - The game is expected to run smoothly.
 
-- **Yellow zone | 0.67 < Value < 1.0**
+- **Yellow zone | 0.67 < Value < 1.0**{: style="color: #DE9300" }
 
     - The game is expected to run decently with some minor performance problems.
 
     - The creator should keep in mind that there might be some content optimizations needed in order to avoid going into the Red zone.
 
-- **Red zone | Value > 1.0**
+- **Red zone | Value > 1.0**{: style="color: var(--core-color-error-state)" }
 
     - The game is expected to run poorly.
 
