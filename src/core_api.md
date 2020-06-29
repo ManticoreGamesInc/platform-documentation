@@ -1361,16 +1361,17 @@ User defined events can be specified using the Events namespace. The Events name
 
 ??? "Networked Events Supported Types"
     - Bool
-    - Int32
-    - Float
-    - String
     - Color
+    - Float
+    - Int32
+    - Player
+    - Object Reference
     - Rotator
+    - String
+    - Table
     - Vector2
     - Vector3
     - Vector4
-    - Player
-    - Table
 
 ### Game
 
