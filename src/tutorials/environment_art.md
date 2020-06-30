@@ -40,7 +40,7 @@ The Terrain Creator tool creates different landscapes using premade HeightMaps.
 
 There are different options for types of terrain that can be generated in Core. You can click any of the terrain types to see a description of what it will generate.
 
-1. Select **Rocky Hills**.
+1. Select **Rolling Hills**.
 2. Change the size to ``256 x 256`` voxels and ``0.50`` meters.
 3. Click **Generate**.
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
