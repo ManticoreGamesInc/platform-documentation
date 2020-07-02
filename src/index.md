@@ -8,7 +8,7 @@ hide_tags: true
 
 # Core Documentation
 
-Welcome to the official documentation of Core&trade;, the community-focused game creation tool with everything you need to develop and publish high quality games.
+Welcome to the official documentation of Core, the community-focused game creation tool with everything you need to develop and publish high quality games.
 
 ## Core Features
 
