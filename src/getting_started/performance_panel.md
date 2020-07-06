@@ -2,7 +2,7 @@
 
 The aim of the Performance Estimation panel is to provide Creators a way to estimate the performance of their game on various computers over the different video settings.
 
-![PlayerSettings](../img/getting_started/performance_panel.png){: .center loading="lazy" }
+![PerformancePanel](../img/getting_started/performance_panel.png){: .center loading="lazy" }
 
 In brief, this is done by measuring the effect of certain metrics on the performance of the current system, and comparing it to benchmarks gathered across our reference computers, in order to get a realtime Performance Rating for the current section of the Game for those reference computers across all the different video settings.
 
@@ -14,7 +14,7 @@ Since the panel gives a running estimate over the scene, it helps to walk throug
 
 The panel consists of 2 visualizations which help to give an idea of the estimation: A **Colored bar** and a **Number**.
 
-![PlayerSettings](../img/getting_started/performance_panel_2.png){: .center loading="lazy" }
+![PerformancePanel2](../img/getting_started/performance_panel_2.png){: .center loading="lazy" }
 
 With both the visualizations, the key point to make is "**Lower is Better**". The Performance Rating is more analogous (without having a direct correlation) to Frame times than it is to Frame rate, hence lower numbers mean better performance.
 
