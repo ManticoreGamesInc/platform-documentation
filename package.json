@@ -49,7 +49,7 @@
         "remark": "^12.0.0",
         "remark-cli": "^8.0.0",
         "remark-frontmatter": "^2.0.0",
-        "remark-preset-lint-markdown-style-guide": "^3.0.0",
+        "remark-preset-lint-markdown-style-guide": "^3.0.1",
         "remark-stringify": "^8.1.0"
     },
     "engines": {
