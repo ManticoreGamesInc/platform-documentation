@@ -72,7 +72,7 @@ nav:
       - Editor Extensions: extensions.md
       - Examples & Snippets: api/examples.md
   - FAQ:
-      - Frequently Asked Questions: https://forums.coregames.com/t/83
+      - Frequently Asked Questions: https://support.coregames.com/hc/en-us/categories/360003284214-FAQ
   - Feedback:
       - Feedback: https://docs.google.com/forms/d/e/1FAIpQLSdpHIY56by19xUTSJjLiCY64SOz5SOxhJU4Cf0HvODOkB0dhg/viewform
 
@@ -117,7 +117,7 @@ extra:
       link: https://www.youtube.com/CoreGamesOfficial
       name: YouTube
     - icon: fontawesome/brands/reddit
-      link: https://www.reddit.com/r/coregamesdev
+      link: https://www.reddit.com/r/PlayCoreGames
       name: Reddit
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
