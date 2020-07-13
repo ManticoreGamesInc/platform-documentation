@@ -4280,29 +4280,6 @@ for _, p in pairs(players) do
 end
 ```
 
-### <a id="property:Player.name"></a>Player.name
-
-### <a id="property:Player.id"></a>Player.id
-
-### <a id="property:Player.team"></a>Player.team
-
-There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
-
-Players do, however, have a unique ID assigned to them. (Accessed via the `id` property.) It is guaranteed to be distinct from other players, and it is stable across sessions, so it won't change if they log out and log back in again.
-
-This sample grabs the list of all current players, and prints out their name, ID, and what team they are on.
-
-```lua
-local players = Game.GetPlayers()
-print("---There are currently " .. tostring(#players) .. " Player(s):")
-for _, p in pairs(players) do
-    print("Player [" .. p.name .. "]:")
-    print("  - id:   " .. p.id)
-    print("  - team: " .. p.team)
-    print()
-end
-```
-
 ### <a id="property:Player.shouldDismountWhenDamaged"></a>Player.shouldDismountWhenDamaged
 
 ### <a id="method:Player.SetMounted"></a>Player.SetMounted
