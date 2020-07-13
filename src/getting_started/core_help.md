@@ -14,7 +14,7 @@ The [Core Creator Forums](https://forums.coregames.com/) are full of tutorials, 
 
 ## FAQ
 
-[The Frequently Asked Questions](https://forums.coregames.com/t/creation-in-core-faq/83/7) post on the Core Creator Forums is an excellent starting point to solve problems and get back to creation.
+[The Frequently Asked Questions](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ) post on the Core Help Center is an excellent starting point to solve problems and get back to creation.
 
 ## Core Creator Discord
 
