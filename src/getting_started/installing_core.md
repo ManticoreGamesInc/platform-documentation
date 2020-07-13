@@ -19,7 +19,7 @@ To get started, you will need an account.
 
 ## System Requirements
 
-Make sure your computer meets the system requirements as stated [here](https://forums.coregames.com/t/creation-in-core-faq/83/2 "FAQ").
+Make sure your computer meets the system requirements as stated [here](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ "FAQ").
 
 ## Download the Installer
 
