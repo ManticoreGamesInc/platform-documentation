@@ -1394,7 +1394,7 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent "Game: playerJoinedEvent Example") | None |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. When used in client context it will fire off for each player already connected to the server. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent "Game: playerJoinedEvent Example") | None |
 | `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerleftevent "Game: playerLeftEvent Example") | None |
 | `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundstartevent "Game: roundStartEvent Example") | None |
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundendevent "Game: roundEndEvent Example") | None |
