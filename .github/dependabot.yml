@@ -1,16 +1,18 @@
 version: 2
 updates:
-- package-ecosystem: npm
+- package-ecosystem: "npm"
   directory: "/"
   schedule:
-    interval: weekly
-    time: '13:00'
+    interval: "weekly"
+    day: "monday"
+    time: '08:00'
   open-pull-requests-limit: 10
-  target-branch: development
-- package-ecosystem: pip
+  target-branch: "development"
+- package-ecosystem: "pip"
   directory: "/"
   schedule:
-    interval: monthly
-    time: '13:00'
+    interval: "weekly"
+    day: "monday"
+    time: '08:00'
   open-pull-requests-limit: 10
-  target-branch: development
+  target-branch: "development"
