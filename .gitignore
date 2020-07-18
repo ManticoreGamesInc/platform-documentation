@@ -7,3 +7,6 @@
 node_modules
 src/assets/api/test.lua
 site
+
+# macOS internals
+.DS_Store
