@@ -104,9 +104,11 @@ theme:
 
 extra_css:
 #  - assets/stylesheets/manticore.css
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/atom-one-dark.min.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
 
 extra:
   social:
@@ -149,8 +151,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  #- pymdownx.highlight:
-      #linenums_style: pymdownx-inline
+  - pymdownx.highlight:
+      use_pygments: false
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
