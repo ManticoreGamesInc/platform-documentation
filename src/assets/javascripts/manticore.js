@@ -10,6 +10,7 @@ function addListenerMulti(element, eventNames, listener) {
 }
 
 addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
+  hljs.initHighlighting()
 
   // Scroll-to-Top button
   const btn = document.getElementById("to-top-button")
