@@ -212,6 +212,8 @@ An RGBA representation of a color. Color components have an effective range of `
 | -------------- | ----------- | ----------- | ---- |
 | `Color.Lerp(Color from, Color to, Number progress)` | Color | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. [:fontawesome-solid-info-circle:](../api/examples/#colorlerp "Color: Lerp Example") | None |
 | `Color.Random()` | Color | Returns a new color with random RGB values and Alpha of 1.0. | None |
+| `Color.FromStandardHex(string hexString)` | Color | Creates a Color from the given sRGB hexadecimal string.  Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
+| `Color.FromLinearHex(string hexString)` | Color | Creates a Color from the given linear RGB hexadecimal string.  Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
 
 | Constructor | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -223,6 +225,8 @@ An RGBA representation of a color. Color components have an effective range of `
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetDesaturated(Number desaturation)` | Color | Returns the desaturated version of the Color. 0 represents no desaturation and 1 represents full desaturation. | None |
+| `ToStandardHex()` | string | Returns a hexadecimal sRGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
+| `ToLinearHex()` | string | Returns a hexadecimal linear RGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1394,7 +1398,7 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Event | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent "Game: playerJoinedEvent Example") | None |
+| `Game.playerJoinedEvent` | Event&lt;Player&gt; | Fired when a player has joined the game and their character is ready. When used in client context it will fire off for each player already connected to the server. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerjoinedevent "Game: playerJoinedEvent Example") | Client-Only |
 | `Game.playerLeftEvent` | Event&lt;Player&gt; | Fired when a player has disconnected from the game or their character has been destroyed. [:fontawesome-solid-info-circle:](../api/examples/#gameplayerleftevent "Game: playerLeftEvent Example") | None |
 | `Game.roundStartEvent` | Event | Fired when StartRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundstartevent "Game: roundStartEvent Example") | None |
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundendevent "Game: roundEndEvent Example") | None |
