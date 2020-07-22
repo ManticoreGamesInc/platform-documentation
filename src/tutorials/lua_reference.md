@@ -74,7 +74,7 @@ end
 if num > 40 then
   print("over 40")
 elseif s ~= "walternate" then  -- ~= is not equals.
-  -- Equality check is == like Python; ok for strs.
+  -- Equality check is == like Python; ok for strings.
   io.write("not over 40\n")  -- Defaults to stdout.
 else
   -- Variables are global by default.
