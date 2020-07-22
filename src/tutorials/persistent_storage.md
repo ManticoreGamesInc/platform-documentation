@@ -66,7 +66,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 1. Open a Core project.
 
-2. To turn on persistent game storage, we need a **Game Settings Object**. Navigate to the **Core Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
+2. To turn on persistent game storage, we need a **Game Settings Object**. Every Core project comes with one by default. If you don't have one, navigate to the **Core Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
 
     !!! info "Another Location for Settings Objects"
         Settings objects can also be found in the top menu bar of Core, under **Object** > **Create Settings Object** > **Create Game Settings**.
