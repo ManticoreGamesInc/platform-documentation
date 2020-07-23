@@ -1116,7 +1116,7 @@ A two-component vector that can represent a position or direction.
 | `Vector2 / Number` | Vector2 | Divides each component of the Vector2 by the right-side Number. | None |
 | `-Vector2` | Vector2 | Returns the negation of the Vector2. | None |
 | `Vector2 .. Vector2` | Number | Returns the dot product of the Vector2s. | None |
-| `Vector2 ^ Vector2` | Vector2 | Returns the cross product of the Vector2s. | None |
+| `Vector2 ^ Vector2` | Number | Returns the cross product of the Vector2s. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
