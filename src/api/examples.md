@@ -139,7 +139,7 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ### <a id="event:Ability.tickEvent"></a>Ability.tickEvent
 
-Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them.
+Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them. Note: `Ability.tickEvent` works somewhat differently from a `Tick()` function - `tickEvent` is an actual event that just happens to fire once per tick. Each invocation of the callback runs on its own task. This means that, unlike `Tick()`, there is no guarantee that it will wait for the previous `tickEvent` to finish before starting the next one. This means you can't use things like `Task.Wait()` to add time between ticks!
 
 ```lua
 local equipment = script.parent
