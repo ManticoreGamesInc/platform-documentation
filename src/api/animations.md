@@ -71,11 +71,17 @@ Sockets are different points on a player's character mesh. They can be used for 
 | Two-Hand Melee Animations                    | Description | Notes |
 | -------------------------------------------- | ----------- | ----- |
 | `2hand_melee_dig_shovel`                     | A simple dig animation using a shovel. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_melee_rm_combo_closer_vertical_slash` | A spinning two handed melee attack that swings from top to bottom in a vertical line in front of the player. | This animation is intended to be the third attack in the two hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_melee_rm_combo_middle_vertical_slash` | A two handed melee attack that swings from top to bottom in a vertical line in front of the player. | This animation is intended to be the second attack in the two hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_melee_rm_combo_opener_diagonal_slash` | A two handed melee attack that swings from right to left in a diagonal line in front of the player. | This animation is intended to be the first attack in the two hand melee combo. However, it can be used in any order, or by itself. This animation does not have a looping cast animation. Does not scale with execution phase duration. Moves the player forward with root motion. |
+| `2hand_melee_slash_right`                    | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_melee_slash_vertical`                 | A downward melee swing. | Supports variable cast phase time. Supports time-stretched execute phase time. |
 
 | Two-Hand Sword Animations | Description | Notes |
 | ------------------------- | ----------- | ----- |
 | `2hand_sword_slash_right` | A horizontal melee swing to the right. | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `2hand_sword_slash_left`  | A horizontal melee swing to the left. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `2hand_sword_slash_spin`  | A spinning two handed sword attack that swings the sword from right to left horizontally.  | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `2hand_sword_slash_vertical` | A downward melee swing. | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `2hand_sword_thrust` | A forward sword thrust melee attack. | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `2hand_sword_unsheathe` | Pulls the one-handed melee weapon from a belt sheath. | This animation works best with a cast phase duration of 0.31 or less. |
