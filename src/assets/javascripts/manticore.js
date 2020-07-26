@@ -41,6 +41,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
 
     iframe.title = "YouTube"
     iframe.src = `https://www.youtube.com/embed/${id}?modestbranding=1&amp;`
+    iframe.loading = 'lazy';
 
     if (oldClass !== "null") {
       iframe.className = `video-embed ${oldClass}`
