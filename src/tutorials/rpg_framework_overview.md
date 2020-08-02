@@ -2,10 +2,9 @@
 id: rpg_framework_overview
 name: D&D RPG Framework Overview
 title: D&D RPG Framework Overview
-tags:
 ---
 
-# Dungeons and Dragons: Core Edition!
+# Dungeons and Dragons: Core Edition
 
 ## The D&D Game Jam Contest Framework
 
