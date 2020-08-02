@@ -19,7 +19,7 @@ This framework contains many different scripts, and essential elements that you 
 1. In the **Hierarchy**, press the **Collapse All** button the close all the project folders.
 2. Click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} icon next to each folder except for **Map**.
 
-![Hierarchy Folders Locked]()
+![Hierarchy Folders Locked](../img/RPG/HierarchyLockAllButMap.png){.center}
 
 ### Hide Elements to Focus on One Area
 
@@ -33,13 +33,13 @@ Next, we will hide elements of the project to work on one part at a time. This h
 3. Click ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to the **Lobby**, **Dungeons**, and **Wall** folders so that you can only see the gray floor tiles.
 4. Click ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} next to the **Kill Zone** to prevent any changes to this element as well.
 
-![Hierarchy Setup to Edit Ground]()
+![Hierarchy Setup to Edit Ground](../img/RPG/HierarchySetupGround.png)
 
 ### Add Materials to the Ground
 
 With the other elements hidden, you can now left click and drag to select multiple objects in the scene.
 
-![Selected Dungeon Floor]()
+![Selected Dungeon Floor](../img/RPG/SelectGroundTiles.png)
 
 !!! hint
     You can hold <kbd>Ctrl</kbd> and click to unselect objects, and hold <kbd>Shift</kbd> and click to select more objects.
@@ -52,7 +52,7 @@ With the other elements hidden, you can now left click and drag to select multip
 !!! info
     Whitebox Floor tiles have two sides that can have different materials. You can add the same material to both sides, or ignore the one you cannot see.
 
-![Floor with Materials]()
+![Floor with Materials](../img/RPG/GroundMaterials.png)
 
 In this image, the Lobby tiles have the **Bricks Cobblestone Floor 01** material, and the Dungeon tiles have the **Stone Basic** material.
 
@@ -62,14 +62,14 @@ The next step is to change the outer walls. You can add materials to them the sa
 
 To change the object that is used by the walls, select several walls that are currently using the same mesh: **Whitebox Wall 01**. You will likely want to choose a different piece for half walls, so avoid the corner walls toward the Corehaven portal.
 
-![Selecting Whitebox Walls]()
+![Selecting Whitebox Walls](../img/RPG/SelectFullWalls.png)
 
 1. With the walls selected, open the **Properties** window and find the **Mesh** property.
 2. Double click the image of the mesh (the whitebox wall) to open the **STATIC MESH PICKER** menu.
 3. Search for ``castle wall`` to find a wall to use, like **Fantasy Castle Wall Interior 01**.
 4. When you select the new mesh, it should immediately apply to the selected objects.
 
-![Walls Now Use Fantasy Castle Wall Mesh]()
+![Walls Now Use Fantasy Castle Wall Mesh](../img/RPG/WallMeshSelectCastleWallInterior.png)
 
 !!! info
     Changing the mesh will not change the name of the object, so they will still have the name "Whitebox ..." unless you change it with <kbd>F2</kbd>
@@ -78,7 +78,7 @@ To change the object that is used by the walls, select several walls that are cu
 
 Half walls will be best substituted by other half wall sized meshes. Select the two corner half walls to apply a different mesh to them.
 
-![Half Whitebox Walls Selected]()
+![Half Whitebox Walls Selected](../img/RPG/HalfWallsSelected.png)
 
 #### Finish the Exterior Walls
 
@@ -87,7 +87,7 @@ Using materials or mesh substitution, finishing designing the exterior wall for 
 !!! hint
     Whitebox walls have two different sides for materials, so they are very useful when making two different areas right next to each other.
 
-![Textured Outer Walls]()
+![Textured Outer Walls](../img/RPG/TexturedOuterWalls.png)
 
 ## Building the Dungeons
 
@@ -98,7 +98,7 @@ Using materials or mesh substitution, finishing designing the exterior wall for 
 3. Click the arrow next to **Dungeons** to see the folders for each of the three dungeons.
 4. Click the ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to **Dungeon 2** and **Dungeon 3** so that only the first Dungeon is visible.
 
-![Hierarchy Setup to Edit Dungeon 1]()
+![Hierarchy Setup to Edit Dungeon 1](../img/RPG/HierarchySetupDungeon1.png)
 
 ### Reveal the NavMesh
 
@@ -115,7 +115,7 @@ With the NavMesh visible, you can see all of the walkable areas have plains indi
 
 You can use the same method used for the outer walls to simply change the mesh in place, and then reposition and resize the new object as necessary. You can also just add new objects from Core Content, but you will need to make sure that these get moved into the correct folder.
 
-![Rock Substituting For Wall]()
+![Rock Substituting For Wall](../img/RPG/ReplaceWithRock.png)
 
 1. Select a new object from Core Content to replace one of the whitebox walls.
 2. Drag that object into the scene, on top of the wall.
@@ -123,7 +123,7 @@ You can use the same method used for the outer walls to simply change the mesh i
 4. Drag the new object into the **Walls** folder of **Dungeon1**.
 5. Select the old wall and press <kbd>Delete</kbd>.
 
-![Moving Rock to Appropriate Folder]()
+![Moving Rock to Appropriate Folder](../img/RPG/DragIntoWallsFolder.png)
 
 ### Finish the Dungeons
 
@@ -137,7 +137,7 @@ Each item in the shop is part of a **Equipment Display Purchase Pad**, which com
 
 You can change any of the **Equipment Display Purchase Pad** to sell different items, or just change the prices and level requirements by select the object, and changing the custom properties.
 
-![Equipment Display Custom Properties]()
+![Equipment Display Custom Properties](../img/RPG/EquipmentPurchaseCustomProperties.png)
 
 You can create new items to purchase by finding the **Equipment Display Purchase Pad** template in the **Project Content** window, and dragging it into the **Main Viewport**.
 
@@ -165,12 +165,12 @@ A blacksmith would be one way you could create a more immersive shop that fits i
 
 #### Trellis by mjcortes782
 
-![Community Content Trellis]()
+![Community Content Trellis](../img/RPG/CommunityContentTrellis.png)
 
 #### Cart, Anvil, Blacksmith Hammer Point, and Blacksmith Hammer 1 by Flex
 
-![Community Content Cart]()
-![Community Content Blacksmith Items]()
+![Community Content Cart](../img/RPG/CommunityContentCart.png)
+![Community Content Blacksmith Items](../img/RPG/CommunityContentBlacksmith)
 
 ## Finishing Up
 
@@ -183,17 +183,17 @@ To finish the project, we'll add some terrain around the dungeon to give it a pl
 1. Click the **Terrain** tool and select **Generate New Terrain**.
 2. Select **Background Mountains** and change the **Voxel Size** to ``2.0m``
 
-![Generate New Terrain Menu]()
+![Generate New Terrain Menu](../img/RPG/GenerateTerrainMenu.png)
 
 #### Position and Paint the Terrain
 
-![Generated Terrain]()
+![Generated Terrain](../img/RPG/GeneratedTerrain.png)
 
 1. Move the generated terrain so that it is below your dungeons and lobby.
 2. In the **Properites** menu, click the **Paint Tab** and select **Create new terrain material**.
 3. This will automatically give the terrain the grass and cliffs textures, which is perfect for this setting. You can customize this further using the other material channels. See the [Environment Art](environment_art.md) tutorial to learn more about how to do this.
 
-![Painted Terrain]()
+![Painted Terrain](../img/RPG/PaintedTerrain.png)
 
 ### Delete Unnecessary Objects
 
@@ -205,7 +205,7 @@ For the final step, remove all of the objects that are not part of the final gam
 4. Select the **World Labels** folder and press <kbd>Delete</kbd>.
 5. Open the **Gameplay Objects** folder. Delete each folder inside EXCEPT the **Corehaven Portal**.
 
-![Deleting Gameplay Objects Except Corehaven Portal]()
+![Deleting Gameplay Objects Except Corehaven Portal](../img/RPG/DeletingGameplayObjects.png)
 
 ### Preview in Multiplayer
 
