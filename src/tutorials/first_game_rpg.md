@@ -41,14 +41,16 @@ With the other elements hidden, you can now left click and drag to select multip
 
 ![Selected Dungeon Floor]()
 
-!!! hint You can hold <kbd>Ctrl</kbd> and click to unselect objects, and hold <kbd>Shift</kbd> and click to select more objects.
+!!! hint
+    You can hold <kbd>Ctrl</kbd> and click to unselect objects, and hold <kbd>Shift</kbd> and click to select more objects.
 
 1. Make sure **Object Select Mode** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png){: .image-inline-text .image-background} is enabled by clicking the ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png){: .image-inline-text .image-background} icon in the Top Toolbar and clicking **Object**, or pressing <kbd>C</kbd>.
 2. Press the Left Mouse Button and drag it across the floor tiles that you want to select.
 3. Open the **Materials** folder in **Core Content** and select the Material to use for the ground section.
 4. Drag that Material into the selected floor tiles, or into the **Properties** window, in the **Floor** Material property.
 
-!!! info Whitebox Floor tiles have two sides that can have different materials. You can add the same material to both sides, or ignore the one you cannot see.
+!!! info
+    Whitebox Floor tiles have two sides that can have different materials. You can add the same material to both sides, or ignore the one you cannot see.
 
 ![Floor with Materials]()
 
@@ -69,7 +71,8 @@ To change the object that is used by the walls, select several walls that are cu
 
 ![Walls Now Use Fantasy Castle Wall Mesh]()
 
-!!! info Changing the mesh will not change the name of the object, so they will still have the name "Whitebox ..." unless you change it with <kbd>F2</kbd>
+!!! info
+    Changing the mesh will not change the name of the object, so they will still have the name "Whitebox ..." unless you change it with <kbd>F2</kbd>
 
 #### Half Walls
 
@@ -81,7 +84,8 @@ Half walls will be best substituted by other half wall sized meshes. Select the 
 
 Using materials or mesh substitution, finishing designing the exterior wall for the game.
 
-!!! hint Whitebox walls have two different sides for materials, so they are very useful when making two different areas right next to each other.
+!!! hint
+    Whitebox walls have two different sides for materials, so they are very useful when making two different areas right next to each other.
 
 ![Textured Outer Walls]()
 
@@ -217,4 +221,4 @@ Try out your dungeons, testing enemy AI behavior, the shop items, and making sur
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) |  [D&D RPG Framework Reference](rpg_framework_reference.md) | [D&D RPG Framework Official Documentation](rpg_framework_documentation.md) | [Environment Art Tutorial](evironment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](publishing.md) |  [D&D RPG Framework Reference](rpg_framework_reference.md) | [D&D RPG Framework Official Documentation](rpg_framework_documentation.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
