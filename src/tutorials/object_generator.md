@@ -96,4 +96,4 @@ Keep **Group In Folder** checked to spawn all new objects in a folder. This help
 
 ### Spawning Individual Objects
 
-You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing <kbd>SHIFT</kbd> + <kbd>X</kbd> with an object selected in the **Core Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color.
+You can also spawn individual objects using the **Object Generator**'s settings by placing your cursor in the scene and pressing ++shift+X++ with an object selected in the **Core Content** tab. The object will spawn under your cursor. This allows you finer control over an object's placement without having to worry about randomizing its rotation, scale, or color.

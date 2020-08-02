@@ -71,7 +71,7 @@ So, let's get started!
 
 3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
 
-    1. If you do not see anything at all in your scene, try pressing <kbd>V</kbd> to toggle the visibility of these gizmos.
+    1. If you do not see anything at all in your scene, try pressing ++V++ to toggle the visibility of these gizmos.
 
     2. The **look of the weapon** can be made from any Core primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
 

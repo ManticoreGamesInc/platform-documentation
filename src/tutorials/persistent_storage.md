@@ -170,7 +170,7 @@ To start, we are going to save a video game classic: a player's game score.
 
 5. Now press play to jump in the game and test it out!
 
-    Whenever you press <kbd>1</kbd> on your keyboard, the number on-screen will increase!
+    Whenever you press ++1++ on your keyboard, the number on-screen will increase!
 
 ![Final Result](../img/EditorManual/PersistentStorage/finalResult.png){: .center loading="lazy" }
 

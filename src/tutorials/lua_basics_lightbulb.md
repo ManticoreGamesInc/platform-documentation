@@ -49,7 +49,7 @@ This tutorial is designed for creators who have never done *any* programming bef
     * Name it `TutorialScript` for now.
 
     !!! tip
-        You can rename scripts by clicking on the name of the script (or by pressing <kbd>F2</kbd>) when it is selected.
+        You can rename scripts by clicking on the name of the script (or by pressing ++F2++) when it is selected.
 
 * Open up the script by double clicking on it.
     * By default this will open up the script in our in-built editor.
@@ -67,7 +67,7 @@ This tutorial is designed for creators who have never done *any* programming bef
     UI.PrintToScreen("Hello World!")
     ```
 
-2. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd> on your keyboard.
+2. Save the script by pressing ++ctrl+S++ on your keyboard.
 
 ### Running the Script
 
@@ -204,7 +204,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 2. Name this script `LightToggleScript`.
 
-3. Save the script by pressing <kbd>CTRL</kbd> + <kbd>S</kbd>.
+3. Save the script by pressing ++ctrl+S++.
 
     !!! info
         It's important to save your scripts often so you don't lose work in the event of a problem. Scripts don't update in-game until you save them, so you won't see any of your new code in action until you save. You cannot save a script while the game is running.
@@ -309,7 +309,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     !["Trigger Location"](../img/LightBulb/trigger.png "The trigger in Core Content."){: .center loading="lazy" }
 
-2. Let's find the trigger already in our template. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press <kbd>F</kbd>. This will find the trigger in our viewport. If you can't see the trigger, press <kbd>V</kbd> to enable Gizmo visibility.
+2. Let's find the trigger already in our template. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press ++F++. This will find the trigger in our viewport. If you can't see the trigger, press ++V++ to enable Gizmo visibility.
 
     !!! info "Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights."
 
@@ -405,7 +405,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
 9. Press **Play** and see if our trigger is working properly.
 
-    Perfect! When the player presses <kbd>F</kbd> to interact with the trigger, our switch rotates up!
+    Perfect! When the player presses ++F++ to interact with the trigger, our switch rotates up!
 
 10. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo()` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
@@ -513,7 +513,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Notice how we updated the comment describing what our `OnSwitchInteraction` function does.
 
-8. Press **Play** and interact with the switch. Now press <kbd>TAB</kbd> to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0 0 0".
+8. Press **Play** and interact with the switch. Now press ++tab++ to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0 0 0".
 
 9. Time to change the spawn location to the light bulb.
 

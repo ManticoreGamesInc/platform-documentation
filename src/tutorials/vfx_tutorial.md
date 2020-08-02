@@ -322,20 +322,20 @@ To start, open up a new project or whatever project you'd like to make this trea
     1. Find the *Interactable* property. Turn this on.
 
         !!! tip
-            A trigger can operate in two distinct ways. If **Interactable** is *on*, it will turn into a player-confirmed switch. This means the player will have to walk up to it and press <kbd>F</kbd> to cause the trigger to active its functions. This works perfectly for things like switches or dialogue.
+            A trigger can operate in two distinct ways. If **Interactable** is *on*, it will turn into a player-confirmed switch. This means the player will have to walk up to it and press ++F++ to cause the trigger to active its functions. This works perfectly for things like switches or dialogue.
 
             If **Interactable** is *off*, the functions connected to the trigger will happen instantly whenever a player simply walks into a trigger. This case is more useful for things like traps, or in general things you don't want the player to know about or have to think about activating.
 
     2. In the *Interaction Label* property, type "Open."
 
-    At this stage, if you press play to try it out, you'll notice that walking up to the treasure chest prompts you to press <kbd>F</kbd> to open the chest, but when you press it nothing happens.
+    At this stage, if you press play to try it out, you'll notice that walking up to the treasure chest prompts you to press ++F++ to open the chest, but when you press it nothing happens.
 
     That's where the cool stuff we're going to make comes in!
 
     !!! tip
         Make sure your spawn point and treasure chest are not overlapping. Otherwise, when you press play, you might be stuck inside the chest!
 
-        Press <kbd>V</kbd> to toggle gizmos on and off to see both the spawn point and the trigger we created.
+        Press ++V++ to toggle gizmos on and off to see both the spawn point and the trigger we created.
 
 10. First, in order to use that trigger in our script, we need to access it. Select your `TreasureChest` script in the Hierarchy. While it is selected, click and drag the trigger onto the Properties window for the script.
 
@@ -367,7 +367,7 @@ To start, open up a new project or whatever project you'd like to make this trea
         local propLockedVFX = script:GetCustomProperty("LockedVFX")
         ```
 
-2. Next we need to create a function for the moment the player interacts with the treasure chest. This is what happens when the player presses <kbd>F</kbd> when prompted by the trigger we placed.
+2. Next we need to create a function for the moment the player interacts with the treasure chest. This is what happens when the player presses ++F++ when prompted by the trigger we placed.
 
     In your script, beneath all those *variables* we just pasted in, add this code:
 
@@ -392,7 +392,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 4. Now try pressing Play!
 
-    When you walk up to the treasure chest and intereact with it by pressing <kbd>F</kbd>, our message appears on the screen. Woohoo!
+    When you walk up to the treasure chest and intereact with it by pressing ++F++, our message appears on the screen. Woohoo!
 
     Now it'd be real cool if this treasure chest required an item to open it. So, let's create that item!
 
@@ -428,7 +428,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 4. Click the Loot Bag in the **Hierarchy**, and drop down the folder structure to see the contents. We're looking for the **Trigger** right now. Click this, and check out the **Properties** tab. Scroll down to the Gameplay section, and uncheck the box for *Interactable*.
 
-    Now when a player walks over it, they will instantly grab it, rather than have to press <kbd>F</kbd> first.
+    Now when a player walks over it, they will instantly grab it, rather than have to press ++F++ first.
 
 5. We can use whatever art we want in this object, so instead of a coin pouch let's try... a crowbar. For prying that chest open with!
 

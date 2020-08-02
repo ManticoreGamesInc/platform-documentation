@@ -106,10 +106,10 @@ Yay, we've got it working! Now if only we could collect these coins...
 
 1. From **Core Content -> Gameplay Objects**, drag a **Trigger** object into the world.
     * Resize the trigger to match the coin's size.
-        * Select the **Trigger** in the hierarchy and press <kbd>R</kbd> to change to scale mode. Drag the handles to adjust the scale.
-        * Press <kbd>V</kbd> to toggle Gizmo visibility, including the **Trigger**'s hitbox.
+        * Select the **Trigger** in the hierarchy and press ++R++ to change to scale mode. Drag the handles to adjust the scale.
+        * Press ++V++ to toggle Gizmo visibility, including the **Trigger**'s hitbox.
     * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
-    * Press <kbd>W</kbd> to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
+    * Press ++W++ to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
     * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
 
 ### Handling Triggers
@@ -236,7 +236,7 @@ So far, we've worked on Objects, Triggers, and UI. Let's switch gears and spice 
 
     * Move the spawn point object around wherever you'd like in the world.
 
-    * If you can't see the spawn point, remember you can toggle gizmo visibility by pressing <kbd>V</kbd>.
+    * If you can't see the spawn point, remember you can toggle gizmo visibility by pressing ++V++.
 
 Alright, awesome!
 
@@ -245,7 +245,7 @@ Alright, awesome!
 ### Generating Coins
 
 Okay, now to populate the map with coins. Right-click within the Hierarchy to make a folder called `Coins`. Now drag our `Trigger` with the attached `Manticoin` object into it.
-Press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it how many times you like.
+Press ++ctrl+W++ to duplicate it how many times you like.
 
 Organization is important in your hierarchy. You can put objects together via folders or grouping!
 
@@ -302,7 +302,7 @@ We are going to update the game when all the possible coins are picked up. First
 * Create a **UI Text Box** named `VictoryUI` as a child of the `UI Container` we made earlier under `Client Context`.
 
 !!! tip
-    You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press <kbd>CTRL</kbd> + <kbd>W</kbd> to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
+    You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press ++ctrl+W++ to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
 
 * In the `text` field in the Properties window, type "**All coins found!**".
 * Customize your font color, size, and justification--do what you like with it!
