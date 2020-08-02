@@ -29,20 +29,20 @@ The Main Viewport is the window into all visual aspects of a project. It will ap
 ### Changing the View
 
 - Hold the **right mouse button** to change the direction the view is facing.
-    - <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> will move view position forward, left, right, and back.
-    - <kbd>Alt</kbd> will orbit around a selected object.
+    - ++W++, ++A++, ++S++, and ++D++ will move view position forward, left, right, and back.
+    - ++Alt++ will orbit around a selected object.
 - Use the **scroll wheel** to move the view closer or further away.
 - Hold the **wheel button**  to slide the view left, right, up, or down.
-- Press <kbd>F</kbd> with an object selected to move the view to focus on that object.
+- Press ++F++ with an object selected to move the view to focus on that object.
 
 ### Preview Mode
 
 Preview Mode shows a project from a player perspective, allowing you to run through scenes and test features in person.
 
-- ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> will start Preview Mode.
+- ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ will start Preview Mode.
 {: .image-inline-text .image-background}
-- <kbd>Tab</kbd> will pause the preview.
-- ![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
+- ++tab++ will pause the preview.
+- ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
  {: .image-inline-text .image-background}
 
 ### Multiplayer Preview Mode
@@ -85,21 +85,21 @@ Objects and scripts that you create will be in this window, as well as those tha
 The Toolbar contains the different options for manipulating objects.
 
 - ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or <kbd>W</kbd> to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
+ or ++W++ to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or <kbd>G</kbd> to **Snap Position**. It will move the object in whole steps according to the selected size.
+- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or ++G++ to **Snap Position**. It will move the object in whole steps according to the selected size.
  {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or <kbd>E</kbd> to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
  {: .image-inline-text .image-background}
-- ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or <kbd>G</kbd> to **Snap Rotation**, rotating the object in the selected degree interval.
+- ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or ++G++ to **Snap Rotation**, rotating the object in the selected degree interval.
 {: .image-inline-text .image-background}
-- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or <kbd>R</kbd> to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
+- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
  {: .image-inline-text .image-background}
-- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or <kbd>G</kbd> to **Transform Scale**. It will resize the object in whole units according to the selected size.
+- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Transform Scale**. It will resize the object in whole units according to the selected size.
 {: .image-inline-text .image-background}
 
 !!! note
-    All of the **Snap** tools appear in the same location, to the right of the Transform Tools. This icon will change appearance and function depending on which Transform Tool is selected, and can always be turned on with <kbd>G</kbd>.
+    All of the **Snap** tools appear in the same location, to the right of the Transform Tools. This icon will change appearance and function depending on which Transform Tool is selected, and can always be turned on with ++G++.
 
 ## Adding Scripts
 
@@ -115,7 +115,7 @@ The Event Log is where output from scripts, including errors, can be found. It i
 
 ## Saving the Project
 
-The Core Editor will automatically save your work periodically, but this can also be done manually through **File** > **Save** or <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+The Core Editor will automatically save your work periodically, but this can also be done manually through **File** > **Save** or ++ctrl+S++.
 
 ## Learn More
 
