@@ -35,7 +35,7 @@ Original props and scenes are made by modifying Core objects, and grouping them 
 
 Core includes a player controller and third-person camera out of the box. Project previewing can be done "in person" with a moving player in the scene right away.
 
-Players can move with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys, and change facing direction with the mouse. They can also crouch with <kbd>C</kbd>, jump with <kbd>Space</kbd>, and ride a mount with <kbd>G</kbd>.
+Players can move with the ++W++, ++A++, ++S++, and ++D++ keys, and change facing direction with the mouse. They can also crouch with ++C++, jump with ++Space++, and ride a mount with ++G++.
 
 ### Multiplayer
 

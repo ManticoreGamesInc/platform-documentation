@@ -43,7 +43,7 @@ There are different options for types of terrain that can be generated in Core. 
 1. Select **Rolling Hills**.
 2. Change the size to ``256 x 256`` voxels and ``0.50`` meters.
 3. Click **Generate**.
-4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to explore the newly generated terrain from a player perspective.
+4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to explore the newly generated terrain from a player perspective.
  {: .image-inline-text .image-background}
 
 ![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center loading="lazy" }
@@ -134,7 +134,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 ![Cube with Water Material](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_AddWaterMaterial.png){: .center loading="lazy" }
 
 !!! note
-    Select the **Cube** in the Hierarchy and press <kbd>F2</kbd> to rename it to **Water Cube**.
+    Select the **Cube** in the Hierarchy and press ++F2++ to rename it to **Water Cube**.
 
 ### Disable Collision on the Water
 
@@ -206,7 +206,7 @@ Each of the Materials, labeled **Material1** through **Material4** corresponds t
 ![Terrain Painted Path](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_StonePath.png){: .center loading="lazy" }
 
 !!! Hint
-    You can hold <kbd>Alt</kbd> while dragging on the scene to unpaint materials from areas that you recently painted.
+    You can hold ++Alt++ while dragging on the scene to unpaint materials from areas that you recently painted.
 
 ### Paint the River Bottom
 

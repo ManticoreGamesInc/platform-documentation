@@ -10,7 +10,7 @@ tags:
 
 There are a bunch of ways you can improve the experience of scripting in Core. If you are happy with the in-built editor, feel free to skip this section.
 
-If you want Core to use an external editor by default when you open a script file, press <kbd>ESC</kbd> to open up the options, then go to "**Settings**" and then change the path for "**External Script Editor**" to the one you prefer.
+If you want Core to use an external editor by default when you open a script file, press ++esc++ to open up the options, then go to "**Settings**" and then change the path for "**External Script Editor**" to the one you prefer.
 
 ## External editors
 
@@ -61,7 +61,7 @@ While we do not provide our own editor extensions, we supply an API JSON dump th
 * :fontawesome-solid-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
 You need to add the folder containing `.luacompleterc` to the library settings of the Lua Language Server extension.
-To do this, open up the VS Code settings via <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, type "Open Settings (JSON)" and hit enter.
+To do this, open up the VS Code settings via ++ctrl+shift+P++, type "Open Settings (JSON)" and hit enter.
 
 Now add the following to the end:
 
