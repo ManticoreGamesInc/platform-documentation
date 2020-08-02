@@ -10,62 +10,69 @@ tags:
 
 ## Create a Framework Game
 
-## Parts of the Framework
-
-### Framework Documentation
-
-This section contains two scripts, **DocumentationFrameworkOverview** and **DocumentationNPCKit**. These do not contain code, but instead have instructions on how to use this framework, and how to use the non-player character enemies in the dungeon (NPC's). You can also read this documentation online here.
-
-### Game Settings
-
-This section contains the existing logic of the game.
-
-- **Game Settings** has options for in-game chat, player death behavior, and most importantly the **Enable Player Storage** setting which is necessary to save player's levels, gold, and equipment.
-- **Team Settings** is used to create two teams, one for all of the players, and another for all of the enemies.
-- The **ResourcePersisterServer** script keeps track of players' gold, even when they disconnect and reconnect later.
-- The **EquipmentPersistentStarterServer** gives players the same weapons they had last when they disconnect and reconnect.
-- **Basic Level Progression** allows players to increase in level with experience (XP), gaining more hit points (HP). In the **Levels List** folder, there are objects for each level with custom properties that allow you to change how much **RequiredXP** players need to reach the level, and what the player's **MaxHP** will be when they level up.
-- The **Loot Drop Factory** template includes logic to make enemies give items to players when they are defeated. Inside this template are folders of the **Common**, **Uncommon**, and **Rare** drops which can be modified to change the rewards that players get, and how likely they are to appear.
-- **Combat Dependencies** contains the scripts that allow enemy AI's to fight and take damage.
-- **Third Person Camera Settings** has options for how the camera is controlled in game. You could trade out this object for one of the other **Camera Settings** objects in **Core Content** for a totally different player experience.
-
-![Camera Settings Objects]()
-
-### UI Settings
-
-This section includes all the of the information displayed on the screen to tell players about their health, XP, coins, abilities, and which location they are in. You can change the way these are displayed. Check out the Core [UI Reference](ui_reference.md) to learn more about using the 2D User Interface elements.
-
-### Map
-
-The **Map** folder contains all of the objects you can see in the game. This is the section you will modify in this tutorial
-
-- The **Environment** folder contains the sky template, which is currently the only source of light for the game.
-- The **Lobby**  folder is the heart of the project. It has folders of all the example pieces, the shop, teleporters to the dungeons, and all the explanatory text that you can currently see in the world.
-- The **Dungeons** folder contains the enemies and obstacles that make up each of the three dungeons
-- The **Wall** and **Ground** folders contain all the objects that make up the ground and outer walls.
-- The **Kill Zone** is a trigger that kills any player that gets outside of the boundaries of the dungeon, so that they can be reset back into the game rather than stuck outside of it.
-
-### NavMesh
-
-This folder contains a script that uses **Plain** objects to determine where the enemies can go. This is invisible by default, and we will make it visible in the tutorial in order to be able to build around the AI behavior, and modify it as necessary.
-
-## Testing the Base Game
-
-- Grab a costume
-- Upgrade a Sword
-- Do the first dungeon
-
-### Player Stats
-
-### The Portal to Core Haven
-
-### Weapons Shop
-
-###
-
-
-
 ## Building the Game
+
+### Lock the Project
+
+This framework contains many different scripts, and essential elements that you do not want to change accidentally. To prevent this, use the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background}.
+
+1. In the **Hierarchy**, press the **Collapse All** button the close all the project folders.
+2. Click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} icon next to each folder except for **Map**.
+
+![Hierarchy Folders Locked]()
+
+### Hide Elements to Focus on One Area
+
+Next, we will hide elements of the project to work on one part at a time. This has two benefits:
+
+- It is easier to focus on one part of the map at a time.
+- You can click to select objects easily without grabbing parts that you do not want to change.
+
+1. Click the **Visibile** ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to **UI Settings** to hide all the UI elements from the screen.
+2. Click the arrow next to **Map** to open the **Map** folder.
+3. Click ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to the **Lobby**, **Dungeons**, and **Wall** folders so that you can only see the gray floor tiles.
+4. Click ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} next to the **Kill Zone** to prevent any changes to this element as well.
+
+![Hierarchy Setup to Edit Ground]()
+
+### Add Materials to the Ground
+
+With the other elements hidden, you can now left click and drag to select multiple objects in the scene.
+
+![Selected Dungeon Floor]()
+
+!!! hint You can hold <kbd>Ctrl</kbd> and click to unselect objects, and hold <kbd>Shift</kbd> and click to select more objects.
+
+1. Make sure **Object Select Mode** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png){: .image-inline-text .image-background} is enabled by clicking the ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png){: .image-inline-text .image-background} icon in the Top Toolbar and clicking **Object**, or pressing <kbd>C</kbd>.
+2. Press the Left Mouse Button and drag it across the floor tiles that you want to select.
+3. Open the **Materials** folder in **Core Content** and select the Material to use for the ground section.
+4. Drag that Material into the selected floor tiles, or into the **Properties** window, in the **Floor** Material property.
+
+!!! info Whitebox Floor tiles have two sides that can have different materials. You can add the same material to both sides, or ignore the one you cannot see.
+
+![Floor with Materials]()
+
+In this image, the Lobby tiles have the **Bricks Cobblestone Floor 01** material, and the Dungeon tiles have the **Stone Basic** material.
+
+### Change the Walls
+
+The next step is to change the outer walls. You can add materials to them the same way you did the ground, or try using different meshes, like the walls of the Castle tileset.
+
+To change the object that is used by the walls, select several walls that are currently using the same mesh: **Whitebox Wall 01**. You will likely want to choose a different piece for half walls, so avoid the corner walls toward the Corehaven portal.
+
+![Selecting Whitebox Walls]()
+
+1. With the walls selected, open the **Properties** window and find the **Mesh** property.
+2. Double click the image of the mesh (the whitebox wall) to open the **STATIC MESH PICKER** menu.
+3. Search for ``castle wall`` to find a wall to use, like **Fantasy Castle Wall Interior 01**.
+4. When you select the new mesh, it should immediately apply to the selected objects.
+
+![Walls Now Use Fantasy Castle Wall Mesh]()
+
+!!! info Changing the mesh will not change the name of the object, so they will still have the name "Whitebox ..." unless you change it with <kbd>F2</kbd>
+
+
+## Notes
 
 - Trying to figure out a system of hiding/locking elements so that we can just select objects to update
     - Hide UI Settings for cleaner workspace
