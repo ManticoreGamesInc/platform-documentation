@@ -32,7 +32,7 @@ To learn how to create groups and folders, see the [Complex Objects reference](m
 ### Create a Template from Separate Objects
 
 1. If the assets are not in the **Hierarchy**, drag them from **Project Content** onto the **Hierarchy** or **Main Viewport**.
-2. Select the assets to be added to the template in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
+2. Select the assets to be added to the template in the **Hierarchy** window using ++ctrl++ + left click.
 3. Right click on one of the objects and select **Group and Create New Template from These**.
 4. Name your template and click the **New Template** button.
 
@@ -69,7 +69,7 @@ Screenshots are the most effective way to showcase a template, and help others u
 
 Uploading a screen shot allows you to use an external image editing software to improve your screenshot. This can be most useful when you need to convey for abstract information, like what a script does.
 
-1. Use the <kbd>Print Screen</kbd> key to copy a screenshot to your clipboard.
+1. Use the ++print++ button on your keyboard to copy a screenshot to your clipboard.
 2. Paste the captured image into an image editor, and save the file when you have finished editing it.
 3. Select the **Screenshots** button to upload a screenshot from your computer.
 

@@ -152,7 +152,8 @@ markdown_extensions:
   #- pymdownx.highlight:
       #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
-  - pymdownx.keys
+  - pymdownx.keys:
+      camel_case: true
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: squidfunk

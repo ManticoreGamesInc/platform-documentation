@@ -58,25 +58,25 @@ The Deathmatch framework gives you a complete game arena and shooter functionali
 
 ### Test Player Movement
 
-- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or <kbd>=</kbd> to preview your project as a player.
+- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to preview your project as a player.
   {: .image-inline-text .image-background}
-- Press <kbd>Tab</kbd> to pause the preview.
-- Press ![Stop](../img/EditorManual/icons/Icon_Stop.png) or <kbd>=</kbd> to stop the preview.
+- Press ++tab++ to pause the preview.
+- Press ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
  {: .image-inline-text .image-background}
 
 As in any Core game project, you already have a working character controller.
 
-- Move the character with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys.
-- Jump with <kbd>Space</kbd>.
-- Crouch with <kbd>C</kbd>.
-- Ride a mount with <kbd>G</kbd>.
+- Move the character with the ++W++, ++A++, ++S++, and ++D++ keys.
+- Jump with ++Space++.
+- Crouch with ++C++.
+- Ride a mount with ++G++.
 
 ### Test Shooter Mechanics
 
 Besides player movement, **Deathmatch** also gives each player a gun to shoot, and the ability to open and close doors.
 
 - Shoot the default gun with the left mouse button.
-- Open and close a door with <kbd>F</kbd>.
+- Open and close a door with ++F++.
 
 ![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
 
@@ -94,7 +94,7 @@ Core projects also include multiplayer networking by default. Because this is a 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center loading="lazy" }
 
 !!! tip
-     You can use <kbd>Alt</kbd> + <kbd>Enter</kbd> to toggle between fullscreen and windowed mode. You can also use <kbd>Win</kbd> + <kbd>Arrow</kbd> to dock the screens side by side.
+     You can use ++Alt+enter++ to toggle between fullscreen and windowed mode. You can also use ++Win+Arrow++ to dock the screens side by side.
 
 ## Customize the Arena
 
@@ -122,11 +122,11 @@ Core gives you a massive library of 3D assets, materials, sounds, and components
 You can move, turn, and resize objects.
 
 - ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or <kbd>W</kbd> activates Translation Mode.
+ or ++W++ activates Translation Mode.
 {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or <kbd>E</kbd> activates Rotation Mode.
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ activates Rotation Mode.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or <kbd>R</kbd> activates Scale Mode.
+- ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ activates Scale Mode.
 {: .image-inline-text .image-background}
 
 <div class="mt-video">
@@ -136,9 +136,9 @@ You can move, turn, and resize objects.
     </video>
 </div>
 
-1. Click on the bush and press <kbd>G</kbd> to move it.
+1. Click on the bush and press ++G++ to move it.
 2. Use the arrows to move it into a good hiding place for a player.
-3. Press <kbd>R</kbd> to change the size of the bush.
+3. Press ++R++ to change the size of the bush.
 4. Click and drag the white box at the center of the bush to resize it proportionately.
 5. Move, rotate, and scale the rest of the objects to enhance the scene.
 
@@ -184,7 +184,7 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
 
 You can apply a material to multiple objects by selecting them.
 
-- Use <kbd>Shift</kbd> + <kbd>Left Click</kbd> to select more objects.
+- Use ++shift+Left Click++ to select more objects.
 - Left click and drag to select objects in an area.
 
 <div class="mt-video">
@@ -195,11 +195,11 @@ You can apply a material to multiple objects by selecting them.
 </div>
 
 1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
-2. Press <kbd>Enter</kbd> to select everything from the search
+2. Press ++enter++ to select everything from the search
 3. Choose a material, and drag it onto one of the walls.
 
 !!! note
-    You can also select the entire list by clicking the first object in the list, then holding <kbd>Shift</kbd> and scroll down to click the last.
+    You can also select the entire list by clicking the first object in the list, then holding ++shift++ and scroll down to click the last.
 
 ### Give Everything a Material
 
@@ -225,7 +225,7 @@ In this final section, you will find different ways to change the gameplay itsel
 1. Find **Player Settings** by searching for it in the **Hierarchy**.
 2. Open the **Properties** window to see all the settings that can be changed for each player
 3. In the **Jump** section, change **Jump Max Count** to `2`,
-4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with <kbd>Space</kbd>.
+4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with ++Space++.
 {: .image-inline-text .image-background}
 
 ![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center loading="lazy" }
@@ -256,7 +256,7 @@ Although the game now ends after two kills, the instructions shown on the screen
 
 ### Move the Player Start
 
-Let's move the "Player Start" where players spawn to be further apart. Press <kbd>V</kbd> to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+Let's move the "Player Start" where players spawn to be further apart. Press ++V++ to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
 
 1. Search for **Spawn Point** in the **Hierarchy**.
 2. Move the spawn points around the map the same way you would any object.
@@ -264,7 +264,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press <kb
 ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center loading="lazy" }
 
 !!! tip
-    Press <kbd>0</kbd> to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
+    Press ++0++ to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
 
 ## Publishing a Game
 

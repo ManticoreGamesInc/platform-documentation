@@ -52,7 +52,7 @@ This tutorial will cover how to place and move images in a scene as well as how 
     </video>
 </div>
 
-The arrows show the **transform widget** is in **translation mode**, allowing you to move any object around in the scene. You can easily switch to **translation mode** by pressing <kbd>W</kbd>, or selecting the **translation mode** button in the **top toolbar**.
+The arrows show the **transform widget** is in **translation mode**, allowing you to move any object around in the scene. You can easily switch to **translation mode** by pressing ++W++, or selecting the **translation mode** button in the **top toolbar**.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -72,7 +72,7 @@ The circles show the **transform widget** is in **rotation mode**, allowing you 
 
 The boxes show the **transform widget** is in **scale mode**. Clicking and dragging on any of the boxes will resize your selected object. Clicking and dragging the white center box allows you to size up and down the entire object.
 
-You can easily switch between **translation**, **rotation**, and **scale mode** by pressing <kbd>W</kbd>, <kbd>E</kbd>, or <kbd>R</kbd> respectively, or by selecting the corresponding button in the **top toolbar**.
+You can easily switch between **translation**, **rotation**, and **scale mode** by pressing ++W++, ++E++, or ++R++ respectively, or by selecting the corresponding button in the **top toolbar**.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -105,7 +105,7 @@ Rotate the house so the interior isn't in the shade. This will make it easier to
 </div>
 
 !!! note "Core Concepts: Snap To Grid"
-    Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing <kbd>G</kbd> or using the **Snap to Grid** button in the toolbar.
+    Easily place and rotate objects by enabling Snap to Grid. Toggle **Snap to Grid** by pressing ++G++ or using the **Snap to Grid** button in the toolbar.
 
 ![SceneCreation](../img/SceneCreation/image3.png "image_tooltip"){: .center loading="lazy" }
 
@@ -119,7 +119,7 @@ There are more degrees of rotation available in the drop down menu.
 
 1. Drag the bed from the **Project Content** tab > **My Shared Content** > **My Room** into the scene.
 
-    !!! info "Core Tip: To snap an object to the floor press <kbd>END</kbd>."
+    !!! info "Core Tip: To snap an object to the floor press ++end++."
 
 2. Change the color and material of the quilt.
 
