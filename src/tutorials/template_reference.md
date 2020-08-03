@@ -58,8 +58,9 @@ Once your template is created, you may use it for just this project alone, or yo
 
 ![Publish Dialog Box](../img/EditorManual/Art/PublishtoCCBox.png "Fill this up with info about your template."){: .center loading="lazy" }
 
-1. Give the template a name. This does not need to match the template name in the project, and can be more descriptive or specific help creators understand the template.
+1. Give the template a **name**. This does not need to match the template name in the project, and can be more descriptive or specific help creators understand the template.
 2. Write a **description** for your template. This section can include list of the individual objects in the template, possible uses, and attributions to other creators who helped with the template.
+3. Add **tags**. These are important so your content shows up properly in search and the browse sections.
 
 ### Add a Screenshot
 
