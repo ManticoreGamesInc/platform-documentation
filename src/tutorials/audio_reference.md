@@ -90,7 +90,7 @@ This is the radius at which the sound plays at full volume in centimeters (cm). 
 
 !!! note "This is the radius of the volume falloff distance in centimeters (cm). If the distance from the sound's origin is greater than the sound's radius, the sound will gradually decrease in volume over the falloff distance. The maximum range a sound can be heard is RADIUS + FALLOFF."
 
-When visual gizmos are toggled on (by pressing <kbd>V</kbd> in the editor) Radius and Falloff values can be seen in the editor to help creators have a better visual understanding of how their sounds are heard in their games.
+When visual gizmos are toggled on (by pressing ++V++ in the editor) Radius and Falloff values can be seen in the editor to help creators have a better visual understanding of how their sounds are heard in their games.
 
 ![alt_text](../img/Audio/RadiusGizmo.jpg "image_tooltip"){: .center loading="lazy" }
 

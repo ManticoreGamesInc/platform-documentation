@@ -46,13 +46,13 @@ The key to creating 3D models is to see the basic shapes in your reference image
 
 Plates are a very straightforward shape. This is a cylinder scaled down.
 
-!!! info "Core Tip: Use <kbd>W</kbd>, <kbd>E</kbd>, and <kbd>R</kbd> to toggle between *Move*, *Rotate*, and *Scale* respectively when using the transform widget."
+!!! info "Core Tip: Use ++W++, ++E++, and ++R++ to toggle between *Move*, *Rotate*, and *Scale* respectively when using the transform widget."
 
 ![ModelingBasics](../img/ModelingBasics/image2.png "Modeling Screenshot"){: .center loading="lazy" }
 
 Most plates have a lip or edge that runs around them. These small details make the object look more realistic. I used "**Ring Beveled**" and scaled it down until it looked right.
 
-!!! info "Core Tip: Use *Snap to Grid* (<kbd>G</kbd>) to place approximately in your scene. Turn off *Snap to Grid* to fine tune their placement."
+!!! info "Core Tip: Use *Snap to Grid* (++G++) to place approximately in your scene. Turn off *Snap to Grid* to fine tune their placement."
 
 ![ModelingBasics](../img/ModelingBasics/image10.png "Modeling Screenshot"){: .center loading="lazy" }
 
@@ -92,7 +92,7 @@ Copy and paste the "**Chamfered Cylinder and Ring (thin)**". Resize your new pan
 
 Our pancakes looked like they were undercooked, so I added "**Decal Stains Round 01**" to the top in a brown color to give it a nice crisp on top. They're starting to look good.
 
-!!! info "Core Tip: To easily place a decal on a surface move your cursor to where you want to place a decal and press <kbd>X</kbd>."
+!!! info "Core Tip: To easily place a decal on a surface move your cursor to where you want to place a decal and press ++X++."
 
 ![ModelingBasics](../img/ModelingBasics/image6.png "Modeling Screenshot"){: .center loading="lazy" }
 

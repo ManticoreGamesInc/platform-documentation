@@ -37,7 +37,7 @@ There are different ways to combine objects into units that can be manipulated t
 
 ### Renaming
 
-Renaming custom objects and parts of complex objects makes future editing quicker, as well as making it possible to search for parts easily in the Hierarchy. Select an object and press <kbd>F2</kbd> to rename it.
+Renaming custom objects and parts of complex objects makes future editing quicker, as well as making it possible to search for parts easily in the Hierarchy. Select an object and press ++F2++ to rename it.
 
 ### Folders
 
@@ -48,8 +48,8 @@ Folders can be used to organize projects according to your individual preference
 #### Creating a Folder
 
 1. Select the **Hierarchy** window.
-2. Press <kbd>Ctrl</kbd> + <kbd>N</kbd> or right click and select **New Folder**.
-3. Type a name for the folder and press <kbd>Enter</kbd>.
+2. Press ++ctrl+N++ or right click and select **New Folder**.
+3. Type a name for the folder and press ++enter++.
 
 #### Adding Objects to a Folder
 
@@ -59,12 +59,12 @@ To add an object to a folder, drag it onto the folder name until it is highlight
 
 #### Creating a Folder with Existing Objects
 
-1. Select the objects to be added to the folder in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
-2. Press <kbd>Ctrl</kbd> + <kbd>N</kbd> or right click and select **New Folder Containing These**.
-3. Type a name for the folder and press <kbd>Enter</kbd>.
+1. Select the objects to be added to the folder in the **Hierarchy** window using ++ctrl++ + left click.
+2. Press ++ctrl+N++ or right click and select **New Folder Containing These**.
+3. Type a name for the folder and press ++enter++.
 
 !!! note
-    Use <kbd>Shift</kbd> + left click to select all of the objects between the last selected and the one you select next.
+    Use ++shift++ + left click to select all of the objects between the last selected and the one you select next.
 
 ### Groups
 
@@ -72,9 +72,9 @@ Creating a group allows you to unite a collection of 3D objects into a single en
 
 #### Creating a Group from Existing Objects
 
-1. Select the objects to be added to the group in the **Hierarchy** window using <kbd>Ctrl</kbd> + left click.
+1. Select the objects to be added to the group in the **Hierarchy** window using ++ctrl++ + left click.
 2. Right click one of the selected objects and click **New Group Containing These**.
-3. Type a name for the group and press <kbd>Enter</kbd>.
+3. Type a name for the group and press ++enter++.
 
 #### Switching between Group and Object Selection Mode
 

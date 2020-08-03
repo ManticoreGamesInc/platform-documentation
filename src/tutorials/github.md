@@ -135,7 +135,7 @@ You can change the title, or keep the one from the local repository. Check the *
 
 With a remote repository, you can see the files of the project, and the history of the changes made in each of your commits.
 
-Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, or select **Repository** in the top menu bar, and click **View on GitHub** to see the project page.
+Press ++ctrl+shift+G++, or select **Repository** in the top menu bar, and click **View on GitHub** to see the project page.
 
 ![GitHub Project Page](../img/VersionControl/VersionControl_GitHubProjectPage.png){: .center loading="lazy" }
 
@@ -239,7 +239,7 @@ If you are collaborating with someone else, you should use a **pull request** wh
 If you are not collaborating, you can **merge** the changes on to your local master branch, and then push to GitHub.
 
 1. Change the current branch to **master**.
-2. Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> or click **Branch** in the top menu and select **Merge into current branch**.
+2. Press ++ctrl+shift+M++ or click **Branch** in the top menu and select **Merge into current branch**.
 3. Select the branch whose changes you want to merge.
 
 ### Using Templates
