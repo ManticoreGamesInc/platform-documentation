@@ -2,6 +2,8 @@ name: Compress Images
 
 on:
   pull_request:
+    branches:
+      - '!production'
     paths:
       - '**.jpg'
       - '**.png'
