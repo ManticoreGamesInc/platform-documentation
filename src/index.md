@@ -3,7 +3,18 @@ id: home
 title: Core Documentation Home
 name: Core Documentation Home
 hide_tags: true
-#hero: ⚠ Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠
+#hero: ⚠  Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠ 
+---
+
+<div class="figure-block">
+    <figure>
+        <a href="tutorials/rpg_framework_overview.md" title="RPG Framework Overview">
+            <img src="img/RPG/D&DContest_Logo-2_1@2x.png" loading="lazy" alt="D&DxCore Logo">
+            <figcaption><em>Check out our special section for the for the D&D Contest Framework!</em></figcaption>
+        </a>
+    </figure>
+</div>
+
 ---
 
 # Core Documentation
