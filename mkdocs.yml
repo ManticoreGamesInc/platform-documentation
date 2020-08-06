@@ -12,6 +12,11 @@ nav:
         - Create your first Game: getting_started/my_first_multiplayer_game.md
         - Publish a Game: getting_started/publishing.md
         - Getting Help in Core: getting_started/core_help.md
+      - D&D Contest RPG Framework:
+        - Overview: tutorials/rpg_framework_overview.md
+        - Create your first RPG game: tutorials/first_game_rpg.md
+        - D&D RPG Framework Reference: tutorials/rpg_framework_reference.md
+        - D&D RPG Framework Documentation: tutorials/rpg_framework_documentation.md
       - Coming from other Platforms:
         - Unity: other_platforms/unity.md
         - Roblox: other_platforms/roblox.md
