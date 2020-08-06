@@ -6,6 +6,8 @@ title: D&D RPG Framework Overview
 
 # Dungeons and Dragons Contest Framework
 
+![D&DxCore Logo](../img/RPG/D&DContest_Logo-2_1@2x.png){: .center loading="lazy" }
+
 ## The D&D Game Jam Contest Framework
 
 Core has created a framework to give you a quick start to building a complete RPG and for the [D&D Contest](https://dndcontest.coregames.com/). It is not necessary to use this framework to participate, but these resources will help you start a project using the framework.

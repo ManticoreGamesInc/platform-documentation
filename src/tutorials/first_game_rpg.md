@@ -28,10 +28,12 @@ To get started, use the **Create** menu to make a new project
 
 ### Lock the Project
 
-This framework contains many different scripts, and essential elements that you do not want to change accidentally. To prevent this, use the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background}.
+This framework contains many different scripts, and essential elements that you do not want to change accidentally. To prevent this, use the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png).
+{: .image-inline-text .image-background }
 
 1. In the **Hierarchy**, press the **Collapse All** button the close all the project folders.
-2. Click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} icon next to each folder except for **Map**.
+2. Click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png) icon next to each folder except for **Map**.
+{: .image-inline-text .image-background }
 
 ![Hierarchy Folders Locked](../img/RPG/HierarchyLockAllButMap.png){: .center loading="lazy" }
 
@@ -42,10 +44,13 @@ Next, we will hide elements of the project to work on one part at a time. This h
 - It is easier to focus on one part of the map at a time.
 - You can click to select objects easily without grabbing parts that you do not want to change.
 
-1. Click the **Visible** ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to **UI Settings** to hide all the UI elements from the screen.
+1. Click the **Visible** ![Visible](../img/EditorManual/icons/Icon_Visible.png) next to **UI Settings** to hide all the UI elements from the screen.
+{: .image-inline-text .image-background}
 2. Click the arrow next to **Map** to open the **Map** folder.
-3. Click ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to the **Lobby**, **Dungeons**, and **Wall** folders so that you can only see the gray floor tiles.
-4. Click ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} next to the **Kill Zone** to prevent any changes to this element as well.
+3. Click ![Visible](../img/EditorManual/icons/Icon_Visible.png) next to the **Lobby**, **Dungeons**, and **Wall** folders so that you can only see the gray floor tiles.
+{: .image-inline-text .image-background }
+4. Click ![Lock](../img/EditorManual/icons/Icon_Lock.png) next to the **Kill Zone** to prevent any changes to this element as well.
+{: .image-inline-text .image-background }
 
 ![Hierarchy Setup to Edit Ground](../img/RPG/HierarchySetupGround.png){: .center loading="lazy" }
 
@@ -58,7 +63,8 @@ With the other elements hidden, you can now left click and drag to select multip
 !!! hint
     You can hold ++Ctrl++ and click to unselect objects, and hold ++Shift++ and click to select more objects.
 
-1. Make sure **Object Select Mode** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png){: .image-inline-text .image-background} is enabled by clicking the ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png){: .image-inline-text .image-background} icon in the Top Toolbar and clicking **Object**, or pressing ++C++.
+1. Make sure **Object Select Mode** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) is enabled by clicking the ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png) icon in the Top Toolbar and clicking **Object**, or pressing ++C++.
+{: .image-inline-text .image-background}
 2. Press the Left Mouse Button and drag it across the floor tiles that you want to select.
 3. Open the **Materials** folder in **Core Content** and select the Material to use for the ground section.
 4. Drag that Material into the selected floor tiles, or into the **Properties** window, in the **Floor** Material property.
@@ -108,9 +114,11 @@ Using materials or mesh substitution, finishing designing the exterior wall for 
 ### Make the First Dungeon Visible
 
 1. Lock the **Wall** folder so that we can make changes without selecting the outer walls.
-2. Click the ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} icon next to **Dungeons** to show all the Dungeon elements.
+2. Click the ![Visible](../img/EditorManual/icons/Icon_Visible.png) icon next to **Dungeons** to show all the Dungeon elements.
+{: .image-inline-text .image-background }
 3. Click the arrow next to **Dungeons** to see the folders for each of the three dungeons.
-4. Click the ![Visible](../img/EditorManual/icons/Icon_Visible.png){: .image-inline-text .image-background} next to **Dungeon 2** and **Dungeon 3** so that only the first Dungeon is visible.
+4. Click the ![Visible](../img/EditorManual/icons/Icon_Visible.png) next to **Dungeon 2** and **Dungeon 3** so that only the first Dungeon is visible.
+{: .image-inline-text .image-background }
 
 ![Hierarchy Setup to Edit Dungeon 1](../img/RPG/HierarchySetupDungeon1.png){: .center loading="lazy" }
 
@@ -118,7 +126,8 @@ Using materials or mesh substitution, finishing designing the exterior wall for 
 
 Enemy AI's do not follow the same collision rules as players. Instead, they have a **NavMesh** which defines the areas where they can and cannot walk. To build a dungeon where the enemies cannot go through objects, we need to build around the NavMesh.
 
-1. Select the **NavMesh** folder in the Hierarchy and click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png){: .image-inline-text .image-background} to enable changes.
+1. Select the **NavMesh** folder in the Hierarchy and click the **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png) to enable changes.
+{: .image-inline-text .image-background}
 2. In the **Properties** window, change the **Visibility** property to **Force On**.
 
 ### Designing around the NavMesh
@@ -159,7 +168,8 @@ You can create new items to purchase by finding the **Equipment Display Purchase
 
 To move the items in the shop, make sure **Group Select Mode** is enabled, so that you grab the template, including the text, triggers, and display.
 
-Click the ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png){: .image-inline-text .image-background} icon in the Top Toolbar and select **Group**, or press ++C++ to switch between the two modes.
+Click the ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) icon in the Top Toolbar and select **Group**, or press ++C++ to switch between the two modes.
+{: .image-inline-text .image-background }
 
 Now, you can click and move the shop items to fit in the environment that you build for them.
 
@@ -170,7 +180,8 @@ You can use the many fantasy props to build out a shop, but there are even more 
 1. Use the search in the **Community Content** window to find available templates.
 2. Click the **Import** button to add it to your project.
 3. Open the **Core Content** window and find the **Imported Content** section in the navigation.
-4. Double click the **Bundle** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png){: .image-inline-text .image-background} icon to open it.
+4. Double click the **Bundle** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png) icon to open it.
+{: .image-inline-text .image-background }
 5. Drag the green **Template** icon into the **Main Viewport** to add it into the scene.
 
 ### Example: The Blacksmith
@@ -226,13 +237,13 @@ For the final step, remove all of the objects that are not part of the final gam
 Now that you have finished the steps to make the game, it is time to do more more test before publishing.
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
-    {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
-    {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 Try out your dungeons, testing enemy AI behavior, the shop items, and making sure you can't get trapped anywhere. Once you are happy with the game, you are ready to [publish](publishing.md)!
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) |  [D&D RPG Framework Reference](rpg_framework_reference.md) | [D&D RPG Framework Official Documentation](rpg_framework_documentation.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](publishing.md) | [D&D RPG Framework Reference](rpg_framework_reference.md) | [D&D RPG Framework Official Documentation](rpg_framework_documentation.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
