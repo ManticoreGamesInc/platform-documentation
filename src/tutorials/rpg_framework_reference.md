@@ -122,7 +122,7 @@ Behind the place where you spawned into the game, you should see a hallway leadi
 
 ![Portal to Corehaven, the D&D Hub World]()
 
-Games made for the D&D Contest will all be connected through a [D&D Hub World that you can find here](), and this portal allows players to return to the Hub World.
+Games made for the D&D Contest will all be connected through a D&D Hub World, and this portal allows players to return to the Hub World. <!-- TODO: Add link -->
 
 ### Sample Objects
 
@@ -134,7 +134,7 @@ The **Castle** section holds the parts you see outside the walls, and the **Temp
 
 #### Fantasy Props
 
-On the right side of the Lobby you should see different chests, potions and candles showing off the available fantasy props. These can also be foound in **Core Content** by opening the **3D Objects** fp;der. and then **Props** and **Fantasy**.
+On the right side of the Lobby you should see different chests, potions and candles showing off the available fantasy props. These can also be found in **Core Content** by opening the **3D Objects** fp;der. and then **Props** and **Fantasy**.
 
 ### Weapons Shop and Costumes Shop
 
@@ -144,17 +144,17 @@ As you return to the Lobby, you should see items along the wall on your left, re
 
 There are two upgrades you can afford right now, for 0 gold:
 
-#### Walk up to the **Soldier Costume** and press <kbd>F</kbd> to equip it
+#### Walk up to the **Soldier Costume** and press ++F++ to equip it
 
 ![Soldier Costume](../src/img/PlaytestSoldierCostume.png)
 
-#### Next, find the Basic 1H Sword and press <kbd>F</kbd> to equip it
+#### Next, find the Basic 1H Sword and press ++F++ to equip it
 
 ![Basic Sword](../src/img/PlaytestBasicSword.png)
 
 ### The First Dungeon
 
-You are now ready for your first adventure! Stand on the platform in front of **Dungeon 1**, and press <kbd>F</kbd> to teleport inside.
+You are now ready for your first adventure! Stand on the platform in front of **Dungeon 1**, and press ++F++ to teleport inside.
 
 ![Standing on Dungeon 1 Teleporter](../src/img/../../img/RPG/PlaytestDungeon1Entrance.png)
 
