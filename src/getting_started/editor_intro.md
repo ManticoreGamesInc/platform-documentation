@@ -103,7 +103,7 @@ The Toolbar contains the different options for manipulating objects.
 
 ## Adding Scripts
 
-Scripts allow you to program the behavior of different objects in the project. Core scripts are written in [Lua](https://www.lua.org/manual/5.3/) using the [Core Lua API](https://www.coregames.com/core_api).
+Scripts allow you to program the behavior of different objects in the project. Core scripts are written in [Lua](https://www.lua.org/manual/5.3/) using the [Core Lua API](core_api.md).
 
 - ![Script](../img/EditorManual/icons/Icon_Script.png) will create a script that will appear in your **Project Content**.
 {: .image-inline-text .image-background}
