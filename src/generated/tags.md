@@ -45,6 +45,10 @@ title: Tags
 
 - [The Object Generator Tool](object_generator.md)
 
+- [Official D&D RPG Framework Documentation](rpg_framework_documentation.md)
+
+- [D&D RPG Framework Reference](rpg_framework_reference.md)
+
 - [Scene Creation in Core](scene_creation.md)
 
 - [Intro to Scripting](scripting_intro.md)
@@ -69,6 +73,8 @@ title: Tags
 - [Advanced Abilities in Core](abilities_advanced.md)
 
 - [Environment Art in Core](environment_art.md)
+
+- [Build Your First Game - RPG!](first_game_rpg.md)
 
 - [GitHub and Core](github.md)
 
