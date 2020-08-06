@@ -25,7 +25,7 @@ This section contains the existing logic of the game.
 - **Combat Dependencies** contains the scripts that allow enemy AI's to fight and take damage.
 - **Third Person Camera Settings** has options for how the camera is controlled in game. You could trade out this object for one of the other **Camera Settings** objects in **Core Content** for a totally different player experience.
 
-![Camera Settings Objects]()
+<!-- ![Camera Settings Objects]() TODO -->
 
 ### UI Settings
 
