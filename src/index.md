@@ -6,6 +6,13 @@ hide_tags: true
 #hero: ⚠  Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠ 
 ---
 
+<style>
+.md-typeset a img:hover,
+figure a img:hover {
+    border: none;
+}
+</style>
+
 <div class="figure-block">
     <figure>
         <a href="tutorials/rpg_framework_overview.md" title="RPG Framework Overview">
