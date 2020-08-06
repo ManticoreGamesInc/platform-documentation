@@ -52,11 +52,10 @@ This folder contains a script that uses **Plain** objects to determine where the
 If **Multiplayer Preview Mode** is enabled, turn it off now to preview the game with just yourself.
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to turn it gray and turn off Multiplayer Preview Mode.
-    {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview.
-    {: .image-inline-text .image-background}
-
+{: .image-inline-text .image-background }
 
 ### Player Stats
 
@@ -69,11 +68,11 @@ The UI elements on the screen should now show information specific to your playe
 
 ![Playtest UI Elements](../img/RPG/PlaytestUIElements.png){: .center loading="lazy" }
 
- ### The Portal to Core Haven
+### The Portal to Core Haven
 
 Behind the place where you spawned into the game, you should see a hallway leading to a giant magical doorway.
 
- ![Portal to Corehaven, the D&D Hub World](../img/RPG/PortalToCorehaven.png)
+![Portal to Corehaven, the D&D Hub World](../img/RPG/PortalToCorehaven.png){: .center loading="lazy" }
 
 Games made for the D&D Contest will all be connected through a D&D Hub World, and this portal allows players to return to the Hub World.
 
@@ -93,7 +92,7 @@ On the right side of the Lobby you should see different chests, potions and cand
 
 As you return to the Lobby, you should see items along the wall on your left, representing a **Costumes Shop** and a **Weapons Shop**.
 
-![Weapons Shop and Costumes Shop](../img/RPG/WeaponsAndCostumesShope.png)
+![Weapons Shop and Costumes Shop](../img/RPG/WeaponsAndCostumesShope.png){: .center loading="lazy" }
 
 There are two upgrades you can afford right now, for 0 gold:
 

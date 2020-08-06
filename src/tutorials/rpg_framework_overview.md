@@ -6,7 +6,7 @@ title: D&D RPG Framework Overview
 
 # Dungeons and Dragons Contest Framework
 
-![D&DxCore Logo](../img/RPG/D&DContest_Logo-2_1@2x.png)
+![D&DxCore Logo](../img/RPG/D&DContest_Logo-2_1@2x.png){: .center loading="lazy" }
 
 ## The D&D Game Jam Contest Framework
 
