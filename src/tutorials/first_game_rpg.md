@@ -10,6 +10,21 @@ tags:
 
 ## Create a Framework Game
 
+To get started, use the **Create** menu to make a new project
+
+### Click **Create New**
+
+
+1. With Core open, click the **Create** Tab on the left side menu.
+2. Click **Create New Game**.
+
+### Select the **D&D Game Jam** framework
+
+1. Click **View Frameworks** in the **Core Game Frameworks** option.
+2. Click **D&D Game Jam**.
+3. Name your project.
+4. Click **Create**.
+
 ## Building the Floor and Walls
 
 ### Lock the Project
