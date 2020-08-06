@@ -104,26 +104,27 @@ Make sure to use existing costume as the base structure to create new costumes t
 NPCs are created using a "NPC AI Kit" package provided by standardcombo from Community Content.
 The package has been integrated with many slight modifications to ensure it works with other game components in this framework.
 
-Useful facts about NPCs:
+### Useful facts about NPCs
 
 - NPCs attack the player by shooting invincible projectiles. They can also attack each other if they are on different teams.
 - NPCs have invincible collider that can be enabled and resized.
 - Most NPCs has costumes that are attached on an Animated Mesh object.
 
-Quick Start Guide
+### Quick Start Guide
 
 1. To start modifying NPCs, drag out any template from Project Content that starts with "NPC - " into the hierarchy.
 2. Check out all the properties for AI movement and tweak it to your liking.
 3. Put the modified NPC to any dungeon.
 4. Go to the dungeon in preview mode and observe the new NPC's behaviors.
 
-NavMesh
+### NavMesh
+
 NPCs automatically check for the existence of a "NavMesh" and use it if available.
 If the "NavMesh" folder is deleted, NPCs will simply move on the ground without detecting obstacles.
 To modify navmesh, enable visibility on "NavMesh" folder in the hierarchy to see the navmesh structure.
 Add more areas for navmesh by duplicating or manipulating existing planes layout.
 
-Spawn Points
+### Spawn Points
 
 1. Search for "NPC Camp - " in Project Content and drag out any template you wish to check out.
 2. Each spawn point showcases different ways an NPC can spawn - Player Proximity, Always Spawn, Periodic Spawn.
