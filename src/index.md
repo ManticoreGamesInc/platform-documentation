@@ -15,7 +15,7 @@ figure a img:hover {
 
 <div class="figure-block">
     <figure>
-        <a href="tutorials/rpg_framework_overview.md" title="RPG Framework Overview">
+        <a href="tutorials/rpg_framework_overview/" title="RPG Framework Overview">
             <img src="img/RPG/D&DContest_Logo-2_1@2x.png" loading="lazy" alt="D&DxCore Logo">
             <figcaption><em>Check out our special section for the for the D&D Contest Framework!</em></figcaption>
         </a>
