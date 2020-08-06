@@ -230,7 +230,7 @@ We're going to edit the script we already used in the first half of the tutorial
 
 3. Once you've dragged in the Advanced Shotgun, you will be able to access all of its scripts from "**My Scripts**" in your **Project Content**.
 
-    The script we want to modify is called `WeaponPickupTriggerServer`. Open this up to get started!
+    The script we want to modify is called `EquipmentPickupServer`. Open this up to get started!
 
 4. When you open the script, you'll notice it is already full of variables and functions. We're going to scroll down to the `OnEquipped()` function, and add a few lines to it.
 
