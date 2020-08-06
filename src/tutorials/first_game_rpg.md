@@ -180,7 +180,7 @@ You can use the many fantasy props to build out a shop, but there are even more 
 1. Use the search in the **Community Content** window to find available templates.
 2. Click the **Import** button to add it to your project.
 3. Open the **Core Content** window and find the **Imported Content** section in the navigation.
-4. Double click the **Bundle** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png) icon to open it.
+4. Double click the **Bundle** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png){: style="width: 32px;" } icon to open it.
 {: .image-inline-text .image-background }
 5. Drag the green **Template** icon into the **Main Viewport** to add it into the scene.
 
