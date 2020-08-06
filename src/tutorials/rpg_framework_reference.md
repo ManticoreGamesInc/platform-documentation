@@ -54,7 +54,8 @@ If **Multiplayer Preview Mode** is enabled, turn it off now to preview the game 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to turn it gray and turn off Multiplayer Preview Mode.
     {: .image-inline-text .image-background}
 
-2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview.## Parts of the Framework
+2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview.
+    {: .image-inline-text .image-background}
 
 ### Framework Documentation
 
@@ -73,7 +74,7 @@ This section contains the existing logic of the game.
 - **Combat Dependencies** contains the scripts that allow enemy AI's to fight and take damage.
 - **Third Person Camera Settings** has options for how the camera is controlled in game. You could trade out this object for one of the other **Camera Settings** objects in **Core Content** for a totally different player experience.
 
-![Camera Settings Objects](../src/img/../../img/RPG/CameraSettings.png)
+![Camera Settings Objects](../img/RPG/CameraSettings.png){: .center loading="lazy" }
 
 ### UI Settings
 
@@ -114,15 +115,15 @@ The UI elements on the screen should now show information specific to your playe
 - In the bottom right corner, you have the ability to **Stab** using **M1**, which is the left mouse button.
 - In the top right corner, you have 0 **gold**, represented by a yellow coin icon.
 
-![Playtest UI Elements](../src/img/RPG/../../../img/RPG/PlaytestUIelements.png)
+![Playtest UI Elements](../img/RPG/PlaytestUIElements.png){: .center loading="lazy" }
 
-### The Portal to Core Haven
+<!-- ### The Portal to Core Haven
 
 Behind the place where you spawned into the game, you should see a hallway leading to a giant magical doorway.
 
-![Portal to Corehaven, the D&D Hub World]()
+ ![Portal to Corehaven, the D&D Hub World]()
 
-Games made for the D&D Contest will all be connected through a D&D Hub World, and this portal allows players to return to the Hub World. <!-- TODO: Add link -->
+Games made for the D&D Contest will all be connected through a D&D Hub World, and this portal allows players to return to the Hub World. TODO: Add content -->
 
 ### Sample Objects
 
@@ -140,23 +141,23 @@ On the right side of the Lobby you should see different chests, potions and cand
 
 As you return to the Lobby, you should see items along the wall on your left, representing a **Costumes Shop** and a **Weapons Shop**.
 
-![Weapons Shop and Costumes Shop]()
+<!-- ![Weapons Shop and Costumes Shop]() TODO -->
 
 There are two upgrades you can afford right now, for 0 gold:
 
 #### Walk up to the **Soldier Costume** and press ++F++ to equip it
 
-![Soldier Costume](../src/img/PlaytestSoldierCostume.png)
+![Soldier Costume](../img/RPG/PlaytestSoldierCostume.png){: .center loading="lazy" }
 
 #### Next, find the Basic 1H Sword and press ++F++ to equip it
 
-![Basic Sword](../src/img/PlaytestBasicSword.png)
+![Basic Sword](../img/RPG/PlaytestBasicSword.png){: .center loading="lazy" }
 
 ### The First Dungeon
 
 You are now ready for your first adventure! Stand on the platform in front of **Dungeon 1**, and press ++F++ to teleport inside.
 
-![Standing on Dungeon 1 Teleporter](../src/img/../../img/RPG/PlaytestDungeon1Entrance.png)
+![Standing on Dungeon 1 Teleporter](../img/RPG/PlaytestDungeon1Entrance.png){: .center loading="lazy" }
 
 As you play the dungeon, you should notice a few things:
 
