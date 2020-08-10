@@ -48,7 +48,7 @@ For Visual Studio Code and Atom, we have collected a few extensions that make de
 
 While we do not provide our own editor extensions, we supply an API JSON dump that can be used to create one. We do provide autocompletion files with all Core API for VS Code, Atom and every other editor that supports `.luacompleterc` though.
 
-* :fontawesome-solid-download: Download: [CoreLuaAPI-Prod.json](./assets/api/CoreLuaAPI-Prod.json "CoreLuaAPI-Prod.json")
+* :fontawesome-solid-download: Download: [CoreLuaAPI.json](./assets/api/CoreLuaAPI.json "CoreLuaAPI.json")
 
 #### Atom
 
