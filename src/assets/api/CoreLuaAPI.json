@@ -1491,6 +1491,32 @@
 					]
 				},
 				{
+					"Name": "ToStandardHex",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ToLinearHex",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -1544,6 +1570,42 @@
 								{
 									"Type": "number",
 									"Name": "progress"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FromStandardHex",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "hexString"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FromLinearHex",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "hexString"
 								}
 							]
 						}
@@ -4020,6 +4082,7 @@
 					"Name": "serverUserData",
 					"Type": "table",
 					"Tags": [
+						"ServerOnly",
 						"ServerOnly"
 					]
 				},
@@ -4027,6 +4090,7 @@
 					"Name": "clientUserData",
 					"Type": "table",
 					"Tags": [
+						"ClientOnly",
 						"ClientOnly"
 					]
 				},
@@ -4297,6 +4361,13 @@
 				{
 					"Name": "maxJumpCount",
 					"Type": "integer",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "flipOnMultiJump",
+					"Type": "bool",
 					"Tags": [
 						"ServerOnly"
 					]
