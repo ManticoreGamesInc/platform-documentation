@@ -8,6 +8,8 @@ title: Tags
 
 - [Editor Extensions](extensions.md)
 
+- [Contexts](contexts.md)
+
 - [Examples and Snippets](examples.md)
 
 
