@@ -53,8 +53,9 @@ nav:
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
-        - Animations & Sockets: api/animations.md
         - Ability Bindings: api/ability_bindings.md
+        - Animations & Sockets: api/animations.md
+        - Contexts: api/contexts.md
         - Lua in Core: tutorials/lua_reference.md
         - Lua Style Guide: tutorials/lua_style_guide.md
         - Editor Extensions: extensions.md
@@ -70,8 +71,9 @@ nav:
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
-      - Animations & Sockets: api/animations.md
       - Ability Bindings: api/ability_bindings.md
+      - Animations & Sockets: api/animations.md
+      - Contexts: api/contexts.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
