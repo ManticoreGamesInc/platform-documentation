@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-// Manticore JavaScript Helpers
-
 function addListenerMulti(element, eventNames, listener) {
   const events = eventNames.split(" ")
   for (let i = 0, iLen = events.length; i < iLen; i++) {
@@ -10,16 +8,6 @@ function addListenerMulti(element, eventNames, listener) {
 }
 
 addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
-
-  // Scroll-to-Top button
-  const btn = document.getElementById("to-top-button")
-  if (btn) {
-    btn.addEventListener("click", e => {
-      e.preventDefault()
-      e.stopImmediatePropagation()
-      window.scroll({ top: 0, left: 0, behavior: "auto" })
-    })
-  }
 
   // Add an icon to all external links
   const links = document.querySelectorAll(".md-content a")
@@ -51,28 +39,42 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
 
     el.replaceWith(iframe)
   })
+})
 
-  // Change browser tab title based on header title near scroll position
-  window.addEventListener("scroll", event => {
-    const yPos = window.pageYOffset || document.documentElement.scrollTop
-    let currentTitle = document.title
-    const headerlinks = document.getElementsByClassName("headerlink")
-
-    if (document.documentElement.scrollTop > 300) {
-      btn.classList.add("show")
-    } else {
-      btn.classList.remove("show")
-    }
-
-    Array.prototype.forEach.call(headerlinks, (el) => {
-      const rect = el.getBoundingClientRect()
-      if (yPos > rect.top + document.documentElement.scrollTop - 90) {
-        currentTitle = el.parentElement.textContent.slice(0, -1)
-      }
-    })
-
-    document.title = `${currentTitle} | Core Creator Hub`
+// Scroll-to-Top button
+const btn = document.getElementById("to-top-button")
+if (btn) {
+  btn.addEventListener("click", e => {
+    e.preventDefault()
+    e.stopImmediatePropagation()
+    window.scroll({ top: 0, left: 0, behavior: "auto" })
   })
+}
+
+// Change browser tab title based on header title near scroll position
+window.addEventListener("scroll", event => {
+  const yPos = window.pageYOffset || document.documentElement.scrollTop
+  const headerlinks = document.getElementsByClassName("headerlink")
+  let currentTitle = document.title
+  let currentURL
+
+  if (document.documentElement.scrollTop > 300) {
+    btn.classList.add("show")
+  } else {
+    btn.classList.remove("show")
+  }
+
+  Array.prototype.forEach.call(headerlinks, (el) => {
+    const rect = el.getBoundingClientRect()
+
+    if (yPos > rect.top + document.documentElement.scrollTop - 90) {
+      currentTitle = el.parentElement.textContent.slice(0, -1)
+      currentURL = el.href
+    }
+  })
+
+  document.title = currentTitle
+  history.replaceState({}, "", currentURL)
 })
 
 // Theme Toggle
