@@ -160,10 +160,10 @@ DeclareWinner("slinkous")
 
 Output:
 
-<pre><output>
+<pre>
 Game Over
 slinkous wins!
-</output></pre>
+</pre>
 
 ## The Core API
 

@@ -56,6 +56,7 @@ window.addEventListener("scroll", event => {
   const yPos = window.pageYOffset || document.documentElement.scrollTop
   const headerlinks = document.getElementsByClassName("headerlink")
   let currentTitle = document.title
+  let currentURL
 
   if (document.documentElement.scrollTop > 300) {
     btn.classList.add("show")
@@ -68,10 +69,12 @@ window.addEventListener("scroll", event => {
 
     if (yPos > rect.top + document.documentElement.scrollTop - 90) {
       currentTitle = el.parentElement.textContent.slice(0, -1)
+      currentURL = el.href
     }
   })
 
   document.title = currentTitle
+  history.replaceState({}, "", currentURL)
 })
 
 // Theme Toggle
