@@ -73,7 +73,7 @@ Creating a group allows you to unite a collection of 3D objects into a single en
 #### Creating a Group from Existing Objects
 
 1. Select the objects to be added to the group in the **Hierarchy** window using ++ctrl++ + left click.
-2. Right click one of the selected objects and click **New Group Containing These** or use ++Ctrl + G++.
+2. Right click one of the selected objects and click **New Group Containing These** or use ++ctrl+G++.
 3. Type a name for the group and press ++enter++.
 
 !!! note
