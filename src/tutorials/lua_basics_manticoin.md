@@ -8,6 +8,10 @@ tags:
 
 # Advanced Scripting in Core
 
+!!! warning
+    Flagged for Review.
+    Incomplete or outdated information may be present. You may not be able to complete this tutorial!
+
 ## Overview
 
 In this tutorial, we are taking a deeper look at what it takes to utilize the Core API to create a simple multiplayer game.
