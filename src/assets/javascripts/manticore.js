@@ -51,7 +51,7 @@ if (btn) {
   })
 }
 
-// Change browser tab title based on header title near scroll position
+// Change browser title and URL based on header near scroll position
 window.addEventListener("scroll", event => {
   const yPos = window.pageYOffset || document.documentElement.scrollTop
   const headerlinks = document.getElementsByClassName("headerlink")
