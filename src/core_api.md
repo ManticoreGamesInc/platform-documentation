@@ -788,11 +788,11 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Rotation + Rotation` | Rotation | Add two rotations together. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation+rotation "Rotation: Rotation+Rotation Example") | None |
-| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-rotation "Rotation: Rotation-Rotation Example") | None |
-| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation*number "Rotation: Rotation*Number Example") | None |
+| `Rotation + Rotation` | Rotation | Add two rotations together. [:fontawesome-solid-info-circle:](../api/examples/#rotation+rotation "Rotation: Rotation+Rotation Example") | None |
+| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: Rotation-Rotation Example") | None |
+| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation*number "Rotation: Rotation*Number Example") | None |
 | `-Rotation` | Rotation | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: -Rotation Example") | None |
-| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation*vector3 "Rotation: Rotation*Vector3 Example") | None |
+| `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#rotation*vector3 "Rotation: Rotation*Vector3 Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1153,18 +1153,18 @@ A three-component vector that can represent a position or direction.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector3 + Vector3` | Vector3 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3+vector3 "Vector3: Vector3+Vector3 Example") | None |
-| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3+number "Vector3: Vector3+Number Example") | None |
-| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-vector3 "Vector3: Vector3-Vector3 Example") | None |
-| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3-number "Vector3: Vector3-Number Example") | None |
-| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3*vector3 "Vector3: Vector3*Vector3 Example") | None |
-| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3*number "Vector3: Vector3*Number Example") | None |
-| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3number*vector3 "Vector3: Number*Vector3 Example") | None |
-| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3/vector3 "Vector3: Vector3/Vector3 Example") | None |
-| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3/number "Vector3: Vector3/Number Example") | None |
-| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3-vector3 "Vector3: -Vector3 Example") | None |
+| `Vector3 + Vector3` | Vector3 | Component-wise addition. [:fontawesome-solid-info-circle:](../api/examples/#vector3+vector3 "Vector3: Vector3+Vector3 Example") | None |
+| `Vector3 + Number` | Vector3 | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3+number "Vector3: Vector3+Number Example") | None |
+| `Vector3 - Vector3` | Vector3 | Component-wise subtraction. [:fontawesome-solid-info-circle:](../api/examples/#vector3-vector3 "Vector3: Vector3-Vector3 Example") | None |
+| `Vector3 - Number` | Vector3 | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. [:fontawesome-solid-info-circle:](../api/examples/#vector3-number "Vector3: Vector3-Number Example") | None |
+| `Vector3 * Vector3` | Vector3 | Component-wise multiplication. [:fontawesome-solid-info-circle:](../api/examples/#vector3*vector3 "Vector3: Vector3*Vector3 Example") | None |
+| `Vector3 * Number` | Vector3 | Multiplies each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3*number "Vector3: Vector3*Number Example") | None |
+| `Number * Vector3` | Vector3 | Multiplies each component of the Vector3 by the left-side Number. [:fontawesome-solid-info-circle:](../api/examples/#number*vector3 "Vector3: Number*Vector3 Example") | None |
+| `Vector3 / Vector3` | Vector3 | Component-wise division. [:fontawesome-solid-info-circle:](../api/examples/#vector3/vector3 "Vector3: Vector3/Vector3 Example") | None |
+| `Vector3 / Number` | Vector3 | Divides each component of the Vector3 by the right-side Number. [:fontawesome-solid-info-circle:](../api/examples/#vector3/number "Vector3: Vector3/Number Example") | None |
+| `-Vector3` | Vector3 | Returns the negation of the Vector3. [:fontawesome-solid-info-circle:](../api/examples/#-vector3 "Vector3: -Vector3 Example") | None |
 | `Vector3 .. Vector3` | Number | Returns the dot product of the Vector3s. | None |
-| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fontawesome-solid-info-circle:](../api/examples/#vector3vector3^vector3 "Vector3: Vector3^Vector3 Example") | None |
+| `Vector3 ^ Vector3` | Vector3 | Returns the cross product of the Vector3s. [:fontawesome-solid-info-circle:](../api/examples/#vector3^vector3 "Vector3: Vector3^Vector3 Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
