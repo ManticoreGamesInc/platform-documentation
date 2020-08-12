@@ -69,14 +69,18 @@ Core is still in Open Alpha, which means there are a number of features that are
 | ------------- | --------------- | ------------------ |
 | **Editor**    |                 |                    |
 |               | Part            | Basic Shape        |
-|               | Model           | 3D Object          |
+|               | Model           | Group              |
 |               | Package         | Template           |
 |               | Explorer        | Hierarchy          |
 |               | Scene           | Main Viewport      |
 |               | Test            | Multiplayer Preview Mode |
-|               | Market Place    | Community Content  |
+|               | Toolbox         | Community Content |
+|               | ReplicatedStorage/ServerStorage | Project Content  | 
 |               | Terrain Editor  | Terrain Generator and Terrain Properties |
 |               | Spawn Location  | Spawn Point        |
-| **Scripting** | Output          | Event Log          |
-|               | Server Script Service | Server Context|
-|               | Lua (Roblox API)| Lua (Core API)     |
+|               | Output          | Event Log          |
+| **Scripting** |                 |                    |
+|               | ServerScriptService | Server Context |
+|               | StarterPlayer   | Client Context |
+|               | Roblox Lua      | Core Lua           |
+|               | `Instance.new()` | `World.SpawnAsset()` |
