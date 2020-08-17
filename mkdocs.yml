@@ -50,6 +50,7 @@ nav:
         - UI: tutorials/ui_reference.md
         - Publishing Checklist: getting_started/publishing_checklist.md
         - Performance Panel: getting_started/performance_panel.md
+        - Play-Mode Profiler: getting_started/profiler.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
