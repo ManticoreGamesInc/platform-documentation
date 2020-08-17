@@ -330,11 +330,11 @@ We want the player to be able to flip the switch to turn on and off our light. T
     So now, under our `switch` variable but above our `RotateTo()` function, add this line of code:
 
     ```lua
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
     ```
 
     * `switchTrigger` is the name for our trigger variable.
-    * `switch:FindChildByType("Trigger")` defines the object we are using as our trigger - a child of the type "Trigger" in the switch's parent group.
+    * `switch.parent:FindChildByType("Trigger")` defines the object we are using as our trigger - a child of the type "Trigger" in the switch's parent group.
 
     !["Hierarchy"](../img/LightBulb/step_3_point_1.png "Hierarchy Order"){: .center loading="lazy" }
 
@@ -342,7 +342,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
     local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
 
     switch:RotateTo(Rotation.New(0, 90, 0), 2,true)
     ```
@@ -370,7 +370,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
     local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
 
     local function OnSwitchInteraction()
         switch:RotateTo(Rotation.New(0, 90, 0), 2, true)
@@ -393,7 +393,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
     local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
 
     local function OnSwitchInteraction()
         switch:RotateTo(Rotation.New(0, 90, 0), 2, true)
@@ -418,7 +418,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
         local switch = script.parent
-        local switchTrigger = switch:FindChildByType("Trigger")
+        local switchTrigger = switch.parent:FindChildByType("Trigger")
 
         -- Rotate the switch when the player interacts with switchTrigger
         local function OnSwitchInteraction()
@@ -497,7 +497,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
     local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
     local propLightTemplate = script:GetCustomProperty("LightTemplate")
 
     -- Rotate the switch and spawn a light
@@ -555,7 +555,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     ```lua
     local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
     local propLightTemplate = script:GetCustomProperty("LightTemplate")
     local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
@@ -784,7 +784,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     ```lua
     local switch = script.parent
     local switchStartingRotation = switch:GetRotation()
-    local switchTrigger = switch:FindChildByType("Trigger")
+    local switchTrigger = switch.parent:FindChildByType("Trigger")
     local propLightTemplate = script:GetCustomProperty("LightTemplate")
     local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
@@ -912,7 +912,7 @@ As a reference, here's how your full script should look like at the end:
 ```lua
 local switch = script.parent
 local switchStartingRotation = switch:GetRotation()
-local switchTrigger = switch:FindChildByType("Trigger")
+local switchTrigger = switch.parent:FindChildByType("Trigger")
 local propLightTemplate = script:GetCustomProperty("LightTemplate")
 local filaments = World.FindObjectByName("Filaments")
 local bulbPosition = filaments:GetWorldPosition()
