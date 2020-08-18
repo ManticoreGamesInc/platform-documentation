@@ -535,7 +535,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     * `FindObjectByName` is a Core function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as:
 
         ```lua
-        local lightBulbFolder = script.parent.parent:GetChildren()[1]
+        local lightBulbFolder = script.parent.parent.parent:GetChildren()[1]
         local filaments = lightBulbFolder:GetChildren()[1]
         local bulbPosition = filaments:GetWorldPosition()
         ```
