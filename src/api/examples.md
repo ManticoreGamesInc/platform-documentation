@@ -5154,7 +5154,7 @@ local task2 = SpawnCountdown("Bob")
 
 `Task.Wait()` is an extremely useful function that you can use to make your current Lua thread pause for an amount of time. If you provide a number as an argument, the task will yield for that many seconds. If no argument is provided, it yields until the next update frame.
 
-It two numbers. The first number is how long the task was actually yielded. The second number is the requested delay when `Task.Wait()` was called.
+It returns two numbers. The first number is how long the task was actually yielded. The second number is the requested delay when `Task.Wait()` was called.
 
 ```lua
 print("Testing Task.Wait()")
