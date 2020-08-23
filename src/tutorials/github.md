@@ -253,6 +253,10 @@ If you are not collaborating, you can **merge** the changes on to your local mas
 
 Creating **templates** is an easy way to have multiple contributors to a project, without having to use Git. See the [Template Reference](template_reference.md) for more information on how to do this.
 
+### Known Issues
+
+When pushing or pulling documents make sure to save your work and exit core completely, not doing this has resulted in corruption of files in some cases.
+
 ## Version Control Terminology
 
 |                       |     |
