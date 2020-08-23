@@ -119,7 +119,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
-  static_templates:
+  #static_templates:
   #  - 404.html
   #  - offline.html
 
