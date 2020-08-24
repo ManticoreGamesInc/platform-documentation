@@ -1,3 +1,20 @@
+# Project information
+site_name: Core Creator Hub
+site_description: API Documentation & Tutorials for the Core Platform.
+site_author: Manticore Games, Inc.
+site_url: https://development.docs.coregames.com
+
+# Repository
+# repo_name: ManticoreGamesInc/platform-documentation
+repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
+edit_uri: edit/development/src
+
+# Copyright
+copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a registered trademark of Manticore Games."
+
+# Directory for the documentation pages
+docs_dir: src
+
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml
 nav:
   - News:
@@ -84,7 +101,7 @@ nav:
   - Feedback:
       - Feedback: https://support.coregames.com/hc/en-us/requests/new
 
-# If you make a PR, no need to change data below this point
+# Theme configuration
 theme:
   name: null
   custom_dir: mkdocs-material/material
@@ -96,15 +113,15 @@ theme:
     - tabs
     - instant
   palette:
-    primary: manticore-blue
-    accent: manticore-orange
+    primary: core-orange
+    accent: core-blue
   logo: assets/icons/favicon-196x196.png
   icon:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
   static_templates:
-    - 404.html
-    - offline.html
+   - 404.html
+   - offline.html
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -117,6 +134,7 @@ extra_javascript:
   - assets/javascripts/manticore.js
 
 extra:
+  feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
@@ -164,8 +182,8 @@ markdown_extensions:
       camel_case: true
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: ManticoreGamesInc
+      repo: platform-documentation
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:
@@ -206,20 +224,6 @@ plugins:
         getting_started/other_platforms.md: other_platforms/unity.md
         tutorials/environmental_art.md: tutorials/environment_art.md
         tutorials/collaboration.md: tutorials/github.md
-
-docs_dir: src
-
-site_name: Core Creator Hub
-
-# Add repository for easy editing
-repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
-edit_uri: edit/development/src
-
-site_description: API Documentation & Tutorials for the Core Platform.
-site_author: Manticore Games, Inc.
-site_url: https://development.docs.coregames.com
-
-copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a registered trademark of Manticore Games."
 
 #google_analytics:
 #  - UA-142884846-4

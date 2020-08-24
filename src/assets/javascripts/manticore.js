@@ -7,12 +7,17 @@ function addListenerMulti(element, eventNames, listener) {
   }
 }
 
-addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
-
+addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
   // Add an icon to all external links
   const links = document.querySelectorAll(".md-content a")
   for (let i = 0, length = links.length; i < length; i++) {
-    if (links[i].hostname !== window.location.hostname && links[i].hostname !== '' && links[i].title !== "Edit this page" && links[i] !== btn) {
+    if (
+      links[i].hostname !== window.location.hostname &&
+      links[i].hostname !== "" &&
+      links[i].title !== "Edit this page" &&
+      links[i].title !== "Provide feedback about this page" &&
+      links[i] !== btn
+    ) {
       links[i].target = "_blank"
       links[i].className = "external"
       links[i].rel = "noopener"
@@ -20,16 +25,18 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
   }
 
   // Transform special markdown into YouTube embeds
-  const elements = document.querySelectorAll("img[alt=\"YOUTUBE\"]")
+  const elements = document.querySelectorAll('img[alt="YOUTUBE"]')
 
   Array.prototype.forEach.call(elements, (el) => {
-    const id = el.getAttribute("title").split("/")[el.getAttribute("title").split("/").length - 1]
+    const id = el.getAttribute("title").split("/")[
+      el.getAttribute("title").split("/").length - 1
+    ]
     const oldClass = el.getAttribute("class")
     const iframe = document.createElement("iframe")
 
     iframe.title = "YouTube"
     iframe.src = `https://www.youtube.com/embed/${id}?modestbranding=1&amp;`
-    iframe.loading = 'lazy';
+    iframe.loading = "lazy"
 
     if (oldClass !== "null") {
       iframe.className = `video-embed ${oldClass}`
@@ -44,7 +51,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", event => {
 // Scroll-to-Top button
 const btn = document.getElementById("to-top-button")
 if (btn) {
-  btn.addEventListener("click", e => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault()
     e.stopImmediatePropagation()
     window.scroll({ top: 0, left: 0, behavior: "auto" })
@@ -52,7 +59,7 @@ if (btn) {
 }
 
 // Change browser title and URL based on header near scroll position
-window.addEventListener("scroll", event => {
+window.addEventListener("scroll", (event) => {
   const yPos = window.pageYOffset || document.documentElement.scrollTop
   const headerlinks = document.getElementsByClassName("headerlink")
   let currentTitle = document.title
@@ -79,8 +86,11 @@ window.addEventListener("scroll", event => {
 
 // Theme Toggle
 const currentTheme = localStorage.getItem("theme")
-const isDarkSchemePreferred = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-const toggleSwitch = document.querySelector(".theme-switch input[type='checkbox']")
+const isDarkSchemePreferred = () =>
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+const toggleSwitch = document.querySelector(
+  ".theme-switch input[type='checkbox']"
+)
 
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme)
