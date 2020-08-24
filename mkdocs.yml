@@ -113,8 +113,8 @@ theme:
     - tabs
     - instant
   palette:
-    primary: manticore-blue
-    accent: manticore-orange
+    primary: core-orange
+    accent: core-blue
   logo: assets/icons/favicon-196x196.png
   icon:
     repo: fontawesome/brands/github
@@ -134,6 +134,7 @@ extra_javascript:
   - assets/javascripts/manticore.js
 
 extra:
+  feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
