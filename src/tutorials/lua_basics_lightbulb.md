@@ -6,130 +6,133 @@ tags:
     - Tutorial
 ---
 
-# Scripting in Core
+# Lua Scripting Tutorial
 
 ## Overview
 
-In the first part of this tutorial, we are going to introduce you to the very basics of scripting in Core. A tradition among programming tutorials is doing that in the form of a "**Hello World**" script.
+This tutorial intoduces the basics of creating scripts in Core, using the [Lua](lua.org). **You do not need to know how to program** to start this tutorial. If you are interested in a basic overview of programming concepts, our [Scripting Introduction](scripting_intro.md) is a great place to start.
 
-For the second part, we are going to teach you how to take an existing template in Core and enhance it with your scripts you write yourself.
+In the first part of a tutorial, you will create and run your first script, following the programming tradition of making a "Hello, World!" script to introduce yourself to to a new langauge.
 
-This tutorial is designed for creators who have never done *any* programming before! So, if you're totally new to this all but want to give it a try--give this a go!
+In the second part, you will learn how to take an existing template in Core and use scripts to change it, by importing a bedroom scene into your project, and making a light switch that illuminates it.
 
-* **Completion Time:** ~25 minutes
-* **Knowledge Level:** No prior knowledge of Lua or any programming language. If you are already familiar with programming, you might want to skip this and check out [Advanced Scripting in Core](lua_basics_manticoin.md), the [Lua Primer](lua_reference.md) or [Advanced Abilities in Core](abilities_advanced.md).
-* **Skills you will learn:**
-    * Downloading and editing templates
-    * Creating a script and using it to:
-        * Rotate an object
-        * Create an interactable event
-        * Create a custom property
-    * Using triggers
-    * Creating and updating trigger labels
+### About Lua and Core
 
----
+**Core** uses the **Lua** programming language, which has the advantage of being beginner-friendly but suitable for advanced programming projects.
 
-**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+- The **Event Log** window in Core shows output from scripts, including errors. You can enable it by clicking **View** in the top menu bar, and selecting **Event Log**.
+- The [Core API](core_api.md) page lists code created for you to use in Core.
+- The [API Examples](examples.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
 
-* For debugging code, we have our own script debugger, you can enable it via the **View** menu.
-    You can toggle breakpoints by clicking on a line number in the internal editor.
-* Another page you'll probably be constantly checking is the [Core API](core_api.md) page.
-* Lastly, we have a section on [code conventions](lua_style_guide.md) as well.
+## Part One: Creating Your First Script
 
----
+### Create a New Project
 
-## My First Script
+In the **Core Launcher**, use the **Create** menu to create a new empty project. You can name this project **Lua Tutorial**, or whatever you like.
 
-### Creating the Script
+### Create the Script
 
-1. Open up the editor and click the "Create Script" button in the toolbar at the top left of the editor.
+Open up the editor and click the **Create Script** ![Script](../img/EditorManual/icons/HierarchyIcon_Text.png "Script Icon")
+button in the toolbar at the top left of the editor.
+{: .image-inline-text .image-background}
 
-    ![Create Script Button](../img/scripting/createNewScript.png "Click this to create a new script in your project."){: .center loading="lazy" }
+![Create New Script](){: .center loading="lazy" }
 
-    * Name it `TutorialScript` for now.
+Name it `TutorialScript` for now.
 
     !!! tip
-        You can rename scripts by clicking on the name of the script (or by pressing ++F2++) when it is selected.
+        You can rename scripts by clicking on the name of the script in the **Hierarchy** and  ++F2++.
 
-* Open up the script by double clicking on it.
-    * By default this will open up the script in our in-built editor.
+### Open the Script for Editing
+
+ Your new script will appear in the **Project Content** window, in the **My Scripts** section. Double click **TutorialScript** to open the **Script Editor**
+
+ ![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .center loading="lazy" }
 
     !!! info
-        You can also configure scripts to open in an external editor by default by going to `Edit -> Preferences -> External Script Editor`.
-
-        We offer [editor integrations](extensions.md) for Atom and Visual Studio VS Code that add autocomplete for the Core API support!
+        You can also configure Core to open in an external editor instead of the built-in editor. See the  [editor integrations](extensions.md) page to learn more.
 
 ### Writing the Script
 
-1. Type the text below into your empty script:
+Type the text below into your new empty script:
 
-    ```lua
-    UI.PrintToScreen("Hello World!")
-    ```
+```lua
+UI.PrintToScreen("Hello World!")
+```
 
-2. Save the script by pressing ++ctrl+S++ on your keyboard.
+Next, press ++Ctrl++ + ++S++ to save.
 
 ### Running the Script
 
 Now we have created a simple script! However, we need to actually add it to our game for it to do the code we wrote.
 
-1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the top of the **Hierarchy** tab on the right side.
-
-    ![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .center loading="lazy" }
+1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the **Hierarchy** window, usually on the right side of the editor.
 
     ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .center loading="lazy" }
 
     !!! info
-        If any of these windows are missing or you accidentally close one, you can open any window again from within the View menu at the very top left of the Core editor.
+        If any of these windows are missing them again from the **View** menu in the top menu bar.
 
-2. Press **Play** at the top of the editor, and see your message appear on screen in the top left!
+2. Press **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ at the top of the editor, and see your message appear on screen in the top left corner!
 
     ![Play Button](../img/scripting/playButton.png "Click this to preview your game in single-player mode."){: .center loading="lazy" }
 
-### Hello World Breakdown
+The function `UI.PrintToScreen(string)` writes whatever is between ``()`` in ``""`` on the screen of your game. This is one of many of the [built-in Core API functions](core_api.md).
 
-* We made a script.
-* We populated it with code.
-    * The function `UI.PrintToScreen(string)` prints the parameter `string` to the viewport. This is one of many of the [built-in Core API functions](core_api.md).
-* We placed the script into the Hierarchy tree so that it executes when the game runs.
+### Review: Creating and Running a Script
 
-*Next step:* Adding our own function!
+1. Create new script with the **Create Script** ![Script](../img/EditorManual/icons/HierarchyIcon_Text.png "Script Icon").
+2. Open the script by clicking its name in the **My Scripts** section of **Project**.
+3. Add code to the script and save.
+4. Drag the script from **Project Content** to the **Hierarchy** to make it run when the game starts.
+5. Press **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to run the script.
 
-### Functions
+### About Functions
 
-In programming, a function is a named section of a script that performs a specific task. In this sense, a function is a type of procedure or routine.
+In programming, a function is a named section of a script that performs a procedure.
 
-You could think of it in terms of sandwich making. For a task like slicing an ingredient, you would type out steps like:
+You could think of it in terms of sandwich making. For a task like slicing an ingredient, you would need to use procedures like:
 
 * locate cutting board
 * grab knife
 * hold object to cut properly
 * begin slicing
 
-But for each item you want to slice for the sandwich, you'd have to type out that whole list each time! That would mean so much typing for the tomatoes, cheese, pickles... If that were a function instead, then you could just type `SliceObject(tomato)` when you want to do all those steps at once.
+For each item you want to slice for the sandwich, you would have to type out that whole list each time! That would mean repeating all of these steps for the tomatoes, cheese, pickles, and other sandwich ingreditents. If you made a function instead, you could just type `SliceObject(tomato)` to do all those steps.
 
-So in order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` so the `UI.PrintToScreen` call is within a function. We'll call this function `Init`.
+In order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` to use a function to say "Hello, World!"
 
-1. Open up your `TutorialScript` again if you closed it.
+### Create the Init Function
 
+To put `UI.PrintToScreen` line is within a function, make a new function called `Init`.
+
+1. Open up your `TutorialScript`.
 2. Replace your existing code with this:
 
-    ```lua
-    -- Our first function!
-    local function Init()
-        UI.PrintToScreen("Hello from a function!")
-    end
-    ```
+```lua
+-- Our first function!
+local function Init()
+    UI.PrintToScreen("Hello from a function!")
+end
+```
 
     !!! note
-        In case you've not read the [Lua Primer](lua_reference.md), putting `--` at the beginning of a line makes that line a *comment*, which is a line of code that isn't read by the computer. You don't have to include these lines, since they're just for leaving notes in your code for yourself and other humans.
+        Putting `--` at the beginning of a line makes that line a *comment*, which means it is ignored by the computer. Comments are used to help humans understand what a piece of code is doing.
 
-3. If you save and run this code, nothing will happen. How utterly boring! This is because the function is never actually called to run in our code. To get our function to work, add a function call to the end of the script.
+### Call the Function
 
-    ```lua
-    -- Calling the function
-    Init()
-    ```
+If you save and run this code, nothing will happen.
+
+The code you added **defined** the function, telling the computer that there is a process called ``Init``, and ``UI.PrintToScreen("Hello from a function")`` is what it should do when it is time to do this process.
+
+To make ``Init`` run, you need to **call** it. You can do this multiple times, or in many different points in a script.
+
+To call a function, use its name and ``()`` on a separate line:
+
+```lua
+-- Calling the function
+Init()
+```
 
 Your entire script should now look like this:
 
@@ -146,25 +149,21 @@ Init()
 Now if you save and run this, you'll see your message appear on the screen! Excellent.
 
 !!! note
-    Lua requires functions to be declared before they're called. In this tutorial, we'll make sure to keep all our function declarations at the top of scripts.
+Lua requires functions to be declared on a line before any line that calls them. To keep this organized, we will put all functions at the top of the script, and calls further down.
 
-If you are having issues, check to see if your `TutorialScript` looks like this in the **Properties** view:
+### Review: Creating and Usign a Function
 
-![Tutorial Script Properties](../img/scripting/MyFirstScript_tutorial.png "The Properties window also shows a preview of the code within a script."){: .center loading="lazy" }
+1. **Define** the function, including the code that it should run.
+2. **Call** the function to make that code run.
+3. Use **comments** to explain what the function should do.
 
-### Hello World Function Breakdown
+You can now delete the `TutorialScript` from your project Hierarchy. The contents of the script will be saved, but it will no longer run when the game preview starts.
 
-* We changed our code to a function.
-* We called the function we wrote so that it may run.
-* We learned what comments are and used them for each section.
-
-You can now delete the `TutorialScript` from your project Hierarchy, as we aren't going to use it for the next portion.
-
-Time to put what we've learned to a test; welcome to the main course!
+In the next part of this tutorial, you will put your knowledge to the test.
 
 ---
 
-## Tutorial
+## Part Two: Turning on the Light
 
 We are going to create something that brightens every room: a light switch!
 
@@ -172,7 +171,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 ![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center loading="lazy" }
 
-### Downloading the Template
+### Download the Template
 
 1. Look for the **Community Content** tab in the Core Editor. In here, search for "switch".
 
