@@ -178,6 +178,8 @@ However, if you added a new README, then currently there are changes on the remo
 
 **Origin** is how GitHub Desktop will refer to remote repository. To get those changes locally, click either of the **Pull origin** buttons that are displayed.
 
+!!! warning "It is recommended that you close your current game before pulling, otherwise Core might not pick up all of the incoming changes!"
+
 ![Pull Origin](../img/VersionControl/VersionControl_PullOriginButton.png){: .center loading="lazy" }
 
 Once the project is finished pulling the changes, click the **History** tab to confirm. You should see the commit message you made to add the README at the top.
