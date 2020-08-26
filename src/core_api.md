@@ -1004,9 +1004,9 @@ A UIControl for a button, should be inside client context.
 
 ### UIContainer
 
-A UIControl indicates which child UI elements should be rendered. Does not have a position or size (it always is the size of the entire screen).
+A UIContainer is a type of UIControl that indicates which child UI elements should be rendered. It does not have a position or size. It is always the size of the entire screen.
 
-They have no properties or functions of their own, but inherit everything from CoreObject.
+It has no properties or functions of its own, but inherits everything from CoreObject.
 
 ### UIControl
 
