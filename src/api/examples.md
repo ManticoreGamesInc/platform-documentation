@@ -1532,6 +1532,12 @@ template3.parent = template2
 
 ### <a id="function:CoreObject.Destroy"></a>CoreObject.Destroy
 
+```lua
+local obj = script.parent -- This is the object you would like to destroy/remove.
+
+obj:Destroy() -- This will destroy the object.
+```
+
 ### <a id="property:CoreObject.lifeSpan"></a>CoreObject.lifeSpan
 
 There are several ways of destroying coreobjects, and noticing when they are destroyed.
