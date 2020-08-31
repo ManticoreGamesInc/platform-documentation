@@ -1484,48 +1484,50 @@ AssignMeshToTeam(cube, 1)
 
 ### <a id="event:CoreObject.childAddedEvent"></a>CoreObject.childAddedEvent
 
+This event fires when something gets added inside of an object directly, not inside of any of it's children.
+
+```lua
+local obj = script.parent -- The object that will be affected by this event.
+
+obj.childAddedEvent:Connect(function() -- This will run when a child gets added to the object.
+    -- Code to run
+end)
+```
+
 ### <a id="event:CoreObject.childRemovedEvent"></a>CoreObject.childRemovedEvent
+
+This event fires when something gets removed from an object directly, not inside of any of it's children.
+
+```lua
+local obj = script.parent -- The object that will be affected by this event.
+
+obj.childRemovedEvent:Connect(function() -- This will run when a child gets removed to the object.
+    -- Code to run
+end)
+```
 
 ### <a id="event:CoreObject.descendantAddedEvent"></a>CoreObject.descendantAddedEvent
 
-### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
-
-Child/descendant event listeners fire when something is added to an object as a child, either directly, or to one of its children.
-
-The child event listeners (`childAddedEvent`, `childRemovedEvent`) fire whenever an object is added as a direct child to a CoreObject.
-
-The descendant events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a child, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
+This event fires when something gets added to an object directly OR any of it's children.
 
 ```lua
-local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local obj = script.parent -- The object that will be affected by this event.
 
-local template1 = World.SpawnAsset(propCubeTemplate)
-local template2 = World.SpawnAsset(propCubeTemplate)
-local template3 = World.SpawnAsset(propCubeTemplate)
+obj.descendantAddedEvent:Connect(function() -- This will run when a child gets added to the object.
+    -- Code to run
+end)
+```
 
-function OnChildAdded()
-    print("A child has been added to template 1!")
-end
+### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
 
-function OnDescendantAdded()
-    print("A descendant has been added to template 1!")
-end
+This event fires when something gets removed from an object directly OR any of it's children.
 
-template1.childAddedEvent:Connect(OnChildAdded)
-template1.descendantAddedEvent:Connect(OnDescendantAdded)
-template2.parent = template1
-template3.parent = template2
+```lua
+local obj = script.parent -- The object that will be affected by this event.
 
--- The hierarchy should now look like this:
---
--- template 1
---   +-Template 2
---       +-Template 3
-
--- Output:
--- A child has been added to template 1!
--- A descendant has been added to template 1!
--- A descendant has been added to template 1!
+obj.descendantRemovedEvent:Connect(function() -- This will run when a decendant gets removed from an object.
+    -- Code to run
+end)
 ```
 
 ### <a id="event:CoreObject.destroyEvent"></a>CoreObject.destroyEvent
