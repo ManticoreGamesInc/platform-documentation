@@ -1532,12 +1532,6 @@ template3.parent = template2
 
 ### <a id="function:CoreObject.Destroy"></a>CoreObject.Destroy
 
-```lua
-local obj = script.parent -- This is the object you would like to destroy/remove.
-
-obj:Destroy() -- This will destroy the object.
-```
-
 ### <a id="property:CoreObject.lifeSpan"></a>CoreObject.lifeSpan
 
 There are several ways of destroying coreobjects, and noticing when they are destroyed.
@@ -1628,6 +1622,18 @@ It's also possible to attach objects to the local view on the client. Note that 
 
 ```lua
 cube:AttachToLocalView()
+```
+
+### <a id="function:CoreObject.Destroy"></a>CoreObject.Destroy
+
+A simple example on how to destroy a CoreObject.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- This is the object you would like to destroy/remove:
+local cube = World.SpawnAsset(propCubeTemplate)
+
+cube:Destroy() -- This will destroy the object.
 ```
 
 ### <a id="function:CoreObject.Follow"></a>CoreObject.Follow
@@ -4201,6 +4207,29 @@ player.lookControlMode = LookControlMode.RELATIVE
 -- The player always turns to face whatever the cursor is over, in the world.
 -- This works best with a third person camera.
 player.lookControlMode = LookControlMode.LOOK_AT_CURSOR
+```
+
+### <a id="property:Player.name"></a>Player.name
+
+### <a id="property:Player.id"></a>Player.id
+
+### <a id="property:Player.team"></a>Player.team
+
+There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
+
+Players do, however, have a unique ID assigned to them. (Accessed via the `id` property.) It is guaranteed to be distinct from other players, and it is stable across sessions, so it won't change if they log out and log back in again.
+
+This sample grabs the list of all current players, and prints out their name, ID, and what team they are on.
+
+```lua
+local players = Game.GetPlayers()
+print("---There are currently " .. tostring(#players) .. " Player(s):")
+for _, p in pairs(players) do
+    print("Player [" .. p.name .. "]:")
+    print("  - id:   " .. p.id)
+    print("  - team: " .. p.team)
+    print()
+end
 ```
 
 ### <a id="property:Player.name"></a>Player.name
