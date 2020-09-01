@@ -1485,9 +1485,13 @@ AssignMeshToTeam(cube, 1)
 ### <a id="event:CoreObject.childAddedEvent"></a>CoreObject.childAddedEvent
 
 This event fires when something gets added inside of an object directly, not inside of any of it's children.
+It is also required to assign a custom property to your script. In this example, we gave it the name "Object"
+and asigned it a basic Cube asset.
 
 ```lua
-local obj = script.parent -- The object that will be affected by this event.
+local property = script:GetCustomProperty("Object") -- Getting the custom property
+
+local obj = World.SpawnAsset(property) -- Spawning an object(Cube)
 
 obj.childAddedEvent:Connect(function() -- This will run when a child gets added to the object.
     -- Code to run
@@ -1497,9 +1501,13 @@ end)
 ### <a id="event:CoreObject.childRemovedEvent"></a>CoreObject.childRemovedEvent
 
 This event fires when something gets removed from an object directly, not inside of any of it's children.
+It is also required to assign a custom property to your script. In this example, we gave it the name "Object"
+and asigned it a basic Cube asset.
 
 ```lua
-local obj = script.parent -- The object that will be affected by this event.
+local property = script:GetCustomProperty("Object") -- Getting the custom property
+
+local obj = World.SpawnAsset(property) -- Spawning an object(Cube)
 
 obj.childRemovedEvent:Connect(function() -- This will run when a child gets removed to the object.
     -- Code to run
@@ -1509,11 +1517,15 @@ end)
 ### <a id="event:CoreObject.descendantAddedEvent"></a>CoreObject.descendantAddedEvent
 
 This event fires when something gets added to an object directly OR any of it's children.
+It is also required to assign a custom property to your script. In this example, we gave it the name "Object"
+and asigned it a basic Cube asset.
 
 ```lua
-local obj = script.parent -- The object that will be affected by this event.
+local property = script:GetCustomProperty("Object") -- Getting the custom property
 
-obj.descendantAddedEvent:Connect(function() -- This will run when a child gets added to the object.
+local obj = World.SpawnAsset(property) -- Spawning an object(Cube)
+
+obj.descendantAddedEvent:Connect(function() -- This will run when a descendant gets added to the object.
     -- Code to run
 end)
 ```
@@ -1521,9 +1533,13 @@ end)
 ### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
 
 This event fires when something gets removed from an object directly OR any of it's children.
+It is also required to assign a custom property to your script. In this example, we gave it the name "Object"
+and asigned it a basic Cube asset.
 
 ```lua
-local obj = script.parent -- The object that will be affected by this event.
+local property = script:GetCustomProperty("Object") -- Getting the custom property
+
+local obj = World.SpawnAsset(property) -- Spawning an object(Cube)
 
 obj.descendantRemovedEvent:Connect(function() -- This will run when a decendant gets removed from an object.
     -- Code to run
@@ -1535,7 +1551,9 @@ end)
 ### <a id="function:CoreObject.Destroy"></a>CoreObject.Destroy
 
 ```lua
-local obj = script.parent -- This is the object you would like to destroy/remove.
+local property = script:GetCustomProperty("Object") -- Getting the custom property.
+
+local obj = World.SpawnAsset(property) -- Spawning an object(Cube)
 
 obj:Destroy() -- This will destroy the object.
 ```
