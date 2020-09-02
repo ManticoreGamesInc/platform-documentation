@@ -197,64 +197,93 @@ To get the script to rotate the switch the way we want, only along the y-axis, i
 Change the last line to look like this:
 
     ```lua
-    switch:RotateTo(onRotation, 2, true){: .center loading="lazy" }
+    switch:RotateTo(onRotation, 2, true)
     ```
 
 By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If we were to enter `false` instead, or enter nothing like we did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
 
-1. Press **Play** and test it out!
+Press **Play** and test it out!
 
+![Switch in Correct Position](../img/LightBulb/image7.png ){: .center loading="lazy" }
 
-!["Moving Switch"](../img/LightBulb/image7.png "Switch in Action"){: .center loading="lazy" }
+## Letting Players Move the Light Switch
 
+So far, you have made a script that moves the lightswitch, but this happens automatically and immediately when the game starts. Next, you will make **the players** able to flip the switch to turn on and off our light.
 
 ### Using a Trigger
 
-We want the player to be able to flip the switch to turn on and off our light. To do this we need a *trigger*. A trigger defines the area an interaction can take place in. This sounds pretty abstract, but will be clear once we start using one.
+ To create in-game interactions, use a **trigger**. A trigger defines the area and checks if any player enters, leaves, or presses the Interact key inside of it.
 
-1. Our template already includes a trigger inside of it for us to use, but trigger objects can be found in the **Core Content** tab. Scrolling down to **Gameplay Objects** will show the section with "**Trigger**" type objects.
+The **Lightswitch & Bulb** template includes a trigger, but you can add trigger objects to a project from the **Core Content** window, in the **Gameplay Objects** section.
 
-    !["Trigger Location"](../img/LightBulb/trigger.png "The trigger in Core Content."){: .center loading="lazy" }
+![Trigger in Core Content](../img/LightBulb/trigger.png){: .center loading="lazy" }
 
-2. Let's find the trigger already in our template. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press ++F++. This will find the trigger in our viewport. If you can't see the trigger, press ++V++ to enable Gizmo visibility.
+1. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press ++F++. This will move the Main Viewport view to focus on the trigger.
 
-    !!! info "Gizmos are outlines that are displayed over objects that are otherwise hard to see, such as triggers, decals, and lights."
+!!! Hint "If you can't see a the trigger, press ++V++ to make it visible"!
 
-3. Notice the size, shape, and position of the trigger. Where and how a trigger is located determines how close a player needs to be to interact with the trigger, as the player will simply have to stand inside the box to be able to activate the trigger.
+2. Notice the size, shape, and position of the trigger. The player will have to stand inside the box to be able to activate the trigger.
 
-    !["Trigger Location"](../img/LightBulb/image20.png "Trigger well-placed over the switch."){: .center loading="lazy" }
+    !["Trigger Location"](../img/LightBulb/image20.png){: .center loading="lazy"}
 
-    This size will work fine for this purpose.
+### Make the Trigger Interactable
 
-4. Look at the Properties of the trigger by selecting it within the Hierarchy. Under the "**Gameplay**" section there is an option called "**Interactable**." Check the box next to it to enable it.
+!["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .center loading="lazy" }
 
-    This way, it will ask us if we want to interact with it in-game, and a player must press a button to cause the interaction. If the **Interactable** option is off, then the player walking into the trigger will cause the interaction to happen instantly rather than at a button press.
+1. Look at the **Properties** window with the trigger selected. Under the **Gameplay** section there is a property called **Interactable**. Check the box to make the trigger interactable.
+2. Find the **Interaction Label** property, and change it to something like "Turn on Light"
+3. Press **Play** to start a preview, and walk up to the lightswitch. You should see a message
 
-    !["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .center loading="lazy" }
+### Script the Interaction
 
-5. Now that we know what a trigger is and where it is set up, we can get back to our script. We need to tell the script what our trigger is and what should happen when the player interacts with it.
+Now that we know what a trigger is and where it is set up, we can get back to our script. We need to tell the script what our trigger is and what should happen when the player interacts with it.
 
-    So now, under our `switch` variable but above our `RotateTo()` function, add this line of code:
+Add this line of code to the second line of your script,  after the ``switch`` variable:
 
-    ```lua
-    local switchTrigger = switch:FindChildByType("Trigger")
-    ```
+```lua
+local switchTrigger = switch:FindChildByType("Trigger")
+```
 
-    * `switchTrigger` is the name for our trigger variable.
-    * `switch:FindChildByType("Trigger")` defines the object we are using as our trigger - a child of the type "Trigger" in the switch's parent group.
+- `switchTrigger` is the name for our trigger variable.
+- `switch:FindChildByType("Trigger")` looks for an object that is a child of the switch, and has the name "Trigger" in the Hierarchy.
 
-    !["Hierarchy"](../img/LightBulb/step_3_point_1.png "Hierarchy Order"){: .center loading="lazy" }
+Your script should look like this:
 
-    Your script should look like this:
+```lua
+local switch = script.parent
+local switchTrigger = switch:FindChildByName("Trigger")
 
-    ```lua
-    local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
 
-    switch:RotateTo(Rotation.New(0, 90, 0), 2,true)
-    ```
+switch:RotateTo(onRotation, 2, true)
+```
 
-6. Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
+### Test the Trigger Reference
+
+Getting in the habit of testing references will help you find bugs in code before they become a problem.
+
+Add this code on the third line of your script, after line that makes the ``switchTrigger`` variable:
+
+```lua
+print(switchTrigger)
+```
+
+Press **Play** to start a preview, and see what prints in the **Event Log** window. You should see ``Trigger`` followed by the unique ID for your trigger object.
+
+![Print Trigger Reference](){: .center loading="lazy" }
+
+If you see ``nil`` instead, the most common reason is that your trigger is not in the same folder as the script. Look in your Hierarchy to check the following:
+
+1. The trigger is in the **Switch (networked)** folder.
+2. The trigger and **LightToggleScript** are in the same folder.
+3. The trigger's name in the Hierarchy is **Trigger**.
+
+![Script and Trigger in the Switch Folder](){: .center loading="lazy" }
+
+### Create a Function for the Trigger
+
+1. Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
 
     After your rotation statement, type:
 
@@ -272,7 +301,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
 
     Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
 
-7. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
+2. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
     It should now look like this:
 
     ```lua
@@ -284,7 +313,7 @@ We want the player to be able to flip the switch to turn on and off our light. T
     end
     ```
 
-8. Lastly, you'll need an event statement that tells the script to actually do the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
+3. Lastly, you'll need an event statement that tells the script to actually do the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
 
     ```lua
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
@@ -310,11 +339,11 @@ We want the player to be able to flip the switch to turn on and off our light. T
     switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
     ```
 
-9. Press **Play** and see if our trigger is working properly.
+4. Press **Play** and see if our trigger is working properly.
 
     Perfect! When the player presses ++F++ to interact with the trigger, our switch rotates up!
 
-10. Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo()` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
+5.  Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo()` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
 
     `switch:RotateTo(Rotation.New(0, 90, 0), .5, true)`
 
