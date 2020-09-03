@@ -10,7 +10,7 @@ repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/development/src
 
 # Copyright
-copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a registered trademark of Manticore Games."
+copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
 
 # Directory for the documentation pages
 docs_dir: src
