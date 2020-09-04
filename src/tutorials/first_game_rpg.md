@@ -238,7 +238,6 @@ Now that you have finished the steps to make the game, it is time to do more mor
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
 {: .image-inline-text .image-background }
-
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
 {: .image-inline-text .image-background }
 

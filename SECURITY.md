@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-- Please email docs@manticoregames.com
+- Please email <mailto:docs@manticoregames.com>

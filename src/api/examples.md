@@ -3692,7 +3692,7 @@ While scripting, you can assign "resources" to players. These are just integer v
 
 You can manipulate these values via several methods on the player class, as well as registering for an event when they are changed.
 
-This sample registers a listener to ensure that values are in the [0-100] range, and demonstrates several examples of how to change the values.
+This sample registers a listener to ensure that values are in the 0-100 range, and demonstrates several examples of how to change the values.
 
 ```lua
 local resource2 = "CoinsCollected"

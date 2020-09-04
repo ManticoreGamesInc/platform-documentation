@@ -91,7 +91,9 @@ The Core Editor does not need every file in the folder to open a project. Some a
 It is literally just a list of file and folder names that Git does not need to keep track of.
 
 1. In the top toolbar, select **Repository** and then **Repository settings...**.
+
 2. In the menu that pops up, select the **Ignore files** tab.
+
 3. Copy and paste the text below into the text box:
 
     ```sh
