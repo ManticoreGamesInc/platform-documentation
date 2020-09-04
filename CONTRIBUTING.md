@@ -2,62 +2,40 @@
 
 Thanks for your interest in helping out by contributing! Your assistance is very much appreciated!
 
+## Simple Edits
+
 If you don't want to deal with all the technicalities because you only want to do some small wording changes, you can just use the GitHub WebUI to edit a markdown file directly!
 
 - Click on the `Edit` icon (top right) of the page you want to change.
 - Make your changes.
 - Make sure the changes look good and follow our [guidelines](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide) (check the **Preview** tab on the top left).
-- Add a helpful commit message and add it!
+- Add a helpful commit message and submit it!
+- Now open a pull request with your changes and fill out the template.
 
 **Note:** The integrated preview mode won't display advanced markdown functionality (e.g. `!!! info` blocks and our custom Markdown features won't work. To check out how they will end up looking on the site, open a pull request and check out the Netlify preview.
 
-## Setting up your Environment
+- Our system will automatically build a version of the site for you to view live.
+- Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `development` and later `production` which will make your content appear on the main site.
+
+## Adding new Content
 
 ### Prerequisites
 
 First, make sure that you have:
 
-- [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup)
-- [Python](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l)
+- [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup) (not required)
+- [Python](https://www.python.org/) >= 3.7.0
 - [Node.js](https://nodejs.org/en/download/) >= 12.0.0
-- [Git](https://git-scm.com/downloads)
-    - The CLI Method:
-        - Download [Git](https://git-scm.com/downloads).
-        - In the **Select Components** window, leave all default options checked and check any other additional components you want installed.
-        - Next you will chose the default editor used by Git. Use a text editor you're comfortable using.
-        - In the **Adjusting your PATH environment** section, chose **Git from the command line and, also from 3rd-party software**
-        - Next in **Choosing HTTPS transport backend**, leave the default selected as **Use OpenSSH**.
-        - In **Configuring the line ending conversions** use **Checkout as-is, commit Unix-style endings**.
-        - In **Configuring the terminal emulator** use **Use Windows' default console window**.
-        - In **Configuring extra options**, check all three boxes.
-    - The GUI Method:
-        - Download and install [Fork](https://git-fork.com/).
 
 ### Clone the Repository
 
-- The CLI Method:
-
-    ```console
-    cd folder/to/clone-into/
-    git clone https://github.com/ManticoreGamesInc/platform-documentation
-    cd platform-documentation
-    git submodule update --init --recursive --depth=1
-    git config pull.rebase true # We use rebase instead of merge
-    ```
-
-    - When prompted by a popup, sign in with your GitHub account.
-    - If you mistype your information, you can edit your information:
-        - Navigate to **Control Panel** > **User Accounts** > **Manage your Credentials** > **Windows Credentials**.
-        - Find Git credentials in the list (e.g. `git:https://github.com`)
-        - Delete your Git credentials and restart the process to be prompted again.
-
-- The GUI Method:
-
-    - Open Fork.
-    - Go to **File** > **Clone...** and paste in `https://github.com/ManticoreGamesInc/platform-documentation`.
-    - When prompted by a popup, sign in with your GitHub account.
-    - **Don't commit changes to the submodule** unless you now what you are doing. If it shows as changed, just leave it like that.
-    - Remember to select **Rebase instead of merge** when pulling changes.
+```console
+cd folder/to/clone-into/
+git clone https://github.com/ManticoreGamesInc/platform-documentation
+cd platform-documentation
+git submodule update --init --recursive --depth=1
+git config pull.rebase true # We use rebase instead of merge
+```
 
 ### Install the Platform
 
@@ -90,23 +68,13 @@ mkdocs serve
 
 ### Create a new Feature Branch
 
-- The CLI Method:
+```console
+git checkout development
+git pull # Make sure `development` is up to date with upstream
+git checkout -b camera-controls # Create a new branch using your feature as the name
+```
 
-    ```console
-    git checkout development
-    git pull # Make sure `development` is up to date with upstream
-    git checkout -b camera-controls # Create a new branch using your feature as the name
-    cd src/tutorials # Navigate to the correct folder
-    echo some-text > learn-camera.md # Create a new markdown file
-    ```
-
-- The GUI Method
-
-    - Double click the `development` branch.
-    - Click **Pull** and check **Rebase instead of merge** if unchecked.
-    - Click **New Branch**, check **Check out after create**, enter **camera-controls** and click **Create and checkout**.
-    - Click **Open in** and select **Open in Visual Studio Code**.
-    - Right click the folder you want the file to be in and select **New File**.
+Now, depending on what you want to add, you can create your new Markdown files and start writing. Our file structure is pretty self explanatory, tutorials go into `src/tutorials/` and so on.
 
 ### Check in your Changes
 
@@ -120,16 +88,7 @@ mkdocs serve
 
 Always make sure your `development` branch is up to date before creating a new feature branch! To update your local version to the latest version:
 
-- The CLI Method:
-
-    ```console
-    git checkout development
-    git pull # Make sure `development` is up to date with upstream
-    ```
-
-- The GUI Method:
-
-    - Double click the `development` branch.
-    - Press the **Pull** button and check **Rebase instead of merge**.
-    - Double click your feature branch.
-    - Right click the `development` branch in the sidebar and select **Rebase your-feature-branch on development**.
+```console
+git checkout development
+git pull # Make sure `development` is up to date with upstream
+```
