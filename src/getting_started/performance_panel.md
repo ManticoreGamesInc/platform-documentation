@@ -29,13 +29,11 @@ With both the visualizations, the key point to make is "**Lower is Better**". Th
 - **Yellow zone | 0.67 < Value < 1.0**{: style="color: #DE9300" }
 
     - The game is expected to run decently with some minor performance problems.
-
     - The creator should keep in mind that there might be some content optimizations needed in order to avoid going into the Red zone.
 
 - **Red zone | Value > 1.0**{: style="color: var(--core-color-error-state)" }
 
     - The game is expected to run poorly.
-
     - The creator needs to walk through their scene and perform some content optimizations in order to get the game region out of the Red zone into the Yellow or Green zones.
 
 Again, it is worth reiterating that **this panel only serves to give an estimation of performance on other computers**, and should not be the only factor considered when thinking about how the game might actually run on players' computers. Playtests and player feedback is very valuable when it comes to understanding this aspect of game development.

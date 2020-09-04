@@ -53,7 +53,6 @@ If **Multiplayer Preview Mode** is enabled, turn it off now to preview the game 
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to turn it gray and turn off Multiplayer Preview Mode.
 {: .image-inline-text .image-background }
-
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview.
 {: .image-inline-text .image-background }
 
