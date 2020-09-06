@@ -26,9 +26,9 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
     * How to use an animation
     * How to set up UI connected to an ability
 
-<video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
-    <source src="/img/EditorManual/Abilities/unarmed_wave.webm" type="video/webm" alt="Create an Ability"/>
-    <source src="/img/EditorManual/Abilities/unarmed_wave.mp4" type="video/mp4" alt="Create an Ability"/>
+<video autoplay loop muted playsinline>
+    <source src="/img/EditorManual/Teams/Inserting_The_Team.webm" type="video/webm" alt="Create a Team"/>
+    <source src="/img/EditorManual/Teams/Inserting_The_Team.mp4" type="video/mp4" alt="Create a Team"/>
 </video>
 
 ---
