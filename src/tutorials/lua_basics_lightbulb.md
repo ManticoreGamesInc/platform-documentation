@@ -1,7 +1,7 @@
 ---
-id: scripting_basics
-name: Scripting in Core
-title: Scripting in Core
+id: scripting_intermediate
+name: Scripting in Core (Intermediate)
+title: Scripting in Core (Intermediate)
 tags:
     - Tutorial
 ---
@@ -16,7 +16,7 @@ We are going to create something that brightens every room: a light switch!
 
 This involves turning on and off a light switch to illuminate a light bulb.
 
-![Light Switch And Bulb](../img/LightBulb/updates/LightbulbMain.jpg){: .center loading="lazy" }
+![Light Switch And Bulb](../img/LightBulb/updates/LightbulbMain.jpg){: .image-frame .center loading="lazy" }
 
 ---
 
@@ -28,32 +28,33 @@ This involves turning on and off a light switch to illuminate a light bulb.
 2. User the search bar to search for ``switch`` and find **Lightbulb & Switch** *(by CoreAcademy)*
 3. Click **Import**  to download the template.
 
-![Lightbulb and Switch on Community Content](../img/LightBulb/updates/CCLightbulb.png){: .center loading="lazy" }
+![Lightbulb and Switch on Community Content](../img/LightBulb/updates/CCLightbulb.png){: .image-frame .center loading="lazy" }
 
 !!! note
     You can also use the original **Light Bulb & Switch** template by **Tobs**. The CoreAcademy version has just been updated to use newer Core Content.
 
 ### Open the Template
 
-1. In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png).{: .image-inline-text style="width:2em; background:#15181e"}
-2. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
-{: .image-inline-text} icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png) icon.
-{: .image-inline-text}
+1. In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" }.
+{ .image-inline-text .image-background }
+2. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" } icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png){: style="height:34px" } icon.
+{ .image-inline-text .image-background }
 
-![Open Light Switch Template](../img/LightBulb/updates/LuaLightbulb_OpenLightSwitchTemplate.png){: .center loading="lazy" }
+![Open Light Switch Template](../img/LightBulb/updates/LuaLightbulb_OpenLightSwitchTemplate.png){: .image-frame .center loading="lazy" }
 
 1. Click on the **Light Bulb & Switch** package and drag it into your game by dragging it into the **Main Viewport**.
 2. Make sure **Group Selection Mode** is turned on to select the entire template. You can use the ++C++ key to switch between this and **Object Selection Mode**.
 3. Reposition the wall and lightbulb where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](editor_intro.md).
 
-![Well lit](../img/LightBulb/image6.png){: .center loading="lazy" }
+![Well lit](../img/LightBulb/image6.png){: .image-frame .center loading="lazy" }
 
 !!! note
     If you click on the wall, or part of the scene, this will not select the entire template. Click the **Lightbulb and Switch** folder in the **Hierarchy** to move, resize, or rotate it.
 
 ### Create a New Script
 
-1. To get started making this light switch work, we're going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.{: .image-inline-text style="width:2em;}
+1. To get started making this light switch work, we're going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.
+{ .image-inline-text .image-background }
 2. Name this script `LightToggleScript`.
 3. Save the script by pressing ++Ctrl+S++.
 
@@ -66,7 +67,7 @@ To make changes to the template, we first need to **deinstance** it.
 
 Right click on the **Light bulb & Switch** template in the **Hierarchy** and select **Deinstance This Object**.
 
-!["Right Click Content Menu"](../img/LightBulb/image8.png){: .center loading="lazy" }
+!["Right Click Content Menu"](../img/LightBulb/image8.png){: .image-frame .center loading="lazy" }
 
 The template and objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template is now editable.
 
@@ -104,19 +105,20 @@ To figure out how to rotate the switch, you will move it around in game, and tak
 
 ### Select the Switch
 
-Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because that is what ``switch`` variable refers to.
+Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because that is what `switch` variable refers to.
 
-![Selected Switch Object](../img/LightBulb/updates/SelectedSwitchObject.png){: .center loading="lazy" }
+![Selected Switch Object](../img/LightBulb/updates/SelectedSwitchObject.png){: .image-frame .center loading="lazy" }
 
 ### Find the Switch's Current Rotation
 
 1. Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/Icon_TransformRotation.png) button, or pressing ++E++
+{ .image-inline-text .image-background }
 
-    ![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .center loading="lazy" }
+    ![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
 
 2. Look at the **Properties** window. In the **Transform** section, you should see a property called **Rotation**, with an **X**, **Y**, and **Z** value.
 
-    ![Switch Starting Rotation](../img/LightBulb/updates/SwitchInitialRotation.png){: .center loading="lazy" }
+    ![Switch Starting Rotation](../img/LightBulb/updates/SwitchInitialRotation.png){: .image-frame .center loading="lazy" }
 
 ### Rotate the Switch in the Editor
 
@@ -136,7 +138,7 @@ Your rotations may be different, but will most likely look like this:
 
 ### Create Variables for Each Rotation
 
-Now that you know the rotations of the switch for "on" and "off", you can save them as variables. On the next line of your ``LightToggleScript`` add these lines:
+Now that you know the rotations of the switch for "on" and "off", you can save them as variables. On the next line of your `LightToggleScript` add these lines:
 
 ```lua
 local onRotation = Rotation.New(0, 60, 0)
@@ -146,7 +148,9 @@ local offRotation = Rotation.New(0, -30, 0)
 - `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates.
 - `(0, 60, 0)` are the x, y, and z coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y-axis by 90 degrees.
 
-!!! note  You will almost always use `Rotation.New` when rotating an object, but there is also a predefined Rotation called `Rotation.ZERO` which will rotate the object to `0, 0, 0`. [Learn more about Rotations on the Core API](https://docs.coregames.com/core_api/#rotation)
+!!! note
+    You will almost always use `Rotation.New` when rotating an object, but there is also a predefined Rotation called `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
+    [Learn more about Rotations on the Core API](core_api.md#rotation) page.
 
 ### Make the Switch Move with a Script
 
@@ -175,7 +179,7 @@ switch:RotateTo(onRotation, 2)
 
 Let's press **Play** and see how our switch moves!
 
-!["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .center loading="lazy" }
+!["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .image-frame .center loading="lazy" }
 
 Unfortunately that didn't quite work out the way we wanted...
 Depending on where in the scene you placed your light switch, it might look like this image, where the switch rotated sideways instead of up.
@@ -184,7 +188,7 @@ Depending on where in the scene you placed your light switch, it might look like
 
 To get the script to rotate the switch the way we want, only along the y-axis, it needs to know to move **relative to its original position**. Luckily in this case the `RotateTo()` function has an *optional* parameter that we can add to specify that we want the rotation to happen relative to its own space.
 
-![RotateTo on the Core API](../img/LightBulb/updates/RotateToThirdParameter.png)
+![RotateTo on the Core API](../img/LightBulb/updates/RotateToThirdParameter.png){: .image-frame .center loading="lazy" }
 
 Change the last line to look like this:
 
@@ -196,7 +200,7 @@ By adding `true` to the end of the parameters for `RotateTo()`, it moves in *loc
 
 Press **Play** and test it out!
 
-![Switch in Correct Position](../img/LightBulb/image7.png ){: .center loading="lazy" }
+![Switch in Correct Position](../img/LightBulb/image7.png ){: .image-frame .center loading="lazy" }
 
 ## Letting Players Move the Light Switch
 
@@ -208,18 +212,18 @@ So far, you have made a script that moves the lightswitch, but this happens auto
 
 The **Lightswitch & Bulb** template includes a trigger, but you can add trigger objects to a project from the **Core Content** window, in the **Gameplay Objects** section.
 
-![Trigger in Core Content](../img/LightBulb/trigger.png){: .center loading="lazy" }
+![Trigger in Core Content](../img/LightBulb/trigger.png){: .image-frame .center loading="lazy" }
 
 1. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press ++F++. This will move the Main Viewport view to focus on the trigger.
 2. Notice the size, shape, and position of the trigger. The player will have to stand inside the box to be able to activate the trigger.
 
-    !["Trigger Location"](../img/LightBulb/image20.png){: .center loading="lazy"}
+!["Trigger Location"](../img/LightBulb/image20.png){: .image-frame .center loading="lazy" }
 
-!!! Hint "If you can't see a the trigger, press ++V++ to make it visible"!
+!!! hint "If you can't see a the trigger, press ++V++ to make it visible!"
 
 ### Make the Trigger Interactable
 
-!["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .center loading="lazy" }
+!["Interactable"](../img/LightBulb/image12.png "Interactable Box"){: .image-frame .center loading="lazy" }
 
 1. Look at the **Properties** window with the trigger selected. Under the **Gameplay** section there is a property called **Interactable**. Check the box to make the trigger interactable.
 2. Find the **Interaction Label** property, and change it to something like "Turn on Light"
@@ -229,7 +233,7 @@ The **Lightswitch & Bulb** template includes a trigger, but you can add trigger 
 
 Now that we know what a trigger is and where it is set up, we can get back to our script. We need to tell the script what our trigger is and what should happen when the player interacts with it.
 
-Add this line of code to the second line of your script,  after the ``switch`` variable:
+Add this line of code to the second line of your script,  after the `switch` variable:
 
 ```lua
 local switchTrigger = switch:FindChildByType("Trigger")
@@ -254,25 +258,25 @@ switch:RotateTo(onRotation, 2, true)
 
 Getting in the habit of testing references will help you find bugs in code before they become a problem.
 
-Add this code on the third line of your script, after line that makes the ``switchTrigger`` variable:
+Add this code on the third line of your script, after line that makes the `switchTrigger` variable:
 
 ```lua
 print(switchTrigger)
 ```
 
-Press **Play** to start a preview, and see what prints in the **Event Log** window. You should see ``Trigger`` followed by the unique ID for your trigger object.
+Press **Play** to start a preview, and see what prints in the **Event Log** window. You should see `Trigger` followed by the unique ID for your trigger object.
 
-![Print Trigger Reference](../img/LightBulb/updates/PrintTriggerReference.png){: .center loading="lazy" }
+![Print Trigger Reference](../img/LightBulb/updates/PrintTriggerReference.png){: .image-frame .center loading="lazy" }
 
-If you see ``nil`` instead, the most common reason is that your trigger is not in the same folder as the script. Look in your Hierarchy to check the following:
+If you see `nil` instead, the most common reason is that your trigger is not in the same folder as the script. Look in your Hierarchy to check the following:
 
 - The trigger is in the **Switch (networked)** folder.
 - The trigger and **LightToggleScript** are in the same folder.
 - The trigger's name in the Hierarchy is **Trigger**.
 
-![Script and Trigger in the Switch Folder](../img/LightBulb/updates/ScriptAndTriggerInSameFolder.png){: .center loading="lazy" }
+![Script and Trigger in the Switch Folder](../img/LightBulb/updates/ScriptAndTriggerInSameFolder.png){: .image-frame .center loading="lazy" }
 
-Once you know that the ``switchTrigger`` variable is pointing to the trigger in your game, you can delete the ``print`` line.
+Once you know that the `switchTrigger` variable is pointing to the trigger in your game, you can delete the `print` line.
 
 ### Create a Function for the Trigger
 
@@ -296,7 +300,7 @@ This function will define what happens when the player interacts with the trigge
 
 Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
 
-Cut and paste the ``RotateTo`` statement into our `onInteraction` function.
+Cut and paste the `RotateTo` statement into our `onInteraction` function.
 
 It should now look like this:
 
@@ -349,7 +353,11 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 1. Press **Play** to start a local preview.
 2. Walk up to the switch trigger and press ++F++ to interact with it. The switch should move up.
 
-![Switch with Interaction Label and Movement](../img/LightBulb/updates/LightSwitchInteraction.mp4)
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" alt="Switch with Interaction Label and Movement">
+        <source src="/img/LightBulb/updates/LightSwitchInteraction.mp4" type="video/mp4" />
+    </video>
+</div>
 
 !!! note
     Make sure that the trigger is **Interactable** if you do not see the option to press ++F++ pop up when you walk near it.
@@ -400,7 +408,7 @@ Your next project goal is to make the switch more function and have it spawn a l
 5. In the **Lighting** section of **Properties**, check the box next to **Advanced Settings** to see more options to customize the light.
 6. Check the box for **Use Temperature**, and lower the **Temperature** property to create a warm glow color to the light.
 
-!["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .center loading="lazy" }
+!["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
 
 ### Create a Networked Template
 
@@ -410,7 +418,7 @@ To spawn the light with the settings you just changed, it will need to be a temp
 2. Right click on the **Point Light** in the Hierarchy again and select **Create New Template from This**
 3. Name the template ``LightTemplate``.
 
-![Create New Template](../img/LightBulb/LightTemplate.png){: .center loading="lazy" }
+![Create New Template](../img/LightBulb/LightTemplate.png){: .image-frame .center loading="lazy" }
 
 You should now be able to find your template, and drag out new copies of it from the **My Templates** section of the **Project Content** window.
 
@@ -428,13 +436,13 @@ You should now be able to find your template, and drag out new copies of it from
 3. Look in the **Project Content** window for the **LightTemplate**.
 4. Drag the **LightTemplate** from Project Content into the Properties window of the **LightToggleScript**. This will add the template as a **Custom Property** of the script.
 
-!["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .center loading="lazy" }
+!["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .image-frame .center loading="lazy" }
 
 ### Add the Custom Property Variable to the Script
 
 To be able to spawn the template, you will need a way to reference it in your script.
 
-!["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center loading="lazy" }
+!["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .image-frame .center loading="lazy" }
 
 1. Copy the code generated in the script's **Properties**. You can right click and select **Select All** to highlight all the text in the box.
 2. Open the **LightToggleScript** by double clicking it in the **Hierarchy**.
@@ -515,7 +523,7 @@ local bulbPosition = bulb:GetWorldPosition()
 
 ### Improve the Light Location Code
 
-The ``GetWorldPosition`` function is very powerful, but will break if you name anything else in your entire project **Bulb**. This is not a problem in an empty project, but could be if, for example, you built a whole house full of lights and bulbs.
+The `GetWorldPosition` function is very powerful, but will break if you name anything else in your entire project **Bulb**. This is not a problem in an empty project, but could be if, for example, you built a whole house full of lights and bulbs.
 
 Instead, you can look for the specific **Bulb** group that is part of this template, which will be the one that is a **child** of the template.
 
@@ -529,7 +537,7 @@ local bulbPosition = bulb:GetWorldPosition()
 
 ### Spawn the Light in the Correct Position
 
-The next step is to update the `SpawnAsset` function to spawn the light wherever the **Bulb** is. Fortunately, ``World.SpawnAsset``, takes extra **optional parameters**, which can be added in ``{}``.
+The next step is to update the `SpawnAsset` function to spawn the light wherever the **Bulb** is. Fortunately, `World.SpawnAsset`, takes extra **optional parameters**, which can be added in `{}`.
 
 Find the `SpawnAsset` function and change it to include the bulbPosition as the position:
 
@@ -537,8 +545,7 @@ Find the `SpawnAsset` function and change it to include the bulbPosition as the 
      World.SpawnAsset(propLightTemplate, { position = bulbPosition })
 ```
 
-!!! hint
-    Be sure to use a comma ``,`` between the inputs into the function!
+!!! hint "Be sure to use a comma `,` between the inputs into the function!"
 
 ### Test the Light Spawn
 
@@ -571,8 +578,9 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 
 Press **Play** and test out the script by interacting with the light.
 
-![LightBulb1](../img/LightBulb/image3.png "It's working!")
+![LightBulb1](../img/LightBulb/image3.png "It's working!"){: .image-frame .center loading="lazy" }
 *Excellent!*
+{ style="text-align: center" }
 
 You have turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Eventually, this can cause performance issues with thousands of networked objects.
 
@@ -664,9 +672,9 @@ A light should have spawned every other time you interacted with the switch, ins
 
 ### Turn the Switch Back Off
 
-The next step is to tell the script to turn the switch downwards when the light is off. The ``else`` keyword will allow you code what should happen if ``lightIsOn`` is not ``false``.
+The next step is to tell the script to turn the switch downwards when the light is off. The `else` keyword will allow you code what should happen if `lightIsOn` is not `false`.
 
-Fortunately, you have already saved a variable for the rotation of the switch, ``offRotation``. Add this line after right before the ``end`` line in the **if statement** of the ``OnSwitchInteraction`` function:
+Fortunately, you have already saved a variable for the rotation of the switch, `offRotation`. Add this line after right before the `end` line in the **if statement** of the `OnSwitchInteraction` function:
 
 ```lua
     else
@@ -695,6 +703,7 @@ end
 Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn (delete) the light when the light switch is turned off.
 
 ---
+
 ## Turning the Light Off
 
 ### Make a Variable for the Spawned Light
@@ -706,15 +715,15 @@ local spawnedLight = nil
 ```
 
 - `spawnedLight` is the name you are giving to the light that spawns.
-- ``nil`` means that it has no value yet.
+- `nil` means that it has no value yet.
 
-Next, in the line where you spawn the light, assign what is spawned to the variable, by adding ``spawnedLight =`` to the beginning:
+Next, in the line where you spawn the light, assign what is spawned to the variable, by adding `spawnedLight =` to the beginning:
 
 ```lua
     spawnedLight = World.SpawnAsset(propLightTemplate, {position = bulbPosition})
 ```
 
-- ``World.SpawnAsset`` is doing two different things here. It creates the asset in the game space, and also **returns** the unique ID of the asset that just got spawned, which you are saving to the variable ``spawnedLight``.
+- `World.SpawnAsset` is doing two different things here. It creates the asset in the game space, and also **returns** the unique ID of the asset that just got spawned, which you are saving to the variable `spawnedLight`.
 
 ### Destroy the Light
 
@@ -754,7 +763,6 @@ Notice the comments describing the `OnSwitchInteraction()` function. **If statem
 
 Save and press **Play** to test the latest changes. The lightbulb should illuminate when the switch is up, and be dark when the switch is down.
 
-
 ## Updating Interaction Labels
 
 Right now, the light switch trigger always says **Turn on Light**. You can add more polish to a project by changing the interaction label based on what it should do each time.
@@ -763,7 +771,7 @@ There are two ways to change a trigger's label, by going to the trigger's **Prop
 
 ### Change the Interact Label to "Turn off Light"
 
-Before the ``OnSwitchInteraction`` function, add this line
+Before the `OnSwitchInteraction` function, add this line
 
 ```lua
 switchTrigger.interactionLabel = "Turn off Light"
@@ -789,8 +797,7 @@ local function UpdateLabel()
 end
 ```
 
-!!! note
-    Be sure to indent the code with ++Tab++ when it is moved into a function
+!!! note "Be sure to indent the code with ++Tab++ when it is moved into a function!"
 
 Your entire `LightToggleScript` should now look like this:
 
@@ -812,7 +819,7 @@ local offRotation = Rotation.New(-180, -60, 180)
 
 -- Change the label on the trigger
 local function UpdateLabel()
-	switchTrigger.interactionLabel = "Turn off Light"
+ switchTrigger.interactionLabel = "Turn off Light"
 end
 
 -- Function to rotate the switch
@@ -837,7 +844,7 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 
 If you press **Play** now, the interaction label will not change. This is because the line of code changing the label to **Turn off Light** is now in a function that isn't called on in the script. The script won't run the function until we tell it to. Right now we have only defined what the function does, but we haven't told the script when to run it.
 
-At the bottom of the ``OnSwitchInteraction`` function, before the ``end`` keyword, add this line to call the function:
+At the bottom of the `OnSwitchInteraction` function, before the `end` keyword, add this line to call the function:
 
 ```lua
 UpdateLabel()
@@ -892,7 +899,7 @@ end
 
 ### Test the Label Switch
 
-Your ``onSwitchInteraction`` function should look like this now:
+Your `onSwitchInteraction` function should look like this now:
 
 ```lua
 -- Function to rotate the switch
@@ -966,4 +973,3 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 ## Learn More
 
 [Custom Materials](custom_materials.md) | [Complex Modeling](modeling_reference.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
-

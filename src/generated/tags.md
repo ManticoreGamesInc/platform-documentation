@@ -80,11 +80,11 @@ title: Tags
 
 - [GitHub and Core](github.md)
 
-- [Scripting in Core](lua_basics_helloworld.md)
+- [Scripting in Core (Beginner)](lua_basics_helloworld.md)
 
-- [Scripting in Core](lua_basics_lightbulb.md)
+- [Scripting in Core (Intermediate)](lua_basics_lightbulb.md)
 
-- [Advanced Scripting in Core](lua_basics_manticoin.md)
+- [Scripting in Core (Advanced)](lua_basics_manticoin.md)
 
 - [Lua Style Guide](lua_style_guide.md)
 
