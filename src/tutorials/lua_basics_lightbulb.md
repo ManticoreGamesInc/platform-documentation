@@ -19,29 +19,34 @@ This involves turning on and off a light switch to illuminate a light bulb.
 ![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center loading="lazy" }
 
 ---
+
 ## Setting Up the Template
 
 ### Download the Template
 
 1. Open the **Community Content** window in the Core Editor.
-2. User the search bar to search for ``switch`` and find **Light Bulb & Switch** *(by Tobs)*
+2. User the search bar to search for ``switch`` and find **Lightbulb & Switch** *(by CoreAcademy)*
 3. Click **Import**  to download the template.
 
-    ![Light Switch And Bulb CC](../img/LightBulb/LightSwitchTemplate.png ){: .center loading="lazy" }
+![Lightbulb and Switch on Community Content]( )
+{: .center loading="lazy" }
+
+!!! note
+    You can also use the original **Light Bulb & Switch** template by Tobs. The CoreAcademy version has just been updated to use newer Core Content.
 
 ### Open the Template
 
-1. In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
+In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
 
 {: .image-inline-text style="width:2em; background:#15181e"}
-1. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
-{: .image-inline-text style="width:2em; background:#15181e"} icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png) icon.
-{: .image-inline-text style="width:2em; color="green"; background:#15181e"}
+Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
+{: .image-inline-text} icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png) icon.
+{: .image-inline-text}
 
 ![Open Light Switch Template]()
 
 1. Click on the **Light Bulb & Switch** package and drag it into your game by dragging it into the **Main Viewport**.
-2. 3. Make sure **Group Selection Mode** is turned on to select the entire template. You can use the ++C++ key to switch between this and **Object Selection Mode**.
+2. Make sure **Group Selection Mode** is turned on to select the entire template. You can use the ++C++ key to switch between this and **Object Selection Mode**.
 3. Reposition the wall and lightbulb where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](editor_intro.md).
 
 ![Well lit](../img/LightBulb/image6.png)
@@ -112,7 +117,7 @@ To figure out how to rotate the switch, you will move it around in game, and tak
 
 ### Select the Switch
 
-1. Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because that is what ``switch`` variable refers to.
+Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because that is what ``switch`` variable refers to.
 
     ![Selected Switch Object](){: .center loading="lazy" }
 
@@ -535,8 +540,6 @@ local bulbPosition = bulb:GetWorldPosition()
 
 `World.FindObjectByName` still does the same thing, however.
 
-<!-- In this tutorial we have been showing you many ways of referencing objects: custom properties, `GetChildren()`, `FindObjectByName()`--use whichever you like best and suits your needs at the time. -->
-
 ### Spawn the Light in the Correct Position
 
 The next step is to update the `SpawnAsset` function to spawn the light wherever the **Bulb** is. Fortunately, ``World.SpawnAsset``, takes extra **optional parameters**, which can be added in ``{}``.
@@ -702,7 +705,7 @@ local function OnSwitchInteraction()
 end
 ```
 
-1. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn (delete) the light when the light switch is turned off.
+Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn (delete) the light when the light switch is turned off.
 
 ---
 ## Turning the Light Off
@@ -857,7 +860,7 @@ Press **Play**. The label should change to **Turn off Light** when you interact 
 
 ### Switch the Label from On to Off
 
-1. In order to change the label from "**Turn On**" to "**Turn Off**" based on if the light is on or not we'll need an `if` statement. In the `UpdateLabel()` function write:
+To change the label from **Turn on Light** to **Turn Off** based on if the light is on or not you will use an `if` statement. In the `UpdateLabel()` function write:
 
 ```lua
 if lightIsOn == false then
@@ -869,7 +872,7 @@ end
 - `lightIsOn == false` is the condition that must be met in order to execute the `if` statement. This is the same as writing ``not lightIsOn``
 - `end` means the `if` statement is done.
 
-If `isLightOn` is set to `true`, that means the light is off - so our interaction label should say **Turn on Light**. Cut and paste the **interactionLabel** line into this `if` statement. Now the `UpdateLabel()` function should look like this:
+If `lightIsOn` is set to `true`, that means the light is off - so our interaction label should say **Turn on Light**. Cut and paste the **interactionLabel** line into this `if` statement. Now the `UpdateLabel()` function should look like this:
 
 ```lua
 local function UpdateLabel()
@@ -888,7 +891,7 @@ else
     switchTrigger.interactionLabel = "Turn off Light"
 ```
 
-Any time `isLightOn` is not equal to `false`, the label will say **Turn off Light**. The whole function should look like this now:
+Any time `lightIsOn` is not equal to `false`, the label will say **Turn off Light**. The whole function should look like this now:
 
 ```lua
 local function UpdateLabel()
