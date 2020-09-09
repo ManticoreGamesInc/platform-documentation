@@ -80,6 +80,8 @@ title: Tags
 
 - [GitHub and Core](github.md)
 
+- [Scripting in Core](lua_basics_helloworld.md)
+
 - [Scripting in Core](lua_basics_lightbulb.md)
 
 - [Advanced Scripting in Core](lua_basics_manticoin.md)

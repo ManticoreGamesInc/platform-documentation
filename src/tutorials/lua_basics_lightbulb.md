@@ -16,7 +16,7 @@ We are going to create something that brightens every room: a light switch!
 
 This involves turning on and off a light switch to illuminate a light bulb.
 
-![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center loading="lazy" }
+![Light Switch And Bulb](../img/LightBulb/updates/LightbulbMain.jpg){: .center loading="lazy" }
 
 ---
 
@@ -28,28 +28,25 @@ This involves turning on and off a light switch to illuminate a light bulb.
 2. User the search bar to search for ``switch`` and find **Lightbulb & Switch** *(by CoreAcademy)*
 3. Click **Import**  to download the template.
 
-![Lightbulb and Switch on Community Content]( )
-{: .center loading="lazy" }
+![Lightbulb and Switch on Community Content](../img/LightBulb/updates/CCLightbulb.png){: .center loading="lazy" }
 
 !!! note
-    You can also use the original **Light Bulb & Switch** template by Tobs. The CoreAcademy version has just been updated to use newer Core Content.
+    You can also use the original **Light Bulb & Switch** template by **Tobs**. The CoreAcademy version has just been updated to use newer Core Content.
 
 ### Open the Template
 
-In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
-
-{: .image-inline-text style="width:2em; background:#15181e"}
-Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
+1. In the **Core Content** window, find the **Imported Content** section and **Light Bulb & Switch** ![Package](../img/EditorManual/icons/AssetType_Bundle.png).{: .image-inline-text style="width:2em; background:#15181e"}
+2. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png).
 {: .image-inline-text} icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png) icon.
 {: .image-inline-text}
 
-![Open Light Switch Template]()
+![Open Light Switch Template](../img/LightBulb/updates/LuaLightbulb_OpenLightSwitchTemplate.png){: .center loading="lazy" }
 
 1. Click on the **Light Bulb & Switch** package and drag it into your game by dragging it into the **Main Viewport**.
 2. Make sure **Group Selection Mode** is turned on to select the entire template. You can use the ++C++ key to switch between this and **Object Selection Mode**.
 3. Reposition the wall and lightbulb where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](editor_intro.md).
 
-![Well lit](../img/LightBulb/image6.png)
+![Well lit](../img/LightBulb/image6.png){: .center loading="lazy" }
 
 !!! note
     If you click on the wall, or part of the scene, this will not select the entire template. Click the **Lightbulb and Switch** folder in the **Hierarchy** to move, resize, or rotate it.
@@ -69,7 +66,7 @@ To make changes to the template, we first need to **deinstance** it.
 
 Right click on the **Light bulb & Switch** template in the **Hierarchy** and select **Deinstance This Object**.
 
-!["Right Click Content Menu"](../img/LightBulb/image8.png "The right-click menu in the Hierarchy."){: .center loading="lazy" }
+!["Right Click Content Menu"](../img/LightBulb/image8.png){: .center loading="lazy" }
 
 The template and objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template is now editable.
 
@@ -81,11 +78,6 @@ Deinstancing allows you to make changes to a particular copy of a template witho
 2. Open up the **Light switch** folder to find a folder inside called **Switch**.
 3. Drag the `LightToggleScript` from **Project Content** tab into the **Switch** group folder.
 
-    <!-- !!! info
-        Any time a script is used to change an object, that object must be **Networked** or be in a **Client Context**. Without networking, changes will not happen on all player's screens. -->
-
-<!-- !["Template Hierarchy"](../img/LightBulb/step_1_point_5.png "Template Hierarchy"){: .center loading="lazy" } -->
-
 ## Writing the Code
 
 ### Define the Switch
@@ -95,9 +87,6 @@ We want our light switch to function just like a real one: the switch will point
 First you wil need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is.
 
 To move the switch, we need a away to talk about the specific
-
-<!-- !!! note
-    In this tutorial we will use several different ways to access other objects in the Hierarchy. -->
 
 Type the following into Line 1 of `LightToggleScript`:
 
@@ -109,8 +98,6 @@ local switch = script.parent
 - `switch` is the variable name. You can name it anything but it's important to create variables with self-explanatory names so our scripts are easy to read and understand.
 - `script.parent` refers to the script's parent - the group or folder the script is placed in. In this case it refers to the **Switch** group. If you wanted to reference the entire **Light Switch & Bulb template**, for example, you would use `script.parent.parent.parent`.
 
-> The line `local switch = script.parent` tells the script we are defining a local variable named `switch` and what object in the scene the variable corresponds to.
-
 ## Finding the Switch's Rotation
 
 To figure out how to rotate the switch, you will move it around in game, and take note of the **Rotation** displayed in the switch's **Properties** menu.
@@ -119,19 +106,17 @@ To figure out how to rotate the switch, you will move it around in game, and tak
 
 Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because that is what ``switch`` variable refers to.
 
-    ![Selected Switch Object](){: .center loading="lazy" }
+![Selected Switch Object](../img/LightBulb/updates/SelectedSwitchObject.png){: .center loading="lazy" }
 
 ### Find the Switch's Current Rotation
 
 1. Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/Icon_TransformRotation.png) button, or pressing ++E++
 
-    ![Switch Rotation Mode](){: .center loading="lazy" }
+    ![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .center loading="lazy" }
 
 2. Look at the **Properties** window. In the **Transform** section, you should see a property called **Rotation**, with an **X**, **Y**, and **Z** value.
 
-    ![Switch Starting Rotation](){: .center loading="lazy" }
-
-<!-- 3. Change the editor to **Local Space**, using the ![World Space](../img/EditorManual/icons/Icon_WorldSpace.png) icon in the top toolbar, or by pressing the ++T++ key until it looks like ![Local Space](../img/EditorManual/icons/Icon_LocalSpace.png) -->
+    ![Switch Starting Rotation](../img/LightBulb/updates/SwitchInitialRotation.png){: .center loading="lazy" }
 
 ### Rotate the Switch in the Editor
 
@@ -195,15 +180,17 @@ Let's press **Play** and see how our switch moves!
 Unfortunately that didn't quite work out the way we wanted...
 Depending on where in the scene you placed your light switch, it might look like this image, where the switch rotated sideways instead of up.
 
+### Change the Rotation to Local Space
+
 To get the script to rotate the switch the way we want, only along the y-axis, it needs to know to move **relative to its original position**. Luckily in this case the `RotateTo()` function has an *optional* parameter that we can add to specify that we want the rotation to happen relative to its own space.
 
-![RotateTo on the Core API]()
+![RotateTo on the Core API](../img/LightBulb/updates/RotateToThirdParameter.png)
 
 Change the last line to look like this:
 
-    ```lua
-    switch:RotateTo(onRotation, 2, true)
-    ```
+```lua
+switch:RotateTo(onRotation, 2, true)
+```
 
 By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If we were to enter `false` instead, or enter nothing like we did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
 
@@ -275,7 +262,7 @@ print(switchTrigger)
 
 Press **Play** to start a preview, and see what prints in the **Event Log** window. You should see ``Trigger`` followed by the unique ID for your trigger object.
 
-![Print Trigger Reference](){: .center loading="lazy" }
+![Print Trigger Reference](../img/LightBulb/updates/PrintTriggerReference.png){: .center loading="lazy" }
 
 If you see ``nil`` instead, the most common reason is that your trigger is not in the same folder as the script. Look in your Hierarchy to check the following:
 
@@ -283,7 +270,7 @@ If you see ``nil`` instead, the most common reason is that your trigger is not i
 - The trigger and **LightToggleScript** are in the same folder.
 - The trigger's name in the Hierarchy is **Trigger**.
 
-![Script and Trigger in the Switch Folder](){: .center loading="lazy" }
+![Script and Trigger in the Switch Folder](../img/LightBulb/updates/ScriptAndTriggerInSameFolder.png){: .center loading="lazy" }
 
 Once you know that the ``switchTrigger`` variable is pointing to the trigger in your game, you can delete the ``print`` line.
 
@@ -360,9 +347,9 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 ```
 
 1. Press **Play** to start a local preview.
-2. Walk up to the switch trigger and press ++F++ to interact with it. the switch should move up.
+2. Walk up to the switch trigger and press ++F++ to interact with it. The switch should move up.
 
-![Switch with Interaction Label and Movement]()
+![Switch with Interaction Label and Movement](../img/LightBulb/updates/LightSwitchInteraction.mp4)
 
 !!! note
     Make sure that the trigger is **Interactable** if you do not see the option to press ++F++ pop up when you walk near it.
@@ -528,7 +515,7 @@ local bulbPosition = bulb:GetWorldPosition()
 
 ### Improve the Light Location Code
 
-The ```GetWorldPosition`` function is very powerful, but will break if you name anything else in your entire project **Bulb**. This is not a problem in an empty project, but could be if, for example, you built a whole house full of lights and bulbs.
+The ``GetWorldPosition`` function is very powerful, but will break if you name anything else in your entire project **Bulb**. This is not a problem in an empty project, but could be if, for example, you built a whole house full of lights and bulbs.
 
 Instead, you can look for the specific **Bulb** group that is part of this template, which will be the one that is a **child** of the template.
 
