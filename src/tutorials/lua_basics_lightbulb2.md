@@ -18,6 +18,7 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 ![Light Switch And Bulb](../img/LightBulb/image9.png "A close-up of our light switch and bulb model!"){: .center loading="lazy" }
 
+---
 ## Setting Up the Template
 
 ### Download the Template
@@ -150,7 +151,6 @@ Now that you know the rotations of the switch for "on" and "off", you can save t
 ```lua
 local onRotation = Rotation.New(0, 60, 0)
 local offRotation = Rotation.New(0, -30, 0)
-
 ```
 
 - `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates.
@@ -181,7 +181,7 @@ local offRotation = Rotation.New(0, -30, 0)
 switch:RotateTo(onRotation, 2)
 ```
 
-### Test out the Switch!
+### Test out the Switch
 
 Let's press **Play** and see how our switch moves!
 
@@ -219,12 +219,11 @@ The **Lightswitch & Bulb** template includes a trigger, but you can add trigger 
 ![Trigger in Core Content](../img/LightBulb/trigger.png){: .center loading="lazy" }
 
 1. In the Hierarchy tab, select the "BoxTrigger" object within the **Light switch** folder. and press ++F++. This will move the Main Viewport view to focus on the trigger.
-
-!!! Hint "If you can't see a the trigger, press ++V++ to make it visible"!
-
 2. Notice the size, shape, and position of the trigger. The player will have to stand inside the box to be able to activate the trigger.
 
     !["Trigger Location"](../img/LightBulb/image20.png){: .center loading="lazy"}
+
+!!! Hint "If you can't see a the trigger, press ++V++ to make it visible"!
 
 ### Make the Trigger Interactable
 
@@ -275,320 +274,401 @@ Press **Play** to start a preview, and see what prints in the **Event Log** wind
 
 If you see ``nil`` instead, the most common reason is that your trigger is not in the same folder as the script. Look in your Hierarchy to check the following:
 
-1. The trigger is in the **Switch (networked)** folder.
-2. The trigger and **LightToggleScript** are in the same folder.
-3. The trigger's name in the Hierarchy is **Trigger**.
+- The trigger is in the **Switch (networked)** folder.
+- The trigger and **LightToggleScript** are in the same folder.
+- The trigger's name in the Hierarchy is **Trigger**.
 
 ![Script and Trigger in the Switch Folder](){: .center loading="lazy" }
 
+Once you know that the ``switchTrigger`` variable is pointing to the trigger in your game, you can delete the ``print`` line.
+
 ### Create a Function for the Trigger
 
-1. Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
+Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
 
-    After your rotation statement, type:
+After your rotation statement, type:
+
+```lua
+function OnSwitchInteraction()
+
+end
+```
+
+- A `function` is a set of actions that the script carries out every time the function is referenced in the script.
+- `OnSwitchInteraction` is the name of the function.
+- `end` tells the script the function is over.
+
+This function will define what happens when the player interacts with the trigger.
+
+### Move the Switch Code into the Function
+
+Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
+
+Cut and paste the ``RotateTo`` statement into our `onInteraction` function.
+
+It should now look like this:
+
+```lua
+local switch = script.parent
+local switchTrigger = switch:FindChildByName("Trigger")
+
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
+
+
+local function OnSwitchInteraction()
+    switch:RotateTo(onRotation, 2, true)
+end
+```
+
+### Connect the Function to an Event
+
+Lastly, you will need an event statement that tells the script to do the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
+
+```lua
+switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+```
+
+- `switchTrigger` is the variable name of this trigger.
+- `interactedEvent:Connect()` tells the script every time the player interacts with trigger to execute the function passed to the `Connect()` function.
+- `OnSwitchInteraction` is the name of the function we are connecting.
+
+Without this statement the script will never call the `OnSwitchInteraction` function.
+
+### Test Out the Script
+
+Your script should now look like this:
+
+```lua
+local switch = script.parent
+local switchTrigger = switch:FindChildByName("Trigger")
+
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
+
+
+local function OnSwitchInteraction()
+    switch:RotateTo(onRotation, 2, true)
+end
+
+switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+```
+
+1. Press **Play** to start a local preview.
+2. Walk up to the switch trigger and press ++F++ to interact with it. the switch should move up.
+
+![Switch with Interaction Label and Movement]()
+
+!!! note
+    Make sure that the trigger is **Interactable** if you do not see the option to press ++F++ pop up when you walk near it.
+
+### Speed Up the Movement
+
+Now that the switch is working, you can speed up the rotation to look more like real light switch.
+
+Change the `2` in the `RotateTo()` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
+
+`switch:RotateTo(Rotation.New(0, 90, 0), .5, true)`
+
+Press **Play** to test out the improved movement speed.
+
+### Best Practices: Organizing Your Code
+
+Organized code is easily read and understood. Using **clear variable and function names**, and adding **comments to explain the purpose** of sections of code will make your code easier to use by you in the future and by anyone else working with your scripts.
+
+Programmers use comments to define and explain certain parts of their code. Add comments to your code to make the purpose of each section clear.
+
+```lua
+local switch = script.parent
+local switchTrigger = switch:FindChildByType("Trigger")
+
+-- Function to rotate the switch
+local function OnSwitchInteraction()
+    switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
+end
+
+-- Connect the function to the trigger event
+switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+```
+
+As your scripts get longer, these practices will them easier to read and edit.
+
+---
+
+## Turning on the Light
+
+Your next project goal is to make the switch more function and have it spawn a light when players interact with it.
+
+### Add and Customize a Light
+
+1. Open the **Lighting** category of the **Core Content** window.
+2. Find the **Point Light** and drag it into the scene, on top of the lightbulb.
+3. With the **Point Light** selected in the **Hierarchy**, open the **Properties Window**.
+4. Lower the **Intensity** property until the light looks natural in your scene.
+5. In the **Lighting** section of **Properties**, check the box next to **Advanced Settings** to see more options to customize the light.
+6. Check the box for **Use Temperature**, and lower the **Temperature** property to create a warm glow color to the light.
+
+!["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .center loading="lazy" }
+
+### Create a Networked Template
+
+To spawn the light with the settings you just changed, it will need to be a template with networking enabled.
+
+1. Right click on the **Point Light** in the Hierarchy and select **Enable Networking**.
+2. Right click on the **Point Light** in the Hierarchy again and select **Create New Template from This**
+3. Name the template ``LightTemplate``.
+
+![Create New Template](../img/LightBulb/LightTemplate.png){: .center loading="lazy" }
+
+You should now be able to find your template, and drag out new copies of it from the **My Templates** section of the **Project Content** window.
+
+!!! warning "If you created the template without enabling networking, follow these steps to network it:"
+    1. Drag the template in into the Hierarchy (if it is not already there).
+    2. Right click it and select **Deinstance This Object**.
+    3. Right click it again and select **Enable Networking**.
+    4. Right click it again and select **Update Template From This**.
+    5. Delete the template from the Hierarchy.
+
+### Add the Template as a Custom Property of the Script
+
+1. Delete the **LightTemplate** from the Hierarchy. You don't need the light in the scene until a player turns on the light switch.
+2. Select the **LightToggleScript** in the Hierarchy and look at the **Properties** window.
+3. Look in the **Project Content** window for the **LightTemplate**.
+4. Drag the **LightTemplate** from Project Content into the Properties window of the **LightToggleScript**. This will add the template as a **Custom Property** of the script.
+
+!["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .center loading="lazy" }
+
+### Add the Custom Property Variable to the Script
+
+To be able to spawn the template, you will need a way to reference it in your script.
+
+!["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center loading="lazy" }
+
+1. Copy the code generated in the script's **Properties**. You can right click and select **Select All** to highlight all the text in the box.
+2. Open the **LightToggleScript** by double clicking it in the **Hierarchy**.
+3. On the first line, paste the code that you copied. It will look something like this:
+
+```lua
+local propLightTemplate = script:GetCustomPropert("LightTemplate")
+```
+
+- `propLightTemplate` is the name of the variable. You can change this variable name, but will have to make sure that you change it in this tutorial every single place `propLightTemplate` is used.
+- `script:GetCustomProperty("LightTemplate")` tells the script to look for the script's custom property named **LightTemplate** which references the unique ID of the `LightTemplate` object in **Project Content**.
+
+### Spawn the Template
+
+Next you will tell the script to spawn `lightTemplate` when the player interacts with the switch.
+
+In the `OnSwitchInteraction()` function under our `RotateTo()` statement, type:
+
+```lua
+World.SpawnAsset(propLightTemplate)
+```
+
+- `World` is a [collection of functions](core_api.md#world) for finding objects in the world.
+- `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so.
+- `propLightTemplate` is the variable that references the light template which you defined earlier.
+
+Your script should now look like this:
+
+```lua
+local propLightTemplate = script:GetCustomProperty("LightTemplate")
+
+local switch = script.parent
+local switchTrigger = switch:FindChildByName("Trigger")
+
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
+
+-- Function to rotate the switch
+-- and spawn the light
+local function OnSwitchInteraction()
+    switch:RotateTo(onRotation, 0.5, true)
+    World.SpawnAsset(propLightTemplate)
+end
+Th
+-- Connect the function to the trigger event
+switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+```
+
+Notice the updated **comment** to explain the new line in the `OnSwitchInteraction` function.
+
+### Test Spawning the Light
+
+1. Press **Play** and interact with the switch.
+2. Press ++Tab++ to pause gameplay and look in the Hierarchy. You should see **LightTemplate** at the bottom of the Hierarchy.
+3. Depending on where you are in the scene, you may even be able to see the light, which spawned at the **origin** of the project, at the coordinates **(0, 0, 0)**
+
+### Find the Correct Location for the Light
+
+The next step is to change the position of the light when it spawns.
+
+1. Open the **Light bulb** group in the Hierarchy and find the group named **Bulb**.
+2. When you select **Bulb**, the gizmo should be positioned in the center of the lightbulb, so you can use it to determine the light's position.
+
+!!! note
+    We could look up the global position of the **Bulb** and save it, the same way we found the rotation for the switch, but that would mean if you ever moved the lightbulb the light would not move with it. You would need to update the code yourself any time your move things. Instead we can find the bulb's position in the script and tell it to always spawn there, wherever that is.
+
+Add these variables to the top of your script:
+
+```lua
+local bulb = World.FindObjectByName("Bulb")
+local bulbPosition = bulb:GetWorldPosition()
+```
+
+- `bulb` is the name of our variable referencing the object
+- `FindObjectByName` is a Core function to find objects you wish to reference.
+- `bulbPosition` is the name of our variable defining where we want the light placed.
+- `bulb:GetWorldPosition()` gets the coordinates of the bulb object.
+
+### Improve the Light Location Code
+
+The ```GetWorldPosition`` function is very powerful, but will break if you name anything else in your entire project **Bulb**. This is not a problem in an empty project, but could be if, for example, you built a whole house full of lights and bulbs.
+
+Instead, you can look for the specific **Bulb** group that is part of this template, which will be the one that is a **child** of the template.
+
+```lua
+local lightBulbFolder = script:FindAncestorByName("Lightbulb & Switch")
+local bulb = lightBulbFolder:FindDescendantByName("Bulb")
+local bulbPosition = bulb:GetWorldPosition()
+```
+
+`World.FindObjectByName` still does the same thing, however.
+
+<!-- In this tutorial we have been showing you many ways of referencing objects: custom properties, `GetChildren()`, `FindObjectByName()`--use whichever you like best and suits your needs at the time. -->
+
+### Spawn the Light in the Correct Position
+
+The next step is to update the `SpawnAsset` function to spawn the light wherever the **Bulb** is. Fortunately, ``World.SpawnAsset``, takes extra **optional parameters**, which can be added in ``{}``.
+
+Find the `SpawnAsset` function and change it to include the bulbPosition as the position:
+
+```lua
+     World.SpawnAsset(propLightTemplate, { position = bulbPosition })
+```
+
+!!! hint
+    Be sure to use a comma ``,`` between the inputs into the function!
+
+### Test the Light Spawn
+
+By now, your script should look like this:
+
+```lua
+local lightBulbFolder = script:FindAncestorByName("Lightbulb & Switch")
+
+local bulb = lightBulbFolder:FindDescendantByName("Bulb")
+local bulbPosition = bulb:GetWorldPosition()
+
+local propLightTemplate = script:GetCustomProperty("LightTemplate")
+
+local switch = script.parent
+local switchTrigger = switch:FindChildByName("Trigger")
+
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
+
+-- Function to rotate the switch
+-- and spawn the light
+local function OnSwitchInteraction()
+    switch:RotateTo(onRotation, 0.5, true)
+    World.SpawnAsset(propLightTemplate, {position = bulbPosition})
+end
+
+-- Connect the function to the trigger event
+switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
+```
+
+Press **Play** and test out the script by interacting with the light.
+
+![LightBulb1](../img/LightBulb/image3.png "It's working!")
+*Excellent!*
+
+You have turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Eventually, this can cause performance issues with thousands of networked objects.
+
+## Turning the Switch Off
+
+### Create a Boolean Variable
+
+To turn the switch off again, you will create a variable that keeps track of whether the switch is **on** or **off**.
+
+Add this new variable to the top of your script:
+
+```lua
+local lightIsOn = false
+```
+
+- `lightIsOn` is the name of the variable we'll use to keep track of the switch being on and off.
+- `false` is a type of data called a **Boolean**. The starting state for the switch is false, because the light starts out off
+
+### Switch the Variable between True and False
+
+Next, we need to tell the script to swith `lightIsOn` from ``false`` to `true`, when we turn on the light.
+
+In the `OnSwitchInteraction()` function, type:
+
+```lua
+lightIsOn = not lightIsOn
+```
+
+Instead of just setting `lightIsOn` to `true`, this tells the script to change `lightIsOn` to whatever it is NOT set to.
+
+If `lightIsOn` is `false` it sets it to `true`, and vice versa. In other words, the value is **toggled** to the opposite state.
+
+### Test the Variable Toggle
+
+Test to see if the script correctly toggles between `lightIsOn = false` and `lightIsOn = true` when the player interacts with the switch.
+
+Anywhere in our `OnSwitchInteraction` function type:
+
+```lua
+print(lightIsOn)
+```
+
+- `print` tells the script to print to the Event Log window.
+- `lightIsOn` is the variable that will be printing.
+
+1. Open up the **Event Log** window from the **View** menu in the top bar.
+2. Keep this open and press **Play**.
+3. Press ++F++ to interact with the switch.
+
+The **Event Log** should print `true` or `false` every time you interact with the light switch. You can delete the `print` statement now.
+
+### Create an If Statement
+
+Now the script needs to know what to do specifically when the switch is on, and when it is not. An `if` statement will let you write code based on the state of other variables.
+
+In the `OnSwitchInteraction` function, after `lightIsOn = not lightIsOn` type:
+
+```lua
+    if not lightIsOn then
+
+    end
+```
+
+- `if` statements are handy when you need a certain series of actions to happen when a certain set of conditions is true.
+- `not lightIsOn` is the condition that must be met in order to execute the script inside our if statement.
+- `then` signifies the start of the code that will be performed if the conditions of the `if` statement are met.
+- `end` tells the script the `if` statement is over.
+
+Place the `switch:RotateTo()` statement and the `World.SpawnAsset()` function inside of your new `if` statement. Your `OnSwitchInteraction()` function should now look like this:
 
     ```lua
     local function OnSwitchInteraction()
-
-    end
-    ```
-
-    * A `function` is a set of actions that the script carries out every time the function is referenced in the script.
-    * `OnSwitchInteraction` is the name of our function.
-    * `end` tells the script the function is over.
-
-    This function will define what happens when the player interacts with the trigger.
-
-    Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
-
-2. Cut and paste the rotation statement from line 5 into our `onInteraction` function.
-    It should now look like this:
-
-    ```lua
-    local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
-
-    local function OnSwitchInteraction()
-        switch:RotateTo(Rotation.New(0, 90, 0), 2, true)
-    end
-    ```
-
-3. Lastly, you'll need an event statement that tells the script to actually do the `OnSwitchInteraction` function when the player interacts with the trigger. At the end of your script type:
-
-    ```lua
-    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
-
-    * `switchTrigger` is the name of our trigger.
-    * `interactedEvent:Connect()` tells the script every time the player interacts with trigger to execute the function passed to the `Connect()` function.
-    * `OnSwitchInteraction` is the name of the function we are connecting.
-
-    Without this statement the script wouldn't know to call the `OnSwitchInteraction` function when the player interacts with the trigger.
-
-    Our script should now look like this:
-
-    ```lua
-    local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
-
-    local function OnSwitchInteraction()
-        switch:RotateTo(Rotation.New(0, 90, 0), 2, true)
-    end
-
-    -- Connect our event to the trigger
-    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
-
-4. Press **Play** and see if our trigger is working properly.
-
-    Perfect! When the player presses ++F++ to interact with the trigger, our switch rotates up!
-
-5.  Let's speed up the switch's rotation animation now that we have the rotation and trigger working. Change the `2` in the `RotateTo()` statement to `0.5`. Now the switch will complete its rotation in 0.5 seconds.
-
-    `switch:RotateTo(Rotation.New(0, 90, 0), .5, true)`
-
-    !!! tip "Best Practices: Organizing your code"
-        It is important to keep your code organized so it is easily read and understood. You might come back to your project after not working on it for a while, or you might be collaborating with other people; in both cases it is nice to have an explanation of what your functions do. It can also make finding specific functions in your script easier.
-
-    Programmers use comments to define and explain certain parts of their code. See the example below for how you might comment on our current script.
-
-    ```lua
-        local switch = script.parent
-        local switchTrigger = switch:FindChildByType("Trigger")
-
-        -- Rotate the switch when the player interacts with switchTrigger
-        local function OnSwitchInteraction()
-            switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
-        end
-
-        -- Connect our event to the trigger
-        switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
-
-    At Core, we have our own set of coding conventions which you can read about [here](lua_style_guide.md).
-
-    As our script gets longer, these practices will make our script easier to read and edit.
-
-### Spawning a Light
-
-1. Let's make our light switch a little more functional and have it spawn a light when we interact with the switch.
-
-    Select the **Lighting** category in the **Core Content** tab. Any of the lights can be used for this tutorial, but let's use the **Point Light**. Drag the light into your Hierarchy, then adjust the way the light looks by editting its settings in the Properties tab.
-
-    To see this whole list of options, turn on the **Advanced Settings**.
-
-    !["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .center loading="lazy" }
-
-    I chose to turn down the light's *Intensity* because it was very bright in my scene. I also turned *Use Temperature* on and lowered the number to give the light a soft warm color.
-
-2. When you're done making adjustments, right click on the **Point Light** in the Hierarchy and select "**Enable Networking**" under the *Networking* section.
-
-    Anytime a script interacts with an object or asset the object needs to be networked.
-
-3. Right click on the **Point Light** in your Hierarchy and select "**Create New Template from This**" under *Templates* in the menu. Let's call our new template "**LightTemplate**".
-
-    !["Create New Template"](../img/LightBulb/LightTemplate.png "This window pops up when you create a new template."){: .center loading="lazy" }
-
-4. Delete the **LightTemplate** from the Hierarchy. We don't want the light in our scene until we turn on the light switch.
-
-5. Click on our script `LightToggleScript` in the Hierarchy and look at the **Properties** tab. Look in your **Project Content** window for the LightTemplate that we just made.
-
-    So with the Properties of the `LightToggleScript` open, drag the **LightTemplate** from Project Content into the Properties window of the `LightToggleScript`. This will add the template as a custom property to our script so that we can easily access it!
-
-    !["Custom Properties"](../img/LightBulb/customAssetRefDrag.png "Custom Properties are added like a list here."){: .center loading="lazy" }
-
-    You could also do this same thing by clicking the *Add Custom Property* button at the bottom of the Properties window, and selecting the type "Asset Reference". Then drag your template from Project Content into the new custom property.
-
-    !["Adding a New Custom Property"](../img/LightBulb/image14.png "This window pops up when adding a new custom property."){: .center loading="lazy" }
-
-    Congrats! You just added your first custom property to a script.
-
-6. Now we need to tell the script how to find our light template and to spawn it whenever the player turns on the light.
-
-    !["Custom Properties"](../img/LightBulb/customPropRefs.png "Copy the list of custom property variables to use them in your scripts."){: .center loading="lazy" }
-
-    First, we add a new variable to our `LightToggleScript`. When you make custom properties, Core generates a small script of all those variable references in Lua. To copy those into our script real quick, right click into that black box and select all & copy it into the top of our script.
-
-    ```lua
-    local propLightTemplate = script:GetCustomProperty("LightTemplate")
-    ```
-
-    * `propLightTemplate` is the name of our variable. Remember we want to keep our names straightforward. Because we will be using this variable to spawn template we just made, we're going to call it `proplightTemplate`.
-    * `script:GetCustomProperty("LightTemplate")` tells the script to look for our scripts custom property called "**LightTemplate**" which references our `LightTemplate` object in **Project Content**.
-
-7. Now we need to tell the script to spawn `lightTemplate` when the player interacts with the switch and where to spawn it.
-
-    In our `OnSwitchInteraction()` function under our `RotateTo()` statement, type:
-
-    ```lua
-    World.SpawnAsset(propLightTemplate, {position=Vector3.New(0, 0, 0)})
-    ```
-
-    * `World` is a [collection of functions](core_api.md#world) for finding objects in the world.
-    * `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so.
-    * `propLightTemplate` is the variable we'll be spawning. Because we already defined the variable `lightTemplate`, the script knows to spawn the template attached to the script's custom property "**Light**".
-    * `Vector3.New(0, 0, 0)` tells the function where in the scene the script will spawn our template. Currently the script will place our light template at coordinates "0 0 0". We will need to change this part to spawn the light in our light bulb, but for now let's check to see if our new lines of code work.
-
-    Your script should now look like this:
-
-    ```lua
-    local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
-    local propLightTemplate = script:GetCustomProperty("LightTemplate")
-
-    -- Rotate the switch and spawn a light
-    -- when the player interacts with switchTrigger
-    local function OnSwitchInteraction()
-        switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
-        World.SpawnAsset(propLightTemplate, {position=Vector3.New(0, 0, 0)})
-    end
-
-    -- Connect our event to the trigger
-    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
-
-    Notice how we updated the comment describing what our `OnSwitchInteraction` function does.
-
-8. Press **Play** and interact with the switch. Now press ++tab++ to pause gameplay and look in the Hierarchy. You should see "**LightTemplate**" at the bottom of the Hierarchy. Depending on where you are in the scene, you may even be able to see the light, which spawned at coordinates "0 0 0".
-
-9. Time to change the spawn location to the light bulb.
-
-    Click on and open the **Light bulb** group in the Hierarchy. See the group named "**Filaments**"? As this group is located in the center of the bulb, it would be the perfect location for our light to spawn at.
-
-    We could look up the global position of the **Filaments** and plug them into our code, but that would mean if we ever moved the light bulb we would have to go into our script and update it - which we might forget to do, resulting in a random floating light in our game.
-
-    Instead we can find the filaments' position in the script and use that, which is a lot easier in the long run as we'll be able to move the light bulb anywhere we want without worrying about updating the script every time.
-
-    Let's start with the variables:
-
-    ```lua
-    local filaments = World.FindObjectByName("Filaments")
-    local bulbPosition = filaments:GetWorldPosition()
-    ```
-
-    * `filaments` is the name of our variable defining which objects are the filaments in our scene.
-
-    * `FindObjectByName` is a Core function to find objects you wish to reference. Very handy if they are nested deep within many groups and folders. We could have defined filaments as:
-
-        ```lua
-        local lightBulbFolder = script.parent.parent:GetChildren()[1]
-        local filaments = lightBulbFolder:GetChildren()[1]
-        local bulbPosition = filaments:GetWorldPosition()
-        ```
-
-        but `FindObjectByName` does the same thing with less lines of code.
-
-        !!! tip
-            In this tutorial we have been showing you many ways of referencing objects: custom properties, `GetChildren()`, `FindObjectByName()`--use whichever you like best and suits your needs at the time.
-
-    * `Filaments` is the name of the object in the hierarchy we want to reference. If you have many objects in your game named the same thing, the script will use the first one it finds. If we made a copy of the **filaments** group in the same folder, the script would use whichever one comes first in the hierarchy (i.e. the first child of the folder will be chosen over the second child, how mean.).
-
-    * `bulbPosition` is the name of our variable defining where we want the light placed.
-
-    * `filaments:GetWorldPosition()` gets the coordinates of our filament object.
-
-10. We now need to update our `SpawnAsset` function to spawn the light wherever the **Filaments** are. Find our `SpawnAsset` function and change `Vector3.New(0, 0, 0)` to `bulbPosition`. Our script should now look like this:
-
-    ```lua
-    local switch = script.parent
-    local switchTrigger = switch:FindChildByType("Trigger")
-    local propLightTemplate = script:GetCustomProperty("LightTemplate")
-    local filaments = World.FindObjectByName("Filaments")
-    local bulbPosition = filaments:GetWorldPosition()
-
-    -- Rotate the switch and spawn a light
-    -- when the player interacts with switchTrigger
-    local function OnSwitchInteraction()
-        switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
-        World.SpawnAsset(propLightTemplate, { position = bulbPosition })
-    end
-
-    -- Connect our event to the trigger
-    switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
-    ```
-
-11. Press **Play** and test out the script by interacting with the light.
-
-    <!-- TODO: Replace with gif -->
-    ![LightBulb1](../img/LightBulb/image3.png "It's working!")
-    *Excellent!*
-    {: .image-cluster}
-
-You've turned on the light. If you keep interacting with the light switch you'll notice it continually spawns lights, making the light bulb brighter and brighter. Which is fine if that's what you wanted (and you're not the one footing the electric bill) but we want to flip the switch back and turn off the light.
-
-### Turning the Switch Off
-
-1. In order to turn the switch off again, we need to create a variable that keeps track of whether the switch is on or off.
-
-    As always, let's start with the variables:
-
-    ```lua
-    local isLightOn = false
-    ```
-
-    * `isLightOn` is the name of the variable we'll use to keep track of the switch being on and off. Because we start with the switch off, `false`is the starting state for the switch.
-
-2. Next, we need to tell the script to set `isLightOn` to `true`, when we turn on the light. In the `OnSwitchInteraction()` function, type:
-
-    ```lua
-    isLightOn = not isLightOn
-    ```
-
-    * Instead of just setting `isLightOn` to `true`, this tells the script to change `isLightOn` to whatever it is NOT set to. If `isLightOn` is `false` it sets it to `true`, and vice versa. In other words, the value is toggled to the state it is not currently at.
-
-3. Let's see if our script correctly toggles between `isLightOn = false` and `isLightOn = true` when the player interacts with the switch. Anywhere in our `OnSwitchInteraction` function type:
-
-    ```lua
-    print(isLightOn)
-    ```
-
-    * `print` tells the script to print to the Event Log window.
-    * `isLightOn` is the variable that will be printing.
-
-    It doesn't matter where in the function you typed this as we'll delete this later. Right now we only want to know if the switch is correctly toggling our `isLightOn` variable.
-
-    Open up the **Event Log** tab from the **View** menu in the top bar. Keep this open and press **Play**. Interact with the switch. The Event Log should print `true` or `false` every time you interact with the light switch. You can delete the `print` statement now.
-
-    Now the script needs to know what to do specifically when the switch is on, and when it is not. We need an `if` statement for this. In the `OnSwitchInteraction` function, after `isLightOn = not isLightOn` type:
-
-    ```lua
-    if not isLightOn then
-
-    end
-    ```
-
-    * `if` statements are handy when you need a certain series of actions to happen when a certain set of conditions is true. Here is an example of how this might apply to a real life situation:
-
-        ```lua
-        if door == unlocked then
-            Enter()
-        end
-        ```
-
-    * `not isLightOn` is the condition that must be met in order to execute the script inside our if statement.
-
-    * `then` signifies the start of the code that will be performed if the conditions of the `if` statement are met.
-
-    * `end` tells the script the `if` statement is over.
-
-    Place the `switch:RotateTo()` statement and the `World.SpawnAsset()` function inside of your new `if` statement. Your `OnSwitchInteraction()` function should now look like this:
-
-    ```lua
-    local function OnSwitchInteraction()
-        if not isLightOn then
+        if not lightIsOn then
             switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
             World.SpawnAsset(propLightTemplate, { position = bulbPosition })
         end
 
-        isLightOn = not isLightOn
+        lightIsOn = not lightIsOn
     end
     ```
 
-4. Press **Play** and make sure everything still works.
+1. Press **Play** and make sure everything still works.
 
-    A light should have spawned every other time you interacted with the switch, instead of every time. The light is only spawning when we toggle `isLightOn` to `false`. Progress!
+    A light should have spawned every other time you interacted with the switch, instead of every time. The light is only spawning when we toggle `lightIsOn` to `false`. Progress!
 
-5. The next step is to tell the script to turn the switch downwards when the light is off. To tell the switch how to rotate back to where it started, we need to know where it started in the first place.
+2. The next step is to tell the script to turn the switch downwards when the light is off. To tell the switch how to rotate back to where it started, we need to know where it started in the first place.
 
     At the top of your script where you have been typing all your variables, add this variable:
 
@@ -621,18 +701,18 @@ You've turned on the light. If you keep interacting with the light switch you'll
 
     ```lua
     local function OnSwitchInteraction()
-        if not isLightOn then
+        if not lightIsOn then
             switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
             World.SpawnAsset(propLightTemplate, { position = bulbPosition })
         else
             switch:RotateTo(switchStartingRotation, 0.5, true)
         end
 
-        isLightOn = not isLightOn
+        lightIsOn = not lightIsOn
     end
     ```
 
-6. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn (delete) the light when the light switch is turned off.
+3. Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to de-spawn (delete) the light when the light switch is turned off.
 
 ### Turning the Light Off
 
@@ -661,7 +741,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     -- Rotate the switch and turn on and off the light
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
-        if not isLightOn then
+        if not lightIsOn then
             switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
             World.SpawnAsset(propLightTemplate, { position = bulbPosition })
         else
@@ -671,7 +751,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
             spawnedLight:Destroy()
         end
 
-        isLightOn = not isLightOn
+        lightIsOn = not lightIsOn
     end
     ```
 
@@ -724,7 +804,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     local propLightTemplate = script:GetCustomProperty("LightTemplate")
     local filaments = World.FindObjectByName("Filaments")
     local bulbPosition = filaments:GetWorldPosition()
-    local isLightOn = false
+    local lightIsOn = false
 
     -- Update light switch's label
     local function UpdateLabel()
@@ -734,7 +814,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
     -- Rotate the switch and turn on and off the light
     -- when the player interacts with switchTrigger
     local function OnSwitchInteraction()
-        if not isLightOn then
+        if not lightIsOn then
             -- turn the light on
             switch:RotateTo(Rotation.New(0, 90, 0), .5, true)
             World.SpawnAsset(propLightTemplate, { position = bulbPosition })
@@ -745,7 +825,7 @@ You've turned on the light. If you keep interacting with the light switch you'll
             spawnedLight:Destroy()
         end
 
-        isLightOn = not isLightOn
+        lightIsOn = not lightIsOn
     end
 
     -- Connect our event to the trigger
