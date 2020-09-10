@@ -972,4 +972,4 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 
 ## Learn More
 
-[Custom Materials](custom_materials.md) | [Complex Modeling](modeling_reference.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
+[Scripting in Core](scripting_intro.md) | [Core API](core_api.md) | [Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/)
