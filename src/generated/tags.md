@@ -45,6 +45,8 @@ title: Tags
 
 - [Modeling Complex Objects](modeling_reference.md)
 
+- [Networking in Core](networking.md)
+
 - [The Object Generator Tool](object_generator.md)
 
 - [Official D&D RPG Framework Documentation](rpg_framework_documentation.md)
@@ -80,9 +82,11 @@ title: Tags
 
 - [GitHub and Core](github.md)
 
-- [Scripting in Core](lua_basics_lightbulb.md)
+- [Scripting in Core (Beginner)](lua_basics_helloworld.md)
 
-- [Advanced Scripting in Core](lua_basics_manticoin.md)
+- [Scripting in Core (Intermediate)](lua_basics_lightbulb.md)
+
+- [Scripting in Core (Advanced)](lua_basics_manticoin.md)
 
 - [Lua Style Guide](lua_style_guide.md)
 

@@ -20,6 +20,7 @@ const personalDictionary = fs.existsSync(personalDictionaryPath)
 exports.plugins = [
     "preset-lint-markdown-style-guide",
     ["lint-maximum-line-length", 999],
+    ["lint-maximum-heading-length", 999],
     ["lint-emphasis-marker", "consistent"],
     ["lint-ordered-list-marker-value", "ordered"],
     ["lint-unordered-list-marker-style", "consistent"],

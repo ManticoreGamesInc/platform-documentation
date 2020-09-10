@@ -43,8 +43,10 @@ nav:
         - Abilities: tutorials/abilities.md
         - Weapons: tutorials/weapons.md
         - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
-        - Scripting: tutorials/lua_basics_lightbulb.md
-        - Scripting (Advanced): tutorials/lua_basics_manticoin.md
+        - Scripting:
+          - Scripting (Beginner): tutorials/lua_basics_helloworld.md
+          - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
+          - Scripting (Advanced): tutorials/lua_basics_manticoin.md
         - Persistent Storage: tutorials/persistent_storage.md
         - Scene Creation: tutorials/scene_creation.md
         - Environment Art: tutorials/environment_art.md
@@ -68,6 +70,7 @@ nav:
         - Publishing Checklist: getting_started/publishing_checklist.md
         - Performance Panel: getting_started/performance_panel.md
         - Play-Mode Profiler: getting_started/profiler.md
+        - Networking: tutorials/networking.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md

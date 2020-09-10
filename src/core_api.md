@@ -1571,7 +1571,7 @@ For security reasons, various built-in Lua functions have been restricted or rem
 
 ### MUIDs
 
-MUIDs are internal identifiers for objects and assets within your game. They are guaranteed to be unique within the game and likely to be unique globally. You can copy a MUID to the clipboard automatically by right-clicking assets in the Asset Manifest or placed objects in the Hierarchy. The MUID will look something like this:
+MUIDs are internal identifiers for objects and assets within your game. They are guaranteed to be unique within the game and likely to be unique globally. You can copy a MUID to the clipboard automatically by right-clicking assets in Project Content or placed objects in the Hierarchy. The MUID will look something like this:
 
 8D4B561900000092:Rabbit
 
