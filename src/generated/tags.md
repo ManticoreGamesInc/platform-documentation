@@ -45,6 +45,8 @@ title: Tags
 
 - [Modeling Complex Objects](modeling_reference.md)
 
+- [Networking in Core](networking.md)
+
 - [The Object Generator Tool](object_generator.md)
 
 - [Official D&D RPG Framework Documentation](rpg_framework_documentation.md)
