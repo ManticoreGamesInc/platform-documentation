@@ -1,6 +1,6 @@
 # Description
 
-Please include a summary of the change and which issue is fixed. 
+Please include a summary of the change and which issue is fixed.
 <!-- A #ticketNumber will be sufficient, delete if not applicable -->
 Fixes #(issue)
 
@@ -12,4 +12,3 @@ Please delete options that are not relevant.
 - [ ] New content (non-breaking change which adds functionality)
 
 <!-- If this is your first time contributing and you want to get the shiny Documentation Contributor role on our Discord, please add your Discord username below -->
-
