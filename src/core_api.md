@@ -330,8 +330,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindTemplateRoot()` | CoreObject | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectfindtemplateroot "Coreobject: FindTemplateRoot Example") | None |
 | `IsAncestorOf(CoreObject)` | bool | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectisancestorof "Coreobject: IsAncestorOf Example") | None |
 | `GetCustomProperties()` | table | Returns a table containing the names and values of all custom properties on a CoreObject. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectgetcustomproperties "Coreobject: GetCustomProperties Example") | None |
-| `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectgetcustomproperty "Coreobject: GetCustomProperty Example") | None |
-| `SetNetworkedCustomProperty(string propertyName, value)` | bool | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectsetnetworkedcustomproperty "Coreobject: SetNetworkedCustomProperty Example") | Server-Only |
+| `GetCustomProperty(string propertyName)` | value, bool | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a bool, true if found and false if not. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectgetcustomproperty "Coreobject: GetCustomProperty Example") | None |
+| `SetNetworkedCustomProperty(string propertyName, value)` | bool | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) [:fontawesome-solid-info-circle:](../api/examples/#coreobjectsetnetworkedcustomproperty "Coreobject: SetNetworkedCustomProperty Example") | Server-Only |
 | `AttachToPlayer(Player, string socketName)` | None | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](api/animations.md#socket-names) for the list of possible values. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectattachtoplayer "Coreobject: AttachToPlayer Example") | Dynamic |
 | `AttachToLocalView()` | None | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectattachtolocalview "Coreobject: AttachToLocalView Example") | Client-Only, Dynamic |
 | `Detach()` | None | Detaches a CoreObject from any player it has been attached to, or from its parent object. [:fontawesome-solid-info-circle:](../api/examples/#coreobjectdetach "Coreobject: Detach Example") | Dynamic |
@@ -484,6 +484,17 @@ A data structure containing all information about a specific Weapon interaction,
 | `travelDistance` | Number | The distance in cm between where the Weapon attack started until it impacted something. [:fontawesome-solid-info-circle:](../api/examples/#impactdatatraveldistance "Impactdata: travelDistance Example") | Read-Only |
 | `isHeadshot` | bool | True if the Weapon hit another player in the head. [:fontawesome-solid-info-circle:](../api/examples/#impactdataisheadshot "Impactdata: isHeadshot Example") | Read-Only |
 
+### LeaderboardEntry
+
+A data structure containing a player's entry on a leaderboard. See the `Leaderboards` API for information on how to retrieve or update a `LeaderboardEntry`.
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `id` | string | The ID of the `Player` whose entry this is. | Read-Only |
+| `name` | string | The name of the `Player` whose entry this is. | Read-Only |
+| `score` | Number | The Player's score. | Read-Only |
+| `additionalData` | string | Optional additional data that was submitted along with the Player's score. (See `Leaderboards.SubmitPlayerScore()` for more information.) | Read-Only |
+
 ### Light
 
 Light is a light source that is a CoreObject. Generally a Light will be an instance of some subtype, such as PointLight or SpotLight.
@@ -502,6 +513,14 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 | `temperature` | Number | Color temperature in Kelvin of the blackbody illuminant. White (D65) is 6500K. | Read-Write, Dynamic |
 | `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write, Dynamic |
 | `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
+
+### NetReference
+
+A reference to a network resource, such as a player leaderboard. NetReferences are not created directly, but may be returned by `CoreObject:GetCustomProperty()`.
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `isAssigned` | bool | Returns true if this reference has been assigned a value. This does not necessarily mean the reference is valid, but does mean it is at least not empty. | Read-Only |
 
 ### NetworkContext
 
@@ -788,9 +807,10 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Operator | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Rotation + Rotation` | Rotation | Add two rotations together. [:fontawesome-solid-info-circle:](../api/examples/#rotation+rotation "Rotation: Rotation+Rotation Example") | None |
-| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: Rotation-Rotation Example") | None |
-| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation*number "Rotation: Rotation*Number Example") | None |
+| `Rotation + Rotation` | Rotation | Add two rotations together. Note that this adds the individual components together, and may not provide the same result as if the two rotations were applied in sequence. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation+rotation "Rotation: Rotation+Rotation Example") | None |
+| `Rotation - Rotation` | Rotation | Subtract a rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation-rotation "Rotation: Rotation-Rotation Example") | None |
+| `Rotation * Rotation` | Rotation | Combines two rotations, with the result applying the right rotation first, then the left rotation second. | None |
+| `Rotation * Number` | Rotation | Returns the scaled rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotationrotation*number "Rotation: Rotation*Number Example") | None |
 | `-Rotation` | Rotation | Returns the inverse rotation. [:fontawesome-solid-info-circle:](../api/examples/#rotation-rotation "Rotation: -Rotation Example") | None |
 | `Rotation * Vector3` | Vector3 | Rotates the right-side vector and returns the result. [:fontawesome-solid-info-circle:](../api/examples/#rotation*vector3 "Rotation: Rotation*Vector3 Example") | None |
 
@@ -1405,6 +1425,16 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.roundEndEvent` | Event | Fired when EndRound is called on game. [:fontawesome-solid-info-circle:](../api/examples/#gameroundendevent "Game: roundEndEvent Example") | None |
 | `Game.teamScoreChangedEvent` | Event&lt;Integer team&gt; | Fired whenever any team's score changes. This is fired once per team who's score changes. [:fontawesome-solid-info-circle:](../api/examples/#gameteamscorechangedevent "Game: teamScoreChangedEvent Example") | None |
 
+### Leaderboards
+
+The Leaderboards namespace contains a set of functions for retrieving and updating player leaderboard data. Use the Global Leaderboards tab in the Core Editor to configure leaderboards for your game. Then drag a leaderboard from the Global Leaderboards tab to a `NetReference` custom property for use with the Leaderboards API.
+
+| Class Function | Return Type | Description | Tags |
+| -------------- | ----------- | ----------- | ---- |
+| `Leaderboards.HasLeaderboards()` | bool | Returns `true` if any leaderboard data is available. Returns `false` if leaderboards are still being retrieved, or if there is no leaderboard data. | None |
+| `Leaderboards.GetLeaderboard(NetReference leaderboardRef, LeaderboardType)` | Array&lt;LeaderboardEntry&gt; | Returns a table containing a list of entries for the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This returns a copy of the data that has already been retrieved, so calling this function does not incur any additional network cost. If the requested leaderboard type has not been enabled for this leaderboard, an empty table will be returned. Supported leaderboard types include:<br/>`LeaderboardType.GLOBAL`<br/>`LeaderboardType.DAILY`<br/>`LeaderboardType.WEEKLY`<br/>`LeaderboardType.MONTHLY` | None |
+| `Leaderboards.SubmitPlayerScore(NetReference leaderboardRef, Player player, Number score, [string additionalData])` | None | Submits a new score for the given Player on the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This score may be ignored if the player already has a better score on this leaderboard. The optional `additionalData` parameter may be used to store a very small amount of data with the player's entry. If provided, this string must be 8 characters or fewer. (More specifically, 8 bytes when encoded as UTF-8.) | Server-Only |
+
 ### Storage
 
 The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.
@@ -1446,9 +1476,9 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.ShowDamageDirection(Vector3 worldPosition)` | None | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
 | `UI.ShowDamageDirection(CoreObject source)` | None | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
 | `UI.ShowDamageDirection(Player source)` | None | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
-| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return nil if the cursor position cannot be determined. | Client-Only |
-| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or nil if worldPosition is behind the camera. Only gives results from a client context. | Client-Only |
-| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return nil if the screen size cannot be determined. | Client-Only |
+| `UI.GetCursorPosition()` | Vector2 | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return `nil` if the cursor position cannot be determined. | Client-Only |
+| `UI.GetScreenPosition(Vector3 worldPosition)` | Vector2 | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or `nil` if worldPosition is behind the camera. Only gives results from a client context. | Client-Only |
+| `UI.GetScreenSize()` | Vector2 | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return `nil` if the screen size cannot be determined. | Client-Only |
 | `UI.PrintToScreen(string message, [Color])` | None | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
 | `UI.IsCursorVisible()` | bool | Returns whether the cursor is visible. | Client-Only |
 | `UI.SetCursorVisible(bool isVisible)` | None | Sets whether the cursor is visible. | Client-Only |
