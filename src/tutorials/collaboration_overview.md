@@ -33,6 +33,9 @@ All of your Core projects, called **Maps** are files saved on your computer, so 
 
 ### Using Community-Created Content
 
+Core creators have made a vast array of models, utilities, and even complete games that are freely available for you to use in your own projects. **Community Content** can be imported from within the Core Editor, and allows you to gather assets and utilities in your game, as well as share things you make with other creators.
+
+#### The Community Content Window
 - Community Content
 - Open Games
 
@@ -50,7 +53,9 @@ Games are made using a wide variety of different skills, and one of the greatest
 ### Management
 
 - Project Manager
+    Keeps track of all the work that needs to be done to get the project to the next stage, usually setting deadlines and leading meetings where team members sync up about the current status of their individual tasks
 - Community Manager
+
 
 ### Programming
 
