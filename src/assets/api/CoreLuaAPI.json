@@ -3923,6 +3923,66 @@
 			]
 		},
 		{
+			"Name": "LeaderboardEntry",
+			"Properties": [
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "score",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "additionalData",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Light",
 			"BaseType": "CoreObject",
 			"Properties": [
@@ -4022,6 +4082,45 @@
 						"Dynamic"
 					]
 				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "NetReference",
+			"Properties": [
+				{
+					"Name": "isAssigned",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -10231,6 +10330,73 @@
 			]
 		},
 		{
+			"Name": "Leaderboards",
+			"StaticFunctions": [
+				{
+					"Name": "SubmitPlayerScore",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "leaderboardReference"
+								},
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "number",
+									"Name": "score"
+								},
+								{
+									"Type": "string",
+									"Name": "additionalData"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetLeaderboard",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "leaderboardReference"
+								},
+								{
+									"Type": "LeaderboardType",
+									"Name": "leaderboardType"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "HasLeaderboards",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Storage",
 			"StaticFunctions": [
 				{
@@ -10878,6 +11044,27 @@
 				{
 					"Name": "FACE_MOVEMENT",
 					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "LeaderboardType",
+			"Values": [
+				{
+					"Name": "GLOBAL",
+					"Value": 0
+				},
+				{
+					"Name": "DAILY",
+					"Value": 1
+				},
+				{
+					"Name": "WEEKLY",
+					"Value": 2
+				},
+				{
+					"Name": "MONTHLY",
+					"Value": 3
 				}
 			]
 		},
