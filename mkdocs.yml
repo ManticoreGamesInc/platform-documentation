@@ -34,6 +34,8 @@ nav:
         - Unity: other_platforms/unity.md
         - Roblox: other_platforms/roblox.md
         - World of Warcraft: other_platforms/world_of_warcraft.md
+      - Best Practices:
+        - Collaboration: collaboration_overview.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
