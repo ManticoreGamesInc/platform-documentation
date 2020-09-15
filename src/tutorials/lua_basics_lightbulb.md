@@ -85,9 +85,9 @@ Deinstancing allows you to make changes to a particular copy of a template witho
 
 We want our light switch to function just like a real one: the switch will point up or down depending on whether the light is turned on or off.
 
-First you wil need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is.
+First you will need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is.
 
-To move the switch, we need a away to talk about the specific
+To move the switch, we need a way to talk about the specific object from the game space in code.
 
 Type the following into Line 1 of `LightToggleScript`:
 
@@ -131,8 +131,8 @@ Your rotations may be different, but will most likely look like this:
 
 |  On / Off | X | Y | Z |
 | --- | --- | --- | --- |
-|  Off | -180 | -60 | 180 |
 |  On | -0 | -60 | 0 |
+|  Off | -180 | -60 | 180 |
 
 ## Scripting the Rotation
 
@@ -141,8 +141,8 @@ Your rotations may be different, but will most likely look like this:
 Now that you know the rotations of the switch for "on" and "off", you can save them as variables. On the next line of your `LightToggleScript` add these lines:
 
 ```lua
-local onRotation = Rotation.New(0, 60, 0)
-local offRotation = Rotation.New(0, -30, 0)
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
 ```
 
 - `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates.
@@ -169,8 +169,8 @@ The script should now look like this:
 ```lua
 local switch = script.parent
 
-local onRotation = Rotation.New(0, 60, 0)
-local offRotation = Rotation.New(0, -30, 0)
+local onRotation = Rotation.New(0, -60, -0)
+local offRotation = Rotation.New(-180, -60, 180)
 
 switch:RotateTo(onRotation, 2)
 ```
@@ -258,7 +258,7 @@ switch:RotateTo(onRotation, 2, true)
 
 Getting in the habit of testing references will help you find bugs in code before they become a problem.
 
-Add this code on the third line of your script, after line that makes the `switchTrigger` variable:
+Add this code on the third line of your script, after the line that makes the `switchTrigger` variable:
 
 ```lua
 print(switchTrigger)
@@ -391,7 +391,7 @@ end
 switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 ```
 
-As your scripts get longer, these practices will them easier to read and edit.
+As your scripts get longer, these practices will make them easier to read and edit.
 
 ---
 
@@ -601,7 +601,7 @@ local lightIsOn = false
 
 ### Switch the Variable between True and False
 
-Next, we need to tell the script to swith `lightIsOn` from ``false`` to `true`, when we turn on the light.
+Next, we need to tell the script to switch `lightIsOn` from `false` to `true`, when we turn on the light.
 
 In the `OnSwitchInteraction()` function, type:
 
