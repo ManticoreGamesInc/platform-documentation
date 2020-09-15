@@ -14,6 +14,8 @@ tags:
 
 Templates can be identified in the **Project Content** window by this icon: ![TemplateIcon](../img/EditorManual/UI/templateicon.png "Templates are signified by a set of three cubes."){: .image-inline-text .image-background}
 
+This document will explain how to **create templates**, **publish** them to Community Content, **republish**
+
 ### When to Use Templates
 
 - **Saving templates locally** allows you to make changes across every copy of the template across a project. When one template is updated, it updates every instance of the template.
@@ -90,7 +92,35 @@ You can search for the published template in the **Community Content** window. T
 
 ![TemplateTut4](../img/EditorManual/UI/TemplateTut6.png "image_tooltip"){: .center loading="lazy" }
 
-## Changing and Updating Templates
+## Publishing Template Packs
+
+For Community Content, it often makes sense to publish **more than one template** together as a pack. This works exactly the same as publishing a single template, except that you use ++Ctrl++ to select multiple templates. Once all the templates for the pack are selected, you can use the **Publish Content** button or right click and select **Publish to Community Content** to publish the templates together as a single package on Community Content.
+
+## Exporting Templates
+
+Templates can also be shared as files, which is particular useful when creating a template to be used by another creator that you do not want to share generally in Community Content. All templates exist as **.pbt** files in your the project folder (**Map**). However, to share a template with all of its custom materials packaged with it, you will need to use the Core **Export**.
+
+!!! note
+    The template files that you export in Core are not model files, like a ``.blend`` file, but rather assembly instructions to create your template using Core assets, so it will not be possible to import them into a program besides Core.
+
+### Export a Template
+
+1. In the **Project Content** window, open the **My Templates** section, and locate the template that you want to share.
+2. Right click the template and select **Export**. This exports the file and opens up a folder called **Templates** in from your Project Folder
+3. Select the file that has the name of your template, followed by the **.pbt** file type. This can be e-mailed, sent via chat programs or uploaded to a cloud drive like any file.
+
+### Add a Template File to your Project
+
+1. Open your project directory from the Core Editor by going to **File** > **Show Project in Explorer**.
+2. Open the **Data** folder, and then the **Templates** folder.
+3. Close the project in the Core Editor by going to **File** > **Back to Main Menu**.
+4. Move your template **.pbt** file into the **Templates** folder.
+5. Open the project again in the Editor, and find your added template in the **Project Content** window under **My Templates**.
+
+!!! note
+    If you add a template while the project is open, it will not appear in the **My Templates** folder, and then will be deleted by the next save, so always close the project before adding a **.pbt** file.
+
+## Updating Templates in a Project
 
 Once a 3D model is made into a template, it will resist changes besides positioning and resizing all of its dimensions together to preserve its basic shape. To make changes to the materials, dimensions, or individual pieces of a template, it will need to be **deinstanced**.
 
@@ -127,7 +157,9 @@ To change all of the instances of a template, you will need to deinstance and mo
     </video>
 </div>
 
-### Republish a Template
+## Republishing a Template
+
+### Republish a Shared Template
 
 Updating templates with change all the instances in your game, but to update the version that has been published to **Community Content**, we will need to re-publish the template.
 
