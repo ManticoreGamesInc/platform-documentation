@@ -37,6 +37,7 @@ nav:
       - Best Practices:
         - Collaboration: collaboration_overview.md
         - GitHub and Core: tutorials/github.md
+        - Lua Style Guide: tutorials/lua_style_guide.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md

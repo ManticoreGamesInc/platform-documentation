@@ -1,3 +1,11 @@
+---
+id: collaboration_in_core
+name: Collaboration in Core
+title: Collaboration in Core
+tags:
+    - Reference
+---
+
 # Collaboration in Core
 
 ## Introduction
@@ -102,7 +110,7 @@ Although it is not possible for creators to be working on the same project in th
 
 Templates are a way to package things you have created in Core. They can be used to turn a kitbashed model into a spawnable asset, or create several copies of an prop in your game that can be updated all at once. They are also extremely useful for passing assets between games, either by publishing them to community content, or sharing them as files. To learn more about how to do this, see the [template reference](template_reference.md).
 
-### Github
+### GitHub
 
 **Git** is a system for managing software projects with multiple contributors, and [GitHub](https://github.com/) is just one of many available systems. To learn more about setting up a project on GitHub, see the [GitHub tutorial](github.md)
 
@@ -113,10 +121,9 @@ Templates are a way to package things you have created in Core. They can be used
 
 There are many different ways to structure a project's Git branches, but this structure can work as a guideline to set up a project to maintain over multiple publishing cycles.
 
-- **Published** gets updated when you publish the game, and not updated again until you republish. This way you can always change your project back to match the published version or compare to it to see everything that will change with the next one.
-- **Master** is the most recent but fully stable version of your game. This is the version you will publish next
-- **Development** is where you will primarily be working, integrating new experiement features as your project continues.
-- **Experimental Feature** make a new branch for each new feature that you are going to create, so that you can feel free to experiment with new ideas that might break your project, but without actually breaking it!
+- **publish**: This branch gets updated when you publish the game, and not updated again until you republish. This way you can always change your project back to match the published version or compare to it to see everything that will change with the next one.
+- **main**: This is your main branch. It is the most recent but fully stable version of your game. This is the version you will publish next.
+- **feature-name branches**: Every time you or your team mates want to start working on a new feature, make a new branch for each of them, so that you can feel free to experiment with new ideas that might break your project, but without actually breaking it!
 
 #### Folders
 
@@ -126,7 +133,7 @@ To avoid this problem, the best practice is to create **Folders** in Core that s
 
 ### Cloud Drives
 
-Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [DropBox](https://www.dropbox.com/) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions.
+Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [Dropbox](https://www.dropbox.com/), [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions.
 
 ### VSCode Liveshare
 
