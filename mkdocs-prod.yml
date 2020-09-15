@@ -68,7 +68,7 @@ nav:
         - Play-Mode Profiler: getting_started/profiler.md
         - Networking: tutorials/networking.md
         - Frameworks:
-          - Dungeon Framework Reference: tutorials/rpg_framework_reference.md
+          - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
