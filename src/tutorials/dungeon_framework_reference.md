@@ -1,7 +1,7 @@
 ---
-id: rpg_framework_reference
-name: D&D RPG Framework Reference
-title: D&D RPG Framework Reference
+id: dungeon_reference
+name: Dungeon Framework Reference
+title: Dungeon Framework Reference
 tags:
     - Reference
 ---
@@ -10,7 +10,7 @@ tags:
 
 ### Framework Documentation
 
-This section contains two scripts, **DocumentationFrameworkOverview** and **DocumentationNPCKit**. These do not contain code, but instead have instructions on how to use this framework, and how to use the non-player character enemies in the dungeon (NPC's). You can also [read this documentation online](rpg_framework_documentation.md).
+This section contains two scripts, **DocumentationFrameworkOverview** and **DocumentationNPCKit**. These do not contain code, but instead have instructions on how to use this framework, and how to use the non-player character enemies in the dungeon (NPC's).
 
 ### Game Settings
 
@@ -73,7 +73,7 @@ Behind the place where you spawned into the game, you should see a hallway leadi
 
 ![Portal to Corehaven, the D&D Hub World](../img/RPG/PortalToCorehaven.png){: .center loading="lazy" }
 
-Games made for the D&D Contest will all be connected through a D&D Hub World, and this portal allows players to return to the Hub World.
+This portal will take players to a fantasy world, with portals to other Fantasy RPG games.
 
 ### Sample Objects
 

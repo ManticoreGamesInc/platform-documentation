@@ -245,4 +245,4 @@ Try out your dungeons, testing enemy AI behavior, the shop items, and making sur
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) | [D&D RPG Framework Reference](rpg_framework_reference.md) | [D&D RPG Framework Official Documentation](rpg_framework_documentation.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](publishing.md) | [D&D RPG Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
