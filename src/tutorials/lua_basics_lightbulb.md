@@ -601,7 +601,7 @@ local lightIsOn = false
 
 ### Switch the Variable between True and False
 
-Next, we need to tell the script to swicth `lightIsOn` from ``false`` to `true`, when we turn on the light.
+Next, we need to tell the script to switch `lightIsOn` from `false` to `true`, when we turn on the light.
 
 In the `OnSwitchInteraction()` function, type:
 
