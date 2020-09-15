@@ -39,6 +39,8 @@ title: Tags
 
 - [Custom Materials in Core](custom_materials.md)
 
+- [Dungeon Framework Reference](dungeon_framework_reference.md)
+
 - [Lua Reference](lua_reference.md)
 
 - [Modeling Basics](modeling_basics.md)
@@ -48,10 +50,6 @@ title: Tags
 - [Networking in Core](networking.md)
 
 - [The Object Generator Tool](object_generator.md)
-
-- [Official D&D RPG Framework Documentation](rpg_framework_documentation.md)
-
-- [D&D RPG Framework Reference](rpg_framework_reference.md)
 
 - [Scene Creation in Core](scene_creation.md)
 
