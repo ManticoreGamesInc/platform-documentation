@@ -35,7 +35,7 @@ nav:
         - Roblox: other_platforms/roblox.md
         - World of Warcraft: other_platforms/world_of_warcraft.md
       - Best Practices:
-        - Collaboration: collaboration_overview.md
+        - Collaboration: tutorials/collaboration_overview.md
         - GitHub and Core: tutorials/github.md
         - Lua Style Guide: tutorials/lua_style_guide.md
       - Tutorials:
