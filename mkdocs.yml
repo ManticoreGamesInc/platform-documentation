@@ -34,6 +34,10 @@ nav:
         - Unity: other_platforms/unity.md
         - Roblox: other_platforms/roblox.md
         - World of Warcraft: other_platforms/world_of_warcraft.md
+      - Best Practices:
+        - Collaboration: collaboration_overview.md
+        - GitHub and Core: tutorials/github.md
+        - Lua Style Guide: tutorials/lua_style_guide.md
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
@@ -50,7 +54,6 @@ nav:
         - Visual Effects in Core: tutorials/vfx_tutorial.md
         - Video Tutorials:
             - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
-        - GitHub and Core: tutorials/github.md
       - Core Editor Manual:
         - Scripting Introduction: tutorials/scripting_intro.md
         - Editor Shortcuts: editor_keybindings.md
