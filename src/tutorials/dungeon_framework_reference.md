@@ -10,7 +10,7 @@ tags:
 
 ### Framework Documentation
 
-This section contains two scripts, **DocumentationFrameworkOverview** and **DocumentationNPCKit**. These do not contain code, but instead have instructions on how to use this framework, and how to use the non-player character enemies in the dungeon (NPC's). You can also [read this documentation online](rpg_framework_documentation.md).
+This section contains two scripts, **DocumentationFrameworkOverview** and **DocumentationNPCKit**. These do not contain code, but instead have instructions on how to use this framework, and how to use the non-player character enemies in the dungeon (NPC's).
 
 ### Game Settings
 
