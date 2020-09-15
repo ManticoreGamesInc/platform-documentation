@@ -230,6 +230,7 @@ plugins:
         tutorials/rpg_framework_reference.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_overview.md: tutorials/dungeon_framework_reference.md
+        tutorials/: tutorials/overview.md
 
 google_analytics:
   - UA-142884846-4
