@@ -37,6 +37,8 @@ title: Tags
 
 - [Audio in Core](audio_reference.md)
 
+- [Collaboration in Core](collaboration_overview.md)
+
 - [Custom Materials in Core](custom_materials.md)
 
 - [Dungeon Framework Reference](dungeon_framework_reference.md)
