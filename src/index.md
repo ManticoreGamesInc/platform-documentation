@@ -6,24 +6,6 @@ hide_tags: true
 #hero: ⚠  Scheduled maintenance will be on Wednesday, 4th December from 03:00 (CET) until 05:00 (CET) ⚠ 
 ---
 
-<style>
-.md-typeset a img:hover,
-figure a img:hover {
-    border: none;
-}
-</style>
-
-<div class="figure-block">
-    <figure>
-        <a href="tutorials/rpg_framework_overview/" title="RPG Framework Overview">
-            <img src="img/RPG/D&DContest_Logo-2_1@2x.png" loading="lazy" alt="D&DxCore Logo">
-            <figcaption><em>Check out our special section for the for the D&D Contest Framework!</em></figcaption>
-        </a>
-    </figure>
-</div>
-
----
-
 # Core Documentation
 
 Welcome to the official documentation of Core, the community-focused game creation tool with everything you need to develop and publish high quality games.
