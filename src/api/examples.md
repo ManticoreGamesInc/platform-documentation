@@ -1484,48 +1484,91 @@ AssignMeshToTeam(cube, 1)
 
 ### <a id="event:CoreObject.childAddedEvent"></a>CoreObject.childAddedEvent
 
-### <a id="event:CoreObject.childRemovedEvent"></a>CoreObject.childRemovedEvent
-
-### <a id="event:CoreObject.descendantAddedEvent"></a>CoreObject.descendantAddedEvent
-
-### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
-
-Child/descendant event listeners fire when something is added to an object as a child, either directly, or to one of its children.
-
-The child event listeners (`childAddedEvent`, `childRemovedEvent`) fire whenever an object is added as a direct child to a CoreObject.
-
-The descendant events (`descendantAddedEvent`, `descendantRemovedEvent`) fire whenever an object is added to a CoreObject as a child, OR to any of its children as a child. In other words, whenever the child added to a CoreObject, every parent up the tree gets the `descendantAddedEvent`.
+This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local obj = World.SpawnAsset(propCubeTemplate)
 
-local template1 = World.SpawnAsset(propCubeTemplate)
-local template2 = World.SpawnAsset(propCubeTemplate)
-local template3 = World.SpawnAsset(propCubeTemplate)
-
-function OnChildAdded()
-    print("A child has been added to template 1!")
+local function ChildAdded()
+    -- This code will be executed every time a child is added to the object.
+    UI.PrintToScreen("A child was added to the object!")
 end
 
-function OnDescendantAdded()
-    print("A descendant has been added to template 1!")
+obj.childAddedEvent:Connect(ChildAdded)
+
+-- This will cause ChildAdded to execute.
+local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
+
+-- This will NOT cause ChildAdded to execute, because obj3 is not a direct child of obj.
+local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
+```
+
+### <a id="event:CoreObject.childRemovedEvent"></a>CoreObject.childRemovedEvent
+
+This event fires when a direct child of the object is removed.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local obj = World.SpawnAsset(propCubeTemplate)
+
+local function ChildRemoved()
+    -- This code will be executed every time a child is removed from the object.
+    UI.PrintToScreen("A child was removed from the object!")
 end
 
-template1.childAddedEvent:Connect(OnChildAdded)
-template1.descendantAddedEvent:Connect(OnDescendantAdded)
-template2.parent = template1
-template3.parent = template2
+obj.childRemovedEvent:Connect(ChildRemoved)
 
--- The hierarchy should now look like this:
---
--- template 1
---   +-Template 2
---       +-Template 3
+local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 
--- Output:
--- A child has been added to template 1!
--- A descendant has been added to template 1!
--- A descendant has been added to template 1!
+-- This will cause ChildRemoved to fire, because we are removing a child from obj.
+obj2:Destroy()
+```
+
+### <a id="event:CoreObject.descendantAddedEvent"></a>CoreObject.descendantAddedEvent
+
+This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local obj = World.SpawnAsset(propCubeTemplate)
+
+local function DescendantAdded()
+    -- This code will be executed every time a child is added to the object, or one of its children.
+    UI.PrintToScreen("A descendant was added to the object!")
+end
+
+obj.descendantAddedEvent:Connect(DescendantAdded)
+
+-- This will cause DescendantAdded to execute.
+local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
+
+-- This will also cause DescendantAdded to execute, because obj3 is a descendant of obj.
+local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
+```
+
+### <a id="event:CoreObject.descendantRemovedEvent"></a>CoreObject.descendantRemovedEvent
+
+This event fires when a descendant of the object is removed.  This is any object that has the object somewhere up the hierarchy tree as a parent.
+
+```lua
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local obj = World.SpawnAsset(propCubeTemplate)
+
+local function DescendantRemoved()
+    -- This code will be executed every time a descendant is removed from the object.
+    UI.PrintToScreen("A descendant was removed from the object!")
+end
+
+obj.descendantRemovedEvent:Connect(DescendantRemoved)
+
+local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
+local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
+
+-- This will cause DescendantRemoved to fire, because we are removing a descendant from obj.
+obj3:Destroy()
+-- This will also cause DescendantRemoved to fire, because we are removing a descendant from obj.
+obj2:Destroy()
 ```
 
 ### <a id="event:CoreObject.destroyEvent"></a>CoreObject.destroyEvent
@@ -3351,6 +3394,58 @@ end
 -- return {
 --     TargetImpacted = TargetImpacted
 -- }
+```
+
+## Leaderboards
+
+### <a id="classfunction:Leaderboards.HasLeaderboards"></a>Leaderboards.HasLeaderboards
+
+### <a id="classfunction:Leaderboards.GetLeaderboard"></a>Leaderboards.GetLeaderboard
+
+### <a id="classfunction:Leaderboards.SubmitPlayerScore"></a>Leaderboards.SubmitPlayerScore
+
+### <a id="property:LeaderboardEntry.id"></a>LeaderboardEntry.id
+
+### <a id="property:LeaderboardEntry.name"></a>LeaderboardEntry.name
+
+### <a id="property:LeaderboardEntry.score"></a>LeaderboardEntry.score
+
+### <a id="property:LeaderboardEntry.additionalData"></a>LeaderboardEntry.additionalData
+
+The `Leaderboards` namespace contains a set of fu nctions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
+
+In order to use these functions, you must first create a Global Leaderboard in the Core editor.  (Select Global Leaderboards, under the View menu.)
+
+```lua
+function PrintLeaderboardEntry(entry)
+    print(string.format("%s (%s): %d [%s]", entry.name, entry.id, entry.score, entry.additionalData))
+end
+
+-- To create this reference, create a custom property of type 'netreference',
+-- and drag a leaderboard into it, from the Global Leaderboards tab:
+local propLeaderboardRef = script:GetCustomProperty("LeaderboardRef")
+
+-- Verify that we actually have leaderboard data to load:
+if (Leaderboards.HasLeaderboards()) then
+    -- Save a score to the leaderboard:
+    Leaderboards.SubmitPlayerScore(propLeaderboardRef, player, math.random(0, 1000), "Xyzzy")
+
+    -- Print out all the global scores on the leaderboard:
+    print("Global scores:")
+    local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.GLOBAL)
+    for k,v in pairs(leaderboard) do
+        PrintLeaderboardEntry(v)
+    end
+
+    -- Print out all the daily scores on the leaderboard:
+    print("Daily scores:")
+    local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.DAILY)
+    for k,v in pairs(leaderboard) do
+        PrintLeaderboardEntry(v)
+    end
+end
+local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.MONTHLY)
+local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.WEEKLY)
 ```
 
 ## Object

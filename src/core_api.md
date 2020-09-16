@@ -490,10 +490,10 @@ A data structure containing a player's entry on a leaderboard. See the `Leaderbo
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `id` | string | The ID of the `Player` whose entry this is. | Read-Only |
-| `name` | string | The name of the `Player` whose entry this is. | Read-Only |
-| `score` | Number | The Player's score. | Read-Only |
-| `additionalData` | string | Optional additional data that was submitted along with the Player's score. (See `Leaderboards.SubmitPlayerScore()` for more information.) | Read-Only |
+| `id` | string | The ID of the `Player` whose entry this is. [:fontawesome-solid-info-circle:](../api/examples/#leaderboardentryid "Leaderboardentry: id Example") | Read-Only |
+| `name` | string | The name of the `Player` whose entry this is. [:fontawesome-solid-info-circle:](../api/examples/#leaderboardentryname "Leaderboardentry: name Example") | Read-Only |
+| `score` | Number | The Player's score. [:fontawesome-solid-info-circle:](../api/examples/#leaderboardentryscore "Leaderboardentry: score Example") | Read-Only |
+| `additionalData` | string | Optional additional data that was submitted along with the Player's score. (See `Leaderboards.SubmitPlayerScore()` for more information.) [:fontawesome-solid-info-circle:](../api/examples/#leaderboardentryadditionaldata "Leaderboardentry: additionalData Example") | Read-Only |
 
 ### Light
 
@@ -1431,9 +1431,9 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Leaderboards.HasLeaderboards()` | bool | Returns `true` if any leaderboard data is available. Returns `false` if leaderboards are still being retrieved, or if there is no leaderboard data. | None |
-| `Leaderboards.GetLeaderboard(NetReference leaderboardRef, LeaderboardType)` | Array&lt;LeaderboardEntry&gt; | Returns a table containing a list of entries for the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This returns a copy of the data that has already been retrieved, so calling this function does not incur any additional network cost. If the requested leaderboard type has not been enabled for this leaderboard, an empty table will be returned. Supported leaderboard types include:<br/>`LeaderboardType.GLOBAL`<br/>`LeaderboardType.DAILY`<br/>`LeaderboardType.WEEKLY`<br/>`LeaderboardType.MONTHLY` | None |
-| `Leaderboards.SubmitPlayerScore(NetReference leaderboardRef, Player player, Number score, [string additionalData])` | None | Submits a new score for the given Player on the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This score may be ignored if the player already has a better score on this leaderboard. The optional `additionalData` parameter may be used to store a very small amount of data with the player's entry. If provided, this string must be 8 characters or fewer. (More specifically, 8 bytes when encoded as UTF-8.) | Server-Only |
+| `Leaderboards.HasLeaderboards()` | bool | Returns `true` if any leaderboard data is available. Returns `false` if leaderboards are still being retrieved, or if there is no leaderboard data. [:fontawesome-solid-info-circle:](../api/examples/#leaderboardshasleaderboards "Leaderboards: HasLeaderboards Example") | None |
+| `Leaderboards.GetLeaderboard(NetReference leaderboardRef, LeaderboardType)` | Array&lt;LeaderboardEntry&gt; | Returns a table containing a list of entries for the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This returns a copy of the data that has already been retrieved, so calling this function does not incur any additional network cost. If the requested leaderboard type has not been enabled for this leaderboard, an empty table will be returned. Supported leaderboard types include:<br/>`LeaderboardType.GLOBAL`<br/>`LeaderboardType.DAILY`<br/>`LeaderboardType.WEEKLY`<br/>`LeaderboardType.MONTHLY` [:fontawesome-solid-info-circle:](../api/examples/#leaderboardsgetleaderboard "Leaderboards: GetLeaderboard Example") | None |
+| `Leaderboards.SubmitPlayerScore(NetReference leaderboardRef, Player player, Number score, [string additionalData])` | None | Submits a new score for the given Player on the specified leaderboard. The `NetReference` parameter should be retrieved from a custom property, assigned from the Global Leaderboards tab in the editor. This score may be ignored if the player already has a better score on this leaderboard. The optional `additionalData` parameter may be used to store a very small amount of data with the player's entry. If provided, this string must be 8 characters or fewer. (More specifically, 8 bytes when encoded as UTF-8.) [:fontawesome-solid-info-circle:](../api/examples/#leaderboardssubmitplayerscore "Leaderboards: SubmitPlayerScore Example") | Server-Only |
 
 ### Storage
 
