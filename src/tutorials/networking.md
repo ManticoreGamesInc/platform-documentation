@@ -109,14 +109,12 @@ Things you would usually place in a client context include:
 - User interface, menus, HUDs
 - All Visual Effects
 - Templates that you want to be able to spawn at runtime
-- Enemies that move around and can be destroyed
-- Weapons or power-ups that vanish when collected.
 - Decorative geometry that doesn't need collision
 - Scripts that control any client-only things.
 
 ### Server Contexts
 
-Server Contexts are another folder, created by right-clicking the **Hierarchy** and selecting "**Create Network Context** -> Server Context".
+A **Server Context** is another a special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Server Context**.
 
 Anything under a server context only exists on the server. It is never sent to the client at all. Normally, all scripts are downloaded by the client, even if they are not run, for compatability reasons. Any scripts that are placed inside of a server context (and exist nowhere else in the Hierarchy) are not downloaded. This makes server contexts are extremely useful to anyone who wants to keep their game logic safe from the prying eyes of players!
 ​
@@ -131,9 +129,9 @@ Things you would usually place in a server context include:
 
 ### Static Contexts
 
-Static contexts are yet another type of context created from the "Create network context" submenu, after right-clicking the hierarchy. They are a sort of networked and non-networked objects.
-​
-Specifically, they have a few rules:
+A **Static Context** is a third special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Static Context**.
+
+They share traits with both networked and non-networked objects, and they have a few rules:
 
 - Scripts in a static context run on both the client and the server.
 - Scripts can spawn objects into the static context, but after they are spawned, they behave like non-networked default context objects, and cannot be modified or deleted.
