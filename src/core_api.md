@@ -16,7 +16,7 @@ Properties, functions, and events inherited by [CoreObject](#coreobject) types a
 
 At a high level, Core Lua types can be divided into two groups: Data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Objects all inherit from a single base type: Object. Data structures have no common parent. However, all data structures and Objects share a common `type` property, which is a string indicating its type. The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc. All Core types also share an `IsA()` function. The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not. For example, `myObject:IsA("StaticMesh")`.
 
-A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/2.2/section3_3.html). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/5.3/manual.html#2.1). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
 ### Ability
 
