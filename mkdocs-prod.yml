@@ -114,8 +114,8 @@ theme:
     text: Lato
     code: JetBrains Mono
   features:
-    - tabs
-    - instant
+    - navigation.tabs
+    - navigation.instant
   palette:
     primary: core-orange
     accent: core-blue
