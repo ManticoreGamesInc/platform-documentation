@@ -1,12 +1,12 @@
 ---
-id: weapons
-name: Weapons in Core
-title: Weapons in Core
+id: weapons_tutorial
+name: Basic Weapons Tutorial
+title: Basic Weapons Tutorial
 tags:
     - Tutorial
 ---
 
-# Weapons in Core
+# Basic Weapons Tutorial
 
 ## Overview
 
