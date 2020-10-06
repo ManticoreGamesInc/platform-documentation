@@ -16,7 +16,7 @@ tags:
 
 Not everything that can be used as a weapon is actually a **Weapon** object in Core. In **Core Content**, the **Game Components** section has a category called **Weapons** with a variety of different types of weapons that you can drag and drop into your game.
 
-![Weapon Templates from Core Content]()
+![Weapon Templates from Core Content](../img/WeaponsReference/SampleWeapons.png){: .center loading="lazy"}
 
 In the **Game Components** weapon templates, the weapons that use projectiles, like the guns and the grenades use the ![Weapon](../img/EditorManual/icons/AssetType_Weapon.png) Weapon icon, and melee weapons, that do damage based on whether or not the weapon collides with the player, use the ![Equipment](../img/EditorManual/icons/AssetType_Equipment.png) Equipment icon.
 {: .image-inline-text .image-background}.
