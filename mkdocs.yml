@@ -41,7 +41,7 @@ nav:
       - Tutorials:
         - Overview: tutorials/overview.md
         - Abilities: tutorials/abilities.md
-        - Weapons: tutorials/weapons.md
+        - Weapons: tutorials/weapons_tutorial.md
         - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
         - Scripting:
           - Scripting (Beginner): tutorials/lua_basics_helloworld.md
@@ -72,6 +72,7 @@ nav:
         - Networking: tutorials/networking.md
         - Frameworks:
           - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
+        - Weapons: tutorials/weapons.md
       - Core API:
         - API Overview: core_api.md
         - Game Components: api/components.md
