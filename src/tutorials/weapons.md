@@ -1,259 +1,165 @@
 ---
 id: weapons
-name: Weapons in Core
-title: Weapons in Core
+name: Weapons Reference
+title: Weapons Reference
 tags:
-    - Tutorial
+    - Reference
 ---
 
-# Weapons in Core
+# Weapons
 
-## Overview
+## Introduction
 
-In a lot of video games, the main character uses a weapon to make their way through the game world. "Weapon" can mean a gun, an axe, or even a magical tomato grenade.
+**Weapons**, the fun devices of destruction found across many Core games, are a specific type of Core Object that includes features like ammo, reloading, and calculating where a projectile hits.
 
-Programming a weapon can be the most complicated part of making a game, but to make that easier, Core comes with a built-in weapon system!
+### Types of Weapons
 
-* **Time to complete:** 15 minutes
-* **Knowledge Level:** Beginner - any knowledge!
-* **Skills you will gain:**
-    * how to create a functioning weapon in Core
-    * how to use Multiplayer Preview Mode effectively
-    * how to create templates that can be used in weapons
+Not everything that can be used as a weapon is actually a **Weapon** object in Core. In **Core Content**, the **Game Components** section has a category called **Weapons** with a variety of different types of weapons that you can drag and drop into your game.
 
-![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.png "Cool armed chicks always make a game better."){: .center loading="lazy" }
+![Weapon Templates from Core Content](../img/WeaponsReference/SampleWeapons.png){: .center loading="lazy"}
 
-In Core, a `weapon` is an `equipment` type of object that can be created in any Core project.
+In the **Game Components** weapon templates, the weapons that use projectiles, like the guns and the grenades use the ![Weapon](../img/EditorManual/icons/AssetType_Weapon.png){: style="height:34px" } Weapon icon, and melee weapons, that do damage based on whether or not the weapon collides with the player, use the ![Equipment](../img/EditorManual/icons/AssetType_Equipment.png){: style="height:34px" } Equipment icon.
+{: .image-inline-text .image-background }
 
-There are a lot of differences between a piece of `equipment` and a `weapon`, but the main difference is that all weapons come with two built-in `ability` objects that handle the main use of the weapon.
+This reference covers the Weapon type of object, but it is not the only way to create a tool used for combat, and a Weapon can be used to do many things besides damage.
 
-An `AttackAbility` is bound to Left Click on the keyboard by default, and can be used for the traditional attack cycle of shoot-reload that you'd expect from guns--or for the cast-reel cycle you'd expect from a fishing pole!
+### Scripting Weapons
 
-A `ReloadAbility` is bound to "R" on the keyboard by default, and could be used for recharging and reloading of the weapon.
+Weapons have specialized properties, functions, and events that allow creators to script behavior based on the ammunition available and projectile behavior. To learn more, see the [Weapons section of the Core API](https://docs.coregames.com/core_api/#weapon)
 
-!!! info
-    The **[Advanced Weapon & Abilities Tutorial](abilities_advanced.md)** will go over these concepts in more detail and are best read after going through this tutorial.
+## The Empty Weapon Object
 
-When a player picks up or *equips* a `weapon` object, the player is instantly able to use that weapon and all the abilities that it comes with! So to create a weapon like a rifle, all that needs to be done is to spawn a `weapon`, modify the settings for how far the weapon can shoot, and set up the `AttackAbility` to activate.
+There are two ways to create weapons in Core: modifying one of the weapon templates that is included in Core Content, or using an empty Weapon Gameplay Object and creating one from scratch.
 
-!!! tip "Thinking Outside the Box"
-    A weapon can be anything imaginable that the player holds and uses to interact with the world.
-    This could be a fishing pole, a wand... anything that the player would use.
+The empty Weapon object can be found in **Core Content** in the **Gameplay Objects** section.
 
----
+To learn how to make a weapon from scratch using this gameplay object, see the [Basic Weapons Tutorial](weapons-tutorial.md), which will cover how to create a weapon that can be picked up and used. To make this weapon also *damage players*, see the [Advanced Abilities Tutorial](https://docs.coregames.com/tutorials/abilities_advanced/).
 
-## Tutorial
+Making a weapon this way allows you to create unique and creative weapon behavior. For more conventional video game guns, however, it is much more efficient to modify an existing weapon template.
 
-Each step of creating a weapon allows for added creativity. While doing this tutorial you might come up with more ways to fancify your weapon! We will walk you through the entire process from an empty project, to using a gun of your own making!
+## Modifying a Weapon Template
 
-This gun will be placed in the world and the player will need to pick it up to use it.
+Using a Core Weapon template as a starting point is a great way to ensure that weapons will have all the features players expect, while allowing you to change the appearance, behavior, and visual and sound effects of the weapon.
 
-So, let's get started!
+### Basic and Advanced Weapon Templates
 
-### Setting Up the Weapon
+To find the weapon templates, open the **Core Content** window, and find the **Game Components** section, which contains a **Weapons** section. Each of the Weapons here will be either **Basic** or **Advanced.**
 
-!!! info "Basic Assault Rifle Model"
-    ![Basic Rifle](/img/EditorManual/Weapons/assaultRifle.png "The sort of thing you'd want at parties."){: .center loading="lazy" }
-    You could use the *Modern Weapon - Auto Rifle 01 (Prop*) in **Core Content** as a weapon model or make your own by combining different props in Core!
+**Basic** weapons include appropriate ability timings, animations, and ammo for the type of weapon, but do not have the scripts that let them damage players. To create a weapon that damages the players, use the **Advanced** weapon templates instead.
 
-    This folder of **Core Content** contains various pre-built weapons, as well as the parts that the weapons were made from. You can make all sorts of crazy things with this; from more weapons to space stations to anything you can imagine.
+### Parts of an Advanced Weapon
 
-    ![Basic Rifle](/img/EditorManual/Weapons/weaponModelLocation.png "Layers and layers of options, dude."){: .center loading="lazy" }
+This section will explain the purpose of each part of an Advanced weapon, using the **Advanced Pistol** as an example.
 
-1. The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
+#### Server Context
 
-2. A `weapon` in the **Hierarchy** includes two `Ability` Objects and a `PickupTrigger` beneath it--these objects are "children" of the "parent" weapon object.
+This section contains scripts that will help calculate where projectiles actually hit based on the player's position and movement at the time, and calculate the damage that they should do.
 
-    1. The `Ability` Objects `AttackAbility` and `ReloadAbility` are what we will use for the Attack and Reload abilities.
-    2. The `PickupTrigger` is a type of `Trigger`. This comes with all weapons by default so that they can more easily be picked-up in game!
+#### Client Context
 
-    ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.png "The very beginning of the weapon."){: .center loading="lazy" }
+This folder contains two subfolders. **Scripts** contains scripts that control the player's experience of using the weapon, like playing the effects for when a player shoots, or picks up the weapon.
 
-3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
+The **Geo** folder contains the actual model (the "geometry") for the gun. You can place a new model in this folder to easily swap out the appearance for a completely different weapon.
 
-    1. If you do not see anything at all in your scene, try pressing ++V++ to toggle the visibility of these gizmos.
+### Using the Properties Window
 
-    2. The **look of the weapon** can be made from any Core primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
+With the outermost folder of the weapon selected, in this case **Advanced Pistol (networked)**, you can see the all the properties available to change to customize the weapon, divided into different sections.
 
-        This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
+!!! tip
+    Hover the mouse over any property to see a tooltip explaining what it does.
 
-        If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art_reference.md)** page or try a **[Tutorial](modeling_basics.md)**.
+- **Projectile**, controls the way the projectile moves once it is spawned.
+- **VisualEffects** contains Effects templates that are spawned at different stages of using the weapon. This can include **both visual and audio effects**.
+- **Ammo** has properties that change how often the player will need to reload, and has the visual and sound effects for these actions.
+- **Spread** has different options to change the accuracy of the weapon.
+- **Ability** has references to the two abilities that are part of the weapon, **Shoot** and **Reload**.
+- **Custom** will contain different properties depending on the weapon, but will allow you different options like whether or not players automatically reload, the keys players use to zoom and aim, and the visual and sound effects that play when the weapon gets picked up.
 
-        This attaches the visuals of the weapon to the function of the weapon!
+## Changing a Weapon Template and Other Game Behavior
 
-4. Right click this Art group and select "Create Network Context > **New Client Context Containing This**" to keep the weapon's visuals within a Client Context folder.
+### Automatically Pick Up Weapons
 
-    This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
+By default, a player equips a weapon by walking into its **PickupTrigger** and pressing the interact key. You can change this to instead give the weapon to the player as soon as they enter the trigger.
 
-5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. In the Scene section, change the Collision drop-down menu from *Inherit from Parent* to *Force Off*. This way the gun won't get stuck on the player and move the camera to weird locations.
+1. In the weapon template in the **Hierarchy**, select the ![Trigger Icon](../img/EditorManual/icons/AssetType_Trigger.png){: style="height:34px" } trigger object, usually called **Pickup Trigger**.
+{: .image-inline-text .image-background }
+2. To change the message it shows the player before the interact to pick up the weapon, change the **Interaction Label** property.
+3. To make the weapon automatically equip instead, uncheck the box for **Interactable**.
 
-6. Your **Hierarchy** should now look like this:
+### Stop Player Movement while Reloading
 
-    ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchy.png "Now we have a client context folder!"){: .center loading="lazy" }
+Reloading is controlled by an ability called **Reload**, and you can change the animation that is played, what they player can do at the same time, and how long it takes to reload.
 
-7. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
+1. In the weapon template in the **Hierarchy**, select the ![Ability Icon](../img/EditorManual/icons/AssetType_Ability.png){: style="height:34px" } **Reload** ability, and open the **Properties** window.
+{: .image-inline-text .image-background }
+2. Scroll down to the **Execute** section, and uncheck the boxes for **Can Move** and **Can Jump**.
 
-8. You may also notice that the weapon, when equipped, could be not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head, or rotated all weird.
+### Chance the Appearance of the Weapon
 
-    ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png "This might not be a good place to shoot from. That weapon kick could... hurt."){: .center loading="lazy" }
-    When equipped, the weapon's origin will snap to the attachment point or "Socket". The odds are high that the weapon will be held in the wrong spot when equipped the first time.
+Changing a weapon's appearance is as easy as putting a new model in the **Geo** folder of the **Client Context** folder, but it can be useful to keep the current geometry to make sure your weapon is lined up correctly.
 
-    **To fix the weapon model's position:**
+1. In the weapon template in the **Hierarchy**, select the **Client Context** folder, and the **Geo** folder inside of it.
+2. Select all the objects inside of this folder, and temporarily add them to a group by right-clicking and select **New Group Containing These.**
+3. Add your new model to the folder, and rotate, reposition, and scale it until it matches the original weapon geometry.
+4. Test the appearance by toggling visibility on the group for the first model, and when you are finished positioning it, select that group and press the ++Delete++ key to remove it.
 
-    1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
+### Change the Visual and Sound Effects
 
-        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](core_api.md)**.
+Visual and Audio effects are grouped together into **Networked Templates** to be spawned by the weapon when it is used. You will create this group, make it into a Networked template, and then add it to the Weapon.
 
-    2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
+#### Create the FX Template
 
-        ![Initial Hierarchy](/img/EditorManual/Weapons/GunGuide.png "The ghost hands know best."){: .center loading="lazy" }
+1. Select the effects you would like to use for a particular part of the weapon use from the **Effects** and **Audio** sections of **Core Content**, and drag them into the Hierarchy.
 
-        In here is a tool for visualizing how to position a gun in the player's hand--the **Weapon Guide 2hand_rifle**. Drag this onto the `weapon` in your **Hierarchy**, to make it a child of the weapon.
+!!! tip
+    You can preview an audio effect by selecting it in **Core Content** and pressing the **Play** button that appears in the **Properties** window.
+2. Select all the effects to be added to your group, then right click and select **Create Network Context** and **New Client Context Containing These**
+3. Right click the Client Context folder that is created, and select **New Group Containing This**, and give it a name so it is easy to determine which part of the weapon actions should use it, like ``CustomMuzzleFlash`` for a muzzle flash VFX and SFX.
+4. Make sure each of the effects in the Client Context has the **Auto Play** property checked, so that it will play when the whole group is spawned by the weapon.
+5. Right click the outer group and select **Enable Networking**, so that the template can be spawned.
+6. Right click again and select **Create New Template From This**.
 
-    3. With the *Weapon Guide 2hand_rifle* selected, Set all Position Transforms in the **Properties** window to 0. This will center it within the `weapon` object. Now, move your art folder within the `weapon` around in the world to align with the hands of this model.
+#### Adding the FX Template to the Weapon
 
-    This takes some wiggling--do what looks best to you!
+1. Delete the FX template from the **Hierarchy** once you have made it a template. It can now be found in the **Project Content** window.
+2. Select your weapon in the **Hierarchy**, and scroll down to the **VisualEffects** section to find property that contains the template you are replacing, like **Muzzle Flash Template**.
+3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png){: style="height:34px" } Template icon to replace the current template with your newly created one.
+{: .image-inline-text .image-background }
 
-### Buildin' the Bullets
+### Change the Reticle
 
-Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.
+The reticle is another template that can be changed using the same process as with the visual effects, except that it uses a UI icon.
 
-1. Click on the `weapon` in the **Hierarchy** window. In the **Properties** window, scroll down to the *Weapon* section. Make sure that **Is Hitscan Weapon** is checked **off**.
+#### Creating the Reticle Template
 
-    ![Hitscan?](/img/EditorManual/Weapons/isHitscan.png "Check this box off."){: .center loading="lazy" }
+1. In **Core Content**, open the **UI Textures** tab to find the **Reticles** section, and select and drag a new reticle into the **Main Viewport** or **Hierarchy**.
+2. Select the reticle inside of **UI Container** in the **Hierarchy**, and open the **Properties** window.
+3. Change the **Anchor** and **Dock** properties to **Middle Center** to move the reticle to the center of the screen.
+4. Change the **Width**, **Height**, and **Color** properties to change the reticle size and color.
+5. Right click the **UI Container** for the reticle in the Hierarchy and select **Enable Networking**.
+6. Right click the Client Context folder that is created, and select **New Group Containing This**, and give it a name so it is easy to determine which part of the weapon actions should use it, like ``CustomMuzzleFlash`` for a muzzle flash VFX and SFX.
+7. Right click again and select **Create New Template From This**.
 
-    "Hitscan" means that the weapon would immediately have an impact on whatever it is shooting at, meaning the bullet wouldn't need to travel through the air. It also means that there isn't a visible bullet! In this tutorial, we're going to build a projectile bullet.
+#### Adding the Reticle Template to the Weapon
 
-    Having a projectile also means that you can change how fast it travels through the air, along with other settings in the *Weapon* section.
+1. Delete the reticle template from the **Hierarchy** once you have made it a template. It can now be found in the **Project Content** window.
+2. Select your weapon in the **Hierarchy**, and scroll down to the bottom of the **Custom** section to find the **ReticleTemplate** property.
+3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png){: style="height:34px" } Template icon to replace the current template with your newly created one.
+{: .image-inline-text .image-background }
 
-2. Look right beneath *Is Hitscan*. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!
+### Give Players a Weapon When Joining the Game
 
-    ![Projectile Template](/img/EditorManual/Weapons/projectileTemplate.png "Place your projectile template here."){: .center loading="lazy" }
+There are several ways to make sure players start with weapons. This example will use the **Static Player Equipment** game component. Just like with the effects and UI, you will need to create a template, this time for the entire weapon to make it a property on the **Static Player Equipment** component
 
-    To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **Core Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
-
-    ![bullet](/img/EditorManual/Weapons/bullet.png "May be known to explode."){: .center loading="lazy" }
-
-    Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage.
-
-    You might also want to rotate the bullet 90 degrees, in the event that it fires out of the gun sideways.
-
-3. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder.
-
-    This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
-
-4. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
-
-    Bullets need to be both Client Context, and wrapped in a Networked object to be perform really well in-game.
-
-5. Next, right click this folder again, and click "Create New Template From This". Name it "Bullet", or whatever you would like.
-
-6. Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
-
-![Bullet Template](/img/EditorManual/Weapons/genericBullet.png "May be known to explode."){: .center loading="lazy" }
-
-### Firing the Weapon
-
-Weapons come with a property for Damage--setting this determines how much getting shot by this gun will hurt other players!
-
-!!! tip "Not All Weapons Need to Shoot"
-    The weapon system can be used for things that aren't weapons! If you were making a bubble blower, or a fishing pole, perhaps you would set the damage to 0 and use different visual effects. The key is that this is what actually happens when the player uses the weapon!
-
-1. With the `weapon` itself selected in the **Hierarchy**, check the **Properties** panel. Here is where we can set the **Damage** property to whatever we would like. In this case, let's set it to 25, so it will take 4 shots to kill a player with 100 health.
-
-2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
-
-    ![Multiplayer Preview](/img/EditorManual/Weapons/multiplayerPreview.png "See more of yourself."){: .center loading="lazy" }
-
-    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **Core Content** tab, within the **Settings Objects** section.
-    2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
-    3. With Multiplayer Preview Mode turned on to four players, press the blue **Play** button.
-    4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
-
-    If you've set up everything correctly along with this tutorial, the player bot should die after 4 shots!
-
-Now all the basics are hooked up! The gun should be able to shoot and kill other players--if not, try going back through the steps above to see where something might be missing. Typos are a common human error, check those and don't worry about having missed it the first time. Even the very best will miss things like that!
-
-### Adding Visual Effects
-
-Right now, it's not super satisfying to shoot the gun--it's impossible to tell if you've made contact when shooting another player. We expect some sort of splatter to happen!
-
-Core has tons of visual effects and sound effects (often abbreviated to *vfx* and *sfx*) built-in that we can drag and drop onto the weapon.
-
-Let's start adding in some cool effects--starting with the moment of impact.
-
-![Visual Effects Subsection](/img/EditorManual/Weapons/visualEffects.png "For the sparklies!"){: .center loading="lazy" }
-
-You might notice if you try dragging an `effect` from Core Content into the `weapon` object's properties, it doesn't work. This is because the weapon properties only accept a `template` type of object. So, we need to make one!
-
-1. We'll start with a visual effect. In the **Core Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
-
-    This visual effect is a little poof of smoke that happens briefly when played.
-
-    1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
-
-        ![Impact Settings](/img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center loading="lazy" }
-
-        All visual effects in Core can be found in the **Effects** section of **Core Content**.
-
-    2. To preview the effect, press the **Play** button at the top right of the **Properties** tab for the effect.
-
-2. Next, let's grab an audio object to make sounds when a player is shot.
-
-    1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
-
-    2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
-
-        Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
-
-        ![Audio Settings](/img/EditorManual/Weapons/audioSettings.png "For the bang!"){: .center loading="lazy" }
-
-        We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
-
-        Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
-
-        We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
-
-        **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
-
-3. Now that we have these two effects in our Hierarchy, hold shift to select them both and right click to open the context menu.
-
-    Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
-
-4. Right click this new Client Context folder, and click **"New Group Containing This"** to wrap the whole thing in a group. This is the usual best practice for making templates with Client Context content.
-
-    Name the group "Player Impact Effect".
-
-5. Right click this new group, and click **"Create New Template From This"** to make this whole little effect we made a template that we can use elsewhere, or even publish to Community Content should you so choose!
-
-    ![Your VFX Template](/img/EditorManual/Weapons/handmadeVFX.png "Pull it all together now."){: .center loading="lazy" }
-
-6. Now that it is a template, it can be found in our Project Content tab. Just like the bullet from earlier, delete the template we just made from the Hierarchy and then select the `weapon` object.
-
-    Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
-
-Now that you've made one effect, try making other types of effect templates for the other sections of the `weapon`'s effects! A good one to add is the Impact Surface Aligned effect--this happens when the player shoots something that isn't a player, like a wall or the floor.
-
-<video autoplay loop muted playsinline poster="/img/EditorManual/Weapons/holdingWeaponNew.png" class="center">
-    <source src="/img/EditorManual/Weapons/finalSimpleGun.webm" type="video/webm" alt="The whole shabang!"/>
-    <source src="/img/EditorManual/Weapons/finalSimpleGun.mp4" type="video/mp4" alt="The whole shabang!"/>
-</video>
-
-Check it out in multiplayer preview mode to see how it feels!
-
-This is a really simple version of a gun. Each part could be done a different way or made more complicated for whatever your imagination can dream up! You could go back into what we have created to add more effects or change the way it works.
+1. Right click the weapon in Hierarchy, select **Create New Template From This**, and name your new weapon.
+2. You can now find the weapon in **Project Content**, so you can delete it from the **Hierarchy**.
+3. In **Core Content**, open the **Game Components** section, then the **Logic** section, and finally the **General** section.
+4. Find the **Static Player Equipment** object and drag it into the Hierarchy.
+5. Select the **Static Player Equipment** object and open the **Properties** window.
+6. Drag the weapon template from **Project Content** to the **EquipmentTemplate** property.
 
 ---
 
-## Getting Real Fancy
+## Learn More
 
-What we've done here is the simple setup! Using this method you can make any sort of basic weapon you can dream up just by changing different properties of a weapon and its abilities.
-
-If you want to try you hand at some coding to really add complexity to your weapon, and give it even more abilities, check out our **[Advanced Weapons & Abilities Tutorial](abilities_advanced.md)** to feel for what can be done.
-
----
-
-## Examples
-
-* **[Spellshock](https://www.coregames.com/games/e23e99/spellshock)** uses all sorts of weapon that you can tear apart and look through to repurpose for your own means.
-* **Core Content** includes ultra-basic & advanced versions of a Pistol, Rifle, and a Shotgun! Use these to compare with what you have made in this tutorial--or always just start from scratch with these instead!
+[Basic Weapons Tutorial](weapon_tutorial.md) | [Abilities and Equipment Tutorial](abilities.md) | [Advanced Abilities Tutorial](abilities_advanced.md)
