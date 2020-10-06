@@ -18,8 +18,8 @@ Not everything that can be used as a weapon is actually a **Weapon** object in C
 
 ![Weapon Templates from Core Content](../img/WeaponsReference/SampleWeapons.png){: .center loading="lazy"}
 
-In the **Game Components** weapon templates, the weapons that use projectiles, like the guns and the grenades use the ![Weapon](../img/EditorManual/icons/AssetType_Weapon.png) Weapon icon, and melee weapons, that do damage based on whether or not the weapon collides with the player, use the ![Equipment](../img/EditorManual/icons/AssetType_Equipment.png) Equipment icon.
-{: .image-inline-text .image-background}.
+In the **Game Components** weapon templates, the weapons that use projectiles, like the guns and the grenades use the ![Weapon](../img/EditorManual/icons/AssetType_Weapon.png){: style="height:34px" } Weapon icon, and melee weapons, that do damage based on whether or not the weapon collides with the player, use the ![Equipment](../img/EditorManual/icons/AssetType_Equipment.png){: style="height:34px" } Equipment icon.
+{: .image-inline-text .image-background }
 
 This reference covers the Weapon type of object, but it is not the only way to create a tool used for combat, and a Weapon can be used to do many things besides damage.
 
@@ -81,8 +81,8 @@ With the outermost folder of the weapon selected, in this case **Advanced Pistol
 
 By default, a player equips a weapon by walking into its **PickupTrigger** and pressing the interact key. You can change this to instead give the weapon to the player as soon as they enter the trigger.
 
-1. In the weapon template in the **Hierarchy**, select the ![Trigger Icon](../img/EditorManual/icons/AssetType_Trigger.png) trigger object, usually called **Pickup Trigger**
-{: .image-inline-text .image-background}.
+1. In the weapon template in the **Hierarchy**, select the ![Trigger Icon](../img/EditorManual/icons/AssetType_Trigger.png){: style="height:34px" } trigger object, usually called **Pickup Trigger**.
+{: .image-inline-text .image-background }
 2. To change the message it shows the player before the interact to pick up the weapon, change the **Interaction Label** property.
 3. To make the weapon automatically equip instead, uncheck the box for **Interactable**.
 
@@ -90,8 +90,8 @@ By default, a player equips a weapon by walking into its **PickupTrigger** and p
 
 Reloading is controlled by an ability called **Reload**, and you can change the animation that is played, what they player can do at the same time, and how long it takes to reload.
 
-1. In the weapon template in the **Hierarchy**, select the ![Ability Icon](../img/EditorManual/icons/AssetType_Ability.png) **Reload** ability, and open the **Properties** window.
-{: .image-inline-text .image-background}
+1. In the weapon template in the **Hierarchy**, select the ![Ability Icon](../img/EditorManual/icons/AssetType_Ability.png){: style="height:34px" } **Reload** ability, and open the **Properties** window.
+{: .image-inline-text .image-background }
 2. Scroll down to the **Execute** section, and uncheck the boxes for **Can Move** and **Can Jump**.
 
 ### Chance the Appearance of the Weapon
@@ -123,8 +123,8 @@ Visual and Audio effects are grouped together into **Networked Templates** to be
 
 1. Delete the FX template from the **Hierarchy** once you have made it a template. It can now be found in the **Project Content** window.
 2. Select your weapon in the **Hierarchy**, and scroll down to the **VisualEffects** section to find property that contains the template you are replacing, like **Muzzle Flash Template**.
-3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png) Template icon to replace the current template with your newly created one.
-{: .image-inline-text .image-background}
+3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png){: style="height:34px" } Template icon to replace the current template with your newly created one.
+{: .image-inline-text .image-background }
 
 ### Change the Reticle
 
@@ -144,8 +144,8 @@ The reticle is another template that can be changed using the same process as wi
 
 1. Delete the reticle template from the **Hierarchy** once you have made it a template. It can now be found in the **Project Content** window.
 2. Select your weapon in the **Hierarchy**, and scroll down to the bottom of the **Custom** section to find the **ReticleTemplate** property.
-3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png) Template icon to replace the current template with your newly created one.
-{: .image-inline-text .image-background}
+3. Drag the template from **Project Content** over the ![Template Icon](../img/EditorManual/icons/AssetType_Template.png){: style="height:34px" } Template icon to replace the current template with your newly created one.
+{: .image-inline-text .image-background }
 
 ### Give Players a Weapon When Joining the Game
 
@@ -158,8 +158,8 @@ There are several ways to make sure players start with weapons. This example wil
 5. Select the **Static Player Equipment** object and open the **Properties** window.
 6. Drag the weapon template from **Project Content** to the **EquipmentTemplate** property.
 
-
 ---
+
 ## Learn More
 
 [Basic Weapons Tutorial](weapon_tutorial.md) | [Abilities and Equipment Tutorial](abilities.md) | [Advanced Abilities Tutorial](abilities_advanced.md)

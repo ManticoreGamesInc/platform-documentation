@@ -17,9 +17,9 @@ Programming a weapon can be the most complicated part of making a game, but to m
 * **Time to complete:** 15 minutes
 * **Knowledge Level:** Beginner - any knowledge!
 * **Skills you will gain:**
-    * how to create a functioning weapon in Core
-    * how to use Multiplayer Preview Mode effectively
-    * how to create templates that can be used in weapons
+    * How to create a functioning weapon in Core
+    * How to use Multiplayer Preview Mode effectively
+    * How to create templates that can be used in weapons
 
 ![A Sniper Rifle](/img/EditorManual/Weapons/holdingWeaponNew.png "Cool armed chicks always make a game better."){: .center loading="lazy" }
 
