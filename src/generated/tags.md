@@ -63,6 +63,8 @@ title: Tags
 
 - [UI Reference](ui_reference.md)
 
+- [Weapons Reference](weapons.md)
+
 
 ## Tutorial
 
@@ -92,5 +94,5 @@ title: Tags
 
 - [Persistent Data Storage in Core](persistent_storage.md)
 
-- [Weapons in Core](weapons.md)
+- [Basic Weapons Tutorial](weapons_tutorial.md)
 
