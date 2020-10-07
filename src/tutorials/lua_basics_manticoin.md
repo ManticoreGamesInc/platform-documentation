@@ -63,7 +63,7 @@ Let's make a new script using the button at the top of Core, call it `SpinCoin` 
 
 ![Create New Script](../img/scripting/createNewScript.png "Click this to create a new script."){: .center loading="lazy" }
 
-At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Right click the `Manticoin` object in the Heirarchy and hit the "**Abandon Temnplate for Entire Instance**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
+At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Right click the `Manticoin` object in the Hierarchy and hit the "**Abandon Template for Entire Instance**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
 
 `script.parent:RotateContinuous(Rotation.New(0, 0, 200))`
 
@@ -302,7 +302,7 @@ So far, nothing actually happens--but that's next!
 
 We are going to update the game when all the possible coins are picked up. First, we'll need a new `UI Text Box` which we'll name `VictoryUI` which will only show up when the game is over, alerting the players that all coins have been collected. After designing the victory UI, we'll want to hide it until it's the appropriate time.
 
-* Drag another **UI Text Box** our of Core Content into the `Client Context` of the `UI Container` we made earlier and rename it to `VictoryUI`.
+* Drag another **UI Text Box** out of Core Content into the `Client Context` of the `UI Container` we made earlier and rename it to `VictoryUI`.
 
 !!! tip
     You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press ++ctrl+W++ to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
@@ -311,7 +311,7 @@ We are going to update the game when all the possible coins are picked up. First
 * Customize your font color, size, and justification--do what you like with it!
 * Once you're satisfied, change the visibility of the Victory UI under **Properties -> Scene -> Visibility** to *Force Off*.
 
-Now, let's make a script called `DisplayUI` that makes the victory UI visible at the end of the game! We will drag this script on top of `VictoryUI` in the Heirarchy to make it its parent.
+Now, let's make a script called `DisplayUI` that makes the victory UI visible at the end of the game! We will drag this script on top of `VictoryUI` in the Hierarchy to make it its parent.
 
 Next, we have to hook up our UI to the Game Settings that knows if the game is over or not.
 
