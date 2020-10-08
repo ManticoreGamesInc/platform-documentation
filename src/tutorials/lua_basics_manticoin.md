@@ -59,11 +59,11 @@ Since this has been imported from Community Content, it is now listed under **Im
 
 ### SpinCoin Script
 
-Let's make a new script using the button at the top of Core, call it `SpinCoin` and drag it onto the `Manticoin` object in our project Hierarchy so that the script is its child. You will likely need to first drag the script into the Hierarchy, and then you may try dragging it onto the blue Manticoin template.
+Let's make a new script using the button at the top of Core, call it `SpinCoin` and drag it onto the `Manticoin` object in our project Hierarchy so that the script is its child.
 
 ![Create New Script](../img/scripting/createNewScript.png "Click this to create a new script."){: .center loading="lazy" }
 
-At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Hit the "**Deinstance and Reparent**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
+At this point, the editor will prompt you about a networking state mismatch. In Core, non-networked objects can't be children of networked objects so we need to click the button to make **all children networked** to continue. Next up we will need to deinstance the template so we can move objects into it. Right click the `Manticoin` object in the Hierarchy and hit the "**Abandon Template for Entire Instance**" button and watch how our script is now part of the `Manticoin` in the hierarchy. Now open it up and add the following line of code:
 
 `script.parent:RotateContinuous(Rotation.New(0, 0, 200))`
 
@@ -109,12 +109,13 @@ Yay, we've got it working! Now if only we could collect these coins...
 ### Adding a Trigger
 
 1. From **Core Content -> Gameplay Objects**, drag a **Trigger** object into the world.
+    * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
+    * Now change it's position values for `x` and `y` in the **Properties** panel to `0` so it sits as the same point as the trigger.
+    * Afterwards, select the **Trigger** again and press ++W++ to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
+    * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
     * Resize the trigger to match the coin's size.
         * Select the **Trigger** in the hierarchy and press ++R++ to change to scale mode. Drag the handles to adjust the scale.
         * Press ++V++ to toggle Gizmo visibility, including the **Trigger**'s hitbox.
-    * Parent the **Manticoin** under the trigger by dragging **Manticoin** onto the **Trigger** in the hierarchy.
-    * Press ++W++ to change to Translation mode. Drag the upward handle to move the trigger (along with its children) higher together.
-    * While still in Translation mode, move the trigger (and therefore the Manticoin) somewhere else on the map. This way our default spawn point isn't overlapping the Manticoin! Otherwise we would pick it up instantly when pressing Play.
 
 ### Handling Triggers
 
@@ -181,7 +182,7 @@ UI Objects are 2D elements that can be used to show the Heads Up Displays (often
    * Go to **Core Content -> UI Elements** and drag the **UI Container** object in to the hierarchy.
    * Right click on this UI Container in the Hierarchy, hover over **Create Network Context** and create a **Client Context**. This creates a Client Context folder as a child of the UI Container.
    * From **Core Content -> UI Elements** pick the **UI Text Box** element and drag it onto **Client Context** in the hierarchy, this will make it a child of it.
-   * Rename the Text Control to `CoinUI`.
+   * Rename the **UI Text Box** to `CoinUI`.
    * In the properties panel, set `Text` to be blank by default by deleting the existing text that is already there.
 
 !!! info
@@ -201,13 +202,13 @@ local player = Game.GetLocalPlayer()
 function Tick()
     Task.Wait(0.1)
     local score = player:GetResource("Manticoin")
-    local displayString = player.name..": "..tostring(score or 0)
+    local displayString = player.name..": "..tostring(score)
     script.parent.text = displayString
 end
 ```
 
 !!! info
-    Calling `Task.Wait()` without sending in an argument will default to `1`, a single tick. It supports float arguments and yields the Task for that many seconds.
+    Calling `Task.Wait()` without sending in an argument will default to wait a single tick. It supports float arguments and yields the Task for that many seconds.
     Note: For better performance we'd ideally write code that *only* updates the UI when the coin count changes, but this example favors using simple code over robust systems.
 
 So now instead of constantly getting the players in-game and looping through them, we are only updating the on-screen UI for the local player. This way it displays uniquely for each person, as both the UI and this script will run from a Client Context.
@@ -249,7 +250,7 @@ Alright, awesome!
 ### Generating Coins
 
 Okay, now to populate the map with coins. Right-click within the Hierarchy to make a folder called `Coins`. Now drag our `Trigger` with the attached `Manticoin` object into it.
-Press ++ctrl+W++ to duplicate it how many times you like.
+Press ++ctrl+W++ to duplicate it how many times you like and spread them out a little so they don't overlap.
 
 Organization is important in your hierarchy. You can put objects together via folders or grouping!
 
@@ -262,9 +263,7 @@ Now we will write a script to make the game round-based.
 
 Here we go! Create a script called `CoinGameLogic`.
 
-Let's also add a `Game Settings` object to our hierarchy from **Core Content -> Settings Objects**. We will use it to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well.
-
-Next, we need to create the custom parameter to save our game state.
+Next, we'll use the `Game Settings` object in our hierarchy to hold our game state info. To let us communicate between the server and client, we will have to set it as "**networked**" via the right click settings menu as well. Now we need to create a custom parameter to save our game state.
 
 * To create a parameter for `Game Settings`:
     * Select the `Game Settings` object in the hierarchy.
@@ -303,7 +302,7 @@ So far, nothing actually happens--but that's next!
 
 We are going to update the game when all the possible coins are picked up. First, we'll need a new `UI Text Box` which we'll name `VictoryUI` which will only show up when the game is over, alerting the players that all coins have been collected. After designing the victory UI, we'll want to hide it until it's the appropriate time.
 
-* Create a **UI Text Box** named `VictoryUI` as a child of the `UI Container` we made earlier under `Client Context`.
+* Drag another **UI Text Box** out of Core Content into the `Client Context` of the `UI Container` we made earlier and rename it to `VictoryUI`.
 
 !!! tip
     You could duplicate the `CoinUI` from earlier. With `CoinUI` selected in your Hierarchy, press ++ctrl+W++ to duplicate it. You'll want to delete the extra DisplayCoins script that will be a child of your new clone.
@@ -312,7 +311,7 @@ We are going to update the game when all the possible coins are picked up. First
 * Customize your font color, size, and justification--do what you like with it!
 * Once you're satisfied, change the visibility of the Victory UI under **Properties -> Scene -> Visibility** to *Force Off*.
 
-Now, let's make a script called `DisplayUI` that makes the victory UI visible at the end of the game! We will parent this script underneath `VictoryUI`.
+Now, let's make a script called `DisplayUI` that makes the victory UI visible at the end of the game! We will drag this script on top of `VictoryUI` in the Hierarchy to make it its parent.
 
 Next, we have to hook up our UI to the Game Settings that knows if the game is over or not.
 
@@ -412,21 +411,14 @@ function Tick()
     local coinsLeft = GetCoinsLeft()
     if coinsLeft == 0 then
         World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", true)
-        for i = 3, 0, -1 do
-            Task.Wait(1)
-            roundUI = World.FindObjectByName("RoundUI")
-            roundUI.text = "New round in "..tostring(i).." seconds"
-        end
+        Wait(3)
         World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", false)
-        roundUI.text = ""
         ResetMap()
     end
 end
 ```
 
-Now we've connected all the functions we just wrote, and we're passing information to that RoundUI we created. We've got a cool message that alerts players to when the game is starting over! When all the coins are disabled, this code will loop through changing the message text every second until everything resets.
-
-Ahhh, the magic of programming!
+Now we've connected all the functions we just wrote, ahhh, the magic of programming!
 
 ## Summary
 
