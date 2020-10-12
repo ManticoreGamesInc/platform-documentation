@@ -82,43 +82,43 @@ For this tutorial, we are going to make the player wave hello.
 
     1. In the **Core Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
-         ![Basic Gem Model](../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center loading="lazy" }
+        ![Basic Gem Model](../img/EditorManual/Abilities/Gem.png "Basic Gem Model"){: .center loading="lazy" }
 
-         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](art_reference.md)** or try a **[Tutorial](modeling_basics.md)**.
+        Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](art_reference.md)** or try a **[Tutorial](modeling_basics.md)**.
 
-         I went with a simple red gem, and made it a little smaller than the default diamond.
+        I went with a simple red gem, and made it a little smaller than the default diamond.
 
-         ![Red Gem Model](../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center loading="lazy" }
+        ![Red Gem Model](../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center loading="lazy" }
 
     2. Drag it onto the `Equipment` object and it will become a child of the `Equipment` object. It will prompt you to make the Gem _Networked_, and select "Make Children Networked" when this window appears.
 
-         For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
+        For better organization, right click the Gem object and select "New Group Containing This", and name it "Art".
 
-         ![Art Folder](../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center loading="lazy" }
+        ![Art Folder](../img/EditorManual/Abilities/EquipmentInHierarchy3.png "Art Folder"){: .center loading="lazy" }
 
     3. In the **Properties** window, scroll down to the _Scene_ section. We need to change the **Collision** section from "Inherit From Parent" to "Force Off". This way the gem won't mess with your camera when it's attached to the player.
 
-         ![Art Folder Collision](../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center loading="lazy" }
+        ![Art Folder Collision](../img/EditorManual/Abilities/ArtFolderCollision.png "Art Folder Collision"){: .center loading="lazy" }
 
     4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
 
-         Now that we've created a visible object that can be picked up, it needs to do something!
+        Now that we've created a visible object that can be picked up, it needs to do something!
 
 4. Before we set up the animation to work, let's make sure everything is together. So far in this tutorial, if you have been dragging things directly into the project Hierarchy, they should all be sitting at the (0,0,0) position of the game world.
 
-     Make sure everything is together in the spot you expect, and that your art model and equipment trigger are in the same location.
+    Make sure everything is together in the spot you expect, and that your art model and equipment trigger are in the same location.
 
-     You might even want to drag the whole thing upwards so that the trigger rests on top of the floor rather than halfway into the floor! When you want to move the whole thing, be sure to move the root folder: the `Equipment` object.
+    You might even want to drag the whole thing upwards so that the trigger rests on top of the floor rather than halfway into the floor! When you want to move the whole thing, be sure to move the root folder: the `Equipment` object.
 
-     All together, it should look something like this:
+    All together, it should look something like this:
 
-     ![Everything together at 0,0,0](../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center loading="lazy" }
+    ![Everything together at 0,0,0](../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center loading="lazy" }
 
 5. Now to set up the animation! Navigate back to the **Core Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
-         ![Ability Object in Hierarchy](../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center loading="lazy" }
+        ![Ability Object in Hierarchy](../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center loading="lazy" }
 
     2. Rename the `Ability` object to "Wave" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
 
@@ -128,17 +128,17 @@ For this tutorial, we are going to make the player wave hello.
 
     1. With the `Ability` object selected, navigate to the **Properties** window and scroll down to the _Ability_ section to change the **Action Binding** property to "Ability Feet".
 
-         The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the ++shift++ key on keyboards.
+        The Key Binding is which button will activate the ability. In this case, _Ability Feet_ is the ++shift++ key on keyboards.
 
     2. Still in the **Properties** window and right beneath the Key Binding, change the **Animation** property to `unarmed_wave`.
 
-         ![Ability Properties Panel](../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center loading="lazy" }
+        ![Ability Properties Panel](../img/EditorManual/Abilities/AbilityPropertiesChange.png "Ability Properties Panel"){: .center loading="lazy" }
 
 7. Abilities also affect how the camera works when the ability is used, and in the case of this wave animation, it would be nice to be able to face the camera when we do it. To make sure this happens:
 
     1. With the ability selected, in the **Properties** window, scroll down to the **Cast** section. We want to change the Facing Mode from _Aim_ to **_None_** so that our camera is not affected in that stage of the ability.
 
-         ![Facing Mode](../img/EditorManual/Abilities/FacingModeNone.png "Change the Facing Mode to "None.""){: .center loading="lazy" }
+        ![Facing Mode](../img/EditorManual/Abilities/FacingModeNone.png "Change the Facing Mode to "None.""){: .center loading="lazy" }
 
     2. Do the same thing to the Facing Mode in the **Execute** section.
 
@@ -153,9 +153,9 @@ For this tutorial, we are going to make the player wave hello.
 
   2. Change the **Duration** property. This is in seconds, so by default 3 seconds must pass after using your dance before you can use it again.
 
-      Increase or lower this to suit your gameplay needs.
+    Increase or lower this to suit your gameplay needs.
 
-      ![Ability Properties Panel: Cooldown](../img/EditorManual/Abilities/CooldownDuration.png "Ability Properties Panel: Cooldown"){: .center loading="lazy" }
+    ![Ability Properties Panel: Cooldown](../img/EditorManual/Abilities/CooldownDuration.png "Ability Properties Panel: Cooldown"){: .center loading="lazy" }
 
   Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.
 

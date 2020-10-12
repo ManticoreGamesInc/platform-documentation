@@ -33,7 +33,7 @@ There are two ways to create weapons in Core: modifying one of the weapon templa
 
 The empty Weapon object can be found in **Core Content** in the **Gameplay Objects** section.
 
-To learn how to make a weapon from scratch using this gameplay object, see the [Basic Weapons Tutorial](weapons-tutorial.md), which will cover how to create a weapon that can be picked up and used. To make this weapon also *damage players*, see the [Advanced Abilities Tutorial](https://docs.coregames.com/tutorials/abilities_advanced/).
+To learn how to make a weapon from scratch using this gameplay object, see the [Basic Weapons Tutorial](weapons_tutorial.md), which will cover how to create a weapon that can be picked up and used. To make this weapon also *damage players*, see the [Advanced Abilities Tutorial](https://docs.coregames.com/tutorials/abilities_advanced/).
 
 Making a weapon this way allows you to create unique and creative weapon behavior. For more conventional video game guns, however, it is much more efficient to modify an existing weapon template.
 
@@ -162,4 +162,4 @@ There are several ways to make sure players start with weapons. This example wil
 
 ## Learn More
 
-[Basic Weapons Tutorial](weapon_tutorial.md) | [Abilities and Equipment Tutorial](abilities.md) | [Advanced Abilities Tutorial](abilities_advanced.md)
+[Basic Weapons Tutorial](weapons_tutorial.md) | [Abilities and Equipment Tutorial](abilities.md) | [Advanced Abilities Tutorial](abilities_advanced.md)
