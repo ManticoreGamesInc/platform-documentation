@@ -1,18 +1,20 @@
 ---
-id: shared_key_persistence
-name: Cross-Game Storage
-title: Cross-Game Storage
+id: shared_storage
+name: Shared Storage
+title: Shared Storage
 tags:
     - Reference
 ---
 
-# Cross-Game Storage
+# Shared Storage
+
+> Shared storage lets you access persistent player data tables across multiple games.
 
 ## Introduction
 
-The same way [Peristent Storage](persistent_storage.md) allows you to save player data between play sessions, **Shared Key Persistence** allows you to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
+The same way [Peristent Storage](persistent_storage.md) allows you to save player data between play sessions, **Shared Storage** allows you to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
 
-**Shared Key Persistence** allows you to create storage tables that are associated with your account, rather than a specific game. You can have **up to 8** of these tables, and in each project you can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](https://docs.coregames.com/core_api/#netreference).
+**Shared Storage** allows you to create storage tables, called **Shared Keys** that are associated with your account, rather than a specific game. You can have **up to 8** of these tables, and in each project you can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](https://docs.coregames.com/core_api/#netreference).
 
 ### Account-Level Tables
 
@@ -26,7 +28,7 @@ Because Shared Storage keys are associated with an account, they can only be use
 
 ### Create a Key
 
-Shared storage tables are created as **keys** through the **Shared Storage** window, and keys will be accessible in all projects as long as you are logged in to your account.
+Shared storage tables are created as **Keys** through the **Shared Storage** window, and keys will be accessible in all projects as long as you are logged in to your account.
 
 ![Create a New Key](../img/Storage/OpenSharedStorage.png){.center loading="lazy" }
 
@@ -72,11 +74,11 @@ You can learn more about the **Storage** namespace on [the Core API](https://doc
 
 To save data for a player:
 
-1. Add the Shared Data Key as a Custom Variable to the script's **Properties**.
-2. Add the variable reference to the Custom Variable to the script's properties.
-3. Create a variable for the player's data table and assign it equal to ``Storage.GetPlayerData()``
+1. Add the Shared Data Key as a Custom Property to the script's **Properties**.
+2. Add the variable reference to the Custom Property to the script's properties.
+3. Create a variable for the player's data table and assign it equal to ``Storage.GetSharedPlayerData()``
 4. Change a property of that table.
-5. Reassign the table to the player's storage with ``Storage.SetPlayerData()``
+5. Reassign the table to the player's storage with ``Storage.SetSharedPlayerData()``
 
 To learn more, check out the [example snippets with shared storage](examples.md)
 
@@ -88,4 +90,4 @@ In each game where you want to reference a Shared Data Table, you will need to a
 
 ## Learn More
 
-[Shared Storage on the Core API](https://docs.coregames.com/core_api/#storage) | [Shared Storage Examples](https://docs.coregames.com/api/examples/#storage) | [NetReference on the Core API](https://docs.coregames.com/core_api/#netreference) | [Persistent Storage Reference](persistent_storage.md)
+[Shared Storage on the Core API](https://docs.coregames.com/core_api/#storage) | [Shared Storage Examples](https://docs.coregames.com/api/examples/#sharedstorage) | [NetReference on the Core API](https://docs.coregames.com/core_api/#netreference) | [Persistent Storage Reference](persistent_storage.md)

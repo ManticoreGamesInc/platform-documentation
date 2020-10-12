@@ -70,7 +70,7 @@ nav:
         - Performance Panel: getting_started/performance_panel.md
         - Play-Mode Profiler: getting_started/profiler.md
         - Persistent Storage: tutorials/persistent_storage.md
-        - Shared Data Storage: tutorials/shared_key_persistence.md
+        - Shared Data Storage: tutorials/shared_storage.md
         - Networking: tutorials/networking.md
         - Frameworks:
           - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
