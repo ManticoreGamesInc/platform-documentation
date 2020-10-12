@@ -3412,7 +3412,7 @@ end
 
 ### <a id="property:LeaderboardEntry.additionalData"></a>LeaderboardEntry.additionalData
 
-The `Leaderboards` namespace contains a set of fu nctions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
+The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
 
 In order to use these functions, you must first create a Global Leaderboard in the Core editor.  (Select Global Leaderboards, under the View menu.)
 
@@ -5213,6 +5213,30 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+### <a id="classfunction:Storage.GetSharedPlayerData"></a>Storage.GetSharedPlayerData
+
+This example shows how to read data that has been saved to Shared Storage. Because this is saved via shared-key persistence, the data may have been written by a different game. This allows you to have multiple games share the same set of player data.
+
+For this example to work, there is some setup that needs to be done:
+
+- Storage needs to be enabled in the Game Settings object.
+
+- You have to create a shared key.
+
+- The NetReference for the shared key needs to be added to the script as a custom property.
+
+See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
+
+```lua
+local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
+local returnTable = Storage.GetSharedPlayerData(propSharedKey, player)
+
+-- Print out the data we retrieved:
+for k,v in pairs(returnTable) do
+    print(k, v)
+end
+```
+
 ### <a id="classfunction:Storage.SetPlayerData"></a>Storage.SetPlayerData
 
 This example detects when a player gains XP or level and saves the new values to storage.
@@ -5231,6 +5255,32 @@ function OnPlayerJoined(player)
 end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### <a id="classfunction:Storage.SetSharedPlayerData"></a>Storage.SetSharedPlayerData
+
+This example shows how to write data to the Shared Storage. With this, any maps that you enable with your shared key can all access the same data that is associated with a player. This means that you could have several games where reward, levels, or achievements carry over between them.
+
+For this example to work, there is some setup th at needs to be done:
+
+- Storage needs to be enabled in the Game Settings object.
+
+- You have to create a shared key.
+
+- The NetReference for the shared key needs to be added to the script as a custom property.
+
+See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
+
+```lua
+local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
+
+local sampleData = {
+    name = "Philip",
+    points = 1000,
+    favorite_color = Color.RED,
+    skill_levels = {swordplay = 8, flying = 10, electromagnetism = 5, friendship = 30}
+}
+Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 ```
 
 ## Task
