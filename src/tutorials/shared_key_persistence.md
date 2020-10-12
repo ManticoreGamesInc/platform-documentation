@@ -28,13 +28,11 @@ Because Shared Storage keys are associated with an account, they can only be use
 
 Shared storage tables are created as **keys** through the **Shared Storage** window, and keys will be accessible in all projects as long as you are logged in to your account.
 
-![Opening the Shared Storage Window]()
+![Create a New Key](../img/Storage/OpenSharedStorage.png){.center loading="lazy" }
 
 1. In the top menu bar, open the **View** menu and select **Shared Storage** to open the window.
 2. In the bottom of the **Shared Storage** window click the **Create New Shared Key** button.
 3. Give the key a name and press **Create**.
-
-![Create a New Key]()
 
 ### Enable Storage
 
@@ -43,7 +41,7 @@ Storage is not enabled by default, and must be turned on for any project that wi
 1. Select the **Game Settings** object in the **Hierarchy** and open the **Properties** window.
 2. In the **General** section, check the box next to **Enable Player Storage**
 
-![Enable Player Storage](EnablePlayerStorage.png)
+![Enable Player Storage](../img/Storage/EnablePlayerStorage.png){.center loading="lazy" }
 
 ### Save Player Data
 
@@ -57,14 +55,14 @@ All keys that are active in your project can be found in **Project Content** in 
 
 To save data to a shared storage table, you will need to use its **NetReference** to refer to it in a script. See the [Core API](https://docs.coregames.com/core_api/#netreference) for more information about this object type.
 
-![Create NetRef Custom Property]()
+![Create NetRef Custom Property](../img/Storage/AddNetReferenceCustomProperty.png){.center loading="lazy" }
 
 1. Select the script that will save data across games in the **Hierarchy**, and open the **Properties** window.
 2. Open the **My Shared Keys** section of **Project Content**.
 3. Select and drag the key onto the **Custom Properties** panel of the script **Properties** to add it as a custom property.
 4. Copy the variable generated in the script's **Properties** window into the script itself.
 
-![Copy Custom Property Reference]()
+![Copy Custom Property Reference](../img/Storage/SelectCustomPropertyReference.png){.center loading="lazy" }
 
 #### Save Data to a Shared Table
 
