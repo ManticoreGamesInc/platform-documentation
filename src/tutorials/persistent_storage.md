@@ -20,7 +20,7 @@ Storage is not enabled by default, and must be turned on for any project that wi
 1. Select the **Game Settings** object in the **Hierarchy** and open the **Properties** window.
 2. In the **General** section, check the box next to **Enable Player Storage**
 
-![Enable Player Storage](EnablePlayerStorage.png)
+![Enable Player Storage](../img/Storage/EnablePlayerStorage.png)
 
 <!-- TODO: Add more tasks
 - Persist all Player resources
