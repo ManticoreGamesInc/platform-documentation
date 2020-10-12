@@ -53,9 +53,13 @@ title: Tags
 
 - [The Object Generator Tool](object_generator.md)
 
+- [Persistent Data Storage](persistent_storage.md)
+
 - [Scene Creation in Core](scene_creation.md)
 
 - [Intro to Scripting](scripting_intro.md)
+
+- [Shared Storage](shared_storage.md)
 
 - [Template Reference](template_reference.md)
 
@@ -92,7 +96,7 @@ title: Tags
 
 - [Lua Style Guide](lua_style_guide.md)
 
-- [Persistent Data Storage in Core](persistent_storage.md)
+- [Persistent Data Storage in Core](persistent_storage_tutorial.md)
 
 - [Basic Weapons Tutorial](weapons_tutorial.md)
 
