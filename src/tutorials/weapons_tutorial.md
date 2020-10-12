@@ -52,6 +52,8 @@ So, let's get started!
 
 ### Setting Up the Weapon
 
+#### Adding a Weapon from Core Content
+
 !!! info "Basic Assault Rifle Model"
     ![Basic Rifle](/img/EditorManual/Weapons/assaultRifle.png "The sort of thing you'd want at parties."){: .center loading="lazy" }
     You could use the *Modern Weapon - Auto Rifle 01 (Prop*) in **Core Content** as a weapon model or make your own by combining different props in Core!
@@ -60,95 +62,91 @@ So, let's get started!
 
     ![Basic Rifle](/img/EditorManual/Weapons/weaponModelLocation.png "Layers and layers of options, dude."){: .center loading="lazy" }
 
-1. The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
+The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
 
-2. A `weapon` in the **Hierarchy** includes two `Ability` Objects and a `PickupTrigger` beneath it--these objects are "children" of the "parent" weapon object.
+A `weapon` in the **Hierarchy** includes two `Ability` Objects and a `PickupTrigger` beneath it--these objects are "children" of the "parent" weapon object.
 
-    1. The `Ability` Objects `AttackAbility` and `ReloadAbility` are what we will use for the Attack and Reload abilities.
-    2. The `PickupTrigger` is a type of `Trigger`. This comes with all weapons by default so that they can more easily be picked-up in game!
+1. The `Ability` Objects `AttackAbility` and `ReloadAbility` are what we will use for the Attack and Reload abilities.
+2. The `PickupTrigger` is a type of `Trigger`. This comes with all weapons by default so that they can more easily be picked-up in game!
 
-    ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.png "The very beginning of the weapon."){: .center loading="lazy" }
+![Initial Hierarchy](/img/EditorManual/Weapons/hierarchyFirst.png "The very beginning of the weapon."){: .center loading="lazy" }
 
-3. The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
+The in-editor window scene weapon will be completely "empty" having almost no visible parts at first--only the gizmos for the weapon and the trigger.
 
-    1. If you do not see anything at all in your scene, try pressing ++V++ to toggle the visibility of these gizmos.
+1. If you do not see anything at all in your scene, try pressing ++V++ to toggle the visibility of these gizmos.
 
-    2. The **look of the weapon** can be made from any Core primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
+2. The **look of the weapon** can be made from any Core primitives and shapes--there is a whole category of weapon parts that you can put together to make whatever you like!
 
-        This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
+    This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-        If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art_reference.md)** page or try a **[Tutorial](modeling_basics.md)**.
+    If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art_reference.md)** page or try a **[Tutorial](modeling_basics.md)**.
 
-        This attaches the visuals of the weapon to the function of the weapon!
+    This attaches the visuals of the weapon to the function of the weapon!
 
-4. Right click this Art group and select "Create Network Context > **New Client Context Containing This**" to keep the weapon's visuals within a Client Context folder.
+3. Right click this Art group and select "Create Network Context > **New Client Context Containing This**" to keep the weapon's visuals within a Client Context folder.
 
     This is better for overall performance, and should always be done for visuals that aren't directly related to gameplay. Since it's the bullets and the actual impact that affects gameplay, we want the gun itself to not be taking up performance space.
 
-5. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. In the Scene section, change the Collision drop-down menu from *Inherit from Parent* to *Force Off*. This way the gun won't get stuck on the player and move the camera to weird locations.
+4. Finally for gun visuals, select that Client Context folder, and navigate to the **Properties** window. In the Scene section, change the Collision drop-down menu from *Inherit from Parent* to *Force Off*. This way the gun won't get stuck on the player and move the camera to weird locations.
 
-6. Your **Hierarchy** should now look like this:
+5. Your **Hierarchy** should now look like this:
 
     ![Initial Hierarchy](/img/EditorManual/Weapons/hierarchy.png "Now we have a client context folder!"){: .center loading="lazy" }
 
-7. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
+6. At this stage, **you can already pick up the weapon when playing the game** and trigger a fire animation when left-clicking on a mouse. This is closer to our goal--but we still need it to actually fire bullets!
 
-8. You may also notice that the weapon, when equipped, could be not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head, or rotated all weird.
+7. You may also notice that the weapon, when equipped, could be not at all in the right spot. The animations should be correct, but the weapon position might be through your body or above your head, or rotated all weird.
 
     ![Weapon Hierarchy](/img/EditorManual/Weapons/brokenLocationWeapon.png "This might not be a good place to shoot from. That weapon kick could... hurt."){: .center loading="lazy" }
     When equipped, the weapon's origin will snap to the attachment point or "Socket". The odds are high that the weapon will be held in the wrong spot when equipped the first time.
 
-    **To fix the weapon model's position:**
+#### Change the weapon model's position
 
-    1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
+1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
 
-        For a full list of all possible sockets that you could use, check out the **[Lua API Guide](core_api.md)**.
+    For a full list of all possible sockets that you could use, check out the **[Lua API Guide](core_api.md)**.
 
-    2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
+2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
 
-        ![Initial Hierarchy](/img/EditorManual/Weapons/GunGuide.png "The ghost hands know best."){: .center loading="lazy" }
+    ![Initial Hierarchy](/img/EditorManual/Weapons/GunGuide.png "The ghost hands know best."){: .center loading="lazy" }
 
-        In here is a tool for visualizing how to position a gun in the player's hand--the **Weapon Guide 2hand_rifle**. Drag this onto the `weapon` in your **Hierarchy**, to make it a child of the weapon.
+    In here is a tool for visualizing how to position a gun in the player's hand--the **Weapon Guide 2hand_rifle**. Drag this onto the `weapon` in your **Hierarchy**, to make it a child of the weapon.
 
-    3. With the *Weapon Guide 2hand_rifle* selected, Set all Position Transforms in the **Properties** window to 0. This will center it within the `weapon` object. Now, move your art folder within the `weapon` around in the world to align with the hands of this model.
+3. With the *Weapon Guide 2hand_rifle* selected, Set all Position Transforms in the **Properties** window to 0. This will center it within the `weapon` object. Now, move your art folder within the `weapon` around in the world to align with the hands of this model.
 
-    This takes some wiggling--do what looks best to you!
+This takes some wiggling--do what looks best to you!
 
 ### Buildin' the Bullets
 
 Currently, the weapon can't shoot anything! For a bullet to fire out of the gun when using Left Click to fire, a bullet template needs to be dragged into the weapon.
 
-1. Click on the `weapon` in the **Hierarchy** window. In the **Properties** window, scroll down to the *Weapon* section. Make sure that **Is Hitscan Weapon** is checked **off**.
+Click on the `weapon` in the **Hierarchy** window. In the **Properties** window, scroll down to the *Weapon* section. Make sure that **Is Hitscan Weapon** is checked **off**.
 
-    ![Hitscan?](/img/EditorManual/Weapons/isHitscan.png "Check this box off."){: .center loading="lazy" }
+#### To Hitscan or not to Hitscan
 
-    "Hitscan" means that the weapon would immediately have an impact on whatever it is shooting at, meaning the bullet wouldn't need to travel through the air. It also means that there isn't a visible bullet! In this tutorial, we're going to build a projectile bullet.
+![Hitscan?](/img/EditorManual/Weapons/isHitscan.png "Check this box off."){: .center loading="lazy" }
 
-    Having a projectile also means that you can change how fast it travels through the air, along with other settings in the *Weapon* section.
+"Hitscan" means that the weapon would immediately have an impact on whatever it is shooting at, meaning the bullet wouldn't need to travel through the air. It also means that there isn't a visible bullet! In this tutorial, we're going to build a projectile bullet.
 
-2. Look right beneath *Is Hitscan*. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!
+Having a projectile also means that you can change how fast it travels through the air, along with other settings in the *Weapon* section.
 
-    ![Projectile Template](/img/EditorManual/Weapons/projectileTemplate.png "Place your projectile template here."){: .center loading="lazy" }
+Look right beneath *Is Hitscan*. There is a property called "**Projectile Template**". Here is where we would drag a template for the bullet!
 
-    To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **Core Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
+![Projectile Template](/img/EditorManual/Weapons/projectileTemplate.png "Place your projectile template here."){: .center loading="lazy" }
 
-    ![bullet](/img/EditorManual/Weapons/bullet.png "May be known to explode."){: .center loading="lazy" }
+To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. This can be found in **Core Content**, within the **Basic Shapes** section. Drag one into the viewport, and change the scale to shrink the size until you are satisfied with the bullet shape.
 
-    Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage.
+![bullet](/img/EditorManual/Weapons/bullet.png "May be known to explode."){: .center loading="lazy" }
 
-    You might also want to rotate the bullet 90 degrees, in the event that it fires out of the gun sideways.
+1. Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage. You might also want to rotate the bullet 90 degrees, in the event that it fires out of the gun sideways.
 
-3. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder.
+2. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder. This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
 
-    This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
+3. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking". Bullets need to be both Client Context, and wrapped in a Networked object to be perform really well in-game.
 
-4. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking".
+4. Next, right click this folder again, and click "Create New Template From This". Name it "Bullet", or whatever you would like.
 
-    Bullets need to be both Client Context, and wrapped in a Networked object to be perform really well in-game.
-
-5. Next, right click this folder again, and click "Create New Template From This". Name it "Bullet", or whatever you would like.
-
-6. Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
+Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
 
 ![Bullet Template](/img/EditorManual/Weapons/genericBullet.png "May be known to explode."){: .center loading="lazy" }
 
@@ -163,14 +161,16 @@ Weapons come with a property for Damage--setting this determines how much gettin
 
 2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
 
-    ![Multiplayer Preview](/img/EditorManual/Weapons/multiplayerPreview.png "See more of yourself."){: .center loading="lazy" }
+#### Multiplayer Preview
 
-    1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **Core Content** tab, within the **Settings Objects** section.
-    2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
-    3. With Multiplayer Preview Mode turned on to four players, press the blue **Play** button.
-    4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
+![Multiplayer Preview](/img/EditorManual/Weapons/multiplayerPreview.png "See more of yourself."){: .center loading="lazy" }
 
-    If you've set up everything correctly along with this tutorial, the player bot should die after 4 shots!
+1. To make sure the fake players (also called "bots") are on the enemy team, create a **Team Settings Object** by dragging it into your project **Hierarchy**. This can be found in the **Core Content** tab, within the **Settings Objects** section.
+2. With the *Team Settings Object* selected, check the **Properties** tab. Change the **Team Mode** to *Free For All*. This will make all spawned players be on their own individual team, so that you can shoot at them!
+3. With Multiplayer Preview Mode turned on to four players, press the blue **Play** button.
+4. From one client window, pick up your weapon by walking into it, and shoot at the other *KurtleBot* player by using Left Click.
+
+If you've set up everything correctly along with this tutorial, the player bot should die after 4 shots!
 
 Now all the basics are hooked up! The gun should be able to shoot and kill other players--if not, try going back through the steps above to see where something might be missing. Typos are a common human error, check those and don't worry about having missed it the first time. Even the very best will miss things like that!
 
@@ -186,49 +186,55 @@ Let's start adding in some cool effects--starting with the moment of impact.
 
 You might notice if you try dragging an `effect` from Core Content into the `weapon` object's properties, it doesn't work. This is because the weapon properties only accept a `template` type of object. So, we need to make one!
 
-1. We'll start with a visual effect. In the **Core Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
+#### Using Pre-Made Effects
 
-    This visual effect is a little poof of smoke that happens briefly when played.
+We'll start with a visual effect. In the **Core Content** tab, search for "generic player" and look for the object called "Generic Player Impact VFX". Drag this object into your project **Hierarchy**.
 
-    1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
+This visual effect is a little poof of smoke that happens briefly when played.
 
-        ![Impact Settings](/img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center loading="lazy" }
+1. By default, the **color of the smoke** is white. If you'd like to make this look like a blood splatter, or a poof of dust, try changing the color property to whatever you'd like.
 
-        All visual effects in Core can be found in the **Effects** section of **Core Content**.
+    ![Impact Settings](/img/EditorManual/Weapons/smokeSettings.png "For the poof!"){: .center loading="lazy" }
 
-    2. To preview the effect, press the **Play** button at the top right of the **Properties** tab for the effect.
+    All visual effects in Core can be found in the **Effects** section of **Core Content**.
 
-2. Next, let's grab an audio object to make sounds when a player is shot.
+2. To preview the effect, press the **Play** button at the top right of the **Properties** tab for the effect.
 
-    1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
+#### Audio
 
-    2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
+Next, let's grab an audio object to make sounds when a player is shot.
 
-        Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
+1. In **Core Content**, search for "bullet body" and several different bullet impact sfx objects will show up. Feel free to listen to or use any of these, but in this case let's grab the "Bullet Body Impact SFX" and drag it into our project Hierarchy.
 
-        ![Audio Settings](/img/EditorManual/Weapons/audioSettings.png "For the bang!"){: .center loading="lazy" }
+2. With this SFX selected in our Hierarchy, look in the **Properties** window. To enable our sfx to be heard through walls, and to make the sound fade the further away a player is from it, we need to change a couple settings.
 
-        We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
+    Click the box for **Enable Attenuation** to turn it on, and do the same for the box for **Auto Play**. Uncheck the box for **Enable Occlusion**. You can hover over the names of the properties to read a little more about what they do.
 
-        Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
+    ![Audio Settings](/img/EditorManual/Weapons/audioSettings.png "For the bang!"){: .center loading="lazy" }
 
-        We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
+    We want attenuation enabled so that the sound of impact is harder to hear the further away you are from the impact, just like in real life.
 
-        **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
+    Auto play makes it so the sound effect plays immediately when it is created, which is exactly what we want for lining up the sound with the moment a player is hit.
 
-3. Now that we have these two effects in our Hierarchy, hold shift to select them both and right click to open the context menu.
+    We're turning off occlusion so that a shot can be heard through walls, meaning walls won't stop us from hearing that we made a successful shot.
+
+    **Don't be afraid to experiment** with any of the settings you see--different combinations make for a totally different gameplay experience!
+
+#### Add to Client Context
+
+1. Now that we have these two effects in our Hierarchy, hold shift to select them both and right click to open the context menu.
 
     Hover over "Create Network Context" and click **"Create Client Context Containing This"** to wrap both objects in a Client Context folder.
 
-4. Right click this new Client Context folder, and click **"New Group Containing This"** to wrap the whole thing in a group. This is the usual best practice for making templates with Client Context content.
+2. Right click this new Client Context folder, and click **"New Group Containing This"** to wrap the whole thing in a group. This is the usual best practice for making templates with Client Context content.
 
     Name the group "Player Impact Effect".
 
-5. Right click this new group, and click **"Create New Template From This"** to make this whole little effect we made a template that we can use elsewhere, or even publish to Community Content should you so choose!
+3. Right click this new group, and click **"Create New Template From This"** to make this whole little effect we made a template that we can use elsewhere, or even publish to Community Content should you so choose!
 
     ![Your VFX Template](/img/EditorManual/Weapons/handmadeVFX.png "Pull it all together now."){: .center loading="lazy" }
 
-6. Now that it is a template, it can be found in our Project Content tab. Just like the bullet from earlier, delete the template we just made from the Hierarchy and then select the `weapon` object.
+4. Now that it is a template, it can be found in our Project Content tab. Just like the bullet from earlier, delete the template we just made from the Hierarchy and then select the `weapon` object.
 
     Scroll down in the Properties window to the VisualEffects section, and look for the **Impact Player Effect** slot. Drag your Player Impact Effect from your Project Content into this slot, and test out the weapon!
 
