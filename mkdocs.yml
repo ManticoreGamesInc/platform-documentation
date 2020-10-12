@@ -47,7 +47,7 @@ nav:
           - Scripting (Beginner): tutorials/lua_basics_helloworld.md
           - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
           - Scripting (Advanced): tutorials/lua_basics_manticoin.md
-        - Persistent Storage: tutorials/persistent_storage.md
+        - Persistent Storage: tutorials/persistent_storage_tutorial.md
         - Scene Creation: tutorials/scene_creation.md
         - Environment Art: tutorials/environment_art.md
         - Modeling Basics: tutorials/modeling_basics.md
@@ -69,6 +69,8 @@ nav:
         - Publishing Checklist: getting_started/publishing_checklist.md
         - Performance Panel: getting_started/performance_panel.md
         - Play-Mode Profiler: getting_started/profiler.md
+        - Persistent Storage: tutorials/persistent_storage.md
+        - Shared Data Storage: tutorials/shared_storage.md
         - Networking: tutorials/networking.md
         - Frameworks:
           - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
