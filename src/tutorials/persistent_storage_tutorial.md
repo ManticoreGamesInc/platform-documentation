@@ -43,10 +43,10 @@ Really, anything that you might want to preserve for the next play session for t
 Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
 
 * `Storage.GetPlayerData(Player)`
-    * returns a table
-    * is server-only
+    * Returns a table
+    * Is server-only
 * `Storage.SetPlayerData(Player, table)`
-    * is server-only
+    * Is server-only
 
 All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
 
