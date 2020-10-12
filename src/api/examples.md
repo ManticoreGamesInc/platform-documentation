@@ -5225,7 +5225,7 @@ For this example to work, there is some setup that needs to be done:
 
 - The NetReference for the shared key needs to be added to the script as a custom property.
 
-See the API documentation for details on how to create shared keys.
+See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
 
 ```lua
 local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
@@ -5269,7 +5269,7 @@ For this example to work, there is some setup th at needs to be done:
 
 - The NetReference for the shared key needs to be added to the script as a custom property.
 
-See the API documentation for details on how to create shared keys.
+See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
 
 ```lua
 local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
