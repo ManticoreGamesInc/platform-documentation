@@ -4466,6 +4466,15 @@
 				},
 				{
 					"Name": "flipOnMultiJump",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player.flipOnMultiJump is deprecated. Please use Player.shouldFlipOnMultiJump instead.",
+					"Type": "bool",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "shouldFlipOnMultiJump",
 					"Type": "bool",
 					"Tags": [
 						"ServerOnly"
@@ -5054,6 +5063,8 @@
 					"Name": "Respawn",
 					"Signatures": [
 						{
+							"IsDeprecated": true,
+							"DeprecationMessage": "Player:Respawn(Vector3, Rotation) is deprecated.  Please use optional parameters table instead: Player:Respawn({position = Vector3, rotation = Rotation})",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -5063,6 +5074,15 @@
 								{
 									"Type": "Rotation",
 									"Name": "rotation"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters"
 								}
 							]
 						},
@@ -10430,6 +10450,57 @@
 								}
 							],
 							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "table",
+									"Name": "data"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetSharedPlayerData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "sharedStorageKey"
+								},
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SetSharedPlayerData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "sharedStorageKey"
+								},
 								{
 									"Type": "Player",
 									"Name": "player"
