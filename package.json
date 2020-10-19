@@ -50,7 +50,7 @@
         "remark-cli": "^8.0.1",
         "remark-frontmatter": "^3.0.0",
         "remark-preset-lint-markdown-style-guide": "^3.0.1",
-        "remark-stringify": "^8.1.1"
+        "remark-stringify": "^9.0.0"
     },
     "engines": {
         "node": ">= 10"
