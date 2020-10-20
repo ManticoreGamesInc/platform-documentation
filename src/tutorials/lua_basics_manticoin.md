@@ -411,7 +411,7 @@ function Tick()
     local coinsLeft = GetCoinsLeft()
     if coinsLeft == 0 then
         World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", true)
-        Wait(3)
+        Task.Wait(3)
         World.FindObjectByName("Game Settings"):SetNetworkedCustomProperty("gameOver", false)
         ResetMap()
     end
