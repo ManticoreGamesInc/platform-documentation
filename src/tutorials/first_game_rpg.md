@@ -17,10 +17,10 @@ To get started, use the **Create** menu to make a new project
 1. With Core open, click the **Create** Tab on the left side menu.
 2. Click **Create New Game**.
 
-### Select the **D&D Game Jam** framework
+### Select the **Dungeon Crawler** framework
 
 1. Click **View Frameworks** in the **Core Game Frameworks** option.
-2. Click **D&D Game Jam**.
+2. Click **Dungeon Crawler**.
 3. Name your project.
 4. Click **Create**.
 
@@ -245,4 +245,4 @@ Try out your dungeons, testing enemy AI behavior, the shop items, and making sur
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) | [D&D RPG Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](publishing.md) | [Dungeon Crawler Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
