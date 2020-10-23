@@ -17,78 +17,70 @@ docs_dir: src
 
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml
 nav:
-  - News:
-      - News: https://forums.coregames.com/c/community/5
   - Documentation:
       - Home: index.md
       - Getting Started:
-        - Install Core: getting_started/installing_core.md
-        - Intro to the Editor: getting_started/editor_intro.md
-        - Create your first Game: getting_started/my_first_multiplayer_game.md
-        - Create your first RPG game: tutorials/first_game_rpg.md
-        - Publish a Game: getting_started/publishing.md
-        - Getting Help in Core: getting_started/core_help.md
+          - Install Core: getting_started/installing_core.md
+          - Intro to the Editor: getting_started/editor_intro.md
+          - Create your first Game: getting_started/my_first_multiplayer_game.md
+          - Create your first RPG game: tutorials/first_game_rpg.md
+          - Publish a Game: getting_started/publishing.md
+          - Getting Help in Core: getting_started/core_help.md
       - Coming from other Platforms:
-        - Unity: other_platforms/unity.md
-        - Roblox: other_platforms/roblox.md
-        - World of Warcraft: other_platforms/world_of_warcraft.md
+          - Unity: other_platforms/unity.md
+          - Roblox: other_platforms/roblox.md
+          - World of Warcraft: other_platforms/world_of_warcraft.md
       - Best Practices:
-        - Collaboration: tutorials/collaboration_overview.md
-        - GitHub and Core: tutorials/github.md
-        - Lua Style Guide: tutorials/lua_style_guide.md
+          - Collaboration: tutorials/collaboration_overview.md
+          - GitHub and Core: tutorials/github.md
+          - Lua Style Guide: tutorials/lua_style_guide.md
       - Tutorials:
-        - Overview: tutorials/overview.md
-        - Abilities: tutorials/abilities.md
-        - Weapons: tutorials/weapons_tutorial.md
-        - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
-        - Scripting:
-          - Scripting (Beginner): tutorials/lua_basics_helloworld.md
-          - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
-          - Scripting (Advanced): tutorials/lua_basics_manticoin.md
-        - Persistent Storage: tutorials/persistent_storage_tutorial.md
-        - Scene Creation: tutorials/scene_creation.md
-        - Environment Art: tutorials/environment_art.md
-        - Modeling Basics: tutorials/modeling_basics.md
-        - Visual Effects in Core: tutorials/vfx_tutorial.md
-        - Video Tutorials:
-            - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
+          - Overview: tutorials/overview.md
+          - Abilities: tutorials/abilities.md
+          - Weapons: tutorials/weapons_tutorial.md
+          - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
+          - Scripting:
+              - Scripting (Beginner): tutorials/lua_basics_helloworld.md
+              - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
+              - Scripting (Advanced): tutorials/lua_basics_manticoin.md
+          - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - Scene Creation: tutorials/scene_creation.md
+          - Environment Art: tutorials/environment_art.md
+          - Modeling Basics: tutorials/modeling_basics.md
+          - Visual Effects in Core: tutorials/vfx_tutorial.md
+          - Video Tutorials:
+              - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
       - Core Editor Manual:
-        - Scripting Introduction: tutorials/scripting_intro.md
-        - Editor Shortcuts: editor_keybindings.md
-        - Art in Core: tutorials/art_reference.md
-        - Modeling Reference: tutorials/modeling_reference.md
-        - Custom Materials: tutorials/custom_materials.md
-        - Object Generator: tutorials/object_generator.md
-        - Templates: tutorials/template_reference.md
-        - Community Content: getting_started/community_content.md
-        - Animated Meshes: tutorials/animated_mesh.md
-        - Audio: tutorials/audio_reference.md
-        - UI: tutorials/ui_reference.md
-        - Publishing Checklist: getting_started/publishing_checklist.md
-        - Performance Panel: getting_started/performance_panel.md
-        - Play-Mode Profiler: getting_started/profiler.md
-        - Persistent Storage: tutorials/persistent_storage.md
-        - Shared Data Storage: tutorials/shared_storage.md
-        - Networking: tutorials/networking.md
-        - Frameworks:
-          - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
-        - Weapons: tutorials/weapons.md
+          - Scripting Introduction: tutorials/scripting_intro.md
+          - Editor Shortcuts: editor_keybindings.md
+          - Art in Core: tutorials/art_reference.md
+          - Modeling Reference: tutorials/modeling_reference.md
+          - Custom Materials: tutorials/custom_materials.md
+          - Object Generator: tutorials/object_generator.md
+          - Templates: tutorials/template_reference.md
+          - Community Content: getting_started/community_content.md
+          - Animated Meshes: tutorials/animated_mesh.md
+          - Audio: tutorials/audio_reference.md
+          - UI: tutorials/ui_reference.md
+          - Publishing Checklist: getting_started/publishing_checklist.md
+          - Performance Panel: getting_started/performance_panel.md
+          - Play-Mode Profiler: getting_started/profiler.md
+          - Persistent Storage: tutorials/persistent_storage.md
+          - Shared Data Storage: tutorials/shared_storage.md
+          - Networking: tutorials/networking.md
+          - Frameworks:
+              - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
+          - Weapons: tutorials/weapons.md
       - Core API:
-        - API Overview: core_api.md
-        - Game Components: api/components.md
-        - Ability Bindings: api/ability_bindings.md
-        - Animations & Sockets: api/animations.md
-        - Contexts: api/contexts.md
-        - Lua in Core: tutorials/lua_reference.md
-        - Lua Style Guide: tutorials/lua_style_guide.md
-        - Editor Extensions: extensions.md
-        - Examples & Snippets: api/examples.md
-  - Core Academy:
-      - Academy: https://learn.coregames.com
-  - Forums:
-      - Forums: https://forums.coregames.com
-  - Events:
-      - Events: https://forums.coregames.com/c/community/events/6
+          - API Overview: core_api.md
+          - Game Components: api/components.md
+          - Ability Bindings: api/ability_bindings.md
+          - Animations & Sockets: api/animations.md
+          - Contexts: api/contexts.md
+          - Lua in Core: tutorials/lua_reference.md
+          - Lua Style Guide: tutorials/lua_style_guide.md
+          - Editor Extensions: extensions.md
+          - Examples & Snippets: api/examples.md
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
@@ -99,8 +91,12 @@ nav:
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
       - Examples & Snippets: api/examples.md
-  - FAQ:
-      - Frequently Asked Questions: https://support.coregames.com/hc/en-us/categories/360003284214-FAQ
+  - Core Academy:
+      - Academy: https://learn.coregames.com
+  - Forums:
+      - Forums: https://forums.coregames.com
+  - News:
+      - News: https://forums.coregames.com/c/community/5
   - Feedback:
       - Feedback: https://support.coregames.com/hc/en-us/requests/new
 
@@ -123,8 +119,8 @@ theme:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
   static_templates:
-   - 404.html
-   - offline.html
+    - 404.html
+    - offline.html
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -179,7 +175,7 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   #- pymdownx.highlight:
-      #linenums_style: pymdownx-inline
+  #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.keys:
       camel_case: true
@@ -231,7 +227,6 @@ plugins:
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_overview.md: tutorials/dungeon_framework_reference.md
         tutorials/: tutorials/overview.md
-
 #google_analytics:
 #  - UA-142884846-4
 #  - auto
