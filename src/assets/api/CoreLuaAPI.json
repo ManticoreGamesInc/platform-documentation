@@ -4113,6 +4113,13 @@
 					]
 				},
 				{
+					"Name": "referenceType",
+					"Type": "NetReferenceType",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -11207,6 +11214,23 @@
 				{
 					"Name": "SLIDING",
 					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "NetReferenceType",
+			"Values": [
+				{
+					"Name": "LEADERBOARD",
+					"Value": 1
+				},
+				{
+					"Name": "SHARED_STORAGE",
+					"Value": 2
+				},
+				{
+					"Name": "UNKNOWN",
+					"Value": 0
 				}
 			]
 		},
