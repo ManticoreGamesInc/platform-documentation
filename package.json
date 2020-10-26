@@ -39,18 +39,18 @@
     "homepage": "https://docs.coregames.com",
     "devDependencies": {
         "@attilagyongyosi/path-linter": "^2.1.2",
-        "eslint": "^7.11.0",
+        "eslint": "^7.12.0",
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-prettier": "^3.1.4",
         "husky": "^4.3.0",
         "markdownlint-cli": "^0.24.0",
         "prettier": "^2.1.2",
-        "remark": "^12.0.1",
-        "remark-cli": "^8.0.1",
+        "remark": "^13.0.0",
+        "remark-cli": "^9.0.0",
         "remark-frontmatter": "^3.0.0",
-        "remark-preset-lint-markdown-style-guide": "^3.0.1",
-        "remark-stringify": "^8.1.1"
+        "remark-preset-lint-markdown-style-guide": "^4.0.0",
+        "remark-stringify": "^9.0.0"
     },
     "engines": {
         "node": ">= 10"
