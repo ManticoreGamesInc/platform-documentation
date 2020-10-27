@@ -37,7 +37,7 @@ Core has a fully editable terrain system that will allow you to sculpt and paint
 
 ### Game Components and Devices
 
-Core also has a drag-and-drop components that will create logic for your game, like round timers and scoreboards. These can be found in the **Game Components** section of of **Core Content**, and creators have made their own in **Community Content**, like the NPC AI kit.
+Core also has drag-and-drop components that will create logic for your game, like round timers and scoreboards. These can be found in the **Game Components** section of **Core Content**, and creators have made their own in **Community Content**, like the NPC AI kit.
 
 Some of the familiar components that you will find are **spawn points**, **teleporters**, **kill zones**, and portals to transport players to other games.
 
@@ -73,16 +73,16 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ## Terminology
 
-|  Fortnite Creative | Core |
+|  **Fortnite Creative** | **Core** |
 | :--- | :--- |
-|  Galleries | Core Content |
-|  Wall Gallery/Floor Gallery | Tile Sets |
-|  Your Island | Core Editor |
-|  Hotbar | My Project Content |
-|  Start Game | Preview |
-|  Spawn Pad | Spawn Point |
-|  Device | Game Component |
-|  Channel | Event |
+|  **Galleries** | **Core Content** |
+|  **Wall Gallery/Floor Gallery** | **Tile Sets** |
+|  **Your Island** | **Core Editor** |
+|  **Hotbar** | **My Project Content** |
+|  **Start Game** | **Preview** |
+|  **Spawn Pad** | **Spawn Point** |
+|  **Device** | **Game Component** |
+|  **Channel** | **Event** |
 
 ## Learn More
 
