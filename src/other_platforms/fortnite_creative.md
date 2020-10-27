@@ -10,16 +10,14 @@ tags:
 
 ## Overview
 
-The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
+Core is a complete game development and publishing platform that keeps the benefit of having thousands of assets at your fingertips while giving you more freedom to build customized and unique game experiences.
 
 - For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
 - For a complete technical overview, see the [Core API Documentation](core_api.md).
 
-## Fornite Creative
-
 ### Editor and Preview
 
-Games are built in the **Core Editor**, a workspace that allows you to see both the organization of your project in the **Hierarchy**, and to see what the actual scene you are building looks like, in the **Main Viewport**. When you are editing a game you can move freely through the space with right click and the +W+A+S+D+ keys, but you will only have a character and be able to walk around the space when you start a **Preview**.
+Games are built in the **Core Editor**, a workspace that allows you to see both the organization of your project in the **Hierarchy**, and to see what the actual scene you are building looks like, in the **Main Viewport**. When you are editing a game you can move freely through the space with right click and the ++W++ ++A++ ++S++ ++D++ keys, but you will only have a character and be able to walk around the space when you start a **Preview**.
 
 **Preview** mode allows you to press **Play** and experience the space with your Core character to see the game logic in action. This also includes a **Multiplayer Preview Mode** that will allow you to start multiple instances of the game and play them each individually as a character.
 
@@ -67,7 +65,7 @@ The primary way that scripts can start behavior around your game is through **Ev
 
 ### Collaboration
 
-Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fornite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](templates.md) that can be imported into the main project.
+Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fornite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](template_reference.md) that can be imported into the main project.
 
 You can also use **version control** tools like GitHub. See the [complete guide to setting up GitHub desktop with Core](github.md) to learn more.
 
