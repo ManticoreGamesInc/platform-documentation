@@ -12,7 +12,7 @@ tags:
 
 Core is a complete game development and publishing platform that keeps the benefit of having thousands of assets at your fingertips while giving you more freedom to build customized and unique game experiences.
 
-- For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
+- For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md).
 - For a complete technical overview, see the [Core API Documentation](core_api.md).
 
 ### Editor and Preview
