@@ -25,6 +25,8 @@ title: Tags
 
 - [Publishing Checklist](publishing_checklist.md)
 
+- [Coming to Core from Fortnite Creative](fortnite_creative.md)
+
 - [Coming to Core from Roblox](roblox.md)
 
 - [Coming to Core from Unity](unity.md)
