@@ -27,7 +27,7 @@ Core comes with a huge number of built in assets that can be used in creating yo
 
 Every asset can be customized by resizing, rotating, and all of the **Materials** can be replaced with dramatically different textures, including animated special effects textures. You can find all the base materials in the **Materials** section of **Core Content**.
 
-The technique used in Core to create your own props and models is called [**kitbashing**](https://docs.coregames.com/tutorials/art_reference/), and essentially involves grouping the existing Core models together so that they can be treated as a single object. You can create a new type of asset to create copies or spawn in game by turning a group into a **Template**.
+The technique used in Core to create your own props and models is called [**kitbashing**](art_reference.md), and essentially involves grouping the existing Core models together so that they can be treated as a single object. You can create a new type of asset to create copies or spawn in game by turning a group into a **Template**.
 
 One of the biggest advantages of using **Templates** is that they can be easily shared with other creators, and there is a huge collection of shared templates available which you can find in the **Community Content** window.
 
@@ -45,7 +45,7 @@ Some of the familiar components that you will find are **spawn points**, **telep
 
 **Triggers** are an extremely useful Core object with a variety of in-game uses. In Core these are invisible objects (you can press ++V++ to change whether they are visible in the Editor, that are cubes by default, but can also be changed to sphere or capsule shape. Triggers allow you to write scripts for what happens when a player enters the area, leaves the area, and if the trigger is **interactable**, you can also design a label to pop up for players to press a key and trigger code.
 
-For the best introduction to scripting and using triggers in Core, try out our [Lightbulb Tutorial](https://docs.coregames.com/tutorials/lua_basics_lightbulb/).
+For the best introduction to scripting and using triggers in Core, try out our [Lightbulb Tutorial](lua_basics_lightbulb.md).
 
 ### Scripting
 
@@ -56,7 +56,7 @@ Scripts allow you to fully customize your gameplay logic, allowing infinite poss
 To get started programming, check out any of these resources:
 
 - [Learn Lua quickly with no coding experience necessary - YouTube](https://www.youtube.com/watch?v=TAjh6AXLk-Y&t=119s)
-- [Scripting Introduction](../tutorials/scripting_intro.md)
+- [Scripting Introduction](scripting_intro.md)
 - [Intro to Lua Course on Core Academy](https://learn.coregames.com/courses/intro-to-lua/)
 
 #### Events and Channels
@@ -92,9 +92,9 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ### Recommended Tutorials
 
-- [Scripting Tutorial](https://docs.coregames.com/tutorials/lua_basics_lightbulb/)
+- [Scripting Tutorial](lua_basics_lightbulb.md)
 - [Abilities Tutorial](abilities.md)
 
 ### References
 
-[Modeling Props](https://docs.coregames.com/tutorials/art_reference/) | [Templates](templates.md) | [Core Collaboration Guide](collaboration_overview.md) | [Core API](core_api.md)
+[Modeling Props](art_reference.md) | [Templates](template_reference.md) | [Core Collaboration Guide](collaboration_overview.md) | [Core API](core_api.md)
