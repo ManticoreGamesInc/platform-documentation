@@ -103,7 +103,7 @@ Core projects also include multiplayer networking by default. Because this is a 
 Core gives you a massive library of 3D assets, materials, sounds, and components for making games, which can be found in the **Core Content** Window.
 
 !!! note
-    You can reopen the **Core Content** window by going to **View** > **Core Content** in the top menu bar.
+    You can reopen the **Core Content** window by going to **Window** > **Core Content** in the top menu bar.
 
 1. Click **Core Content**.
 2. Drop down the **3D Objects** menu to see the props and objects that can be added to the scene.
@@ -162,7 +162,7 @@ By default, Core objects have collision, so players can't just walk into bushes 
 You should now be able to walk into a bush. Test this in **Multiplayer Preview Mode** to see how well it works for concealment.
 
 !!! note
-    You can reopen the **Properties** window by going to **View** > **Properties** in the top menu bar.
+    You can reopen the **Properties** window by going to **Window** > **Properties** in the top menu bar.
 
 ## Finishing the Arena
 

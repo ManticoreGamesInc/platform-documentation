@@ -1026,7 +1026,7 @@ A UIControl for a button, should be inside client context.
 
 ### UIContainer
 
-A UIContainer is a type of UIControl that indicates which child UI elements should be rendered. It does not have a position or size. It is always the size of the entire screen.
+A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen.
 
 It has no properties or functions of its own, but inherits everything from CoreObject.
 
@@ -1342,7 +1342,7 @@ A few base functions provided by the platform.
 | -------- | ----------- | ----------- | ---- |
 | `Tick(Number deltaTime)` | Number | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
 | `time()` | Number | Returns the time in seconds (floating point) since the game started on the server. | None |
-| `print(string)` | string | Print a message to the event log. Access the Event Log from the "View" menu. | None |
+| `print(string)` | string | Print a message to the event log. Access the Event Log from the **Window** menu. | None |
 | `warn(string)` | string | Similar to `print()`, but includes the script name and line number. | None |
 | `require(string)` | table | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |
 
