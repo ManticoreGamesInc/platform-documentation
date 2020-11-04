@@ -626,7 +626,7 @@ print(lightIsOn)
 - `print` tells the script to print to the Event Log window.
 - `lightIsOn` is the variable that will be printing.
 
-1. Open up the **Event Log** window from the **View** menu in the top bar.
+1. Open up the **Event Log** window from the **Window** menu in the top bar.
 2. Keep this open and press **Play**.
 3. Press ++F++ to interact with the switch.
 
