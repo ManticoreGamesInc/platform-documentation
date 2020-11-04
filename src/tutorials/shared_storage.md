@@ -32,7 +32,7 @@ Shared storage tables are created as **Keys** through the **Shared Storage** win
 
 ![Create a New Key](../img/Storage/OpenSharedStorage.png){: .center loading="lazy" }
 
-1. In the top menu bar, open the **View** menu and select **Shared Storage** to open the window.
+1. In the top menu bar, open the **Window** menu and select **Shared Storage** to open the window.
 2. In the bottom of the **Shared Storage** window click the **Create New Shared Key** button.
 3. Give the key a name and press **Create**.
 
