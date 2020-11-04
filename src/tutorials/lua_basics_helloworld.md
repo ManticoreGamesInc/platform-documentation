@@ -20,7 +20,7 @@ In the second part, you will learn how to take an existing template in Core and 
 
 **Core** uses the **Lua** programming language, which has the advantage of being beginner-friendly but suitable for advanced programming projects.
 
-- The **Event Log** window in Core shows output from scripts, including errors. You can enable it by clicking **View** in the top menu bar, and selecting **Event Log**.
+- The **Event Log** window in Core shows output from scripts, including errors. You can enable it by clicking **Window** in the top menu bar, and selecting **Event Log**.
 - The [Core API](core_api.md) page lists code created for you to use in Core.
 - The [API Examples](examples.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
 
@@ -68,7 +68,7 @@ Now we have created a simple script! However, we need to actually add it to our 
 1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the **Hierarchy** window, usually on the right side of the editor.
 
     ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .image-frame .center loading="lazy" }
-    !!! info "If any of these windows are missing them again from the **View** menu in the top menu bar."
+    !!! info "If any of these windows are missing them again from the **Window** menu in the top menu bar."
 
 2. Press **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ at the top of the editor, and see your message appear on screen in the top left corner!
 { .image-inline-text .image-background }

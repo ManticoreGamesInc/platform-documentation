@@ -20,7 +20,7 @@ There are three options for starting a new project:
 
 ## Editor Windows
 
-The Core Editor is made up of different windows which can be resized and repositioned freely. All of the windows can be opened from the **View** tab in the top menu bar. The Editor layout can be restored to its original form using the **Reset View to Default** option in the **View** menu.
+The Core Editor is made up of different windows which can be resized and repositioned freely. All of the windows can be opened from the **Window** tab in the top menu bar. The Editor layout can be restored to its original form using the **Reset View to Default** option in the **Window** menu.
 
 ## Main Viewport
 
@@ -111,7 +111,7 @@ Scripts allow you to program the behavior of different objects in the project. C
 
 ### Event Log
 
-The Event Log is where output from scripts, including errors, can be found. It is not open by default, but can be opened through the **View** menu.
+The Event Log is where output from scripts, including errors, can be found. It is not open by default, but can be opened through the **Window** menu.
 
 ## Saving the Project
 
