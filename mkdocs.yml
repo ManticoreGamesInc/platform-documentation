@@ -33,6 +33,7 @@ nav:
           - World of Warcraft: other_platforms/world_of_warcraft.md
       - Best Practices:
           - Collaboration: tutorials/collaboration_overview.md
+          - Creator Analytics: tutorials/creator_analytics.md
           - GitHub and Core: tutorials/github.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Tutorials:
