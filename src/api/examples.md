@@ -3414,7 +3414,7 @@ end
 
 The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
 
-In order to use these functions, you must first create a Global Leaderboard in the Core editor.  (Select Global Leaderboards, under the View menu.)
+In order to use these functions, you must first create a Global Leaderboard in the Core editor.  (Select Global Leaderboards, under the **Window** menu.)
 
 ```lua
 function PrintLeaderboardEntry(entry)

@@ -22,7 +22,7 @@ Any template in community content has to be imported into the project before it 
 
 In the default project view, the **Community Content** window is open in the bottom panel, along with **Core Content** and **Project Content**.
 
-If the window is closed, open it by clicking **View** in the top menu bar and selecting **Community Content**.
+If the window is closed, open it by clicking **Window** in the top menu bar and selecting **Community Content**.
 
 ### Find and Import New Content
 

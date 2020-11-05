@@ -36,7 +36,7 @@ Core comes with all sorts of visual effects built-in, all with different paramet
 
 To find all these visual effect objects, navigate to the Core Content tab and click on the **"Effects"** section.
 
-This window can also be accessed via the dropdown menu "**View -> Core Content**".
+This window can also be accessed via the dropdown menu "**Window -> Core Content**".
 
 ![Core Content](../img/VFXtutorial/EffectsFolder.png "All visual effects are contained in this subsection."){: .center loading="lazy"}
 
@@ -282,7 +282,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 1. Navigate to the **Core Content** window.
 
     !!! info
-        If it is not already open in your Editor's UI, you can open it up by clicking View > Core Content in the top menu bar.
+        If it is not already open in your Editor's UI, you can open it up by clicking **Window > Core Content** in the top menu bar.
 
 2. Type "chest" into the search bar within that window.
 

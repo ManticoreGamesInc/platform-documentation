@@ -130,6 +130,10 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_steer_ship_wheel`   | This will cause the Player to stand with their arms out as if they were steering a ship using the helm (steering wheel) of a ship. |
 | `unarmed_stun_dizzy`         | A looping animation that has the player swaying as if dizzy. This animation does not have root motion, and will not inhibit or influence player control unless specifically scripted to do so. |
 | `unarmed_stun_electric`      | A looping animation that has the player tense and twitching as if being electrocuted. This animation does not have root motion, and will not inhibit or influence player control unless specifically scripted to do so. |
+| `unarmed_drink`              | A drinking animation, useful for potion drinking abilities, etc. | Supports variable cast phase time. |
+| `unarmed_eat`                | An eating animation. The character is taking a bite of something held in the right hand. | Supports variable cast phase time. |
+| `unarmed_shout`              | A shout animation. The character shouts at the sky during cast loop, and directs a shout forward in the execute | Supports variable cast phase time. |
+| `unarmed_stomp`              | A stomp animation. The cast loop holds the right foot in the air. | Supports variable cast phase time. |
 
 ### One-Hand
 
