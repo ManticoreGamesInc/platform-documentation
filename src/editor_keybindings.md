@@ -30,34 +30,34 @@ tags:
 
 ## Editor Navigation
 
-| **Operation**       | **Key**            | **Key 2**  | **Description**                               | **Requirements / Context** |
-| ------------------- | ------------------ | ---------- | --------------------------------------------- | -------------------------- |
-| Navigate Selections | ++Arrow-Up++ ++Arrow-Down++ ++Arrow-Left++ ++Arrow-Right++ | | Moves Selection Up / Down (Even Through Tabs) | None |
-| Navigate Selection  | ++tab++            |            | Go To Next Element In Editor Selection        | Viewport Not Active        |
-| Main Menu           | ++escape++         | ++ctrl+P++ | Opens Pause Menu                              | None                       |
+| **Operation**       | **Key**                  | **Description**                               | **Requirements / Context** |
+| ------------------- | ------------------------ | --------------------------------------------- | -------------------------- |
+| Navigate Selections | ++Arrow-Up++ ++Arrow-Down++ ++Arrow-Left++ ++Arrow-Right++ | Moves Selection Up / Down (Even Through Tabs) | None |
+| Navigate Selection  | ++tab++                  | Go To Next Element In Editor Selection        | Viewport Not Active        |
+| Main Menu           | ++escape++ OR ++ctrl+P++ | Opens Pause Menu                              | None                       |
 
 ## Hierarchy Organization
 
-| **Operation**         | **Key** | **Key 2** | **Key 3** | **Description**                                   | **Requirements / Context** |
-| --------------------- | ------- | --------- | --------- | ------------------------------------------------- | -------------------------- |
-| Wrap Object in Group  | ++G++   | ++ctrl++  |           | Create a Group Containing The Selected Objects    | Selection                  |
-| Unwrap Grouped Object | ++G++   | ++ctrl++  | ++shift++ | Remove a Folder / Group Without Deleting Children | Selection                  |
-| Create New Folder     | ++N++   | ++ctrl++  |           | Create a New Folder in the Hierarchy              | None                       |
+| **Operation**         | **Key**          | **Description**                                   | **Requirements / Context** |
+| --------------------- | ---------------- | ------------------------------------------------- | -------------------------- |
+| Wrap Object in Group  | ++ctrl+G++       | Create a Group Containing The Selected Objects    | Selection                  |
+| Unwrap Grouped Object | ++ctrl+G++       | Remove a Folder / Group Without Deleting Children | Selection                  |
+| Create New Folder     | ++ctrl+shift+N++ | Create a New Folder in the Hierarchy              | None                       |
 
 ## Viewport Movement
 
-| **Operation**            | **Key**              | **Key 2**            | **Description**                                            | **Requirements / Context** |
-| ------------------------ | -------------------- | ---------------------| ---------------------------------------------------------- | -------------------------- |
-| Move in Editor           | ++middle-button++    |                      | Drag to Move In 3D Space                                   | Viewport Active            |
-| Move in Editor           | ++right-button++     |                      | Hold to Move In 3D Space - QE = Up / Down, WASD = Normal   | Viewport Active            |
-| Move Forward / Backwards | ++middle-button++    | ++alt+right-button++ | Moves Forwards And Backwards                               | Viewport Active            |
-| Move Camera              | ++right-button++     |                      | Hold to Move the Camera Instead of the Character           | Viewport Active            |
-| Orbit Camera             | ++alt+left-button++  |                      | Hold and then Drag to Pivot Camera Around Central Point    | Viewport Active            |
-| Orbit Last Selected      | ++alt+shift++        |                      | Works Even After A Viewport Change                         | None                       |
-| Pan Camera               | ++middle-button++    |                      | Hold to Move The Camera Perpendicular To View Direction    | Viewport Active            |
-| Slow Movement            | ++C++                |                      | Hold To Slow Down Movement Rate                            | Viewport Active, Moving    |
-| Drag Zoom                | ++alt+right-button++ |                      | Hold to Zoom In And Out - Up / Down Or Left / Right Drag   | Viewport Active            |
-| Fast Movement            | ++shift++            |                      | Hold To Increase Movement Rate                             | Viewport Active, Moving    |
+| **Operation**            | **Key**              | **Description**                                            | **Requirements / Context** |
+| ------------------------ | -------------------- | ---------------------------------------------------------- | -------------------------- |
+| Move in Editor           | ++middle-button++    | Drag to Move In 3D Space                                   | Viewport Active            |
+| Move in Editor           | ++right-button++     | Hold to Move In 3D Space - QE = Up / Down, WASD = Normal   | Viewport Active            |
+| Move Forward / Backwards | ++middle-button++ OR ++alt+right-button++   | Moves Forwards And Backwards                               | Viewport Active            |
+| Move Camera              | ++right-button++     | Hold to Move the Camera Instead of the Character           | Viewport Active            |
+| Orbit Camera             | ++alt+left-button++  | Hold and then Drag to Pivot Camera Around Central Point    | Viewport Active            |
+| Orbit Last Selected      | ++alt+shift++        | Works Even After A Viewport Change                         | None                       |
+| Pan Camera               | ++middle-button++    | Hold to Move The Camera Perpendicular To View Direction    | Viewport Active            |
+| Slow Movement            | ++C++                | Hold To Slow Down Movement Rate                            | Viewport Active, Moving    |
+| Drag Zoom                | ++alt+right-button++ | Hold to Zoom In And Out - Up / Down Or Left / Right Drag   | Viewport Active            |
+| Fast Movement            | ++shift++            | Hold To Increase Movement Rate                             | Viewport Active, Moving    |
 
 ## Object Selection
 
@@ -92,36 +92,36 @@ tags:
 
 ## Toolbar
 
-| **Operation**              | **Key**           | **Key 2** | **Description**                              | **Requirements / Context** |
-| -------------------------- | ----------------- | --------- | -------------------------------------------- | -------------------------- |
-| Select Move Tool           | ++W++             |           | Selects Move Tool                            | None                       |
-| Select Rotate Tool         | ++E++             |           | Selects Rotate Widget                        | None                       |
-| Select Scale Tool          | ++R++             |           | Selects Scale Tool                           | None                       |
-| Toggle Grid Snapping       | ++G++             |           | Enables or Disables Objects Snapping to Grid | None                       |
-| Decrease Move Snap         | ++open-bracket++  |           | Decrease Grid Snap Scale for Move Tool       | None                       |
-| Increase Move Snap         | ++close-bracket++ |           | Increase Grid Snap Scale for Move Tool       | None                       |
-| Decrease Rotate Snap       | ++open-bracket++  | ++shift++ | Decrease Grid Snap Scale for Rotate Tool     | None                       |
-| Increase Rotate Snap       | ++close-bracket++ | ++shift++ | Increase Grid Snap Scale for Rotate Tool     | None                       |
-| Decrease Scale Snap        | ++open-bracket++  | ++ctrl++  | Decrease Grid Snap Scale for Scale Tool      | None                       |
-| Increase Scale Snap        | ++close-bracket++ | ++ctrl++  | Increase Grid Snap Scale for Scale Tool      | None                       |
-| Toggle World / Local Space | ++T++             |           | Toggles Between Local and World Space        | None                       |
+| **Operation**              | **Key**                 | **Description**                              | **Requirements / Context** |
+| -------------------------- | ----------------------- | -------------------------------------------- | -------------------------- |
+| Select Move Tool           | ++W++                   | Selects Move Tool                            | None                       |
+| Select Rotate Tool         | ++E++                   | Selects Rotate Widget                        | None                       |
+| Select Scale Tool          | ++R++                   | Selects Scale Tool                           | None                       |
+| Toggle Grid Snapping       | ++G++                   | Enables or Disables Objects Snapping to Grid | None                       |
+| Decrease Move Snap         | ++open-bracket++        | Decrease Grid Snap Scale for Move Tool       | None                       |
+| Increase Move Snap         | ++close-bracket++       | Increase Grid Snap Scale for Move Tool       | None                       |
+| Decrease Rotate Snap       | ++shift+open-bracket++  | Decrease Grid Snap Scale for Rotate Tool     | None                       |
+| Increase Rotate Snap       | ++shift+close-bracket++ | Increase Grid Snap Scale for Rotate Tool     | None                       |
+| Decrease Scale Snap        | ++ctrl+open-bracket++   | Decrease Grid Snap Scale for Scale Tool      | None                       |
+| Increase Scale Snap        | ++ctrl+close-bracket++  | Increase Grid Snap Scale for Scale Tool      | None                       |
+| Toggle World / Local Space | ++T++                   | Toggles Between Local and World Space        | None                       |
 
 ## Editor Misc
 
-| **Operation**                 | **Key**    | **Key 2** | **Key 3** | **Description**                                    | **Requirements / Context** |
-| ----------------------------- | ---------- | --------- | --------- | -------------------------------------------------- | -------------------------- |
-| Undo                          | ++Z++      | ++ctrl++  |           | Undo Last Action                                   | None                       |
-| Redo                          | ++Y++      | ++ctrl++  |           | Redo Last Action                                   | None                       |
-| Cut                           | ++X++      | ++ctrl++  |           | Cut Selection from Scene and Add to Clipboard      | Selection                  |
-| Copy                          | ++C++      | ++ctrl++  |           | Copy Selection to Clipboard                        | Selection                  |
-| Duplicate                     | ++W++      | ++ctrl++  |           | Duplicates Object                                  | Selection                  |
-| Paste                         | ++V++      | ++ctrl++  |           | Paste Selection                                    | Selection                  |
-| Rename                        | ++F2++     |           |           | Rename Selected Object                             | Selection                  |
-| Drop to Floor                 | ++end++    |           |           | Drops Selection to Nearest Surface Below           | Selection                  |
-| Toggle Gizmo Visibility       | ++V++      |           |           | Enables or Disables Visibility of Gizmo Indicators | Viewport Open              |
-| Toggle Manipulator Visibility | ++V++      | ++shift++ |           | Enables or Disables Visibility of Manipulator Indicators | Viewport Open              |
-| Copy MUID                     | ++C++      | ++ctrl++  | ++alt++   | Copies MUID to Clipboard                           | Selection                  |
-| Delete                        | ++Delete++ |           |           | Deletes Object and Removes References to It        | Selection                  |
+| **Operation**                 | **Key**        | **Description**                                    | **Requirements / Context** |
+| ----------------------------- | -------------- | -------------------------------------------------- | -------------------------- |
+| Undo                          | ++ctrl+Z++     | Undo Last Action                                   | None                       |
+| Redo                          | ++ctrl+Y++     | Redo Last Action                                   | None                       |
+| Cut                           | ++ctrl+X++     | Cut Selection from Scene and Add to Clipboard      | Selection                  |
+| Copy                          | ++ctrl+C++     | Copy Selection to Clipboard                        | Selection                  |
+| Duplicate                     | ++ctrl+W++     | Duplicates Object                                  | Selection                  |
+| Paste                         | ++ctrl+V++     | Paste Selection                                    | Selection                  |
+| Rename                        | ++F2++         | Rename Selected Object                             | Selection                  |
+| Drop to Floor                 | ++end++        | Drops Selection to Nearest Surface Below           | Selection                  |
+| Toggle Gizmo Visibility       | ++V++          | Enables or Disables Visibility of Gizmo Indicators | Viewport Open              |
+| Toggle Manipulator Visibility | ++shift+V++    | Enables or Disables Visibility of Manipulator Indicators | Viewport Open              |
+| Copy MUID                     | ++ctrl+alt+C++ | Copies MUID to Clipboard                           | Selection                  |
+| Delete                        | ++Delete++     | Deletes Object and Removes References to It        | Selection                  |
 
 ## Play Mode
 
@@ -134,10 +134,10 @@ tags:
 
 ## Save
 
-| **Operation** | **Key** | **Key 2** | **Key 3** | **Description**                          | **Requirements / Context** |
-| ------------- | ------- | --------- | --------- | ---------------------------------------- | -------------------------- |
-| Save Map      | ++S++   | ++ctrl++  |           | Saves the Game or Current Script to Disk | None (or Selection)        |
-| Save All      | ++S++   | ++ctrl++  | ++shift++ | Saves Game and Modified Scripts to Disk  | None                       |
+| **Operation** | **Key**          | **Description**                          | **Requirements / Context** |
+| ------------- | ---------------- | ---------------------------------------- | -------------------------- |
+| Save Map      | ++ctrl+S++       | Saves the Game or Current Script to Disk | None (or Selection)        |
+| Save All      | ++ctrl+shift+S++ | Saves Game and Modified Scripts to Disk  | None                       |
 
 ## Misc
 
@@ -148,9 +148,9 @@ tags:
 
 ## Text Editor
 
-| **Operation**  | **Key** | **Key 2** | **Description**                           | **Requirements / Context** |
-| -------------- | ------- | --------- | ----------------------------------------- | -------------------------- |
-| Find           | ++F++   | ++ctrl++  | Highlights Selection                      | In Text Editor             |
-| Find Next      | ++F3++  |           | When in Find, Selects Next Occurrence     | In Text Editor             |
-| Find Previous  | ++F3++  | ++shift++ | When in Find, Selects Previous Occurrence | In Text Editor             |
-| Compile Script | ++F5++  |           | Compiles Script With Uncompiled Changes   | Script Open                |
+| **Operation**  | **Key**      | **Description**                           | **Requirements / Context** |
+| -------------- | ---------    | ----------------------------------------- | -------------------------- |
+| Find           | ++ctrl+F++   | Highlights Selection                      | In Text Editor             |
+| Find Next      | ++F3++       | When in Find, Selects Next Occurrence     | In Text Editor             |
+| Find Previous  | ++shift+F3++ | When in Find, Selects Previous Occurrence | In Text Editor             |
+| Compile Script | ++F5++       | Compiles Script With Uncompiled Changes   | Script Open                |
