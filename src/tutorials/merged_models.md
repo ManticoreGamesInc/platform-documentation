@@ -40,7 +40,7 @@ Because Merged Models are sent as a whole to be rendered by the graphics process
 
 The perfect size for a merged model would be the size of what fits on the player's screen. Depending on the world and scale, this is most likely about **the size of a single large building**.
 
-In general, you can determine the size of your screen-sized chunk, and then develop a grid of about that scale to group ogjects into Merge Models. **Even if chunks are larger or smaller than what someone can see at a time, using Merged Models will still improve performance.**
+In general, you can determine the size of your screen-sized chunk, and then develop a grid of about that scale to group objects into Merge Models. **Even if chunks are larger or smaller than what someone can see at a time, using Merged Models will still improve performance.**
 
 ### Only Default Context
 
@@ -65,12 +65,12 @@ Merged Models are created using the same method as groups and folders:
 ### Create an Empty Merged Model
 
 1. Right click in the **Hierarchy**.
-2. Select **New Merged Model**
+2. Select **New Merged Model**.
 
 ### Place Groups and Objects into a Merged Model
 
 1. Select all the objects in the **Hierarchy**.
-2. Right-click and select **New Model Containing This**
+2. Right-click and select **New Model Containing This**.
 
 ---
 

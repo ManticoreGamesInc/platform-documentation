@@ -97,7 +97,7 @@ Templates can be used to save grouped objects, collections of created objects, s
 
 ### Merged Models
 
-Merged models are a way of grouping objects together to reduce the rendering calculations together. This works best with large chunks of scenery like a building. See the [Merged Model reference](merged_models.md) to learn more
+Merged models are a way of grouping objects together to reduce the rendering calculations together. This works best with large chunks of scenery like a building. See the [Merged Model reference](merged_models.md) to learn more.
 
 ## Learn More
 
