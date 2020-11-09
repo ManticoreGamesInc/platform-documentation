@@ -29,7 +29,10 @@ Once the game has loaded, the objects inside of a merged model are removed from 
 
 ## Choosing Which Models to Merge
 
-As mesh merging improves, games will improve performance just by putting groups into merge models. Merged Models inside of other merged models will just be merged into the outermost layer, so in general, **it is a good idea to put object in Merged Model.**
+As mesh merging improves, games will improve performance just by putting groups into merge models. Merged Models inside of other merged models will just be merged into the outermost layer, so in general, **it is a good idea to put groups of objects into Merged Models as you work.**
+
+!!! warning
+    Currently, some special effects materials do not behave the same may when merged, so you may want to separate them from your Merged Model.
 
 ### Screen-Sized Chunks
 
@@ -37,7 +40,7 @@ Because Merged Models are sent as a whole to be rendered by the graphics process
 
 The perfect size for a merged model would be the size of what fits on the player's screen. Depending on the world and scale, this is most likely about **the size of a single large building**.
 
-In general, you can determine the size of your screen-sized chunk, and then develop a grid of about that scale to group ogjects into Merge Models. **Even if chunks are larger or smaller than what someone can see at a time, using Merged Models will still imrpove performance.**
+In general, you can determine the size of your screen-sized chunk, and then develop a grid of about that scale to group ogjects into Merge Models. **Even if chunks are larger or smaller than what someone can see at a time, using Merged Models will still improve performance.**
 
 ### Only Default Context
 
