@@ -17,6 +17,8 @@ title: Tags
 
 - [Core Editor Key Bindings](editor_keybindings.md)
 
+- [Ability Binding List](ability_bindings.md)
+
 - [Community Content](community_content.md)
 
 - [Getting Help in Core](core_help.md)

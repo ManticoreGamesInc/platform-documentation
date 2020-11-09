@@ -108,19 +108,20 @@ tags:
 
 ## Editor Misc
 
-| **Operation**           | **Key**    | **Key 2** | **Key 3** | **Description**                                    | **Requirements / Context** |
-| ----------------------- | ---------- | --------- | --------- | -------------------------------------------------- | -------------------------- |
-| Undo                    | ++Z++      | ++ctrl++  |           | Undo Last Action                                   | None                       |
-| Redo                    | ++Y++      | ++ctrl++  |           | Redo Last Action                                   | None                       |
-| Cut                     | ++X++      | ++ctrl++  |           | Cut Selection from Scene and Add to Clipboard      | Selection                  |
-| Copy                    | ++C++      | ++ctrl++  |           | Copy Selection to Clipboard                        | Selection                  |
-| Duplicate               | ++W++      | ++ctrl++  |           | Duplicates Object                                  | Selection                  |
-| Paste                   | ++V++      | ++ctrl++  |           | Paste Selection                                    | Selection                  |
-| Rename                  | ++F2++     |           |           | Rename Selected Object                             | Selection                  |
-| Drop to Floor           | ++end++    |           |           | Drops Selection to Nearest Surface Below           | Selection                  |
-| Toggle Gizmo Visibility | ++V++      |           |           | Enables or Disables Visibility of Gizmo Indicators | Viewport Open              |
-| Copy MUID               | ++C++      | ++ctrl++  | ++alt++   | Copies MUID to Clipboard                           | Selection                  |
-| Delete                  | ++Delete++ |           |           | Deletes Object and Removes References to It        | Selection                  |
+| **Operation**                 | **Key**    | **Key 2** | **Key 3** | **Description**                                    | **Requirements / Context** |
+| ----------------------------- | ---------- | --------- | --------- | -------------------------------------------------- | -------------------------- |
+| Undo                          | ++Z++      | ++ctrl++  |           | Undo Last Action                                   | None                       |
+| Redo                          | ++Y++      | ++ctrl++  |           | Redo Last Action                                   | None                       |
+| Cut                           | ++X++      | ++ctrl++  |           | Cut Selection from Scene and Add to Clipboard      | Selection                  |
+| Copy                          | ++C++      | ++ctrl++  |           | Copy Selection to Clipboard                        | Selection                  |
+| Duplicate                     | ++W++      | ++ctrl++  |           | Duplicates Object                                  | Selection                  |
+| Paste                         | ++V++      | ++ctrl++  |           | Paste Selection                                    | Selection                  |
+| Rename                        | ++F2++     |           |           | Rename Selected Object                             | Selection                  |
+| Drop to Floor                 | ++end++    |           |           | Drops Selection to Nearest Surface Below           | Selection                  |
+| Toggle Gizmo Visibility       | ++V++      |           |           | Enables or Disables Visibility of Gizmo Indicators | Viewport Open              |
+| Toggle Manipulator Visibility | ++V++      | ++shift++ |           | Enables or Disables Visibility of Manipulator Indicators | Viewport Open              |
+| Copy MUID                     | ++C++      | ++ctrl++  | ++alt++   | Copies MUID to Clipboard                           | Selection                  |
+| Delete                        | ++Delete++ |           |           | Deletes Object and Removes References to It        | Selection                  |
 
 ## Play Mode
 
@@ -152,4 +153,4 @@ tags:
 | Find           | ++F++   | ++ctrl++  | Highlights Selection                      | In Text Editor             |
 | Find Next      | ++F3++  |           | When in Find, Selects Next Occurrence     | In Text Editor             |
 | Find Previous  | ++F3++  | ++shift++ | When in Find, Selects Previous Occurrence | In Text Editor             |
-| Compile script | ++F5++  |           | Compiles Script With Uncompiled Changes   | Script Open                |
+| Compile Script | ++F5++  |           | Compiles Script With Uncompiled Changes   | Script Open                |
