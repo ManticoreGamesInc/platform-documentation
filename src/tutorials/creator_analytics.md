@@ -1,10 +1,11 @@
 ---
 id: creator_analytics
-name: Scripting in Core (Beginner)
-title: Scripting in Core (Beginner)
+name: Creator Analytics
+title: Creator Analytics
 tags:
     - Tutorial
 ---
+
 # Creator Analytics
 
 ## Overview
