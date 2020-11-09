@@ -86,7 +86,7 @@ title: Tags
 
 - [Advanced Abilities in Core](abilities_advanced.md)
 
-- [Scripting in Core (Beginner)](creator_analytics.md)
+- [Creator Analytics](creator_analytics.md)
 
 - [Environment Art in Core](environment_art.md)
 
