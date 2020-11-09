@@ -8034,6 +8034,22 @@
 					]
 				},
 				{
+					"Name": "anchor",
+					"Type": "UIPivot",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "dock",
+					"Type": "UIPivot",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -9096,7 +9112,13 @@
 					"Signatures": [
 						{
 							"Returns": [],
-							"Parameters": []
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
 						}
 					],
 					"Tags": [
@@ -9109,7 +9131,13 @@
 					"Signatures": [
 						{
 							"Returns": [],
-							"Parameters": []
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
 						}
 					],
 					"Tags": [
@@ -9940,6 +9968,102 @@
 									"IsVariadic": true
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Environment",
+			"StaticFunctions": [
+				{
+					"Name": "IsClient",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsServer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsMultiplayerPreview",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsSinglePlayerPreview",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsPreview",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsLocalGame",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsHostedGame",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
 						}
 					]
 				}
@@ -11323,6 +11447,51 @@
 				{
 					"Name": "RIGHT",
 					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "UIPivot",
+			"Values": [
+				{
+					"Name": "TOP_LEFT",
+					"Value": 0
+				},
+				{
+					"Name": "TOP_CENTER",
+					"Value": 1
+				},
+				{
+					"Name": "TOP_RIGHT",
+					"Value": 2
+				},
+				{
+					"Name": "MIDDLE_LEFT",
+					"Value": 3
+				},
+				{
+					"Name": "MIDDLE_CENTER",
+					"Value": 4
+				},
+				{
+					"Name": "MIDDLE_RIGHT",
+					"Value": 5
+				},
+				{
+					"Name": "BOTTOM_LEFT",
+					"Value": 6
+				},
+				{
+					"Name": "BOTTOM_CENTER",
+					"Value": 7
+				},
+				{
+					"Name": "BOTTOM_RIGHT",
+					"Value": 8
+				},
+				{
+					"Name": "CUSTOM",
+					"Value": 9
 				}
 			]
 		},

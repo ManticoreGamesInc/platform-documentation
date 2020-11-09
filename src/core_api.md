@@ -1036,6 +1036,8 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
+| `anchor` | UIPivot | The pivot point on this control that attaches to its parent. Can be one of `UIPivot.TOP_LEFT`, `UIPivot.TOP_CENTER`, `UIPivot.TOP_RIGHT`, `UIPivot.MIDDLE_LEFT`, `UIPivot.MIDDLE_CENTER`, `UIPivot.MIDDLE_RIGHT`, `UIPivot.BOTTOM_LEFT`, `UIPivot.BOTTOM_CENTER`, `UIPivot.BOTTOM_RIGHT`, or `UIPivot.CUSTOM`. | Read-Write, Dynamic |
+| `dock` | UIPivot | The pivot point on this control to which children attach. Can be one of `UIPivot.TOP_LEFT`, `UIPivot.TOP_CENTER`, `UIPivot.TOP_RIGHT`, `UIPivot.MIDDLE_LEFT`, `UIPivot.MIDDLE_CENTER`, `UIPivot.MIDDLE_RIGHT`, `UIPivot.BOTTOM_LEFT`, `UIPivot.BOTTOM_CENTER`, `UIPivot.BOTTOM_RIGHT`, or `UIPivot.CUSTOM`. | Read-Write, Dynamic |
 | `x` | Number | Screen-space offset from the anchor. | Read-Write, Dynamic |
 | `y` | Number | Screen-space offset from the anchor. | Read-Write, Dynamic |
 | `width` | Number | Horizontal size of the control. | Read-Write, Dynamic |
@@ -1249,8 +1251,8 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 
 | Function | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Play()` | None | Starts playing the effect. [:fontawesome-solid-info-circle:](../api/examples/#vfxplay "Vfx: Play Example") | Dynamic |
-| `Stop()` | None | Stops playing the effect. [:fontawesome-solid-info-circle:](../api/examples/#vfxstop "Vfx: Stop Example") | Dynamic |
+| `Play([table optionalParameters])` | None | Starts playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (bool)`: If `true`, also plays any `Vfx` descendants of this instance. [:fontawesome-solid-info-circle:](../api/examples/#vfxplay "Vfx: Play Example") | Dynamic |
+| `Stop([table optionalParameters])` | None | Stops playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (bool)`: If `true`, also stops any `Vfx` descendants of this instance. [:fontawesome-solid-info-circle:](../api/examples/#vfxstop "Vfx: Stop Example") | Dynamic |
 
 ### Weapon
 
@@ -1366,6 +1368,20 @@ The CoreString namespace contains a set of string utility functions.
 | `CoreString.Split(string s, [string delimiter], [table parameters])` | ... | Splits the string `s` into substrings separated by `delimiter`.<br/>Optional parameters in the `parameters` table include:<br/>`removeEmptyResults (bool)`: If `true`, empty strings will be removed from the results. Defaults to `false`.<br/>`maxResults (integer)`: Limits the number of strings that will be returned. The last result will be any remaining unsplit portion of `s`.<br/>`delimiters (string or Array<string>)`:Allows splitting on multiple delimiters. If both this and the `delimiter` parameter are specified, the combined list is used. If neither is specified, default is to split on any whitespace characters.<br/>Note that this function does not return a table, it returns multiple strings. For example: `local myHello, myCore = CoreString.Split("Hello Core!")` If a table is desired, wrap the call to `Split()` in curly braces, eg: `local myTable = {CoreString.Split("Hello Core!")}` | None |
 | `CoreString.Trim(string s, [...])` | string | Trims whitespace from the start and end of `s`, returning the result.  An optional list of strings may be provided to trim those strings from `s` instead of the default whitespace. For example, `CoreString.Trim("(==((Hello!))==)", "(==(", ")==)")` returns "(Hello!)". | None |
 
+### Environment
+
+The Environment namespace contains a set of functions for determining where a script is running. Some of these functions are paired together. For example, a script will return `true` for one of `Environment.IsServer()` or `Environment.IsClient()`, but never for both. Similarly, either `Environment.IsLocalGame()` or `Environment.IsHostedGame()` will return `true`, but not both.
+
+| Class Function | Return Type | Description | Tags |
+| -------------- | ----------- | ----------- | ---- |
+| `Environment.IsServer()` | bool | Returns `true` if the script is running in a server environment. Note that this can include scripts running in the editor in preview mode (where the editor acts as server for the game) or for the "Play Locally" option in the Main Menu. This will always return `false` for scripts in a Client Context. | None |
+| `Environment.IsClient()` | bool | Returns `true` if the script is running in a client environment. This includes scripts that are in a Client Context, as well as scripts in a Static Context on a multiplayer preview client or a client playing a hosted game. Note that single-player preview and the "Play Locally" option only execute Static Context scripts once, and that is in a server environment. | None |
+| `Environment.IsHostedGame()` | bool | Returns `true` if running in a published online game, for both clients and servers. | None |
+| `Environment.IsLocalGame()` | bool | Returns `true` if running in a local game on the player's computer. This includes preview mode, as well as the "Play Locally" option in the Main Menu. | None |
+| `Environment.IsPreview()` | bool | Returns `true` if running in preview mode. | None |
+| `Environment.IsMultiplayerPreview()` | bool | Returns `true` if running in multiplayer preview mode. | None |
+| `Environment.IsSinglePlayerPreview()` | bool | Returns `true` if running in single-player preview mode. | None |
+
 ### Events
 
 User defined events can be specified using the Events namespace. The Events namespace uses the following class functions:
@@ -1445,8 +1461,8 @@ The Storage namespace contains a set of functions for handling persistent storag
 | -------------- | ----------- | ----------- | ---- |
 | `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. [:fontawesome-solid-info-circle:](../api/examples/#storagegetplayerdata "Storage: GetPlayerData Example") | Server-Only |
 | `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player.<br/>Other failure cases will raise a Lua error. See below for supported data types. [:fontawesome-solid-info-circle:](../api/examples/#storagesetplayerdata "Storage: SetPlayerData Example") | Server-Only |
-| `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | table | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. | Server-Only |
-| `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | StorageResultCode, string | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. | Server-Only |
+| `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | table | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. [:fontawesome-solid-info-circle:](../api/examples/#storagegetsharedplayerdata "Storage: GetSharedPlayerData Example") | Server-Only |
+| `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | StorageResultCode, string | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. [:fontawesome-solid-info-circle:](../api/examples/#storagesetsharedplayerdata "Storage: SetSharedPlayerData Example") | Server-Only |
 
 ??? "Storage Supported Types"
     - Bool
