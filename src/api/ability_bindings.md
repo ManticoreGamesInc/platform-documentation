@@ -6,6 +6,17 @@ tags:
     - Reference
 ---
 
+<style>
+    .md-typeset table:not([class]) tr td:first-child {
+        width: auto;
+    }
+
+    table > thead > tr > th:nth-child(3),
+    .md-typeset table:not([class]) tr td:nth-child(2) {
+        width: 25%;
+    }
+</style>
+
 # Ability Binding List
 
 This is a list of action bindings that can be used to activate abilities.
@@ -86,4 +97,3 @@ This is a list of action bindings that can be used to activate abilities.
 | ++page-down++ | ability_extra_65 |
 | ++delete++ | ability_extra_66 |
 | ++end++ | ability_extra_67 |
-{: .even-table}
