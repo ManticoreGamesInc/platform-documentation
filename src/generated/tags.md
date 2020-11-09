@@ -47,6 +47,8 @@ title: Tags
 
 - [Lua Reference](lua_reference.md)
 
+- [Merged Models](merged_models.md)
+
 - [Modeling Basics](modeling_basics.md)
 
 - [Modeling Complex Objects](modeling_reference.md)
@@ -83,6 +85,8 @@ title: Tags
 - [Abilities in Core](abilities.md)
 
 - [Advanced Abilities in Core](abilities_advanced.md)
+
+- [Creator Analytics](creator_analytics.md)
 
 - [Environment Art in Core](environment_art.md)
 
