@@ -56,6 +56,7 @@ nav:
           - Scripting Introduction: tutorials/scripting_intro.md
           - Editor Shortcuts: editor_keybindings.md
           - Art in Core: tutorials/art_reference.md
+          - Merged Models: tutorials/merged_models.md
           - Modeling Reference: tutorials/modeling_reference.md
           - Custom Materials: tutorials/custom_materials.md
           - Object Generator: tutorials/object_generator.md
