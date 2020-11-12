@@ -1,4 +1,12 @@
-# Survival Framework
+---
+id: survival_kit
+name: Survival Kit
+title: Survival Kit
+tags:
+    - Reference
+---
+
+# Survival Kit
 
 ## Overview
 
@@ -12,16 +20,16 @@ The project includes many systems that are typical of the Survival genre, includ
 
 The Survival Jam Kit was made as a game open for editing that can be found in **Community Projects**.
 
-![Community Projects](../img/Survival/Survival/Survival_CommunityProjects.png){: .center loading="lazy" }
+![Community Projects](../img/Survival/Survival_CommunityProjects.png){: .center loading="lazy" }
 
 To create a copy to edit:
 
 1. In the **Create** tab, select **Create New**.
 2. In the **Community Projects** option, select **Browse Projects**.
-3. Type ``Survival`` into the search, and select the project titled **Survival-Framework**.
-4. Give it the name of your project in the **Name** field and press **Download.**
+3. Type `Survival` into the search, and select the project titled **Survival-Framework**.
+4. Give it the name of your project in the **Name** field and press **Download**.
 
-![Survival Game](../img/Survival/Survival/Survival_Game.png){: .center loading="lazy" }
+![Survival Game](../img/Survival/Survival_Game.png){: .center loading="lazy" }
 
 ### Testing the Game
 
@@ -56,7 +64,7 @@ As you change the project, the map will automatically show those changes, but yo
 
 If you find a model in the world that you would like to copy and use elsewhere, you can always duplicate it with ++Ctrl+W++, but you may also want to find the template that it was made from in **Project Content**.
 
-![Find Survival in Catalog](../img/Survival/Survival/Survival_FindInCatalog.png){: .center loading="lazy" }
+![Find Survival in Catalog](../img/Survival/Survival_FindInCatalog.png){: .center loading="lazy" }
 
 1. Click on an object in the scene.
 2. Find the parent that is the **Template** by looking up in the Hierarchy. If you have **Group Select Mode** enabled you may select this automatically.
