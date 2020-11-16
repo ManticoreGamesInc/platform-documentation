@@ -67,6 +67,8 @@ title: Tags
 
 - [Shared Storage](shared_storage.md)
 
+- [Survival Kit](survival_kit.md)
+
 - [Template Reference](template_reference.md)
 
 - [Terrain Reference](terrain_reference.md)
