@@ -92,6 +92,7 @@ nav:
       - Ability Bindings: api/ability_bindings.md
       - Animations & Sockets: api/animations.md
       - Contexts: api/contexts.md
+      - Storage: api/storage.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
