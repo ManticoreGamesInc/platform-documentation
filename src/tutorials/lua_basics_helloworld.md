@@ -68,7 +68,7 @@ Now we have created a simple script! However, we need to actually add it to our 
 1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the **Hierarchy** window, usually on the right side of the editor.
 
     ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .image-frame .center loading="lazy" }
-    !!! info "If any of these windows are missing them again from the **Window** menu in the top menu bar."
+    !!! info "If any of these windows are missing, open them again from the **Window** menu in the top menu bar."
 
 2. Press **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ at the top of the editor, and see your message appear on screen in the top left corner!
 { .image-inline-text .image-background }
