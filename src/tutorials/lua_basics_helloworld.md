@@ -24,6 +24,10 @@ In the second part, you will learn how to take an existing template in Core and 
 - The [Core API](core_api.md) page lists code created for you to use in Core.
 - The [API Examples](examples.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
 
+### Other helpful Lua resources and links
+- [Programming in Lua (first edition)](https://www.lua.org/pil/contents.html) - free online version of the official "Programming in Lua" book by Roberto Ierusalimschy
+- [Lua Forum](https:/www.luaforum.com/) - Lua community forum to get free support and guidance
+
 ## Part One: Creating Your First Script
 
 ### Create a New Project
