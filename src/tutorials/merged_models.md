@@ -46,7 +46,7 @@ In general, you can determine the size of your screen-sized chunk, and then deve
 
 Because Merged Models are only for non-networked objects, there are a number of objects in your game that they will not work with.
 
-Objects in the **Client Context** do not have collision, and therefore have collision information to calculate. **Networked** objects can change through a game and need to be continuously tracked by the server and client, so also cannot be part of a Merged Model.
+Objects in the **Client Context** do not have collision, and therefore do not have collision information to calculate. **Networked** objects can change through a game and need to be continuously tracked by the server and client, so also cannot be part of a Merged Model.
 
 If a networked or client-side object is added to a merge model, it will be ignored in the merging process, and should still work normally.
 
