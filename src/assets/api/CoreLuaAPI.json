@@ -4103,6 +4103,39 @@
 			]
 		},
 		{
+			"Name": "MergedModel",
+			"BaseType": "Folder",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "NetReference",
 			"Properties": [
 				{
@@ -5470,6 +5503,24 @@
 					],
 					"Tags": [
 						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsBindingPressed",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "bindingName"
+								}
+							]
+						}
 					]
 				},
 				{
@@ -10550,6 +10601,24 @@
 		{
 			"Name": "Storage",
 			"StaticFunctions": [
+				{
+					"Name": "SizeOfData",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "data"
+								}
+							]
+						}
+					]
+				},
 				{
 					"Name": "GetPlayerData",
 					"Signatures": [
