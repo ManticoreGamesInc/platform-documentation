@@ -514,6 +514,10 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 | `team` | Integer | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write, Dynamic |
 | `isTeamColorUsed` | bool | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write, Dynamic |
 
+### MergedModel
+
+MergedModel is a special Folder that combines CoreMesh descendants into a single mesh. Note that MergedModel is still a beta feature, and as such could change in the future.
+
 ### NetReference
 
 A reference to a network resource, such as a player leaderboard. NetReferences are not created directly, but may be returned by `CoreObject:GetCustomProperty()`.
@@ -613,6 +617,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `ClearOverrideCamera([Number lerpTime = 0.0])` | None | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
 | `ActivateFlying()` | None | Activates the Player flying mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivateflying "Player: ActivateFlying Example") | Server-Only |
 | `ActivateWalking()` | None | Activate the Player walking mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivatewalking "Player: ActivateWalking Example") | Server-Only |
+| `IsBindingPressed(string bindingName)` | bool | Returns `true` if the player is currently pressing the named binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. Note that when called on a client, this function will only work for the local player. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1457,12 +1462,15 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.
 
+Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored. Any data exceeding this limit is not guaranteed to be stored and can potentially cause loss of stored data. Exceeding the limit will cause a warning to be displayed in the event log when in preview mode. `Storage.SizeOfData()` can be used to check the size of data (in bytes) before assigning to storage. If size limit has been exceeded consider replacing strings with numbers or using advanced techniques such as bit packing to reduce the size of data stored.
+
 | Class Function | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Storage.GetPlayerData(Player player)` | table | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. [:fontawesome-solid-info-circle:](../api/examples/#storagegetplayerdata "Storage: GetPlayerData Example") | Server-Only |
 | `Storage.SetPlayerData(Player player, table data)` | StorageResultCode, string | Updates the data associated with `player`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player.<br/>Other failure cases will raise a Lua error. See below for supported data types. [:fontawesome-solid-info-circle:](../api/examples/#storagesetplayerdata "Storage: SetPlayerData Example") | Server-Only |
 | `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | table | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. [:fontawesome-solid-info-circle:](../api/examples/#storagegetsharedplayerdata "Storage: GetSharedPlayerData Example") | Server-Only |
 | `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | StorageResultCode, string | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. [:fontawesome-solid-info-circle:](../api/examples/#storagesetsharedplayerdata "Storage: SetSharedPlayerData Example") | Server-Only |
+| `Storage.SizeOfData(table data)` | Integer | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
 
 ??? "Storage Supported Types"
     - Bool
