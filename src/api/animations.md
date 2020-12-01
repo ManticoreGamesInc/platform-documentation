@@ -1,4 +1,4 @@
-# Animations & Sockets
+# Player Animations & Sockets
 
 In Core, all ability animations are valid on any of the available body types. Each of the ability animations timing and/or translation values should behave identically across the body types.
 All ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the player does not execute any other ability or movement. In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
@@ -22,7 +22,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `left_ankle`    | `pelvis`      | `right_ankle`    |
 | `left_arm_prop` |               |                  |
 
-## Animations
+## Player Animations
 
 ### Unarmed
 
