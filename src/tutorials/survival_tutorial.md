@@ -5,18 +5,6 @@ title: Survival Kit Tutorial
 tags:
     - Tutorial
 ---
-<!-- 
-Three things you need to do:
-1. Definition to Item Registry
-2. World Item Geometry - needs Custom Properties
-3. Making it show up in the world to be looted and scavenged
-
-The Scavenge System
--------------------
-Generic System for putting things in the world
-
-
- -->
 
 ## Item Systems Overview
 
@@ -77,15 +65,13 @@ The easiest way to create an item registry with all the necessary Custom Propert
 
 The Custom Properties of the **ITEM_** template are the same as in the Item Registry, so you can save time by copying and pasting the properties.
 
-![Copy Item Properties]()
-
 1. Select your **ITEM_** template in the Hierarchy, and open the **Properties** window.
 2. In the top right corner, press the **Copy Properties** button to copy the template's properties.
 3. Delete the **ITEM_** template from the Hierarchy.
    
 ### Paste Properties to the Item Registry
 
-![Paste Properties]()
+![Paste Properties](../img/Survival/Survival_Tutorial_PasteSelectedParameterValues.png){: .center loading="lazy" }
 
 1. Select the Item Registry for your new material in the **Crafting Materials** group or other appropriate item group.
 2. In the **Choose Properties to Paste** menu, check the box for the last 6 selectable properties:
@@ -97,7 +83,7 @@ The Custom Properties of the **ITEM_** template are the same as in the Item Regi
    - Description
 3. Press the **Paste Selected Parameter Values** button.
 
-![Choose Properties]()
+![Choose Properties](../img/Survival/Survival_Tutorial_PasteSelectedParameterValues.png){: .center loading="lazy" }
 
 ### Add the Template Reference
 
