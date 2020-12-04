@@ -21,6 +21,7 @@ nav:
       - Home: index.md
       - Survival Contest:
           - Survival Contest Kit: tutorials/survival_kit.md
+          - Survival Tutorial: tutorials/survival_tutorial.md
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
