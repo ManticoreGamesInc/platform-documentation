@@ -33,11 +33,11 @@ Storage is not enabled by default, and must be turned on for any project that wi
 
 After enabling Player Storage, updating a value in the data table is a three step process. To learn more about working with Storage, see the [Core API](https://docs.coregames.com/core_api/#storage)
 
-1. Create a variable and assignt it to the player's data table using  ``Storage.GetPlayerData()``
+1. Create a variable and assign it to the player's data table using `Storage.GetPlayerData()`.
 2. Change a value on the table like any other table. See the [Lua Fundamentals](scripting_intro.md) reference for more information about how to do this.
-3. Replace the player's old table with the modified one using ``Storage.SetPlayerData()``
+3. Replace the player's old table with the modified one using `Storage.SetPlayerData()`
 
-For examples of using **Persistent Storage**, see the [Persistent Storage Examples]([persistent_storage_tutorial.md](https://docs.coregames.com/api/examples/#sharedstorage)
+For examples of using **Persistent Storage**, see the [Persistent Storage Examples](persistent_storage_tutorial.md)
 
 <!-- TODO: Add more tasks
 - Clear Data -->

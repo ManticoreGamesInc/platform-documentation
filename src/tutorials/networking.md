@@ -64,7 +64,7 @@ Things you would usually place in the default context include:
 
 Items in the default context can be marked as **(networked)**, by right clicking them in the **Hierarchy** and selecting **Enable Networking**. These are frequently called **Networked Objects**. All children of networked objects will also need to be networked.
 
-**Marking an object as networked tells Core that this object that might change during gameplay.**
+!!!important "**Marking an object as networked tells Core that this object that might change during gameplay.**"
 
 Networked objects can be moved, resized, spawned, and destroyed using a script. Any time a networked object is changed, the server sends an updated version of the object to all clients. **The server sends the ENTIRE object**. Even if only one property on the object is changed, the entire object is turned into data and sent to all the clients.
 
@@ -106,10 +106,10 @@ If you need to have a script in a client context affect server logic, use `Event
 
 Things you would usually place in a client context include:
 
-- User interface, menus, HUDs
-- All Visual Effects
-- Templates that you want to be able to spawn at runtime
-- Decorative geometry that doesn't need collision
+- User interface, menus, HUDs.
+- All Visual Effects.
+- Templates that you want to be able to spawn at runtime.
+- Decorative geometry that doesn't need collision.
 - Scripts that control any client-only things.
 
 ### Server Contexts
@@ -137,7 +137,7 @@ They share traits with both networked and non-networked objects, and they have a
 - Scripts can spawn objects into the static context, but after they are spawned, they behave like non-networked default context objects, and cannot be modified or deleted.
 - Objects spawned are not sent over the network, so the client and server scripts should make sure to spawn the same objects.
 
-The main use for this context is in creating procedural geometry. If both the server and the client build a level from a common random scene, this becomes an efficient way to make procedural levels that are syncronized between the clients and the server.
+The main use for this context is in creating procedural geometry. If both the server and the client build a level from a common random scene, this becomes an efficient way to make procedural levels that are synchronized between the clients and the server.
 
 #### Example Uses of Static Context
 
