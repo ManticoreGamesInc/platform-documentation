@@ -23,6 +23,8 @@ In the second part, you will learn how to take an existing template in Core and 
 - The **Event Log** window in Core shows output from scripts, including errors. You can enable it by clicking **Window** in the top menu bar, and selecting **Event Log**.
 - The [Core API](core_api.md) page lists code created for you to use in Core.
 - The [API Examples](examples.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
+- The [Programming in Lua](https://www.lua.org/pil/contents.html), a free online version of the official "Programming in Lua" book by Roberto Ierusalimschy.
+- The [Scripting Help Section](https://forums.coregames.com/c/scripting-help/16) on the Core Creator Forums.
 
 ## Part One: Creating Your First Script
 
@@ -98,7 +100,7 @@ You could think of it in terms of sandwich making. For a task like slicing an in
 * Hold object to cut properly
 * Begin slicing
 
-For each item you want to slice for the sandwich, you would have to type out that whole list each time! That would mean repeating all of these steps for the tomatoes, cheese, pickles, and other sandwich ingreditents. If you made a function instead, you could just type `SliceObject(tomato)` to do all those steps.
+For each item you want to slice for the sandwich, you would have to type out that whole list each time! That would mean repeating all of these steps for the tomatoes, cheese, pickles, and other sandwich ingredients. If you made a function instead, you could just type `SliceObject(tomato)` to do all those steps.
 
 In order to be able to perform our task exactly when and how we want to, we're going to change `TutorialScript` to use a function to say "Hello, World!"
 
