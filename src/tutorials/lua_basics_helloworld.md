@@ -95,10 +95,10 @@ In programming, a function is a named section of a script that performs a proced
 
 You could think of it in terms of sandwich making. For a task like slicing an ingredient, you would need to use procedures like:
 
-* Locate cutting board
-* Grab knife
-* Hold object to cut properly
-* Begin slicing
+- Locate cutting board
+- Grab knife
+- Hold object to cut properly
+- Begin slicing
 
 For each item you want to slice for the sandwich, you would have to type out that whole list each time! That would mean repeating all of these steps for the tomatoes, cheese, pickles, and other sandwich ingredients. If you made a function instead, you could just type `SliceObject(tomato)` to do all those steps.
 
