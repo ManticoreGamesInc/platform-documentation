@@ -6,6 +6,10 @@ tags:
     - Tutorial
 ---
 
+# Survival Tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0QbelJYCN1c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Item Systems Overview
 
 The item systems in the Survival Jam Kit involves interlocking systems of creating the actually 3D shape of the items -- the World Geometry -- icons and data to represent those items in looting, inventory, and crafting menus, a crafting system to make items out of each other, and looting and scavenging systems that allow players to find them in the world.
