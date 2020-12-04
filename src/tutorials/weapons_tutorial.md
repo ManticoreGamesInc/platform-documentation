@@ -139,11 +139,8 @@ To do this, let's add a `Cone - Bullet` object to our project **Hierarchy**. Thi
 ![bullet](/img/EditorManual/Weapons/bullet.png "May be known to explode."){: .center loading="lazy" }
 
 1. Try changing the material too--maybe plop a Gold material onto the bullet for extra coolness damage. You might also want to rotate the bullet 90 degrees, in the event that it fires out of the gun sideways.
-
 2. Once you are happy with the bullet shape, right click the object in the **Hierarchy** and click "Create Network Context > New Client Context Containing This" just like earlier to wrap our object in a Client Context folder. This needs to be done so that our resizing is saved--whenever a template is spawned in Core, it will always have even 1:1 transformations, which would ruin our shape. We also need it to be easy on the game, so the Client Context folder will, like earlier, protect games from needing to keep track of every bullet fired.
-
 3. Right click this folder, and click "New Group Containing This" to further wrap our bullet. Right click this new group and click "Enable Networking". Bullets need to be both Client Context, and wrapped in a Networked object to be perform really well in-game.
-
 4. Next, right click this folder again, and click "Create New Template From This". Name it "Bullet", or whatever you would like.
 
 Once it is a template, delete it from the project **Hierarchy**. We now can drag that bullet template from our **Project Content** tab into the **Projectile Template** property of the weapon!
@@ -158,7 +155,6 @@ Weapons come with a property for Damage--setting this determines how much gettin
     The weapon system can be used for things that aren't weapons! If you were making a bubble blower, or a fishing pole, perhaps you would set the damage to 0 and use different visual effects. The key is that this is what actually happens when the player uses the weapon!
 
 1. With the `weapon` itself selected in the **Hierarchy**, check the **Properties** panel. Here is where we can set the **Damage** property to whatever we would like. In this case, let's set it to 25, so it will take 4 shots to kill a player with 100 health.
-
 2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
 
 #### Multiplayer Preview

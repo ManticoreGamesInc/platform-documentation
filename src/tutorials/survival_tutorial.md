@@ -26,11 +26,11 @@ The item systems in the Survival Jam Kit involves interlocking systems of creati
 
 ## Creating a New Crafting Material
 
-In this example, we will make a new item that can be used to craft other items. You can follow the same instructions to make other item types, like Consumables or Weapons as well. 
+In this example, we will make a new item that can be used to craft other items. You can follow the same instructions to make other item types, like Consumables or Weapons as well.
 
 ### Duplicate an ITEM Template
 
-Start by making the geometry (the 3D object) to represent your crafting material. 
+Start by making the geometry (the 3D object) to represent your crafting material.
 
 1. In the **Project Content** window, search ``ITEM_`` to find an example item in the **Misc** category, like **ITEM_Misc_Bone**
 2. Drag a copy of a the template into the scene in the **Hierarchy** to edit.
@@ -38,7 +38,7 @@ Start by making the geometry (the 3D object) to represent your crafting material
     - **Name**: The name used for your item across all the different systems.
     - **Icon** the UI image that will show for this item in the inventory, crafting menu, and loot menus.
     - **MaxStackableSize** is the most that player can have in one slot of their inventory.
-    - **ItemType** is the item's category. For a crafting ingredient, this should be ``Misc``. 
+    - **ItemType** is the item's category. For a crafting ingredient, this should be ``Misc``.
     - **Description** is information about the item displayed to the player. It could be a clue for how this item is useful.
     - **Rarity** is how unusual it is to find.
 
@@ -47,7 +47,7 @@ Start by making the geometry (the 3D object) to represent your crafting material
 
 ### Change the Geometry
 
-In the **Client Context** folder of the **ITEM_** template, change the 3D objects inside to represent your item. Right now it is unlikely that you will actually see this in game, because you cannot equip crafting materials. 
+In the **Client Context** folder of the **ITEM_** template, change the 3D objects inside to represent your item. Right now it is unlikely that you will actually see this in game, because you cannot equip crafting materials.
 
 ### Save the Template
 
@@ -72,7 +72,7 @@ The Custom Properties of the **ITEM_** template are the same as in the Item Regi
 1. Select your **ITEM_** template in the Hierarchy, and open the **Properties** window.
 2. In the top right corner, press the **Copy Properties** button to copy the template's properties.
 3. Delete the **ITEM_** template from the Hierarchy.
-   
+
 ### Paste Properties to the Item Registry
 
 ![Paste Properties](../img/Survival/Survival_Tutorial_PasteSelectedParameterValues.png){: .center loading="lazy" }
@@ -103,7 +103,7 @@ You have now successfully created a new material for use in your game, but to te
 
 ## Creating a Scavenge Node
 
-Scavenge nodes are an easy way to create an item pickup in your game. They are sorted by the areas of the base map in which they appear. 
+Scavenge nodes are an easy way to create an item pickup in your game. They are sorted by the areas of the base map in which they appear.
 
 ### Duplicate a Scavenge Node
 
@@ -129,8 +129,3 @@ Loot tables will give players a random chance of finding your item when they def
 4. Change the **Likelihood**, **MinimumStackWhenDropped** and **MaximumStackWhenDropped** properties to reflect how easy or difficult it should be to find your item.
 5. Find the Item Registry for the item in the **RegisteredItems** folder, and drag this ObjectReference into the **Item** property of the LootTable entry.
 6. Duplicate this Loot Table object and drag the copy into any of the other loot tables.
-
-
-
-
-

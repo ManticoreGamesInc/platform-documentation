@@ -108,5 +108,7 @@ title: Tags
 
 - [Persistent Data Storage in Core](persistent_storage_tutorial.md)
 
+- [Survival Kit Tutorial](survival_tutorial.md)
+
 - [Basic Weapons Tutorial](weapons_tutorial.md)
 
