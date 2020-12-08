@@ -3636,7 +3636,7 @@ print(type(number)) -- number
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
-Learn more about Perks <here>
+Learn more about Perks [here](https://docs.coregames.com/perks/perks/).
 
 Repeatable Perks - This type of Perk can be purchased any number of times by players. In this example, we implement the sale of in game currency through multiple bundles and track the purchases using storage and resources. This script will track each Perk bundle to grant users the currency/resource.
 
@@ -3673,8 +3673,9 @@ function CheckPerkCountWithStorage(player)
             data[RESOURCE_KEY][bundle.storageId] = perkCount
             Storage.SetPlayerData(player, data)
 
-            for i = 1, perkCount - storageCount do
-                player:AddResource(RESOURCE_KEY, bundle.reward)
+            if perkCount > storageCount then
+                local resourceAmount = bundle.reward * (perkCount - storageCount)
+                player:AddResource(RESOURCE_KEY, resourceAmount)
             end
         end
     end
@@ -3709,7 +3710,6 @@ function OnPlayerJoined(player)
     if not data[RESOURCE_KEY] or not data[RESOURCE_KEY].amount then
         data[RESOURCE_KEY] = {}
         data[RESOURCE_KEY].amount = 0
-        Storage.SetPlayerData(player, data)
     end
 
     -- Setup current Perk purchased count per bundle
@@ -3717,8 +3717,9 @@ function OnPlayerJoined(player)
         if not data[RESOURCE_KEY][bundle.storageId] or Environment.IsLocalGame() then
             data[RESOURCE_KEY][bundle.storageId] = player:GetPerkCount(bundle.perk)
         end
-        Storage.SetPlayerData(player, data)
     end
+
+    Storage.SetPlayerData(player, data)
 
     -- Set currency resource for displaying balance to player on client side
     player:SetResource(RESOURCE_KEY, data[RESOURCE_KEY].amount)
@@ -3743,7 +3744,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
-Learn more about Perks <here>
+Learn more about Perks [here](https://docs.coregames.com/perks/perks/).
 
 In the following example, a script is a child of a Perk Purchase Button, of type `UIPerkPurchaseButton`. The user interface container that has the button is in a client context. The specifics of the Perk come in through the custom property `MyPerk`, which is then assigned to the button with `SetPerkReference()`. When the player joins we connect to the `perkChangedEvent` and print out their existing perks with the LogPerks() function.
 
@@ -3756,9 +3757,9 @@ local TEST_REPEATABLE = script:GetCustomProperty("TestRepeatable")
 
 -- Mapping of PerkNetRefs to table of properties, in this case a name
 local perkList = {}
-perkList[TEST_LIMITED_TIME] = { name = "limited-time" };
-perkList[TEST_PERMANENT] = { name = "permanent" };
-perkList[TEST_REPEATABLE] = { name = "repeatable" };
+perkList[TEST_LIMITED_TIME] = { name = "limited-time" }
+perkList[TEST_PERMANENT] = { name = "permanent" }
+perkList[TEST_REPEATABLE] = { name = "repeatable" }
 
 -- Set purchase button's Perk to given custom property
 script.parent:SetPerkReference(MY_PERK)
@@ -3769,7 +3770,7 @@ function DebugLog(msg)
 end
 
 function OnPerkChanged(player, perkRef)
-    DebugLog("on perks changed " .. player.name);
+    DebugLog("on perks changed " .. player.name)
 
     if (perkList[perkRef] ~= nil) then
         DebugLog("perk changed: " .. perkList[perkRef].name)
