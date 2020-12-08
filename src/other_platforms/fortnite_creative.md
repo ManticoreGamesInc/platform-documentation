@@ -88,7 +88,8 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ### FNC Videos
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/99gf9fuLAFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![YOUTUBE](/assets/placeholder_720p.png "99gf9fuLAFI")
+{: .video-container }
 
 ### Recommended Tutorials
 
