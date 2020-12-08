@@ -69,10 +69,10 @@ tags:
 
 - Material Channels
 - Customizing them
-  - Vertical and Horizontal
+    - Vertical and Horizontal
 - Wetness
 - Customizable Parameters
-  - Size
+    - Size
 - Masks
 
 <!-- ## Foliage Painting -->
