@@ -38,6 +38,7 @@ nav:
           - Collaboration: tutorials/collaboration_overview.md
           - Creator Analytics: tutorials/creator_analytics.md
           - GitHub and Core: tutorials/github.md
+          - Improving Your Game: tutorials/improving_your_game.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Perks Program:
           - About the Perks Program: perks/perks_program.md
