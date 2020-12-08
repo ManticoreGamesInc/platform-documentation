@@ -8,7 +8,8 @@ tags:
 
 # Build Your First Game In Core
 
-![YOUTUBE](../assets/placeholder_720p.png "-rIbd612sUM"){: .center loading="lazy" }
+![YOUTUBE](../assets/placeholder_720p.png "-rIbd612sUM")
+{: .video-container }
 
 ## Overview
 
