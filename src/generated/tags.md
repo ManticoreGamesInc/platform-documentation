@@ -13,6 +13,17 @@ title: Tags
 - [Examples and Snippets](examples.md)
 
 
+## Perks
+
+- [Enrolling in the Core Perks Program](joining_perks.md)
+
+- [How to Implement Perks](perks.md)
+
+- [About the Perks Program and Monetization](perks_program.md)
+
+- [Core Monetization Rules](perks_rules.md)
+
+
 ## Reference
 
 - [Core Editor Key Bindings](editor_keybindings.md)
