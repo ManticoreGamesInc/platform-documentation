@@ -570,6 +570,7 @@ Player is an Object representation of the state of a Player connected to the gam
 | `bindingPressedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. [:fontawesome-solid-info-circle:](../api/examples/#playerbindingpressedevent "Player: bindingPressedEvent Example") | None |
 | `bindingReleasedEvent` | Event&lt;Player, string&gt; | Fired when an action binding is released. Second parameter tells you which binding. [:fontawesome-solid-info-circle:](../api/examples/#playerbindingreleasedevent "Player: bindingReleasedEvent Example") | None |
 | `resourceChangedEvent` | Event&lt;Player, string, Integer&gt; | Fired when a resource changed, indicating the type of the resource and its new amount. [:fontawesome-solid-info-circle:](../api/examples/#playerresourcechangedevent "Player: resourceChangedEvent Example") | None |
+| `perkChangedEvent` | Event&lt;Player, NetReference perkReference&gt; | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. [:fontawesome-solid-info-circle:](../api/examples/#playerperkchangedevent "Player: perkChangedEvent Example") | None |
 | `movementModeChangedEvent` | Event&lt;Player, MovementMode, MovementMode&gt; | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. [:fontawesome-solid-info-circle:](../api/examples/#playermovementmodechangedevent "Player: movementModeChangedEvent Example") | None |
 
 | Function | Return Type | Description | Tags |
@@ -618,6 +619,8 @@ Player is an Object representation of the state of a Player connected to the gam
 | `ActivateFlying()` | None | Activates the Player flying mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivateflying "Player: ActivateFlying Example") | Server-Only |
 | `ActivateWalking()` | None | Activate the Player walking mode. [:fontawesome-solid-info-circle:](../api/examples/#playeractivatewalking "Player: ActivateWalking Example") | Server-Only |
 | `IsBindingPressed(string bindingName)` | bool | Returns `true` if the player is currently pressing the named binding. Possible values of the bindings are listed on the [Ability binding](api/ability_bindings.md) page. Note that when called on a client, this function will only work for the local player. | None |
+| `HasPerk(NetReference)` | bool | Returns `true` if the player has one or more of the specified perk. [:fontawesome-solid-info-circle:](../api/examples/#playerhasperk "Player: HasPerk Example") | None |
+| `GetPerkCount(NetReference)` | Integer | Returns how many of the specified perk the player owns. For non-repeatable perks, returns `1` if the player owns the perk, or `0` if the player does not. [:fontawesome-solid-info-circle:](../api/examples/#playergetperkcount "Player: GetPerkCount Example") | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -1073,6 +1076,27 @@ A UIControl which can be used for containing and laying out other UI controls.
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `shouldClipChildren` | bool | If `true`, children of this UIPanel will not draw outside of its bounds. | Read-Write, Dynamic |
+
+### UIPerkPurchaseButton
+
+A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games.
+
+| Event | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `clickedEvent` | Event&lt;UIButton&gt; | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | Event&lt;UIButton&gt; | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | Event&lt;UIButton&gt; | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | Event&lt;UIButton&gt; | Fired when button is hovered. | None |
+| `unhoveredEvent` | Event&lt;UIButton&gt; | Fired when button is unhovered. | None |
+
+| Function | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetPerkReference()` | NetReference | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) [:fontawesome-solid-info-circle:](../api/examples/#uiperkpurchasebuttongetperkreference "Uiperkpurchasebutton: GetPerkReference Example") | None |
+| `SetPerkReference(NetReference)` | None | Configures this button to use the specified perk. [:fontawesome-solid-info-circle:](../api/examples/#uiperkpurchasebuttonsetperkreference "Uiperkpurchasebutton: SetPerkReference Example") | Dynamic |
+
+| Property | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `isInteractable` | bool | Returns whether the button can interact with the cursor (click, hover, etc). | Read-Write, Dynamic |
 
 ### UIProgressBar
 
