@@ -3628,6 +3628,188 @@ print(type(text)) -- string
 print(type(number)) -- number
 ```
 
+## Perks
+
+### <a id="staticevent:Player.perkChangedEvent">Player.perkChangedEvent</a>
+
+### <a id="method:Player.GetPerkCount">Player.GetPerkCount</a>
+
+Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
+
+Learn more about Perks <here>
+
+Repeatable Perks - This type of Perk can be purchased any number of times by players. In this example, we implement the sale of in game currency through multiple bundles and track the purchases using storage and resources. This script will track each Perk bundle to grant users the currency/resource.
+
+```lua
+local RESOURCE_KEY = "Gem" -- Example currency, can be any resource
+
+-- Perks, of type Net Reference, assigned by dragging from the Perks Manager window
+local PERK_1 = script:GetCustomProperty("Perk1")
+local PERK_2 = script:GetCustomProperty("Perk2")
+local PERK_3 = script:GetCustomProperty("Perk3")
+
+-- Reward amounts per bundle, of type Integer
+local PERK_1_REWARD = script:GetCustomProperty("Perk1Reward")
+local PERK_2_REWARD = script:GetCustomProperty("Perk2Reward")
+local PERK_3_REWARD = script:GetCustomProperty("Perk3Reward")
+
+-- Internal bundles data with bundle storage id and custom rewards per Perk.
+-- These rewards can be changed after the game goes live.
+local bundles = {}
+table.insert(bundles, {perk = PERK_1, storageId = "GemBundle1", reward = PERK_1_REWARD})
+table.insert(bundles, {perk = PERK_2, storageId = "GemBundle2", reward = PERK_2_REWARD})
+table.insert(bundles, {perk = PERK_3, storageId = "GemBundle3", reward = PERK_3_REWARD})
+
+-- Check if each storage bundle purchase count is different from Perk purchase count.
+-- If yes, then grant currency as reward to the player.
+function CheckPerkCountWithStorage(player)
+    local data = Storage.GetPlayerData(player)
+
+    for _, bundle in ipairs(bundles) do
+        local perkCount = player:GetPerkCount(bundle.perk)
+        local storageCount = data[RESOURCE_KEY][bundle.storageId]
+
+        if perkCount ~= storageCount then
+            data[RESOURCE_KEY][bundle.storageId] = perkCount
+            Storage.SetPlayerData(player, data)
+
+            for i = 1, perkCount - storageCount do
+                player:AddResource(RESOURCE_KEY, bundle.reward)
+            end
+        end
+    end
+end
+
+-- Check and see if storage purchase value is different from Perk purchase count
+function UpdateStorageBalance(player)
+    local data = Storage.GetPlayerData(player)
+    data[RESOURCE_KEY].amount = player:GetResource(RESOURCE_KEY)
+    Storage.SetPlayerData(player, data)
+end
+
+-- If player spend and earns the currency resource, update the storage
+function OnResourceChanged(player, resource)
+    if resource == RESOURCE_KEY then
+        UpdateStorageBalance(player)
+    end
+end
+
+-- If player's doing in game transactions, check and update
+-- the balance for current currency with storage bundle tracking
+function OnPerksChanged(player)
+    CheckPerkCountWithStorage(player)
+    UpdateStorageBalance(player)
+end
+
+-- Sets player resource from storage and connects player events
+function OnPlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+
+    -- Setup player resource and save it in a table
+    if not data[RESOURCE_KEY] or not data[RESOURCE_KEY].amount then
+        data[RESOURCE_KEY] = {}
+        data[RESOURCE_KEY].amount = 0
+        Storage.SetPlayerData(player, data)
+    end
+
+    -- Setup current Perk purchased count per bundle
+    for _, bundle in ipairs(bundles) do
+        if not data[RESOURCE_KEY][bundle.storageId] or Environment.IsLocalGame() then
+            data[RESOURCE_KEY][bundle.storageId] = player:GetPerkCount(bundle.perk)
+        end
+        Storage.SetPlayerData(player, data)
+    end
+
+    -- Set currency resource for displaying balance to player on client side
+    player:SetResource(RESOURCE_KEY, data[RESOURCE_KEY].amount)
+
+    -- Connect events that updates currency balance for player
+    player.resourceChangedEvent:Connect(OnResourceChanged)
+    player.perkChangedEvent:Connect(OnPerksChanged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+### <a id="staticevent:Player.perkChangedEvent">Player.perkChangedEvent</a>
+
+### <a id="method:Player.HasPerk">Player.HasPerk</a>
+
+### <a id="method:Player.GetPerkCount">Player.GetPerkCount</a>
+
+### <a id="method:UIPerkPurchaseButton.GetPerkReference">UIPerkPurchaseButton.GetPerkReference</a>
+
+### <a id="method:UIPerkPurchaseButton.SetPerkReference">UIPerkPurchaseButton.SetPerkReference</a>
+
+Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
+
+Learn more about Perks <here>
+
+In the following example, a script is a child of a Perk Purchase Button, of type `UIPerkPurchaseButton`. The user interface container that has the button is in a client context. The specifics of the Perk come in through the custom property `MyPerk`, which is then assigned to the button with `SetPerkReference()`. When the player joins we connect to the `perkChangedEvent` and print out their existing perks with the LogPerks() function.
+
+```lua
+-- Perk Net Reference custom parameters
+local MY_PERK = script:GetCustomProperty("MyPerk")
+local TEST_LIMITED_TIME = script:GetCustomProperty("TestLimitedTime")
+local TEST_PERMANENT = script:GetCustomProperty("TestPermanent")
+local TEST_REPEATABLE = script:GetCustomProperty("TestRepeatable")
+
+-- Mapping of PerkNetRefs to table of properties, in this case a name
+local perkList = {}
+perkList[TEST_LIMITED_TIME] = { name = "limited-time" };
+perkList[TEST_PERMANENT] = { name = "permanent" };
+perkList[TEST_REPEATABLE] = { name = "repeatable" };
+
+-- Set purchase button's Perk to given custom property
+script.parent:SetPerkReference(MY_PERK)
+
+function DebugLog(msg)
+    print(msg)
+    UI.PrintToScreen(msg)
+end
+
+function OnPerkChanged(player, perkRef)
+    DebugLog("on perks changed " .. player.name);
+
+    if (perkList[perkRef] ~= nil) then
+        DebugLog("perk changed: " .. perkList[perkRef].name)
+    end
+
+    LogPerks(player)
+end
+
+function LogPerks(player)
+    -- Example of HasPerk() and GetPerkCount().
+    -- For non-repeatable perks checking GetPerkCount() > 0
+    -- is equivalent to HasPerk() == true
+    for perkRef, prop in pairs(perkList) do
+        DebugLog("-- perk: " .. prop.name)
+
+        local hasPerkMsg = "    has perk?: " .. tostring(player:HasPerk(perkRef))
+        local perkCountMsg = "    count: " .. tostring(player:GetPerkCount(perkRef))
+
+        DebugLog(hasPerkMsg)
+        DebugLog(perkCountMsg)
+
+        -- Example of getting Perk reference of parent Perk button
+        local parentPerkRef = script.parent:GetPerkReference()
+        if (parentPerkRef.isAssigned and perkRef == parentPerkRef) then
+            DebugLog("is parent perk ref")
+        end
+    end
+end
+
+function OnPlayerJoined(player)
+    -- Connect perkChangedEvent
+    player.perkChangedEvent:Connect(OnPerkChanged)
+
+    -- Log perks player has initially on join
+    LogPerks(player)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
 ## Player
 
 ### <a id="event:Player.bindingPressedEvent">Player.bindingPressedEvent</a>
