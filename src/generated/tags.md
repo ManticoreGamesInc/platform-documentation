@@ -109,6 +109,8 @@ title: Tags
 
 - [GitHub and Core](github.md)
 
+- [Improving Your Game to Attract More Players](improving_your_game.md)
+
 - [Scripting in Core (Beginner)](lua_basics_helloworld.md)
 
 - [Scripting in Core (Intermediate)](lua_basics_lightbulb.md)
