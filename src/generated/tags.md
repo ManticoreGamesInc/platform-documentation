@@ -13,6 +13,17 @@ title: Tags
 - [Examples and Snippets](examples.md)
 
 
+## Perks
+
+- [Enrolling in the Core Perks Program](joining_perks.md)
+
+- [How to Implement Perks](perks.md)
+
+- [About the Perks Program and Monetization](perks_program.md)
+
+- [Core Monetization Rules](perks_rules.md)
+
+
 ## Reference
 
 - [Core Editor Key Bindings](editor_keybindings.md)
@@ -98,6 +109,8 @@ title: Tags
 
 - [GitHub and Core](github.md)
 
+- [Improving Your Game to Attract More Players](improving_your_game.md)
+
 - [Scripting in Core (Beginner)](lua_basics_helloworld.md)
 
 - [Scripting in Core (Intermediate)](lua_basics_lightbulb.md)
@@ -107,6 +120,8 @@ title: Tags
 - [Lua Style Guide](lua_style_guide.md)
 
 - [Persistent Data Storage in Core](persistent_storage_tutorial.md)
+
+- [Survival Kit Tutorial](survival_tutorial.md)
 
 - [Basic Weapons Tutorial](weapons_tutorial.md)
 

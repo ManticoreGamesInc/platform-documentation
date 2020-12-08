@@ -8,7 +8,8 @@ tags:
 
 # Introduction to the Core Editor
 
-![YOUTUBE](../assets/placeholder_720p.png "TKOtPN9ujEE"){: .center loading="lazy" }
+![YOUTUBE](../assets/placeholder_720p.png "TKOtPN9ujEE")
+{: .video-container }
 
 ## Creating a New Project
 
