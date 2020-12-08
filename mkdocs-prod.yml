@@ -39,6 +39,11 @@ nav:
           - Creator Analytics: tutorials/creator_analytics.md
           - GitHub and Core: tutorials/github.md
           - Lua Style Guide: tutorials/lua_style_guide.md
+      - Perks Program:
+          - About the Perks Program: perks/perks_program.md
+          - Perks Rules: perks/perks_rules.md
+          - Joining the Perks Program: perks/joining_perks.md
+          - Implementing Perks: perks/perks.md
       - Tutorials:
           - Overview: tutorials/overview.md
           - Abilities: tutorials/abilities.md
