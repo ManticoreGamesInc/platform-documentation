@@ -97,7 +97,7 @@ The Core Hub discord is a useful resource, but you can also create your own Disc
 
 #### Kanban Boards
 
-[Kanban boards](https://en.wikipedia.org/wiki/Kanban_board) are a system of defining needed features in small chunks and tracking them through stages of development, clasically with sticky notes on a whiteboard. There are a masssive number of online tools that allow you to keep this in a virtual space accessible by all team members, and better track the progress of the development of your game.
+[Kanban boards](https://en.wikipedia.org/wiki/Kanban_board) are a system of defining needed features in small chunks and tracking them through stages of development, classically with sticky notes on a whiteboard. There are a massive number of online tools that allow you to keep this in a virtual space accessible by all team members, and better track the progress of the development of your game.
 
 - [Trello](https://trello.com/)
 - [GitHub Project Boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)

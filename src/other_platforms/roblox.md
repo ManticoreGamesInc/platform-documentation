@@ -75,7 +75,7 @@ Core is still in Open Alpha, which means there are a number of features that are
 |               | Scene           | Main Viewport      |
 |               | Test            | Multiplayer Preview Mode |
 |               | Toolbox         | Community Content |
-|               | ReplicatedStorage/ServerStorage | Project Content  | 
+|               | ReplicatedStorage/ServerStorage | Project Content  |
 |               | Terrain Editor  | Terrain Generator and Terrain Properties |
 |               | Spawn Location  | Spawn Point        |
 |               | Output          | Event Log          |
