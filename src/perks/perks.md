@@ -58,13 +58,13 @@ To change a player's experience based on the Perks they have, you will need to r
 2. From **Project Content**, open the **My Perks** section and find your Perk.
 3. Click and drag your Perk from **Project Content** onto the **Add Custom Property**
 
-![Adding a Perk as a Custom Property](../img/Perks/Perks_PerkReferenceCustomProperty.png){: .center loading="lazy"}
+![Adding a Perk as a Custom Property](../img/Perks/Perks_PerkReferenceCustomProperty.png){: .center loading="lazy" }
 
 ### Scripting with Perks
 
 You can use the ```player:HasPerk(perkReference)``` function to find out if a player has a Perk, and ```player:GetPerkCount()``` to get the total number of repeatable Perks a player has purchased.
 
-To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](https://docs.coregames.com/api_reference/#Player)
+To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](core_api.md#player).
 
 ## Testing Perks
 
@@ -72,7 +72,7 @@ Creators can test your perks in a local project to make sure that they are worki
 
 ### Enable Perks for Testing
 
-![Open Perks Testing](../img/Perks/Perks_OpenPerkTestingFromManager.png){: .center loading="lazy"}
+![Open Perks Testing](../img/Perks/Perks_OpenPerkTestingFromManager.png){: .center loading="lazy" }
 
 1. Open the **Perks Manager** window by clicking **Window** in the top menu bar, and select **Perk Testing**
 2. Enable the Perk for **Player 1** if you want to test when just one player has the Perk.
@@ -81,7 +81,7 @@ Creators can test your perks in a local project to make sure that they are worki
 !!! info
     You can also open the **Perk Testing** window directly from the **Window** menu.
 
-![Open Perks Testing](../img/Perks/Perks_OpenPerkTesting.png){: .center loading="lazy"}
+![Open Perks Testing](../img/Perks/Perks_OpenPerkTesting.png){: .center loading="lazy" }
 
 ### Test in Multiplayer Preview
 
@@ -105,7 +105,7 @@ When perks are created they start out as **inactive**. Perks need to be associat
 3. Publish the game.
 4. Open the **Perks Manager** again, and select **Active** from the drop down box in the **Status** column.
 
-![Change status to active](../img/Perks/Perks_ActivatePerk.png){: .center loading="lazy"}
+![Change status to active](../img/Perks/Perks_ActivatePerk.png){: .center loading="lazy" }
 
 !!! warning
     Once a Perk is activated, it can not be instantly deactivated, and is subject to the [Terms of Service](https://support.coregames.com/hc/en-us/articles/1500000105081-Joining-the-Perks-Program) agreements related to Perks.
@@ -121,7 +121,7 @@ To make changes to an active Perk, you must first suspend it.
 1. In the **Perks Manager** find your perk.
 2. In the **Status** column, select **Suspended**.
 
-![Change status to suspended](../img/Perks/Perks_SuspendPerk.png){: .center loading="lazy"}
+![Change status to suspended](../img/Perks/Perks_SuspendPerk.png){: .center loading="lazy" }
 
 ### Deactivate a Perk
 
@@ -141,10 +141,10 @@ If a perk is disabled or banned, you can submit a request in the [Core Help Cent
 The Perks ![Perks Icon](../img/EditorManual/icons/AssetType_PerkReference.png){: style="width: 2em;" } color in the **My Perks** section of **Project Content** will indicate the current status of the Perk in your project.
 {: .image-inline-text .image-background }
 
-![Perks status colors](../img/Perks/Perks_PerkStateColors.png){: .center loading="lazy"}
+![Perks status colors](../img/Perks/Perks_PerkStateColors.png){: .center loading="lazy" }
 
 ---
 
 ## Learn More
 
- [The Perks Program](perks_program.md) | [Core API Reference](https://docs.coregames.com/api_reference/#Player) | [Joining the Perks Program](joining_perks.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.md)
+[The Perks Program](perks_program.md) | [Core API Reference](core_api.md#player) | [Joining the Perks Program](joining_perks.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.md)
