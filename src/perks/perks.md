@@ -102,6 +102,8 @@ Perks can only be purchased using a **UI Perk Purchase Button**, and use a stand
 !!! warning
     Adding a Perk Reference as a Custom Property will **NOT** enable the button to charge for the Perk. It must be added to the **Perk Reference** field in the UI Perk Purchase Button's properties.
 
+![Open Perks Testing](../img/Perks/Perks_UIButton.png){: .center loading="lazy" }
+
 ## Activating Perks
 
 Perks exist in several different states that allow you to control whether players can activate them. Perks need to be associated with a published game before they can be used, which means there are multiple steps to making a perk purchasable by players.
