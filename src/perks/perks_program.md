@@ -28,7 +28,7 @@ Creators in the Perks Program have access to Core’s Perks system, which enable
 
 ## How Perks Work
 
-![Player Credit Purchase Flow](../img/Perks/Perks_PlayerPurchaseFlow.jpg){: .center loading="lazy"}
+![Player Credit Purchase Flow](../img/Perks/Perks_PlayerPurchaseFlow.png){: .center loading="lazy"}
 
 Creators can monetize their games through Perks, which allow them to sell in-game benefits to players for Core Credits. There are three types of perks, separated by how often your players are able to purchase them:
 
@@ -49,7 +49,7 @@ To learn more about how to create Perks for your game, see the [Perks reference]
 
 ## Redeeming Core Credits
 
-![Creator Credit Flow](../img/Perks/Perks_CreatorCreditFlow.jpg){: .center loading="lazy"}
+![Creator Credit Flow](../img/Perks/Perks_CreatorCreditFlow.png){: .center loading="lazy"}
 
 Creators directly receive all the Core Credits that are spent on Perks. When the creator accumulates credits above a payout threshold, they become eligible for converting credits to real-world currency. These can be initiated through the [Creator Dashboard](https://www.coregames.com/create/dashboard).
 
@@ -59,7 +59,7 @@ See the [Core Credits redemption](https://support.coregames.com/hc/en-us/article
 
 > Core shares revenue with creators in an even 50/50 split.
 
-![50/50 graphic](../img/Perks/Perks_FiftyFifty.jpg){: .center loading="lazy"}
+![50/50 graphic](../img/Perks/Perks_FiftyFifty.png){: .center loading="lazy"}
 
 Creators can receive this split by opting to convert their Core Credits to real-world currency as described above. When converting, creators receive 50% of the revenue spent on their Perks.
 
@@ -69,9 +69,9 @@ By developing on Core, creators can build anything from a deep traditional MMO w
 
 Most development platforms provide only a subset of those benefits, passing the cost of the rest to creators. Other UGC platforms, such as Roblox, take a much larger share of revenue – or don’t allow monetization at all.
 
-![Core Revenue Split vs Competitor](../img/Perks/Perks_CoreRoblox.jpg){: .center loading="lazy"}
+![Core Revenue Split vs Competitor](../img/Perks/Perks_CoreRoblox.png){: .center loading="lazy"}
 
-![Core Revenue Split vs Competitor](../img/Perks/Perks_PlatformCostChart.jpg){: .center loading="lazy"}
+![Core Revenue Split vs Competitor](../img/Perks/Perks_PlatformCostChart.png){: .center loading="lazy"}
 
 By using Core, creators get a larger share of revenue compared to other similar platforms while also having access to the full stack of tools to build, publish, and grow their games.
 

@@ -62,7 +62,7 @@ To change a player's experience based on the Perks they have, you will need to r
 
 ### Scripting with Perks
 
-You can use the ```player:HasPerk(perkReference)``` function to find out if a player has a Perk, and ```player:GetPerkCount()``` to get the total number of repeatable Perks a player has purchased.
+You can use the `player:HasPerk(perkReference)` function to find out if a player has a Perk, and `player:GetPerkCount()` to get the total number of repeatable Perks a player has purchased.
 
 To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](core_api.md#player).
 
