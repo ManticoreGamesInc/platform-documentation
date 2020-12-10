@@ -62,7 +62,7 @@ To change a player's experience based on the Perks they have, you will need to r
 
 ### Scripting with Perks
 
-You can use the ```player:HasPerk(perkReference)``` function to find out if a player has a Perk, and ```player:GetPerkCount()``` to get the total number of repeatable Perks a player has purchased.
+You can use the `player:HasPerk(perkReference)` function to find out if a player has a Perk, and `player:GetPerkCount()` to get the total number of repeatable Perks a player has purchased.
 
 To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](core_api.md#player).
 
@@ -86,6 +86,23 @@ Creators can test your perks in a local project to make sure that they are worki
 ### Test in Multiplayer Preview
 
 Once you have enable perks in the testing menu, start a multiplayer preview. If you granted a perk to **Player 1**, you should see it on **Bot1** in the first preview window, and any in-game benefits that you have granted based on whether a player has unlocked those perks should be present in that window. For **Player 2+**, all of the Multiplayer Preview instances should have players who own that perk, including ones that are added in after the preview starts.
+
+## Adding a Perks Purchase Button
+
+Perks can only be purchased using a **UI Perk Purchase Button**, and use a standardized dialogue to confirm a purchase.
+
+### Add a Perk Purchase Button to a Project
+
+1. In the **Game Objects** section of **Core Content**, open the **Perks Tools** category.
+2. Find the **UI Perk Purchase Button** object and drag it into your Hierarchy. 
+3. Open the **My Perks** section of **Project Content** to find your Perk.
+4. With the **UI Perk Purchase Button** selected, open the **Properties** window.
+5. Drag the perk you want associated with the button from **My Perks** to the **Perk Reference** property of the Perk Purchase Button.
+
+!!! warning
+    Adding a Perk Reference as a Custom Property will **NOT** enable the button to charge for the Perk. It must be added to the **Perk Reference** field in the UI Perk Purchase Button's properties.
+
+![Open Perks Testing](../img/Perks/Perks_UIButton.png){: .center loading="lazy" }
 
 ## Activating Perks
 
