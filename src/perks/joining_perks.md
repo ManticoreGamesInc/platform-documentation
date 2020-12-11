@@ -12,7 +12,7 @@ tags:
 
 Joining the Perks Program allows Core creators to make money with their games using a complete monetization system that can be customized to any game type.
 
-For a complete overview of the program, see the [Perks Program](perks_program.md) introduction, and the [Perks reference](perks.md) for instructions on how to implement them in game.
+For a complete overview of the program, see the [Perks Program](perks_program.md) introduction, and the [Perks reference](implementing_perks.md) for instructions on how to implement them in game.
 
 ## Requirements to Join the Perks Program
 
@@ -24,7 +24,7 @@ To qualify to join the Perks Program, there are minimum requirements that must b
 !!! info
     Daily Average Users counts each account that connects to your game in a day. Reaching 50 DAU in a month means a total of 1500 users, but each user counts again on a new day. To learn more about the data available at how many users are playing your games, see the [Creator Analytics](creator_analytics.md) reference.
 
-For more details about joining the program, see [Joining the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000105081-Joining-the-Perks-Program) in the Core Help Center. To learn about ways to improve the DAU across your games, see the [Improving Your Game](https://docs.coregames.com/tutorials/improving_your_game/) guide. 
+For more details about joining the program, see [Joining the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000105081-Joining-the-Perks-Program) in the Core Help Center. To learn about ways to improve the DAU across your games, see the [Improving Your Game](https://docs.coregames.com/tutorials/improving_your_game/) guide.
 
 ## Enrolling in the Program
 
@@ -38,4 +38,4 @@ For more details about joining the program, see [Joining the Perks Program](http
 
 ## Learn More
 
- [The Perks Program](perks_program.md) | [Implementing Perks](perks.md) | [Creator Analytics](creator_analytics.md) | [Joining the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program)
+ [The Perks Program](perks_program.md) | [Implementing Perks](implementing_perks.md) | [Creator Analytics](creator_analytics.md) | [Joining the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program)
