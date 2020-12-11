@@ -14,7 +14,7 @@ tags:
 
 # About the Perks Program and Monetization
 
-The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](joining_perks.md) gives access to [**Perks**](perks.md), which are in-game purchases built specifically for Core.
+The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](joining_perks.md) gives access to [**Perks**](implementing_perks.md), which are in-game purchases built specifically for Core.
 
 To qualify for adding Perks to your games, there are two requirements:
 
@@ -45,7 +45,7 @@ Perks are added using the Core editor, where the creator can set the price, beha
 
 When a player buys a Perk, Core handles the transaction from start to finish. The Credits go to the creator’s account, at which point the creator can spend them in other Core games or in the Core shop.
 
-To learn more about how to create Perks for your game, see the [Perks reference](perks.md)
+To learn more about how to create Perks for your game, see the [Perks reference](implementing_perks.md)
 
 ## Redeeming Core Credits
 
@@ -83,4 +83,4 @@ Once you have reached the minimum DAU to qualify, you can [apply to the Perks Pr
 
 ## Learn More
 
-[Implementing Perks](perks.md) | [Creator Analytics](creator_analytics.md) | [How to Join the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [Enrolling in the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Guidelines for Creating Perks](perks_rules.md)
+[Implementing Perks](implementing_perks.md) | [Creator Analytics](creator_analytics.md) | [How to Join the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [Enrolling in the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Guidelines for Creating Perks](perks_rules.md)
