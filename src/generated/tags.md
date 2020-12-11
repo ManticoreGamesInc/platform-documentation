@@ -15,9 +15,9 @@ title: Tags
 
 ## Perks
 
-- [Enrolling in the Core Perks Program](joining_perks.md)
+- [How to Implement Perks](implementing_perks.md)
 
-- [How to Implement Perks](perks.md)
+- [Enrolling in the Core Perks Program](joining_perks.md)
 
 - [About the Perks Program and Monetization](perks_program.md)
 
