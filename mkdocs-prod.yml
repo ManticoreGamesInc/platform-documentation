@@ -23,6 +23,7 @@ nav:
           - Survival Contest Kit: tutorials/survival_kit.md
           - Survival Tutorial: tutorials/survival_tutorial.md
       - Getting Started:
+          - getting_started/installing_core.md
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
           - Create your first Game: getting_started/my_first_multiplayer_game.md
@@ -41,12 +42,13 @@ nav:
           - Improving Your Game: tutorials/improving_your_game.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Perks Program:
+          - perks/perks_program.md
           - About the Perks Program: perks/perks_program.md
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
-          - Implementing Perks: perks/perks.md
+          - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
-          - Overview: tutorials/overview.md
+          - tutorials/overview.md
           - Abilities: tutorials/abilities.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -99,6 +101,7 @@ nav:
       - Ability Bindings: api/ability_bindings.md
       - Animations & Sockets: api/animations.md
       - Contexts: api/contexts.md
+      - Storage: api/storage.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
@@ -210,6 +213,7 @@ markdown_extensions:
 plugins:
   - minify:
       minify_html: true
+  - section-index
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
@@ -217,8 +221,9 @@ plugins:
   - autolinks
   - redirects:
       redirect_maps:
-        getting_started.md: https://coregames.com/docs/getting_started/editor_intro/
-        news/showcase/just_getting_started.md: https://coregames.com/docs/showcase/just_getting_started/
+        getting_started.md: getting_started/editor_intro.md
+        news/showcase/just_getting_started.md: getting_started/editor_intro.md
+        showcase/just_getting_started.md: getting_started/editor_intro.md
         api.md: https://docs.coregames.com/core_api/
         tutorials/examples.md: https://docs.coregames.com/api/examples.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
@@ -241,6 +246,8 @@ plugins:
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_overview.md: tutorials/dungeon_framework_reference.md
         tutorials/: tutorials/overview.md
+        perks/: perks/perks_program.md
+        perks/perks.md: perks/implementing_perks.md
 
 google_analytics:
   - UA-142884846-4

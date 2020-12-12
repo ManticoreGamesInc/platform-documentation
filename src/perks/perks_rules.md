@@ -36,4 +36,4 @@ If we find a creator abusing the Perks system or we receive multiple player repo
 
 ## Learn More
 
-[The Perks Program](perks_program.md) | [Implementing Perks](perks.md)
+[The Perks Program](perks_program.md) | [Implementing Perks](implementing_perks.md)
