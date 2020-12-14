@@ -58,9 +58,7 @@ This example shows how to read data that has been saved to Shared Storage. Becau
 For this example to work, there is some setup that needs to be done:
 
 - Storage needs to be enabled in the Game Settings object.
-
 - You have to create a shared key.
-
 - The NetReference for the shared key needs to be added to the script as a custom property.
 
 See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
@@ -102,9 +100,7 @@ This example shows how to write data to the Shared Storage. With this, any maps 
 For this example to work, there is some setup th at needs to be done:
 
 - Storage needs to be enabled in the Game Settings object.
-
 - You have to create a shared key.
-
 - The NetReference for the shared key needs to be added to the script as a custom property.
 
 See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.

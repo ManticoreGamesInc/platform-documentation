@@ -42,15 +42,15 @@
         "eslint": "^7.15.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-prettier": "^3.2.0",
-        "husky": "^4.3.5",
+        "eslint-plugin-prettier": "^3.3.0",
+        "husky": "^4.3.6",
         "markdownlint-cli": "^0.25.0",
         "prettier": "^2.2.1",
         "remark": "^13.0.0",
         "remark-cli": "^9.0.0",
         "remark-frontmatter": "^3.0.0",
         "remark-preset-lint-markdown-style-guide": "^4.0.0",
-        "remark-stringify": "^9.0.0"
+        "remark-stringify": "^9.0.1"
     },
     "engines": {
         "node": ">= 10"
