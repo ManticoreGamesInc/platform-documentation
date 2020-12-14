@@ -26,6 +26,8 @@ title: Tags
 
 ## Reference
 
+- [Core API](core_api.md)
+
 - [Core Editor Key Bindings](editor_keybindings.md)
 
 - [Ability Binding List](ability_bindings.md)
@@ -124,4 +126,6 @@ title: Tags
 - [Survival Kit Tutorial](survival_tutorial.md)
 
 - [Basic Weapons Tutorial](weapons_tutorial.md)
+
+- [Making a Pistol Shooter](pistol_shooter.md)
 
