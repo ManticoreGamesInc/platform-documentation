@@ -2,6 +2,8 @@
 id: pistol_shooter
 name: Making a Pistol Shooter
 title: Making a Pistol Shooter
+tags:
+    - Tutorial
 ---
 
 # Making a Pistol Shooter

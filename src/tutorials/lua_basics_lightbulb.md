@@ -55,7 +55,9 @@ This involves turning on and off a light switch to illuminate a light bulb.
 
 1. To get started making this light switch work, we're going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.
 { .image-inline-text .image-background }
+
 2. Name this script `LightToggleScript`.
+
 3. Save the script by pressing ++Ctrl+S++.
 
     !!! info

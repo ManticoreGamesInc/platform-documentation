@@ -2,6 +2,8 @@
 id: api
 name: Core API
 title: Core API
+tags:
+    - Reference
 ---
 
 # Lua Scripting API
@@ -1127,6 +1129,7 @@ A UIControl which displays a basic text label.
 | -------- | ----------- | ----------- | ---- |
 | `GetColor()` | Color | The color of the Text. | None |
 | `SetColor(Color)` | None | The color of the Text. | Dynamic |
+| `ComputeApproximateSize()` | Vector2 | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
 
 | Property | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
