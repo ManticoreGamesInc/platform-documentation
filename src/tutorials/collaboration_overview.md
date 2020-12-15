@@ -108,7 +108,7 @@ Although it is not possible for creators to be working on the same project in th
 
 ### Templates and Community Content
 
-Templates are a way to package things you have created in Core. They can be used to turn a kitbashed model into a spawnable asset, or create several copies of an prop in your game that can be updated all at once. They are also extremely useful for passing assets between games, either by publishing them to community content, or sharing them as files. To learn more about how to do this, see the [template reference](template_reference.md).
+Templates are a way to package things you have created in Core. They can be used to turn a kitbashed model into a spawnable asset, or create several copies of a prop in your game that can be updated all at once. They are also extremely useful for passing assets between games, either by publishing them to community content, or sharing them as files. To learn more about how to do this, see the [template reference](template_reference.md).
 
 ### GitHub
 
