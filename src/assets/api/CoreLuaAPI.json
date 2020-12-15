@@ -4725,6 +4725,17 @@
 							"Type": "string"
 						}
 					]
+				},
+				{
+					"Name": "perkChangedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "NetReference"
+						}
+					]
 				}
 			],
 			"MemberFunctions": [
@@ -5303,6 +5314,42 @@
 					],
 					"Tags": [
 						"ServerOnly"
+					]
+				},
+				{
+					"Name": "HasPerk",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "perkReference"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetPerkCount",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "perkReference"
+								}
+							]
+						}
 					]
 				},
 				{
@@ -8291,6 +8338,120 @@
 			]
 		},
 		{
+			"Name": "UIPerkPurchaseButton",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "isInteractable",
+					"Type": "bool",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "clickedEvent",
+					"Parameters": [
+						{
+							"Type": "UIPerkPurchaseButton"
+						}
+					]
+				},
+				{
+					"Name": "pressedEvent",
+					"Parameters": [
+						{
+							"Type": "UIPerkPurchaseButton"
+						}
+					]
+				},
+				{
+					"Name": "releasedEvent",
+					"Parameters": [
+						{
+							"Type": "UIPerkPurchaseButton"
+						}
+					]
+				},
+				{
+					"Name": "hoveredEvent",
+					"Parameters": [
+						{
+							"Type": "UIPerkPurchaseButton"
+						}
+					]
+				},
+				{
+					"Name": "unhoveredEvent",
+					"Parameters": [
+						{
+							"Type": "UIPerkPurchaseButton"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "SetPerkReference",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "perkReference"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetPerkReference",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "NetReference"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "UIProgressBar",
 			"BaseType": "UIControl",
 			"Properties": [
@@ -8508,6 +8669,20 @@
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "ComputeApproximateSize",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
 					]
 				},
 				{
@@ -11420,6 +11595,10 @@
 				{
 					"Name": "SHARED_STORAGE",
 					"Value": 2
+				},
+				{
+					"Name": "CREATOR_PERK",
+					"Value": 3
 				},
 				{
 					"Name": "UNKNOWN",
