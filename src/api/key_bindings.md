@@ -1,7 +1,7 @@
 ---
-id: ability_bindings
-name: Ability Binding List
-title: Ability Binding List
+id: key_bindings
+name: Key Binding List
+title: Key Binding List
 tags:
     - Reference
 ---
@@ -17,7 +17,7 @@ tags:
     }
 </style>
 
-# Ability Binding List
+# Key Binding List
 
 This is a list of action bindings that can be used to activate abilities.
 

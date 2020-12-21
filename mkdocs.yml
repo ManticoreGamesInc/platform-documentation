@@ -85,7 +85,7 @@ nav:
       - Core API:
           - API Overview: core_api.md
           - Game Components: api/components.md
-          - Ability Bindings: api/ability_bindings.md
+          - Ability Bindings: api/key_bindings.md
           - Animations & Sockets: api/animations.md
           - Contexts: api/contexts.md
           - Lua in Core: tutorials/lua_reference.md
@@ -95,7 +95,7 @@ nav:
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
-      - Ability Bindings: api/ability_bindings.md
+      - Ability Bindings: api/key_bindings.md
       - Animations & Sockets: api/animations.md
       - Contexts: api/contexts.md
       - Storage: api/storage.md
@@ -243,3 +243,4 @@ plugins:
         tutorials/: tutorials/overview.md
         perks/: perks/perks_program.md
         perks/perks.md: perks/implementing_perks.md
+        api/ability_bindings.md: api/key_bindings.md
