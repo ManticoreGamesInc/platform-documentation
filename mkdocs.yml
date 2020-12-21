@@ -23,7 +23,6 @@ nav:
           - Survival Contest Kit: tutorials/survival_kit.md
           - Survival Tutorial: tutorials/survival_tutorial.md
       - Getting Started:
-          - getting_started/installing_core.md
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
           - Create your first Game: getting_started/my_first_multiplayer_game.md
@@ -42,13 +41,11 @@ nav:
           - Improving Your Game: tutorials/improving_your_game.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Perks Program:
-          - perks/perks_program.md
           - About the Perks Program: perks/perks_program.md
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
           - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
-          - tutorials/overview.md
           - Abilities: tutorials/abilities.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -211,7 +208,7 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  - section-index
+  #- section-index
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
