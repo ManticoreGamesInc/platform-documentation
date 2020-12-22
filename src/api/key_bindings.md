@@ -19,7 +19,7 @@ tags:
 
 # Key Binding List
 
-This is a list of action bindings that can be used to activate abilities.
+Key bindings for the Player ``bindingPressed`` and ``bindingReleased`` events as well as an Ability ``actionBinding`` property are designated with strings. Players can remap all of the keys associated with this bindings individually, but their default values are listed below.
 
 | Key | Action Binding |
 | --- | ------- |
