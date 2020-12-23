@@ -122,7 +122,9 @@ theme:
     code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.instant
+    - toc.integrate
   palette:
     primary: core-orange
     accent: core-blue
