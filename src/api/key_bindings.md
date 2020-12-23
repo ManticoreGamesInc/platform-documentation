@@ -19,7 +19,7 @@ tags:
 
 # Key Binding List
 
-Key bindings for the Player ``bindingPressed`` and ``bindingReleased`` events as well as an Ability ``actionBinding`` property are designated with strings. Players can remap all of the keys associated with this bindings individually, but their default values are listed below.
+Key bindings for the Player `bindingPressed` and `bindingReleased` events as well as an Ability `actionBinding` property are designated with strings. Players can remap all of the keys associated with these bindings individually, but their default values are listed below.
 
 | Key | Action Binding |
 | --- | ------- |
