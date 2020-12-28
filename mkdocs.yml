@@ -23,7 +23,6 @@ nav:
           - Survival Contest Kit: tutorials/survival_kit.md
           - Survival Tutorial: tutorials/survival_tutorial.md
       - Getting Started:
-          - getting_started/installing_core.md
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
           - Create your first Game: getting_started/my_first_multiplayer_game.md
@@ -42,13 +41,11 @@ nav:
           - Improving Your Game: tutorials/improving_your_game.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Perks Program:
-          - perks/perks_program.md
           - About the Perks Program: perks/perks_program.md
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
           - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
-          - tutorials/overview.md
           - Abilities: tutorials/abilities.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -88,7 +85,7 @@ nav:
       - Core API:
           - API Overview: core_api.md
           - Game Components: api/components.md
-          - Ability Bindings: api/ability_bindings.md
+          - Key Bindings: api/key_bindings.md
           - Animations & Sockets: api/animations.md
           - Contexts: api/contexts.md
           - Lua in Core: tutorials/lua_reference.md
@@ -98,7 +95,7 @@ nav:
   - Core API:
       - API Overview: core_api.md
       - Game Components: api/components.md
-      - Ability Bindings: api/ability_bindings.md
+      - Key Bindings: api/key_bindings.md
       - Animations & Sockets: api/animations.md
       - Contexts: api/contexts.md
       - Storage: api/storage.md
@@ -125,7 +122,9 @@ theme:
     code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.instant
+    - toc.integrate
   palette:
     primary: core-orange
     accent: core-blue
@@ -211,7 +210,7 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  - section-index
+  #- section-index
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
@@ -246,3 +245,4 @@ plugins:
         tutorials/: tutorials/overview.md
         perks/: perks/perks_program.md
         perks/perks.md: perks/implementing_perks.md
+        api/ability_bindings.md: api/key_bindings.md
