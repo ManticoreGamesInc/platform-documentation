@@ -118,7 +118,7 @@ theme:
   custom_dir: mkdocs-material/material
   language: en
   font:
-    text: Lato
+    text: Roboto
     code: JetBrains Mono
   features:
     - navigation.tabs
