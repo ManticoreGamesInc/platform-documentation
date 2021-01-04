@@ -10,7 +10,7 @@ repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/development/src
 
 # Copyright
-copyright: "&copy; 2020 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
+copyright: "&copy; 2021 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
 
 # Directory for the documentation pages
 docs_dir: src
@@ -19,9 +19,6 @@ docs_dir: src
 nav:
   - Documentation:
       - Home: index.md
-      - Survival Contest:
-          - Survival Contest Kit: tutorials/survival_kit.md
-          - Survival Tutorial: tutorials/survival_tutorial.md
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
@@ -58,6 +55,9 @@ nav:
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
+          - Survival Game:
+            - Survival Contest Kit: tutorials/survival_kit.md
+            - Survival Tutorial: tutorials/survival_tutorial.md
           - Video Tutorials:
               - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
       - Core Editor Manual:
