@@ -18,32 +18,90 @@ When playing this published build of your game, press ++F4++ to activate the Pro
 
 Any player playing this version of the published build will have access to the Profiler.
 
-A quick overview of the various sections of the Profiler before going into further details below:
+## Profiler Overview
 
-![ProfilerSetting](../img/Profiler/profiler_overview.png "image_tooltip"){: .center loading="lazy" }
+The Profiler has a tabbed design with a tab each for Client profiling, Server profiling and Logs.
 
-### At a Glance
+### Client Profiling tab
+
+![ClientProfilerTab](../img/Profiler/profiler_client.png "image_tooltip"){: .center loading="lazy" }
+
+This tab allows you access to performance data from the client-side of the running game. It shows detailed timing data captured on both the **Game thread** and **Render thread**, as well as counters for various resources in the game.
+
+### Server Profiling tab
+
+![ServerProfilerTab](../img/Profiler/profiler_server.png "image_tooltip"){: .center loading="lazy" }
+
+This shows performance data for the server instance that the game is connected to. 
+
+Some notes to keep in mind:
+
+* Server-side data is for **Game-thread only**, so all Render thread data is blank.
+* Due to the variable amount of Memory associated with Server pod instances depending on the number of Max Players for the game, the Memory counters show a **percentage** and not absolute MB values (like the ones shown in the Client tab)
+* Since the Server has a fixed tick rate of 30 ticks per second, the **Frame time will hover around the 33ms** mark even though the Game thread time might be much less.
+
+### Logs tab
+
+![LogsTab](../img/Profiler/profiler_logs.png "image_tooltip"){: .center loading="lazy" }
+
+This has sections for showing the **Client Logs** and **Server Logs**.
+
+Note that this only shows the logs that are printed using **print()** statements in **lua scripts**. It also shows **warning and errors in lua scripts**, if any.
+
+This can be useful for helping to debug your game on a live server.
+
+### Profiler view Restrictions based on Player role
+
+#### Player is Creator of Game being played
+
+*Server-side profiling is **only available for the creator** of the game being played.*
+
+When the creator joins one of his profiling-enabled games in play-mode and activates the profiler, they will be able to see and access all 3 tabs **(Client, Server, Logs)** with the Logs tab able to see both the Client and Server logs.
+
+![CreatorViewOverview](../img/Profiler/creator_view_overview.png "image_tooltip"){: .center loading="lazy" }
+
+![CreatorViewLogs](../img/Profiler/creator_view_logs.png "image_tooltip"){: .center loading="lazy" }
+
+#### Player is Not a Creator of Game being played
+
+Other players (non-game creators) who are playing a game published with profiling enabled, will only see **Client and Logs** tab with only the 'Client Logs' section visible.
+
+That's also the view users will get when playing a game locally, since the game is not connected to a live server instance.
+
+![NonCreatorViewOverview](../img/Profiler/noncreator_view_overview.png "image_tooltip"){: .center loading="lazy" }
+
+![NonCreatorViewLogs](../img/Profiler/noncreator_view_logs.png "image_tooltip"){: .center loading="lazy" }
+
+### Profiler Sections
+
+#### At a Glance
 
 * This gives an overview of the running performance of the game. The 4 timers are color coded to give an indication of how the frame is performing.
 
-### Frame Time Graph
+#### Frame Time Graph
 
 * This gives a running graph charting the Frame time for the last 240 frames. The bars are color coded to give an indication of how the frame is performing.
 * The upper left hand side of the graph displays a high-water mark of the highest frame time value seen in given range of 240 frames.
 * The graph can be paused to analyze individual frame data in the details section below.
 * On resume, the stale frames are marked gray to differentiate between new frames coming in.
 
-### Timers
+#### Timers
 
 * This section gives a semi-detailed breakdown of times taken by various processes on the Game thread and Render thread.
 
-### Frame Counters
+#### Frame Counters
 
 * This section gives a breakdown of various stats per frame which would likely affect performance in the scene.
 
-### Session Counters
+#### Session Counters
 
 * This section gives a breakdown of various stats over the session, which would likely indicate performance trend as the play session progresses.
+
+#### Memory Counters
+
+* This section gives a breakdown of various memory-related stats over the session.
+* Client profiling tab: The units for memory used are in MB.
+* Server profiling tab: Due to the variable amount of Memory associated with Server pod instances depending on the number of Max Players for the game, the Memory counters show a percentage and not absolute MB values
 
 ## Underlying Threaded Architecture and how it relates to the Profiler View
 
@@ -120,6 +178,12 @@ A couple of points to note:
 * **Client-only Core Objects:** Number of non-replicating objects residing only on clients.
 * **Runtime Static Core Objects:** Number of non-replicating objects residing on both server and clients.
 * **Lights In Scene:** Number of lights in scene.
+
+### Memory Counters
+
+* **Terrain Memory**: Memory usage for terrain in scene
+* **Physics Memory**: Memory usage for physics (includes terrain, collision, triggers) in scene
+* **Lua Memory**: Memory usage for lua scripts running in scene
 
 Sources:
 
