@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Core Editor has a dedicated Performance Panel to diagnose performance issues at game creation time, including running the game in Multiplayer Preview mode to simulate client-server scenarios. 
+The Core Editor has a dedicated Performance Panel to diagnose performance issues at game creation time, including running the game in Multiplayer Preview mode to simulate client-server scenarios.
 
-But games and especially multiplayer games are beasts of a complicated nature, and it is often much more helpful to have some view into diagnostics with real clients connected to a real server, and see how the same game actually performs on a variety of machines under different gameplay scenarios. 
+But games and especially multiplayer games are beasts of a complicated nature, and it is often much more helpful to have some view into diagnostics with real clients connected to a real server, and see how the same game actually performs on a variety of machines under different gameplay scenarios.
 
 With this in mind, we have introduced a Profiler for published games which can be enabled by game creators and activated by any client playing a published version of that game build.
 
@@ -14,7 +14,7 @@ Check the "**Enable Play Mode Profiler**" option under the **Game Settings** obj
 
 ![ProfilerSetting](../img/Profiler/profiler_setting.png "image_tooltip"){: .center loading="lazy" }
 
-When playing this published build of your game, press **F4** to activate the Profiler View in your game. Pressing **F4** again will deactivate the Profiler View.
+When playing this published build of your game, press ++F4++ to activate the Profiler View in your game. Pressing ++F4++ again will deactivate the Profiler View.
 
 Any player playing this version of the published build will have access to the Profiler.
 
