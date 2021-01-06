@@ -21,11 +21,11 @@ You can direct players to another game through both a **Game Portal** Core Objec
 1. Navigate to your game page. You can do this by following the shareable link from the create menu, or by searching for the game title at [**coregames.com**](https://www.coregames.com/).
 2. In the URL in the top, you should see something that beings with **coregames.com/games/**. Copy everything that comes ***after*** that part of the URL. This is the **Game ID**
 
-![Find a Game ID]()
+![Find a Game ID](../img/InterconnectedGames/InterconnectedGames_FindID.png){: .center loading="lazy" }
 
 ### The Game Portal Object
 
-![A Default Game Portal]()
+![A Default Game Portal](../img/InterconnectedGames/InterconnectedGames_GamePortal.png){: .center loading="lazy" }
 
 The **Game Portal** allows a no-scripting solution to creating portals between games. It includes visual effects and all the logic needed to make a gate between worlds.
 
@@ -36,7 +36,7 @@ To use the Game Portal:
 3. Select the **Game Portal** in the **Hierarchy** and open the **Properties** window.
 4. In the **Custom** section find the **DestinationGame** property, and paste the **Game ID** into this field.
 
-![Paste Game ID in Game Portal Properties]()
+![Paste Game ID in Game Portal Properties](../img/InterconnectedGames/InterconnectedGames_PasteGameID.png){: .center loading="lazy" }
 
 ### The Player TransferToGame(gameId) method
 
@@ -54,7 +54,7 @@ You will need a publicly published game before you can publish any children of a
 
 Once you have a public game to use as a parent, any other game you publish can be marked as a child of that game.
 
-![Select Child When Publishing]()
+![Select Child When Publishing](../img/InterconnectedGames/InterconnectedGames_ChildGame.png){: .center loading="lazy" }
 
 1. In the upper right corner, click the **Publish** button.
 2. In the drop-down menu next to the **Publish** button, select **Child**.
