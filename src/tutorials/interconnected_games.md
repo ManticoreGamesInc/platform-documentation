@@ -62,7 +62,7 @@ Once you have a public game to use as a parent, any other game you publish can b
 4. Leave the **Redirect to Parent** box checked if you want players who attempt to connect directly to this game to be sent to the parent game instead.
 5. Click **Publish**.
 
-!!! note:
+!!! note
     This method establishes a relationship between your games, but does not automatically connect them. You can do that using the techniques in the **Jumping Between Games** section of this document.
 
 ## Shared Storage
