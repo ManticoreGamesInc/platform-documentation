@@ -60,6 +60,8 @@ title: Tags
 
 - [Dungeon Framework Reference](dungeon_framework_reference.md)
 
+- [Interconnected Games](interconnected_games.md)
+
 - [Lua Reference](lua_reference.md)
 
 - [Merged Models](merged_models.md)
