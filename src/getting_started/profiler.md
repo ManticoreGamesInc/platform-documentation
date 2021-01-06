@@ -32,7 +32,7 @@ This tab allows you access to performance data from the client-side of the runni
 
 ![ServerProfilerTab](../img/Profiler/profiler_server.png "image_tooltip"){: .center loading="lazy" }
 
-This shows performance data for the server instance that the game is connected to. 
+This shows performance data for the server instance that the game is connected to.
 
 Some notes to keep in mind:
 
