@@ -1474,7 +1474,7 @@ function AssignMeshToTeam(mesh, team)
         mesh.isTeamCollisionEnabled = false
         mesh.isEnemyCollisionEnabled = true
         -- Set the camera to not collide with this mesh.
-        mesh.isCameraCollisionEnabled = true
+        mesh.isCameraCollisionEnabled = false
     end
 end
 AssignMeshToTeam(cube, 1)
