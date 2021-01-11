@@ -44,7 +44,7 @@ Only one line of code is required to move players to different games. Once you h
 
 ## Creating Private Sub-Games
 
-Creators can build networks of interconnected games where only one is actually public, and the rest are accessible from the main game. This main game would be a **parent**, and has the advantage of showing players as active in the parent game when they are in any of the child games. 
+Creators can build networks of interconnected games where only one is actually public, and the rest are accessible from the main game. This main game would be a **parent**, and has the advantage of showing players as active in the parent game when they are in any of the child games.
 
 ### Publish a Parent Game
 
