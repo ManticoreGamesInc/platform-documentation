@@ -1,6 +1,4 @@
-# 
-
-Script
+# Script
 
 ## Description
 
@@ -23,24 +21,24 @@ With `context` two scripts can communicate directly by calling on each other's f
 Script directly in hierarchy:
 
 ```lua
-    local followTemplate = script:GetCustomProperty("FollowTemplate")
+local followTemplate = script:GetCustomProperty("FollowTemplate")
 
-    Game.playerJoinedEvent:Connect(function(player)
-        local obj = World.SpawnAsset(followTemplate)
-        -- Locate the script inside
-        local followScript = obj:FindDescendantByType("Script")
-        -- Call the context function
-        followScript.context.SetTarget(player)
-    end)
+Game.playerJoinedEvent:Connect(function(player)
+    local obj = World.SpawnAsset(followTemplate)
+    -- Locate the script inside
+    local followScript = obj:FindDescendantByType("Script")
+    -- Call the context function
+    followScript.context.SetTarget(player)
+end)
 
 --[[#description
-        Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be
-        accessed externally through the context.
+    Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be
+    accessed externally through the context.
 ]]
-    targetPlayer = nil
+targetPlayer = nil
 
-    function SetTarget(player)
-        targetPlayer = player
-        script:FindTemplateRoot():Follow(player, 400, 300)
-    end
+function SetTarget(player)
+    targetPlayer = player
+    script:FindTemplateRoot():Follow(player, 400, 300)
+end
 ```

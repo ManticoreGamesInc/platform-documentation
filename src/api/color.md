@@ -1,6 +1,4 @@
-# 
-
-Color
+# Color
 
 ## Description
 
@@ -78,23 +76,23 @@ An RGBA representation of a color. Color components have an effective range of `
 This utility function calculates a color useful for a health bar.
 
 ```lua
-    function GetHitPointsColor(currentHitPoints, maxHitPoints)
-        -- 3 point gradient color, from red to yellow then green
-        local percent = 1
+function GetHitPointsColor(currentHitPoints, maxHitPoints)
+    -- 3 point gradient color, from red to yellow then green
+    local percent = 1
 
-        if maxHitPoints > 0 then
-            percent = currentHitPoints / maxHitPoints
-            percent = CoreMath.Clamp(percent, 0, 1)
-        end
-
-        local c
-
-        if percent < 0.5 then
-            c = Color.Lerp(Color.RED, Color.YELLOW, percent * 2)
-        else
-            c = Color.Lerp(Color.YELLOW, Color.GREEN, percent * 2 - 1)
-        end
-
-        return c
+    if maxHitPoints > 0 then
+        percent = currentHitPoints / maxHitPoints
+        percent = CoreMath.Clamp(percent, 0, 1)
     end
+
+    local c
+
+    if percent < 0.5 then
+        c = Color.Lerp(Color.RED, Color.YELLOW, percent * 2)
+    else
+        c = Color.Lerp(Color.YELLOW, Color.GREEN, percent * 2 - 1)
+    end
+
+    return c
+end
 ```

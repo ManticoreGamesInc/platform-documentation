@@ -1,6 +1,4 @@
-# 
-
-AnimatedMesh
+# AnimatedMesh
 
 ## Description
 
@@ -43,17 +41,17 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
 
 ```lua
-    local propDragonMob = script:GetCustomProperty("DragonMob")
-    local dragonMesh = World.SpawnAsset(propDragonMob)
+local propDragonMob = script:GetCustomProperty("DragonMob")
+local dragonMesh = World.SpawnAsset(propDragonMob)
 
-    function AnimEventListener(mesh, eventName)
-        print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
-        -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
-        hitEvent = true -- UT_STRIP
-    end
+function AnimEventListener(mesh, eventName)
+    print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
+    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
+    hitEvent = true -- UT_STRIP
+end
 
-    dragonMesh.animationEvent:Connect(AnimEventListener)
-    dragonMesh:PlayAnimation("unarmed_claw")
+dragonMesh.animationEvent:Connect(AnimEventListener)
+dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
 ### AnimatedMesh.AttachCoreObject
@@ -63,22 +61,22 @@ Attaches the specified object to the specified socket on the mesh if they exist.
 In this example, we want to attach multiple objects to an animated mesh to create a costume, such as equipment on a skeleton enemy or horns on the head of a raptor. For it to work, setup the animated mesh in its "binding" stance and without any animations playing at the start. Place this script along with any costume parts to be attached as children of the animated mesh. Position and rotate the costume parts to align them with their destinations on the mesh. The costume parts are expected to be groups/folders with their names matching the socket names they are destined to. When the script runs, it searches through all the mesh's children and attaches them to the sockets.
 
 ```lua
-    local MESH = script.parent
+local MESH = script.parent
 
-    local allObjects = MESH:GetChildren()
+local allObjects = MESH:GetChildren()
 
-    for _, obj in ipairs(allObjects) do
-        if obj:IsA("Folder") then
-            local socketName = obj.name
-            local pos = obj:GetWorldPosition()
-            local rot = obj:GetWorldRotation()
+for _, obj in ipairs(allObjects) do
+    if obj:IsA("Folder") then
+        local socketName = obj.name
+        local pos = obj:GetWorldPosition()
+        local rot = obj:GetWorldRotation()
 
-            MESH:AttachCoreObject(obj, socketName)
+        MESH:AttachCoreObject(obj, socketName)
 
-            obj:SetWorldPosition(pos)
-            obj:SetWorldRotation(rot)
-        end
+        obj:SetWorldPosition(pos)
+        obj:SetWorldRotation(rot)
     end
+end
 ```
 
 ### AnimatedMesh.GetAnimationNames
@@ -94,31 +92,31 @@ In this example, we want to attach multiple objects to an animated mesh to creat
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
 
 ```lua
-    local propDragonMob = script:GetCustomProperty("DragonMob")
+local propDragonMob = script:GetCustomProperty("DragonMob")
 
-    -- This function prints out all of the animations, sockets, stances, and events associated
-    -- with an animated mesh!
-    function PrintAnimatedMeshData(mesh)
-        print("Animation names:")
-        for _, v in ipairs(mesh:GetAnimationNames()) do
-            print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
-            -- Print out any events that are associated with this animation:
-            for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
-                print("        Event: " .. e)
-            end
-        end
-        print("\nAnimation stance names:")
-        for _, v in ipairs(mesh:GetAnimationStanceNames()) do
-            print("    " .. v)
-        end
-        print("\nSocket names:")
-        for _, v in ipairs(mesh:GetSocketNames()) do
-            print("    " .. v)
+-- This function prints out all of the animations, sockets, stances, and events associated
+-- with an animated mesh!
+function PrintAnimatedMeshData(mesh)
+    print("Animation names:")
+    for _, v in ipairs(mesh:GetAnimationNames()) do
+        print("    " .. v .. "(" .. tostring(mesh:GetAnimationDuration(v)) .. ")")
+        -- Print out any events that are associated with this animation:
+        for _,e in ipairs(mesh:GetAnimationEventNames(v)) do
+            print("        Event: " .. e)
         end
     end
+    print("\nAnimation stance names:")
+    for _, v in ipairs(mesh:GetAnimationStanceNames()) do
+        print("    " .. v)
+    end
+    print("\nSocket names:")
+    for _, v in ipairs(mesh:GetSocketNames()) do
+        print("    " .. v)
+    end
+end
 
-    local dragonMesh = World.SpawnAsset(propDragonMob)
-    PrintAnimatedMeshData(dragonMesh)
+local dragonMesh = World.SpawnAsset(propDragonMob)
+PrintAnimatedMeshData(dragonMesh)
 ```
 
 ### AnimatedMesh.PlayAnimation
@@ -130,32 +128,32 @@ Plays an animation on the animated mesh. Optional parameters can be provided to 
 In this example, a humanoid animated mesh has its laughing and death animations controlled by pressing the primary and secondary action bindings (PC default is mouse left-click and right-click respectively).
 
 ```lua
-    local MESH = script.parent
+local MESH = script.parent
 
-    function PlayAttack()
-        MESH:PlayAnimation("unarmed_laugh")
-        MESH.playbackRateMultiplier = 1
+function PlayAttack()
+    MESH:PlayAnimation("unarmed_laugh")
+    MESH.playbackRateMultiplier = 1
+end
+
+function PlayDeath()
+    MESH:PlayAnimation("unarmed_death")
+    Task.Wait(1.96)
+    -- Prevents the animation from looping or returning to stance
+    MESH.playbackRateMultiplier = 0
+end
+
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        PlayAttack()
+
+    elseif action == "ability_secondary" then
+        PlayDeath()
     end
+end
 
-    function PlayDeath()
-        MESH:PlayAnimation("unarmed_death")
-        Task.Wait(1.96)
-        -- Prevents the animation from looping or returning to stance
-        MESH.playbackRateMultiplier = 0
-    end
-
-    function OnBindingPressed(player, action)
-        if action == "ability_primary" then
-            PlayAttack()
-
-        elseif action == "ability_secondary" then
-            PlayDeath()
-        end
-    end
-
-    Game.playerJoinedEvent:Connect(function(player)
-        player.bindingPressedEvent:Connect(OnBindingPressed)
-    end)
+Game.playerJoinedEvent:Connect(function(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end)
 ```
 
 ### AnimatedMesh.StopAnimations
@@ -163,12 +161,12 @@ In this example, a humanoid animated mesh has its laughing and death animations 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
 ```lua
-    local propDragonMob = script:GetCustomProperty("DragonMob")
-    local dragonMesh = World.SpawnAsset(propDragonMob)
+local propDragonMob = script:GetCustomProperty("DragonMob")
+local dragonMesh = World.SpawnAsset(propDragonMob)
 
-    dragonMesh:PlayAnimation("unarmed_slash")
-    Task.Wait(0.25)
-    dragonMesh:StopAnimations()
+dragonMesh:PlayAnimation("unarmed_slash")
+Task.Wait(0.25)
+dragonMesh:StopAnimations()
 ```
 
 ### AnimatedMesh.animationStance
@@ -182,43 +180,43 @@ The stance the animated mesh plays.
 This example demonstrates how to dynamically control the walking stances and to vary their playback speed by how fast the character is moving. This script itself does not move the mesh--that is expected to happen in another script such as an AI or simple `MoveTo()`.
 
 ```lua
-    local MESH = script.parent
+local MESH = script.parent
 
-    -- 0.9 is an approximate scale for the Fox mesh
-    -- 2 is an approximate for the Raptor and humanoids
-    local WALK_SCALE = 2
+-- 0.9 is an approximate scale for the Fox mesh
+-- 2 is an approximate for the Raptor and humanoids
+local WALK_SCALE = 2
 
-    local RUN_BASE = 0.5
-    local RUN_SCALE = 0.002
+local RUN_BASE = 0.5
+local RUN_SCALE = 0.002
 
-    -- Thresholds of speed (cm/s) that define which stance to use
-    local WALKING_SPEED = 15
-    local RUNNING_SPEED = 300
+-- Thresholds of speed (cm/s) that define which stance to use
+local WALKING_SPEED = 15
+local RUNNING_SPEED = 300
 
-    local lastPos = MESH:GetWorldPosition()
+local lastPos = MESH:GetWorldPosition()
 
-    function Tick(deltaTime)
-        if deltaTime <= 0 then return end
+function Tick(deltaTime)
+    if deltaTime <= 0 then return end
 
-        local pos = MESH:GetWorldPosition()
-        local direction = pos - lastPos
-        local speed = direction.size / deltaTime
+    local pos = MESH:GetWorldPosition()
+    local direction = pos - lastPos
+    local speed = direction.size / deltaTime
 
-        -- We can make sure the animation stance loops. If we wanted it to only
-        -- play once, we would set it to false here.
-        MESH.animationStanceShouldLoop = true
+    -- We can make sure the animation stance loops. If we wanted it to only
+    -- play once, we would set it to false here.
+    MESH.animationStanceShouldLoop = true
 
-        lastPos = pos
+    lastPos = pos
 
-        if speed < WALKING_SPEED then
-            MESH.animationStance = "unarmed_idle_ready"
+    if speed < WALKING_SPEED then
+        MESH.animationStance = "unarmed_idle_ready"
 
-        elseif speed < RUNNING_SPEED then
-            MESH.animationStance = "unarmed_walk_forward"
-            MESH.animationStancePlaybackRate = WALK_SCALE * (speed - WALKING_SPEED) / (RUNNING_SPEED - WALKING_SPEED)
-        else
-            MESH.animationStance = "unarmed_run_forward"
-            MESH.animationStancePlaybackRate = RUN_BASE + (speed - RUNNING_SPEED) * RUN_SCALE
-        end
+    elseif speed < RUNNING_SPEED then
+        MESH.animationStance = "unarmed_walk_forward"
+        MESH.animationStancePlaybackRate = WALK_SCALE * (speed - WALKING_SPEED) / (RUNNING_SPEED - WALKING_SPEED)
+    else
+        MESH.animationStance = "unarmed_run_forward"
+        MESH.animationStancePlaybackRate = RUN_BASE + (speed - RUNNING_SPEED) * RUN_SCALE
     end
+end
 ```

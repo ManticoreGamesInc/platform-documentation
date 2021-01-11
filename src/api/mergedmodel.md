@@ -1,6 +1,4 @@
-# 
-
-MergedModel
+# MergedModel
 
 ## Description
 

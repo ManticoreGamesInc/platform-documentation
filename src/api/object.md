@@ -1,6 +1,4 @@
-# 
-
-Object
+# Object
 
 ## Description
 
@@ -30,39 +28,39 @@ The example below shows the importance of using `Object.IsValid()` instead of a 
 In this example, the script has a cube child that it finds with the `GetChildren()` call. It then prints information about the cube as it progresses through the steps of being destroyed and its variable reference cleared.
 
 ```lua
-    local CUBE = script:GetChildren()[1]
+local CUBE = script:GetChildren()[1]
 
-    function PrintCubeInfo()
-        print(".:.:. Information about CUBE object .:.:.")
+function PrintCubeInfo()
+    print(".:.:. Information about CUBE object .:.:.")
 
-        if CUBE then
-            print("CUBE is NOT nil")
-        else
-            print("CUBE is nil")
-        end
-
-        if Object.IsValid(CUBE) then
-            print("CUBE is valid")
-        else
-            print("CUBE is NOT valid")
-        end
-
-        local childrenCount = #script:GetChildren()
-        print("Number of children of this script: " .. tostring(childrenCount))
-        print("")
+    if CUBE then
+        print("CUBE is NOT nil")
+    else
+        print("CUBE is nil")
     end
 
-    PrintCubeInfo()
+    if Object.IsValid(CUBE) then
+        print("CUBE is valid")
+    else
+        print("CUBE is NOT valid")
+    end
 
-    -- The cube is destroyed, but we still have a variable pointing to it.
-    CUBE:Destroy()
+    local childrenCount = #script:GetChildren()
+    print("Number of children of this script: " .. tostring(childrenCount))
+    print("")
+end
 
-    PrintCubeInfo()
+PrintCubeInfo()
 
-    -- Variable reference is cleared, releasing the cube.
-    CUBE = nil
+-- The cube is destroyed, but we still have a variable pointing to it.
+CUBE:Destroy()
 
-    PrintCubeInfo()
+PrintCubeInfo()
+
+-- Variable reference is cleared, releasing the cube.
+CUBE = nil
+
+PrintCubeInfo()
 ```
 
 ### Object.clientUserData
@@ -74,38 +72,38 @@ For this to work all scripts should be in a client context. In order to visualiz
 As the name implies, `clientUserData` is a non-networked property on the client only.
 
 ```lua
-    local allScripts = World.FindObjectsByName(script.name)
+local allScripts = World.FindObjectsByName(script.name)
 
-    for _, otherScript in ipairs(allScripts) do
-        if otherScript ~= script
-        and otherScript.clientUserData.target == nil then
-            script.clientUserData.target = otherScript
-            break
-        end
+for _, otherScript in ipairs(allScripts) do
+    if otherScript ~= script
+    and otherScript.clientUserData.target == nil then
+        script.clientUserData.target = otherScript
+        break
     end
+end
 
-    if script.clientUserData.target == nil then
-        script.clientUserData.target = Game.GetLocalPlayer()
-    end
+if script.clientUserData.target == nil then
+    script.clientUserData.target = Game.GetLocalPlayer()
+end
 
-    local velocity = Vector3.ZERO
-    local DRAG = 0.96
-    local ACCELERATION = 0.5
+local velocity = Vector3.ZERO
+local DRAG = 0.96
+local ACCELERATION = 0.5
 
-    function Tick()
-        if not script.clientUserData.target then return end
+function Tick()
+    if not script.clientUserData.target then return end
 
-        local myPos = script:GetWorldPosition()
+    local myPos = script:GetWorldPosition()
 
-        myPos = myPos + velocity
-        velocity = velocity * DRAG
+    myPos = myPos + velocity
+    velocity = velocity * DRAG
 
-        local targetPos = script.clientUserData.target:GetWorldPosition()
-        local direction = (targetPos - myPos):GetNormalized()
-        velocity = velocity + direction * ACCELERATION
+    local targetPos = script.clientUserData.target:GetWorldPosition()
+    local direction = (targetPos - myPos):GetNormalized()
+    velocity = velocity + direction * ACCELERATION
 
-        script:SetWorldPosition(myPos)
-    end
+    script:SetWorldPosition(myPos)
+end
 ```
 
 ### Object.serverUserData
@@ -115,44 +113,44 @@ In this example we are trying to figure out which player was the first to join t
 As the name implies, `serverUserData` is a non-networked property on the server only.
 
 ```lua
-    local primaryPlayer = nil
-    local joinCounter = 0
+local primaryPlayer = nil
+local joinCounter = 0
 
-    function OnPlayerJoined(player)
-        joinCounter = joinCounter + 1
-        -- Save the waiting number onto the player itself
-        player.serverUserData.joinNumber = joinCounter
-    end
+function OnPlayerJoined(player)
+    joinCounter = joinCounter + 1
+    -- Save the waiting number onto the player itself
+    player.serverUserData.joinNumber = joinCounter
+end
 
-    function PromotePlayer(player)
-        -- TODO: Give some gameplay advantage or leadership ability
-        print("PROMOTING: " .. player.name)
-    end
+function PromotePlayer(player)
+    -- TODO: Give some gameplay advantage or leadership ability
+    print("PROMOTING: " .. player.name)
+end
 
-    function Tick()
-        if (not Object.IsValid(primaryPlayer)) then
-            -- Find the oldest player
-            local oldestPlayer = nil
-            local oldestJoinNumber = 999999
+function Tick()
+    if (not Object.IsValid(primaryPlayer)) then
+        -- Find the oldest player
+        local oldestPlayer = nil
+        local oldestJoinNumber = 999999
 
-            local allConnectedPlayers = Game.GetPlayers()
+        local allConnectedPlayers = Game.GetPlayers()
 
-            for _,player in ipairs(allConnectedPlayers) do
-                local joinNumber = player.serverUserData.joinNumber
-                if joinNumber < oldestJoinNumber then
-                    oldestJoinNumber = joinNumber
-                    oldestPlayer = player
-                end
-            end
-
-            -- If we found a player, promote them
-            if oldestPlayer then
-                primaryPlayer = oldestPlayer
-
-                PromotePlayer(oldestPlayer)
+        for _,player in ipairs(allConnectedPlayers) do
+            local joinNumber = player.serverUserData.joinNumber
+            if joinNumber < oldestJoinNumber then
+                oldestJoinNumber = joinNumber
+                oldestPlayer = player
             end
         end
-    end
 
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+        -- If we found a player, promote them
+        if oldestPlayer then
+            primaryPlayer = oldestPlayer
+
+            PromotePlayer(oldestPlayer)
+        end
+    end
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```

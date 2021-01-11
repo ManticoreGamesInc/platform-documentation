@@ -1,6 +1,4 @@
-# 
-
-CoreLuaFunctions
+# CoreLuaFunctions
 
 ## Description
 
@@ -29,11 +27,11 @@ The common lua `print()` statement puts text into the Event Log. It can be used 
 There is a similar function, `warn()`, which functions also prints to the event log, except as a warning message. (So it's bright and yellow and hard to miss.)
 
 ```lua
-    -- This will be printed to the event log normally.
-    print("Hello world!")
+-- This will be printed to the event log normally.
+print("Hello world!")
 
-    -- This will be printed in scary yellow letters, as a warning!
-    warn("Something is amiss!")
+-- This will be printed in scary yellow letters, as a warning!
+warn("Something is amiss!")
 ```
 
 ### CoreLua.time
@@ -45,22 +43,22 @@ Functions named `Tick()` are special - if you have a script with a `Tick()` func
 The `time()` funcion is very useful for this sort of thing - it will return the number of seconds since the map started running on the server, which makes it very useful in creating animations based on time.
 
 ```lua
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
-    local startTime = time()
-    local fadeDuration = 1.0
-    local currentColor = Color.RED
-    local nextColor = Color.BLUE
-    local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.FORWARD * 200})
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local startTime = time()
+local fadeDuration = 1.0
+local currentColor = Color.RED
+local nextColor = Color.BLUE
+local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.FORWARD * 200})
 
-    function Tick()
-        local currentTime = time()
-        if currentTime > startTime + fadeDuration then
-            startTime = currentTime
-            local temp = currentColor
-            currentColor = nextColor
-            nextColor = temp
-        end
-        local progress = (currentTime - startTime) / fadeDuration
-        cube:SetColor(Color.Lerp(currentColor, nextColor, progress))
+function Tick()
+    local currentTime = time()
+    if currentTime > startTime + fadeDuration then
+        startTime = currentTime
+        local temp = currentColor
+        currentColor = nextColor
+        nextColor = temp
     end
+    local progress = (currentTime - startTime) / fadeDuration
+    cube:SetColor(Color.Lerp(currentColor, nextColor, progress))
+end
 ```
