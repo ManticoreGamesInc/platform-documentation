@@ -1,6 +1,4 @@
-# 
-
-UIControl
+# UIControl
 
 ## Description
 

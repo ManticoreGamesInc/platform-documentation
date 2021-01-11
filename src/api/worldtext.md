@@ -1,6 +1,4 @@
-# 
-
-WorldText
+# WorldText
 
 ## Description
 
@@ -30,20 +28,20 @@ WorldText is an in-world text CoreObject.
 In this example, a WorldText object that is placed in the scene changes color gradually from white to black. The script expects to be a child of the WorldText. Notice that if you run this in multiplayer mode, the color changes will not be as smooth as in single-player preview. To fix that place the WorldText + Script hierarchy under a Client Context.
 
 ```lua
-    local nameTextObject = script.parent
+local nameTextObject = script.parent
 
-    function Tick(deltaTime)
-        local c = nameTextObject:GetColor()
+function Tick(deltaTime)
+    local c = nameTextObject:GetColor()
 
-        if c.r < 0.03 then
-            -- Start over from white (x3 so it stays on white for a bit longer)
-            c = Color.WHITE * 3
-        else
-            c = Color.Lerp(c, Color.BLACK, deltaTime * 2)
-        end
-
-        nameTextObject:SetColor(c)
+    if c.r < 0.03 then
+        -- Start over from white (x3 so it stays on white for a bit longer)
+        c = Color.WHITE * 3
+    else
+        c = Color.Lerp(c, Color.BLACK, deltaTime * 2)
     end
+
+    nameTextObject:SetColor(c)
+end
 ```
 
 ### WorldText.text
@@ -51,9 +49,9 @@ In this example, a WorldText object that is placed in the scene changes color gr
 Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It's also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
 
 ```lua
-    local nameTextObject = script.parent
+local nameTextObject = script.parent
 
-    Game.playerJoinedEvent:Connect(function (player)
-        nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
-    end)
+Game.playerJoinedEvent:Connect(function (player)
+    nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
+end)
 ```

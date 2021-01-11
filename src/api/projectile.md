@@ -1,6 +1,4 @@
-# 
-
-Projectile
+# Projectile
 
 ## Description
 
@@ -69,22 +67,22 @@ When projectiles reach the end of their lifespan, they trigger a `lifeSpanEndedE
 In this example, we fire a projectile straight up, so its lifeSpan runs out before it collides with anything. When it does, the `lifeSpanEndedEvent` fires.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- Fire this projectile straight up so it doesn't hit anything:
-    local mySlowProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 0, 200), -- starting position
-                Vector3.UP)                -- direction
+-- Fire this projectile straight up so it doesn't hit anything:
+local mySlowProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 0, 200), -- starting position
+            Vector3.UP)                -- direction
 
-    mySlowProjectile.lifeSpan = 1
-    mySlowProjectile.lifeSpanEndedEvent:Connect(function(projectile)
-        print("Projectile lifespan over")
-        lifespanEnded = lifespanEnded + 1    --UT_STRIP
-        ut.EXPECT_EQUAL(projectile, mySlowProjectile, "Should be the projectile we fired.")
-    end)
+mySlowProjectile.lifeSpan = 1
+mySlowProjectile.lifeSpanEndedEvent:Connect(function(projectile)
+    print("Projectile lifespan over")
+    lifespanEnded = lifespanEnded + 1    --UT_STRIP
+    ut.EXPECT_EQUAL(projectile, mySlowProjectile, "Should be the projectile we fired.")
+end)
 
-    mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
+mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
 
 ### Projectile.homingFailedEvent
@@ -94,30 +92,30 @@ If a projectile has its `homingTarget` set, and then the target disappears for s
 In this example, we spawn an object, fire a projectile at it, (and set the `homingTarget` property) and then immediately remove the target, leaving the projectile to feel dejected and confused.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    local objectInWorld = World.SpawnAsset(propCubeTemplate)
-    objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
-    local eventFired = false --UT_STRIP
+local objectInWorld = World.SpawnAsset(propCubeTemplate)
+objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
+local eventFired = false --UT_STRIP
 
-    local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 1000, 1000), -- starting position
-                Vector3.New(0, 0, 0))          -- direction
-    objectHomingProjectile.speed = 0
-    objectHomingProjectile.gravityScale = 0
-    objectHomingProjectile.homingTarget = objectInWorld
-    objectHomingProjectile.drag = 5
-    objectHomingProjectile.homingAcceleration = 5000
+local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 1000, 1000), -- starting position
+            Vector3.New(0, 0, 0))          -- direction
+objectHomingProjectile.speed = 0
+objectHomingProjectile.gravityScale = 0
+objectHomingProjectile.homingTarget = objectInWorld
+objectHomingProjectile.drag = 5
+objectHomingProjectile.homingAcceleration = 5000
 
-    objectHomingProjectile.homingFailedEvent:Connect(function (projectile)
-        print("Target lost!")
-        eventFired = true --UT_STRIP
-    end)
+objectHomingProjectile.homingFailedEvent:Connect(function (projectile)
+    print("Target lost!")
+    eventFired = true --UT_STRIP
+end)
 
-    Task.Wait(0.5)
-    objectInWorld:Destroy()
-    -- The event should fire now and the "target lost" message should be displayed.
+Task.Wait(0.5)
+objectInWorld:Destroy()
+-- The event should fire now and the "target lost" message should be displayed.
 ```
 
 ### Projectile.impactEvent
@@ -131,23 +129,23 @@ A very common pattern is to use the `Object:IsA("Player")` function to determine
 In this example, the projectile will hit something and print out information about what it hit.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- Fire this projectile straight down so it hits the ground:
-    local myProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 0, 200), -- starting position
-                Vector3.New(0, 0, -1))     -- direction
+-- Fire this projectile straight down so it hits the ground:
+local myProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 0, 200), -- starting position
+            Vector3.New(0, 0, -1))     -- direction
 
-    myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
-        print("Hit object: " .. other.name .. " with an impact normal of " .. tostring(hitresult:GetImpactNormal()))
-        if other and other:IsA("Player") then
-            print("We hit player " .. other.name .. "!!!")
-        end
-        hitTheGround = hitTheGround + 1 --UT_STRIP
-        ut.EXPECT_EQUAL(hitresult:GetImpactNormal(), Vector3.New(0, 0, 1), "Impact normal should be straight up")
-        ut.EXPECT_EQUAL(other.name, "Default Floor", "Verify projectile hit the floor.")
-    end)
+myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
+    print("Hit object: " .. other.name .. " with an impact normal of " .. tostring(hitresult:GetImpactNormal()))
+    if other and other:IsA("Player") then
+        print("We hit player " .. other.name .. "!!!")
+    end
+    hitTheGround = hitTheGround + 1 --UT_STRIP
+    ut.EXPECT_EQUAL(hitresult:GetImpactNormal(), Vector3.New(0, 0, 1), "Impact normal should be straight up")
+    ut.EXPECT_EQUAL(other.name, "Default Floor", "Verify projectile hit the floor.")
+end)
 ```
 
 ### Projectile.Destroy
@@ -157,23 +155,23 @@ Sometimes you will want to remove a projectile from the game even if it hasn't h
 We can test if an object still exists via the Object:IsValid() function. This can be useful because sometimes things other than program code can remove an object from our game. (Existing for longer than the `lifeSpan`, or colliding with an object, in the case of projectiles.)
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- Fire this projectile straight up, so it will be in the air for a while.
-    local myProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 0, 200), -- starting position
-                Vector3.UP)      -- direction
-    myProjectile.speed = 50
-    myProjectile.gravityScale = 0
-    Task.Wait(1)
-    print("Is the projectile still around?  " .. tostring(Object.IsValid(myProjectile)))
-    -- The projectile is still there.
-    ut.EXPECT_VALID(myProjectile, "Projectile should not yet have been destroyed.")
-    myProjectile:Destroy()
-    print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
-    ut.EXPECT_INVALID(myProjectile, "Projectile should have been destroyed.")
-    -- The projectile is no longer in the game.
+-- Fire this projectile straight up, so it will be in the air for a while.
+local myProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 0, 200), -- starting position
+            Vector3.UP)      -- direction
+myProjectile.speed = 50
+myProjectile.gravityScale = 0
+Task.Wait(1)
+print("Is the projectile still around?  " .. tostring(Object.IsValid(myProjectile)))
+-- The projectile is still there.
+ut.EXPECT_VALID(myProjectile, "Projectile should not yet have been destroyed.")
+myProjectile:Destroy()
+print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
+ut.EXPECT_INVALID(myProjectile, "Projectile should have been destroyed.")
+-- The projectile is no longer in the game.
 ```
 
 ### Projectile.GetWorldTransform
@@ -189,49 +187,49 @@ We can get various information about a projectile's position and velocity via se
 In this sample, we'll fire some more projectiles at the player. But we'll also give them a magic shield that reflects any projectiles that get too close!
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- utility function for spawning projectiles aimed at the player
-    function FireAtPlayer(startPos, player)
-        local direction = (player:GetWorldPosition() - startPos):GetNormalized()
-        local myProjectile = Projectile.Spawn(propCubeTemplate,
-            startPos,
-            direction)
-        myProjectile.speed = 2000
-        myProjectile.lifeSpan = 2 --UT_STRIP
-        myProjectile.gravityScale = 0
-        return myProjectile
-    end
+-- utility function for spawning projectiles aimed at the player
+function FireAtPlayer(startPos, player)
+    local direction = (player:GetWorldPosition() - startPos):GetNormalized()
+    local myProjectile = Projectile.Spawn(propCubeTemplate,
+        startPos,
+        direction)
+    myProjectile.speed = 2000
+    myProjectile.lifeSpan = 2 --UT_STRIP
+    myProjectile.gravityScale = 0
+    return myProjectile
+end
 
-    local projectileList = {}
-    -- Fire the barrage!
-    for i = -4, 4 do
-        projectileList[i] = FireAtPlayer(Vector3.New(1000, 250 * i, 500), targetPlayer)
-    end
+local projectileList = {}
+-- Fire the barrage!
+for i = -4, 4 do
+    projectileList[i] = FireAtPlayer(Vector3.New(1000, 250 * i, 500), targetPlayer)
+end
 
-    local MagicShieldTask = Task.Spawn(function()
-        local projectilesGone = false --UT_STRIP
-        while true do
-            for k, projectile in pairs(projectileList) do
-                if Object.IsValid(projectile) then    -- UT_STRIP
-                local projectileToPlayer = targetPlayer:GetWorldPosition() - projectile:GetWorldPosition()
-                -- if the projectile is within 200 units of the player...
-                if projectileToPlayer.size < 200 then
-                    local t = projectile:GetWorldTransform()
-                    -- ... and is generally facing the player ...
-                    if projectileToPlayer .. t:GetForwardVector() > 0 then
-                        -- then shoot it back where it came!
-                        projectile:SetVelocity(projectile:GetVelocity() * -0.8)
-                    end
+local MagicShieldTask = Task.Spawn(function()
+    local projectilesGone = false --UT_STRIP
+    while true do
+        for k, projectile in pairs(projectileList) do
+            if Object.IsValid(projectile) then    -- UT_STRIP
+            local projectileToPlayer = targetPlayer:GetWorldPosition() - projectile:GetWorldPosition()
+            -- if the projectile is within 200 units of the player...
+            if projectileToPlayer.size < 200 then
+                local t = projectile:GetWorldTransform()
+                -- ... and is generally facing the player ...
+                if projectileToPlayer .. t:GetForwardVector() > 0 then
+                    -- then shoot it back where it came!
+                    projectile:SetVelocity(projectile:GetVelocity() * -0.8)
                 end
-                else --UT_STRIP
-                    return
-                end  --UT_STRIP
             end
-            Task.Wait()
+            else --UT_STRIP
+                return
+            end  --UT_STRIP
         end
-    end)
+        Task.Wait()
+    end
+end)
 ```
 
 ### Projectile.capsuleLength
@@ -249,36 +247,36 @@ Note that this only changes the collision properties of the projectile! The visu
 By default, projectiles have a radius of 22, and length of 44.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- Fire this projectile straight up, so it will be in the air for a while.
-    function FireProjectile()
-        local myProjectile = Projectile.Spawn(propCubeTemplate,
-                    Vector3.New(1000, 0, 200), -- starting position
-                    Vector3.UP)                -- direction
-        myProjectile.speed = 100
-        myProjectile.gravityScale = 0
-        return myProjectile
-    end
+-- Fire this projectile straight up, so it will be in the air for a while.
+function FireProjectile()
+    local myProjectile = Projectile.Spawn(propCubeTemplate,
+                Vector3.New(1000, 0, 200), -- starting position
+                Vector3.UP)                -- direction
+    myProjectile.speed = 100
+    myProjectile.gravityScale = 0
+    return myProjectile
+end
 
-    -- The default projectile is radius 22, and length 44.
-    local defaultProjectile = FireProjectile()
+-- The default projectile is radius 22, and length 44.
+local defaultProjectile = FireProjectile()
 
-    -- This projectile is very long but narrow.
-    local longThinProjectile = FireProjectile()
-    longThinProjectile.capsuleRadius = 10
-    longThinProjectile.capsuleLength = 100
+-- This projectile is very long but narrow.
+local longThinProjectile = FireProjectile()
+longThinProjectile.capsuleRadius = 10
+longThinProjectile.capsuleLength = 100
 
-    -- This projectile is short and fat.
-    local shortFatProjectile = FireProjectile()
-    shortFatProjectile.capsuleRadius = 50
-    shortFatProjectile.capsuleLength = 20
+-- This projectile is short and fat.
+local shortFatProjectile = FireProjectile()
+shortFatProjectile.capsuleRadius = 50
+shortFatProjectile.capsuleLength = 20
 
-    -- This projectile's collision volume is a sphere.
-    local sphereProjectile = FireProjectile()
-    sphereProjectile.capsuleRadius = 40
-    sphereProjectile.capsuleLength = 0
+-- This projectile's collision volume is a sphere.
+local sphereProjectile = FireProjectile()
+sphereProjectile.capsuleRadius = 40
+sphereProjectile.capsuleLength = 0
 ```
 
 ### Projectile.gravityScale
@@ -296,45 +294,45 @@ By default, projectiles are destroyed when they impact a surface. If you set the
 In this example, we fire several projectiles, with various properties.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    function fireProjectile()
-        local myProjectile = Projectile.Spawn(propCubeTemplate,
-            Vector3.New(500, 0, 200), -- starting position
-            Vector3.New(0, 1, 0))     -- direction
-        myProjectile.speed = 500
-        myProjectile.lifeSpan = 3
-        myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
-        return myProjectile
-    end
+function fireProjectile()
+    local myProjectile = Projectile.Spawn(propCubeTemplate,
+        Vector3.New(500, 0, 200), -- starting position
+        Vector3.New(0, 1, 0))     -- direction
+    myProjectile.speed = 500
+    myProjectile.lifeSpan = 3
+    myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
+    return myProjectile
+end
 
-    -- this projectile will just fire off in a straight line with no gravity. It should never bounce.
-    local standardProjectile = fireProjectile()
-    standardProjectile.gravityScale = 0
+-- this projectile will just fire off in a straight line with no gravity. It should never bounce.
+local standardProjectile = fireProjectile()
+standardProjectile.gravityScale = 0
 
-    -- this projectile will arc and hit the ground.
-    local arcingProjectile = fireProjectile()
-    arcingProjectile.gravityScale = 1
+-- this projectile will arc and hit the ground.
+local arcingProjectile = fireProjectile()
+arcingProjectile.gravityScale = 1
 
-    -- this projectile will arc upwards and fly off into the sky.
-    local floatingProjectile = fireProjectile()
-    floatingProjectile.gravityScale = -1
+-- this projectile will arc upwards and fly off into the sky.
+local floatingProjectile = fireProjectile()
+floatingProjectile.gravityScale = -1
 
-    -- this projectile will arc further, because it has less gravity.
-    local furtherArcingProjectile = fireProjectile()
-    furtherArcingProjectile.gravityScale = 0.5
+-- this projectile will arc further, because it has less gravity.
+local furtherArcingProjectile = fireProjectile()
+furtherArcingProjectile.gravityScale = 0.5
 
-    -- this projectile will arc and bounce up to three times.
-    local bouncingProjectile = fireProjectile()
-    bouncingProjectile.gravityScale = 0.5
-    bouncingProjectile.bouncesRemaining = 3
+-- this projectile will arc and bounce up to three times.
+local bouncingProjectile = fireProjectile()
+bouncingProjectile.gravityScale = 0.5
+bouncingProjectile.bouncesRemaining = 3
 
-    -- this projectile will bounce more times, but with less energy per bounce.
-    local lessBouncyProjectile = fireProjectile()
-    lessBouncyProjectile.gravityScale = 0.5
-    lessBouncyProjectile.bouncesRemaining = 5
-    lessBouncyProjectile.bounciness = 0.2
+-- this projectile will bounce more times, but with less energy per bounce.
+local lessBouncyProjectile = fireProjectile()
+lessBouncyProjectile.gravityScale = 0.5
+lessBouncyProjectile.bouncesRemaining = 5
+lessBouncyProjectile.bounciness = 0.2
 ```
 
 ### Projectile.homingTarget
@@ -350,32 +348,32 @@ This example spawns an object in the world, and then fires a projectile to home 
 The `drag` and `homingAcceleration` properties affect how fast the homing projectile can change direction, and how fast it loses velocity due to air resistance.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    local objectInWorld = World.SpawnAsset(propCubeTemplate)
-    objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
+local objectInWorld = World.SpawnAsset(propCubeTemplate)
+objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
 
-    local function ProjectileImpact(projectile, other, hitresult)
-        print("Hit something! " .. other.name)
-        ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
-    end
+local function ProjectileImpact(projectile, other, hitresult)
+    print("Hit something! " .. other.name)
+    ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
+end
 
-    local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 1000, 1000), -- starting position
-                Vector3.New(0, 0, 0))          -- direction
-    objectHomingProjectile.speed = 0
-    objectHomingProjectile.gravityScale = 0
-    objectHomingProjectile.homingTarget = objectInWorld
-    objectHomingProjectile.drag = 5
-    objectHomingProjectile.homingAcceleration = 5000
+local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 1000, 1000), -- starting position
+            Vector3.New(0, 0, 0))          -- direction
+objectHomingProjectile.speed = 0
+objectHomingProjectile.gravityScale = 0
+objectHomingProjectile.homingTarget = objectInWorld
+objectHomingProjectile.drag = 5
+objectHomingProjectile.homingAcceleration = 5000
 
-    objectHomingProjectile.impactEvent:Connect(function(projectile, other, hitresult)
-        print("Hit something! " .. other.name)
-        ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
-    end)
+objectHomingProjectile.impactEvent:Connect(function(projectile, other, hitresult)
+    print("Hit something! " .. other.name)
+    ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
+end)
 
-    -- The projectile will hit home towards the target object, and print out a message when it hits.
+-- The projectile will hit home towards the target object, and print out a message when it hits.
 ```
 
 ### Projectile.owner
@@ -387,36 +385,36 @@ Projectiles will never impact their `owner`, or anyone on the `owner`'s team. Th
 In this example, we fire several projectiles at the player, but set them to be owned by the player, so they are unhit.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    function OnImpact(projectile, other, hitresult)
-        --Count how many times each projectile hits the player:
-        if other and other:IsA("Player") then
-            hitPlayerCount = hitPlayerCount + 1    --UT_STRIP
-            print("Urk! I've been shot!")
-        end
+function OnImpact(projectile, other, hitresult)
+    --Count how many times each projectile hits the player:
+    if other and other:IsA("Player") then
+        hitPlayerCount = hitPlayerCount + 1    --UT_STRIP
+        print("Urk! I've been shot!")
     end
+end
 
-    -- utility function for spawning projectiles aimed at the player
-    function FireAtPlayer(startPos, player)
-        local direction = (player:GetWorldPosition() - startPos):GetNormalized()
-        local myProjectile = Projectile.Spawn(propCubeTemplate,
-            startPos,
-            direction)
-        myProjectile.speed = 1000
-        myProjectile.lifeSpan = 2 --UT_STRIP
-        myProjectile.impactEvent:Connect(OnImpact)
-        myProjectile.gravityScale = 0
-        myProjectile.owner = player
-    end
+-- utility function for spawning projectiles aimed at the player
+function FireAtPlayer(startPos, player)
+    local direction = (player:GetWorldPosition() - startPos):GetNormalized()
+    local myProjectile = Projectile.Spawn(propCubeTemplate,
+        startPos,
+        direction)
+    myProjectile.speed = 1000
+    myProjectile.lifeSpan = 2 --UT_STRIP
+    myProjectile.impactEvent:Connect(OnImpact)
+    myProjectile.gravityScale = 0
+    myProjectile.owner = player
+end
 
-    -- Fire the barrage!
-    for i = -4, 4 do
-        FireAtPlayer(Vector3.New(1000, 250 * i, 500), targetPlayer)
-    end
-    -- Player will not be hit (and the hit message will never be printed) because
-    -- the projectiles are all owned by the player.
+-- Fire the barrage!
+for i = -4, 4 do
+    FireAtPlayer(Vector3.New(1000, 250 * i, 500), targetPlayer)
+end
+-- Player will not be hit (and the hit message will never be printed) because
+-- the projectiles are all owned by the player.
 ```
 
 ### Projectile.piercesRemaining
@@ -428,41 +426,41 @@ Projectiles have the `piercesRemaining` property, which controls how many times 
 Projectiles also have a property that determines if they should be destroyed when they hit an object - `shouldDieOnImpact`. One of the projectiles we spawn here does not die on impact! So when it hits a wall, it simply stops and waits for its `lifeSpan` to run out.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    function FirePiercingProjectile(pierceCount)
-        local myProjectile = Projectile.Spawn(propCubeTemplate,
-            Vector3.New(500, 0, 150 + pierceCount * 100), -- starting position
-            Vector3.New(1, 0, 0))     -- direction
-        myProjectile.speed = 1000
-        myProjectile.lifeSpan = 3
-        myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
-        myProjectile.gravityScale = 0
-        myProjectile.piercesRemaining = pierceCount
-        return myProjectile
-    end
+function FirePiercingProjectile(pierceCount)
+    local myProjectile = Projectile.Spawn(propCubeTemplate,
+        Vector3.New(500, 0, 150 + pierceCount * 100), -- starting position
+        Vector3.New(1, 0, 0))     -- direction
+    myProjectile.speed = 1000
+    myProjectile.lifeSpan = 3
+    myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
+    myProjectile.gravityScale = 0
+    myProjectile.piercesRemaining = pierceCount
+    return myProjectile
+end
 
-    -- Make some walls for our projectiles to run into:
-    for i = 1, 8 do
-        walls[i] = World.SpawnAsset(propCubeTemplate, {
-            position = Vector3.New(500 + i * 500, 0, 250),
-            scale = Vector3.New(1, 5, 5)
-        })
-    end
+-- Make some walls for our projectiles to run into:
+for i = 1, 8 do
+    walls[i] = World.SpawnAsset(propCubeTemplate, {
+        position = Vector3.New(500 + i * 500, 0, 250),
+        scale = Vector3.New(1, 5, 5)
+    })
+end
 
-    -- this projectile will just fire off in a straight line with no gravity. It should never bounce.
-    local Pierce_x1 = FirePiercingProjectile(0)
+-- this projectile will just fire off in a straight line with no gravity. It should never bounce.
+local Pierce_x1 = FirePiercingProjectile(0)
 
-    -- This projectile will pierce the first wall and impact the second.
-    local Pierce_x2 = FirePiercingProjectile(1)
+-- This projectile will pierce the first wall and impact the second.
+local Pierce_x2 = FirePiercingProjectile(1)
 
-    -- This projectile will pierce the first two walls, and impact the third.
-    local Pierce_x3 = FirePiercingProjectile(2)
+-- This projectile will pierce the first two walls, and impact the third.
+local Pierce_x3 = FirePiercingProjectile(2)
 
-    -- This projectile will hit the first wall, and then stop, because it is set not to die on impact.
-    local DontDieOnImpact = FirePiercingProjectile(0)
-    DontDieOnImpact.shouldDieOnImpact = false
+-- This projectile will hit the first wall, and then stop, because it is set not to die on impact.
+local DontDieOnImpact = FirePiercingProjectile(0)
+DontDieOnImpact.shouldDieOnImpact = false
 ```
 
 ### Projectile.sourceAbility
@@ -472,28 +470,28 @@ Projectiles have a field to report what ability spawned them. If the projectile 
 Here is an example of a weapon script that tests if the projectiles came from an ability called "FlameThrower." It is assumed that this is in a script that is a direct child of a weapon object.
 
 ```lua
-    function OnImpact(projectile, other, hitresult)
-        if other and other:IsA("Player") then
-            local damageScale = 1.0
-            if projectile.sourceAbility ~= nil
-                    and projectile.sourceAbility.name == "FlameThrower" then
-                local fireResistance = other:GetResource("fireResist")
-                damageScale = damageScale * (1.0 - fireResistance)
-                if (fireResistance > 0) then
-                    print("Damage reduced by fire resistance!")
-                end
+function OnImpact(projectile, other, hitresult)
+    if other and other:IsA("Player") then
+        local damageScale = 1.0
+        if projectile.sourceAbility ~= nil
+                and projectile.sourceAbility.name == "FlameThrower" then
+            local fireResistance = other:GetResource("fireResist")
+            damageScale = damageScale * (1.0 - fireResistance)
+            if (fireResistance > 0) then
+                print("Damage reduced by fire resistance!")
             end
-            other:ApplyDamage(Damage.New(10 * damageScale))
         end
+        other:ApplyDamage(Damage.New(10 * damageScale))
     end
+end
 
-    --[[UT_STRIP - some hackery here to make this code not run during tests, but show up in the docs:
-    --Tell each projectile fired what to do when it hits something:
-    local weapon = script.parent
-    weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
-        projectile.impactEvent:Connect(OnImpact)
-    end)
-    UT_STRIP]]
+--[[UT_STRIP - some hackery here to make this code not run during tests, but show up in the docs:
+--Tell each projectile fired what to do when it hits something:
+local weapon = script.parent
+weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
+    projectile.impactEvent:Connect(OnImpact)
+end)
+UT_STRIP]]
 ```
 
 ### Projectile.speed
@@ -507,22 +505,22 @@ You can also set a projectile's `maxSpeed` property, which clamps the speed to a
 One important thing to note, is that `maxSpeed` is only checked at the END of the frame, so if you manually set the speed to something large, it will only be clamped after your script has executed and the game has updated with a new 'tick'.
 
 ```lua
-    -- A template of a basic cube, attached to the script as a custom property:
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+-- A template of a basic cube, attached to the script as a custom property:
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    -- Fire this projectile straight up, so it will be in the air for a while.
-    local myProjectile = Projectile.Spawn(propCubeTemplate,
-                Vector3.New(1000, 0, 200), -- starting position
-                Vector3.UP)                -- direction
-    myProjectile.speed = 100
-    myProjectile.maxSpeed = 50
-    myProjectile.gravityScale = 0
-    -- The projectile is still going at 100 speed. Max Speed is only checked at the end of the frame.
-    print("This projectile's speed is " .. tostring(myProjectile.speed))
-    ut.EXPECT_GTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be faster than maxspeed")
+-- Fire this projectile straight up, so it will be in the air for a while.
+local myProjectile = Projectile.Spawn(propCubeTemplate,
+            Vector3.New(1000, 0, 200), -- starting position
+            Vector3.UP)                -- direction
+myProjectile.speed = 100
+myProjectile.maxSpeed = 50
+myProjectile.gravityScale = 0
+-- The projectile is still going at 100 speed. Max Speed is only checked at the end of the frame.
+print("This projectile's speed is " .. tostring(myProjectile.speed))
+ut.EXPECT_GTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be faster than maxspeed")
 
-    Task.Wait()    -- So if we wait one frame...
-    print("This projectile's speed is " .. tostring(myProjectile.speed))
-    ut.EXPECT_LTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be slower than maxspeed")
-    -- It should now be clamped down to the maximum speed.
+Task.Wait()    -- So if we wait one frame...
+print("This projectile's speed is " .. tostring(myProjectile.speed))
+ut.EXPECT_LTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be slower than maxspeed")
+-- It should now be clamped down to the maximum speed.
 ```

@@ -1,6 +1,4 @@
-# 
-
-PlayerSettings
+# PlayerSettings
 
 ## Description
 

@@ -1,6 +1,4 @@
-# 
-
-AbilityTarget
+# AbilityTarget
 
 ## Description
 
@@ -44,17 +42,17 @@ A data type containing information about what the Player has targeted during a p
 The ability's targeting data can be generated programatically, for specific results. In this example, We create a target that is always at the world origin (Vector3.ZERO). If added to a rifle's Shoot ability, all shots will go to (0,0,0). For this to work the script should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
 ```lua
-    local abilityTarget = AbilityTarget.New()
-    abilityTarget:SetHitPosition(Vector3.ZERO)
+local abilityTarget = AbilityTarget.New()
+abilityTarget:SetHitPosition(Vector3.ZERO)
 
-    local ability = script:FindAncestorByType("Ability")
-    ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
+local ability = script:FindAncestorByType("Ability")
+ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
-    function OnCast(ability)
-        ability:SetTargetData(abilityTarget)
-    end
+function OnCast(ability)
+    ability:SetTargetData(abilityTarget)
+end
 
-    ability.castEvent:Connect(OnCast)
+ability.castEvent:Connect(OnCast)
 ```
 
 ### AbilityTarget.GetAimPosition
@@ -64,29 +62,29 @@ The ability's targeting data can be generated programatically, for specific resu
 In this example, a non-weapon ability needs to know where the player is aiming in order to spawn the effect correctly. It creates an effect that moves down the center of where the camera is aiming. However, if the effect were to begin at the camera's position that could be weird in a third-person game. Instead, the player's position is projected onto the camera's vector to determine a more suitable starting point.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
-    ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
+local ability = script:FindAncestorByType("Ability")
+ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
-    function ProjectPointOnLine(p, linePoint, lineDirection)
-        local lineToP = p - linePoint
-        return linePoint + (lineToP..lineDirection) / (lineDirection..lineDirection) * lineDirection
-    end
+function ProjectPointOnLine(p, linePoint, lineDirection)
+    local lineToP = p - linePoint
+    return linePoint + (lineToP..lineDirection) / (lineDirection..lineDirection) * lineDirection
+end
 
-    function OnExecute(ability)
-        local targetData = ability:GetTargetData()
+function OnExecute(ability)
+    local targetData = ability:GetTargetData()
 
-        -- Project the player's position onto the camera vector, to get a starting point for the effect
-        local playerPos = ability.owner:GetWorldPosition()
-        local aimPosition = targetData:GetAimPosition()
-        local aimDirection = targetData:GetAimDirection()
-        local playerProjection = ProjectPointOnLine(playerPos, aimPosition, aimDirection)
+    -- Project the player's position onto the camera vector, to get a starting point for the effect
+    local playerPos = ability.owner:GetWorldPosition()
+    local aimPosition = targetData:GetAimPosition()
+    local aimDirection = targetData:GetAimDirection()
+    local playerProjection = ProjectPointOnLine(playerPos, aimPosition, aimDirection)
 
-        -- Placeholder for some ability effect. Draw a red line 9 meters long
-        local params = {duration = 3, color = Color.RED, thickness = 3}
-        CoreDebug.DrawLine(playerProjection, playerProjection + aimDirection * 900, params)
-    end
+    -- Placeholder for some ability effect. Draw a red line 9 meters long
+    local params = {duration = 3, color = Color.RED, thickness = 3}
+    CoreDebug.DrawLine(playerProjection, playerProjection + aimDirection * 900, params)
+end
 
-    ability.executeEvent:Connect(OnExecute)
+ability.executeEvent:Connect(OnExecute)
 ```
 
 ### AbilityTarget.GetHitPosition
@@ -96,20 +94,20 @@ In this example, a non-weapon ability needs to know where the player is aiming i
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
-    ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
+local ability = script:FindAncestorByType("Ability")
+ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
-    function OnCast(ability)
-        local abilityTarget = ability:GetTargetData()
-        local pos = abilityTarget:GetHitPosition()
+function OnCast(ability)
+    local abilityTarget = ability:GetTargetData()
+    local pos = abilityTarget:GetHitPosition()
 
-        pos.z = ability.owner:GetWorldPosition().z + 50
+    pos.z = ability.owner:GetWorldPosition().z + 50
 
-        abilityTarget:SetHitPosition(pos)
-        ability:SetTargetData(abilityTarget)
-    end
+    abilityTarget:SetHitPosition(pos)
+    ability:SetTargetData(abilityTarget)
+end
 
-    ability.castEvent:Connect(OnCast)
+ability.castEvent:Connect(OnCast)
 ```
 
 ### AbilityTarget.GetHitResult
@@ -119,20 +117,20 @@ At any phase of an ability's activation, you can get data about what is under th
 This code snippet prints out the name of whatever was under the cursor when the player executes this ability!
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
-    ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
-    ability.owner = player -- UT_STRIP
+local ability = script:FindAncestorByType("Ability")
+ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
+ability.owner = player -- UT_STRIP
 
-    function OnExecute(ability)
-        local hr = ability:GetTargetData():GetHitResult()
-        if hr.other then
-            print("You shot " .. hr.other.name)
-        else
-            print("You didn't hit anything...")
-        end
-        table.insert(hits, hr.other) -- UT_STRIP
+function OnExecute(ability)
+    local hr = ability:GetTargetData():GetHitResult()
+    if hr.other then
+        print("You shot " .. hr.other.name)
+    else
+        print("You didn't hit anything...")
     end
-    ability.executeEvent:Connect(OnExecute)
+    table.insert(hits, hr.other) -- UT_STRIP
+end
+ability.executeEvent:Connect(OnExecute)
 ```
 
 ### AbilityTarget.hitObject
@@ -142,30 +140,30 @@ This code snippet prints out the name of whatever was under the cursor when the 
 In this example, an ability casts a magical area of effect (AOE) in front of the player. In case the player was aiming at another player or object that position is used instead.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
-    ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
-    local AOE_ASSET = script:GetCustomProperty("AOEAsset")
+local ability = script:FindAncestorByType("Ability")
+ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
+local AOE_ASSET = script:GetCustomProperty("AOEAsset")
 
-    function OnExecute(ability)
-        -- The default position to spawn at
-        local ownerForwardVect = ability.owner:GetWorldTransform():GetForwardVector()
-        local spawnPos = ability.owner:GetWorldPosition() + ownerForwardVect * 600 - Vector3.UP * 50
+function OnExecute(ability)
+    -- The default position to spawn at
+    local ownerForwardVect = ability.owner:GetWorldTransform():GetForwardVector()
+    local spawnPos = ability.owner:GetWorldPosition() + ownerForwardVect * 600 - Vector3.UP * 50
 
-        -- Consider alternate positions based on the ability's targeting information
-        local targetData = ability:GetTargetData()
-        if targetData.hitPlayer then
-            spawnPos = targetData.hitPlayer:GetWorldPosition()
+    -- Consider alternate positions based on the ability's targeting information
+    local targetData = ability:GetTargetData()
+    if targetData.hitPlayer then
+        spawnPos = targetData.hitPlayer:GetWorldPosition()
 
-        elseif targetData.hitObject then
-            spawnPos = targetData:GetHitPosition()
-        end
-
-        -- Spawn the AOE object
-        local instance = World.SpawnAsset(AOE_ASSET, {position = spawnPos})
-        -- Give the AOE object a reference back to this ability. E.g. if the AOE kills an enemy,
-        -- then it has enough information to correctly attribute a score increase.
-        instance.serverUserData.sourceAbility = ability
+    elseif targetData.hitObject then
+        spawnPos = targetData:GetHitPosition()
     end
 
-    ability.executeEvent:Connect(OnExecute)
+    -- Spawn the AOE object
+    local instance = World.SpawnAsset(AOE_ASSET, {position = spawnPos})
+    -- Give the AOE object a reference back to this ability. E.g. if the AOE kills an enemy,
+    -- then it has enough information to correctly attribute a score increase.
+    instance.serverUserData.sourceAbility = ability
+end
+
+ability.executeEvent:Connect(OnExecute)
 ```

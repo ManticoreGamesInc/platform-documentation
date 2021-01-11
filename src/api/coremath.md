@@ -1,6 +1,4 @@
-# 
-
-CoreMath
+# CoreMath
 
 ## Description
 

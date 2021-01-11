@@ -1,6 +1,4 @@
-# 
-
-CoreDebug
+# CoreDebug
 
 ## Description
 
@@ -29,39 +27,39 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 Core contains several useful functions for drawing in the 3d world, that are intended for use when debugging. If you are trying to visualize values in a 3d world,
 
 ```lua
-    local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
+local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
-    local myProjectile = Projectile.Spawn(propCubeTemplate,
-        Vector3.New(500, 0, 200), -- starting position
-        Vector3.New(0, 1, 1))     -- direction
-    myProjectile.speed = 500
-    myProjectile.lifeSpan = 3
-    myProjectile.gravityScale = 0.25
+local myProjectile = Projectile.Spawn(propCubeTemplate,
+    Vector3.New(500, 0, 200), -- starting position
+    Vector3.New(0, 1, 1))     -- direction
+myProjectile.speed = 500
+myProjectile.lifeSpan = 3
+myProjectile.gravityScale = 0.25
 
-    -- This function will draw some debug graphics around the projectile ever 1/10 second:
-    Task.Spawn(function()
-        while Object.IsValid(myProjectile) do
-            local pos = myProjectile:GetWorldPosition();
-            CoreDebug.DrawSphere(pos , 50, {
-                duration = 2,
-                color = Color.GREEN
-            })
+-- This function will draw some debug graphics around the projectile ever 1/10 second:
+Task.Spawn(function()
+    while Object.IsValid(myProjectile) do
+        local pos = myProjectile:GetWorldPosition();
+        CoreDebug.DrawSphere(pos , 50, {
+            duration = 2,
+            color = Color.GREEN
+        })
 
-            CoreDebug.DrawLine(pos, pos  + myProjectile:GetWorldTransform():GetForwardVector() * 50, {
-                duration = 2,
-                color = Color.WHITE,
-                thickness = 3
-            })
+        CoreDebug.DrawLine(pos, pos  + myProjectile:GetWorldTransform():GetForwardVector() * 50, {
+            duration = 2,
+            color = Color.WHITE,
+            thickness = 3
+        })
 
-            CoreDebug.DrawBox(pos, Vector3.New(50), {
-                duration = 2,
-                color = Color.BLUE,
-                thickness = 3
-            })
+        CoreDebug.DrawBox(pos, Vector3.New(50), {
+            duration = 2,
+            color = Color.BLUE,
+            thickness = 3
+        })
 
-            Task.Wait(0.1)
-        end
-    end)
+        Task.Wait(0.1)
+    end
+end)
 ```
 
 ### CoreDebug.GetTaskStackTrace
@@ -73,44 +71,44 @@ When debugging, it can often be useful to see exactly which code is executing, a
 This sample shows how to get and print out the stack traces. They will be slightly different depending on which thread is examining them.
 
 ```lua
-    local taskStackTrace
-    local otherTaskStackTrace
-    local generalStackTrace
+local taskStackTrace
+local otherTaskStackTrace
+local generalStackTrace
 
-    function Function_A()
-        Function_B()
-    end
+function Function_A()
+    Function_B()
+end
 
-    function Function_B()
-        Function_C()
-    end
+function Function_B()
+    Function_C()
+end
 
-    function Function_C()
-        taskStackTrace = CoreDebug.GetTaskStackTrace()
-        Task.Wait(1)
-    end
-
-    local otherTask = Task.Spawn(Function_A)
-    Task.Wait()
-
-    otherTaskStackTrace = CoreDebug.GetTaskStackTrace(otherTask)
-    generalStackTrace = CoreDebug.GetStackTrace()
-
+function Function_C()
+    taskStackTrace = CoreDebug.GetTaskStackTrace()
     Task.Wait(1)
-    print("Stack trace, as viewed from within the task:")
-    print(taskStackTrace)
-    print("Stack trace, as viewed from the main thread:")
-    print(otherTaskStackTrace)
-    print("General stack trace:")
-    print(generalStackTrace)
+end
 
-    ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_C"), "taskStackTrace has been in Function C")
-    ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_B"), "taskStackTrace has been in Function B")
-    ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_A"), "taskStackTrace has been in Function A")
+local otherTask = Task.Spawn(Function_A)
+Task.Wait()
 
-    ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_C"), "otherTaskStackTrace has been in Function C")
-    ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_B"), "otherTaskStackTrace has been in Function B")
-    ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_A"), "otherTaskStackTrace has been in Function A")
+otherTaskStackTrace = CoreDebug.GetTaskStackTrace(otherTask)
+generalStackTrace = CoreDebug.GetStackTrace()
 
-    ut.EXPECT_NOT_NIL(generalStackTrace, "Should have gotten something back from the general stack trace")
+Task.Wait(1)
+print("Stack trace, as viewed from within the task:")
+print(taskStackTrace)
+print("Stack trace, as viewed from the main thread:")
+print(otherTaskStackTrace)
+print("General stack trace:")
+print(generalStackTrace)
+
+ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_C"), "taskStackTrace has been in Function C")
+ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_B"), "taskStackTrace has been in Function B")
+ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_A"), "taskStackTrace has been in Function A")
+
+ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_C"), "otherTaskStackTrace has been in Function C")
+ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_B"), "otherTaskStackTrace has been in Function B")
+ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_A"), "otherTaskStackTrace has been in Function A")
+
+ut.EXPECT_NOT_NIL(generalStackTrace, "Should have gotten something back from the general stack trace")
 ```

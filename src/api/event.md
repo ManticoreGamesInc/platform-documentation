@@ -1,6 +1,4 @@
-# 
-
-Event
+# Event
 
 ## Description
 
@@ -21,15 +19,15 @@ Events appear as properties on several objects. The goal is to register a functi
 Core uses events for a variety of built-in state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. In this example, both `Game.playerJoinedEvent` and `player.damagedEvent` are connected to. The `OnPlayerDamaged()` function will be called each time a player takes damage. Any number of extra parameters can be added when connecting and those values will be passed back to the listening function.
 
 ```lua
-    function OnPlayerDamaged(player, dmg, joinTime)
-        local elapsedTime = time() - joinTime
-        print("Player " .. player.name .. " took " .. dmg.amount .. " damage after joining the game for " .. elapsedTime .. " seconds.")
-    end
+function OnPlayerDamaged(player, dmg, joinTime)
+    local elapsedTime = time() - joinTime
+    print("Player " .. player.name .. " took " .. dmg.amount .. " damage after joining the game for " .. elapsedTime .. " seconds.")
+end
 
-    function OnPlayerJoined(player)
-        -- Passing extra float parameter
-        player.damagedEvent:Connect(OnPlayerDamaged, time())
-    end
+function OnPlayerJoined(player)
+    -- Passing extra float parameter
+    player.damagedEvent:Connect(OnPlayerDamaged, time())
+end
 
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
