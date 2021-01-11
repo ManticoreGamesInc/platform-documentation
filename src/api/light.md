@@ -1,6 +1,4 @@
-# 
-
-Light
+# Light
 
 ## Description
 

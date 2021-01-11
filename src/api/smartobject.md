@@ -1,6 +1,4 @@
-# 
-
-SmartObject
+# SmartObject
 
 ## Description
 

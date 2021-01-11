@@ -1,6 +1,4 @@
-# 
-
-RandomStream
+# RandomStream
 
 ## Description
 

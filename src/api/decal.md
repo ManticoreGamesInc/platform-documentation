@@ -1,6 +1,4 @@
-# 
-
-Decal
+# Decal
 
 ## Description
 

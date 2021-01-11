@@ -1,6 +1,4 @@
-# 
-
-UIScrollPanel
+# UIScrollPanel
 
 ## Description
 

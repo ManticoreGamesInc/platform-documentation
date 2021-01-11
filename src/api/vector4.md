@@ -1,6 +1,4 @@
-# 
-
-Vector4
+# Vector4
 
 ## Description
 

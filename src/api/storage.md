@@ -1,6 +1,4 @@
-# 
-
-Storage
+# Storage
 
 ## Description
 
@@ -44,20 +42,20 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
 
 ```lua
-    function OnPlayerJoined(player)
-        local data = Storage.GetPlayerData(player)
-        -- In case it's the first time for this player we use default values 0 and 1
-        local xp = data["xp"] or 0
-        local level = data["level"] or 1
-        -- Each time they join they gain 1 XP. Stop and play the game again to test that this value keeps going up
-        xp = xp + 1
-        player:SetResource("xp", xp)
-        player:SetResource("level", level)
-        print("Player " .. player.name .. " joined with Level " .. level .. " and XP " .. xp)
-    end
+function OnPlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+    -- In case it's the first time for this player we use default values 0 and 1
+    local xp = data["xp"] or 0
+    local level = data["level"] or 1
+    -- Each time they join they gain 1 XP. Stop and play the game again to test that this value keeps going up
+    xp = xp + 1
+    player:SetResource("xp", xp)
+    player:SetResource("level", level)
+    print("Player " .. player.name .. " joined with Level " .. level .. " and XP " .. xp)
+end
 
-    local listener = -- UT_STRIP
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+local listener = -- UT_STRIP
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ### Storage.GetSharedPlayerData
@@ -75,13 +73,13 @@ For this example to work, there is some setup that needs to be done:
 See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
 
 ```lua
-    local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
-    local returnTable = Storage.GetSharedPlayerData(propSharedKey, player)
+local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
+local returnTable = Storage.GetSharedPlayerData(propSharedKey, player)
 
-    -- Print out the data we retrieved:
-    for k,v in pairs(returnTable) do
-        print(k, v)
-    end
+-- Print out the data we retrieved:
+for k,v in pairs(returnTable) do
+    print(k, v)
+end
 ```
 
 ### Storage.SetPlayerData
@@ -89,22 +87,22 @@ See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared St
 This example detects when a player gains XP or level and saves the new values to storage.
 
 ```lua
-    function OnResourceChanged(player, resName, resValue)
-        if (resName == "xp" or resName == "level") then
-            local data = Storage.GetPlayerData(player)
-            data[resName] = resValue
-            local resultCode,errorMessage = Storage.SetPlayerData(player, data)
-        end
+function OnResourceChanged(player, resName, resValue)
+    if (resName == "xp" or resName == "level") then
+        local data = Storage.GetPlayerData(player)
+        data[resName] = resValue
+        local resultCode,errorMessage = Storage.SetPlayerData(player, data)
     end
+end
 
-    local changedListener -- UT_STRIP
-    function OnPlayerJoined(player)
-        changedListener = -- UT_STRIP
-        player.resourceChangedEvent:Connect(OnResourceChanged)
-    end
+local changedListener -- UT_STRIP
+function OnPlayerJoined(player)
+    changedListener = -- UT_STRIP
+    player.resourceChangedEvent:Connect(OnResourceChanged)
+end
 
-    local listener = -- UT_STRIP
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+local listener = -- UT_STRIP
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ### Storage.SetSharedPlayerData
@@ -122,15 +120,15 @@ For this example to work, there is some setup th at needs to be done:
 See the <a href="https://docs.coregames.com/tutorials/shared_storage/">Shared Storage</a> documentation for details on how to create shared keys.
 
 ```lua
-    local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
+local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
 
-    local sampleData = {
-        name = "Philip",
-        points = 1000,
-        favorite_color = Color.RED,
-        skill_levels = {swordplay = 8, flying = 10, electromagnetism = 5, friendship = 30}
-    }
-    Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
+local sampleData = {
+    name = "Philip",
+    points = 1000,
+    favorite_color = Color.RED,
+    skill_levels = {swordplay = 8, flying = 10, electromagnetism = 5, friendship = 30}
+}
+Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 ```
 
 ## Tutorials 
