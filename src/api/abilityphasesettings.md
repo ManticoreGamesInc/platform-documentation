@@ -1,6 +1,4 @@
-# 
-
-AbilityPhaseSettings
+# AbilityPhaseSettings
 
 ## Description
 

@@ -1,6 +1,4 @@
-# 
-
-UIProgressBar
+# UIProgressBar
 
 ## Description
 

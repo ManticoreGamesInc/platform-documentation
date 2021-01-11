@@ -1,6 +1,4 @@
-# 
-
-Vector2
+# Vector2
 
 ## Description
 

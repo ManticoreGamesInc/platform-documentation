@@ -1,6 +1,4 @@
-# 
-
-UIImage
+# UIImage
 
 ## Description
 

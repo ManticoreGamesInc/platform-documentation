@@ -1,6 +1,4 @@
-# 
-
-Task
+# Task
 
 ## Description
 
@@ -44,42 +42,42 @@ You can spawn new tasks via `Task.Spawn()`, and leave them to execute without bl
 This is a fairly contrived example, but it demonstrates how even if spawned tasks yield via `Task.Wait()`, it doesn't block any other tasks.
 
 ```lua
-    local nameMap = {}
-    local debug_taskLog = ""
+local nameMap = {}
+local debug_taskLog = ""
 
-    function SpawnCountdown(name)
-        local newTask = Task.Spawn(function ()
-            local currentTask = Task.GetCurrent()
-            local myName = nameMap[currentTask.id]
-            print(myName .. ": 3...")
-            debug_taskLog = debug_taskLog ..":3_" .. myName -- UT_STRIP
-            Task.Wait(1)
-            print(myName .. ": 2...")
-            debug_taskLog = debug_taskLog ..":2_" .. myName -- UT_STRIP
-            Task.Wait(1)
-            print(myName .. ": 1...")
-            debug_taskLog = debug_taskLog ..":1_" .. myName -- UT_STRIP
-            Task.Wait(1)
-            print(myName .. ": LIFTOFF!!!")
-            debug_taskLog = debug_taskLog ..":0_" .. myName -- UT_STRIP
-        end)
-        nameMap[newTask.id] = name
-        return newTask
-    end
+function SpawnCountdown(name)
+    local newTask = Task.Spawn(function ()
+        local currentTask = Task.GetCurrent()
+        local myName = nameMap[currentTask.id]
+        print(myName .. ": 3...")
+        debug_taskLog = debug_taskLog ..":3_" .. myName -- UT_STRIP
+        Task.Wait(1)
+        print(myName .. ": 2...")
+        debug_taskLog = debug_taskLog ..":2_" .. myName -- UT_STRIP
+        Task.Wait(1)
+        print(myName .. ": 1...")
+        debug_taskLog = debug_taskLog ..":1_" .. myName -- UT_STRIP
+        Task.Wait(1)
+        print(myName .. ": LIFTOFF!!!")
+        debug_taskLog = debug_taskLog ..":0_" .. myName -- UT_STRIP
+    end)
+    nameMap[newTask.id] = name
+    return newTask
+end
 
-    local task1 = SpawnCountdown("Fred")
-    Task.Wait(0.5)
-    local task2 = SpawnCountdown("Bob")
-    --[[Output is:
-            Fred: 3...
-            Bob: 3...
-            Fred: 2...
-            Bob: 2...
-            Fred: 1...
-            Bob: 1...
-            Fred: LIFTOFF!!!
-            Bob: LIFTOFF!!!
-        ]]
+local task1 = SpawnCountdown("Fred")
+Task.Wait(0.5)
+local task2 = SpawnCountdown("Bob")
+--[[Output is:
+        Fred: 3...
+        Bob: 3...
+        Fred: 2...
+        Bob: 2...
+        Fred: 1...
+        Bob: 1...
+        Fred: LIFTOFF!!!
+        Bob: LIFTOFF!!!
+    ]]
 ```
 
 ### Task.Wait
@@ -89,12 +87,12 @@ This is a fairly contrived example, but it demonstrates how even if spawned task
 It returns two numbers. The first number is how long the task was actually yielded. The second number is the requested delay when `Task.Wait()` was called.
 
 ```lua
-    print("Testing Task.Wait()")
+print("Testing Task.Wait()")
 
-    local timeElapsed, timeRequested = Task.Wait(3)
+local timeElapsed, timeRequested = Task.Wait(3)
 
-    print("timeElapsed = " .. timeElapsed)
-    print("timeRequested = " .. timeRequested)
+print("timeElapsed = " .. timeElapsed)
+print("timeRequested = " .. timeRequested)
 ```
 
 ### Task.Cancel
@@ -106,24 +104,24 @@ Tasks started via `Task.Spawn()` continue until they are completed. But you can 
 Tasks also have a `GetStatus()` method, which can be used to check on their current status - whether they are currently running, are scheduled to run in the future, or have already run to completion.
 
 ```lua
-    local counter = 0
+local counter = 0
 
-    -- This task will count the seconds forever.
-    local myTask = Task.Spawn(function()
-        while true do
-            print(tostring(counter) .. " seconds...")
-            Task.Wait(1)
-            counter = counter + 1
-        end
-    end)
+-- This task will count the seconds forever.
+local myTask = Task.Spawn(function()
+    while true do
+        print(tostring(counter) .. " seconds...")
+        Task.Wait(1)
+        counter = counter + 1
+    end
+end)
 
-    Task.Wait(4.5)
-    print("Current status is Scheduled? " .. tostring(myTask:GetStatus() == TaskStatus.SCHEDULED))
-    ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.SCHEDULED, "Scheduled status")
-    print(" -- Cancelling Task -- ")
-    myTask:Cancel()
-    print("Current status is Canceled? " .. tostring(myTask:GetStatus() == TaskStatus.CANCELED))
-    ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.CANCELED, "Canceled status")
+Task.Wait(4.5)
+print("Current status is Scheduled? " .. tostring(myTask:GetStatus() == TaskStatus.SCHEDULED))
+ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.SCHEDULED, "Scheduled status")
+print(" -- Cancelling Task -- ")
+myTask:Cancel()
+print("Current status is Canceled? " .. tostring(myTask:GetStatus() == TaskStatus.CANCELED))
+ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.CANCELED, "Canceled status")
 ```
 
 ### Task.repeatCount
@@ -135,21 +133,21 @@ You can schedule tasks to run a specific number of times, and to wait a specific
 Note that the repeat count is the number of time the task will repeat. NOT the number of times it will execute! (It will execute one more time than it repeats.)
 
 ```lua
-    local counter = 0
+local counter = 0
 
-    local myTask = Task.Spawn(function()
-        counter = counter + 1
-        print("Hello world! x" .. tostring(counter))
-    end)
+local myTask = Task.Spawn(function()
+    counter = counter + 1
+    print("Hello world! x" .. tostring(counter))
+end)
 
-    myTask.repeatCount = 3
-    myTask.repeatInterval = 1
+myTask.repeatCount = 3
+myTask.repeatInterval = 1
 
-    --[[
-    Output:
-        Hello world! x1
-        Hello world! x2
-        Hello world! x3
-        Hello world! x4
-    ]]
+--[[
+Output:
+    Hello world! x1
+    Hello world! x2
+    Hello world! x3
+    Hello world! x4
+]]
 ```

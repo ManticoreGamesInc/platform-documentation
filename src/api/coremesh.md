@@ -1,6 +1,4 @@
-# 
-
-CoreMesh
+# CoreMesh
 
 ## Description
 
@@ -38,18 +36,18 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 You can set a color override for a mesh. Exactly what this means will depend on the material of the mesh, but in general, setting a mesh's color will make the mesh be tinted to match that color.
 
 ```lua
-    local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
+local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
 
-    cube:SetColor(Color.WHITE)
-    for i = 1, 40 do
-        local cubeColor = cube:GetColor()
-        local newColor = Color.New(cubeColor.r * 0.95, cubeColor.g * 0.95, cubeColor.b * 0.95)
-        cube:SetColor(newColor)
-        Task.Wait(0.025)
-    end
-    ut.EXPECT_COL_EQUAL(Color.New(0.128512, 0.128512, 0.128512), cube:GetColor(), "Cube colors")
-    cube:ResetColor()
-    ut.EXPECT_COL_EQUAL(Color.New(0, 0, 0, 0), cube:GetColor(), "Cube colors after reset")
+cube:SetColor(Color.WHITE)
+for i = 1, 40 do
+    local cubeColor = cube:GetColor()
+    local newColor = Color.New(cubeColor.r * 0.95, cubeColor.g * 0.95, cubeColor.b * 0.95)
+    cube:SetColor(newColor)
+    Task.Wait(0.025)
+end
+ut.EXPECT_COL_EQUAL(Color.New(0.128512, 0.128512, 0.128512), cube:GetColor(), "Cube colors")
+cube:ResetColor()
+ut.EXPECT_COL_EQUAL(Color.New(0, 0, 0, 0), cube:GetColor(), "Cube colors after reset")
 ```
 
 ### CoreMesh.meshAssetId
@@ -57,9 +55,9 @@ You can set a color override for a mesh. Exactly what this means will depend on 
 You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from!
 
 ```lua
-    local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
-    print("The asset ID is " .. cube.meshAssetId)
-    ut.EXPECT_EQUAL(cube.meshAssetId, "A7DD0A093F1FA6B6:Cube", "meshAssetId")
+local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
+print("The asset ID is " .. cube.meshAssetId)
+ut.EXPECT_EQUAL(cube.meshAssetId, "A7DD0A093F1FA6B6:Cube", "meshAssetId")
 ```
 
 ### CoreMesh.team
@@ -79,20 +77,20 @@ This sample sets a mesh (and all of its children) to be on a particular team.
 You can also control whether the camera is allowed to clip into a mesh or not.
 
 ```lua
-    function AssignMeshToTeam(mesh, team)
-        local objects = mesh:FindDescendantsByType("CoreMesh")
-        table.insert(objects, mesh)
-        for k, mesh in ipairs(objects) do
-            -- Set the team
-            mesh.team = team
-            -- Make the mesh tinted based on the color of the team it is on.
-            mesh.isTeamColorUsed = true
-            -- Enable collision for enemies, but not allies.
-            mesh.isTeamCollisionEnabled = false
-            mesh.isEnemyCollisionEnabled = true
-            -- Set the camera to not collide with this mesh.
-            mesh.isCameraCollisionEnabled = true
-        end
+function AssignMeshToTeam(mesh, team)
+    local objects = mesh:FindDescendantsByType("CoreMesh")
+    table.insert(objects, mesh)
+    for k, mesh in ipairs(objects) do
+        -- Set the team
+        mesh.team = team
+        -- Make the mesh tinted based on the color of the team it is on.
+        mesh.isTeamColorUsed = true
+        -- Enable collision for enemies, but not allies.
+        mesh.isTeamCollisionEnabled = false
+        mesh.isEnemyCollisionEnabled = true
+        -- Set the camera to not collide with this mesh.
+        mesh.isCameraCollisionEnabled = true
     end
-    AssignMeshToTeam(cube, 1)
+end
+AssignMeshToTeam(cube, 1)
 ```

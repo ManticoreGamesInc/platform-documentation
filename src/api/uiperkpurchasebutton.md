@@ -1,6 +1,4 @@
-# 
-
-UIPerkPurchaseButton
+# UIPerkPurchaseButton
 
 ## Description
 

@@ -1,6 +1,4 @@
-# 
-
-UIPanel
+# UIPanel
 
 ## Description
 

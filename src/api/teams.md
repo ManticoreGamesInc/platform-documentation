@@ -1,6 +1,4 @@
-# 
-
-Teams
+# Teams
 
 ## Description
 

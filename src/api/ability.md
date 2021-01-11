@@ -1,6 +1,4 @@
-# 
-
-Ability
+# Ability
 
 ## Description
 
@@ -60,17 +58,17 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 The Cast phase begins as soon as an ability is activated. By checking if the player casting the ability `isGrounded` we can create an effect that propels you upwards, but it doesn't work if you are already jumping or flying. We detect this is the `castEvent`, which is early enough for an `Interrupt()` to reset the ability.
 
 ```lua
-    local ability = script.parent
+local ability = script.parent
 
-    function OnCast(ability)
-        if ability.owner.isGrounded then
-            ability.owner:SetVelocity(Vector3.UP * 2000)
-        else
-            ability:Interrupt()
-        end
+function OnCast(ability)
+    if ability.owner.isGrounded then
+        ability.owner:SetVelocity(Vector3.UP * 2000)
+    else
+        ability:Interrupt()
     end
+end
 
-    ability.castEvent:Connect(OnCast)
+ability.castEvent:Connect(OnCast)
 ```
 
 ### Ability.cooldownEvent
@@ -78,18 +76,18 @@ The Cast phase begins as soon as an ability is activated. By checking if the pla
 In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
 
 ```lua
-    local ability = script.parent
+local ability = script.parent
 
-    function OnCast(ability)
-        ability.owner:AddResource("invincible", 1)
-    end
+function OnCast(ability)
+    ability.owner:AddResource("invincible", 1)
+end
 
-    function OnCooldown(ability)
-        ability.owner:RemoveResource("invincible", 1)
-    end
+function OnCooldown(ability)
+    ability.owner:RemoveResource("invincible", 1)
+end
 
-    ability.castEvent:Connect(OnCast)
-    ability.cooldownEvent:Connect(OnCooldown)
+ability.castEvent:Connect(OnCast)
+ability.cooldownEvent:Connect(OnCooldown)
 ```
 
 ### Ability.executeEvent
@@ -97,19 +95,19 @@ In this example, a fighting game has an "invincible" mechanic where player attac
 Weapons implement lots of built-in gameplay that doesn't require any scripting, such as attack and reload abilities. However, they can be augmented with additional mechanics. In this example, a special sound effect is played when a weapon shoots while low on ammunition. The script expects to be a child of a weapon's "Shoot" ability.
 
 ```lua
-    local ability = script.parent
-    local weapon = script:FindAncestorByType('Weapon')
-    local lowAmmoSound = script:GetCustomProperty("LowAmmoSound")
+local ability = script.parent
+local weapon = script:FindAncestorByType('Weapon')
+local lowAmmoSound = script:GetCustomProperty("LowAmmoSound")
 
-    local LOW_AMMO_PERCENTAGE = 0.2
+local LOW_AMMO_PERCENTAGE = 0.2
 
-    function OnExecute(ability)
-        if weapon.currentAmmo / weapon.maxAmmo <= LOW_AMMO_PERCENTAGE then
-            World.SpawnAsset(lowAmmoSound, {position = weapon:GetWorldPosition()})
-        end
+function OnExecute(ability)
+    if weapon.currentAmmo / weapon.maxAmmo <= LOW_AMMO_PERCENTAGE then
+        World.SpawnAsset(lowAmmoSound, {position = weapon:GetWorldPosition()})
     end
+end
 
-    ability.executeEvent:Connect(OnExecute)
+ability.executeEvent:Connect(OnExecute)
 ```
 
 ### Ability.interruptedEvent
@@ -117,16 +115,16 @@ Weapons implement lots of built-in gameplay that doesn't require any scripting, 
 The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
 
 ```lua
-    local ability = script.parent
-    local interruptedVfx = script:GetCustomProperty("InterruptedVfx")
+local ability = script.parent
+local interruptedVfx = script:GetCustomProperty("InterruptedVfx")
 
-    function OnInterrupted(ability)
-        if Object.IsValid(ability.owner) then
-            World.SpawnAsset(interruptedVfx, {position = ability.owner:GetWorldPosition()})
-        end
+function OnInterrupted(ability)
+    if Object.IsValid(ability.owner) then
+        World.SpawnAsset(interruptedVfx, {position = ability.owner:GetWorldPosition()})
     end
+end
 
-    ability.interruptedEvent:Connect(OnInterrupted)
+ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
 ### Ability.readyEvent
@@ -134,20 +132,20 @@ The `interruptedEvent` fires when an ability is going through it's activation pr
 The Ready phase begins when an ability comes off cooldown and is "ready" to be used again. In this example, we create an invisibility effect that takes advantage of the `readyEvent`, leveraging the cooldown duration of the ability as a clock to determine when to make the player visible again.
 
 ```lua
-    local ability = script.parent
+local ability = script.parent
 
-    function OnExecute(ability)
-        -- Hide the player
-        ability.owner:SetVisibility(false)
-    end
+function OnExecute(ability)
+    -- Hide the player
+    ability.owner:SetVisibility(false)
+end
 
-    function OnReady(ability)
-        -- Show the player
-        ability.owner:SetVisibility(true)
-    end
+function OnReady(ability)
+    -- Show the player
+    ability.owner:SetVisibility(true)
+end
 
-    ability.readyEvent:Connect(OnReady)
-    ability.executeEvent:Connect(OnExecute)
+ability.readyEvent:Connect(OnReady)
+ability.executeEvent:Connect(OnExecute)
 ```
 
 ### Ability.recoveryEvent
@@ -155,31 +153,31 @@ The Ready phase begins when an ability comes off cooldown and is "ready" to be u
 The `recoveryEvent` marks the end of an ability's Execute phase and the beginning of its Recovery phase. In this example, a melee punch ability has a trigger that causes damage to enemies who overlap it. For it to work the trigger is only enabled for a brief moment, during the Execute phase.
 
 ```lua
-    local ability = script.parent
-    local trigger = script:GetCustomProperty("ImpactTrigger"):WaitForObject()
+local ability = script.parent
+local trigger = script:GetCustomProperty("ImpactTrigger"):WaitForObject()
+trigger.collision = Collision.FORCE_OFF
+
+local DAMAGE_AMOUNT = 10
+
+function OnExecute(ability)
+    trigger.collision = Collision.FORCE_ON
+end
+
+function OnRecovery(ability)
     trigger.collision = Collision.FORCE_OFF
+end
 
-    local DAMAGE_AMOUNT = 10
+ability.executeEvent:Connect(OnExecute)
+ability.recoveryEvent:Connect(OnRecovery)
 
-    function OnExecute(ability)
-        trigger.collision = Collision.FORCE_ON
+function OnBeginOverlap(trigger, other)
+    -- Only damage enemy players
+    if other:IsA("Player") and other.team ~= ability.owner.team then
+        other:ApplyDamage(Damage.New(DAMAGE_AMOUNT))
     end
+end
 
-    function OnRecovery(ability)
-        trigger.collision = Collision.FORCE_OFF
-    end
-
-    ability.executeEvent:Connect(OnExecute)
-    ability.recoveryEvent:Connect(OnRecovery)
-
-    function OnBeginOverlap(trigger, other)
-        -- Only damage enemy players
-        if other:IsA("Player") and other.team ~= ability.owner.team then
-            other:ApplyDamage(Damage.New(DAMAGE_AMOUNT))
-        end
-    end
-
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 ### Ability.tickEvent
@@ -187,16 +185,16 @@ The `recoveryEvent` marks the end of an ability's Execute phase and the beginnin
 Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them. Note: `Ability.tickEvent` works somewhat differently from a `Tick()` function - `tickEvent` is an actual event that just happens to fire once per tick. Each invocation of the callback runs on its own task. This means that, unlike `Tick()`, there is no guarantee that it will wait for the previous `tickEvent` to finish before starting the next one. This means you can't use things like `Task.Wait()` to add time between ticks!
 
 ```lua
-    local equipment = script.parent
-    local allAbilities = equipment:GetAbilities()
+local equipment = script.parent
+local allAbilities = equipment:GetAbilities()
 
-    function OnTick(ability, deltaTime)
-        print("Updating ability " .. ability.name)
-    end
+function OnTick(ability, deltaTime)
+    print("Updating ability " .. ability.name)
+end
 
-    for _,ability in ipairs(allAbilities) do
-        ability.tickEvent:Connect(OnTick)
-    end
+for _,ability in ipairs(allAbilities) do
+    ability.tickEvent:Connect(OnTick)
+end
 ```
 
 ### Ability.Activate
@@ -206,26 +204,26 @@ The Ability `Activate()` function is client-only, behaving as if the player had 
 Server script:
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
 
-    trigger.beginOverlapEvent(function(trigger, other)
-        if other:IsA("Player") then
-            Events.BroadcastToPlayer(other, "SteppedOnObject")
-        end
-    end)
+trigger.beginOverlapEvent(function(trigger, other)
+    if other:IsA("Player") then
+        Events.BroadcastToPlayer(other, "SteppedOnObject")
+    end
+end)
 
 --[[#description
-        Client context script under the ability:
+    Client context script under the ability:
 ]]
-    local ability = script:FindAncestorByType("Ability")
+local ability = script:FindAncestorByType("Ability")
 
-    function OnPlayAnimation()
-        if ability.owner and ability.owner == Game.GetLocalPlayer() then
-            ability:Activate()
-        end
+function OnPlayAnimation()
+    if ability.owner and ability.owner == Game.GetLocalPlayer() then
+        ability:Activate()
     end
+end
 
-    Events.Connect("SteppedOnObject", OnPlayAnimation)
+Events.Connect("SteppedOnObject", OnPlayAnimation)
 ```
 
 ### Ability.GetCurrentPhase
@@ -235,17 +233,17 @@ Server script:
 In this example, while the ability is on cooldown the percent completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
+local ability = script:FindAncestorByType("Ability")
 
-    function Tick()
-        if ability:GetCurrentPhase() == AbilityPhase.COOLDOWN then
-            local duration = ability.cooldownPhaseSettings.duration
-            local remaining = ability:GetPhaseTimeRemaining()
-            local percent = 100 * (1 - remaining / duration)
+function Tick()
+    if ability:GetCurrentPhase() == AbilityPhase.COOLDOWN then
+        local duration = ability.cooldownPhaseSettings.duration
+        local remaining = ability:GetPhaseTimeRemaining()
+        local percent = 100 * (1 - remaining / duration)
 
-            print("Cooldown remaining: %" .. string.format("%.2f",percent))
-        end
+        print("Cooldown remaining: %" .. string.format("%.2f",percent))
     end
+end
 ```
 
 ### Ability.GetTargetData
@@ -255,19 +253,19 @@ In this example, while the ability is on cooldown the percent completion of the 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
+local ability = script:FindAncestorByType("Ability")
 
-    function OnCast(ability)
-        local abilityTarget = ability:GetTargetData()
-        local pos = abilityTarget:GetHitPosition()
+function OnCast(ability)
+    local abilityTarget = ability:GetTargetData()
+    local pos = abilityTarget:GetHitPosition()
 
-        pos.z = ability.owner:GetWorldPosition().z + 50
+    pos.z = ability.owner:GetWorldPosition().z + 50
 
-        abilityTarget:SetHitPosition(pos)
-        ability:SetTargetData(abilityTarget)
-    end
+    abilityTarget:SetHitPosition(pos)
+    ability:SetTargetData(abilityTarget)
+end
 
-    ability.castEvent:Connect(OnCast)
+ability.castEvent:Connect(OnCast)
 ```
 
 ### Ability.Interrupt
@@ -275,23 +273,23 @@ The ability's targeting data gives a lot of information about where and what the
 Interrupting an ability either sends it back into ready state (if it was still in the Cast phase) or puts it on cooldown. In this example, we have an ability that searches for all enemies in a 10 meter radius and interrupts their abilities.
 
 ```lua
-    local ability = script.parent
-    local RADIUS = 1000 -- 10 meters
+local ability = script.parent
+local RADIUS = 1000 -- 10 meters
 
-    function OnExecute(ability)
-        local center = ability.owner:GetWorldPosition()
-        -- Search for enemies
-        local enemies = Game.FindPlayersInCylinder(center, RADIUS, {ignoreTeams = ability.owner.team})
-        for _, enemy in ipairs(enemies) do
-            -- Interrupt all their abilities
-            local enemyAbilities = enemy:GetAbilities()
-            for _,a in ipairs(enemyAbilities) do
-                a:Interrupt()
-            end
+function OnExecute(ability)
+    local center = ability.owner:GetWorldPosition()
+    -- Search for enemies
+    local enemies = Game.FindPlayersInCylinder(center, RADIUS, {ignoreTeams = ability.owner.team})
+    for _, enemy in ipairs(enemies) do
+        -- Interrupt all their abilities
+        local enemyAbilities = enemy:GetAbilities()
+        for _,a in ipairs(enemyAbilities) do
+            a:Interrupt()
         end
     end
+end
 
-    ability.executeEvent:Connect(OnExecute)
+ability.executeEvent:Connect(OnExecute)
 ```
 
 ### Ability.animation
@@ -299,46 +297,46 @@ Interrupting an ability either sends it back into ready state (if it was still i
 In this example, the `ProcessAbilities()` function can be called once, such as at the beginning of a round, to take inventory of a player's abilities and classify them based on animation. This example also demonstrates how to disconnect event listeners so that we don't listen for the same event multiple times.
 
 ```lua
-    function OnMelee1HandCast(ability)
-        print("One-handed melee attack")
+function OnMelee1HandCast(ability)
+    print("One-handed melee attack")
+end
+
+function OnMelee2HandCast(ability)
+    print("Two-handed melee attack")
+end
+
+local abilityEventListeners = {}
+
+function CleanupListeners(player)
+    -- If we have previously processed this player, cleanup all listeners
+    if abilityEventListeners[player] then
+        for i, eventListener in ipairs(abilityEventListeners[player]) do
+            eventListener:Disconnect()
+        end
+        abilityEventListeners[player] = nil
     end
+end
 
-    function OnMelee2HandCast(ability)
-        print("Two-handed melee attack")
-    end
+function ProcessAbilities(player)
+    CleanupListeners(player)
 
-    local abilityEventListeners = {}
+    local allAbilities = player:GetAbilities()
 
-    function CleanupListeners(player)
-        -- If we have previously processed this player, cleanup all listeners
-        if abilityEventListeners[player] then
-            for i, eventListener in ipairs(abilityEventListeners[player]) do
-                eventListener:Disconnect()
+    for _, ability in ipairs(allAbilities) do
+        if string.match(ability.animation, "melee") then
+            local eventListener
+            if string.match(ability.animation, "1h") then
+                eventListener = ability.castEvent:Connect(OnMelee1HandCast)
+            else
+                eventListener = ability.castEvent:Connect(OnMelee2HandCast)
             end
-            abilityEventListeners[player] = nil
+            table.insert(abilityEventListeners[player], eventListener)
         end
     end
+end
 
-    function ProcessAbilities(player)
-        CleanupListeners(player)
-
-        local allAbilities = player:GetAbilities()
-
-        for _, ability in ipairs(allAbilities) do
-            if string.match(ability.animation, "melee") then
-                local eventListener
-                if string.match(ability.animation, "1h") then
-                    eventListener = ability.castEvent:Connect(OnMelee1HandCast)
-                else
-                    eventListener = ability.castEvent:Connect(OnMelee2HandCast)
-                end
-                table.insert(abilityEventListeners[player], eventListener)
-            end
-        end
-    end
-
-    -- Lets also cleanup when a player leaves the game, as perhaps their ability objects might stay in the game.
-    Game.playerLeftEvent:Connect(CleanupListeners)
+-- Lets also cleanup when a player leaves the game, as perhaps their ability objects might stay in the game.
+Game.playerLeftEvent:Connect(CleanupListeners)
 ```
 
 ### Ability.canActivateWhileDead
@@ -346,49 +344,49 @@ In this example, the `ProcessAbilities()` function can be called once, such as a
 Some games may have abilities that can be used while the player is dead. In this example, we have abilities that can **only** be activated while dead. If not dead, then it's interrupted.
 
 ```lua
-    local ability = script:FindAncestorByType("Ability")
+local ability = script:FindAncestorByType("Ability")
 
-    function OnCast(ability)
-        if ability.canActivateWhileDead and not ability.owner.isDead then
-            ability:Interrupt()
-        end
+function OnCast(ability)
+    if ability.canActivateWhileDead and not ability.owner.isDead then
+        ability:Interrupt()
     end
+end
 
-    ability.castEvent:Connect(OnCast)
+ability.castEvent:Connect(OnCast)
 
 --[[#description
-        On the client context, a user interface component that displays ability details is hidden until the player dies:
+    On the client context, a user interface component that displays ability details is hidden until the player dies:
 ]]
-    local abilityCanvas = script:GetCustomProperty("Canvas")
-    local BINDING = script:GetCustomProperty("Binding")
+local abilityCanvas = script:GetCustomProperty("Canvas")
+local BINDING = script:GetCustomProperty("Binding")
 
-    function Tick(deltaTime)
-        local ability = GetLocalPlayerAbilityWithBinding()
+function Tick(deltaTime)
+    local ability = GetLocalPlayerAbilityWithBinding()
 
-        if ability
-        and ability.isEnabled
-        and ability.canActivateWhileDead
-        and ability.owner
-        and ability.owner.isDead then
+    if ability
+    and ability.isEnabled
+    and ability.canActivateWhileDead
+    and ability.owner
+    and ability.owner.isDead then
 
-            abilityCanvas.visibility = Visibility.INHERIT
-        else
-            abilityCanvas.visibility = Visibility.FORCE_OFF
+        abilityCanvas.visibility = Visibility.INHERIT
+    else
+        abilityCanvas.visibility = Visibility.FORCE_OFF
+    end
+end
+
+-- Searches the local player's abilities until one with a matching action binding is found
+-- The BINDING search criteria should be set in the custom property
+function GetLocalPlayerAbilityWithBinding()
+    local abilities = Game.GetLocalPlayer():GetAbilities()
+    for _, ability in pairs(abilities) do
+        if ability.actionBinding == BINDING then
+            return ability
         end
     end
 
-    -- Searches the local player's abilities until one with a matching action binding is found
-    -- The BINDING search criteria should be set in the custom property
-    function GetLocalPlayerAbilityWithBinding()
-        local abilities = Game.GetLocalPlayer():GetAbilities()
-        for _, ability in pairs(abilities) do
-            if ability.actionBinding == BINDING then
-                return ability
-            end
-        end
-
-        return nil
-    end
+    return nil
+end
 ```
 
 ### Ability.canBePrevented
@@ -396,23 +394,23 @@ Some games may have abilities that can be used while the player is dead. In this
 In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
 
 ```lua
-    local ability = script.parent
-    local cancelSound = script:GetCustomProperty("CancelSound")
+local ability = script.parent
+local cancelSound = script:GetCustomProperty("CancelSound")
 
-    function OnInterrupted(ability)
-        local player = ability.owner
-        if not Object.IsValid(player) then return end
+function OnInterrupted(ability)
+    local player = ability.owner
+    if not Object.IsValid(player) then return end
 
-        for _, a in ipairs(player:GetAbilities()) do
-            if a:GetCurrentPhase() ~= AbilityPhase.READY and not a.canBePrevented then
-                player:AddImpulse(Vector3.UP * 1000)
-                World.SpawnAsset(cancelSound, {position = player:GetWorldPosition()})
-                return
-            end
+    for _, a in ipairs(player:GetAbilities()) do
+        if a:GetCurrentPhase() ~= AbilityPhase.READY and not a.canBePrevented then
+            player:AddImpulse(Vector3.UP * 1000)
+            World.SpawnAsset(cancelSound, {position = player:GetWorldPosition()})
+            return
         end
     end
+end
 
-    ability.interruptedEvent:Connect(OnInterrupted)
+ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
 ### Ability.castPhaseSettings
@@ -426,42 +424,42 @@ In this example, an ability recognizes that it has been interrupted by the activ
 In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
 
 ```lua
-    local COUNTDOWN_TEXT = script:GetCustomProperty("CountdownText"):WaitForObject()
+local COUNTDOWN_TEXT = script:GetCustomProperty("CountdownText"):WaitForObject()
 
-    function UpdateForAbility(ability)
-        local currentPhase = ability:GetCurrentPhase()
+function UpdateForAbility(ability)
+    local currentPhase = ability:GetCurrentPhase()
 
-        local percent = 1
-        local cooldownText = "Ready"
+    local percent = 1
+    local cooldownText = "Ready"
 
-        if currentPhase ~= AbilityPhase.READY then
-            local phaseDuration
-            local timeRemaining = ability:GetPhaseTimeRemaining()
+    if currentPhase ~= AbilityPhase.READY then
+        local phaseDuration
+        local timeRemaining = ability:GetPhaseTimeRemaining()
 
-            if currentPhase == AbilityPhase.CAST then
-                phaseDuration = ability.castPhaseSettings.duration
-            elseif currentPhase == AbilityPhase.EXECUTE then
-                -- In the case of Execute and Recovery phases, we can show those as a single one
-                local recoveryD = ability.recoveryPhaseSettings.duration
-                phaseDuration = ability.executePhaseSettings.duration + recoveryD
-                timeRemaining = timeRemaining + recoveryD
-            elseif currentPhase == AbilityPhase.RECOVERY then
-                phaseDuration = ability.recoveryPhaseSettings.duration
-            else --currentPhase == AbilityPhase.COOLDOWN
-                phaseDuration = ability.cooldownPhaseSettings.duration
-            end
-
-            if phaseDuration > 0 then
-                percent = 1 - timeRemaining / phaseDuration
-            end
-            cooldownText = string.format("%.1f", timeRemaining)
+        if currentPhase == AbilityPhase.CAST then
+            phaseDuration = ability.castPhaseSettings.duration
+        elseif currentPhase == AbilityPhase.EXECUTE then
+            -- In the case of Execute and Recovery phases, we can show those as a single one
+            local recoveryD = ability.recoveryPhaseSettings.duration
+            phaseDuration = ability.executePhaseSettings.duration + recoveryD
+            timeRemaining = timeRemaining + recoveryD
+        elseif currentPhase == AbilityPhase.RECOVERY then
+            phaseDuration = ability.recoveryPhaseSettings.duration
+        else --currentPhase == AbilityPhase.COOLDOWN
+            phaseDuration = ability.cooldownPhaseSettings.duration
         end
 
-        COUNTDOWN_TEXT.text = cooldownText
-
-        local c = Color.Lerp(Color.BLACK, Color.WHITE, percent)
-        COUNTDOWN_TEXT:SetColor(c)
+        if phaseDuration > 0 then
+            percent = 1 - timeRemaining / phaseDuration
+        end
+        cooldownText = string.format("%.1f", timeRemaining)
     end
+
+    COUNTDOWN_TEXT.text = cooldownText
+
+    local c = Color.Lerp(Color.BLACK, Color.WHITE, percent)
+    COUNTDOWN_TEXT:SetColor(c)
+end
 ```
 
 ### Ability.isEnabled
@@ -469,32 +467,32 @@ In this example, a function in a client context script can be called to show the
 In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
 
 ```lua
-    local equipment = script:FindAncestorByType("Equipment")
-    local abilities = {}
-    local abilityIndex = 1
+local equipment = script:FindAncestorByType("Equipment")
+local abilities = {}
+local abilityIndex = 1
 
-    function OnAbilityRecovery(ability)
-        if (#abilities > 1) then
-            abilities[abilityIndex].isEnabled = false
-            abilities[abilityIndex].owner = nil
+function OnAbilityRecovery(ability)
+    if (#abilities > 1) then
+        abilities[abilityIndex].isEnabled = false
+        abilities[abilityIndex].owner = nil
 
-            abilityIndex = abilityIndex + 1
-            if (abilityIndex > #abilities) then
-                abilityIndex = 1
-            end
-
-            abilities[abilityIndex].isEnabled = true
-            abilities[abilityIndex].owner = equipment.owner
+        abilityIndex = abilityIndex + 1
+        if (abilityIndex > #abilities) then
+            abilityIndex = 1
         end
+
+        abilities[abilityIndex].isEnabled = true
+        abilities[abilityIndex].owner = equipment.owner
     end
+end
 
-    for _, child in pairs(equipment:FindDescendantsByType("Ability")) do
-        table.insert(abilities, child)
+for _, child in pairs(equipment:FindDescendantsByType("Ability")) do
+    table.insert(abilities, child)
 
-        child.isEnabled = (#abilities == 1)
+    child.isEnabled = (#abilities == 1)
 
-        child.recoveryEvent:Connect(OnAbilityRecovery)
-    end
+    child.recoveryEvent:Connect(OnAbilityRecovery)
+end
 ```
 
 ### Ability.name
@@ -504,28 +502,28 @@ In this example, an equipment is setup with multiple abilities that all use the 
 Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
 
 ```lua
-    local BINDING = script:GetCustomProperty("Binding")
-    local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
+local BINDING = script:GetCustomProperty("Binding")
+local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
 
-    function GetLocalPlayerAbilityWithBinding()
-        local player = Game.GetLocalPlayer()
-        local abilities = player:GetAbilities()
+function GetLocalPlayerAbilityWithBinding()
+    local player = Game.GetLocalPlayer()
+    local abilities = player:GetAbilities()
 
-        for _, ability in pairs(abilities) do
-            if ability.actionBinding == BINDING then
-                return ability
-            end
-        end
-
-        return nil
-    end
-
-    function Tick()
-        local ability = GetLocalPlayerAbilityWithBinding()
-        if ability then
-            NAME_UI.text = ability.name
+    for _, ability in pairs(abilities) do
+        if ability.actionBinding == BINDING then
+            return ability
         end
     end
+
+    return nil
+end
+
+function Tick()
+    local ability = GetLocalPlayerAbilityWithBinding()
+    if ability then
+        NAME_UI.text = ability.name
+    end
+end
 ```
 
 ### Ability.owner
@@ -533,14 +531,14 @@ Even though some API properties are read-only, they are useful is solutions such
 Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property.
 
 ```lua
-    local abilityTemplate = script:GetCustomProperty("AbilityTemplate")
+local abilityTemplate = script:GetCustomProperty("AbilityTemplate")
 
-    function OnPlayerJoined(player)
-        local ability = World.SpawnAsset(abilityTemplate)
-        ability.owner = player
-    end
+function OnPlayerJoined(player)
+    local ability = World.SpawnAsset(abilityTemplate)
+    ability.owner = player
+end
 
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ## Tutorials 

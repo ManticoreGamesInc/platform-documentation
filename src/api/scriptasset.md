@@ -1,6 +1,4 @@
-# 
-
-ScriptAsset
+# ScriptAsset
 
 ## Description
 

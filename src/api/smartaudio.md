@@ -1,6 +1,4 @@
-# 
-
-SmartAudio
+# SmartAudio
 
 ## Description
 
