@@ -83,27 +83,85 @@ nav:
           - Frameworks:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
           - Weapons: tutorials/weapons.md
-      - Core API:
-          - API Overview: core_api.md
-          - Game Components: api/components.md
-          - Key Bindings: api/key_bindings.md
-          - Animations & Sockets: api/animations.md
-          - Contexts: api/contexts.md
-          - Lua in Core: tutorials/lua_reference.md
-          - Lua Style Guide: tutorials/lua_style_guide.md
-          - Editor Extensions: extensions.md
-          - Examples & Snippets: api/examples.md
   - Core API:
-      - API Overview: core_api.md
-      - Game Components: api/components.md
-      - Key Bindings: api/key_bindings.md
+      - Overview: core_api.md
+      - Ability: api/ability.md
+      - AbilityPhaseSettings: api/abilityphasesettings.md
+      - AbilityTarget: api/abilitytarget.md
+      - AnimatedMesh: api/animatedmesh.md
       - Animations & Sockets: api/animations.md
+      - AreaLight: api/arealight.md
+      - Audio: api/audio.md
+      - Camera: api/camera.md
       - Contexts: api/contexts.md
+      - Color: api/color.md
+      - CoreDebug: api/coredebug.md
+      - CoreLuaFunctions: api/coreluafunctions.md
+      - CoreMath: api/coremath.md
+      - CoreMesh: api/coremesh.md
+      - CoreObject: api/coreobject.md
+      - CoreObjectReference: api/coreobjectreference.md
+      - CoreString: api/corestring.md
+      - Damage: api/damage.md
+      - Environment: api/environment.md
+      - Equipment: api/equipment.md
+      - Event: api/event.md
+      - EventListener: api/eventlistener.md
+      - Events: api/events.md
+      - Folder: api/folder.md
+      - Game: api/game.md
+      - Game Components: api/components.md
+      - HitResult: api/hitresult.md
+      - ImpactRata: api/impactdata.md
+      - LeaderboardEntry: api/leaderboardentry.md
+      - Leaderboards: api/leaderboards.md
+      - Light: api/light.md
+      - MergedModel: api/mergedmodel.md
+      - NetReference: api/netreference.md
+      - NetworkContext: api/networkcontext.md
+      - Object: api/object.md
+      - Other: api/other.md
+      - Player: api/player.md
+      - PlayerSettings: api/playersettings.md
+      - PlayerStart: api/playerstart.md
+      - PointLight: api/pointlight.md
+      - Projectile: api/projectile.md
+      - Quaternion: api/quaternion.md
+      - RandomStream: api/randomstream.md
+      - Rotation: api/rotation.md
+      - Script: api/script.md
+      - ScriptAsset: api/scriptasset.md
+      - SmartAudio: api/smartaudio.md
+      - SmartObject: api/smartobject.md
+      - SpotLight: api/spotlight.md
+      - StaticMesh: api/staticmesh.md
       - Storage: api/storage.md
+      - Task: api/task.md
+      - Teams: api/teams.md
+      - Terrain: api/terrain.md
+      - Transform: api/transform.md
+      - Trigger: api/trigger.md
+      - UI: api/ui.md
+      - UIButton: api/uibutton.md
+      - UIContainer: api/uicontainer.md
+      - UIControl: api/uicontrol.md
+      - UIImage: api/uiimage.md
+      - UIPanel: api/uipanel.md
+      - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
+      - UIProgressBar: api/uiprogressbar.md
+      - UIScrollPanel: api/uiscrollpanel.md
+      - UIText: api/uitext.md
+      - Vector2: api/vector2.md
+      - Vector3: api/vector3.md
+      - Vector4: api/vector4.md
+      - Vfx: api/vfx.md
+      - Weapon: api/weapon.md
+      - World: api/world.md
+      - WorldText: api/worldtext.md
+      - Key Bindings: api/key_bindings.md
       - Lua in Core: tutorials/lua_reference.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Editor Extensions: extensions.md
-      - Examples & Snippets: api/examples.md
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:
@@ -124,6 +182,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.instant
+    - toc.integrate
   palette:
     primary: core-orange
     accent: core-blue
