@@ -1,6 +1,4 @@
-# 
-
-Environment
+# Environment
 
 ## Description
 

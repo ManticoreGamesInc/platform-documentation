@@ -1,6 +1,4 @@
-# 
-
-SpotLight
+# SpotLight
 
 ## Description
 

@@ -1,6 +1,4 @@
-# 
-
-NetworkContext
+# NetworkContext
 
 ## Description
 

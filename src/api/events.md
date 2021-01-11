@@ -1,6 +1,4 @@
-# 
-
-Events
+# Events
 
 ## Description
 
@@ -51,30 +49,30 @@ This event connection allows the server to send a message to all players. In thi
 Server script:
 
 ```lua
-    local teamHasFlag = 0
+local teamHasFlag = 0
 
-    function OnBeginOverlap(trigger, other)
-        if other and other:IsA("Player") and other.team ~= teamHasFlag then
-            teamHasFlag = other.team
+function OnBeginOverlap(trigger, other)
+    if other and other:IsA("Player") and other.team ~= teamHasFlag then
+        teamHasFlag = other.team
 
-            local resultCode, errorMsg = Events.BroadcastToAllPlayers("FlagCaptured", other.name, other.team)
-            print("Server sent FlagCaptured event. Result Code = " .. resultCode .. ", error message = " .. errorMsg)
-        end
+        local resultCode, errorMsg = Events.BroadcastToAllPlayers("FlagCaptured", other.name, other.team)
+        print("Server sent FlagCaptured event. Result Code = " .. resultCode .. ", error message = " .. errorMsg)
     end
+end
 
-    script.parent.beginOverlapEvent:Connect(OnBeginOverlap)
+script.parent.beginOverlapEvent:Connect(OnBeginOverlap)
 
 --[[#description
-        Client script:
+    Client script:
 ]]
-    function OnFlagCaptured(playerName, playerTeam)
-        local message = playerName .. " captured the flag for team " .. playerTeam
+function OnFlagCaptured(playerName, playerTeam)
+    local message = playerName .. " captured the flag for team " .. playerTeam
 
-        UI.PrintToScreen(message, Color.MAGENTA)
-        print(message)
-    end
+    UI.PrintToScreen(message, Color.MAGENTA)
+    print(message)
+end
 
-    Events.Connect("FlagCaptured", OnFlagCaptured)
+Events.Connect("FlagCaptured", OnFlagCaptured)
 ```
 
 ### Events.BroadcastToPlayer
@@ -82,23 +80,23 @@ Server script:
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
 ```lua
-    local ABILITY
+local ABILITY
 
-    function OnExecute(ability)
-        if ability.owner:GetResource("Bandages") <= 0 then
-            Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "No Bandages to Apply")
-            return
-        end
-
-        if ability.owner.hitPoints < ability.owner.maxHitPoints then
-            ability.owner:ApplyDamage(Damage.New(-30))
-            ability.owner:RemoveResource("Bandages", 1)
-        else
-            Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "Full Health")
-        end
+function OnExecute(ability)
+    if ability.owner:GetResource("Bandages") <= 0 then
+        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "No Bandages to Apply")
+        return
     end
 
-    ABILITY.executeEvent:Connect(OnExecute)
+    if ability.owner.hitPoints < ability.owner.maxHitPoints then
+        ability.owner:ApplyDamage(Damage.New(-30))
+        ability.owner:RemoveResource("Bandages", 1)
+    else
+        Events.BroadcastToPlayer(ability.owner, "BannerSubMessage", "Full Health")
+    end
+end
+
+ABILITY.executeEvent:Connect(OnExecute)
 ```
 
 ### Events.Connect
@@ -110,27 +108,27 @@ The `Events` namespace allows two separate scripts to communicate without the ne
 Primary script that drives the state machine:
 
 ```lua
-    local currentState = ""
+local currentState = ""
 
-    function SetState(newState)
-        currentState = newState
-        Events.Broadcast("GameStateChanged", newState)
-    end
+function SetState(newState)
+    currentState = newState
+    Events.Broadcast("GameStateChanged", newState)
+end
 
-    function Tick(deltaTime)
-        SetState("Lobby")
-        Task.Wait(1)
-        SetState("Playing")
-        Task.Wait(3)
-    end
+function Tick(deltaTime)
+    SetState("Lobby")
+    Task.Wait(1)
+    SetState("Playing")
+    Task.Wait(3)
+end
 
 --[[#description
-        A separate script that listens to event changes:
+    A separate script that listens to event changes:
 ]]
-    function OnStateChanged(newState)
-        print("New State = " .. newState)
-    end
-    Events.Connect("GameStateChanged", OnStateChanged)
+function OnStateChanged(newState)
+    print("New State = " .. newState)
+end
+Events.Connect("GameStateChanged", OnStateChanged)
 ```
 
 ### Events.ConnectForPlayer
@@ -142,20 +140,20 @@ This event connection allows the server to listen for broadcasts that originate 
 Server script:
 
 ```lua
-    function OnPlayerInputData(player, data)
-        print("Player " .. player.name .. " sent  data = " .. tostring(data))
-    end
+function OnPlayerInputData(player, data)
+    print("Player " .. player.name .. " sent  data = " .. tostring(data))
+end
 
-    Events.ConnectForPlayer("CursorPosition", OnPlayerInputData)
+Events.ConnectForPlayer("CursorPosition", OnPlayerInputData)
 
 --[[#description
-        Client script:
+    Client script:
 ]]
-    UI.SetCursorVisible(true)
+UI.SetCursorVisible(true)
 
-    function Tick(deltaTime)
-        local cursorPos = UI.GetCursorPosition()
-        Events.BroadcastToServer("CursorPosition", cursorPos)
-        Task.Wait(0.25)
-    end
+function Tick(deltaTime)
+    local cursorPos = UI.GetCursorPosition()
+    Events.BroadcastToServer("CursorPosition", cursorPos)
+    Task.Wait(0.25)
+end
 ```

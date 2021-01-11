@@ -1,6 +1,4 @@
-# 
-
-PlayerStart
+# PlayerStart
 
 ## Description
 

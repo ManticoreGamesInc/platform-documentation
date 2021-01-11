@@ -1,6 +1,4 @@
-# 
-
-Rotation
+# Rotation
 
 ## Description
 
@@ -45,39 +43,39 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 There are several different ways to create new Rotations.
 
 ```lua
-    -- Calling the constructor without arguments generates a zero rotation.
-    -- (Rotates by zero degrees, so no change.)
-    local zeroRotation = Rotation.New()
-    ut.EXPECT_ROT_EQUAL(zeroRotation, Rotation.ZERO, "empty constructor")
+-- Calling the constructor without arguments generates a zero rotation.
+-- (Rotates by zero degrees, so no change.)
+local zeroRotation = Rotation.New()
+ut.EXPECT_ROT_EQUAL(zeroRotation, Rotation.ZERO, "empty constructor")
 
-    -- You can also describe a rotation by providing Euler angles:
-    -- This rotation will rotate something 90 degrees around the Z axis.
-    local rotation90z = Rotation.New(0, 0, 90)
-    ut.EXPECT_ROT_EQUAL(rotation90z * Vector3.FORWARD, Vector3.RIGHT, "euler angle constructor")
+-- You can also describe a rotation by providing Euler angles:
+-- This rotation will rotate something 90 degrees around the Z axis.
+local rotation90z = Rotation.New(0, 0, 90)
+ut.EXPECT_ROT_EQUAL(rotation90z * Vector3.FORWARD, Vector3.RIGHT, "euler angle constructor")
 
-    -- Quaternions can be transformed into Rotations using constructors.
-    -- This will produce a 90 degree rotation. (From a 90 degree Quaternion)
-    local quatRotation = Rotation.New(Quaternion.New(Vector3.UP, 90))
-    ut.EXPECT_ROT_EQUAL(quatRotation, rotation90z, "quaternion constructor")
+-- Quaternions can be transformed into Rotations using constructors.
+-- This will produce a 90 degree rotation. (From a 90 degree Quaternion)
+local quatRotation = Rotation.New(Quaternion.New(Vector3.UP, 90))
+ut.EXPECT_ROT_EQUAL(quatRotation, rotation90z, "quaternion constructor")
 
-    -- You can also use the Rotation constructor to generate a rotation that would
-    -- transform Vector3.FORWARD (0, 1, 0) to point in the given direction.
-    -- (You also have to provide it with an up vector, to use as a reference.)
-    local vec1 = Vector3.New(3, 4, 5)
-    local vecRotation = Rotation.New(vec1, Vector3.UP)
-    local vec2 = vecRotation * Vector3.FORWARD
-    -- vec2 now points in the same direction as vec1.
-    ut.EXPECT_VEC_EQUAL(vec1:GetNormalized(), vec2, "point to constructor")
+-- You can also use the Rotation constructor to generate a rotation that would
+-- transform Vector3.FORWARD (0, 1, 0) to point in the given direction.
+-- (You also have to provide it with an up vector, to use as a reference.)
+local vec1 = Vector3.New(3, 4, 5)
+local vecRotation = Rotation.New(vec1, Vector3.UP)
+local vec2 = vecRotation * Vector3.FORWARD
+-- vec2 now points in the same direction as vec1.
+ut.EXPECT_VEC_EQUAL(vec1:GetNormalized(), vec2, "point to constructor")
 
-    -- The constructor can also be used to copy rotations:
-    local rotationCopy = Rotation.New(rotation90z)
-    ut.EXPECT_ROT_EQUAL(rotationCopy, rotation90z, "copy constructor")
+-- The constructor can also be used to copy rotations:
+local rotationCopy = Rotation.New(rotation90z)
+ut.EXPECT_ROT_EQUAL(rotationCopy, rotation90z, "copy constructor")
 
-    -- Rotation.ZERO can be used to quickly generate a rotation of zero
-    -- degrees. (So it won't change anything.)
-    local newVec1 = Rotation.ZERO * vec1
-    -- newVec1 is still the same as vec1, because it hasn't rotated.
-    ut.EXPECT_VEC_EQUAL(newVec1, vec1, "identity constructor")
+-- Rotation.ZERO can be used to quickly generate a rotation of zero
+-- degrees. (So it won't change anything.)
+local newVec1 = Rotation.ZERO * vec1
+-- newVec1 is still the same as vec1, because it hasn't rotated.
+ut.EXPECT_VEC_EQUAL(newVec1, vec1, "identity constructor")
 ```
 
 ### Rotation+Rotation
@@ -93,36 +91,36 @@ There are several different ways to create new Rotations.
 You can add and subtract rotations from each other, scale them, and apply them to vectors via arithmetic operators.
 
 ```lua
-    local rotate90x = Rotation.New(90, 0, 0)
-    local rotate90y = Rotation.New(0, 90, 0)
-    local rotate90z = Rotation.New(0, 0, 90)
+local rotate90x = Rotation.New(90, 0, 0)
+local rotate90y = Rotation.New(0, 90, 0)
+local rotate90z = Rotation.New(0, 0, 90)
 
-    -- Add two rotations together to get their sum:
-    local rotate90xy = rotate90x + rotate90y
-    -- This is now (90, 90, 0)
-    ut.EXPECT_ROT_EQUAL(rotate90xy, Rotation.New(90, 90, 0), "addition")
+-- Add two rotations together to get their sum:
+local rotate90xy = rotate90x + rotate90y
+-- This is now (90, 90, 0)
+ut.EXPECT_ROT_EQUAL(rotate90xy, Rotation.New(90, 90, 0), "addition")
 
-    -- Subtract a rotation from another to find the difference:
-    local new_rotate90x = rotate90xy - rotate90y
-    -- This is now (90, 0, 0)
-    ut.EXPECT_ROT_EQUAL(new_rotate90x, Rotation.New(90, 0, 0), "subtraction")
+-- Subtract a rotation from another to find the difference:
+local new_rotate90x = rotate90xy - rotate90y
+-- This is now (90, 0, 0)
+ut.EXPECT_ROT_EQUAL(new_rotate90x, Rotation.New(90, 0, 0), "subtraction")
 
-    -- You can scale a rotation by multiplying it by a number.
-    local rotate180x = rotate90x * 2
-    -- This is now (180, 0, 0)
-    ut.EXPECT_ROT_EQUAL(rotate180x, Rotation.New(180, 0, 0), "subtraction")
+-- You can scale a rotation by multiplying it by a number.
+local rotate180x = rotate90x * 2
+-- This is now (180, 0, 0)
+ut.EXPECT_ROT_EQUAL(rotate180x, Rotation.New(180, 0, 0), "subtraction")
 
-    -- Multiplying a rotation by a vector applies the rotation to the vector and returns
-    -- the rotated vector as a result.
-    local forwardVec = Vector3.New(10, 0, 0)
-    local rightVec = rotate90z * forwardVec
-    -- rightVec is now (0, 10, 0)
-    ut.EXPECT_VEC_EQUAL(rightVec, Vector3.New(0, 10, 0), "apply to vector")
+-- Multiplying a rotation by a vector applies the rotation to the vector and returns
+-- the rotated vector as a result.
+local forwardVec = Vector3.New(10, 0, 0)
+local rightVec = rotate90z * forwardVec
+-- rightVec is now (0, 10, 0)
+ut.EXPECT_VEC_EQUAL(rightVec, Vector3.New(0, 10, 0), "apply to vector")
 
-    -- You can invert a rotation via the minus sign:
-    local rotate90x_negative = -rotate90x
-    -- This is now (-90, 0, 0)
-    ut.EXPECT_ROT_EQUAL(rotate90x_negative, Vector3.New(-90, 0, 0), "negation")
+-- You can invert a rotation via the minus sign:
+local rotate90x_negative = -rotate90x
+-- This is now (-90, 0, 0)
+ut.EXPECT_ROT_EQUAL(rotate90x_negative, Vector3.New(-90, 0, 0), "negation")
 ```
 
 ### Rotation.x
@@ -134,11 +132,11 @@ You can add and subtract rotations from each other, scale them, and apply them t
 The x, y, and z components of a rotation can be accessed directly. These numbers represent the number of degrees to rotate around their respective axis.
 
 ```lua
-    local newRotation = Rotation.New()
-    newRotation.x = 90
-    newRotation.y = 45
-    newRotation.z = 180
-    -- This creates a rotation of 90 degrees about the x axis, 45 degrees about the y axis, and
-    -- 180 degrees about the z axis.
-    ut.EXPECT_ROT_EQUAL(newRotation, Rotation.New(90, 45, 180), "properties")
+local newRotation = Rotation.New()
+newRotation.x = 90
+newRotation.y = 45
+newRotation.z = 180
+-- This creates a rotation of 90 degrees about the x axis, 45 degrees about the y axis, and
+-- 180 degrees about the z axis.
+ut.EXPECT_ROT_EQUAL(newRotation, Rotation.New(90, 45, 180), "properties")
 ```

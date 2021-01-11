@@ -1,6 +1,4 @@
-# 
-
-Trigger
+# Trigger
 
 ## Description
 
@@ -41,17 +39,17 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 In this example, players die when they walk over the trigger. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
 
-    function OnBeginOverlap(theTrigger, player)
-        -- The object's type must be checked because CoreObjects also overlap triggers, but we
-        -- only call :Die() on players.
-        if player and player:IsA("Player") then
-            player:Die()
-        end
+function OnBeginOverlap(theTrigger, player)
+    -- The object's type must be checked because CoreObjects also overlap triggers, but we
+    -- only call :Die() on players.
+    if player and player:IsA("Player") then
+        player:Die()
     end
+end
 
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 ### Trigger.endOverlapEvent
@@ -59,30 +57,30 @@ In this example, players die when they walk over the trigger. The script assumes
 As players enter/exit the trigger the script keeps a table with all currently overlapping players. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    local activePlayers = {}
+local trigger = script.parent
+local activePlayers = {}
 
-    function OnBeginOverlap(theTrigger, player)
-        if player and player:IsA("Player") then
-            table.insert(activePlayers, player)
-            print("The trigger contains " .. #activePlayers .. " players")
-        end
-    end
-
-    function OnEndOverlap(theTrigger, player)
-        if (not player or not player:IsA("Player")) then return end
-
-        for i, p in ipairs(activePlayers) do
-            if (p == player) then
-                table.remove(activePlayers, i)
-                break
-            end
-        end
+function OnBeginOverlap(theTrigger, player)
+    if player and player:IsA("Player") then
+        table.insert(activePlayers, player)
         print("The trigger contains " .. #activePlayers .. " players")
     end
+end
 
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-    trigger.endOverlapEvent:Connect(OnEndOverlap)
+function OnEndOverlap(theTrigger, player)
+    if (not player or not player:IsA("Player")) then return end
+
+    for i, p in ipairs(activePlayers) do
+        if (p == player) then
+            table.remove(activePlayers, i)
+            break
+        end
+    end
+    print("The trigger contains " .. #activePlayers .. " players")
+end
+
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+trigger.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
 ### Trigger.interactedEvent
@@ -90,16 +88,16 @@ As players enter/exit the trigger the script keeps a table with all currently ov
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the F key they are propelled into the air. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    trigger.isInteractable = true
+local trigger = script.parent
+trigger.isInteractable = true
 
-    function OnInteracted(theTrigger, player)
-        -- In this case there is no need to check the type with IsA("Player") because only
-        -- players can trigger the interaction.
-        player:SetVelocity(Vector3.New(0, 0, 10000))
-    end
+function OnInteracted(theTrigger, player)
+    -- In this case there is no need to check the type with IsA("Player") because only
+    -- players can trigger the interaction.
+    player:SetVelocity(Vector3.New(0, 0, 10000))
+end
 
-    trigger.interactedEvent:Connect(OnInteracted)
+trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ### Trigger.GetOverlappingObjects
@@ -107,17 +105,17 @@ In this example, the trigger has the "Interactable" checkbox turned on. When the
 In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
 
-    function Tick()
-        local objects = trigger:GetOverlappingObjects()
+function Tick()
+    local objects = trigger:GetOverlappingObjects()
 
-        for _, obj in pairs(objects) do
-            local pos = obj:GetWorldPosition()
-            pos = pos + Vector3.New(0, 0, 10)
-            obj:SetWorldPosition(pos)
-        end
+    for _, obj in pairs(objects) do
+        local pos = obj:GetWorldPosition()
+        pos = pos + Vector3.New(0, 0, 10)
+        obj:SetWorldPosition(pos)
     end
+end
 ```
 
 ### Trigger.IsOverlapping
@@ -125,17 +123,17 @@ In this example, any objects that overlap with the trigger are pushed upwards un
 In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    local sphere = World.FindObjectByName("PhysicsSphere")
-    local teamToReward = 1
+local trigger = script.parent
+local sphere = World.FindObjectByName("PhysicsSphere")
+local teamToReward = 1
 
-    while true do
-        Task.Wait(1)
-        if (sphere and trigger:IsOverlapping(sphere)) then
-            Game.IncreaseTeamScore(teamToReward, 1)
-            print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-        end
+while true do
+    Task.Wait(1)
+    if (sphere and trigger:IsOverlapping(sphere)) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
     end
+end
 ```
 
 ### Trigger.IsOverlapping
@@ -143,20 +141,20 @@ In this example, a physics sphere is placed in the scene. Every second the spher
 In this example, players score points for their teams for each second they are inside the trigger. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
 
-    while true do
-        Task.Wait(1)
-        local allPlayers = Game.GetPlayers()
+while true do
+    Task.Wait(1)
+    local allPlayers = Game.GetPlayers()
 
-        for _, player in ipairs(allPlayers) do
-            if (trigger:IsOverlapping(player)) then
-                local teamToReward = player.team
-                Game.IncreaseTeamScore(teamToReward, 1)
-                print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-            end
+    for _, player in ipairs(allPlayers) do
+        if (trigger:IsOverlapping(player)) then
+            local teamToReward = player.team
+            Game.IncreaseTeamScore(teamToReward, 1)
+            print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
         end
     end
+end
 ```
 
 ### Trigger.interactionLabel
@@ -164,32 +162,32 @@ In this example, players score points for their teams for each second they are i
 In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    local slideDuration = 2
-    local startPos = trigger:GetWorldPosition()
-    local isOpen = false
+local trigger = script.parent
+local slideDuration = 2
+local startPos = trigger:GetWorldPosition()
+local isOpen = false
 
-    trigger.isInteractable = true
+trigger.isInteractable = true
 
-    function SetState(newState)
-        isOpen = newState
+function SetState(newState)
+    isOpen = newState
 
-        if isOpen then
-            trigger.interactionLabel = "Close"
-            trigger:MoveTo(startPos, slideDuration)
-        else
-            trigger.interactionLabel = "Open"
-            trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
-        end
+    if isOpen then
+        trigger.interactionLabel = "Close"
+        trigger:MoveTo(startPos, slideDuration)
+    else
+        trigger.interactionLabel = "Open"
+        trigger:MoveTo(startPos + Vector3.New(0, 150, 0), slideDuration)
     end
+end
 
-    SetState(true)
+SetState(true)
 
-    function OnInteracted(theTrigger, player)
-        SetState(not isOpen)
-    end
+function OnInteracted(theTrigger, player)
+    SetState(not isOpen)
+end
 
-    trigger.interactedEvent:Connect(OnInteracted)
+trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ### Trigger.isEnemyCollisionEnabled
@@ -197,38 +195,38 @@ In this example, the trigger moves left and right and changes its label dynamica
 In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    trigger.isInteractable = true
+local trigger = script.parent
+trigger.isInteractable = true
+trigger.team = 0
+local onDiedListener = nil
+
+function OnPlayerDied(player, dmg)
+    onDiedListener:Disconnect()
     trigger.team = 0
-    local onDiedListener = nil
+    trigger.isEnemyCollisionEnabled = true
+    print("The objective is neutral again.")
+end
 
-    function OnPlayerDied(player, dmg)
+function OnInteracted(theTrigger, player)
+    local teamToReward = player.team
+
+    if (teamToReward == trigger.team) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
+    else
+        trigger.team = teamToReward
+        trigger.isEnemyCollisionEnabled = false
+        print("The objective now belongs to team " .. player.team)
+    end
+
+    if onDiedListener then
         onDiedListener:Disconnect()
-        trigger.team = 0
-        trigger.isEnemyCollisionEnabled = true
-        print("The objective is neutral again.")
     end
 
-    function OnInteracted(theTrigger, player)
-        local teamToReward = player.team
+    onDiedListener = player.diedEvent:Connect(OnPlayerDied)
+end
 
-        if (teamToReward == trigger.team) then
-            Game.IncreaseTeamScore(teamToReward, 1)
-            print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-        else
-            trigger.team = teamToReward
-            trigger.isEnemyCollisionEnabled = false
-            print("The objective now belongs to team " .. player.team)
-        end
-
-        if onDiedListener then
-            onDiedListener:Disconnect()
-        end
-
-        onDiedListener = player.diedEvent:Connect(OnPlayerDied)
-    end
-
-    trigger.interactedEvent:Connect(OnInteracted)
+trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ### Trigger.isInteractable
@@ -236,17 +234,17 @@ In this example, when a player interacts with a trigger it joins their team and 
 In this example, the trigger has a 4 second "cooldown" after it is interacted. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
+trigger.isInteractable = true
+
+function OnInteracted(theTrigger, player)
+    print("INTERACTED!")
+    trigger.isInteractable = false
+    Task.Wait(4)
     trigger.isInteractable = true
+end
 
-    function OnInteracted(theTrigger, player)
-        print("INTERACTED!")
-        trigger.isInteractable = false
-        Task.Wait(4)
-        trigger.isInteractable = true
-    end
-
-    trigger.interactedEvent:Connect(OnInteracted)
+trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ### Trigger.isTeamCollisionEnabled
@@ -254,16 +252,16 @@ In this example, the trigger has a 4 second "cooldown" after it is interacted. T
 In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
-    trigger.isInteractable = true
+local trigger = script.parent
+trigger.isInteractable = true
 
-    function OnInteracted(theTrigger, player)
-        trigger.team = player.team
-        trigger.isTeamCollisionEnabled = false
-        print("The objective now belongs to team " .. player.team)
-    end
+function OnInteracted(theTrigger, player)
+    trigger.team = player.team
+    trigger.isTeamCollisionEnabled = false
+    print("The objective now belongs to team " .. player.team)
+end
 
-    trigger.interactedEvent:Connect(OnInteracted)
+trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ### Trigger.team
@@ -271,16 +269,16 @@ In this example, when a player interacts with a trigger it joins their team and 
 In this example, players score points when they enter a trigger that belongs to the enemy team. The script assumes to be a child of the trigger.
 
 ```lua
-    local trigger = script.parent
+local trigger = script.parent
 
-    function OnBeginOverlap(theTrigger, player)
-        local teamToReward = player.team
+function OnBeginOverlap(theTrigger, player)
+    local teamToReward = player.team
 
-        if (player and player:IsA("Player") and teamToReward ~= trigger.team) then
-            Game.IncreaseTeamScore(teamToReward, 1)
-            print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
-        end
+    if (player and player:IsA("Player") and teamToReward ~= trigger.team) then
+        Game.IncreaseTeamScore(teamToReward, 1)
+        print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
     end
+end
 
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
+trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```

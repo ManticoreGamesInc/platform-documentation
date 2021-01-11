@@ -1,6 +1,4 @@
-# 
-
-UIText
+# UIText
 
 ## Description
 

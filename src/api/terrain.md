@@ -1,6 +1,4 @@
-# 
-
-Terrain
+# Terrain
 
 ## Description
 
