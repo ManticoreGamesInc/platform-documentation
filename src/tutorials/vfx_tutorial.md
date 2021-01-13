@@ -390,7 +390,7 @@ To start, open up a new project or whatever project you'd like to make this trea
     ```
 
     !!! info
-        *Events* are built-into many objects in Core. To read more about different events on various objects, check out the [API Overview](core_api.md).
+        *Events* are built-into many objects in Core. To read more about different events on various objects, check out the [API Overview](../api/index.md).
 
 4. Now try pressing Play!
 
