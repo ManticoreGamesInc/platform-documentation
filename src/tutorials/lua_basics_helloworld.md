@@ -21,8 +21,8 @@ In the second part, you will learn how to take an existing template in Core and 
 **Core** uses the **Lua** programming language, which has the advantage of being beginner-friendly but suitable for advanced programming projects.
 
 - The **Event Log** window in Core shows output from scripts, including errors. You can enable it by clicking **Window** in the top menu bar, and selecting **Event Log**.
-- The [Core API](core_api.md) page lists code created for you to use in Core.
-- The [API Examples](examples.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
+- The [Core API](../api/index.md) page lists code created for you to use in Core.
+- The [API Examples](../api/index.md) page has sample code using the **Core API** with explanations that you can use to better understand how the objects and functions are used.
 - The [Programming in Lua](https://www.lua.org/pil/contents.html), a free online version of the official "Programming in Lua" book by Roberto Ierusalimschy.
 - The [Scripting Help Section](https://forums.coregames.com/c/scripting-help/16) on the Core Creator Forums.
 
@@ -77,7 +77,7 @@ Now we have created a simple script! However, we need to actually add it to our 
 
 ![Play Button](../img/EditorManual/icons/Icon_Play.png "Click this to preview your game in single-player mode."){: .image-background .center loading="lazy" }
 
-The function `UI.PrintToScreen(string)` writes whatever is between `()` in `""` on the screen of your game. This is one of many of the [built-in Core API functions](core_api.md).
+The function `UI.PrintToScreen(string)` writes whatever is between `()` in `""` on the screen of your game. This is one of many of the [built-in Core API functions](../api/index.md).
 
 ### Review: Creating and Running a Script
 

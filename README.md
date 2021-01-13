@@ -14,7 +14,7 @@ helping out!
 
 - [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A Visual Studio Code extension that provides basic autocomplete support for the Core Games Lua API. (public)
 - [external-editor-api-support](https://github.com/ManticoreGamesInc/external-editor-api-support) - Generates the files in the `src/assets/api` directory. (private)
-- [LuaAPIDocumentation](https://github.com/ManticoreGamesInc/LuaAPIDocumentation) - Generates `src/core_api.md`. (private)
+- [LuaAPIDocumentation](https://github.com/ManticoreGamesInc/LuaAPIDocumentation) - Generates `src/api/index.md`. (private)
 - [mkdocs-material](https://github.com/ManticoreGamesInc/mkdocs-material) - Is the submodule that provides the theme. (public)
 - [SampleCodeTests](https://github.com/ManticoreGamesInc/SampleCodeTests) - Generates `src/examples.md`. (private)
 

@@ -13,7 +13,7 @@ tags:
 Core is a complete game development and publishing platform that keeps the benefit of having thousands of assets at your fingertips while giving you more freedom to build customized and unique game experiences.
 
 - For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md).
-- For a complete technical overview, see the [Core API Documentation](core_api.md).
+- For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ### Editor and Preview
 
@@ -51,7 +51,7 @@ For the best introduction to scripting and using triggers in Core, try out our [
 
 **Scripting** in **Lua** is one of the biggest differences in Core from Fortnite Creative. It is entirely possible to build games without scripts, especially using the **Core Game Frameworks**, which will allow you to build anything from a team shooter to an RPG.
 
-Scripts allow you to fully customize your gameplay logic, allowing infinite possibilities for different games. The [Core API](core_api.md) creates programming names that you can use to reference Core objects and script their behavior.
+Scripts allow you to fully customize your gameplay logic, allowing infinite possibilities for different games. The [Core API](../api/index.md) creates programming names that you can use to reference Core objects and script their behavior.
 
 To get started programming, check out any of these resources:
 
@@ -98,4 +98,4 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ### References
 
-[Modeling Props](art_reference.md) | [Templates](template_reference.md) | [Core Collaboration Guide](collaboration_overview.md) | [Core API](core_api.md)
+[Modeling Props](art_reference.md) | [Templates](template_reference.md) | [Core Collaboration Guide](collaboration_overview.md) | [Core API](../api/index.md)
