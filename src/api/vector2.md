@@ -6,7 +6,7 @@ A two-component vector that can represent a position or direction.
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ A two-component vector that can represent a position or direction.
 | `Vector2.New(Vector2 v)` | `Vector2` | Constructs a Vector2 with `x`, `y` values from the given Vector2. | None |
 | `Vector2.ZERO -- (0, 0)` | `Vector2` | Vector2.ONE -- (1, 1) | Vector2 |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -25,19 +25,19 @@ A two-component vector that can represent a position or direction.
 | `size` | `Number` | The magnitude of the Vector2. | Read-Only |
 | `sizeSquared` | `Number` | The squared magnitude of the Vector2. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | `Vector2` | Returns a new Vector2 with size 1, but still pointing in the same direction. Returns (0, 0) if the vector is too small to be normalized. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Vector2.Lerp(Vector2 from, Vector2 to, Number progress)` | `Vector2` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2. | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

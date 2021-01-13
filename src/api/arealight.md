@@ -6,7 +6,7 @@ AreaLight is a Light that emits light from a rectangular plane. It also has prop
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

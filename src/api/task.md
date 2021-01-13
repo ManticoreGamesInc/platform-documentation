@@ -6,7 +6,7 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -14,14 +14,14 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 | `repeatCount` | `Number` | If set to a non-negative number, the Task will execute that many times. A negative number indicates the Task should repeat indefinitely (until otherwise canceled). With the default of 0, the Task will execute once. With a value of 1, the script will repeat once, meaning it will execute twice. | Read-Write |
 | `repeatInterval` | `Number` | For repeating Tasks, the number of seconds to wait after the Task completes before running it again. If set to 0, the Task will wait until the next frame. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Cancel()` | `None` | Cancels the Task immediately. It will no longer be executed, regardless of the state it was in. If called on the currently executing Task, that Task will halt execution. | None |
 | `GetStatus()` | `TaskStatus` | Returns the status of the Task. Possible values include: TaskStatus.UNINITIALIZED, TaskStatus.SCHEDULED, TaskStatus.RUNNING, TaskStatus.COMPLETED, TaskStatus.YIELDED, TaskStatus.FAILED, TaskStatus.CANCELED. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -29,7 +29,7 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 | `Task.GetCurrent()` | `Task` | Returns the currently running Task. | None |
 | `Task.Wait([Number delay])` | `Number, Number` | Yields the current Task, resuming in delay seconds, or during the next frame if delay is not specified. Returns the amount of time that was actually waited, as well as how long a wait was requested. | None |
 
-## Examples 
+## Examples
 
 ### Task.Spawn
 

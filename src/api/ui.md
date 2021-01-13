@@ -6,7 +6,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -29,6 +29,6 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.GetCursorHitResult()` | `HitResult` | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
 | `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | `Vector3` | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

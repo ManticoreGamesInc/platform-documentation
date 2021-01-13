@@ -6,7 +6,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -27,7 +27,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `homingAcceleration` | `Number` | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
 | `shouldDieOnImpact` | `bool` | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -38,13 +38,13 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `GetVelocity()` | `Vector3` | Current direction and speed vector of the Projectile. | None |
 | `SetVelocity(Vector3)` | `None` | Current direction and speed vector of the Projectile. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | `Projectile` | Spawns a Projectile with a child that is an instance of a template. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -52,7 +52,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `lifeSpanEndedEvent` | `Event<Projectile>` | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
 | `homingFailedEvent` | `Event<Projectile>` | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
 
-## Examples 
+## Examples
 
 ### Projectile.Spawn
 

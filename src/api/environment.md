@@ -6,7 +6,7 @@ The Environment namespace contains a set of functions for determining where a sc
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |

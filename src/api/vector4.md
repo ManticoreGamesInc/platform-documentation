@@ -6,7 +6,7 @@ A four-component vector.
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -18,7 +18,7 @@ A four-component vector.
 | `Vector4.New(Color v)` | `Vector4` | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. | None |
 | `Vector4.ZERO -- (0, 0, 0, 0)` | `Vector4` | Vector4.ONE -- (1, 1, 1, 1) | Vector4 |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -29,19 +29,19 @@ A four-component vector.
 | `size` | `Number` | The magnitude of the Vector4. | Read-Only |
 | `sizeSquared` | `Number` | The squared magnitude of the Vector4. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | `Vector4` | Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Vector4.Lerp(Vector4 from, Vector4 to, Number progress)` | `Vector4` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector4. | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

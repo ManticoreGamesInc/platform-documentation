@@ -6,19 +6,19 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `RandomStream.New([Integer seed])` | `RandomStream` | Constructor with specified seed, defaults to a random value. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `seed` | `Integer` | The current seed used for RNG. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

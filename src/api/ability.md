@@ -12,7 +12,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -28,7 +28,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `animation` | `string` | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](../api/animations.md) for strings and other info. | Read-Only |
 | `canBePrevented` | `bool` | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -39,7 +39,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `GetTargetData()` | `AbilityTarget` | Returns information about what the Player has targeted this phase. | None |
 | `SetTargetData(AbilityTarget)` | `None` | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -51,7 +51,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `interruptedEvent` | `Event<Ability>` | Fired when the Ability is interrupted. | None |
 | `tickEvent` | `Event<Ability, Number deltaTime>` | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
 
-## Examples 
+## Examples
 
 ### Ability.castEvent
 
@@ -541,6 +541,6 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-## Tutorials 
+## Tutorials
 
 [Abilities in Core](../tutorials/abilities.md)

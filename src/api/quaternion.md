@@ -6,7 +6,7 @@ A quaternion-based representation of a rotation.
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ A quaternion-based representation of a rotation.
 | `Quaternion.New(Vector3 from, Vector3 to)` | `Quaternion` | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
 | `Quaternion.New(Quaternion q)` | `Quaternion` | Copies the given Quaternion. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -25,7 +25,7 @@ A quaternion-based representation of a rotation.
 | `z` | `Number` | The `z` component of the Quaternion. | Read-Write |
 | `w` | `Number` | The `w` component of the Quaternion. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -34,13 +34,13 @@ A quaternion-based representation of a rotation.
 | `GetRightVector()` | `Vector3` | Right unit vector rotated by the quaternion. | None |
 | `GetUpVector()` | `Vector3` | Up unit vector rotated by the quaternion. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Quaternion.Slerp(Quaternion from, Quaternion to, Number progress)` | `Quaternion` | Spherical interpolation between two quaternions by the specified progress amount and returns the resultant, normalized Quaternion. | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -52,7 +52,7 @@ A quaternion-based representation of a rotation.
 | `Quaternion / Number` | `Quaternion` | Divides each component by the right-side Number. | None |
 | `-Quaternion` | `Quaternion` | Returns the inverse rotation. | None |
 
-## Examples 
+## Examples
 
 ### Quaternion.Slerp
 

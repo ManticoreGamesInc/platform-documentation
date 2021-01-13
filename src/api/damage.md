@@ -6,13 +6,13 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Damage.New([Number amount])` | `Damage` | Constructs a damage object with the given number, defaults to 0. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -21,14 +21,14 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | `sourceAbility` | `Ability` | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
 | `sourcePlayer` | `Player` | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetHitResult()` | `HitResult` | Get the HitResult information if this damage was caused by a Projectile impact. | None |
 | `SetHitResult(HitResult)` | `None` | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
 
-## Examples 
+## Examples
 
 ### Damage.New
 

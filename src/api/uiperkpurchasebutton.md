@@ -6,20 +6,20 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isInteractable` | `bool` | Returns whether the button can interact with the cursor (click, hover, etc). | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetPerkReference()` | `NetReference` | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) | None |
 | `SetPerkReference(NetReference)` | `None` | Configures this button to use the specified perk. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -29,6 +29,6 @@ A UIControl for a button which allows players to purchase perks within a game. S
 | `hoveredEvent` | `Event<UIButton>` | Fired when button is hovered. | None |
 | `unhoveredEvent` | `Event<UIButton>` | Fired when button is unhovered. | None |
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md) | [Implementing Perks](../perks/implementing_perks.md)

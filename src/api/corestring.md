@@ -6,7 +6,7 @@ The CoreString namespace contains a set of string utility functions.
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |

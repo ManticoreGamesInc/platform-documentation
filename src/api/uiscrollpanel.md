@@ -8,6 +8,6 @@ They have no properties or functions of their own, but inherit everything from C
 
 ## API
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)
