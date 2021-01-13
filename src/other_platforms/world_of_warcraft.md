@@ -51,7 +51,7 @@ end
 Events.Connect("MyEvent", Foo)
 ```
 
-You can find more examples for events in our [Examples and Snippets](../api/index.md) section.
+You can find more examples for events in our [API documentation](../api/events.md) section.
 
 - The often (miss)used `OnUpdate` event equivalent is the global `Tick()` function. It is totally fine to overwrite it with your own.
 - Instead of frames, you will mostly work with objects in Core. Those can be destroyed completely instead of just be hidden like frames in WoW.
