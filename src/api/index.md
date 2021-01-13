@@ -10,15 +10,15 @@ tags:
 
 ## Overview
 
-Core scripts are written in Lua, using version 5.3.4 of the [Lua library](.md)(<https://www.lua.org/manual/5.3/>). Scripts are objects created and added to the hierarchy and/or templates, similar to other object types. Scripts added to the hierarchy will execute as soon as the game loads, while scripts inside templates execute with each newly spawned instance of the template.
+Core scripts are written in Lua, using version 5.3.4 of the [Lua library](https://www.lua.org/manual/5.3/). Scripts are objects created and added to the hierarchy and/or templates, similar to other object types. Scripts added to the hierarchy will execute as soon as the game loads, while scripts inside templates execute with each newly spawned instance of the template.
 
-Properties, functions, and events inherited by [CoreObject](.md)(#coreobject) types are listed below. Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:FunctionName()`. Some types have class functions, which are accessed with `.FunctionName()`.
+Properties, functions, and events inherited by [CoreObject](#coreobject) types are listed below. Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:FunctionName()`. Some types have class functions, which are accessed with `.FunctionName()`.
 
 ## Core Lua Types
 
 At a high level, Core Lua types can be divided into two groups: Data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Objects all inherit from a single base type: Object. Data structures have no common parent. However, all data structures and Objects share a common `type` property, which is a string indicating its type. The value of the `type` property will match the section headings below, for example: "Ability", "Vector2", "CoreObject", etc. All Core types also share an `IsA()` function. The `IsA()` function can be passed a type name, and will return `true` if the value is that type or one of its subtypes, or will return `false` if it is not. For example, `myObject:IsA("StaticMesh")`.
 
-A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](.md)(<https://www.lua.org/manual/5.3/manual.html#2.1>). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
+A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You can learn more about Lua types from the official manual [here](https://www.lua.org/manual/5.3/manual.html#2.1). An uppercase type is a Core Type, such as `Player` and `CoreObject`.
 
 ### [Ability](ability.md)
 
@@ -58,7 +58,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 ### [Color](color.md)
 
-An RGBA representation of a color. Color components have an effective range of `[0.0, 1.0](.md)`, but values greater than 1 may be used.
+An RGBA representation of a color. Color components have an effective range of `[0.0, 1.0]`, but values greater than 1 may be used.
 
 ### [CoreMesh](coremesh.md)
 
@@ -274,7 +274,7 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 The CoreDebug namespace contains functions that may be useful for debugging.
 
-### [CoreLuaFunctions](CoreLuaFunctions.md)
+### [CoreLuaFunctions](coreluafunctions.md)
 
 A few base functions provided by the platform.
 
@@ -322,7 +322,7 @@ World is a collection of functions for finding objects in the world.
 
 ### Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](.md)(<https://www.lua.org/manual/5.3/manual.html#6>) for more information on what they do.
+For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
     - `assert`
