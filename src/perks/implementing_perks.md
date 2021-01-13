@@ -64,7 +64,7 @@ To change a player's experience based on the Perks they have, you will need to r
 
 You can use the `player:HasPerk(perkReference)` function to find out if a player has a Perk, and `player:GetPerkCount()` to get the total number of repeatable Perks a player has purchased.
 
-To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](../api/index.md#player).
+To learn more about the functions and events associated with perks, see [the Player type in the Core API Reference](../api/player.md).
 
 ## Testing Perks
 
@@ -164,4 +164,4 @@ The Perks ![Perks Icon](../img/EditorManual/icons/AssetType_PerkReference.png){:
 
 ## Learn More
 
-[The Perks Program](perks_program.md) | [Core API Reference](../api/index.md#player) | [Joining the Perks Program](joining_perks.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.md)
+[The Perks Program](perks_program.md) | [Core API Reference](../api/player.md) | [Joining the Perks Program](joining_perks.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.md)
