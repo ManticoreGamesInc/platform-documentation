@@ -18,7 +18,7 @@ To see the **Animated Mesh** objects firsthand before adding them to a project s
 
 ### API Example Code
 
-Animated meshes will require custom scripts to do more than animate in place or move to a specific location. To learn all the methods, parameters, and events associated with animated meshes, see the [Animated Mesh API](../api/index.md).
+Animated meshes will require custom scripts to do more than animate in place or move to a specific location. To learn all the methods, parameters, and events associated with animated meshes, see the [Animated Mesh API](../api/animatedmesh.md).
 
 ### Non Player Characters
 
@@ -68,4 +68,4 @@ To attach objects to the appropriate mesh, you can use a script and the `AttachC
 
 ## Learn More
 
-[Example Code](../api/animatedmesh.md) | [Player Animations](animations.md) | [Custom Materials](custom_materials.md)
+[Example Code](../api/animatedmesh.md) | [Player Animations](../api/animations.md) | [Custom Materials](custom_materials.md)
