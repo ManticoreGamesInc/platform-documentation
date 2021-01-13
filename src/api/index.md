@@ -8,6 +8,12 @@ tags:
     - Reference
 ---
 
+<style>
+  .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
+    display: none;
+  }
+</style>
+
 # Lua Scripting API
 
 ## Overview
