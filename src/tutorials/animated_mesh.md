@@ -62,10 +62,10 @@ Animated meshes cannot use actually **Equipment** objects the way players are, b
 
 The **Bind Pose** animation stance is designed to make it easy to determine where objects should be positioned relative to the mesh.
 
-To attach objects to the appropriate mesh, you can use a script and the ```AttachCoreObject``` method. For more specific examples, see the [Core API](https://docs.coregames.com/core_api/#animatedmesh).
+To attach objects to the appropriate mesh, you can use a script and the `AttachCoreObject` method. For more specific examples, see the [Core API](../api/animatedmesh.md).
 
 ```YourMeshName.AttachCoreObject(object, socketname)```
 
 ## Learn More
 
-[Example Code](../api/index.md) | [Player Animations](animations.md) | [Custom Materials](custom_materials.md)
+[Example Code](../api/animatedmesh.md) | [Player Animations](animations.md) | [Custom Materials](custom_materials.md)
