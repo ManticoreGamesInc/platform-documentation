@@ -10,8 +10,6 @@ title: Tags
 
 - [Contexts](contexts.md)
 
-- [Examples and Snippets](examples.md)
-
 
 ## Perks
 
@@ -25,8 +23,6 @@ title: Tags
 
 
 ## Reference
-
-- [Core API](core_api.md)
 
 - [Core Editor Key Bindings](editor_keybindings.md)
 

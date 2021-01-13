@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The goal of this doc is to introduce the central ideas of what a script is and how they are used to make games in Core. If you have no experience with programming, or understand some code but not how it can be used for game development in Core, this is the ideal starting point. Developers with some experience will be better off starting with our [Intro to Lua](lua_basics_lightbulb.md) tutorial, or looking at [Example Code](examples.md).
+The goal of this doc is to introduce the central ideas of what a script is and how they are used to make games in Core. If you have no experience with programming, or understand some code but not how it can be used for game development in Core, this is the ideal starting point. Developers with some experience will be better off starting with our [Intro to Lua](lua_basics_lightbulb.md) tutorial, or looking at [Example Code](../api/index.md).
 
 ## Scripting
 
@@ -193,8 +193,8 @@ Another way to use an object in a script, especially if it needs to be created b
 
 **API** stands for Application Programming Interface, and is a set of functions made for other people to write code that uses a program without changing the program itself. You could compare it to the tools you have to drive a car, because you have a variety of options of how you want to drive, but they don't change how the car works.
 
-The [Core API](core_api.md) document lists all the functions, properties and events that you can use in scripts, for every object type in Core.
+The [Core API](../api/index.md) document lists all the functions, properties and events that you can use in scripts, for every object type in Core.
 
 ## Learn More
 
-[Lua Tutorial](lua_basics_lightbulb.md) | [Lua Style Guide](lua_style_guide.md) | [API Examples](examples.md)
+[Lua Tutorial](lua_basics_lightbulb.md) | [Lua Style Guide](lua_style_guide.md) | [API Examples](../api/index.md)
