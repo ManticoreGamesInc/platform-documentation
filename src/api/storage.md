@@ -133,4 +133,8 @@ Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 
 ## Tutorials
 
-[Persistent Storage](../tutorials/persistent_storage.md) | [Shared Data Storage](../tutorials/shared_storage.md)
+Check out our [Persistent Data Storage in Core](../tutorials/persistent_storage_tutorial/) tutorial to learn how to apply this API in practice.
+
+## Learn More
+
+[NetReference on the Core API](../../core_api/#netreference) | [Persistent Storage Reference](../tutorials/persistent_storage.md)
