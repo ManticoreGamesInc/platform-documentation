@@ -6,7 +6,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -23,7 +23,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `lifeSpan` | `Number` | Duration after which the object is destroyed. | Read-Write |
 | `sourceTemplateId` | `string` | The ID of the Template from which this CoreObject was instantiated. `nil` if the object did not come from a Template. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -86,7 +86,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `LookAtLocalView([bool])` | `None` | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | None |
 | `Destroy()` | `None` | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -97,7 +97,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `destroyEvent` | `Event<CoreObject>` | Fired when this object is about to be destroyed. | None |
 | `networkedPropertyChangedEvent` | `Event<CoreObject owner, string propertyName>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
-## Examples 
+## Examples
 
 ### CoreObject.childAddedEvent
 

@@ -6,7 +6,7 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -27,7 +27,7 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 | `fadeOutTime` | `Number` | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write |
 | `startTime` | `Number` | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

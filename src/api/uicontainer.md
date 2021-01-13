@@ -6,6 +6,6 @@ A UIContainer is a type of UIControl. All other UI elements must be a descendant
 
 ## API
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

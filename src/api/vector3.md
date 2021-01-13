@@ -6,7 +6,7 @@ A three-component vector that can represent a position or direction.
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -18,7 +18,7 @@ A three-component vector that can represent a position or direction.
 | `Vector3.ZERO -- (0, 0, 0)` | `Vector3` | Vector3.ONE -- (1, 1, 1) | Vector3 |
 | `Vector3.FORWARD -- (1, 0, 0)` | `Vector3` | Vector3.UP -- (0, 0, 1) | Vector3 |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -28,19 +28,19 @@ A three-component vector that can represent a position or direction.
 | `size` | `Number` | The magnitude of the Vector3. | Read-Only |
 | `sizeSquared` | `Number` | The squared magnitude of the Vector3. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | `Vector3` | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | `Vector3` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -57,7 +57,7 @@ A three-component vector that can represent a position or direction.
 | `Vector3 .. Vector3` | `Number` | Returns the dot product of the Vector3s. | None |
 | `Vector3 ^ Vector3` | `Vector3` | Returns the cross product of the Vector3s. | None |
 
-## Examples 
+## Examples
 
 ### Vector3.Lerp
 

@@ -6,7 +6,7 @@ A UIControl which displays a basic text label.
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ A UIControl which displays a basic text label.
 | `shouldWrapText` | `bool` | Whether or not text should be wrapped within the bounds of this control. | Read-Write |
 | `shouldClipText` | `bool` | Whether or not text should be clipped when exceeding the bounds of this control. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -24,6 +24,6 @@ A UIControl which displays a basic text label.
 | `SetColor(Color)` | `None` | The color of the Text. | None |
 | `ComputeApproximateSize()` | `Vector2` | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

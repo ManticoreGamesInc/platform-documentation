@@ -6,20 +6,20 @@ WorldText is an in-world text CoreObject.
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `text` | `string` | The text being displayed by this object. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetColor()` | `Color` | The color of the Text. | None |
 | `SetColor(Color)` | `None` | The color of the Text. | None |
 
-## Examples 
+## Examples
 
 ### WorldText.GetColor
 

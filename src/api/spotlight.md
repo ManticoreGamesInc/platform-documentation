@@ -6,7 +6,7 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

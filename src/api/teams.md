@@ -6,7 +6,7 @@ The Teams namespace contains a set of class functions for dealing with teams and
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |

@@ -6,7 +6,7 @@ A few base functions provided by the platform.
 
 ## API
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ A few base functions provided by the platform.
 | `warn(string)` | `string` | Similar to `print()`, but includes the script name and line number. | None |
 | `require(string)` | `table` | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |
 
-## Examples 
+## Examples
 
 ### CoreLua.print
 

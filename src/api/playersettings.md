@@ -6,7 +6,7 @@ Settings that can be applied to a Player.
 
 ## API
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

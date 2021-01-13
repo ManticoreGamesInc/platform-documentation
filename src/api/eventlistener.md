@@ -6,19 +6,19 @@ EventListeners are returned by Events when you connect a listener function to th
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isConnected` | `bool` | Returns true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Disconnect()` | `None` | Disconnects this listener from its event, so it will no longer be called when the event is fired. | None |
 
-## Examples 
+## Examples
 
 ### EventListener.Disconnect
 

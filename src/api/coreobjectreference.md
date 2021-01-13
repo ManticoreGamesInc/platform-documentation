@@ -8,21 +8,21 @@ In the case of networked objects it's possible to get a CoreObjectReference poin
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `id` | `string` | The MUID of the referred object. | Read-Only |
 | `isAssigned` | `bool` | Returns true if this reference has been assigned a valid ID. This does not necessarily mean the object currently exists. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetObject()` | `CoreObject` | Returns the CoreObject with a matching ID, if it exists. Will otherwise return nil. | None |
 | `WaitForObject([Number])` | `CoreObject` | Returns the CoreObject with a matching ID, if it exists. If it does not, yields the current task until the object is spawned. Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None |
 
-## Examples 
+## Examples
 
 ### CoreObjectReference.GetObject
 

@@ -6,7 +6,7 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.GetTaskStackTrace([Task task])` | `string` | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
 | `CoreDebug.GetStackTrace()` | `string` | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
 
-## Examples 
+## Examples
 
 ### CoreDebug.DrawLine
 

@@ -6,7 +6,7 @@ A data structure containing a player's entry on a leaderboard. See the `Leaderbo
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
