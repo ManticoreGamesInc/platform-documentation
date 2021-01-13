@@ -84,7 +84,7 @@ nav:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
           - Weapons: tutorials/weapons.md
   - Core API:
-      - API Reference: core_api.md
+      - API Reference: api/index.md
       - Ability: api/ability.md
       - AbilityPhaseSettings: api/abilityphasesettings.md
       - AbilityTarget: api/abilitytarget.md
@@ -279,7 +279,6 @@ plugins:
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
-        api.md: https://docs.coregames.com/core_api/
         tutorials/examples.md: https://docs.coregames.com/api/examples.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
         tutorials/gameplay/weapons.md: tutorials/weapons.md
