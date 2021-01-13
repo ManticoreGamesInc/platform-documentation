@@ -30,6 +30,8 @@ title: Tags
 
 - [Core Editor Key Bindings](editor_keybindings.md)
 
+- [Core API](index.md)
+
 - [Key Binding List](key_bindings.md)
 
 - [Community Content](community_content.md)
