@@ -6,7 +6,7 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -18,7 +18,7 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 | `team` | `Integer` | Assigns the light to a team. Value range from 0 to 4. 0 is a neutral team. | Read-Write |
 | `isTeamColorUsed` | `bool` | If `true`, and the light has been assigned to a valid team, players on that team will see a blue light, while other players will see red. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

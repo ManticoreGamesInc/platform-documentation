@@ -6,7 +6,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -15,7 +15,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `animationStanceShouldLoop` | `bool` | (client-only) -- If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write |
 | `playbackRateMultiplier` | `Number` | (client-only) -- Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -28,13 +28,13 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `StopAnimations()` | `None` | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
 | `GetAnimationDuration(string animationName)` | `Number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `animationEvent` | `Event<AnimatedMesh, string>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
 
-## Examples 
+## Examples
 
 ### AnimatedMesh.animationEvent
 

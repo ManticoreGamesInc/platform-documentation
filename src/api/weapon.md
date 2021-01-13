@@ -6,7 +6,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -47,21 +47,21 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `spreadIncreasePerShot` | `Number` | Amount the spread increases each time the Weapon attacks. | Read-Only |
 | `spreadPenaltyPerShot` | `Number` | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `HasAmmo()` | `bool` | Informs whether the Weapon is able to attack or not. | None |
 | `Attack(target)` | `None` | Triggers the main ability of the Weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `targetImpactedEvent` | `Event<Weapon, ImpactData>` | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
 | `projectileSpawnedEvent` | `Event<Weapon, Projectile>` | Fired when a Weapon spawns a projectile. | None |
 
-## Examples 
+## Examples
 
 ### Weapon.projectileSpawnedEvent
 
@@ -778,6 +778,6 @@ function Tick()
 end
 ```
 
-## Tutorials 
+## Tutorials
 
 [Weapons in Core](../tutorials/weapons.md) | [Weapons & Abilities (Advanced)](../tutorials/abilities_advanced.md)

@@ -10,7 +10,7 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -20,7 +20,7 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 | `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | `StorageResultCode, string` | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. | Server-Only |
 | `Storage.SizeOfData(table data)` | `Integer` | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
 
-### Extra Data 
+### Extra Data
 
 ??? "Storage Supported Types"
     - Bool
@@ -35,7 +35,7 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
     - Player
     - Table
 
-## Examples 
+## Examples
 
 ### Storage.GetPlayerData
 
@@ -131,6 +131,6 @@ local sampleData = {
 Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 ```
 
-## Tutorials 
+## Tutorials
 
 [Persistent Storage](../tutorials/persistent_storage.md) | [Shared Data Storage](../tutorials/shared_storage.md)

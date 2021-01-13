@@ -6,7 +6,7 @@ World is a collection of functions for finding objects in the world.
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -18,7 +18,7 @@ World is a collection of functions for finding objects in the world.
 | `World.SpawnAsset(string assetId, [table parameters])` | `CoreObject` | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. | None |
 | `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | `HitResult` | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. | None |
 
-## Examples 
+## Examples
 
 ### World.FindObjectById
 

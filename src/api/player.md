@@ -6,7 +6,7 @@ Player is an object representation of the state of a player connected to the gam
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -56,7 +56,7 @@ Player is an object representation of the state of a player connected to the gam
 | `shouldDismountWhenDamaged` | `bool` | (server only) -- If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write |
 | `isVisibleToSelf` | `bool` | (client only) -- Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -107,7 +107,7 @@ Player is an object representation of the state of a player connected to the gam
 | `HasPerk(NetReference)` | `bool` | Returns `true` if the player has one or more of the specified perk. | None |
 | `GetPerkCount(NetReference)` | `Integer` | Returns how many of the specified perk the player owns. For non-repeatable perks, returns `1` if the player owns the perk, or `0` if the player does not. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -120,7 +120,7 @@ Player is an object representation of the state of a player connected to the gam
 | `perkChangedEvent` | `Event<Player, NetReference perkReference>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
 | `movementModeChangedEvent` | `Event<Player, MovementMode, MovementMode>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
 
-## Examples 
+## Examples
 
 ### Player.bindingPressedEvent
 

@@ -6,13 +6,13 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `progress` | `Number` | From 0 to 1, how full the bar should be. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -21,6 +21,6 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | `GetBackgroundColor()` | `Color` | Returns the color of the background. | None |
 | `SetBackgroundColor(Color)` | `None` | Sets the color of the background. | None |
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

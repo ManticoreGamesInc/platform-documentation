@@ -6,7 +6,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -17,7 +17,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 | `isCameraCollisionEnabled` | `bool` | If `false`, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write |
 | `meshAssetId` | `string` | The ID of the mesh asset used by this mesh. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -25,7 +25,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 | `SetColor(Color)` | `None` | Overrides the color of all materials on the mesh, and replicates the new colors. | None |
 | `ResetColor()` | `None` | Turns off the color override, if there is one. | None |
 
-## Examples 
+## Examples
 
 ### CoreMesh.GetColor
 
@@ -89,7 +89,7 @@ function AssignMeshToTeam(mesh, team)
         mesh.isTeamCollisionEnabled = false
         mesh.isEnemyCollisionEnabled = true
         -- Set the camera to not collide with this mesh.
-        mesh.isCameraCollisionEnabled = true
+        mesh.isCameraCollisionEnabled = false
     end
 end
 AssignMeshToTeam(cube, 1)

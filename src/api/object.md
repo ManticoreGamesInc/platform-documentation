@@ -6,20 +6,20 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `serverUserData` | `table` | (server only) -- Table in which users can store any data they want on the server. | Read-Write |
 | `clientUserData` | `table` | (client only) -- Table in which users can store any data they want on the client. | Read-Write |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Object.IsValid(Object object)` | `bool` | Returns true if object is still a valid Object, or false if it has been destroyed. Also returns false if passed a nil value or something that's not an Object, such as a Vector3 or a string. | None |
 
-## Examples 
+## Examples
 
 ### Object.IsValid
 

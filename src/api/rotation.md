@@ -6,7 +6,7 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -15,7 +15,7 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `Rotation.New(Vector3 forward, Vector3 up)` | `Rotation` | Construct a rotation that will rotate Vector3.FORWARD to point in the direction of the given forward vector, with the up vector as a reference. Returns (0, 0, 0) if forward and up point in the exact same (or opposite) direction, or if one of them is of length 0. | None |
 | `Rotation.New(Rotation r)` | `Rotation` | Copies the given Rotation. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -23,7 +23,7 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `y` | `Number` | The `y` component of the Rotation. | Read-Write |
 | `z` | `Number` | The `z` component of the Rotation. | Read-Write |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -34,7 +34,7 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `-Rotation` | `Rotation` | Returns the inverse rotation. | None |
 | `Rotation * Vector3` | `Vector3` | Rotates the right-side vector and returns the result. | None |
 
-## Examples 
+## Examples
 
 ### Rotation.New
 
