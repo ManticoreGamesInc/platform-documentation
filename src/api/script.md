@@ -6,13 +6,13 @@ Script is a CoreObject representing a script in the hierarchy. While not technic
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `context` | `table` | Returns the table containing any non-local variables and functions created by the script. This can be used to call (or overwrite!) functions on another script. | Read-Only |
 
-## Examples 
+## Examples
 
 ### Script.context
 

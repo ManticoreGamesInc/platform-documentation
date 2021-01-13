@@ -6,7 +6,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `isTeamCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. | Read-Write |
 | `isEnemyCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -24,7 +24,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `IsOverlapping(Player)` | `bool` | Returns true if given player overlaps with the Trigger. | None |
 | `GetOverlappingObjects()` | `Array<Object>` | Returns a list of all objects that are currently overlapping with the Trigger. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -32,7 +32,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `endOverlapEvent` | `Event<Trigger trigger, Object other>` | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
 | `interactedEvent` | `Event<Trigger trigger, Player>` | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
 
-## Examples 
+## Examples
 
 ### Trigger.beginOverlapEvent
 

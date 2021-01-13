@@ -6,13 +6,13 @@ A data type containing information about what the Player has targeted during a p
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `AbilityTarget.New()` | `AbilityTarget` | Constructs a new Ability Target data object. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -21,7 +21,7 @@ A data type containing information about what the Player has targeted during a p
 | `spreadHalfAngle` | `Number` | Half-angle of cone of possible target space, in degrees. | Read-Write |
 | `spreadRandomSeed` | `Integer` | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -35,7 +35,7 @@ A data type containing information about what the Player has targeted during a p
 | `SetHitPosition(Vector3)` | `None` | Sets the hit position property. This may affect weapon behavior. | None |
 | `GetHitResult()` | `HitResult` | Returns physics information about the point being targeted | None |
 
-## Examples 
+## Examples
 
 ### AbilityTarget.New
 

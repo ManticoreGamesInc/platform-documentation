@@ -6,14 +6,14 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `socket` | `string` | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Read-Write |
 | `owner` | `Player` | Which Player the Equipment is attached to. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -22,14 +22,14 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 | `AddAbility(Ability)` | `None` | Adds an Ability to the list of abilities on this Equipment. | None |
 | `GetAbilities()` | `Array<Ability>` | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `equippedEvent` | `Event<Equipment, Player>` | Fired when this equipment is equipped onto a player. | None |
 | `unequippedEvent` | `Event<Equipment, Player>` | Fired when this object is unequipped from a player. | None |
 
-## Examples 
+## Examples
 
 ### Equipment.equippedEvent
 

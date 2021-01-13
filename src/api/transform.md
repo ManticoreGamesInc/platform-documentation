@@ -6,7 +6,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -16,7 +16,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | `Transform` | Constructs a new Transform from a Matrix. | None |
 | `Transform.New(Transform transform)` | `Transform` | Copies the given Transform. | None |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -35,7 +35,7 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | `TransformPosition(Vector3 position)` | `Vector3` | Applies the Transform to the given position in 3D space. | None |
 | `TransformDirection(Vector3 direction)` | `Vector3` | Applies the Transform to the given directional Vector3. This will rotate and scale the Vector3, but does not apply the Transform's position. | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

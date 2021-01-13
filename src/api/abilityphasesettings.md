@@ -6,7 +6,7 @@ Each phase of an Ability can be configured differently, allowing complex and dif
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
