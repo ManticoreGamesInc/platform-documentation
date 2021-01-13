@@ -308,5 +308,5 @@ plugins:
         perks/: perks/perks_program.md
         perks/perks.md: perks/implementing_perks.md
         api/ability_bindings.md: api/key_bindings.md
-        core_api.md: /api/index.md
-        api/examples.md: /api/index.md
+        core_api.md: api/index.md
+        api/examples.md: api/index.md
