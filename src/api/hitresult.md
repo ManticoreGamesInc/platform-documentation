@@ -6,14 +6,14 @@ Contains data pertaining to an impact or raycast.
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `other` | `CoreObject or Player` | Reference to a CoreObject or Player impacted. | Read-Only |
 | `socketName` | `string` | If the hit was on a Player, `socketName` tells you which spot on the body was hit. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -21,7 +21,7 @@ Contains data pertaining to an impact or raycast.
 | `GetImpactNormal()` | `Vector3` | Normal direction of the surface which was impacted. | None |
 | `GetTransform()` | `Transform` | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
-## Examples 
+## Examples
 
 ### HitResult.GetImpactPosition
 

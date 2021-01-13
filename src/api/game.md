@@ -6,7 +6,7 @@ Game is a collection of functions and events related to players in the game, rou
 
 ## API
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -23,7 +23,7 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.DecreaseTeamScore(Integer team, Integer scoreChange)` | `None` | Decreases one team's score. | Server-Only |
 | `Game.ResetTeamScores()` | `None` | Sets all teams' scores to 0. | Server-Only |
 
-### Events 
+### Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -33,7 +33,7 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.roundEndEvent` | `Event` | Fired when EndRound is called on game. | None |
 | `Game.teamScoreChangedEvent` | `Event<Integer team>` | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
 
-## Examples 
+## Examples
 
 ### Game.FindNearestPlayer
 

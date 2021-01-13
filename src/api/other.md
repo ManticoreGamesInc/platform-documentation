@@ -6,19 +6,19 @@ Other
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `type` | `string` | All data structures and Objects share the common `type` property. | Read-Only |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `IsA()` | `bool` | Expects a string parameter representing an object type. E.g. `myObject:IsA("Equipment")`. Returns `true` if the object is of the given type or one of its subtypes, returns `false` otherwise. | None |
 
-## Examples 
+## Examples
 
 ### IsA
 

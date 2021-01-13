@@ -8,7 +8,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -31,7 +31,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minYaw` | `Number` | The minimum yaw for free control. | Read-Write |
 | `maxYaw` | `Number` | The maximum yaw for free control. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -40,7 +40,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `GetRotationOffset()` | `Rotation` | A rotation added to the camera or follow target's eye position. | None |
 | `SetRotationOffset(Rotation)` | `None` | A rotation added to the camera or follow target's eye position. | None |
 
-## Examples 
+## Examples
 
 ### Camera.GetPositionOffset
 

@@ -6,7 +6,7 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -18,6 +18,6 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 | `height` | `Number` | Vertical size of the control. | Read-Write |
 | `rotationAngle` | `Number` | rotation angle of the control. | Read-Write |
 
-## Tutorials 
+## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

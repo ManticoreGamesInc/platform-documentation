@@ -6,7 +6,7 @@ An RGBA representation of a color. Color components have an effective range of `
 
 ## API
 
-### Constructors 
+### Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -15,7 +15,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color.New(Vector4 v)` | `Color` | Constructs a Color using the vector's XYZW components as the color's RGBA components. | None |
 | `Color.New(Color c)` | `Color` | Makes a copy of the given color. | None |
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -24,7 +24,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `b` | `Number` | The Blue component of the Color. | Read-Write |
 | `a` | `Number` | The Alpha (transparency) component of the Color. | Read-Write |
 
-### Functions 
+### Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -32,7 +32,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `ToStandardHex()` | `string` | Returns a hexadecimal sRGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
 | `ToLinearHex()` | `string` | Returns a hexadecimal linear RGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
 
-### Class Functions 
+### Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -41,7 +41,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color.FromStandardHex(string hexString)` | `Color` | Creates a Color from the given sRGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
 | `Color.FromLinearHex(string hexString)` | `Color` | Creates a Color from the given linear RGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
 
-### Operators 
+### Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -52,7 +52,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color / Color` | `Color` | Component-wise division. | None |
 | `Color / Number` | `Color` | Divides each component of the Color by the right-side Number. | None |
 
-### Extra Data 
+### Extra Data
 
 #### Predefined Colors
 
@@ -69,7 +69,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | :fontawesome-solid-square:{: .Color_MAGENTA} `#ff00ffff`      | Color.MAGENTA     | :fontawesome-solid-square:{: .Color_SILVER } `#b2b2b2ff`   | Color.SILVER |
 | :fontawesome-solid-square:{: .Color_YELLOW } `#ffff00ff`      | Color.YELLOW      | :fontawesome-solid-square:{: .Color_SMOKE } `#191919ff`    | Color.SMOKE |
 
-## Examples 
+## Examples
 
 ### Color.Lerp
 

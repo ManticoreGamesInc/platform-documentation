@@ -6,7 +6,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 ## API
 
-### Properties 
+### Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
