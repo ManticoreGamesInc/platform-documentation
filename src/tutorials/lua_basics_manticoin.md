@@ -85,7 +85,7 @@ Okay, so what did we just do?
     * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)` -> Here, we create a vector to rotate the object on the z axis by 200, spinning the coin along the z axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
-!!! note "If you want to know which other methods are available for every object, check out our [API docs](core_api.md) page."
+!!! note "If you want to know which other methods are available for every object, check out our [API docs](../api/index.md) page."
 
 ### Spin Cleanup
 
