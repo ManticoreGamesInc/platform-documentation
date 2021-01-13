@@ -168,6 +168,8 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ### [Script](script.md)
 
+Script is a CoreObject representing a script in the hierarchy. While not technically a property, a script can access itself using the `script` variable.
+
 ### [ScriptAsset](scriptasset.md)
 
 ScriptAsset is an Object representing a script asset in Project Content. When a script is executed from a call to `require()`, it can access the script asset using the `script` variable. This can be used to read custom properties from the script asset.
