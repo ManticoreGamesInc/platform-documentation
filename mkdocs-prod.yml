@@ -69,8 +69,10 @@ nav:
           - Modeling Reference: tutorials/modeling_reference.md
           - Custom Materials: tutorials/custom_materials.md
           - Object Generator: tutorials/object_generator.md
+          - Game Components: api/components.md
           - Templates: tutorials/template_reference.md
           - Community Content: getting_started/community_content.md
+          - Contexts: api/contexts.md
           - Animated Meshes: tutorials/animated_mesh.md
           - Audio: tutorials/audio_reference.md
           - UI: tutorials/ui_reference.md
@@ -85,8 +87,7 @@ nav:
           - Weapons: tutorials/weapons.md
   - Core API:
       - Reference: api/index.md
-      - Contexts: api/contexts.md
-      - Game Components: api/components.md
+      - Enums: api/enums.md
       - Types:
         - Ability: api/ability.md
         - AbilityPhaseSettings: api/abilityphasesettings.md
