@@ -1,3 +1,11 @@
+---
+id: uiscrollpanel
+name: UIScrollPanel
+title: UIScrollPanel
+tags:
+    - API
+---
+
 # UIScrollPanel
 
 ## Description

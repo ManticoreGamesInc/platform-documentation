@@ -1,3 +1,11 @@
+---
+id: vector2
+name: Vector2
+title: Vector2
+tags:
+    - API
+---
+
 # Vector2
 
 ## Description

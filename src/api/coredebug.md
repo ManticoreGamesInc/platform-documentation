@@ -1,3 +1,11 @@
+---
+id: coredebug
+name: CoreDebug
+title: CoreDebug
+tags:
+    - API
+---
+
 # CoreDebug
 
 ## Description

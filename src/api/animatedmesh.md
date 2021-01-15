@@ -1,3 +1,11 @@
+---
+id: animatedmesh
+name: AnimatedMesh
+title: AnimatedMesh
+tags:
+    - API
+---
+
 # AnimatedMesh
 
 ## Description

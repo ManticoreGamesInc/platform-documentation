@@ -1,3 +1,11 @@
+---
+id: uicontrol
+name: UIControl
+title: UIControl
+tags:
+    - API
+---
+
 # UIControl
 
 ## Description
