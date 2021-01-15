@@ -1,3 +1,11 @@
+---
+id: scriptasset
+name: ScriptAsset
+title: ScriptAsset
+tags:
+    - API
+---
+
 # ScriptAsset
 
 ## Description

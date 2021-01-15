@@ -1,3 +1,11 @@
+---
+id: weapon
+name: Weapon
+title: Weapon
+tags:
+    - API
+---
+
 # Weapon
 
 ## Description

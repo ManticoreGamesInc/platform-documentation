@@ -1,3 +1,11 @@
+---
+id: coreobjectreference
+name: CoreObjectReference
+title: CoreObjectReference
+tags:
+    - API
+---
+
 # CoreObjectReference
 
 ## Description

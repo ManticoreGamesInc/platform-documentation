@@ -1,3 +1,11 @@
+---
+id: hitresult
+name: HitResult
+title: HitResult
+tags:
+    - API
+---
+
 # HitResult
 
 ## Description

@@ -1,3 +1,11 @@
+---
+id: camera
+name: Camera
+title: Camera
+tags:
+    - API
+---
+
 # Camera
 
 ## Description

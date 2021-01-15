@@ -1,3 +1,11 @@
+---
+id: uitext
+name: UIText
+title: UIText
+tags:
+    - API
+---
+
 # UIText
 
 ## Description
