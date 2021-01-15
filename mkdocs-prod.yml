@@ -56,8 +56,8 @@ nav:
           - Modeling Basics: tutorials/modeling_basics.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Survival Game:
-            - Survival Contest Kit: tutorials/survival_kit.md
-            - Survival Tutorial: tutorials/survival_tutorial.md
+              - Survival Contest Kit: tutorials/survival_kit.md
+              - Survival Tutorial: tutorials/survival_tutorial.md
           - Video Tutorials:
               - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
       - Core Editor Manual:
@@ -89,84 +89,87 @@ nav:
       - Reference: api/index.md
       - Enums: api/enums.md
       - Types:
-        - Ability: api/ability.md
-        - AbilityPhaseSettings: api/abilityphasesettings.md
-        - AbilityTarget: api/abilitytarget.md
-        - AnimatedMesh: api/animatedmesh.md
-        - AreaLight: api/arealight.md
-        - Audio: api/audio.md
-        - Camera: api/camera.md
-        - Color: api/color.md
-        - CoreMesh: api/coremesh.md
-        - CoreObject: api/coreobject.md
-        - CoreObjectReference: api/coreobjectreference.md
-        - CoreString: api/corestring.md
-        - Damage: api/damage.md
-        - Decal: api/decal.md
-        - Equipment: api/equipment.md
-        - Event: api/event.md
-        - EventListener: api/eventlistener.md
-        - Folder: api/folder.md
-        - HitResult: api/hitresult.md
-        - ImpactRata: api/impactdata.md
-        - LeaderboardEntry: api/leaderboardentry.md
-        - Light: api/light.md
-        - MergedModel: api/mergedmodel.md
-        - NetReference: api/netreference.md
-        - NetworkContext: api/networkcontext.md
-        - Object: api/object.md
-        - Other: api/other.md
-        - Player: api/player.md
-        - PlayerSettings: api/playersettings.md
-        - PlayerStart: api/playerstart.md
-        - PointLight: api/pointlight.md
-        - Projectile: api/projectile.md
-        - Quaternion: api/quaternion.md
-        - RandomStream: api/randomstream.md
-        - Rotation: api/rotation.md
-        - Script: api/script.md
-        - ScriptAsset: api/scriptasset.md
-        - SmartAudio: api/smartaudio.md
-        - SmartObject: api/smartobject.md
-        - SpotLight: api/spotlight.md
-        - StaticMesh: api/staticmesh.md
-        - Task: api/task.md
-        - Terrain: api/terrain.md
-        - Transform: api/transform.md
-        - Trigger: api/trigger.md
-        - UIButton: api/uibutton.md
-        - UIContainer: api/uicontainer.md
-        - UIControl: api/uicontrol.md
-        - UIImage: api/uiimage.md
-        - UIPanel: api/uipanel.md
-        - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
-        - UIProgressBar: api/uiprogressbar.md
-        - UIScrollPanel: api/uiscrollpanel.md
-        - UIText: api/uitext.md
-        - Vector2: api/vector2.md
-        - Vector3: api/vector3.md
-        - Vector4: api/vector4.md
-        - Vfx: api/vfx.md
-        - Weapon: api/weapon.md
-        - WorldText: api/worldtext.md
+          - Ability: api/ability.md
+          - AbilityPhaseSettings: api/abilityphasesettings.md
+          - AbilityTarget: api/abilitytarget.md
+          - AnimatedMesh: api/animatedmesh.md
+          - AreaLight: api/arealight.md
+          - Audio: api/audio.md
+          - Camera: api/camera.md
+          - Color: api/color.md
+          - CoreMesh: api/coremesh.md
+          - CoreObject: api/coreobject.md
+          - CoreObjectReference: api/coreobjectreference.md
+          - CoreString: api/corestring.md
+          - Damage: api/damage.md
+          - Decal: api/decal.md
+          - Equipment: api/equipment.md
+          - Event: api/event.md
+          - EventListener: api/eventlistener.md
+          - Folder: api/folder.md
+          - HitResult: api/hitresult.md
+          - Hook: api/hook.md
+          - HookListener: api/hooklistener.md
+          - ImpactRata: api/impactdata.md
+          - LeaderboardEntry: api/leaderboardentry.md
+          - Light: api/light.md
+          - MergedModel: api/mergedmodel.md
+          - NetReference: api/netreference.md
+          - NetworkContext: api/networkcontext.md
+          - Object: api/object.md
+          - Other: api/other.md
+          - PhysicsObject: api/physicsobject.md
+          - Player: api/player.md
+          - PlayerSettings: api/playersettings.md
+          - PlayerStart: api/playerstart.md
+          - PointLight: api/pointlight.md
+          - Projectile: api/projectile.md
+          - Quaternion: api/quaternion.md
+          - RandomStream: api/randomstream.md
+          - Rotation: api/rotation.md
+          - Script: api/script.md
+          - ScriptAsset: api/scriptasset.md
+          - SmartAudio: api/smartaudio.md
+          - SmartObject: api/smartobject.md
+          - SpotLight: api/spotlight.md
+          - StaticMesh: api/staticmesh.md
+          - Task: api/task.md
+          - Terrain: api/terrain.md
+          - Transform: api/transform.md
+          - Trigger: api/trigger.md
+          - UIButton: api/uibutton.md
+          - UIContainer: api/uicontainer.md
+          - UIControl: api/uicontrol.md
+          - UIImage: api/uiimage.md
+          - UIPanel: api/uipanel.md
+          - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
+          - UIProgressBar: api/uiprogressbar.md
+          - UIScrollPanel: api/uiscrollpanel.md
+          - UIText: api/uitext.md
+          - Vector2: api/vector2.md
+          - Vector3: api/vector3.md
+          - Vector4: api/vector4.md
+          - Vfx: api/vfx.md
+          - Weapon: api/weapon.md
+          - WorldText: api/worldtext.md
       - Namespaces:
-        - Core Functions: api/coreluafunctions.md
-        - CoreDebug: api/coredebug.md
-        - CoreMath: api/coremath.md
-        - Environment: api/environment.md
-        - Events: api/events.md
-        - Game: api/game.md
-        - Leaderboards: api/leaderboards.md
-        - Storage: api/storage.md
-        - Teams: api/teams.md
-        - UI: api/ui.md
-        - World: api/world.md
+          - Core Functions: api/coreluafunctions.md
+          - CoreDebug: api/coredebug.md
+          - CoreMath: api/coremath.md
+          - Environment: api/environment.md
+          - Events: api/events.md
+          - Game: api/game.md
+          - Leaderboards: api/leaderboards.md
+          - Storage: api/storage.md
+          - Teams: api/teams.md
+          - UI: api/ui.md
+          - World: api/world.md
       - Additional Resources:
-        - Animations & Sockets: api/animations.md
-        - Editor Extensions: extensions.md
-        - Key Bindings: api/key_bindings.md
-        - Lua in Core: tutorials/lua_reference.md
-        - Lua Style Guide: tutorials/lua_style_guide.md
+          - Animations & Sockets: api/animations.md
+          - Editor Extensions: extensions.md
+          - Key Bindings: api/key_bindings.md
+          - Lua in Core: tutorials/lua_reference.md
+          - Lua Style Guide: tutorials/lua_style_guide.md
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:

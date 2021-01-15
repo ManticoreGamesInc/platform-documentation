@@ -192,7 +192,7 @@ function OnTick(ability, deltaTime)
     print("Updating ability " .. ability.name)
 end
 
-for _,ability in ipairs(allAbilities) do
+for _, ability in ipairs(allAbilities) do
     ability.tickEvent:Connect(OnTick)
 end
 ```

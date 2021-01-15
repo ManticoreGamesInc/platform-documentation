@@ -71,7 +71,7 @@ function OnEndOverlap(theTrigger, player)
     if (not player or not player:IsA("Player")) then return end
 
     for i, p in ipairs(activePlayers) do
-        if (p == player) then
+        if p == player then
             table.remove(activePlayers, i)
             break
         end
@@ -129,7 +129,7 @@ local teamToReward = 1
 
 while true do
     Task.Wait(1)
-    if (sphere and trigger:IsOverlapping(sphere)) then
+    if sphere and trigger:IsOverlapping(sphere) then
         Game.IncreaseTeamScore(teamToReward, 1)
         print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
     end
@@ -148,7 +148,7 @@ while true do
     local allPlayers = Game.GetPlayers()
 
     for _, player in ipairs(allPlayers) do
-        if (trigger:IsOverlapping(player)) then
+        if trigger:IsOverlapping(player) then
             local teamToReward = player.team
             Game.IncreaseTeamScore(teamToReward, 1)
             print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
@@ -210,7 +210,7 @@ end
 function OnInteracted(theTrigger, player)
     local teamToReward = player.team
 
-    if (teamToReward == trigger.team) then
+    if teamToReward == trigger.team then
         Game.IncreaseTeamScore(teamToReward, 1)
         print("Team " .. teamToReward .. " score = " .. Game.GetTeamScore(teamToReward))
     else

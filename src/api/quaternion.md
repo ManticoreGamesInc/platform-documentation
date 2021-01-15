@@ -188,5 +188,4 @@ myQuaternion.y = 0
 myQuaternion.z = math.sqrt(2)/2
 myQuaternion.w = math.sqrt(2)/2
 -- myQuaternion is now a 90 degree rotation about the Z axis!
-ut.EXPECT_QUAT_EQUAL(myQuaternion, Quaternion.New(Rotation.New(Vector3.RIGHT, Vector3.UP)), "direct setting")
 ```

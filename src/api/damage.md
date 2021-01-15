@@ -36,7 +36,7 @@ In this example players take 50 damage whenever they press 'D'.
 
 ```lua
 function OnBindingPressed(player, action)
-    if (action == "ability_extra_32") then --The 'D' key
+    if action == "ability_extra_32" then --The 'D' key
         local dmg = Damage.New(50)
         player:ApplyDamage(dmg)
     end
@@ -101,7 +101,7 @@ While Damage amount can be set when constructing the Damage object (e.g. Damage.
 ```lua
 function DamagePlayerAdvanced(player, dmg)
     local shieldAmount = player:GetResource("Shield")
-    if (shieldAmount > 0 and dmg.amount > 0) then
+    if shieldAmount > 0 and dmg.amount > 0 then
         if shieldAmount >= dmg.amount then
             player:RemoveResource("Shield", CoreMath.Round(dmg.amount))
             dmg.amount = 0
@@ -122,7 +122,7 @@ The damage reason can be used to specify the source of the damage and is useful,
 ```lua
 function Tick()
     Task.Wait(1)
-    for _,player in ipairs(Game.GetPlayers()) do
+    for _, player in ipairs(Game.GetPlayers()) do
         local position = player:GetWorldPosition()
         if position.size <= 2000 then
             local dmg = Damage.New(1)
@@ -153,7 +153,7 @@ In this example, knowing the source of the damage was an ability allows complex 
 function OnPlayerDamaged(player, dmg)
     if Object.IsValid(dmg.sourceAbility) then
         local magicResist = player:GetResource("MagicResist")
-        if (magicResist > 0) then
+        if magicResist > 0 then
             local amount = dmg.amount
             local newDmgAmount = amount / magicResist
             -- Heal back some of the lost hitPoints due to magic resist
