@@ -68,6 +68,7 @@ function OnTargetImpacted(_, impactData)
         World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
     end
 end
+
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 

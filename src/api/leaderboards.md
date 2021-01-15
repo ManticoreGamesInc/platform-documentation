@@ -52,14 +52,14 @@ if (Leaderboards.HasLeaderboards()) then
     -- Print out all the global scores on the leaderboard:
     print("Global scores:")
     local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.GLOBAL)
-    for k,v in pairs(leaderboard) do
+    for k, v in pairs(leaderboard) do
         PrintLeaderboardEntry(v)
     end
 
     -- Print out all the daily scores on the leaderboard:
     print("Daily scores:")
     local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.DAILY)
-    for k,v in pairs(leaderboard) do
+    for k, v in pairs(leaderboard) do
         PrintLeaderboardEntry(v)
     end
 end

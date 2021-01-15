@@ -98,11 +98,12 @@ There is a parent CoreObject for the entire hierarchy. Although not visible in t
 
 ```lua
 function PrintAllNames(node)
-    for _,child in ipairs(node:GetChildren()) do
+    for _, child in ipairs(node:GetChildren()) do
         print(child.name .. " + " .. child.type)
         PrintAllNames(child)
     end
 end
+
 local worldRoot = World.GetRootObject()
 PrintAllNames(worldRoot)
 ```

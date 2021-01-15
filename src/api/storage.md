@@ -77,7 +77,7 @@ local propSharedKey = script:GetCustomProperty("DocTestSharedKey")
 local returnTable = Storage.GetSharedPlayerData(propSharedKey, player)
 
 -- Print out the data we retrieved:
-for k,v in pairs(returnTable) do
+for k, v in pairs(returnTable) do
     print(k, v)
 end
 ```
