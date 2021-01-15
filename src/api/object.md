@@ -135,7 +135,7 @@ function Tick()
 
         local allConnectedPlayers = Game.GetPlayers()
 
-        for _,player in ipairs(allConnectedPlayers) do
+        for _, player in ipairs(allConnectedPlayers) do
             local joinNumber = player.serverUserData.joinNumber
             if joinNumber < oldestJoinNumber then
                 oldestJoinNumber = joinNumber

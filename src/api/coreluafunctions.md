@@ -58,6 +58,7 @@ function Tick()
         currentColor = nextColor
         nextColor = temp
     end
+
     local progress = (currentTime - startTime) / fadeDuration
     cube:SetColor(Color.Lerp(currentColor, nextColor, progress))
 end

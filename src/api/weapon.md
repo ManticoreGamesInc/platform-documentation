@@ -500,7 +500,7 @@ local muzzleInstance = World.SpawnAsset(WEAPON.muzzleFlashTemplateId, {parent = 
 function ForEachChild(coreObj, functionToCall)
     functionToCall(coreObj)
 
-    for _,child in ipairs(coreObj:GetChildren()) do
+    for _, child in ipairs(coreObj:GetChildren()) do
         ForEachChild(child, functionToCall)
     end
 end
@@ -509,7 +509,6 @@ end
 ForEachChild(muzzleInstance, function(coreObj)
     if coreObj.Play and coreObj.Stop then
         table.insert(smartObjects, coreObj)
-
         coreObj:Stop()
     end
 end)
@@ -519,7 +518,7 @@ while true do
     Task.Wait(math.random())
 
     -- Play all the effects
-    for _,obj in ipairs(smartObjects) do
+    for _, obj in ipairs(smartObjects) do
         obj:Play()
     end
 
@@ -527,7 +526,7 @@ while true do
     Task.Wait(math.random() * 0.3)
 
     -- Stop all the effects
-    for _,obj in ipairs(smartObjects) do
+    for _, obj in ipairs(smartObjects) do
         obj:Stop()
     end
     -- Repeat...
@@ -547,6 +546,7 @@ function OnEquipped(equipment, player)
         World.SpawnAsset(WEAPON.outOfAmmoSoundId, {position = pos})
     end
 end
+
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
@@ -722,6 +722,7 @@ function OnTargetImpacted(weapon, impactData)
         _G.WeaponStudy.ReportDamage(WEAPON, damageAmount)
     end
 end
+
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 
 -- Rate each gun based on how it measures against all the other ones in the hierarchy.
