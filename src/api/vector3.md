@@ -67,7 +67,7 @@ A three-component vector that can represent a position or direction.
 
 ## Examples
 
-### Vector3.Lerp
+### `Lerp`
 
 Vector3.Lerp is a function for finding a spot part way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
 
@@ -85,89 +85,78 @@ myObject:SetWorldPosition(startPosition)
 -- consider using CoreObject:MoveTo() and similar functions!
 for i = 1, 30 do
     myObject:SetWorldPosition(Vector3.Lerp(startPosition, endPosition, i/300))
-    ut.EXPECT_VEC_EQUAL(Vector3.Lerp(startPosition, endPosition, i/300), (endPosition - startPosition) * i / 300 + startPosition, "LERP should equal our hand-calculated value")
     Task.Wait()
 end
 
 print("Tah dah!")
 ```
 
-### Vector3.New
+### `New`
 
 There are several different ways to create Vector3s. You can directly specify the x, y, z coordinates, or you can feed it a Vector2 or Vector4 to pull coordinates from, or you can just give it a single number to apply to x y and z.
 
 ```lua
 -- Makes a vector3 where x=1, y=2, z=3:
 local myVector3_0 = Vector3.New(1, 2, 3)
-ut.EXPECT_EQUAL(myVector3_0, vec3_123, "Basic constructor")
 
 -- Another way of making a vector3 where x=1, y=2, z=3:
 local myVec2 = Vector2.New(1, 2)
 local myVector3_1 = Vector3.New(myVec2, 3)
-ut.EXPECT_EQUAL(myVector3_1, vec3_123, "Vec2 constructor")
 
 -- Yet another way of making a vector3 where x=1, y=2, z=3:
 local myVec4 = Vector4.New(1, 2, 3, 4)
 local myVector3_2 = Vector3.New(myVec4)
-ut.EXPECT_EQUAL(myVector3_2, vec3_123, "Vec4 constructor")
 
 -- Makes a vector3 where x=6, y=6, z=6:
 local myVector3_3 = Vector3.New(6)
-ut.EXPECT_EQUAL(myVector3_3, vec3_6, "Single-argument constructor")
 
 -- We can also make new Vector3s based on existing ones:
 local copyOfVector3_3 = Vector3.New(myVector3_3)
-ut.EXPECT_EQUAL(copyOfVector3_3, vec3_6, "Copy constructor")
 ```
 
-### Vector3.ZERO
+### `ZERO`
 
-### Vector3.ONE
+### `ONE`
 
-### Vector3.FORWARD
+### `FORWARD`
 
-### Vector3.UP
+### `UP`
 
-### Vector3.RIGHT
+### `RIGHT`
 
 The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
 
 ```lua
 print(Vector3.ZERO)    -- (0, 0, 0)
-ut.EXPECT_EQUAL(Vector3.ZERO, Vector3.New(0), "Vector3.ZERO")
 
 print(Vector3.ONE)    -- (1, 1, 1)
-ut.EXPECT_EQUAL(Vector3.ONE, Vector3.New(1), "Vector3.ONE")
 
 print(Vector3.FORWARD)    -- (1, 0, 0)
-ut.EXPECT_EQUAL(Vector3.FORWARD, Vector3.New(1, 0, 0), "Vector3.FORWARD")
 
 print(Vector3.RIGHT)    -- (0, 1, 0)
-ut.EXPECT_EQUAL(Vector3.RIGHT, Vector3.New(0, 1, 0), "Vector3.RIGHT")
 
 print(Vector3.UP)    -- (0, 0, 1)
-ut.EXPECT_EQUAL(Vector3.UP, Vector3.New(0, 0, 1), "Vector3.UP")
 ```
 
-### Vector3+Vector3
+### `Vector3+Vector3`
 
-### Vector3+Number
+### `Vector3+Number`
 
-### Vector3-Vector3
+### `Vector3-Vector3`
 
-### Vector3-Number
+### `Vector3-Number`
 
-### Vector3*Vector3
+### `Vector3*Vector3`
 
-### Vector3*Number
+### `Vector3*Number`
 
-### Number*Vector3
+### `Number*Vector3`
 
-### Vector3/Vector3
+### `Vector3/Vector3`
 
-### Vector3/Number
+### `Vector3/Number`
 
-### -Vector3
+### `-Vector3`
 
 Most arithmetic operators will work on Vector3s in straightforward ways.
 
@@ -177,42 +166,32 @@ local b = Vector3.New(4, 5, 6)
 
 -- Adding and subtracting vectors is the same as adding or subtracting each of their components.
 print(a + b) -- (5, 7, 9)
-ut.EXPECT_EQUAL(a + b, Vector3.New(5, 7, 9), "Vector addition")
 print(b - a) -- (3, 3, 3)
-ut.EXPECT_EQUAL(b - a, Vector3.New(3), "Vector subtraction")
 
 -- You can also add or subtract a number and a vector - it will just add or subtract that
 -- number from each component.
 print(a + 2) -- 3, 4, 5
-ut.EXPECT_EQUAL(a + 2, Vector3.New(3, 4, 5), "Vector addition to a number")
 
 print(b - 2) -- 2, 3, 4
-ut.EXPECT_EQUAL(b - 2, Vector3.New(2, 3, 4), "vector minus a number")
 
 -- Multiplication and Division work the same way:
 print (a * b) -- 4, 10, 18
-ut.EXPECT_EQUAL(a * b, Vector3.New(4, 10, 18), "Vector multiplication")
 print (a * 2) -- 2, 4, 6
-ut.EXPECT_EQUAL(a * 2, Vector3.New(2, 4, 6), "Vector number multiplication")
 print (2 * a) -- 2, 4, 6
-ut.EXPECT_EQUAL(2 * a, Vector3.New(2, 4, 6), "number vector multiplication")
 
 print(a / b) -- (0.25, 0.4, 0.3)
-ut.EXPECT_EQUAL(a / b, Vector3.New(1/4, 2/5, 3/6), "Vector division")
 print(b / 4) -- (1, 1.25, 1.5)
-ut.EXPECT_EQUAL(b / 4, Vector3.New(1, 1.25, 1.5), "Vector number division")
 
 -- You can also just negate a vector:
 
 print(-a) -- -1, -2, -3
-ut.EXPECT_EQUAL(-a, Vector3.New(-1, -2, -3), "vector negation")
 ```
 
-### Vector3.GetNormalized()
+### `GetNormalized()`
 
-### Vector3..Vector3
+### `Vector3`
 
-### Vector3^Vector3
+### `Vector3^Vector3`
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
@@ -259,13 +238,12 @@ for i = 1, 10, 0.05 do
         end
     end
     Task.Wait(0.05)
-    break --UT_STRIP
 end
 ```
 
-### Vector3.size
+### `size`
 
-### Vector3.sizeSquared
+### `sizeSquared`
 
 A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
 
@@ -294,20 +272,17 @@ for i = 1, 50 do
             player:ApplyDamage(Damage.New(-healAmount))
             print("Player is being healed for " .. tostring(healAmount))
 
-            ut.EXPECT_NEARLY_EQUAL(healAmount, 2.4482, "Heal amount should be about right", 0.1)
-            ut.EXPECT_NEARLY_EQUAL(distance, math.sqrt(distanceSquared), "distance squared", 0.1)
         end
     end
-    break --UT_STRIP
     Task.Wait(0.2)
 end
 ```
 
-### Vector3.x
+### `x`
 
-### Vector3.y
+### `y`
 
-### Vector3.z
+### `z`
 
 After creating a `Vector3`, we can read or write to its x, y, z components directly.
 
@@ -317,9 +292,6 @@ local myVector3 = Vector3.New(1, 2, 3)
 print(myVector3.x) -- 1
 print(myVector3.y) -- 2
 print(myVector3.z) -- 3
-ut.EXPECT_EQUAL(myVector3.x, 1)
-ut.EXPECT_EQUAL(myVector3.y, 2)
-ut.EXPECT_EQUAL(myVector3.z, 3)
 
 -- We can also modify them directly, to create a new vector:
 myVector3.x = 4

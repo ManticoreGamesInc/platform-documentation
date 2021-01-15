@@ -45,7 +45,7 @@ A data type containing information about what the Player has targeted during a p
 
 ## Examples
 
-### AbilityTarget.New
+### `New`
 
 The ability's targeting data can be generated programatically, for specific results. In this example, We create a target that is always at the world origin (Vector3.ZERO). If added to a rifle's Shoot ability, all shots will go to (0,0,0). For this to work the script should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -54,7 +54,6 @@ local abilityTarget = AbilityTarget.New()
 abilityTarget:SetHitPosition(Vector3.ZERO)
 
 local ability = script:FindAncestorByType("Ability")
-ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
 function OnCast(ability)
     ability:SetTargetData(abilityTarget)
@@ -63,15 +62,14 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### AbilityTarget.GetAimPosition
+### `GetAimPosition`
 
-### AbilityTarget.GetAimDirection
+### `GetAimDirection`
 
 In this example, a non-weapon ability needs to know where the player is aiming in order to spawn the effect correctly. It creates an effect that moves down the center of where the camera is aiming. However, if the effect were to begin at the camera's position that could be weird in a third-person game. Instead, the player's position is projected onto the camera's vector to determine a more suitable starting point.
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
-ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
 function ProjectPointOnLine(p, linePoint, lineDirection)
     local lineToP = p - linePoint
@@ -95,15 +93,14 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### AbilityTarget.GetHitPosition
+### `GetHitPosition`
 
-### AbilityTarget.SetHitPosition
+### `SetHitPosition`
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
-ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 
 function OnCast(ability)
     local abilityTarget = ability:GetTargetData()
@@ -118,7 +115,7 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
-### AbilityTarget.GetHitResult
+### `GetHitResult`
 
 At any phase of an ability's activation, you can get data about what is under the cursor and would be hit.
 
@@ -126,8 +123,6 @@ This code snippet prints out the name of whatever was under the cursor when the 
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
-ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
-ability.owner = player -- UT_STRIP
 
 function OnExecute(ability)
     local hr = ability:GetTargetData():GetHitResult()
@@ -136,21 +131,19 @@ function OnExecute(ability)
     else
         print("You didn't hit anything...")
     end
-    table.insert(hits, hr.other) -- UT_STRIP
 end
 
 ability.executeEvent:Connect(OnExecute)
 ```
 
-### AbilityTarget.hitObject
+### `hitObject`
 
-### AbilityTarget.hitPlayer
+### `hitPlayer`
 
 In this example, an ability casts a magical area of effect (AOE) in front of the player. In case the player was aiming at another player or object that position is used instead.
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
-ability = World.SpawnAsset(script:GetCustomProperty("BasicAbility")) -- UT_STRIP
 local AOE_ASSET = script:GetCustomProperty("AOEAsset")
 
 function OnExecute(ability)
