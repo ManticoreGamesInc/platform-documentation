@@ -1,3 +1,11 @@
+---
+id: trigger
+name: Trigger
+title: Trigger
+tags:
+    - API
+---
+
 # Trigger
 
 ## Description

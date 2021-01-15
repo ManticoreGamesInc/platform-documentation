@@ -1,3 +1,11 @@
+---
+id: playerstart
+name: PlayerStart
+title: PlayerStart
+tags:
+    - API
+---
+
 # PlayerStart
 
 ## Description

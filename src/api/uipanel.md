@@ -1,3 +1,11 @@
+---
+id: uipanel
+name: UIPanel
+title: UIPanel
+tags:
+    - API
+---
+
 # UIPanel
 
 ## Description

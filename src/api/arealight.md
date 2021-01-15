@@ -1,3 +1,11 @@
+---
+id: arealight
+name: AreaLight
+title: AreaLight
+tags:
+    - API
+---
+
 # AreaLight
 
 ## Description

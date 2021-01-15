@@ -1,3 +1,11 @@
+---
+id: uiprogressbar
+name: UIProgressBar
+title: UIProgressBar
+tags:
+    - API
+---
+
 # UIProgressBar
 
 ## Description

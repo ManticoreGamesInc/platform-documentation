@@ -1,3 +1,11 @@
+---
+id: uiimage
+name: UIImage
+title: UIImage
+tags:
+    - API
+---
+
 # UIImage
 
 ## Description

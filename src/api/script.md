@@ -1,3 +1,11 @@
+---
+id: script
+name: Script
+title: Script
+tags:
+    - API
+---
+
 # Script
 
 ## Description
