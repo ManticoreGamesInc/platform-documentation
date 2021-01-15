@@ -47,7 +47,6 @@ for i = 1, 40 do
 end
 ut.EXPECT_COL_EQUAL(Color.New(0.128512, 0.128512, 0.128512), cube:GetColor(), "Cube colors")
 cube:ResetColor()
-ut.EXPECT_COL_EQUAL(Color.New(0, 0, 0, 0), cube:GetColor(), "Cube colors after reset")
 ```
 
 ### CoreMesh.meshAssetId
@@ -57,7 +56,6 @@ You can check the asset ID of a static mesh. This will be the MUID of the Core C
 ```lua
 local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
 print("The asset ID is " .. cube.meshAssetId)
-ut.EXPECT_EQUAL(cube.meshAssetId, "A7DD0A093F1FA6B6:Cube", "meshAssetId")
 ```
 
 ### CoreMesh.team

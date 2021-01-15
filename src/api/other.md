@@ -40,7 +40,7 @@ local vector = Vector3.UP
 print("the type of [cube] is " .. cube.type)     -- "StaticMesh"
 print("the type of [player] is " .. player.type) -- "Player"
 print("the type of [vector] is " .. vector.type) -- "Vector3"
--- (Note that base Lua  types (string, number, etc) do NOT have this property!)
+-- (Note that base Lua types (string, number, etc) do NOT have this property!)
 ut.EXPECT_EQUAL(cube.type, "StaticMesh", "StaticMesh .type")
 ut.EXPECT_EQUAL(player.type, "Player", "Player .type")
 ut.EXPECT_EQUAL(vector.type, "Vector3", "vector .type")

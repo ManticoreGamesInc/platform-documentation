@@ -26,6 +26,7 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 | `fadeInTime` | `Number` | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write |
 | `fadeOutTime` | `Number` | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write |
 | `startTime` | `Number` | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write |
+| `stopTime` | `Number` | The stop time of the audio track. Default is 0. A positive value means that the audio will stop that many seconds from the start of the track, including any fade out time. | Read-Write |
 
 ### Functions
 

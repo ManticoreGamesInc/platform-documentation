@@ -60,7 +60,7 @@ local amplitude = 0
 local startPositionOffset = Vector3.New()
 
 function Tick(deltaTime)
-    if (amplitude > 0) then
+    if amplitude > 0 then
         amplitude = CoreMath.Lerp(amplitude, 0, deltaTime * DECAY_SPEED)
 
         -- Shake on the Z-axis (position)
@@ -102,7 +102,7 @@ local amplitude = 0
 local startRotationOffset = Rotation.New()
 
 function Tick(deltaTime)
-    if (amplitude > 0) then
+    if amplitude > 0 then
         amplitude = CoreMath.Lerp(amplitude, 0, deltaTime * DECAY_SPEED)
 
         -- Shake on the pitch axis (rotation)
@@ -385,7 +385,7 @@ function NextPlayer()
     if followedPlayer == nil then
         CAMERA.followPlayer = allPlayers[1]
     else
-        for index,player in ipairs(allPlayers) do
+        for index, player in ipairs(allPlayers) do
             if followedPlayer == player then
                 -- Select who the next player is
                 local selectedPlayer
@@ -409,6 +409,7 @@ function OnBindingPressed(player, action)
         NextPlayer()
     end
 end
+
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
 

@@ -130,6 +130,7 @@ function OnExecute(ability)
     end
     table.insert(hits, hr.other) -- UT_STRIP
 end
+
 ability.executeEvent:Connect(OnExecute)
 ```
 
