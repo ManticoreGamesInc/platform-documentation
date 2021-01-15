@@ -1,3 +1,11 @@
+---
+id: abilityphasesettings
+name: AbilityPhaseSettings
+title: AbilityPhaseSettings
+tags:
+    - API
+---
+
 # AbilityPhaseSettings
 
 ## Description

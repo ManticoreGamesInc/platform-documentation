@@ -1,3 +1,11 @@
+---
+id: player
+name: Player
+title: Player
+tags:
+    - API
+---
+
 # Player
 
 ## Description

@@ -1,3 +1,11 @@
+---
+id: corestring
+name: CoreString
+title: CoreString
+tags:
+    - API
+---
+
 # CoreString
 
 ## Description

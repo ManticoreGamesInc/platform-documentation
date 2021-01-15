@@ -1,3 +1,11 @@
+---
+id: storage
+name: Storage
+title: Storage
+tags:
+    - API
+---
+
 # Storage
 
 ## Description

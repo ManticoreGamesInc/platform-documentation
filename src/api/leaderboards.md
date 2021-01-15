@@ -1,3 +1,11 @@
+---
+id: leaderboards
+name: Leaderboards
+title: Leaderboards
+tags:
+    - API
+---
+
 # Leaderboards
 
 ## Description

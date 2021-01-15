@@ -1,3 +1,11 @@
+---
+id: enums
+name: Enums
+title: Enums
+tags:
+    - API
+---
+
 <style>
     .md-typeset table:not([class]) tr td:first-child {
         width: auto;
@@ -187,3 +195,4 @@
 | `Visibility.INHERIT` | `0` | Description |
 | `Visibility.FORCE_ON` | `1` | Description |
 | `Visibility.FORCE_OFF` | `2` | Description |
+

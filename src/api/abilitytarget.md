@@ -1,3 +1,11 @@
+---
+id: abilitytarget
+name: AbilityTarget
+title: AbilityTarget
+tags:
+    - API
+---
+
 # AbilityTarget
 
 ## Description

@@ -1,3 +1,11 @@
+---
+id: impactdata
+name: ImpactData
+title: ImpactData
+tags:
+    - API
+---
+
 # ImpactData
 
 ## Description

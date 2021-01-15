@@ -1,3 +1,11 @@
+---
+id: spotlight
+name: SpotLight
+title: SpotLight
+tags:
+    - API
+---
+
 # SpotLight
 
 ## Description

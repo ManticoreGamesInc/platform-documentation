@@ -1,3 +1,11 @@
+---
+id: other
+name: Other
+title: Other
+tags:
+    - API
+---
+
 # Other
 
 ## Description

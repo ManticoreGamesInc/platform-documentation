@@ -1,3 +1,11 @@
+---
+id: damage
+name: Damage
+title: Damage
+tags:
+    - API
+---
+
 # Damage
 
 ## Description

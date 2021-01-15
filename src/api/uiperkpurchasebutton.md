@@ -1,3 +1,11 @@
+---
+id: uiperkpurchasebutton
+name: UIPerkPurchaseButton
+title: UIPerkPurchaseButton
+tags:
+    - API
+---
+
 # UIPerkPurchaseButton
 
 ## Description

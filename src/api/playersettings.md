@@ -1,3 +1,11 @@
+---
+id: playersettings
+name: PlayerSettings
+title: PlayerSettings
+tags:
+    - API
+---
+
 # PlayerSettings
 
 ## Description

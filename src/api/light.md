@@ -1,3 +1,11 @@
+---
+id: light
+name: Light
+title: Light
+tags:
+    - API
+---
+
 # Light
 
 ## Description
