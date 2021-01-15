@@ -33,10 +33,10 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [Ability](ability.md) | [AbilityPhaseSettings](abilityphasesettings.md) | [AbilityTarget](abilitytarget.md) | [AnimatedMesh](animatedmesh.md) |
 | [AreaLight](arealight.md) | [Audio](audio.md) | [Camera](camera.md) | [Color](color.md) |
 | [CoreMesh](coremesh.md) | [CoreObject](coreobject.md) | [CoreObjectReference](coreobjectreference.md) | [Damage](damage.md) |
-| [Equipment](equipment.md) | [Event](event.md) | [EventListener](eventlistener.md) | [Folder](folder.md) |
-| [HitResult](hitresult.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) | [Light](light.md) |
-| [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) | [Object](object.md) |
-| [Other](other.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
+| [Decal](decal.md) | [Equipment](equipment.md) | [Event](event.md) | [EventListener](eventlistener.md) |
+| [Folder](folder.md) | [HitResult](hitresult.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) |
+| [Light](light.md) | [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) |
+| [Object](object.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
 | [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) | [RandomStream](randomstream.md) |
 | [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) |
 | [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) | [Task](task.md) |
@@ -52,13 +52,13 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [CoreDebug](coredebug.md) | [Core Functions](coreluafunctions.md) | [CoreMath](coremath.md) | [CoreString](corestring.md) |
-| [Environment](environment.md) | [Events](events.md) | [Game](game.md) | [Leaderboards](leaderboards.md) |
-| [Storage](storage.md) | [Teams](teams.md) | [UI](ui.md) | [World](world.md) |
+| [CoreDebug](coredebug.md) | [CoreMath](coremath.md) | [CoreString](corestring.md) | [Environment](environment.md) |
+| [Events](events.md) | [Game](game.md) | [Leaderboards](leaderboards.md) | [Storage](storage.md) |
+| [Teams](teams.md) | [UI](ui.md) | [World](world.md) | |
 
 ## Built-In Lua Functions
 
-For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do
+For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
 ??? "Built-In Lua Functions"
     - `assert`
