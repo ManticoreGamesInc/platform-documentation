@@ -26,9 +26,9 @@ A few base functions provided by the platform.
 
 ## Examples
 
-### CoreLua.print
+### `print`
 
-### CoreLua.warn
+### `warn`
 
 The common lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
 
@@ -42,9 +42,9 @@ print("Hello world!")
 warn("Something is amiss!")
 ```
 
-### CoreLua.time
+### `time`
 
-### CoreLua.Tick
+### `Tick`
 
 Functions named `Tick()` are special - if you have a script with a `Tick()` function, then that function will be called every frame of the game. This is not something you want to do often, because of performance costs, but can be used to set up animations. (Ideally inside of client contexts.)
 
