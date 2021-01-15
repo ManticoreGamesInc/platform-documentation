@@ -32,13 +32,13 @@ In the case of networked objects it's possible to get a CoreObjectReference poin
 
 ## Examples
 
-### CoreObjectReference.GetObject
+### `GetObject`
 
-### CoreObjectReference.WaitForObject
+### `WaitForObject`
 
-### CoreObjectReference.id
+### `id`
 
-### CoreObjectReference.isAssigned
+### `isAssigned`
 
 Sometimes you need to pass around a reference to a core object, instead of the actual object itself. This is most common when accessing custom properties - any core objects you have attached as custom properties are stored as `CoreObjectReferences`.
 
@@ -52,7 +52,6 @@ local propDefaultFloor = script:GetCustomProperty("DefaultFloor"):WaitForObject(
 -- Since you usually don't care about the reference itself, and just want to
 -- access the object, it normally appends WaitForObject(), to return the object
 -- after waiting for it to load.
-ut.EXPECT_EQUAL(propDefaultFloor.name, "Default Floor", "floor check")
 
 local floorObjectReference = script:GetCustomProperty("DefaultFloor")
 
@@ -60,13 +59,10 @@ local floorObjectReference = script:GetCustomProperty("DefaultFloor")
 -- also just get the object directly:
 
 local propDefaultFloor_noWaiting = floorObjectReference:GetObject()
-ut.EXPECT_EQUAL(propDefaultFloor_noWaiting.name, "Default Floor", "floor check2")
 
 -- We can also check things on the reference directly, such as if it has been
 -- assigned to an object, and the MUID of the object it references:
 if floorObjectReference.isAssigned then
     print("The MUD is: " .. floorObjectReference.id)
 end
-ut.EXPECT_TRUE(floorObjectReference.isAssigned, "it's assigned.")
-ut.EXPECT_EQUAL(floorObjectReference.id, "CFEDC0791F04A5E3", "MUID check")
 ```

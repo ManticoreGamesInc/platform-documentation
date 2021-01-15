@@ -24,19 +24,19 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 ## Examples
 
-### Leaderboards.HasLeaderboards
+### `HasLeaderboards`
 
-### Leaderboards.GetLeaderboard
+### `GetLeaderboard`
 
-### Leaderboards.SubmitPlayerScore
+### `SubmitPlayerScore`
 
-### LeaderboardEntry.id
+### `id`
 
-### LeaderboardEntry.name
+### `name`
 
-### LeaderboardEntry.score
+### `score`
 
-### LeaderboardEntry.additionalData
+### `additionalData`
 
 The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
 
@@ -50,7 +50,6 @@ end
 -- To create this reference, create a custom property of type 'netreference',
 -- and drag a leaderboard into it, from the Global Leaderboards tab:
 local propLeaderboardRef = script:GetCustomProperty("LeaderboardRef")
-ut.EXPECT_TRUE(Leaderboards.HasLeaderboards())
 
 -- Verify that we actually have leaderboard data to load:
 if (Leaderboards.HasLeaderboards()) then
@@ -72,7 +71,5 @@ if (Leaderboards.HasLeaderboards()) then
     end
 end
 local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.MONTHLY)
-ut.EXPECT_EQUAL(#leaderboard, 0, "We didn't specify a monthly leaderboard.")
 local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.WEEKLY)
-ut.EXPECT_EQUAL(#leaderboard, 0, "We didn't specify a weekly leaderboard.")
 ```

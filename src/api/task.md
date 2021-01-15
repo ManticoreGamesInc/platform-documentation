@@ -39,11 +39,11 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 
 ## Examples
 
-### Task.Spawn
+### `Spawn`
 
-### Task.GetCurrent
+### `GetCurrent`
 
-### Task.id
+### `id`
 
 You can spawn new tasks via `Task.Spawn()`, and leave them to execute without blocking your main Lua script. This has a lot of potential uses, from animation, to code organization.
 
@@ -58,16 +58,12 @@ function SpawnCountdown(name)
         local currentTask = Task.GetCurrent()
         local myName = nameMap[currentTask.id]
         print(myName .. ": 3...")
-        debug_taskLog = debug_taskLog ..":3_" .. myName -- UT_STRIP
         Task.Wait(1)
         print(myName .. ": 2...")
-        debug_taskLog = debug_taskLog ..":2_" .. myName -- UT_STRIP
         Task.Wait(1)
         print(myName .. ": 1...")
-        debug_taskLog = debug_taskLog ..":1_" .. myName -- UT_STRIP
         Task.Wait(1)
         print(myName .. ": LIFTOFF!!!")
-        debug_taskLog = debug_taskLog ..":0_" .. myName -- UT_STRIP
     end)
     nameMap[newTask.id] = name
     return newTask
@@ -88,7 +84,7 @@ local task2 = SpawnCountdown("Bob")
     ]]
 ```
 
-### Task.Wait
+### `Wait`
 
 `Task.Wait()` is an extremely useful function that you can use to make your current Lua thread pause for an amount of time. If you provide a number as an argument, the task will yield for that many seconds. If no argument is provided, it yields until the next update frame.
 
@@ -103,9 +99,9 @@ print("timeElapsed = " .. timeElapsed)
 print("timeRequested = " .. timeRequested)
 ```
 
-### Task.Cancel
+### `Cancel`
 
-### Task.GetStatus
+### `GetStatus`
 
 Tasks started via `Task.Spawn()` continue until they are completed. But you can end them early, via their `Cancel()` method.
 
@@ -125,16 +121,14 @@ end)
 
 Task.Wait(4.5)
 print("Current status is Scheduled? " .. tostring(myTask:GetStatus() == TaskStatus.SCHEDULED))
-ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.SCHEDULED, "Scheduled status")
 print(" -- Cancelling Task -- ")
 myTask:Cancel()
 print("Current status is Canceled? " .. tostring(myTask:GetStatus() == TaskStatus.CANCELED))
-ut.EXPECT_EQUAL(myTask:GetStatus(), TaskStatus.CANCELED, "Canceled status")
 ```
 
-### Task.repeatCount
+### `repeatCount`
 
-### Task.repeatInterval
+### `repeatInterval`
 
 You can schedule tasks to run a specific number of times, and to wait a specific number of times between repeats. This sample creates a task that prints out "hello world", and then has it repeat itself thee times, once per second.
 

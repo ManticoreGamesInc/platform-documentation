@@ -44,7 +44,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 ## Examples
 
-### AnimatedMesh.animationEvent
+### `animationEvent`
 
 Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
 
@@ -55,14 +55,13 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 function AnimEventListener(mesh, eventName)
     print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
     -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
-    hitEvent = true -- UT_STRIP
 end
 
 dragonMesh.animationEvent:Connect(AnimEventListener)
 dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
-### AnimatedMesh.AttachCoreObject
+### `AttachCoreObject`
 
 Attaches the specified object to the specified socket on the mesh if they exist.
 
@@ -87,15 +86,15 @@ for _, obj in ipairs(allObjects) do
 end
 ```
 
-### AnimatedMesh.GetAnimationNames
+### `GetAnimationNames`
 
-### AnimatedMesh.GetAnimationStanceNames
+### `GetAnimationStanceNames`
 
-### AnimatedMesh.GetSocketNames
+### `GetSocketNames`
 
-### AnimatedMesh.GetAnimationEventNames
+### `GetAnimationEventNames`
 
-### AnimatedMesh.GetAnimationDuration
+### `GetAnimationDuration`
 
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
 
@@ -127,9 +126,9 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 PrintAnimatedMeshData(dragonMesh)
 ```
 
-### AnimatedMesh.PlayAnimation
+### `PlayAnimation`
 
-### AnimatedMesh.playbackRateMultiplier
+### `playbackRateMultiplier`
 
 Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
@@ -164,7 +163,7 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-### AnimatedMesh.StopAnimations
+### `StopAnimations`
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -177,11 +176,11 @@ Task.Wait(0.25)
 dragonMesh:StopAnimations()
 ```
 
-### AnimatedMesh.animationStance
+### `animationStance`
 
-### AnimatedMesh.animationStancePlaybackRate
+### `animationStancePlaybackRate`
 
-### AnimatedMesh.animationStanceShouldLoop
+### `animationStanceShouldLoop`
 
 The stance the animated mesh plays.
 

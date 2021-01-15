@@ -107,7 +107,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 ## Examples
 
-### CoreObject.childAddedEvent
+### `childAddedEvent`
 
 This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
 
@@ -129,7 +129,7 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 ```
 
-### CoreObject.childRemovedEvent
+### `childRemovedEvent`
 
 This event fires when a direct child of the object is removed.
 
@@ -150,7 +150,7 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 obj2:Destroy()
 ```
 
-### CoreObject.descendantAddedEvent
+### `descendantAddedEvent`
 
 This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
 
@@ -172,7 +172,7 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 ```
 
-### CoreObject.descendantRemovedEvent
+### `descendantRemovedEvent`
 
 This event fires when a descendant of the object is removed.  This is any object that has the object somewhere up the hierarchy tree as a parent.
 
@@ -196,11 +196,11 @@ obj3:Destroy()
 obj2:Destroy()
 ```
 
-### CoreObject.destroyEvent
+### `destroyEvent`
 
-### CoreObject.Destroy
+### `Destroy`
 
-### CoreObject.lifeSpan
+### `lifeSpan`
 
 There are several ways of destroying coreobjects, and noticing when they are destroyed.
 
@@ -247,21 +247,18 @@ template4.name = "Template 4"
 template4.destroyEvent:Connect(OnDestroyListener)
 Task.Wait(1)
 template4.lifeSpan = 0.5
-Task.Wait() --UT_STRIP
-ut.EXPECT_VALID(template4)
 Task.Wait(1)
-ut.EXPECT_INVALID(template4)
 ```
 
-### CoreObject.AttachToPlayer
+### `AttachToPlayer`
 
-### CoreObject.AttachToLocalView
+### `AttachToLocalView`
 
-### CoreObject.Detach
+### `Detach`
 
-### CoreObject.GetAttachedToSocketName
+### `GetAttachedToSocketName`
 
-### Player.GetAttachedObjects
+### `GetAttachedObjects`
 
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
 
@@ -277,7 +274,6 @@ cube:AttachToPlayer(player, "head")
 
 -- We can also check what socket an object is attached to.
 print(cube:GetAttachedToSocketName())   -- Head
-ut.EXPECT_EQUAL(cube:GetAttachedToSocketName(), "Head", "attached to head")
 
 -- Alternately, we can ask the player for a list of CoreObjects that
 -- are attached to it:
@@ -285,21 +281,17 @@ print("Attached objects: ")
 for _, v in ipairs(player:GetAttachedObjects()) do
     print(tostring(v.name))
 end
-ut.EXPECT_EQUAL(player:GetAttachedObjects()[1], cube, "player getattachedobjects")
 
 cube:Detach()
-ut.EXPECT_EQUAL(cube:GetAttachedToSocketName(), "", "detached")
 
 --[[#description
 It's also possible to attach objects to the local view on the client.
 Note that this only works from inside a client context:
 ]]
---[[UT_STRIP
 cube:AttachToLocalView()
-UT_STRIP]]
 ```
 
-### CoreObject.Destroy
+### `Destroy`
 
 A simple example on how to destroy a CoreObject.
 
@@ -311,13 +303,13 @@ local cube = World.SpawnAsset(propCubeTemplate)
 cube:Destroy() -- This will destroy the object.
 ```
 
-### CoreObject.Follow
+### `Follow`
 
-### CoreObject.LookAt
+### `LookAt`
 
-### CoreObject.LookAtContinuous
+### `LookAtContinuous`
 
-### CoreObject.LookAtLocalView
+### `LookAtLocalView`
 
 There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world. There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object. And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
 
@@ -329,7 +321,6 @@ local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(
 
 -- We can make an object turn to face any given point in the world:
 watchingCube:LookAt(movingCube:GetWorldPosition())
-ut.EXPECT_ROT_EQUAL(movingCube:GetWorldRotation(), Rotation.New(0, 0, 0), "lookat")
 
 -- We can also have an object keep facing a player or object, until we
 -- call stopRotate. This example makes a cube move, while an other
@@ -340,43 +331,38 @@ followingCube:Follow(movingCube, 500, 200)
 watchingCube:LookAtContinuous(movingCube)
 Task.Wait(5)
 
-ut.EXPECT_NEARLY_EQUAL((movingCube:GetWorldPosition() - followingCube:GetWorldPosition()).size, 200, "follow distance", 10)
-ut.EXPECT_ROT_EQUAL(watchingCube:GetWorldRotation(), Rotation.New(0, 68, -90), "lookat continuous", 0.2)
-
 --[[#Description
     It's also possible to make an object always look at EVERY player. This obviously only works
     on objects that are in a client context, but the `LookAtLocalView` function causes a client-context
     object to always turn and face the local player.
 ]]
---[[UT_STRIP
     local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
     watchingCube:LookAtLocalView() -- This only works in a client context!
-UT_STRIP]]
 ```
 
-### CoreObject.GetChildren
+### `GetChildren`
 
-### CoreObject.FindAncestorByName
+### `FindAncestorByName`
 
-### CoreObject.FindChildByName
+### `FindChildByName`
 
-### CoreObject.FindDescendantByName
+### `FindDescendantByName`
 
-### CoreObject.FindDescendantsByName
+### `FindDescendantsByName`
 
-### CoreObject.FindAncestorByType
+### `FindAncestorByType`
 
-### CoreObject.FindChildByType
+### `FindChildByType`
 
-### CoreObject.FindDescendantByType
+### `FindDescendantByType`
 
-### CoreObject.FindDescendantsByType
+### `FindDescendantsByType`
 
-### CoreObject.FindTemplateRoot
+### `FindTemplateRoot`
 
-### CoreObject.IsAncestorOf
+### `IsAncestorOf`
 
-### CoreObject.parent
+### `parent`
 
 You can inspect most of the hierarchy at runtime.
 
@@ -403,66 +389,50 @@ template4.name = "child"
 
 -- We can get references to other things in the tree if we know their string name:
 local ancestor = template4:FindAncestorByName("template1")
-ut.EXPECT_EQUAL(ancestor, template1, "findAncestorByName")
 
 -- This one only looks at direct children.
 local child = template1:FindChildByName("template2")
-ut.EXPECT_EQUAL(child, template2, "findChildByName")
 
 -- You can also get a list of all direct children:
 local childList = template2:GetChildren()
-ut.EXPECT_EQUAL(childList[1], template3, "GetChildren1")
-ut.EXPECT_EQUAL(childList[2], template4, "GetChildren1")
 
 -- CoreObjects are also aware of their own parents, if any:
 print(template2.parent.name) -- template1
-ut.EXPECT_EQUAL(template2.parent, template1, "Parent")
 
 if ancestor:IsAncestorOf(child) then
     print("This is an ancestor!")
 end
-ut.EXPECT_TRUE(ancestor:IsAncestorOf(child), "isAncestor")
 
 -- FindDescendantByName will return the *first* descendant that matches the name.
 local descendant = template1:FindDescendantByName("child")
 -- descendant now equals template3
-ut.EXPECT_EQUAL(descendant, template3, "finddescendantbyname")
 
 -- FindDescendantsByName will return an array of ALL the descendants who match the name.
 local descendantList = template1:FindDescendantsByName("child")
 -- descendantList is an array that contains {template3, template4}
-ut.EXPECT_EQUAL(template3, descendantList[1], "FindDescendantsByName1")
-ut.EXPECT_EQUAL(template4, descendantList[2], "FindDescendantsByName2")
 
 -- We can also search by object type. template2 is an Audio object, so we can search for it:
 local audioDescendant = template1:FindDescendantByType("Audio")
-ut.EXPECT_EQUAL(audioDescendant, template2, "FindDescendantByType")
 local audioDescendantList = template1:FindDescendantsByType("Audio")
 -- audioDescendantList is an array that contains {template2, template4}
-ut.EXPECT_EQUAL(template2, audioDescendantList[1], "FindDescendantsByType1")
-ut.EXPECT_EQUAL(template4, audioDescendantList[2], "FindDescendantsByType2")
 
 -- FindChildByType will only look at direct children.
 local child = template1:FindChildByType("Audio")
 -- Should give us template2
-ut.EXPECT_EQUAL(child, template2, "FindChildByType")
 
 -- We can search up the tree by type as well:
 local ancestorByType = template3:FindAncestorByType("StaticMesh")
-ut.EXPECT_EQUAL(ancestorByType, template1, "FindAncestorByType")
 -- This one goes all the way up the tree and returns template 1, because template3's direct
 -- parent is an Audio object and not a StaticMesh.
 
 -- If we have a reference to an object in a template, we can also find the root of the template.
 local templateRoot = template1:FindTemplateRoot()
 -- this should just give us back Template1, because it is already the root.
-ut.EXPECT_EQUAL(templateRoot, template1, "FindTemplateRoot")
-ut.EXPECT_NIL(script:FindTemplateRoot(), "FindTemplateRoot - nil")
 ```
 
-### CoreObject.GetCustomProperties
+### `GetCustomProperties`
 
-### CoreObject.GetCustomProperty
+### `GetCustomProperty`
 
 Almost any object in the hierarchy can have "custom properties" associated with it. These are values that you can change in the editor, but that scripts can easily access. They're useful for making modular components that can be configured without needing to modify Lua code. You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
 
@@ -487,45 +457,42 @@ local propFavoriteColor = script:GetCustomProperty("FavoriteColor")
 -- In some cases, a script might not know which custom properties exist.
 -- We can request a list of ALL custom properties, in table form:
 
-local propCount = 0 -- UT_STRIP
 for propName, propValue in pairs(script:GetCustomProperties()) do
     print("Found property [" .. propName .. "] with value [" .. tostring(propValue) .. "]")
-    propCount = propCount + 1 -- UT_STRIP
 end
-ut.EXPECT_EQUAL(propCount, 9, "total # of props")
 ```
 
-### CoreObject.GetTransform
+### `GetTransform`
 
-### CoreObject.SetTransform
+### `SetTransform`
 
-### CoreObject.GetPosition
+### `GetPosition`
 
-### CoreObject.SetPosition
+### `SetPosition`
 
-### CoreObject.GetRotation
+### `GetRotation`
 
-### CoreObject.SetRotation
+### `SetRotation`
 
-### CoreObject.GetScale
+### `GetScale`
 
-### CoreObject.SetScale
+### `SetScale`
 
-### CoreObject.GetWorldTransform
+### `GetWorldTransform`
 
-### CoreObject.SetWorldTransform
+### `SetWorldTransform`
 
-### CoreObject.GetWorldPosition
+### `GetWorldPosition`
 
-### CoreObject.SetWorldPosition
+### `SetWorldPosition`
 
-### CoreObject.GetWorldRotation
+### `GetWorldRotation`
 
-### CoreObject.SetWorldRotation
+### `SetWorldRotation`
 
-### CoreObject.GetWorldScale
+### `GetWorldScale`
 
-### CoreObject.SetWorldScale
+### `SetWorldScale`
 
 One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
 
@@ -542,8 +509,6 @@ cube2:SetPosition(Vector3.New(0, 200, 0))
 
 print("cube2 relative position: " .. tostring(cube2:GetPosition()))      -- X=0.000 Y=200.000 Z=0.000
 print("cube2 world position:    " .. tostring(cube2:GetWorldPosition())) -- X=0.000 Y=700.000 Z=100.000
-ut.EXPECT_VEC_EQUAL(cube2:GetPosition(), Vector3.New(0, 200, 0), "position")
-ut.EXPECT_VEC_EQUAL(cube2:GetWorldPosition(), Vector3.New(0, 700, 100), "world position")
 
 cube1:SetWorldRotation(cube1:GetWorldRotation() + Rotation.New(0, 0, 90))
 cube2:SetRotation(cube2:GetRotation() + Rotation.New(0, 0, 90))
@@ -552,8 +517,6 @@ cube2:SetRotation(cube2:GetRotation() + Rotation.New(0, 0, 90))
 
 print("cube2 relative rotation: " .. tostring(cube2:GetRotation()))      -- X=0.000 Y=0.000 Z=90.000
 print("cube2 world rotation:    " .. tostring(cube2:GetWorldRotation())) -- X=0.000 Y=0.000 Z=180.000
-ut.EXPECT_ROT_EQUAL(cube2:GetRotation(), Vector3.New(0, 0, 90), "rotation")
-ut.EXPECT_ROT_EQUAL(cube2:GetWorldRotation(), Vector3.New(0, 0, 180), "world rotation")
 
 cube1:SetWorldScale(cube1:GetWorldScale() * 2)
 cube2:SetScale(cube2:GetScale() * 2)
@@ -561,8 +524,6 @@ cube2:SetScale(cube2:GetScale() * 2)
 -- of the parent. (cube1)
 print("cube2 relative scale:    " .. tostring(cube2:GetScale()))      -- X=2.000 Y=2.000 Z=2.000
 print("cube2 world scale:       " .. tostring(cube2:GetWorldScale())) -- X=4.000 Y=4.000 Z=4.000
-ut.EXPECT_VEC_EQUAL(cube2:GetScale(), Vector3.New(2, 2, 2), "scale")
-ut.EXPECT_VEC_EQUAL(cube2:GetWorldScale(), Vector3.New(4, 4, 4), "world scale")
 
 -- It's also possible to read and write the entire transform at once!
 local cube3 = World.SpawnAsset(propCubeTemplate)
@@ -573,21 +534,17 @@ cube3:SetWorldTransform(cube1:GetWorldTransform())
 cube4:SetTransform(cube2:GetTransform())
 
 -- Cube1 and cube3 now have the same transforms, and cube2 and cube4 also match.
-ut.EXPECT_TRANS_EQUAL(cube1:GetTransform(), cube3:GetTransform(), "transforms1")
-ut.EXPECT_TRANS_EQUAL(cube1:GetWorldTransform(), cube3:GetWorldTransform(), "world transforms1")
-ut.EXPECT_TRANS_EQUAL(cube2:GetTransform(), cube4:GetTransform(), "transforms2")
-ut.EXPECT_TRANS_EQUAL(cube2:GetWorldTransform(), cube4:GetWorldTransform(), "world transforms2")
 ```
 
-### CoreObject.GetVelocity
+### `GetVelocity`
 
-### CoreObject.SetVelocity
+### `SetVelocity`
 
-### CoreObject.GetAngularVelocity
+### `GetAngularVelocity`
 
-### CoreObject.SetAngularVelocity
+### `SetAngularVelocity`
 
-### CoreObject.SetLocalAngularVelocity
+### `SetLocalAngularVelocity`
 
 Some core objects are handled by the physics system. Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
 
@@ -604,31 +561,29 @@ Task.Wait(2)
 -- Cut the velocity (and angular velocity) down to 25%
 sphere:SetVelocity(sphere:GetVelocity() * 0.25)
 sphere:SetAngularVelocity(sphere:GetAngularVelocity() * 0.25)
-ut.EXPECT_VEC_EQUAL(sphere:GetVelocity(), Vector3.UP * -228, "velocity", 50)
-ut.EXPECT_VEC_EQUAL(sphere:GetAngularVelocity(), Vector3.UP * 250, "angular velocity", 1)
 
 -- You can also set the angular velocity in local space, relative to the angular
 -- velocity of its parent, if any:
 sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 ```
 
-### CoreObject.MoveTo
+### `MoveTo`
 
-### CoreObject.RotateTo
+### `RotateTo`
 
-### CoreObject.ScaleTo
+### `ScaleTo`
 
-### CoreObject.MoveContinuous
+### `MoveContinuous`
 
-### CoreObject.RotateContinuous
+### `RotateContinuous`
 
-### CoreObject.ScaleContinuous
+### `ScaleContinuous`
 
-### CoreObject.StopMove
+### `StopMove`
 
-### CoreObject.StopRotate
+### `StopRotate`
 
-### CoreObject.StopScale
+### `StopScale`
 
 There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
 
@@ -643,7 +598,6 @@ local spinningCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(
 local shrinkingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
 
 local transitionTime = 5
-transitionTime = 1 -- UT_STRIP
 
 -- These functions will make cubes rise, spin, and shrink, over the next 5 seconds.
 movingCube:MoveTo(movingCube:GetWorldPosition() + Vector3.UP * 1000, transitionTime)
@@ -651,9 +605,6 @@ spinningCube:RotateTo(Rotation.New(0, 0, 179), transitionTime)
 shrinkingCube:ScaleTo(Vector3.ZERO, transitionTime)
 
 Task.Wait(transitionTime)
-ut.EXPECT_VEC_EQUAL(movingCube:GetWorldPosition(), Vector3.New(500, -200, 1100), "moveto")
-ut.EXPECT_ROT_EQUAL(spinningCube:GetWorldRotation(), Rotation.New(0, 0, 179), "rotateto")
-ut.EXPECT_VEC_EQUAL(shrinkingCube:GetWorldScale(), Vector3.ZERO, "scaleto")
 
 -- These functions will make the cubes fall, spin, and grow indefinitely, until stopped.
 movingCube:MoveContinuous(Vector3.UP * -100)
@@ -665,16 +616,13 @@ Task.Wait(2)
 movingCube:StopMove()
 spinningCube:StopRotate()
 shrinkingCube:StopScale()
-ut.EXPECT_VEC_EQUAL(movingCube:GetWorldPosition(), Vector3.New(500, -200, 898.578), "moveto continuous/stop", 3)
-ut.EXPECT_ROT_EQUAL(spinningCube:GetWorldRotation(), Rotation.New(0, 0, -140.716), "rotateto continuous/stop", 1)
-ut.EXPECT_VEC_EQUAL(shrinkingCube:GetWorldScale(), Vector3.New(0.4, 0.4, 0.4), "scaleto continuous/stop", 0.01)
 ```
 
-### CoreObject.SetNetworkedCustomProperty
+### `SetNetworkedCustomProperty`
 
-### CoreObject.networkedPropertyChangedEvent
+### `networkedPropertyChangedEvent`
 
-### CoreObject.GetReference
+### `GetReference`
 
 Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
 
@@ -688,14 +636,12 @@ In a client context, we can set up listeners to tell us when a custom property c
 
 ```lua
 -- Client context:
-local eventCount = 0 -- UT_STRIP
 script.networkedPropertyChangedEvent:Connect(function(coreObject, propertyName)
     print("The networked property [" .. coreObject.name .. "] just had its ["
             .. propertyName .. "] property changed.")
 
     local newValue = script:GetCustomProperty(propertyName)
     print("New value: " .. tostring(newValue))
-    eventCount = eventCount + 1 -- UT_STRIP
 end)
 
 --[[#description
@@ -721,41 +667,37 @@ local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 local cube = World.SpawnAsset(propCubeTemplate)
 script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetReference())
 
-ut.EXPECT_EQUAL(eventCount, 2, "custom network property changed event.")
 ```
 
-### CoreObject.name
+### `name`
 
-### CoreObject.id
+### `id`
 
-### CoreObject.sourceTemplateId
+### `sourceTemplateId`
 
-### CoreObject.isStatic
+### `isStatic`
 
-### CoreObject.isClientOnly
+### `isClientOnly`
 
-### CoreObject.isServerOnly
+### `isServerOnly`
 
-### CoreObject.isNetworked
+### `isNetworked`
 
 You can find out a lot about an object via its CoreProperties.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
-local propDefaultFloor = script:GetCustomProperty("DefaultFloor"):WaitForObject() -- UT_STRIP
 
 local template = World.SpawnAsset(propCubeTemplate)
 
 -- The name of the object is its name in the hierarchy, or the name of the
 -- template it was spawned from.
 print("Name: " .. template.name)
-ut.EXPECT_EQUAL(template.name, "GoldCube", "name")
 -- The ID of the object is its core object reference. (A MUID)
 print("Id: " .. template.id)
 -- The source template id is the MUID of template it was spawned from.
 -- (Or nil if it was just placed in the hierarchy at edit-time.)
 print("sourceTemplateId: " .. template.sourceTemplateId)
-ut.EXPECT_EQUAL(template.sourceTemplateId .. ":CubeTemplate", propCubeTemplate, "template.sourceTemplateId")
 
 -- You can also tell if an object is networked, and if it is in a static, client, or server context:
 if template.isNetworked then
@@ -766,10 +708,6 @@ end
 if template.isClientOnly then print("It is Client only!") end
 if template.isServerOnly then print("It is Server only!") end
 if template.isStatic then print("It is Static") end
-ut.EXPECT_TRUE(template.isNetworked, "it is networked.")
-ut.EXPECT_FALSE(template.isClientOnly, "it is not networked.")
-ut.EXPECT_FALSE(template.isServerOnly, "it is not networked.")
-ut.EXPECT_FALSE(template.isStatic, "it not static.")
 
 -- Output:
 --    Name: GoldCube
@@ -778,17 +716,17 @@ ut.EXPECT_FALSE(template.isStatic, "it not static.")
 --    It is networked!
 ```
 
-### CoreObject.visibility
+### `visibility`
 
-### CoreObject.collision
+### `collision`
 
-### CoreObject.isEnabled
+### `isEnabled`
 
-### CoreObject.IsVisibleInHierarchy
+### `IsVisibleInHierarchy`
 
-### CoreObject.IsCollidableInHierarchy
+### `IsCollidableInHierarchy`
 
-### CoreObject.IsEnabledInHierarchy
+### `IsEnabledInHierarchy`
 
 You can make objects appear and disappear in the world in several different ways.
 
@@ -817,9 +755,6 @@ print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 print("cube2 enabled?    " .. tostring(cube2:IsEnabledInHierarchy()))
 -- These should all be true when we start.
-ut.EXPECT_TRUE(cube2:IsVisibleInHierarchy(), "default visible")
-ut.EXPECT_TRUE(cube2:IsCollidableInHierarchy(), "default collidable")
-ut.EXPECT_TRUE(cube2:IsEnabledInHierarchy(), "default enabled")
 
 -- If we set cube1 to be disabled, then cube2 is no longer visible or collidable:
 cube1.isEnabled = false
@@ -827,9 +762,6 @@ print("parent disabled:")
 print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 print("cube2 enabled?    " .. tostring(cube2:IsEnabledInHierarchy()))
-ut.EXPECT_FALSE(cube2:IsVisibleInHierarchy(), "disabled visible")
-ut.EXPECT_FALSE(cube2:IsCollidableInHierarchy(), "disabled collidable")
-ut.EXPECT_FALSE(cube2:IsEnabledInHierarchy(), "disabled enabled")
 
 -- Note that isEnabled overrides visibility/collision settings. So even
 -- if we set cube2 to force its visibility and collision on, they are
@@ -840,9 +772,6 @@ cube2.collision = Collision.FORCE_ON
 print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 -- These are both false because the parent is still disabled.
-ut.EXPECT_FALSE(cube2:IsVisibleInHierarchy(), "disabled visible2")
-ut.EXPECT_FALSE(cube2:IsCollidableInHierarchy(), "disabled collidable2")
-ut.EXPECT_FALSE(cube2:IsEnabledInHierarchy(), "disabled enabled2")
 
 -- On the other hand, if we set cube1 to enabled, but FORCE_OFF for
 -- collision and visibility, cube2 is now visible and collidable, because
@@ -853,7 +782,4 @@ cube1.isEnabled = true
 print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 -- These are both true now because the parent is no longer disabled.
-ut.EXPECT_TRUE(cube2:IsVisibleInHierarchy(), "override visible2")
-ut.EXPECT_TRUE(cube2:IsCollidableInHierarchy(), "override collidable2")
-ut.EXPECT_TRUE(cube2:IsEnabledInHierarchy(), "override enabled2")
 ```

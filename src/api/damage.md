@@ -38,7 +38,7 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 ## Examples
 
-### Damage.New
+### `New`
 
 In this example players take 50 damage whenever they press 'D'.
 
@@ -57,7 +57,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.GetHitResult
+### `GetHitResult`
 
 This example listens to the player's damagedEvent and takes a closer look at the HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
 
@@ -76,7 +76,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.SetHitResult
+### `SetHitResult`
 
 This example spawns a custom Projectile and is not a result of using a Weapon. When the projectile impacts a player, a custom damage is created, including copying over the Projectile's HitResult.
 
@@ -102,7 +102,7 @@ function ShootAtPlayer(player)
 end
 ```
 
-### Damage.amount
+### `amount`
 
 While Damage amount can be set when constructing the Damage object (e.g. Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
 
@@ -123,7 +123,7 @@ function DamagePlayerAdvanced(player, dmg)
 end
 ```
 
-### Damage.reason
+### `reason`
 
 The damage reason can be used to specify the source of the damage and is useful, for example, when attributing score based on kills. In this example, players take 1 damage per second when they are within 20 meters of the center of the map. If another part of the game listens to the Player's diedEvent, it would be able to tell the difference between players being killed by the environment as opposed to killed by another player.
 
@@ -153,7 +153,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.sourceAbility
+### `sourceAbility`
 
 In this example, knowing the source of the damage was an ability allows complex rules, such as magic resistance.
 
@@ -179,7 +179,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Damage.sourcePlayer
+### `sourcePlayer`
 
 In this example, the source player scores a point for their team each time they get a kill.
 
