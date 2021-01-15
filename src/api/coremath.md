@@ -1,3 +1,11 @@
+---
+id: coremath
+name: CoreMath
+title: CoreMath
+tags:
+    - API
+---
+
 # CoreMath
 
 ## Description

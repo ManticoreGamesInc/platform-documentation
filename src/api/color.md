@@ -1,3 +1,11 @@
+---
+id: color
+name: Color
+title: Color
+tags:
+    - API
+---
+
 # Color
 
 ## Description

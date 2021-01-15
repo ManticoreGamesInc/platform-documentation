@@ -1,3 +1,11 @@
+---
+id: events
+name: Events
+title: Events
+tags:
+    - API
+---
+
 # Events
 
 ## Description

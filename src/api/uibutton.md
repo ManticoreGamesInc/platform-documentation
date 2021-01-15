@@ -1,3 +1,11 @@
+---
+id: uibutton
+name: UIButton
+title: UIButton
+tags:
+    - API
+---
+
 # UIButton
 
 ## Description

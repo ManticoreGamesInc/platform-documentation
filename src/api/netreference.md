@@ -1,3 +1,11 @@
+---
+id: netreference
+name: NetReference
+title: NetReference
+tags:
+    - API
+---
+
 # NetReference
 
 ## Description

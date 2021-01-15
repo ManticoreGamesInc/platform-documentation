@@ -1,3 +1,11 @@
+---
+id: coreobject
+name: CoreObject
+title: CoreObject
+tags:
+    - API
+---
+
 # CoreObject
 
 ## Description

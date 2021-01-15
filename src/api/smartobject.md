@@ -1,3 +1,11 @@
+---
+id: smartobject
+name: SmartObject
+title: SmartObject
+tags:
+    - API
+---
+
 # SmartObject
 
 ## Description

@@ -1,3 +1,11 @@
+---
+id: game
+name: Game
+title: Game
+tags:
+    - API
+---
+
 # Game
 
 ## Description

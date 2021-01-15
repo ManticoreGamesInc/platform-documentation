@@ -1,3 +1,11 @@
+---
+id: equipment
+name: Equipment
+title: Equipment
+tags:
+    - API
+---
+
 # Equipment
 
 ## Description

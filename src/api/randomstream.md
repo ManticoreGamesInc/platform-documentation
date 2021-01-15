@@ -1,3 +1,11 @@
+---
+id: randomstream
+name: RandomStream
+title: RandomStream
+tags:
+    - API
+---
+
 # RandomStream
 
 ## Description

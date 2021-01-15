@@ -1,3 +1,11 @@
+---
+id: pointlight
+name: PointLight
+title: PointLight
+tags:
+    - API
+---
+
 # PointLight
 
 ## Description

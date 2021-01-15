@@ -1,3 +1,11 @@
+---
+id: leaderboardentry
+name: LeaderboardEntry
+title: LeaderboardEntry
+tags:
+    - API
+---
+
 # LeaderboardEntry
 
 ## Description

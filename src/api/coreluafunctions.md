@@ -1,3 +1,11 @@
+---
+id: coreluafunctions
+name: CoreLuaFunctions
+title: CoreLuaFunctions
+tags:
+    - API
+---
+
 # CoreLuaFunctions
 
 ## Description

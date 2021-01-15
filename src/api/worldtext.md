@@ -1,3 +1,11 @@
+---
+id: worldtext
+name: WorldText
+title: WorldText
+tags:
+    - API
+---
+
 # WorldText
 
 ## Description

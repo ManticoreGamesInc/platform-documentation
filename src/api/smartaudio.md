@@ -1,3 +1,11 @@
+---
+id: smartaudio
+name: SmartAudio
+title: SmartAudio
+tags:
+    - API
+---
+
 # SmartAudio
 
 ## Description

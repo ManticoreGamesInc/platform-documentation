@@ -1,3 +1,11 @@
+---
+id: teams
+name: Teams
+title: Teams
+tags:
+    - API
+---
+
 # Teams
 
 ## Description
