@@ -195,4 +195,3 @@ tags:
 | `Visibility.INHERIT` | `0` | Description |
 | `Visibility.FORCE_ON` | `1` | Description |
 | `Visibility.FORCE_OFF` | `2` | Description |
-
