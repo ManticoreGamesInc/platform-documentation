@@ -101,14 +101,4 @@ print("Stack trace, as viewed from the main thread:")
 print(otherTaskStackTrace)
 print("General stack trace:")
 print(generalStackTrace)
-
-ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_C"), "taskStackTrace has been in Function C")
-ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_B"), "taskStackTrace has been in Function B")
-ut.EXPECT_TRUE(string.match(taskStackTrace, "Function_A"), "taskStackTrace has been in Function A")
-
-ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_C"), "otherTaskStackTrace has been in Function C")
-ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_B"), "otherTaskStackTrace has been in Function B")
-ut.EXPECT_TRUE(string.match(otherTaskStackTrace, "Function_A"), "otherTaskStackTrace has been in Function A")
-
-ut.EXPECT_NOT_NIL(generalStackTrace, "Should have gotten something back from the general stack trace")
 ```
