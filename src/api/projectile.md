@@ -62,11 +62,11 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 ## Examples
 
-### Projectile.Spawn
+### `Spawn`
 
-### Projectile.lifeSpanEndedEvent
+### `lifeSpanEndedEvent`
 
-### Projectile.lifeSpan
+### `lifeSpan`
 
 Like `CoreObjects`, Projectiles have a `lifeSpan` property, which is the maximum number of seconds a projectile can be kept around. Once that time is up, the projectile is automatically destroyed by the engine.
 
@@ -86,14 +86,12 @@ local mySlowProjectile = Projectile.Spawn(propCubeTemplate,
 mySlowProjectile.lifeSpan = 1
 mySlowProjectile.lifeSpanEndedEvent:Connect(function(projectile)
     print("Projectile lifespan over")
-    lifespanEnded = lifespanEnded + 1    --UT_STRIP
-    ut.EXPECT_EQUAL(projectile, mySlowProjectile, "Should be the projectile we fired.")
 end)
 
 mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
 
-### Projectile.homingFailedEvent
+### `homingFailedEvent`
 
 If a projectile has its `homingTarget` set, and then the target disappears for some reason, it will fire a `HomingFailedEvent`. This is usually because the CoreObject that the projectile is following was `Destroy`ed, or the player it was following logged out.
 
@@ -105,7 +103,6 @@ local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 
 local objectInWorld = World.SpawnAsset(propCubeTemplate)
 objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
-local eventFired = false --UT_STRIP
 
 local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
             Vector3.New(1000, 1000, 1000), -- starting position
@@ -118,7 +115,6 @@ objectHomingProjectile.homingAcceleration = 5000
 
 objectHomingProjectile.homingFailedEvent:Connect(function (projectile)
     print("Target lost!")
-    eventFired = true --UT_STRIP
 end)
 
 Task.Wait(0.5)
@@ -126,7 +122,7 @@ objectInWorld:Destroy()
 -- The event should fire now and the "target lost" message should be displayed.
 ```
 
-### Projectile.impactEvent
+### `impactEvent`
 
 When a projectile hits a surface, it triggers an `impactEvent`, which is given various information about exactly what collided with what, and where.
 
@@ -150,13 +146,10 @@ myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
     if other and other:IsA("Player") then
         print("We hit player " .. other.name .. "!!!")
     end
-    hitTheGround = hitTheGround + 1 --UT_STRIP
-    ut.EXPECT_EQUAL(hitresult:GetImpactNormal(), Vector3.New(0, 0, 1), "Impact normal should be straight up")
-    ut.EXPECT_EQUAL(other.name, "Default Floor", "Verify projectile hit the floor.")
 end)
 ```
 
-### Projectile.Destroy
+### `Destroy`
 
 Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet. When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immediately removed from the game and no events are generated.
 
@@ -175,20 +168,18 @@ myProjectile.gravityScale = 0
 Task.Wait(1)
 print("Is the projectile still around?  " .. tostring(Object.IsValid(myProjectile)))
 -- The projectile is still there.
-ut.EXPECT_VALID(myProjectile, "Projectile should not yet have been destroyed.")
 myProjectile:Destroy()
 print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
-ut.EXPECT_INVALID(myProjectile, "Projectile should have been destroyed.")
 -- The projectile is no longer in the game.
 ```
 
-### Projectile.GetWorldTransform
+### `GetWorldTransform`
 
-### Projectile.GetWorldPosition
+### `GetWorldPosition`
 
-### Projectile.GetVelocity
+### `GetVelocity`
 
-### Projectile.SetVelocity
+### `SetVelocity`
 
 We can get various information about a projectile's position and velocity via several functions. `GetWorldTransform()` and `GetWorldPosition()` functions can tell us where it is and where it is facing. `GetVelocity()` tells us where it is moving and how fast. And `SetVelocity()` allows us to change its direction in mid-flight.
 
@@ -205,7 +196,6 @@ function FireAtPlayer(startPos, player)
         startPos,
         direction)
     myProjectile.speed = 2000
-    myProjectile.lifeSpan = 2 --UT_STRIP
     myProjectile.gravityScale = 0
     return myProjectile
 end
@@ -217,10 +207,8 @@ for i = -4, 4 do
 end
 
 local MagicShieldTask = Task.Spawn(function()
-    local projectilesGone = false --UT_STRIP
     while true do
         for k, projectile in pairs(projectileList) do
-            if Object.IsValid(projectile) then    -- UT_STRIP
             local projectileToPlayer = targetPlayer:GetWorldPosition() - projectile:GetWorldPosition()
             -- if the projectile is within 200 units of the player...
             if projectileToPlayer.size < 200 then
@@ -231,18 +219,16 @@ local MagicShieldTask = Task.Spawn(function()
                     projectile:SetVelocity(projectile:GetVelocity() * -0.8)
                 end
             end
-            else --UT_STRIP
                 return
-            end  --UT_STRIP
         end
         Task.Wait()
     end
 end)
 ```
 
-### Projectile.capsuleLength
+### `capsuleLength`
 
-### Projectile.capsuleRadius
+### `capsuleRadius`
 
 When Core performs collision checks (to see if a projectile has hit anything) it assumes the projectile is a _capsule._  That is, a cylinder with a hemisphere on each flat end.
 
@@ -287,13 +273,13 @@ sphereProjectile.capsuleRadius = 40
 sphereProjectile.capsuleLength = 0
 ```
 
-### Projectile.gravityScale
+### `gravityScale`
 
-### Projectile.bouncesRemaining
+### `bouncesRemaining`
 
-### Projectile.bounciness
+### `bounciness`
 
-### Projectile.shouldBounceOnPlayers
+### `shouldBounceOnPlayers`
 
 By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controlled via the `bounciness` property.
 
@@ -311,7 +297,6 @@ function fireProjectile()
         Vector3.New(0, 1, 0))     -- direction
     myProjectile.speed = 500
     myProjectile.lifeSpan = 3
-    myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
     return myProjectile
 end
 
@@ -343,11 +328,11 @@ lessBouncyProjectile.bouncesRemaining = 5
 lessBouncyProjectile.bounciness = 0.2
 ```
 
-### Projectile.homingTarget
+### `homingTarget`
 
-### Projectile.drag
+### `drag`
 
-### Projectile.homingAcceleration
+### `homingAcceleration`
 
 Projectiles can be set to home in on targets, via the `homingTarget` property. This can be either a player or a CoreObject.
 
@@ -364,7 +349,6 @@ objectInWorld:SetWorldPosition(Vector3.New(1000, 0, 0))
 
 local function ProjectileImpact(projectile, other, hitresult)
     print("Hit something! " .. other.name)
-    ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
 end
 
 local objectHomingProjectile = Projectile.Spawn(propCubeTemplate,
@@ -378,13 +362,12 @@ objectHomingProjectile.homingAcceleration = 5000
 
 objectHomingProjectile.impactEvent:Connect(function(projectile, other, hitresult)
     print("Hit something! " .. other.name)
-    ut.EXPECT_EQUAL(other, objectInWorld, "Should have hit the target object")
 end)
 
 -- The projectile will hit home towards the target object, and print out a message when it hits.
 ```
 
-### Projectile.owner
+### `owner`
 
 Projectiles have a property, `owner`, which stores data about who spawned the projectile. This is populated automatically, if the projectile is generated from a weapon interaction. Otherwise, we have to set it ourselves.
 
@@ -399,7 +382,6 @@ local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 function OnImpact(projectile, other, hitresult)
     --Count how many times each projectile hits the player:
     if other and other:IsA("Player") then
-        hitPlayerCount = hitPlayerCount + 1    --UT_STRIP
         print("Urk! I've been shot!")
     end
 end
@@ -411,7 +393,6 @@ function FireAtPlayer(startPos, player)
         startPos,
         direction)
     myProjectile.speed = 1000
-    myProjectile.lifeSpan = 2 --UT_STRIP
     myProjectile.impactEvent:Connect(OnImpact)
     myProjectile.gravityScale = 0
     myProjectile.owner = player
@@ -425,9 +406,9 @@ end
 -- the projectiles are all owned by the player.
 ```
 
-### Projectile.piercesRemaining
+### `piercesRemaining`
 
-### Projectile.shouldDieOnImpact
+### `shouldDieOnImpact`
 
 Projectiles have the `piercesRemaining` property, which controls how many times they penetrate objects and keep going. In this sample, we spawn several walls and fire several projectiles at them, with different penetration numbers.
 
@@ -443,7 +424,6 @@ function FirePiercingProjectile(pierceCount)
         Vector3.New(1, 0, 0))     -- direction
     myProjectile.speed = 1000
     myProjectile.lifeSpan = 3
-    myProjectile.impactEvent:Connect(OnImpact) --UT_STRIP
     myProjectile.gravityScale = 0
     myProjectile.piercesRemaining = pierceCount
     return myProjectile
@@ -471,7 +451,7 @@ local DontDieOnImpact = FirePiercingProjectile(0)
 DontDieOnImpact.shouldDieOnImpact = false
 ```
 
-### Projectile.sourceAbility
+### `sourceAbility`
 
 Projectiles have a field to report what ability spawned them. If the projectile is fired by a weapon, then the weapon automatically populates the sourceAbility property. If you spawn projectiles manually via spawnProjectile, then you are responsible for populating it yourself.
 
@@ -493,18 +473,16 @@ function OnImpact(projectile, other, hitresult)
     end
 end
 
---[[UT_STRIP - some hackery here to make this code not run during tests, but show up in the docs:
 --Tell each projectile fired what to do when it hits something:
 local weapon = script.parent
 weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
     projectile.impactEvent:Connect(OnImpact)
 end)
-UT_STRIP]]
 ```
 
-### Projectile.speed
+### `speed`
 
-### Projectile.maxSpeed
+### `maxSpeed`
 
 You can set the speed of a projectile directly, via the `speed` property. Note that this does not change the direction of a projectile - only how fast it is moving in whatever direction it is already pointing in.
 
@@ -525,10 +503,8 @@ myProjectile.maxSpeed = 50
 myProjectile.gravityScale = 0
 -- The projectile is still going at 100 speed. Max Speed is only checked at the end of the frame.
 print("This projectile's speed is " .. tostring(myProjectile.speed))
-ut.EXPECT_GTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be faster than maxspeed")
 
 Task.Wait()    -- So if we wait one frame...
 print("This projectile's speed is " .. tostring(myProjectile.speed))
-ut.EXPECT_LTE(myProjectile.speed, myProjectile.maxSpeed, "Projectile should be slower than maxspeed")
 -- It should now be clamped down to the maximum speed.
 ```

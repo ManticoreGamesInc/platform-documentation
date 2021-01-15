@@ -137,13 +137,13 @@ Player is an object representation of the state of a player connected to the gam
 
 ## Examples
 
-### Player.bindingPressedEvent
+### `bindingPressedEvent`
 
-### Player.bindingReleasedEvent
+### `bindingReleasedEvent`
 
-### Player.maxWalkSpeed
+### `maxWalkSpeed`
 
-### Player.maxSwimSpeed
+### `maxSwimSpeed`
 
 Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
 
@@ -168,31 +168,24 @@ function OnBindingReleased(player, bindingReleased)
 end
 
 function OnPlayerJoined(player)
-    local l = -- UT_STRIP
     player.bindingPressedEvent:Connect(OnBindingPressed)
-    listeners[l] = true -- UT_STRIP
-    l = -- UT_STRIP
     player.bindingReleasedEvent:Connect(OnBindingReleased)
-    listeners[l] = true -- UT_STRIP
 end
 
-local l = -- UT_STRIP
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
-listeners[l] = true -- UT_STRIP
-OnPlayerJoined(player) --UT_STRIP
 ```
 
-### Player.damagedEvent
+### `damagedEvent`
 
-### Player.diedEvent
+### `diedEvent`
 
-### Player.respawnedEvent
+### `respawnedEvent`
 
-### Player.ApplyDamage
+### `ApplyDamage`
 
-### Player.Die
+### `Die`
 
-### Player.Respawn
+### `Respawn`
 
 There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
 
@@ -201,8 +194,6 @@ One important thing to note - `player.damagedEvent` and `player.diedEvent` only 
 ```lua
 function OnPlayerDamage(player, damage)
     print("Player " .. player.name .. " just took " .. damage.amount .. " damage!")
-    damageCount = damageCount + 1    -- UT_STRIP
-    damageTotal = damageTotal + damage.amount -- UT_STRIP
 end
 
 function OnPlayerDied(player, damage)
@@ -211,48 +202,31 @@ function OnPlayerDied(player, damage)
     -- Now, revive them after 2 seconds at a spawn point:
     Task.Wait(2)
     player:Respawn(Vector3.New(0, 0, 500), Rotation.New(0, 0, 45))
-    ut.EXPECT_VEC_EQUAL(player:GetWorldPosition(), Vector3.New(0, 0, 500))
-    ut.EXPECT_ROT_EQUAL(player:GetWorldRotation(), Rotation.New(0, 0, 45))
-    deathTotal = deathTotal + 1 -- UT_STRIP
 end
 
 function OnPlayerRespawn(player)
     print("Player " .. player.name .. " is back!")
-    respawnTotal = respawnTotal + 1 -- UT_STRIP
 end
 
 -- Set up listeners:
 for _, p in pairs(Game.GetPlayers()) do
-    damageListener  =    -- UT_STRIP
     p.damagedEvent:Connect(OnPlayerDamage)
-    deathListener   =    -- UT_STRIP
     p.diedEvent:Connect(OnPlayerDied)
-    respawnListener =    -- UT_STRIP
     p.respawnedEvent:Connect(OnPlayerRespawn)
-    break -- UT_STRIP
 end
 player:ApplyDamage(Damage.New(25))
 Task.Wait(1)
 player:ApplyDamage(Damage.New(50))
 Task.Wait(1)
-ut.EXPECT_EQUAL(damageTotal, 75, "Damage check 1")
-ut.EXPECT_EQUAL(deathTotal, 0, "death check 1")
 -- This will kill the player, because they only have 100 health by default.
 player:ApplyDamage(Damage.New(100))
-ut.EXPECT_TRUE(player.isDead)
-ut.EXPECT_EQUAL(respawnTotal, 0, "Respawn check 1")
 Task.Wait(2.1)
-ut.EXPECT_FALSE(player.isDead)
-ut.EXPECT_EQUAL(deathTotal, 1, "deathCheck 2")
-ut.EXPECT_EQUAL(damageTotal, 175, "Damage check 1")
-ut.EXPECT_EQUAL(respawnTotal, 1, "Respawn check 2")
 Task.Wait(2.1)
 -- We can also kill the player directly, regardless of health
 player:Die()
-ut.EXPECT_TRUE(player.isDead)
 ```
 
-### Player.movementModeChangedEvent
+### `movementModeChangedEvent`
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
 
@@ -290,39 +264,31 @@ end
 
 -- Outfit all players with the movementModeChanged listener
 function OnPlayerJoined(player)
-    local l = -- UT_STRIP
     player.movementModeChangedEvent:Connect(OnMovementModeChanged)
-    listeners[l] = true -- UT_STRIP
 end
 
-OnPlayerJoined(player) -- UT_STRIP
-local l = -- UT_STRIP
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
-listeners[l] = true -- UT_STRIP
 
-ut.EXPECT_EQUAL(player.hitPoints, 100, "starts at full hp")
 -- Now we fling the player into the air for testing.
 -- When they land they should take ~40 damage.
 print("in the air")
 player:SetWorldPosition(Vector3.New(0, 0, 1000))
-Task.Wait(5)  -- UT_STRIP
 print("done waiting")
-ut.EXPECT_NEARLY_EQUAL(player.hitPoints, 60.227, "no longer at full hp", 15)
 ```
 
-### Player.resourceChangedEvent
+### `resourceChangedEvent`
 
-### Player.ClearResources
+### `ClearResources`
 
-### Player.GetResource
+### `GetResource`
 
-### Player.GetResources
+### `GetResources`
 
-### Player.SetResource
+### `SetResource`
 
-### Player.AddResource
+### `AddResource`
 
-### Player.RemoveResource
+### `RemoveResource`
 
 While scripting, you can assign "resources" to players. These are just integer values, accessed via a string key, that are tied to a player. They are useful for storing values about game-specific resources a player might have, such as coins collected, mana remaining, levels completed, puppies pet, etc.
 
@@ -340,50 +306,39 @@ function OnResourceChanged(player, resourceId, newValue)
     if newValue < 0 then player:SetResource(resourceId, 0) end
 end
 
-local eventListener = --UT_STRIP
 player.resourceChangedEvent:Connect(OnResourceChanged)
 
 player:SetResource(resource1, 5)
-ut.EXPECT_EQUAL(player:GetResource(resource1), 5, "resource check 1")
 -- Player now has 5 "CoinsCollected"
 
 player:AddResource(resource1, 15)
-ut.EXPECT_EQUAL(player:GetResource(resource1), 20, "resource check 2")
 -- Player now has 20 "CoinsCollected".
 
 player:AddResource(resource1, 500)
-ut.EXPECT_EQUAL(player:GetResource(resource1), 100, "resource check 3")
 -- This should give us 520 "CoinsCollected", but our event listener limits it to 100.
 print("Coins collected: " .. player:GetResource(resource1))
 
 player:SetResource(resource2, 2)
-ut.EXPECT_EQUAL(player:GetResource(resource2), 2, "resource check 4")
 -- Player now has 2 "PuppiesSeen", as well as still having 100 "CoinsCollected"
 
 player:RemoveResource(resource1, 10)
-ut.EXPECT_EQUAL(player:GetResource(resource1), 90, "resource check 3")
 -- Player now has 90 "CoinsCollected"
 
 -- We can also get all the resources in one go as a table:
-local total = 0 -- UT_STRIP
 local resourceTable = player:GetResources()
 for k, v in pairs(resourceTable) do
     print("Resource ["..k.."]: " .. v)
-    total = total + 1 -- UT_STRIP
 end
-ut.EXPECT_EQUAL(total, 2, "there should be 2 resources in the table.")
 
 player:ClearResources()
 -- All resources have been removed from the player
 print("Coins collected: " .. player:GetResource(resource1))
 print("Puppies seen: " .. player:GetResource(resource2))
-ut.EXPECT_EQUAL(player:GetResource(resource1), 0, "resource check 5")
-ut.EXPECT_EQUAL(player:GetResource(resource2), 0, "resource check 6")
 ```
 
-### Player.ActivateFlying
+### `ActivateFlying`
 
-### Player.ActivateWalking
+### `ActivateWalking`
 
 You can set different movement modes for the player. `ActivateWalking()` will give the player normal walking physics. (They fall down, slide down slopes, etc.) `ActivateFlying`, on the other hand, makes them ignore gravity and fly around freely.
 
@@ -405,29 +360,22 @@ function OnBindingReleased(player, bindingReleased)
 end
 
 function OnPlayerJoined(player)
-    local l = -- UT_STRIP
     player.bindingPressedEvent:Connect(OnBindingPressed)
-    listeners[l] = true -- UT_STRIP
-    l = -- UT_STRIP
     player.bindingReleasedEvent:Connect(OnBindingReleased)
-    listeners[l] = true -- UT_STRIP
 end
 
-local l = -- UT_STRIP
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
-listeners[l] = true -- UT_STRIP
-OnPlayerJoined(player) --UT_STRIP
 ```
 
-### Player.AddImpulse
+### `AddImpulse`
 
-### Player.GetVelocity
+### `GetVelocity`
 
-### Player.SetVelocity
+### `SetVelocity`
 
-### Player.ResetVelocity
+### `ResetVelocity`
 
-### Player.mass
+### `mass`
 
 If you want to fling a player using the physics system, it is possible to directly affect their velocity. You can either add a physics impulse to their current velocity, or just set the player's velocity directly. You can also zero out their velocity using `Player.ResetVelocity()`.
 
@@ -436,34 +384,24 @@ Note that when using impulses to apply force to a player, we need to scale it by
 ```lua
 -- Fling the player towards the heavens:
 player:SetVelocity(Vector3.UP * 1000)
-Task.Wait() -- UT_STRIP
-ut.EXPECT_VEC_EQUAL(player:GetVelocity(), Vector3.UP * 969.967, "Set Velocity", 10)
-
-player:ResetVelocity() -- UT_STRIP
-player:SetWorldPosition(Vector3.ZERO) -- UT_STRIP
-Task.Wait() -- UT_STRIP
-player:AddImpulse(Vector3.UP * 1000 * player.mass) -- UT_STRIP
 
 -- We can read the player's velocity in order to double it! Note that since we're adding
 -- a physics impulse directly, we need to scale it by the mass of the player.
 player:AddImpulse(player:GetVelocity() * player.mass)
-ut.EXPECT_VEC_EQUAL(player:GetVelocity(), Vector3.UP * 2000, "Velocity doubling")
 
 -- Fling the player some more.
 player:AddImpulse(Vector3.UP * player.mass * 1000)
-ut.EXPECT_VEC_EQUAL(player:GetVelocity(), Vector3.UP * 3000, "add impulse")
 
 Task.Wait(0.5)
 -- Reset their velocity to zero.
 player:ResetVelocity()
-ut.EXPECT_VEC_EQUAL(player:GetVelocity(), Vector3.ZERO, "Reset velocity")
 ```
 
-### Player.DisableRagdoll
+### `DisableRagdoll`
 
-### Player.EnableRagdoll
+### `EnableRagdoll`
 
-### Player.animationStance
+### `animationStance`
 
 You can enable ragdoll on a player, and make their joints all floppy. This can be useful for various effects, such as indicating when a player has died, or otherwise  needs to be limp.
 
@@ -488,9 +426,9 @@ Task.Wait(3)
 player.animationStance = "unarmed_stance"
 ```
 
-### Player.GetAbilities
+### `GetAbilities`
 
-### Player.GetEquipment
+### `GetEquipment`
 
 Lots of things can end up attached to a player. `CoreObject` objects, stuck to sockets. `Ability` and `Equipment` objects granting them new powers. Etc.
 
@@ -504,7 +442,6 @@ rifle:Equip(player)
 for _, obj in ipairs(player:GetAbilities()) do
     print("Ability: " .. obj.name)
 end
-ut.EXPECT_EQUAL(#player:GetAbilities(), 2, "Rifle has 2 abilities")
 for k,v in pairs(player:GetAbilities()) do
     print(v.name)
 end
@@ -512,25 +449,23 @@ end
 for _, obj in ipairs(player:GetEquipment()) do
     print("Equipment: " .. obj.name)
 end
-ut.EXPECT_EQUAL(#player:GetEquipment(), 1, "Rifle is 1 equipment")
 
 for _, obj in ipairs(player:GetAttachedObjects()) do
     print("Attached object: " .. obj.name)
 end
-ut.EXPECT_EQUAL(#player:GetAttachedObjects(), 1, "Rifle is 1 attached object")
 ```
 
-### Player.GetActiveCamera
+### `GetActiveCamera`
 
-### Player.GetDefaultCamera
+### `GetDefaultCamera`
 
-### Player.SetDefaultCamera
+### `SetDefaultCamera`
 
-### Player.GetOverrideCamera
+### `GetOverrideCamera`
 
-### Player.SetOverrideCamera
+### `SetOverrideCamera`
 
-### Player.ClearOverrideCamera
+### `ClearOverrideCamera`
 
 It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context!
 
@@ -545,7 +480,6 @@ local defaultCamera = World.SpawnAsset(propTestCamera,
 defaultCamera:LookAtContinuous(player)
 print(player:GetDefaultCamera():GetWorldPosition()) -- 0, -1000, 1000
 player:SetDefaultCamera(defaultCamera, 1)
-ut.EXPECT_EQUAL(player:GetDefaultCamera(), defaultCamera, "default camera")
 Task.Wait(2)
 
 -- Players also have an "overide camera", which has higher priority
@@ -556,23 +490,18 @@ local overrideCamera = World.SpawnAsset(propTestCamera,
 overrideCamera:LookAtContinuous(player)
 player:SetOverrideCamera(overrideCamera, 1)
 print(player:GetOverrideCamera():GetWorldPosition()) -- 0, 1000, 1000
-ut.EXPECT_EQUAL(player:GetOverrideCamera(), overrideCamera, "override camera")
-ut.EXPECT_EQUAL(player:GetActiveCamera(), overrideCamera, "get active camera1")
-ut.EXPECT_NOT_EQUAL(player:GetActiveCamera(), defaultCamera, "get active camera2")
 Task.Wait(2)
 player:ClearOverrideCamera()
 Task.Wait()
-ut.EXPECT_NOT_EQUAL(player:GetActiveCamera(), overrideCamera, "get active camera3")
-ut.EXPECT_EQUAL(player:GetActiveCamera(), defaultCamera, "get active camera4")
 ```
 
-### Player.GetViewWorldPosition
+### `GetViewWorldPosition`
 
-### Player.GetViewWorldRotation
+### `GetViewWorldRotation`
 
-### Player.GetLookWorldRotation
+### `GetLookWorldRotation`
 
-### Player.SetLookWorldRotation
+### `SetLookWorldRotation`
 
 The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context!
 
@@ -587,17 +516,17 @@ print("Its rotation is " .. tostring(player:GetViewWorldRotation()))
 player:SetLookWorldRotation(player:GetLookWorldRotation() + Rotation.New(0, 0, 90))
 ```
 
-### Player.GetWorldTransform
+### `GetWorldTransform`
 
-### Player.SetWorldTransform
+### `SetWorldTransform`
 
-### Player.GetWorldPosition
+### `GetWorldPosition`
 
-### Player.SetWorldPosition
+### `SetWorldPosition`
 
-### Player.GetWorldRotation
+### `GetWorldRotation`
 
-### Player.SetWorldRotation
+### `SetWorldRotation`
 
 It is possible to read and change the position of the player. You can either change the position or rotation directly, or change the entire transformation all at once.
 
@@ -608,22 +537,17 @@ local originalTransform = player:GetWorldTransform()
 
 -- Move the player 1000 units in the air:
 player:SetWorldPosition(player:GetWorldPosition() + Vector3.UP * 1000)
-ut.EXPECT_EQUAL(player:GetWorldPosition().z, 1000, "1000 units in the air.")
 
 -- Look 90 degrees to the right
 player:SetWorldRotation(player:GetWorldRotation() + Rotation.New(0, 0, 90))
-ut.EXPECT_NEARLY_EQUAL(player:GetWorldRotation().z, 90, "90 degree rotation")
 
 -- Return the player to their original position and rotation:
 player:SetWorldTransform(originalTransform)
-ut.EXPECT_VEC_EQUAL(player:GetWorldPosition(), Vector3.ZERO, "Transform part 1")
-ut.EXPECT_ROT_EQUAL(player:GetWorldRotation(), Rotation.ZERO, "Transform part 2")
-ut.EXPECT_VEC_EQUAL(player:GetWorldScale(), Vector3.ONE, "Transform part 3")
 ```
 
-### Player.SetVisibility
+### `SetVisibility`
 
-### Player.GetVisibility
+### `GetVisibility`
 
 You can make a player visible or invisible with `SetVisibility()`, and can check on their status with `GetVisibility()`. This sample gives the player the ability to turn invisible by pressing the shift key.
 
@@ -643,23 +567,16 @@ function OnBindingReleased(player, bindingReleased)
 end
 
 function OnPlayerJoined(player)
-    local l = -- UT_STRIP
     player.bindingPressedEvent:Connect(OnBindingPressed)
-    listeners[l] = true -- UT_STRIP
-    l = -- UT_STRIP
     player.bindingReleasedEvent:Connect(OnBindingReleased)
-    listeners[l] = true -- UT_STRIP
 end
 
-local l = -- UT_STRIP
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
-listeners[l] = true -- UT_STRIP
-OnPlayerJoined(player) --UT_STRIP
 ```
 
-### Player.SetWorldScale
+### `SetWorldScale`
 
-### Player.GetWorldScale
+### `GetWorldScale`
 
 You can scale the size of the player. This sample causes all players to slowly grow until they get too big, and then reset.
 
@@ -674,12 +591,11 @@ Task.Spawn(function()
             player:SetWorldScale(newScale)
         end
         Task.Wait()
-        if functionOver then break end -- UT_STRIP
     end
 end)
 ```
 
-### Player.TransferToGame
+### `TransferToGame`
 
 Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
 
@@ -696,14 +612,13 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-### Player.currentFacingMode
+### `currentFacingMode`
 
-### Player.desiredFacingMode
+### `desiredFacingMode`
 
 There are several modes the game can use to decide which direction the player's avatar is facing, based on the camera look direction.
 
 ```lua
-ut.EXPECT_EQUAL(player.desiredFacingMode, FacingMode.FACE_AIM_WHEN_ACTIVE, "facing mode default")
 
 -- This will make the player turn to face whatever direction they are moving.
 player.desiredFacingMode = FacingMode.FACE_MOVEMENT
@@ -728,13 +643,13 @@ if (player.currentFacingMode == FacingMode.FACE_AIM_ALWAYS) then
 end
 ```
 
-### Player.hitPoints
+### `hitPoints`
 
-### Player.maxHitPoints
+### `maxHitPoints`
 
-### Player.kills
+### `kills`
 
-### Player.deaths
+### `deaths`
 
 You can get various vital statistics off of the player object, such as hit points, max hit points, kills and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
 
@@ -754,23 +669,23 @@ for i, p in ipairs(playerList) do
 end
 ```
 
-### Player.isAccelerating
+### `isAccelerating`
 
-### Player.isCrouching
+### `isCrouching`
 
-### Player.isFlying
+### `isFlying`
 
-### Player.isGrounded
+### `isGrounded`
 
-### Player.isJumping
+### `isJumping`
 
-### Player.isMounted
+### `isMounted`
 
-### Player.isSwimming
+### `isSwimming`
 
-### Player.isWalking
+### `isWalking`
 
-### Player.isDead
+### `isDead`
 
 You can get a lot of useful information about the player's current movement, via a series of read-only boolean properties on the `Player` object.
 
@@ -799,73 +714,65 @@ for i = 0, 10 do
     if #players > 0 then
         CheckPlayerStatus(players[1])
     end
-    break -- UT_STRIP
     Task.Wait(1)
 end
 ```
 
-### Player.isVisibleToSelf
+### `isVisibleToSelf`
 
 It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context!
 
 ```lua
-ut.EXPECT_TRUE(player.isVisibleToSelf, "default visibletoself")
 -- The player can no longer see their own model. Other players' ability
 -- to see this player is unaffected.
 player.isVisibleToSelf = false
 ```
 
-### Player.lookSensitivity
+### `lookSensitivity`
 
 You can also make the player's input more or less sensitive, when aiming. This can be useful for aiming down sights, etc.
 
 ```lua
-ut.EXPECT_EQUAL(player.lookSensitivity, 1, "lookSensitivity default")
 -- This will double the sensitivity:
 player.lookSensitivity = 5
 ```
 
-### Player.maxAcceleration
+### `maxAcceleration`
 
-### Player.brakingDecelerationFalling
+### `brakingDecelerationFalling`
 
-### Player.brakingDecelerationWalking
+### `brakingDecelerationWalking`
 
-### Player.groundFriction
+### `groundFriction`
 
-### Player.brakingFrictionFactor
+### `brakingFrictionFactor`
 
 Through scripts, you can control the player's ability to accelerate their character.
 
 ```lua
 -- The player accelerates more slowly.
-ut.EXPECT_EQUAL(player.maxAcceleration, 1800, "maxAcceleration default")
 player.maxAcceleration = 600
 
 -- The player tends to fall straight down unless they specifically press a direction in mid-air now!
-ut.EXPECT_EQUAL(player.brakingDecelerationFalling, 0, "brakingDecelerationFalling default")
 player.brakingDecelerationFalling = 1800
 
 -- The player takes longer to come to rest while walking.
-ut.EXPECT_EQUAL(player.brakingDecelerationWalking, 1800, "brakingDecelerationWalking default")
 player.brakingDecelerationWalking = 200
 
 -- Also they slide more!
-ut.EXPECT_EQUAL(player.groundFriction, 8, "groundFriction default")
 player.groundFriction = 2
 
 -- And more sliding - they have less grip on the ground when decelerating.
-ut.EXPECT_NEARLY_EQUAL(player.brakingFrictionFactor, 0.6, "brakingFrictionFactor default")
 player.brakingFrictionFactor = 0.2
 ```
 
-### Player.movementControlMode
+### `movementControlMode`
 
-### Player.lookControlMode
+### `lookControlMode`
 
-### Player.defaultRotationRate
+### `defaultRotationRate`
 
-### Player.currentRotationRate
+### `currentRotationRate`
 
 Player motion and facing can be set to several modes, depending on the gameplay needed.
 
@@ -885,7 +792,6 @@ player.movementControlMode = MovementControlMode.LOOK_RELATIVE
 -- This is the direction that the player's torso is facing.
 player.movementControlMode = MovementControlMode.FACING_RELATIVE
 
-ut.EXPECT_EQUAL(player.defaultRotationRate, 540.0, "default rotation rate")
 player.defaultRotationRate = 200
 
 --[[#description
@@ -902,11 +808,11 @@ player.lookControlMode = LookControlMode.RELATIVE
 player.lookControlMode = LookControlMode.LOOK_AT_CURSOR
 ```
 
-### Player.name
+### `name`
 
-### Player.id
+### `id`
 
-### Player.team
+### `team`
 
 There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
 
@@ -925,11 +831,11 @@ for _, p in pairs(players) do
 end
 ```
 
-### Player.shouldDismountWhenDamaged
+### `shouldDismountWhenDamaged`
 
-### Player.SetMounted
+### `SetMounted`
 
-### Player.canMount
+### `canMount`
 
 The player can mount or dismount. We can also force the player to mount or dismount via the `Player:SetMounted()` function. Also, if `Player.shouldDismountWhenDamaged` is set, they will automatically dismount whenever they take damage.
 
@@ -937,17 +843,12 @@ This sample demonstrates how to force the player to be mounted, and how to set t
 
 ```lua
 player.shouldDismountWhenDamaged = true
-Task.Wait(1) -- UT_STRIP
 player:SetMounted(true)
-Task.Wait(1) -- UT_STRIP
 -- Player is now mounted!
-ut.EXPECT_TRUE(player.isMounted, "player is mounted")
 
 -- If they take damage, they should dismount!
 
 player:ApplyDamage(Damage.New(1))
-ut.EXPECT_FALSE(player.isMounted, "player is dismounted")
-Task.Wait() -- UT_STRIP
 
 -- We can also disable the player's ability to mount or dismount.
 -- Note that this will NOT prevent us from calling SetMounted() -
@@ -955,9 +856,9 @@ Task.Wait() -- UT_STRIP
 player.canMount = false
 ```
 
-### Player.spreadModifier
+### `spreadModifier`
 
-### Player.currentSpread
+### `currentSpread`
 
 Players shooting weapons have a spread modifier applied to their accuracy. This can be used to simulate things like loss of aim after jumping, or other activities.
 
@@ -978,70 +879,60 @@ local jumpEndListener = player.movementModeChangedEvent:Connect(
         You can also check the player's current (total) spread,
         although this only works from the client context.
     ]]
-    --[[ UT_STRIP
     print(player.currentSpread)
-    UT_STRIP ]]
 ```
 
-### Player.stepHeight
+### `stepHeight`
 
-### Player.walkableFloorAngle
+### `walkableFloorAngle`
 
-### Player.maxJumpCount
+### `maxJumpCount`
 
-### Player.jumpVelocity
+### `jumpVelocity`
 
-### Player.gravityScale
+### `gravityScale`
 
-### Player.buoyancy
+### `buoyancy`
 
-### Player.isCrouchEnabled
+### `isCrouchEnabled`
 
 Most of the aspects of a player's movement can be controlled at runtime via scripting!
 
 ```lua
-ut.EXPECT_EQUAL(player.stepHeight, 45, "player.stepHeight default")
 -- Player can now step over 100cm ledges!
 player.stepHeight = 100
 
 -- And walk up 60-degree inclines!
-ut.EXPECT_EQUAL(player.walkableFloorAngle, 44, "player.stepHeight default")
 player.walkableFloorAngle = 60
 
 -- Player can now double-jump!
-ut.EXPECT_EQUAL(player.maxJumpCount, 1, "player.maxJumpCount default")
 player.maxJumpCount = 2
 
 -- And jump twice as high!
-ut.EXPECT_EQUAL(player.jumpVelocity, 900, "player.jumpVelocity default")
 player.jumpVelocity = 1800
 
 -- But gravity is twice as strong!
-ut.EXPECT_NEARLY_EQUAL(player.gravityScale, 1.9, "player.jumpVelocity default")
 player.gravityScale = 3.8
 
 -- But they are twice as buoyant in water!
-ut.EXPECT_NEARLY_EQUAL(player.buoyancy, 1, "player.buoyancy default")
 player.buoyancy = 2
 
 -- Also the player cannot crouch.
-ut.EXPECT_TRUE(player.isCrouchEnabled, "player.isCrouchEnabled default")
 player.isCrouchEnabled = false
 ```
 
-### Player.touchForceFactor
+### `touchForceFactor`
 
 When the player runs into physics objects, they exert force. You can affect how much force with the `touchForceFactor` property.
 
 ```lua
-ut.EXPECT_EQUAL(player.touchForceFactor, 1, "touchForceFactor default")
 -- Set the player to push five times as hard!
 player.touchForceFactor = 5
 ```
 
-### Player.perkChangedEvent
+### `perkChangedEvent`
 
-### Player.GetPerkCount
+### `GetPerkCount`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
@@ -1141,15 +1032,15 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### Player.perkChangedEvent
+### `perkChangedEvent`
 
-### Player.HasPerk
+### `HasPerk`
 
-### Player.GetPerkCount
+### `GetPerkCount`
 
-### UIPerkPurchaseButton.GetPerkReference
+### `GetPerkReference`
 
-### UIPerkPurchaseButton.SetPerkReference
+### `SetPerkReference`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
