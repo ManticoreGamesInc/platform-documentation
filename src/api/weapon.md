@@ -101,7 +101,7 @@ In this example, a weapon has a healing mechanic, where the player gains 2 hit p
 local WEAPON = script:FindAncestorByType('Weapon')
 
 function OnTargetImpactedEvent(weapon, impactData)
-    if impactData.other and impactData.other:IsA("Player") then
+    if ImpactData.targetObject and ImpactData.targetObject:IsA("Player") then
         weapon.owner.hitPoints = weapon.owner.hitPoints + 2
     end
 end
@@ -723,7 +723,7 @@ end
 -- We're keeping track of damage dealt here, but additional study is needed to draw conclusions.
 -- Plus, this would need to be tested in multiplayer and the data accessed somehow.
 function OnTargetImpacted(weapon, impactData)
-    if impactData.other and impactData.other:IsA("Player") then
+    if ImpactData.targetObject and ImpactData.targetObject:IsA("Player") then
         -- The damage calculation may change per weapon. This is a generic example
         local damageAmount = weapon.damage
 
