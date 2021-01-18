@@ -33,7 +33,7 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the Co
 
 ---
 
-**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](scripting_intro.md) to get familiar with the basics of the language.
 
 * For debugging, we have our own script debugger, you can enable it via the **Window** menu in the top bar of the Core editor.
     You can toggle breakpoints by clicking on a line number in the internal editor.

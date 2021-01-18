@@ -165,6 +165,10 @@ Game Over
 slinkous wins!
 </pre>
 
+### Modules
+
+Lua in Core does not support `dofile()` or `loadfile`. For `require()`, our implementation differs slightly from vanilla Lua. Instead of giving it a script or file name, you give it a script ID, so you'll want a custom parameter that's an asset reference pointing at the script you want to `require()`.
+
 ## The Core API
 
 ### Scripts in Core
@@ -173,7 +177,7 @@ Scripts work like objects in Core, so they will show up in the **Project Content
 
 You can create a script with the **Create Script** button in the **Top Toolbar**. The **Script Generator** will also give you sample code for a couple of specific uses.
 
-To see errors and outputs, you will also need to open the **Event Log**, which is where any ``print()`` will display text.
+To see errors and outputs, you will also need to open the **Event Log**, which is where any `print()` will display text.
 
 ### Objects
 
@@ -185,7 +189,7 @@ For example, a **Player** is an object in Core that has properties like world po
 
 To be able to talk about Core Objects in scripts, you need a way to make variables for them, called a **reference**.
 
-The easiest way to refer to an object is to drag the script onto that object in the **Hierarchy**. The object is now a **parent** of the script, and you can reference it in code by using ```script.parent```.
+The easiest way to refer to an object is to drag the script onto that object in the **Hierarchy**. The object is now a **parent** of the script, and you can reference it in code by using `script.parent`.
 
 Another way to use an object in a script, especially if it needs to be created by the script, is to select the script and open the **Properties** window. Drag the object onto the script properties, making a new **Custom Property**. This will also generate a line that you can copy and paste into your code to create a variable reference to the object.
 
@@ -194,6 +198,10 @@ Another way to use an object in a script, especially if it needs to be created b
 **API** stands for Application Programming Interface, and is a set of functions made for other people to write code that uses a program without changing the program itself. You could compare it to the tools you have to drive a car, because you have a variety of options of how you want to drive, but they don't change how the car works.
 
 The [Core API](../api/index.md) document lists all the functions, properties and events that you can use in scripts, for every object type in Core.
+
+#### Coming from other platforms
+
+Other platforms are also using Lua for their scripting. Check out our "Coming from Other Platforms" section for a few hints on what's different to them in **Core**.
 
 ## Learn More
 
