@@ -34,17 +34,17 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [AreaLight](arealight.md) | [Audio](audio.md) | [Camera](camera.md) | [Color](color.md) |
 | [CoreMesh](coremesh.md) | [CoreObject](coreobject.md) | [CoreObjectReference](coreobjectreference.md) | [Damage](damage.md) |
 | [Decal](decal.md) | [Equipment](equipment.md) | [Event](event.md) | [EventListener](eventlistener.md) |
-| [Folder](folder.md) | [HitResult](hitresult.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) |
-| [Light](light.md) | [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) |
-| [Object](object.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
-| [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) | [RandomStream](randomstream.md) |
-| [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) |
-| [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) | [Task](task.md) |
-| [Terrain](terrain.md) | [Transform](transform.md) | [Trigger](trigger.md) | [UIButton](uibutton.md) |
-| [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) | [UIImage](uiimage.md) | [UIPanel](uipanel.md) |
-| [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) | [UIScrollPanel](uiscrollpanel.md) | [UIText](uitext.md) |
-| [Vector2](vector2.md) | [Vector3](vector3.md) | [Vector4](vector4.md) | [Vfx](vfx.md) |
-| [Weapon](weapon.md) | [WorldText](worldtext.md) | | |
+| [Folder](folder.md) | [HitResult](hitresult.md) | [Hook](hook.md) | [HookListener](hooklistener.md) |
+| [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) | [Light](light.md) | [MergedModel](mergedmodel.md) |
+| [NetReference](netreference.md) | [NetworkContext](networkcontext.md) | [Object](object.md) | [Player](player.md) |
+| [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) | [PointLight](pointlight.md) | [Projectile](projectile.md) |
+| [Quaternion](quaternion.md) | [RandomStream](randomstream.md) | [Rotation](rotation.md) | [Script](script.md) |
+| [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) | [SmartObject](smartobject.md) | [SpotLight](spotlight.md) |
+| [StaticMesh](staticmesh.md) | [Task](task.md) | [Terrain](terrain.md) | [Transform](transform.md) |
+| [Trigger](trigger.md) | [UIButton](uibutton.md) | [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) |
+| [UIImage](uiimage.md) | [UIPanel](uipanel.md) | [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) |
+| [UIScrollPanel](uiscrollpanel.md) | [UIText](uitext.md) | [Vector2](vector2.md) | [Vector3](vector3.md) |
+| [Vector4](vector4.md) | [Vfx](vfx.md) | [Weapon](weapon.md) | [WorldText](worldtext.md) |
 
 ## Core Lua Namespaces
 
@@ -62,24 +62,24 @@ For security reasons, various built-in Lua functions have been restricted or rem
 
 ??? "Built-In Lua Functions"
     - `assert`
-    - `collectgarbage (modified)`
+    - `collectgarbage` (modified to only accept a `count` parameter to get current Lua memory usage)
     - `error`
-    - `getmetatable (modified)`
+    - `getmetatable` (modified)
     - `ipairs`
     - `next`
     - `pairs`
     - `pcall`
-    - `print (modified)`
+    - `print` (modified so it goes to Unreal logs and the Event log)
     - `rawequal`
-    - `rawget (modified)`
-    - `rawset (modified)`
-    - `require (modified)`
+    - `rawget` (modified)
+    - `rawset` (modified)
+    - `require` (modified)
     - `select`
-    - `setmetatable (modified)`
+    - `setmetatable` (modified)
     - `tonumber`
     - `tostring`
     - `type`
-    - `_G (modified)`
+    - `_G` (modified so it is separate from `_ENV`)
     - `_VERSION`
     - `xpcall`
     - `coroutine.create`
