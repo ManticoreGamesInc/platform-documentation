@@ -55,7 +55,7 @@ Core is a complete platform that includes a Launcher to see and play Core-create
 
 ### Scripting
 
-Core scripting is written in the [Lua](lua_reference.md) language, which does not specify data types, and is not inherently object-oriented. This allows for considerable flexibility in designing and organizing code.
+Core scripting is written in the [Lua](scripting_intro.md) language, which does not specify data types, and is not inherently object-oriented. This allows for considerable flexibility in designing and organizing code.
 
 Scripts can be added as children of objects, but they do not necessarily have to be associated any object, only networked and added to the project **Hierarchy**.
 
