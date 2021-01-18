@@ -355,7 +355,7 @@ Make sure to always declare your variables and functions in the order they are u
 
 `require()` explicitly makes a script execute if it hasn't already, and only executes a given script once.
 
-If you need multiple instances of the same script dynamically spawned, `require()`doesn't make sense
+If you need multiple instances of the same script dynamically spawned, `require()` should not be used.
 
 ### Using External Data
 
