@@ -88,6 +88,10 @@ nav:
   - Core API:
       - Reference: api/index.md
       - Enums: api/enums.md
+      - Animations & Sockets: api/animations.md
+      - Editor Extensions: extensions.md
+      - Key Bindings: api/key_bindings.md
+      - Lua Style Guide: tutorials/lua_style_guide.md
       - Types:
           - Ability: api/ability.md
           - AbilityPhaseSettings: api/abilityphasesettings.md
@@ -164,12 +168,7 @@ nav:
           - Teams: api/teams.md
           - UI: api/ui.md
           - World: api/world.md
-      - Additional Resources:
-          - Animations & Sockets: api/animations.md
-          - Editor Extensions: extensions.md
-          - Key Bindings: api/key_bindings.md
-          - Lua in Core: tutorials/lua_reference.md
-          - Lua Style Guide: tutorials/lua_style_guide.md
+
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:
@@ -314,3 +313,4 @@ plugins:
         api/ability_bindings.md: api/key_bindings.md
         core_api.md: api/index.md
         api/examples.md: api/index.md
+        tutorials/lua_reference.md: tutorials/scripting_intro.md

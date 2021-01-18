@@ -215,8 +215,6 @@ title: Tags
 
 - [Interconnected Games](interconnected_games.md)
 
-- [Lua Reference](lua_reference.md)
-
 - [Merged Models](merged_models.md)
 
 - [Modeling Basics](modeling_basics.md)
