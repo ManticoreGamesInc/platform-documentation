@@ -277,11 +277,11 @@ markdown_extensions:
 plugins:
   - minify:
       minify_html: true
-  #- section-index
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
-  - search
+  - search:
+      prebuild_index: true
   - autolinks
   - redirects:
       redirect_maps:
@@ -298,7 +298,6 @@ plugins:
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
         tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
-        tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
         getting_started/troubleshooting.md: getting_started/core_help.md
