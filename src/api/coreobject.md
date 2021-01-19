@@ -202,7 +202,7 @@ obj2:Destroy()
 
 ### `lifeSpan`
 
-There are several ways of destroying coreobjects, and noticing when they are destroyed.
+There are several ways of destroying `CoreObject`s, and noticing when they are destroyed.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
