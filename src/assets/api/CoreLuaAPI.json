@@ -916,6 +916,14 @@
 					]
 				},
 				{
+					"Name": "stopTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -3476,7 +3484,6 @@
 					"Type": "string",
 					"Tags": [
 						"RequiresAuthority",
-						"RequiresAuthority",
 						"Dynamic"
 					]
 				},
@@ -3791,6 +3798,112 @@
 									"Type": "Transform"
 								}
 							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Hook",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Connect",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HookListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "function",
+									"Name": "listener"
+								},
+								{
+									"Name": "additionalParameters",
+									"IsVariadic": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "HookListener",
+			"Properties": [
+				{
+					"Name": "isConnected",
+					"Type": "bool",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "priority",
+					"Type": "integer"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Disconnect",
+					"Signatures": [
+						{
+							"Returns": [],
 							"Parameters": []
 						}
 					]
@@ -4221,7 +4334,6 @@
 					"Name": "serverUserData",
 					"Type": "table",
 					"Tags": [
-						"ServerOnly",
 						"ServerOnly"
 					]
 				},
@@ -4229,7 +4341,6 @@
 					"Name": "clientUserData",
 					"Type": "table",
 					"Tags": [
-						"ClientOnly",
 						"ClientOnly"
 					]
 				},
@@ -4472,7 +4583,6 @@
 					"Name": "lookSensitivity",
 					"Type": "number",
 					"Tags": [
-						"ClientOnly",
 						"ClientOnly"
 					]
 				},
@@ -4734,6 +4844,19 @@
 						},
 						{
 							"Type": "NetReference"
+						}
+					]
+				}
+			],
+			"Hooks": [
+				{
+					"Name": "movementHook",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "table"
 						}
 					]
 				}
@@ -5341,6 +5464,24 @@
 							"Returns": [
 								{
 									"Type": "integer"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "perkReference"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetPerkTimeRemaining",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
 								}
 							],
 							"Parameters": [
@@ -6769,6 +6910,14 @@
 				},
 				{
 					"Name": "startTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "stopTime",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
