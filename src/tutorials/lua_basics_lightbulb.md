@@ -152,7 +152,7 @@ local offRotation = Rotation.New(-180, -60, 180)
 
 !!! note
     You will almost always use `Rotation.New` when rotating an object, but there is also a predefined Rotation called `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
-    [Learn more about Rotations on the Core API](core_api.md#rotation) page.
+    [Learn more about Rotations on the Core API](../api/rotation.md) page.
 
 ### Make the Switch Move with a Script
 
@@ -467,7 +467,7 @@ In the `OnSwitchInteraction()` function under our `RotateTo()` statement, type:
 World.SpawnAsset(propLightTemplate)
 ```
 
-- `World` is a [collection of functions](core_api.md#world) for finding objects in the world.
+- `World` is a [collection of functions](../api/world.md) for finding objects in the world.
 - `SpawnAsset` is a function that tells the script we'll be spawning a template or asset, and where to do so.
 - `propLightTemplate` is the variable that references the light template which you defined earlier.
 
@@ -974,4 +974,4 @@ switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 
 ## Learn More
 
-[Scripting in Core](scripting_intro.md) | [Core API](core_api.md) | [Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/)
+[Scripting in Core](scripting_intro.md) | [Core API](../api/index.md) | [Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/)

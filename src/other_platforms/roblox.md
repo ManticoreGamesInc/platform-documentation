@@ -13,7 +13,7 @@ tags:
 The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
 
 - For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
-- For a complete technical overview, see the [Core API Documentation](core_api.md).
+- For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ## Roblox
 
@@ -37,7 +37,7 @@ A culture of collaboration is part of the Core Community, and is a powerful tool
 
 ### Scripting
 
-Core also uses the Lua scripting language, which is extremely flexible, and connects to a similar event system. However, the Core API is distinct from the Roblox API, and so similar functions have different names, and will work differently. You can check out the [Core API](core_api.md) for more details and example code.
+Core also uses the Lua scripting language, which is extremely flexible, and connects to a similar event system. However, the Core API is distinct from the Roblox API, and so similar functions have different names, and will work differently. You can check out the [Core API](../api/index.md) for more details and example code.
 
 In general, scripts are created without parents, and have to be added into the project **Hierarchy**, equivalent of the Explorer in Roblox. They can still be made children of objects to reference them, and it is also possible to define **Custom Property** variables that can be changed through the script's **Properties** window, rather than editing the script itself. Unlike Roblox, when you duplicate a script in Core, it does not create a copy of the script asset, instead it creates a new instance that still points to the original script.
 

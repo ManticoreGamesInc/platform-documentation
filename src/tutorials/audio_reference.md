@@ -34,7 +34,7 @@ You can simply find audio in the Core Content and look through the many sound ty
 
 After adding your chosen audio asset to the hierarchy, you can you can preview audio by pressing the blue play button to the top right. If you check the button for "Apply Effects" to the right, you will hear a preview of the audio with your customized parameters. If you have attenuation or spatialization options enabled, you will hear those based on your current camera position in the editor.
 
-Alternatively, you can activate audio at any time via script access with the audio function `:Play`. For example, when a player interacts with a doorbell, you may want to activate a bell SFX in a Trigger's script. In such a case, you may want to reference the audio with a "**CoreObject Reference**" custom property or as a child of a script. You can read more about scripting audio triggers and scripts in Lua via the [Audio section of the API documentation](core_api.md#audio).
+Alternatively, you can activate audio at any time via script access with the audio function `:Play`. For example, when a player interacts with a doorbell, you may want to activate a bell SFX in a Trigger's script. In such a case, you may want to reference the audio with a "**CoreObject Reference**" custom property or as a child of a script. You can read more about scripting audio triggers and scripts in Lua via the [Audio section of the API documentation](../api/audio.md).
 
 ### Audio Properties
 
@@ -131,7 +131,7 @@ Usually you'll find that some audio assets have several similar variations that 
 
 You'll mostly find this in "**Music Score Sets**" or "**Gunshot Sets**" for example.
 
-Note: As a reminder for smart properties, they can be adjusted and modified via script using: `GetSmartProperty(string)` or `SetSmartProperty(string, value)`. See API documentation regarding Smart properties [here](core_api.md#smartobject). When referencing drop-down strings, keep in mind that Lua is case-sensitive and they must be referenced exactly as they are listed.
+Note: As a reminder for smart properties, they can be adjusted and modified via script using: `GetSmartProperty(string)` or `SetSmartProperty(string, value)`. See API documentation regarding Smart properties [here](../api/smartobject.md). When referencing drop-down strings, keep in mind that Lua is case-sensitive and they must be referenced exactly as they are listed.
 
 Others will have very specific parameters that pertain to that asset in particular, so be sure to read the tooltips when modifying these options.
 
@@ -288,6 +288,6 @@ It is best to utilize music with Enable Spatialization disabled so that it can b
 - If you want music played only in certain areas in your map you could easily achieve this several ways:
 
     - Using the radius and falloff zones without spatialization; Disable spatialization and enable attenuation to easily fade in a music track that will be heard in stereo (left and right speakers) where you want players to hear it. You'll have to adjust radius and falloff accordingly as needed.
-    - By trigger zone script; Script a trigger zone that will call `:Play()` and `:Stop()` as needed when a player enters and leaves the zone. Setting a Fade In or Fade Out time makes this a bit more seamless if there are several music tracks being triggered on and off concurrently. Please read the [Lua API documentation](core_api.md#audio) for more scripting details.
+    - By trigger zone script; Script a trigger zone that will call `:Play()` and `:Stop()` as needed when a player enters and leaves the zone. Setting a Fade In or Fade Out time makes this a bit more seamless if there are several music tracks being triggered on and off concurrently. Please read the [Lua API documentation](../api/audio.md) for more scripting details.
 
 - Experiment with pitch! Sometimes slightly changing the pitch of a music track can result in vastly changing the overall mood and feel of a music track. You could also try taking any two same music tracks and slightly adjusting the pitch up or down to make it sound creepy and unnerving.

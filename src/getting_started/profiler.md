@@ -1,3 +1,11 @@
+---
+id: play-mode_profiler
+name: Play-Mode Profiler
+title: Play-Mode Profiler
+tags:
+    - Reference
+---
+
 # Play-Mode Profiler
 
 ## Overview

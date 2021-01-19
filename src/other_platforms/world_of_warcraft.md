@@ -13,7 +13,7 @@ tags:
 The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
 
 - For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
-- For a complete technical overview, see the [Core API Documentation](core_api.md).
+- For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ## World of Warcraft
 
@@ -51,7 +51,7 @@ end
 Events.Connect("MyEvent", Foo)
 ```
 
-You can find more examples for events in our [Examples and Snippets](examples.md) section.
+You can find more examples for events in our [API documentation](../api/events.md) section.
 
 - The often (miss)used `OnUpdate` event equivalent is the global `Tick()` function. It is totally fine to overwrite it with your own.
 - Instead of frames, you will mostly work with objects in Core. Those can be destroyed completely instead of just be hidden like frames in WoW.

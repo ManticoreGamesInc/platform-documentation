@@ -87,7 +87,7 @@ Adjustable properties of the Text Box:
 
 Different UI Elements will have slightly different settings in the properties window, and all of these can be manipulated both in-editor and in code.
 
-!!! info "For Scripting Help see [Lua API](core_api.md) for functions & properties of UI controls."
+!!! info "For Scripting Help see [Lua API](../api/uicontrol.md) for functions & properties of UI controls."
 
 ---
 

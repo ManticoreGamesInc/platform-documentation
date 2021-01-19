@@ -13,7 +13,7 @@ tags:
 The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
 
 - For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
-- For a complete technical overview, see the [Core API Documentation](core_api.md).
+- For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ## Unity
 
@@ -55,7 +55,7 @@ Core is a complete platform that includes a Launcher to see and play Core-create
 
 ### Scripting
 
-Core scripting is written in the [Lua](lua_reference.md) language, which does not specify data types, and is not inherently object-oriented. This allows for considerable flexibility in designing and organizing code.
+Core scripting is written in the [Lua](scripting_intro.md) language, which does not specify data types, and is not inherently object-oriented. This allows for considerable flexibility in designing and organizing code.
 
 Scripts can be added as children of objects, but they do not necessarily have to be associated any object, only networked and added to the project **Hierarchy**.
 

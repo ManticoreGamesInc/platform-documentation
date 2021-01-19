@@ -14,7 +14,7 @@ tags:
 
 The same way [Peristent Storage](persistent_storage.md) allows you to save player data between play sessions, **Shared Storage** allows you to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
 
-**Shared Storage** allows you to create storage tables, called **Shared Keys** that are associated with your account, rather than a specific game. You can have **up to 8** of these tables, and in each project you can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](core_api.md#netreference).
+**Shared Storage** allows you to create storage tables, called **Shared Keys** that are associated with your account, rather than a specific game. You can have **up to 8** of these tables, and in each project you can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](../api/netreference.md).
 
 ### Account-Level Tables
 
@@ -55,7 +55,7 @@ All keys that are active in your project can be found in **Project Content** in 
 
 #### Get a NetReference to a Key
 
-To save data to a shared storage table, you will need to use its **NetReference** to refer to it in a script. See the [Core API](core_api.md#netreference) for more information about this object type.
+To save data to a shared storage table, you will need to use its **NetReference** to refer to it in a script. See the [Core API](../api/netreference.md) for more information about this object type.
 
 ![Create NetRef Custom Property](../img/Storage/AddNetReferenceCustomProperty.png){: .center loading="lazy" }
 
@@ -70,7 +70,7 @@ To save data to a shared storage table, you will need to use its **NetReference*
 
 Shared Data tables work the same way as Persistent Storage. One table can be used to save all of your player data, and data is associated with players.
 
-You can learn more about the **Storage** namespace on [the Core API](core_api.md#storage).
+You can learn more about the **Storage** namespace on [the Core API](../api/storage.md).
 
 To save data for a player:
 
@@ -80,7 +80,7 @@ To save data for a player:
 4. Change a property of that table.
 5. Reassign the table to the player's storage with `Storage.SetSharedPlayerData()`.
 
-To learn more, check out the [example snippets with shared storage](examples.md).
+To learn more, check out the [example snippets with shared storage](../api/storage.md).
 
 ### Activate Keys Across Games
 
@@ -90,4 +90,4 @@ In each game where you want to reference a Shared Data Table, you will need to a
 
 ## Learn More
 
-[Shared Storage on the Core API](core_api.md#storage) | [Shared Storage Examples](https://docs.coregames.com/api/examples#sharedstorage) | [NetReference on the Core API](https://docs.coregames.com/core_api#netreference) | [Persistent Storage Reference](persistent_storage.md)
+[Shared Storage on the Core API](../api/storage.md) | [Shared Storage Examples](../api/storage.md#examples) | [NetReference on the Core API](../api/netreference.md) | [Persistent Storage Reference](persistent_storage.md)

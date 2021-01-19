@@ -104,7 +104,7 @@ The in-editor window scene weapon will be completely "empty" having almost no vi
 
 1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
 
-    For a full list of all possible sockets that you could use, check out the **[Lua API Guide](core_api.md)**.
+    For a full list of all possible sockets that you could use, check out the **[Lua API](../api/animations.md)**.
 
 2. Once you've made sure that is happening, scroll down to the *Utility* section of **Core Content**.
 

@@ -18,7 +18,7 @@ To see the **Animated Mesh** objects firsthand before adding them to a project s
 
 ### API Example Code
 
-Animated meshes will require custom scripts to do more than animate in place or move to a specific location. To learn all the methods, parameters, and events associated with animated meshes, see the [Animated Mesh API](examples.md).
+Animated meshes will require custom scripts to do more than animate in place or move to a specific location. To learn all the methods, parameters, and events associated with animated meshes, see the [Animated Mesh API](../api/animatedmesh.md).
 
 ### Non Player Characters
 
@@ -62,10 +62,10 @@ Animated meshes cannot use actually **Equipment** objects the way players are, b
 
 The **Bind Pose** animation stance is designed to make it easy to determine where objects should be positioned relative to the mesh.
 
-To attach objects to the appropriate mesh, you can use a script and the ```AttachCoreObject``` method. For more specific examples, see the [Core API](https://docs.coregames.com/core_api/#animatedmesh).
+To attach objects to the appropriate mesh, you can use a script and the `AttachCoreObject` method. For more specific examples, see the [Core API](../api/animatedmesh.md).
 
 ```YourMeshName.AttachCoreObject(object, socketname)```
 
 ## Learn More
 
-[Example Code](examples.md) | [Player Animations](animations.md) | [Custom Materials](custom_materials.md)
+[Example Code](../api/animatedmesh.md) | [Player Animations](../api/animations.md) | [Custom Materials](custom_materials.md)

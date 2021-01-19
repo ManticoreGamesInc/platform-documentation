@@ -33,7 +33,7 @@ In this tutorial, we are taking a deeper look at what it takes to utilize the Co
 
 ---
 
-**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](lua_reference.md) to get familiar with the basics of the language.
+**Core** uses the **Lua** programming language, While this tutorial does not really require any prior knowledge of the language feel free to check out our [Lua Primer](scripting_intro.md) to get familiar with the basics of the language.
 
 * For debugging, we have our own script debugger, you can enable it via the **Window** menu in the top bar of the Core editor.
     You can toggle breakpoints by clicking on a line number in the internal editor.
@@ -85,7 +85,7 @@ Okay, so what did we just do?
     * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)` -> Here, we create a vector to rotate the object on the z axis by 200, spinning the coin along the z axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
-!!! note "If you want to know which other methods are available for every object, check out our [API docs](core_api.md) page."
+!!! note "If you want to know which other methods are available for every object, check out our [API docs](../api/index.md) page."
 
 ### Spin Cleanup
 

@@ -52,7 +52,7 @@ All successfully stored data in preview mode can be viewed in your computer's Fi
 
 Each player table has a **maximum size limit of 16Kb**.
 
-To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [Core API](core_api.md#storage).
+To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [Core API](../api/storage.md).
 
 ---
 

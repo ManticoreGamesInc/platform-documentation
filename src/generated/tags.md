@@ -4,13 +4,164 @@ title: Tags
 
 # Contents grouped by Tag
 
+## API
+
+- [Ability](ability.md)
+
+- [AbilityPhaseSettings](abilityphasesettings.md)
+
+- [AbilityTarget](abilitytarget.md)
+
+- [AnimatedMesh](animatedmesh.md)
+
+- [AreaLight](arealight.md)
+
+- [Audio](audio.md)
+
+- [Camera](camera.md)
+
+- [Color](color.md)
+
+- [CoreDebug](coredebug.md)
+
+- [CoreLuaFunctions](coreluafunctions.md)
+
+- [CoreMath](coremath.md)
+
+- [CoreMesh](coremesh.md)
+
+- [CoreObject](coreobject.md)
+
+- [CoreObjectReference](coreobjectreference.md)
+
+- [CoreString](corestring.md)
+
+- [Damage](damage.md)
+
+- [Decal](decal.md)
+
+- [Enums](enums.md)
+
+- [Environment](environment.md)
+
+- [Equipment](equipment.md)
+
+- [Event](event.md)
+
+- [EventListener](eventlistener.md)
+
+- [Events](events.md)
+
+- [Folder](folder.md)
+
+- [Game](game.md)
+
+- [HitResult](hitresult.md)
+
+- [Hook](hook.md)
+
+- [HookListener](hooklistener.md)
+
+- [ImpactData](impactdata.md)
+
+- [LeaderboardEntry](leaderboardentry.md)
+
+- [Leaderboards](leaderboards.md)
+
+- [Light](light.md)
+
+- [MergedModel](mergedmodel.md)
+
+- [NetReference](netreference.md)
+
+- [NetworkContext](networkcontext.md)
+
+- [Object](object.md)
+
+- [Other](other.md)
+
+- [PhysicsObject](physicsobject.md)
+
+- [Player](player.md)
+
+- [PlayerSettings](playersettings.md)
+
+- [PlayerStart](playerstart.md)
+
+- [PointLight](pointlight.md)
+
+- [Projectile](projectile.md)
+
+- [Quaternion](quaternion.md)
+
+- [RandomStream](randomstream.md)
+
+- [Rotation](rotation.md)
+
+- [Script](script.md)
+
+- [ScriptAsset](scriptasset.md)
+
+- [SmartAudio](smartaudio.md)
+
+- [SmartObject](smartobject.md)
+
+- [SpotLight](spotlight.md)
+
+- [StaticMesh](staticmesh.md)
+
+- [Storage](storage.md)
+
+- [Task](task.md)
+
+- [Teams](teams.md)
+
+- [Terrain](terrain.md)
+
+- [Transform](transform.md)
+
+- [Trigger](trigger.md)
+
+- [UI](ui.md)
+
+- [UIButton](uibutton.md)
+
+- [UIContainer](uicontainer.md)
+
+- [UIControl](uicontrol.md)
+
+- [UIImage](uiimage.md)
+
+- [UIPanel](uipanel.md)
+
+- [UIPerkPurchaseButton](uiperkpurchasebutton.md)
+
+- [UIProgressBar](uiprogressbar.md)
+
+- [UIScrollPanel](uiscrollpanel.md)
+
+- [UIText](uitext.md)
+
+- [Vector2](vector2.md)
+
+- [Vector3](vector3.md)
+
+- [Vector4](vector4.md)
+
+- [Vfx](vfx.md)
+
+- [Weapon](weapon.md)
+
+- [World](world.md)
+
+- [WorldText](worldtext.md)
+
+
 ## Misc
 
 - [Editor Extensions](extensions.md)
 
 - [Contexts](contexts.md)
-
-- [Examples and Snippets](examples.md)
 
 
 ## Perks
@@ -26,9 +177,9 @@ title: Tags
 
 ## Reference
 
-- [Core API](core_api.md)
-
 - [Core Editor Key Bindings](editor_keybindings.md)
+
+- [Core API](index.md)
 
 - [Key Binding List](key_bindings.md)
 
@@ -37,6 +188,8 @@ title: Tags
 - [Getting Help in Core](core_help.md)
 
 - [Introduction to the Core Editor](editor_intro.md)
+
+- [Play-Mode Profiler](profiler.md)
 
 - [Publishing Checklist](publishing_checklist.md)
 
@@ -61,8 +214,6 @@ title: Tags
 - [Dungeon Framework Reference](dungeon_framework_reference.md)
 
 - [Interconnected Games](interconnected_games.md)
-
-- [Lua Reference](lua_reference.md)
 
 - [Merged Models](merged_models.md)
 
