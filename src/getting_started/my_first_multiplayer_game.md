@@ -8,7 +8,7 @@ tags:
 
 # Build Your First Game In Core
 
-![YOUTUBE](../assets/placeholder_720p.png "-rIbd612sUM")
+<lite-youtube videoid="-rIbd612sUM" playlabel="Build Your First Game In Core"></lite-youtube>
 {: .video-container }
 
 ## Overview

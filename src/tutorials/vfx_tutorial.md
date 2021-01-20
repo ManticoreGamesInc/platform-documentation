@@ -94,10 +94,10 @@ You'll probably want to always use some combination of these--the amount they ca
 
 ## Tutorial Videos
 
-![YOUTUBE](/assets/placeholder_720p.png "oIV50fDcZkQ")
+<lite-youtube videoid="99gf9fuLAFI" playlabel="Core VFX Series: Part 1"></lite-youtube>
 {: .video-container }
 
-![YOUTUBE](/assets/placeholder_720p.png "MSso2Jq66gg")
+<lite-youtube videoid="MSso2Jq66gg" playlabel="Core VFX Series: Part 2"></lite-youtube>
 {: .video-container }
 
 ## Tutorials

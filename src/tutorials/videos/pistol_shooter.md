@@ -8,8 +8,8 @@ tags:
 
 # Making a Pistol Shooter
 
-![YOUTUBE](../../assets/placeholder_720p.png "k4JzElJ3pTc")
+<lite-youtube videoid="k4JzElJ3pTc" playlabel="Making a Pistol Shooter: Part 1"></lite-youtube>
 {: .video-container }
 
-![YOUTUBE](../../assets/placeholder_720p.png "CQe0bOBUoSo")
+<lite-youtube videoid="CQe0bOBUoSo" playlabel="Making a Pistol Shooter: Part 2"></lite-youtube>
 {: .video-container }
