@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# AnimatedMesh
+# API: AnimatedMesh
 
 ## Description
 

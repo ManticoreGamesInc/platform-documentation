@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# ScriptAsset
+# API: ScriptAsset
 
 ## Description
 

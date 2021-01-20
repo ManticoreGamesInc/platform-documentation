@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# WorldText
+# API: WorldText
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# CoreObject
+# API: CoreObject
 
 ## Description
 

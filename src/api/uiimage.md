@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIImage
+# API: UIImage
 
 ## Description
 
