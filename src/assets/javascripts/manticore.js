@@ -23,29 +23,6 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
       links[i].rel = "noopener"
     }
   }
-
-  // Transform special markdown into YouTube embeds
-  const elements = document.querySelectorAll('img[alt="YOUTUBE"]')
-
-  Array.prototype.forEach.call(elements, (el) => {
-    const id = el.getAttribute("title").split("/")[
-      el.getAttribute("title").split("/").length - 1
-    ]
-    const oldClass = el.getAttribute("class")
-    const iframe = document.createElement("iframe")
-
-    iframe.title = "YouTube"
-    iframe.src = `https://www.youtube.com/embed/${id}?modestbranding=1&amp;`
-    iframe.loading = "lazy"
-
-    if (oldClass !== "null") {
-      iframe.className = `video-embed ${oldClass}`
-    } else {
-      iframe.className = "video-embed"
-    }
-
-    el.replaceWith(iframe)
-  })
 })
 
 // Scroll-to-Top button

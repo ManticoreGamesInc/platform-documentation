@@ -8,7 +8,7 @@ tags:
 
 # Introduction to the Core Editor
 
-![YOUTUBE](../assets/placeholder_720p.png "TKOtPN9ujEE")
+<lite-youtube videoid="TKOtPN9ujEE" playlabel="Introduction to the Core Editor"></lite-youtube>
 {: .video-container }
 
 ## Creating a New Project
