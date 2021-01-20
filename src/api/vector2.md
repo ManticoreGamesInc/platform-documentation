@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Vector2
+# API: Vector2
 
 ## Description
 

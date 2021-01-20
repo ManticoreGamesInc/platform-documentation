@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# RandomStream
+# API: RandomStream
 
 ## Description
 

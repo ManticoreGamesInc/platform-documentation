@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# SmartAudio
+# API: SmartAudio
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIProgressBar
+# API: UIProgressBar
 
 ## Description
 

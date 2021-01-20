@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Projectile
+# API: Projectile
 
 ## Description
 

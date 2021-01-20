@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIButton
+# API: UIButton
 
 ## Description
 

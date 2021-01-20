@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# PlayerSettings
+# API: PlayerSettings
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Storage
+# API: Storage
 
 ## Description
 

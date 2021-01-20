@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Other
+# API: Other
 
 ## Description
 

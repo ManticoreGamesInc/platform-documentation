@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# CoreMath
+# API: CoreMath
 
 ## Description
 

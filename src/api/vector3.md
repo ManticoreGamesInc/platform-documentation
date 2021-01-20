@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Vector3
+# API: Vector3
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - Reference
 ---
 
-# Weapons
+# Weapons Reference
 
 ## Introduction
 

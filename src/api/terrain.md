@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Terrain
+# API: Terrain
 
 ## Description
 

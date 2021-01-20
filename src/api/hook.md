@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Hook
+# API: Hook
 
 ## Description
 

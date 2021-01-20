@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# CoreLuaFunctions
+# API: CoreLuaFunctions
 
 ## Description
 
