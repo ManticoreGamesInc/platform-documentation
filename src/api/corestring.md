@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# CoreString
+# API: CoreString
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# AbilityTarget
+# API: AbilityTarget
 
 ## Description
 

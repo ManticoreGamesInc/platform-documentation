@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Trigger
+# API: Trigger
 
 ## Description
 

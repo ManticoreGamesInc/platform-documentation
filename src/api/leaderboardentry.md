@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# LeaderboardEntry
+# API: LeaderboardEntry
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# SmartObject
+# API: SmartObject
 
 ## Description
 

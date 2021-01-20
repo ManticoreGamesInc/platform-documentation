@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# CoreObjectReference
+# API: CoreObjectReference
 
 ## Description
 

@@ -10,7 +10,7 @@ repo_url: https://github.com/ManticoreGamesInc/platform-documentation/
 edit_uri: edit/development/src
 
 # Copyright
-copyright: "&copy; 2021 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games."
+copyright: "&copy; 2021 Manticore Games, Inc. Core&trade; is a trademark of Manticore Games"
 
 # Directory for the documentation pages
 docs_dir: src
@@ -206,10 +206,11 @@ theme:
   search_index_only: true
 
 extra_css:
-#  - assets/stylesheets/manticore.css
+  - assets/stylesheets/lite-yt-embed.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
+  - assets/javascripts/lite-yt-embed.js
 
 extra:
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
@@ -242,7 +243,7 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.meta
   - markdown.extensions.toc:
-      slugify: !!python/name:custom_slugs.uslugify_custom
+      slugify: !!python/name:pymdownx.slugs.uslugify
       permalink: true
   - pymdownx.arithmatex
   - pymdownx.betterem:
@@ -277,11 +278,11 @@ markdown_extensions:
 plugins:
   - minify:
       minify_html: true
-  #- section-index
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
-  - search
+  - search:
+      prebuild_index: true
   - autolinks
   - redirects:
       redirect_maps:
@@ -298,7 +299,6 @@ plugins:
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
         tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
-        tutorials/gameplay/lua_reference.md: tutorials/lua_reference.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
         getting_started/troubleshooting.md: getting_started/core_help.md

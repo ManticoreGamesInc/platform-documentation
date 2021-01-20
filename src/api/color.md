@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Color
+# API: Color
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Teams
+# API: Teams
 
 ## Description
 
