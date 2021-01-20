@@ -207,10 +207,11 @@ theme:
   search_index_only: true
 
 extra_css:
-#  - assets/stylesheets/manticore.css
+  - assets/stylesheets/lite-yt-embed.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
+  - assets/javascripts/lite-yt-embed.js
 
 extra:
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
