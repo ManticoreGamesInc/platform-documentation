@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# ImpactData
+# API: ImpactData
 
 ## Description
 

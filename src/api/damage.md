@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Damage
+# API: Damage
 
 ## Description
 

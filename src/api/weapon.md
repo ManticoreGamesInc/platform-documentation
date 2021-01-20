@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Weapon
+# API: Weapon
 
 ## Description
 

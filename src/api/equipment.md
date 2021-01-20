@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Equipment
+# API: Equipment
 
 ## Description
 

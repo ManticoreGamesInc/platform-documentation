@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Event
+# API: Event
 
 ## Description
 

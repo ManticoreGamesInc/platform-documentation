@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# SpotLight
+# API: SpotLight
 
 ## Description
 

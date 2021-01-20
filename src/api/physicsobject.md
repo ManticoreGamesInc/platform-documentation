@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# PhysicsObject
+# API: PhysicsObject
 
 ## Description
 

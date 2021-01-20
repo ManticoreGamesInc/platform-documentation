@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Script
+# API: Script
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIControl
+# API: UIControl
 
 ## Description
 

@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIPerkPurchaseButton
+# API: UIPerkPurchaseButton
 
 ## Description
 

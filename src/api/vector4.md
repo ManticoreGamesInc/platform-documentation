@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Vector4
+# API: Vector4
 
 ## Description
 

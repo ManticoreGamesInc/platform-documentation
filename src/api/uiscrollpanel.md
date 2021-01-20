@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIScrollPanel
+# API: UIScrollPanel
 
 ## Description
 
