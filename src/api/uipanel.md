@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIPanel
+# API: UIPanel
 
 ## Description
 

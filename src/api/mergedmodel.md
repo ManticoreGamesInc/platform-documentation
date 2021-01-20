@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# MergedModel
+# API: MergedModel
 
 ## Description
 

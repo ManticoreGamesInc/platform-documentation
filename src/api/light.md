@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# Light
+# API: Light
 
 ## Description
 

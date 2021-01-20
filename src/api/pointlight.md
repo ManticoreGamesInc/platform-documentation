@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# PointLight
+# API: PointLight
 
 ## Description
 

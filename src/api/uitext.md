@@ -6,7 +6,7 @@ tags:
     - API
 ---
 
-# UIText
+# API: UIText
 
 ## Description
 
