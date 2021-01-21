@@ -24,47 +24,43 @@ Hooks appear as properties on several objects. Similar to Events, functions may 
 
 ### `Connect`
 
-A basic example on how to implement "Click to Move" in your game.
+A simple example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnBindingPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's direction.
 
 ```lua
 UI.SetCursorVisible(true)
 UI.SetCanCursorInteractWithUI(true)
 
-local goal
-local holdPosition = false
+local PLAYER = Game.GetLocalPlayer()
+local STOP_THRESHOLD = 120*120
+local goal = nil
 
-Game.GetLocalPlayer().movementHook:Connect(function(player, params)
-    if not holdPosition and goal and params.direction == Vector3.ZERO then
+function OnPlayerMovement(player, params)
+    if goal and params.direction == Vector3.ZERO then
         local playerPos = player:GetWorldPosition()
-        if (goal - playerPos).size < 120 then
+        local direction = goal - playerPos
+        if direction.sizeSquared < STOP_THRESHOLD then
             goal = nil
         else
             CoreDebug.DrawLine(playerPos, goal, {thickness = 15, color = Color.New(1, .5, 0)})
-            params.direction = ((goal - playerPos)*(Vector3.ONE - Vector3.UP)):GetNormalized()
-            return
+            direction = direction * Vector3.New(1, 1, 0)
+            params.direction = direction:GetNormalized()
         end
     else
         goal = nil
     end
-end)
+end
 
-Game.GetLocalPlayer().bindingPressedEvent:Connect(function(player, binding)
+function OnBindingPressed(player, binding)
     if binding == "ability_primary" then
         local hitResult = UI.GetCursorHitResult()
         if hitResult then
             goal = hitResult:GetImpactPosition()
         end
     end
-    if binding == "ability_feet" then
-        holdPosition = true
-    end
-end)
+end
 
-Game.GetLocalPlayer().bindingReleasedEvent:Connect(function(player, binding)
-    if binding == "ability_feet" then
-        holdPosition = false
-    end
-end)
+PLAYER.movementHook:Connect(OnPlayerMovement)
+PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 ### `Connect`
