@@ -114,7 +114,7 @@ nav:
           - HitResult: api/hitresult.md
           - Hook: api/hook.md
           - HookListener: api/hooklistener.md
-          - ImpactRata: api/impactdata.md
+          - ImpactData: api/impactdata.md
           - LeaderboardEntry: api/leaderboardentry.md
           - Light: api/light.md
           - MergedModel: api/mergedmodel.md
