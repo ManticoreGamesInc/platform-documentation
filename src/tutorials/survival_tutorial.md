@@ -9,6 +9,7 @@ tags:
 # Survival Tutorial
 
 <lite-youtube videoid="0QbelJYCN1c" playlabel="Intro to Survival Kit"></lite-youtube>
+{: .video-container }
 
 ## Item Systems Overview
 
