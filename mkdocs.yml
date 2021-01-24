@@ -280,7 +280,8 @@ plugins:
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
-  - search
+  - search:
+      separator: '[\s\-]+'
   - autolinks
   - redirects:
       redirect_maps:
