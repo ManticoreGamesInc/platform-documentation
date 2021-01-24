@@ -281,7 +281,7 @@ plugins:
       tags_folder: src/generated
   - git-revision-date-localized
   - search:
-      separator: '[\s\-\.\:]+'
+      separator: '[\s\-]+'
   - autolinks
   - redirects:
       redirect_maps:
