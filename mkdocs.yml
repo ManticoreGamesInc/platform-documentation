@@ -26,6 +26,8 @@ nav:
           - Create your first RPG game: tutorials/first_game_rpg.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
+      - Global Game Jam 2021:
+          - Core for Global Game Jam: tutorials/global_game_jam.md
       - Coming from other Platforms:
           - Fortnite Creative: other_platforms/fortnite_creative.md
           - Roblox: other_platforms/roblox.md
