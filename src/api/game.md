@@ -43,7 +43,7 @@ Game is a collection of functions and events related to players in the game, rou
 
 ## Examples
 
-- `FindNearestPlayer`]
+- `FindNearestPlayer`
 
 In this example, the player who is closest to the script's position is made twice as big. All other players are set to regular size.
 
@@ -65,7 +65,7 @@ end
 
 ---
 
-- `FindPlayersInCylinder`]
+- `FindPlayersInCylinder`
 
 Searches for players in a vertically-infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
 
@@ -84,7 +84,7 @@ end
 
 ---
 
-- `FindPlayersInSphere`]
+- `FindPlayersInSphere`
 
 Similar to `FindPlayersInCylinder()`, but the volume of a sphere is considered in the search instead. Also note that the player's center is at the pelvis. The moment that point exits the sphere area the effect ends, as the extent of their collision capsules is not taken into account for these searches.
 
@@ -103,7 +103,7 @@ end
 
 ---
 
-- `GetLocalPlayer`]
+- `GetLocalPlayer`
 
 This function can only be called in a client script, as the server does not have a local player. This example prints the names of all players to the upper-left corner of the screen. The local player appears in green, while other player names appear blue. To test this example, place the script under a Client Context. From the point of view of each player, name colors appear different. That's because on each computer the local player is different.
 
@@ -124,7 +124,7 @@ end
 
 ---
 
-- `GetPlayers`]
+- `GetPlayers`
 
 This function is commonly used without any options. However, it can be very powerful and computationally efficient to pass a table of optional parameters, getting exactly the list of players that are needed for a certain condition. In this example, when the round ends it prints the number of alive players on team 1, as well as the number of dead players on team 2.
 
@@ -141,7 +141,7 @@ Game.roundEndEvent:Connect(OnRoundEnd)
 
 ---
 
-- `GetTeamScore`]
+- `GetTeamScore`
 
 This example checks the score for all four teams and prints them to the screen. Note: Other than in preview mode, the scores will only appear on screen if the script is placed inside a Client Context.
 
@@ -162,7 +162,7 @@ end
 
 ---
 
-- `ResetTeamScores`]
+- `ResetTeamScores`
 
 In this example, when the round ends team scores are evaluated to figure out which one is the highest, then all scores are reset.
 
@@ -191,7 +191,7 @@ Game.roundEndEvent:Connect(OnRoundEnd)
 
 ---
 
-- `SetTeamScore`]
+- `SetTeamScore`
 
 Team scores don't have to represent things such as kills or points--they can be used for keeping track of and displaying abstract gameplay state. In this example, score for each team is used to represent how many players of that team are within 8 meters of the script.
 
@@ -210,9 +210,9 @@ end
 
 ---
 
-- `StartRound`]
+- `StartRound`
 
-- `EndRound`]
+- `EndRound`
 
 In this example, when one of the teams reaches a score of 10 they win the round. Five seconds later a new round starts.
 
@@ -251,9 +251,9 @@ Game.teamScoreChangedEvent:Connect(OnTeamScoreChanged)
 
 ---
 
-- `playerJoinedEvent`]
+- `playerJoinedEvent`
 
-- `playerLeftEvent`]
+- `playerLeftEvent`
 
 Events that fire when players join or leave the game. Both server and client scripts detect these events. In the following example teams are kept balanced at a ratio of 1 to 2. E.g. if there are 6 players two of them will be on team 1 and the other four will be on team 2.
 
@@ -308,7 +308,7 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 
 ---
 
-- `roundEndEvent`]
+- `roundEndEvent`
 
 Several operations need to be made when rounds start and end. In this example, when the game ends it transitions to a "round ended" state for three seconds, then respawns all players to spawn points. The advantage of using events is that the different scripts can be separated from each other to improve organization of the project. The condition for ending the round is set here as one team reaching 5 points and can be located in one script. Meanwhile the various outcomes/cleanups can be broken up into different scripts in a way that makes the most sense per game, all listening to the `roundEndEvent`.
 
@@ -352,7 +352,7 @@ end
 
 ---
 
-- `roundStartEvent`]
+- `roundStartEvent`
 
 Several functions and events in the `Game` namespace are convenient for controlling the flow of a game. In this example, the game requires two players to join. It begins in a lobby state and transitions to a playing state when there are enough players.
 
@@ -380,11 +380,11 @@ end
 
 ---
 
-- `teamScoreChangedEvent`]
+- `teamScoreChangedEvent`
 
-- `IncreaseTeamScore`]
+- `IncreaseTeamScore`
 
-- `DecreaseTeamScore`]
+- `DecreaseTeamScore`
 
 In this example, when a player jumps their team gains 1 point and when they crouch their team loses 1 point. The `OnTeamScoreChanged` function is connected to the event and prints the new score to the Event Log each time they change.
 

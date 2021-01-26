@@ -67,7 +67,7 @@ A three-component vector that can represent a position or direction.
 
 ## Examples
 
-- `Lerp`]
+- `Lerp`
 
 Vector3.Lerp is a function for finding a spot part way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
 
@@ -93,7 +93,7 @@ print("Tah dah!")
 
 ---
 
-- `New`]
+- `New`
 
 There are several different ways to create Vector3s. You can directly specify the x, y, z coordinates, or you can feed it a Vector2 or Vector4 to pull coordinates from, or you can just give it a single number to apply to x y and z.
 
@@ -118,15 +118,15 @@ local copyOfVector3_3 = Vector3.New(myVector3_3)
 
 ---
 
-- `ZERO`]
+- `ZERO`
 
-- `ONE`]
+- `ONE`
 
-- `FORWARD`]
+- `FORWARD`
 
-- `UP`]
+- `UP`
 
-- `RIGHT`]
+- `RIGHT`
 
 The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
 
@@ -144,25 +144,25 @@ print(Vector3.UP)    -- (0, 0, 1)
 
 ---
 
-- `Vector3+Vector3`]
+- `Vector3+Vector3`
 
-- `Vector3+Number`]
+- `Vector3+Number`
 
-- `Vector3-Vector3`]
+- `Vector3-Vector3`
 
-- `Vector3-Number`]
+- `Vector3-Number`
 
-- `Vector3*Vector3`]
+- `Vector3*Vector3`
 
-- `Vector3*Number`]
+- `Vector3*Number`
 
-- `Number*Vector3`]
+- `Number*Vector3`
 
-- `Vector3/Vector3`]
+- `Vector3/Vector3`
 
-- `Vector3/Number`]
+- `Vector3/Number`
 
-- `-Vector3`]
+- `-Vector3`
 
 Most arithmetic operators will work on Vector3s in straightforward ways.
 
@@ -195,11 +195,11 @@ print(-a) -- -1, -2, -3
 
 ---
 
-- `GetNormalized()`]
+- `GetNormalized()`
 
-- `Vector3`]
+- `Vector3`
 
-- `Vector3^Vector3`]
+- `Vector3^Vector3`
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
@@ -251,9 +251,9 @@ end
 
 ---
 
-- `size`]
+- `size`
 
-- `sizeSquared`]
+- `sizeSquared`
 
 A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
 
@@ -290,11 +290,11 @@ end
 
 ---
 
-- `x`]
+- `x`
 
-- `y`]
+- `y`
 
-- `z`]
+- `z`
 
 After creating a `Vector3`, we can read or write to its x, y, z components directly.
 
