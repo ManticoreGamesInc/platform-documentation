@@ -24,7 +24,7 @@ See AnimatedMesh for meshes with animations.
 
 ## Examples
 
-### `isSimulatingDebrisPhysics`
+- `isSimulatingDebrisPhysics`
 
 The debris physics simulation is a client-only feature. The exact movement of simulated meshes is not expected to be the same across clients and should be used for visual effects, not for determining gameplay outcomes.
 
@@ -63,3 +63,5 @@ function Tick()
     end
 end
 ```
+
+---

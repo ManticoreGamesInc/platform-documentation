@@ -23,7 +23,7 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 
 ## Examples
 
-### `Play`
+- `Play`
 
 In this example, a script is placed as a child of a Visual Effect object (e.g. Spark Explosion VFX). The `Play()` function is called periodically, with a random delay between 2 and 4 seconds. VFXs work best when they are under a client context.
 
@@ -41,7 +41,9 @@ while true do
 end
 ```
 
-### `Stop`
+---
+
+- `Stop`
 
 In this example, a script detects when players enter and exit a trigger. If there are any players in the trigger, a looping visual effect is played (e.g. Fire Volume VFX). Once all players have left the trigger the VFX stops playing. The `Stop()` function is also called in the very beginning in case the VFX comes with "Auto Play" enabled and we are assuming no players begin inside the trigger.
 
@@ -76,6 +78,8 @@ end
 TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 ```
+
+---
 
 ## Tutorials
 

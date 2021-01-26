@@ -44,7 +44,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 ## Examples
 
-### `animationEvent`
+- `animationEvent`
 
 Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
 
@@ -61,7 +61,9 @@ dragonMesh.animationEvent:Connect(AnimEventListener)
 dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
-### `AttachCoreObject`
+---
+
+- `AttachCoreObject`
 
 Attaches the specified object to the specified socket on the mesh if they exist.
 
@@ -86,15 +88,17 @@ for _, obj in ipairs(allObjects) do
 end
 ```
 
-### `GetAnimationNames`
+---
 
-### `GetAnimationStanceNames`
+- `GetAnimationNames`
 
-### `GetSocketNames`
+- `GetAnimationStanceNames`
 
-### `GetAnimationEventNames`
+- `GetSocketNames`
 
-### `GetAnimationDuration`
+- `GetAnimationEventNames`
+
+- `GetAnimationDuration`
 
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
 
@@ -126,9 +130,11 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 PrintAnimatedMeshData(dragonMesh)
 ```
 
-### `PlayAnimation`
+---
 
-### `playbackRateMultiplier`
+- `PlayAnimation`
+
+- `playbackRateMultiplier`
 
 Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
@@ -163,7 +169,9 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-### `StopAnimations`
+---
+
+- `StopAnimations`
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -176,11 +184,13 @@ Task.Wait(0.25)
 dragonMesh:StopAnimations()
 ```
 
-### `animationStance`
+---
 
-### `animationStancePlaybackRate`
+- `animationStance`
 
-### `animationStanceShouldLoop`
+- `animationStancePlaybackRate`
+
+- `animationStanceShouldLoop`
 
 The stance the animated mesh plays.
 
@@ -227,3 +237,5 @@ function Tick(deltaTime)
     end
 end
 ```
+
+---

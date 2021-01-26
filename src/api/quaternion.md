@@ -62,15 +62,15 @@ A quaternion-based representation of a rotation.
 
 ## Examples
 
-### `Slerp`
+- `Slerp`
 
-### `GetRotation`
+- `GetRotation`
 
-### `GetRightVector`
+- `GetRightVector`
 
-### `GetUpVector`
+- `GetUpVector`
 
-### `GetForwardVector`
+- `GetForwardVector`
 
 `Quaternion.Slerp` is a function for finding a quaternion that is part way between two other quaternions. Since quaternions represent rotations, this means a rotation that is part way between two other rotations. When combined with a tick function or loop, we can use it to smoothly animate something rotating.
 
@@ -106,9 +106,11 @@ end
 print("Tah dah!")
 ```
 
-### `New`
+---
 
-### `IDENTITY`
+- `New`
+
+- `IDENTITY`
 
 There are several different ways to create new Quaternions.
 
@@ -140,11 +142,13 @@ local copyQuaternion = Quaternion.New(rotationQuaternion)
 local directQuaternion = Quaternion.New(0, 0, sqrt2over2, sqrt2over2)
 ```
 
-### `Quaternion*Quaternion`
+---
 
-### `Quaternion*Vector3`
+- `Quaternion*Quaternion`
 
-### `-Quaternion`
+- `Quaternion*Vector3`
+
+- `-Quaternion`
 
 Multiplying a vector (or another quaternion!) by a quaternion applies the quaternion to the vector/quaternion.
 
@@ -164,13 +168,15 @@ local rotatedVector = rotate90Degrees * Vector3.FORWARD
 local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD
 ```
 
-### `x`
+---
 
-### `y`
+- `x`
 
-### `z`
+- `y`
 
-### `w`
+- `z`
+
+- `w`
 
 You can read or set the components of a quaternion directly, although this is not recommended unless you are extremely familiar with quaternions.
 
@@ -182,3 +188,5 @@ myQuaternion.z = math.sqrt(2)/2
 myQuaternion.w = math.sqrt(2)/2
 -- myQuaternion is now a 90 degree rotation about the Z axis!
 ```
+
+---

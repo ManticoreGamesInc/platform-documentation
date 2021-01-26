@@ -22,7 +22,7 @@ Hooks appear as properties on several objects. Similar to Events, functions may 
 
 ## Examples
 
-### `Connect`
+- `Connect`
 
 A simple example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnBindingPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's direction.
 
@@ -63,7 +63,9 @@ PLAYER.movementHook:Connect(OnPlayerMovement)
 PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-### `Connect`
+---
+
+- `Connect`
 
 How to reverse a player's walking direction.
 
@@ -72,3 +74,5 @@ Game.GetLocalPlayer().movementHook:Connect(function(player, params)
 params.direction = -params.direction
 end)
 ```
+
+---

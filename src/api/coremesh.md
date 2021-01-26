@@ -35,11 +35,11 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 
 ## Examples
 
-### `GetColor`
+- `GetColor`
 
-### `SetColor`
+- `SetColor`
 
-### `ResetColor`
+- `ResetColor`
 
 You can set a color override for a mesh. Exactly what this means will depend on the material of the mesh, but in general, setting a mesh's color will make the mesh be tinted to match that color.
 
@@ -56,7 +56,9 @@ end
 cube:ResetColor()
 ```
 
-### `meshAssetId`
+---
+
+- `meshAssetId`
 
 You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from!
 
@@ -65,15 +67,17 @@ local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0,
 print("The asset ID is " .. cube.meshAssetId)
 ```
 
-### `team`
+---
 
-### `isTeamColorUsed`
+- `team`
 
-### `isTeamCollisionEnabled`
+- `isTeamColorUsed`
 
-### `isEnemyCollisionEnabled`
+- `isTeamCollisionEnabled`
 
-### `isCameraCollisionEnabled`
+- `isEnemyCollisionEnabled`
+
+- `isCameraCollisionEnabled`
 
 You can set a mesh to belong to a particular "team". These match the teams that players can be set to. (0-4)  There are also several properties that are keyed to what team an object is on.
 
@@ -99,3 +103,5 @@ function AssignMeshToTeam(mesh, team)
 end
 AssignMeshToTeam(cube, 1)
 ```
+
+---

@@ -22,7 +22,7 @@ Script is a CoreObject representing a script in the hierarchy. While not technic
 
 ## Examples
 
-### `context`
+- `context`
 
 With `context` two scripts can communicate directly by calling on each other's functions and properties. Notice that '.' is used instead of ':' when accessing context functions. In the following example, the first script is placed directly in the hierarchy and the second script is placed inside a template of some sort. When a new player joins, the first script spawns a copy of the template and tells it about the new player. The template then follows the player around as they move.
 
@@ -50,3 +50,5 @@ function SetTarget(player)
     script:FindTemplateRoot():Follow(player, 400, 300)
 end
 ```
+
+---

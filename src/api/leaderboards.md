@@ -24,19 +24,19 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 ## Examples
 
-### `HasLeaderboards`
+- `HasLeaderboards`
 
-### `GetLeaderboard`
+- `GetLeaderboard`
 
-### `SubmitPlayerScore`
+- `SubmitPlayerScore`
 
-### `id`
+- `id`
 
-### `name`
+- `name`
 
-### `score`
+- `score`
 
-### `additionalData`
+- `additionalData`
 
 The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data.  This is a special kind of persistance that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
 
@@ -73,3 +73,5 @@ end
 local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.MONTHLY)
 local leaderboard = Leaderboards.GetLeaderboard(propLeaderboardRef, LeaderboardType.WEEKLY)
 ```
+
+---

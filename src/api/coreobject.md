@@ -107,7 +107,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 ## Examples
 
-### `childAddedEvent`
+- `childAddedEvent`
 
 This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
 
@@ -129,7 +129,9 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 ```
 
-### `childRemovedEvent`
+---
+
+- `childRemovedEvent`
 
 This event fires when a direct child of the object is removed.
 
@@ -150,7 +152,9 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 obj2:Destroy()
 ```
 
-### `descendantAddedEvent`
+---
+
+- `descendantAddedEvent`
 
 This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
 
@@ -172,7 +176,9 @@ local obj2 = World.SpawnAsset(propCubeTemplate, {parent = obj})
 local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 ```
 
-### `descendantRemovedEvent`
+---
+
+- `descendantRemovedEvent`
 
 This event fires when a descendant of the object is removed.  This is any object that has the object somewhere up the hierarchy tree as a parent.
 
@@ -196,11 +202,13 @@ obj3:Destroy()
 obj2:Destroy()
 ```
 
-### `destroyEvent`
+---
 
-### `Destroy`
+- `destroyEvent`
 
-### `lifeSpan`
+- `Destroy`
+
+- `lifeSpan`
 
 There are several ways of destroying `CoreObject`s, and noticing when they are destroyed.
 
@@ -250,15 +258,17 @@ template4.lifeSpan = 0.5
 Task.Wait(1)
 ```
 
-### `AttachToPlayer`
+---
 
-### `AttachToLocalView`
+- `AttachToPlayer`
 
-### `Detach`
+- `AttachToLocalView`
 
-### `GetAttachedToSocketName`
+- `Detach`
 
-### `GetAttachedObjects`
+- `GetAttachedToSocketName`
+
+- `GetAttachedObjects`
 
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
 
@@ -291,7 +301,9 @@ Note that this only works from inside a client context:
 cube:AttachToLocalView()
 ```
 
-### `Destroy`
+---
+
+- `Destroy`
 
 A simple example on how to destroy a CoreObject.
 
@@ -303,13 +315,15 @@ local cube = World.SpawnAsset(propCubeTemplate)
 cube:Destroy() -- This will destroy the object.
 ```
 
-### `Follow`
+---
 
-### `LookAt`
+- `Follow`
 
-### `LookAtContinuous`
+- `LookAt`
 
-### `LookAtLocalView`
+- `LookAtContinuous`
+
+- `LookAtLocalView`
 
 There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world. There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object. And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
 
@@ -340,29 +354,31 @@ Task.Wait(5)
     watchingCube:LookAtLocalView() -- This only works in a client context!
 ```
 
-### `GetChildren`
+---
 
-### `FindAncestorByName`
+- `GetChildren`
 
-### `FindChildByName`
+- `FindAncestorByName`
 
-### `FindDescendantByName`
+- `FindChildByName`
 
-### `FindDescendantsByName`
+- `FindDescendantByName`
 
-### `FindAncestorByType`
+- `FindDescendantsByName`
 
-### `FindChildByType`
+- `FindAncestorByType`
 
-### `FindDescendantByType`
+- `FindChildByType`
 
-### `FindDescendantsByType`
+- `FindDescendantByType`
 
-### `FindTemplateRoot`
+- `FindDescendantsByType`
 
-### `IsAncestorOf`
+- `FindTemplateRoot`
 
-### `parent`
+- `IsAncestorOf`
+
+- `parent`
 
 You can inspect most of the hierarchy at runtime.
 
@@ -430,9 +446,11 @@ local templateRoot = template1:FindTemplateRoot()
 -- this should just give us back Template1, because it is already the root.
 ```
 
-### `GetCustomProperties`
+---
 
-### `GetCustomProperty`
+- `GetCustomProperties`
+
+- `GetCustomProperty`
 
 Almost any object in the hierarchy can have "custom properties" associated with it. These are values that you can change in the editor, but that scripts can easily access. They're useful for making modular components that can be configured without needing to modify Lua code. You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
 
@@ -462,37 +480,39 @@ for propName, propValue in pairs(script:GetCustomProperties()) do
 end
 ```
 
-### `GetTransform`
+---
 
-### `SetTransform`
+- `GetTransform`
 
-### `GetPosition`
+- `SetTransform`
 
-### `SetPosition`
+- `GetPosition`
 
-### `GetRotation`
+- `SetPosition`
 
-### `SetRotation`
+- `GetRotation`
 
-### `GetScale`
+- `SetRotation`
 
-### `SetScale`
+- `GetScale`
 
-### `GetWorldTransform`
+- `SetScale`
 
-### `SetWorldTransform`
+- `GetWorldTransform`
 
-### `GetWorldPosition`
+- `SetWorldTransform`
 
-### `SetWorldPosition`
+- `GetWorldPosition`
 
-### `GetWorldRotation`
+- `SetWorldPosition`
 
-### `SetWorldRotation`
+- `GetWorldRotation`
 
-### `GetWorldScale`
+- `SetWorldRotation`
 
-### `SetWorldScale`
+- `GetWorldScale`
+
+- `SetWorldScale`
 
 One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
 
@@ -536,15 +556,17 @@ cube4:SetTransform(cube2:GetTransform())
 -- Cube1 and cube3 now have the same transforms, and cube2 and cube4 also match.
 ```
 
-### `GetVelocity`
+---
 
-### `SetVelocity`
+- `GetVelocity`
 
-### `GetAngularVelocity`
+- `SetVelocity`
 
-### `SetAngularVelocity`
+- `GetAngularVelocity`
 
-### `SetLocalAngularVelocity`
+- `SetAngularVelocity`
+
+- `SetLocalAngularVelocity`
 
 Some core objects are handled by the physics system. Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
 
@@ -567,23 +589,25 @@ sphere:SetAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 ```
 
-### `MoveTo`
+---
 
-### `RotateTo`
+- `MoveTo`
 
-### `ScaleTo`
+- `RotateTo`
 
-### `MoveContinuous`
+- `ScaleTo`
 
-### `RotateContinuous`
+- `MoveContinuous`
 
-### `ScaleContinuous`
+- `RotateContinuous`
 
-### `StopMove`
+- `ScaleContinuous`
 
-### `StopRotate`
+- `StopMove`
 
-### `StopScale`
+- `StopRotate`
+
+- `StopScale`
 
 There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
 
@@ -618,11 +642,13 @@ spinningCube:StopRotate()
 shrinkingCube:StopScale()
 ```
 
-### `SetNetworkedCustomProperty`
+---
 
-### `networkedPropertyChangedEvent`
+- `SetNetworkedCustomProperty`
 
-### `GetReference`
+- `networkedPropertyChangedEvent`
+
+- `GetReference`
 
 Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
 
@@ -669,19 +695,21 @@ script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetRefere
 
 ```
 
-### `name`
+---
 
-### `id`
+- `name`
 
-### `sourceTemplateId`
+- `id`
 
-### `isStatic`
+- `sourceTemplateId`
 
-### `isClientOnly`
+- `isStatic`
 
-### `isServerOnly`
+- `isClientOnly`
 
-### `isNetworked`
+- `isServerOnly`
+
+- `isNetworked`
 
 You can find out a lot about an object via its CoreProperties.
 
@@ -716,17 +744,19 @@ if template.isStatic then print("It is Static") end
 --    It is networked!
 ```
 
-### `visibility`
+---
 
-### `collision`
+- `visibility`
 
-### `isEnabled`
+- `collision`
 
-### `IsVisibleInHierarchy`
+- `isEnabled`
 
-### `IsCollidableInHierarchy`
+- `IsVisibleInHierarchy`
 
-### `IsEnabledInHierarchy`
+- `IsCollidableInHierarchy`
+
+- `IsEnabledInHierarchy`
 
 You can make objects appear and disappear in the world in several different ways.
 
@@ -783,3 +813,5 @@ print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 -- These are both true now because the parent is no longer disabled.
 ```
+
+---

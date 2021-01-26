@@ -39,9 +39,9 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 ## Examples
 
-### `equippedEvent`
+- `equippedEvent`
 
-### `unequippedEvent`
+- `unequippedEvent`
 
 Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
 
@@ -64,7 +64,9 @@ primaryEquipment.equippedEvent:Connect(OnEquipped)
 primaryEquipment.unequippedEvent:Connect(OnUnequipped)
 ```
 
-### `AddAbility`
+---
+
+- `AddAbility`
 
 One of the primary roles of equipment is to contain several abilities. Those abilities are automatically added/removed from the player when they equip/unequip the item. This example shows how an equipment can be spawned and then procedurally assembled with different abilities depending on RNG.
 
@@ -97,7 +99,9 @@ for i, ability in ipairs(EQUIPMENT:GetAbilities()) do
 end
 ```
 
-### `Equip`
+---
+
+- `Equip`
 
 This example shows how players can be given default equipment when they join a game.
 
@@ -112,7 +116,9 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### `GetAbilities`
+---
+
+- `GetAbilities`
 
 Weapons are a specialized type of Equipment that have lots of built-in functionality, including two abilities that are usually included: One for attacking and the second one for reloading. In this example, a cosmetic part of a weapon is hidden after the attack happens and is enabled again after it reloads. This could be used, for instance, in a rocket launcher or a crossbow. The script should be a descendant of a `Weapon`. It works best if under a Client Context and the "ObjectToHide" custom property must be hooked up.
 
@@ -135,7 +141,9 @@ end
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
 ```
 
-### `Unequip`
+---
+
+- `Unequip`
 
 In this example, when a player dies all equipment they have is unequipped and dropped to the ground.
 
@@ -174,7 +182,9 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### `owner`
+---
+
+- `owner`
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
@@ -190,7 +200,9 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
-### `socket`
+---
+
+- `socket`
 
 The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function. Without re-implementing our own `interactedEvent`, by default the old equipment would be destroyed, instead of dropped, when there is competition for a socket.
 
@@ -224,3 +236,5 @@ end
 EQUIPMENT.equippedEvent:Connect(OnEquipped)
 TRIGGER.interactedEvent:Connect(OnInteracted)
 ```
+
+---

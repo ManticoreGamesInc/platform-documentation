@@ -67,7 +67,7 @@ A three-component vector that can represent a position or direction.
 
 ## Examples
 
-### `Lerp`
+- `Lerp`
 
 Vector3.Lerp is a function for finding a spot part way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
 
@@ -91,7 +91,9 @@ end
 print("Tah dah!")
 ```
 
-### `New`
+---
+
+- `New`
 
 There are several different ways to create Vector3s. You can directly specify the x, y, z coordinates, or you can feed it a Vector2 or Vector4 to pull coordinates from, or you can just give it a single number to apply to x y and z.
 
@@ -114,15 +116,17 @@ local myVector3_3 = Vector3.New(6)
 local copyOfVector3_3 = Vector3.New(myVector3_3)
 ```
 
-### `ZERO`
+---
 
-### `ONE`
+- `ZERO`
 
-### `FORWARD`
+- `ONE`
 
-### `UP`
+- `FORWARD`
 
-### `RIGHT`
+- `UP`
+
+- `RIGHT`
 
 The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
 
@@ -138,25 +142,27 @@ print(Vector3.RIGHT)    -- (0, 1, 0)
 print(Vector3.UP)    -- (0, 0, 1)
 ```
 
-### `Vector3+Vector3`
+---
 
-### `Vector3+Number`
+- `Vector3+Vector3`
 
-### `Vector3-Vector3`
+- `Vector3+Number`
 
-### `Vector3-Number`
+- `Vector3-Vector3`
 
-### `Vector3*Vector3`
+- `Vector3-Number`
 
-### `Vector3*Number`
+- `Vector3*Vector3`
 
-### `Number*Vector3`
+- `Vector3*Number`
 
-### `Vector3/Vector3`
+- `Number*Vector3`
 
-### `Vector3/Number`
+- `Vector3/Vector3`
 
-### `-Vector3`
+- `Vector3/Number`
+
+- `-Vector3`
 
 Most arithmetic operators will work on Vector3s in straightforward ways.
 
@@ -187,11 +193,13 @@ print(b / 4) -- (1, 1.25, 1.5)
 print(-a) -- -1, -2, -3
 ```
 
-### `GetNormalized()`
+---
 
-### `Vector3`
+- `GetNormalized()`
 
-### `Vector3^Vector3`
+- `Vector3`
+
+- `Vector3^Vector3`
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
@@ -241,9 +249,11 @@ for i = 1, 10, 0.05 do
 end
 ```
 
-### `size`
+---
 
-### `sizeSquared`
+- `size`
+
+- `sizeSquared`
 
 A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
 
@@ -278,11 +288,13 @@ for i = 1, 50 do
 end
 ```
 
-### `x`
+---
 
-### `y`
+- `x`
 
-### `z`
+- `y`
+
+- `z`
 
 After creating a `Vector3`, we can read or write to its x, y, z components directly.
 
@@ -301,3 +313,5 @@ myVector3.z = 6
 print(myVector3)
 -- myVector3 now equals (4, 5, 6)
 ```
+
+---

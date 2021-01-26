@@ -22,7 +22,7 @@ Events appear as properties on several objects. The goal is to register a functi
 
 ## Examples
 
-### `Connect`
+- `Connect`
 
 Core uses events for a variety of built-in state changes that can happen in a game. Events appear as properties on several objects. By connecting a function to the desired event, scripts can listen and act on them. In this example, both `Game.playerJoinedEvent` and `player.damagedEvent` are connected to. The `OnPlayerDamaged()` function will be called each time a player takes damage. Any number of extra parameters can be added when connecting and those values will be passed back to the listening function.
 
@@ -39,3 +39,5 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+---

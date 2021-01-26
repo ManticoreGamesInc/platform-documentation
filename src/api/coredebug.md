@@ -26,11 +26,11 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 
 ## Examples
 
-### `DrawLine`
+- `DrawLine`
 
-### `DrawBox`
+- `DrawBox`
 
-### `DrawSphere`
+- `DrawSphere`
 
 Core contains several useful functions for drawing in the 3d world, that are intended for use when debugging. If you are trying to visualize values in a 3d world,
 
@@ -70,9 +70,11 @@ Task.Spawn(function()
 end)
 ```
 
-### `GetTaskStackTrace`
+---
 
-### `GetStackTrace`
+- `GetTaskStackTrace`
+
+- `GetStackTrace`
 
 When debugging, it can often be useful to see exactly which code is executing, and which code called it. You a "stack trace" will give you this information. It is a list of every function on the call stack.
 
@@ -110,3 +112,5 @@ print(otherTaskStackTrace)
 print("General stack trace:")
 print(generalStackTrace)
 ```
+
+---

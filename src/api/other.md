@@ -28,11 +28,11 @@ Other
 
 ## Examples
 
-### `IsA`
+- `IsA`
 
-### `type`
+- `type`
 
-### `type(property)`
+- `type(property)`
 
 Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more!
 
@@ -69,3 +69,5 @@ print(type(player)) -- still userdata!
 print(type(text)) -- string
 print(type(number)) -- number
 ```
+
+---

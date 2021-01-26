@@ -29,9 +29,9 @@ WorldText is an in-world text CoreObject.
 
 ## Examples
 
-### `GetColor`
+- `GetColor`
 
-### `SetColor`
+- `SetColor`
 
 In this example, a WorldText object that is placed in the scene changes color gradually from white to black. The script expects to be a child of the WorldText. Notice that if you run this in multiplayer mode, the color changes will not be as smooth as in single-player preview. To fix that place the WorldText + Script hierarchy under a Client Context.
 
@@ -52,7 +52,9 @@ function Tick(deltaTime)
 end
 ```
 
-### `text`
+---
+
+- `text`
 
 Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It's also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.
 
@@ -63,3 +65,5 @@ Game.playerJoinedEvent:Connect(function (player)
     nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
 end)
 ```
+
+---

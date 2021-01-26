@@ -28,7 +28,7 @@ World is a collection of functions for finding objects in the world.
 
 ## Examples
 
-### `FindObjectById`
+- `FindObjectById`
 
 Finds an object in the hierarchy based on it's unique ID. To find an object's ID, right-click them in the hierarchy and select "Copy MUID". An object's ID can also be obtained at runtime through the `id` property. In this example we search for the default sky folder and print a warning if we find it.
 
@@ -40,7 +40,9 @@ if defaultSkyFolder then
 end
 ```
 
-### `FindObjectByName`
+---
+
+- `FindObjectByName`
 
 Returns only one object with the given name. This example searches the entire hierarchy for the default floor object and prints a warning if it's found.
 
@@ -52,7 +54,9 @@ if floorObject then
 end
 ```
 
-### `FindObjectsByName`
+---
+
+- `FindObjectsByName`
 
 This example counts all the spawn points in the game for teams 1, 2 and 3, then prints how many belong to each team.
 
@@ -79,7 +83,9 @@ print("Team 2 has " .. team2Count .. " spawn points.")
 print("Team 3 has " .. team2Count .. " spawn points.")
 ```
 
-### `FindObjectsByType`
+---
+
+- `FindObjectsByType`
 
 This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
 
@@ -100,7 +106,9 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-### `GetRootObject`
+---
+
+- `GetRootObject`
 
 There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
 
@@ -116,7 +124,9 @@ local worldRoot = World.GetRootObject()
 PrintAllNames(worldRoot)
 ```
 
-### `Raycast`
+---
+
+- `Raycast`
 
 This example causes all players in the game to fly when they step off a ledge or jump. It does thy by using the Raycast() function to measure each player's distance to the ground below them.
 
@@ -140,7 +150,9 @@ function Tick()
 end
 ```
 
-### `SpawnAsset`
+---
+
+- `SpawnAsset`
 
 In this example, whenever a player dies, an explosion VFX template is spawned  in their place and their body is flown upwards. The SpawnAsset() function also returns a reference to the new object, which allows us to do any number of adjustments to it--in this case a custom life span. This example assumes an explosion template exists in the project and it was added as a custom property onto the script object.
 
@@ -161,3 +173,5 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+---
