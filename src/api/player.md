@@ -137,13 +137,13 @@ Player is an object representation of the state of a player connected to the gam
 
 ## Examples
 
-- `bindingPressedEvent`]
+- `bindingPressedEvent`
 
-- `bindingReleasedEvent`]
+- `bindingReleasedEvent`
 
-- `maxWalkSpeed`]
+- `maxWalkSpeed`
 
-- `maxSwimSpeed`]
+- `maxSwimSpeed`
 
 Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
 
@@ -177,17 +177,17 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
-- `damagedEvent`]
+- `damagedEvent`
 
-- `diedEvent`]
+- `diedEvent`
 
-- `respawnedEvent`]
+- `respawnedEvent`
 
-- `ApplyDamage`]
+- `ApplyDamage`
 
-- `Die`]
+- `Die`
 
-- `Respawn`]
+- `Respawn`
 
 There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
 
@@ -230,7 +230,7 @@ player:Die()
 
 ---
 
-- `movementModeChangedEvent`]
+- `movementModeChangedEvent`
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
 
@@ -282,19 +282,19 @@ print("done waiting")
 
 ---
 
-- `resourceChangedEvent`]
+- `resourceChangedEvent`
 
-- `ClearResources`]
+- `ClearResources`
 
-- `GetResource`]
+- `GetResource`
 
-- `GetResources`]
+- `GetResources`
 
-- `SetResource`]
+- `SetResource`
 
-- `AddResource`]
+- `AddResource`
 
-- `RemoveResource`]
+- `RemoveResource`
 
 While scripting, you can assign "resources" to players. These are just integer values, accessed via a string key, that are tied to a player. They are useful for storing values about game-specific resources a player might have, such as coins collected, mana remaining, levels completed, puppies pet, etc.
 
@@ -344,9 +344,9 @@ print("Puppies seen: " .. player:GetResource(resource2))
 
 ---
 
-- `ActivateFlying`]
+- `ActivateFlying`
 
-- `ActivateWalking`]
+- `ActivateWalking`
 
 You can set different movement modes for the player. `ActivateWalking()` will give the player normal walking physics. (They fall down, slide down slopes, etc.) `ActivateFlying`, on the other hand, makes them ignore gravity and fly around freely.
 
@@ -377,15 +377,15 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
-- `AddImpulse`]
+- `AddImpulse`
 
-- `GetVelocity`]
+- `GetVelocity`
 
-- `SetVelocity`]
+- `SetVelocity`
 
-- `ResetVelocity`]
+- `ResetVelocity`
 
-- `mass`]
+- `mass`
 
 If you want to fling a player using the physics system, it is possible to directly affect their velocity. You can either add a physics impulse to their current velocity, or just set the player's velocity directly. You can also zero out their velocity using `Player.ResetVelocity()`.
 
@@ -409,11 +409,11 @@ player:ResetVelocity()
 
 ---
 
-- `DisableRagdoll`]
+- `DisableRagdoll`
 
-- `EnableRagdoll`]
+- `EnableRagdoll`
 
-- `animationStance`]
+- `animationStance`
 
 You can enable ragdoll on a player, and make their joints all floppy. This can be useful for various effects, such as indicating when a player has died, or otherwise  needs to be limp.
 
@@ -440,9 +440,9 @@ player.animationStance = "unarmed_stance"
 
 ---
 
-- `GetAbilities`]
+- `GetAbilities`
 
-- `GetEquipment`]
+- `GetEquipment`
 
 Lots of things can end up attached to a player. `CoreObject` objects, stuck to sockets. `Ability` and `Equipment` objects granting them new powers. Etc.
 
@@ -471,17 +471,17 @@ end
 
 ---
 
-- `GetActiveCamera`]
+- `GetActiveCamera`
 
-- `GetDefaultCamera`]
+- `GetDefaultCamera`
 
-- `SetDefaultCamera`]
+- `SetDefaultCamera`
 
-- `GetOverrideCamera`]
+- `GetOverrideCamera`
 
-- `SetOverrideCamera`]
+- `SetOverrideCamera`
 
-- `ClearOverrideCamera`]
+- `ClearOverrideCamera`
 
 It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context!
 
@@ -513,13 +513,13 @@ Task.Wait()
 
 ---
 
-- `GetViewWorldPosition`]
+- `GetViewWorldPosition`
 
-- `GetViewWorldRotation`]
+- `GetViewWorldRotation`
 
-- `GetLookWorldRotation`]
+- `GetLookWorldRotation`
 
-- `SetLookWorldRotation`]
+- `SetLookWorldRotation`
 
 The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context!
 
@@ -536,17 +536,17 @@ player:SetLookWorldRotation(player:GetLookWorldRotation() + Rotation.New(0, 0, 9
 
 ---
 
-- `GetWorldTransform`]
+- `GetWorldTransform`
 
-- `SetWorldTransform`]
+- `SetWorldTransform`
 
-- `GetWorldPosition`]
+- `GetWorldPosition`
 
-- `SetWorldPosition`]
+- `SetWorldPosition`
 
-- `GetWorldRotation`]
+- `GetWorldRotation`
 
-- `SetWorldRotation`]
+- `SetWorldRotation`
 
 It is possible to read and change the position of the player. You can either change the position or rotation directly, or change the entire transformation all at once.
 
@@ -567,9 +567,9 @@ player:SetWorldTransform(originalTransform)
 
 ---
 
-- `SetVisibility`]
+- `SetVisibility`
 
-- `GetVisibility`]
+- `GetVisibility`
 
 You can make a player visible or invisible with `SetVisibility()`, and can check on their status with `GetVisibility()`. This sample gives the player the ability to turn invisible by pressing the shift key.
 
@@ -598,9 +598,9 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
-- `SetWorldScale`]
+- `SetWorldScale`
 
-- `GetWorldScale`]
+- `GetWorldScale`
 
 You can scale the size of the player. This sample causes all players to slowly grow until they get too big, and then reset.
 
@@ -621,7 +621,7 @@ end)
 
 ---
 
-- `TransferToGame`]
+- `TransferToGame`
 
 Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
 
@@ -640,9 +640,9 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ---
 
-- `currentFacingMode`]
+- `currentFacingMode`
 
-- `desiredFacingMode`]
+- `desiredFacingMode`
 
 There are several modes the game can use to decide which direction the player's avatar is facing, based on the camera look direction.
 
@@ -673,13 +673,13 @@ end
 
 ---
 
-- `hitPoints`]
+- `hitPoints`
 
-- `maxHitPoints`]
+- `maxHitPoints`
 
-- `kills`]
+- `kills`
 
-- `deaths`]
+- `deaths`
 
 You can get various vital statistics off of the player object, such as hit points, max hit points, kills and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
 
@@ -701,23 +701,23 @@ end
 
 ---
 
-- `isAccelerating`]
+- `isAccelerating`
 
-- `isCrouching`]
+- `isCrouching`
 
-- `isFlying`]
+- `isFlying`
 
-- `isGrounded`]
+- `isGrounded`
 
-- `isJumping`]
+- `isJumping`
 
-- `isMounted`]
+- `isMounted`
 
-- `isSwimming`]
+- `isSwimming`
 
-- `isWalking`]
+- `isWalking`
 
-- `isDead`]
+- `isDead`
 
 You can get a lot of useful information about the player's current movement, via a series of read-only boolean properties on the `Player` object.
 
@@ -752,7 +752,7 @@ end
 
 ---
 
-- `isVisibleToSelf`]
+- `isVisibleToSelf`
 
 It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context!
 
@@ -764,7 +764,7 @@ player.isVisibleToSelf = false
 
 ---
 
-- `lookSensitivity`]
+- `lookSensitivity`
 
 You can also make the player's input more or less sensitive, when aiming. This can be useful for aiming down sights, etc.
 
@@ -775,15 +775,15 @@ player.lookSensitivity = 5
 
 ---
 
-- `maxAcceleration`]
+- `maxAcceleration`
 
-- `brakingDecelerationFalling`]
+- `brakingDecelerationFalling`
 
-- `brakingDecelerationWalking`]
+- `brakingDecelerationWalking`
 
-- `groundFriction`]
+- `groundFriction`
 
-- `brakingFrictionFactor`]
+- `brakingFrictionFactor`
 
 Through scripts, you can control the player's ability to accelerate their character.
 
@@ -806,13 +806,13 @@ player.brakingFrictionFactor = 0.2
 
 ---
 
-- `movementControlMode`]
+- `movementControlMode`
 
-- `lookControlMode`]
+- `lookControlMode`
 
-- `defaultRotationRate`]
+- `defaultRotationRate`
 
-- `currentRotationRate`]
+- `currentRotationRate`
 
 Player motion and facing can be set to several modes, depending on the gameplay needed.
 
@@ -850,11 +850,11 @@ player.lookControlMode = LookControlMode.LOOK_AT_CURSOR
 
 ---
 
-- `name`]
+- `name`
 
-- `id`]
+- `id`
 
-- `team`]
+- `team`
 
 There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
 
@@ -875,11 +875,11 @@ end
 
 ---
 
-- `shouldDismountWhenDamaged`]
+- `shouldDismountWhenDamaged`
 
-- `SetMounted`]
+- `SetMounted`
 
-- `canMount`]
+- `canMount`
 
 The player can mount or dismount. We can also force the player to mount or dismount via the `Player:SetMounted()` function. Also, if `Player.shouldDismountWhenDamaged` is set, they will automatically dismount whenever they take damage.
 
@@ -902,9 +902,9 @@ player.canMount = false
 
 ---
 
-- `spreadModifier`]
+- `spreadModifier`
 
-- `currentSpread`]
+- `currentSpread`
 
 Players shooting weapons have a spread modifier applied to their accuracy. This can be used to simulate things like loss of aim after jumping, or other activities.
 
@@ -930,19 +930,19 @@ local jumpEndListener = player.movementModeChangedEvent:Connect(
 
 ---
 
-- `stepHeight`]
+- `stepHeight`
 
-- `walkableFloorAngle`]
+- `walkableFloorAngle`
 
-- `maxJumpCount`]
+- `maxJumpCount`
 
-- `jumpVelocity`]
+- `jumpVelocity`
 
-- `gravityScale`]
+- `gravityScale`
 
-- `buoyancy`]
+- `buoyancy`
 
-- `isCrouchEnabled`]
+- `isCrouchEnabled`
 
 Most of the aspects of a player's movement can be controlled at runtime via scripting!
 
@@ -971,7 +971,7 @@ player.isCrouchEnabled = false
 
 ---
 
-- `touchForceFactor`]
+- `touchForceFactor`
 
 When the player runs into physics objects, they exert force. You can affect how much force with the `touchForceFactor` property.
 
@@ -982,9 +982,9 @@ player.touchForceFactor = 5
 
 ---
 
-- `perkChangedEvent`]
+- `perkChangedEvent`
 
-- `GetPerkCount`]
+- `GetPerkCount`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
@@ -1086,15 +1086,15 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
-- `perkChangedEvent`]
+- `perkChangedEvent`
 
-- `HasPerk`]
+- `HasPerk`
 
-- `GetPerkCount`]
+- `GetPerkCount`
 
-- `GetPerkReference`]
+- `GetPerkReference`
 
-- `SetPerkReference`]
+- `SetPerkReference`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 

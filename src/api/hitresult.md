@@ -31,9 +31,9 @@ Contains data pertaining to an impact or raycast.
 
 ## Examples
 
-- `GetImpactPosition`]
+- `GetImpactPosition`
 
-- `GetImpactNormal`]
+- `GetImpactNormal`
 
 This example shows the power of `World.Raycast()` which returns data in the form of a `HitResult`. The physics calculation starts from the center of the camera and shoots forward. If the player is looking at something, then a reflection vector is calculated as if a shot ricocheted from the surface. Debug information is drawn about the ray, the impact point and the reflection. This script must be placed under a Client Context and works best if the scene has objects or terrain.
 
@@ -63,7 +63,7 @@ end
 
 ---
 
-- `GetTransform`]
+- `GetTransform`
 
 HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
 
@@ -84,9 +84,9 @@ weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ---
 
-- `other`]
+- `other`
 
-- `socketName`]
+- `socketName`
 
 HitResult is used by Weapons to transmit data about the interaction. In this example, the `other` property is used in figuring out if the object hit was another player. If so, then the `socketName` property tells us exactly where on the player's body the hit occurred, allowing more detailed gameplay systems.
 

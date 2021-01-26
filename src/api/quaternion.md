@@ -62,15 +62,15 @@ A quaternion-based representation of a rotation.
 
 ## Examples
 
-- `Slerp`]
+- `Slerp`
 
-- `GetRotation`]
+- `GetRotation`
 
-- `GetRightVector`]
+- `GetRightVector`
 
-- `GetUpVector`]
+- `GetUpVector`
 
-- `GetForwardVector`]
+- `GetForwardVector`
 
 `Quaternion.Slerp` is a function for finding a quaternion that is part way between two other quaternions. Since quaternions represent rotations, this means a rotation that is part way between two other rotations. When combined with a tick function or loop, we can use it to smoothly animate something rotating.
 
@@ -108,9 +108,9 @@ print("Tah dah!")
 
 ---
 
-- `New`]
+- `New`
 
-- `IDENTITY`]
+- `IDENTITY`
 
 There are several different ways to create new Quaternions.
 
@@ -144,11 +144,11 @@ local directQuaternion = Quaternion.New(0, 0, sqrt2over2, sqrt2over2)
 
 ---
 
-- `Quaternion*Quaternion`]
+- `Quaternion*Quaternion`
 
-- `Quaternion*Vector3`]
+- `Quaternion*Vector3`
 
-- `-Quaternion`]
+- `-Quaternion`
 
 Multiplying a vector (or another quaternion!) by a quaternion applies the quaternion to the vector/quaternion.
 
@@ -170,13 +170,13 @@ local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD
 
 ---
 
-- `x`]
+- `x`
 
-- `y`]
+- `y`
 
-- `z`]
+- `z`
 
-- `w`]
+- `w`
 
 You can read or set the components of a quaternion directly, although this is not recommended unless you are extremely familiar with quaternions.
 
