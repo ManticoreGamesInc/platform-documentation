@@ -31,14 +31,14 @@ Core games are locally stored files, and collaboration within games usually happ
 
 Core Frameworks allow you to start a project with functioning game logic, and to focus on the level design and world-building aspects. These tutorials will walk you through a few of the available game types. 
 
-- [Deathmatch](../getting_started/my_first_multiplayer_game.md)
+- [Deathmatch](my_first_multiplayer_game.md)
 - [Dungeon](first_game_rpg.md)
 
 ### Community Open Games
 
 Beyond Core Frameworks, there are hundreds of Community Games that have been marked "Open for Editing" by their creators that can be used as a base. A few examples are listed below: 
 
-![Community Games]()
+![Community Games](../img/GGJ/GGJ_CommunityGames.png){: .center loading="lazy" }
 
 - The [Survival Jam Kit](survival_kit.md) was created for a previous game jam, and includes features like inventory and crafting systems, as well as thorough documentation and a [tutorial](survival_tutorial.md)
 
@@ -46,7 +46,7 @@ Beyond Core Frameworks, there are hundreds of Community Games that have been mar
   
 - **Tower of Terror** is an obstacle course game where players leap up a tower with randomized levels that get progressively harder, made by [NicholasForeman](https://medium.com/core-games/climbing-the-tower-90f9429f73e5). It is an excellent example of how to spawn distinct levels using the template system.
 
-- **Murder Mansion** by [standardcombo](https://www.coregames.com/user/b4c6e32137e54571814b5e8f27aa2fcd) is a betrayal game set in an ominous mansion where players collect clues to survive attack by a randomly-assigned murderer. You can use it as a framework for a hidden identity game, or just use the mansion environment, as seen in games like [Spider Bite]()
+- **Murder Mansion** by [standardcombo](https://www.coregames.com/user/b4c6e32137e54571814b5e8f27aa2fcd) is a betrayal game set in an ominous mansion where players collect clues to survive attack by a randomly-assigned murderer. You can use it as a framework for a hidden identity game, or just use the mansion environment, as seen in games like [Spider Bite](https://www.coregames.com/games/bb231b/spider-bite).
   
 - **Tycoon Framework** created by [Aphrim](https://medium.com/core-games/a-rising-star-4db15f8709f4), the Tycoon Framework is the basis of several successful Core games where economic prosperity is the goal.
 
@@ -72,7 +72,7 @@ Creating [Art in Core](art_reference.md) is done primarily through **kitbashing*
 
 ### Core Components
 
-![Game Components]()
+![Game Components](../img/GGJ/GGJ_GameComponents.png){: .center loading="lazy" }
 
 The [Game Components](../../api/components.md) found in **Core Content** include lots of completely coded systems to bring more functionality to your game, including scoreboards, nameplates for players, and resource pickups. 
 
@@ -90,7 +90,7 @@ There are also a number of videos currently available on the [CoreGames YouTubeC
 [**Community Content**](../getting_started/community_content.md) is a massive collection of props, scripts, costumes, weapons, and complete game systems created and shared by creators for others to use. Core is designed to easily incorporate these different pieces into games, and facilitates easy collaboration between artists and programmers through the [Template](template_reference.md) system.
 
 
-![Instruments on Community Content]()
+![Instruments on Community Content](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
 
 ### Example: Building a Bustling Town with Virtually No Scripting
 
@@ -104,12 +104,12 @@ One example of how you can use Community Content is for creating an area full of
 - The **NPC AI Kit by standardcombo** is the most downloaded Community Content template, and the most popular way of creating enemy NPCs which can spawn when players are nearby, pursue players across NavMesh areas defined by visible plains, and take and give damage in combat.
   - A related and equally useful tool is the **NPC Costume Script by standardcombo**, that allows you to create customized NPCs by attaching objects to their sockets. The chicken in [Farmer's Market](https://www.coregames.com/games/67442e/farmers-market), for example, was actually made by connecting objects to the Raptor Animated Mesh.
   
-    ![Chicken in Farmer's Market]()
+    ![Chicken in Farmer's Market](../img/GGJ/GGJ_FarmersMarketChicken.png){: .center loading="lazy" }
 
 - **EaseUI & Ease3D by NicholasForeman** are a library of Easing Functions that can be applied to create smooth movement clientside for 2D UI elements and 3D objects.
-- **Team META** has created a collection of useful creator tools, from leaderboards to inventory systems to postapocalyptic prop collections.
+- **Team META** has created a collection of useful creator tools, from leaderboards to inventory systems to victory screens.
 
-    ![Team META on Community Content]()
+    ![Team META on Community Content](../img/GGJ/GGJ_METACC.png)
 
 - **Day Night Sky by Rasm** will allow you to add a day-night cycle to your project with no extra effort, adding life and polish to a project instantly.
   
