@@ -10,6 +10,8 @@ tags:
 
 ## Welcome to Core
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fL6HMs9frgw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Welcome Global Game Jammers!
 
 Core is a complete game development, publishing, and multiplayer hosting platform that combines ease of use with professional polish. In this document, you will find an essential outline of the systems in Core and directions to the tutorials and tools that will get you creating right away.
