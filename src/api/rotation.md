@@ -44,9 +44,9 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ## Examples
 
-- `New`]
+- `New`
 
-- `ZERO`]
+- `ZERO`
 
 There are several different ways to create new Rotations.
 
@@ -82,15 +82,15 @@ local newVec1 = Rotation.ZERO * vec1
 
 ---
 
-- `Rotation+Rotation`]
+- `Rotation+Rotation`
 
-- `Rotation-Rotation`]
+- `Rotation-Rotation`
 
-- `Rotation*Number`]
+- `Rotation*Number`
 
-- `-Rotation`]
+- `-Rotation`
 
-- `Rotation*Vector3`]
+- `Rotation*Vector3`
 
 You can add and subtract rotations from each other, scale them, and apply them to vectors via arithmetic operators.
 
@@ -124,11 +124,11 @@ local rotate90x_negative = -rotate90x
 
 ---
 
-- `x`]
+- `x`
 
-- `y`]
+- `y`
 
-- `z`]
+- `z`
 
 The x, y, and z components of a rotation can be accessed directly. These numbers represent the number of degrees to rotate around their respective axis.
 

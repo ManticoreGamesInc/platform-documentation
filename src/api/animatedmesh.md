@@ -44,7 +44,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 ## Examples
 
-- `animationEvent`]
+- `animationEvent`
 
 Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
 
@@ -63,7 +63,7 @@ dragonMesh:PlayAnimation("unarmed_claw")
 
 ---
 
-- `AttachCoreObject`]
+- `AttachCoreObject`
 
 Attaches the specified object to the specified socket on the mesh if they exist.
 
@@ -90,15 +90,15 @@ end
 
 ---
 
-- `GetAnimationNames`]
+- `GetAnimationNames`
 
-- `GetAnimationStanceNames`]
+- `GetAnimationStanceNames`
 
-- `GetSocketNames`]
+- `GetSocketNames`
 
-- `GetAnimationEventNames`]
+- `GetAnimationEventNames`
 
-- `GetAnimationDuration`]
+- `GetAnimationDuration`
 
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
 
@@ -132,9 +132,9 @@ PrintAnimatedMeshData(dragonMesh)
 
 ---
 
-- `PlayAnimation`]
+- `PlayAnimation`
 
-- `playbackRateMultiplier`]
+- `playbackRateMultiplier`
 
 Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
@@ -171,7 +171,7 @@ end)
 
 ---
 
-- `StopAnimations`]
+- `StopAnimations`
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
 
@@ -186,11 +186,11 @@ dragonMesh:StopAnimations()
 
 ---
 
-- `animationStance`]
+- `animationStance`
 
-- `animationStancePlaybackRate`]
+- `animationStancePlaybackRate`
 
-- `animationStanceShouldLoop`]
+- `animationStanceShouldLoop`
 
 The stance the animated mesh plays.
 
