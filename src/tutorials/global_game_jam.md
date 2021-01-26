@@ -21,7 +21,7 @@ This year, Manticore Games sponsored a [Global Game Jam Diversifier](https://glo
 
 ### Coming from Other Platforms
 
-This documentation has a collection of introductions intended to specifically orient creators coming from game engines, like [Unity](unity.md), and other User Generated Content platforms, like [Roblox](roblox.md) and [Fortnite](fornite.md).
+This documentation has a collection of introductions intended to specifically orient creators coming from game engines, like [Unity](unity.md), and other User Generated Content platforms, like [Roblox](roblox.md) and [Fortnite](fortnite_creative.md).
 
 !!! note
     If you have experience from an engine or platform that is not included here you can submit a pull request or create an issue on the [Core Documentation GitHub](https://github.com/ManticoreGamesInc/platform-documentation) to share your knowledge!
@@ -59,7 +59,7 @@ Beyond Core Frameworks, there are hundreds of Community Games that have been mar
 
 ### Abilities
 
-[Abilities](abilities.md) are the primary way to make player interactions and animations. They have several different phase events and can return data about where the player was targeting when used. You can also find a complete list of the available [Animations and Animation Stances](../../api/animations.md).
+[Abilities](abilities.md) are the primary way to make player interactions and animations. They have several different phase events and can return data about where the player was targeting when used. You can also find a complete list of the available [Animations and Animation Stances](../api/animations.md).
 
 ### Terrain
 
@@ -77,7 +77,7 @@ Creating [Art in Core](art_reference.md) is done primarily through **kitbashing*
 
 ![Game Components](../img/GGJ/GGJ_GameComponents.png){: .center loading="lazy" }
 
-The [Game Components](../../api/components.md) found in **Core Content** include lots of completely coded systems to bring more functionality to your game, including scoreboards, nameplates for players, and resource pickups.
+The [Game Components](../api/components.md) found in **Core Content** include lots of completely coded systems to bring more functionality to your game, including scoreboards, nameplates for players, and resource pickups.
 
 ### Lua
 
