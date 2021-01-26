@@ -282,6 +282,7 @@ plugins:
       minify_html: true
   - tags:
       tags_folder: src/generated
+      tags_template: src/generated/tags.template.md
   - git-revision-date-localized
   - autolinks
   - redirects:
