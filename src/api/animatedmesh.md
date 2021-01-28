@@ -18,10 +18,10 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `animationStance` | `string` | (client-only) -- The stance the animated mesh plays. | Read-Write |
-| `animationStancePlaybackRate` | `Number` | (client-only) -- The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Read-Write |
-| `animationStanceShouldLoop` | `bool` | (client-only) -- If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write |
-| `playbackRateMultiplier` | `Number` | (client-only) -- Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write |
+| `animationStance` | `string` | The stance the animated mesh plays. | Read-Write, Client-Only |
+| `animationStancePlaybackRate` | `Number` | The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Read-Write, Client-Only |
+| `animationStanceShouldLoop` | `bool` | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write, Client-Only |
+| `playbackRateMultiplier` | `Number` | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write, Client-Only |
 
 ### Functions
 

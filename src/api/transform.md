@@ -24,6 +24,12 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | `Transform.New(Vector3 x_axis, Vector3 y_axis, Vector3 z_axis, Vector3 translation)` | `Transform` | Constructs a new Transform from a Matrix. | None |
 | `Transform.New(Transform transform)` | `Transform` | Copies the given Transform. | None |
 
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Transform.IDENTITY` | `Transform` | Constant identity Transform. | None |
+
 ### Functions
 
 | Function Name | Return Type | Description | Tags |
