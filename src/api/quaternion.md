@@ -24,6 +24,12 @@ A quaternion-based representation of a rotation.
 | `Quaternion.New(Vector3 from, Vector3 to)` | `Quaternion` | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
 | `Quaternion.New(Quaternion q)` | `Quaternion` | Copies the given Quaternion. | None |
 
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Quaternion.IDENTITY` | `Quaternion` | Predefined Quaternion with no rotation. | None |
+
 ### Properties
 
 | Property Name | Return Type | Description | Tags |
