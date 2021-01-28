@@ -22,7 +22,13 @@ A two-component vector that can represent a position or direction.
 | `Vector2.New(Number)` | `Vector2` | Constructs a Vector2 with `x`, `y` values both set to the given value. | None |
 | `Vector2.New(Vector3 v)` | `Vector2` | Constructs a Vector2 with `x`, `y` values from the given Vector3. | None |
 | `Vector2.New(Vector2 v)` | `Vector2` | Constructs a Vector2 with `x`, `y` values from the given Vector2. | None |
-| `Vector2.ZERO -- (0, 0)` | `Vector2` | Vector2.ONE -- (1, 1) | Vector2 |
+
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Vector2.ZERO` | `Vector2` | (0, 0) | None |
+| `Vector2.ONE` | `Vector2` | (1, 1) | None |
 
 ### Properties
 

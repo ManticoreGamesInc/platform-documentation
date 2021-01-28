@@ -23,8 +23,8 @@ Player is an object representation of the state of a player connected to the gam
 | `team` | `Integer` | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
 | `animationStance` | `string` | Which set of animations to use for this Player. See [Animation Stance Strings](../api/animations.md#animation-stance-strings) for possible values. | Read-Write |
 | `currentFacingMode` | `FacingMode` | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
-| `desiredFacingMode` | `FacingMode` | (server only) -- Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write |
-| `defaultRotationRate` | `Number` | (server only) -- Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write |
+| `desiredFacingMode` | `FacingMode` | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
+| `defaultRotationRate` | `Number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
 | `currentRotationRate` | `Number` | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
 | `hitPoints` | `Number` | Current amount of hitpoints. | Read-Write |
 | `maxHitPoints` | `Number` | Maximum amount of hitpoints. | Read-Write |
@@ -56,13 +56,13 @@ Player is an object representation of the state of a player connected to the gam
 | `isDead` | `bool` | True if the Player is dead, otherwise false. | Read-Only |
 | `movementControlMode` | `MovementControlMode` | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | `LookControlMode` | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
-| `lookSensitivity` | `Number` | (client only) -- Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write |
+| `lookSensitivity` | `Number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
 | `spreadModifier` | `Number` | Modifier added to the Player's targeting spread. | Read-Write |
-| `currentSpread` | `Number` | (client only) -- Gets the Player's current targeting spread. | Read-Only |
+| `currentSpread` | `Number` | Gets the Player's current targeting spread. | Read-Only, Client-Only |
 | `buoyancy` | `Number` | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
-| `canMount` | `bool` | (server only) -- Returns whether the Player can manually toggle on/off the mount. | Read-Write |
-| `shouldDismountWhenDamaged` | `bool` | (server only) -- If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write |
-| `isVisibleToSelf` | `bool` | (client only) -- Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write |
+| `canMount` | `bool` | Returns whether the Player can manually toggle on/off the mount. | Read-Write, Server-Only |
+| `shouldDismountWhenDamaged` | `bool` | If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write, Server-Only |
+| `isVisibleToSelf` | `bool` | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write, Client-Only |
 
 ### Functions
 
