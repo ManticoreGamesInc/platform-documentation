@@ -23,8 +23,16 @@ A three-component vector that can represent a position or direction.
 | `Vector3.New(Vector2 xy, Number z)` | `Vector3` | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. | None |
 | `Vector3.New(Vector3 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
 | `Vector3.New(Vector4 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
-| `Vector3.ZERO -- (0, 0, 0)` | `Vector3` | Vector3.ONE -- (1, 1, 1) | Vector3 |
-| `Vector3.FORWARD -- (1, 0, 0)` | `Vector3` | Vector3.UP -- (0, 0, 1) | Vector3 |
+
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Vector3.ZERO` | `Vector3` | (0, 0, 0) | None |
+| `Vector3.ONE` | `Vector3` | (1, 1, 1) | None |
+| `Vector3.FORWARD` | `Vector3` | (1, 0, 0) | None |
+| `Vector3.UP` | `Vector3` | (0, 0, 1) | None |
+| `Vector3.RIGHT` | `Vector3` | (0, 1, 0) | None |
 
 ### Properties
 
