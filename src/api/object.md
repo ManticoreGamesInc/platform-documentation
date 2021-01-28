@@ -18,8 +18,8 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `serverUserData` | `table` | (server only) -- Table in which users can store any data they want on the server. | Read-Write |
-| `clientUserData` | `table` | (client only) -- Table in which users can store any data they want on the client. | Read-Write |
+| `serverUserData` | `table` | Table in which users can store any data they want on the server. | Read-Write, Server-Only |
+| `clientUserData` | `table` | Table in which users can store any data they want on the client. | Read-Write, Client-Only |
 
 ### Class Functions
 

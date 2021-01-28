@@ -23,6 +23,12 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `Rotation.New(Vector3 forward, Vector3 up)` | `Rotation` | Construct a rotation that will rotate Vector3.FORWARD to point in the direction of the given forward vector, with the up vector as a reference. Returns (0, 0, 0) if forward and up point in the exact same (or opposite) direction, or if one of them is of length 0. | None |
 | `Rotation.New(Rotation r)` | `Rotation` | Copies the given Rotation. | None |
 
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Rotation.ZERO` | `Rotation` | Constant Rotation of (0, 0, 0). | None |
+
 ### Properties
 
 | Property Name | Return Type | Description | Tags |

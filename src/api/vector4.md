@@ -24,7 +24,13 @@ A four-component vector.
 | `Vector4.New(Vector4 v)` | `Vector4` | Constructs a Vector4 with `x`, `y`, `z`, `w` values from the given Vector4. | None |
 | `Vector4.New(Vector2 xy, Vector2 zw)` | `Vector4` | Constructs a Vector4 with `x`, `y` values from the first Vector2 and `z`, `w` values from the second Vector2. | None |
 | `Vector4.New(Color v)` | `Vector4` | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. | None |
-| `Vector4.ZERO -- (0, 0, 0, 0)` | `Vector4` | Vector4.ONE -- (1, 1, 1, 1) | Vector4 |
+
+### Constants
+
+| Constant Name | Return Type | Description | Tags |
+| ----------- | ----------- | ----------- | ---- |
+| `Vector4.ZERO` | `Vector4` | (0, 0, 0, 0) | None |
+| `Vector4.ONE` | `Vector4` | (1, 1, 1, 1) | None |
 
 ### Properties
 

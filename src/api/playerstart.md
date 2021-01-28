@@ -18,4 +18,4 @@ PlayerStart is a CoreObject representing a spawn point for players.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | `Integer` | (server only) -- Determines which players are eligible to spawn/respawn at this point. | Read-Write |
+| `team` | `Integer` | Determines which players are eligible to spawn/respawn at this point. | Read-Write, Server-Only |
