@@ -40,8 +40,9 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Activate()` | `None` | Activates an Ability as if the button had been pressed. | Client-Only |
+| `Activate()` | `None` | Activates an Ability as if the button had been pressed. | None |
 | `Interrupt()` | `None` | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None |
+| `AdvancePhase()` | `None` | Advances a currently active Ability from its current phase to the next phase. For example, an ability in the Cast phase will begin the Execute phase, an ability on cooldown will become ready, etc. | None |
 | `GetCurrentPhase()` | `AbilityPhase` | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
 | `GetPhaseTimeRemaining()` | `Number` | Seconds left in the current phase. | None |
 | `GetTargetData()` | `AbilityTarget` | Returns information about what the Player has targeted this phase. | None |
