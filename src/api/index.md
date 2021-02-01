@@ -18,7 +18,7 @@ tags:
 
 ## Overview
 
-Core scripts are written in Lua, using version 5.3.4 of the [Lua library](https://www.lua.org/manual/5.3/). Scripts are objects created and added to the hierarchy and/or templates, similar to other object types. Scripts added to the hierarchy will execute as soon as the game loads, while scripts inside templates execute with each newly spawned instance of the template.
+Core scripts are written in Lua, using version 5.3.6 of the [Lua library](https://www.lua.org/manual/5.3/). Scripts are objects created and added to the hierarchy and/or templates, similar to other object types. Scripts added to the hierarchy will execute as soon as the game loads, while scripts inside templates execute with each newly spawned instance of the template.
 
 Properties, functions, and events inherited by [CoreObject](coreobject.md) types are listed below. Both properties and events are accessed with `.propertyName` and `.eventName`, while functions are accessed with `:FunctionName()`. Some types have class functions, which are accessed with `.FunctionName()`.
 
