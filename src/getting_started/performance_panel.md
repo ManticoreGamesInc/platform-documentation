@@ -1,3 +1,11 @@
+---
+id: performance_estimation_panel
+name: Performance Estimation Panel
+title: Performance Estimation Panel
+tags:
+    - Reference
+---
+
 # Performance Estimation Panel
 
 The aim of the Performance Estimation panel is to provide Creators a way to estimate the performance of their game on various computers over the different video settings.
