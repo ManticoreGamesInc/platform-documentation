@@ -209,6 +209,7 @@ theme:
 
 extra_css:
   - assets/stylesheets/lite-yt-embed.css
+  - assets/stylesheets/algolia.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
@@ -278,13 +279,12 @@ markdown_extensions:
   - lightgallery
 
 plugins:
+  - search
   - minify:
       minify_html: true
   - tags:
       tags_folder: src/generated
   - git-revision-date-localized
-  - search:
-      separator: '[\s\-]+'
   - autolinks
   - redirects:
       redirect_maps:
