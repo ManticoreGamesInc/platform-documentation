@@ -189,6 +189,8 @@ title: Tags
 
 - [Introduction to the Core Editor](editor_intro.md)
 
+- [Performance Estimation Panel](performance_panel.md)
+
 - [Play-Mode Profiler](profiler.md)
 
 - [Publishing Checklist](publishing_checklist.md)
