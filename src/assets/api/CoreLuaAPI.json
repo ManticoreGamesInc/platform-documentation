@@ -216,6 +216,15 @@
 					]
 				},
 				{
+					"Name": "AdvancePhase",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -4851,6 +4860,9 @@
 			"Hooks": [
 				{
 					"Name": "movementHook",
+					"Tags": [
+						"ClientOnly"
+					],
 					"Parameters": [
 						{
 							"Type": "Player"
@@ -10806,6 +10818,42 @@
 						{
 							"Returns": [],
 							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "StopAcceptingPlayers",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsAcceptingPlayers",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "bool"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "TransferAllPlayersToGame",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "gameId"
+								}
+							]
 						}
 					]
 				}
