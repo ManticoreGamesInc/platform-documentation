@@ -1,0 +1,50 @@
+/* Main dropdown wrapper */
+.algolia-autocomplete .ds-dropdown-menu {
+    width: 1000px;
+    font-size: 22px;
+    max-height: 75vh;
+    min-width: 1000px !important;
+}
+
+.algolia-autocomplete .ds-dropdown-menu {
+    top: 150% !important;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion,
+.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+    background: var(--md-default-bg-color) !important;
+    color: var(--md-default-fg-color) !important;
+    border-color: var(--md-default-fg-color--lightest) !important;
+    border-radius: .1rem .1rem 0 0 !important;
+}
+
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+    display: none !important;
+}
+
+/* Category (eg. Downloads) */
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+    color: var(--md-default-fg-color--lighter) !important;
+}
+
+/* Title (eg. Bootstrap CDN) */
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+    font-weight: bold;
+    color: var(--md-default-fg-color--light) !important;
+}
+
+/* Description description (eg. Bootstrap currently works...) */
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+    color: var(--md-accent-fg-color) !important;
+}
+
+.algolia-autocomplete .ds-dropdown-menu:before {
+    display: none !important;
+}
