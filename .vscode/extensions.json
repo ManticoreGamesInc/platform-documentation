@@ -1,0 +1,7 @@
+{
+	"recommendations": [
+		"EditorConfig.EditorConfig",
+        "jebbs.markdown-extended",
+        "davidanson.vscode-markdownlint"
+	]
+}
