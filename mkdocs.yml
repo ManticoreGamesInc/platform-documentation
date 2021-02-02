@@ -281,7 +281,7 @@ plugins:
   - search
   - tags:
       tags_folder: src/generated
-      tags_template: src/generated/tags.template.md
+      tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
   - redirects:
@@ -308,8 +308,8 @@ plugins:
         tutorials/rpg_framework_reference.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_overview.md: tutorials/dungeon_framework_reference.md
-        perks/: perks/perks_program.md
         perks/perks.md: perks/implementing_perks.md
+        perks/index.md: perks/perks_program.md
         api/ability_bindings.md: api/key_bindings.md
         core_api.md: api/index.md
         api/examples.md: api/index.md
