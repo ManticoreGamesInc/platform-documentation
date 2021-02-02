@@ -11,12 +11,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
           repository: ManticoreGamesInc/mkdocs-material
           ref: manticore
           path: mkdocs-material
+
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -40,6 +42,13 @@ jobs:
 
       - name: Run Tests
         run: npm run lint
+
+      - name: Markdown Lint
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: "src/"
+          config_file: ".markdownlint.json"
+          ignore_files: "src/generated/*"
 
       - name: Install Dependencies
         run: |
