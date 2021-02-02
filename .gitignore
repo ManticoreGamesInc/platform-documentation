@@ -1,8 +1,9 @@
 # Ignore IDE specifics
 .idea/
 .vs/
-.vscode
-!vscode/spellright.dict
+.vscode/*
+!.vscode/extensions.json
+!.vscode/spellright.dict
 .netlify
 node_modules
 src/assets/api/test.lua
