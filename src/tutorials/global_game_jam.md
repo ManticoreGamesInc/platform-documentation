@@ -63,7 +63,7 @@ Beyond Core Frameworks, there are hundreds of Community Games that have been mar
 
 ### Terrain
 
-The [Terrain](terrain_reference.md) system in Core allows you to generate terrain from height maps or sculpt terrain from the ground up, and includes the ability to paint with materials and generate foliage.
+The Terrain system in Core allows you to generate terrain from height maps or sculpt terrain from the ground up, and includes the ability to paint with materials and generate foliage.
 
 ### Modeling
 
