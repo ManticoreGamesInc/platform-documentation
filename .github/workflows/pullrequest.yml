@@ -43,13 +43,6 @@ jobs:
       - name: Run Tests
         run: npm run lint
 
-      - name: Markdown Lint
-        uses: nosborn/github-action-markdown-cli@v1.1.1
-        with:
-          files: "src/"
-          config_file: ".markdownlint.json"
-          ignore_files: "src/generated/*"
-
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
