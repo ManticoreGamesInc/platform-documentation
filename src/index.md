@@ -21,7 +21,7 @@ Welcome to the official documentation of Core, the community-focused game creati
 ## Organization of the Documentation
 
 - [**Getting Started**](editor_intro.md) explains the essential information  you need to start using Core, from [installation](installing_core.md) to [making a game](my_first_multiplayer_game.md).
-- [**Tutorials**](tutorials/overview.md) contains step-by-step instructions to make specific features or full games. It includes an [introduction to Lua scripting in Core](lua_basics_lightbulb.md), and a collection of examples to learn from and use.
+- The **Tutorials** section contains step-by-step instructions to make specific features or full games. It includes an [introduction to Lua scripting in Core](lua_basics_lightbulb.md), and a collection of examples to learn from and use.
 - [**Editor Manual**](editor_intro.md) explains the tools of the Core Editor, and how to customize them for specific uses.
 - [**Core API**](api/index.md) holds formal information about scripting in Core, including a [Lua style guide](lua_style_guide.md) and references for all [game components](components.md).
 
