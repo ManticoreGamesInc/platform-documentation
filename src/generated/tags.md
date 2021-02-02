@@ -241,8 +241,6 @@ title: Tags
 
 - [Template Reference](template_reference.md)
 
-- [Terrain Reference](terrain_reference.md)
-
 - [UI Reference](ui_reference.md)
 
 - [Weapons Reference](weapons.md)
@@ -283,6 +281,4 @@ title: Tags
 - [Survival Kit Tutorial](survival_tutorial.md)
 
 - [Basic Weapons Tutorial](weapons_tutorial.md)
-
-- [Making a Pistol Shooter](pistol_shooter.md)
 
