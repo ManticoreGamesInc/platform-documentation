@@ -57,8 +57,6 @@ nav:
           - Survival Game:
               - Survival Contest Kit: tutorials/survival_kit.md
               - Survival Tutorial: tutorials/survival_tutorial.md
-          - Video Tutorials:
-            - Making a Pistol Shooter: tutorials/videos/pistol_shooter.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -284,6 +282,7 @@ plugins:
       minify_html: true
   - tags:
       tags_folder: src/generated
+      tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
   - redirects:
@@ -310,13 +309,14 @@ plugins:
         tutorials/rpg_framework_reference.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_overview.md: tutorials/dungeon_framework_reference.md
-        tutorials/: tutorials/overview.md
-        perks/: perks/perks_program.md
         perks/perks.md: perks/implementing_perks.md
+        perks/index.md: perks/perks_program.md
         api/ability_bindings.md: api/key_bindings.md
         core_api.md: api/index.md
         api/examples.md: api/index.md
         tutorials/lua_reference.md: tutorials/scripting_intro.md
+        tutorials/overview.md: tutorials/abilities.md
+        tutorials/videos/pistol_shooter.md: https://www.youtube.com/CoreGamesOfficial
 
 google_analytics:
   - UA-142884846-4

@@ -11,12 +11,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
           repository: ManticoreGamesInc/mkdocs-material
           ref: manticore
           path: mkdocs-material
+
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -24,7 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
 
       - uses: actions/cache@v2
         id: cache-node
