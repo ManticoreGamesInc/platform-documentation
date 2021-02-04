@@ -30,7 +30,7 @@ A few base functions provided by the platform.
 
 - `warn`
 
-The common lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
+The common Lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
 
 There is a similar function, `warn()`, which functions also prints to the event log, except as a warning message. (So it's bright and yellow and hard to miss.)
 
@@ -50,7 +50,7 @@ warn("Something is amiss!")
 
 Functions named `Tick()` are special - if you have a script with a `Tick()` function, then that function will be called every frame of the game. This is not something you want to do often, because of performance costs, but can be used to set up animations. (Ideally inside of client contexts.)
 
-The `time()` funcion is very useful for this sort of thing - it will return the number of seconds since the map started running on the server, which makes it very useful in creating animations based on time.
+The `time()` function is very useful for this sort of thing - it will return the number of seconds since the map started running on the server, which makes it very useful in creating animations based on time.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
