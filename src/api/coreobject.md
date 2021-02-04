@@ -109,7 +109,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 - `childAddedEvent`
 
-This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
+This event fires when something gets added as a direct child of an object. (i. e. not a child of a child.)
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -156,7 +156,7 @@ obj2:Destroy()
 
 - `descendantAddedEvent`
 
-This event fires when something gets added as a direct child of an object.  (i. e. not a child of a child.)
+This event fires when something gets added as a direct child of an object. (i. e. not a child of a child.)
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -180,7 +180,7 @@ local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 
 - `descendantRemovedEvent`
 
-This event fires when a descendant of the object is removed.  This is any object that has the object somewhere up the hierarchy tree as a parent.
+This event fires when a descendant of the object is removed. This is any object that has the object somewhere up the hierarchy tree as a parent.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
