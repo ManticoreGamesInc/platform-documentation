@@ -29,8 +29,8 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `volume` | `Number` | Default 1. Multiplies the playback volume of a sound. Note that values above 1 can distort sound, so if you're trying to balance sounds, experiment to see if scaling down works better than scaling up. | Read-Write |
 | `radius` | `Number` | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Radius is the distance away from the sound position that will be played at 100% volume. | Read-Write |
 | `falloff` | `Number` | Default 0. If non-zero, will override default 3D spatial parameters of the sound. Falloff is the distance outside the radius over which the sound volume will gradually fall to zero. | Read-Write |
-| `fadeInTime` | `Number` | Sets the fade in time for the audio.  When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write |
-| `fadeOutTime` | `Number` | Sets the fadeout time of the audio.  When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write |
+| `fadeInTime` | `Number` | Sets the fade in time for the audio. When the audio is played, it will start at zero volume, and fade in over this many seconds. | Read-Write |
+| `fadeOutTime` | `Number` | Sets the fadeout time of the audio. When the audio is stopped, it will keep playing for this many seconds, as it fades out. | Read-Write |
 | `startTime` | `Number` | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write |
 | `stopTime` | `Number` | The stop time of the audio track. Default is 0. A positive value means that the audio will stop that many seconds from the start of the track, including any fade out time. | Read-Write |
 

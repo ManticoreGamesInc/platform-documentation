@@ -177,7 +177,7 @@ end
 
 - `animationStance`
 
-A weapon's `animationStance` is assigned to the player automatically when the item is equipped. In this example, we add an additional stance to the weapon in the form of a defensive posture that players can trigger by holding down the secondary ability button (mouse right-click). The script alternates betwen the shield block stance and the weapon's default stance, as the secondary button is pressed/released.
+A weapon's `animationStance` is assigned to the player automatically when the item is equipped. In this example, we add an additional stance to the weapon in the form of a defensive posture that players can trigger by holding down the secondary ability button (mouse right-click). The script alternates between the shield block stance and the weapon's default stance, as the secondary button is pressed/released.
 
 ```lua
 local WEAPON = script:FindAncestorByType('Weapon')

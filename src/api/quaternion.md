@@ -18,7 +18,7 @@ A quaternion-based representation of a rotation.
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Quaternion.New([Number x, Number y, Number z, Number w])` | `Quaternion` | Constructs a Quaternion with the given values.  Defaults to 0, 0, 0, 1. | None |
+| `Quaternion.New([Number x, Number y, Number z, Number w])` | `Quaternion` | Constructs a Quaternion with the given values. Defaults to 0, 0, 0, 1. | None |
 | `Quaternion.New(Rotation r)` | `Quaternion` | Constructs a Quaternion with the given Rotation. | None |
 | `Quaternion.New(Vector3 axis, Number angle)` | `Quaternion` | Constructs a Quaternion representing a rotation of angle degrees around the axis of the Vector3. | None |
 | `Quaternion.New(Vector3 from, Vector3 to)` | `Quaternion` | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
