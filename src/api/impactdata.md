@@ -198,7 +198,7 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 
 - `travelDistance`
 
-The `travelDistance` property tells us the distance (in centimeters) between the origin of the shot and the impact point. In this example, we use that information to create a weapon that deals variable damage, depending on the distance. It could be configured to do either maximum damage at maximum range or minimum damage at the max range, all dependant upon custom property values. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
+The `travelDistance` property tells us the distance (in centimeters) between the origin of the shot and the impact point. In this example, we use that information to create a weapon that deals variable damage, depending on the distance. It could be configured to do either maximum damage at maximum range or minimum damage at the max range, all dependent upon custom property values. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
 ```lua
 local WEAPON = script:FindAncestorByType('Weapon')

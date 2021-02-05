@@ -211,7 +211,7 @@ print(-a) -- -1, -2, -3
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
 
-Dot Product and Cross Product are two other common linear algebra operations, which can be represented in Lua byh the `..` and `^` operators respectively.
+Dot Product and Cross Product are two other common linear algebra operations, which can be represented in Lua by the `..` and `^` operators respectively.
 
 Here is a sample that uses these operations to determine if an object is aimed within 15 degrees of a player.
 
