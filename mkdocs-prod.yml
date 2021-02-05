@@ -104,7 +104,6 @@ nav:
           - CoreMesh: api/coremesh.md
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
-          - CoreString: api/corestring.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -160,6 +159,7 @@ nav:
           - Core Functions: api/coreluafunctions.md
           - CoreDebug: api/coredebug.md
           - CoreMath: api/coremath.md
+          - CoreString: api/corestring.md
           - Environment: api/environment.md
           - Events: api/events.md
           - Game: api/game.md
