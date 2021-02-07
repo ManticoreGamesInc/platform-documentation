@@ -60,7 +60,7 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
-??? "Built-In Lua Functions"
+!!! note "Built-In Lua Functions"
     - `assert`
     - `collectgarbage` (modified to only accept a `count` parameter to get current Lua memory usage)
     - `error`
