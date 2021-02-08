@@ -284,6 +284,8 @@ plugins:
       tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
+  - exclude-search:
+      exclude_tags: True
   - redirects:
       redirect_maps:
         getting_started.md: getting_started/editor_intro.md
