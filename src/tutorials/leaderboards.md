@@ -43,13 +43,20 @@ Leaderboards are created through the **Global Leaderboards** window, and can be 
 5. Specify how many total entries the Leaderboard should track in the **Rank Entries** field.
 6. Check the boxes by **Track Daily Data**, **Track Weekly Data**, or **Track Monthly Data** to create additional copies of the Leaderboard that delete entries after a certain amount of time.
 
-### Add a NetRef as a Custom Property
+### Add a NetReference as a Custom Property
 
+To reference a Leaderboard in a script, use a [NetReference](https://docs.coregames.com/api/netreference/).
 
-
-### Add an Entry to a Leaderboard
+1. In the Hierarchy, select the script that will reference the Leaderboard, and open the **Properties** window.
+2. Open the **Global Leaderboards** window, and find the Leaderboard to add.
+3. Select the name of the Leaderboard and click and drag it onto the **Custom Properties**.
+4. Copy the generated variable reference in the box below, and add paste it in the contents of the script.
 
 ### Loading Leaderboards
+
+Leaderboards do not instantly load, so the **HasLeaderboards** function can be used to check if it is loaded before displaying or adding new entries.
+
+This code shows an example of using [**Task.Spawn** with **Task.Wait**](https://docs.coregames.com/api/task/), to continue checking for a loaded Leaderboard before continuing to the next step
 
 ```lua
 function loadLeaderboard()
@@ -58,17 +65,66 @@ function loadLeaderboard()
         Task.Wait(1) -- wait one second
     end
 
-    -- Code to display Leaderboard goes here
+    -- Code to display Leaderboard or add an entry goes here
 
 end
 
 Task.Spawn(loadLeaderboard) -- spawn this task instead of just calling the function so that the Task.Wait doesn't make anything else wait.
 ```
 
+### Add an Entry to a Leaderboard
+
+The [Leaderboards **AddEntry**](https://docs.coregames.com/api/leaderboards/) function allows you to submit a score for a player to the Leaderboard, which will automatically be sorted.
+
+```lua
+local propExampleLeaderboard = script:GetCustomProperty("ExampleLeaderboard") -- NetRef for the Leaderboard
+
+function WhenAPlayerScoresPoints(player, points) -- example function for any event that would create a score for the Leaderboard
+    Leaderboards.SubmitPlayerScore(propExampleLeaderboard, player, points)
+end
+
+-- connect the WhenAPlayerScoresPoints() function to an event here
+```
+
+!!! note
+    You can add a string of up to 8 characters of additional data as a fourth parameter. See the [Leaderboards namespace](https://docs.coregames.com/api/leaderboards/) for more details.
+
 ### Displaying Leaderboard Entries
 
-## What Next
+Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](https://docs.coregames.com/api/leaderboardentry/#api-leaderboardentry) which have name, id, score and additionalData properties that can be used to display the data.
 
-- Nicholas' CC
-- Persistent Storage Tutorial
-- Leaderboards API
+You can create a text asset that is spawned for each Leaderboard entry, or create a group of texts ahead of time for the total number of entries, and update their ``text`` property.
+
+```lua
+local propExampleLeaderboard = script:GetCustomProperty("ExampleLeaderboard") -- NetRef for the Leaderboard
+
+
+function showExampleLeaderboard()
+    local entryTable = Leaderboards.GetLeaderboard()
+    for _, entry in ipairs(entryTable) do
+        print("name: " .. entry.name .. " score: " .. entry.score) -- This will only print to Event Log
+        -- Create a UI Text or World Text asset to change here instead. 
+    end
+end
+
+-- call the showExampleLeaderboard function in a loadLeaderboard function like in the Loading Leaderboards example.
+
+```
+
+## Leaderboards on Community Content
+
+### META Leaderboards
+
+Leaderboards is a component that simplifies the process of adding a global leaderboard to a game. It is as simple as dragging and dropping a leaderboard template into the hierarchy and adjusting to meet your needs.
+
+Both World and UI versions supported.
+
+Created by @NicholasForeman of Team META
+
+Make sure to read the Leaderboards_README file for setup and configuration instructions
+
+---
+
+## Learn More
+
+[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](https://docs.coregames.com/api/leaderboards/) | [LeaderboardEntry Object in the Core API](https://docs.coregames.com/api/leaderboardentry/) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](https://docs.coregames.com/api/task/)
