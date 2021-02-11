@@ -34,6 +34,8 @@ Each Leaderboard has the option to track **Daily**, **Weekly**, and **Monthly** 
 
 Leaderboards are created through the **Global Leaderboards** window, and can be referenced in scripts using a **NetRef**.
 
+![Open Global Leaderboard Window](../img/Leaderboards/Leaderboards_OpenWindow.png){: .center loading="lazy" }
+
 ### Create a New Leaderboard
 
 1. Click **Window** in the top menu toolbar, and then select **Global Leaderboards**.
@@ -43,9 +45,13 @@ Leaderboards are created through the **Global Leaderboards** window, and can be 
 5. Specify how many total entries the Leaderboard should track in the **Rank Entries** field.
 6. Check the boxes by **Track Daily Data**, **Track Weekly Data**, or **Track Monthly Data** to create additional copies of the Leaderboard that delete entries after a certain amount of time.
 
+![Create New Leaderboard](../img/Leaderboards/Leaderboards_CreateNew.png){: .center loading="lazy" }
+
 ### Add a NetReference as a Custom Property
 
 To reference a Leaderboard in a script, use a [NetReference](https://docs.coregames.com/api/netreference/).
+
+![Open Global Leaderboard Window](../img/Leaderboards/Leaderboards_AddNetRef.mp4){: .center loading="lazy" }
 
 1. In the Hierarchy, select the script that will reference the Leaderboard, and open the **Properties** window.
 2. Open the **Global Leaderboards** window, and find the Leaderboard to add.
@@ -115,13 +121,9 @@ end
 
 ### META Leaderboards
 
-Leaderboards is a component that simplifies the process of adding a global leaderboard to a game. It is as simple as dragging and dropping a leaderboard template into the hierarchy and adjusting to meet your needs.
+![META Leaderboards](../img/Leaderboards/Leaderboards_MetaLeaderboards.png){: .center loading="lazy" }
 
-Both World and UI versions supported.
-
-Created by @NicholasForeman of Team META
-
-Make sure to read the Leaderboards_README file for setup and configuration instructions
+> Leaderboards is a component that simplifies the process of adding a global leaderboard to a game. It is as simple as dragging and dropping a leaderboard template into the hierarchy and adjusting to meet your needs.
 
 ---
 
