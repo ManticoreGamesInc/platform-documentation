@@ -120,6 +120,7 @@ hide:
 - [Dungeon Framework Reference](dungeon_framework_reference.md)
 - [Learn Core for Global Game Jam](global_game_jam.md)
 - [Interconnected Games](interconnected_games.md)
+- [Leaderboards Reference](leaderboards.md)
 - [Merged Models](merged_models.md)
 - [Modeling Basics](modeling_basics.md)
 - [Modeling Complex Objects](modeling_reference.md)
