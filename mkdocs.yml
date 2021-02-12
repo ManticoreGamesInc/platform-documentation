@@ -285,6 +285,7 @@ plugins:
   - git-revision-date-localized
   - autolinks
   - exclude-search:
+      exclude: generated/*.md
       exclude_tags: True
   - redirects:
       redirect_maps:
