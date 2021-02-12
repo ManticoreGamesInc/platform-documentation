@@ -49,9 +49,17 @@ Leaderboards are created through the **Global Leaderboards** window, and can be 
 
 ### Add a NetReference as a Custom Property
 
-To reference a Leaderboard in a script, use a [NetReference](https://docs.coregames.com/api/netreference/).
+To reference a Leaderboard in a script, use a [NetReference](netreference.md).
 
-![Open Global Leaderboard Window](../img/Leaderboards/Leaderboards_AddNetRef.mp4){: .center loading="lazy" }
+<div class="figure-block">
+    <figure>
+        <video style="height: auto" autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
+            <source src="/img/Leaderboards/Leaderboards_AddNetRef.webm" type="video/webm" alt="Open the Global Leaderboard Window"/>
+            <source src="/img/Leaderboards/Leaderboards_AddNetRef.mp4" type="video/mp4" alt="Open the Global Leaderboard Window"/>
+        </video>
+        <figcaption><em>Open the Global Leaderboard Window</em></figcaption>
+    </figure>
+</div>
 
 1. In the Hierarchy, select the script that will reference the Leaderboard, and open the **Properties** window.
 2. Open the **Global Leaderboards** window, and find the Leaderboard to add.
@@ -62,7 +70,7 @@ To reference a Leaderboard in a script, use a [NetReference](https://docs.corega
 
 Leaderboards do not instantly load, so the **HasLeaderboards** function can be used to check if it is loaded before displaying or adding new entries.
 
-This code shows an example of using [**Task.Spawn** with **Task.Wait**](https://docs.coregames.com/api/task/), to continue checking for a loaded Leaderboard before continuing to the next step
+This code shows an example of using [**Task.Spawn** with **Task.Wait**](task.md), to continue checking for a loaded Leaderboard before continuing to the next step
 
 ```lua
 function loadLeaderboard()
@@ -75,17 +83,19 @@ function loadLeaderboard()
 
 end
 
-Task.Spawn(loadLeaderboard) -- spawn this task instead of just calling the function so that the Task.Wait doesn't make anything else wait.
+-- spawn this task instead of just calling the function so that the Task.Wait doesn't make anything else wait.
+Task.Spawn(loadLeaderboard)
 ```
 
 ### Add an Entry to a Leaderboard
 
-The [Leaderboards **AddEntry**](https://docs.coregames.com/api/leaderboards/) function allows you to submit a score for a player to the Leaderboard, which will automatically be sorted.
+The [Leaderboards **AddEntry**](../api/leaderboards.md) function allows you to submit a score for a player to the Leaderboard, which will automatically be sorted.
 
 ```lua
 local propExampleLeaderboard = script:GetCustomProperty("ExampleLeaderboard") -- NetRef for the Leaderboard
 
-function WhenAPlayerScoresPoints(player, points) -- example function for any event that would create a score for the Leaderboard
+-- example function for any event that would create a score for the Leaderboard
+function WhenAPlayerScoresPoints(player, points)
     Leaderboards.SubmitPlayerScore(propExampleLeaderboard, player, points)
 end
 
@@ -93,24 +103,23 @@ end
 ```
 
 !!! note
-    You can add a string of up to 8 characters of additional data as a fourth parameter. See the [Leaderboards namespace](https://docs.coregames.com/api/leaderboards/) for more details.
+    You can add a string of up to 8 characters of additional data as a fourth parameter. See the [Leaderboards namespace](../api/leaderboards.md) for more details.
 
 ### Displaying Leaderboard Entries
 
-Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](https://docs.coregames.com/api/leaderboardentry/#api-leaderboardentry) which have name, id, score and additionalData properties that can be used to display the data.
+Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](leaderboardentry.md) which have name, id, score and additionalData properties that can be used to display the data.
 
-You can create a text asset that is spawned for each Leaderboard entry, or create a group of texts ahead of time for the total number of entries, and update their ``text`` property.
+You can create a text asset that is spawned for each Leaderboard entry, or create a group of texts ahead of time for the total number of entries, and update their `text` property.
 
 ```lua
 local propExampleLeaderboard = script:GetCustomProperty("ExampleLeaderboard") -- NetRef for the Leaderboard
-
 
 function showExampleLeaderboard()
     local entryTable = Leaderboards.GetLeaderboard()
     for _, entry in ipairs(entryTable) do
         print("name: " .. entry.name .. " score: " .. entry.score) -- This will only print to Event Log
 
-        -- Create a UI Text or World Text asset to change here instead. 
+        -- Create a UI Text or World Text asset to change here instead.
 
     end
 end
@@ -130,4 +139,4 @@ end
 
 ## Learn More
 
-[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](https://docs.coregames.com/api/leaderboards/) | [LeaderboardEntry Object in the Core API](https://docs.coregames.com/api/leaderboardentry/) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](https://docs.coregames.com/api/task/)
+[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](../api/leaderboards.md) | [LeaderboardEntry Object in the Core API](leaderboardentry.md) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](task.md)
