@@ -109,17 +109,18 @@ function showExampleLeaderboard()
     local entryTable = Leaderboards.GetLeaderboard()
     for _, entry in ipairs(entryTable) do
         print("name: " .. entry.name .. " score: " .. entry.score) -- This will only print to Event Log
+
         -- Create a UI Text or World Text asset to change here instead. 
+
     end
 end
 
 -- call the showExampleLeaderboard function in a loadLeaderboard function like in the Loading Leaderboards example.
-
 ```
 
 ## Leaderboards on Community Content
 
-### META Leaderboards
+### META World and Interface Leaderboards
 
 ![META Leaderboards](../img/Leaderboards/Leaderboards_MetaLeaderboards.png){: .center loading="lazy" }
 
