@@ -72,6 +72,7 @@ nav:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
           - Game Components: api/components.md
           - Interconnected Games: tutorials/interconnected_games.md
+          - Leaderboards: tutorials/leaderboards.md
           - Merged Models: tutorials/merged_models.md
           - Modeling Reference: tutorials/modeling_reference.md
           - Networking: tutorials/networking.md
@@ -208,7 +209,7 @@ theme:
 
 extra_css:
   - assets/stylesheets/lite-yt-embed.css
-  - assets/stylesheets/algolia.css
+  - assets/stylesheets/docsearch.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
@@ -284,6 +285,9 @@ plugins:
       tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
+  - exclude-search:
+      exclude: generated/*.md
+      exclude_tags: True
   - redirects:
       redirect_maps:
         getting_started.md: getting_started/editor_intro.md
