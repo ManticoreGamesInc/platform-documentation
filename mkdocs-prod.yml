@@ -208,7 +208,7 @@ theme:
 
 extra_css:
   - assets/stylesheets/lite-yt-embed.css
-  - assets/stylesheets/algolia.css
+  - assets/stylesheets/docsearch.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
