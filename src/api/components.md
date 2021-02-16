@@ -1,3 +1,12 @@
+---
+id: core_game_components
+name: Core Game Components
+title: Core Game Components
+tags:
+    - API
+    - Reference
+---
+
 # Core Game Components
 
 ## Basic Game State
