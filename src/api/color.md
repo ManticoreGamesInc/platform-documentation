@@ -58,7 +58,7 @@ An RGBA representation of a color. Color components have an effective range of `
 
 ## Extra Data
 
-#### Predefined Colors
+### Predefined Colors
 
 | HEX Value | Enum Name | HEX Value | Enum Name |
 | --------- | --------- | --------- | --------- |
