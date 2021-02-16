@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Vector3
-
-## Description
+# Vector3
 
 A three-component vector that can represent a position or direction.
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -24,7 +20,7 @@ A three-component vector that can represent a position or direction.
 | `Vector3.New(Vector3 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
 | `Vector3.New(Vector4 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
 
-### Constants
+## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -34,7 +30,7 @@ A three-component vector that can represent a position or direction.
 | `Vector3.UP` | `Vector3` | (0, 0, 1) | None |
 | `Vector3.RIGHT` | `Vector3` | (0, 1, 0) | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -44,19 +40,19 @@ A three-component vector that can represent a position or direction.
 | `size` | `Number` | The magnitude of the Vector3. | Read-Only |
 | `sizeSquared` | `Number` | The squared magnitude of the Vector3. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | `Vector3` | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
 
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | `Vector3` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
 
-### Operators
+## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -74,6 +70,8 @@ A three-component vector that can represent a position or direction.
 | `Vector3 ^ Vector3` | `Vector3` | Returns the cross product of the Vector3s. | None |
 
 ## Examples
+
+Using:
 
 - `Lerp`
 
@@ -101,6 +99,8 @@ print("Tah dah!")
 
 ---
 
+Using:
+
 - `New`
 
 There are several different ways to create Vector3s. You can directly specify the x, y, z coordinates, or you can feed it a Vector2 or Vector4 to pull coordinates from, or you can just give it a single number to apply to x y and z.
@@ -126,14 +126,12 @@ local copyOfVector3_3 = Vector3.New(myVector3_3)
 
 ---
 
+Using:
+
 - `ZERO`
-
 - `ONE`
-
 - `FORWARD`
-
 - `UP`
-
 - `RIGHT`
 
 The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
@@ -152,24 +150,17 @@ print(Vector3.UP)    -- (0, 0, 1)
 
 ---
 
+Using:
+
 - `Vector3+Vector3`
-
 - `Vector3+Number`
-
 - `Vector3-Vector3`
-
 - `Vector3-Number`
-
 - `Vector3*Vector3`
-
 - `Vector3*Number`
-
 - `Number*Vector3`
-
 - `Vector3/Vector3`
-
 - `Vector3/Number`
-
 - `-Vector3`
 
 Most arithmetic operators will work on Vector3s in straightforward ways.
@@ -203,10 +194,10 @@ print(-a) -- -1, -2, -3
 
 ---
 
+Using:
+
 - `GetNormalized()`
-
 - `Vector3`
-
 - `Vector3^Vector3`
 
 A normalized vector is a vector who's magnitude (size) is equal to 1. Vector3 variables have a `GetNormalized()` function, which returns this value. Its equivalent to dividing the vector by its own size, and is useful in linear algebra.
@@ -259,8 +250,9 @@ end
 
 ---
 
-- `size`
+Using:
 
+- `size`
 - `sizeSquared`
 
 A lot of vector math requires knowing the magnitude of a vector - i. e. if you think of the vector as a point, how far away is it from (0, 0, 0)?
@@ -298,10 +290,10 @@ end
 
 ---
 
+Using:
+
 - `x`
-
 - `y`
-
 - `z`
 
 After creating a `Vector3`, we can read or write to its x, y, z components directly.

@@ -6,28 +6,26 @@ tags:
     - API
 ---
 
-# API: Object
-
-## Description
+# Object
 
 At a high level, Core Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include CoreObject, Player and Projectile.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `serverUserData` | `table` | Table in which users can store any data they want on the server. | Read-Write, Server-Only |
 | `clientUserData` | `table` | Table in which users can store any data they want on the client. | Read-Write, Client-Only |
 
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Object.IsValid(Object object)` | `bool` | Returns true if object is still a valid Object, or false if it has been destroyed. Also returns false if passed a nil value or something that's not an Object, such as a Vector3 or a string. | None |
 
 ## Examples
+
+Using:
 
 - `IsValid`
 
@@ -73,6 +71,8 @@ PrintCubeInfo()
 
 ---
 
+Using:
+
 - `clientUserData`
 
 In this example, multiple copies of the same script are placed into the scene. At startup, they search for each other and build a follow chain. The last script that can't find another script to follow is set to follow the local player. As the player moves around the chain of objects follows along in a smooth motion. The `clientUserData` property is leveraged in building the chain of object references.
@@ -117,6 +117,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `serverUserData`
 

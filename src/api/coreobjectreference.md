@@ -6,24 +6,20 @@ tags:
     - API
 ---
 
-# API: CoreObjectReference
-
-## Description
+# CoreObjectReference
 
 A reference to a CoreObject which may or may not exist. This type is returned by `CoreObject:GetCustomProperty()` for CoreObjectReference properties, and may be used to find the actual object if it exists.
 
 In the case of networked objects it's possible to get a CoreObjectReference pointing to a CoreObject that hasn't been received on the client yet.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `id` | `string` | The MUID of the referred object. | Read-Only |
 | `isAssigned` | `bool` | Returns true if this reference has been assigned a valid ID. This does not necessarily mean the object currently exists. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -32,12 +28,11 @@ In the case of networked objects it's possible to get a CoreObjectReference poin
 
 ## Examples
 
+Using:
+
 - `GetObject`
-
 - `WaitForObject`
-
 - `id`
-
 - `isAssigned`
 
 Sometimes you need to pass around a reference to a core object, instead of the actual object itself. This is most common when accessing custom properties - any core objects you have attached as custom properties are stored as `CoreObjectReferences`.

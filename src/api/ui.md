@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: UI
-
-## Description
+# UI
 
 The UI namespace contains a set of class functions allowing you to get information about a Player's display and push information to their HUD. Most functions require the script to be inside a ClientContext and execute for the local Player.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |

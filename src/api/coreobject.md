@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: CoreObject
-
-## Description
+# CoreObject
 
 CoreObject is an Object placed in the scene hierarchy during edit mode or is part of a template. Usually they'll be a more specific type of CoreObject, but all CoreObjects have these properties and functions:
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -31,7 +27,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `lifeSpan` | `Number` | Duration after which the object is destroyed. | Read-Write |
 | `sourceTemplateId` | `string` | The ID of the Template from which this CoreObject was instantiated. `nil` if the object did not come from a Template. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -94,7 +90,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `LookAtLocalView([bool])` | `None` | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | None |
 | `Destroy()` | `None` | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -106,6 +102,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `networkedPropertyChangedEvent` | `Event<CoreObject owner, string propertyName>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
 ## Examples
+
+Using:
 
 - `childAddedEvent`
 
@@ -131,6 +129,8 @@ local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 
 ---
 
+Using:
+
 - `childRemovedEvent`
 
 This event fires when a direct child of the object is removed.
@@ -153,6 +153,8 @@ obj2:Destroy()
 ```
 
 ---
+
+Using:
 
 - `descendantAddedEvent`
 
@@ -177,6 +179,8 @@ local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 ```
 
 ---
+
+Using:
 
 - `descendantRemovedEvent`
 
@@ -204,10 +208,10 @@ obj2:Destroy()
 
 ---
 
+Using:
+
 - `destroyEvent`
-
 - `Destroy`
-
 - `lifeSpan`
 
 There are several ways of destroying `CoreObject`s, and noticing when they are destroyed.
@@ -260,14 +264,12 @@ Task.Wait(1)
 
 ---
 
+Using:
+
 - `AttachToPlayer`
-
 - `AttachToLocalView`
-
 - `Detach`
-
 - `GetAttachedToSocketName`
-
 - `GetAttachedObjects`
 
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
@@ -303,6 +305,8 @@ cube:AttachToLocalView()
 
 ---
 
+Using:
+
 - `Destroy`
 
 A simple example on how to destroy a CoreObject.
@@ -317,12 +321,11 @@ cube:Destroy() -- This will destroy the object.
 
 ---
 
+Using:
+
 - `Follow`
-
 - `LookAt`
-
 - `LookAtContinuous`
-
 - `LookAtLocalView`
 
 There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world. There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object. And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
@@ -356,28 +359,19 @@ Task.Wait(5)
 
 ---
 
+Using:
+
 - `GetChildren`
-
 - `FindAncestorByName`
-
 - `FindChildByName`
-
 - `FindDescendantByName`
-
 - `FindDescendantsByName`
-
 - `FindAncestorByType`
-
 - `FindChildByType`
-
 - `FindDescendantByType`
-
 - `FindDescendantsByType`
-
 - `FindTemplateRoot`
-
 - `IsAncestorOf`
-
 - `parent`
 
 You can inspect most of the hierarchy at runtime.
@@ -448,8 +442,9 @@ local templateRoot = template1:FindTemplateRoot()
 
 ---
 
-- `GetCustomProperties`
+Using:
 
+- `GetCustomProperties`
 - `GetCustomProperty`
 
 Almost any object in the hierarchy can have "custom properties" associated with it. These are values that you can change in the editor, but that scripts can easily access. They're useful for making modular components that can be configured without needing to modify Lua code. You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
@@ -482,36 +477,23 @@ end
 
 ---
 
+Using:
+
 - `GetTransform`
-
 - `SetTransform`
-
 - `GetPosition`
-
 - `SetPosition`
-
 - `GetRotation`
-
 - `SetRotation`
-
 - `GetScale`
-
 - `SetScale`
-
 - `GetWorldTransform`
-
 - `SetWorldTransform`
-
 - `GetWorldPosition`
-
 - `SetWorldPosition`
-
 - `GetWorldRotation`
-
 - `SetWorldRotation`
-
 - `GetWorldScale`
-
 - `SetWorldScale`
 
 One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
@@ -558,14 +540,12 @@ cube4:SetTransform(cube2:GetTransform())
 
 ---
 
+Using:
+
 - `GetVelocity`
-
 - `SetVelocity`
-
 - `GetAngularVelocity`
-
 - `SetAngularVelocity`
-
 - `SetLocalAngularVelocity`
 
 Some core objects are handled by the physics system. Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
@@ -591,22 +571,16 @@ sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 
 ---
 
+Using:
+
 - `MoveTo`
-
 - `RotateTo`
-
 - `ScaleTo`
-
 - `MoveContinuous`
-
 - `RotateContinuous`
-
 - `ScaleContinuous`
-
 - `StopMove`
-
 - `StopRotate`
-
 - `StopScale`
 
 There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
@@ -644,10 +618,10 @@ shrinkingCube:StopScale()
 
 ---
 
+Using:
+
 - `SetNetworkedCustomProperty`
-
 - `networkedPropertyChangedEvent`
-
 - `GetReference`
 
 Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
@@ -697,18 +671,14 @@ script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetRefere
 
 ---
 
+Using:
+
 - `name`
-
 - `id`
-
 - `sourceTemplateId`
-
 - `isStatic`
-
 - `isClientOnly`
-
 - `isServerOnly`
-
 - `isNetworked`
 
 You can find out a lot about an object via its CoreProperties.
@@ -746,16 +716,13 @@ if template.isStatic then print("It is Static") end
 
 ---
 
+Using:
+
 - `visibility`
-
 - `collision`
-
 - `isEnabled`
-
 - `IsVisibleInHierarchy`
-
 - `IsCollidableInHierarchy`
-
 - `IsEnabledInHierarchy`
 
 You can make objects appear and disappear in the world in several different ways.

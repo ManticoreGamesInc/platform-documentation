@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: CoreMath
-
-## Description
+# CoreMath
 
 The CoreMath namespace contains a set of math functions.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |

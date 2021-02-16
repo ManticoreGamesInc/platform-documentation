@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: AbilityPhaseSettings
-
-## Description
+# AbilityPhaseSettings
 
 Each phase of an Ability can be configured differently, allowing complex and different Abilities. AbilityPhaseSettings is an Object.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

@@ -6,8 +6,6 @@ tags:
     - API
 ---
 
-# API: Terrain
-
-## Description
+# Terrain
 
 Terrain is a CoreObject representing terrain placed in the world.

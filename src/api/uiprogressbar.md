@@ -6,21 +6,17 @@ tags:
     - API
 ---
 
-# API: UIProgressBar
-
-## Description
+# UIProgressBar
 
 A UIControl that displays a filled rectangle which can be used for things such as a health indicator.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `progress` | `Number` | From 0 to 1, how full the bar should be. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

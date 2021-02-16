@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: World
-
-## Description
+# World
 
 World is a collection of functions for finding objects in the world.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -27,6 +23,8 @@ World is a collection of functions for finding objects in the world.
 | `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | `HitResult` | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. | None |
 
 ## Examples
+
+Using:
 
 - `FindObjectById`
 
@@ -42,6 +40,8 @@ end
 
 ---
 
+Using:
+
 - `FindObjectByName`
 
 Returns only one object with the given name. This example searches the entire hierarchy for the default floor object and prints a warning if it's found.
@@ -55,6 +55,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `FindObjectsByName`
 
@@ -85,6 +87,8 @@ print("Team 3 has " .. team2Count .. " spawn points.")
 
 ---
 
+Using:
+
 - `FindObjectsByType`
 
 This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
@@ -108,6 +112,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
+Using:
+
 - `GetRootObject`
 
 There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
@@ -125,6 +131,8 @@ PrintAllNames(worldRoot)
 ```
 
 ---
+
+Using:
 
 - `Raycast`
 
@@ -151,6 +159,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `SpawnAsset`
 
