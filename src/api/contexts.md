@@ -3,7 +3,8 @@ id: contexts
 name: Contexts
 title: Contexts
 tags:
-    - Misc
+    - API
+    - Reference
 ---
 
 # Contexts
