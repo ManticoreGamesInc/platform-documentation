@@ -5,6 +5,7 @@ title: Core API
 hide:
     - toc
 tags:
+    - API
     - Reference
 ---
 

@@ -9,14 +9,18 @@ hide:
 
 ## API
 
+- [Core API](index.md)
 - [Ability](ability.md)
 - [AbilityPhaseSettings](abilityphasesettings.md)
 - [AbilityTarget](abilitytarget.md)
 - [AnimatedMesh](animatedmesh.md)
+- [Player Animations & Sockets](animations.md)
 - [AreaLight](arealight.md)
 - [Audio](audio.md)
 - [Camera](camera.md)
 - [Color](color.md)
+- [Core Game Components](components.md)
+- [Contexts](contexts.md)
 - [CoreDebug](coredebug.md)
 - [CoreLuaFunctions](coreluafunctions.md)
 - [CoreMath](coremath.md)
@@ -88,7 +92,6 @@ hide:
 ## Misc
 
 - [Editor Extensions](extensions.md)
-- [Contexts](contexts.md)
 
 ## Perks
 
@@ -101,6 +104,9 @@ hide:
 
 - [Core Editor Key Bindings](editor_keybindings.md)
 - [Core API](index.md)
+- [Player Animations & Sockets](animations.md)
+- [Core Game Components](components.md)
+- [Contexts](contexts.md)
 - [Key Binding List](key_bindings.md)
 - [Community Content](community_content.md)
 - [Getting Help in Core](core_help.md)
