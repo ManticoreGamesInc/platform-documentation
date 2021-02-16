@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: UIText
-
-## Description
+# UIText
 
 A UIControl which displays a basic text label.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -24,7 +20,7 @@ A UIControl which displays a basic text label.
 | `shouldWrapText` | `bool` | Whether or not text should be wrapped within the bounds of this control. | Read-Write |
 | `shouldClipText` | `bool` | Whether or not text should be clipped when exceeding the bounds of this control. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

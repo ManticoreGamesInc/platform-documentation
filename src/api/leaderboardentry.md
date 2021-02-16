@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: LeaderboardEntry
-
-## Description
+# LeaderboardEntry
 
 A data structure containing a player's entry on a leaderboard. See the `Leaderboards` API for information on how to retrieve or update a `LeaderboardEntry`.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

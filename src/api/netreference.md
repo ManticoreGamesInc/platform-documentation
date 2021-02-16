@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: NetReference
-
-## Description
+# NetReference
 
 A reference to a network resource, such as a player leaderboard. NetReferences are not created directly, but may be returned by `CoreObject:GetCustomProperty()`.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

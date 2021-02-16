@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Leaderboards
-
-## Description
+# Leaderboards
 
 The Leaderboards namespace contains a set of functions for retrieving and updating player leaderboard data. Use the Global Leaderboards tab in the Core Editor to configure leaderboards for your game. Then drag a leaderboard from the Global Leaderboards tab to a `NetReference` custom property for use with the Leaderboards API.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -24,18 +20,14 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 ## Examples
 
+Using:
+
 - `HasLeaderboards`
-
 - `GetLeaderboard`
-
 - `SubmitPlayerScore`
-
 - `id`
-
 - `name`
-
 - `score`
-
 - `additionalData`
 
 The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data. This is a special kind of persistence that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.

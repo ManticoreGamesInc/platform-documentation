@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Projectile
-
-## Description
+# Projectile
 
 Projectile is a specialized Object which moves through the air in a parabolic shape and impacts other objects. To spawn a Projectile, use `Projectile.Spawn()`.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -35,7 +31,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `homingAcceleration` | `Number` | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
 | `shouldDieOnImpact` | `bool` | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -46,13 +42,13 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `GetVelocity()` | `Vector3` | Current direction and speed vector of the Projectile. | None |
 | `SetVelocity(Vector3)` | `None` | Current direction and speed vector of the Projectile. | None |
 
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | `Projectile` | Spawns a Projectile with a child that is an instance of a template. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -62,10 +58,10 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 ## Examples
 
+Using:
+
 - `Spawn`
-
 - `lifeSpanEndedEvent`
-
 - `lifeSpan`
 
 Like `CoreObjects`, Projectiles have a `lifeSpan` property, which is the maximum number of seconds a projectile can be kept around. Once that time is up, the projectile is automatically destroyed by the engine.
@@ -92,6 +88,8 @@ mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
 
 ---
+
+Using:
 
 - `homingFailedEvent`
 
@@ -126,6 +124,8 @@ objectInWorld:Destroy()
 
 ---
 
+Using:
+
 - `impactEvent`
 
 When a projectile hits a surface, it triggers an `impactEvent`, which is given various information about exactly what collided with what, and where.
@@ -155,6 +155,8 @@ end)
 
 ---
 
+Using:
+
 - `Destroy`
 
 Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet. When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immediately removed from the game and no events are generated.
@@ -181,12 +183,11 @@ print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
 
 ---
 
+Using:
+
 - `GetWorldTransform`
-
 - `GetWorldPosition`
-
 - `GetVelocity`
-
 - `SetVelocity`
 
 We can get various information about a projectile's position and velocity via several functions. `GetWorldTransform()` and `GetWorldPosition()` functions can tell us where it is and where it is facing. `GetVelocity()` tells us where it is moving and how fast. And `SetVelocity()` allows us to change its direction in mid-flight.
@@ -236,8 +237,9 @@ end)
 
 ---
 
-- `capsuleLength`
+Using:
 
+- `capsuleLength`
 - `capsuleRadius`
 
 When Core performs collision checks (to see if a projectile has hit anything) it assumes the projectile is a _capsule._  That is, a cylinder with a hemisphere on each flat end.
@@ -285,12 +287,11 @@ sphereProjectile.capsuleLength = 0
 
 ---
 
+Using:
+
 - `gravityScale`
-
 - `bouncesRemaining`
-
 - `bounciness`
-
 - `shouldBounceOnPlayers`
 
 By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controlled via the `bounciness` property.
@@ -342,10 +343,10 @@ lessBouncyProjectile.bounciness = 0.2
 
 ---
 
+Using:
+
 - `homingTarget`
-
 - `drag`
-
 - `homingAcceleration`
 
 Projectiles can be set to home in on targets, via the `homingTarget` property. This can be either a player or a CoreObject.
@@ -382,6 +383,8 @@ end)
 ```
 
 ---
+
+Using:
 
 - `owner`
 
@@ -424,8 +427,9 @@ end
 
 ---
 
-- `piercesRemaining`
+Using:
 
+- `piercesRemaining`
 - `shouldDieOnImpact`
 
 Projectiles have the `piercesRemaining` property, which controls how many times they penetrate objects and keep going. In this sample, we spawn several walls and fire several projectiles at them, with different penetration numbers.
@@ -471,6 +475,8 @@ DontDieOnImpact.shouldDieOnImpact = false
 
 ---
 
+Using:
+
 - `sourceAbility`
 
 Projectiles have a field to report what ability spawned them. If the projectile is fired by a weapon, then the weapon automatically populates the sourceAbility property. If you spawn projectiles manually via spawnProjectile, then you are responsible for populating it yourself.
@@ -502,8 +508,9 @@ end)
 
 ---
 
-- `speed`
+Using:
 
+- `speed`
 - `maxSpeed`
 
 You can set the speed of a projectile directly, via the `speed` property. Note that this does not change the direction of a projectile - only how fast it is moving in whatever direction it is already pointing in.

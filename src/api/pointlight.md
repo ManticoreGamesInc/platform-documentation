@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: PointLight
-
-## Description
+# PointLight
 
 PointLight is a placeable light source that is a CoreObject.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

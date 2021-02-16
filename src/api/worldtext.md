@@ -6,21 +6,17 @@ tags:
     - API
 ---
 
-# API: WorldText
-
-## Description
+# WorldText
 
 WorldText is an in-world text CoreObject.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `text` | `string` | The text being displayed by this object. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -29,8 +25,9 @@ WorldText is an in-world text CoreObject.
 
 ## Examples
 
-- `GetColor`
+Using:
 
+- `GetColor`
 - `SetColor`
 
 In this example, a WorldText object that is placed in the scene changes color gradually from white to black. The script expects to be a child of the WorldText. Notice that if you run this in multiplayer mode, the color changes will not be as smooth as in single-player preview. To fix that place the WorldText + Script hierarchy under a Client Context.
@@ -53,6 +50,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `text`
 

@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: SpotLight
-
-## Description
+# SpotLight
 
 SpotLight is a Light that shines in a specific direction from the location at which it is placed.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

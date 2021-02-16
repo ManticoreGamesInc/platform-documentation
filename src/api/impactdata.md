@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: ImpactData
-
-## Description
+# ImpactData
 
 A data structure containing all information about a specific Weapon interaction, such as collision with a character.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -26,7 +22,7 @@ A data structure containing all information about a specific Weapon interaction,
 | `travelDistance` | `Number` | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
 | `isHeadshot` | `bool` | True if the Weapon hit another player in the head. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -34,6 +30,8 @@ A data structure containing all information about a specific Weapon interaction,
 | `GetHitResults()` | `Array<HitResult>` | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
 
 ## Examples
+
+Using:
 
 - `GetHitResult`
 
@@ -87,12 +85,11 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ---
 
+Using:
+
 - `GetHitResults`
-
 - `targetObject`
-
 - `weaponOwner`
-
 - `isHeadshot`
 
 When it comes to weapons damaging players, there is a built-in damage value that works. However, additional mechanics can be layered on top, with scripts. In this example, some weapons can have multiple shots at once (e.g. Shotgun) and headshots are defined to have a different damage value. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
@@ -134,6 +131,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ---
 
+Using:
+
 - `projectile`
 
 Projectiles that are fired from weapons cannot be controlled in the same was as projectiles that are created with `Projectile.Spawn()`. That's because they are client-predicted, which is a tradeoff that usually leads to better gameplay fidelity. That said, there are still mechanics that can be explored with access to the `ImpactData`'s projectile object. In this example, the weapon is setup with a value on the `Projectile Pierces` property. This causes shots to go through objects. In this hypothetical game we want shots that hit player limbs to go through them and hit objects behind. If the impact happened on any other object or part of their body, then we destroy the projectile.
@@ -169,6 +168,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 
 ---
 
+Using:
+
 - `sourceAbility`
 
 In this example, the shoot ability is manipulated as a result of the `targetImpactEvent`. If the shot was a headshot the ability continues as normal and will immediately refresh. However, if it was not a headshot there is an additional 1 second delay during which the player can't use the shoot ability.
@@ -195,6 +196,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
 ---
+
+Using:
 
 - `travelDistance`
 
@@ -234,6 +237,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
 ---
+
+Using:
 
 - `weapon`
 

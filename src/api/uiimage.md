@@ -6,22 +6,18 @@ tags:
     - API
 ---
 
-# API: UIImage
-
-## Description
+# UIImage
 
 A UIControl for displaying an image.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isTeamColorUsed` | `bool` | If `true`, the image will be tinted blue if its team matches the Player, or red if not. | Read-Write |
 | `team` | `Integer` | the team of the image, used for `isTeamColorUsed`. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Vector4
-
-## Description
+# Vector4
 
 A four-component vector.
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -25,14 +21,14 @@ A four-component vector.
 | `Vector4.New(Vector2 xy, Vector2 zw)` | `Vector4` | Constructs a Vector4 with `x`, `y` values from the first Vector2 and `z`, `w` values from the second Vector2. | None |
 | `Vector4.New(Color v)` | `Vector4` | Constructs a Vector4 with `x`, `y`, `z`, `w` values mapped from the given Color's `r`, `g`, `b`, `a` values. | None |
 
-### Constants
+## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Vector4.ZERO` | `Vector4` | (0, 0, 0, 0) | None |
 | `Vector4.ONE` | `Vector4` | (1, 1, 1, 1) | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -43,19 +39,19 @@ A four-component vector.
 | `size` | `Number` | The magnitude of the Vector4. | Read-Only |
 | `sizeSquared` | `Number` | The squared magnitude of the Vector4. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | `Vector4` | Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized. | None |
 
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Vector4.Lerp(Vector4 from, Vector4 to, Number progress)` | `Vector4` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector4. | None |
 
-### Operators
+## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

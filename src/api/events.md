@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Events
-
-## Description
+# Events
 
 User defined events can be specified using the Events namespace. The Events namespace uses the following class functions:
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -25,7 +21,7 @@ User defined events can be specified using the Events namespace. The Events name
 | `Events.BroadcastToPlayer(Player player, string eventName, [...])` | `<BroadcastEventResultCode, string errorMessage>` | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
 | `Events.BroadcastToServer(string eventName, [...])` | `<BroadcastEventResultCode, string errorMessage>` | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client-Only |
 
-### Extra Data
+## Extra Data
 
 ??? "Broadcast Event Result Codes"
     - BroadcastEventResultCode.SUCCESS
@@ -49,6 +45,8 @@ User defined events can be specified using the Events namespace. The Events name
     - Vector4
 
 ## Examples
+
+Using:
 
 - `BroadcastToAllPlayers`
 
@@ -85,6 +83,8 @@ Events.Connect("FlagCaptured", OnFlagCaptured)
 
 ---
 
+Using:
+
 - `BroadcastToPlayer`
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
@@ -111,8 +111,9 @@ ABILITY.executeEvent:Connect(OnExecute)
 
 ---
 
-- `Connect`
+Using:
 
+- `Connect`
 - `Broadcast`
 
 The `Events` namespace allows two separate scripts to communicate without the need to reference each other directly. In this example, two scripts communicate through a custom "GameStateChanged" event. The first one has the beginnings of a state machine and broadcasts the event each time the state changes. The second script listens for that specific event. This is a non-networked message.
@@ -146,8 +147,9 @@ Events.Connect("GameStateChanged", OnStateChanged)
 
 ---
 
-- `ConnectForPlayer`
+Using:
 
+- `ConnectForPlayer`
 - `BroadcastToServer`
 
 This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client can send input data to the server, in this case their cursor's position.

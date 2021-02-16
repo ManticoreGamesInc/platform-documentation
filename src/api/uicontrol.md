@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: UIControl
-
-## Description
+# UIControl
 
 UIControl is a CoreObject which serves as a base class for other UI controls.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

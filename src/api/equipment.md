@@ -6,22 +6,18 @@ tags:
     - API
 ---
 
-# API: Equipment
-
-## Description
+# Equipment
 
 Equipment is a CoreObject representing an equippable item for players. They generally have a visual component that attaches to the Player, but a visual component is not a requirement. Any Ability objects added as children of the Equipment are added/removed from the Player automatically as it becomes equipped/unequipped.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `socket` | `string` | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Read-Write |
 | `owner` | `Player` | Which Player the Equipment is attached to. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -30,7 +26,7 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 | `AddAbility(Ability)` | `None` | Adds an Ability to the list of abilities on this Equipment. | None |
 | `GetAbilities()` | `Array<Ability>` | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -39,8 +35,9 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 ## Examples
 
-- `equippedEvent`
+Using:
 
+- `equippedEvent`
 - `unequippedEvent`
 
 Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
@@ -65,6 +62,8 @@ primaryEquipment.unequippedEvent:Connect(OnUnequipped)
 ```
 
 ---
+
+Using:
 
 - `AddAbility`
 
@@ -101,6 +100,8 @@ end
 
 ---
 
+Using:
+
 - `Equip`
 
 This example shows how players can be given default equipment when they join a game.
@@ -117,6 +118,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ---
+
+Using:
 
 - `GetAbilities`
 
@@ -142,6 +145,8 @@ RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
 ```
 
 ---
+
+Using:
 
 - `Unequip`
 
@@ -184,6 +189,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
+Using:
+
 - `owner`
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
@@ -201,6 +208,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
 ---
+
+Using:
 
 - `socket`
 
