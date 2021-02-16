@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: SmartAudio
-
-## Description
+# SmartAudio
 
 SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio objects, they have many of the same properties and functions.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -34,7 +30,7 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 | `startTime` | `Number` | The start time of the audio track. Default is 0. Setting this to anything else means that the audio will skip ahead that many seconds when played. | Read-Write |
 | `stopTime` | `Number` | The stop time of the audio track. Default is 0. A positive value means that the audio will stop that many seconds from the start of the track, including any fade out time. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

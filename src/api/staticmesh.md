@@ -6,23 +6,21 @@ tags:
     - API
 ---
 
-# API: StaticMesh
-
-## Description
+# StaticMesh
 
 StaticMesh is a static CoreMesh. StaticMeshes can be placed in the scene and (if networked or client-only) moved at runtime, but the mesh itself cannot be animated.
 
 See AnimatedMesh for meshes with animations.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isSimulatingDebrisPhysics` | `bool` | If `true`, physics will be enabled for the mesh. | Read-Write, Client-Only |
 
 ## Examples
+
+Using:
 
 - `isSimulatingDebrisPhysics`
 

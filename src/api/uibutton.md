@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: UIButton
-
-## Description
+# UIButton
 
 A UIControl for a button, should be inside client context.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -22,7 +18,7 @@ A UIControl for a button, should be inside client context.
 | `fontSize` | `Integer` | Returns the font size of the label text. | Read-Write |
 | `isInteractable` | `bool` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -38,7 +34,7 @@ A UIControl for a button, should be inside client context.
 | `SetFontColor(Color)` | `None` | Sets the font's color. | None |
 | `SetImage(string brushMUID)` | `None` | Sets the image to a new MUID. You can get this MUID from an Asset Reference. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |

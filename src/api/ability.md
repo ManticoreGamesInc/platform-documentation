@@ -6,9 +6,7 @@ tags:
     - API
 ---
 
-# API: Ability
-
-## Description
+# Ability
 
 Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.
 
@@ -18,9 +16,7 @@ Only one ability can be active at a time. By default, activating an ability will
 
 If an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -36,7 +32,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `animation` | `string` | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](../api/animations.md) for strings and other info. | Read-Only |
 | `canBePrevented` | `bool` | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -48,7 +44,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `GetTargetData()` | `AbilityTarget` | Returns information about what the Player has targeted this phase. | None |
 | `SetTargetData(AbilityTarget)` | `None` | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -61,6 +57,8 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `tickEvent` | `Event<Ability, Number deltaTime>` | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
 
 ## Examples
+
+Using:
 
 - `castEvent`
 
@@ -82,6 +80,8 @@ ability.castEvent:Connect(OnCast)
 
 ---
 
+Using:
+
 - `cooldownEvent`
 
 In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
@@ -102,6 +102,8 @@ ability.cooldownEvent:Connect(OnCooldown)
 ```
 
 ---
+
+Using:
 
 - `executeEvent`
 
@@ -125,6 +127,8 @@ ability.executeEvent:Connect(OnExecute)
 
 ---
 
+Using:
+
 - `interruptedEvent`
 
 The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
@@ -143,6 +147,8 @@ ability.interruptedEvent:Connect(OnInterrupted)
 ```
 
 ---
+
+Using:
 
 - `readyEvent`
 
@@ -166,6 +172,8 @@ ability.executeEvent:Connect(OnExecute)
 ```
 
 ---
+
+Using:
 
 - `recoveryEvent`
 
@@ -201,6 +209,8 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 
 ---
 
+Using:
+
 - `tickEvent`
 
 Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them. Note: `Ability.tickEvent` works somewhat differently from a `Tick()` function - `tickEvent` is an actual event that just happens to fire once per tick. Each invocation of the callback runs on its own task. This means that, unlike `Tick()`, there is no guarantee that it will wait for the previous `tickEvent` to finish before starting the next one. This means you can't use things like `Task.Wait()` to add time between ticks!
@@ -219,6 +229,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `Activate`
 
@@ -251,8 +263,9 @@ Events.Connect("SteppedOnObject", OnPlayAnimation)
 
 ---
 
-- `GetCurrentPhase`
+Using:
 
+- `GetCurrentPhase`
 - `GetPhaseTimeRemaining`
 
 In this example, while the ability is on cooldown the percent completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
@@ -273,8 +286,9 @@ end
 
 ---
 
-- `GetTargetData`
+Using:
 
+- `GetTargetData`
 - `SetTargetData`
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
@@ -296,6 +310,8 @@ ability.castEvent:Connect(OnCast)
 ```
 
 ---
+
+Using:
 
 - `Interrupt`
 
@@ -322,6 +338,8 @@ ability.executeEvent:Connect(OnExecute)
 ```
 
 ---
+
+Using:
 
 - `animation`
 
@@ -371,6 +389,8 @@ Game.playerLeftEvent:Connect(CleanupListeners)
 ```
 
 ---
+
+Using:
 
 - `canActivateWhileDead`
 
@@ -424,6 +444,8 @@ end
 
 ---
 
+Using:
+
 - `canBePrevented`
 
 In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
@@ -450,12 +472,11 @@ ability.interruptedEvent:Connect(OnInterrupted)
 
 ---
 
+Using:
+
 - `castPhaseSettings`
-
 - `executePhaseSettings`
-
 - `recoveryPhaseSettings`
-
 - `cooldownPhaseSettings`
 
 In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
@@ -501,6 +522,8 @@ end
 
 ---
 
+Using:
+
 - `isEnabled`
 
 In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
@@ -536,8 +559,9 @@ end
 
 ---
 
-- `name`
+Using:
 
+- `name`
 - `actionBinding`
 
 Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
@@ -568,6 +592,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `owner`
 

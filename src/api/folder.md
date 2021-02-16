@@ -6,9 +6,7 @@ tags:
     - API
 ---
 
-# API: Folder
-
-## Description
+# Folder
 
 Folder is a CoreObject representing a folder containing other objects.
 

@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: PhysicsObject
-
-## Description
+# PhysicsObject
 
 A CoreObject with simulated physics that can interact with players and other objects.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

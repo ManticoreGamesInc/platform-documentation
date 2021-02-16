@@ -6,17 +6,13 @@ tags:
     - API
 ---
 
-# API: Camera
-
-## Description
+# Camera
 
 Camera is a CoreObject which is used both to configure Player Camera settings as well as to represent the position and rotation of the Camera in the world. Cameras can be configured in various ways, usually following a specific Player's view, but can also have a fixed orientation and/or position.
 
 Each Player (on their client) can have a default Camera and an override Camera. If they have neither, camera behavior falls back to a basic third-person behavior. Default Cameras should be used for main gameplay while override Cameras are generally employed as a temporary view, such as a when the Player is sitting in a mounted turret.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -39,7 +35,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minYaw` | `Number` | The minimum yaw for free control. | Read-Write |
 | `maxYaw` | `Number` | The maximum yaw for free control. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -50,8 +46,9 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 ## Examples
 
-- `GetPositionOffset`
+Using:
 
+- `GetPositionOffset`
 - `SetPositionOffset`
 
 The following example implements a camera shake based on movement of the camera's z-axis. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
@@ -94,8 +91,9 @@ Events.Connect("CameraShake", StartShake)
 
 ---
 
-- `GetRotationOffset`
+Using:
 
+- `GetRotationOffset`
 - `SetRotationOffset`
 
 The following example implements a camera shake based on rotation of the camera's pitch. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
@@ -138,8 +136,9 @@ Events.Connect("CameraShake", StartShake)
 
 ---
 
-- `currentPitch`
+Using:
 
+- `currentPitch`
 - `currentYaw`
 
 This sample explores the parallel between the player's rotation, the camera's rotation and the camera's view angles expressed in the `currentPitch` and `currentYaw` properties. The camera's "free control" and "rotation mode" are adjusted so the view angle properties give useful information--that's because if "free control" is disabled the view angles always return zero. This script expects to be in a client context. Results will vary depending on player settings (e.g. Facing Mode) as well as other camera settings.
@@ -177,12 +176,11 @@ end
 
 ---
 
+Using:
+
 - `fieldOfView`
-
 - `isOrthographic`
-
 - `currentDistance`
-
 - `isDistanceAdjustable`
 
 The following example implements a zoom/scoping effect that activates by holding the secondary action (right mouse button, by default). The effect smoothly interpolates a few camera properties, in addition to making the player invisible to the local view, so they don't obstruct the camera during the zoom. This kind of mechanic is generally attached to a weapon, but in this case the script expects to be a child of the camera directly--no equipment is involved in this example.
@@ -271,6 +269,8 @@ player.bindingReleasedEvent:Connect(OnBindingReleased)
 
 ---
 
+Using:
+
 - `followPlayer`
 
 In this example, players can change their view to look at another player by pressing the secondary action (default is right mouse button). The script expects to be a child of the game's camera, which is usually in a client context.
@@ -318,22 +318,16 @@ Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 
 ---
 
+Using:
+
 - `rotationMode`
-
 - `hasFreeControl`
-
 - `minPitch`
-
 - `maxPitch`
-
 - `isYawLimited`
-
 - `minYaw`
-
 - `maxYaw`
-
 - `minDistance`
-
 - `maxDistance`
 
 In this example of an advanced spectator implementation, suitable for a third-person game, players are able to look through the view of others by pressing the secondary action (default is right mouse button). This example demonstrates how the spectator can be constrained (or not) to the look angle of the player they are following. If the `CONSTRAIN_SPECTATOR_LOOK` constant is set to true, then players will not be able to rotate the camera freely while they are spectating.
@@ -433,6 +427,8 @@ Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 
 ---
 
+Using:
+
 - `useCameraSocket`
 
 The following client script allows players in a first-person game to turn on/off the head-bob effect that is associated with the camera being attached to the camera socket. To toggle the head-bob press 0.
@@ -450,6 +446,8 @@ localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 ---
+
+Using:
 
 - `viewWidth`
 

@@ -6,8 +6,6 @@ tags:
     - API
 ---
 
-# API: MergedModel
-
-## Description
+# MergedModel
 
 MergedModel is a special Folder that combines CoreMesh descendants into a single mesh. Note that MergedModel is still a beta feature, and as such could change in the future.

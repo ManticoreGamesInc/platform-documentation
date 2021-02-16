@@ -6,21 +6,17 @@ tags:
     - API
 ---
 
-# API: Damage
-
-## Description
+# Damage
 
 To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Damage.New([Number amount])` | `Damage` | Constructs a damage object with the given number, defaults to 0. | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -29,7 +25,7 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | `sourceAbility` | `Ability` | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
 | `sourcePlayer` | `Player` | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -37,6 +33,8 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | `SetHitResult(HitResult)` | `None` | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
 
 ## Examples
+
+Using:
 
 - `New`
 
@@ -59,6 +57,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
+Using:
+
 - `GetHitResult`
 
 This example listens to the player's damagedEvent and takes a closer look at the HitResult object. This object is most commonly generated as a result of shooting a player with a weapon.
@@ -79,6 +79,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ---
+
+Using:
 
 - `SetHitResult`
 
@@ -108,6 +110,8 @@ end
 
 ---
 
+Using:
+
 - `amount`
 
 While Damage amount can be set when constructing the Damage object (e.g. Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
@@ -130,6 +134,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `reason`
 
@@ -163,6 +169,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 ---
 
+Using:
+
 - `sourceAbility`
 
 In this example, knowing the source of the damage was an ability allows complex rules, such as magic resistance.
@@ -190,6 +198,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ---
+
+Using:
 
 - `sourcePlayer`
 

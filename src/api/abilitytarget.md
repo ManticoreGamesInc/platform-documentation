@@ -6,21 +6,17 @@ tags:
     - API
 ---
 
-# API: AbilityTarget
-
-## Description
+# AbilityTarget
 
 A data type containing information about what the Player has targeted during a phase of an Ability.
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `AbilityTarget.New()` | `AbilityTarget` | Constructs a new Ability Target data object. | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -29,7 +25,7 @@ A data type containing information about what the Player has targeted during a p
 | `spreadHalfAngle` | `Number` | Half-angle of cone of possible target space, in degrees. | Read-Write |
 | `spreadRandomSeed` | `Integer` | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -44,6 +40,8 @@ A data type containing information about what the Player has targeted during a p
 | `GetHitResult()` | `HitResult` | Returns physics information about the point being targeted | None |
 
 ## Examples
+
+Using:
 
 - `New`
 
@@ -64,8 +62,9 @@ ability.castEvent:Connect(OnCast)
 
 ---
 
-- `GetAimPosition`
+Using:
 
+- `GetAimPosition`
 - `GetAimDirection`
 
 In this example, a non-weapon ability needs to know where the player is aiming in order to spawn the effect correctly. It creates an effect that moves down the center of where the camera is aiming. However, if the effect were to begin at the camera's position that could be weird in a third-person game. Instead, the player's position is projected onto the camera's vector to determine a more suitable starting point.
@@ -97,8 +96,9 @@ ability.executeEvent:Connect(OnExecute)
 
 ---
 
-- `GetHitPosition`
+Using:
 
+- `GetHitPosition`
 - `SetHitPosition`
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
@@ -120,6 +120,8 @@ ability.castEvent:Connect(OnCast)
 ```
 
 ---
+
+Using:
 
 - `GetHitResult`
 
@@ -144,8 +146,9 @@ ability.executeEvent:Connect(OnExecute)
 
 ---
 
-- `hitObject`
+Using:
 
+- `hitObject`
 - `hitPlayer`
 
 In this example, an ability casts a magical area of effect (AOE) in front of the player. In case the player was aiming at another player or object that position is used instead.

@@ -6,28 +6,24 @@ tags:
     - API
 ---
 
-# API: UIPerkPurchaseButton
-
-## Description
+# UIPerkPurchaseButton
 
 A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `isInteractable` | `bool` | Returns whether the button can interact with the cursor (click, hover, etc). | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetPerkReference()` | `NetReference` | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) | None |
 | `SetPerkReference(NetReference)` | `None` | Configures this button to use the specified perk. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |

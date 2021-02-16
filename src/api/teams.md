@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Teams
-
-## Description
+# Teams
 
 The Teams namespace contains a set of class functions for dealing with teams and team settings.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
