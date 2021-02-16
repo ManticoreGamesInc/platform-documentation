@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: CoreMesh
-
-## Description
+# CoreMesh
 
 CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It is the parent type for both AnimatedMesh and StaticMesh.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -25,7 +21,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 | `isCameraCollisionEnabled` | `bool` | If `false`, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write |
 | `meshAssetId` | `string` | The ID of the mesh asset used by this mesh. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -35,10 +31,10 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 
 ## Examples
 
+Using:
+
 - `GetColor`
-
 - `SetColor`
-
 - `ResetColor`
 
 You can set a color override for a mesh. Exactly what this means will depend on the material of the mesh, but in general, setting a mesh's color will make the mesh be tinted to match that color.
@@ -58,6 +54,8 @@ cube:ResetColor()
 
 ---
 
+Using:
+
 - `meshAssetId`
 
 You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from!
@@ -69,14 +67,12 @@ print("The asset ID is " .. cube.meshAssetId)
 
 ---
 
+Using:
+
 - `team`
-
 - `isTeamColorUsed`
-
 - `isTeamCollisionEnabled`
-
 - `isEnemyCollisionEnabled`
-
 - `isCameraCollisionEnabled`
 
 You can set a mesh to belong to a particular "team". These match the teams that players can be set to. (0-4)  There are also several properties that are keyed to what team an object is on.

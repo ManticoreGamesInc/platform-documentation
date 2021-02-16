@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Quaternion
-
-## Description
+# Quaternion
 
 A quaternion-based representation of a rotation.
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -24,13 +20,13 @@ A quaternion-based representation of a rotation.
 | `Quaternion.New(Vector3 from, Vector3 to)` | `Quaternion` | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
 | `Quaternion.New(Quaternion q)` | `Quaternion` | Copies the given Quaternion. | None |
 
-### Constants
+## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Quaternion.IDENTITY` | `Quaternion` | Predefined Quaternion with no rotation. | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -39,7 +35,7 @@ A quaternion-based representation of a rotation.
 | `z` | `Number` | The `z` component of the Quaternion. | Read-Write |
 | `w` | `Number` | The `w` component of the Quaternion. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -48,13 +44,13 @@ A quaternion-based representation of a rotation.
 | `GetRightVector()` | `Vector3` | Right unit vector rotated by the quaternion. | None |
 | `GetUpVector()` | `Vector3` | Up unit vector rotated by the quaternion. | None |
 
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Quaternion.Slerp(Quaternion from, Quaternion to, Number progress)` | `Quaternion` | Spherical interpolation between two quaternions by the specified progress amount and returns the resultant, normalized Quaternion. | None |
 
-### Operators
+## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -68,14 +64,12 @@ A quaternion-based representation of a rotation.
 
 ## Examples
 
+Using:
+
 - `Slerp`
-
 - `GetRotation`
-
 - `GetRightVector`
-
 - `GetUpVector`
-
 - `GetForwardVector`
 
 `Quaternion.Slerp` is a function for finding a quaternion that is part way between two other quaternions. Since quaternions represent rotations, this means a rotation that is part way between two other rotations. When combined with a tick function or loop, we can use it to smoothly animate something rotating.
@@ -114,8 +108,9 @@ print("Tah dah!")
 
 ---
 
-- `New`
+Using:
 
+- `New`
 - `IDENTITY`
 
 There are several different ways to create new Quaternions.
@@ -150,10 +145,10 @@ local directQuaternion = Quaternion.New(0, 0, sqrt2over2, sqrt2over2)
 
 ---
 
+Using:
+
 - `Quaternion*Quaternion`
-
 - `Quaternion*Vector3`
-
 - `-Quaternion`
 
 Multiplying a vector (or another quaternion!) by a quaternion applies the quaternion to the vector/quaternion.
@@ -176,12 +171,11 @@ local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD
 
 ---
 
+Using:
+
 - `x`
-
 - `y`
-
 - `z`
-
 - `w`
 
 You can read or set the components of a quaternion directly, although this is not recommended unless you are extremely familiar with quaternions.

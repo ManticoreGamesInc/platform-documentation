@@ -6,21 +6,19 @@ tags:
     - API
 ---
 
-# API: Event
-
-## Description
+# Event
 
 Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. E.g. `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.
 
-## API
-
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Connect(function eventListener, [...])` | `EventListener` | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
 
 ## Examples
+
+Using:
 
 - `Connect`
 

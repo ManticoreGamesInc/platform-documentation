@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Weapon
-
-## Description
+# Weapon
 
 A Weapon is an Equipment that comes with built-in Abilities and fires Projectiles.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -55,14 +51,14 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `spreadIncreasePerShot` | `Number` | Amount the spread increases each time the Weapon attacks. | Read-Only |
 | `spreadPenaltyPerShot` | `Number` | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `HasAmmo()` | `bool` | Informs whether the Weapon is able to attack or not. | None |
 | `Attack(target)` | `None` | Triggers the main ability of the Weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -70,6 +66,8 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `projectileSpawnedEvent` | `Event<Weapon, Projectile>` | Fired when a Weapon spawns a projectile. | None |
 
 ## Examples
+
+Using:
 
 - `projectileSpawnedEvent`
 
@@ -95,6 +93,8 @@ WEAPON.projectileSpawnedEvent:Connect(OnProjectileSpawned)
 
 ---
 
+Using:
+
 - `targetImpactedEvent`
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
@@ -113,6 +113,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 
 ---
 
+Using:
+
 - `Attack`
 
 Generally, weapons are thought to be equipped on players. However, a weapon can be used on an NPC such as a vehicle or tower by calling the `Attack()` function. In this example, a weapon simply fires each second. Shots will go out straight in the direction the weapon is pointing.
@@ -127,6 +129,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `HasAmmo`
 
@@ -146,6 +150,8 @@ WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
 ---
+
+Using:
 
 - `ammoType`
 
@@ -174,6 +180,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `animationStance`
 
@@ -222,12 +230,11 @@ WEAPON.equippedEvent:Connect(OnEquipped)
 
 ---
 
+Using:
+
 - `attackCooldownDuration`
-
 - `multiShotCount`
-
 - `burstCount`
-
 - `shotsPerSecond`
 
 The following function approximates a weapon's effective damage per second (DPS).
@@ -255,8 +262,9 @@ print("DPS = " .. ComputeDPS(WEAPON))
 
 ---
 
-- `currentAmmo`
+Using:
 
+- `currentAmmo`
 - `maxAmmo`
 
 This script plays audio to the weapon owner when the weapon reaches 20% amount of ammo. It works best if the script is in a client context under the weapon, that way the audio is heard only by the player who is using the weapon.
@@ -282,8 +290,9 @@ SHOOT_ABILITY.executeEvent:Connect(OnShootExecute)
 
 ---
 
-- `isAmmoFinite`
+Using:
 
+- `isAmmoFinite`
 - `reloadSoundId`
 
 While various properties are read-only, they are still useful in determining what behavior should occur, leading to more general purpose scripts. In this example, a script controls auto-reloading of weapons. It expects to be in a client context, because the ability's `Activate()` function is client-only.
@@ -326,32 +335,21 @@ end
 
 ---
 
+Using:
+
 - `isHitscan`
-
 - `range`
-
 - `damage`
-
 - `projectileTemplateId`
-
 - `trailTemplateId`
-
 - `impactSurfaceTemplateId`
-
 - `impactProjectileTemplateId`
-
 - `impactPlayerTemplateId`
-
 - `projectileSpeed`
-
 - `projectileLifeSpan`
-
 - `projectileGravity`
-
 - `projectileLength`
-
 - `projectileRadius`
-
 - `projectileDrag`
 
 This script implements a Wall Bang mechanic, allowing shots to go through walls.
@@ -511,6 +509,8 @@ WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 
 ---
 
+Using:
+
 - `muzzleFlashTemplateId`
 
 This sample demonstrates several things. First, it creates a copy of the weapon's muzzle flash effect and attaches it to where the script is. Then, it shows how to traverse an object's hierarchy and create a custom table of objects to operate upon later--in this case it's trying to find smart objects that have both the `Stop()` and `Play()` functions. Finally, It shows how sound and VFX from a single spawned template can be played and stopped randomly--in other words, they are reused without having to spawn a new copy of the template each time.
@@ -563,6 +563,8 @@ end
 
 ---
 
+Using:
+
 - `outOfAmmoSoundId`
 
 Weapons are also of type Equipment. In this example we listen to when a player equips the weapon. When they do, if the weapon is out of ammo then we play the "out of ammo" sound effect which normally only plays after trying to shoot while empty.
@@ -582,8 +584,9 @@ WEAPON.equippedEvent:Connect(OnEquipped)
 
 ---
 
-- `projectileBounceCount`
+Using:
 
+- `projectileBounceCount`
 - `projectilePierceCount`
 
 A weapon-viewing interface can show detailed specs about each weapon to players. In this example, the weapon's damage, as well as indicators if the shots bounce or pierce are setup for the player to view. This script would exist as part of a greater user interface, with various images and texts, and the ShowUI() function would be called depending on the game state (e.g. the player is browsing a shop).
@@ -622,6 +625,8 @@ end
 
 ---
 
+Using:
+
 - `shouldBurstStopOnRelease`
 
 The following function evaluates a weapon and returns the "type" of weapon it thinks it is, based on some of its properties.
@@ -655,16 +660,13 @@ end
 
 ---
 
+Using:
+
 - `spreadMin`
-
 - `spreadMax`
-
 - `spreadAperture`
-
 - `spreadDecreaseSpeed`
-
 - `spreadIncreasePerShot`
-
 - `spreadPenaltyPerShot`
 
 It can be hard to understand the implications of spread on the efficacy of a weapon, especially as there is a complex relationship with firing rate. This example demonstrates a data-driven approach to studying gameplay. If this script is added to each weapon they will register their stats into a global table, which could then be analyzed to draw conclusions about the game's balance.
@@ -769,10 +771,10 @@ RateMyGun()
 
 ---
 
+Using:
+
 - `spreadMin`
-
 - `spreadMax`
-
 - `spreadDecreaseSpeed`
 
 Often in shooting games, the weapon loses precision while moving. For weapons in Core this is achieved by modifying the player's `spreadModifier` property, and can be implemented in many different ways. In this example, a client-context script uses the weapon's configured `spreadMin` and `spreadMax` properties to determine the maximum penalty when the player is moving. The weapon's `spreadDecreaseSpeed` is then used as an interpolation coefficient to smoothly move the spread penalty up and down, non-linearly, as the player moves or stops moving.

@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: AnimatedMesh
-
-## Description
+# AnimatedMesh
 
 AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked into them. They also have sockets exposed to which any CoreObject can be attached.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -23,7 +19,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `animationStanceShouldLoop` | `bool` | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write, Client-Only |
 | `playbackRateMultiplier` | `Number` | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write, Client-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -36,13 +32,15 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `StopAnimations()` | `None` | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
 | `GetAnimationDuration(string animationName)` | `Number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `animationEvent` | `Event<AnimatedMesh, string>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
 
 ## Examples
+
+Using:
 
 - `animationEvent`
 
@@ -62,6 +60,8 @@ dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
 ---
+
+Using:
 
 - `AttachCoreObject`
 
@@ -90,14 +90,12 @@ end
 
 ---
 
+Using:
+
 - `GetAnimationNames`
-
 - `GetAnimationStanceNames`
-
 - `GetSocketNames`
-
 - `GetAnimationEventNames`
-
 - `GetAnimationDuration`
 
 You can find out most of the interesting data about an Animated Mesh at runtime, using several handy functions.
@@ -132,8 +130,9 @@ PrintAnimatedMeshData(dragonMesh)
 
 ---
 
-- `PlayAnimation`
+Using:
 
+- `PlayAnimation`
 - `playbackRateMultiplier`
 
 Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
@@ -171,6 +170,8 @@ end)
 
 ---
 
+Using:
+
 - `StopAnimations`
 
 You can stop whatever animation is currently playing via `StopAnimations()`.
@@ -186,10 +187,10 @@ dragonMesh:StopAnimations()
 
 ---
 
+Using:
+
 - `animationStance`
-
 - `animationStancePlaybackRate`
-
 - `animationStanceShouldLoop`
 
 The stance the animated mesh plays.

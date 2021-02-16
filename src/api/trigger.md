@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Trigger
-
-## Description
+# Trigger
 
 A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A Player walks into it):
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -24,7 +20,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `isTeamCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. | Read-Write |
 | `isEnemyCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -32,7 +28,7 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `IsOverlapping(Player)` | `bool` | Returns true if given player overlaps with the Trigger. | None |
 | `GetOverlappingObjects()` | `Array<Object>` | Returns a list of all objects that are currently overlapping with the Trigger. | None |
 
-### Events
+## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
@@ -41,6 +37,8 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `interactedEvent` | `Event<Trigger trigger, Player>` | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
 
 ## Examples
+
+Using:
 
 - `beginOverlapEvent`
 
@@ -61,6 +59,8 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 ---
+
+Using:
 
 - `endOverlapEvent`
 
@@ -95,6 +95,8 @@ trigger.endOverlapEvent:Connect(OnEndOverlap)
 
 ---
 
+Using:
+
 - `interactedEvent`
 
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the F key they are propelled into the air. The script assumes to be a child of the trigger.
@@ -113,6 +115,8 @@ trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ---
+
+Using:
 
 - `GetOverlappingObjects`
 
@@ -134,6 +138,8 @@ end
 
 ---
 
+Using:
+
 - `IsOverlapping`
 
 In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point. The script assumes to be a child of the trigger.
@@ -153,6 +159,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `IsOverlapping`
 
@@ -176,6 +184,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `interactionLabel`
 
@@ -211,6 +221,8 @@ trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ---
+
+Using:
 
 - `isEnemyCollisionEnabled`
 
@@ -253,6 +265,8 @@ trigger.interactedEvent:Connect(OnInteracted)
 
 ---
 
+Using:
+
 - `isInteractable`
 
 In this example, the trigger has a 4 second "cooldown" after it is interacted. The script assumes to be a child of the trigger.
@@ -273,6 +287,8 @@ trigger.interactedEvent:Connect(OnInteracted)
 
 ---
 
+Using:
+
 - `isTeamCollisionEnabled`
 
 In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can. The script assumes to be a child of the trigger.
@@ -291,6 +307,8 @@ trigger.interactedEvent:Connect(OnInteracted)
 ```
 
 ---
+
+Using:
 
 - `team`
 

@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Vfx
-
-## Description
+# Vfx
 
 Vfx is a specialized type of SmartObject for visual effects. It inherits everything from SmartObject.
 
-## API
-
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -22,6 +18,8 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 | `Stop([table optionalParameters])` | `None` | Stops playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (bool)`: If `true`, also stops any `Vfx` descendants of this instance. | None |
 
 ## Examples
+
+Using:
 
 - `Play`
 
@@ -42,6 +40,8 @@ end
 ```
 
 ---
+
+Using:
 
 - `Stop`
 
