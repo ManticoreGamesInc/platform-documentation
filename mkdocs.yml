@@ -191,7 +191,6 @@ theme:
     - navigation.tabs
     - navigation.instant
     - navigation.sections
-    - toc.integrate
   palette:
     primary: core-orange
     accent: core-blue
