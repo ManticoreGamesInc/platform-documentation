@@ -1,3 +1,12 @@
+---
+id: player_animations_sockets
+name: Player Animations & Sockets
+title: Player Animations & Sockets
+tags:
+    - API
+    - Reference
+---
+
 # Player Animations & Sockets
 
 In Core, all ability animations are valid on any of the available body types. Each of the ability animations timing and/or translation values should behave identically across the body types.
