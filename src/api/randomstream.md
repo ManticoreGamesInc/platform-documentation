@@ -6,27 +6,23 @@ tags:
     - API
 ---
 
-# API: RandomStream
-
-## Description
+# RandomStream
 
 Seed-based random stream of numbers. Useful for deterministic RNG problems, for instance, inside a Client Context so all players get the same outcome without the need to replicate lots of data from the server. Bad quality in the lower bits (avoid combining with modulus operations).
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `RandomStream.New([Integer seed])` | `RandomStream` | Constructor with specified seed, defaults to a random value. | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `seed` | `Integer` | The current seed used for RNG. | Read-Write |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

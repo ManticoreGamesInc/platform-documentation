@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: AreaLight
-
-## Description
+# AreaLight
 
 AreaLight is a Light that emits light from a rectangular plane. It also has properties for configuring a set of "doors" attached to the plane which affect the lit area in front of the plane.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

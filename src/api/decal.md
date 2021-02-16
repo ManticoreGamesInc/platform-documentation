@@ -6,8 +6,6 @@ tags:
     - API
 ---
 
-# API: Decal
-
-## Description
+# Decal
 
 A Decal is a SmartObject representing a decal that is projected onto nearby surfaces.

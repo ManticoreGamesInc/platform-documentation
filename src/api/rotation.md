@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: Rotation
-
-## Description
+# Rotation
 
 An euler-based rotation around `x`, `y`, and `z` axes.
 
-## API
-
-### Constructors
+## Constructors
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
@@ -23,13 +19,13 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `Rotation.New(Vector3 forward, Vector3 up)` | `Rotation` | Construct a rotation that will rotate Vector3.FORWARD to point in the direction of the given forward vector, with the up vector as a reference. Returns (0, 0, 0) if forward and up point in the exact same (or opposite) direction, or if one of them is of length 0. | None |
 | `Rotation.New(Rotation r)` | `Rotation` | Copies the given Rotation. | None |
 
-### Constants
+## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
 | `Rotation.ZERO` | `Rotation` | Constant Rotation of (0, 0, 0). | None |
 
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -37,7 +33,7 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 | `y` | `Number` | The `y` component of the Rotation. | Read-Write |
 | `z` | `Number` | The `z` component of the Rotation. | Read-Write |
 
-### Operators
+## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -50,8 +46,9 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ## Examples
 
-- `New`
+Using:
 
+- `New`
 - `ZERO`
 
 There are several different ways to create new Rotations.
@@ -88,14 +85,12 @@ local newVec1 = Rotation.ZERO * vec1
 
 ---
 
+Using:
+
 - `Rotation+Rotation`
-
 - `Rotation-Rotation`
-
 - `Rotation*Number`
-
 - `-Rotation`
-
 - `Rotation*Vector3`
 
 You can add and subtract rotations from each other, scale them, and apply them to vectors via arithmetic operators.
@@ -130,10 +125,10 @@ local rotate90x_negative = -rotate90x
 
 ---
 
+Using:
+
 - `x`
-
 - `y`
-
 - `z`
 
 The x, y, and z components of a rotation can be accessed directly. These numbers represent the number of degrees to rotate around their respective axis.

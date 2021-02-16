@@ -6,9 +6,7 @@ tags:
     - API
 ---
 
-# API: Storage
-
-## Description
+# Storage
 
 The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.
 
@@ -16,9 +14,7 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 
 `Storage.SizeOfData()` can be used to check the size of data (in bytes) before assigning to storage. If size limit has been exceeded consider replacing strings with numbers or using advanced techniques such as bit packing to reduce the size of data stored.
 
-## API
-
-### Class Functions
+## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
@@ -28,7 +24,7 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 | `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | `StorageResultCode, string` | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. | Server-Only |
 | `Storage.SizeOfData(table data)` | `Integer` | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
 
-### Extra Data
+## Extra Data
 
 ??? "Storage Supported Types"
     - Bool
@@ -44,6 +40,8 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
     - Table
 
 ## Examples
+
+Using:
 
 - `GetPlayerData`
 
@@ -66,6 +64,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ---
+
+Using:
 
 - `GetSharedPlayerData`
 
@@ -93,6 +93,8 @@ end
 
 ---
 
+Using:
+
 - `SetPlayerData`
 
 This example detects when a player gains XP or level and saves the new values to storage.
@@ -114,6 +116,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 ---
+
+Using:
 
 - `SetSharedPlayerData`
 

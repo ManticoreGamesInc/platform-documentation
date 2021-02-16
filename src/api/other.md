@@ -6,21 +6,17 @@ tags:
     - API
 ---
 
-# API: Other
-
-## Description
+# Other
 
 Other
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `type` | `string` | All data structures and Objects share the common `type` property. | Read-Only |
 
-### Functions
+## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
@@ -28,10 +24,10 @@ Other
 
 ## Examples
 
+Using:
+
 - `IsA`
-
 - `type`
-
 - `type(property)`
 
 Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more!

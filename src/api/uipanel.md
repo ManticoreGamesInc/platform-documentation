@@ -6,15 +6,11 @@ tags:
     - API
 ---
 
-# API: UIPanel
-
-## Description
+# UIPanel
 
 A UIControl which can be used for containing and laying out other UI controls.
 
-## API
-
-### Properties
+## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |

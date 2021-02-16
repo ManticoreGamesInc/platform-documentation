@@ -6,9 +6,7 @@ tags:
     - API
 ---
 
-# API: NetworkContext
-
-## Description
+# NetworkContext
 
 NetworkContext is a CoreObject representing a special folder containing client-only, server-only, or static objects.
 
