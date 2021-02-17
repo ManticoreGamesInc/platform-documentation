@@ -131,7 +131,7 @@ Player is an object representation of the state of a player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `movementHook` | `Hook<Player, table parameters>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
 
-## Extra Data
+## Additional Info
 
 Learn more about Hooks on the [Hook API](hook.md) page.
 
