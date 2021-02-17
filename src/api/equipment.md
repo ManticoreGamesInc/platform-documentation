@@ -61,6 +61,8 @@ primaryEquipment.equippedEvent:Connect(OnEquipped)
 primaryEquipment.unequippedEvent:Connect(OnUnequipped)
 ```
 
+See also: [Equipment.Equip](equipment.md) | [CoreObject.parent](coreobject.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -98,6 +100,8 @@ for i, ability in ipairs(EQUIPMENT:GetAbilities()) do
 end
 ```
 
+See also: [Equipment.GetAbilities](equipment.md) | [Ability.name](ability.md) | [CoreObject.parent](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -116,6 +120,8 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -143,6 +149,8 @@ end
 
 RELOAD_ABILITY.executeEvent:Connect(onExecuteReload)
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Ability.executeEvent](ability.md) | [Event.Connect](event.md)
 
 ---
 
@@ -187,6 +195,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Player.GetEquipment](player.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.FindDescendantByType](coreobject.md) | [Vector3 + Vector3](vector3.md) | [World.Raycast](world.md) | [HitResult.GetImpactPosition](hitresult.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -206,6 +216,8 @@ end
 
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [ImpactData.targetObject](impactdata.md) | [other.IsA](other.md) | [Player.hitPoints](player.md) | [Weapon.targetImpactedEvent](weapon.md) | [Event.Connect](event.md)
 
 ---
 
@@ -245,5 +257,7 @@ end
 EQUIPMENT.equippedEvent:Connect(OnEquipped)
 TRIGGER.interactedEvent:Connect(OnInteracted)
 ```
+
+See also: [Equipment.Equip](equipment.md) | [Player.GetEquipment](player.md) | [Trigger.interactedEvent](trigger.md) | [CoreObject.parent](coreobject.md) | [Event.Connect](event.md)
 
 ---

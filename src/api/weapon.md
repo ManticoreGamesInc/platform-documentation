@@ -91,6 +91,8 @@ end
 WEAPON.projectileSpawnedEvent:Connect(OnProjectileSpawned)
 ```
 
+See also: [Equipment.owner](equipment.md) | [Player.AddImpulse](player.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Projectile.GetWorldTransform](projectile.md) | [Transform.GetForwardVector](transform.md) | [Vector3 * Number](vector3.md)
+
 ---
 
 Using:
@@ -111,6 +113,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
+See also: [Equipment.owner](equipment.md) | [CoreObject.FindAncestorByType](coreobject.md) | [ImpactData.targetObject](impactdata.md) | [other.IsA](other.md) | [Player.hitPoints](player.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -127,6 +131,8 @@ function Tick()
     Task.Wait(1)
 end
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
 
 ---
 
@@ -148,6 +154,8 @@ end
 
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
+
+See also: [Equipment.equippedEvent](equipment.md) | [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md)
 
 ---
 
@@ -178,6 +186,8 @@ function Tick(deltaTime)
     end
 end
 ```
+
+See also: [Weapon.currentAmmo](weapon.md) | [Equipment.owner](equipment.md) | [Ability.Activate](ability.md) | [AbilityPhaseSettings.duration](abilityphasesettings.md) | [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetLocalPlayer](game.md) | [Player.GetResource](player.md) | [Task.Wait](task.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -228,6 +238,8 @@ end
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
+See also: [Equipment.equippedEvent](equipment.md) | [Player.animationStance](player.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -260,6 +272,8 @@ end
 print("DPS = " .. ComputeDPS(WEAPON))
 ```
 
+See also: [Weapon.maxAmmo](weapon.md) | [CoreObject.FindAncestorByType](coreobject.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -287,6 +301,8 @@ end
 
 SHOOT_ABILITY.executeEvent:Connect(OnShootExecute)
 ```
+
+See also: [Equipment.owner](equipment.md) | [Ability.owner](ability.md) | [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Object.IsValid](object.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md)
 
 ---
 
@@ -332,6 +348,8 @@ function Tick(deltaTime)
     end
 end
 ```
+
+See also: [Weapon.GetAbilities](weapon.md) | [Equipment.owner](equipment.md) | [Ability.Activate](ability.md) | [AbilityPhaseSettings.duration](abilityphasesettings.md) | [Game.GetLocalPlayer](game.md) | [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Object.IsValid](object.md) | [Task.Wait](task.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -507,6 +525,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpactedEvent)
 ```
 
+See also: [Weapon.targetImpactedEvent](weapon.md) | [World.Raycast](world.md) | [ImpactData.targetObject](impactdata.md) | [HitResult.GetImpactPosition](hitresult.md) | [Projectile.Spawn](projectile.md) | [Damage.New](damage.md) | [Player.team](player.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.serverUserData](object.md) | [other.isA](other.md) | [CoreMath.Lerp](coremath.md) | [Vector3.GetNormalized](vector3.md) | [Rotation.New](rotation.md) | [Transform.GetPosition](transform.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -561,6 +581,8 @@ while true do
 end
 ```
 
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Vfx.Play](vfx.md) | [SmartAudio.Play](smartaudio.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -581,6 +603,8 @@ end
 
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
+
+See also: [Equipment.equippedEvent](equipment.md) | [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md)
 
 ---
 
@@ -623,6 +647,8 @@ function HideUI()
 end
 ```
 
+See also: [Weapon.damage](weapon.md) | [CoreObject.parent](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIText.text](uitext.md)
+
 ---
 
 Using:
@@ -657,6 +683,8 @@ function ClassifyWeapon(weapon)
     end
 end
 ```
+
+See also: [Equipment.GetAbilities](equipment.md) | [Ability.animation](ability.md)
 
 ---
 
@@ -769,6 +797,8 @@ Task.Wait(1)
 RateMyGun()
 ```
 
+See also: [Weapon.targetImpactedEvent](weapon.md) | [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [CoreLua.print](coreluafunctions.md) | [other.IsA](other.md) | [Event.Connect](event.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -818,6 +848,8 @@ function Tick()
     player.spreadModifier = CoreMath.Lerp(player.spreadModifier, targetSpreadModifier, t)
 end
 ```
+
+See also: [Equipment.owner](equipment.md) | [Player.spreadModifier](player.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [Vector3.size](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [CoreMath.Lerp](coremath.md)
 
 ---
 

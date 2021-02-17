@@ -61,6 +61,8 @@ PLAYER.movementHook:Connect(OnPlayerMovement)
 PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
+See also: [Player.bindingPressedEvent](player.md)
+
 ---
 
 Using:
@@ -74,5 +76,7 @@ Game.GetLocalPlayer().movementHook:Connect(function(player, params)
 params.direction = -params.direction
 end)
 ```
+
+See also: [Player.movementHook](player.md)
 
 ---

@@ -62,4 +62,6 @@ function Tick()
 end
 ```
 
+See also: [RandomStream.New](randomstream.md) | [CoreObject.GetWorldPosition](coreobject.md) | [Game.GetLocalPlayer](game.md) | [Player.GetWorldPosition](player.md) | [Vector3.GetNormalized](vector3.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
