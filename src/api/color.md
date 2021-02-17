@@ -56,7 +56,7 @@ An RGBA representation of a color. Color components have an effective range of `
 | `Color / Color` | `Color` | Component-wise division. | None |
 | `Color / Number` | `Color` | Divides each component of the Color by the right-side Number. | None |
 
-## Extra Data
+## Additional Info
 
 ### Predefined Colors
 

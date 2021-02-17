@@ -21,7 +21,7 @@ User defined events can be specified using the Events namespace. The Events name
 | `Events.BroadcastToPlayer(Player player, string eventName, [...])` | `<BroadcastEventResultCode, string errorMessage>` | Broadcasts the given event to a specific client over the network and fires all listeners attached to the given event name if any exists on that client. The first parameter specifies the Player to which the event will be sent. The parameters after event name specify the arguments passed to the listener on the client. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Server-Only |
 | `Events.BroadcastToServer(string eventName, [...])` | `<BroadcastEventResultCode, string errorMessage>` | Broadcasts the given event to the server over the network and fires all listeners attached to the given event name if any exists on the server. The parameters after event name specify the arguments passed to the listener on the server. The function returns a result code and a message. Possible result codes can be found below. This is a networked event. The maximum size a networked event can send is 128bytes and all networked events are subjected to a rate limit of 10 events per second. | Client-Only |
 
-## Extra Data
+## Additional Info
 
 ??? "Broadcast Event Result Codes"
     - BroadcastEventResultCode.SUCCESS
