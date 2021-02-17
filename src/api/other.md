@@ -66,4 +66,6 @@ print(type(text)) -- string
 print(type(number)) -- number
 ```
 
+See also: [Game.GetPlayers](game.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
+
 ---

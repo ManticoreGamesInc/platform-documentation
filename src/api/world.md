@@ -38,6 +38,8 @@ if defaultSkyFolder then
 end
 ```
 
+See also: [CoreLua.warn](coreluafunctions.md)
+
 ---
 
 Using:
@@ -53,6 +55,8 @@ if floorObject then
     warn(" Don't forget to replace the default floor with something better!")
 end
 ```
+
+See also: [CoreLua.warn](coreluafunctions.md)
 
 ---
 
@@ -85,6 +89,8 @@ print("Team 2 has " .. team2Count .. " spawn points.")
 print("Team 3 has " .. team2Count .. " spawn points.")
 ```
 
+See also: [PlayerStart.team](playerstart.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -110,6 +116,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [CoreObject.visibility](coreobject.md) | [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -129,6 +137,8 @@ end
 local worldRoot = World.GetRootObject()
 PrintAllNames(worldRoot)
 ```
+
+See also: [CoreObject.GetChildren](coreobject.md) | [Other.type](other.md)
 
 ---
 
@@ -158,6 +168,8 @@ function Tick()
 end
 ```
 
+See also: [HitResult.GetImpactPosition](hitresult.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [Vector3.New](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -183,5 +195,7 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player.md) | [Game.playerJoinedEvent](game.md) | [Vector3.UP](vector3.md) | [Event.Connect](event.md)
 
 ---

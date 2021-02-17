@@ -55,6 +55,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Player.ApplyDamage](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -77,6 +79,8 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [Player.name](player.md) | [HitResult.socketName](hitresult.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -108,6 +112,8 @@ function ShootAtPlayer(player)
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [other.IsA](other.md) | [Damage.New](damage.md) | [Player.ApplyDamage](player.md) | [Projectile.Spawn](projectile.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -132,6 +138,8 @@ function DamagePlayerAdvanced(player, dmg)
     player:ApplyDamage(dmg)
 end
 ```
+
+See also: [Player.GetResource](player.md) | [CoreMath.Round](coremath.md)
 
 ---
 
@@ -167,6 +175,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Task.Wait](task.md) | [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [Vector3.size](vector3.md) | [Damage.New](damage.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -197,6 +207,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Object.IsValid](object.md) | [Player.GetResource](player.md) | [Damage.amount](damage.md) | [CoreMath.Clamp](coremath.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -222,5 +234,7 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [Object.IsValid](object.md) | [Player.name](player.md) | [Game.IncreaseTeamScore](game.md) | [Event.Connect](event.md)
 
 ---

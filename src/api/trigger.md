@@ -58,6 +58,8 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md) | [Player.Die](player.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -93,6 +95,8 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 trigger.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md) | [Trigger.beginOverlapEvent](trigger.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -113,6 +117,8 @@ end
 
 trigger.interactedEvent:Connect(OnInteracted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.md) | [Player.SetVelocity](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -136,6 +142,8 @@ function Tick()
 end
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Vector3.New](vector3.md)
+
 ---
 
 Using:
@@ -157,6 +165,8 @@ while true do
     end
 end
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [World.FindObjectByName](world.md) | [Task.Wait](task.md) | [Game.IncreaseTeamScore](game.md)
 
 ---
 
@@ -182,6 +192,8 @@ while true do
     end
 end
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Game.GetPlayers](game.md) | [Player.team](player.md)
 
 ---
 
@@ -219,6 +231,8 @@ end
 
 trigger.interactedEvent:Connect(OnInteracted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.md) | [Vector3.New](vector3.md) | [Event.Connect](event.md)
 
 ---
 
@@ -263,6 +277,8 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.md) | [EventListener.Disconnect](eventlistener.md) | [Player.team](player.md) | [Game.IncreaseTeamScore](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -285,6 +301,8 @@ end
 trigger.interactedEvent:Connect(OnInteracted)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Trigger.interactedEvent](trigger.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -305,6 +323,8 @@ end
 
 trigger.interactedEvent:Connect(OnInteracted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.md) | [Player.team](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -328,5 +348,7 @@ end
 
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Player.team](player.md) | [other.IsA](other.md) | [Game.IncreaseTeamScore](game.md) | [Trigger.beginOverlapEvent](trigger.md) | [Event.Connect](event.md)
 
 ---

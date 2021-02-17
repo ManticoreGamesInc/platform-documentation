@@ -63,6 +63,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Storage.SetPlayerData](storage.md) | [Player.SetResource](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -114,6 +116,8 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [Storage.GetPlayerData](storage.md) | [Player.resourceChangedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 

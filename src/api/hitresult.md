@@ -58,6 +58,8 @@ function Tick()
 end
 ```
 
+See also: [Game.GetLocalPlayer](game.md) | [Player.GetViewWorldPosition](player.md) | [World.Raycast](world.md) | [CoreDebug.DrawLine](coredebug.md) | [Rotation * Vector3](rotation.md) | [Vector3.FORWARD](vector3.md) | [Color.GREEN](color.md)
+
 ---
 
 Using:
@@ -80,6 +82,8 @@ end
 
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [ImpactData.GetHitResult](impactdata.md) | [World.SpawnAsset](world.md) | [Weapon.targetImpactedEvent](weapon.md) | [Transform.GetPosition](transform.md) | [Event.Connect](event.md)
 
 ---
 
@@ -104,5 +108,7 @@ end
 
 weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [ImpactData.GetHitResult](impactdata.md) | [other.IsA](other.md) | [Player.name](player.md) | [Weapon.targetImpactedEvent](weapon.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---

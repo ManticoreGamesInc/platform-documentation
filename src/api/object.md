@@ -69,6 +69,8 @@ CUBE = nil
 PrintCubeInfo()
 ```
 
+See also: [CoreObject.Destroy](coreobject.md) | [CoreLua.print](coreluafunctions.md) | [Object.IsValid](object.md)
+
 ---
 
 Using:
@@ -115,6 +117,8 @@ function Tick()
     script:SetWorldPosition(myPos)
 end
 ```
+
+See also: [World.FindObjectsByName](world.md) | [Game.GetLocalPlayer](game.md) | [CoreObject.GetWorldPosition](coreobject.md) | [Vector3:GetNormalized()](vector3.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -168,5 +172,7 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [CoreLua.print](coreluafunctions.md) | [Player.name](player.md) | [Object.IsValid](object.md) | [Game.GetPlayers](game.md) | [Event.Connect](event.md)
 
 ---

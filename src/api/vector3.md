@@ -97,6 +97,8 @@ end
 print("Tah dah!")
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -124,6 +126,8 @@ local myVector3_3 = Vector3.New(6)
 local copyOfVector3_3 = Vector3.New(myVector3_3)
 ```
 
+See also: [CoreObject.GetWorldPosition](coreobject.md) | [Vector3 + Vector3](vector3.md)
+
 ---
 
 Using:
@@ -147,6 +151,8 @@ print(Vector3.RIGHT)    -- (0, 1, 0)
 
 print(Vector3.UP)    -- (0, 0, 1)
 ```
+
+See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -191,6 +197,8 @@ print(b / 4) -- (1, 1.25, 1.5)
 
 print(-a) -- -1, -2, -3
 ```
+
+See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -248,6 +256,8 @@ for i = 1, 10, 0.05 do
 end
 ```
 
+See also: [Vector3.New](vector3.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.GetWorldPosition](player.md) | [World.SpawnAsset](world.md) | [Transform.GetForwardVector](transform.md) | [CoreDebug.DrawLine](coredebug.md) | [Color.RED](color.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -288,6 +298,8 @@ for i = 1, 50 do
 end
 ```
 
+See also: [Vector3.New](vector3.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [Damage.New](damage.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -313,5 +325,7 @@ myVector3.z = 6
 print(myVector3)
 -- myVector3 now equals (4, 5, 6)
 ```
+
+See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---

@@ -60,4 +60,6 @@ end
 script.destroyEvent:Connect(OnDestroyed)
 ```
 
+See also: [Event.Connect](event.md) | [Game.GetLocalPlayer](game.md) | [Player.resourceChangedEvent](player.md) | [CoreObject.destroyEvent](coreobject.md) | [CoreLua.print](coreluafunctions.md)
+
 ---

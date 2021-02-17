@@ -62,4 +62,6 @@ if floorObjectReference.isAssigned then
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreLua.print](coreluafunctions.md)
+
 ---

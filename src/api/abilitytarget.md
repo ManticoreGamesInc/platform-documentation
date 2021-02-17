@@ -60,6 +60,8 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
+See also: [AbilityTarget.SetHitPosition](abilitytarget.md) | [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Ability.SetTargetData](ability.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -94,6 +96,8 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3 - Vector3](vector3.md) | [Ability.GetTargetData](ability.md) | [Player.GetWorldPosition](player.md) | [Color.RED](color.md) | [CoreDebug.DrawLine](coredebug.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -119,6 +123,8 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Ability.GetTargetData](ability.md) | [Vector3.z](vector3.md) | [Player.GetWorldPosition](player.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -143,6 +149,8 @@ end
 
 ability.executeEvent:Connect(OnExecute)
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Ability.owner](ability.md) | [HitResult.other](hitresult.md) | [Player.name](player.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -180,5 +188,7 @@ end
 
 ability.executeEvent:Connect(OnExecute)
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](world.md) | [Ability.owner](ability.md) | [Player.GetWorldTransform](player.md) | [Transform.GetForwardVector](transform.md) | [Vector3.UP](vector3.md) | [AbilityTarget.GetHitPosition](abilitytarget.md) | [Object.serverUserData](object.md) | [Event.Connect](event.md)
 
 ---

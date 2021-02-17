@@ -64,6 +64,8 @@ function Tick()
 end
 ```
 
+See also: [Game.GetPlayers](game.md) | [CoreObject.GetWorldPosition](coreobject.md) | [Player.SetWorldScale](player.md) | [Vector3.ONE](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -85,6 +87,8 @@ function Tick()
 end
 ```
 
+See also: [CoreObject.GetWorldPosition](coreobject.md) | [Player.GetVelocity](player.md) | [Vector3.UP](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -105,6 +109,8 @@ function Tick()
     Task.Wait(0.1)
 end
 ```
+
+See also: [CoreObject.GetWorldPosition](coreobject.md) | [Player.GetVelocity](player.md) | [Vector3.UP](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
 
 ---
 
@@ -129,6 +135,8 @@ function Tick()
 end
 ```
 
+See also: [Game.GetPlayers](game.md) | [UI.PrintToScreen](ui.md) | [Player.name](player.md) | [Color.GREEN](color.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -147,6 +155,8 @@ function OnRoundEnd()
 end
 Game.roundEndEvent:Connect(OnRoundEnd)
 ```
+
+See also: [Game.roundEndEvent](game.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---
 
@@ -170,6 +180,8 @@ function Tick()
     Task.Wait(2.98)
 end
 ```
+
+See also: [UI.PrintToScreen](ui.md) | [Task.Wait](task.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -202,6 +214,8 @@ end
 Game.roundEndEvent:Connect(OnRoundEnd)
 ```
 
+See also: [Game.GetTeamScore](game.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -222,6 +236,8 @@ function Tick()
     Task.Wait(0.25)
 end
 ```
+
+See also: [Game.FindPlayersInCylinder](game.md) | [CoreObject.GetWorldPosition](coreobject.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
 
 ---
 
@@ -264,6 +280,8 @@ end
 
 Game.teamScoreChangedEvent:Connect(OnTeamScoreChanged)
 ```
+
+See also: [Game.GetTeamScore](game.md) | [Event.Connect](event.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -323,6 +341,8 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
+See also: [Player.team](player.md) | [Game.GetPlayers](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -369,6 +389,8 @@ function Tick()
 end
 ```
 
+See also: [Game.EndRound](game.md) | [Player.Respawn](player.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -398,6 +420,8 @@ function Tick()
     end
 end
 ```
+
+See also: [Game.StartRound](game.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---
 
@@ -446,5 +470,7 @@ function Tick()
     end
 end
 ```
+
+See also: [Game.GetTeamScore](game.md) | [Player.isJumping](player.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
