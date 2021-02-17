@@ -52,6 +52,8 @@ end
 cube:ResetColor()
 ```
 
+See also: [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Color.WHITE](color.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -64,6 +66,8 @@ You can check the asset ID of a static mesh. This will be the MUID of the Core C
 local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
 print("The asset ID is " .. cube.meshAssetId)
 ```
+
+See also: [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -99,5 +103,7 @@ function AssignMeshToTeam(mesh, team)
 end
 AssignMeshToTeam(cube, 1)
 ```
+
+See also: [CoreObject.FindDescendantsByType](coreobject.md)
 
 ---

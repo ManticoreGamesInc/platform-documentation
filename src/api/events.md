@@ -81,6 +81,8 @@ end
 Events.Connect("FlagCaptured", OnFlagCaptured)
 ```
 
+See also: [other.IsA](other.md) | [Player.team](player.md) | [CoreLua.print](coreluafunctions.md) | [CoreObject.parent](coreobject.md) | [Trigger.beginOverlapEvent](trigger.md) | [UI.PrintToScreen](ui.md) | [Events.Connect](events.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -108,6 +110,8 @@ end
 
 ABILITY.executeEvent:Connect(OnExecute)
 ```
+
+See also: [Ability.owner](ability.md) | [Player.GetResource](player.md) | [Damage.New](damage.md) | [Event.Connect](event.md)
 
 ---
 
@@ -145,6 +149,8 @@ end
 Events.Connect("GameStateChanged", OnStateChanged)
 ```
 
+See also: [Task.Wait](task.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
 
 Using:
@@ -174,5 +180,7 @@ function Tick(deltaTime)
     Task.Wait(0.25)
 end
 ```
+
+See also: [Player.name](player.md) | [UI.SetCursorVisible](ui.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
 
 ---

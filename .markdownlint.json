@@ -1,7 +1,7 @@
 {
     "default": true,
     "MD004": false,
-    "MD013": { "line_length": 1500, "code_blocks": false, "tables": true },
+    "MD013": false,
     "MD024": false,
     "MD025": { "level": 1, "front_matter_title": ""},
     "MD029": { "style": "ordered" },

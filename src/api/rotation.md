@@ -83,6 +83,8 @@ local newVec1 = Rotation.ZERO * vec1
 -- newVec1 is still the same as vec1, because it hasn't rotated.
 ```
 
+See also: [Quaternion.New](quaternion.md) | [Vector3.New](vector3.md) | [Rotation * Vector3](rotation.md)
+
 ---
 
 Using:
@@ -123,6 +125,8 @@ local rotate90x_negative = -rotate90x
 -- This is now (-90, 0, 0)
 ```
 
+See also: [Rotation.New](rotation.md) | [Vector3.New](vector3.md)
+
 ---
 
 Using:
@@ -141,5 +145,7 @@ newRotation.z = 180
 -- This creates a rotation of 90 degrees about the x axis, 45 degrees about the y axis, and
 -- 180 degrees about the z axis.
 ```
+
+See also: [Rotation.New](rotation.md)
 
 ---

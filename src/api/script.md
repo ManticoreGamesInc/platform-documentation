@@ -49,4 +49,6 @@ function SetTarget(player)
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---

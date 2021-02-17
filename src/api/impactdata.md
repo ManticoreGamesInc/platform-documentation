@@ -83,6 +83,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
+See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [other.IsA](other.md) | [HitResult.socketName](hitresult.md) | [Damage.New](damage.md) | [Player.ApplyDamage](player.md) | [Weapon.targetImpactEvent](weapon.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -129,6 +131,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
+See also: [ImpactData.sourceAbility](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [other.IsA](other.md) | [Damage.New](damage.md) | [Player.ApplyDamage](player.md) | [Weapon.targetImpactedEvent](weapon.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -166,6 +170,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
+See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [other.IsA](other.md) | [HitResult.socketName](hitresult.md) | [Projectile.Destroy](projectile.md) | [Weapon.targetImpactedEvent](weapon.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -194,6 +200,8 @@ end
 
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
+
+See also: [ImpactData.isHeadshot](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [Ability.isEnabled](ability.md) | [Task.Wait](task.md) | [Weapon.targetImpactedEvent](weapon.md) | [Event.Connect](event.md)
 
 ---
 
@@ -236,6 +244,8 @@ end
 WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
+See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [other.IsA](other.md) | [CoreMath.Clamp](coremath.md) | [Damage.New](damage.md) | [Player.ApplyDamage](player.md) | [Weapon.targetImpactedEvent](weapon.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -277,5 +287,7 @@ end
 --     TargetImpacted = TargetImpacted
 -- }
 ```
+
+See also: [ImpactData.sourcePlayer](impactdata.md) | [CoreObject.FindAncestorByType](coreobject.md) | [CoreLua.require](coreluafunctions.md) | [Player.GetResource](player.md) | [Weapon.damage](weapon.md) | [Event.Connect](event.md)
 
 ---

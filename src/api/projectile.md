@@ -87,6 +87,8 @@ end)
 mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
 
+See also: [Projectile.SetVelocity](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Vector3.New](vector3.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -122,6 +124,8 @@ objectInWorld:Destroy()
 -- The event should fire now and the "target lost" message should be displayed.
 ```
 
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -153,6 +157,8 @@ myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
 end)
 ```
 
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.name](coreobject.md) | [HitResult.GetImpactNormal](hitresult.md) | [other.IsA](other.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -180,6 +186,8 @@ myProjectile:Destroy()
 print("How about now?  " .. tostring(Object.IsValid(myProjectile)))
 -- The projectile is no longer in the game.
 ```
+
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Object.IsValid](object.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md) | [Vector3.New](vector3.md)
 
 ---
 
@@ -235,6 +243,8 @@ local MagicShieldTask = Task.Spawn(function()
 end)
 ```
 
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.GetWorldPosition](player.md) | [Task.Spawn](task.md) | [Transform.GetForwardVector](transform.md) | [Vector3.New](vector3.md)
+
 ---
 
 Using:
@@ -284,6 +294,8 @@ local sphereProjectile = FireProjectile()
 sphereProjectile.capsuleRadius = 40
 sphereProjectile.capsuleLength = 0
 ```
+
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Vector3.New](vector3.md)
 
 ---
 
@@ -341,6 +353,8 @@ lessBouncyProjectile.bouncesRemaining = 5
 lessBouncyProjectile.bounciness = 0.2
 ```
 
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Vector3.New](vector3.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -381,6 +395,8 @@ end)
 
 -- The projectile will hit home towards the target object, and print out a message when it hits.
 ```
+
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---
 
@@ -424,6 +440,8 @@ end
 -- Player will not be hit (and the hit message will never be printed) because
 -- the projectiles are all owned by the player.
 ```
+
+See also: [Projectile.Spawn](projectile.md) | [Player.GetWorldPosition](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [other.IsA](other.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---
 
@@ -473,6 +491,8 @@ local DontDieOnImpact = FirePiercingProjectile(0)
 DontDieOnImpact.shouldDieOnImpact = false
 ```
 
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -506,6 +526,8 @@ weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
 end)
 ```
 
+See also: [Ability.name](ability.md) | [Player.GetResource](player.md) | [Damage.New](damage.md) | [other.IsA](other.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -537,5 +559,7 @@ Task.Wait()    -- So if we wait one frame...
 print("This projectile's speed is " .. tostring(myProjectile.speed))
 -- It should now be clamped down to the maximum speed.
 ```
+
+See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Task.Wait](task.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---

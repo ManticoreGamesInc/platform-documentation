@@ -89,6 +89,8 @@ end
 Events.Connect("CameraShake", StartShake)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Vector3.New](vector3.md) | [CoreMath.Lerp](coremath.md) | [Events.Connect](events.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
 
 Using:
@@ -134,6 +136,8 @@ end
 Events.Connect("CameraShake", StartShake)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Rotation.New](rotation.md) | [CoreMath.Lerp](coremath.md) | [Events.Connect](events.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
 
 Using:
@@ -173,6 +177,8 @@ function Tick()
     Task.Wait(3)
 end
 ```
+
+See also: [Game.GetLocalPlayer](game.md) | [Player.GetWorldRotation](player.md) | [UI.PrintToScreen](ui.md) | [Rotation.y](rotation.md) | [World.FindObjectsByType](world.md) | [CoreObject.GetWorldRotation](coreobject.md) | [Camera.rotationMode](camera.md) | [Task.Wait](task.md)
 
 ---
 
@@ -267,6 +273,8 @@ player.bindingPressedEvent:Connect(OnBindingPressed)
 player.bindingReleasedEvent:Connect(OnBindingReleased)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Camera.GetPositionOffset](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Vector3.Lerp](vector3.md) | [Player.isVisibleToSelf](player.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
 
 Using:
@@ -315,6 +323,8 @@ end
 
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Vector3.New](vector3.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -425,6 +435,8 @@ end
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
+See also: [Camera.followPlayer](camera.md) | [CoreObject.parent](coreobject.md) | [Game.GetLocalPlayer](game.md) | [Vector3.New](vector3.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -444,6 +456,8 @@ end
 local localPlayer = Game.GetLocalPlayer()
 localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 ```
+
+See also: [Player.GetActiveCamera](player.md) | [Game.GetLocalPlayer](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -499,5 +513,7 @@ end
 player.bindingPressedEvent:Connect(OnBindingPressed)
 player.bindingReleasedEvent:Connect(OnBindingReleased)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Camera.isOrthographics](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---

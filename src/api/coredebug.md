@@ -66,6 +66,8 @@ Task.Spawn(function()
 end)
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [Projectile.Spawn](projectile.md) | [Vector3.New](vector3.md) | [Task.Spawn](task.md) | [Object.IsValid](object.md) | [Color.GREEN](color.md) | [Transform.GetForwardVector](transform.md)
+
 ---
 
 Using:
@@ -109,5 +111,7 @@ print(otherTaskStackTrace)
 print("General stack trace:")
 print(generalStackTrace)
 ```
+
+See also: [Task.Spawn](task.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
