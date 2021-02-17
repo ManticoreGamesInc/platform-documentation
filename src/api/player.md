@@ -131,6 +131,10 @@ Player is an object representation of the state of a player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `movementHook` | `Hook<Player, table parameters>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
 
+## Extra Data
+
+Learn more about Hooks on the [Hook API](hook.md) page.
+
 ## Examples
 
 Using:
@@ -169,6 +173,8 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -219,6 +225,8 @@ Task.Wait(2.1)
 -- We can also kill the player directly, regardless of health
 player:Die()
 ```
+
+See also: [Player.name](player.md) | [Damage.New](damage.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md) | [Vector3.New](vector3.md) | [Rotation.New](rotation.md) | [Event.Connect](event.md)
 
 ---
 
@@ -273,6 +281,8 @@ print("in the air")
 player:SetWorldPosition(Vector3.New(0, 0, 1000))
 print("done waiting")
 ```
+
+See also: [Player.GetWorldPosition](player.md) | [Damage.New](damage.md) | [Game.playerJoinedEvent](game.md) | [Vector3.z](vector3.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -332,6 +342,8 @@ print("Coins collected: " .. player:GetResource(resource1))
 print("Puppies seen: " .. player:GetResource(resource2))
 ```
 
+See also: [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -366,6 +378,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -395,6 +409,8 @@ Task.Wait(0.5)
 -- Reset their velocity to zero.
 player:ResetVelocity()
 ```
+
+See also: [Player.SetWorldPosition](player.md) | [Task.Wait](task.md) | [Vector3.ZERO](vector3.md)
 
 ---
 
@@ -427,6 +443,8 @@ Task.Wait(3)
 player.animationStance = "unarmed_stance"
 ```
 
+See also: [Game.playerJoinedEvent](game.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -458,6 +476,8 @@ for _, obj in ipairs(player:GetAttachedObjects()) do
     print("Attached object: " .. obj.name)
 end
 ```
+
+See also: [Player.GetAttachedObjects](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Equipment.Equip](equipment.md) | [Ability.name](ability.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -498,6 +518,8 @@ player:ClearOverrideCamera()
 Task.Wait()
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -519,6 +541,8 @@ print("Its rotation is " .. tostring(player:GetViewWorldRotation()))
 -- This code snippet will force them to look 90 degrees to the right.
 player:SetLookWorldRotation(player:GetLookWorldRotation() + Rotation.New(0, 0, 90))
 ```
+
+See also: [Game.GetLocalPlayer](game.md) | [CoreLua.print](coreluafunctions.md) | [Rotation.New](rotation.md)
 
 ---
 
@@ -547,6 +571,8 @@ player:SetWorldRotation(player:GetWorldRotation() + Rotation.New(0, 0, 90))
 -- Return the player to their original position and rotation:
 player:SetWorldTransform(originalTransform)
 ```
+
+See also: [Rotation.New](rotation.md) | [Vector3.UP](vector3.md)
 
 ---
 
@@ -580,6 +606,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -604,6 +632,8 @@ Task.Spawn(function()
 end)
 ```
 
+See also: [Task.Spawn](task.md) | [Game.GetPlayers](game.md) | [Vector3.New](vector3.md)
+
 ---
 
 Using:
@@ -624,6 +654,8 @@ end
 
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Object.IsA](object.md) | [Trigger.beginOverlapEvent](trigger.md) | [Event.Connect](event.md)
 
 ---
 
@@ -659,6 +691,8 @@ if (player.currentFacingMode == FacingMode.FACE_AIM_ALWAYS) then
 end
 ```
 
+See also: [Game.playerJoinedEvent](game.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -685,6 +719,8 @@ for i, p in ipairs(playerList) do
     PrintPlayerStats(p)
 end
 ```
+
+See also: [Player.name](player.md) | [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -731,6 +767,8 @@ for i = 0, 10 do
 end
 ```
 
+See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -745,6 +783,8 @@ It's possible to hide the player's model from the player controlling it. This ca
 player.isVisibleToSelf = false
 ```
 
+See also: [Game.GetLocalPlayer](game.md)
+
 ---
 
 Using:
@@ -757,6 +797,8 @@ You can also make the player's input more or less sensitive, when aiming. This c
 -- This will double the sensitivity:
 player.lookSensitivity = 5
 ```
+
+See also: [Game.GetLocalPlayer](game.md)
 
 ---
 
@@ -786,6 +828,8 @@ player.groundFriction = 2
 -- And more sliding - they have less grip on the ground when decelerating.
 player.brakingFrictionFactor = 0.2
 ```
+
+See also: [Game.playerJoinedEvent](game.md)
 
 ---
 
@@ -830,6 +874,8 @@ player.lookControlMode = LookControlMode.RELATIVE
 player.lookControlMode = LookControlMode.LOOK_AT_CURSOR
 ```
 
+See also: [Game.playerJoinedEvent](game.md)
+
 ---
 
 Using:
@@ -854,6 +900,8 @@ for _, p in pairs(players) do
     print()
 end
 ```
+
+See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -881,6 +929,8 @@ player:ApplyDamage(Damage.New(1))
 -- this only affects the player's controls.
 player.canMount = false
 ```
+
+See also: [Player.ApplyDamage](player.md) | [Damage.New](damage.md) | [Task.Wait](task.md)
 
 ---
 
@@ -910,6 +960,8 @@ local jumpEndListener = player.movementModeChangedEvent:Connect(
     ]]
     print(player.currentSpread)
 ```
+
+See also: [Player.movementModeChangedEvent](player.md) | [Task.Wait](task.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -948,6 +1000,8 @@ player.buoyancy = 2
 player.isCrouchEnabled = false
 ```
 
+See also: [Game.playerJoinedEvent](game.md)
+
 ---
 
 Using:
@@ -960,6 +1014,8 @@ When the player runs into physics objects, they exert force. You can affect how 
 -- Set the player to push five times as hard!
 player.touchForceFactor = 5
 ```
+
+See also: [CoreObject.SetVelocity](coreobject.md) | [StaticMesh.isSimulatingDebrisPhysics](staticmesh.md)
 
 ---
 
@@ -1066,6 +1122,8 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [Storage.GetPlayerData](storage.md) | [Player.GetResource](player.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -1144,5 +1202,7 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [NetReference.isAssigned](netreference.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.name](player.md) | [CoreLua.print](coreluafunctions.md) | [UI.PrintToScreen](ui.md) | [Event.Connect](event.md)
 
 ---

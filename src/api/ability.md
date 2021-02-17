@@ -78,6 +78,8 @@ end
 ability.castEvent:Connect(OnCast)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Player.isGrounded](player.md) | [Vector3.UP](vector3.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -100,6 +102,8 @@ end
 ability.castEvent:Connect(OnCast)
 ability.cooldownEvent:Connect(OnCooldown)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Player.owner](player.md) | [Ability.castEvent](ability.md) | [Event.Connect](event.md)
 
 ---
 
@@ -125,6 +129,8 @@ end
 ability.executeEvent:Connect(OnExecute)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Weapon.currentAmmo](weapon.md) | [World.SpawnAsset](world.md) | [Ability.executeEvent](ability.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -145,6 +151,8 @@ end
 
 ability.interruptedEvent:Connect(OnInterrupted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Object.IsValid](object.md) | [Ability.owner](ability.md) | [World.SpawnAsset](world.md) | [Player.GetWorldPosition](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -170,6 +178,8 @@ end
 ability.readyEvent:Connect(OnReady)
 ability.executeEvent:Connect(OnExecute)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Player.SetVisibility](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -207,6 +217,8 @@ end
 trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Ability.executeEvent](ability.md) | [Event.Connect](event.md) | [other.IsA](other.md) | [Player.team](player.md) | [Damage.New](damage.md) | [Trigger.beginOverlapEvent](trigger.md)
+
 ---
 
 Using:
@@ -227,6 +239,8 @@ for _, ability in ipairs(allAbilities) do
     ability.tickEvent:Connect(OnTick)
 end
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Equipment.GetAbilities](equipment.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -261,6 +275,8 @@ end
 Events.Connect("SteppedOnObject", OnPlayAnimation)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Trigger.beginOverlapEvent](trigger.md) | [other.IsA](other.md) | [Events.BroadcastToPlayer](events.md) | [Ability.owner](ability.md) | [Game.GetLocalPlayer()](game.md)
+
 ---
 
 Using:
@@ -283,6 +299,8 @@ function Tick()
     end
 end
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.GetCurrentPhase](ability.md) | [AbilityPhaseSettings.duration](abilityphasesettings.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -308,6 +326,8 @@ end
 
 ability.castEvent:Connect(OnCast)
 ```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [AbilityTarget.GetHitPosition](abilitytarget.md) | [Ability.owner](ability.md) | [Player.GetWorldPosition](player.md) | [Event.Connect](event.md)
 
 ---
 
@@ -336,6 +356,8 @@ end
 
 ability.executeEvent:Connect(OnExecute)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Player.GetWorldPosition](player.md) | [Game.FindPlayersInCylinder](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -387,6 +409,8 @@ end
 -- Lets also cleanup when a player leaves the game, as perhaps their ability objects might stay in the game.
 Game.playerLeftEvent:Connect(CleanupListeners)
 ```
+
+See also: [EventListener.Disconnect](eventlistener.md) | [Player.GetAbilities](player.md) | [Ability.castEvent](ability.md) | [Event.Connect](event.md) | [Game.playerLeftEvent](game.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -442,6 +466,8 @@ function GetLocalPlayerAbilityWithBinding()
 end
 ```
 
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.owner](ability.md) | [Player.isDead](player.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
+
 ---
 
 Using:
@@ -469,6 +495,8 @@ end
 
 ability.interruptedEvent:Connect(OnInterrupted)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Object.IsValid](object.md) | [Player.GetAbilities](player.md) | [Vector3.UP](vector3.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md)
 
 ---
 
@@ -520,6 +548,8 @@ function UpdateForAbility(ability)
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Ability.GetCurrentPhase](ability.md) | [AbilityPhaseSettings.duration](abilityphasesettings.md) | [UIText.text](uitext.md) | [Color.Lerp](color.md)
+
 ---
 
 Using:
@@ -557,6 +587,8 @@ for _, child in pairs(equipment:FindDescendantsByType("Ability")) do
 end
 ```
 
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.owner](ability.md) | [Equipment.owner](equipment.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -591,6 +623,8 @@ function Tick()
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetLocalPlayer](game.md) | [Player.GetAbilities](player.md) | [UIText.text](uitext.md)
+
 ---
 
 Using:
@@ -609,6 +643,8 @@ end
 
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Player.owner](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 

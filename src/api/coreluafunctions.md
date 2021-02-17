@@ -72,4 +72,6 @@ function Tick()
 end
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [Color.RED](color.md) | [World.SpawnAsset](world.md) | [Vector3.FORWARD](vector3.md) | [CoreMesh.SetColor](coremesh.md)
+
 ---

@@ -80,6 +80,8 @@ local task2 = SpawnCountdown("Bob")
     ]]
 ```
 
+See also: [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -98,6 +100,8 @@ local timeElapsed, timeRequested = Task.Wait(3)
 print("timeElapsed = " .. timeElapsed)
 print("timeRequested = " .. timeRequested)
 ```
+
+See also: [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -129,6 +133,8 @@ myTask:Cancel()
 print("Current status is Canceled? " .. tostring(myTask:GetStatus() == TaskStatus.CANCELED))
 ```
 
+See also: [Task.Spawn](task.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -159,5 +165,7 @@ Output:
     Hello world! x4
 ]]
 ```
+
+See also: [Task.Spawn](task.md) | [CoreLua.print](coreluafunctions.md)
 
 ---

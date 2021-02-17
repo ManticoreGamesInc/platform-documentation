@@ -38,4 +38,6 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
+See also: [CoreLua.time](coreluafunctions.md) | [Player.name](player.md) | [Damage.amount](damage.md) | [Game.playerJoinedEvent](game.md)
+
 ---

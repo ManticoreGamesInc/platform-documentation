@@ -262,6 +262,8 @@ template4.lifeSpan = 0.5
 Task.Wait(1)
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -302,6 +304,8 @@ Note that this only works from inside a client context:
 ]]
 cube:AttachToLocalView()
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -356,6 +360,8 @@ Task.Wait(5)
     local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
     watchingCube:LookAtLocalView() -- This only works in a client context!
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md)
 
 ---
 
@@ -440,6 +446,8 @@ local templateRoot = template1:FindTemplateRoot()
 -- this should just give us back Template1, because it is already the root.
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -474,6 +482,8 @@ for propName, propValue in pairs(script:GetCustomProperties()) do
     print("Found property [" .. propName .. "] with value [" .. tostring(propValue) .. "]")
 end
 ```
+
+See also: [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -538,6 +548,8 @@ cube4:SetTransform(cube2:GetTransform())
 -- Cube1 and cube3 now have the same transforms, and cube2 and cube4 also match.
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Rotation.New](rotation.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -568,6 +580,8 @@ sphere:SetAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 -- velocity of its parent, if any:
 sphere:SetLocalAngularVelocity(sphere:GetAngularVelocity() * 0.25)
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md)
 
 ---
 
@@ -615,6 +629,8 @@ movingCube:StopMove()
 spinningCube:StopRotate()
 shrinkingCube:StopScale()
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Rotation.New](rotation.md) | [Task.Wait](task.md)
 
 ---
 
@@ -669,6 +685,8 @@ script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetRefere
 
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -713,6 +731,8 @@ if template.isStatic then print("It is Static") end
 --    sourceTemplateId: AF4DDC200B982801
 --    It is networked!
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
@@ -780,5 +800,7 @@ print("cube2 visible?    " .. tostring(cube2:IsVisibleInHierarchy()))
 print("cube2 collidable? " .. tostring(cube2:IsCollidableInHierarchy()))
 -- These are both true now because the parent is no longer disabled.
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
