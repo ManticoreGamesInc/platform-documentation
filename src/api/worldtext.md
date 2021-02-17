@@ -49,6 +49,8 @@ function Tick(deltaTime)
 end
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Color.Lerp](color.md)
+
 ---
 
 Using:
@@ -64,5 +66,7 @@ Game.playerJoinedEvent:Connect(function (player)
     nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
 end)
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Game.playerJoinedEvent](game.md) | [Player.name](player.md) | [Event.Connect](event.md)
 
 ---

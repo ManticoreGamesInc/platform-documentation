@@ -59,6 +59,8 @@ dragonMesh.animationEvent:Connect(AnimEventListener)
 dragonMesh:PlayAnimation("unarmed_claw")
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [AnimatedMesh.PlayAnimation](animatedmesh.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -87,6 +89,8 @@ for _, obj in ipairs(allObjects) do
     end
 end
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md)
 
 ---
 
@@ -128,6 +132,8 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 PrintAnimatedMeshData(dragonMesh)
 ```
 
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -168,6 +174,8 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
+
 ---
 
 Using:
@@ -184,6 +192,8 @@ dragonMesh:PlayAnimation("unarmed_slash")
 Task.Wait(0.25)
 dragonMesh:StopAnimations()
 ```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [AnimatedMesh.PlayAnimation](animatedmesh.md) | [Task.Wait](task.md)
 
 ---
 
@@ -238,5 +248,7 @@ function Tick(deltaTime)
     end
 end
 ```
+
+See also: [CoreObject.parent](coreobject.md) | [Vector3 - Vector3](vector3.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---

@@ -39,6 +39,8 @@ while true do
 end
 ```
 
+See also: [Vfx.Stop](vfx.md) | [CoreObject.parent](coreobject.md) | [Task.Wait](task.md)
+
 ---
 
 Using:
@@ -78,6 +80,8 @@ end
 TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 ```
+
+See also: [Vfx.Play](vfx.md) | [CoreObject.parent](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [other.IsA](other.md) | [Trigger.beginOverlapEvent](trigger.md) | [Event.Connect](event.md)
 
 ---
 

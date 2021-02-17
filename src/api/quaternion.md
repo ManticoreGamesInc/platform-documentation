@@ -106,6 +106,8 @@ end
 print("Tah dah!")
 ```
 
+See also: [Quaternion.New](quaternion.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreDebug.DrawLine](coredebug.md) | [Vector3.New](vector3.md) | [Color.RED](color.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
+
 ---
 
 Using:
@@ -143,6 +145,8 @@ local copyQuaternion = Quaternion.New(rotationQuaternion)
 local directQuaternion = Quaternion.New(0, 0, sqrt2over2, sqrt2over2)
 ```
 
+See also: [Rotation.New](rotation.md) | [Vector3.RIGHT](vector3.md)
+
 ---
 
 Using:
@@ -169,6 +173,8 @@ local rotatedVector = rotate90Degrees * Vector3.FORWARD
 local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD
 ```
 
+See also: [Quaternion.New](quaternion.md) | [Vector3.UP](vector3.md)
+
 ---
 
 Using:
@@ -188,5 +194,7 @@ myQuaternion.z = math.sqrt(2)/2
 myQuaternion.w = math.sqrt(2)/2
 -- myQuaternion is now a 90 degree rotation about the Z axis!
 ```
+
+See also: [Quaternion.New](quaternion.md)
 
 ---
