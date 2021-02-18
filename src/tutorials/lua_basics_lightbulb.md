@@ -238,11 +238,11 @@ Now that we know what a trigger is and where it is set up, we can get back to ou
 Add this line of code to the second line of your script,  after the `switch` variable:
 
 ```lua
-local switchTrigger = switch:FindChildByType("Trigger")
+local switchTrigger = switch:FindChildByName("Trigger")
 ```
 
 - `switchTrigger` is the name for our trigger variable.
-- `switch:FindChildByType("Trigger")` looks for an object that is a child of the switch, and has the name "Trigger" in the Hierarchy.
+- `switch:FindChildByName("Trigger")` looks for an object that is a child of the switch, and has the name "Trigger" in the Hierarchy.
 
 Your script should look like this:
 
@@ -382,7 +382,7 @@ Programmers use comments to define and explain certain parts of their code. Add 
 
 ```lua
 local switch = script.parent
-local switchTrigger = switch:FindChildByType("Trigger")
+local switchTrigger = switch:FindChildByName("Trigger")
 
 -- Function to rotate the switch
 local function OnSwitchInteraction()
