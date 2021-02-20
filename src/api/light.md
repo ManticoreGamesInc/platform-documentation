@@ -26,5 +26,5 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | `Color` | The color of the light. | None |
+| `GetColor()` | [`Color`](color.md) | The color of the light. | None |
 | `SetColor(Color)` | `None` | The color of the light. | None |

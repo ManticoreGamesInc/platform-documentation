@@ -20,9 +20,9 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetFillColor()` | `Color` | Returns the color of the fill. | None |
+| `GetFillColor()` | [`Color`](color.md) | Returns the color of the fill. | None |
 | `SetFillColor(Color)` | `None` | Sets the color of the fill. | None |
-| `GetBackgroundColor()` | `Color` | Returns the color of the background. | None |
+| `GetBackgroundColor()` | [`Color`](color.md) | Returns the color of the background. | None |
 | `SetBackgroundColor(Color)` | `None` | Sets the color of the background. | None |
 
 ## Tutorials

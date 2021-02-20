@@ -14,21 +14,21 @@ A three-component vector that can represent a position or direction.
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector3.New([Number x, Number y, Number z])` | `Vector3` | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). | None |
-| `Vector3.New(Number v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. | None |
-| `Vector3.New(Vector2 xy, Number z)` | `Vector3` | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. | None |
-| `Vector3.New(Vector3 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
-| `Vector3.New(Vector4 v)` | `Vector3` | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
+| `Vector3.New([Number x, Number y, Number z])` | [`Vector3`](vector3.md) | Constructs a Vector3 with the given `x`, `y`, `z` values, defaults to (0, 0, 0). | None |
+| `Vector3.New(Number v)` | [`Vector3`](vector3.md) | Constructs a Vector3 with `x`, `y`, `z` values all set to the given value. | None |
+| `Vector3.New(Vector2 xy, Number z)` | [`Vector3`](vector3.md) | Constructs a Vector3 with `x`, `y` values from the given Vector2 and the given `z` value. | None |
+| `Vector3.New(Vector3 v)` | [`Vector3`](vector3.md) | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector3. | None |
+| `Vector3.New(Vector4 v)` | [`Vector3`](vector3.md) | Constructs a Vector3 with `x`, `y`, `z` values from the given Vector4. | None |
 
 ## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector3.ZERO` | `Vector3` | (0, 0, 0) | None |
-| `Vector3.ONE` | `Vector3` | (1, 1, 1) | None |
-| `Vector3.FORWARD` | `Vector3` | (1, 0, 0) | None |
-| `Vector3.UP` | `Vector3` | (0, 0, 1) | None |
-| `Vector3.RIGHT` | `Vector3` | (0, 1, 0) | None |
+| `Vector3.ZERO` | [`Vector3`](vector3.md) | (0, 0, 0) | None |
+| `Vector3.ONE` | [`Vector3`](vector3.md) | (1, 1, 1) | None |
+| `Vector3.FORWARD` | [`Vector3`](vector3.md) | (1, 0, 0) | None |
+| `Vector3.UP` | [`Vector3`](vector3.md) | (0, 0, 1) | None |
+| `Vector3.RIGHT` | [`Vector3`](vector3.md) | (0, 1, 0) | None |
 
 ## Properties
 
@@ -44,30 +44,30 @@ A three-component vector that can represent a position or direction.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetNormalized()` | `Vector3` | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
+| `GetNormalized()` | [`Vector3`](vector3.md) | Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized. | None |
 
 ## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | `Vector3` | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
+| `Vector3.Lerp(Vector3 from, Vector3 to, Number progress)` | [`Vector3`](vector3.md) | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector3. | None |
 
 ## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Vector3 + Vector3` | `Vector3` | Component-wise addition. | None |
-| `Vector3 + Number` | `Vector3` | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 - Vector3` | `Vector3` | Component-wise subtraction. | None |
-| `Vector3 - Number` | `Vector3` | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
-| `Vector3 * Vector3` | `Vector3` | Component-wise multiplication. | None |
-| `Vector3 * Number` | `Vector3` | Multiplies each component of the Vector3 by the right-side Number. | None |
-| `Number * Vector3` | `Vector3` | Multiplies each component of the Vector3 by the left-side Number. | None |
-| `Vector3 / Vector3` | `Vector3` | Component-wise division. | None |
-| `Vector3 / Number` | `Vector3` | Divides each component of the Vector3 by the right-side Number. | None |
-| `-Vector3` | `Vector3` | Returns the negation of the Vector3. | None |
+| `Vector3 + Vector3` | [`Vector3`](vector3.md) | Component-wise addition. | None |
+| `Vector3 + Number` | [`Vector3`](vector3.md) | Adds the right-side Number to each of the components in the left side and returns the resulting Vector3. | None |
+| `Vector3 - Vector3` | [`Vector3`](vector3.md) | Component-wise subtraction. | None |
+| `Vector3 - Number` | [`Vector3`](vector3.md) | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector3. | None |
+| `Vector3 * Vector3` | [`Vector3`](vector3.md) | Component-wise multiplication. | None |
+| `Vector3 * Number` | [`Vector3`](vector3.md) | Multiplies each component of the Vector3 by the right-side Number. | None |
+| `Number * Vector3` | [`Vector3`](vector3.md) | Multiplies each component of the Vector3 by the left-side Number. | None |
+| `Vector3 / Vector3` | [`Vector3`](vector3.md) | Component-wise division. | None |
+| `Vector3 / Number` | [`Vector3`](vector3.md) | Divides each component of the Vector3 by the right-side Number. | None |
+| `-Vector3` | [`Vector3`](vector3.md) | Returns the negation of the Vector3. | None |
 | `Vector3 .. Vector3` | `Number` | Returns the dot product of the Vector3s. | None |
-| `Vector3 ^ Vector3` | `Vector3` | Returns the cross product of the Vector3s. | None |
+| `Vector3 ^ Vector3` | [`Vector3`](vector3.md) | Returns the cross product of the Vector3s. | None |
 
 ## Examples
 
