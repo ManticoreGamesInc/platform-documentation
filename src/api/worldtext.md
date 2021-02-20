@@ -20,7 +20,7 @@ WorldText is an in-world text CoreObject.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | `Color` | The color of the Text. | None |
+| `GetColor()` | [`Color`](color.md) | The color of the Text. | None |
 | `SetColor(Color)` | `None` | The color of the Text. | None |
 
 ## Examples

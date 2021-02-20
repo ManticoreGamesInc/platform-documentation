@@ -14,10 +14,10 @@ An RGBA representation of a color. Color components have an effective range of `
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Color.New(Number r, Number g, Number b, [Number a])` | `Color` | Constructs a Color with the given values, alpha defaults to 1.0. | None |
-| `Color.New(Vector3 v)` | `Color` | Constructs a Color using the vector's XYZ components as the color's RGB components, alpha defaults to 1.0. | None |
-| `Color.New(Vector4 v)` | `Color` | Constructs a Color using the vector's XYZW components as the color's RGBA components. | None |
-| `Color.New(Color c)` | `Color` | Makes a copy of the given color. | None |
+| `Color.New(Number r, Number g, Number b, [Number a])` | [`Color`](color.md) | Constructs a Color with the given values, alpha defaults to 1.0. | None |
+| `Color.New(Vector3 v)` | [`Color`](color.md) | Constructs a Color using the vector's XYZ components as the color's RGB components, alpha defaults to 1.0. | None |
+| `Color.New(Vector4 v)` | [`Color`](color.md) | Constructs a Color using the vector's XYZW components as the color's RGBA components. | None |
+| `Color.New(Color c)` | [`Color`](color.md) | Makes a copy of the given color. | None |
 
 ## Properties
 
@@ -32,7 +32,7 @@ An RGBA representation of a color. Color components have an effective range of `
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetDesaturated(Number desaturation)` | `Color` | Returns the desaturated version of the Color. 0 represents no desaturation and 1 represents full desaturation. | None |
+| `GetDesaturated(Number desaturation)` | [`Color`](color.md) | Returns the desaturated version of the Color. 0 represents no desaturation and 1 represents full desaturation. | None |
 | `ToStandardHex()` | `string` | Returns a hexadecimal sRGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
 | `ToLinearHex()` | `string` | Returns a hexadecimal linear RGB representation of this color, in the format "#RRGGBBAA". Channel values outside the normal 0-1 range will be clamped, and some precision may be lost. | None |
 
@@ -40,21 +40,21 @@ An RGBA representation of a color. Color components have an effective range of `
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Color.Lerp(Color from, Color to, Number progress)` | `Color` | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. | None |
-| `Color.Random()` | `Color` | Returns a new color with random RGB values and Alpha of 1.0. | None |
-| `Color.FromStandardHex(string hexString)` | `Color` | Creates a Color from the given sRGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
-| `Color.FromLinearHex(string hexString)` | `Color` | Creates a Color from the given linear RGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
+| `Color.Lerp(Color from, Color to, Number progress)` | [`Color`](color.md) | Linearly interpolates between two colors in HSV space by the specified progress amount and returns the resultant Color. | None |
+| `Color.Random()` | [`Color`](color.md) | Returns a new color with random RGB values and Alpha of 1.0. | None |
+| `Color.FromStandardHex(string hexString)` | [`Color`](color.md) | Creates a Color from the given sRGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
+| `Color.FromLinearHex(string hexString)` | [`Color`](color.md) | Creates a Color from the given linear RGB hexadecimal string. Supported formats include "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA", with or without the leading "#". | None |
 
 ## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Color + Color` | `Color` | Component-wise addition. | None |
-| `Color - Color` | `Color` | Component-wise subtraction | None |
-| `Color * Color` | `Color` | Component-wise multiplication. | None |
-| `Color * Number` | `Color` | Multiplies each component of the Color by the right-side Number. | None |
-| `Color / Color` | `Color` | Component-wise division. | None |
-| `Color / Number` | `Color` | Divides each component of the Color by the right-side Number. | None |
+| `Color + Color` | [`Color`](color.md) | Component-wise addition. | None |
+| `Color - Color` | [`Color`](color.md) | Component-wise subtraction | None |
+| `Color * Color` | [`Color`](color.md) | Component-wise multiplication. | None |
+| `Color * Number` | [`Color`](color.md) | Multiplies each component of the Color by the right-side Number. | None |
+| `Color / Color` | [`Color`](color.md) | Component-wise division. | None |
+| `Color / Number` | [`Color`](color.md) | Divides each component of the Color by the right-side Number. | None |
 
 ## Additional Info
 

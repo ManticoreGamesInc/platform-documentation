@@ -21,7 +21,7 @@ A UIControl for displaying an image.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | `Color` | Returns the current color of the UIImage. | None |
+| `GetColor()` | [`Color`](color.md) | Returns the current color of the UIImage. | None |
 | `SetColor(Color)` | `None` | Sets the UIImage to a color. | None |
 | `GetImage()` | `string` | Returns the imageId assigned to this UIImage control. | None |
 | `SetImage(MUID imageId)` | `None` | Sets the UIImage to a new MUID. You can get this MUID from an Asset Reference. | None |

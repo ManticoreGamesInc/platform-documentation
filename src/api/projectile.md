@@ -14,8 +14,8 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `owner` | `Player` | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. | Read-Write |
-| `sourceAbility` | `Ability` | Reference to the Ability from which the Projectile was created. | Read-Write |
+| `owner` | [`Player`](player.md) | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. | Read-Write |
+| `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability from which the Projectile was created. | Read-Write |
 | `speed` | `Number` | Centimeters per second movement. Default 5000. | Read-Write |
 | `maxSpeed` | `Number` | Max cm/s. Default 0. Zero means no limit. | Read-Write |
 | `gravityScale` | `Number` | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write |
@@ -27,7 +27,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `piercesRemaining` | `Integer` | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
 | `capsuleRadius` | `Number` | Shape of the Projectile's collision. Default 22. | Read-Write |
 | `capsuleLength` | `Number` | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
-| `homingTarget` | `CoreObject` | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. | Read-Write |
+| `homingTarget` | [`CoreObject`](coreobject.md) | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. | Read-Write |
 | `homingAcceleration` | `Number` | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
 | `shouldDieOnImpact` | `bool` | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
 
@@ -35,18 +35,18 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Destroy()` | `Object` | Immediately destroys the object. | None |
-| `GetWorldTransform()` | `Transform` | Transform data for the Projectile in world space. | None |
-| `GetWorldPosition()` | `Vector3` | Position of the Projectile in world space. | None |
+| `Destroy()` | [`Object`](object.md) | Immediately destroys the object. | None |
+| `GetWorldTransform()` | [`Transform`](transform.md) | Transform data for the Projectile in world space. | None |
+| `GetWorldPosition()` | [`Vector3`](vector3.md) | Position of the Projectile in world space. | None |
 | `SetWorldPosition(Vector3)` | `None` | Position of the Projectile in world space. | None |
-| `GetVelocity()` | `Vector3` | Current direction and speed vector of the Projectile. | None |
+| `GetVelocity()` | [`Vector3`](vector3.md) | Current direction and speed vector of the Projectile. | None |
 | `SetVelocity(Vector3)` | `None` | Current direction and speed vector of the Projectile. | None |
 
 ## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | `Projectile` | Spawns a Projectile with a child that is an instance of a template. | None |
+| `Projectile.Spawn(string childTemplateId, Vector3 startPosition, Vector3 direction)` | [`Projectile`](projectile.md) | Spawns a Projectile with a child that is an instance of a template. | None |
 
 ## Events
 

@@ -15,7 +15,7 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `socket` | `string` | Determines which point on the avatar's body this equipment will be attached. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Read-Write |
-| `owner` | `Player` | Which Player the Equipment is attached to. | Read-Only |
+| `owner` | [`Player`](player.md) | Which Player the Equipment is attached to. | Read-Only |
 
 ## Functions
 

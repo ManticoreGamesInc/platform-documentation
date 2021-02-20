@@ -16,7 +16,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `followPlayer` | `Player` | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write |
+| `followPlayer` | [`Player`](player.md) | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write |
 | `isOrthographic` | `bool` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write |
 | `fieldOfView` | `Number` | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write |
 | `viewWidth` | `Number` | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write |
@@ -39,9 +39,9 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetPositionOffset()` | `Vector3` | An offset added to the camera or follow target's eye position to the Player's view. | None |
+| `GetPositionOffset()` | [`Vector3`](vector3.md) | An offset added to the camera or follow target's eye position to the Player's view. | None |
 | `SetPositionOffset(Vector3)` | `None` | An offset added to the camera or follow target's eye position to the Player's view. | None |
-| `GetRotationOffset()` | `Rotation` | A rotation added to the camera or follow target's eye position. | None |
+| `GetRotationOffset()` | [`Rotation`](rotation.md) | A rotation added to the camera or follow target's eye position. | None |
 | `SetRotationOffset(Rotation)` | `None` | A rotation added to the camera or follow target's eye position. | None |
 
 ## Examples
