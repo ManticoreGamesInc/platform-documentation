@@ -14,17 +14,17 @@ A quaternion-based representation of a rotation.
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Quaternion.New([Number x, Number y, Number z, Number w])` | `Quaternion` | Constructs a Quaternion with the given values. Defaults to 0, 0, 0, 1. | None |
-| `Quaternion.New(Rotation r)` | `Quaternion` | Constructs a Quaternion with the given Rotation. | None |
-| `Quaternion.New(Vector3 axis, Number angle)` | `Quaternion` | Constructs a Quaternion representing a rotation of angle degrees around the axis of the Vector3. | None |
-| `Quaternion.New(Vector3 from, Vector3 to)` | `Quaternion` | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
-| `Quaternion.New(Quaternion q)` | `Quaternion` | Copies the given Quaternion. | None |
+| `Quaternion.New([Number x, Number y, Number z, Number w])` | [`Quaternion`](quaternion.md) | Constructs a Quaternion with the given values. Defaults to 0, 0, 0, 1. | None |
+| `Quaternion.New(Rotation r)` | [`Quaternion`](quaternion.md) | Constructs a Quaternion with the given Rotation. | None |
+| `Quaternion.New(Vector3 axis, Number angle)` | [`Quaternion`](quaternion.md) | Constructs a Quaternion representing a rotation of angle degrees around the axis of the Vector3. | None |
+| `Quaternion.New(Vector3 from, Vector3 to)` | [`Quaternion`](quaternion.md) | Constructs a Quaternion between the `from` and `to` of the Vector3s. | None |
+| `Quaternion.New(Quaternion q)` | [`Quaternion`](quaternion.md) | Copies the given Quaternion. | None |
 
 ## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Quaternion.IDENTITY` | `Quaternion` | Predefined Quaternion with no rotation. | None |
+| `Quaternion.IDENTITY` | [`Quaternion`](quaternion.md) | Predefined Quaternion with no rotation. | None |
 
 ## Properties
 
@@ -39,28 +39,28 @@ A quaternion-based representation of a rotation.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetRotation()` | `Rotation` | Get the Rotation representation of the Quaternion. | None |
-| `GetForwardVector()` | `Vector3` | Forward unit vector rotated by the quaternion. | None |
-| `GetRightVector()` | `Vector3` | Right unit vector rotated by the quaternion. | None |
-| `GetUpVector()` | `Vector3` | Up unit vector rotated by the quaternion. | None |
+| `GetRotation()` | [`Rotation`](rotation.md) | Get the Rotation representation of the Quaternion. | None |
+| `GetForwardVector()` | [`Vector3`](vector3.md) | Forward unit vector rotated by the quaternion. | None |
+| `GetRightVector()` | [`Vector3`](vector3.md) | Right unit vector rotated by the quaternion. | None |
+| `GetUpVector()` | [`Vector3`](vector3.md) | Up unit vector rotated by the quaternion. | None |
 
 ## Class Functions
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Quaternion.Slerp(Quaternion from, Quaternion to, Number progress)` | `Quaternion` | Spherical interpolation between two quaternions by the specified progress amount and returns the resultant, normalized Quaternion. | None |
+| `Quaternion.Slerp(Quaternion from, Quaternion to, Number progress)` | [`Quaternion`](quaternion.md) | Spherical interpolation between two quaternions by the specified progress amount and returns the resultant, normalized Quaternion. | None |
 
 ## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Quaternion + Quaternion` | `Quaternion` | Component-wise addition. | None |
-| `Quaternion - Quaternion` | `Quaternion` | Component-wise subtraction. | None |
-| `Quaternion * Quaternion` | `Quaternion` | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. | None |
-| `Quaternion * Number` | `Quaternion` | Multiplies each component by the right-side Number. | None |
-| `Quaternion * Vector3` | `Vector3` | Rotates the right-side vector and returns the result. | None |
-| `Quaternion / Number` | `Quaternion` | Divides each component by the right-side Number. | None |
-| `-Quaternion` | `Quaternion` | Returns the inverse rotation. | None |
+| `Quaternion + Quaternion` | [`Quaternion`](quaternion.md) | Component-wise addition. | None |
+| `Quaternion - Quaternion` | [`Quaternion`](quaternion.md) | Component-wise subtraction. | None |
+| `Quaternion * Quaternion` | [`Quaternion`](quaternion.md) | Compose two quaternions, with the result applying the right rotation first, then the left rotation second. | None |
+| `Quaternion * Number` | [`Quaternion`](quaternion.md) | Multiplies each component by the right-side Number. | None |
+| `Quaternion * Vector3` | [`Vector3`](vector3.md) | Rotates the right-side vector and returns the result. | None |
+| `Quaternion / Number` | [`Quaternion`](quaternion.md) | Divides each component by the right-side Number. | None |
+| `-Quaternion` | [`Quaternion`](quaternion.md) | Returns the inverse rotation. | None |
 
 ## Examples
 

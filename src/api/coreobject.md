@@ -16,7 +16,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | -------- | ----------- | ----------- | ---- |
 | `name` | `string` | The object's name as seen in the Hierarchy. | Read-Write |
 | `id` | `string` | The object's MUID. | Read-Only |
-| `parent` | `CoreObject` | The object's parent object, may be nil. | Read-Write |
+| `parent` | [`CoreObject`](coreobject.md) | The object's parent object, may be nil. | Read-Write |
 | `visibility` | `enum` | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write |
 | `collision` | `enum` | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write |
 | `isEnabled` | `bool` | Turn on/off an object and its children completely. | Read-Write |
@@ -31,41 +31,41 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetTransform()` | `Transform` | The Transform relative to this object's parent. | None |
+| `GetTransform()` | [`Transform`](transform.md) | The Transform relative to this object's parent. | None |
 | `SetTransform(Transform)` | `None` | The Transform relative to this object's parent. | None |
-| `GetPosition()` | `Vector3` | The position of this object relative to its parent. | None |
+| `GetPosition()` | [`Vector3`](vector3.md) | The position of this object relative to its parent. | None |
 | `SetPosition(Vector3)` | `None` | The position of this object relative to its parent. | None |
-| `GetRotation()` | `Rotation` | The rotation relative to its parent. | None |
+| `GetRotation()` | [`Rotation`](rotation.md) | The rotation relative to its parent. | None |
 | `SetRotation(Rotation)` | `None` | The rotation relative to its parent. | None |
-| `GetScale()` | `Vector3` | The scale relative to its parent. | None |
+| `GetScale()` | [`Vector3`](vector3.md) | The scale relative to its parent. | None |
 | `SetScale(Vector3)` | `None` | The scale relative to its parent. | None |
-| `GetWorldTransform()` | `Transform` | The absolute Transform of this object. | None |
+| `GetWorldTransform()` | [`Transform`](transform.md) | The absolute Transform of this object. | None |
 | `SetWorldTransform(Transform)` | `None` | The absolute Transform of this object. | None |
-| `GetWorldPosition()` | `Vector3` | The absolute position. | None |
+| `GetWorldPosition()` | [`Vector3`](vector3.md) | The absolute position. | None |
 | `SetWorldPosition(Vector3)` | `None` | The absolute position. | None |
-| `GetWorldRotation()` | `Rotation` | The absolute rotation. | None |
+| `GetWorldRotation()` | [`Rotation`](rotation.md) | The absolute rotation. | None |
 | `SetWorldRotation(Rotation)` | `None` | The absolute rotation. | None |
-| `GetWorldScale()` | `Vector3` | The absolute scale. | None |
+| `GetWorldScale()` | [`Vector3`](vector3.md) | The absolute scale. | None |
 | `SetWorldScale(Vector3)` | `None` | The absolute scale. | None |
-| `GetVelocity()` | `Vector3` | The object's velocity in world space. | None |
+| `GetVelocity()` | [`Vector3`](vector3.md) | The object's velocity in world space. | None |
 | `SetVelocity(Vector3)` | `None` | Set the object's velocity in world space. Only works for physics objects. | None |
-| `GetAngularVelocity()` | `Vector3` | The object's angular velocity in degrees per second. | None |
+| `GetAngularVelocity()` | [`Vector3`](vector3.md) | The object's angular velocity in degrees per second. | None |
 | `SetAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in world space. Only works for physics objects. | None |
 | `SetLocalAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in local space. Only works for physics objects. | None |
-| `GetReference()` | `CoreObjectReference` | Returns a CoreObjectReference pointing at this object. | None |
+| `GetReference()` | [`CoreObjectReference`](coreobjectreference.md) | Returns a CoreObjectReference pointing at this object. | None |
 | `GetChildren()` | `Array<CoreObject>` | Returns a table containing the object's children, may be empty. | None |
 | `IsVisibleInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are visible. | None |
 | `IsCollidableInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are collidable. | None |
 | `IsEnabledInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are enabled. | None |
-| `FindAncestorByName(string name)` | `CoreObject` | Returns the first parent or ancestor whose name matches the provided name. If none match, returns nil. | None |
-| `FindChildByName(string name)` | `CoreObject` | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
-| `FindDescendantByName(string name)` | `CoreObject` | Returns the first child or descendant whose name matches the provided name. If none match, returns nil. | None |
+| `FindAncestorByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose name matches the provided name. If none match, returns nil. | None |
+| `FindChildByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
+| `FindDescendantByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose name matches the provided name. If none match, returns nil. | None |
 | `FindDescendantsByName(string name)` | `Array<CoreObject>` | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
-| `FindAncestorByType(string typeName)` | `CoreObject` | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first mesh. If no ancestors match, returns nil. | None |
-| `FindChildByType(string typeName)` | `CoreObject` | Returns the first immediate child whose type is or extends the specified type. If none match, returns nil. | None |
-| `FindDescendantByType(string typeName)` | `CoreObject` | Returns the first child or descendant whose type is or extends the specified type. If none match, returns nil. | None |
+| `FindAncestorByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first mesh. If no ancestors match, returns nil. | None |
+| `FindChildByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose type is or extends the specified type. If none match, returns nil. | None |
+| `FindDescendantByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose type is or extends the specified type. If none match, returns nil. | None |
 | `FindDescendantsByType(string typeName)` | `Array<CoreObject>` | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
-| `FindTemplateRoot()` | `CoreObject` | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
+| `FindTemplateRoot()` | [`CoreObject`](coreobject.md) | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | `bool` | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on a CoreObject. | None |
 | `GetCustomProperty(string propertyName)` | `value, bool` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a bool, true if found and false if not. | None |

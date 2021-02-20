@@ -14,16 +14,16 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Rotation.New([Number x, Number y, Number z])` | `Rotation` | Construct a rotation with the given values, defaults to (0, 0, 0). | None |
-| `Rotation.New(Quaternion q)` | `Rotation` | Construct a rotation using the given Quaternion. | None |
-| `Rotation.New(Vector3 forward, Vector3 up)` | `Rotation` | Construct a rotation that will rotate Vector3.FORWARD to point in the direction of the given forward vector, with the up vector as a reference. Returns (0, 0, 0) if forward and up point in the exact same (or opposite) direction, or if one of them is of length 0. | None |
-| `Rotation.New(Rotation r)` | `Rotation` | Copies the given Rotation. | None |
+| `Rotation.New([Number x, Number y, Number z])` | [`Rotation`](rotation.md) | Construct a rotation with the given values, defaults to (0, 0, 0). | None |
+| `Rotation.New(Quaternion q)` | [`Rotation`](rotation.md) | Construct a rotation using the given Quaternion. | None |
+| `Rotation.New(Vector3 forward, Vector3 up)` | [`Rotation`](rotation.md) | Construct a rotation that will rotate Vector3.FORWARD to point in the direction of the given forward vector, with the up vector as a reference. Returns (0, 0, 0) if forward and up point in the exact same (or opposite) direction, or if one of them is of length 0. | None |
+| `Rotation.New(Rotation r)` | [`Rotation`](rotation.md) | Copies the given Rotation. | None |
 
 ## Constants
 
 | Constant Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Rotation.ZERO` | `Rotation` | Constant Rotation of (0, 0, 0). | None |
+| `Rotation.ZERO` | [`Rotation`](rotation.md) | Constant Rotation of (0, 0, 0). | None |
 
 ## Properties
 
@@ -37,12 +37,12 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Rotation + Rotation` | `Rotation` | Add two rotations together. Note that this adds the individual components together, and may not provide the same result as if the two rotations were applied in sequence. | None |
-| `Rotation - Rotation` | `Rotation` | Subtract a rotation. | None |
-| `Rotation * Rotation` | `Rotation` | Combines two rotations, with the result applying the right rotation first, then the left rotation second. | None |
-| `Rotation * Number` | `Rotation` | Returns the scaled rotation. | None |
-| `-Rotation` | `Rotation` | Returns the inverse rotation. | None |
-| `Rotation * Vector3` | `Vector3` | Rotates the right-side vector and returns the result. | None |
+| `Rotation + Rotation` | [`Rotation`](rotation.md) | Add two rotations together. Note that this adds the individual components together, and may not provide the same result as if the two rotations were applied in sequence. | None |
+| `Rotation - Rotation` | [`Rotation`](rotation.md) | Subtract a rotation. | None |
+| `Rotation * Rotation` | [`Rotation`](rotation.md) | Combines two rotations, with the result applying the right rotation first, then the left rotation second. | None |
+| `Rotation * Number` | [`Rotation`](rotation.md) | Returns the scaled rotation. | None |
+| `-Rotation` | [`Rotation`](rotation.md) | Returns the inverse rotation. | None |
+| `Rotation * Vector3` | [`Vector3`](vector3.md) | Rotates the right-side vector and returns the result. | None |
 
 ## Examples
 

@@ -14,14 +14,14 @@ A data type containing information about what the Player has targeted during a p
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `AbilityTarget.New()` | `AbilityTarget` | Constructs a new Ability Target data object. | None |
+| `AbilityTarget.New()` | [`AbilityTarget`](abilitytarget.md) | Constructs a new Ability Target data object. | None |
 
 ## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `hitObject` | `Object` | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. | Read-Write |
-| `hitPlayer` | `Player` | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Write |
+| `hitObject` | [`Object`](object.md) | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. | Read-Write |
+| `hitPlayer` | [`Player`](player.md) | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Write |
 | `spreadHalfAngle` | `Number` | Half-angle of cone of possible target space, in degrees. | Read-Write |
 | `spreadRandomSeed` | `Integer` | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
 
@@ -29,15 +29,15 @@ A data type containing information about what the Player has targeted during a p
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetOwnerMovementRotation()` | `Rotation` | Gets the direction the Player is moving. | None |
+| `GetOwnerMovementRotation()` | [`Rotation`](rotation.md) | Gets the direction the Player is moving. | None |
 | `SetOwnerMovementRotation(Rotation)` | `None` | Sets the direction the Player faces, if `Ability.facingMode` is set to `AbilityFacingMode.MOVEMENT`. | None |
-| `GetAimPosition()` | `Vector3` | Returns the world space position of the camera. | None |
+| `GetAimPosition()` | [`Vector3`](vector3.md) | Returns the world space position of the camera. | None |
 | `SetAimPosition(Vector3)` | `None` | The world space location of the camera. Setting this currently has no effect on the Player's camera. | None |
-| `GetAimDirection()` | `Vector3` | Returns the direction the camera is facing. | None |
+| `GetAimDirection()` | [`Vector3`](vector3.md) | Returns the direction the camera is facing. | None |
 | `SetAimDirection(Vector3)` | `None` | Sets the direction the camera is facing. | None |
-| `GetHitPosition()` | `Vector3` | Returns the world space position of the object under the Player's reticle. If there is no object, a position under the reticle in the distance. If the Player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
+| `GetHitPosition()` | [`Vector3`](vector3.md) | Returns the world space position of the object under the Player's reticle. If there is no object, a position under the reticle in the distance. If the Player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
 | `SetHitPosition(Vector3)` | `None` | Sets the hit position property. This may affect weapon behavior. | None |
-| `GetHitResult()` | `HitResult` | Returns physics information about the point being targeted | None |
+| `GetHitResult()` | [`HitResult`](hitresult.md) | Returns physics information about the point being targeted | None |
 
 ## Examples
 
