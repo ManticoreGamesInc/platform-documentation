@@ -24,7 +24,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `canActivateWhileDead` | `bool` | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only |
 | `name` | `string` | The name of the Ability. | Read-Only |
 | `actionBinding` | `string` | Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | Read-Only |
-| `owner` | `Player` | Assigning an owner applies the Ability to that Player. | Read-Write |
+| `owner` | [`Player`](player.md) | Assigning an owner applies the Ability to that Player. | Read-Write |
 | `castPhaseSettings` | `AbilityPhaseSettings` | Config data for the Cast phase (see below). | Read-Only |
 | `executePhaseSettings` | `AbilityPhaseSettings` | Config data for the Execute phase. | Read-Only |
 | `recoveryPhaseSettings` | `AbilityPhaseSettings` | Config data for the Recovery phase. | Read-Only |

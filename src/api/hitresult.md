@@ -21,9 +21,9 @@ Contains data pertaining to an impact or raycast.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetImpactPosition()` | `Vector3` | The world position where the impact occurred. | None |
-| `GetImpactNormal()` | `Vector3` | Normal direction of the surface which was impacted. | None |
-| `GetTransform()` | `Transform` | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
+| `GetImpactPosition()` | [`Vector3`](vector3.md) | The world position where the impact occurred. | None |
+| `GetImpactNormal()` | [`Vector3`](vector3.md) | Normal direction of the surface which was impacted. | None |
+| `GetTransform()` | [`Transform`](transform.md) | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
 ## Examples
 

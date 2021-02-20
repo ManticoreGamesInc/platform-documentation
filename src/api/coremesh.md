@@ -25,7 +25,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | `Color` | Returns the color override previously set from script, or `0, 0, 0, 0` if no such color has been set. | None |
+| `GetColor()` | [`Color`](color.md) | Returns the color override previously set from script, or `0, 0, 0, 0` if no such color has been set. | None |
 | `SetColor(Color)` | `None` | Overrides the color of all materials on the mesh, and replicates the new colors. | None |
 | `ResetColor()` | `None` | Turns off the color override, if there is one. | None |
 

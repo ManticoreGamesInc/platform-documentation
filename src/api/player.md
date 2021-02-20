@@ -64,16 +64,16 @@ Player is an object representation of the state of a player connected to the gam
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetWorldTransform()` | `Transform` | The absolute Transform of this player. | None |
+| `GetWorldTransform()` | [`Transform`](transform.md) | The absolute Transform of this player. | None |
 | `SetWorldTransform(Transform)` | `None` | The absolute Transform of this player. | Server-Only |
-| `GetWorldPosition()` | `Vector3` | The absolute position of this player. | None |
+| `GetWorldPosition()` | [`Vector3`](vector3.md) | The absolute position of this player. | None |
 | `SetWorldPosition(Vector3)` | `None` | The absolute position of this player. | Server-Only |
-| `GetWorldRotation()` | `Rotation` | The absolute rotation of this player. | None |
+| `GetWorldRotation()` | [`Rotation`](rotation.md) | The absolute rotation of this player. | None |
 | `SetWorldRotation(Rotation)` | `None` | The absolute rotation of this player. | Server-Only |
-| `GetWorldScale()` | `Vector3` | The absolute scale of this player. | None |
+| `GetWorldScale()` | [`Vector3`](vector3.md) | The absolute scale of this player. | None |
 | `SetWorldScale(Vector3)` | `None` | The absolute scale of this player (must be uniform). | Server-Only |
 | `AddImpulse(Vector3)` | `None` | Adds an impulse force to the Player. | Server-Only |
-| `GetVelocity()` | `Vector3` | Gets the current velocity of the Player. | None |
+| `GetVelocity()` | [`Vector3`](vector3.md) | Gets the current velocity of the Player. | None |
 | `SetVelocity(Vector3)` | `None` | Sets the Player's velocity to the given amount. | Server-Only |
 | `ResetVelocity()` | `None` | Resets the Player's velocity to zero. | Server-Only |
 | `GetAbilities()` | `Array<Ability>` | Array of all Abilities assigned to this Player. | None |
@@ -86,9 +86,9 @@ Player is an object representation of the state of a player connected to the gam
 | `EnableRagdoll([string socketName, Number weight])` | `None` | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Server-Only |
 | `Respawn([table parameters])` | `None` | Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.) | Server-Only |
 | `Respawn(Vector, Rotation)` | `None` | Resurrects a dead Player at a specific location and rotation. This form of `Player:Respawn()` may be removed at some point in the future. It is recommended to use the optional parameter table if position and rotation need to be specified. For example: `player:Respawn({position = newPosition, rotation = newRotation})` | Server-Only, **Deprecated** |
-| `GetViewWorldPosition()` | `Vector3` | Get position of the Player's camera view. | None |
-| `GetViewWorldRotation()` | `Rotation` | Get rotation of the Player's camera view. | None |
-| `GetLookWorldRotation()` | `Rotation` | Get the rotation for the direction the Player is facing. | None |
+| `GetViewWorldPosition()` | [`Vector3`](vector3.md) | Get position of the Player's camera view. | None |
+| `GetViewWorldRotation()` | [`Rotation`](rotation.md) | Get rotation of the Player's camera view. | None |
+| `GetLookWorldRotation()` | [`Rotation`](rotation.md) | Get the rotation for the direction the Player is facing. | None |
 | `SetLookWorldRotation(Rotation)` | `None` | Set the rotation for the direction the Player is facing. | Client-Only |
 | `ClearResources()` | `None` | Removes all resources from a player. | Server-Only |
 | `GetResources()` | `Table<string, Integer>` | Returns a table containing the names and amounts of the player's resources. | None |
@@ -99,10 +99,10 @@ Player is an object representation of the state of a player connected to the gam
 | `TransferToGame(string)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. | Server-Only |
 | `GetAttachedObjects()` | `Array<CoreObject>` | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(bool)` | `None` | Forces a player in or out of mounted state. | Server-Only |
-| `GetActiveCamera()` | `Camera` | Returns whichever camera is currently active for the Player. | Client-Only |
-| `GetDefaultCamera()` | `Camera` | Returns the default Camera object the Player is currently using. | Client-Only |
+| `GetActiveCamera()` | [`Camera`](camera.md) | Returns whichever camera is currently active for the Player. | Client-Only |
+| `GetDefaultCamera()` | [`Camera`](camera.md) | Returns the default Camera object the Player is currently using. | Client-Only |
 | `SetDefaultCamera(Camera, [Number lerpTime = 0.0])` | `None` | Sets the default Camera object for the Player. | Client-Only |
-| `GetOverrideCamera()` | `Camera` | Returns the override Camera object the Player is currently using. | Client-Only |
+| `GetOverrideCamera()` | [`Camera`](camera.md) | Returns the override Camera object the Player is currently using. | Client-Only |
 | `SetOverrideCamera(Camera, [Number lerpTime = 0.0])` | `None` | Sets the override Camera object for the Player. | Client-Only |
 | `ClearOverrideCamera([Number lerpTime = 0.0])` | `None` | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
 | `ActivateFlying()` | `None` | Activates the Player flying mode. | Server-Only |

@@ -14,11 +14,11 @@ A data structure containing all information about a specific Weapon interaction,
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `targetObject` | `Object` | Reference to the CoreObject/Player hit by the Weapon. | Read-Only |
-| `projectile` | `Projectile` | Reference to a Projectile, if one was produced as part of this interaction. | Read-Only |
-| `sourceAbility` | `Ability` | Reference to the Ability which initiated the interaction. | Read-Only |
-| `weapon` | `Weapon` | Reference to the Weapon that is interacting. | Read-Only |
-| `weaponOwner` | `Player` | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
+| `targetObject` | [`Object`](object.md) | Reference to the CoreObject/Player hit by the Weapon. | Read-Only |
+| `projectile` | [`Projectile`](projectile.md) | Reference to a Projectile, if one was produced as part of this interaction. | Read-Only |
+| `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which initiated the interaction. | Read-Only |
+| `weapon` | [`Weapon`](weapon.md) | Reference to the Weapon that is interacting. | Read-Only |
+| `weaponOwner` | [`Player`](player.md) | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
 | `travelDistance` | `Number` | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
 | `isHeadshot` | `bool` | True if the Weapon hit another player in the head. | Read-Only |
 
@@ -26,7 +26,7 @@ A data structure containing all information about a specific Weapon interaction,
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetHitResult()` | `HitResult` | Physics information about the impact between the Weapon and the other object. | None |
+| `GetHitResult()` | [`HitResult`](hitresult.md) | Physics information about the impact between the Weapon and the other object. | None |
 | `GetHitResults()` | `Array<HitResult>` | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
 
 ## Examples

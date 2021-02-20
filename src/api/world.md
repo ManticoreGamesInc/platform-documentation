@@ -14,12 +14,12 @@ World is a collection of functions for finding objects in the world.
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `World.GetRootObject()` | `CoreObject` | Returns the root of the CoreObject hierarchy. | None |
+| `World.GetRootObject()` | [`CoreObject`](coreobject.md) | Returns the root of the CoreObject hierarchy. | None |
 | `World.FindObjectsByName(string name)` | `Array<CoreObject>` | Returns a table containing all the objects in the hierarchy with a matching name. If none match, an empty table is returned. | None |
 | `World.FindObjectsByType(string typeName)` | `Array<CoreObject>` | Returns a table containing all the objects in the hierarchy whose type is or extends the specified type. If none match, an empty table is returned. | None |
-| `World.FindObjectByName(string typeName)` | `CoreObject` | Returns the first object found with a matching name. In none match, nil is returned. | None |
-| `World.FindObjectById(string muid)` | `CoreObject` | Returns the object with a given MUID. Returns nil if no object has this ID. | None |
-| `World.SpawnAsset(string assetId, [table parameters])` | `CoreObject` | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. | None |
+| `World.FindObjectByName(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first object found with a matching name. In none match, nil is returned. | None |
+| `World.FindObjectById(string muid)` | [`CoreObject`](coreobject.md) | Returns the object with a given MUID. Returns nil if no object has this ID. | None |
+| `World.SpawnAsset(string assetId, [table parameters])` | [`CoreObject`](coreobject.md) | Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object. | None |
 | `World.Raycast(Vector3 rayStart, Vector3 rayEnd, [table parameters])` | `HitResult` | Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (Integer or Array<Integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. | None |
 
 ## Examples
