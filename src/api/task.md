@@ -29,8 +29,8 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Task.Spawn(function taskFunction, [Number delay])` | `Task` | Creates a new Task which will call taskFunction without blocking the current task. The optional delay parameter specifies how many seconds before the task scheduler should run the Task. By default, the scheduler will run the Task at the end of the current frame. | None |
-| `Task.GetCurrent()` | `Task` | Returns the currently running Task. | None |
+| `Task.Spawn(function taskFunction, [Number delay])` | [`Task`](task.md) | Creates a new Task which will call taskFunction without blocking the current task. The optional delay parameter specifies how many seconds before the task scheduler should run the Task. By default, the scheduler will run the Task at the end of the current frame. | None |
+| `Task.GetCurrent()` | [`Task`](task.md) | Returns the currently running Task. | None |
 | `Task.Wait([Number delay])` | `Number, Number` | Yields the current Task, resuming in delay seconds, or during the next frame if delay is not specified. Returns the amount of time that was actually waited, as well as how long a wait was requested. | None |
 
 ## Examples

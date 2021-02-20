@@ -14,7 +14,7 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Damage.New([Number amount])` | `Damage` | Constructs a damage object with the given number, defaults to 0. | None |
+| `Damage.New([Number amount])` | [`Damage`](damage.md) | Constructs a damage object with the given number, defaults to 0. | None |
 
 ## Properties
 
@@ -22,8 +22,8 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | -------- | ----------- | ----------- | ---- |
 | `amount` | `Number` | The numeric amount of damage to inflict. | Read-Write |
 | `reason` | `DamageReason` | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC. | Read-Write |
-| `sourceAbility` | `Ability` | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
-| `sourcePlayer` | `Player` | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
+| `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
+| `sourcePlayer` | [`Player`](player.md) | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
 
 ## Functions
 
