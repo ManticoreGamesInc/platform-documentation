@@ -612,54 +612,6 @@ This listens to custom events that the Round End Conditions components broadcast
 
 ## Utility
 
-### Inventory
-
-Basic Inventory takes care of managing multiple Equipment objects that want to attach to the same socket.
-
-Requires:
-
-- Equipment must have empty PickupTrigger field
-- Equipment Visibility and Collidability must not be modified by scripts
-
-#### [Basic Inventory](#basic-inventory)
-
-Allows players to swap between equipment associated with a specific socket
-
-Custom Properties:
-
-- `EquipmentSocket (string) : socket for equipment attachment`
-- `InventorySize (int) : number of Equipment objects allowed by this inventory. Maximum value is 8.`
-- `DestroyDroppedEquipment (bool) : should destroy equipment that is dropped from exceeding size`
-- `NextAbilityName (string) : name of ability that equips next equipment`
-- `PreviousAbilityName (string) : name of ability that equips previous equipment`
-
-This component manages a specific socket on all players. When it finds a player has multiple equipment in that slot, it unequips all but one of them, and leaves them in a table. Each player can swap which equipment they have active by pressing using the next and previous abilities. Whenever a player picks up a new piece of equipment, that new equipment becomes the active one. If they are now over the maximum inventory size, the previously equipped equipment is unequipped and dropped (or destroyed).
-
-Note that if your equipment do not use the 'right_prop' socket, that you may wish to change the Animation of the next and previous abilities (empty is valid for no animation), as things may not line up nicely.
-
-Note also that this component sets the player resource: `BasicInventory_OrderKey_[SocketName]`. This is used to reconstruct the same
-
-inventory order on clients with minimal replication, to maintain a stable order and behavior that feels consistent. Inventories cannot be larger than 8 in order to keep this key in a single integer value.
-
-#### Basic Inventory UI
-
-Displays UI for a player socket's inventory
-
-Requires:
-
-[Basic Inventory](#basic-inventory)
-
-`HasEditableUI (UI Panel)`
-`HasEditableUI (Helper_BasicInventoryLine)`
-
-Custom Properties:
-
-- `EquipmentSocket (string)`
-- `ShowEquipmentName (bool) ActiveBackgroundColor (Color)`
-- `InactiveBackgroundColor (Color)`
-
-This component displays the Equipment associated with a given socket name. The equipped state of each Equipment object will be indicated by the background colors.
-
 ### Kill Team Score
 
 Updates team score when any player gets a kill
@@ -669,21 +621,6 @@ Custom Properties:
 - `ScorePerKill (int)`
 
 This adds score to the player's team whenever a player gets a kill.
-
-### Spectator Camera
-
-Spectator camera that allows players to follow and spectate other players
-
-Custom Properties:
-
-- `SpectatorDelay (float) : delay before a dead player automatically begins spectating CanSpectateEnemies (bool)`
-- `NextTargetBinding (string) : binding to press to spectate the next target`
-- `PreviousTargetBinding (string) : binding to press to spectate the previous target`
-
-Events Sent:
-
-- `(Client) SpectatingTargetChanged(oldTarget (Player), newTarget (Player))`
-- `(Client) IsSpectatingChanged(isSpectating (bool))`
 
 ### Static Player Equipment
 
