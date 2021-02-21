@@ -21,7 +21,7 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `amount` | `number` | The numeric amount of damage to inflict. | Read-Write |
-| `reason` | `DamageReason` | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC. | Read-Write |
+| `reason` | [`DamageReason`](enums.md#damagereason) | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC. | Read-Write |
 | `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
 | `sourcePlayer` | [`Player`](player.md) | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
 

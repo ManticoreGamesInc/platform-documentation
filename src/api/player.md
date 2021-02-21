@@ -18,8 +18,8 @@ Player is an object representation of the state of a player connected to the gam
 | `id` | `string` | The unique id of the Player. Consistent across sessions. | Read-Only |
 | `team` | `integer` | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
 | `animationStance` | `string` | Which set of animations to use for this Player. See [Animation Stance Strings](../api/animations.md#animation-stance-strings) for possible values. | Read-Write |
-| `currentFacingMode` | `FacingMode` | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
-| `desiredFacingMode` | `FacingMode` | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
+| `currentFacingMode` | [`FacingMode`](enums.md#facingmode) | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
+| `desiredFacingMode` | [`FacingMode`](enums.md#facingmode) | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
 | `defaultRotationRate` | `number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
 | `currentRotationRate` | `number` | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
 | `hitPoints` | `number` | Current amount of hitpoints. | Read-Write |
@@ -50,8 +50,8 @@ Player is an object representation of the state of a player connected to the gam
 | `isSwimming` | `boolean` | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
 | `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
-| `movementControlMode` | `MovementControlMode` | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
-| `lookControlMode` | `LookControlMode` | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
+| `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
+| `lookControlMode` | [`LookControlMode`](enums.md#lookcontrolmode) | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | `number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
 | `spreadModifier` | `number` | Modifier added to the Player's targeting spread. | Read-Write |
 | `currentSpread` | `number` | Gets the Player's current targeting spread. | Read-Only, Client-Only |
@@ -91,7 +91,7 @@ Player is an object representation of the state of a player connected to the gam
 | `GetLookWorldRotation()` | [`Rotation`](rotation.md) | Get the rotation for the direction the Player is facing. | None |
 | `SetLookWorldRotation(Rotation)` | `None` | Set the rotation for the direction the Player is facing. | Client-Only |
 | `ClearResources()` | `None` | Removes all resources from a player. | Server-Only |
-| `GetResources()` | `Table<string, integer>` | Returns a table containing the names and amounts of the player's resources. | None |
+| `GetResources()` | `table<string, integer>` | Returns a table containing the names and amounts of the player's resources. | None |
 | `GetResource(string name)` | `integer` | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
 | `SetResource(string name, integer amount)` | `None` | Sets a specific amount of a resource on a player. | Server-Only |
 | `AddResource(string name, integer amount)` | `None` | Adds an amount of a resource to a player. | Server-Only |
