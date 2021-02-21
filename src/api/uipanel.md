@@ -14,7 +14,7 @@ A UIControl which can be used for containing and laying out other UI controls.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `shouldClipChildren` | `bool` | If `true`, children of this UIPanel will not draw outside of its bounds. | Read-Write |
+| `shouldClipChildren` | `boolean` | If `true`, children of this UIPanel will not draw outside of its bounds. | Read-Write |
 
 ## Tutorials
 

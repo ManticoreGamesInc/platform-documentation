@@ -15,14 +15,14 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `animationStance` | `string` | When the Weapon is equipped this animation stance is applied to the Player. | Read-Only |
-| `attackCooldownDuration` | `Number` | Interval between separate burst sequences. The value is set by the Shoot ability's Cooldown duration. | Read-Only |
-| `multiShotCount` | `Integer` | Number of Projectiles/Hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Only |
-| `burstCount` | `Integer` | Number of automatic activations of the Weapon that generally occur in quick succession. | Read-Only |
-| `shotsPerSecond` | `Number` | Used in conjunction with burstCount to determine the interval between automatic weapon activations. | Read-Only |
-| `shouldBurstStopOnRelease` | `bool` | If `true`, a burst sequence can be interrupted by the Player by releasing the action button. If `false`, the burst continues firing automatically until it completes or the Weapon runs out of ammo. | Read-Only |
-| `isHitscan` | `bool` | If `false`, the Weapon will produce simulated Projectiles. If `true`, it will instead use instantaneous line traces to simulate shots. | Read-Only |
-| `range` | `Number` | Max travel distance of the Projectile (isHitscan = False) or range of the line trace (isHitscan = True). | Read-Only |
-| `damage` | `Number` | Damage applied to a Player when the weapon attack hits a player target. If set to zero, no damage is applied. | Read-Only |
+| `attackCooldownDuration` | `number` | Interval between separate burst sequences. The value is set by the Shoot ability's Cooldown duration. | Read-Only |
+| `multiShotCount` | `integer` | Number of Projectiles/Hitscans that will fire simultaneously inside the spread area each time the Weapon attacks. Does not affect the amount of ammo consumed per attack. | Read-Only |
+| `burstCount` | `integer` | Number of automatic activations of the Weapon that generally occur in quick succession. | Read-Only |
+| `shotsPerSecond` | `number` | Used in conjunction with burstCount to determine the interval between automatic weapon activations. | Read-Only |
+| `shouldBurstStopOnRelease` | `boolean` | If `true`, a burst sequence can be interrupted by the Player by releasing the action button. If `false`, the burst continues firing automatically until it completes or the Weapon runs out of ammo. | Read-Only |
+| `isHitscan` | `boolean` | If `false`, the Weapon will produce simulated Projectiles. If `true`, it will instead use instantaneous line traces to simulate shots. | Read-Only |
+| `range` | `number` | Max travel distance of the Projectile (isHitscan = False) or range of the line trace (isHitscan = True). | Read-Only |
+| `damage` | `number` | Damage applied to a Player when the weapon attack hits a player target. If set to zero, no damage is applied. | Read-Only |
 | `projectileTemplateId` | `string` | Asset reference for the visual body of the Projectile, for non-hitscan Weapons. | Read-Only |
 | `muzzleFlashTemplateId` | `string` | Asset reference for a Vfx to be attached to the muzzle point each time the Weapon attacks. | Read-Only |
 | `trailTemplateId` | `string` | Asset reference for a trail Vfx to follow the trajectory of the shot. | Read-Only |
@@ -30,40 +30,40 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `impactSurfaceTemplateId` | `string` | Asset reference of a Vfx to be attached to the surface of any CoreObjects hit by the attack. | Read-Only |
 | `impactProjectileTemplateId` | `string` | Asset reference of a Vfx to be spawned at the interaction point. It will be aligned with the trajectory. If the impacted object is a CoreObject, then the Vfx will attach to it as a child. | Read-Only |
 | `impactPlayerTemplateId` | `string` | Asset reference of a Vfx to be spawned at the interaction point, if the impacted object is a player. | Read-Only |
-| `projectileSpeed` | `Number` | Travel speed (cm/s) of Projectiles spawned by this weapon. | Read-Only |
-| `projectileLifeSpan` | `Number` | Duration after which Projectiles are destroyed. | Read-Only |
-| `projectileGravity` | `Number` | Gravity scale applied to spawned Projectiles. | Read-Only |
-| `projectileLength` | `Number` | Length of the Projectile's capsule collision. | Read-Only |
-| `projectileRadius` | `Number` | Radius of the Projectile's capsule collision | Read-Only |
-| `projectileDrag` | `Number` | Drag on the Projectile. | Read-Only |
-| `projectileBounceCount` | `Integer` | Number of times the Projectile will bounce before it's destroyed. Each bounce generates an interaction event. | Read-Only |
-| `projectilePierceCount` | `Integer` | Number of objects that will be pierced by the Projectile before it's destroyed. Each pierce generates an interaction event. | Read-Only |
-| `maxAmmo` | `Integer` | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn't need to reload. | Read-Only |
-| `currentAmmo` | `Integer` | Current amount of ammo stored in this Weapon. | Read-Write |
+| `projectileSpeed` | `number` | Travel speed (cm/s) of Projectiles spawned by this weapon. | Read-Only |
+| `projectileLifeSpan` | `number` | Duration after which Projectiles are destroyed. | Read-Only |
+| `projectileGravity` | `number` | Gravity scale applied to spawned Projectiles. | Read-Only |
+| `projectileLength` | `number` | Length of the Projectile's capsule collision. | Read-Only |
+| `projectileRadius` | `number` | Radius of the Projectile's capsule collision | Read-Only |
+| `projectileDrag` | `number` | Drag on the Projectile. | Read-Only |
+| `projectileBounceCount` | `integer` | Number of times the Projectile will bounce before it's destroyed. Each bounce generates an interaction event. | Read-Only |
+| `projectilePierceCount` | `integer` | Number of objects that will be pierced by the Projectile before it's destroyed. Each pierce generates an interaction event. | Read-Only |
+| `maxAmmo` | `integer` | How much ammo the Weapon starts with and its max capacity. If set to -1 then the Weapon has infinite capacity and doesn't need to reload. | Read-Only |
+| `currentAmmo` | `integer` | Current amount of ammo stored in this Weapon. | Read-Write |
 | `ammoType` | `string` | A unique identifier for the ammunition type. | Read-Only |
-| `isAmmoFinite` | `bool` | Determines where the ammo comes from. If `true`, then ammo will be drawn from the Player's Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If `false`, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only |
+| `isAmmoFinite` | `boolean` | Determines where the ammo comes from. If `true`, then ammo will be drawn from the Player's Resource inventory and reload will not be possible until the Player acquires more ammo somehow. If `false`, then the Weapon simply reloads to full and inventory Resources are ignored. | Read-Only |
 | `outOfAmmoSoundId` | `string` | Asset reference for a sound effect to be played when the Weapon tries to activate, but is out of ammo. | Read-Only |
 | `reloadSoundId` | `string` | Asset reference for a sound effect to be played when the Weapon reloads ammo. | Read-Only |
-| `spreadMin` | `Number` | Smallest size in degrees for the Weapon's cone of probability space to fire Projectiles in. | Read-Only |
-| `spreadMax` | `Number` | Largest size in degrees for the Weapon's cone of probability space to fire Projectiles in. | Read-Only |
-| `spreadAperture` | `Number` | The surface size from which shots spawn. An aperture of zero means shots originate from a single point. | Read-Only |
-| `spreadDecreaseSpeed` | `Number` | Speed at which the spread contracts back from its current value to the minimum cone size. | Read-Only |
-| `spreadIncreasePerShot` | `Number` | Amount the spread increases each time the Weapon attacks. | Read-Only |
-| `spreadPenaltyPerShot` | `Number` | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
+| `spreadMin` | `number` | Smallest size in degrees for the Weapon's cone of probability space to fire Projectiles in. | Read-Only |
+| `spreadMax` | `number` | Largest size in degrees for the Weapon's cone of probability space to fire Projectiles in. | Read-Only |
+| `spreadAperture` | `number` | The surface size from which shots spawn. An aperture of zero means shots originate from a single point. | Read-Only |
+| `spreadDecreaseSpeed` | `number` | Speed at which the spread contracts back from its current value to the minimum cone size. | Read-Only |
+| `spreadIncreasePerShot` | `number` | Amount the spread increases each time the Weapon attacks. | Read-Only |
+| `spreadPenaltyPerShot` | `number` | Cumulative penalty to the spread size for successive attacks. Penalty cools off based on `spreadDecreaseSpeed`. | Read-Only |
 
 ## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `HasAmmo()` | `bool` | Informs whether the Weapon is able to attack or not. | None |
+| `HasAmmo()` | `boolean` | Informs whether the Weapon is able to attack or not. | None |
 | `Attack(target)` | `None` | Triggers the main ability of the Weapon. Optional target parameter can be a Vector3 world position, a Player, or a CoreObject. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | `Event<Weapon, ImpactData>` | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
-| `projectileSpawnedEvent` | `Event<Weapon, Projectile>` | Fired when a Weapon spawns a projectile. | None |
+| `targetImpactedEvent` | `Event<`[`Weapon`](weapon.md), [`ImpactData`](impactdata.md)`>` | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
+| `projectileSpawnedEvent` | `Event<`[`Weapon`](weapon.md), [`Projectile`](projectile.md)`>` | Fired when a Weapon spawns a projectile. | None |
 
 ## Examples
 
