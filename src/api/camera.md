@@ -17,23 +17,23 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `followPlayer` | [`Player`](player.md) | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write |
-| `isOrthographic` | `bool` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write |
-| `fieldOfView` | `Number` | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write |
-| `viewWidth` | `Number` | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write |
-| `useCameraSocket` | `bool` | If you have a followPlayer, then use their camera socket. This is often preferable for first-person cameras, and gives a bit of view bob. | Read-Write |
-| `currentDistance` | `Number` | The distance controlled by the Player with scroll wheel (by default). | Read-Write, Client-Only |
-| `isDistanceAdjustable` | `bool` | Whether the Player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | Read-Write |
-| `minDistance` | `Number` | The minimum distance the Player can zoom in to. | Read-Write |
-| `maxDistance` | `Number` | The maximum distance the Player can zoom out to. | Read-Write |
+| `isOrthographic` | `boolean` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write |
+| `fieldOfView` | `number` | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write |
+| `viewWidth` | `number` | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write |
+| `useCameraSocket` | `boolean` | If you have a followPlayer, then use their camera socket. This is often preferable for first-person cameras, and gives a bit of view bob. | Read-Write |
+| `currentDistance` | `number` | The distance controlled by the Player with scroll wheel (by default). | Read-Write, Client-Only |
+| `isDistanceAdjustable` | `boolean` | Whether the Player can control their camera distance (with the mouse wheel by default). Creators can still access distance through currentDistance below, even if this value is false. | Read-Write |
+| `minDistance` | `number` | The minimum distance the Player can zoom in to. | Read-Write |
+| `maxDistance` | `number` | The maximum distance the Player can zoom out to. | Read-Write |
 | `rotationMode` | `enum` | Which base rotation to use. Values: `RotationMode.CAMERA`, `RotationMode.NONE`, `RotationMode.LOOK_ANGLE`. | Read-Write |
-| `hasFreeControl` | `bool` | Whether the Player can freely control their rotation (with mouse or thumbstick). Requires movement mode `RotationMode.CAMERA`. This has no effect if the camera is following a player. | Read-Write |
-| `currentPitch` | `Number` | The current pitch of the Player's free control. | Read-Write, Client-Only |
-| `minPitch` | `Number` | The minimum pitch for free control. | Read-Write |
-| `maxPitch` | `Number` | The maximum pitch for free control. | Read-Write |
-| `isYawLimited` | `bool` | Whether the Player's yaw has limits. If so, `maxYaw` must be at least `minYaw`, and should be outside the range `[0, 360]` if needed. | Read-Write |
-| `currentYaw` | `Number` | The current yaw of the Player's free control. | Read-Write, Client-Only |
-| `minYaw` | `Number` | The minimum yaw for free control. | Read-Write |
-| `maxYaw` | `Number` | The maximum yaw for free control. | Read-Write |
+| `hasFreeControl` | `boolean` | Whether the Player can freely control their rotation (with mouse or thumbstick). Requires movement mode `RotationMode.CAMERA`. This has no effect if the camera is following a player. | Read-Write |
+| `currentPitch` | `number` | The current pitch of the Player's free control. | Read-Write, Client-Only |
+| `minPitch` | `number` | The minimum pitch for free control. | Read-Write |
+| `maxPitch` | `number` | The maximum pitch for free control. | Read-Write |
+| `isYawLimited` | `boolean` | Whether the Player's yaw has limits. If so, `maxYaw` must be at least `minYaw`, and should be outside the range `[0, 360]` if needed. | Read-Write |
+| `currentYaw` | `number` | The current yaw of the Player's free control. | Read-Write, Client-Only |
+| `minYaw` | `number` | The minimum yaw for free control. | Read-Write |
+| `maxYaw` | `number` | The maximum yaw for free control. | Read-Write |
 
 ## Functions
 
