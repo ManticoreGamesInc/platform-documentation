@@ -15,9 +15,9 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `animationStance` | `string` | The stance the animated mesh plays. | Read-Write, Client-Only |
-| `animationStancePlaybackRate` | `Number` | The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Read-Write, Client-Only |
-| `animationStanceShouldLoop` | `bool` | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write, Client-Only |
-| `playbackRateMultiplier` | `Number` | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write, Client-Only |
+| `animationStancePlaybackRate` | `number` | The playback rate for the animation stance being played. Negative values will play the animation in reverse. | Read-Write, Client-Only |
+| `animationStanceShouldLoop` | `boolean` | If `true`, the animation stance will keep playing in a loop. If `false` the animation will stop playing once completed. | Read-Write, Client-Only |
+| `playbackRateMultiplier` | `number` | Rate multiplier for all animations played on the animated mesh. Setting this to `0` will stop all animations on the mesh. | Read-Write, Client-Only |
 
 ## Functions
 
@@ -28,15 +28,15 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `GetSocketNames()` | `Array<string>` | Returns an array of all available sockets on this object. | None |
 | `GetAnimationEventNames(string animationName)` | `Array<string>` | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 | `AttachCoreObject(CoreObject objectToAttach, string socketName)` | `None` | Attaches the specified object to the specified socket on the mesh if they exist. | Client-Only |
-| `PlayAnimation(string animationName, [table parameters])` | `None` | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays; `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
+| `PlayAnimation(string animationName, [table parameters])` | `None` | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (number)`: Controls how fast the animation plays; `shouldLoop (boolean)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
 | `StopAnimations()` | `None` | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
-| `GetAnimationDuration(string animationName)` | `Number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+| `GetAnimationDuration(string animationName)` | `number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `animationEvent` | `Event<AnimatedMesh, string>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
+| `animationEvent` | `Event<`[`AnimatedMesh`](animatedmesh.md), string`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points. | Client-Only |
 
 ## Examples
 

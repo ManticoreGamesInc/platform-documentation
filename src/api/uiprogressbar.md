@@ -14,7 +14,7 @@ A UIControl that displays a filled rectangle which can be used for things such a
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `progress` | `Number` | From 0 to 1, how full the bar should be. | Read-Write |
+| `progress` | `number` | From 0 to 1, how full the bar should be. | Read-Write |
 
 ## Functions
 

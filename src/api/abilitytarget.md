@@ -22,8 +22,8 @@ A data type containing information about what the Player has targeted during a p
 | -------- | ----------- | ----------- | ---- |
 | `hitObject` | [`Object`](object.md) | Object under the reticle, or center of the screen if no reticle is displayed. Can be a Player, StaticMesh, etc. | Read-Write |
 | `hitPlayer` | [`Player`](player.md) | Convenience property that is the same as hitObject, but only if hitObject is a Player. | Read-Write |
-| `spreadHalfAngle` | `Number` | Half-angle of cone of possible target space, in degrees. | Read-Write |
-| `spreadRandomSeed` | `Integer` | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
+| `spreadHalfAngle` | `number` | Half-angle of cone of possible target space, in degrees. | Read-Write |
+| `spreadRandomSeed` | `integer` | Seed that can be used with RandomStream for deterministic RNG. | Read-Write |
 
 ## Functions
 

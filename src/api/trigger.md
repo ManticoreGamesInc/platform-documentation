@@ -14,19 +14,19 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isInteractable` | `bool` | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. | Read-Write |
+| `isInteractable` | `boolean` | Interactable Triggers expect Players to walk up and press the <kbd>F</kbd> key to activate them. | Read-Write |
 | `interactionLabel` | `string` | The text players will see in their HUD when they come into range of interacting with this trigger. | Read-Write |
-| `team` | `Integer` | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write |
-| `isTeamCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. | Read-Write |
-| `isEnemyCollisionEnabled` | `bool` | If `false`, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. | Read-Write |
+| `team` | `integer` | Assigns the trigger to a team. Value range from 0 to 4. 0 is neutral team. | Read-Write |
+| `isTeamCollisionEnabled` | `boolean` | If `false`, and the Trigger has been assigned to a valid team, players on that team will not overlap or interact with the Trigger. | Read-Write |
+| `isEnemyCollisionEnabled` | `boolean` | If `false`, and the Trigger has been assigned to a valid team, players on enemy teams will not overlap or interact with the Trigger. | Read-Write |
 
 ## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `IsOverlapping(CoreObject)` | `bool` | Returns true if given CoreObject overlaps with the Trigger. | None |
-| `IsOverlapping(Player)` | `bool` | Returns true if given player overlaps with the Trigger. | None |
-| `GetOverlappingObjects()` | `Array<Object>` | Returns a list of all objects that are currently overlapping with the Trigger. | None |
+| `IsOverlapping(CoreObject)` | `boolean` | Returns true if given CoreObject overlaps with the Trigger. | None |
+| `IsOverlapping(Player)` | `boolean` | Returns true if given player overlaps with the Trigger. | None |
+| `GetOverlappingObjects()` | `Array<`[`Object`](object.md)`>` | Returns a list of all objects that are currently overlapping with the Trigger. | None |
 
 ## Events
 

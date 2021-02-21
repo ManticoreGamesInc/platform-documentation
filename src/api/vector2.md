@@ -14,8 +14,8 @@ A two-component vector that can represent a position or direction.
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
-| `Vector2.New([Number x, Number y])` | [`Vector2`](vector2.md) | Constructs a Vector2 with the given `x`, `y` values, defaults to (0, 0). | None |
-| `Vector2.New(Number)` | [`Vector2`](vector2.md) | Constructs a Vector2 with `x`, `y` values both set to the given value. | None |
+| `Vector2.New([number x, number y])` | [`Vector2`](vector2.md) | Constructs a Vector2 with the given `x`, `y` values, defaults to (0, 0). | None |
+| `Vector2.New(number)` | [`Vector2`](vector2.md) | Constructs a Vector2 with `x`, `y` values both set to the given value. | None |
 | `Vector2.New(Vector3 v)` | [`Vector2`](vector2.md) | Constructs a Vector2 with `x`, `y` values from the given Vector3. | None |
 | `Vector2.New(Vector2 v)` | [`Vector2`](vector2.md) | Constructs a Vector2 with `x`, `y` values from the given Vector2. | None |
 
@@ -30,10 +30,10 @@ A two-component vector that can represent a position or direction.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `x` | `Number` | The `x` component of the Vector2. | Read-Write |
-| `y` | `Number` | The `y` component of the Vector2. | Read-Write |
-| `size` | `Number` | The magnitude of the Vector2. | Read-Only |
-| `sizeSquared` | `Number` | The squared magnitude of the Vector2. | Read-Only |
+| `x` | `number` | The `x` component of the Vector2. | Read-Write |
+| `y` | `number` | The `y` component of the Vector2. | Read-Write |
+| `size` | `number` | The magnitude of the Vector2. | Read-Only |
+| `sizeSquared` | `number` | The squared magnitude of the Vector2. | Read-Only |
 
 ## Functions
 
@@ -45,21 +45,21 @@ A two-component vector that can represent a position or direction.
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Vector2.Lerp(Vector2 from, Vector2 to, Number progress)` | [`Vector2`](vector2.md) | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2. | None |
+| `Vector2.Lerp(Vector2 from, Vector2 to, number progress)` | [`Vector2`](vector2.md) | Linearly interpolates between two vectors by the specified progress amount and returns the resultant Vector2. | None |
 
 ## Operators
 
 | Operator Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `Vector2 + Vector2` | [`Vector2`](vector2.md) | Component-wise addition. | None |
-| `Vector2 + Number` | [`Vector2`](vector2.md) | Adds the right-side Number to each of the components in the left side and returns the resulting Vector2. | None |
+| `Vector2 + number` | [`Vector2`](vector2.md) | Adds the right-side number to each of the components in the left side and returns the resulting Vector2. | None |
 | `Vector2 - Vector2` | [`Vector2`](vector2.md) | Component-wise subtraction. | None |
-| `Vector2 - Number` | [`Vector2`](vector2.md) | Subtracts the right-side Number from each of the components in the left side and returns the resulting Vector2. | None |
+| `Vector2 - number` | [`Vector2`](vector2.md) | Subtracts the right-side number from each of the components in the left side and returns the resulting Vector2. | None |
 | `Vector2 * Vector2` | [`Vector2`](vector2.md) | Component-wise multiplication. | None |
-| `Vector2 * Number` | [`Vector2`](vector2.md) | Multiplies each component of the Vector2 by the right-side Number. | None |
-| `Number * Vector2` | [`Vector2`](vector2.md) | Multiplies each component of the Vector2 by the left-side Number. | None |
+| `Vector2 * number` | [`Vector2`](vector2.md) | Multiplies each component of the Vector2 by the right-side number. | None |
+| `number * Vector2` | [`Vector2`](vector2.md) | Multiplies each component of the Vector2 by the left-side number. | None |
 | `Vector2 / Vector2` | [`Vector2`](vector2.md) | Component-wise division. | None |
-| `Vector2 / Number` | [`Vector2`](vector2.md) | Divides each component of the Vector2 by the right-side Number. | None |
+| `Vector2 / number` | [`Vector2`](vector2.md) | Divides each component of the Vector2 by the right-side number. | None |
 | `-Vector2` | [`Vector2`](vector2.md) | Returns the negation of the Vector2. | None |
-| `Vector2 .. Vector2` | `Number` | Returns the dot product of the Vector2s. | None |
-| `Vector2 ^ Vector2` | `Number` | Returns the cross product of the Vector2s. | None |
+| `Vector2 .. Vector2` | `number` | Returns the dot product of the Vector2s. | None |
+| `Vector2 ^ Vector2` | `number` | Returns the cross product of the Vector2s. | None |

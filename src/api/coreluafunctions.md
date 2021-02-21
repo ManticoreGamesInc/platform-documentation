@@ -14,8 +14,8 @@ A few base functions provided by the platform.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Tick(Number deltaTime)` | `Number` | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
-| `time()` | `Number` | Returns the time in seconds (floating point) since the game started on the server. | None |
+| `Tick(number deltaTime)` | `number` | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
+| `time()` | `number` | Returns the time in seconds (floating point) since the game started on the server. | None |
 | `print(string)` | `string` | Print a message to the event log. Access the Event Log from the **Window** menu. | None |
 | `warn(string)` | `string` | Similar to `print()`, but includes the script name and line number. | None |
 | `require(string)` | `table` | `require()` in Core differs slightly from vanilla Lua; Instead of giving it a script or file name, you give it a script ID. The script ID is usually assigned as a custom property (of type Asset Reference) that points to the script you want to `require()`. | None |

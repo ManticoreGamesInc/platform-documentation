@@ -19,15 +19,15 @@ A data structure containing all information about a specific Weapon interaction,
 | `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which initiated the interaction. | Read-Only |
 | `weapon` | [`Weapon`](weapon.md) | Reference to the Weapon that is interacting. | Read-Only |
 | `weaponOwner` | [`Player`](player.md) | Reference to the Player who had the Weapon equipped at the time it was activated, ultimately leading to this interaction. | Read-Only |
-| `travelDistance` | `Number` | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
-| `isHeadshot` | `bool` | True if the Weapon hit another player in the head. | Read-Only |
+| `travelDistance` | `number` | The distance in cm between where the Weapon attack started until it impacted something. | Read-Only |
+| `isHeadshot` | `boolean` | True if the Weapon hit another player in the head. | Read-Only |
 
 ## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetHitResult()` | [`HitResult`](hitresult.md) | Physics information about the impact between the Weapon and the other object. | None |
-| `GetHitResults()` | `Array<HitResult>` | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
+| `GetHitResults()` | `Array<`[`HitResult`](hitresult.md)`>` | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
 
 ## Examples
 
