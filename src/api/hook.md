@@ -14,7 +14,7 @@ Hooks appear as properties on several objects. Similar to Events, functions may 
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Connect(function hookListener, [...])` | `HookListener` | Registers the given function which will be called every time the hook is fired. Returns a HookListener which can be used to disconnect from the hook or change the listener's priority. Accepts any number of additional arguments after the listener function, those arguments will be provided after the hook's own parameters. | None |
+| `Connect(function hookListener, [...])` | [`HookListener`](hooklistener.md) | Registers the given function which will be called every time the hook is fired. Returns a HookListener which can be used to disconnect from the hook or change the listener's priority. Accepts any number of additional arguments after the listener function, those arguments will be provided after the hook's own parameters. | None |
 
 ## Examples
 

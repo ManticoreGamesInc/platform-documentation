@@ -20,7 +20,7 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetPerkReference()` | `NetReference` | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) | None |
+| `GetPerkReference()` | [`NetReference`](netreference.md) | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) | None |
 | `SetPerkReference(NetReference)` | `None` | Configures this button to use the specified perk. | None |
 
 ## Events
