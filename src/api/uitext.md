@@ -26,7 +26,7 @@ A UIControl which displays a basic text label.
 | -------- | ----------- | ----------- | ---- |
 | `GetColor()` | [`Color`](color.md) | The color of the Text. | None |
 | `SetColor(Color)` | `None` | The color of the Text. | None |
-| `ComputeApproximateSize()` | `Vector2` | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
+| `ComputeApproximateSize()` | [`Vector2`](vector2.md) | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
 
 ## Tutorials
 
