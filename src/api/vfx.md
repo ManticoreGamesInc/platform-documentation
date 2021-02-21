@@ -14,8 +14,8 @@ Vfx is a specialized type of SmartObject for visual effects. It inherits everyth
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Play([table optionalParameters])` | `None` | Starts playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (bool)`: If `true`, also plays any `Vfx` descendants of this instance. | None |
-| `Stop([table optionalParameters])` | `None` | Stops playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (bool)`: If `true`, also stops any `Vfx` descendants of this instance. | None |
+| `Play([table optionalParameters])` | `None` | Starts playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (boolean)`: If `true`, also plays any `Vfx` descendants of this instance. | None |
+| `Stop([table optionalParameters])` | `None` | Stops playing the effect. The `optionalParameters` table may be provided containing:<br/> `includeDescendants (boolean)`: If `true`, also stops any `Vfx` descendants of this instance. | None |
 
 ## Examples
 

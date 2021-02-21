@@ -15,8 +15,8 @@ A UIControl for a button, should be inside client context.
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `text` | `string` | Returns the button's label text. | Read-Write |
-| `fontSize` | `Integer` | Returns the font size of the label text. | Read-Write |
-| `isInteractable` | `bool` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
+| `fontSize` | `integer` | Returns the font size of the label text. | Read-Write |
+| `isInteractable` | `boolean` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
 
 ## Functions
 
@@ -38,11 +38,11 @@ A UIControl for a button, should be inside client context.
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `clickedEvent` | `Event<UIButton>` | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
-| `pressedEvent` | `Event<UIButton>` | Fired when button is pressed. (mouse button down) | None |
-| `releasedEvent` | `Event<UIButton>` | Fired when button is released. (mouse button up) | None |
-| `hoveredEvent` | `Event<UIButton>` | Fired when button is hovered. | None |
-| `unhoveredEvent` | `Event<UIButton>` | Fired when button is unhovered. | None |
+| `clickedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is hovered. | None |
+| `unhoveredEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is unhovered. | None |
 
 ## Tutorials
 

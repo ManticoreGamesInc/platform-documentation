@@ -24,14 +24,14 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 | `Equip(Player)` | `None` | Attaches the Equipment to a Player. They gain any abilities assigned to the Equipment. If the Equipment is already attached to another Player it will first unequip from that other Player before equipping unto the new one. | None |
 | `Unequip()` | `None` | Detaches the Equipment from any Player it may currently be attached to. The Player loses any abilities granted by the Equipment. | None |
 | `AddAbility(Ability)` | `None` | Adds an Ability to the list of abilities on this Equipment. | None |
-| `GetAbilities()` | `Array<Ability>` | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
+| `GetAbilities()` | `Array<`[`Ability`](ability.md)`>` | A table of Abilities that are assigned to this Equipment. Players who equip it will get these Abilities. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `equippedEvent` | `Event<Equipment, Player>` | Fired when this equipment is equipped onto a player. | None |
-| `unequippedEvent` | `Event<Equipment, Player>` | Fired when this object is unequipped from a player. | None |
+| `equippedEvent` | `Event<`[`Equipment`](equipment.md), [`Player`](player.md)`>` | Fired when this equipment is equipped onto a player. | None |
+| `unequippedEvent` | `Event<`[`Equipment`](equipment.md), [`Player`](player.md)`>` | Fired when this object is unequipped from a player. | None |
 
 ## Examples
 

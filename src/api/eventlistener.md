@@ -14,7 +14,7 @@ EventListeners are returned by Events when you connect a listener function to th
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isConnected` | `bool` | Returns true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
+| `isConnected` | `boolean` | Returns true if this listener is still connected to its event. false if the event owner was destroyed or if Disconnect was called. | Read-Only |
 
 ## Functions
 

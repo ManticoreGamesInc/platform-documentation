@@ -14,7 +14,7 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isInteractable` | `bool` | Returns whether the button can interact with the cursor (click, hover, etc). | Read-Write |
+| `isInteractable` | `boolean` | Returns whether the button can interact with the cursor (click, hover, etc). | Read-Write |
 
 ## Functions
 
@@ -27,11 +27,11 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `clickedEvent` | `Event<UIButton>` | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
-| `pressedEvent` | `Event<UIButton>` | Fired when button is pressed. (mouse button down) | None |
-| `releasedEvent` | `Event<UIButton>` | Fired when button is released. (mouse button up) | None |
-| `hoveredEvent` | `Event<UIButton>` | Fired when button is hovered. | None |
-| `unhoveredEvent` | `Event<UIButton>` | Fired when button is unhovered. | None |
+| `clickedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is hovered. | None |
+| `unhoveredEvent` | `Event<`[`UIButton`](uibutton.md)`>` | Fired when button is unhovered. | None |
 
 ## Tutorials
 
