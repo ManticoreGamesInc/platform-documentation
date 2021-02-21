@@ -29,7 +29,7 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetHitResult()` | `HitResult` | Get the HitResult information if this damage was caused by a Projectile impact. | None |
+| `GetHitResult()` | [`HitResult`](hitresult.md) | Get the HitResult information if this damage was caused by a Projectile impact. | None |
 | `SetHitResult(HitResult)` | `None` | Forward the HitResult information if this damage was caused by a Projectile impact. | None |
 
 ## Examples
