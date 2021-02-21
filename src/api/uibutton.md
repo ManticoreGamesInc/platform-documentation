@@ -22,15 +22,15 @@ A UIControl for a button, should be inside client context.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetButtonColor()` | `Color` | Gets the button's default color. | None |
+| `GetButtonColor()` | [`Color`](color.md) | Gets the button's default color. | None |
 | `SetButtonColor(Color)` | `None` | Sets the button's default color. | None |
-| `GetHoveredColor()` | `Color` | Gets the button's color when hovered. | None |
+| `GetHoveredColor()` | [`Color`](color.md) | Gets the button's color when hovered. | None |
 | `SetHoveredColor(Color)` | `None` | Sets the button's color when hovered. | None |
-| `GetPressedColor()` | `Color` | Gets the button's color when pressed. | None |
+| `GetPressedColor()` | [`Color`](color.md) | Gets the button's color when pressed. | None |
 | `SetPressedColor(Color)` | `None` | Sets the button's color when pressed. | None |
-| `GetDisabledColor()` | `Color` | Gets the button's color when it's not interactable. | None |
+| `GetDisabledColor()` | [`Color`](color.md) | Gets the button's color when it's not interactable. | None |
 | `SetDisabledColor(Color)` | `None` | Sets the button's color when it's not interactable. | None |
-| `GetFontColor()` | `Color` | Gets the font's color. | None |
+| `GetFontColor()` | [`Color`](color.md) | Gets the font's color. | None |
 | `SetFontColor(Color)` | `None` | Sets the font's color. | None |
 | `SetImage(string brushMUID)` | `None` | Sets the image to a new MUID. You can get this MUID from an Asset Reference. | None |
 

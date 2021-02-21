@@ -14,7 +14,7 @@ Events appear as properties on several objects. The goal is to register a functi
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Connect(function eventListener, [...])` | `EventListener` | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
+| `Connect(function eventListener, [...])` | [`EventListener`](eventlistener.md) | Registers the given function which will be called every time the event is fired. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. Accepts any number of additional arguments after the listener function, those arguments will be provided after the event's own parameters. | None |
 
 ## Examples
 

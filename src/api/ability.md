@@ -25,10 +25,10 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `name` | `string` | The name of the Ability. | Read-Only |
 | `actionBinding` | `string` | Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | Read-Only |
 | `owner` | [`Player`](player.md) | Assigning an owner applies the Ability to that Player. | Read-Write |
-| `castPhaseSettings` | `AbilityPhaseSettings` | Config data for the Cast phase (see below). | Read-Only |
-| `executePhaseSettings` | `AbilityPhaseSettings` | Config data for the Execute phase. | Read-Only |
-| `recoveryPhaseSettings` | `AbilityPhaseSettings` | Config data for the Recovery phase. | Read-Only |
-| `cooldownPhaseSettings` | `AbilityPhaseSettings` | Config data for the Cooldown phase. | Read-Only |
+| `castPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Cast phase (see below). | Read-Only |
+| `executePhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Execute phase. | Read-Only |
+| `recoveryPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Recovery phase. | Read-Only |
+| `cooldownPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Cooldown phase. | Read-Only |
 | `animation` | `string` | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](../api/animations.md) for strings and other info. | Read-Only |
 | `canBePrevented` | `bool` | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
 
@@ -41,7 +41,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `AdvancePhase()` | `None` | Advances a currently active Ability from its current phase to the next phase. For example, an ability in the Cast phase will begin the Execute phase, an ability on cooldown will become ready, etc. | None |
 | `GetCurrentPhase()` | `AbilityPhase` | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
 | `GetPhaseTimeRemaining()` | `Number` | Seconds left in the current phase. | None |
-| `GetTargetData()` | `AbilityTarget` | Returns information about what the Player has targeted this phase. | None |
+| `GetTargetData()` | [`AbilityTarget`](abilitytarget.md) | Returns information about what the Player has targeted this phase. | None |
 | `SetTargetData(AbilityTarget)` | `None` | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
 
 ## Events
