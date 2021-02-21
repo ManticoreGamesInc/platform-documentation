@@ -16,7 +16,7 @@ See AnimatedMesh for meshes with animations.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isSimulatingDebrisPhysics` | `bool` | If `true`, physics will be enabled for the mesh. | Read-Write, Client-Only |
+| `isSimulatingDebrisPhysics` | `boolean` | If `true`, physics will be enabled for the mesh. | Read-Write, Client-Only |
 
 ## Examples
 

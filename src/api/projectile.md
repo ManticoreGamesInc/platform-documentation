@@ -16,20 +16,20 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | -------- | ----------- | ----------- | ---- |
 | `owner` | [`Player`](player.md) | The Player who fired this Projectile. Setting this property ensures the Projectile does not impact the owner or their allies. This will also change the color of the Projectile if teams are being used in the game. | Read-Write |
 | `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability from which the Projectile was created. | Read-Write |
-| `speed` | `Number` | Centimeters per second movement. Default 5000. | Read-Write |
-| `maxSpeed` | `Number` | Max cm/s. Default 0. Zero means no limit. | Read-Write |
-| `gravityScale` | `Number` | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write |
-| `drag` | `Number` | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. | Read-Write |
-| `bouncesRemaining` | `Integer` | Number of bounces remaining before it dies. Default 0. | Read-Write |
-| `bounciness` | `Number` | Velocity % maintained after a bounce. Default 0.6. | Read-Write |
-| `lifeSpan` | `Number` | Max seconds the Projectile will exist. Default 10. | Read-Write |
-| `shouldBounceOnPlayers` | `bool` | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. | Read-Write |
-| `piercesRemaining` | `Integer` | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
-| `capsuleRadius` | `Number` | Shape of the Projectile's collision. Default 22. | Read-Write |
-| `capsuleLength` | `Number` | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
+| `speed` | `number` | Centimeters per second movement. Default 5000. | Read-Write |
+| `maxSpeed` | `number` | Max cm/s. Default 0. Zero means no limit. | Read-Write |
+| `gravityScale` | `number` | How much drop. Default 1. 1 means normal gravity. Zero can be used to make a Projectile go in a straight line. | Read-Write |
+| `drag` | `number` | Deceleration. Important for homing Projectiles (try a value around 5). Negative drag will cause the Projectile to accelerate. Default 0. | Read-Write |
+| `bouncesRemaining` | `integer` | Number of bounces remaining before it dies. Default 0. | Read-Write |
+| `bounciness` | `number` | Velocity % maintained after a bounce. Default 0.6. | Read-Write |
+| `lifeSpan` | `number` | Max seconds the Projectile will exist. Default 10. | Read-Write |
+| `shouldBounceOnPlayers` | `boolean` | Determines if the Projectile should bounce off players or be destroyed, when bouncesRemaining is used. Default false. | Read-Write |
+| `piercesRemaining` | `integer` | Number of objects that will be pierced before it dies. A piercing Projectile loses no velocity when going through objects, but still fires the impactEvent event. If combined with bounces, all piercesRemaining are spent before bouncesRemaining are counted. Default 0. | Read-Write |
+| `capsuleRadius` | `number` | Shape of the Projectile's collision. Default 22. | Read-Write |
+| `capsuleLength` | `number` | Shape of the Projectile's collision. A value of zero will make it shaped like a Sphere. Default 44. | Read-Write |
 | `homingTarget` | [`CoreObject`](coreobject.md) | The projectile accelerates towards its target. Homing targets are meant to be used with spawned projectiles and will not work with weapons. | Read-Write |
-| `homingAcceleration` | `Number` | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
-| `shouldDieOnImpact` | `bool` | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
+| `homingAcceleration` | `number` | Magnitude of acceleration towards the target. Default 10,000. | Read-Write |
+| `shouldDieOnImpact` | `boolean` | If `true`, the Projectile is automatically destroyed when it hits something, unless it has bounces remaining. Default true. | Read-Write |
 
 ## Functions
 
@@ -52,9 +52,9 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `impactEvent` | `Event<Projectile, Object other, HitResult>` | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
-| `lifeSpanEndedEvent` | `Event<Projectile>` | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
-| `homingFailedEvent` | `Event<Projectile>` | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
+| `impactEvent` | `Event<`[`Projectile`](projectile.md), Object other, HitResult`>` | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
+| `lifeSpanEndedEvent` | `Event<`[`Projectile`](projectile.md)`>` | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
+| `homingFailedEvent` | `Event<`[`Projectile`](projectile.md)`>` | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
 
 ## Examples
 

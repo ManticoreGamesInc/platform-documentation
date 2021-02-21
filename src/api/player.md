@@ -16,49 +16,49 @@ Player is an object representation of the state of a player connected to the gam
 | -------- | ----------- | ----------- | ---- |
 | `name` | `string` | The Player's name. | Read-Write |
 | `id` | `string` | The unique id of the Player. Consistent across sessions. | Read-Only |
-| `team` | `Integer` | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
+| `team` | `integer` | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
 | `animationStance` | `string` | Which set of animations to use for this Player. See [Animation Stance Strings](../api/animations.md#animation-stance-strings) for possible values. | Read-Write |
-| `currentFacingMode` | `FacingMode` | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
-| `desiredFacingMode` | `FacingMode` | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
-| `defaultRotationRate` | `Number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
-| `currentRotationRate` | `Number` | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
-| `hitPoints` | `Number` | Current amount of hitpoints. | Read-Write |
-| `maxHitPoints` | `Number` | Maximum amount of hitpoints. | Read-Write |
-| `kills` | `Integer` | The number of times the player has killed another player. | Read-Write |
-| `deaths` | `Integer` | The number of times the player has died. | Read-Write |
-| `stepHeight` | `Number` | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
-| `maxWalkSpeed` | `Number` | Maximum speed while the player is on the ground. Clients can only read. Default = 640. | Read-Write |
-| `maxAcceleration` | `Number` | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. | Read-Write |
-| `brakingDecelerationFalling` | `Number` | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
-| `brakingDecelerationWalking` | `Number` | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
-| `groundFriction` | `Number` | Friction when walking on ground. Default = 8.0 | Read-Write |
-| `brakingFrictionFactor` | `Number` | Multiplier for friction when braking. Default = 0.6. | Read-Write |
-| `walkableFloorAngle` | `Number` | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
-| `maxJumpCount` | `Integer` | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
-| `jumpVelocity` | `Number` | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
-| `gravityScale` | `Number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
-| `maxSwimSpeed` | `Number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
-| `touchForceFactor` | `Number` | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
-| `isCrouchEnabled` | `bool` | Turns crouching on/off for a Player. | Read-Write |
-| `mass` | `Number` | Gets the mass of the Player. | Read-Only |
-| `isAccelerating` | `bool` | True if the Player is accelerating, such as from input to move. | Read-Only |
-| `isCrouching` | `bool` | True if the Player is crouching. | Read-Only |
-| `isFlying` | `bool` | True if the Player is flying. | Read-Only |
-| `isGrounded` | `bool` | True if the Player is on the ground with no upward velocity, otherwise false. | Read-Only |
-| `isJumping` | `bool` | True if the Player is jumping. | Read-Only |
-| `isMounted` | `bool` | True if the Player is mounted on another object. | Read-Only |
-| `isSwimming` | `bool` | True if the Player is swimming in water. | Read-Only |
-| `isWalking` | `bool` | True if the Player is in walking mode. | Read-Only |
-| `isDead` | `bool` | True if the Player is dead, otherwise false. | Read-Only |
-| `movementControlMode` | `MovementControlMode` | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
-| `lookControlMode` | `LookControlMode` | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
-| `lookSensitivity` | `Number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
-| `spreadModifier` | `Number` | Modifier added to the Player's targeting spread. | Read-Write |
-| `currentSpread` | `Number` | Gets the Player's current targeting spread. | Read-Only, Client-Only |
-| `buoyancy` | `Number` | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
-| `canMount` | `bool` | Returns whether the Player can manually toggle on/off the mount. | Read-Write, Server-Only |
-| `shouldDismountWhenDamaged` | `bool` | If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write, Server-Only |
-| `isVisibleToSelf` | `bool` | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write, Client-Only |
+| `currentFacingMode` | [`FacingMode`](enums.md#facingmode) | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
+| `desiredFacingMode` | [`FacingMode`](enums.md#facingmode) | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
+| `defaultRotationRate` | `number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
+| `currentRotationRate` | `number` | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
+| `hitPoints` | `number` | Current amount of hitpoints. | Read-Write |
+| `maxHitPoints` | `number` | Maximum amount of hitpoints. | Read-Write |
+| `kills` | `integer` | The number of times the player has killed another player. | Read-Write |
+| `deaths` | `integer` | The number of times the player has died. | Read-Write |
+| `stepHeight` | `number` | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
+| `maxWalkSpeed` | `number` | Maximum speed while the player is on the ground. Clients can only read. Default = 640. | Read-Write |
+| `maxAcceleration` | `number` | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. | Read-Write |
+| `brakingDecelerationFalling` | `number` | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
+| `brakingDecelerationWalking` | `number` | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
+| `groundFriction` | `number` | Friction when walking on ground. Default = 8.0 | Read-Write |
+| `brakingFrictionFactor` | `number` | Multiplier for friction when braking. Default = 0.6. | Read-Write |
+| `walkableFloorAngle` | `number` | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
+| `maxJumpCount` | `integer` | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
+| `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
+| `gravityScale` | `number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
+| `maxSwimSpeed` | `number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
+| `touchForceFactor` | `number` | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
+| `isCrouchEnabled` | `boolean` | Turns crouching on/off for a Player. | Read-Write |
+| `mass` | `number` | Gets the mass of the Player. | Read-Only |
+| `isAccelerating` | `boolean` | True if the Player is accelerating, such as from input to move. | Read-Only |
+| `isCrouching` | `boolean` | True if the Player is crouching. | Read-Only |
+| `isFlying` | `boolean` | True if the Player is flying. | Read-Only |
+| `isGrounded` | `boolean` | True if the Player is on the ground with no upward velocity, otherwise false. | Read-Only |
+| `isJumping` | `boolean` | True if the Player is jumping. | Read-Only |
+| `isMounted` | `boolean` | True if the Player is mounted on another object. | Read-Only |
+| `isSwimming` | `boolean` | True if the Player is swimming in water. | Read-Only |
+| `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
+| `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
+| `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
+| `lookControlMode` | [`LookControlMode`](enums.md#lookcontrolmode) | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
+| `lookSensitivity` | `number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
+| `spreadModifier` | `number` | Modifier added to the Player's targeting spread. | Read-Write |
+| `currentSpread` | `number` | Gets the Player's current targeting spread. | Read-Only, Client-Only |
+| `buoyancy` | `number` | In water, buoyancy 1.0 is neutral (won't sink or float naturally). Less than 1 to sink, greater than 1 to float. | Read-Write |
+| `canMount` | `boolean` | Returns whether the Player can manually toggle on/off the mount. | Read-Write, Server-Only |
+| `shouldDismountWhenDamaged` | `boolean` | If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write, Server-Only |
+| `isVisibleToSelf` | `boolean` | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write, Client-Only |
 
 ## Functions
 
@@ -76,14 +76,14 @@ Player is an object representation of the state of a player connected to the gam
 | `GetVelocity()` | [`Vector3`](vector3.md) | Gets the current velocity of the Player. | None |
 | `SetVelocity(Vector3)` | `None` | Sets the Player's velocity to the given amount. | Server-Only |
 | `ResetVelocity()` | `None` | Resets the Player's velocity to zero. | Server-Only |
-| `GetAbilities()` | `Array<Ability>` | Array of all Abilities assigned to this Player. | None |
-| `GetEquipment()` | `Array<Equipment>` | Array of all Equipment assigned to this Player. | None |
+| `GetAbilities()` | `Array<`[`Ability`](ability.md)`>` | Array of all Abilities assigned to this Player. | None |
+| `GetEquipment()` | `Array<`[`Equipment`](equipment.md)`>` | Array of all Equipment assigned to this Player. | None |
 | `ApplyDamage(Damage)` | `None` | Damages a Player. If their hit points go below 0 they die. | Server-Only |
 | `Die([Damage])` | `None` | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | Server-Only |
 | `DisableRagdoll()` | `None` | Disables all ragdolls that have been set on the Player. | Server-Only |
-| `SetVisibility(bool, [bool])` | `None` | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server-Only |
-| `GetVisibility()` | `bool` | Returns whether or not the Player is hidden. | None |
-| `EnableRagdoll([string socketName, Number weight])` | `None` | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Server-Only |
+| `SetVisibility(boolean, [boolean])` | `None` | Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server-Only |
+| `GetVisibility()` | `boolean` | Returns whether or not the Player is hidden. | None |
+| `EnableRagdoll([string socketName, number weight])` | `None` | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Server-Only |
 | `Respawn([table parameters])` | `None` | Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.) | Server-Only |
 | `Respawn(Vector, Rotation)` | `None` | Resurrects a dead Player at a specific location and rotation. This form of `Player:Respawn()` may be removed at some point in the future. It is recommended to use the optional parameter table if position and rotation need to be specified. For example: `player:Respawn({position = newPosition, rotation = newRotation})` | Server-Only, **Deprecated** |
 | `GetViewWorldPosition()` | [`Vector3`](vector3.md) | Get position of the Player's camera view. | None |
@@ -91,45 +91,45 @@ Player is an object representation of the state of a player connected to the gam
 | `GetLookWorldRotation()` | [`Rotation`](rotation.md) | Get the rotation for the direction the Player is facing. | None |
 | `SetLookWorldRotation(Rotation)` | `None` | Set the rotation for the direction the Player is facing. | Client-Only |
 | `ClearResources()` | `None` | Removes all resources from a player. | Server-Only |
-| `GetResources()` | `Table<string, Integer>` | Returns a table containing the names and amounts of the player's resources. | None |
-| `GetResource(string name)` | `Integer` | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
-| `SetResource(string name, Integer amount)` | `None` | Sets a specific amount of a resource on a player. | Server-Only |
-| `AddResource(string name, Integer amount)` | `None` | Adds an amount of a resource to a player. | Server-Only |
-| `RemoveResource(string name, Integer amount)` | `None` | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
+| `GetResources()` | `table<string, integer>` | Returns a table containing the names and amounts of the player's resources. | None |
+| `GetResource(string name)` | `integer` | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
+| `SetResource(string name, integer amount)` | `None` | Sets a specific amount of a resource on a player. | Server-Only |
+| `AddResource(string name, integer amount)` | `None` | Adds an amount of a resource to a player. | Server-Only |
+| `RemoveResource(string name, integer amount)` | `None` | Subtracts an amount of a resource from a player. Does not go below 0. | Server-Only |
 | `TransferToGame(string)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. | Server-Only |
-| `GetAttachedObjects()` | `Array<CoreObject>` | Returns a table containing CoreObjects attached to this player. | None |
-| `SetMounted(bool)` | `None` | Forces a player in or out of mounted state. | Server-Only |
+| `GetAttachedObjects()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing CoreObjects attached to this player. | None |
+| `SetMounted(boolean)` | `None` | Forces a player in or out of mounted state. | Server-Only |
 | `GetActiveCamera()` | [`Camera`](camera.md) | Returns whichever camera is currently active for the Player. | Client-Only |
 | `GetDefaultCamera()` | [`Camera`](camera.md) | Returns the default Camera object the Player is currently using. | Client-Only |
-| `SetDefaultCamera(Camera, [Number lerpTime = 0.0])` | `None` | Sets the default Camera object for the Player. | Client-Only |
+| `SetDefaultCamera(Camera, [number lerpTime = 0.0])` | `None` | Sets the default Camera object for the Player. | Client-Only |
 | `GetOverrideCamera()` | [`Camera`](camera.md) | Returns the override Camera object the Player is currently using. | Client-Only |
-| `SetOverrideCamera(Camera, [Number lerpTime = 0.0])` | `None` | Sets the override Camera object for the Player. | Client-Only |
-| `ClearOverrideCamera([Number lerpTime = 0.0])` | `None` | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
+| `SetOverrideCamera(Camera, [number lerpTime = 0.0])` | `None` | Sets the override Camera object for the Player. | Client-Only |
+| `ClearOverrideCamera([number lerpTime = 0.0])` | `None` | Clears the override Camera object for the Player (to revert back to the default camera). | Client-Only |
 | `ActivateFlying()` | `None` | Activates the Player flying mode. | Server-Only |
 | `ActivateWalking()` | `None` | Activate the Player walking mode. | Server-Only |
-| `IsBindingPressed(string bindingName)` | `bool` | Returns `true` if the player is currently pressing the named binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. Note that when called on a client, this function will only work for the local player. | None |
-| `HasPerk(NetReference)` | `bool` | Returns `true` if the player has one or more of the specified perk. | None |
-| `GetPerkCount(NetReference)` | `Integer` | Returns how many of the specified perk the player owns. For non-repeatable perks, returns `1` if the player owns the perk, or `0` if the player does not. | None |
-| `GetPerkTimeRemaining(NetReference)` | `Number` | Returns the amount of time remaining (in seconds) until a Limited Time Perk expires. Returns `0` if the player does not own the specified perk, or infinity for a permanent or repeatable perk that the player owns. | None |
+| `IsBindingPressed(string bindingName)` | `boolean` | Returns `true` if the player is currently pressing the named binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. Note that when called on a client, this function will only work for the local player. | None |
+| `HasPerk(NetReference)` | `boolean` | Returns `true` if the player has one or more of the specified perk. | None |
+| `GetPerkCount(NetReference)` | `integer` | Returns how many of the specified perk the player owns. For non-repeatable perks, returns `1` if the player owns the perk, or `0` if the player does not. | None |
+| `GetPerkTimeRemaining(NetReference)` | `number` | Returns the amount of time remaining (in seconds) until a Limited Time Perk expires. Returns `0` if the player does not own the specified perk, or infinity for a permanent or repeatable perk that the player owns. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<Player, Damage>` | Fired when the Player takes damage. | Server-Only |
-| `diedEvent` | `Event<Player, Damage>` | Fired when the Player dies. | Server-Only |
-| `respawnedEvent` | `Event<Player>` | Fired when the Player respawns. | Server-Only |
-| `bindingPressedEvent` | `Event<Player, string>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
-| `bindingReleasedEvent` | `Event<Player, string>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
-| `resourceChangedEvent` | `Event<Player, string, Integer>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
-| `perkChangedEvent` | `Event<Player, NetReference perkReference>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
-| `movementModeChangedEvent` | `Event<Player, MovementMode, MovementMode>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
+| `damagedEvent` | `Event<`[`Player`](player.md), [`Damage`](damage.md)`>` | Fired when the Player takes damage. | Server-Only |
+| `diedEvent` | `Event<`[`Player`](player.md), [`Damage`](damage.md)`>` | Fired when the Player dies. | Server-Only |
+| `respawnedEvent` | `Event<`[`Player`](player.md)`>` | Fired when the Player respawns. | Server-Only |
+| `bindingPressedEvent` | `Event<`[`Player`](player.md), string`>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
+| `bindingReleasedEvent` | `Event<`[`Player`](player.md), string`>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
+| `resourceChangedEvent` | `Event<`[`Player`](player.md), string, integer`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
+| `perkChangedEvent` | `Event<`[`Player`](player.md), NetReference perkReference`>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
+| `movementModeChangedEvent` | `Event<`[`Player`](player.md), MovementMode, MovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
 
 ## Hooks
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `movementHook` | `Hook<Player, table parameters>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
+| `movementHook` | `Hook<`[`Player`](player.md), table parameters`>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
 
 ## Additional Info
 

@@ -20,8 +20,8 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `isEnabled` | `bool` | Turns an Ability on/off. It stays on the Player but is interrupted if `isEnabled` is set to `false` during an active Ability. True by default. | Read-Write |
-| `canActivateWhileDead` | `bool` | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only |
+| `isEnabled` | `boolean` | Turns an Ability on/off. It stays on the Player but is interrupted if `isEnabled` is set to `false` during an active Ability. True by default. | Read-Write |
+| `canActivateWhileDead` | `boolean` | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only |
 | `name` | `string` | The name of the Ability. | Read-Only |
 | `actionBinding` | `string` | Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | Read-Only |
 | `owner` | [`Player`](player.md) | Assigning an owner applies the Ability to that Player. | Read-Write |
@@ -30,7 +30,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `recoveryPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Recovery phase. | Read-Only |
 | `cooldownPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Cooldown phase. | Read-Only |
 | `animation` | `string` | Name of the animation the Player will play when the Ability is activated. Possible values: See [Ability Animation](../api/animations.md) for strings and other info. | Read-Only |
-| `canBePrevented` | `bool` | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
+| `canBePrevented` | `boolean` | Used in conjunction with the phase property `preventsOtherAbilities` so multiple abilities on the same Player can block each other during specific phases. True by default. | Read-Only |
 
 ## Functions
 
@@ -39,8 +39,8 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `Activate()` | `None` | Activates an Ability as if the button had been pressed. | None |
 | `Interrupt()` | `None` | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None |
 | `AdvancePhase()` | `None` | Advances a currently active Ability from its current phase to the next phase. For example, an ability in the Cast phase will begin the Execute phase, an ability on cooldown will become ready, etc. | None |
-| `GetCurrentPhase()` | `AbilityPhase` | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
-| `GetPhaseTimeRemaining()` | `Number` | Seconds left in the current phase. | None |
+| `GetCurrentPhase()` | [`AbilityPhase`](enums.md#abilityphase) | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
+| `GetPhaseTimeRemaining()` | `number` | Seconds left in the current phase. | None |
 | `GetTargetData()` | [`AbilityTarget`](abilitytarget.md) | Returns information about what the Player has targeted this phase. | None |
 | `SetTargetData(AbilityTarget)` | `None` | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
 
@@ -48,13 +48,13 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `readyEvent` | `Event<Ability>` | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
-| `castEvent` | `Event<Ability>` | Fired when the Ability enters the Cast phase. | None |
-| `executeEvent` | `Event<Ability>` | Fired when the Ability enters Execute phase. | None |
-| `recoveryEvent` | `Event<Ability>` | Fired when the Ability enters Recovery. | None |
-| `cooldownEvent` | `Event<Ability>` | Fired when the Ability enters Cooldown. | None |
-| `interruptedEvent` | `Event<Ability>` | Fired when the Ability is interrupted. | None |
-| `tickEvent` | `Event<Ability, Number deltaTime>` | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
+| `readyEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
+| `castEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters the Cast phase. | None |
+| `executeEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Execute phase. | None |
+| `recoveryEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Recovery. | None |
+| `cooldownEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Cooldown. | None |
+| `interruptedEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability is interrupted. | None |
+| `tickEvent` | `Event<`[`Ability`](ability.md), number deltaTime`>` | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
 
 ## Examples
 

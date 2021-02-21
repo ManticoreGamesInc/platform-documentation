@@ -14,7 +14,7 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | `None` | Draws a debug line. `optionalParameters: duration (Number), thickness (Number), color (Color)`. 0 or negative duration results in a single frame. | None |
+| `CoreDebug.DrawLine(Vector3 start, Vector3 end, [table optionalParameters])` | `None` | Draws a debug line. `optionalParameters: duration (number), thickness (number), color (Color)`. 0 or negative duration results in a single frame. | None |
 | `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | `None` | Draws a debug box, with dimension specified as a vector. `optionalParameters` has same options as `DrawLine()`, with addition of: `rotation (Rotation)` - rotation of the box. | None |
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | `None` | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. | None |
 | `CoreDebug.GetTaskStackTrace([Task task])` | `string` | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |

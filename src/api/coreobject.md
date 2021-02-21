@@ -19,12 +19,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `parent` | [`CoreObject`](coreobject.md) | The object's parent object, may be nil. | Read-Write |
 | `visibility` | `enum` | Turn on/off the rendering of an object and its children. Values: `Visibility.FORCE_ON`, `Visibility.FORCE_OFF`, `Visibility.INHERIT`. | Read-Write |
 | `collision` | `enum` | Turn on/off the collision of an object and its children. Values: `Collision.FORCE_ON`, `Collision.FORCE_OFF`, `Collision.INHERIT`. | Read-Write |
-| `isEnabled` | `bool` | Turn on/off an object and its children completely. | Read-Write |
-| `isStatic` | `bool` | If `true`, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only |
-| `isClientOnly` | `bool` | If `true`, this object was spawned on the client and is not replicated from the server. | Read-Only |
-| `isServerOnly` | `bool` | If `true`, this object was spawned on the server and is not replicated to clients. | Read-Only |
-| `isNetworked` | `bool` | If `true`, this object replicates from the server to clients. | Read-Only |
-| `lifeSpan` | `Number` | Duration after which the object is destroyed. | Read-Write |
+| `isEnabled` | `boolean` | Turn on/off an object and its children completely. | Read-Write |
+| `isStatic` | `boolean` | If `true`, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only |
+| `isClientOnly` | `boolean` | If `true`, this object was spawned on the client and is not replicated from the server. | Read-Only |
+| `isServerOnly` | `boolean` | If `true`, this object was spawned on the server and is not replicated to clients. | Read-Only |
+| `isNetworked` | `boolean` | If `true`, this object replicates from the server to clients. | Read-Only |
+| `lifeSpan` | `number` | Duration after which the object is destroyed. | Read-Write |
 | `sourceTemplateId` | `string` | The ID of the Template from which this CoreObject was instantiated. `nil` if the object did not come from a Template. | Read-Only |
 
 ## Functions
@@ -53,41 +53,41 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `SetAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in world space. Only works for physics objects. | None |
 | `SetLocalAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in local space. Only works for physics objects. | None |
 | `GetReference()` | [`CoreObjectReference`](coreobjectreference.md) | Returns a CoreObjectReference pointing at this object. | None |
-| `GetChildren()` | `Array<CoreObject>` | Returns a table containing the object's children, may be empty. | None |
-| `IsVisibleInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are visible. | None |
-| `IsCollidableInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are collidable. | None |
-| `IsEnabledInHierarchy()` | `bool` | Returns true if this object and all of its ancestors are enabled. | None |
+| `GetChildren()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing the object's children, may be empty. | None |
+| `IsVisibleInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are visible. | None |
+| `IsCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable. | None |
+| `IsEnabledInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are enabled. | None |
 | `FindAncestorByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose name matches the provided name. If none match, returns nil. | None |
 | `FindChildByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
 | `FindDescendantByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose name matches the provided name. If none match, returns nil. | None |
-| `FindDescendantsByName(string name)` | `Array<CoreObject>` | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
+| `FindDescendantsByName(string name)` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
 | `FindAncestorByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first mesh. If no ancestors match, returns nil. | None |
 | `FindChildByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose type is or extends the specified type. If none match, returns nil. | None |
 | `FindDescendantByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose type is or extends the specified type. If none match, returns nil. | None |
-| `FindDescendantsByType(string typeName)` | `Array<CoreObject>` | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
+| `FindDescendantsByType(string typeName)` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
 | `FindTemplateRoot()` | [`CoreObject`](coreobject.md) | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
-| `IsAncestorOf(CoreObject)` | `bool` | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
+| `IsAncestorOf(CoreObject)` | `boolean` | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on a CoreObject. | None |
-| `GetCustomProperty(string propertyName)` | `value, bool` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an Integer, Number, bool, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a bool, true if found and false if not. | None |
-| `SetNetworkedCustomProperty(string propertyName, value)` | `bool` | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | None |
+| `GetCustomProperty(string propertyName)` | `value, boolean` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an integer, number, boolean, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a boolean, true if found and false if not. | None |
+| `SetNetworkedCustomProperty(string propertyName, value)` | `boolean` | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | None |
 | `AttachToPlayer(Player, string socketName)` | `None` | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | None |
 | `AttachToLocalView()` | `None` | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only |
 | `Detach()` | `None` | Detaches a CoreObject from any player it has been attached to, or from its parent object. | None |
 | `GetAttachedToSocketName()` | `string` | Returns the name of the socket this object is attached to. | None |
-| `MoveTo(Vector3, Number, [bool])` | `None` | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if the given destination is in local space (true) or world space (false). | None |
-| `RotateTo(Rotation/Quaternion, Number, [bool])` | `None` | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if given rotation is in local space (true) or world space (false). | None |
-| `ScaleTo(Vector3, Number, [bool])` | `None` | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if the given scale is in local space (true) or world space (false). | None |
-| `MoveContinuous(Vector3, [bool])` | `None` | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). | None |
-| `RotateContinuous(Rotation/Quaternion, [Number, [bool]])` | `None` | Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). | None |
-| `RotateContinuous(Vector3, [bool])` | `None` | Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). | None |
-| `ScaleContinuous(Vector3, [bool])` | `None` | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if the given scale rate is in local space (true) or world space (false). | None |
+| `MoveTo(Vector3, number, [boolean])` | `None` | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if the given destination is in local space (true) or world space (false). | None |
+| `RotateTo(Rotation/Quaternion, number, [boolean])` | `None` | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if given rotation is in local space (true) or world space (false). | None |
+| `ScaleTo(Vector3, number, [boolean])` | `None` | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if the given scale is in local space (true) or world space (false). | None |
+| `MoveContinuous(Vector3, [boolean])` | `None` | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). | None |
+| `RotateContinuous(Rotation/Quaternion, [number, [boolean]])` | `None` | Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). | None |
+| `RotateContinuous(Vector3, [boolean])` | `None` | Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). | None |
+| `ScaleContinuous(Vector3, [boolean])` | `None` | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if the given scale rate is in local space (true) or world space (false). | None |
 | `StopMove()` | `None` | Interrupts further movement from MoveTo(), MoveContinuous(), or Follow(). | None |
 | `StopRotate()` | `None` | Interrupts further rotation from RotateTo(), RotateContinuous(), LookAtContinuous(), or LookAtLocalView(). | None |
 | `StopScale()` | `None` | Interrupts further movement from ScaleTo() or ScaleContinuous(). | None |
-| `Follow(Object, [Number, [Number]])` | `None` | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | None |
+| `Follow(Object, [number, [number]])` | `None` | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | None |
 | `LookAt(Vector3 position)` | `None` | Instantly rotates the object to look at the given position. | None |
-| `LookAtContinuous(Object, [bool], [Number])` | `None` | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target (in radians/second). If speed is not supplied it tracks as fast as possible. | None |
-| `LookAtLocalView([bool])` | `None` | Continuously looks at the local camera. The bool parameter is optional and locks the pitch. (Client-only) | None |
+| `LookAtContinuous(Object, [boolean], [number])` | `None` | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target (in radians/second). If speed is not supplied it tracks as fast as possible. | None |
+| `LookAtLocalView([boolean])` | `None` | Continuously looks at the local camera. The boolean parameter is optional and locks the pitch. (Client-only) | None |
 | `Destroy()` | `None` | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | None |
 
 ## Events
@@ -98,7 +98,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `childRemovedEvent` | `Event<CoreObject parent, CoreObject removedChild>` | Fired when a child is removed from this object. | None |
 | `descendantAddedEvent` | `Event<CoreObject ancestor, CoreObject newChild>` | Fired when a child is added to this object or any of its descendants. | None |
 | `descendantRemovedEvent` | `Event<CoreObject ancestor, CoreObject removedChild>` | Fired when a child is removed from this object or any of its descendants. | None |
-| `destroyEvent` | `Event<CoreObject>` | Fired when this object is about to be destroyed. | None |
+| `destroyEvent` | `Event<`[`CoreObject`](coreobject.md)`>` | Fired when this object is about to be destroyed. | None |
 | `networkedPropertyChangedEvent` | `Event<CoreObject owner, string propertyName>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
 ## Examples

@@ -24,4 +24,4 @@ This can be used to read custom properties from the script asset.
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on the script asset. | None |
-| `GetCustomProperty(string propertyName)` | `value, bool` | Gets an individual custom property from the script asset. Returns the value, which can be an Integer, Number, bool, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a bool, true if found and false if not. | None |
+| `GetCustomProperty(string propertyName)` | `value, boolean` | Gets an individual custom property from the script asset. Returns the value, which can be an integer, number, boolean, string, Vector3, Rotator, Color, a MUID string, or nil if not found. Second return value is a boolean, true if found and false if not. | None |

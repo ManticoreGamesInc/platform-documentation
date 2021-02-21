@@ -17,14 +17,14 @@ In the case of networked objects it's possible to get a CoreObjectReference poin
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `id` | `string` | The MUID of the referred object. | Read-Only |
-| `isAssigned` | `bool` | Returns true if this reference has been assigned a valid ID. This does not necessarily mean the object currently exists. | Read-Only |
+| `isAssigned` | `boolean` | Returns true if this reference has been assigned a valid ID. This does not necessarily mean the object currently exists. | Read-Only |
 
 ## Functions
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetObject()` | [`CoreObject`](coreobject.md) | Returns the CoreObject with a matching ID, if it exists. Will otherwise return nil. | None |
-| `WaitForObject([Number])` | [`CoreObject`](coreobject.md) | Returns the CoreObject with a matching ID, if it exists. If it does not, yields the current task until the object is spawned. Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None |
+| `WaitForObject([number])` | [`CoreObject`](coreobject.md) | Returns the CoreObject with a matching ID, if it exists. If it does not, yields the current task until the object is spawned. Optional timeout parameter will cause the task to resume with a return value of false and an error message if the object has not been spawned within that many seconds. | None |
 
 ## Examples
 
