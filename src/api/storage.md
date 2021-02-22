@@ -19,25 +19,25 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Storage.GetPlayerData(Player player)` | `table` | Returns the player data associated with `player`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetPlayerData()`. | Server-Only |
-| `Storage.SetPlayerData(Player player, table data)` | `StorageResultCode, string` | Updates the data associated with `player`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player.<br/>Other failure cases will raise a Lua error. See below for supported data types. | Server-Only |
+| `Storage.SetPlayerData(Player player, table data)` | <[`StorageResultCode`](enums.md#storageresultcode), string`>` | Updates the data associated with `player`. Returns a result code and an error message. See below for supported data types. | Server-Only |
 | `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | `table` | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. | Server-Only |
-| `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | `StorageResultCode, string` | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message:<br/>`StorageResultCode.SUCCESS`: Data stored successfully.<br/>`StorageResultCode.EXCEEDED_SIZE_LIMIT`: Data size too large to be stored. Maximum allowed size is 16KB per player per storage key.<br/>Other failure cases will raise a Lua error. See below for supported data types. | Server-Only |
+| `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | <[`StorageResultCode`](enums.md#storageresultcode), string`>` | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message. See below for supported data types. | Server-Only |
 | `Storage.SizeOfData(table data)` | `integer` | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
 
 ## Additional Info
 
 ??? "Storage Supported Types"
-    - Bool
+    - boolean
     - Int32
     - Float
-    - String
+    - string
     - Color
     - Rotator
     - Vector2
     - Vector3
     - Vector4
     - Player
-    - Table
+    - table
 
 ## Examples
 
