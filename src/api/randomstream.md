@@ -29,8 +29,8 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 | `GetInitialSeed()` | `integer` | The seed that was used to initialize this stream. | None |
 | `Reset()` | `None` | Function that sets the seed back to the initial seed. | None |
 | `Mutate()` | `None` | Moves the seed forward to the next seed. | None |
-| `Getnumber([number min, number max])` | `number` | Returns a floating point number between `min` and `max` (inclusive), defaults to `0` and `1` (exclusive). | None |
-| `Getinteger(integer min, integer max)` | `number` | Returns an integer number between `min` and `max` (inclusive). | None |
+| `GetNumber([number min, number max])` | `number` | Returns a floating point number between `min` and `max` (inclusive), defaults to `0` and `1` (exclusive). | None |
+| `GetInteger(integer min, integer max)` | `number` | Returns an integer number between `min` and `max` (inclusive). | None |
 | `GetVector3()` | [`Vector3`](vector3.md) | Returns a random unit vector. | None |
 | `GetVector3FromCone(Vector3 direction, number halfAngle)` | [`Vector3`](vector3.md) | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction` and `halfAngle` (in degrees). | None |
 | `GetVector3FromCone(Vector3 direction, number horizontalHalfAngle, number verticalHalfAngle)` | [`Vector3`](vector3.md) | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction`, `horizontalHalfAngle` and `verticalHalfAngle` (in degrees). | None |
