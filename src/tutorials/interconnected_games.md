@@ -69,8 +69,26 @@ Once you have a public game to use as a parent, any other game you publish can b
 
 To keep cohesion in the player's experience, you can use **Shared Storage Tables** to pass data between your published games. See the [Shared Storage](shared_storage.md) reference for more information.
 
+## Keeping Templates Consistent between Game Files with Clobber Copy
+
+Core Object (**.pbt**) files are very small in size, and easy to pass between projects, to keep everything from large constructions to UI designs synchronized between different project maps. This can be done a variety of ways, including simple **copy and paste** from one open project to another. 
+
+**Clobber Copy** allows creators to override the current version of an object, group, or template with a new one when copying and pasting between projects. A complex model or other template can be modified on one project, and then those changes can be brought into a second project, overriding the state.
+
+### Clobber Copying between Games
+
+<!-- TODO: Figure out if we need to use Export as part of flow -->
+
+1. Modify a template in the **Hierarchy**.
+2. Make sure the object is select in the **Hierarchy** and press ++Ctrl++ + ++C++.
+3. Save and close the current project, and open up the connected or related project through the Core client.
+4. Press Ctrl+V to paste the template in.
+5. Choose "Overwrite Existing Assets" to replace the previous version with tne new one. 
+
+
+
 ---
 
 ## Learn More
 
-[Player in Core API Reference](https://docs.coregames.com/core_api/#player) | [Player.TransferToGame Example](https://docs.coregames.com/api/examples/#playertransfertogame) | [Publishing Reference](../getting_started/publishing.md) | [Shared Storage](shared_storage.md)
+[Player in Core API Reference](https://docs.coregames.com/core_api/#player) | [Player.TransferToGame Example](https://docs.coregames.com/api/examples/#playertransfertogame) | [Publishing Reference](../getting_started/publishing.md) | [Shared Storage](shared_storage.md) | [Template Reference](template_reference.md)
