@@ -16,7 +16,16 @@ UI in Core includes all the 2D elements that can be used to build menus, notific
 
 ## UI Container Types
 
-<!-- TODO: Add examples and explanation -->
+UI Containers have a **Content Type** which allow creators to specify the way the UI works and optimize performance. By default, UI Containers will haver the **Dynamic** type, but can be made more performant by changing their type to **Static** in instances where they do not need to move.
+
+### UI Type Definitions
+
+- **Static**: Used for any UI that does not need to move.
+- **Dynamic**: Used for any UI that will move.
+- **Texture**: For extremely complex UI with many elements to be rendered as a single texture, like Minimap UI.
+
+!!! warning "Texture Content Type"
+    The **Texture** Content Type has greater cost than the other UI Container Content Types, but this cost is fixed. It is recommended to only use **one** Texture per project.
 
 ## UI Properties
 
@@ -48,6 +57,16 @@ UI in Core includes all the 2D elements that can be used to build menus, notific
 | **Wrap Text** | Whether or not the text starts on a new line when it exceeds the width of the box |
 | **Clip Text** | Whether or not text that exceeds the box size will be hidden. |
 
-### UI Text Fonts
+## UI Text Fonts
 
 ![Sample of Core Fonts]()
+
+### Change a Font on UI Text
+
+Like Materials on static mesh objects, there are two ways to change the font of UI text, either by dragging from the **Fonts** section of **Core Content** or by selecting from the **Property Window**, and double-clicking the icon in the **Font** property.
+
+---
+
+## Learn More
+
+[UIControl](https://docs.coregames.com/api/uicontrol/) | [UIText](https://docs.coregames.com/api/uitext/#uitext) 
