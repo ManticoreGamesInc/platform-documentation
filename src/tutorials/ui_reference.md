@@ -14,6 +14,8 @@ UI in Core includes all the 2D elements that can be used to build menus, notific
 
 ## Client-Server Communication
 
+UI Elements can only be accessed by [client-side Scripts](networking.md). This means that for UI interactions to affect Networked objects, or have other in-game effects that are not strictly client-side, it is necessary to create **Event Broadcasts** to communicate between server and client. See the [Events namespace](https://docs.coregames.com/api/events/) for more information and examples.
+
 ## UI Container Types
 
 UI Containers have a **Content Type** which allow creators to specify the way the UI works and optimize performance. By default, UI Containers will haver the **Dynamic** type, but can be made more performant by changing their type to **Static** in instances where they do not need to move.
@@ -59,7 +61,7 @@ UI Containers have a **Content Type** which allow creators to specify the way th
 
 ## UI Text Fonts
 
-![Sample of Core Fonts]()
+![Sample of Core Fonts](../img/UI/UI_Fonts.png){: .center loading="lazy"}
 
 ### Change a Font on UI Text
 
@@ -69,4 +71,4 @@ Like Materials on static mesh objects, there are two ways to change the font of 
 
 ## Learn More
 
-[UIControl](https://docs.coregames.com/api/uicontrol/) | [UIText](https://docs.coregames.com/api/uitext/#uitext) 
+[UIControl](https://docs.coregames.com/api/uicontrol/) | [UIText](https://docs.coregames.com/api/uitext/#uitext) | [Events](https://docs.coregames.com/api/events/)
