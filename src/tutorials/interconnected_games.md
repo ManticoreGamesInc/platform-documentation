@@ -85,8 +85,6 @@ Core Object (**.pbt**) files are very small in size, and easy to pass between pr
 4. Press Ctrl+V to paste the template in.
 5. Choose "Overwrite Existing Assets" to replace the previous version with tne new one. 
 
-
-
 ---
 
 ## Learn More
