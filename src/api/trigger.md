@@ -38,9 +38,9 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 ## Examples
 
-Using:
+Example using:
 
-- `beginOverlapEvent`
+### `beginOverlapEvent`
 
 In this example, players die when they walk over the trigger. The script assumes to be a child of the trigger.
 
@@ -62,9 +62,9 @@ See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md) | [Player.D
 
 ---
 
-Using:
+Example using:
 
-- `endOverlapEvent`
+### `endOverlapEvent`
 
 As players enter/exit the trigger the script keeps a table with all currently overlapping players. The script assumes to be a child of the trigger.
 
@@ -99,9 +99,9 @@ See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md) | [Trigger.
 
 ---
 
-Using:
+Example using:
 
-- `interactedEvent`
+### `interactedEvent`
 
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the F key they are propelled into the air. The script assumes to be a child of the trigger.
 
@@ -122,9 +122,9 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.
 
 ---
 
-Using:
+Example using:
 
-- `GetOverlappingObjects`
+### `GetOverlappingObjects`
 
 In this example, any objects that overlap with the trigger are pushed upwards until they no longer overlap. If the trigger overlaps with non-networked objects this will throw an error. The script assumes to be a child of the trigger.
 
@@ -146,9 +146,9 @@ See also: [CoreObject.parent](coreobject.md) | [Vector3.New](vector3.md)
 
 ---
 
-Using:
+Example using:
 
-- `IsOverlapping`
+### `IsOverlapping`
 
 In this example, a physics sphere is placed in the scene. Every second the sphere is in the trigger, team 1 scores a point. The script assumes to be a child of the trigger.
 
@@ -170,9 +170,9 @@ See also: [CoreObject.parent](coreobject.md) | [World.FindObjectByName](world.md
 
 ---
 
-Using:
+Example using:
 
-- `IsOverlapping`
+### `IsOverlapping`
 
 In this example, players score points for their teams for each second they are inside the trigger. The script assumes to be a child of the trigger.
 
@@ -197,9 +197,9 @@ See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Game.GetP
 
 ---
 
-Using:
+Example using:
 
-- `interactionLabel`
+### `interactionLabel`
 
 In this example, the trigger moves left and right and changes its label dynamically. To use this as a sliding door place a door asset as a child of the trigger. The script assumes to be a child of the trigger.
 
@@ -236,9 +236,9 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.
 
 ---
 
-Using:
+Example using:
 
-- `isEnemyCollisionEnabled`
+### `isEnemyCollisionEnabled`
 
 In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form. The script assumes to be a child of the trigger.
 
@@ -281,9 +281,9 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.
 
 ---
 
-Using:
+Example using:
 
-- `isInteractable`
+### `isInteractable`
 
 In this example, the trigger has a 4 second "cooldown" after it is interacted. The script assumes to be a child of the trigger.
 
@@ -305,9 +305,9 @@ See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Trigger.i
 
 ---
 
-Using:
+Example using:
 
-- `isTeamCollisionEnabled`
+### `isTeamCollisionEnabled`
 
 In this example, when a player interacts with a trigger it joins their team and they can no longer interact with it, but enemies can. The script assumes to be a child of the trigger.
 
@@ -328,9 +328,9 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.isInteractable](trigger.
 
 ---
 
-Using:
+Example using:
 
-- `team`
+### `team`
 
 In this example, players score points when they enter a trigger that belongs to the enemy team. The script assumes to be a child of the trigger.
 

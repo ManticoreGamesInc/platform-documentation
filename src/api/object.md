@@ -25,9 +25,9 @@ At a high level, Core Lua types can be divided into two groups: data structures 
 
 ## Examples
 
-Using:
+Example using:
 
-- `IsValid`
+### `IsValid`
 
 The example below shows the importance of using `Object.IsValid()` instead of a simple nil check (i.e. `if object then`). An object can be in a situation where it's invalid, but not yet nil. This can happen if a script is retaining a reference to it or it began the destroy process but hasn't completed it yet.
 
@@ -73,9 +73,9 @@ See also: [CoreObject.Destroy](coreobject.md) | [CoreLua.print](coreluafunctions
 
 ---
 
-Using:
+Example using:
 
-- `clientUserData`
+### `clientUserData`
 
 In this example, multiple copies of the same script are placed into the scene. At startup, they search for each other and build a follow chain. The last script that can't find another script to follow is set to follow the local player. As the player moves around the chain of objects follows along in a smooth motion. The `clientUserData` property is leveraged in building the chain of object references.
 
@@ -122,9 +122,9 @@ See also: [World.FindObjectsByName](world.md) | [Game.GetLocalPlayer](game.md) |
 
 ---
 
-Using:
+Example using:
 
-- `serverUserData`
+### `serverUserData`
 
 In this example we are trying to figure out which player was the first to join the game and promote them with some gameplay advantage. That's easy for the first player joining, but because players can join and leave at any moment, the first player to join might leave, at which point we need to promote the next (oldest) player. To accomplish this, we keep count of how many players have joined and save that number onto each player's `serverUserData`--a kind of waiting list.
 

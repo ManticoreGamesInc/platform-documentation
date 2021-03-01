@@ -58,11 +58,13 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 ## Examples
 
-Using:
+Example using:
 
-- `Spawn`
-- `lifeSpanEndedEvent`
-- `lifeSpan`
+### `Spawn`
+
+### `lifeSpanEndedEvent`
+
+### `lifeSpan`
 
 Like `CoreObjects`, Projectiles have a `lifeSpan` property, which is the maximum number of seconds a projectile can be kept around. Once that time is up, the projectile is automatically destroyed by the engine.
 
@@ -91,9 +93,9 @@ See also: [Projectile.SetVelocity](projectile.md) | [CoreObject.GetCustomPropert
 
 ---
 
-Using:
+Example using:
 
-- `homingFailedEvent`
+### `homingFailedEvent`
 
 If a projectile has its `homingTarget` set, and then the target disappears for some reason, it will fire a `HomingFailedEvent`. This is usually because the CoreObject that the projectile is following was `Destroy`ed, or the player it was following logged out.
 
@@ -128,9 +130,9 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `impactEvent`
+### `impactEvent`
 
 When a projectile hits a surface, it triggers an `impactEvent`, which is given various information about exactly what collided with what, and where.
 
@@ -161,9 +163,9 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.name](coreobject.md) |
 
 ---
 
-Using:
+Example using:
 
-- `Destroy`
+### `Destroy`
 
 Sometimes you will want to remove a projectile from the game even if it hasn't hit any targets yet. When this is the case, the `Destroy()` function does what you need - it does exactly what the name implies - the projectile is immediately removed from the game and no events are generated.
 
@@ -191,12 +193,15 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `GetWorldTransform`
-- `GetWorldPosition`
-- `GetVelocity`
-- `SetVelocity`
+### `GetWorldTransform`
+
+### `GetWorldPosition`
+
+### `GetVelocity`
+
+### `SetVelocity`
 
 We can get various information about a projectile's position and velocity via several functions. `GetWorldTransform()` and `GetWorldPosition()` functions can tell us where it is and where it is facing. `GetVelocity()` tells us where it is moving and how fast. And `SetVelocity()` allows us to change its direction in mid-flight.
 
@@ -247,10 +252,11 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `capsuleLength`
-- `capsuleRadius`
+### `capsuleLength`
+
+### `capsuleRadius`
 
 When Core performs collision checks (to see if a projectile has hit anything) it assumes the projectile is a _capsule._  That is, a cylinder with a hemisphere on each flat end.
 
@@ -299,12 +305,15 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `gravityScale`
-- `bouncesRemaining`
-- `bounciness`
-- `shouldBounceOnPlayers`
+### `gravityScale`
+
+### `bouncesRemaining`
+
+### `bounciness`
+
+### `shouldBounceOnPlayers`
 
 By default, projectiles are destroyed when they impact a surface. If you set their `bouncesRemaining` though, whenever they hit a surface, they will lose one `bouncesRemaining` and ricochet off in a new direction. This can be used to simulate grenades, super balls, bouncing lasers, or similar. The amount of energy they lose (or gain!) from impact is controlled via the `bounciness` property.
 
@@ -357,11 +366,13 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `homingTarget`
-- `drag`
-- `homingAcceleration`
+### `homingTarget`
+
+### `drag`
+
+### `homingAcceleration`
 
 Projectiles can be set to home in on targets, via the `homingTarget` property. This can be either a player or a CoreObject.
 
@@ -400,9 +411,9 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `owner`
+### `owner`
 
 Projectiles have a property, `owner`, which stores data about who spawned the projectile. This is populated automatically, if the projectile is generated from a weapon interaction. Otherwise, we have to set it ourselves.
 
@@ -445,10 +456,11 @@ See also: [Projectile.Spawn](projectile.md) | [Player.GetWorldPosition](player.m
 
 ---
 
-Using:
+Example using:
 
-- `piercesRemaining`
-- `shouldDieOnImpact`
+### `piercesRemaining`
+
+### `shouldDieOnImpact`
 
 Projectiles have the `piercesRemaining` property, which controls how many times they penetrate objects and keep going. In this sample, we spawn several walls and fire several projectiles at them, with different penetration numbers.
 
@@ -495,9 +507,9 @@ See also: [Projectile.Spawn](projectile.md) | [CoreObject.GetCustomProperty](cor
 
 ---
 
-Using:
+Example using:
 
-- `sourceAbility`
+### `sourceAbility`
 
 Projectiles have a field to report what ability spawned them. If the projectile is fired by a weapon, then the weapon automatically populates the sourceAbility property. If you spawn projectiles manually via spawnProjectile, then you are responsible for populating it yourself.
 
@@ -530,10 +542,11 @@ See also: [Ability.name](ability.md) | [Player.GetResource](player.md) | [Damage
 
 ---
 
-Using:
+Example using:
 
-- `speed`
-- `maxSpeed`
+### `speed`
+
+### `maxSpeed`
 
 You can set the speed of a projectile directly, via the `speed` property. Note that this does not change the direction of a projectile - only how fast it is moving in whatever direction it is already pointing in.
 
