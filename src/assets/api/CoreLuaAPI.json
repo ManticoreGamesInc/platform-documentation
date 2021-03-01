@@ -13,7 +13,7 @@
 				},
 				{
 					"Name": "canActivateWhileDead",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -27,7 +27,7 @@
 				},
 				{
 					"Name": "canBePrevented",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -62,7 +62,7 @@
 				},
 				{
 					"Name": "isEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority"
 					]
@@ -230,7 +230,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -257,35 +257,35 @@
 				},
 				{
 					"Name": "canMove",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "canJump",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "canRotate",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "preventsOtherAbilities",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isTargetDataUpdated",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -312,7 +312,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -510,7 +510,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -544,7 +544,7 @@
 				},
 				{
 					"Name": "animationStanceShouldLoop",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ClientOnly"
 					]
@@ -712,12 +712,55 @@
 					]
 				},
 				{
+					"Name": "SetMeshForSlot",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slotIndex"
+								},
+								{
+									"Type": "string",
+									"Name": "assetId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetMeshForSlot",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slotIndex"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -782,7 +825,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -802,7 +845,7 @@
 			"Properties": [
 				{
 					"Name": "isSpatializationEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -810,7 +853,7 @@
 				},
 				{
 					"Name": "isAttenuationEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -818,7 +861,7 @@
 				},
 				{
 					"Name": "isOcclusionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -826,14 +869,14 @@
 				},
 				{
 					"Name": "isAutoPlayEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isTransient",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -841,7 +884,7 @@
 				},
 				{
 					"Name": "isAutoRepeatEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -881,7 +924,7 @@
 				},
 				{
 					"Name": "isPlaying",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -1009,7 +1052,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -1037,7 +1080,7 @@
 				},
 				{
 					"Name": "isOrthographic",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1061,7 +1104,7 @@
 				},
 				{
 					"Name": "useCameraSocket",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1076,7 +1119,7 @@
 				},
 				{
 					"Name": "isDistanceAdjustable",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1108,7 +1151,7 @@
 				},
 				{
 					"Name": "hasFreeControl",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1139,7 +1182,7 @@
 				},
 				{
 					"Name": "isYawLimited",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1182,7 +1225,7 @@
 					"Name": "isUsingCameraRotation",
 					"IsDeprecated": true,
 					"DeprecationMessage": "isUsingCameraRotation is deprecated. Use rotationMode and hasFreeControl instead.",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1265,7 +1308,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -1539,7 +1582,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -1631,6 +1674,174 @@
 			]
 		},
 		{
+			"Name": "CoreGameCollectionEntry",
+			"Properties": [
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "parentGameId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "ownerId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "ownerName",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreGameInfo",
+			"Properties": [
+				{
+					"Name": "id",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "parentGameId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "description",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "ownerId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "ownerName",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "screenshotCount",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "hasWorldCapture",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetTags",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "CoreMesh",
 			"BaseType": "CoreObject",
 			"Properties": [
@@ -1651,7 +1862,7 @@
 				},
 				{
 					"Name": "isTeamColorUsed",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1659,7 +1870,7 @@
 				},
 				{
 					"Name": "isTeamCollisionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1667,7 +1878,7 @@
 				},
 				{
 					"Name": "isEnemyCollisionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1675,7 +1886,7 @@
 				},
 				{
 					"Name": "isCameraCollisionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1740,7 +1951,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -1777,7 +1988,7 @@
 					"Name": "isVisible",
 					"IsDeprecated": true,
 					"DeprecationMessage": "CoreObject.isVisible is deprecated.  Please use CoreObject.visibility and IsVisibleInHierarchy() instead.",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1795,7 +2006,7 @@
 					"Name": "isCollidable",
 					"IsDeprecated": true,
 					"DeprecationMessage": "CoreObject.isCollidable is deprecated.  Please use CoreObject.collision and IsCollidableInHierarchy() instead.",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1811,7 +2022,7 @@
 				},
 				{
 					"Name": "isEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -1827,28 +2038,28 @@
 				},
 				{
 					"Name": "isStatic",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isNetworked",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isClientOnly",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isServerOnly",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -2364,7 +2575,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -2377,7 +2588,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -2390,7 +2601,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -2560,7 +2771,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -2587,7 +2798,7 @@
 									"Name": "duration"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalPosition"
 								}
 							]
@@ -2622,7 +2833,7 @@
 									"Name": "worldVelocity"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalVelocity"
 								}
 							]
@@ -2757,7 +2968,7 @@
 									"Name": "duration"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalRotation"
 								}
 							]
@@ -2787,7 +2998,7 @@
 									"Name": "duration"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalRotation"
 								}
 							]
@@ -2822,7 +3033,7 @@
 									"Name": "angularVelocity"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalAngularVelocity"
 								}
 							]
@@ -2848,7 +3059,7 @@
 									"Name": "multiplier"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalQuaternionSpeed"
 								}
 							]
@@ -2887,7 +3098,7 @@
 									"Name": "multiplier"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalRotationSpeed"
 								}
 							]
@@ -2949,7 +3160,7 @@
 									"Name": "target"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isPitchLocked"
 								},
 								{
@@ -2979,7 +3190,7 @@
 									"Name": "target"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isPitchLocked"
 								}
 							]
@@ -3001,7 +3212,7 @@
 									"Name": "target"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isPitchLocked"
 								},
 								{
@@ -3031,7 +3242,7 @@
 									"Name": "target"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isPitchLocked"
 								}
 							]
@@ -3058,7 +3269,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isPitchLocked"
 								}
 							]
@@ -3102,7 +3313,7 @@
 									"Name": "duration"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isScaleLocal"
 								}
 							]
@@ -3137,7 +3348,7 @@
 									"Name": "scaleRate"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocalScaleRate"
 								}
 							]
@@ -3205,7 +3416,7 @@
 									"Type": "value"
 								},
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3223,7 +3434,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3249,7 +3460,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3275,7 +3486,7 @@
 				},
 				{
 					"Name": "isAssigned",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -3327,7 +3538,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3430,7 +3641,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3463,7 +3674,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3597,7 +3808,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3651,7 +3862,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3670,7 +3881,7 @@
 			"Properties": [
 				{
 					"Name": "isConnected",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -3699,7 +3910,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3732,7 +3943,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3817,7 +4028,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3871,7 +4082,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3890,7 +4101,7 @@
 			"Properties": [
 				{
 					"Name": "isConnected",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -3923,7 +4134,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -3977,7 +4188,7 @@
 				},
 				{
 					"Name": "isHeadshot",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -4030,7 +4241,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4090,7 +4301,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4126,7 +4337,7 @@
 				},
 				{
 					"Name": "isShadowCaster",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -4134,7 +4345,7 @@
 				},
 				{
 					"Name": "hasTemperature",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -4158,7 +4369,7 @@
 				},
 				{
 					"Name": "isTeamColorUsed",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -4210,7 +4421,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4243,7 +4454,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4262,7 +4473,7 @@
 			"Properties": [
 				{
 					"Name": "isAssigned",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -4289,7 +4500,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4322,7 +4533,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4368,7 +4579,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4388,7 +4599,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -4457,7 +4668,7 @@
 				},
 				{
 					"Name": "isDead",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -4471,63 +4682,63 @@
 				},
 				{
 					"Name": "isAccelerating",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isCrouching",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isFlying",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isGrounded",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isJumping",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isMounted",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isSwimming",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isWalking",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isSliding",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -4627,14 +4838,14 @@
 					"Name": "flipOnMultiJump",
 					"IsDeprecated": true,
 					"DeprecationMessage": "Player.flipOnMultiJump is deprecated. Please use Player.shouldFlipOnMultiJump instead.",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
 				},
 				{
 					"Name": "shouldFlipOnMultiJump",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
@@ -4669,7 +4880,7 @@
 				},
 				{
 					"Name": "isCrouchEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
@@ -4683,7 +4894,7 @@
 				},
 				{
 					"Name": "isVisibleToSelf",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ClientOnly"
 					]
@@ -4702,14 +4913,14 @@
 				},
 				{
 					"Name": "canMount",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
 				},
 				{
 					"Name": "shouldDismountWhenDamaged",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
@@ -5162,11 +5373,11 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isVisible"
 								},
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "includeAttachments"
 								}
 							]
@@ -5175,7 +5386,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isVisible"
 								}
 							]
@@ -5191,7 +5402,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -5457,7 +5668,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5536,7 +5747,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isMounted"
 								}
 							]
@@ -5711,7 +5922,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5729,7 +5940,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5779,7 +5990,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5820,7 +6031,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5840,7 +6051,7 @@
 			"Properties": [
 				{
 					"Name": "hasNaturalFalloff",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -5885,7 +6096,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -5912,14 +6123,14 @@
 				},
 				{
 					"Name": "shouldBounceOnPlayers",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority"
 					]
 				},
 				{
 					"Name": "shouldDieOnImpact",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority"
 					]
@@ -6147,7 +6358,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6381,7 +6592,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6612,7 +6823,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6741,7 +6952,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6781,7 +6992,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6844,7 +7055,7 @@
 									"Type": "value"
 								},
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6862,7 +7073,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -6882,7 +7093,7 @@
 			"Properties": [
 				{
 					"Name": "isSpatializationEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -6890,7 +7101,7 @@
 				},
 				{
 					"Name": "isAttenuationEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -6898,7 +7109,7 @@
 				},
 				{
 					"Name": "isOcclusionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -6938,14 +7149,14 @@
 				},
 				{
 					"Name": "isAutoPlayEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isTransient",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -6953,7 +7164,7 @@
 				},
 				{
 					"Name": "isAutoRepeatEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -6993,7 +7204,7 @@
 				},
 				{
 					"Name": "isPlaying",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -7073,7 +7284,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7101,7 +7312,7 @@
 				},
 				{
 					"Name": "isTeamColorUsed",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7138,7 +7349,7 @@
 									"Type": "value"
 								},
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7156,7 +7367,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7182,7 +7393,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7202,7 +7413,7 @@
 			"Properties": [
 				{
 					"Name": "hasNaturalFalloff",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7263,7 +7474,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7283,7 +7494,7 @@
 			"Properties": [
 				{
 					"Name": "isSimulatingDebrisPhysics",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7304,7 +7515,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7373,7 +7584,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7461,7 +7672,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7790,7 +8001,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7810,7 +8021,7 @@
 			"Properties": [
 				{
 					"Name": "isInteractable",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7834,7 +8045,7 @@
 				},
 				{
 					"Name": "isTeamCollisionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7842,7 +8053,7 @@
 				},
 				{
 					"Name": "isEnemyCollisionEnabled",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -7898,7 +8109,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7929,7 +8140,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -7965,7 +8176,7 @@
 				},
 				{
 					"Name": "isInteractable",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -8201,7 +8412,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8234,7 +8445,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8323,7 +8534,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8343,7 +8554,7 @@
 			"Properties": [
 				{
 					"Name": "isTeamColorUsed",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -8443,7 +8654,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8484,7 +8695,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8504,7 +8715,7 @@
 			"Properties": [
 				{
 					"Name": "isInteractable",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -8598,7 +8809,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8701,7 +8912,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8734,7 +8945,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -8778,7 +8989,7 @@
 				},
 				{
 					"Name": "shouldWrapText",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -8786,7 +8997,7 @@
 				},
 				{
 					"Name": "shouldClipText",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -8852,7 +9063,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9000,7 +9211,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9213,7 +9424,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9439,7 +9650,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9538,7 +9749,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9593,14 +9804,14 @@
 				},
 				{
 					"Name": "shouldBurstStopOnRelease",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
 				},
 				{
 					"Name": "isHitscan",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -9757,7 +9968,7 @@
 				},
 				{
 					"Name": "isAmmoFinite",
-					"Type": "bool",
+					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -9867,7 +10078,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -9916,7 +10127,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -9988,7 +10199,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -10004,6 +10215,73 @@
 		}
 	],
 	"Namespaces": [
+		{
+			"Name": "Chat",
+			"StaticFunctions": [
+				{
+					"Name": "BroadcastMessage",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "BroadcastMessageResultCode"
+								},
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string"
+								},
+								{
+									"Type": "table",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "LocalMessage",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string"
+								},
+								{
+									"Type": "table",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticEvents": [
+				{
+					"Name": "receiveMessageHook",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "table"
+						}
+					]
+				},
+				{
+					"Name": "sendMessageHook",
+					"Parameters": [
+						{
+							"Type": "table"
+						}
+					]
+				}
+			]
+		},
 		{
 			"Name": "CoreDebug",
 			"StaticFunctions": [
@@ -10237,6 +10515,46 @@
 			]
 		},
 		{
+			"Name": "CorePlatform",
+			"StaticFunctions": [
+				{
+					"Name": "GetGameInfo",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameInfo",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetGameCollection",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreGameCollectionEntry>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "CoreString",
 			"StaticFunctions": [
 				{
@@ -10369,7 +10687,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10382,7 +10700,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10395,7 +10713,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10408,7 +10726,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10421,7 +10739,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10434,7 +10752,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10447,7 +10765,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10836,7 +11154,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -10961,7 +11279,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -11096,7 +11414,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -11118,7 +11436,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": [
@@ -11317,7 +11635,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -11331,7 +11649,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isVisible"
 								}
 							]
@@ -11344,7 +11662,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -11358,7 +11676,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isLocked"
 								}
 							]
@@ -11371,7 +11689,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -11385,7 +11703,7 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "canInteract"
 								}
 							]
@@ -11398,7 +11716,7 @@
 						{
 							"Returns": [
 								{
-									"Type": "bool"
+									"Type": "boolean"
 								}
 							],
 							"Parameters": []
@@ -11412,10 +11730,24 @@
 							"Returns": [],
 							"Parameters": [
 								{
-									"Type": "bool",
+									"Type": "boolean",
 									"Name": "isVisible"
 								}
 							]
+						}
+					]
+				}
+			],
+			"StaticEvents": [
+				{
+					"Name": "coreModalChangedEvent",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "CoreModalType",
+							"IsOptional": true
 						}
 					]
 				}
@@ -11645,6 +11977,27 @@
 				{
 					"Name": "FORCE_OFF",
 					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "CoreModalType",
+			"Values": [
+				{
+					"Name": "PAUSE_MENU",
+					"Value": 1
+				},
+				{
+					"Name": "CHARACTER_PICKER",
+					"Value": 2
+				},
+				{
+					"Name": "MOUNT_PICKER",
+					"Value": 3
+				},
+				{
+					"Name": "EMOTE_PICKER",
+					"Value": 4
 				}
 			]
 		},
