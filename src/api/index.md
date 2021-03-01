@@ -33,19 +33,20 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 |:-:|:-:|:-:|:-:|
 | [Ability](ability.md) | [AbilityPhaseSettings](abilityphasesettings.md) | [AbilityTarget](abilitytarget.md) | [AnimatedMesh](animatedmesh.md) |
 | [AreaLight](arealight.md) | [Audio](audio.md) | [Camera](camera.md) | [Color](color.md) |
-| [CoreMesh](coremesh.md) | [CoreObject](coreobject.md) | [CoreObjectReference](coreobjectreference.md) | [Damage](damage.md) |
-| [Decal](decal.md) | [Equipment](equipment.md) | [Event](event.md) | [EventListener](eventlistener.md) |
-| [Folder](folder.md) | [HitResult](hitresult.md) | [Hook](hook.md) | [HookListener](hooklistener.md) |
-| [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) | [Light](light.md) | [MergedModel](mergedmodel.md) |
-| [NetReference](netreference.md) | [NetworkContext](networkcontext.md) | [Object](object.md) | [Player](player.md) |
-| [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) | [PointLight](pointlight.md) | [Projectile](projectile.md) |
-| [Quaternion](quaternion.md) | [RandomStream](randomstream.md) | [Rotation](rotation.md) | [Script](script.md) |
-| [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) | [SmartObject](smartobject.md) | [SpotLight](spotlight.md) |
-| [StaticMesh](staticmesh.md) | [Task](task.md) | [Terrain](terrain.md) | [Transform](transform.md) |
-| [Trigger](trigger.md) | [UIButton](uibutton.md) | [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) |
-| [UIImage](uiimage.md) | [UIPanel](uipanel.md) | [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) |
-| [UIScrollPanel](uiscrollpanel.md) | [UIText](uitext.md) | [Vector2](vector2.md) | [Vector3](vector3.md) |
-| [Vector4](vector4.md) | [Vfx](vfx.md) | [Weapon](weapon.md) | [WorldText](worldtext.md) |
+| [CoreGameCollectionEntry](coregamecollectionentry.md) | [CoreGameInfo](coregameinfo.md) | [CoreMesh](coremesh.md) | [CoreObject](coreobject.md) |
+| [CoreObjectReference](coreobjectreference.md) | [Damage](damage.md) | [Decal](decal.md) | [Equipment](equipment.md) |
+| [Event](event.md) | [EventListener](eventlistener.md) | [Folder](folder.md) | [HitResult](hitresult.md) |
+| [Hook](hook.md) | [HookListener](hooklistener.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) |
+| [Light](light.md) | [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) |
+| [Object](object.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
+| [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) | [RandomStream](randomstream.md) |
+| [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) |
+| [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) | [Task](task.md) |
+| [Terrain](terrain.md) | [Transform](transform.md) | [Trigger](trigger.md) | [UIButton](uibutton.md) |
+| [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) | [UIImage](uiimage.md) | [UIPanel](uipanel.md) |
+| [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) | [UIScrollPanel](uiscrollpanel.md) | [UIText](uitext.md) |
+| [Vector2](vector2.md) | [Vector3](vector3.md) | [Vector4](vector4.md) | [Vfx](vfx.md) |
+| [Weapon](weapon.md) | [WorldText](worldtext.md) | | |
 
 ## Core Lua Namespaces
 
@@ -53,9 +54,10 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [CoreDebug](coredebug.md) | [CoreMath](coremath.md) | [CoreString](corestring.md) | [Environment](environment.md) |
-| [Events](events.md) | [Game](game.md) | [Leaderboards](leaderboards.md) | [Storage](storage.md) |
-| [Teams](teams.md) | [UI](ui.md) | [World](world.md) | |
+| [Chat](chat.md) | [CoreDebug](coredebug.md) | [CoreMath](coremath.md) | [CorePlatform](coreplatform.md) |
+| [CoreString](corestring.md) | [Environment](environment.md) | [Events](events.md) | [Game](game.md) |
+| [Leaderboards](leaderboards.md) | [Storage](storage.md) | [Teams](teams.md) | [UI](ui.md) |
+| [World](world.md) | | | |
 
 ## Built-In Lua Functions
 

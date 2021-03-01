@@ -7,7 +7,7 @@ mkdocs-redirects
 mkdocs>=1.1.2
 pygments>=2.6.1
 pymdown-extensions>=7.1.0
-mkdocs-exclude-search>=0.3.1
+mkdocs-exclude-search>=0.4.0
 
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip

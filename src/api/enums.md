@@ -55,6 +55,15 @@ tags:
 | `Collision.FORCE_ON` | `1` | Coming Soon |
 | `Collision.FORCE_OFF` | `2` | Coming Soon |
 
+## CoreModalType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `CoreModalType.PAUSE_MENU` | `1` | Coming Soon |
+| `CoreModalType.CHARACTER_PICKER` | `2` | Coming Soon |
+| `CoreModalType.MOUNT_PICKER` | `3` | Coming Soon |
+| `CoreModalType.EMOTE_PICKER` | `4` | Coming Soon |
+
 ## DamageReason
 
 | Enum Name | Value | Description |

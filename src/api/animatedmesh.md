@@ -28,9 +28,11 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `GetSocketNames()` | `Array<string>` | Returns an array of all available sockets on this object. | None |
 | `GetAnimationEventNames(string animationName)` | `Array<string>` | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 | `AttachCoreObject(CoreObject objectToAttach, string socketName)` | `None` | Attaches the specified object to the specified socket on the mesh if they exist. | Client-Only |
-| `PlayAnimation(string animationName, [table parameters])` | `None` | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `playbackRate (number)`: Controls how fast the animation plays; `shouldLoop (boolean)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
+| `PlayAnimation(string animationName, [table parameters])` | `None` | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `startPosition (number)`: A number between 0 and 1 controlling where in the animation playback will start; `playbackRate (number)`: Controls how fast the animation plays; `shouldLoop (boolean)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
 | `StopAnimations()` | `None` | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
 | `GetAnimationDuration(string animationName)` | `number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+| `GetMeshForSlot(integer slotIndex)` | `string` | Returns the asset ID of the mesh assigned to the specified slot on this `AnimatedMesh`. Returns `nil` if no mesh is assigned to the slot. | Client-Only |
+| `SetMeshForSlot(integer slotIndex, string assetId)` | `None` | Assigns a mesh to the specified slot on this `AnimatedMesh`. If `assetId` is an empty string or identifies an incompatible asset, the slot will be cleared. | Client-Only |
 
 ## Events
 

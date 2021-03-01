@@ -26,8 +26,7 @@ nav:
           - Create your first RPG game: tutorials/first_game_rpg.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
-      - Global Game Jam 2021:
-          - Core for Global Game Jam: tutorials/global_game_jam.md
+          - Core for Game Jams: tutorials/global_game_jam.md
       - Coming from other Platforms:
           - Fortnite Creative: other_platforms/fortnite_creative.md
           - Roblox: other_platforms/roblox.md
@@ -80,10 +79,12 @@ nav:
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
+          - Portals: tutorials/portal_reference.md
           - Publishing Checklist: getting_started/publishing_checklist.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: tutorials/shared_storage.md
           - Templates: tutorials/template_reference.md
+          - Triggers: tutorials/triggers.md
           - UI: tutorials/ui_reference.md
           - Weapons: tutorials/weapons.md
   - Core API:
@@ -157,9 +158,13 @@ nav:
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
+          - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
+          - CoreGameCollectionEntry: api/coregamecollectionentry.md
+          - CoreGameInfo: api/coregameinfo.md
           - CoreDebug: api/coredebug.md
           - CoreMath: api/coremath.md
+          - CorePlatform: api/coreplatform.md
           - CoreString: api/corestring.md
           - Environment: api/environment.md
           - Events: api/events.md
@@ -169,7 +174,6 @@ nav:
           - Teams: api/teams.md
           - UI: api/ui.md
           - World: api/world.md
-
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:
@@ -191,6 +195,7 @@ theme:
     - navigation.tabs
     - navigation.instant
     - navigation.sections
+    - navigation.tracking
   palette:
     primary: core-orange
     accent: core-blue
@@ -285,7 +290,8 @@ plugins:
   - git-revision-date-localized
   - autolinks
   - exclude-search:
-      exclude: generated/*.md
+      exclude:
+        - generated/*.md
       exclude_tags: True
   - redirects:
       redirect_maps:
