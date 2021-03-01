@@ -64,13 +64,17 @@ A quaternion-based representation of a rotation.
 
 ## Examples
 
-Using:
+Example using:
 
-- `Slerp`
-- `GetRotation`
-- `GetRightVector`
-- `GetUpVector`
-- `GetForwardVector`
+### `Slerp`
+
+### `GetRotation`
+
+### `GetRightVector`
+
+### `GetUpVector`
+
+### `GetForwardVector`
 
 `Quaternion.Slerp` is a function for finding a quaternion that is part way between two other quaternions. Since quaternions represent rotations, this means a rotation that is part way between two other rotations. When combined with a tick function or loop, we can use it to smoothly animate something rotating.
 
@@ -110,10 +114,11 @@ See also: [Quaternion.New](quaternion.md) | [CoreObject.GetCustomProperty](coreo
 
 ---
 
-Using:
+Example using:
 
-- `New`
-- `IDENTITY`
+### `New`
+
+### `IDENTITY`
 
 There are several different ways to create new Quaternions.
 
@@ -149,11 +154,13 @@ See also: [Rotation.New](rotation.md) | [Vector3.RIGHT](vector3.md)
 
 ---
 
-Using:
+Example using:
 
-- `Quaternion*Quaternion`
-- `Quaternion*Vector3`
-- `-Quaternion`
+### `Quaternion*Quaternion`
+
+### `Quaternion*Vector3`
+
+### `-Quaternion`
 
 Multiplying a vector (or another quaternion!) by a quaternion applies the quaternion to the vector/quaternion.
 
@@ -177,12 +184,15 @@ See also: [Quaternion.New](quaternion.md) | [Vector3.UP](vector3.md)
 
 ---
 
-Using:
+Example using:
 
-- `x`
-- `y`
-- `z`
-- `w`
+### `x`
+
+### `y`
+
+### `z`
+
+### `w`
 
 You can read or set the components of a quaternion directly, although this is not recommended unless you are extremely familiar with quaternions.
 

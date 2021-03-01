@@ -58,9 +58,9 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 ## Examples
 
-Using:
+Example using:
 
-- `castEvent`
+### `castEvent`
 
 The Cast phase begins as soon as an ability is activated. By checking if the player casting the ability `isGrounded` we can create an effect that propels you upwards, but it doesn't work if you are already jumping or flying. We detect this is the `castEvent`, which is early enough for an `Interrupt()` to reset the ability.
 
@@ -82,9 +82,9 @@ See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Pl
 
 ---
 
-Using:
+Example using:
 
-- `cooldownEvent`
+### `cooldownEvent`
 
 In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
 
@@ -107,9 +107,9 @@ See also: [CoreObject.parent](coreobject.md) | [Player.owner](player.md) | [Abil
 
 ---
 
-Using:
+Example using:
 
-- `executeEvent`
+### `executeEvent`
 
 Weapons implement lots of built-in gameplay that doesn't require any scripting, such as attack and reload abilities. However, they can be augmented with additional mechanics. In this example, a special sound effect is played when a weapon shoots while low on ammunition. The script expects to be a child of a weapon's "Shoot" ability.
 
@@ -133,9 +133,9 @@ See also: [CoreObject.parent](coreobject.md) | [Weapon.currentAmmo](weapon.md) |
 
 ---
 
-Using:
+Example using:
 
-- `interruptedEvent`
+### `interruptedEvent`
 
 The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
 
@@ -156,9 +156,9 @@ See also: [CoreObject.parent](coreobject.md) | [Object.IsValid](object.md) | [Ab
 
 ---
 
-Using:
+Example using:
 
-- `readyEvent`
+### `readyEvent`
 
 The Ready phase begins when an ability comes off cooldown and is "ready" to be used again. In this example, we create an invisibility effect that takes advantage of the `readyEvent`, leveraging the cooldown duration of the ability as a clock to determine when to make the player visible again.
 
@@ -183,9 +183,9 @@ See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Pl
 
 ---
 
-Using:
+Example using:
 
-- `recoveryEvent`
+### `recoveryEvent`
 
 The `recoveryEvent` marks the end of an ability's Execute phase and the beginning of its Recovery phase. In this example, a melee punch ability has a trigger that causes damage to enemies who overlap it. For it to work the trigger is only enabled for a brief moment, during the Execute phase.
 
@@ -221,9 +221,9 @@ See also: [CoreObject.parent](coreobject.md) | [CoreObjectReference.WaitForObjec
 
 ---
 
-Using:
+Example using:
 
-- `tickEvent`
+### `tickEvent`
 
 Abilities fire the `tickEvent` while they are active or on cooldown (not on Ready state). In this example, a piece of equipment carries several abilities, but we want to do a common update logic on all of them. Note: `Ability.tickEvent` works somewhat differently from a `Tick()` function - `tickEvent` is an actual event that just happens to fire once per tick. Each invocation of the callback runs on its own task. This means that, unlike `Tick()`, there is no guarantee that it will wait for the previous `tickEvent` to finish before starting the next one. This means you can't use things like `Task.Wait()` to add time between ticks!
 
@@ -244,9 +244,9 @@ See also: [CoreObject.parent](coreobject.md) | [Equipment.GetAbilities](equipmen
 
 ---
 
-Using:
+Example using:
 
-- `Activate`
+### `Activate`
 
 The Ability `Activate()` function is client-only, behaving as if the player had pressed the key binding. In order for a server gameplay decision to result in an ability activation, it must be communicated over the network somehow. In this example, a trigger overlap is representative of an arbitrary gameplay decision on the server. A broadcast message is sent to the client, who receives the event and activates the ability.
 
@@ -279,10 +279,11 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.beginOverlapEvent](trigg
 
 ---
 
-Using:
+Example using:
 
-- `GetCurrentPhase`
-- `GetPhaseTimeRemaining`
+### `GetCurrentPhase`
+
+### `GetPhaseTimeRemaining`
 
 In this example, while the ability is on cooldown the percent completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
 
@@ -304,10 +305,11 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.GetCurrentPh
 
 ---
 
-Using:
+Example using:
 
-- `GetTargetData`
-- `SetTargetData`
+### `GetTargetData`
+
+### `SetTargetData`
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -331,9 +333,9 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [AbilityTarget.GetHit
 
 ---
 
-Using:
+Example using:
 
-- `Interrupt`
+### `Interrupt`
 
 Interrupting an ability either sends it back into ready state (if it was still in the Cast phase) or puts it on cooldown. In this example, we have an ability that searches for all enemies in a 10 meter radius and interrupts their abilities.
 
@@ -361,9 +363,9 @@ See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Pl
 
 ---
 
-Using:
+Example using:
 
-- `animation`
+### `animation`
 
 In this example, the `ProcessAbilities()` function can be called once, such as at the beginning of a round, to take inventory of a player's abilities and classify them based on animation. This example also demonstrates how to disconnect event listeners so that we don't listen for the same event multiple times.
 
@@ -414,9 +416,9 @@ See also: [EventListener.Disconnect](eventlistener.md) | [Player.GetAbilities](p
 
 ---
 
-Using:
+Example using:
 
-- `canActivateWhileDead`
+### `canActivateWhileDead`
 
 Some games may have abilities that can be used while the player is dead. In this example, we have abilities that can **only** be activated while dead. If not dead, then it's interrupted.
 
@@ -470,9 +472,9 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.owner](abili
 
 ---
 
-Using:
+Example using:
 
-- `canBePrevented`
+### `canBePrevented`
 
 In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
 
@@ -500,12 +502,15 @@ See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Ob
 
 ---
 
-Using:
+Example using:
 
-- `castPhaseSettings`
-- `executePhaseSettings`
-- `recoveryPhaseSettings`
-- `cooldownPhaseSettings`
+### `castPhaseSettings`
+
+### `executePhaseSettings`
+
+### `recoveryPhaseSettings`
+
+### `cooldownPhaseSettings`
 
 In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
 
@@ -552,9 +557,9 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.W
 
 ---
 
-Using:
+Example using:
 
-- `isEnabled`
+### `isEnabled`
 
 In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
 
@@ -591,10 +596,11 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.owner](abili
 
 ---
 
-Using:
+Example using:
 
-- `name`
-- `actionBinding`
+### `name`
+
+### `actionBinding`
 
 Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
 
@@ -627,9 +633,9 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.W
 
 ---
 
-Using:
+Example using:
 
-- `owner`
+### `owner`
 
 Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property.
 

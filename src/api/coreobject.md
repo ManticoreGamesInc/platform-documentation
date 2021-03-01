@@ -103,9 +103,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 ## Examples
 
-Using:
+Example using:
 
-- `childAddedEvent`
+### `childAddedEvent`
 
 This event fires when something gets added as a direct child of an object. (i. e. not a child of a child.)
 
@@ -129,9 +129,9 @@ local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 
 ---
 
-Using:
+Example using:
 
-- `childRemovedEvent`
+### `childRemovedEvent`
 
 This event fires when a direct child of the object is removed.
 
@@ -154,9 +154,9 @@ obj2:Destroy()
 
 ---
 
-Using:
+Example using:
 
-- `descendantAddedEvent`
+### `descendantAddedEvent`
 
 This event fires when something gets added as a direct child of an object. (i. e. not a child of a child.)
 
@@ -180,9 +180,9 @@ local obj3 = World.SpawnAsset(propCubeTemplate, {parent = obj2})
 
 ---
 
-Using:
+Example using:
 
-- `descendantRemovedEvent`
+### `descendantRemovedEvent`
 
 This event fires when a descendant of the object is removed. This is any object that has the object somewhere up the hierarchy tree as a parent.
 
@@ -208,11 +208,13 @@ obj2:Destroy()
 
 ---
 
-Using:
+Example using:
 
-- `destroyEvent`
-- `Destroy`
-- `lifeSpan`
+### `destroyEvent`
+
+### `Destroy`
+
+### `lifeSpan`
 
 There are several ways of destroying `CoreObject`s, and noticing when they are destroyed.
 
@@ -266,13 +268,17 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `AttachToPlayer`
-- `AttachToLocalView`
-- `Detach`
-- `GetAttachedToSocketName`
-- `GetAttachedObjects`
+### `AttachToPlayer`
+
+### `AttachToLocalView`
+
+### `Detach`
+
+### `GetAttachedToSocketName`
+
+### `GetAttachedObjects`
 
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
 
@@ -309,9 +315,9 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `Destroy`
+### `Destroy`
 
 A simple example on how to destroy a CoreObject.
 
@@ -325,12 +331,15 @@ cube:Destroy() -- This will destroy the object.
 
 ---
 
-Using:
+Example using:
 
-- `Follow`
-- `LookAt`
-- `LookAtContinuous`
-- `LookAtLocalView`
+### `Follow`
+
+### `LookAt`
+
+### `LookAtContinuous`
+
+### `LookAtLocalView`
 
 There are some handy convenience functions for animating certain kinds of behaviors. There is a `CoreObject:LookAt()` function, which forces a `CoreObject` to rotate itself to be facing a specific point in the world. There is a `CoreObject:Follow()` function, that tells a `CoreObject` to follow a set distance and speed behind another object. And there is a `CoreObject:LookAtContinuous()`, which tells a core object to rotate itself towards another `CoreObject` or `Player`, and keep looking at them until stopped.
 
@@ -365,20 +374,31 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `GetChildren`
-- `FindAncestorByName`
-- `FindChildByName`
-- `FindDescendantByName`
-- `FindDescendantsByName`
-- `FindAncestorByType`
-- `FindChildByType`
-- `FindDescendantByType`
-- `FindDescendantsByType`
-- `FindTemplateRoot`
-- `IsAncestorOf`
-- `parent`
+### `GetChildren`
+
+### `FindAncestorByName`
+
+### `FindChildByName`
+
+### `FindDescendantByName`
+
+### `FindDescendantsByName`
+
+### `FindAncestorByType`
+
+### `FindChildByType`
+
+### `FindDescendantByType`
+
+### `FindDescendantsByType`
+
+### `FindTemplateRoot`
+
+### `IsAncestorOf`
+
+### `parent`
 
 You can inspect most of the hierarchy at runtime.
 
@@ -450,10 +470,11 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `GetCustomProperties`
-- `GetCustomProperty`
+### `GetCustomProperties`
+
+### `GetCustomProperty`
 
 Almost any object in the hierarchy can have "custom properties" associated with it. These are values that you can change in the editor, but that scripts can easily access. They're useful for making modular components that can be configured without needing to modify Lua code. You can specify the data type of a custom property, to tell the Core editor what sort of data you plan on storing in there.
 
@@ -487,24 +508,39 @@ See also: [CoreLua.print](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `GetTransform`
-- `SetTransform`
-- `GetPosition`
-- `SetPosition`
-- `GetRotation`
-- `SetRotation`
-- `GetScale`
-- `SetScale`
-- `GetWorldTransform`
-- `SetWorldTransform`
-- `GetWorldPosition`
-- `SetWorldPosition`
-- `GetWorldRotation`
-- `SetWorldRotation`
-- `GetWorldScale`
-- `SetWorldScale`
+### `GetTransform`
+
+### `SetTransform`
+
+### `GetPosition`
+
+### `SetPosition`
+
+### `GetRotation`
+
+### `SetRotation`
+
+### `GetScale`
+
+### `SetScale`
+
+### `GetWorldTransform`
+
+### `SetWorldTransform`
+
+### `GetWorldPosition`
+
+### `SetWorldPosition`
+
+### `GetWorldRotation`
+
+### `SetWorldRotation`
+
+### `GetWorldScale`
+
+### `SetWorldScale`
 
 One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
 
@@ -552,13 +588,17 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `GetVelocity`
-- `SetVelocity`
-- `GetAngularVelocity`
-- `SetAngularVelocity`
-- `SetLocalAngularVelocity`
+### `GetVelocity`
+
+### `SetVelocity`
+
+### `GetAngularVelocity`
+
+### `SetAngularVelocity`
+
+### `SetLocalAngularVelocity`
 
 Some core objects are handled by the physics system. Anything that is marked as "debris physics" is such an object, as well as some special objects in the catalog, such as "Physics Sphere".
 
@@ -585,17 +625,25 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `MoveTo`
-- `RotateTo`
-- `ScaleTo`
-- `MoveContinuous`
-- `RotateContinuous`
-- `ScaleContinuous`
-- `StopMove`
-- `StopRotate`
-- `StopScale`
+### `MoveTo`
+
+### `RotateTo`
+
+### `ScaleTo`
+
+### `MoveContinuous`
+
+### `RotateContinuous`
+
+### `ScaleContinuous`
+
+### `StopMove`
+
+### `StopRotate`
+
+### `StopScale`
 
 There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
 
@@ -634,11 +682,13 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `SetNetworkedCustomProperty`
-- `networkedPropertyChangedEvent`
-- `GetReference`
+### `SetNetworkedCustomProperty`
+
+### `networkedPropertyChangedEvent`
+
+### `GetReference`
 
 Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
 
@@ -689,15 +739,21 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `name`
-- `id`
-- `sourceTemplateId`
-- `isStatic`
-- `isClientOnly`
-- `isServerOnly`
-- `isNetworked`
+### `name`
+
+### `id`
+
+### `sourceTemplateId`
+
+### `isStatic`
+
+### `isClientOnly`
+
+### `isServerOnly`
+
+### `isNetworked`
 
 You can find out a lot about an object via its CoreProperties.
 
@@ -736,14 +792,19 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.W
 
 ---
 
-Using:
+Example using:
 
-- `visibility`
-- `collision`
-- `isEnabled`
-- `IsVisibleInHierarchy`
-- `IsCollidableInHierarchy`
-- `IsEnabledInHierarchy`
+### `visibility`
+
+### `collision`
+
+### `isEnabled`
+
+### `IsVisibleInHierarchy`
+
+### `IsCollidableInHierarchy`
+
+### `IsEnabledInHierarchy`
 
 You can make objects appear and disappear in the world in several different ways.
 

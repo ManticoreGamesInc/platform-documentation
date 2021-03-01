@@ -20,15 +20,21 @@ The Leaderboards namespace contains a set of functions for retrieving and updati
 
 ## Examples
 
-Using:
+Example using:
 
-- `HasLeaderboards`
-- `GetLeaderboard`
-- `SubmitPlayerScore`
-- `id`
-- `name`
-- `score`
-- `additionalData`
+### `HasLeaderboards`
+
+### `GetLeaderboard`
+
+### `SubmitPlayerScore`
+
+### `id`
+
+### `name`
+
+### `score`
+
+### `additionalData`
 
 The `Leaderboards` namespace contains a set of functions for retrieving and updating player leaderboard data. This is a special kind of persistence that lets you save high scores for a game, with the data being associated with the game itself, rather than any particular player.
 
