@@ -32,9 +32,9 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | `Event<Trigger trigger, Object other>` | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | None |
-| `endOverlapEvent` | `Event<Trigger trigger, Object other>` | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
-| `interactedEvent` | `Event<Trigger trigger, Player>` | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
+| `beginOverlapEvent` | `Event<`[`Trigger`](trigger.md), trigger, Object other`>` | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | None |
+| `endOverlapEvent` | `Event<`[`Trigger`](trigger.md), trigger, Object other`>` | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
+| `interactedEvent` | `Event<`[`Trigger`](trigger.md), trigger, Player`>` | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
 
 ## Examples
 

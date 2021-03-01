@@ -94,12 +94,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `childAddedEvent` | `Event<CoreObject parent, CoreObject newChild>` | Fired when a child is added to this object. | None |
-| `childRemovedEvent` | `Event<CoreObject parent, CoreObject removedChild>` | Fired when a child is removed from this object. | None |
-| `descendantAddedEvent` | `Event<CoreObject ancestor, CoreObject newChild>` | Fired when a child is added to this object or any of its descendants. | None |
-| `descendantRemovedEvent` | `Event<CoreObject ancestor, CoreObject removedChild>` | Fired when a child is removed from this object or any of its descendants. | None |
+| `childAddedEvent` | `Event<`[`CoreObject`](coreobject.md), parent, CoreObject newChild`>` | Fired when a child is added to this object. | None |
+| `childRemovedEvent` | `Event<`[`CoreObject`](coreobject.md), parent, CoreObject removedChild`>` | Fired when a child is removed from this object. | None |
+| `descendantAddedEvent` | `Event<`[`CoreObject`](coreobject.md), ancestor, CoreObject newChild`>` | Fired when a child is added to this object or any of its descendants. | None |
+| `descendantRemovedEvent` | `Event<`[`CoreObject`](coreobject.md), ancestor, CoreObject removedChild`>` | Fired when a child is removed from this object or any of its descendants. | None |
 | `destroyEvent` | `Event<`[`CoreObject`](coreobject.md)`>` | Fired when this object is about to be destroyed. | None |
-| `networkedPropertyChangedEvent` | `Event<CoreObject owner, string propertyName>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
+| `networkedPropertyChangedEvent` | `Event<`[`CoreObject`](coreobject.md), owner, string propertyName`>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
 ## Examples
 
