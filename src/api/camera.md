@@ -46,10 +46,11 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 
 ## Examples
 
-Using:
+Example using:
 
-- `GetPositionOffset`
-- `SetPositionOffset`
+### `GetPositionOffset`
+
+### `SetPositionOffset`
 
 The following example implements a camera shake based on movement of the camera's z-axis. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
 
@@ -93,10 +94,11 @@ See also: [CoreObject.parent](coreobject.md) | [Vector3.New](vector3.md) | [Core
 
 ---
 
-Using:
+Example using:
 
-- `GetRotationOffset`
-- `SetRotationOffset`
+### `GetRotationOffset`
+
+### `SetRotationOffset`
 
 The following example implements a camera shake based on rotation of the camera's pitch. This script should be placed as a child of the game's camera. The shake script doesn't know "when" to shake--that decision comes from elsewhere in the project, where the event `Events.BroadcastToPlayer(player, "CameraShake")` should be called to initiate the effect.
 
@@ -140,10 +142,11 @@ See also: [CoreObject.parent](coreobject.md) | [Rotation.New](rotation.md) | [Co
 
 ---
 
-Using:
+Example using:
 
-- `currentPitch`
-- `currentYaw`
+### `currentPitch`
+
+### `currentYaw`
 
 This sample explores the parallel between the player's rotation, the camera's rotation and the camera's view angles expressed in the `currentPitch` and `currentYaw` properties. The camera's "free control" and "rotation mode" are adjusted so the view angle properties give useful information--that's because if "free control" is disabled the view angles always return zero. This script expects to be in a client context. Results will vary depending on player settings (e.g. Facing Mode) as well as other camera settings.
 
@@ -182,12 +185,15 @@ See also: [Game.GetLocalPlayer](game.md) | [Player.GetWorldRotation](player.md) 
 
 ---
 
-Using:
+Example using:
 
-- `fieldOfView`
-- `isOrthographic`
-- `currentDistance`
-- `isDistanceAdjustable`
+### `fieldOfView`
+
+### `isOrthographic`
+
+### `currentDistance`
+
+### `isDistanceAdjustable`
 
 The following example implements a zoom/scoping effect that activates by holding the secondary action (right mouse button, by default). The effect smoothly interpolates a few camera properties, in addition to making the player invisible to the local view, so they don't obstruct the camera during the zoom. This kind of mechanic is generally attached to a weapon, but in this case the script expects to be a child of the camera directly--no equipment is involved in this example.
 
@@ -277,9 +283,9 @@ See also: [CoreObject.parent](coreobject.md) | [Camera.GetPositionOffset](camera
 
 ---
 
-Using:
+Example using:
 
-- `followPlayer`
+### `followPlayer`
 
 In this example, players can change their view to look at another player by pressing the secondary action (default is right mouse button). The script expects to be a child of the game's camera, which is usually in a client context.
 
@@ -328,17 +334,25 @@ See also: [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Vec
 
 ---
 
-Using:
+Example using:
 
-- `rotationMode`
-- `hasFreeControl`
-- `minPitch`
-- `maxPitch`
-- `isYawLimited`
-- `minYaw`
-- `maxYaw`
-- `minDistance`
-- `maxDistance`
+### `rotationMode`
+
+### `hasFreeControl`
+
+### `minPitch`
+
+### `maxPitch`
+
+### `isYawLimited`
+
+### `minYaw`
+
+### `maxYaw`
+
+### `minDistance`
+
+### `maxDistance`
 
 In this example of an advanced spectator implementation, suitable for a third-person game, players are able to look through the view of others by pressing the secondary action (default is right mouse button). This example demonstrates how the spectator can be constrained (or not) to the look angle of the player they are following. If the `CONSTRAIN_SPECTATOR_LOOK` constant is set to true, then players will not be able to rotate the camera freely while they are spectating.
 
@@ -439,9 +453,9 @@ See also: [Camera.followPlayer](camera.md) | [CoreObject.parent](coreobject.md) 
 
 ---
 
-Using:
+Example using:
 
-- `useCameraSocket`
+### `useCameraSocket`
 
 The following client script allows players in a first-person game to turn on/off the head-bob effect that is associated with the camera being attached to the camera socket. To toggle the head-bob press 0.
 
@@ -461,9 +475,9 @@ See also: [Player.GetActiveCamera](player.md) | [Game.GetLocalPlayer](game.md) |
 
 ---
 
-Using:
+Example using:
 
-- `viewWidth`
+### `viewWidth`
 
 In this example, designed to work with a top-down orthographic camera, the view is zoomed in when the secondary action is pressed (default is right mouse button). Works best in a client context.
 

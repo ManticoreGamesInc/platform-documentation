@@ -35,10 +35,11 @@ Equipment is a CoreObject representing an equippable item for players. They gene
 
 ## Examples
 
-Using:
+Example using:
 
-- `equippedEvent`
-- `unequippedEvent`
+### `equippedEvent`
+
+### `unequippedEvent`
 
 Usually equipment are attached one at a time. However, in some cases you may want multiple equipment to behave as a single unit, such as a pair of boxing gloves. This example shows how to have a secondary equipment piece that attaches and detaches alongside a primary piece. It's not enough to listen only to the `equippedEvent`, the `unequippedEvent` must also be mirrored because in some games the equipment may be dropped or put away in the inventory. This script expects to be the child of the primary equipment, with the secondary equipment as its sibling.
 
@@ -65,9 +66,9 @@ See also: [Equipment.Equip](equipment.md) | [CoreObject.parent](coreobject.md) |
 
 ---
 
-Using:
+Example using:
 
-- `AddAbility`
+### `AddAbility`
 
 One of the primary roles of equipment is to contain several abilities. Those abilities are automatically added/removed from the player when they equip/unequip the item. This example shows how an equipment can be spawned and then procedurally assembled with different abilities depending on RNG.
 
@@ -104,9 +105,9 @@ See also: [Equipment.GetAbilities](equipment.md) | [Ability.name](ability.md) | 
 
 ---
 
-Using:
+Example using:
 
-- `Equip`
+### `Equip`
 
 This example shows how players can be given default equipment when they join a game.
 
@@ -125,9 +126,9 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ---
 
-Using:
+Example using:
 
-- `GetAbilities`
+### `GetAbilities`
 
 Weapons are a specialized type of Equipment that have lots of built-in functionality, including two abilities that are usually included: One for attacking and the second one for reloading. In this example, a cosmetic part of a weapon is hidden after the attack happens and is enabled again after it reloads. This could be used, for instance, in a rocket launcher or a crossbow. The script should be a descendant of a `Weapon`. It works best if under a Client Context and the "ObjectToHide" custom property must be hooked up.
 
@@ -154,9 +155,9 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.
 
 ---
 
-Using:
+Example using:
 
-- `Unequip`
+### `Unequip`
 
 In this example, when a player dies all equipment they have is unequipped and dropped to the ground.
 
@@ -199,9 +200,9 @@ See also: [Player.GetEquipment](player.md) | [Game.playerJoinedEvent](game.md) |
 
 ---
 
-Using:
+Example using:
 
-- `owner`
+### `owner`
 
 In this example, a weapon has a healing mechanic, where the player gains 2 hit points each time they shoot an enemy player.
 
@@ -221,9 +222,9 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [ImpactData.targetObj
 
 ---
 
-Using:
+Example using:
 
-- `socket`
+### `socket`
 
 The socket is the attachment point on the player where the equipment will be placed. In this example, the socket property is used for comparing between the new equipment and any previous ones. If there's a competition for the same socket then the old equipment is dropped. This script expects to be placed as a child of the equipment and the equipment's default "Pickup Trigger" property should be cleared, as that behavior is re-implemented in the `OnInteracted()` function. Without re-implementing our own `interactedEvent`, by default the old equipment would be destroyed, instead of dropped, when there is competition for a socket.
 

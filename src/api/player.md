@@ -137,12 +137,15 @@ Learn more about Hooks on the [Hook API](hook.md) page.
 
 ## Examples
 
-Using:
+Example using:
 
-- `bindingPressedEvent`
-- `bindingReleasedEvent`
-- `maxWalkSpeed`
-- `maxSwimSpeed`
+### `bindingPressedEvent`
+
+### `bindingReleasedEvent`
+
+### `maxWalkSpeed`
+
+### `maxSwimSpeed`
 
 Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
 
@@ -178,14 +181,19 @@ See also: [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
-Using:
+Example using:
 
-- `damagedEvent`
-- `diedEvent`
-- `respawnedEvent`
-- `ApplyDamage`
-- `Die`
-- `Respawn`
+### `damagedEvent`
+
+### `diedEvent`
+
+### `respawnedEvent`
+
+### `ApplyDamage`
+
+### `Die`
+
+### `Respawn`
 
 There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
 
@@ -230,9 +238,9 @@ See also: [Player.name](player.md) | [Damage.New](damage.md) | [Task.Wait](task.
 
 ---
 
-Using:
+Example using:
 
-- `movementModeChangedEvent`
+### `movementModeChangedEvent`
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
 
@@ -286,15 +294,21 @@ See also: [Player.GetWorldPosition](player.md) | [Damage.New](damage.md) | [Game
 
 ---
 
-Using:
+Example using:
 
-- `resourceChangedEvent`
-- `ClearResources`
-- `GetResource`
-- `GetResources`
-- `SetResource`
-- `AddResource`
-- `RemoveResource`
+### `resourceChangedEvent`
+
+### `ClearResources`
+
+### `GetResource`
+
+### `GetResources`
+
+### `SetResource`
+
+### `AddResource`
+
+### `RemoveResource`
 
 While scripting, you can assign "resources" to players. These are just integer values, accessed via a string key, that are tied to a player. They are useful for storing values about game-specific resources a player might have, such as coins collected, mana remaining, levels completed, puppies pet, etc.
 
@@ -346,10 +360,11 @@ See also: [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 ---
 
-Using:
+Example using:
 
-- `ActivateFlying`
-- `ActivateWalking`
+### `ActivateFlying`
+
+### `ActivateWalking`
 
 You can set different movement modes for the player. `ActivateWalking()` will give the player normal walking physics. (They fall down, slide down slopes, etc.) `ActivateFlying`, on the other hand, makes them ignore gravity and fly around freely.
 
@@ -382,13 +397,17 @@ See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](gam
 
 ---
 
-Using:
+Example using:
 
-- `AddImpulse`
-- `GetVelocity`
-- `SetVelocity`
-- `ResetVelocity`
-- `mass`
+### `AddImpulse`
+
+### `GetVelocity`
+
+### `SetVelocity`
+
+### `ResetVelocity`
+
+### `mass`
 
 If you want to fling a player using the physics system, it is possible to directly affect their velocity. You can either add a physics impulse to their current velocity, or just set the player's velocity directly. You can also zero out their velocity using `Player.ResetVelocity()`.
 
@@ -414,11 +433,13 @@ See also: [Player.SetWorldPosition](player.md) | [Task.Wait](task.md) | [Vector3
 
 ---
 
-Using:
+Example using:
 
-- `DisableRagdoll`
-- `EnableRagdoll`
-- `animationStance`
+### `DisableRagdoll`
+
+### `EnableRagdoll`
+
+### `animationStance`
 
 You can enable ragdoll on a player, and make their joints all floppy. This can be useful for various effects, such as indicating when a player has died, or otherwise  needs to be limp.
 
@@ -447,10 +468,11 @@ See also: [Game.playerJoinedEvent](game.md) | [Task.Wait](task.md)
 
 ---
 
-Using:
+Example using:
 
-- `GetAbilities`
-- `GetEquipment`
+### `GetAbilities`
+
+### `GetEquipment`
 
 Lots of things can end up attached to a player. `CoreObject` objects, stuck to sockets. `Ability` and `Equipment` objects granting them new powers. Etc.
 
@@ -481,14 +503,19 @@ See also: [Player.GetAttachedObjects](player.md) | [CoreObject.GetCustomProperty
 
 ---
 
-Using:
+Example using:
 
-- `GetActiveCamera`
-- `GetDefaultCamera`
-- `SetDefaultCamera`
-- `GetOverrideCamera`
-- `SetOverrideCamera`
-- `ClearOverrideCamera`
+### `GetActiveCamera`
+
+### `GetDefaultCamera`
+
+### `SetDefaultCamera`
+
+### `GetOverrideCamera`
+
+### `SetOverrideCamera`
+
+### `ClearOverrideCamera`
 
 It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context!
 
@@ -522,12 +549,15 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](
 
 ---
 
-Using:
+Example using:
 
-- `GetViewWorldPosition`
-- `GetViewWorldRotation`
-- `GetLookWorldRotation`
-- `SetLookWorldRotation`
+### `GetViewWorldPosition`
+
+### `GetViewWorldRotation`
+
+### `GetLookWorldRotation`
+
+### `SetLookWorldRotation`
 
 The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context!
 
@@ -546,14 +576,19 @@ See also: [Game.GetLocalPlayer](game.md) | [CoreLua.print](coreluafunctions.md) 
 
 ---
 
-Using:
+Example using:
 
-- `GetWorldTransform`
-- `SetWorldTransform`
-- `GetWorldPosition`
-- `SetWorldPosition`
-- `GetWorldRotation`
-- `SetWorldRotation`
+### `GetWorldTransform`
+
+### `SetWorldTransform`
+
+### `GetWorldPosition`
+
+### `SetWorldPosition`
+
+### `GetWorldRotation`
+
+### `SetWorldRotation`
 
 It is possible to read and change the position of the player. You can either change the position or rotation directly, or change the entire transformation all at once.
 
@@ -576,10 +611,11 @@ See also: [Rotation.New](rotation.md) | [Vector3.UP](vector3.md)
 
 ---
 
-Using:
+Example using:
 
-- `SetVisibility`
-- `GetVisibility`
+### `SetVisibility`
+
+### `GetVisibility`
 
 You can make a player visible or invisible with `SetVisibility()`, and can check on their status with `GetVisibility()`. This sample gives the player the ability to turn invisible by pressing the shift key.
 
@@ -610,10 +646,11 @@ See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](gam
 
 ---
 
-Using:
+Example using:
 
-- `SetWorldScale`
-- `GetWorldScale`
+### `SetWorldScale`
+
+### `GetWorldScale`
 
 You can scale the size of the player. This sample causes all players to slowly grow until they get too big, and then reset.
 
@@ -636,9 +673,9 @@ See also: [Task.Spawn](task.md) | [Game.GetPlayers](game.md) | [Vector3.New](vec
 
 ---
 
-Using:
+Example using:
 
-- `TransferToGame`
+### `TransferToGame`
 
 Sends a player to another game. The game ID can be obtained from the Core website, for example to transfer a player to Core Royale, we navigate to that game's page at `https://www.coregames.com/games/577d80/core-royale` and copy the last two parts of the URL `577d80/core-royale` as the game ID.
 
@@ -659,10 +696,11 @@ See also: [CoreObject.parent](coreobject.md) | [Object.IsA](object.md) | [Trigge
 
 ---
 
-Using:
+Example using:
 
-- `currentFacingMode`
-- `desiredFacingMode`
+### `currentFacingMode`
+
+### `desiredFacingMode`
 
 There are several modes the game can use to decide which direction the player's avatar is facing, based on the camera look direction.
 
@@ -695,12 +733,15 @@ See also: [Game.playerJoinedEvent](game.md) | [CoreLua.print](coreluafunctions.m
 
 ---
 
-Using:
+Example using:
 
-- `hitPoints`
-- `maxHitPoints`
-- `kills`
-- `deaths`
+### `hitPoints`
+
+### `maxHitPoints`
+
+### `kills`
+
+### `deaths`
 
 You can get various vital statistics off of the player object, such as hit points, max hit points, kills and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
 
@@ -724,17 +765,25 @@ See also: [Player.name](player.md) | [Game.GetPlayers](game.md) | [CoreLua.print
 
 ---
 
-Using:
+Example using:
 
-- `isAccelerating`
-- `isCrouching`
-- `isFlying`
-- `isGrounded`
-- `isJumping`
-- `isMounted`
-- `isSwimming`
-- `isWalking`
-- `isDead`
+### `isAccelerating`
+
+### `isCrouching`
+
+### `isFlying`
+
+### `isGrounded`
+
+### `isJumping`
+
+### `isMounted`
+
+### `isSwimming`
+
+### `isWalking`
+
+### `isDead`
 
 You can get a lot of useful information about the player's current movement, via a series of read-only boolean properties on the `Player` object.
 
@@ -771,9 +820,9 @@ See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md) | [T
 
 ---
 
-Using:
+Example using:
 
-- `isVisibleToSelf`
+### `isVisibleToSelf`
 
 It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context!
 
@@ -787,9 +836,9 @@ See also: [Game.GetLocalPlayer](game.md)
 
 ---
 
-Using:
+Example using:
 
-- `lookSensitivity`
+### `lookSensitivity`
 
 You can also make the player's input more or less sensitive, when aiming. This can be useful for aiming down sights, etc.
 
@@ -802,13 +851,17 @@ See also: [Game.GetLocalPlayer](game.md)
 
 ---
 
-Using:
+Example using:
 
-- `maxAcceleration`
-- `brakingDecelerationFalling`
-- `brakingDecelerationWalking`
-- `groundFriction`
-- `brakingFrictionFactor`
+### `maxAcceleration`
+
+### `brakingDecelerationFalling`
+
+### `brakingDecelerationWalking`
+
+### `groundFriction`
+
+### `brakingFrictionFactor`
 
 Through scripts, you can control the player's ability to accelerate their character.
 
@@ -833,12 +886,15 @@ See also: [Game.playerJoinedEvent](game.md)
 
 ---
 
-Using:
+Example using:
 
-- `movementControlMode`
-- `lookControlMode`
-- `defaultRotationRate`
-- `currentRotationRate`
+### `movementControlMode`
+
+### `lookControlMode`
+
+### `defaultRotationRate`
+
+### `currentRotationRate`
 
 Player motion and facing can be set to several modes, depending on the gameplay needed.
 
@@ -878,11 +934,13 @@ See also: [Game.playerJoinedEvent](game.md)
 
 ---
 
-Using:
+Example using:
 
-- `name`
-- `id`
-- `team`
+### `name`
+
+### `id`
+
+### `team`
 
 There is a lot of useful information you can get from the player object. Players have a `name` property, which is the text display name for the player. Players can set their own names though, so there is no guarantee that `name`s will be unique.
 
@@ -905,11 +963,13 @@ See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `shouldDismountWhenDamaged`
-- `SetMounted`
-- `canMount`
+### `shouldDismountWhenDamaged`
+
+### `SetMounted`
+
+### `canMount`
 
 The player can mount or dismount. We can also force the player to mount or dismount via the `Player:SetMounted()` function. Also, if `Player.shouldDismountWhenDamaged` is set, they will automatically dismount whenever they take damage.
 
@@ -934,10 +994,11 @@ See also: [Player.ApplyDamage](player.md) | [Damage.New](damage.md) | [Task.Wait
 
 ---
 
-Using:
+Example using:
 
-- `spreadModifier`
-- `currentSpread`
+### `spreadModifier`
+
+### `currentSpread`
 
 Players shooting weapons have a spread modifier applied to their accuracy. This can be used to simulate things like loss of aim after jumping, or other activities.
 
@@ -965,15 +1026,21 @@ See also: [Player.movementModeChangedEvent](player.md) | [Task.Wait](task.md) | 
 
 ---
 
-Using:
+Example using:
 
-- `stepHeight`
-- `walkableFloorAngle`
-- `maxJumpCount`
-- `jumpVelocity`
-- `gravityScale`
-- `buoyancy`
-- `isCrouchEnabled`
+### `stepHeight`
+
+### `walkableFloorAngle`
+
+### `maxJumpCount`
+
+### `jumpVelocity`
+
+### `gravityScale`
+
+### `buoyancy`
+
+### `isCrouchEnabled`
 
 Most of the aspects of a player's movement can be controlled at runtime via scripting!
 
@@ -1004,9 +1071,9 @@ See also: [Game.playerJoinedEvent](game.md)
 
 ---
 
-Using:
+Example using:
 
-- `touchForceFactor`
+### `touchForceFactor`
 
 When the player runs into physics objects, they exert force. You can affect how much force with the `touchForceFactor` property.
 
@@ -1019,10 +1086,11 @@ See also: [CoreObject.SetVelocity](coreobject.md) | [StaticMesh.isSimulatingDebr
 
 ---
 
-Using:
+Example using:
 
-- `perkChangedEvent`
-- `GetPerkCount`
+### `perkChangedEvent`
+
+### `GetPerkCount`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
@@ -1126,13 +1194,17 @@ See also: [Storage.GetPlayerData](storage.md) | [Player.GetResource](player.md) 
 
 ---
 
-Using:
+Example using:
 
-- `perkChangedEvent`
-- `HasPerk`
-- `GetPerkCount`
-- `GetPerkReference`
-- `SetPerkReference`
+### `perkChangedEvent`
+
+### `HasPerk`
+
+### `GetPerkCount`
+
+### `GetPerkReference`
+
+### `SetPerkReference`
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 

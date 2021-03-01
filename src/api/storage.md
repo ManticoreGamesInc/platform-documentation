@@ -41,9 +41,9 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 
 ## Examples
 
-Using:
+Example using:
 
-- `GetPlayerData`
+### `GetPlayerData`
 
 This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
 
@@ -67,9 +67,9 @@ See also: [Storage.SetPlayerData](storage.md) | [Player.SetResource](player.md) 
 
 ---
 
-Using:
+Example using:
 
-- `GetSharedPlayerData`
+### `GetSharedPlayerData`
 
 This example shows how to read data that has been saved to Shared Storage. Because this is saved via shared-key persistence, the data may have been written by a different game. This allows you to have multiple games share the same set of player data.
 
@@ -95,9 +95,9 @@ end
 
 ---
 
-Using:
+Example using:
 
-- `SetPlayerData`
+### `SetPlayerData`
 
 This example detects when a player gains XP or level and saves the new values to storage.
 
@@ -121,9 +121,9 @@ See also: [Storage.GetPlayerData](storage.md) | [Player.resourceChangedEvent](pl
 
 ---
 
-Using:
+Example using:
 
-- `SetSharedPlayerData`
+### `SetSharedPlayerData`
 
 This example shows how to write data to the Shared Storage. With this, any maps that you enable with your shared key can all access the same data that is associated with a player. This means that you could have several games where reward, levels, or achievements carry over between them.
 
