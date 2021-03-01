@@ -80,10 +80,12 @@ nav:
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
+          - Portals: tutorials/portal_reference.md
           - Publishing Checklist: getting_started/publishing_checklist.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: tutorials/shared_storage.md
           - Templates: tutorials/template_reference.md
+          - Triggers: tutorials/triggers.md
           - UI: tutorials/ui_reference.md
           - Weapons: tutorials/weapons.md
   - Core API:
