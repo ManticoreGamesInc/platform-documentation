@@ -28,12 +28,15 @@ In the case of networked objects it's possible to get a CoreObjectReference poin
 
 ## Examples
 
-Using:
+Example using:
 
-- `GetObject`
-- `WaitForObject`
-- `id`
-- `isAssigned`
+### `GetObject`
+
+### `WaitForObject`
+
+### `id`
+
+### `isAssigned`
 
 Sometimes you need to pass around a reference to a core object, instead of the actual object itself. This is most common when accessing custom properties - any core objects you have attached as custom properties are stored as `CoreObjectReferences`.
 

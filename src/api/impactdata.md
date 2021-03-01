@@ -31,9 +31,9 @@ A data structure containing all information about a specific Weapon interaction,
 
 ## Examples
 
-Using:
+Example using:
 
-- `GetHitResult`
+### `GetHitResult`
 
 HitResult is used by Weapons to transmit data about the interaction. In this example, the `socketName` property is used in determining how much damage to apply, depending on what part of the target's body was hit. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -87,12 +87,15 @@ See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByT
 
 ---
 
-Using:
+Example using:
 
-- `GetHitResults`
-- `targetObject`
-- `weaponOwner`
-- `isHeadshot`
+### `GetHitResults`
+
+### `targetObject`
+
+### `weaponOwner`
+
+### `isHeadshot`
 
 When it comes to weapons damaging players, there is a built-in damage value that works. However, additional mechanics can be layered on top, with scripts. In this example, some weapons can have multiple shots at once (e.g. Shotgun) and headshots are defined to have a different damage value. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -135,9 +138,9 @@ See also: [ImpactData.sourceAbility](impactdata.md) | [CoreObject.FindAncestorBy
 
 ---
 
-Using:
+Example using:
 
-- `projectile`
+### `projectile`
 
 Projectiles that are fired from weapons cannot be controlled in the same was as projectiles that are created with `Projectile.Spawn()`. That's because they are client-predicted, which is a tradeoff that usually leads to better gameplay fidelity. That said, there are still mechanics that can be explored with access to the `ImpactData`'s projectile object. In this example, the weapon is setup with a value on the `Projectile Pierces` property. This causes shots to go through objects. In this hypothetical game we want shots that hit player limbs to go through them and hit objects behind. If the impact happened on any other object or part of their body, then we destroy the projectile.
 
@@ -174,9 +177,9 @@ See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByT
 
 ---
 
-Using:
+Example using:
 
-- `sourceAbility`
+### `sourceAbility`
 
 In this example, the shoot ability is manipulated as a result of the `targetImpactEvent`. If the shot was a headshot the ability continues as normal and will immediately refresh. However, if it was not a headshot there is an additional 1 second delay during which the player can't use the shoot ability.
 
@@ -205,9 +208,9 @@ See also: [ImpactData.isHeadshot](impactdata.md) | [CoreObject.FindAncestorByTyp
 
 ---
 
-Using:
+Example using:
 
-- `travelDistance`
+### `travelDistance`
 
 The `travelDistance` property tells us the distance (in centimeters) between the origin of the shot and the impact point. In this example, we use that information to create a weapon that deals variable damage, depending on the distance. It could be configured to do either maximum damage at maximum range or minimum damage at the max range, all dependent upon custom property values. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
@@ -248,9 +251,9 @@ See also: [ImpactData.targetObject](impactdata.md) | [CoreObject.FindAncestorByT
 
 ---
 
-Using:
+Example using:
 
-- `weapon`
+### `weapon`
 
 While the `targetImpactedEvent` conveniently provides the weapon as the first parameter, the `ImpactData` that comes as the second parameter also contains a reference to the weapon. This is useful if we are forwarding the logic off to another script. In this case we only need to pass the `ImpactData` and the other script will have all the information it needs. In this example, a damage manager script is `required()` by the weapon and the combat decision is forwarded to the manager.
 

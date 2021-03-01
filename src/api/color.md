@@ -75,9 +75,9 @@ An RGBA representation of a color. Color components have an effective range of `
 
 ## Examples
 
-Using:
+Example using:
 
-- `Lerp`
+### `Lerp`
 
 This utility function calculates a color useful for a health bar.
 

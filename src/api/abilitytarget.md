@@ -41,9 +41,9 @@ A data type containing information about what the Player has targeted during a p
 
 ## Examples
 
-Using:
+Example using:
 
-- `New`
+### `New`
 
 The ability's targeting data can be generated programatically, for specific results. In this example, We create a target that is always at the world origin (Vector3.ZERO). If added to a rifle's Shoot ability, all shots will go to (0,0,0). For this to work the script should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -64,10 +64,11 @@ See also: [AbilityTarget.SetHitPosition](abilitytarget.md) | [CoreObject.FindAnc
 
 ---
 
-Using:
+Example using:
 
-- `GetAimPosition`
-- `GetAimDirection`
+### `GetAimPosition`
+
+### `GetAimDirection`
 
 In this example, a non-weapon ability needs to know where the player is aiming in order to spawn the effect correctly. It creates an effect that moves down the center of where the camera is aiming. However, if the effect were to begin at the camera's position that could be weird in a third-person game. Instead, the player's position is projected onto the camera's vector to determine a more suitable starting point.
 
@@ -100,10 +101,11 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](wo
 
 ---
 
-Using:
+Example using:
 
-- `GetHitPosition`
-- `SetHitPosition`
+### `GetHitPosition`
+
+### `SetHitPosition`
 
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
 
@@ -127,9 +129,9 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](wo
 
 ---
 
-Using:
+Example using:
 
-- `GetHitResult`
+### `GetHitResult`
 
 At any phase of an ability's activation, you can get data about what is under the cursor and would be hit.
 
@@ -154,10 +156,11 @@ See also: [CoreObject.FindAncestorByType](coreobject.md) | [World.SpawnAsset](wo
 
 ---
 
-Using:
+Example using:
 
-- `hitObject`
-- `hitPlayer`
+### `hitObject`
+
+### `hitPlayer`
 
 In this example, an ability casts a magical area of effect (AOE) in front of the player. In case the player was aiming at another player or object that position is used instead.
 

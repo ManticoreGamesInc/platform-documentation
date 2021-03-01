@@ -26,10 +26,11 @@ The Chat namespace contains functions and hooks for sending and reacting to chat
 
 ## Examples
 
-Using:
+Example using:
 
-- `BroadcastMessage`
-- `receiveMessageHook`
+### `BroadcastMessage`
+
+### `receiveMessageHook`
 
 `Chat.BroadcastMessage` allows you to send mesages directly to the chat log. This sample listens for users who type `/coinflip`, and will print the results of the coinflip to everyone's chat.
 
@@ -50,9 +51,9 @@ See also: [Chat.sendMessageHook](chat.md)
 
 ---
 
-Using:
+Example using:
 
-- `receiveMessageHook`
+### `receiveMessageHook`
 
 `Chat.receiveMessageHook` allows the system to respond when chat messages are received. It executes first on the server, and then on all of the clients once the message is broadcast.
 
@@ -83,10 +84,11 @@ See also: [Chat.sendMessageHook](chat.md)
 
 ---
 
-Using:
+Example using:
 
-- `sendMessageHook`
-- `LocalMessage`
+### `sendMessageHook`
+
+### `LocalMessage`
 
 `Chat.sendMessageHook` is triggered on the client every time a player tries to send a chat message. Modifications happen before the message is even sent on to the server.
 
