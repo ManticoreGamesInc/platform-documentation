@@ -113,6 +113,19 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
 | `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
 
+### Dual Melee
+
+| Dual Melee Animations               | Description | Notes |
+| ----------------------------------- | ----------- | ----- |
+| `dual_melee_dual_thrust`            | --- | --- |
+| `dual_melee_left_hand_slash_left`   | --- | --- |
+| `dual_melee_left_hand_slash_right`  | --- | --- |
+| `dual_melee_left_hand_thrust`       | --- | --- |
+| `dual_melee_right_hand_slash_left`  | --- | --- |
+| `dual_melee_right_hand_slash_right` | --- | --- |
+| `dual_melee_right_hand_thrust`      | --- | --- |
+| `dual_melee_unsheathe`              | --- | --- |
+
 ## Animation Stances
 
 - All animation stances are valid on either of the available body types.
@@ -165,6 +178,13 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_rifle_aim_hip`        | Has the stock at the hip. When running/jumping etc., the entire upper body will retain the aiming pose. |
 | `2hand_sword_ready`          | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
 | `2hand_sword_block_high`     | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
+
+### Dual Melee
+
+| Dual Melee Stances      | Description |
+| ------------------------|   |
+| `dual_melee_stance`     |   |
+| `dual_melee_block_high` |   |
 
 ## How to Turn on Ragdoll
 
