@@ -86,7 +86,7 @@ end
 
 print("Team 1 has " .. team1Count .. " spawn points.")
 print("Team 2 has " .. team2Count .. " spawn points.")
-print("Team 3 has " .. team2Count .. " spawn points.")
+print("Team 3 has " .. team3Count .. " spawn points.")
 ```
 
 See also: [PlayerStart.team](playerstart.md) | [CoreLua.print](coreluafunctions.md)
