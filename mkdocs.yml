@@ -192,6 +192,7 @@ theme:
     - navigation.tabs
     - navigation.instant
     - navigation.sections
+    - navigation.tracking
   palette:
     primary: core-orange
     accent: core-blue
