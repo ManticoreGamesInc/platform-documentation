@@ -61,7 +61,7 @@ To change the individual colors that are part of an animated mesh material, crea
 
 Animated meshes include sequences of movement for different game scenarios, that are automatically blended to move from one to the next seamlessly. The animations for the human meshes are very similar to player animations, sometimes the classification is different for animated meshes and stances.
 
-See the [Animated Mesh](https://docs.coregames.com/api/animatedmesh/) section of the Core Lua API Reference to learn more about scripting animations.
+See the [Animated Mesh](../api/animatedmesh.md) section of the Core Lua API Reference to learn more about scripting animations.
 
 ### Animation Stance
 

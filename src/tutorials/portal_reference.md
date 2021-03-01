@@ -27,14 +27,14 @@ Core Game ID's can be found in the URL for the Core Game page.
 
 1. Find the game's page on **CoreGames.com** through search and copy its URL.
    - To get the URL directly from the Core Client, open the game page, and copy the URL via the **Share** button.
-2. Delete ```https://www.coregames.com/games/``` from the URL to leave only the Game ID.
+2. Delete `https://www.coregames.com/games/` from the URL to leave only the Game ID.
 
 !!! info
     Game ID's are a 6-character string, plus the hyphenated name of the game like **b983bc/core-plaza**.
 
 ### Get Info for a Game
 
-With a Game ID, you get more information about a game through a [**CoreGameInfo**](https://docs.coregames.com/api/coregameinfo/) object, like the name of the game, or the creator. See the [**CorePlatform**](https://docs.coregames.com/api/coreplatform/) namespace in the Core Lua API Reference for more information.
+With a Game ID, you get more information about a game through a [**CoreGameInfo**](../api/coregameinfo.md) object, like the name of the game, or the creator. See the [**CorePlatform**](../api/coreplatform.md) namespace in the Core Lua API Reference for more information.
 
 <!-- ## Screenshots -->
 <!-- TODO: No clear object for screenshots or reference to one in Patch Notes -->
@@ -57,14 +57,14 @@ Cubemaps that you take using **World Capture** will appear in your project's **S
 
 1. With the project open in the Core Editor, click **File** in the top menu bar and select **Show Project in Explorer**.
 2. In the File Explorer, click the **Screenshots** folder to open it.
-3. Click **Cubemaps** to see your Cubemap files. 
+3. Click **Cubemaps** to see your Cubemap files.
 
 ## Game Categories
 
-Creators have access to the Core Game queues, like **Featured**, **Active**, and **Trending**. They can be accessed through scripts using the [**CorePlatform**](https://docs.coregames.com/api/coreplatform/) namespace, which returns a table of [**CoreGameCollectionEntry**](https://docs.coregames.com/api/coregamecollectionentry/) objects.
+Creators have access to the Core Game queues, like **Featured**, **Active**, and **Trending**. They can be accessed through scripts using the [**CorePlatform**](../api/coreplatform.md) namespace, which returns a table of [**CoreGameCollectionEntry**](../api/coregamecollectionentry.md) objects.
 
 ---
 
 ## Learn More
 
-[**Player** TransferToGame](https://docs.coregames.com/api/player/) | [**CorePlatform** Namespace](https://docs.coregames.com/api/coreplatform/) | [**CoreGameInfo**](https://docs.coregames.com/api/coregameinfo/) | [**CoreGameCollectionEntry**](https://docs.coregames.com/api/coregamecollectionentry/)
+[**Player** TransferToGame](../api/player.md) | [**CorePlatform** Namespace](../api/coreplatform.md) | [**CoreGameInfo**](../api/coregameinfo.md) | [**CoreGameCollectionEntry**](../api/coregamecollectionentry.md)

@@ -14,7 +14,7 @@ UI in Core includes all the 2D elements that can be used to build menus, notific
 
 ## Client-Server Communication
 
-UI Elements can only be accessed by [client-side Scripts](networking.md). This means that for UI interactions to affect Networked objects, or have other in-game effects that are not strictly client-side, it is necessary to create **Event Broadcasts** to communicate between server and client. See the [Events namespace](https://docs.coregames.com/api/events/) for more information and examples.
+UI Elements can only be accessed by [client-side Scripts](networking.md). This means that for UI interactions to affect Networked objects, or have other in-game effects that are not strictly client-side, it is necessary to create **Event Broadcasts** to communicate between server and client. See the [Events namespace](../api/events.md) for more information and examples.
 
 ## UI Container Types
 
@@ -33,7 +33,7 @@ UI Containers have a **Content Type** which allow creators to specify the way th
 
 ### UI Control Properties
 
-[UIControl](https://docs.coregames.com/api/uicontrol/) is the parent of all UI elements, and these properties apply to almost all UI elements in Core.
+[UIControl](../api/uicontrol.md) is the parent of all UI elements, and these properties apply to almost all UI elements in Core.
 
 | Property | Definition |
 | --- | --- |
@@ -71,4 +71,4 @@ Like Materials on static mesh objects, there are two ways to change the font of 
 
 ## Learn More
 
-[UIControl](https://docs.coregames.com/api/uicontrol/) | [UIText](https://docs.coregames.com/api/uitext/#uitext) | [Events](https://docs.coregames.com/api/events/)
+[UIControl](../api/uicontrol.md) | [UIText](../api/uitext.md) | [Events](../api/events.md)
