@@ -21,7 +21,7 @@
         "lint:md": "markdownlint src/",
         "lint:paths": "path-linter --config path-linter.json --colorize",
         "lint": "npm run lint:md && npm run lint:paths",
-        "postinstall": "husky install"
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
