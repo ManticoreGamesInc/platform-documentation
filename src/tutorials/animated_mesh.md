@@ -32,21 +32,36 @@ Animated Mesh objects can be found in **Core Content** window in the **Art Objec
 
 ### Add an Animated Mesh to a Project
 
-Animated meshes can be added like a 3D object by dragging and dropping into a the **Main Viewport** or the **Hierarchy**
+Non-humanoid animated meshes can be added like a 3D object by dragging and dropping into a the **Main Viewport** or the **Hierarchy**
 
-### Find Specific Animated Mesh Info
+## Humanoid Animated Meshes (Skinned Meshes)
 
-When you selected an Animated Mesh object in Core Content, you can open the **Properties** window to see more information about the mesh, including the available animations, and the sockets that represent the different parts of the mesh, similar to player models.
+Humanoid animated meshes have multiple parts that can be attached to a body to create a wide variety of unique, customizable characters.
+
+### Add a New Humanoid Animated Mesh to the Project
+
+1. Select either the **Humanoid 1** or **Humanoid 2** categories in the **Animated Mesh** section of **Core Content**.
+2. Find the **Body** section, and drag one of the bodies into the scene to select it as a **Skeletal Rig**.
+
+### Add Gear to the Skeletal Rig
+
+Each animated mesh has four gear slots to which the Animated Mesh gear can be added. Gear will automatically be attached to the correct point in the mesh, and the slots do not represent any particular socket.
+
+1. Select the **Gear** section for the same Humanoid animation mesh type as the body.
+2. Drag the gear directly onto the body of the animated mesh.
+3. In the menu that pops up on screen, select one of the available **Mesh Slots**.
 
 ## Materials
 
-Materials can be added to animated meshes like any 3D object, to create a single uniform color.
+Materials can be added to non-humanoid animated meshes like any 3D object, to create a single uniform color, and can be added to the skeletal rig and individual gear like normal static meshes.
 
-To change the individual colors that are part of an animated mesh, create a new custom material from the material that the mesh begins with. To learn more about using custom materials, see the [custom materials](custom_materials.md) reference.
+To change the individual colors that are part of an animated mesh material, create a new custom material from the material that the mesh begins with. To learn more about using custom materials, see the [custom materials](custom_materials.md) reference.
 
 ## Animations
 
-Animated meshes include sequences of movement for different game scenarios, that are automatically blended to move from one to the next seamlessly. The animations for the human meshes are very similar to player animations.
+Animated meshes include sequences of movement for different game scenarios, that are automatically blended to move from one to the next seamlessly. The animations for the human meshes are very similar to player animations, sometimes the classification is different for animated meshes and stances.
+
+See the [Animated Mesh](../api/animatedmesh.md) section of the Core Lua API Reference to learn more about scripting animations.
 
 ### Animation Stance
 
@@ -56,7 +71,7 @@ Animation stances are states of movement that the mesh will continue until a new
 
 Other animations are intended to be used once, and then let the mesh return to the animation state.
 
-## Equipment
+## Attaching Core Objects
 
 Animated meshes cannot use actually **Equipment** objects the way players are, but the objects can be attached to different sockets on an animated mesh the same way equipment is attached to players.
 
