@@ -35,30 +35,13 @@ if (btn) {
   })
 }
 
-// Change browser title and URL based on header near scroll position
+// Hide/Show to top button
 window.addEventListener("scroll", (event) => {
-  const yPos = window.pageYOffset || document.documentElement.scrollTop
-  const headerlinks = document.getElementsByClassName("headerlink")
-  let currentTitle = document.title
-  let currentURL
-
   if (document.documentElement.scrollTop > 300) {
     btn.classList.add("show")
   } else {
     btn.classList.remove("show")
   }
-
-  Array.prototype.forEach.call(headerlinks, (el) => {
-    const rect = el.getBoundingClientRect()
-
-    if (yPos > rect.top + document.documentElement.scrollTop - 90) {
-      currentTitle = el.parentElement.textContent.slice(0, -1)
-      currentURL = el.href
-    }
-  })
-
-  document.title = currentTitle
-  history.replaceState({}, "", currentURL)
 })
 
 // Theme Toggle
