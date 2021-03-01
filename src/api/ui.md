@@ -33,6 +33,12 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.GetCursorHitResult()` | [`HitResult`](hitresult.md) | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
 | `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | [`Vector3`](vector3.md) | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `UI.coreModalChangedEvent` | <[`CoreModalType`](enums.md#coremodaltype)`>` | Fired when the local player pauses the game or opens one of the built-in modal dialogs, such as the emote or mount picker. The modal parameter will be `nil` when the player has closed all built-in modals. | Client-Only |
+
 ## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)

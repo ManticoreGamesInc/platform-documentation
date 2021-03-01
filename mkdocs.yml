@@ -158,9 +158,13 @@ nav:
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
+          - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
+          - CoreGameCollectionEntry: api/coregamecollectionentry.md
+          - CoreGameInfo: api/coregameinfo.md
           - CoreDebug: api/coredebug.md
           - CoreMath: api/coremath.md
+          - CorePlatform: api/coreplatform.md
           - CoreString: api/corestring.md
           - Environment: api/environment.md
           - Events: api/events.md
@@ -170,7 +174,6 @@ nav:
           - Teams: api/teams.md
           - UI: api/ui.md
           - World: api/world.md
-
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:
