@@ -24,11 +24,13 @@ Other
 
 ## Examples
 
-Using:
+Example using:
 
-- `IsA`
-- `type`
-- `type(property)`
+### `IsA`
+
+### `type`
+
+### `type(property)`
 
 Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more!
 

@@ -22,10 +22,11 @@ A few base functions provided by the platform.
 
 ## Examples
 
-Using:
+Example using:
 
-- `print`
-- `warn`
+### `print`
+
+### `warn`
 
 The common Lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
 
@@ -41,10 +42,11 @@ warn("Something is amiss!")
 
 ---
 
-Using:
+Example using:
 
-- `time`
-- `Tick`
+### `time`
+
+### `Tick`
 
 Functions named `Tick()` are special - if you have a script with a `Tick()` function, then that function will be called every frame of the game. This is not something you want to do often, because of performance costs, but can be used to set up animations. (Ideally inside of client contexts.)
 

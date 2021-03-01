@@ -46,10 +46,11 @@ An euler-based rotation around `x`, `y`, and `z` axes.
 
 ## Examples
 
-Using:
+Example using:
 
-- `New`
-- `ZERO`
+### `New`
+
+### `ZERO`
 
 There are several different ways to create new Rotations.
 
@@ -87,13 +88,17 @@ See also: [Quaternion.New](quaternion.md) | [Vector3.New](vector3.md) | [Rotatio
 
 ---
 
-Using:
+Example using:
 
-- `Rotation+Rotation`
-- `Rotation-Rotation`
-- `Rotation*Number`
-- `-Rotation`
-- `Rotation*Vector3`
+### `Rotation+Rotation`
+
+### `Rotation-Rotation`
+
+### `Rotation*Number`
+
+### `-Rotation`
+
+### `Rotation*Vector3`
 
 You can add and subtract rotations from each other, scale them, and apply them to vectors via arithmetic operators.
 
@@ -129,11 +134,13 @@ See also: [Rotation.New](rotation.md) | [Vector3.New](vector3.md)
 
 ---
 
-Using:
+Example using:
 
-- `x`
-- `y`
-- `z`
+### `x`
+
+### `y`
+
+### `z`
 
 The x, y, and z components of a rotation can be accessed directly. These numbers represent the number of degrees to rotate around their respective axis.
 

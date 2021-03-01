@@ -24,10 +24,11 @@ EventListeners are returned by Events when you connect a listener function to th
 
 ## Examples
 
-Using:
+Example using:
 
-- `Disconnect`
-- `isConnected`
+### `Disconnect`
+
+### `isConnected`
 
 When `Connect()` is called, an `EventListener` structure is returned. In some situations it's good to save the listener in order to disconnect from the event later. In the following example, we are listening for the local player gaining or losing resources. However, if this script is destroyed for some reason, then it will be hanging in memory due to the event connection. In this case it's important to `Disconnect()` or a small memory leak is created. This script presumes to be in a Client Context.
 

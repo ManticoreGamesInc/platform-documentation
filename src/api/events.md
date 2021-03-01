@@ -48,9 +48,9 @@ The maximum size a networked event can send is 128 bytes and all networked event
 
 ## Examples
 
-Using:
+Example using:
 
-- `BroadcastToAllPlayers`
+### `BroadcastToAllPlayers`
 
 This event connection allows the server to send a message to all players. In this example, two scripts communicate over the network. The first one is on the server as child of a Trigger and the second one is in a Client Context. The server is authoritative over the state of the flag being captured and listens for overlaps on the Trigger. When a new team captures the flag a message is sent to all clients with information about who captured and what team they belong to.
 
@@ -87,9 +87,9 @@ See also: [other.IsA](other.md) | [Player.team](player.md) | [CoreLua.print](cor
 
 ---
 
-Using:
+Example using:
 
-- `BroadcastToPlayer`
+### `BroadcastToPlayer`
 
 If your script runs on a server, you can broadcast game-changing information to your players. In this example, the OnExecute function was connected to an ability object's executeEvent. This bandage healing ability depends on a few conditions, such as bandages being available in the inventory and the player having actually lost any hit points. If one of the conditions is not true, the broadcast function is used for delivering a user interface message that only that player will see.
 
@@ -117,10 +117,11 @@ See also: [Ability.owner](ability.md) | [Player.GetResource](player.md) | [Damag
 
 ---
 
-Using:
+Example using:
 
-- `Connect`
-- `Broadcast`
+### `Connect`
+
+### `Broadcast`
 
 The `Events` namespace allows two separate scripts to communicate without the need to reference each other directly. In this example, two scripts communicate through a custom "GameStateChanged" event. The first one has the beginnings of a state machine and broadcasts the event each time the state changes. The second script listens for that specific event. This is a non-networked message.
 
@@ -155,10 +156,11 @@ See also: [Task.Wait](task.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `ConnectForPlayer`
-- `BroadcastToServer`
+### `ConnectForPlayer`
+
+### `BroadcastToServer`
 
 This event connection allows the server to listen for broadcasts that originate from clients. In this example, two scripts communicate over the network. The first one is in a Server Context and the second one is in a Client Context. The client can send input data to the server, in this case their cursor's position.
 

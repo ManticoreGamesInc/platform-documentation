@@ -35,11 +35,13 @@ Task is a representation of a Lua thread. It could be a Script initialization, a
 
 ## Examples
 
-Using:
+Example using:
 
-- `Spawn`
-- `GetCurrent`
-- `id`
+### `Spawn`
+
+### `GetCurrent`
+
+### `id`
 
 You can spawn new tasks via `Task.Spawn()`, and leave them to execute without blocking your main Lua script. This has a lot of potential uses, from animation, to code organization.
 
@@ -84,9 +86,9 @@ See also: [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `Wait`
+### `Wait`
 
 `Task.Wait()` is an extremely useful function that you can use to make your current Lua thread pause for an amount of time. If you provide a number as an argument, the task will yield for that many seconds. If no argument is provided, it yields until the next update frame.
 
@@ -105,10 +107,11 @@ See also: [CoreLua.print](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `Cancel`
-- `GetStatus`
+### `Cancel`
+
+### `GetStatus`
 
 Tasks started via `Task.Spawn()` continue until they are completed. But you can end them early, via their `Cancel()` method.
 
@@ -137,10 +140,11 @@ See also: [Task.Spawn](task.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
-Using:
+Example using:
 
-- `repeatCount`
-- `repeatInterval`
+### `repeatCount`
+
+### `repeatInterval`
 
 You can schedule tasks to run a specific number of times, and to wait a specific number of times between repeats. This sample creates a task that prints out "hello world", and then has it repeat itself thee times, once per second.
 
