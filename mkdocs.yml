@@ -103,6 +103,8 @@ nav:
           - Audio: api/audio.md
           - Camera: api/camera.md
           - Color: api/color.md
+          - CoreGameCollectionEntry: api/coregamecollectionentry.md
+          - CoreGameInfo: api/coregameinfo.md
           - CoreMesh: api/coremesh.md
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
@@ -160,8 +162,6 @@ nav:
       - Namespaces:
           - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
-          - CoreGameCollectionEntry: api/coregamecollectionentry.md
-          - CoreGameInfo: api/coregameinfo.md
           - CoreDebug: api/coredebug.md
           - CoreMath: api/coremath.md
           - CorePlatform: api/coreplatform.md
