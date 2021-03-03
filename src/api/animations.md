@@ -113,18 +113,18 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
 | `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
 
-### Dual Melee
+### Dual Wield Melee
 
-| Dual Melee Animations               | Description | Notes |
-| ----------------------------------- | ----------- | ----- |
-| `dual_melee_dual_thrust`            | --- | --- |
-| `dual_melee_left_hand_slash_left`   | --- | --- |
-| `dual_melee_left_hand_slash_right`  | --- | --- |
-| `dual_melee_left_hand_thrust`       | --- | --- |
-| `dual_melee_right_hand_slash_left`  | --- | --- |
-| `dual_melee_right_hand_slash_right` | --- | --- |
-| `dual_melee_right_hand_thrust`      | --- | --- |
-| `dual_melee_unsheathe`              | --- | --- |
+| Dual Wield Melee Animations         | Description                                                                    | Notes                                                                          |
+| ----------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `dual_melee_dual_thrust`            | A melee attack which uses both hands to thrust weapons forward simultaneously. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_left_hand_slash_left`   | A melee attack in which the left hand swings a weapon from left to right.      | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_left_hand_slash_right`  | A melee attack in which the left hand swings a weapon from right to left.      | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_left_hand_thrust`       | A melee attack in which the left hand thrusts a weapon forward.                | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_right_hand_slash_left`  | A melee attack in which the right hand swings a weapon from left to right.     | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_right_hand_slash_right` | A melee attack in which the right hand swings a weapon from right to left.     | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_right_hand_thrust`      | A melee attack in which the right hand thrusts a weapon forward.               | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_unsheathe`              | Pulls the weapons off the back.                                                | Supports variable cast phase time. Supports time-stretched execute phase time. |
 
 ## Animation Stances
 
@@ -179,12 +179,12 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_sword_ready`          | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
 | `2hand_sword_block_high`     | Has the sword held with both hands in front of the body. When running/jumping etc., the entire upper body will retain the ready pose. |
 
-### Dual Melee
+### Dual Wield Melee
 
-| Dual Melee Stances      | Description |
-| ------------------------|   |
-| `dual_melee_stance`     |   |
-| `dual_melee_block_high` |   |
+| Dual Wield Melee Stances | Description                                                                               | Notes |
+| ------------------------ | ----------------------------------------------------------------------------------------- | ----- |
+| `dual_melee_stance`      | This will cause the Player to walk or stand with both hands posed to hold a melee weapon. |       |
+| `dual_melee_block_high`  | A stance that has both weapons held in front of the Player in a defensive pose.           |       |
 
 ## How to Turn on Ragdoll
 
