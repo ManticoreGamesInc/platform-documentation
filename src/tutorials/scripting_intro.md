@@ -26,7 +26,7 @@ Using Core frameworks, gameplay objects, and environment design tools, you can m
 
 ### The Lua Programming Language
 
-[**Lua**](https://www.lua.org/) is a language very popular in game development because it is both easy to learn, like [Python](https://www.python.org/), and powerful, like [C++](https://isocpp.org/). You will not need to rigorously study Lua in order to write scripts in Core, but if you are interested in an introduction to learning the language itself, [this Lua tutorial](http://luatut.com/crash_course.html) is a great starting point.
+[**Lua**](https://www.lua.org/) is a language very popular in game development because it is both easy to learn, like [Python](https://www.python.org/), and powerful, like [C++](https://isocpp.org/). You will not need to rigorously study Lua in order to write scripts in Core, but if you are interested in an introduction to learning the language itself, [this Lua tutorial](https://learnxinyminutes.com/docs/lua/) is a great starting point.
 
 ## Essential Concepts
 
@@ -46,7 +46,7 @@ Variables can be used to keep track of number values, but numbers are only one o
 
 #### Strings
 
-**Strings** are any collection of numbers, letters and punctuation. They need to be written in double quotes (``" "``) so that the computer does not mistake them for code.
+**Strings** are any collection of numbers, letters and punctuation. They need to be written in double quotes (`" "`) so that the computer does not mistake them for code.
 
 ```lua
 local myId = "123456789:Tiger"
@@ -74,12 +74,12 @@ local aThirdNumber = aNumber / anotherNumber
 
 **Booleans** are a data type that is only ever **true** or **false.** They are most often used in **if-statements**, which allow you to write code that only happens if certain other things are true.
 
-You can create a boolean variable using the keywords ``true`` and ``false``, but most often this is done by comparing different values.
+You can create a boolean variable using the keywords `true` and `false`, but most often this is done by comparing different values.
 
-- Check if two values are **equal**: ``==``
-- Check if two values are **not equal**: ``~=``
-- Check if a value is **less than** or **greater than** to another: ``<`` or ``>``
-- Check if a value is **less than or equal** or **greater than or equal** to another: ``<=`` or ``>=``
+- Check if two values are **equal**: `==`
+- Check if two values are **not equal**: `~=`
+- Check if a value is **less than** or **greater than** to another: `<` or `>`
+- Check if a value is **less than or equal** or **greater than or equal** to another: `<=` or `>=`
 
 Example:
 
@@ -97,7 +97,7 @@ Tables are a way to collect a list of variables. They are stored with labels lik
 
 Most usefully, putting things in a table allows you to do the same operation to all of them.
 
-To create a table you use curly brackets ```{ }``` and to put things in to it you use ```[ ]```.
+To create a table you use curly brackets `{ }` and to put things in to it you use `[ ]`.
 
 #### Making a Table
 
@@ -125,7 +125,7 @@ enemies[3] = "dragon"
 
 #### Creating a Function
 
-To create a function, you use the ```function``` keyword, along with the name for the function, and parentheses, ``( )``. Code that is part of the function is indented, and the ``end`` keyword finishes it.
+To create a function, you use the``function` keyword, along with the name for the function, and parentheses, `( )`. Code that is part of the function is indented, and the `end` keyword finishes it.
 
 Example:
 
