@@ -15,32 +15,12 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
       links[i].hostname !== window.location.hostname &&
       links[i].hostname !== "" &&
       links[i].title !== "Edit this page" &&
-      links[i].title !== "Provide feedback about this page" &&
-      links[i] !== btn
+      links[i].title !== "Provide feedback about this page"
     ) {
       links[i].target = "_blank"
       links[i].className = "external"
       links[i].rel = "noopener"
     }
-  }
-})
-
-// Scroll-to-Top button
-const btn = document.getElementById("to-top-button")
-if (btn) {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault()
-    e.stopImmediatePropagation()
-    window.scroll({ top: 0, left: 0, behavior: "auto" })
-  })
-}
-
-// Hide/Show to top button
-window.addEventListener("scroll", (event) => {
-  if (document.documentElement.scrollTop > 300) {
-    btn.classList.add("show")
-  } else {
-    btn.classList.remove("show")
   }
 })
 
