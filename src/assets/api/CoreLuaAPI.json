@@ -1886,6 +1886,8 @@
 				},
 				{
 					"Name": "isCameraCollisionEnabled",
+					"IsDeprecated": true,
+					"DeprecationMessage": "CoreMesh.isCameraCollisionEnabled is deprecated.  Please use CoreObject.cameraCollision and IsCameraCollidableInHierarchy() instead.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -2014,6 +2016,14 @@
 				},
 				{
 					"Name": "collision",
+					"Type": "Collision",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "cameraCollision",
 					"Type": "Collision",
 					"Tags": [
 						"RequiresAuthority",
@@ -2584,6 +2594,19 @@
 				},
 				{
 					"Name": "IsCollidableInHierarchy",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsCameraCollidableInHierarchy",
 					"Signatures": [
 						{
 							"Returns": [
@@ -8407,6 +8430,24 @@
 					]
 				},
 				{
+					"Name": "SetFont",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "font"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -9055,6 +9096,24 @@
 							],
 							"Parameters": []
 						}
+					]
+				},
+				{
+					"Name": "SetFont",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "font"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -10184,6 +10243,24 @@
 								{
 									"Type": "Color",
 									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "SetFont",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "font"
 								}
 							]
 						}
@@ -11940,6 +12017,31 @@
 		},
 		{
 			"Name": "BroadcastEventResultCode",
+			"Values": [
+				{
+					"Name": "SUCCESS",
+					"Value": 0
+				},
+				{
+					"Name": "FAILURE",
+					"Value": 1
+				},
+				{
+					"Name": "EXCEEDED_SIZE_LIMIT",
+					"Value": 2
+				},
+				{
+					"Name": "EXCEEDED_RATE_WARNING_LIMIT",
+					"Value": 3
+				},
+				{
+					"Name": "EXCEEDED_RATE_LIMIT",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "BroadcastMessageResultCode",
 			"Values": [
 				{
 					"Name": "SUCCESS",
