@@ -24,7 +24,7 @@ All of your Core projects, called **Maps** are files saved on your computer, so 
 
 #### Making a Zipped Map
 
-1. Find your Core Maps by opening **Documents** > **My Games** > **CORE** > **Saved** > **Maps**
+1. Find your Core Maps by opening **Documents** > **My Games** > **Core** > **Saved** > **Maps**
 2. Here you will find a folder for each of the Core projects that has been created on your machine.
 3. Right-click the folder you want to compress, scroll down to **Send to** and select **Compressed (zipped) folder**.
 4. This will create a zipped folder in the same directory, with the same name.
@@ -34,7 +34,7 @@ All of your Core projects, called **Maps** are files saved on your computer, so 
 
 #### Opening a Zipped Map in Core
 
-1. Find your Core Maps by opening **Documents** > **My Games** > **CORE** > **Saved** > **Maps**.
+1. Find your Core Maps by opening **Documents** > **My Games** > **Core** > **Saved** > **Maps**.
 2. Move the **.zip** folder that you want to open into this folder.
 3. Right-click the folder and select **Extract all**.
 4. Save the extracted folder in the same place, with the same name as the extract file.
@@ -93,7 +93,7 @@ There are many programming challenges involved in making a game, and how you div
 
 #### Discord
 
-The Core Hub discord is a useful resource, but you can also create your own Discord server for a game development team. This allows you to create channels dedicated to specific topics, to help keep discussions focused and relevant, as well as creating voice channels for teammates to have open conversations and share ideas as work on their screens.
+The Core Creator Discord is a useful resource, but you can also create your own Discord server for a game development team. This allows you to create channels dedicated to specific topics, to help keep discussions focused and relevant, as well as creating voice channels for teammates to have open conversations and share ideas as work on their screens.
 
 #### Kanban Boards
 
@@ -133,7 +133,7 @@ To avoid this problem, the best practice is to create **Folders** in Core that s
 
 ### Cloud Drives
 
-Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [Dropbox](https://www.dropbox.com/), [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions.
+Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [Dropbox](https://www.dropbox.com/), [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions. Just make sure that you and your partners are not trying to write to the same files at the same time. It is not recommended to have your Core project directory set to a folder inside of a shared cloud drive, and write to it directly from Core, as it is difficult or impossible to guarantee that edits will not collide.
 
 ### VSCode Liveshare
 

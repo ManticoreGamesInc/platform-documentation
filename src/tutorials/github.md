@@ -164,7 +164,7 @@ This will open a new file that contains the title and description you created fo
 
 #### Commit the New README file
 
-Once you have added more to the description of the project, add a commit message, select **Commit directly to the ``master`` branch** and click **Commit new file**.
+Once you have added more to the description of the project, add a commit message, select **Commit directly to the `main` branch** and click **Commit new file**.
 
 ## Pushing and Pulling Changes
 
@@ -232,14 +232,14 @@ The easiest way to avoid this is work on separate parts of the project. **Folder
 
 ### Create a Branch
 
-Up until now, you have only used the default branch, **master**. **Branches** allow you to separate your changes from the main project, and then integrate them back in when you are finished, by **merging**.
+Up until now, you have only used the default branch, **main**. **Branches** allow you to separate your changes from the main project, and then integrate them back in when you are finished, by **merging**.
 
 ![Create a New Branch](../img/VersionControl/VersionControl_NewBranch.png){: .center loading="lazy" }
 
-1. Click the **Current branch** tab in the project, which is most likely on **master**.
+1. Click the **Current branch** tab in the project, which is most likely on **main**.
 2. Select **New branch**, and give the branch the name of the feature that you will be creating on it.
 
-Now, if you commit, it will be saved on the new branch, but not the master branch. You can also push those changes to a remote version of the branch.
+Now, if you commit, it will be saved on the new branch, but not the main branch. You can also push those changes to a remote version of the branch.
 
 ### Create a Pull Request
 
@@ -247,9 +247,9 @@ If you are collaborating with someone else, you should use a **pull request** wh
 
 ### Merge a Branch Locally
 
-If you are not collaborating, you can **merge** the changes on to your local master branch, and then push to GitHub.
+If you are not collaborating, you can **merge** the changes on to your local main branch, and then push to GitHub.
 
-1. Change the current branch to **master**.
+1. Change the current branch to **main**.
 2. Press ++ctrl+shift+M++ or click **Branch** in the top menu and select **Merge into current branch**.
 3. Select the branch whose changes you want to merge.
 
