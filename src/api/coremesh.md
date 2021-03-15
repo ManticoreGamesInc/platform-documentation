@@ -18,7 +18,7 @@ CoreMesh is a CoreObject representing a mesh that can be placed in the scene. It
 | `isTeamColorUsed` | `boolean` | If `true`, and the mesh has been assigned to a valid team, players on that team will see a blue mesh, while other players will see red. Requires a material that supports the color property. | Read-Write |
 | `isTeamCollisionEnabled` | `boolean` | If `false`, and the mesh has been assigned to a valid team, players on that team will not collide with the mesh. | Read-Write |
 | `isEnemyCollisionEnabled` | `boolean` | If `false`, and the mesh has been assigned to a valid team, players on other teams will not collide with the mesh. | Read-Write |
-| `isCameraCollisionEnabled` | `boolean` | If `false`, the mesh will not push against the camera. Useful for things like railings or transparent walls. | Read-Write |
+| `isCameraCollisionEnabled` | `boolean` | If `false`, the mesh will not push against the camera. Useful for things like railings or transparent walls. This property is deprecated, use the `cameraCollision` property instead. | Read-Write, **Deprecated** |
 | `meshAssetId` | `string` | The ID of the mesh asset used by this mesh. | Read-Only |
 
 ## Functions

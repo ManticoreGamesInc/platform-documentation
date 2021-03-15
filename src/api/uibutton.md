@@ -33,6 +33,7 @@ A UIControl for a button, should be inside client context.
 | `GetFontColor()` | [`Color`](color.md) | Gets the font's color. | None |
 | `SetFontColor(Color)` | `None` | Sets the font's color. | None |
 | `SetImage(string brushMUID)` | `None` | Sets the image to a new MUID. You can get this MUID from an Asset Reference. | None |
+| `SetFont(string fontId)` | `None` | Sets the button's text to use the specified font asset. | None |
 
 ## Events
 
