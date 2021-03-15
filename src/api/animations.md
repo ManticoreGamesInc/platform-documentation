@@ -158,6 +158,9 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_eat`                | An eating animation. The character is taking a bite of something held in the right hand. | Supports variable cast phase time. |
 | `unarmed_shout`              | A shout animation. The character shouts at the sky during cast loop, and directs a shout forward in the execute | Supports variable cast phase time. |
 | `unarmed_stomp`              | A stomp animation. The cast loop holds the right foot in the air. | Supports variable cast phase time. |
+| `unarmed_dance_basic`        | A simple basic dance loop. |
+| `unarmed_dance_party`        | A house party dance loop. |
+| `unarmed_waiting`            | An animation which has the character check their watch once, and then goes into a loop of foot tapping. |
 
 ### One-Hand
 
