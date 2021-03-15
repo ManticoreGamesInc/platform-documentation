@@ -19,6 +19,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `parent` | [`CoreObject`](coreobject.md) | The object's parent object, may be nil. | Read-Write |
 | `visibility` | [`Visibility`](enums.md#visibility) | Turn on/off the rendering of an object and its children. | Read-Write |
 | `collision` | [`Collision`](enums.md#collision) | Turn on/off the collision of an object and its children. | Read-Write |
+| `cameraCollision` | [`Collision`](enums.md#collision) | Turn on/off the collision of the camera with an object and its children. | Read-Write |
 | `isEnabled` | `boolean` | Turn on/off an object and its children completely. | Read-Write |
 | `isStatic` | `boolean` | If `true`, dynamic properties may not be written to, and dynamic functions may not be called. | Read-Only |
 | `isClientOnly` | `boolean` | If `true`, this object was spawned on the client and is not replicated from the server. | Read-Only |
@@ -56,6 +57,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `GetChildren()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing the object's children, may be empty. | None |
 | `IsVisibleInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are visible. | None |
 | `IsCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable. | None |
+| `IsCameraCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable with the camera. | None |
 | `IsEnabledInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are enabled. | None |
 | `FindAncestorByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose name matches the provided name. If none match, returns nil. | None |
 | `FindChildByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
