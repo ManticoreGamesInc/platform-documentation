@@ -22,6 +22,7 @@ WorldText is an in-world text CoreObject.
 | -------- | ----------- | ----------- | ---- |
 | `GetColor()` | [`Color`](color.md) | The color of the Text. | None |
 | `SetColor(Color)` | `None` | The color of the Text. | None |
+| `SetFont(string fontId)` | `None` | Sets the text to use the specified font asset. | None |
 
 ## Examples
 

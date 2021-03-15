@@ -47,6 +47,16 @@ tags:
 | `BroadcastEventResultCode.EXCEEDED_RATE_WARNING_LIMIT` | `3` | Coming Soon |
 | `BroadcastEventResultCode.EXCEEDED_RATE_LIMIT` | `4` | Coming Soon |
 
+## BroadcastMessageResultCode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `BroadcastMessageResultCode.SUCCESS` | `0` | Coming Soon |
+| `BroadcastMessageResultCode.FAILURE` | `1` | Coming Soon |
+| `BroadcastMessageResultCode.EXCEEDED_SIZE_LIMIT` | `2` | Coming Soon |
+| `BroadcastMessageResultCode.EXCEEDED_RATE_WARNING_LIMIT` | `3` | Coming Soon |
+| `BroadcastMessageResultCode.EXCEEDED_RATE_LIMIT` | `4` | Coming Soon |
+
 ## Collision
 
 | Enum Name | Value | Description |

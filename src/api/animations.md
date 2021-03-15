@@ -54,6 +54,8 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_use`                 | A generic use item motion of fiddling with something held in the player's hands.     | Supports variable cast phase time. Does NOT support a time-stretched execute phase time. |
 | `unarmed_use_bandage`         | The player wraps a bandage around their forearms.                                    | Supports variable cast phase time. Does NOT support a time-stretched execute phase time. |
 | `unarmed_shove`               | A simple forward shove with both hands.                                              | Supports variable cast time. Supports time-stretched execute phase time. |
+| `unarmed_flying_side_kick `   | A simple jump kick animation. | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `unarmed_flying_reverse_roundhouse_kick ` | A jump kick that spins left to right.| Supports variable cast phase time. Supports time-stretched execute phase time. |
 
 ### One-Hand
 
@@ -156,6 +158,9 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_eat`                | An eating animation. The character is taking a bite of something held in the right hand. | Supports variable cast phase time. |
 | `unarmed_shout`              | A shout animation. The character shouts at the sky during cast loop, and directs a shout forward in the execute | Supports variable cast phase time. |
 | `unarmed_stomp`              | A stomp animation. The cast loop holds the right foot in the air. | Supports variable cast phase time. |
+| `unarmed_dance_basic`        | A simple basic dance loop. |
+| `unarmed_dance_party`        | A house party dance loop. |
+| `unarmed_waiting`            | An animation which has the character check their watch once, and then goes into a loop of foot tapping. |
 
 ### One-Hand
 
