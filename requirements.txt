@@ -8,6 +8,7 @@ mkdocs>=1.1.2
 pygments>=2.6.1
 pymdown-extensions>=7.1.0
 mkdocs-exclude-search>=0.4.0
+mkdocs-static-i18n
 
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
