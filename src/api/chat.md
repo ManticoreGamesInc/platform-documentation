@@ -14,14 +14,14 @@ The Chat namespace contains functions and hooks for sending and reacting to chat
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Chat.BroadcastMessage(string message, [table optionalParameters])` | <[`BroadcastMessageResultCode`](enums.md#broadcastmessageresultcode), string errorMessage`>` | Sends a chat message to players. Messages sent from the server have a rate limit of 10 messages per second. Maximum message length is 280 characters. Messages exceeding that length will be cropped.<br />Optional parameters: `players` (Player or Array<Player>): A list of players who should receive the message. Defaults to all players in the game. | Server-Only |
-| `Chat.LocalMessage(string message)` | <[`BroadcastMessageResultCode`](enums.md#broadcastmessageresultcode), string errorMessage`>` | Sends a chat message to the local player. Maximum message length is 280 characters. There is no rate limit for local messages. | Client-Only |
+| `Chat.BroadcastMessage(string message, [table optionalParameters])` | <[`BroadcastMessageResultCode`](enums.md#broadcastmessageresultcode) resultCode, string errorMessage`>` | Sends a chat message to players. Messages sent from the server have a rate limit of 10 messages per second. Maximum message length is 280 characters. Messages exceeding that length will be cropped.<br />Optional parameters: `players` (Player or Array<Player>): A list of players who should receive the message. Defaults to all players in the game. | Server-Only |
+| `Chat.LocalMessage(string message)` | <[`BroadcastMessageResultCode`](enums.md#broadcastmessageresultcode) resultCode, string errorMessage`>` | Sends a chat message to the local player. Maximum message length is 280 characters. There is no rate limit for local messages. | Client-Only |
 
 ## Hooks
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `receiveMessageHook` | `Hook<`[`Player`](player.md), speaker, table parameters`>` | Hook called when receiving a chat message from a Player. The `parameters` table contains a `string` named "message" containing the text of the message received, and a `string` named "speakerName" with the name of the message sender as it will be displayed in the chat window. Replacing "message" with an empty string will cancel receipt of the message. | None |
+| `receiveMessageHook` | `Hook<`[`Player`](player.md) speaker, table parameters`>` | Hook called when receiving a chat message from a Player. The `parameters` table contains a `string` named "message" containing the text of the message received, and a `string` named "speakerName" with the name of the message sender as it will be displayed in the chat window. Replacing "message" with an empty string will cancel receipt of the message. | None |
 | `sendMessageHook` | `Hook<table parameters>` | Hook called when sending a chat message. The `parameters` table contains a `string` named "message" containing the text of the message to be sent. Replacing "message" with an empty string will cancel sending the message. | None |
 
 ## Examples
