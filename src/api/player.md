@@ -116,20 +116,20 @@ Player is an object representation of the state of a player connected to the gam
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<`[`Player`](player.md), [`Damage`](damage.md)`>` | Fired when the Player takes damage. | Server-Only |
-| `diedEvent` | `Event<`[`Player`](player.md), [`Damage`](damage.md)`>` | Fired when the Player dies. | Server-Only |
+| `damagedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player takes damage. | Server-Only |
+| `diedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player dies. | Server-Only |
 | `respawnedEvent` | `Event<`[`Player`](player.md)`>` | Fired when the Player respawns. | Server-Only |
-| `bindingPressedEvent` | `Event<`[`Player`](player.md), string`>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
-| `bindingReleasedEvent` | `Event<`[`Player`](player.md), string`>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
-| `resourceChangedEvent` | `Event<`[`Player`](player.md), string, integer`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
-| `perkChangedEvent` | `Event<`[`Player`](player.md), NetReference perkReference`>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
-| `movementModeChangedEvent` | `Event<`[`Player`](player.md), MovementMode, MovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
+| `bindingPressedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
+| `bindingReleasedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
+| `resourceChangedEvent` | `Event<`[`Player`](player.md) player, string resourceType, integer newAmount`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
+| `perkChangedEvent` | `Event<`[`Player`](player.md) player, NetReference perkReference`>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
+| `movementModeChangedEvent` | `Event<`[`Player`](player.md) player, MovementMode newMovementMode, MovementMode previousMovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
 
 ## Hooks
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `movementHook` | `Hook<`[`Player`](player.md), table parameters`>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
+| `movementHook` | `Hook<`[`Player`](player.md) player, table parameters`>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
 
 ## Additional Info
 
