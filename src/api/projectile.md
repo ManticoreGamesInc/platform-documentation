@@ -52,7 +52,7 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `impactEvent` | `Event<`[`Projectile`](projectile.md), Object other, HitResult`>` | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
+| `impactEvent` | `Event<`[`Projectile`](projectile.md) projectile, Object other, HitResult pointOfContact`>` | Fired when the Projectile collides with something. Impacted object parameter will be either of type `CoreObject` or `Player`, but can also be `nil`. The HitResult describes the point of contact between the Projectile and the impacted object. | None |
 | `lifeSpanEndedEvent` | `Event<`[`Projectile`](projectile.md)`>` | Fired when the Projectile reaches the end of its lifespan. Fired before it is destroyed. | None |
 | `homingFailedEvent` | `Event<`[`Projectile`](projectile.md)`>` | Fired when the target is no longer valid, for example the Player disconnected from the game or the object was destroyed somehow. | None |
 
