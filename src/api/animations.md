@@ -19,6 +19,8 @@ All ability animations have a long "tail" that gracefully transitions the charac
 
 Sockets are different points on a player's character mesh. They can be used for attaching objects, controlling a ragdoll effect and more.
 
+![!Sockets Overview](../img/sockets.jpg){: .center loading="lazy" }
+
 | Left Body       | Center Body   | Right Body       |
 | --------------- | ------------- | ---------------- |
 | `left_clavicle` | `nameplate`   | `right_clavicle` |
