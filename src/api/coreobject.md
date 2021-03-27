@@ -708,7 +708,7 @@ script.networkedPropertyChangedEvent:Connect(function(coreObject, propertyName)
     print("The networked property [" .. coreObject.name .. "] just had its ["
             .. propertyName .. "] property changed.")
 
-    local newValue = script:GetCustomProperty(propertyName)
+    local newValue = coreObject:GetCustomProperty(propertyName)
     print("New value: " .. tostring(newValue))
 end)
 
