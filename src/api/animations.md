@@ -62,6 +62,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_eat`                | An eating animation. The character is taking a bite of something held in the right hand. | Supports variable cast phase time. |
 | `unarmed_shout`              | A shout animation. The character shouts at the sky during cast loop, and directs a shout forward in the execute | Supports variable cast phase time. |
 | `unarmed_stomp`              | A stomp animation. The cast loop holds the right foot in the air. | Supports variable cast phase time. |
+| `unarmed_punch_right_flying_uppercut` | A jumping right uppercut punch. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
 
 ### One-Hand
 
@@ -82,6 +83,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `1hand_pistol_shoot`           | A pistol shoot animation. | Supports variable cast time. |
 | `1hand_pistol_unsheathe`       | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less. |
 | `1hand_pistol_reload_magazine` | Reloads a bottom-loading pistol clip. | Supports variable cast time. |
+| `1hand_pistol_whip` | A melee attack that uses the handle of the pistol. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
 
 ### Two-Hand
 
@@ -120,6 +122,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_rifle_unsheathe`        | Pulls the rifle from a back scabbard. | This animation works best with a cast phase duration of 0.22 or less. |
 | `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
 | `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
+| `2hand_rifle_butt` | A melee attack that uses the stock of the rifle. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
 
 ### Dual Wield Melee
 
@@ -163,6 +166,11 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_dance_basic`        | A simple basic dance loop. |
 | `unarmed_dance_party`        | A house party dance loop. |
 | `unarmed_waiting`            | An animation which has the character check their watch once, and then goes into a loop of foot tapping. |
+| `unarmed_idle_relaxed_look_around` | An alternate idle loop in which the player looks around. |
+| `unarmed_browse_virtual_interface` | A looping animation that features the player looking at a virtual interface and swiping down at 1 second and swiping right at 4 seconds.  There are lua animation events on players for these moments which return the string "action."  There is also a corresponding vfx asset in the core catalog which has swiping behavior which can be used with this animation. |
+| `unarmed_dance_basic_side_to_side` | A basic dance with the character swaying from side to side. |
+| `unarmed_dance_basic_arm_swing` | A basic dance with the character swinging their arms. |
+| `unarmed_dance_basic_head_bop` | A basic dance with the character holding their arms up and nodding their head to a beat. |
 
 ### One-Hand
 
