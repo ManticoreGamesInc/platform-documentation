@@ -55,9 +55,9 @@ Some sets of related functionality are grouped within namespaces, which are simi
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
 | [Chat](chat.md) | [CoreDebug](coredebug.md) | [CoreMath](coremath.md) | [CorePlatform](coreplatform.md) |
-| [CoreString](corestring.md) | [Environment](environment.md) | [Events](events.md) | [Game](game.md) |
-| [Leaderboards](leaderboards.md) | [Storage](storage.md) | [Teams](teams.md) | [UI](ui.md) |
-| [World](world.md) | | | |
+| [CoreSocial](coresocial.md) | [CoreString](corestring.md) | [Environment](environment.md) | [Events](events.md) |
+| [Game](game.md) | [Leaderboards](leaderboards.md) | [Storage](storage.md) | [Teams](teams.md) |
+| [UI](ui.md) | [World](world.md) | | |
 
 ## Built-In Lua Functions
 
