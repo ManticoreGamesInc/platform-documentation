@@ -22,6 +22,7 @@ Metadata about a published game on the Core platform.
 | `ownerName` | `string` | The player name of the creator who published the game. | Read-Only |
 | `screenshotCount` | `integer` | The number of screenshots published with the game. | Read-Only |
 | `hasWorldCapture` | `boolean` | `true` if the game was published with a captured view of the world for use with portals. | Read-Only |
+| `isQueueEnabled` | `boolean` | `true` if the game was published with queueing enabled. | Read-Only |
 
 ## Functions
 
