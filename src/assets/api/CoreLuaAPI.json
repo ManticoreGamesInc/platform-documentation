@@ -1786,6 +1786,13 @@
 					]
 				},
 				{
+					"Name": "isQueueEnabled",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "screenshotCount",
 					"Type": "integer",
 					"Tags": [
@@ -4837,6 +4844,13 @@
 					]
 				},
 				{
+					"Name": "activeEmote",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "currentFacingMode",
 					"Type": "FacingMode",
 					"Tags": [
@@ -4963,6 +4977,20 @@
 					]
 				},
 				{
+					"Name": "isMovementEnabled",
+					"Type": "boolean",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "parentCoreObject",
+					"Type": "CoreObject",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "currentRotationRate",
 					"Type": "number",
 					"Tags": [
@@ -5070,6 +5098,28 @@
 					"Tags": [
 						"ClientOnly"
 					],
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				},
+				{
+					"Name": "emoteStartedEvent",
+					"Parameters": [
+						{
+							"Type": "Player"
+						},
+						{
+							"Type": "string"
+						}
+					]
+				},
+				{
+					"Name": "emoteStoppedEvent",
 					"Parameters": [
 						{
 							"Type": "Player"
@@ -5954,6 +6004,29 @@
 									"Name": "bindingName"
 								}
 							]
+						}
+					]
+				},
+				{
+					"Name": "AttachToCoreObject",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "object"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Detach",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
 						}
 					]
 				},
@@ -10624,6 +10697,28 @@
 							"Parameters": [
 								{
 									"Type": "string"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreSocial",
+			"StaticFunctions": [
+				{
+					"Name": "IsFriendsWithLocalPlayer",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player"
 								}
 							]
 						}

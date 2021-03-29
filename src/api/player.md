@@ -18,6 +18,7 @@ Player is an object representation of the state of a player connected to the gam
 | `id` | `string` | The unique id of the Player. Consistent across sessions. | Read-Only |
 | `team` | `integer` | The number of the team to which the Player is assigned. By default, this value is 255 in FFA mode. | Read-Write |
 | `animationStance` | `string` | Which set of animations to use for this Player. See [Animation Stance Strings](../api/animations.md#animation-stance-strings) for possible values. | Read-Write |
+| `activeEmote` | `string` | Returns the id of the emote currently being played by the Player, or `nil` if no emote is playing. | Read-Only |
 | `currentFacingMode` | [`FacingMode`](enums.md#facingmode) | Current mode applied to player, including possible overrides. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. See desiredFacingMode for details. | Read-Only |
 | `desiredFacingMode` | [`FacingMode`](enums.md#facingmode) | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
 | `defaultRotationRate` | `number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
@@ -50,6 +51,7 @@ Player is an object representation of the state of a player connected to the gam
 | `isSwimming` | `boolean` | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
 | `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
+| `isMovementEnabled` | `boolean` | Defaults to `true`. Set to `false` to disable player movement. Unlike `movementControlMode`, which can disable movement input, setting `isMovementEnabled` to `false` freezes the Player in place, ignoring gravity and reactions to collision or impulses, unless the Player's transform is explicitly changed or the Player is attached to a parent CoreObject that moves. | Read-Write |
 | `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | [`LookControlMode`](enums.md#lookcontrolmode) | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | `number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
@@ -59,6 +61,7 @@ Player is an object representation of the state of a player connected to the gam
 | `canMount` | `boolean` | Returns whether the Player can manually toggle on/off the mount. | Read-Write, Server-Only |
 | `shouldDismountWhenDamaged` | `boolean` | If `true`, and the Player is mounted they will dismount if they take damage. | Read-Write, Server-Only |
 | `isVisibleToSelf` | `boolean` | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write, Client-Only |
+| `parentCoreObject` | [`CoreObject`](coreobject.md) | If the Player has been attached to a parent CoreObject, returns that object. Otherwise returns `nil`. | Read-Only |
 
 ## Functions
 
@@ -111,6 +114,8 @@ Player is an object representation of the state of a player connected to the gam
 | `HasPerk(NetReference)` | `boolean` | Returns `true` if the player has one or more of the specified perk. | None |
 | `GetPerkCount(NetReference)` | `integer` | Returns how many of the specified perk the player owns. For non-repeatable perks, returns `1` if the player owns the perk, or `0` if the player does not. | None |
 | `GetPerkTimeRemaining(NetReference)` | `number` | Returns the amount of time remaining (in seconds) until a Limited Time Perk expires. Returns `0` if the player does not own the specified perk, or infinity for a permanent or repeatable perk that the player owns. | None |
+| `AttachToCoreObject(CoreObject)` | `None` | Attaches the Player to the given CoreObject, treating that object as a parent and disabling player movement. | Server-Only |
+| `Detach()` | `None` | If the Player is attached to a parent CoreObject, detaches them and re-enables player movement. | Server-Only |
 
 ## Events
 
@@ -124,6 +129,9 @@ Player is an object representation of the state of a player connected to the gam
 | `resourceChangedEvent` | `Event<`[`Player`](player.md) player, string resourceType, integer newAmount`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
 | `perkChangedEvent` | `Event<`[`Player`](player.md) player, NetReference perkReference`>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
 | `movementModeChangedEvent` | `Event<`[`Player`](player.md) player, MovementMode newMovementMode, MovementMode previousMovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
+| `emoteStartedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player begins playing an emote. | None |
+| `emoteStoppedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player stops playing an emote or an emote is interrupted. | None |
+| `animationEvent` | `Event<`[`Player`](player.md) player, string eventName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it and the name of the event at those points. | Client-Only |
 
 ## Hooks
 
