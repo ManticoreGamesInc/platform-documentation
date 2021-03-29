@@ -41,10 +41,10 @@ With a Game ID, you get more information about a game through a [**CoreGameInfo*
 
 ## World Capture
 
-**World Capture** allows creators to take an image from the camera's current position of a game to allow Portals to show a glimpse into the world from other projects. This **World Capture** creates a cube map that can be populated by anyone one creating a portal to the game, including when the game shows up in any of the queues in **Home World**.
+**World Capture** allows creators to take an image from the camera's current position of a game to allow Portals to show a glimpse into the world from other projects. This **World Capture** creates a cube map that can be populated by anyone one creating a portal to the game, including when the game shows up in any of the queues in **Core World**.
 
 !!! hint
-    Making sure all your games have cubemaps can set them apart in **Home World** and in any hub that uses Portals.
+    Making sure all your games have cubemaps can set them apart in **Core World** and in any hub that uses Portals.
 
 ### Use World Capture to Make a Game Cubemap
 
