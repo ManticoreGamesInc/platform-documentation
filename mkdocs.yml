@@ -165,6 +165,7 @@ nav:
           - CoreDebug: api/coredebug.md
           - CoreMath: api/coremath.md
           - CorePlatform: api/coreplatform.md
+          - CoreSocial: api/coresocial.md
           - CoreString: api/corestring.md
           - Environment: api/environment.md
           - Events: api/events.md
