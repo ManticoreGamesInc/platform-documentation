@@ -31,6 +31,7 @@ hide:
 - [CoreObject](coreobject.md)
 - [CoreObjectReference](coreobjectreference.md)
 - [CorePlatform](coreplatform.md)
+- [CoreSocial](coresocial.md)
 - [CoreString](corestring.md)
 - [Damage](damage.md)
 - [Decal](decal.md)
