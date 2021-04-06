@@ -59,6 +59,10 @@ Cubemaps that you take using **World Capture** will appear in your project's **S
 2. In the File Explorer, click the **Screenshots** folder to open it.
 3. Click **Cubemaps** to see your Cubemap files.
 
+### Publish a Cubemap
+
+To update the Cubemap for your project, the world must be captured and the game republished in the same session. Follow the instructions above to use World Capture, and then press **Publish** to see the Cubemap appear in portals.
+
 ## Game Categories
 
 Creators have access to the Core Game queues, like **Featured**, **Active**, and **Trending**. They can be accessed through scripts using the [**CorePlatform**](../api/coreplatform.md) namespace, which returns a table of [**CoreGameCollectionEntry**](../api/coregamecollectionentry.md) objects.
