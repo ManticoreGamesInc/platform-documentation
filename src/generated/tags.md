@@ -115,9 +115,13 @@ hide:
 - [Key Binding List](key_bindings.md)
 - [Community Content](community_content.md)
 - [Getting Help in Core](core_help.md)
+- [Introduction to the Core Editor](editor_intro.fr.md)
 - [Introduction to the Core Editor](editor_intro.md)
+- [Performance Estimation Panel](performance_panel.fr.md)
 - [Performance Estimation Panel](performance_panel.md)
+- [Play-Mode Profiler](profiler.fr.md)
 - [Play-Mode Profiler](profiler.md)
+- [Publishing Checklist](publishing_checklist.fr.md)
 - [Publishing Checklist](publishing_checklist.md)
 - [Coming to Core from Fortnite Creative](fortnite_creative.md)
 - [Coming to Core from Roblox](roblox.md)
@@ -149,10 +153,18 @@ hide:
 - [UI Reference](ui_reference.md)
 - [Weapons Reference](weapons.md)
 
+## Référence
+
+- [Contenu de la communauté](community_content.fr.md)
+- [Untitled](core_help.fr.md)
+
 ## Tutorial
 
+- [Installing Core](installing_core.fr.md)
 - [Installing Core](installing_core.md)
+- [My First Multiplayer Game](my_first_multiplayer_game.fr.md)
 - [My First Multiplayer Game](my_first_multiplayer_game.md)
+- [Publish a Game](publishing.fr.md)
 - [Publish a Game](publishing.md)
 - [Abilities in Core](abilities.md)
 - [Advanced Abilities in Core](abilities_advanced.md)

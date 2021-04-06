@@ -293,17 +293,12 @@ markdown_extensions:
   - lightgallery
 
 plugins:
-  - i18n:
-      default_language: en
-      languages:
-        fr: français
   - search
   - tags:
       tags_folder: src/generated
       tags_template: src/generated/tags.template
   - git-revision-date-localized
-  - autolinks
-  - exclude-search:
-      exclude:
-        - generated/*.md
-      exclude_tags: True
+  - i18n:
+      default_language: en
+      languages:
+        fr: Français
