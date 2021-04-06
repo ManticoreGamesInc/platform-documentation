@@ -139,17 +139,33 @@ From here, we'll delete all the experimental code we previously wrote in the scr
 
 ### Spawn the Template when a Player Chats
 
+Make a ``SpawnSpeechBubble`` function and connect it to the ``Chat.receiveMessageHook`` to spawn the template
+
 ```lua
 local propSpeechBubbleTemplate = script:GetCustomProperty("SpeechBubbleTemplate")
 
 function SpawnSpeechBubble(player, data)
     -- spawn the text bubble
     local bubble = World.SpawnAsset(propSpeechBubbleTemplate)
-    -- find the World Text from the custom property on the template
-    local propWorldText = bubble:GetCustomProperty("WorldText"):WaitForObject()
-    -- change the text to the message from chat
-    propWorldText.text = data.message
 end
 
 Chat.receiveMessageHook:Connect(SpawnSpeechBubble)
 ```
+
+Start a preview, type a message into chat, and press ++Enter++ to test the speech bubble spawn. It should show up, but at the world origin of (0, 0, 0).
+
+![World Text spawned partially in the floor]()
+
+### Spawn the Template Over the Player's Head
+
+The next step is to make the chat appear over the player who chatted head, and face the screen for whoever is reading it.
+
+Add these lines after the speech bubble is spawned, in the ``SpawnSpeechBubble`` function:
+
+```lua
+    local newBubblePosition = player:GetWorldPosition() + Vector3.UP * 100 -- 100 up from wherever the player is
+
+    bubble:SetWorldPosition(newBubblePosition)
+    bubble:LookAtLocalView() -- magical function to make things face the screen!
+```
+
