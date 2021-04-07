@@ -1,7 +1,7 @@
 ---
-id: installing_core
-name: Installing Core
-title: Installing Core
+id: installing_core_fr
+name: Installation du Core
+title: Installation du Core
 tags:
     - Tutorial
 ---

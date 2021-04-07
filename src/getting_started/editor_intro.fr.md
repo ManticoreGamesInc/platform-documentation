@@ -1,7 +1,7 @@
 ---
-id: editor_intro
-name: Introduction to the Core Editor
-title: Introduction to the Core Editor
+id: editor_intro_fr
+name: Introduction à l'éditeur de Core
+title: Introduction à l'éditeur de Core
 tags:
     - Reference
 ---

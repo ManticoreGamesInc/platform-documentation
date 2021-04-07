@@ -1,7 +1,7 @@
 ---
-id: publishing_checklist
-name: Publishing Checklist
-title: Publishing Checklist
+id: publishing_checklist_fr
+name: Liste de contrôle pour l'édition
+title: Liste de contrôle pour l'édition
 tags:
     - Reference
 ---

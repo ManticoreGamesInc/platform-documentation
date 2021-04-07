@@ -1,7 +1,7 @@
 ---
-id: performance_estimation_panel
-name: Performance Estimation Panel
-title: Performance Estimation Panel
+id: performance_estimation_panel_fr
+name: Panel sur l'estimation des performances
+title: Panneau d'estimation des performances
 tags:
     - Reference
 ---

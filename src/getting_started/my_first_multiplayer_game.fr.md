@@ -1,7 +1,7 @@
 ---
-id: first_multiplayer_game
-name: My First Multiplayer Game
-title: My First Multiplayer Game
+id: first_multiplayer_game_fr
+name: Mon premier jeu multi-joueurs
+title: Mon premier jeu multi-joueurs
 tags:
     - Tutorial
 ---

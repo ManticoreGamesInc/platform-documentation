@@ -1,9 +1,9 @@
 ---
-id : core_help
-name : Obtenir de l'aide dans Core
-titre : Obtenir de l'aide dans Core
-tags :
-    - Référence
+id: core_help_fr
+name: Obtenir de l'aide dans Core
+title: Obtenir de l'aide dans Core
+tags:
+    - Reference
 ---
 
 # Obtenir de l'aide dans Core

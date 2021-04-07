@@ -223,6 +223,13 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
+  alternate:
+    - name: English
+      link: ./
+      lang: en
+    - name: Français
+      link: ./fr/
+      lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:
     - icon: fontawesome/brands/discord
@@ -264,8 +271,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  #- pymdownx.highlight:
-  #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.keys:
       camel_case: true
@@ -287,6 +292,10 @@ markdown_extensions:
 
 plugins:
   - search
+  - i18n:
+      default_language: en
+      languages:
+        fr: Français
   - minify:
       minify_html: true
   - tags:
@@ -294,10 +303,6 @@ plugins:
       tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
-  - exclude-search:
-      exclude:
-        - generated/*.md
-      exclude_tags: True
   - redirects:
       redirect_maps:
         getting_started.md: getting_started/editor_intro.md

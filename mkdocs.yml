@@ -227,7 +227,7 @@ extra:
     - name: English
       link: ./
       lang: en
-    - name: French
+    - name: Français
       link: ./fr/
       lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
@@ -271,8 +271,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  #- pymdownx.highlight:
-  #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.keys:
       camel_case: true
@@ -303,10 +301,6 @@ plugins:
       tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
-  - exclude-search:
-      exclude:
-        - generated/*.md
-      exclude_tags: True
   - redirects:
       redirect_maps:
         getting_started.md: getting_started/editor_intro.md
