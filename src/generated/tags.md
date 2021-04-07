@@ -139,6 +139,7 @@ hide:
 - [The Object Generator Tool](object_generator.md)
 - [Persistent Data Storage](persistent_storage.md)
 - [Portal Reference](portal_reference.md)
+- [Queued Games](queues.md)
 - [Scene Creation in Core](scene_creation.md)
 - [Intro to Scripting](scripting_intro.md)
 - [Shared Storage](shared_storage.md)
