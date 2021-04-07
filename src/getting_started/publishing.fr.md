@@ -19,7 +19,7 @@ La publication de votre projet de base permet au monde entier de le tester et de
 ![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center loading="lazy" }
 
 !!! note
-    Vous pouvez également publier à partir de **Fichier** > **Publier**.
+    Vous pouvez également publier à partir de **File** > **Publish**.
 
 ## Remplir la description
 
@@ -29,12 +29,12 @@ De bonnes informations sur le jeu sont essentielles pour aider les joueurs à tr
 2. Rédigez une description.
 3. Ajoutez des balises pertinentes.
 4. Prenez une capture d'écran pour votre jeu.
-   - Vous pouvez faire des captures d'écran dans l'éditeur avec le bouton de l'appareil photo.
-   - Vous pouvez également sélectionner un fichier image dans votre répertoire via le bouton dossier.
+    - Vous pouvez faire des captures d'écran dans l'éditeur avec le bouton de l'appareil photo.
+    - Vous pouvez également sélectionner un fichier image dans votre répertoire via le bouton dossier.
 
 ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
-! !! info
+!!! info
     Si vous cochez la case **Open for Editing**, d'autres Core Creators pourront utiliser une copie de votre jeu comme point de départ pour créer le leur.
 
 ## Publier
@@ -46,7 +46,7 @@ De bonnes informations sur le jeu sont essentielles pour aider les joueurs à tr
 
 ## Succès
 
-Votre jeu est maintenant en ligne ! Visitez la page de votre jeu dans l'onglet Core **Games** pour l'essayer en ligne.
+Votre jeu est maintenant en ligne! Visitez la page de votre jeu dans l'onglet Core **Games** pour l'essayer en ligne.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 
