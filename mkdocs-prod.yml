@@ -81,6 +81,7 @@ nav:
           - Play-Mode Profiler: getting_started/profiler.md
           - Portals: tutorials/portal_reference.md
           - Publishing Checklist: getting_started/publishing_checklist.md
+          - Queued Games: tutorials/queues.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: tutorials/shared_storage.md
           - Templates: tutorials/template_reference.md
