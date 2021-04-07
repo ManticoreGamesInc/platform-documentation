@@ -7,7 +7,9 @@ mkdocs-redirects
 mkdocs>=1.1.2
 pygments>=2.6.1
 pymdown-extensions>=7.1.0
-mkdocs-static-i18n>=0.6.0
+
+https://github.com/ultrabug/mkdocs-static-i18n/archive/localize_static_nav.zip
+
 
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
