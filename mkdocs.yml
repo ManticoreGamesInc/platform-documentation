@@ -294,11 +294,12 @@ markdown_extensions:
 
 plugins:
   - search
-  - tags:
-      tags_folder: src/generated
-      tags_template: src/generated/tags.template
-  - git-revision-date-localized
   - i18n:
       default_language: en
       languages:
         fr: Français
+  - tags:
+      tags_folder: src/generated
+      tags_template: src/generated/tags.template
+  - git-revision-date-localized
+  - autolinks
