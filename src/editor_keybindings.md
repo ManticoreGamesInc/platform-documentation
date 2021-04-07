@@ -58,6 +58,7 @@ tags:
 | Slow Movement            | ++C++                | Hold To Slow Down Movement Rate                            | Viewport Active, Moving    |
 | Drag Zoom                | ++alt+right-button++ | Hold to Zoom In And Out - Up / Down Or Left / Right Drag   | Viewport Active            |
 | Fast Movement            | ++shift++            | Hold To Increase Movement Rate                             | Viewport Active, Moving    |
+| Maximized Viewport       | ++F11++              | Toggle maximize viewport when the focus is on the viewer   | Viewport Active            |
 
 ## Object Selection
 
