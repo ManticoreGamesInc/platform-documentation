@@ -10,7 +10,7 @@ tags :
 
 ## Aperçu
 
-Les créations publiées en tant que [modèles] open-source (template_reference.md) se trouvent dans la fenêtre **Contenu communautaire**. Ces modèles peuvent être de petits modèles, des paquets d'accessoires, des scripts ou des objets entièrement scriptés.
+Les créations publiées en tant que [modèles](template_reference.md) open-source se trouvent dans la fenêtre **Contenu communautaire**. Ces modèles peuvent être de petits modèles, des paquets d'accessoires, des scripts ou des objets entièrement scriptés.
 
 Le contenu communautaire crée une plus grande variété d'actifs à choisir lors de la construction d'un projet, et le partage de modèles avec le contenu communautaire permet aux créateurs de Core de collaborer sur les modèles et les outils et de partager leurs innovations au sein de Core.
 
@@ -68,4 +68,4 @@ Pour lancer un jeu à partir d'un cadre communautaire, ouvrez le menu **Créer**
 
 ## En savoir plus
 
-Modèles](template_reference.md) | [Modèles complexes](modeling_reference.md) | [Publication](publishing.md)
+Modèles](template_reference.md) | [Modèles complexes](modeling_reference.md) | [Publication](publishing.fr.md)

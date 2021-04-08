@@ -16,7 +16,7 @@ tags:
 Jump in and build a game using Core's Deathmatch framework. Customize as much or as little as you want to build this multiplayer arena shooter.
 
 - **Completion Time:** 10 minutes.
-- **Previous Knowledge:** [Installing Core](installing_core.md)
+- **Previous Knowledge:** [Installing Core](installing_core.fr.md)
 - **Skills you will learn:**
     - Core Frameworks
     - Core Content
@@ -269,8 +269,8 @@ Let's move the "Player Start" where players spawn to be further apart. Press ++V
 
 ## Publishing a Game
 
-You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.md)
+You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.fr.md)
 
 ## Next Steps
 
-[Publish a Game](publishing.md) | [Terrain Tutorial](environment_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)
+[Publish a Game](publishing.fr.md) | [Terrain Tutorial](environment_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)

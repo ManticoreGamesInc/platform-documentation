@@ -8,7 +8,7 @@ tags:
 
 # Publier un jeu
 
-La publication de votre projet de base permet au monde entier de le tester et de recevoir des commentaires, ainsi que de familiariser la communauté avec votre jeu et votre marque. Vous pouvez décider si votre projet est prêt à être publié à l'aide de la [liste de contrôle de publication](publishing_checklist.md).
+La publication de votre projet de base permet au monde entier de le tester et de recevoir des commentaires, ainsi que de familiariser la communauté avec votre jeu et votre marque. Vous pouvez décider si votre projet est prêt à être publié à l'aide de la [liste de contrôle de publication](publishing_checklist.fr.md).
 
 ## Publier à partir de l'éditeur principal
 
@@ -52,4 +52,4 @@ Votre jeu est maintenant en ligne! Visitez la page de votre jeu dans l'onglet Co
 
 ## En savoir plus
 
-[Liste de contrôle de la publication](publishing_checklist.md) | [Modèles de partage](template_reference.md)
+[Liste de contrôle de la publication](publishing_checklist.fr.md) | [Modèles de partage](template_reference.md)

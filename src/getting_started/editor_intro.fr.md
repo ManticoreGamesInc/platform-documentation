@@ -120,4 +120,4 @@ The Core Editor will automatically save your work periodically, but this can als
 
 ## Learn More
 
-[Your First Game](my_first_multiplayer_game.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
+[Your First Game](my_first_multiplayer_game.fr.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)

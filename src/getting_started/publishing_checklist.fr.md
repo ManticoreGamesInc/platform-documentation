@@ -16,7 +16,7 @@ article ul li{
 
 > When deciding whether to publish a game, the question is not *is this game finished* but *is this game ready to be tested by the supportive members of the Core Creator community?*
 
-If you are ready to jump in and [publish your game](publishing.md) right away, these are the minimum questions you should consider.
+If you are ready to jump in and [publish your game](publishing.fr.md) right away, these are the minimum questions you should consider.
 
 1. Will players understand how to play and what the goals are?
 2. Does the game have an ending, and will players have a reason to play again?
@@ -191,8 +191,8 @@ The goal of this checklist is to outline the essentials that you should check be
 
 ## Publish
 
-With all these considerations in mind, [publish](publishing.md) your game, and get ready to watch new users play in new and unexpected ways.
+With all these considerations in mind, [publish](publishing.fr.md) your game, and get ready to watch new users play in new and unexpected ways.
 
 ## Learn More
 
-[Publishing on Core](publishing.md) | [Sharing Content](community_content.md) | [UI Reference](ui_reference.md) | [Lua Style Guide](lua_style_guide) | [Collaboration with other Core Creators](github.md)
+[Publishing on Core](publishing.fr.md) | [Sharing Content](community_content.md) | [UI Reference](ui_reference.md) | [Lua Style Guide](lua_style_guide) | [Collaboration with other Core Creators](github.md)

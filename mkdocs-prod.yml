@@ -225,10 +225,10 @@ extra_javascript:
 extra:
   alternate:
     - name: English
-      link: ./
+      link: /
       lang: en
     - name: Français
-      link: ./fr/
+      link: /fr/
       lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:

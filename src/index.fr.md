@@ -16,11 +16,11 @@ Bienvenue dans la documentation officielle de Core, l'outil de création de jeux
 - **Collaboration avec la communauté**: Renforcez votre création avec des objets, des scripts et des jeux partagés par d'autres Core Creators.
 - **Les outils dont vous avez besoin**: VFX, audio, matériaux, textures, skyboxes, sculpture de terrain, heightmaps, scripts et une longue liste de fonctionnalités en préparation.
 
-### Prêt à commencer? [Créez votre premier jeu](my_first_multiplayer_game.md)
+### Prêt à commencer? [Créez votre premier jeu](my_first_multiplayer_game.fr.md)
 
 ### Organisation de la documentation
 
-- La section **Démarrer**](editor_intro.md) explique les informations essentielles dont vous avez besoin pour commencer à utiliser Core, de [l'installation](installing_core.md) à [la création d'un jeu](my_first_multiplayer_game.md).
+- La section **Démarrer**](editor_intro.md) explique les informations essentielles dont vous avez besoin pour commencer à utiliser Core, de [l'installation](installing_core.md) à [la création d'un jeu](my_first_multiplayer_game.fr.md).
 - La section **Tutoriels** contient des instructions étape par étape pour créer des fonctionnalités spécifiques ou des jeux complets. Elle comprend une [introduction aux scripts Lua dans Core](lua_basics_lightbulb.md), et une collection d'exemples pour apprendre et utiliser.
 - Le [**Manuel de l'éditeur**](editor_intro.md) explique les outils de l'éditeur Core et comment les personnaliser pour des utilisations spécifiques.
 - [**L'API de Core**](api/index.md) contient des informations formelles sur l'écriture de scripts dans Core, notamment un [guide de style Lua](lua_style_guide.md) et des références pour tous les [composants de jeu](components.md).
