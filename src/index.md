@@ -25,9 +25,9 @@ Welcome to the official documentation of Core, the community-focused game creati
 - [**Editor Manual**](editor_intro.md) explains the tools of the Core Editor, and how to customize them for specific uses.
 - [**Core API**](api/index.md) holds formal information about scripting in Core, including a [Lua style guide](lua_style_guide.md) and references for all [game components](components.md).
 
-## About Open Alpha
+## About Early Access
 
-Core is in Open Alpha, which means it is still in early stages, with many features yet to come. As an Alpha Core Creator, you are invited to push the boundaries of the platform and design new types of games and experiences in Core. We appreciate your feedback, bug reports, and participation in the Creator Community as we push Core to continuing greatness together.
+Core is in Early Access, which means it is still in early stages, with many features yet to come. As an Early Access Core Creator, you are invited to push the boundaries of the platform and design new types of games and experiences in Core. We appreciate your feedback, bug reports, and participation in the Creator Community as we push Core to continuing greatness together.
 
 ## About the Documentation
 
