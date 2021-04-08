@@ -223,13 +223,13 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: Français
-      link: /fr/
-      lang: fr
+  # alternate:
+  #   - name: English
+  #     link: /
+  #     lang: en
+  #   - name: Français
+  #     link: /fr/
+  #     lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:
     - icon: fontawesome/brands/discord
@@ -292,10 +292,10 @@ markdown_extensions:
 
 plugins:
   - search
-  - i18n:
-      default_language: en
-      languages:
-        fr: Français
+  # - i18n:
+  #     default_language: en
+  #     languages:
+  #       fr: Français
   - minify:
       minify_html: true
   - tags:
