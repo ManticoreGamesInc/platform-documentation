@@ -28,4 +28,4 @@ Assurez-vous que votre ordinateur répond aux exigences du système, comme indiq
 3. Une fois le téléchargement terminé, ouvrez le fichier `CoreLauncherInstall.exe` pour installer le Core Launcher.
 4. Cliquez sur l'icône **Core Launcher** de votre Bureau pour mettre à jour la dernière version de Core.
 
-!!! warning "Si vous avez des problèmes pour télécharger ou installer Core, veuillez contacter [**Customer Support!**](https://support.coregames.com "Customer Support")".
+!!! warning "Si vous avez des problèmes pour télécharger ou installer Core, veuillez contacter [**Customer Support!**](https://support.coregames.com "Customer Support")."
