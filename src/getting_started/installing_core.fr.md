@@ -6,26 +6,26 @@ tags:
     - Tutorial
 ---
 
-# Installing Core
+# Installation du Core
 
-## Make a Core Account
+## Créer un compte Core
 
-To get started, you will need an account.
+Pour commencer, vous aurez besoin d'un compte.
 
-1. Go to [the Core Website](https://www.coregames.com/register "CoreGames Register") to create a Core account.
-2. Check for an e-mail from Core to confirm your Core account.
+1. Allez sur [le site Web de Core](https://www.coregames.com/register "CoreGames Register") pour créer un compte Core.
+2. Vérifiez si vous recevez un e-mail de Core pour confirmer votre compte Core.
 
-!!! info "Please check your spam folder if you don't see a verification email for your Core account in your inbox."
+!!! info "Veuillez vérifier votre dossier spam si vous ne voyez pas d'e-mail de vérification pour votre compte Core dans votre boîte de réception."
 
-## System Requirements
+## Configuration requise
 
-Make sure your computer meets the system requirements as stated [here](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ "FAQ").
+Assurez-vous que votre ordinateur répond aux exigences du système, comme indiqué [ici](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ "FAQ").
 
-## Download the Installer
+## Télécharger le programme d'installation
 
-1. Log in to [the Core Website](https://www.coregames.com/login "CoreGames Login") with your Core account.
-2. Click **Download Core** to dowload the Core installer.
-3. Once the download finishes, open the `CoreLauncherInstall.exe` file  to install the Core Launcher.
-4. Click the **Core Launcher** icon from your Desktop to update to the latest version of Core.
+1. Connectez-vous à [le site Web de Core](https://www.coregames.com/login "CoreGames Login") avec votre compte Core.
+2. Cliquez sur **Download Core** pour télécharger le programme d'installation de Core.
+3. Une fois le téléchargement terminé, ouvrez le fichier `CoreLauncherInstall.exe` pour installer le Core Launcher.
+4. Cliquez sur l'icône **Core Launcher** de votre Bureau pour mettre à jour la dernière version de Core.
 
-!!! warning "If you're having problems downloading or installing Core, please contact **[Customer Support!](https://support.coregames.com "Customer Support")**"
+!!! warning "Si vous avez des problèmes pour télécharger ou installer Core, veuillez contacter [**Customer Support!**](https://support.coregames.com "Customer Support")".
