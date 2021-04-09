@@ -10,6 +10,18 @@
 Welcome to the source of the official Core platform documentation! Please check out the [contribution](CONTRIBUTING.md) document if you are interested in
 helping out!
 
+## Stack
+
+The Core Documentation Platform is built on [mkdocs](https://github.com/mkdocs/mkdocs/) and following plugins for it:
+
+- [mkdocs-material](https://github.com/squidfunk/mkdocs-material/)
+- [mkdocs-autolinks](https://github.com/midnightprioriem/mkdocs-autolinks-plugin)
+- [mkdocs-git-revision-date-localized](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin)
+- [mkdocs-material-extensions](https://github.com/facelessuser/mkdocs-material-extensions)
+- [mkdocs-redirects](https://github.com/datarobot/mkdocs-redirects)
+- [mkdocs-static-i18n](https://github.com/ultrabug/mkdocs-static-i18n/)
+- [mkdocs-plugin-tags](https://github.com/jldiaz/mkdocs-plugin-tags) ([modified](https://github.com/stanzilla/mkdocs-plugin-tags/))
+
 ## Related Repositories
 
 - [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A Visual Studio Code extension that provides basic autocomplete support for the Core Games Lua API. (public)
