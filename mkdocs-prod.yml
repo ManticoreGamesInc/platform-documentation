@@ -306,6 +306,7 @@ plugins:
   - autolinks
   - redirects:
       redirect_maps:
+        start.md: getting_started/my_first_multiplayer_game.md
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
