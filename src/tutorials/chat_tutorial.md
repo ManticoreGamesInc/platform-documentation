@@ -169,3 +169,75 @@ Add these lines after the speech bubble is spawned, in the ``SpawnSpeechBubble``
     bubble:LookAtLocalView() -- magical function to make things face the screen!
 ```
 
+Press **Play** and type into chat to test the changes to the speech bubble. It should appear by your character's head and facing the correct direction.
+
+![Speech Bubble in Character's Head]()
+
+However, the speech bubble doesn't move, and seems to stay in the world indefinitely.
+
+![Speech Bubble behind Character]()
+
+### Animate and Destroy the Speech Bubble
+
+We'll start with the simplest version of the animation, and in the following step modify it to use a ``while`` loop and ``Lerp`` to move more dynamically.
+
+To move the speech bubble up and destroy it, we'll use the ``MoveTo`` function and the ``Destroy`` function. To make sure the script waits until the moving is finished, we'll use ``Task.Wait``, and to keep that from pausing all the other client scripts, we will also use ``Task.Spawn``.
+
+Add this code to the bottom of your ``SpawnSpeechBubble`` function.
+
+```lua
+    Task.Spawn(function() -- Spawn a new thread, so we don't interrupt anything else
+        local BUBBLE_LIFESPAN = 4 -- how long we want the speech bubble to stick around
+        bubble:MoveTo(newBubblePosition + Vector3.UP*200, BUBBLE_LIFESPAN) -- move 200 higher than before
+        Task.Wait(BUBBLE_LIFESPAN) -- Wait until the MoveTo is finished
+        bubble:Destroy() -- Remove the speech bubble from the world
+    end)
+```
+
+Test this new change out, and you'll see your chat bubble float into the air like a balloon!
+
+Unfortunately, the player can still walk away from the chat bubble, because it moves directly up from where it starts
+
+### Improve the animation
+
+The ``MoveTo`` function does a great job of moving things at a constant speed for a specified amount of time without requiring creators to calculate exactly where it should be each frame. *However*, in order to keep the bubble over the player's head, we *do* need to recalculate where it should be each frame, so we're going to try a new approach with ``SetPosition`` and ``Vector3.Lerp``.
+
+> Vector3.Lerp() takes two points, and a time value, and finds a spot between those points based on the time.
+
+Change your ``Task.Spawn`` function to use this new strategy:
+
+```lua
+    Task.Spawn(function() -- Spawn a new thread, so we don't interrupt anything else
+        local BUBBLE_LIFESPAN = 4 -- how long we want the speech bubble to stick around
+
+        local startTime = time() -- a value for *right now* in seconds
+        while time() < startTime + BUBBLE_LIFESPAN do -- repeat until it's time for the bubble to go
+            local timeSinceStart = time() - startTime -- how many seconds since the animation started
+            local amountToMoveUp = Vector3.Lerp(Vector3.ZERO, Vector3.UP*200, timeSinceStart / BUBBLE_LIFESPAN) -- finds a value between zero and 200 up based on what % of the time has passed
+            bubble:SetWorldPosition(player:GetWorldPosition() + Vector3.UP*100 + amountToMoveUp) -- put the bubble where it should be based on the calculations
+            Task.Wait() -- wait exactly one frame
+        end
+        bubble:Destroy() -- destroy the bubble once that loop is done
+    end)
+```
+
+Test it out again, and watch the stick with the player, float up, and disappear.
+
+### Adjust the Speech Bubble Template
+
+Everything looks beautiful now, and the final step is to update the **SpeechBubbleTemplate** so that the text is centered on its position. You can also use this flow to add audio and VFX to the template, to make it more obvious to players.
+
+1. Drag the **SpeechBubbleTemplate** template from **Project Content** into the **Hierarchy**.
+2. Right click **SpeechBubbleTemplate** and select **Deinstance This Object**.
+   1. ![Deinstance Template]()
+3. Select the World Text inside of **SpeechBubbleTemplate** and open the **Properties** window.
+4. Find the **Horizontal Align** property and change it to **Center**.
+   1. ![Horizontal Align Center]()
+5. Right-click **SpeechBubbleTemplate** and select **Update Template From This**.
+   1. ![Update Template]()
+
+You can add audio and visual effects to this client context folder as well to see how they call out the speech bubble.
+
+## Learn More
+
+[**Chat** in the Core Lua API](https://docs.coregames.com/api/chat/) | [**Vector3** in the Core Lua API](https://docs.coregames.com/api/vector3/)
