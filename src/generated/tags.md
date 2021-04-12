@@ -156,6 +156,7 @@ hide:
 - [Publish a Game](publishing.md)
 - [Abilities in Core](abilities.md)
 - [Advanced Abilities in Core](abilities_advanced.md)
+- [Chat Tutorial](chat_tutorial.md)
 - [Creator Analytics](creator_analytics.md)
 - [Environment Art in Core](environment_art.md)
 - [Build Your First Game - RPG!](first_game_rpg.md)

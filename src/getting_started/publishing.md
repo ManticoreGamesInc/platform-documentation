@@ -19,7 +19,7 @@ Publishing your Core project opens it to the world for testing and feedback, as 
 ![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center loading="lazy" }
 
 !!! note
-    You can also publish from **File** > **Publish**
+    You can also publish from **File** > **Publish**.
 
 ## Fill Out the Description
 

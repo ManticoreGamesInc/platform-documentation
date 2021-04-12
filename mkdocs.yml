@@ -45,6 +45,7 @@ nav:
           - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
           - Abilities: tutorials/abilities.md
+          - Chat Hooks: tutorials/chat_tutorial.md
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
@@ -223,6 +224,13 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
+  # alternate:
+  #   - name: English
+  #     link: /
+  #     lang: en
+  #   - name: Français
+  #     link: /fr/
+  #     lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   social:
     - icon: fontawesome/brands/discord
@@ -264,8 +272,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  #- pymdownx.highlight:
-  #linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.keys:
       camel_case: true
@@ -287,17 +293,18 @@ markdown_extensions:
 
 plugins:
   - search
+  # - i18n:
+  #     default_language: en
+  #     languages:
+  #       fr: Français
   - tags:
       tags_folder: src/generated
       tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
-  - exclude-search:
-      exclude:
-        - generated/*.md
-      exclude_tags: True
   - redirects:
       redirect_maps:
+        start.md: getting_started/my_first_multiplayer_game.md
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
