@@ -8,7 +8,7 @@ tags:
 
 # Chat Hook Tutorial - Create RPG-style Speech Bubbles
 
-The **Chat** namespace allows creators to get the text that players type into the chat window, and to use it to make other code happen, or modify it before it goes into the chat window. There are several examples of ways you can use this to create commands or modify speech in the [**Chat** section of the Core API reference](../api/chat.md), but in this tutorial, we will be making RPG-style speech bubbles that pop up when players enter characters into chat, similar to what you might see in Home World.
+The **Chat** namespace allows creators to get the text that players type into the chat window, and to use it to make other code happen, or modify it before it goes into the chat window. There are several examples of ways you can use this to create commands or modify speech in the [**Chat** section of the Core API reference](../api/chat.md), but in this tutorial, we will be making RPG-style speech bubbles that pop up when players enter characters into chat, similar to what you might see in Core World.
 
 ## Setting Up the Chat Hooks
 
