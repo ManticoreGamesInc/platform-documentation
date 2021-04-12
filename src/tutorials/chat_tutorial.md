@@ -1,20 +1,10 @@
-<!-- 
-
-Chat Functions and Hooks
-
-Chat.BroadcastMessage - Server
-Chat.LocalMessage - Client
-Chat.receiveMessageHook 
-Chat.sendMessageHook
-
-1. What are chat hooks
-2. Introduce that we're making fly-up chat boxes
-3. Print data from the chat
-4. Add a command
-5. Make the speech bubble template
-6. Spawn it and change its text
-7. Face the screen
-8. Animate -->
+---
+id: chat_tutorial
+name: Chat Tutorial
+title: Chat Tutorial
+tags:
+    - Tutorial
+---
 
 # Chat Hook Tutorial - Create RPG-style Speech Bubbles
 
@@ -124,6 +114,8 @@ To finish out the project, we will spawn this new template to show the text that
 1. Select your **SpeechBubbleScript** in the **Hierarchy** and open the **Properties** window.
 2. In **Project Content**, find **SpeechBubbleTemplate**, and drag it onto the **Add Custom Property** panel of SpeechBubbleScript.
 
+![Add World Text as a Custom Property](../img/Chat/Chat_WorldTextCustomProperty.png){: .center loading="lazy" }
+
 ### Add a Variable Reference to the Template
 
 From here, we'll delete all the experimental code we previously wrote in the script, and replace it code to spawn the speech bubble, and put the player's message in it.
@@ -154,7 +146,7 @@ Chat.receiveMessageHook:Connect(SpawnSpeechBubble)
 
 Start a preview, type a message into chat, and press ++Enter++ to test the speech bubble spawn. It should show up, but at the world origin of (0, 0, 0).
 
-![World Text spawned partially in the floor]()
+![World Text spawned partially in the floor](../img/Chat/Chat_SpeechBubbleAtOrigin.png){: .center loading="lazy" }
 
 ### Spawn the Template Over the Player's Head
 
@@ -171,11 +163,11 @@ Add these lines after the speech bubble is spawned, in the ``SpawnSpeechBubble``
 
 Press **Play** and type into chat to test the changes to the speech bubble. It should appear by your character's head and facing the correct direction.
 
-![Speech Bubble in Character's Head]()
+![Speech Bubble in Character's Head](../img/Chat/Chat_SpeechInPlayerHead.png){: .center loading="lazy" }
 
 However, the speech bubble doesn't move, and seems to stay in the world indefinitely.
 
-![Speech Bubble behind Character]()
+![Speech Bubble behind Character](../img/Chat/Chat_SpeechBehindPlayer.png){: .center loading="lazy" }
 
 ### Animate and Destroy the Speech Bubble
 
@@ -229,14 +221,50 @@ Everything looks beautiful now, and the final step is to update the **SpeechBubb
 
 1. Drag the **SpeechBubbleTemplate** template from **Project Content** into the **Hierarchy**.
 2. Right click **SpeechBubbleTemplate** and select **Deinstance This Object**.
-   1. ![Deinstance Template]()
+    ![Deinstance Template](../img/Chat/Chat_DeinstanceTemplate.png){: .center loading="lazy" }
 3. Select the World Text inside of **SpeechBubbleTemplate** and open the **Properties** window.
 4. Find the **Horizontal Align** property and change it to **Center**.
-   1. ![Horizontal Align Center]()
+   1. ![Horizontal Align Center](../img/Chat/Chat_HorizontalAlignment.png){: .center loading="lazy" }
 5. Right-click **SpeechBubbleTemplate** and select **Update Template From This**.
-   1. ![Update Template]()
 
 You can add audio and visual effects to this client context folder as well to see how they call out the speech bubble.
+
+## Complete Code
+
+```lua
+local propSpeechBubbleTemplate = script:GetCustomProperty("SpeechBubbleTemplate")
+
+function SpawnSpeechBubble(player, data)
+    -- spawn the text bubble
+    local bubble = World.SpawnAsset(propSpeechBubbleTemplate)
+    -- find the World Text from the custom property on the template
+    local propWorldText = bubble:GetCustomProperty("WorldText"):WaitForObject()
+    -- change the text to the message from chat
+    propWorldText.text = data.message
+
+    local newBubblePosition = player:GetWorldPosition() + Vector3.UP * 100 -- 100 up from wherever the player is
+
+    bubble:SetWorldPosition(newBubblePosition)
+    bubble:LookAtLocalView() -- magical function to make things face the screen!
+
+    Task.Spawn(function() -- Spawn a new thread, so we don't interrupt anything else
+        local BUBBLE_LIFESPAN = 4 -- how long we want the speech bubble to stick around
+
+        local startTime = time() -- a value for *right now* in seconds
+        while time() < startTime + BUBBLE_LIFESPAN do -- repeat until it's time for the bubble to go
+            local timeSinceStart = time() - startTime -- how many seconds since the animation started
+            local amountToMoveUp = Vector3.Lerp(Vector3.ZERO, Vector3.UP*200, timeSinceStart / BUBBLE_LIFESPAN) -- finds a value between zero and 200 up based on what % of the time has passed
+            bubble:SetWorldPosition(player:GetWorldPosition() + Vector3.UP*100 + amountToMoveUp) -- put the bubble where it should be based on the calculations
+            Task.Wait() -- wait exactly one frame
+        end
+        bubble:Destroy() -- destroy the bubble once that loop is done
+    end)
+
+
+end
+
+Chat.receiveMessageHook:Connect(SpawnSpeechBubble)
+```
 
 ## Learn More
 
