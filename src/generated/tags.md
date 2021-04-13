@@ -124,6 +124,7 @@ hide:
 - [Play-Mode Profiler](profiler.md)
 - [Liste de contrôle pour l'édition](publishing_checklist.fr.md)
 - [Publishing Checklist](publishing_checklist.md)
+- [Creator Start](start.md)
 - [Coming to Core from Fortnite Creative](fortnite_creative.md)
 - [Coming to Core from Roblox](roblox.md)
 - [Coming to Core from Unity](unity.md)
