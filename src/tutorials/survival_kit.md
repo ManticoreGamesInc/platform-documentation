@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The **Survival Jam Kit** is an open **Community Project** designed to support the [Survival Contest](https://fall2020jam.coregames.com/).
+The **Survival Jam Kit** is an open **Community Project** created by [Team META](https://core-team-meta.github.io/).
 
 The project includes many systems that are typical of the Survival genre, including hunger, thirst, and stamina meters, breakable shelters, crafting systems, and save points. It also includes a vast number of Post Apocalyptic artistic assets from telephone pole tiles a complete abandoned military base.
 
@@ -76,4 +76,4 @@ If you find a model in the world that you would like to copy and use elsewhere, 
 
 ## Learn More
 
-[Survival Contest](https://fall2020jam.coregames.com/) | [Template Reference](template_reference.md)
+[Survival Tutorial](survival_tutorial.md) | [Template Reference](template_reference.md)
