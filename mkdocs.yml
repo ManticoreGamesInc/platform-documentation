@@ -22,8 +22,9 @@ nav:
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
-          - Create your first Game: getting_started/my_first_multiplayer_game.md
-          - Create your first RPG game: tutorials/first_game_rpg.md
+          - Create Your First Game: getting_started/start.md
+          - Create a Deathmatch Game: getting_started/my_first_multiplayer_game.md
+          - Create an RPG game: tutorials/first_game_rpg.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
           - Core for Game Jams: tutorials/global_game_jam.md
