@@ -7,68 +7,20 @@ tags:
 ---
 # Make Your First Game
 
-## Create Your First Game
+## Choose A Genre
 
-| Deathmatch | Dungeon | Survival |
+| [Deathmatch](my_first_multiplayer_game.md) | [Dungeon](../tutorials/first_game_rpg.md) | [Survival](../tutorials/survival_tutorial.md) |
 | --- | --- | --- |
-| Build the perfect arena, loadout, and ruleset for a fast-paced action shooter. | Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop. | Let players fight zombies, gathering materials, build items and fortify shelters in this framework made by [Team META](https://core-team-meta.github.io/). |
-| ![Deathmatch](../img/Start/Start_Deathmatch.png){style:"width=300px;"} | ![Dungeon](../img/Start/Start_Dungeon.png){style:"width=300px;"} | ![Survival](../img/Start/Start_Survival.png){style:"width=300px;"} |
-| **Time to Complete:**  |||
+| *Build the perfect arena, weapons, and rules for a fast-paced action shooter for up to 8 players.* | *Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop.* | *Let players fight zombies, gathering materials, build items and fortify shelters in this framework made by [Team META](https://core-team-meta.github.io/).* |
+| [![Deathmatch](../img/Start/Start_Deathmatch.png){style:"width=300px;"}](my_first_multiplayer_game.md) | [![Dungeon](../img/Start/Start_Dungeon.png){style:"width=300px;"}](../tutorials/first_game_rpg.md) | [![Survival](../img/Start/Start_Survival.png){style:"width=300px;"}](../tutorials/survival_tutorial.md) |
+|| **Time to Complete**  ||
 | 20 - 30 mins | 45 mins - 1 hour | 1 hour+ |
-| **Learn:** |||
+|| **Learn** ||
 | Exploring Core Content | Leveling and Progression | Creating Templates |
 | Designing Multiplayer Maps | Core Materials | Building Terrain |
 | Transforming Objects | Community Content | Using Data Folders |
 | Core Materials | Designing a Loot Table | Placing Item Spawns |
 | Publishing | Building Terrain | Creating NPC Enemies |
-
-<!-- ### Deathmatch
-
-Build the perfect arena, loadout, and ruleset for a fast-paced action shooter.
-
-Learn:
-
-Core Content
-The Hierarchy
-Transforming Objects
-Core Materials
-Publishing
-
-Time to Complete:
-
-20 - 30 minutes
-
-### Dungeon
-
-Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop.
-
-Learn:
-
-The Hierarchy
-Core Materials
-Community Content
-Custom Properties
-Creating Terrain
-
-Time to Complete:
-
-45 mins - 1 hour
-
-### Survival
-
-Let players fight zombies and each other by building a game that allows material gathering, crafting, upgrades, and shelters to fortify and store materials with this advanced community project.
-
-Learn:
-
-Creating Templates
-Building Terrain
-Using Data Folders
-Placing Item Spawns
-Creating NPC Enemies
-
-Time to Complete:
-
-1 hour+ -->
 
 ## For Experienced Creators
 
@@ -83,6 +35,6 @@ If you are a developer on another platform, check out our guides to quickly lear
 
 ## Learn More
 
-[Learn Lua](../tutorials/lua_basics_helloworld.md) | [Core Lua API](https://docs.coregames.com/api/) | [Intro for Artists](../tutorials/art_reference.md) | [Publishing]
+[Learn Lua](../tutorials/lua_basics_helloworld.md) | [Core Lua API](https://docs.coregames.com/api/) | [Intro for Artists](../tutorials/art_reference.md) | [Publishing](publishing.md)
 
 <!-- TODO: Unreal, Minecraft Mods -->
