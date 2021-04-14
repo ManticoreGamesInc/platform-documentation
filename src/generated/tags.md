@@ -114,11 +114,17 @@ hide:
 - [Contexts](contexts.md)
 - [Key Binding List](key_bindings.md)
 - [Community Content](community_content.md)
+- [Obtenir de l'aide dans Core](core_help.fr.md)
 - [Getting Help in Core](core_help.md)
+- [Introduction à l'éditeur de Core](editor_intro.fr.md)
 - [Introduction to the Core Editor](editor_intro.md)
+- [Panneau d'estimation des performances](performance_panel.fr.md)
 - [Performance Estimation Panel](performance_panel.md)
+- [Play-Mode Profiler](profiler.fr.md)
 - [Play-Mode Profiler](profiler.md)
+- [Liste de contrôle pour l'édition](publishing_checklist.fr.md)
 - [Publishing Checklist](publishing_checklist.md)
+- [Creator Start](start.md)
 - [Coming to Core from Fortnite Creative](fortnite_creative.md)
 - [Coming to Core from Roblox](roblox.md)
 - [Coming to Core from Unity](unity.md)
@@ -149,10 +155,17 @@ hide:
 - [UI Reference](ui_reference.md)
 - [Weapons Reference](weapons.md)
 
+## Référence
+
+- [Contenu de la communauté](community_content.fr.md)
+
 ## Tutorial
 
+- [Installation du Core](installing_core.fr.md)
 - [Installing Core](installing_core.md)
+- [Mon premier jeu multi-joueurs](my_first_multiplayer_game.fr.md)
 - [My First Multiplayer Game](my_first_multiplayer_game.md)
+- [Publier un jeu](publishing.fr.md)
 - [Publish a Game](publishing.md)
 - [Abilities in Core](abilities.md)
 - [Advanced Abilities in Core](abilities_advanced.md)

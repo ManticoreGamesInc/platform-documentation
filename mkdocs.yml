@@ -22,8 +22,11 @@ nav:
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
-          - Create your first Game: getting_started/my_first_multiplayer_game.md
-          - Create your first RPG game: tutorials/first_game_rpg.md
+          - Make Your First Game:
+            - Start Here: getting_started/start.md
+            - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
+            - Create an RPG Game: tutorials/first_game_rpg.md
+            - Create a Survival Game: tutorials/survival_tutorial.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
           - Core for Game Jams: tutorials/global_game_jam.md
@@ -54,9 +57,7 @@ nav:
               - Scripting (Beginner): tutorials/lua_basics_helloworld.md
               - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
               - Scripting (Advanced): tutorials/lua_basics_manticoin.md
-          - Survival Game:
-              - Survival Contest Kit: tutorials/survival_kit.md
-              - Survival Tutorial: tutorials/survival_tutorial.md
+          - Survival Contest Kit: tutorials/survival_kit.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -304,7 +305,7 @@ plugins:
   - autolinks
   - redirects:
       redirect_maps:
-        start.md: getting_started/my_first_multiplayer_game.md
+        start.md: getting_started/start.md
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
