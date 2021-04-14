@@ -22,9 +22,10 @@ nav:
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
-          - Create Your First Game: getting_started/start.md
-          - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
-          - Create an RPG game: tutorials/first_game_rpg.md
+          - Start Here: getting_started/start.md
+            - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
+            - Create an RPG game: tutorials/first_game_rpg.md
+            - Survival Tutorial: tutorials/survival_tutorial.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
           - Core for Game Jams: tutorials/global_game_jam.md
@@ -55,9 +56,7 @@ nav:
               - Scripting (Beginner): tutorials/lua_basics_helloworld.md
               - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
               - Scripting (Advanced): tutorials/lua_basics_manticoin.md
-          - Survival Game:
-              - Survival Contest Kit: tutorials/survival_kit.md
-              - Survival Tutorial: tutorials/survival_tutorial.md
+          - Survival Contest Kit: tutorials/survival_kit.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
