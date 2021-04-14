@@ -5,23 +5,44 @@ title: Creator Start
 tags:
     - Reference
 ---
+
+<style>
+    .table-art img {
+        width: 300px;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .md-typeset table:not([class]) tr td:first-child {
+        width: auto;
+    }
+
+    table > thead > tr > th:nth-child(3),
+    .md-typeset table:not([class]) tr td:nth-child(2) {
+        width: 33%;
+    }
+
+    .md-typeset table:not([class]) td {
+        border-top: none;
+    }
+
+    body > div.md-container > main > div > div.md-content > article > div.md-typeset__scrollwrap > div > table > thead > tr > th {
+        text-align: center;
+    }
+</style>
+
 # Make Your First Game
 
 ## Choose A Genre
 
-<!--
 | [Deathmatch](my_first_multiplayer_game.md) | [Dungeon](../tutorials/first_game_rpg.md) | [Survival](../tutorials/survival_tutorial.md) |
 | --- | --- | --- |
 | *Build the perfect arena, weapons, and rules for a fast-paced action shooter for up to 8 players.* | *Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop.* | *Let players fight zombies, gathering materials, build items and fortify shelters in this framework made by [Team META](https://core-team-meta.github.io/).* |
-| [![Deathmatch](../img/Start/Start_Deathmatch.png){style="width:300px;"}](my_first_multiplayer_game.md) | [![Dungeon](../img/Start/Start_Dungeon.png){style="width:300px;"}](../tutorials/first_game_rpg.md) | [![Survival](../img/Start/Start_Survival.png){style="width:300px;"}](../tutorials/survival_tutorial.md) |
-|| **Time to Complete**  ||
-| 20 - 30 mins | 45 mins - 1 hour | 1 hour+ |
-|| **Learn** ||
-| Exploring Core Content | Leveling and Progression | Creating Templates |
-| Designing Multiplayer Maps | Core Materials | Building Terrain |
-| Transforming Objects | Community Content | Using Data Folders |
-| Core Materials | Designing a Loot Table | Placing Item Spawns |
-| Publishing | Building Terrain | Creating NPC Enemies |{style="border:0px solid transparent;"} -->
+| [![Deathmatch](../img/Start/Start_Deathmatch.png)](my_first_multiplayer_game.md){: .table-art } | [![Dungeon](../img/Start/Start_Dungeon.png)](../tutorials/first_game_rpg.md){: .table-art } | [![Survival](../img/Start/Start_Survival.png)](../tutorials/survival_tutorial.md){: .table-art } |
+| **Time to Complete:** 20 - 30 mins   | **Time to Complete:** 45 mins - 1 hour | **Time to Complete:** 1 hour+ |
+| Learn: <ul><li>Exploring Free Core Content</li><li>Designing Multiplayer Maps</li><li>Transforming Objects</li><li>Using Core's Materials</li><li>Publishing Your Game</li></ul> | Learn: <ul><li>Leveling and Progression</li><li>Using Community-Created Assets</li><li>Building Terrain</li><li>Designing Loot Tables</li><li>Saving Player Data between Sessions</li></ul> | Learn: <ul><li>Creating an Item Database</li><li>Building Terrain</li><li>Creating new NPC enemies</li><li>Organizing Item Spawns</li><li>Using Cameras to Create a Mini-Map</li></ul> |
 
 ### Deathmatch
 
