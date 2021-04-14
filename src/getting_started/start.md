@@ -8,7 +8,8 @@ tags:
 # Make Your First Game
 
 ## Choose A Genre
-<!-- 
+
+<!--
 | [Deathmatch](my_first_multiplayer_game.md) | [Dungeon](../tutorials/first_game_rpg.md) | [Survival](../tutorials/survival_tutorial.md) |
 | --- | --- | --- |
 | *Build the perfect arena, weapons, and rules for a fast-paced action shooter for up to 8 players.* | *Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop.* | *Let players fight zombies, gathering materials, build items and fortify shelters in this framework made by [Team META](https://core-team-meta.github.io/).* |
@@ -22,7 +23,7 @@ tags:
 | Core Materials | Designing a Loot Table | Placing Item Spawns |
 | Publishing | Building Terrain | Creating NPC Enemies |{style="border:0px solid transparent;"} -->
 
-### Deatmatch
+### Deathmatch
 
  *Build the perfect arena, weapons, and rules for a fast-paced action shooter for up to 8 players.*
 
@@ -45,7 +46,6 @@ tags:
 > Time to Complete: 45 - 60 mins
 
 [Start the DUNGEON Tutorial!](first_game_rpg.md)
-
 
 #### Learn
 
