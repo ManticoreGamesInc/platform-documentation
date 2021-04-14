@@ -8,7 +8,7 @@ tags:
 
 <style>
     .table-art img {
-        width: 300px;
+        width: 200px;
         max-width: none;
         margin-left: auto;
         margin-right: auto;
@@ -35,6 +35,8 @@ tags:
 
 # Make Your First Game
 
+Whether you're a new creator or an experienced developer, Core is the easiest way to build, host, and run multiplayer games and worlds. We provide the servers, the assets, and all the code needed to get your first game built and published in minutes. To get started, choose a tutorial below.
+
 ## Choose A Genre
 
 | [Deathmatch](my_first_multiplayer_game.md) | [Dungeon](../tutorials/first_game_rpg.md) | [Survival](../tutorials/survival_tutorial.md) |
@@ -43,54 +45,6 @@ tags:
 | [![Deathmatch](../img/Start/Start_Deathmatch.png)](my_first_multiplayer_game.md){: .table-art } | [![Dungeon](../img/Start/Start_Dungeon.png)](../tutorials/first_game_rpg.md){: .table-art } | [![Survival](../img/Start/Start_Survival.png)](../tutorials/survival_tutorial.md){: .table-art } |
 | **Time to Complete:** 20 - 30 mins   | **Time to Complete:** 45 mins - 1 hour | **Time to Complete:** 1 hour+ |
 | Learn: <ul><li>Exploring Free Core Content</li><li>Designing Multiplayer Maps</li><li>Transforming Objects</li><li>Using Core's Materials</li><li>Publishing Your Game</li></ul> | Learn: <ul><li>Leveling and Progression</li><li>Using Community-Created Assets</li><li>Building Terrain</li><li>Designing Loot Tables</li><li>Saving Player Data between Sessions</li></ul> | Learn: <ul><li>Creating an Item Database</li><li>Building Terrain</li><li>Creating new NPC enemies</li><li>Organizing Item Spawns</li><li>Using Cameras to Create a Mini-Map</li></ul> |
-
-### Deathmatch
-
- *Build the perfect arena, weapons, and rules for a fast-paced action shooter for up to 8 players.*
-
-> Time to Complete: 20 - 30 mins
-
-[Start the DEATHMATCH Tutorial!](my_first_multiplayer_game.md)
-
-#### Learn
-
-- Exploring Free Core Content
-- Designing Multiplayer Maps
-- Transforming Objects
-- Using Core's Materials
-- Publishing Your Game
-
-### Dungeon
-
-*Create an RPG world that saves gold and levels between sessions, complete with enemy NPC's and an item shop.*
-
-> Time to Complete: 45 - 60 mins
-
-[Start the DUNGEON Tutorial!](first_game_rpg.md)
-
-#### Learn
-
-- Leveling and Progression
-- Using Community-Created Assets
-- Building Terrain
-- Designing Loot Tables
-- Saving Player Data between Sessions
-
-### Survival
-
-*Let players fight zombies, gathering materials, build items and fortify shelters in this framework made by [Team META](https://core-team-meta.github.io/).*
-
-> Time to Complete: 1 hour +
-
-[Start the SURVIVAL Tutorial!](../tutorials/survival_tutorial.md)
-
-#### Learn
-
-- Creating an Item Database
-- Building Terrain
-- Creating new NPC enemies
-- Organizing Item Spawns
-- Using Cameras to Create a Mini-Map
 
 ## For Experienced Creators
 
