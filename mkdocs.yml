@@ -18,7 +18,7 @@ docs_dir: src
 # If you add or remove a page, you must also add or remove in mkdocs-prod.yml
 nav:
   - Documentation:
-     - Home: index.md
+      - Home: index.md
       - Getting Started:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
