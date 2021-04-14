@@ -61,6 +61,8 @@ tags:
 
 > Time to Complete: 1 hour +
 
+[Start the SURVIVAL Tutorial!](../tutorials/survival_tutorial.md)
+
 #### Learn
 
 - Creating an Item Database
