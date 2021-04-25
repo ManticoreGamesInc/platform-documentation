@@ -25,13 +25,10 @@ This involves turning on and off a light switch to illuminate a light bulb.
 ### Download the Template
 
 1. Open the **Community Content** window in the Core Editor.
-2. User the search bar to search for ``switch`` and find **Lightbulb & Switch** *(by CoreAcademy)*
+2. User the search bar to search for `switch` and find **Lightbulb & Switch** *(by CoreAcademy)*
 3. Click **Import**  to download the template.
 
 ![Lightbulb and Switch on Community Content](../img/LightBulb/updates/CCLightbulb.png){: .image-frame .center loading="lazy" }
-
-!!! note
-    You can also use the original **Light Bulb & Switch** template by **Tobs**. The CoreAcademy version has just been updated to use newer Core Content.
 
 ### Open the Template
 
@@ -488,7 +485,7 @@ local function OnSwitchInteraction()
     switch:RotateTo(onRotation, 0.5, true)
     World.SpawnAsset(propLightTemplate)
 end
-Th
+
 -- Connect the function to the trigger event
 switchTrigger.interactedEvent:Connect(OnSwitchInteraction)
 ```
