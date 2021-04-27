@@ -394,7 +394,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 4. Now try pressing Play!
 
-    When you walk up to the treasure chest and intereact with it by pressing ++F++, our message appears on the screen. Woohoo!
+    When you walk up to the treasure chest and interact with it by pressing ++F++, our message appears on the screen. Woohoo!
 
     Now it'd be real cool if this treasure chest required an item to open it. So, let's create that item!
 
