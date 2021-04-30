@@ -37,13 +37,13 @@ For a detailed breakdown of what all these folders do and how changes in the Cor
 
 To make a zipped folder, start by finding the project in the **Maps** folder using either of the methods from the previous section. Once you have found the folder, navigate up to the Maps folder by clicking the up arrow icon in the File Explorer or press ++Alt++ + ++Up Arrow++.
 
-![Send to Compressed Folder]()
+![Send to Compressed Folder](../img/Backups/Backups_SendToCompressedFolder.png){: .center loading="lazy" }
 
 1. Right click the outer project folder. Its name should match the name of your Core project.
 2. Mouse over **Send to** and select **Compressed (zipped) folder**.
 3. A new folder with the same name should appear in the **Maps** folder, with a zipper icon on top of it.
 
-![Zipped Game File]()
+![Zipped Game File](../img/Backups/Backups_ZippedFolder.png){: .center loading="lazy" }
 
 Once you have compressed the file, you can upload it to any cloud drive service you use, like Google Drive or DropBox, or even send it by e-mail and through messenger services, like Discord.
 
@@ -60,10 +60,10 @@ Creators cannot delete games from the servers, but you can unlist a game so that
 To set a game to unlisted the process is the same as [publishing](publishing.md):
 
 1. Open your project in the **Core Editor**.
-2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.
+2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.{: .image-inline-text .image-background}
 3. In the drop-down menu near the **Publish** button, change the game from **Public** or **Child** to **Unlisted**.
 
-![Select Unlisted]()
+![Select Unlisted](../img/Backups/Backups_SelectUnlisted.png){: .center loading="lazy" }
 
 You can also delete the contents of the game and publish a blank version to fully remove it, but it is best to keep your project file and publish data if you want to have control over changing it in the future.
 
