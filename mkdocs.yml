@@ -36,6 +36,7 @@ nav:
           - Unity: other_platforms/unity.md
           - World of Warcraft: other_platforms/world_of_warcraft.md
       - Best Practices:
+          - Backing Up Your Projects: getting_started/backups.md
           - Collaboration: tutorials/collaboration_overview.md
           - Creator Analytics: tutorials/creator_analytics.md
           - GitHub and Core: tutorials/github.md
@@ -82,6 +83,7 @@ nav:
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
           - Portals: tutorials/portal_reference.md
+          - Project Files: getting_started/project_files.md
           - Publishing Checklist: getting_started/publishing_checklist.md
           - Queued Games: tutorials/queues.md
           - Scripting Introduction: tutorials/scripting_intro.md
