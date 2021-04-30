@@ -18,24 +18,24 @@ For a detailed breakdown of what all these folders do and how changes in the Cor
 
 ### Open the Project File using the File Explorer
 
-1. Open **My Documents**
-2. Find and open the folder called **My Games**
+1. Open **My Documents**.
+2. Find and open the folder called **My Games**.
 3. Inside, you should find a folder called **Core** (it may be **CORE**).
-4. Open the **Saved** folder
-5. Open the **Maps** folder
+4. Open the **Saved** folder.
+5. Open the **Maps** folder.
 6. In this folder, you should one folder for each saved project in the Core Editor.
 
 ### Open the Project File from the Core Editor
 
 1. Open your project in the Core Editor.
 2. Click **File** in the top menu bar.
-3. Select **Show Project in Explorer**
+3. Select **Show Project in Explorer**.
 
 ## Saving a Zipped Project to A Cloud Drive
 
 ### Make a Compressed (Zipped) Folder
 
-To make a zipped folder, start by finding the project in the **Maps** folder using either of the methods from the previous section. Once you have found the folder, navigate up to the Maps folder by clicking the up arrow icon in the File Explorer or press ++Alt++ + ++Up Arrow++.
+To make a zipped folder, start by finding the project in the **Maps** folder using either of the methods from the previous section. Once you have found the folder, navigate up to the Maps folder by clicking the up arrow icon in the File Explorer or press ++Alt+Arrow-Up++.
 
 ![Send to Compressed Folder](../img/Backups/Backups_SendToCompressedFolder.png){: .center loading="lazy" }
 
@@ -60,7 +60,10 @@ Creators cannot delete games from the servers, but you can unlist a game so that
 To set a game to unlisted the process is the same as [publishing](publishing.md):
 
 1. Open your project in the **Core Editor**.
-2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.{: .image-inline-text .image-background}
+
+2. Click the ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** button in the top right corner of the editor.
+{: .image-inline-text .image-background}
+
 3. In the drop-down menu near the **Publish** button, change the game from **Public** or **Child** to **Unlisted**.
 
 ![Select Unlisted](../img/Backups/Backups_SelectUnlisted.png){: .center loading="lazy" }

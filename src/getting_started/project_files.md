@@ -8,7 +8,7 @@ tags:
 
 # Core Project Files
 
-The files that make up Core games are all stored locally the computer where they are created. Because of the way Core builds all games out of assets downloaded with the Core installation, they are also quite small files, that can be found by default in the **My Games** > **CORE** > **Maps** folder.
+The files that make up Core games are all stored locally the computer where they are created. Because of the way Core builds all games out of assets downloaded with the Core installation, they are also quite small files, that can be found by default in the **My Games** > **Core** (it may be **CORE**) > **Maps** folder.
 
 ## Essential Files of a Core Game Project
 
@@ -22,7 +22,7 @@ The **Tree** folder contains a file called **Tree.pbt** which essentially lists 
 
 The **AssetManifest.pbt** file in the **Tree** folder is a list of all CoreObjects and Materials that are used in the **Hierarchy**.
 
-!!! info "You can think of **AssetManifest** as a list of parts, and **Tree** as instructions on how to build them into the game.
+!!! info "You can think of **AssetManifest** as a list of parts, and **Tree** as instructions on how to build them into the game."
 
 ### Folders
 
@@ -30,7 +30,7 @@ The **AssetManifest.pbt** file in the **Tree** folder is a list of all CoreObjec
 
 Each Folder created in a project creates an actual folder inside the **Tree** folder, each of which include their own **AssetManifest.pbt** and **Tree.pbt** files, listing the asset references and property data for the objects in the Folder in the Hierarchy.
 
-!!! note "Using **Folders** to partition workspaces for each collaborator on a project will prevent merge conflicts in the **Tree.pbt** file. See the [GitHub Tutorial](../tutorials/github.md) for more information.
+!!! note "Using **Folders** to partition workspaces for each collaborator on a project will prevent merge conflicts in the **Tree.pbt** file. See the [GitHub Tutorial](../tutorials/github.md) for more information."
 
 ### Templates
 
