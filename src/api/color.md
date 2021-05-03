@@ -14,6 +14,7 @@ An RGBA representation of a color. Color components have an effective range of `
 
 | Constructor Name | Return Type | Description | Tags |
 | ----------- | ----------- | ----------- | ---- |
+| `Color.New()` | [`Color`](color.md) | Constructs a new Color. | None |
 | `Color.New(number r, number g, number b, [number a])` | [`Color`](color.md) | Constructs a Color with the given values, alpha defaults to 1.0. | None |
 | `Color.New(Vector3 v)` | [`Color`](color.md) | Constructs a Color using the vector's XYZ components as the color's RGB components, alpha defaults to 1.0. | None |
 | `Color.New(Vector4 v)` | [`Color`](color.md) | Constructs a Color using the vector's XYZW components as the color's RGBA components. | None |

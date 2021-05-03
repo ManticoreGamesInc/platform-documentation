@@ -39,14 +39,14 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [Hook](hook.md) | [HookListener](hooklistener.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) |
 | [Light](light.md) | [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) |
 | [Object](object.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
-| [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) | [RandomStream](randomstream.md) |
-| [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) | [SmartAudio](smartaudio.md) |
-| [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) | [Task](task.md) |
-| [Terrain](terrain.md) | [Transform](transform.md) | [Trigger](trigger.md) | [UIButton](uibutton.md) |
-| [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) | [UIImage](uiimage.md) | [UIPanel](uipanel.md) |
-| [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) | [UIScrollPanel](uiscrollpanel.md) | [UIText](uitext.md) |
-| [Vector2](vector2.md) | [Vector3](vector3.md) | [Vector4](vector4.md) | [Vfx](vfx.md) |
-| [Weapon](weapon.md) | [WorldText](worldtext.md) | | |
+| [PlayerTransferData](playertransferdata.md) | [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) |
+| [RandomStream](randomstream.md) | [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) |
+| [SmartAudio](smartaudio.md) | [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) |
+| [Task](task.md) | [Terrain](terrain.md) | [Transform](transform.md) | [Trigger](trigger.md) |
+| [UIButton](uibutton.md) | [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) | [UIImage](uiimage.md) |
+| [UIPanel](uipanel.md) | [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) | [UIScrollPanel](uiscrollpanel.md) |
+| [UIText](uitext.md) | [Vector2](vector2.md) | [Vector3](vector3.md) | [Vector4](vector4.md) |
+| [Vfx](vfx.md) | [Weapon](weapon.md) | [WorldText](worldtext.md) | |
 
 ## Core Lua Namespaces
 
