@@ -134,6 +134,7 @@ nav:
           - Player: api/player.md
           - PlayerSettings: api/playersettings.md
           - PlayerStart: api/playerstart.md
+          - PlayerTransferData: api/playertransferdata.md
           - PointLight: api/pointlight.md
           - Projectile: api/projectile.md
           - Quaternion: api/quaternion.md
