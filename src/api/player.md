@@ -51,6 +51,7 @@ Player is an object representation of the state of a player connected to the gam
 | `isSwimming` | `boolean` | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
 | `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
+| `isCollidable` | `boolean` | Defaults to `true`. Set to `false` to disable collision on the player and any attached objects set to inherit collision. | Read-Write |
 | `isMovementEnabled` | `boolean` | Defaults to `true`. Set to `false` to disable player movement. Unlike `movementControlMode`, which can disable movement input, setting `isMovementEnabled` to `false` freezes the Player in place, ignoring gravity and reactions to collision or impulses, unless the Player's transform is explicitly changed or the Player is attached to a parent CoreObject that moves. | Read-Write |
 | `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | [`LookControlMode`](enums.md#lookcontrolmode) | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
@@ -116,6 +117,8 @@ Player is an object representation of the state of a player connected to the gam
 | `GetPerkTimeRemaining(NetReference)` | `number` | Returns the amount of time remaining (in seconds) until a Limited Time Perk expires. Returns `0` if the player does not own the specified perk, or infinity for a permanent or repeatable perk that the player owns. | None |
 | `AttachToCoreObject(CoreObject)` | `None` | Attaches the Player to the given CoreObject, treating that object as a parent and disabling player movement. | Server-Only |
 | `Detach()` | `None` | If the Player is attached to a parent CoreObject, detaches them and re-enables player movement. | Server-Only |
+| `GetJoinTransferData()` | [`PlayerTransferData`](playertransferdata.md) | Returns data indicating how a player joined the game (via browsing, portal, social invite, etc) and the game ID of their previous game if they joined directly from another game. Join data should be available during the player's entire session. | None |
+| `GetLeaveTransferData()` | [`PlayerTransferData`](playertransferdata.md) | Returns data indicating how a player left the game (via browsing, portal, social invite, etc) and the game ID of their next game if they are directly joining another game. Leave data is not valid until `Game.playerLeftEvent` has fired for the player. | None |
 
 ## Events
 
