@@ -296,15 +296,14 @@ markdown_extensions:
 
 plugins:
   - search
+  - tags:
+      tags_file: generated/tags.md
   # - i18n:
   #     default_language: en
   #     languages:
   #       fr: Français
   - minify:
       minify_html: true
-  - tags:
-      tags_folder: src/generated
-      tags_template: src/generated/tags.template
   - git-revision-date-localized
   - autolinks
   - redirects:
