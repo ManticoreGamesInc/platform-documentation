@@ -8,9 +8,7 @@ mkdocs>=1.1.2
 pygments>=2.6.1
 pymdown-extensions>=7.1.0
 mkdocs-static-i18n>=0.7.0
+./mkdocs-material
 
 # lightgallery
 https://github.com/g-provost/lightgallery-markdown/archive/master.zip
-
-# mkdocs-plugin-tags
-https://github.com/stanzilla/mkdocs-plugin-tags/archive/master.zip
