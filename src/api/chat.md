@@ -21,8 +21,8 @@ The Chat namespace contains functions and hooks for sending and reacting to chat
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `receiveMessageHook` | `Hook<`[`Player`](player.md) speaker, table parameters`>` | Hook called when receiving a chat message from a Player. The `parameters` table contains a `string` named "message" containing the text of the message received, and a `string` named "speakerName" with the name of the message sender as it will be displayed in the chat window. Replacing "message" with an empty string will cancel receipt of the message. | None |
-| `sendMessageHook` | `Hook<table parameters>` | Hook called when sending a chat message. The `parameters` table contains a `string` named "message" containing the text of the message to be sent. Replacing "message" with an empty string will cancel sending the message. | None |
+| `Chat.receiveMessageHook` | `Hook<`[`Player`](player.md) speaker, table parameters`>` | Hook called when receiving a chat message from a Player. The `parameters` table contains a `string` named "message" containing the text of the message received, and a `string` named "speakerName" with the name of the message sender as it will be displayed in the chat window. Replacing "message" with an empty string will cancel receipt of the message. | None |
+| `Chat.sendMessageHook` | `Hook<table parameters>` | Hook called when sending a chat message. The `parameters` table contains a `string` named "message" containing the text of the message to be sent. Replacing "message" with an empty string will cancel sending the message. | None |
 
 ## Examples
 

@@ -38,6 +38,7 @@ A data type containing information about what the Player has targeted during a p
 | `GetHitPosition()` | [`Vector3`](vector3.md) | Returns the world space position of the object under the Player's reticle. If there is no object, a position under the reticle in the distance. If the Player doesn't have a reticle displayed, uses the center of the screen as if there was a reticle there. | None |
 | `SetHitPosition(Vector3)` | `None` | Sets the hit position property. This may affect weapon behavior. | None |
 | `GetHitResult()` | [`HitResult`](hitresult.md) | Returns physics information about the point being targeted | None |
+| `SetHitResult(HitResult)` | `None` | Sets the hit result property. Setting this value has no affect on the Ability. | None |
 
 ## Examples
 
