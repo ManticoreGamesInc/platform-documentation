@@ -654,7 +654,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-See also: [PlayerTransferReason](enums.md/#playertransferreason) | [Player.TransferToGame](player.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
+See also: [PlayerTransferReason](enums.md#playertransferreason) | [Player.TransferToGame](player.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
 
 ---
 
