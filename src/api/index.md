@@ -31,22 +31,22 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [Ability](ability.md) | [AbilityPhaseSettings](abilityphasesettings.md) | [AbilityTarget](abilitytarget.md) | [AnimatedMesh](animatedmesh.md) |
-| [AreaLight](arealight.md) | [Audio](audio.md) | [Camera](camera.md) | [Color](color.md) |
-| [CoreGameCollectionEntry](coregamecollectionentry.md) | [CoreGameInfo](coregameinfo.md) | [CoreMesh](coremesh.md) | [CoreObject](coreobject.md) |
-| [CoreObjectReference](coreobjectreference.md) | [Damage](damage.md) | [Decal](decal.md) | [Equipment](equipment.md) |
-| [Event](event.md) | [EventListener](eventlistener.md) | [Folder](folder.md) | [HitResult](hitresult.md) |
-| [Hook](hook.md) | [HookListener](hooklistener.md) | [ImpactData](impactdata.md) | [LeaderboardEntry](leaderboardentry.md) |
-| [Light](light.md) | [MergedModel](mergedmodel.md) | [NetReference](netreference.md) | [NetworkContext](networkcontext.md) |
-| [Object](object.md) | [Player](player.md) | [PlayerSettings](playersettings.md) | [PlayerStart](playerstart.md) |
-| [PlayerTransferData](playertransferdata.md) | [PointLight](pointlight.md) | [Projectile](projectile.md) | [Quaternion](quaternion.md) |
-| [RandomStream](randomstream.md) | [Rotation](rotation.md) | [Script](script.md) | [ScriptAsset](scriptasset.md) |
-| [SmartAudio](smartaudio.md) | [SmartObject](smartobject.md) | [SpotLight](spotlight.md) | [StaticMesh](staticmesh.md) |
-| [Task](task.md) | [Terrain](terrain.md) | [Transform](transform.md) | [Trigger](trigger.md) |
-| [UIButton](uibutton.md) | [UIContainer](uicontainer.md) | [UIControl](uicontrol.md) | [UIImage](uiimage.md) |
-| [UIPanel](uipanel.md) | [UIPerkPurchaseButton](uiperkpurchasebutton.md) | [UIProgressBar](uiprogressbar.md) | [UIScrollPanel](uiscrollpanel.md) |
-| [UIText](uitext.md) | [Vector2](vector2.md) | [Vector3](vector3.md) | [Vector4](vector4.md) |
-| [Vfx](vfx.md) | [Weapon](weapon.md) | [WorldText](worldtext.md) | |
+| [Ability](../api/ability.md) | [AbilityPhaseSettings](../api/abilityphasesettings.md) | [AbilityTarget](../api/abilitytarget.md) | [AnimatedMesh](../api/animatedmesh.md) |
+| [AreaLight](../api/arealight.md) | [Audio](../api/audio.md) | [Camera](../api/camera.md) | [Color](../api/color.md) |
+| [CoreGameCollectionEntry](../api/coregamecollectionentry.md) | [CoreGameInfo](../api/coregameinfo.md) | [CoreMesh](../api/coremesh.md) | [CoreObject](../api/coreobject.md) |
+| [CoreObjectReference](../api/coreobjectreference.md) | [Damage](../api/damage.md) | [Decal](../api/decal.md) | [Equipment](../api/equipment.md) |
+| [Event](../api/event.md) | [EventListener](../api/eventlistener.md) | [Folder](../api/folder.md) | [HitResult](../api/hitresult.md) |
+| [Hook](../api/hook.md) | [HookListener](../api/hooklistener.md) | [ImpactData](../api/impactdata.md) | [LeaderboardEntry](../api/leaderboardentry.md) |
+| [Light](../api/light.md) | [MergedModel](../api/mergedmodel.md) | [NetReference](../api/netreference.md) | [NetworkContext](../api/networkcontext.md) |
+| [Object](../api/object.md) | [Player](../api/player.md) | [PlayerSettings](../api/playersettings.md) | [PlayerStart](../api/playerstart.md) |
+| [PlayerTransferData](../api/playertransferdata.md) | [PointLight](../api/pointlight.md) | [Projectile](../api/projectile.md) | [Quaternion](../api/quaternion.md) |
+| [RandomStream](../api/randomstream.md) | [Rotation](../api/rotation.md) | [Script](../api/script.md) | [ScriptAsset](../api/scriptasset.md) |
+| [SmartAudio](../api/smartaudio.md) | [SmartObject](../api/smartobject.md) | [SpotLight](../api/spotlight.md) | [StaticMesh](../api/staticmesh.md) |
+| [Task](../api/task.md) | [Terrain](../api/terrain.md) | [Transform](../api/transform.md) | [Trigger](../api/trigger.md) |
+| [UIButton](../api/uibutton.md) | [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) | [UIImage](../api/uiimage.md) |
+| [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) | [UIScrollPanel](../api/uiscrollpanel.md) |
+| [UIText](../api/uitext.md) | [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) |
+| [Vfx](../api/vfx.md) | [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) | |
 
 ## Core Lua Namespaces
 
@@ -54,10 +54,10 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [Chat](chat.md) | [CoreDebug](coredebug.md) | [CoreMath](coremath.md) | [CorePlatform](coreplatform.md) |
-| [CoreSocial](coresocial.md) | [CoreString](corestring.md) | [Environment](environment.md) | [Events](events.md) |
-| [Game](game.md) | [Leaderboards](leaderboards.md) | [Storage](storage.md) | [Teams](teams.md) |
-| [UI](ui.md) | [World](world.md) | | |
+| [Chat](../api/chat.md) | [CoreDebug](../api/coredebug.md) | [CoreMath](../api/coremath.md) | [CorePlatform](../api/coreplatform.md) |
+| [CoreSocial](../api/coresocial.md) | [CoreString](../api/corestring.md) | [Environment](../api/environment.md) | [Events](../api/events.md) |
+| [Game](../api/game.md) | [Leaderboards](../api/leaderboards.md) | [Storage](../api/storage.md) | [Teams](../api/teams.md) |
+| [UI](../api/ui.md) | [World](../api/world.md) | | |
 
 ## Built-In Lua Functions
 
