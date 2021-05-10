@@ -134,6 +134,9 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 ![AssetType_AvatarShop](img/EditorManual/icons/AssetType_AvatarShop.png "AssetType_AvatarShop") AssetType_AvatarShop
 {: .image-inline-text .image-background }
 
+![AssetType_AvatarShop](img/EditorManual/icons/AssetType_BindingSet.png "AssetType_BindingSet") AssetType_BindingSet
+{: .image-inline-text .image-background }
+
 ![AssetType_Blueprint](img/EditorManual/icons/AssetType_Blueprint.png "AssetType_Blueprint") AssetType_Blueprint
 {: .image-inline-text .image-background }
 
@@ -194,6 +197,15 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 ![AssetType_Folder](img/EditorManual/icons/AssetType_Folder.png "AssetType_Folder") AssetType_Folder
 {: .image-inline-text .image-background }
 
+![AssetType_Folder](img/EditorManual/icons/AssetType_Font.png "AssetType_Font") AssetType_Font
+{: .image-inline-text .image-background }
+
+![AssetType_Folder](img/EditorManual/icons/AssetType_FontUI.png "AssetType_FontUI") AssetType_FontUI
+{: .image-inline-text .image-background }
+
+![AssetType_Folder](img/EditorManual/icons/AssetType_FontWorld.png "AssetType_FontWorld") AssetType_FontWorld
+{: .image-inline-text .image-background }
+
 ![AssetType_GameSettings](img/EditorManual/icons/AssetType_GameSettings.png "AssetType_GameSettings") AssetType_GameSettings
 {: .image-inline-text .image-background }
 
@@ -236,6 +248,9 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 ![AssetType_ParameterizedMeshCube](img/EditorManual/icons/AssetType_ParameterizedMeshCube.png "AssetType_ParameterizedMeshCube") AssetType_ParameterizedMeshCube
 {: .image-inline-text .image-background }
 
+![AssetType_ParameterizedMeshCube](img/EditorManual/icons/AssetType_PathingVolume.png "AssetType_PathingVolume") AssetType_PathingVolume
+{: .image-inline-text .image-background }
+
 ![AssetType_PerkReference](img/EditorManual/icons/AssetType_PerkReference.png "AssetType_PerkReference") AssetType_PerkReference
 {: .image-inline-text .image-background }
 
@@ -276,6 +291,12 @@ Icons are used to visually represent information, here's a full (that's a lie) l
 {: .image-inline-text .image-background }
 
 ![AssetType_SharedPersistenceReference](img/EditorManual/icons/AssetType_SharedPersistenceReference.png "AssetType_SharedPersistenceReference") AssetType_SharedPersistenceReference
+{: .image-inline-text .image-background }
+
+![AssetType_Sky](img/EditorManual/icons/AssetType_Skeleton.png "AssetType_Skeleton") AssetType_Skeleton
+{: .image-inline-text .image-background }
+
+![AssetType_Sky](img/EditorManual/icons/AssetType_SkinnedMesh.png "AssetType_SkinnedMesh") AssetType_SkinnedMesh
 {: .image-inline-text .image-background }
 
 ![AssetType_Sky](img/EditorManual/icons/AssetType_Sky.png "AssetType_Sky") AssetType_Sky
