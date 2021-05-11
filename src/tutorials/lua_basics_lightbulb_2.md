@@ -10,11 +10,11 @@ tags:
 
 ## Overview
 
-In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action upon player interaction.
+In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action upon player interaction. Hello jce!
 
 Together, we will create something that brightens every room: a light switch!
 
-When a player presses ++F++ while near the light switch, it will flip and either turn on or off the light, simulating an electric current to the bulb.
+When a player presses ++F++ while near the light switch, it will flip and either turn on or off the light. It will simulate an electric current to the bulb.
 
 ![Light Switch And Bulb](../img/LightBulb/updates/LightbulbMain.jpg){: .image-frame .center loading="lazy" }
 
