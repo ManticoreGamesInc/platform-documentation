@@ -31,7 +31,7 @@ The Terrain Creator tool creates different landscapes using premade HeightMaps.
 
 1. Start from a new empty project.
 2. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) button to open the **Terrain Creator**.
- {: .image-inline-text .image-background}
+ {: .image-inline-text .image-background .image-background}
 3. Choose **Generate New Terrain** from the drop down menu.
 
 ![Open Terrain Creator](../img/EnvironIntro/edits/TerrainTutorial/OpenTerrainCreator.png){: .center}
@@ -44,7 +44,7 @@ There are different options for types of terrain that can be generated in Core. 
 2. Change the size to ``256 x 256`` voxels and ``0.50`` meters.
 3. Click **Generate**.
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to explore the newly generated terrain from a player perspective.
- {: .image-inline-text .image-background}
+ {: .image-inline-text .image-background .image-background}
 
 ![ArtIntro](../img/EnvironIntro/image36.png "Art Screenshot"){: .center loading="lazy" }
 
@@ -55,7 +55,7 @@ You may have fallen through your terrain, and you may see an unusually flat area
 1. Find the **Spawn Point** in the **Hierarchy** and move it to a new spot, above the terrain and just outside of the default floor.
 2. Right click on **Default Floor** in the **Hierarchy** and select **Delete**.
 3. Click the ![Terrain](../img/EditorManual/icons/Icon_Terrain.png) **Terrain** button again to see that it now lists the **Terrain (Rolling Hills)** as **Primary**
- {: .image-inline-text .image-background}
+ {: .image-inline-text .image-background .image-background}
 
 !!! note
     Primary Terrain is the terrain in your scene with collision enabled. You can have multiple terrains, but only one that players can actually walk on.
@@ -79,7 +79,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 
 1. Select the terrain in the **Hierarchy**.
 2. Open the **Properties** window.
-3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text style="width:2em; background:#15181e"} icon to open the **Sculpt** menu..
+3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSculpt.png){: .image-inline-text .image-background } icon to open the **Sculpt** menu..
 
 ![Sculpt Tool Menu](../img/EnvironIntro/edits/TerrainTutorial/SculptToolSetup.png){: .center}
 
@@ -87,16 +87,16 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 
 ![Select Level Tool](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_ConfigureLevelTool.png){ .center loading="lazy" }
 
-1. In the **Tool** menu, select the ![Level](../img/EditorManual/icons/Icon_TerrainLevel.png){: .image-inline-text style="width:2em; background:#15181e"} **Level** tool.
+1. In the **Tool** menu, select the ![Level](../img/EditorManual/icons/Icon_TerrainLevel.png){: .image-inline-text .image-background } **Level** tool.
 2. Click on an area that is the ideal height, then drag around it to make the rest of the terrain match.
 
 ![Leveled Terrain](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_LeveledArea.png){ .center loading="lazy" }
 
 ### Carve out a Pond and Stream
 
-1. In the **Tool** menu, select the ![Surface](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** tool.
-2. Change the mode from ![Additive](../img/EditorManual/icons/Icon_TerrainPull.png){: .image-inline-text style="width:2em; background:#15181e"} **Additive** to ![Destructive](../img/EditorManual/icons/Icon_TerrainPush.png){: .image-inline-text style="width:2em; background:#15181e"} **Destructive**.
-{: .image-inline-text}
+1. In the **Tool** menu, select the ![Surface](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text .image-background } **Surface** tool.
+2. Change the mode from ![Additive](../img/EditorManual/icons/Icon_TerrainPull.png){: .image-inline-text .image-background } **Additive** to ![Destructive](../img/EditorManual/icons/Icon_TerrainPush.png){: .image-inline-text .image-background } **Destructive**.
+{: .image-inline-text .image-background}
 3. Lower the **Strength** value in the **General** subcategory to ``0.1``
 4. Click and drag on the terrain to carve bowl shape for a pond, and extend it to a river on either side.
 
@@ -104,7 +104,7 @@ The shape of terrain can be changed using sculpting tools in the **Properties** 
 
 ### Smooth the Terrain
 
-1. Change the sculpting tool from ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text style="width:2em; background:#15181e"} **Surface** to ![Terrain Smooth](../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text style="width:2em; background:#15181e"} **Smooth**.
+1. Change the sculpting tool from ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainSurface.png){: .image-inline-text .image-background } **Surface** to ![Terrain Smooth](../img/EditorManual/icons/Icon_TerrainSmooth.png){: .image-inline-text .image-background } **Smooth**.
 2. Click and drag the pond  and rivers to give it a more natural appearance.
 
 ![Smoothed Pond and River](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_SmoothedPond.png){: .center loading="lazy" }
@@ -161,9 +161,9 @@ Now you can pass through the water, but once inside it looks like the volume dis
 Core makes it easy to copy properties from one object to another. We can use this to make the Underwater Post Process match the size and position of the Water cube.
 
 1. Select the cube that represents the water and open **Properties** window.
-2. Click the ![Copy Properties](../img/EnvironIntro/edits/TerrainTutorial/Icon_PropertyCopy.png){: .image-inline-text}**Copy Properties** button in the top right corner.
+2. Click the ![Copy Properties](../img/EnvironIntro/edits/TerrainTutorial/Icon_PropertyCopy.png){: .image-inline-text .image-background}**Copy Properties** button in the top right corner.
 3. Select the **Underwater Post Process** volume and return to the **Properties** window.
-4. Click the ![Paste Properties](../img/EnvironIntro/edits/TerrainTutorial/Icon_PropertyPaste.png){: .image-inline-text} **Paste Properties** button, in the top right corner.
+4. Click the ![Paste Properties](../img/EnvironIntro/edits/TerrainTutorial/Icon_PropertyPaste.png){: .image-inline-text .image-background} **Paste Properties** button, in the top right corner.
 5. Check **Position**, **Rotation** and **Scale** in the menu that pops up and press **Paste Selected Parameter Values**
 
 ![Copy and Paste Properties](../img/EnvironIntro/EnvironmentalArt/EnvironmentalArt_CopyPasteProperties.png){: .center loading="lazy" }
@@ -182,7 +182,7 @@ The terrain painting tool is also found in the terrain **Properties** tab. Terra
 
 1. Select the terrain in the **Hierarchy**.
 2. Open the **Properties** window.
-3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainPaint.png){: .image-inline-text style="width:2em; background:#15181e"} icon to open the **Paint** menu..
+3. Click on the ![Terrain Sculpt](../img/EditorManual/icons/Icon_TerrainPaint.png){: .image-inline-text .image-background } icon to open the **Paint** menu..
 4. Click **Create new terrain material**
 
 This will change the terrain's material to **Terrain Material**, but keep the grassy appearance.
