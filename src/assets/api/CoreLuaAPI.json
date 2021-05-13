@@ -1,6 +1,227 @@
 {
 	"Classes": [
 		{
+			"Name": "AIActivity",
+			"Description": "AIActivity is an Object registered with an `AIActivityHandler`, representing one possible activity that the handler may execute each time it ticks.",
+			"BaseType": "Object",
+			"Properties": [
+				{
+					"Name": "name",
+					"Description": "This activity's name.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "owner",
+					"Description": "The AIActivityHandler that owns this activity. May be `nil` if this activity has been removed from its owner.",
+					"Type": "AIActivityHandler",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "priority",
+					"Description": "The current priority of this activity. Expected to be greater than 0, and expected to be adjusted by the `tick` function provided when adding the activity to its handler, though this can be set at any time.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "isDebugModeEnabled",
+					"Description": "True if this activity has debugging enabled in the AI Debugger. Useful for deciding whether to log additional information about specific activities.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isHighestPriority",
+					"Description": "True if this activity is the activity with the highest priority among its owner's list of activities. Note that this value does not update immediately when setting an activity's priority, but will be updated by the handler each tick when the handler evaluates its list of activities.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "elapsedTime",
+					"Description": "If this activity is the highest priority for its handler, returns the length of time for which it has been highest priority. Otherwise returns the length of time since it was last highest priority, or since it was added to the handler.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "AIActivityHandler",
+			"Description": "AIActivityHandle is a CoreObject which can manage one or more `AIActivity`.  Each tick, the handler calls a function on each of its registered activities to give them a chance to reevaluate their priorities. It then ticks the highest priority activity again, allowing it to perform additional work.",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "isSelectedInDebugger",
+					"Description": "True if this activity handler is currently selected in the AI Debugger.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "AddActivity",
+					"Description": "Creates a new AIActivity registered to the handler with the given unique name and optional functions. Raises an error if the provided name is already in use by another activity in the same handler. `functions` may contain the following:<br>`tick - function(number deltaTime)`: Called for each activity on each tick by the handler, expected to adjust the priority of the activity.<br>`tickHighestPriority - function(number deltaTime)`: Called after `tick` for whichever activity has the highest priority within the handler.<br>`start - function()`: Called between `tick` and `tickHighestPriority` when an activity has become the new highest priority activity within the handler.<br>`stop - function()`: Called when the current highest priority activity has been removed from the handler or is otherwise no longer the highest priority activity.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AIActivity"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								},
+								{
+									"Type": "table",
+									"Name": "functions",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "RemoveActivity",
+					"Description": "Removes the activity with the given name from the handler. Logs a warning if no activity is found with that name. If the named activity is currently the highest priority activity in the handler, its `stop` function will be called.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "ClearActivities",
+					"Description": "Removes all activities from the handler. Calls the `stop` function for the highest priority activity.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "GetActivities",
+					"Description": "Returns an array of all of the handler's activities.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<AIActivity>"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "FindActivity",
+					"Description": "Returns the activity with the given name, or `nil` if that name is not found in the handler.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AIActivity"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "name"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Ability",
 			"Description": "Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.\r\n\r\nAbilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (e.g. Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.\r\n\r\nOnly one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The `canBePrevented` and `preventsOtherAbilities` properties can be used to customize interruption rules for competing abilities.\r\n\r\nIf an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.",
 			"BaseType": "CoreObject",
@@ -3890,6 +4111,63 @@
 			]
 		},
 		{
+			"Name": "CorePlayerProfile",
+			"Description": "Public account profile for a player on the Core platform.",
+			"Properties": [
+				{
+					"Name": "id",
+					"Description": "The ID of the player.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Description": "The name of the player. This field does not reflect changes that may have been made to the `name` property of a `Player` currently in the game.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "description",
+					"Description": "A description of the player, provided by the player in the About section of their profile.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Damage",
 			"Description": "To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:",
 			"Constructors": [
@@ -6029,7 +6307,7 @@
 				},
 				{
 					"Name": "Respawn",
-					"Description": "Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)",
+					"Description": "Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used.",
 					"Signatures": [
 						{
 							"Name": "WithPositionRotation",
@@ -9080,6 +9358,15 @@
 					]
 				},
 				{
+					"Name": "shouldClipToSize",
+					"Description": "Whether or not the button and its shadow should be clipped when exceeding the bounds of this control.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -9344,6 +9631,72 @@
 					]
 				},
 				{
+					"Name": "GetShadowColor",
+					"Description": "Returns the color of the button's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowColor",
+					"Description": "Sets the color of the button's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetShadowOffset",
+					"Description": "Returns the offset of the button's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowOffset",
+					"Description": "Sets the offset of the button's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "vector2"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -9518,6 +9871,15 @@
 					]
 				},
 				{
+					"Name": "shouldClipToSize",
+					"Description": "Whether or not the image and its shadow should be clipped when exceeding the bounds of this control.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -9566,6 +9928,8 @@
 						{
 							"Name": "WithPlayer",
 							"Description": "Downloads and sets a Player's profile picture as the texture for this UIImage control.",
+							"IsDeprecated": true,
+							"DeprecationMessage": "UIImage:SetImage(Player) is deprecated. Please use UIImage:SetPlayerProfile() instead.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -9592,6 +9956,49 @@
 					]
 				},
 				{
+					"Name": "SetPlayerProfile",
+					"Description": "Downloads and sets a Player's profile picture as the texture for this UIImage control.",
+					"Signatures": [
+						{
+							"Name": "WithPlayer",
+							"Description": "Downloads and sets a Player's profile picture as the texture for this UIImage control.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						},
+						{
+							"Name": "WithPlayerId",
+							"Description": "Downloads and sets a player's profile picture as the texture for this UIImage control.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						},
+						{
+							"Name": "WithPlayerProfile",
+							"Description": "Downloads and sets a player's profile picture as the texture for this UIImage control.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CorePlayerProfile",
+									"Name": "playerProfile"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "GetImage",
 					"Description": "Returns the imageId assigned to this UIImage control.",
 					"Signatures": [
@@ -9603,6 +10010,72 @@
 							],
 							"Parameters": []
 						}
+					]
+				},
+				{
+					"Name": "GetShadowColor",
+					"Description": "Returns the color of the image's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowColor",
+					"Description": "Sets the color of the image's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetShadowOffset",
+					"Description": "Returns the offset of the image's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowOffset",
+					"Description": "Sets the offset of the image's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "vector2"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -10000,7 +10473,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "GetColor",
-					"Description": "The color of the Text.",
+					"Description": "Returns the color of the Text.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -10014,7 +10487,7 @@
 				},
 				{
 					"Name": "SetColor",
-					"Description": "The color of the Text.",
+					"Description": "Sets the color of the Text.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -10056,6 +10529,72 @@
 								{
 									"Type": "string",
 									"Name": "font"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetShadowColor",
+					"Description": "Returns the color of the text's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowColor",
+					"Description": "Sets the color of the text's drop shadow.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetShadowOffset",
+					"Description": "Returns the offset of the text's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetShadowOffset",
+					"Description": "Sets the offset of the text's drop shadow in UI space.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "vector2"
 								}
 							]
 						}
@@ -11736,6 +12275,26 @@
 							]
 						}
 					]
+				},
+				{
+					"Name": "GetPlayerProfile",
+					"Description": "Requests the public account profile for the player with the given ID. This function may yield until a result is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls. When called in preview mode with a bot's player ID, a placeholder profile will be returned.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CorePlayerProfile",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -11745,9 +12304,26 @@
 			"StaticFunctions": [
 				{
 					"Name": "IsFriendsWithLocalPlayer",
-					"Description": "Returns `true` if the given Player is friends with the local player.",
+					"Description": "Returns `true` if the specified player is friends with the local player.",
 					"Signatures": [
 						{
+							"Name": "WithPlayerId",
+							"Description": "Returns `true` if the specified player is friends with the local player.",
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						},
+						{
+							"Name": "WithPlayer",
+							"Description": "Returns `true` if the given Player is friends with the local player.",
 							"Returns": [
 								{
 									"Type": "boolean"
@@ -12191,6 +12767,25 @@
 					],
 					"Tags": [
 						"ClientOnly"
+					]
+				},
+				{
+					"Name": "FindPlayer",
+					"Description": "Returns the Player with the given player ID, if they're currently in the game. Otherwise returns `nil`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Player"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
 					]
 				},
 				{
@@ -12719,6 +13314,54 @@
 								{
 									"Type": "table",
 									"Name": "data"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetOfflinePlayerData",
+					"Description": "Requests the player data associated with the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetPlayerData()` should be used instead.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetSharedOfflinePlayerData",
+					"Description": "Requests the shared player data associated with `sharedStorageKey` and the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetSharedPlayerData()` should be used instead.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "sharedStorageKey"
+								},
+								{
+									"Type": "string",
+									"Name": "playerId"
 								}
 							]
 						}
