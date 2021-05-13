@@ -328,8 +328,8 @@ You can manipulate these values via several methods on the player class, as well
 This sample registers a listener to ensure that values are in the 0-100 range, and demonstrates several examples of how to change the values.
 
 ```lua
-local resource2 = "CoinsCollected"
-local resource1 = "PuppiesSeen"
+local resource1 = "CoinsCollected"
+local resource2 = "PuppiesSeen"
 
 -- Make sure that resources never go outside the [0, 100] range:
 function OnResourceChanged(player, resourceId, newValue)
@@ -569,8 +569,6 @@ Example using:
 ### `gameId`
 
 ### `reason`
-
-### `GetGameInfo`
 
 In this example, transfer data is printed to the server log each time a player joins or leaves the game. While this works in preview mode, there will never be a `gameId` in that case, and the `reason` for the transfer will always be `BROWSE`. Therefore, this example works best when the game is published.
 
