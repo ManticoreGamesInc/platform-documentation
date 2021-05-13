@@ -390,7 +390,7 @@ Trigger.interactedEvent:Connect(OnTriggerInteracted)
 
 Now that the switch is working, you can speed up the rotation to look more like real light switch.
 
-Change the `2` for the `TIME_ROTATE` variable to `0.25`. Now the switch will complete its rotation in 0.25 seconds.
+Change the `2` for the `TIME_ROTATE` variable to `0.1`. Now the switch will complete its rotation in `0.1` seconds.
 
 Press **Play** to test out the improved movement speed.
 
@@ -409,7 +409,7 @@ local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
 -- Constants used when interacting with the scene objects.
 local ROTATION_ON = Rotation.New(0, -60, 0)
 local ROTATION_OFF = Rotation.New(0, -130, 0)
-local TIME_ROTATE = 0.25
+local TIME_ROTATE = 0.1
 
 -- Function to rotate the switch when the trigger is interacted with
 function OnTriggerInteracted()
@@ -740,7 +740,7 @@ local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
 -- Constants used when interacting with the scene objects.
 local ROTATION_ON = Rotation.New(0, -60, 0)
 local ROTATION_OFF = Rotation.New(0, -130, 0)
-local TIME_ROTATE = 0.25
+local TIME_ROTATE = 0.1
 local LABEL_WHEN_ON = "Turn Off"
 local LABEL_WHEN_OFF = "Turn On"
 
