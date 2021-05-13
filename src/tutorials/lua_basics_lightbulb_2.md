@@ -531,6 +531,7 @@ Your `OnTriggerInteracted()` function should now look like this:
 
 ```lua
 function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -563,6 +564,7 @@ Your `OnTriggerInteracted()` function should now look like this:
 
 ```lua
 function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -592,6 +594,7 @@ The OnTriggerInteracted function should look like:
 
 ```lua
 function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -660,6 +663,7 @@ The OnTriggerInteracted function should look like:
 
 ```lua
 function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -674,6 +678,50 @@ function OnTriggerInteracted()
         Trigger.interactionLabel = LABEL_WHEN_OFF
     end
 end
+```
+
+## Summary
+
+You have now learned how a script can move and interact with objects within your scene using triggers and custom properties. You have also use programming structures like variables, functions, and `if` statements. Now you can start designing and coding interactions for your own games!
+
+### Finished Script
+
+```lua
+-- References to the objects we will be interacting with in the script.
+local Switch = script:GetCustomProperty("Switch"):WaitForObject()
+local Light = script:GetCustomProperty("Light"):WaitForObject()
+local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- Constants used when interacting with the scene objects.
+local ROTATION_ON = Rotation.New(0, -60, 0)
+local ROTATION_OFF = Rotation.New(0, -130, 0)
+local TIME_ROTATE = 0.25
+local LABEL_WHEN_ON = "Turn Off"
+local LABEL_WHEN_OFF = "Turn On"
+
+-- Cached state of if the switch is on or off
+local isSwitchOn = false
+
+-- Function to rotate the switch when the trigger is interacted with
+function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
+    isSwitchOn = not isSwitchOn
+
+    if isSwitchOn then
+        -- Rotate the switch up and turn on the light
+        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+        Light.visibility = Visibility.INHERIT
+        Trigger.interactionLabel = LABEL_WHEN_ON
+    else
+        -- Rotate the switch down and turn off the light
+        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+        Light.visibility = Visibility.FORCE_OFF
+        Trigger.interactionLabel = LABEL_WHEN_OFF
+    end
+end
+
+-- Connect the callback function to the trigger interacted event
+Trigger.interactedEvent:Connect(OnTriggerInteracted)
 ```
 
 ---
