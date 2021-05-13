@@ -593,6 +593,7 @@ Light.visibility = Visibility.FORCE_OFF
 The OnTriggerInteracted function should look like:
 
 ```lua
+-- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
     -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
@@ -662,20 +663,64 @@ Inside the `if isSwitchOn then` section, add:
 The OnTriggerInteracted function should look like:
 
 ```lua
+-- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
     -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
-        -- Rotate the switch up and turn on the light
+        -- Rotate the switch up, turn on the light, and set interaction label
         Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
         Light.visibility = Visibility.INHERIT
         Trigger.interactionLabel = LABEL_WHEN_ON
     else
-        -- Rotate the switch down and turn off the light
+        -- Rotate the switch down, turn off the light, and set interaction label
         Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
         Light.visibility = Visibility.FORCE_OFF
         Trigger.interactionLabel = LABEL_WHEN_OFF
+    end
+end
+```
+
+### Changing If/Else to Functions
+
+Our `OnTriggerInteracted` function is beginning to get a little long and may be confusing to edit in the future. An easy and quick way to clean up this code is to create two more functions for our `if`/`else` statements and move the corresponding code to inside them.
+
+First, let's create a function called `TurnOn` and move the lines of code within the if statement into it.
+
+```lua
+-- Function to rotate the switch up, turn on the light, and set interaction label
+function TurnOn()
+    Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+    Light.visibility = Visibility.INHERIT
+    Trigger.interactionLabel = LABEL_WHEN_ON
+end
+```
+
+Next, let's create a function called `TurnOff` and move the lines of code withing the else statement into it.
+
+```lua
+-- Function to rotate the switch down, turn off the light, and set interaction label
+function TurnOff()
+    Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+    Light.visibility = Visibility.FORCE_OFF
+    Trigger.interactionLabel = LABEL_WHEN_OFF
+end
+```
+
+Now, we can replace the lines of code in our `OnTriggerInteracted` with these new functions.
+
+```lua
+-- Function to change the switch state and turn on/off the like
+function OnTriggerInteracted()
+    -- Flips the cached state of if the switch is on or off
+    isSwitchOn = not isSwitchOn
+
+    -- Turns on or off the switch/light based on cached state
+    if isSwitchOn then
+        TurnOn()
+    else
+        TurnOff()
     end
 end
 ```
@@ -702,21 +747,30 @@ local LABEL_WHEN_OFF = "Turn On"
 -- Cached state of if the switch is on or off
 local isSwitchOn = false
 
--- Function to rotate the switch when the trigger is interacted with
+-- Function to rotate the switch up, turn on the light, and set interaction label
+function TurnOn()
+    Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+    Light.visibility = Visibility.INHERIT
+    Trigger.interactionLabel = LABEL_WHEN_ON
+end
+
+-- Function to rotate the switch down, turn off the light, and set interaction label
+function TurnOff()
+    Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+    Light.visibility = Visibility.FORCE_OFF
+    Trigger.interactionLabel = LABEL_WHEN_OFF
+end
+
+-- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
     -- Flips the cached state of if the switch is on or off
     isSwitchOn = not isSwitchOn
 
+    -- Turns on or off the switch/light based on cached state
     if isSwitchOn then
-        -- Rotate the switch up and turn on the light
-        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
-        Light.visibility = Visibility.INHERIT
-        Trigger.interactionLabel = LABEL_WHEN_ON
+        TurnOn()
     else
-        -- Rotate the switch down and turn off the light
-        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
-        Light.visibility = Visibility.FORCE_OFF
-        Trigger.interactionLabel = LABEL_WHEN_OFF
+        TurnOff()
     end
 end
 
