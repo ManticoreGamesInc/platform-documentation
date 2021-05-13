@@ -188,7 +188,7 @@ Click on the **Switch (networked)** group in the **Hierarchy** to select it. Not
 
 ### Find the Switch's Current Rotation
 
-1. Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/Icon_TransformRotation.png) button, or pressing ++E++
+Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/Icon_TransformRotation.png) button, or pressing ++E++
 { .image-inline-text .image-background }
 
 ![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
@@ -196,7 +196,7 @@ Click on the **Switch (networked)** group in the **Hierarchy** to select it. Not
 !!! hint
     Learning the editor bindings, such that ++E++ switches to **Rotation** mode can help productivity and speed while using the Core editor.
 
-2. Look at the **Properties** window. In the **Transform** section. You should see a property called **Rotation** with an **X**, **Y**, and **Z** value.
+Look at the **Properties** window. In the **Transform** section. You should see a property called **Rotation** with an **X**, **Y**, and **Z** value.
 
 ![Switch Starting Rotation](../img/LightBulb/updates/SwitchInitialRotation.png){: .image-frame .center loading="lazy" }
 
@@ -412,7 +412,7 @@ local ROTATION_OFF = Rotation.New(0, -130, 0)
 local TIME_ROTATE = 0.25
 
 -- Function to rotate the switch when the trigger is interacted with
-local function OnTriggerInteracted()
+function OnTriggerInteracted()
     Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
 end
 
@@ -422,17 +422,189 @@ Trigger.interactedEvent:Connect(OnTriggerInteracted)
 
 As your scripts get longer, these practices will make them easier to read and edit.
 
-## Turning on the Light
+## Turning the Light On
 
 Your next project goal is to make the switch more functional and have it turn on a light when players interact with it.
 
 In the `OnTriggerInteracted()` function under our `RotateTo()` statement, type:
 
 ```lua
-Light.Visibility = visibility.INHERIT
+Light.visibility = Visibility.INHERIT
 ```
 
-This will set the visibility of the
+- `Light` is the object we are trying to alter.
+- `visiblity` is the property we are trying to change.
+- `Visibility` is an enum that contains states of visibility of an object: `FORCE_ON`, `FORCE_OFF`, or `INHERIT`.
+- `INHERIT` is the visibility enum we chose.
+
+The OnTriggerInteracted function should look like:
+
+```lua
+function OnTriggerInteracted()
+    Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+    Light.visibility = Visibility.INHERIT
+end
+```
+
+This will set the visibility of the light to be `INHERIT`. This means that if the bulb is visible, the light will also be visible. However, if the bulb is **not** visible, then the light will stay off.
+
+## Turning the Switch Off
+
+### Create a Boolean Variable
+
+To turn the switch off again, you will create a variable that keeps track of whether the switch is **on** or **off**.
+
+Add this new variable to the top of your script, under the constants:
+
+```lua
+local isSwitchOn = false
+```
+
+- `isSwitchOn` is the name of the variable we'll use to keep track of the switch being on and off.
+- `false` is a type of data called a **Boolean**. The starting state for the switch is false, because the light starts out off.
+
+### Switch the Variable between True and False
+
+Next, we need to tell the script to switch `isSwitchOn` from `false` to `true`, when we turn on the light.
+
+At the top of the `OnTriggerInteracted()` function, type:
+
+```lua
+isSwitchOn = not isSwitchOn
+```
+
+Instead of just setting `isSwitchOn` to `true`, this tells the script to change `isSwitchOn` to the opposite of what it is already set to.
+
+If `isSwitchOn` is `false`, it sets it to `true`, and vice versa. In other words, the value is **toggled** to the opposite state.
+
+### Test the Variable Toggle
+
+Test to see if the script correctly toggles between `isSwitchOn = false` and `isSwitchOn = true` when the player interacts with the switch.
+
+In the `OnTriggerInteracted` function, after the `isSwitchOn = not isSwitchOn` statement, type:
+
+```lua
+print(isSwitchOn)
+```
+
+- `print` tells the script to print to the Event Log window.
+- `isSwitchOn` is the variable that will be printing.
+
+1. Open up the **Event Log** window from the **Window** menu in the top bar.
+2. Keep this open and press **Play**.
+3. Press ++F++ to interact with the switch.
+
+The OnTriggerInteracted function should look like:
+
+```lua
+local function OnTriggerInteracted()
+    isSwitchOn = not isSwitchOn
+    print(isSwitchOn)
+
+    Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+    Light.visibility = Visibility.INHERIT
+end
+```
+
+The **Event Log** should print `true` or `false` every time you interact with the light switch. You can delete the `print` statement now.
+
+### Create an If Statement
+
+Now the script needs to know what to do specifically when the switch is on, and when it is not. An `if` statement will let you write code based on the state of other variables.
+
+In the `OnTriggerInteracted` function, after the `lightIsOn = not lightIsOn` statement, type:
+
+```lua
+    if isSwitchOn then
+
+    end
+```
+
+- `if` statements are handy when you need a certain series of actions to happen when a certain set of conditions is true.
+- `isSwitchOn` is the condition that must be met in order to execute the script inside our if statement.
+- `then` signifies the start of the code that will be performed if the conditions of the `if` statement are met.
+- `end` tells the script the `if` statement is over.
+
+Place the `Switch:RotateTo()` statement and the `Light.visibility` statement inside the `if` statement.
+
+Your `OnTriggerInteracted()` function should now look like this:
+
+```lua
+function OnTriggerInteracted()
+    isSwitchOn = not isSwitchOn
+
+    if isSwitchOn then
+        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+        Light.visibility = Visibility.INHERIT
+    end
+end
+```
+
+### Test the If-Statement
+
+Press **Play** and make sure everything still works.
+
+A light should have turned on the first time you interacted with the switch and then nothing happens in the future. Progress!
+
+### Turn the Switch Back Off
+
+The next step is to tell the script to turn the switch downwards when the light is off. The `else` keyword will allow you code what should happen if `isSwitchOn` is not `true`.
+
+Fortunately, you have already saved a variable for the rotation of the switch, `ROTATION_OFF`. Add this line after right before the `end` line in the **if statement** of the `OnTriggerInteracted` function:
+
+```lua
+    else
+        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+```
+
+- `else` is used with `if` to tell the script if the if conditions are not true, do the following instead.
+
+Your `OnTriggerInteracted()` function should now look like this:
+
+```lua
+function OnSwitchInteraction()
+    isSwitchOn = not isSwitchOn
+
+    if isSwitchOn then
+        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+        Light.visibility = Visibility.INHERIT
+    else
+        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+    end
+end
+```
+
+Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to turn off the light when the light switch is turned off.
+
+## Turning the Light Off
+
+Your next project goal is to make the switch more functional and have it turn on a light when players interact with it.
+
+In the `OnTriggerInteracted()` in the else statement under the `RotateTo()` function, add:
+
+```lua
+Light.visibility = Visibility.FORCE_OFF
+```
+
+- `FORCE_FF` disables visibility.
+
+The OnTriggerInteracted function should look like:
+
+```lua
+function OnSwitchInteraction()
+    isSwitchOn = not isSwitchOn
+
+    if isSwitchOn then
+        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+        Light.visibility = Visibility.INHERIT
+    else
+        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+        Light.visibility = Visibility.FORCE_OFF
+    end
+end
+```
+
+---
 
 ## Learn More
 
