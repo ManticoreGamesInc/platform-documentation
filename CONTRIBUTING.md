@@ -92,3 +92,12 @@ Always make sure your `development` branch is up to date before creating a new f
 git checkout development
 git pull # Make sure `development` is up to date with upstream
 ```
+
+If you want to sync an ongoing feature branch to the current state of `development` you have to rebase it on top of it and then force push. Warning: [force pushing](https://www.git-tower.com/learn/git/faq/git-force-push/) is a desctructive action and you should make sure to you are not overwriting anything.
+
+```console
+git checkout development
+git pull # Make sure `development` is up to date with upstream
+git rebase origin/development
+git push --force-with-lease
+```
