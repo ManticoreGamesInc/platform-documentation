@@ -39,6 +39,47 @@ The UI namespace contains a set of class functions allowing you to get informati
 | ----- | ----------- | ----------- | ---- |
 | `UI.coreModalChangedEvent` | <[`CoreModalType`](enums.md#coremodaltype)`>` | Fired when the local player pauses the game or opens one of the built-in modal dialogs, such as the emote or mount picker. The modal parameter will be `nil` when the player has closed all built-in modals. | Client-Only |
 
+## Examples
+
+Example using:
+
+### `coreModalChangedEvent`
+
+This client script listens for changes in the local player's modal and prints to the Event Log information about which modal was opened, or if modals were closed.
+
+```lua
+-- Converts the enum CoreModalType into a string, to make the log more readable
+function ToStringModaltype(modalType)
+    -- The pause menu opened by pressing the Escape key, or other minor pause states
+    if modalType == CoreModalType.PAUSE_MENU then return "PAUSE" end
+    
+    -- Popup when the player is choosing a character
+    if modalType == CoreModalType.CHARACTER_PICKER then return "CHARACTER PICKER" end
+    
+    -- Popup when the player is choosing a mount
+    if modalType == CoreModalType.MOUNT_PICKER then return "MOUNT PICKER" end
+    
+    -- Popup when the player is choosing an emote
+    if modalType == CoreModalType.EMOTE_PICKER then return "EMOTE PICKER" end
+            
+    -- Fallback, future-proof
+    return "???" .. tostring(modalType)
+end
+
+function OnModalChanged(modalType)
+    if modalType ~= nil then
+        print("Modal changed to: " .. ToStringModaltype(modalType))
+    else
+        print("Closed modal.")
+    end
+end
+UI.coreModalChangedEvent:Connect(OnModalChanged)
+```
+
+See also: [CoreModalType](coremodaltype.md)
+
+---
+
 ## Tutorials
 
 [UI in Core](../tutorials/ui_reference.md)
