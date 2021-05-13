@@ -103,6 +103,8 @@ nav:
           - Ability: api/ability.md
           - AbilityPhaseSettings: api/abilityphasesettings.md
           - AbilityTarget: api/abilitytarget.md
+          - AIActivity: api/aiactivity.md
+          - AIActivityHandler: api/aiactivityhandler.md
           - AnimatedMesh: api/animatedmesh.md
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
@@ -113,6 +115,7 @@ nav:
           - CoreMesh: api/coremesh.md
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
+          - CorePlayerProfile: api/coreplayerprofile.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md

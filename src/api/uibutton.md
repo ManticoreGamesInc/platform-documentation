@@ -17,6 +17,7 @@ A UIControl for a button, should be inside client context.
 | `text` | `string` | Returns the button's label text. | Read-Write |
 | `fontSize` | `integer` | Returns the font size of the label text. | Read-Write |
 | `isInteractable` | `boolean` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
+| `shouldClipToSize` | `boolean` | Whether or not the button and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
 
 ## Functions
 
@@ -34,6 +35,10 @@ A UIControl for a button, should be inside client context.
 | `SetFontColor(Color)` | `None` | Sets the font's color. | None |
 | `SetImage(string brushMUID)` | `None` | Sets the image to a new MUID. You can get this MUID from an Asset Reference. | None |
 | `SetFont(string fontId)` | `None` | Sets the button's text to use the specified font asset. | None |
+| `GetShadowColor()` | [`Color`](color.md) | Returns the color of the button's drop shadow. | None |
+| `SetShadowColor(Color)` | `None` | Sets the color of the button's drop shadow. | None |
+| `GetShadowOffset()` | [`Vector2`](vector2.md) | Returns the offset of the button's drop shadow in UI space. | None |
+| `SetShadowOffset(Vector2)` | `None` | Sets the offset of the button's drop shadow in UI space. | None |
 
 ## Events
 

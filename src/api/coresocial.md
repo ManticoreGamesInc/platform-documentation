@@ -15,3 +15,4 @@ The CoreSocial namespace contains functions for retrieving social metadata from 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `CoreSocial.IsFriendsWithLocalPlayer(Player)` | `bool` | Returns `true` if the given Player is friends with the local player. | Client-Only |
+| `CoreSocial.IsFriendsWithLocalPlayer(string playerId)` | `bool` | Returns `true` if the specified player is friends with the local player. | Client-Only |
