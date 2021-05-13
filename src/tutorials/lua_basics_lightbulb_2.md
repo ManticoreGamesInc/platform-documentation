@@ -562,7 +562,7 @@ Fortunately, you have already saved a variable for the rotation of the switch, `
 Your `OnTriggerInteracted()` function should now look like this:
 
 ```lua
-function OnSwitchInteraction()
+function OnTriggerInteracted()
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -591,15 +591,87 @@ Light.visibility = Visibility.FORCE_OFF
 The OnTriggerInteracted function should look like:
 
 ```lua
-function OnSwitchInteraction()
+function OnTriggerInteracted()
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
+        -- Rotate the switch up and turn on the light
         Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
         Light.visibility = Visibility.INHERIT
     else
+        -- Rotate the switch down and turn off the light
         Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
         Light.visibility = Visibility.FORCE_OFF
+    end
+end
+```
+
+Notice the comments describing the `OnTriggerInteracted()` function. **If statements** are an excellent place for comments, because they allow you to describe the logic of what **should** happen, before anyone even looks at the code.
+
+### Test Turning off the Light
+
+Save and press **Play** to test the latest changes. The lightbulb should illuminate when the switch is up, and be dark when the switch is down.
+
+## Updating Interaction Labels
+
+Right now, the light switch trigger always says **Turn on Light**. You can add more polish to a project by changing the interaction label based on what it should do each time.
+
+There are two ways to change a trigger's label, by going to the trigger's **Properties** and editing the **Interaction Label** field, or with a script.
+
+### Change the Interact Label to "Turn off Light"
+
+Before the `Trigger.interactedEvent` line, add this:
+
+```lua
+Trigger.interactionLabel = "Turn On"
+```
+
+- `Trigger` is the name of the trigger we are editing the label of.
+- `interactionLabel` is the property of the trigger we are editing.
+- `=` is an assignment, meaning we are setting a property to what comes afterwards.
+- `"Turn On"` is a text string, basically what the label will say.
+
+### Test the Label Change
+
+Press **Play** and check label changed from **Turn on Light** to **Turn off Light** as soon as the scene loads.
+
+We can remove that now and add it as a part of the `OnTriggerInteracted()` function.
+
+### Creating Constant Variables for the Interaction Labels
+
+To prevent magic numbers, let's define some constants.
+
+Add these to the list of constants:
+
+```lua
+local LABEL_WHEN_ON = "Turn Off"
+local LABEL_WHEN_OFF = "Turn On"
+```
+
+Now, let's add these assignments to the `OnTriggerInteracted()` function.
+
+Inside the `if isSwitchOn then` section, add:
+
+```lua
+    Trigger.interactionLabel = LABEL_WHEN_ON
+```
+
+The OnTriggerInteracted function should look like:
+
+```lua
+function OnTriggerInteracted()
+    isSwitchOn = not isSwitchOn
+
+    if isSwitchOn then
+        -- Rotate the switch up and turn on the light
+        Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
+        Light.visibility = Visibility.INHERIT
+        Trigger.interactionLabel = LABEL_WHEN_ON
+    else
+        -- Rotate the switch down and turn off the light
+        Switch:RotateTo(ROTATION_OFF, TIME_ROTATE, true)
+        Light.visibility = Visibility.FORCE_OFF
+        Trigger.interactionLabel = LABEL_WHEN_OFF
     end
 end
 ```
