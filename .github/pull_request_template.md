@@ -1,8 +1,9 @@
 # Description
 
 Please include a summary of the change and which issue is fixed.
-<!-- A #ticketNumber will be sufficient, delete if not applicable -->
-Fixes #(issue)
+
+<!-- A #ticketNumber will be sufficient, delete if not applicable
+Fixes #(issue) -->
 
 ## Type of change
 
