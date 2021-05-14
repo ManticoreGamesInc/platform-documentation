@@ -71,6 +71,35 @@ See also: [Game.GetPlayers](game.md) | [CoreObject.GetWorldPosition](coreobject.
 
 Example using:
 
+### `FindPlayer`
+
+In this example, when a player joins their ID is saved as a variable. Five seconds later, their ID can be used to fetch that player's object. If they are not found it means they have left the game.
+
+```lua
+local playerId = nil
+
+function CheckLater()
+    local player = Game.FindPlayer(playerId)
+    if Object.IsValid(player) then
+        print("Player " .. player.name .. " is still here.")
+    else
+        print("Player with id " .. playerId .. " left the game.")
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    playerId = player.id
+    
+    Task.Spawn(CheckLater, 5)
+end)
+```
+
+See also: [Task.Spawn](task.md) | [Game.playerJoinedEvent](game.md) | [Object.IsValid](object.md) | [Player.name](player.md)
+
+---
+
+Example using:
+
 ### `FindPlayersInCylinder`
 
 Searches for players in a vertically-infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
