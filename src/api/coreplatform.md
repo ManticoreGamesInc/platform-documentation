@@ -129,3 +129,37 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 See also: [Player.GetJoinTransferData](player.md) | [PlayerTransferData.gameId](playertransferdata.md) | [PlayerTransferReason](enums.md#playertransferreason) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
 
 ---
+
+Example using:
+
+### `GetPlayerProfile`
+
+### `id`
+
+### `name`
+
+### `description`
+
+This client script example fetches the profile of the game's creator and uses information from it to print a welcome message into the chat window.
+
+```lua
+local GAME_NAME = "Example Simulator"
+local CREATOR_ID = "c19fdb85adf94580b1f926764560682e"
+
+local player = Game.GetLocalPlayer()
+
+local creatorProfile = CorePlatform.GetPlayerProfile(CREATOR_ID)
+
+if CREATOR_ID ~= creatorProfile.id then
+    error("Received the wrong profile, for some reason.")
+end
+
+Chat.LocalMessage("Hi " .. player.name .. "!")
+Chat.LocalMessage("welcome to " .. GAME_NAME)
+Chat.LocalMessage("by " .. creatorProfile.name)
+Chat.LocalMessage(creatorProfile.description)
+```
+
+See also: [Chat.LocalMessage](chat.md) | [Game.GetLocalPlayer](game.md) | [Player.name](player.md)
+
+---
