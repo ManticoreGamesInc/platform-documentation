@@ -45,6 +45,57 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 
 Example using:
 
+### `GetOfflinePlayerData`
+
+### `GetSharedOfflinePlayerData`
+
+In this example a global leaderboard is enriched with additional data about the player, in this case just their Level, but other data could be included when filling the leaderboard with information. To do this, the script combines a few different concepts about player data. First, the leaderboard data itself provides a list of players for which we then fetch additional data. It's likely the player is not connected to the server, thus offline storage is used, but if they are, regular storage is faster and doesn't yield the thread. Finally, the game may have defined a shared key, resulting in 4 different ways in which the additional player data (level number) is retrieved.
+
+```lua
+local LEADERBOARD_REF = script:GetCustomProperty("LeaderboardRef")
+local STORAGE_KEY = script:GetCustomProperty("StorageKey")
+
+-- Wait for leaderboards to load.
+-- If a score has never been submitted it will stay in this loop forever
+while not Leaderboards.HasLeaderboards() do
+    Task.Wait(1)
+end
+
+local leaderboard = Leaderboards.GetLeaderboard(LEADERBOARD_REF, LeaderboardType.GLOBAL)
+for i, entry in ipairs(leaderboard) do
+    local playerId = entry.id
+    local player = Game.FindPlayer(playerId)
+    local data
+    if player then
+        -- The player is on this server, access data directly
+        if STORAGE_KEY and STORAGE_KEY.isAssigned then
+            -- If there is a shared game key
+            data = Storage.GetSharedPlayerData(STORAGE_KEY, player) -- method 1
+        else
+            data = Storage.GetPlayerData(player) -- method 2
+        end
+    else
+        -- Player is not here, use offline storage. This yields the thread
+        if STORAGE_KEY and STORAGE_KEY.isAssigned then
+            -- If there is a shared game key
+            data = Storage.GetSharedOfflinePlayerData(STORAGE_KEY, playerId) -- method 3
+        else
+            data = Storage.GetOfflinePlayerData(playerId) -- method 4
+        end
+    end
+    -- Get the additional data
+    local playerLevel = data["level"] or 0
+    
+    print(i .. ")", entry.name, ":", entry.score, "- Level " .. playerLevel)
+end
+```
+
+See also: [Storage.GetPlayerData](storage.md) | [Game.FindPlayer](game.md) | [Leaderboards.HasLeaderboards](leaderboards.md) | [LeaderboardEntry.id](leaderboardentry.md) | [Task.Wait](task.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
 ### `GetPlayerData`
 
 This example detects when a player joins the game and fetches their XP and level from storage. Those properties are moved to the player's resources for use by other gameplay systems.
