@@ -196,10 +196,10 @@ Sockets are different points on a player's character mesh. They can be used for 
 
 ### Dual Wield Melee
 
-| Dual Wield Melee Stances | Description                                                                               | Notes |
-| ------------------------ | ----------------------------------------------------------------------------------------- | ----- |
-| `dual_melee_stance`      | This will cause the Player to walk or stand with both hands posed to hold a melee weapon. |       |
-| `dual_melee_block_high`  | A stance that has both weapons held in front of the Player in a defensive pose.           |       |
+| Dual Wield Melee Stances | Description                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| `dual_melee_stance`      | This will cause the Player to walk or stand with both hands posed to hold a melee weapon. |
+| `dual_melee_block_high`  | A stance that has both weapons held in front of the Player in a defensive pose.           |
 
 ## How to Turn on Ragdoll
 
