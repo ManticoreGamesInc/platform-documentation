@@ -49,6 +49,7 @@ nav:
           - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
           - Abilities: tutorials/abilities.md
+          - AI Activities: tutorials/ai_tic_tac_toe.md
           - Chat Hooks: tutorials/chat_tutorial.md
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
