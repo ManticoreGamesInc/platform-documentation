@@ -48,10 +48,11 @@ jobs:
         run: mkdocs build
 
       - name: Wait for the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
+        uses: jakepartusch/wait-for-netlify-action@v1.2
         id: netlify
         with:
           site_name: "manticore-docs"
+          max_timeout: 180
 
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v7
@@ -61,4 +62,3 @@ jobs:
             ${{ steps.netlify.outputs.url }}/api/
           uploadArtifacts: true
           temporaryPublicStorage: true
-
