@@ -52,16 +52,16 @@ This client script listens for changes in the local player's modal and prints to
 function ToStringModaltype(modalType)
     -- The pause menu opened by pressing the Escape key, or other minor pause states
     if modalType == CoreModalType.PAUSE_MENU then return "PAUSE" end
-    
+
     -- Popup when the player is choosing a character
     if modalType == CoreModalType.CHARACTER_PICKER then return "CHARACTER PICKER" end
-    
+
     -- Popup when the player is choosing a mount
     if modalType == CoreModalType.MOUNT_PICKER then return "MOUNT PICKER" end
-    
+
     -- Popup when the player is choosing an emote
     if modalType == CoreModalType.EMOTE_PICKER then return "EMOTE PICKER" end
-            
+
     -- Fallback, future-proof
     return "???" .. tostring(modalType)
 end
@@ -76,7 +76,7 @@ end
 UI.coreModalChangedEvent:Connect(OnModalChanged)
 ```
 
-See also: [CoreModalType](coremodaltype.md)
+See also: [CoreModalType](enums.md#coremodaltype)
 
 ---
 
