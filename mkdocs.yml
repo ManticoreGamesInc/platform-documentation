@@ -93,16 +93,19 @@ nav:
           - UI: tutorials/ui_reference.md
           - Weapons: tutorials/weapons.md
   - Core API:
-      - Reference: api/index.md
-      - Enums: api/enums.md
+      - API Index: api/index.md
       - Animations & Sockets: api/animations.md
       - Editor Extensions: extensions.md
+      - Emotes: api/emotes.md
+      - Enums: api/enums.md
       - Key Bindings: api/key_bindings.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Types:
           - Ability: api/ability.md
           - AbilityPhaseSettings: api/abilityphasesettings.md
           - AbilityTarget: api/abilitytarget.md
+          - AIActivity: api/aiactivity.md
+          - AIActivityHandler: api/aiactivityhandler.md
           - AnimatedMesh: api/animatedmesh.md
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
@@ -113,6 +116,7 @@ nav:
           - CoreMesh: api/coremesh.md
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
+          - CorePlayerProfile: api/coreplayerprofile.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md

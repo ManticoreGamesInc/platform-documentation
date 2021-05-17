@@ -24,8 +24,12 @@ A UIControl which displays a basic text label.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetColor()` | [`Color`](color.md) | The color of the Text. | None |
-| `SetColor(Color)` | `None` | The color of the Text. | None |
+| `GetColor()` | [`Color`](color.md) | Returns the color of the Text. | None |
+| `SetColor(Color)` | `None` | Sets the color of the Text. | None |
+| `GetShadowColor()` | [`Color`](color.md) | Returns the color of the text's drop shadow. | None |
+| `SetShadowColor(Color)` | `None` | Sets the color of the text's drop shadow. | None |
+| `GetShadowOffset()` | [`Vector2`](vector2.md) | Returns the offset of the text's drop shadow in UI space. | None |
+| `SetShadowOffset(Vector2)` | `None` | Sets the offset of the text's drop shadow in UI space. | None |
 | `ComputeApproximateSize()` | [`Vector2`](vector2.md) | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
 | `SetFont(string fontId)` | `None` | Sets the text to use the specified font asset. | None |
 

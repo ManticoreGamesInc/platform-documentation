@@ -3,7 +3,6 @@
 .vs/
 .vscode/*
 !.vscode/extensions.json
-!.vscode/spellright.dict
 .netlify
 node_modules
 src/assets/api/test.lua

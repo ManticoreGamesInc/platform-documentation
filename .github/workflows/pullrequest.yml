@@ -1,9 +1,6 @@
 name: Build & Deploy (Pull Request)
 
-on:
-  pull_request:
-    branches:
-      - '!production'
+on: [pull_request]
 
 jobs:
   build:
@@ -19,12 +16,12 @@ jobs:
           ref: manticore
           path: mkdocs-material
 
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v1
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2.2.2
         with:
-          python-version: 3.7
+          python-version: 3.8
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.1.5
         with:
           node-version: 14.x
 
@@ -50,21 +47,18 @@ jobs:
       - name: Build
         run: mkdocs build
 
-      # - name: Waiting for 200 from the Netlify Preview
-      #   uses: jakepartusch/wait-for-netlify-action@v1
-      #   id: waitFor200
-      #   with:
-      #     site_name: "manticore-docs"
-      #     max_timeout: 180
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1.2
+        id: netlify
+        with:
+          site_name: "manticore-docs"
+          max_timeout: 180
 
-      # - name: Lighthouse CI
-      #   run: |
-      #     npm install -g @lhci/cli@0.4.x
-      #     lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.waitFor200.outputs.url }}
-      #   env:
-      #     LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
-      # - name: Running Page Speed Insights
-      #   uses: jakepartusch/psi-action@v1
-      #   with:
-      #     url: ${{ steps.waitFor200.outputs.url }}
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v7
+        with:
+          urls: |
+            ${{ steps.netlify.outputs.url }}
+            ${{ steps.netlify.outputs.url }}/api/
+          uploadArtifacts: true
+          temporaryPublicStorage: true

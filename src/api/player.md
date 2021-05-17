@@ -251,6 +251,58 @@ See also: [Player.name](player.md) | [Damage.New](damage.md) | [Task.Wait](task.
 
 Example using:
 
+### `emoteStartedEvent`
+
+### `emoteStoppedEvent`
+
+### `activeEmote`
+
+This example combines player emotes with chat messages. Whenever a player begins or ends an emote (Default 'B' key) the server broadcasts a chat message to all players announcing the change.
+
+Also, whenever a player joins the game, the server counts the number of players using any dance emotes and informs the amount to the new player.
+
+```lua
+function OnEmoteStarted(player, emoteId)
+    local message = player.name .. " is using " .. emoteId
+    Chat.BroadcastMessage(message)
+end
+
+function OnEmoteStopped(player, emoteId)
+    local message = player.name .. " stopped using " .. emoteId
+    Chat.BroadcastMessage(message)
+end
+
+function CountPlayersDancing()
+    local result = 0
+    for _,player in ipairs(Game.GetPlayers()) do
+        local emote = player.activeEmote
+        if emote and string.find(emote, "dance") then
+            result = result + 1
+        end
+    end
+    return result
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.emoteStartedEvent:Connect(OnEmoteStarted)
+    player.emoteStoppedEvent:Connect(OnEmoteStopped)
+    
+    local message = "Welcome to the server " .. player.name ..
+    "! There are currently " .. CountPlayersDancing() .. " players dancing."
+    Task.Wait(1)
+    -- The player may have left during the Task.Wait. Always check if valid
+    if Object.IsValid(player) then
+        Chat.BroadcastMessage(message, {players = player})
+    end
+end)
+```
+
+See also: [Chat.BroadcastMessage](chat.md) | [Game.GetPlayers](game.md) | [Task.Wait](task.md) | [Object.IsValid](object.md)
+
+---
+
+Example using:
+
 ### `movementModeChangedEvent`
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
@@ -328,8 +380,8 @@ You can manipulate these values via several methods on the player class, as well
 This sample registers a listener to ensure that values are in the 0-100 range, and demonstrates several examples of how to change the values.
 
 ```lua
-local resource2 = "CoinsCollected"
-local resource1 = "PuppiesSeen"
+local resource1 = "CoinsCollected"
+local resource2 = "PuppiesSeen"
 
 -- Make sure that resources never go outside the [0, 100] range:
 function OnResourceChanged(player, resourceId, newValue)
@@ -441,6 +493,43 @@ player:ResetVelocity()
 ```
 
 See also: [Player.SetWorldPosition](player.md) | [Task.Wait](task.md) | [Vector3.ZERO](vector3.md)
+
+---
+
+Example using:
+
+### `AttachToCoreObject`
+
+### `Detach`
+
+### `parentCoreObject`
+
+In this example, the script is placed as a child of a simple networked cube. The cube is set to move slowly upwards. When a player presses their primary ability key (Default LMB) they are attached to the cube and follow its movement. Pressing the primary key again detaches them from the cube and they fall off.
+
+```lua
+local CUBE = script.parent
+local ATTACH_KEY = "ability_primary"
+
+CUBE:MoveContinuous(Vector3.UP * 20)
+
+function OnBindingPressed(player, bindingPressed)
+    if bindingPressed == ATTACH_KEY then
+        if player.parentCoreObject then
+            -- Detach from cube
+            player:Detach()
+        else
+            -- Attach to cube
+            player:AttachToCoreObject(CUBE)
+        end
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end)
+```
+
+See also: [CoreObject.parent](coreobject.md) | [Vector3.UP](vector3.md) | [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md)
 
 ---
 
@@ -569,8 +658,6 @@ Example using:
 ### `gameId`
 
 ### `reason`
-
-### `GetGameInfo`
 
 In this example, transfer data is printed to the server log each time a player joins or leaves the game. While this works in preview mode, there will never be a `gameId` in that case, and the `reason` for the transfer will always be `BROWSE`. Therefore, this example works best when the game is published.
 

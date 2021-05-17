@@ -23,6 +23,8 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
 | `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | `table` | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. | Server-Only |
 | `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | <[`StorageResultCode`](enums.md#storageresultcode) string`>` | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message. See below for supported data types. | Server-Only |
 | `Storage.SizeOfData(table data)` | `integer` | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
+| `Storage.GetOfflinePlayerData(string playerId)` | `table` | Requests the player data associated with the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetPlayerData()` should be used instead. | Server-Only |
+| `Storage.GetSharedOfflinePlayerData(NetReference sharedStorageKey, string playerId)` | `table` | Requests the shared player data associated with `sharedStorageKey` and the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetSharedPlayerData()` should be used instead. | Server-Only |
 
 ## Additional Info
 
@@ -40,6 +42,57 @@ Core storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored
     - table
 
 ## Examples
+
+Example using:
+
+### `GetOfflinePlayerData`
+
+### `GetSharedOfflinePlayerData`
+
+In this example a global leaderboard is enriched with additional data about the player, in this case just their Level, but other data could be included when filling the leaderboard with information. To do this, the script combines a few different concepts about player data. First, the leaderboard data itself provides a list of players for which we then fetch additional data. It's likely the player is not connected to the server, thus offline storage is used, but if they are, regular storage is faster and doesn't yield the thread. Finally, the game may have defined a shared key, resulting in 4 different ways in which the additional player data (level number) is retrieved.
+
+```lua
+local LEADERBOARD_REF = script:GetCustomProperty("LeaderboardRef")
+local STORAGE_KEY = script:GetCustomProperty("StorageKey")
+
+-- Wait for leaderboards to load.
+-- If a score has never been submitted it will stay in this loop forever
+while not Leaderboards.HasLeaderboards() do
+    Task.Wait(1)
+end
+
+local leaderboard = Leaderboards.GetLeaderboard(LEADERBOARD_REF, LeaderboardType.GLOBAL)
+for i, entry in ipairs(leaderboard) do
+    local playerId = entry.id
+    local player = Game.FindPlayer(playerId)
+    local data
+    if player then
+        -- The player is on this server, access data directly
+        if STORAGE_KEY and STORAGE_KEY.isAssigned then
+            -- If there is a shared game key
+            data = Storage.GetSharedPlayerData(STORAGE_KEY, player) -- method 1
+        else
+            data = Storage.GetPlayerData(player) -- method 2
+        end
+    else
+        -- Player is not here, use offline storage. This yields the thread
+        if STORAGE_KEY and STORAGE_KEY.isAssigned then
+            -- If there is a shared game key
+            data = Storage.GetSharedOfflinePlayerData(STORAGE_KEY, playerId) -- method 3
+        else
+            data = Storage.GetOfflinePlayerData(playerId) -- method 4
+        end
+    end
+    -- Get the additional data
+    local playerLevel = data["level"] or 0
+    
+    print(i .. ")", entry.name, ":", entry.score, "- Level " .. playerLevel)
+end
+```
+
+See also: [Storage.GetPlayerData](storage.md) | [Game.FindPlayer](game.md) | [Leaderboards.HasLeaderboards](leaderboards.md) | [LeaderboardEntry.id](leaderboardentry.md) | [Task.Wait](task.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
 
 Example using:
 

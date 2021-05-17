@@ -16,6 +16,7 @@ Game is a collection of functions and events related to players in the game, rou
 | -------------- | ----------- | ----------- | ---- |
 | `Game.GetLocalPlayer()` | [`Player`](player.md) | Returns the local player. | Client-Only |
 | `Game.GetPlayers([table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
+| `Game.FindPlayer(string playerId)` | [`Player`](player.md) | Returns the Player with the given player ID, if they're currently in the game. Otherwise returns `nil`. | None |
 | `Game.FindNearestPlayer(Vector3 position, [table parameters])` | [`Player`](player.md) | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.FindPlayersInCylinder(Vector3 position, number radius, [table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.FindPlayersInSphere(Vector3 position, number radius, [table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
@@ -65,6 +66,35 @@ end
 ```
 
 See also: [Game.GetPlayers](game.md) | [CoreObject.GetWorldPosition](coreobject.md) | [Player.SetWorldScale](player.md) | [Vector3.ONE](vector3.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `FindPlayer`
+
+In this example, when a player joins their ID is saved as a variable. Five seconds later, their ID can be used to fetch that player's object. If they are not found it means they have left the game.
+
+```lua
+local playerId = nil
+
+function CheckLater()
+    local player = Game.FindPlayer(playerId)
+    if Object.IsValid(player) then
+        print("Player " .. player.name .. " is still here.")
+    else
+        print("Player with id " .. playerId .. " left the game.")
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    playerId = player.id
+    
+    Task.Spawn(CheckLater, 5)
+end)
+```
+
+See also: [Task.Spawn](task.md) | [Game.playerJoinedEvent](game.md) | [Object.IsValid](object.md) | [Player.name](player.md)
 
 ---
 

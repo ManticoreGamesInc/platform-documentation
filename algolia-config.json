@@ -1,0 +1,118 @@
+{
+    "index_name": "coregames",
+    "start_urls": [
+        {
+            "url": "https://docs.coregames.com/api/",
+            "selectors_key": "api",
+            "tags": [
+                "api",
+                "reference"
+            ]
+        },
+        "https://docs.coregames.com"
+    ],
+    "sitemap_urls": [
+        "https://docs.coregames.com/sitemap.xml"
+    ],
+    "stop_urls": [
+        "https://docs.coregames.com/generated/tags/"
+    ],
+    "selectors": {
+        "default": {
+            "lvl0": "article h1",
+            "lvl1": "article h2",
+            "lvl2": "article h3",
+            "lvl3": "article h4",
+            "lvl4": "article h5",
+            "text": "article p, article li"
+        },
+        "api": {
+            "lvl0": "article h1",
+            "lvl1": "article h2",
+            "lvl2": "article h3",
+            "lvl3": "article h4",
+            "lvl4": "article h5",
+            "text": "article p, article li, td"
+        }
+    },
+    "custom_settings": {
+        "minWordSizefor1Typo": 3,
+        "minWordSizefor2Typos": 7,
+        "hitsPerPage": 20,
+        "maxValuesPerFacet": 1000,
+        "minProximity": 1,
+        "attributesToRetrieve": [
+            "anchor",
+            "content",
+            "hierarchy",
+            "tags",
+            "url"
+        ],
+        "allowTyposOnNumericTokens": false,
+        "ignorePlurals": false,
+        "camelCaseAttributes": [],
+        "advancedSyntax": true,
+        "attributeCriteriaComputedByMinProximity": true,
+        "distinct": true,
+        "optionalWords": [],
+        "queryLanguages": [
+            "en"
+        ],
+        "attributesForFaceting": [
+            "searchable(tags)"
+        ],
+        "attributesToSnippet": [
+            "content:10"
+        ],
+        "attributesToHighlight": [
+            "content",
+            "hierarchy"
+        ],
+        "paginationLimitedTo": 1000,
+        "attributeForDistinct": "url",
+        "exactOnSingleWordQuery": "attribute",
+        "ranking": [
+            "words",
+            "filters",
+            "exact",
+            "typo",
+            "attribute",
+            "proximity",
+            "custom"
+        ],
+        "customRanking": [
+            "desc(weight.page_rank)",
+            "desc(weight.level)",
+            "asc(weight.position)"
+        ],
+        "separatorsToIndex": "!#()[]{}*+-_一,:;<>?@/\\^|%&~£¥$§€`\"'‘’“”†‡",
+        "removeWordsIfNoResults": "allOptional",
+        "queryType": "prefixLast",
+        "highlightPreTag": "<span class=\"algolia-docsearch-suggestion--highlight\">",
+        "highlightPostTag": "</span>",
+        "snippetEllipsisText": "",
+        "alternativesAsExact": [
+            "ignorePlurals",
+            "singleWordSynonym"
+        ],
+        "maxFacetHits": 100,
+        "indexLanguages": [
+            "en"
+        ],
+        "synonyms": [
+            [
+                "IsPreview()",
+                "preview"
+            ],
+            [
+                "StopAcceptingPlayers",
+                "server lock",
+                "server locking"
+            ]
+        ]
+    },
+    "conversation_id": [
+        "1109322761"
+    ],
+    "nb_hits": 10928
+}

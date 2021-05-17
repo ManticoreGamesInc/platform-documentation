@@ -3,10 +3,7 @@ name: Build & Deploy (Production)
 on:
   push:
     branches:
-      - 'production'
-  pull_request:
-    branches:
-      - 'production'
+      - "production"
 
 jobs:
   build:
@@ -20,12 +17,12 @@ jobs:
           repository: ManticoreGamesInc/mkdocs-material
           ref: manticore
           path: mkdocs-material
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v1
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2.2.2
         with:
-          python-version: 3.7
+          python-version: 3.8
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.1.5
         with:
           node-version: 14.x
 
@@ -51,3 +48,16 @@ jobs:
 
       - name: Build
         run: mkdocs build --config-file mkdocs-prod.yml
+
+      - name: Wait for the Netlify
+        uses: jakepartusch/wait-for-netlify-action@v1.2
+        id: netlify
+        with:
+          site_name: "manticore-docs"
+          max_timeout: 180
+
+      - uses: darrenjennings/algolia-docsearch-action@master
+        with:
+          algolia_application_id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          file: "algolia-config.json"
