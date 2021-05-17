@@ -50,7 +50,9 @@ jobs:
         run: mkdocs build --config-file mkdocs-prod.yml
 
       - name: Wait for Netlify
-        run: sleep(300)
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '300s'
 
       - uses: darrenjennings/algolia-docsearch-action@master
         with:
