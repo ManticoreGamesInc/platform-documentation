@@ -217,11 +217,13 @@ end
 Finally, select and verify there is a valid board position to capture.
 
 ```lua
--- If there is no valid capture position then we need to attempt a capture, otherwise, keep it above Idle priority
+-- If there is no valid capture position then we need to attempt a capture
+-- Otherwise, keep it above Idle priority
 if not activityData.capturePosition or activityData.capturePosition < 0 then
     activityData.capturePosition = _G.chooseBoardPosition()
 
-    -- If there is no valid move, set the priority to 0. Otherwise, set it higher than Idle priority
+    -- If there is no valid move, set the priority to 0
+    -- Otherwise, set it higher than Idle priority
     if activityData.capturePosition < 0 then
         activity.priority = 0
     else
@@ -241,13 +243,15 @@ This method is only executed when the **Capture Activity** has the highest prior
 Add the following to the **Capture Activity** `tickHighestPriority()`:
 
 ```lua
--- serverUserData contains extra information about the activity that is user-defined and accessible to the server
+-- serverUserData contains extra information about the activity
+-- that is user-defined and accessible to the server
 local activityData = activity.serverUserData
 
 -- Get the amount of time that has passed since the board position has been chosen
 local elapsedTime = activity.elapsedTime
 
--- If the elapsed time is greater than 2 seconds, activate the trigger and set the capturePosition to be negative
+-- If the elapsed time is greater than 2 seconds,
+-- activate the trigger and set the capturePosition to be negative
 if elapsedTime > 2.0 then
     _G.forceTrigger(false, activityData.capturePosition)
     activityData.capturePosition = -1
@@ -304,16 +308,19 @@ function CaptureActivity.tick(activity, deltaTime)
         return
     end
 
-    -- If the AI has not chosen a board position, it is time to do that now.
+    -- If the AI has not chosen a board position, it is time to do that now
 
-    -- serverUserData contains extra information about the activity that is user-defined and accessible to the server
+    -- serverUserData contains extra information about the activity
+    -- that is user-defined and accessible to the server
     local activityData = activity.serverUserData
 
-    -- If there is no valid capture position then we need to attempt a capture, otherwise, keep it above Idle priority
+    -- If there is no valid capture position then we need to attempt a capture
+    -- Otherwise, keep it above Idle priority
     if not activityData.capturePosition or activityData.capturePosition < 0 then
         activityData.capturePosition = _G.chooseBoardPosition()
 
-        -- If there is no valid move, set the priority to 0. Otherwise, set it higher than Idle priority
+        -- If there is no valid move, set the priority to 0.
+        -- Otherwise, set it higher than Idle priority.
         if activityData.capturePosition < 0 then
             activity.priority = 0
         else
@@ -326,13 +333,15 @@ end
 
 -- Called after all activities have tick'd, but only for the activity with the highest priority
 function CaptureActivity.tickHighestPriority(activity, deltaTime)
-    -- serverUserData contains extra information about the activity that is user-defined and accessible to the server
+    -- serverUserData contains extra information about the activity
+    -- that is user-defined and accessible to the server
     local activityData = activity.serverUserData
 
     -- Get the amount of time that has passed since the board position has been chosen
     local elapsedTime = activity.elapsedTime
 
-    -- If the elapsed time is greater than 2 seconds, activate the trigger and set the capturePosition to be negative
+    -- If the elapsed time is greater than 2 seconds,
+    -- activate the trigger and set the capturePosition to be negative
     if elapsedTime > 2.0 then
         _G.forceTrigger(false, activityData.capturePosition)
         activityData.capturePosition = -1
