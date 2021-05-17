@@ -3,10 +3,10 @@ name: Build & Deploy (Production)
 on:
   push:
     branches:
-      - 'production'
+      - "production"
   pull_request:
     branches:
-      - 'production'
+      - "production"
 
 jobs:
   build:
@@ -51,3 +51,16 @@ jobs:
 
       - name: Build
         run: mkdocs build --config-file mkdocs-prod.yml
+
+      - name: Wait for the Netlify
+        uses: jakepartusch/wait-for-netlify-action@v1.2
+        id: netlify
+        with:
+          site_name: "manticore-docs"
+          max_timeout: 180
+
+      - uses: darrenjennings/algolia-docsearch-action@master
+        with:
+          algolia_application_id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          file: "algolia-config.json"
