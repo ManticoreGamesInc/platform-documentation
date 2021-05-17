@@ -53,31 +53,31 @@ To see the server logs of a published game, select the Game Settings object in t
 function ToStringTransferReason(reason)
     -- Default reason, or player has opted out from sharing this info
     if reason == PlayerTransferReason.UNKNOWN then return "UNKNOWN" end
-    
+
     -- If they leave to edit their character/collection
     if reason == PlayerTransferReason.CHARACTER then return "CHARACTER" end
-    
+
     -- If they leave by pressing the "Create" tab
     if reason == PlayerTransferReason.CREATE then return "CREATE" end
-    
+
     -- If they leave by pressing the "Shop" tab
     if reason == PlayerTransferReason.SHOP then return "SHOP" end
-    
+
     -- If they join/leave by browsing games or from a URL
     if reason == PlayerTransferReason.BROWSE then return "BROWSE" end
-    
+
     -- If they join/leave by joining a game their friend is playing
     if reason == PlayerTransferReason.SOCIAL then return "SOCIAL" end
-    
+
     -- If they join/leave when a game uses player:TransferToGame()
     if reason == PlayerTransferReason.PORTAL then return "PORTAL" end
-    
+
     -- If they leave from being inactive for longer than the AFK limit
     if reason == PlayerTransferReason.AFK then return "AFK" end
-    
+
     -- If they close Core or log out
     if reason == PlayerTransferReason.EXIT then return "EXIT" end
-    
+
     -- Fallback, future-proof
     return "???" .. tostring(reason)
 end
@@ -126,7 +126,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-See also: [Player.GetJoinTransferData](player.md) | [PlayerTransferData.gameId](playertransferdata.md) | [PlayerTransferReason](playertransferreason.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
+See also: [Player.GetJoinTransferData](player.md) | [PlayerTransferData.gameId](playertransferdata.md) | [PlayerTransferReason](enums.md#playertransferreason) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
 
 ---
 
