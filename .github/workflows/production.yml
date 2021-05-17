@@ -49,12 +49,8 @@ jobs:
       - name: Build
         run: mkdocs build --config-file mkdocs-prod.yml
 
-      - name: Wait for the Netlify
-        uses: jakepartusch/wait-for-netlify-action@v1.2
-        id: netlify
-        with:
-          site_name: "manticore-docs"
-          max_timeout: 180
+      - name: Wait for Netlify
+        run: wait 300
 
       - uses: darrenjennings/algolia-docsearch-action@master
         with:
