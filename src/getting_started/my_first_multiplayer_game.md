@@ -16,7 +16,7 @@ tags:
 Jump in and build a game using Core's Deathmatch framework. Customize as much or as little as you want to build this multiplayer arena shooter.
 
 - **Completion Time:** 10 minutes.
-- **Previous Knowledge:** [Installing Core](installing_core.md)
+- **Previous Knowledge:** [Installing Core](installing_core.md).
 - **Skills you will learn:**
     - Core Frameworks
     - Core Content
@@ -60,10 +60,10 @@ The Deathmatch framework gives you a complete game arena and shooter functionali
 ### Test Player Movement
 
 - Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to preview your project as a player.
-  {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - Press ++tab++ to pause the preview.
 - Press ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
- {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 As in any Core game project, you already have a working character controller.
 
@@ -87,10 +87,10 @@ Core projects also include multiplayer networking by default. Because this is a 
 ![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
-    {: .image-inline-text .image-background}
+    {: .image-inline-text .image-background }
 
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
-    {: .image-inline-text .image-background}
+    {: .image-inline-text .image-background }
 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center loading="lazy" }
 
@@ -122,13 +122,12 @@ Core gives you a massive library of 3D assets, materials, sounds, and components
 
 You can move, turn, and resize objects.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or ++W++ activates Translation Mode.
-{: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ activates Rotation Mode.
-{: .image-inline-text .image-background}
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) or ++W++ activates Translation Mode.
+{: .image-inline-text .image-background }
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png) or ++E++ activates Rotation Mode.
+{: .image-inline-text .image-background }
 - ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ activates Scale Mode.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -148,7 +147,7 @@ You can move, turn, and resize objects.
 By default, Core objects have collision, so players can't just walk into bushes yet.
 
 1. Test this by pressing ![Play](../img/EditorManual/icons/Icon_Play.png) to preview the game.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 2. Look at your props from a player perspective. You should be able to walk up to a bush, but collide with it once you touch it.
 3. Click on the bush to select it, and open the **Properties** window.
 4. Find the **Collision** property and change it to **Force Off**.
@@ -195,8 +194,8 @@ You can apply a material to multiple objects by selecting them.
     </video>
 </div>
 
-1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
-2. Press ++enter++ to select everything from the search
+1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**.
+2. Press ++enter++ to select everything from the search.
 3. Choose a material, and drag it onto one of the walls.
 
 !!! note
@@ -227,7 +226,7 @@ In this final section, you will find different ways to change the gameplay itsel
 2. Open the **Properties** window to see all the settings that can be changed for each player
 3. In the **Jump** section, change **Jump Max Count** to `2`,
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with ++Space++.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 ![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center loading="lazy" }
 
@@ -241,7 +240,7 @@ In the top left corner of the screen in game, you can see that you win the Death
 2. Open the **Properties** window.
 3. Find the **KillLimit** property and change it to `2`.
 4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an opponent twice.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center loading="lazy" }
 
@@ -257,7 +256,7 @@ Although the game now ends after two kills, the instructions shown on the screen
 
 ### Move the Player Start
 
-Let's move the "Player Start" where players spawn to be further apart. Press ++V++ to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+Let's move the "Player Start" where players spawn to be further apart. Press ++V++ to toggle gizmo visibility -- you can now see the camera, spawn points, and trigger boxes.
 
 1. Search for **Spawn Point** in the **Hierarchy**.
 2. Move the spawn points around the map the same way you would any object.
@@ -269,7 +268,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press ++V
 
 ## Publishing a Game
 
-You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.md)
+You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.md).
 
 ## Next Steps
 

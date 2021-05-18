@@ -42,7 +42,7 @@ A template can be imported through the project directly from the search page, by
 
 ### Locate Imported Content
 
-Imported templates can be found in the  **Core Content** window, in a folder called **Imported Content**. Imported content will initially appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
+Imported templates can be found in the **Core Content** window, in a folder called **Imported Content**. Imported content will initially appear with the grey mixed package icon. You can click this, or the name of the template in the Core Content navigation to access the template.
 
 ![Imported Content](../img/CommunityContent/CommunityContent_ImportedPackage.png){.center loading="lazy" }
 
