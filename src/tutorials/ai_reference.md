@@ -24,19 +24,19 @@ The AIActivityHandler is a Hierarchy object that creates a new AIActivityHandler
 
 #### Using Core Content
 
-The AI Activity Handler object can be found in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**, or by searching `activity` in the search bar. Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](../api/aiactivityhandler.md)
+The AI Activity Handler object can be found in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**, or by searching `activity` in the search bar. Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](../api/aiactivityhandler.md).
 
 ![AI Activity Handler in Core Content](../img/AI/AI_ActivityHandlerInCoreContent.png){: .center loading="lazy" }
 
 #### Using the AI Debugger
 
-The **AI Debugger** window can be found from the **Windows** menu in the top menu bar, and will create a new **AI Activity Handler** and add it to the Hierarchy. Press the **Create New Handler** button to do this in one step.
+The **AI Debugger** window can be opened from the **Window** menu in the top menu bar, and will create a new **AI Activity Handler** and add it to the Hierarchy. Press the **Create New Handler** button to do this in one step.
 
 ![Create New Handler button in AI Debugger](../img/AI/AI_AIDebuggerCreateNewHandler.png){: .center loading="lazy" }
 
 ### AIActivity
 
-Each AI Activity Handler manages different AIActivities, which are Core API types with multiple properties including **priority**, that allow the handler to decide which activity it should choose. Each AIActivity also has distinct phases that allow you to execute code when an activity starts, is running, and when it stops. See [AIActivity in the Core Lua API](../api/aiactivity.md)
+Each AI Activity Handler manages different AIActivities, which are Core API types with multiple properties including **priority**, that allow the handler to decide which activity it should choose. Each AIActivity also has distinct phases that allow you to execute code when an activity starts, is running, and when it stops. See [AIActivity in the Core Lua API](../api/aiactivity.md).
 
 #### Create a new AIActivity
 
@@ -50,7 +50,7 @@ There is a complete tutorial available for learning the AIActivityHandler throug
 
 ## AI Debugger
 
-The AI Debugger is a panel in the Project Content window that allows creators to see AIActivityHandlers, create new ones, and enable/disable them for preview.
+The AI Debugger is a panel in the **Project Content** window that allows creators to see all AI Activity Handlers, create new ones, and enable/disable them for preview.
 
 ### Open the AI Debugger
 
@@ -62,4 +62,4 @@ To find the AI Debugger, open the **Window** menu in the top menu toolbar and se
 
 ## Learn More
 
-[AIActivityHandler Tutorial](ai_activity_tutorial.md) | [AIActivityHandler in the Core Lua API](../api/aiactivityhandler.md)| [AIActivity in the Core Lua API](../api/aiactivity.md)
+[AIActivityHandler Tutorial](ai_activity_tutorial.md) | [AIActivityHandler in the Core Lua API](../api/aiactivityhandler.md) | [AIActivity in the Core Lua API](../api/aiactivity.md)
