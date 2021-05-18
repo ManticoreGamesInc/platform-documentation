@@ -422,7 +422,7 @@ function OnTriggerInteracted()
     Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
 end
 
--- Connect the callback function to the trigger interacted event
+-- Connect the function to the trigger interacted event
 Trigger.interactedEvent:Connect(OnTriggerInteracted)
 ```
 
@@ -780,7 +780,7 @@ function OnTriggerInteracted()
     end
 end
 
--- Connect the callback function to the trigger interacted event
+-- Connect the function to the trigger interacted event
 Trigger.interactedEvent:Connect(OnTriggerInteracted)
 ```
 
