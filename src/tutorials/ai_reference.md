@@ -8,7 +8,7 @@ tags:
 
 # Artificial Intelligence in Core
 
-AI is a multifaceted system currently in development that will be releasing different modules in this and upcoming patches to help creators implement Artificial Intelligence in their games. The modules shipped in this patch are AIActivityHandler (link to docs) and AIDebugger (link to docs).
+AI is a multifaceted system currently in development that will be releasing different modules in this and upcoming patches to help creators implement Artificial Intelligence in their games. The modules shipped in this patch are [AIActivityHandler](../api/aiactivityhandler.md) and the AIDebugger.
 
 !!! info
     The Core AI system is currently in development, and more features are planned to release in future patches.
@@ -24,7 +24,7 @@ The AIActivityHandler is a Hierarchy object that creates a new AIActivityHandler
 
 #### Using Core Content
 
-The AI Activity Handler object can be found in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**, or by searching ``activity`` in the search bar. Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](https://docs.coregames.com/api/aiactivityhandler/)
+The AI Activity Handler object can be found in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**, or by searching `activity` in the search bar. Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](../api/aiactivityhandler.md)
 
 ![AI Activity Handler in Core Content](../img/AI/AI_ActivityHandlerInCoreContent.png){: .center loading="lazy" }
 
@@ -36,11 +36,11 @@ The **AI Debugger** window can be found from the **Windows** menu in the top men
 
 ### AIActivity
 
-Each AI Activity Handler manages different AIActivities, which are Core API types with multiple properties including **priority**, that allow the handler to decide which activity it should choose. Each AIActivity also has distinct phases that allow you to execute code when an activity starts, is running, and when it stops. See [AIActivity in the Core Lua API](https://docs.coregames.com/api/aiactivity/)
+Each AI Activity Handler manages different AIActivities, which are Core API types with multiple properties including **priority**, that allow the handler to decide which activity it should choose. Each AIActivity also has distinct phases that allow you to execute code when an activity starts, is running, and when it stops. See [AIActivity in the Core Lua API](../api/aiactivity.md)
 
 #### Create a new AIActivity
 
-AI Activities are created entirely through scripts using the ``AddActivity`` function on the **AIActivityHandler**, but there is a helpful example in the **Script Generator** that will provide a complete AIActivity template.
+AI Activities are created entirely through scripts using the `AddActivity` function on the **AIActivityHandler**, but there is a helpful example in the **Script Generator** that will provide a complete AIActivity template.
 
 ![Open the Script Generator](../img/AI/AI_AIDebuggerScriptGenerator.png){: .center loading="lazy" }
 
@@ -62,4 +62,4 @@ To find the AI Debugger, open the **Window** menu in the top menu toolbar and se
 
 ## Learn More
 
-[AIActivityHandler Tutorial](ai_activity_tutorial.md) | [AIActivityHandler in the Core Lua API](https://docs.coregames.com/api/aiactivityhandler/)| [AIActivity in the Core Lua API](https://docs.coregames.com/api/aiactivity/)
+[AIActivityHandler Tutorial](ai_activity_tutorial.md) | [AIActivityHandler in the Core Lua API](../api/aiactivityhandler.md)| [AIActivity in the Core Lua API](../api/aiactivity.md)
