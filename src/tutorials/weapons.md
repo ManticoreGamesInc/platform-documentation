@@ -25,7 +25,7 @@ This reference covers the Weapon type of object, but it is not the only way to c
 
 ### Scripting Weapons
 
-Weapons have specialized properties, functions, and events that allow creators to script behavior based on the ammunition available and projectile behavior. To learn more, see the [Weapons section of the Core API](https://docs.coregames.com/core_api/#weapon)
+Weapons have specialized properties, functions, and events that allow creators to script behavior based on the ammunition available and projectile behavior. To learn more, see the [Weapons section of the Core API](../api/weapon.md)
 
 ## The Empty Weapon Object
 
@@ -33,7 +33,7 @@ There are two ways to create weapons in Core: modifying one of the weapon templa
 
 The empty Weapon object can be found in **Core Content** in the **Gameplay Objects** section.
 
-To learn how to make a weapon from scratch using this gameplay object, see the [Basic Weapons Tutorial](weapons_tutorial.md), which will cover how to create a weapon that can be picked up and used. To make this weapon also *damage players*, see the [Advanced Abilities Tutorial](https://docs.coregames.com/tutorials/abilities_advanced/).
+To learn how to make a weapon from scratch using this gameplay object, see the [Basic Weapons Tutorial](weapons_tutorial.md), which will cover how to create a weapon that can be picked up and used. To make this weapon also *damage players*, see the [Advanced Abilities Tutorial](../tutorials/abilities_advanced.md).
 
 Making a weapon this way allows you to create unique and creative weapon behavior. For more conventional video game guns, however, it is much more efficient to modify an existing weapon template.
 

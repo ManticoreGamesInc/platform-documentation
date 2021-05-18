@@ -41,7 +41,7 @@ Creators can monetize their games through Perks, which allow them to sell in-gam
 
 Creators control what kind of perks they use and how to add them to their games. There is no limit to the number of Perks a creator can have, and one Perk can apply to several of a creator’s games.
 
-Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](https://docs.coregames.com/core_api/#player). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game’s monetization.
+Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](../api/player.md). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game’s monetization.
 
 When a player buys a Perk, Core handles the transaction from start to finish. The Credits go to the creator’s account, at which point the creator can spend them in other Core games or in the Core shop.
 
@@ -77,7 +77,7 @@ By using Core, creators get a larger share of revenue compared to other similar 
 
 ## Applying to the Perks Program
 
-Once you have reached the minimum DAU to qualify, you can [apply to the Perks Program](joining_perks.md) here. For tips on how to improve your game to meet the minimum DAU requirement, check out the [improving your game to increase DAU guide](https://docs.coregames.com/tutorials/improving_your_game/).
+Once you have reached the minimum DAU to qualify, you can [apply to the Perks Program](joining_perks.md) here. For tips on how to improve your game to meet the minimum DAU requirement, check out the [improving your game to increase DAU guide](../tutorials/improving_your_game.md).
 
 ---
 
