@@ -14,8 +14,6 @@ tags:
 
 To save player's equipment, resources, level, or any other value that you associate with players, you can use **Persistent Storage**. This is a table of data organized by player, that will allow you access data for currently connected players.
 
-To save and use data for all players who have ever accessed the game, regardless of whether or not they are currently connected, use a [**Global Leaderboard**](https://docs.coregames.com/core_api/#leaderboards).
-
 For a complete tutorial on using Persistent Storage to save player resources and equipment, see the [Persistent Storage Tutorial](persistent_storage_tutorial.md)
 
 ## Using Persistent Storage
@@ -39,8 +37,9 @@ After enabling Player Storage, updating a value in the data table is a three ste
 
 For examples of using **Persistent Storage**, see the [Persistent Storage Examples](persistent_storage_tutorial.md)
 
-<!-- TODO: Add more tasks
-- Clear Data -->
+## Offline Storage
+
+Storage is available in a read-only format for players who are offline as well. See the [Offline Storage Reference](offline_storage.md) for more information.
 
 ---
 

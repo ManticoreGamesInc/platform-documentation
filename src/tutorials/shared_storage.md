@@ -86,8 +86,12 @@ To learn more, check out the [example snippets with shared storage](../api/stora
 
 In each game where you want to reference a Shared Data Table, you will need to activate that table for the project, as well as enabling **Player Storage**.
 
+## Offline Storage
+
+Shared storage is available in a read-only format for players who are offline as well. See the [Offline Storage Reference](offline_storage.md) for more information.
+
 ---
 
 ## Learn More
 
-[Shared Storage on the Core API](../api/storage.md) | [Shared Storage Examples](../api/storage.md#examples) | [NetReference on the Core API](../api/netreference.md) | [Persistent Storage Reference](persistent_storage.md)
+[Shared Storage on the Core Lua API](../api/storage.md) | [Offline Storage Reference](offline_storage.md) | [Shared Storage Examples](../api/storage.md#examples) | [NetReference on the Core API](../api/netreference.md) | [Persistent Storage Reference](persistent_storage.md)
