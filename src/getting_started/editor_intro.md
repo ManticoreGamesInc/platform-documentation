@@ -41,22 +41,22 @@ The Main Viewport is the window into all visual aspects of a project. It will ap
 Preview Mode shows a project from a player perspective, allowing you to run through scenes and test features in person.
 
 - ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ will start Preview Mode.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - ++tab++ will pause the preview.
 - ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
- {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 ### Multiplayer Preview Mode
 
 **Multiplayer Preview Mode** can be used to test how your project behaves in a networked context, with more than one player.
 
 - ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
-    {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - Use the dropdown menu to select the number of players to test.
 - ![Play](../img/EditorManual/icons/Icon_Play.png) will start the preview. This will open a separate game window for each player.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - ![Stop](../img/EditorManual/icons/Icon_Stop.png) will end the preview and close all windows
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 !!! tip
     **Multiplayer Preview Mode** is always the most accurate way to see how your game will appear over a network. You should use it often to test how your game.
@@ -85,19 +85,18 @@ Objects and scripts that you create will be in this window, as well as those tha
 
 The Toolbar contains the different options for manipulating objects.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or ++W++ to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
-{: .image-inline-text .image-background}
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) or ++W++ to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
+{: .image-inline-text .image-background }
 - ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or ++G++ to **Snap Position**. It will move the object in whole steps according to the selected size.
- {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
- {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png) or ++E++ to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
+{: .image-inline-text .image-background }
 - ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or ++G++ to **Snap Rotation**, rotating the object in the selected degree interval.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
- {: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Transform Scale**. It will resize the object in whole units according to the selected size.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 
 !!! note
     All of the **Snap** tools appear in the same location, to the right of the Transform Tools. This icon will change appearance and function depending on which Transform Tool is selected, and can always be turned on with ++G++.
@@ -107,7 +106,7 @@ The Toolbar contains the different options for manipulating objects.
 Scripts allow you to program the behavior of different objects in the project. Core scripts are written in [Lua](https://www.lua.org/manual/5.3/) using the [Core Lua API](../api/index.md).
 
 - ![Script](../img/EditorManual/icons/Icon_Script.png) will create a script that will appear in your **Project Content**.
-{: .image-inline-text .image-background}
+{: .image-inline-text .image-background }
 - Scripts can be dragged directly into the Hierarchy or onto objects that should be their parent.
 
 ### Event Log
