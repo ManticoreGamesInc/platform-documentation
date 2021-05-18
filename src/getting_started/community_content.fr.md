@@ -68,4 +68,4 @@ Pour lancer un jeu à partir d'un cadre communautaire, ouvrez le menu **Créer**
 
 ## En savoir plus
 
-Modèles](template_reference.md) | [Modèles complexes](modeling_reference.md) | [Publication](publishing.fr.md)
+[Modèles](template_reference.md) | [Modèles complexes](modeling_reference.md) | [Publication](publishing.fr.md)

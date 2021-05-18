@@ -34,8 +34,8 @@ Les jeux Core reposent sur des fichiers stockés localement. La collaboration au
 
 Les modèles de Core vous permettent de démarrer un projet disposant déjà de mécanismes fonctionnels, afin de vous concentrer sur son univers ou l'agencement des niveaux. Ces tutoriels vous présenteront quelques-uns des types de jeu disponibles.
 
-- [Deathmatch](my_first_multiplayer_game.md)
-- [Dungeon](first_game_rpg.md)
+- [Deathmatch](my_first_multiplayer_game.fr.md)
+- [Dungeon](first_game_rpg.fr.md)
 
 ### Jeux ouverts de la communauté
 
@@ -90,7 +90,7 @@ Vous trouverez également plusieurs vidéos sur la [CoreGames YouTube Channel](h
 
 ### Contenus de la communauté
 
-Les [**Community Content**](../getting_started/community_content.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](template_reference.md) encourage la collaboration entre graphistes et programmeurs.
+Les [**Community Content**](../getting_started/community_content.fr.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](template_reference.md) encourage la collaboration entre graphistes et programmeurs.
 
 ![Instruments on Community Content](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
 

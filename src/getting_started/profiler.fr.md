@@ -123,9 +123,9 @@ Everything for a frame is first processed by the Game Thread. The results are pa
 
 |                         | Frame 1 | Frame 2 | Frame 3 | Frame 4 |
 | ----------------------- | ------- | ------- | ------- | ------- |
-| **Game Thread (CPU)**   | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } | Frame C{: .Color_YELLOW } | Frame D{: .Color_CYAN } |
-| **Render Thread (CPU)** |         | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } | Frame C{: .Color_YELLOW } |
-| **GPU**                 |         |         | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } |
+| **Game Thread (CPU)**   | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } | **Frame C**{: .Color_YELLOW } | **Frame D**{: .Color_CYAN } |
+| **Render Thread (CPU)** |         | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } | **Frame C**{: .Color_YELLOW } |
+| **GPU**                 |         |         | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } |
 
 **Frame Time:**
 
