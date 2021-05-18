@@ -360,9 +360,6 @@ Trigger.interactedEvent:Connect(OnTriggerInteracted)
 
 Without this statement the script will never call the `OnSwitchInteraction` function.
 
-!!! note
-    It is convention to name the callback of an event (the function that is called when the event is fired) to be `On` + **Event Name** in PascalCase. So, for this example, you would use `OnInteracted` but decided to use `OnTriggerInteracted` to provide more clarity.
-
 ### Test Out the Script
 
 Your script should now look like this:
