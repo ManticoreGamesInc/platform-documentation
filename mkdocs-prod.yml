@@ -63,6 +63,7 @@ nav:
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
       - Core Editor Manual:
+          - AI: tutorials/ai_reference.md
           - Animated Meshes: tutorials/animated_mesh.md
           - Art in Core: tutorials/art_reference.md
           - Audio: tutorials/audio_reference.md
