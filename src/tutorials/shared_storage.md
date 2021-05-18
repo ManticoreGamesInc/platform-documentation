@@ -12,7 +12,7 @@ tags:
 
 ## Introduction
 
-The same way [Peristent Storage](persistent_storage.md) allows you to save player data between play sessions, **Shared Storage** allows you to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
+The same way [Persistent Storage](persistent_storage.md) allows you to save player data between play sessions, **Shared Storage** allows you to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
 
 **Shared Storage** allows you to create storage tables, called **Shared Keys** that are associated with your account, rather than a specific game. You can have **up to 8** of these tables, and in each project you can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](../api/netreference.md).
 
