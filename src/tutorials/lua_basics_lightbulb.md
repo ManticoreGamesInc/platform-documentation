@@ -242,7 +242,7 @@ local ROTATION_OFF = Rotation.New(0, -130, 0)
     [Learn more about Rotations on the Core API](../api/rotation.md) page.
 
 !!! note
-    It is convention that constants, variables that will not be altered, are in **SCREAMING_SNAKE_CASE**, meaning all caps with **_** between each word.
+    Constants are variables that will not be altered throughout the script, like the on/off rotation variables defined. Constants are usually in **CAPS_CASE**, meaning all upper-case letters with **_** between each word.
 
 ### Make the Switch Rotate with a Script
 
