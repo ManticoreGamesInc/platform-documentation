@@ -460,6 +460,8 @@ This will set the visibility of the light to be `INHERIT`. This means that if th
 
 To turn the switch off again, you will create a variable that keeps track of whether the switch is **on** or **off**.
 
+To do this, you can use a **Boolean** datatype. A **Boolean** has only two options: `true`, meaning "yes," or `false`, meaning "no".
+
 Add this new variable to the top of your script, under the constants:
 
 ```lua
