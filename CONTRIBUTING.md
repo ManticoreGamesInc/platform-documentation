@@ -79,7 +79,7 @@ Now, depending on what you want to add, you can create your new Markdown files a
 ### Check in your Changes
 
 - Make sure to add your new page to the index of pages in `mkdocs.yml` and `mkdocs-prod.yml`.
-- Commit any changes to your branch and push to the repository. (e.g. `git push origin camera-controls`)
+- Commit any changes to your branch and push to the repository. (e.g. `git push -u origin camera-controls`)
 - When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `development`.
 - Our system will automatically build a version of the site for you to view live.
 - Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `development` and later `production` which will make your content appear on the main site.
