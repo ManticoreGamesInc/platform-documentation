@@ -60,9 +60,12 @@ Right click on the **Lightbulb & Switch** template in the **Hierarchy** and clic
 
 The template and the objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template can now be edited.
 
-Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](template_reference.md).
+!!! info
+    Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](template_reference.md).
 
 ### Create and Add a New Script
+
+![Create Script](../img/LightBulb/CreateScript.png){: .image-frame .center loading="lazy" }
 
 1. To get started making this light switch work, we are going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.
 { .image-inline-text .image-background }
@@ -71,8 +74,7 @@ Deinstancing allows you to make changes to a particular copy of a template witho
 4. Open the contents of the **Lightbulb & Switch** template by clicking the drop down arrow to the left of its name in the Hierarchy.
 5. Open the **Project Content** window and open the **My Scripts** category. Drag the `LightSwitchToggle` from **Project Content** > **My Scripts** into the **Lightbulb & Switch** template group.
 
-!["Create Script"](../img/LightBulb/CreateScript.png){: .image-frame .center loading="lazy" }
-!["Project Content"](../img/LightBulb/ProjectContent.png){: .image-frame .center loading="lazy" }
+![Project Content](../img/LightBulb/ProjectContent.png){: .image-frame .center loading="lazy" }
 
 !!! info
     It is important to save your scripts often so you don't lose work in the event of a problem. Use ++Ctrl+Shift+S++ to save all scripts and your entire project.
