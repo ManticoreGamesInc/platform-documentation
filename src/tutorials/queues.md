@@ -42,4 +42,4 @@ Once a player joins a Queued game, they will be removed from all other game queu
 
 ## Learn More
 
-[The **isQueueEnabled** property in the Core API](../api/coregameinfo/) | [Interconnected Games](interconnected_games.md)
+[The **isQueueEnabled** property in the Core API](../api/coregameinfo.md) | [Interconnected Games](interconnected_games.md)
