@@ -98,6 +98,7 @@ If you want to sync an ongoing feature branch to the current state of `developme
 ```console
 git checkout development
 git pull # Make sure `development` is up to date with upstream
+git checkout camera-controls
 git rebase origin/development
 git push --force-with-lease
 ```
