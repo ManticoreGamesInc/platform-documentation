@@ -1,12 +1,12 @@
 ---
-id: ai_tic_tac_toe
-name: AI in Core (Tic Tac Toe)
-title: AI in Core (Tic Tac Toe)
+id: ai_activity_tutorial
+name: AI Activity Tutorial
+title: AI Activity Tutorial
 tags:
     - Tutorial
 ---
 
-# AI in Core (Tic Tac Toe)
+# AI Activity Tutorial
 
 ## Overview
 
@@ -40,7 +40,7 @@ The template contains:
 ### Download the Template
 
 1. Open the **Community Content** window in the Core Editor.
-2. Use the search bar to search for **TicTacToe Game** *(by !!NO IDEA WHO MADE IT YET!!)*
+2. Use the search bar to search for **TicTacToe Game**.
 3. Click **Import** to download the template.
 
 ### Open the Template
