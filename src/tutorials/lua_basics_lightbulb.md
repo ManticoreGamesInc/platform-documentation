@@ -712,7 +712,7 @@ function TurnOn()
 end
 ```
 
-Next, let's create a function called `TurnOff` and move the lines of code withing the else statement into it.
+Next you will create a function called `TurnOff` and move the lines of code withing the else statement into it.
 
 ```lua
 -- Function to rotate the switch down, turn off the light, and set interaction label
