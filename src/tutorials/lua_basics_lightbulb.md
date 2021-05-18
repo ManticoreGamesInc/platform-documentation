@@ -89,27 +89,30 @@ The template and the objects in the template will change from **blue**{: style="
 6. Check the box for **Use Temperature**, and lower the **Temperature** property to create a warm glow color to the light.
 7. Since we want the light to be off by default, set the **Visibility** property to **Force Off**.
 
-!["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
+![Point Light Properties](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
 
 ### Add a Trigger
 
 To create in-game interactions in Core, use a **Trigger**. A trigger defines the area and checks if any player enters, leaves, or presses the interact key, ++F++, near it.
 
-The **Lightbulb & Switch** template includes a trigger, but you can add trigger objects to a project from the **Core Content** window, in the **Gameplay Objects** section.
-
 ![Trigger in Core Content](../img/LightBulb/trigger.png){: .image-frame .center loading="lazy" }
 
-1. In the Hierarchy window, select the "Trigger" object within the template and press ++F++. This will move the Main Viewport view to focus on the trigger.
-2. Notice the size, shape, and position of the trigger. The player will have to stand inside the box to be able to activate the trigger.
+1. Right-click the template and left-click **Add Gameplay Object** > **Add Trigger**.
+2. Move the trigger to overlap the switch.
+3. Resize the trigger to be the the distance you want players to be able to interact with the switch.
+4. Right-click the trigger then left-click **Enable Networking**.
 
-!["Trigger Location"](../img/LightBulb/image20.png){: .image-frame .center loading="lazy" }
+!!! info
+    You also can add trigger objects to a project from the **Core Content** window, in the **Gameplay Objects** section.
+
+![Trigger Location](../img/LightBulb/image20.png){: .image-frame .center loading="lazy" }
 
 !!! hint
     If you can't see a the trigger, press ++V++ to make it visible!
 
 ### Make the Trigger Interactable
 
-!["Interactable"](../img/LightBulb/image12.png){: .image-frame .center loading="lazy" }
+![Interactable](../img/LightBulb/image12.png){: .image-frame .center loading="lazy" }
 
 1. Look at the **Properties** window with the trigger selected. Under the **Gameplay** section there is a property called **Interactable**. Make sure the box is checked so players can interact with the trigger.
 2. Find the **Interaction Label** property, and change it to something like "Turn On"
@@ -117,7 +120,7 @@ The **Lightbulb & Switch** template includes a trigger, but you can add trigger 
 
 ## Setting the Custom Properties
 
-A very powerful feature of creating in Core is custom properties; they allow you to point reference to other objects or other data types, such as strings, numbers, etc.
+A very powerful feature of creating in Core is **Custom Properties**. They allow you to point reference to other objects in your game world or other data types. Data types include strings, numbers, booleans, etc.
 
 Thinking ahead before we begin scripting, we need to decide what custom properties we need.
 
