@@ -539,7 +539,7 @@ Your `OnTriggerInteracted()` function should now look like this:
 
 ```lua
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -572,7 +572,7 @@ Your `OnTriggerInteracted()` function should now look like this:
 
 ```lua
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -603,7 +603,7 @@ The OnTriggerInteracted function should look like:
 ```lua
 -- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -673,7 +673,7 @@ The OnTriggerInteracted function should look like:
 ```lua
 -- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     if isSwitchOn then
@@ -721,7 +721,7 @@ Now, you can replace the lines of code in our `OnTriggerInteracted` with these n
 ```lua
 -- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     -- Turns on or off the switch/light based on cached state
@@ -771,7 +771,7 @@ end
 
 -- Function to change the switch state and turn on/off the like
 function OnTriggerInteracted()
-    -- Flips the cached state of if the switch is on or off
+    -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
 
     -- Turns on or off the switch/light based on cached state
