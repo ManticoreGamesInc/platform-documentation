@@ -81,6 +81,7 @@ nav:
           - Modeling Reference: tutorials/modeling_reference.md
           - Networking: tutorials/networking.md
           - Object Generator: tutorials/object_generator.md
+          - Offline Storage: tutorials/offline_storage.md
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
