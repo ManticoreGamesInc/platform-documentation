@@ -49,6 +49,7 @@ nav:
           - Implementing Perks: perks/implementing_perks.md
       - Tutorials:
           - Abilities: tutorials/abilities.md
+          - AI Activities: tutorials/ai_activity_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
@@ -63,6 +64,7 @@ nav:
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
       - Core Editor Manual:
+          - AI: tutorials/ai_reference.md
           - Animated Meshes: tutorials/animated_mesh.md
           - Art in Core: tutorials/art_reference.md
           - Audio: tutorials/audio_reference.md
