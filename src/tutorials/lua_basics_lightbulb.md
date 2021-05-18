@@ -273,7 +273,7 @@ Switch:RotateTo(ROTATION_ON, TIME_ROTATE)
 ```
 
 !!! note
-    It is best to avoid **magic numbers** whenever possible. **Magic Numbers** are direct usage of numbers in code, such as if we did `Switch:RotateTo(Rotation.New(0, -60, 0), 0.1)`.
+    We defined the time to rotate with a new variable as this makes it easier to edit in the future. It is best to avoid **magic numbers** whenever possible. **Magic Numbers** are direct usage of numbers in code, such as if we did `Switch:RotateTo(Rotation.New(0, -60, 0), 2)`. If we did not define the time as a variable, it may be confusing when looking at the code later.
 
 ### Test out the Switch
 
