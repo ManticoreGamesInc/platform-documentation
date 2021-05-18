@@ -56,7 +56,7 @@ To make changes to the template, we first need to **Deinstance** it.
 
 Right click on the **Lightbulb & Switch** template in the **Hierarchy** and click **Deinstance This Object**.
 
-!["Right Click Content Menu"](../img/LightBulb/image8.png){: .image-frame .center loading="lazy" }
+![Right Click Content Menu](../img/LightBulb/image8.png){: .image-frame .center loading="lazy" }
 
 The template and the objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template can now be edited.
 
@@ -124,16 +124,16 @@ We will be using this trigger for the purposes of allowing them to interact with
 
 A very powerful feature of creating in Core is **Custom Properties**. They allow you to point reference to other objects in your game world or other data types. Data types include strings, numbers, booleans, etc.
 
-Thinking ahead before we begin scripting, we need to decide what custom properties we need.
+Thinking ahead before we begin scripting, we need to decide what **Custom Properties** we need.
 
-Being this is a lightbulb and switch, we know those are two custom properties we'll need already.
+Being this is a lightbulb and switch, we know we will have to reference those two objects.
 
 Additionally, in order to be able to allow the player's interaction to cause the switch to flip and the light to turn on, we'll need a reference to the trigger we just customized above.
 
 To add a custom property to the script, click on the script and then drag-and-drop the object we are referencing into the **Custom** section of the **Properties** window.
 
-It should now look like this:
-!["Custom Properties"](../img/LightBulb/CustomProperties.png){: .image-frame .center loading="lazy" }
+The **Custom Properties** section of the script should now look like this:
+![Custom Properties](../img/LightBulb/CustomProperties.png){: .image-frame .center loading="lazy" }
 
 ## Scripting References to Custom Properties
 
