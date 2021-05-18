@@ -440,8 +440,8 @@ Light.visibility = Visibility.INHERIT
 
 - `Light` is the object you are trying to alter.
 - `visiblity` is the property you are trying to change.
-- `Visibility` is an enum that contains states of visibility of an object: `FORCE_ON`, `FORCE_OFF`, or `INHERIT`.
-- `INHERIT` is the visibility enum you chose.
+- `Visibility` is a set of possible values with options of visibility that an object can be: `FORCE_ON`, `FORCE_OFF`, or `INHERIT`.
+- `INHERIT` is a value of Visibility that means the object is visible if its parent is visible.
 
 The OnTriggerInteracted function should look like:
 
