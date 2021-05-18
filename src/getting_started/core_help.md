@@ -18,7 +18,7 @@ The [Core Creator Forums](https://forums.coregames.com/) are full of tutorials, 
 
 ## Core Creator Discord
 
-The [Core Creator Discord](https://discord.gg/85k8A7V) is a live social space where there are frequently other creators available to discuss challenges and potential solutions. It also includes channels in other languages and a live voice chat. It's an excellent place to find playtesters and get feedback on your game.
+The [Core Creator Discord](https://discord.gg/core-creators) is a live social space where there are frequently other creators available to discuss challenges and potential solutions. It also includes channels in other languages and a live voice chat. It's an excellent place to find playtesters and get feedback on your game.
 
 ## Help Center
 

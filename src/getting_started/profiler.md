@@ -62,7 +62,7 @@ This can be useful for helping to debug your game on a live server.
 
 #### Player is Creator of Game being played
 
-*Server-side profiling is **only available for the creator** of the game being played.*
+!!!info "Server-side profiling is **only available for the creator** of the game being played."
 
 When the creator joins one of his profiling-enabled games in play-mode and activates the profiler, they will be able to see and access all 3 tabs **(Client, Server, Logs)** with the Logs tab able to see both the Client and Server logs.
 
@@ -123,9 +123,9 @@ Everything for a frame is first processed by the Game Thread. The results are pa
 
 |                         | Frame 1 | Frame 2 | Frame 3 | Frame 4 |
 | ----------------------- | ------- | ------- | ------- | ------- |
-| **Game Thread (CPU)**   | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } | Frame C{: .Color_YELLOW } | Frame D{: .Color_CYAN } |
-| **Render Thread (CPU)** |         | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } | Frame C{: .Color_YELLOW } |
-| **GPU**                 |         |         | Frame A{: .Color_GREEN } | Frame B{: .Color_PINK } |
+| **Game Thread (CPU)**   | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } | **Frame C**{: .Color_YELLOW } | **Frame D**{: .Color_CYAN } |
+| **Render Thread (CPU)** |         | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } | **Frame C**{: .Color_YELLOW } |
+| **GPU**                 |         |         | **Frame A**{: .Color_GREEN } | **Frame B**{: .Color_PINK } |
 
 **Frame Time:**
 
@@ -189,12 +189,10 @@ A couple of points to note:
 
 ### Memory Counters
 
-* **Terrain Memory**: Memory usage for terrain in scene
-* **Physics Memory**: Memory usage for physics (includes terrain, collision, triggers) in scene
-* **Lua Memory**: Memory usage for lua scripts running in scene
+* **Terrain Memory**: Memory usage for terrain in scene.
+* **Physics Memory**: Memory usage for physics (includes terrain, collision, triggers) in scene.
+* **Lua Memory**: Memory usage for lua scripts running in scene.
 
-Sources:
+## Sources
 
-[https://docs.unrealengine.com/en-US/Programming/Rendering/ParallelRendering/index.html](https://docs.unrealengine.com/en-US/Programming/Rendering/ParallelRendering/index.html)
-
-[https://www.unrealengine.com/en-US/blog/how-to-improve-game-thread-cpu-performance](https://www.unrealengine.com/en-US/blog/how-to-improve-game-thread-cpu-performance)
+[ParallelRendering on the Unreal Engine Wiki](https://docs.unrealengine.com/en-US/Programming/Rendering/ParallelRendering/index.html) | [How to Improve Game Thread CPU Performance Unreal Engine Blog](https://www.unrealengine.com/en-US/blog/how-to-improve-game-thread-cpu-performance)
