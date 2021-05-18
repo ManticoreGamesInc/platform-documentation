@@ -12,7 +12,7 @@ tags:
 
 In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action when a player interacts with it.
 
-Together, we will create something that brightens every room: a light switch!
+Together, you will create something that brightens every room: a light switch!
 
 When a player presses ++F++ while near the light switch, it will flip and either turn on or off the light. It will simulate an electric current to the bulb.
 
@@ -42,7 +42,7 @@ When a player presses ++F++ while near the light switch, it will flip and either
 ### Add Template to Project
 
 1. Hold left-click on the **Light Bulb & Switch** package icon and drag it into your project by either dragging it into the **Main Viewport** somewhere in your world or dragging it into your **Hierarchy**.
-2. Make sure **Selection Mode** is set to **Group** so we select the entire template when clicking on it in the **Main Viewport**. You can use the ++C++ key to switch between **Group Selection Mode** and **Object Selection Mode**.
+2. Make sure **Selection Mode** is set to **Group** so you select the entire template when clicking on it in the **Main Viewport**. You can use the ++C++ key to switch between **Group Selection Mode** and **Object Selection Mode**.
 3. Change the position of the template and its components where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](editor_intro.md) tutorial.
 
 ![Well lit](../img/LightBulb/image6.png){: .image-frame .center loading="lazy" }
@@ -52,7 +52,7 @@ When a player presses ++F++ while near the light switch, it will flip and either
 
 ### Deinstance the Lightbulb & Switch Template
 
-To make changes to the template, we first need to **Deinstance** it.
+To make changes to the template, you first need to **Deinstance** it.
 
 Right click on the **Lightbulb & Switch** template in the **Hierarchy** and click **Deinstance This Object**.
 
@@ -67,9 +67,9 @@ The template and the objects in the template will change from **blue**{: style="
 
 ![Create Script](../img/LightBulb/CreateScript.png){: .image-frame .center loading="lazy" }
 
-1. To get started making this light switch work, we are going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.
+1. To get started making this light switch work, you are going to create a new script by clicking the ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) **Create Script** button in the toolbar at the top of the editor.
 { .image-inline-text .image-background }
-2. Name this script whatever you want; we will be using `LightSwitchToggle`.
+2. Name this script whatever you want; you will be using `LightSwitchToggle`.
 3. Save the script by pressing ++Ctrl+S++.
 4. Open the contents of the **Lightbulb & Switch** template by clicking the drop down arrow to the left of its name in the Hierarchy.
 5. Open the **Project Content** window and open the **My Scripts** category. Drag the `LightSwitchToggle` from **Project Content** > **My Scripts** into the **Lightbulb & Switch** template group.
@@ -87,7 +87,7 @@ The template and the objects in the template will change from **blue**{: style="
 4. Lower the **Intensity** property until the light looks natural in your scene.
 5. In the **Lighting** section of **Properties**, check the box next to **Advanced Settings** to see more options to customize the light.
 6. Check the box for **Use Temperature**, and lower the **Temperature** property to create a warm glow color to the light.
-7. Since we want the light to be off by default, set the **Visibility** property to **Force Off**.
+7. Since you want the light to be off by default, set the **Visibility** property to **Force Off**.
 
 ![Point Light Properties](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
 
@@ -95,7 +95,7 @@ The template and the objects in the template will change from **blue**{: style="
 
 To create in-game interactions in Core, use a **Trigger**. A trigger defines the area and checks if any player enters, leaves, or presses the interact key, ++F++, near it.
 
-We will be using this trigger for the purposes of allowing them to interact with the switch. When a player pressed ++F++ near the light switch, it will activate the trigger and flip the switch.
+You will be using this trigger for the purposes of allowing them to interact with the switch. When a player pressed ++F++ near the light switch, it will activate the trigger and flip the switch.
 
 ![Trigger in Core Content](../img/LightBulb/trigger.png){: .image-frame .center loading="lazy" }
 
@@ -124,13 +124,13 @@ We will be using this trigger for the purposes of allowing them to interact with
 
 A very powerful feature of creating in Core is **Custom Properties**. They allow you to point reference to other objects in your game world or other data types. Data types include strings, numbers, booleans, etc.
 
-Thinking ahead before we begin scripting, we need to decide what **Custom Properties** we need.
+Thinking ahead before you begin scripting, you need to decide what **Custom Properties** you need.
 
-Being this is a lightbulb and switch, we know we will have to reference those two objects.
+Being this is a lightbulb and switch, you know you will have to reference those two objects.
 
-In order to be able to allow the player's interaction to cause the switch to flip and the light to turn on, we will also need a reference to the trigger we just customized above.
+In order to be able to allow the player's interaction to cause the switch to flip and the light to turn on, you will also need a reference to the trigger you just customized above.
 
-To add a custom property to the script, click on the script and then drag-and-drop the object we are referencing into the **Custom** section of the **Properties** window.
+To add a custom property to the script, click on the script and then drag-and-drop the object you are referencing into the **Custom** section of the **Properties** window.
 
 The **Custom Properties** section of the script should now look like this:
 ![Custom Properties](../img/LightBulb/CustomProperties.png){: .image-frame .center loading="lazy" }
@@ -139,11 +139,11 @@ The **Custom Properties** section of the script should now look like this:
 
 ### Reference the Switch
 
-We want our light switch to function just like a real one: the switch will point up or down depending on whether the light is turned on or off.
+You want our light switch to function just like a real one: the switch will point up or down depending on whether the light is turned on or off.
 
 First you will need to tell the script which object in the scene is the switch, so that it knows what to rotate. You will create a variable that defines what the switch is.
 
-To move the switch, we need a way to talk about the specific object from the game space in code.
+To move the switch, you need a way to talk about the specific object from the game space in code.
 
 Type the following into Line 1 of `LightSwitchToggle`:
 
@@ -151,15 +151,15 @@ Type the following into Line 1 of `LightSwitchToggle`:
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 ```
 
-- `local` is a **keyword** that indicates that you are making a variable. We use the term `local` here because it will only be accessible from this script rather than being accessible from other scripts.
+- `local` is a **keyword** that indicates that you are making a variable. You use the term `local` here because it will only be accessible from this script rather than being accessible from other scripts.
 - `Switch` is the variable name. You can name it anything but it's important to create variables with self-explanatory names so our scripts are easy to read and understand.
 - `script` refers to the script itself as it exists in the project.
-- `GetCustomProperty(string name)` is a function that gets a reference to the object in the **Custom Property** that we added in **Setting the Custom Properties**.
-- `WaitForObject()` is a function of the **Custom Property** object we referenced that prevents the script from trying to find it before it has been loaded into the game.
+- `GetCustomProperty(string name)` is a function that gets a reference to the object in the **Custom Property** that you added in **Setting the Custom Properties**.
+- `WaitForObject()` is a function of the **Custom Property** object you referenced that prevents the script from trying to find it before it has been loaded into the game.
 
 ### Reference the Light
 
-Since the switch will be turn on and off a light, we also need to add a reference of it into the script.
+Since the switch will be turn on and off a light, you also need to add a reference of it into the script.
 
 Type the following into the next line of `LightSwitchToggle`:
 
@@ -169,7 +169,7 @@ local Light = script:GetCustomProperty("Light"):WaitForObject()
 
 ### Reference the Trigger
 
-Finally, we need a reference to the trigger as this interaction is what will flip the switch and toggle the light.
+Finally, you need a reference to the trigger as this interaction is what will flip the switch and toggle the light.
 
 Type the following into the next line of `LightSwitchToggle`:
 
@@ -191,7 +191,7 @@ To figure out how to rotate the switch, you will rotate it around in game, and t
 
 ### Select the Switch
 
-Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because the entire group is what the `Switch` variable we defined earlier refers to.
+Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because the entire group is what the `Switch` variable you defined earlier refers to.
 
 ![Selected Switch Object](../img/LightBulb/updates/SelectedSwitchObject.png){: .image-frame .center loading="lazy" }
 
@@ -211,7 +211,7 @@ Look at the **Properties** window. In the **Transform** section. You should see 
 
 ### Rotate the Switch in the Editor
 
-To figure out where the switch needs to be for on/off state, we will reposition it using the **Rotate** tool and take note of final rotations that we want to change it to.
+To figure out where the switch needs to be for on/off state, you will reposition it using the **Rotate** tool and take note of final rotations that you want to change it to.
 
 1. Click the **green** ring on the **Rotate** tool to move the switch up and down, and take note of the change in the **Y** value of the switch's **Rotation** property.
 2. Press ++Ctrl+Z++ to return the switch to its original position.
@@ -234,8 +234,8 @@ local ROTATION_ON = Rotation.New(0, -60, 0)
 local ROTATION_OFF = Rotation.New(0, -130, 0)
 ```
 
-- `Rotation.New` means we are telling the script to rotate our object to a new set of coordinates.
-- `(x, y, z)` are the coordinates (respectively) of where we want our switch to rotate to. We want to rotate our switch up along the y-axis by 90 degrees.
+- `Rotation.New` means you are telling the script to rotate our object to a new set of coordinates.
+- `(x, y, z)` are the coordinates (respectively) of where you want our switch to rotate to. You want to rotate our switch up along the y-axis by 90 degrees.
 
 !!! note
     You will almost always use `Rotation.New` when rotating an object, but there is also a predefined Rotation called `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
@@ -255,7 +255,7 @@ Switch:RotateTo(ROTATION_ON, TIME_ROTATE)
 ```
 
 - `Switch` tells the script to rotate the object attached to this variable.
-- `RotateTo(rotation, time)` is an function that tells Core we want to rotate an object.
+- `RotateTo(rotation, time)` is an function that tells Core you want to rotate an object.
 - `TIME_ROTATE` is the time it should take to complete the rotation. Storing this as a variable makes it really easy to edit in the future.
 
 The script should now look like this:
@@ -273,7 +273,7 @@ Switch:RotateTo(ROTATION_ON, TIME_ROTATE)
 ```
 
 !!! note
-    We defined the time to rotate with a new variable as this makes it easier to edit in the future. It is best to avoid **magic numbers** whenever possible. **Magic Numbers** are direct usage of numbers in code, such as if we did `Switch:RotateTo(Rotation.New(0, -60, 0), 2)`. If we did not define the time as a variable, it may be confusing when looking at the code later.
+    You define the time to rotate with a new variable as this makes it easier to edit in the future. It is best to avoid **magic numbers** whenever possible. **Magic Numbers** are direct usage of numbers in code, such as if you did `Switch:RotateTo(Rotation.New(0, -60, 0), 2)`. If you did not define the time as a variable, it may be confusing when looking at the code later.
 
 ### Test out the Switch
 
@@ -281,12 +281,12 @@ Let's press **Play** and see how our switch moves!
 
 !["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .image-frame .center loading="lazy" }
 
-Unfortunately that didn't quite work out the way we wanted...
+Unfortunately that didn't quite work out the way you wanted...
 Depending on where in the scene you placed your light switch, it might look like this image, where the switch rotated sideways instead of up.
 
 ### Change the Rotation to Local Space
 
-To get the script to rotate the switch the way we want, only along the y-axis, it needs to know to move **relative to its original position**. Luckily in this case the `RotateTo()` function has an *optional* parameter that we can add to specify that we want the rotation to happen relative to its own space.
+To get the script to rotate the switch the way you want, only along the y-axis, it needs to know to move **relative to its original position**. Luckily in this case the `RotateTo()` function has an *optional* parameter that you can add to specify that you want the rotation to happen relative to its own space.
 
 ![RotateTo on the Core API](../img/LightBulb/updates/RotateToThirdParameter.png){: .image-frame .center loading="lazy" }
 
@@ -296,7 +296,7 @@ Change the last line to look like this:
 Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
 ```
 
-By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If we were to enter `false` instead, or enter nothing like we did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
+By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If you were to enter `false` instead, or enter nothing like you did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
 
 Press **Play** and test it out!
 
@@ -308,7 +308,7 @@ So far, you have made a script that moves the light switch, but this happens aut
 
 ### Create a Function for the Trigger
 
-Now that the script knows which object we are using as a trigger, we need to define what happens when we interact with the trigger.
+Now that the script knows which object you are using as a trigger, you need to define what happens when you interact with the trigger.
 
 After your rotation statement, type:
 
@@ -319,14 +319,14 @@ end
 ```
 
 - A `function` is a set of actions that the script carries out every time the function is referenced in the script.
-- `OnTriggerInteracted` is the name of the function we are deciding to give it. You can name it anything, but the name chosen will make sense when we get into events later on.
+- `OnTriggerInteracted` is the name of the function you are deciding to give it. You can name it anything, but the name chosen will make sense when you get into events later on.
 - `end` tells the script the function is over.
 
 This function will define what happens when the player interacts with the trigger.
 
 ### Move the Switch Code into the Function
 
-Eventually we want the switch to flip up and down when the player interacts with it, turning the light on and off. For now we'll just place our rotate statement inside it, which is just the switch turning down.
+Eventually you want the switch to flip up and down when the player interacts with it, turning the light on and off. For now you will just place our rotate statement inside it, which is just the switch turning down.
 
 Cut and paste the `RotateTo` statement into our `OnTriggerInteracted` function.
 
@@ -356,12 +356,12 @@ Trigger.interactedEvent:Connect(OnTriggerInteracted)
 
 - `Trigger` is the variable name of this trigger.
 - `interactedEvent:Connect(function)` tells the script every time the player interacts with trigger to execute the function passed to the `Connect()` function.
-- `OnTriggerInteracted` is the name of the function we are connecting.
+- `OnTriggerInteracted` is the name of the function you are connecting.
 
 Without this statement the script will never call the `OnSwitchInteraction` function.
 
 !!! note
-    It is convention to name the callback of an event (the function that is called when the event is fired) to be `On` + **Event Name** in PascalCase. So, for this example, we would use `OnInteracted` but decided to use `OnTriggerInteracted` to provide more clarity.
+    It is convention to name the callback of an event (the function that is called when the event is fired) to be `On` + **Event Name** in PascalCase. So, for this example, you would use `OnInteracted` but decided to use `OnTriggerInteracted` to provide more clarity.
 
 ### Test Out the Script
 
@@ -410,7 +410,7 @@ Organized code is easily read and understood. Using **clear variable and functio
 Programmers use comments to define and explain certain parts of their code. Add comments to your code to make the purpose of each section clear.
 
 ```lua
--- References to the objects we will be interacting with in the script.
+-- References to the objects you will be interacting with in the script.
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 local Light = script:GetCustomProperty("Light"):WaitForObject()
 local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
@@ -441,10 +441,10 @@ In the `OnTriggerInteracted()` function under our `RotateTo()` statement, type:
 Light.visibility = Visibility.INHERIT
 ```
 
-- `Light` is the object we are trying to alter.
-- `visiblity` is the property we are trying to change.
+- `Light` is the object you are trying to alter.
+- `visiblity` is the property you are trying to change.
 - `Visibility` is an enum that contains states of visibility of an object: `FORCE_ON`, `FORCE_OFF`, or `INHERIT`.
-- `INHERIT` is the visibility enum we chose.
+- `INHERIT` is the visibility enum you chose.
 
 The OnTriggerInteracted function should look like:
 
@@ -469,12 +469,12 @@ Add this new variable to the top of your script, under the constants:
 local isSwitchOn = false
 ```
 
-- `isSwitchOn` is the name of the variable we'll use to keep track of the switch being on and off.
+- `isSwitchOn` is the name of the variable you will use to keep track of the switch being on and off.
 - `false` is a type of data called a **Boolean**. The starting state for the switch is false, because the light starts out off.
 
 ### Switch the Variable between True and False
 
-Next, we need to tell the script to switch `isSwitchOn` from `false` to `true`, when we turn on the light.
+Next, you need to tell the script to switch `isSwitchOn` from `false` to `true`, when you turn on the light.
 
 At the top of the `OnTriggerInteracted()` function, type:
 
@@ -585,7 +585,7 @@ function OnTriggerInteracted()
 end
 ```
 
-Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, we still need to turn off the light when the light switch is turned off.
+Press **Play** to see if your `else` statement works. The switch should now rotate up when first interacted with, then down on your second interaction with it. However, you still need to turn off the light when the light switch is turned off.
 
 ## Turning the Light Off
 
@@ -639,16 +639,16 @@ Before the `Trigger.interactedEvent` line, add this:
 Trigger.interactionLabel = "Turn On"
 ```
 
-- `Trigger` is the name of the trigger we are editing the label of.
-- `interactionLabel` is the property of the trigger we are editing.
-- `=` is an assignment, meaning we are setting a property to what comes afterwards.
+- `Trigger` is the name of the trigger you are editing the label of.
+- `interactionLabel` is the property of the trigger you are editing.
+- `=` is an assignment, meaning you are setting a property to what comes afterwards.
 - `"Turn On"` is a text string, basically what the label will say.
 
 ### Test the Label Change
 
 Press **Play** and check label changed from **Turn on Light** to **Turn off Light** as soon as the scene loads.
 
-We can remove that now and add it as a part of the `OnTriggerInteracted()` function.
+You can remove that now and add it as a part of the `OnTriggerInteracted()` function.
 
 ### Creating Constant Variables for the Interaction Labels
 
@@ -717,7 +717,7 @@ function TurnOff()
 end
 ```
 
-Now, we can replace the lines of code in our `OnTriggerInteracted` with these new functions.
+Now, you can replace the lines of code in our `OnTriggerInteracted` with these new functions.
 
 ```lua
 -- Function to change the switch state and turn on/off the like
@@ -741,7 +741,7 @@ You have now learned how a script can move and interact with objects within your
 ### Finished Script
 
 ```lua
--- References to the objects we will be interacting with in the script.
+-- References to the objects you will be interacting with in the script.
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 local Light = script:GetCustomProperty("Light"):WaitForObject()
 local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
