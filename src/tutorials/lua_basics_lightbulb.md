@@ -417,7 +417,7 @@ local ROTATION_ON = Rotation.New(0, -60, 0)
 local ROTATION_OFF = Rotation.New(0, -130, 0)
 local TIME_ROTATE = 0.1
 
--- Function to rotate the switch when the trigger is interacted with
+-- Function to flip the switch
 function OnTriggerInteracted()
     Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
 end
@@ -601,7 +601,7 @@ Light.visibility = Visibility.FORCE_OFF
 The OnTriggerInteracted function should look like:
 
 ```lua
--- Function to change the switch state and turn on/off the like
+-- Function to flip the switch and turn the light on/off
 function OnTriggerInteracted()
     -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
@@ -671,7 +671,7 @@ Inside the `if isSwitchOn then` section, add:
 The OnTriggerInteracted function should look like:
 
 ```lua
--- Function to change the switch state and turn on/off the like
+-- Function to flip the switch and turn the light on/off
 function OnTriggerInteracted()
     -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
@@ -719,7 +719,7 @@ end
 Now, you can replace the lines of code in our `OnTriggerInteracted` with these new functions.
 
 ```lua
--- Function to change the switch state and turn on/off the like
+-- Function to flip the switch and turn the light on/off
 function OnTriggerInteracted()
     -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
@@ -769,7 +769,7 @@ function TurnOff()
     Trigger.interactionLabel = LABEL_WHEN_OFF
 end
 
--- Function to change the switch state and turn on/off the like
+-- Function to flip the switch and turn the light on/off
 function OnTriggerInteracted()
     -- Saves a way for the script to look up of the switch is currently on or off
     isSwitchOn = not isSwitchOn
