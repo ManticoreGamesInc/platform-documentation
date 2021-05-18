@@ -596,7 +596,7 @@ In the `OnTriggerInteracted()` in the else statement under the `RotateTo()` func
 Light.visibility = Visibility.FORCE_OFF
 ```
 
-- `FORCE_FF` disables visibility.
+- `FORCE_OFF` makes the light completely invisible, such as if you were to turn off a light in real life.
 
 The OnTriggerInteracted function should look like:
 
