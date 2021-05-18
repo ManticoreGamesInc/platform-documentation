@@ -119,4 +119,4 @@ L'Éditeur Core enregistre automatiquement votre projet de façon régulière, m
 
 ## En savoir plus
 
-[Your First Game](my_first_multiplayer_game.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
+[Your First Game](my_first_multiplayer_game.fr.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
