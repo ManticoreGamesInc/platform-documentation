@@ -203,7 +203,7 @@ Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/
 ![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
 
 !!! hint
-    Learning the editor bindings, such that ++E++ switches to **Rotation** mode can help productivity and speed while using the Core editor.
+    The editor keyboard shortcuts, such that ++E++ switches to **Rotation** mode, can help productivity and speed while using the Core editor. Check out all the keybindings in our [Editor Keybindings](editor_keybindings.md) reference.
 
 Look at the **Properties** window. In the **Transform** section. You should see a property called **Rotation** with an **X**, **Y**, and **Z** value.
 
