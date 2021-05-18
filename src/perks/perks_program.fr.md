@@ -14,7 +14,7 @@ tags:
 
 # À propos du programme Avantages et de la monétisation
 
-Le programme Avantages permet aux créateurs Core d'être rémunérés par leurs jeux, grâce à un système de monétisation très complet pouvant être adapté à n'importe quel type de jeu. [Participer au programme](joining_perks.md) vous donne accès à des [**Avantages**](implementing_perks.md), des achats en jeu spécialement conçus pour Core.
+Le programme Avantages permet aux créateurs Core d'être rémunérés par leurs jeux, grâce à un système de monétisation très complet pouvant être adapté à n'importe quel type de jeu. [Participer au programme](joining_perks.fr.md) vous donne accès à des [**Avantages**](implementing_perks.fr.md), des achats en jeu spécialement conçus pour Core.
 
 Pour pouvoir ajouter des Avantages à vos jeux, deux conditions doivent être remplies:
 
@@ -45,7 +45,7 @@ Les Avantages s'ajoutent dans l'Éditeur Core, où le créateur peut définir le
 
 Lorsqu'un joueur achète un Avantage, Core gère la transaction du début à la fin. Les Crédits sont ajoutés au compte du créateur, et celui-ci peut alors les dépenser dans d'autres jeux Core ou dans la boutique Core.
 
-Pour en savoir plus sur la création d'Avantages dans vos jeux, consultez l'article dédié [Perks reference](implementing_perks.md).
+Pour en savoir plus sur la création d'Avantages dans vos jeux, consultez l'article dédié [Perks reference](implementing_perks.fr.md).
 
 ## Échanger des Crédits Core
 
@@ -77,10 +77,10 @@ En utilisant Core, les créateurs touchent une part plus importante de leurs rev
 
 ## Postuler au programme Avantages
 
-Lorsque vous aurez atteint le minimum d'utilisateurs actifs quotidiens, vous pourrez [postuler au programme Avantages](joining_perks.md) ici. Si vous souhaitez des conseils pour améliorer votre jeu afin d'atteindre le minimum d'utilisateurs actifs quotidiens, consultez le [guide dédié](https://docs.coregames.com/tutorials/improving_your_game/).
+Lorsque vous aurez atteint le minimum d'utilisateurs actifs quotidiens, vous pourrez [postuler au programme Avantages](joining_perks.fr.md) ici. Si vous souhaitez des conseils pour améliorer votre jeu afin d'atteindre le minimum d'utilisateurs actifs quotidiens, consultez le [guide dédié](https://docs.coregames.com/tutorials/improving_your_game/).
 
 ---
 
 ## En savoir plus
 
-[Implémenter des Avantages](implementing_perks.md) | [Analyse de données](creator_analytics.md) | [Comment participer au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [S'inscrire au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Recommandations pour la création d'Avantages](perks_rules.md)
+[Implémenter des Avantages](implementing_perks.fr.md) | [Analyse de données](creator_analytics.md) | [Comment participer au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [S'inscrire au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Recommandations pour la création d'Avantages](perks_rules.fr.md)

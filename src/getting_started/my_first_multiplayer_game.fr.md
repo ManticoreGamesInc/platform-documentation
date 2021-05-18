@@ -16,7 +16,7 @@ tags:
 Lancez-vous dans la création d'un jeu grâce au modèle Match à mort de Core Personnalisez selon vos envies pour développer un jeu de tir multijoueur en arène.
 
 - **Durée:** 10 minutes.
-- **Connaissances préalables:** [Installer Core](installing_core.md)
+- **Connaissances préalables:** [Installer Core](installing_core.fr.md)
 - **Compétences enseignées:**
     - Modèles de Core
     - Contenus Core
@@ -268,8 +268,8 @@ Déplaçons le "point de départ des joueurs" afin que les joueurs apparaissent 
 
 ## Publier un jeu
 
-Vous avez désormais créé un jeu de style match à mort complet et unique. Si vous êtes prêt(e) à le tester avec de vrais joueurs humains, alors [publiez votre jeu](publishing.md)
+Vous avez désormais créé un jeu de style match à mort complet et unique. Si vous êtes prêt(e) à le tester avec de vrais joueurs humains, alors [publiez votre jeu](publishing.fr.md)
 
 ## Étapes suivantes
 
-[Publier un jeu](publishing.md) | [Tutoriel sur le terrain](environment_art.md) | [Tutoriel de base sur les armes](weapons.md) | [Tutoriel sur les aptitudes](abilities.md)
+[Publier un jeu](publishing.fr.md) | [Tutoriel sur le terrain](environment_art.md) | [Tutoriel de base sur les armes](weapons.md) | [Tutoriel sur les aptitudes](abilities.md)

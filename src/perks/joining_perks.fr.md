@@ -12,7 +12,7 @@ tags:
 
 Participer au programme Avantages permet aux créateurs Core d'être rémunérés par leurs jeux, grâce à un système de monétisation très complet pouvant être adapté à n'importe quel type de jeu.
 
-Pour une présentation détaillée du programme, consultez l'article [Programme Avantages](perks_program.md), ainsi que l'article [Référence Avantage](implementing_perks.md) pour apprendre comment les implémenter en jeu.
+Pour une présentation détaillée du programme, consultez l'article [Programme Avantages](perks_program.fr.md), ainsi que l'article [Référence Avantage](implementing_perks.fr.md) pour apprendre comment les implémenter en jeu.
 
 ## Conditions nécessaires pour participer au programme Avantages
 
@@ -38,4 +38,4 @@ Pour savoir comment rejoindre le programme, consultez l'article Participer au pr
 
 ## En savoir plus
 
-[Le programme Avantages](perks_program.md) | [Implémenter des Avantages](implementing_perks.md) | [Analyse de données](creator_analytics.md) | [Participer au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program)
+[Le programme Avantages](perks_program.fr.md) | [Implémenter des Avantages](implementing_perks.fr.md) | [Analyse de données](creator_analytics.md) | [Participer au programme Avantages](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program)

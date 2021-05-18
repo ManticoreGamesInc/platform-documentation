@@ -36,4 +36,4 @@ Si nous découvrons qu'un créateur abuse du système d'Avantages, ou si plusieu
 
 ## En savoir plus
 
-[Le programme Avantages](perks_program.md) | [Implémenter des Avantages](implementing_perks.md)
+[Le programme Avantages](perks_program.fr.md) | [Implémenter des Avantages](implementing_perks.fr.md)
