@@ -628,14 +628,14 @@ Save and press **Play** to test the latest changes. The lightbulb should illumin
 
 Right now, the light switch trigger always says "Turn On". You can add more polish to a project by changing the interaction label based on what it should do each time.
 
-### Change the Interact Label to "Turn off Light"
-
 There are two ways to change a trigger's label:
 
 - You can do it by going to the trigger's **Properties** and editing the **Interaction Label** field.
 - You could also do it with a script.
 
 For the purposes of this tutorial, you will be doing it with the script as it needs to be dynamic.
+
+### Test Changing Interaction Labels
 
 Before the `Trigger.interactedEvent` line, add this:
 
@@ -654,7 +654,7 @@ Press **Play** and check label changed from **Turn on Light** to **Turn off Ligh
 
 You can remove that now and add it as a part of the `OnTriggerInteracted()` function.
 
-### Creating Constant Variables for the Interaction Labels
+### Create Constant Variables for the Interaction Labels
 
 Now it is time to create variables for the text you will use when changing the interaction label of the trigger each time the Trigger is interacted with.
 
@@ -664,6 +664,8 @@ Add these to the list of constants:
 local LABEL_WHEN_ON = "Turn Off"
 local LABEL_WHEN_OFF = "Turn On"
 ```
+
+### Assign the Interaction Labels When a Player Interacts With the Trigger
 
 Now, let's add these assignments to the `OnTriggerInteracted()` function.
 
