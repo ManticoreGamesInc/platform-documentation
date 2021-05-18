@@ -20,14 +20,13 @@ The Core Documentation Platform is built on [mkdocs](https://github.com/mkdocs/m
 - [mkdocs-material-extensions](https://github.com/facelessuser/mkdocs-material-extensions)
 - [mkdocs-redirects](https://github.com/datarobot/mkdocs-redirects)
 - [mkdocs-static-i18n](https://github.com/ultrabug/mkdocs-static-i18n/)
-- [mkdocs-plugin-tags](https://github.com/jldiaz/mkdocs-plugin-tags) ([modified](https://github.com/stanzilla/mkdocs-plugin-tags/))
 
 ## Related Repositories
 
-- [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A Visual Studio Code extension that provides basic autocomplete support for the Core Games Lua API. (public)
+- [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A [VS Code](https://code.visualstudio.com/) extension that provides basic autocomplete support for the Core Lua API. (public)
 - [external-editor-api-support](https://github.com/ManticoreGamesInc/external-editor-api-support) - Generates the `.luacompleterc` file in the `src/assets/api` directory. (private)
 - [LuaAPIDocumentation](https://github.com/ManticoreGamesInc/LuaAPIDocumentation) - Generates the API pages in `src/api/` as well as the index and enums pages and the `.luacheckrc` file. (private)
-- [mkdocs-material](https://github.com/ManticoreGamesInc/mkdocs-material) - Is the submodule that provides the theme. (public)
+- [mkdocs-material](https://github.com/ManticoreGamesInc/mkdocs-material) - Our fork of the [mkdocs-material](https://github.com/squidfunk/mkdocs-material/) theme. Included as a submodule. (public)
 
 ## Branch Structure
 
