@@ -151,11 +151,11 @@ Type the following into Line 1 of `LightSwitchToggle`:
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 ```
 
-- `local` is a **keyword** that indicates that you are making a variable. We use the term `local` here because it will only be accessible from this script rather than being accessible from external scripts, or globally.
+- `local` is a **keyword** that indicates that you are making a variable. We use the term `local` here because it will only be accessible from this script rather than being accessible from other scripts.
 - `Switch` is the variable name. You can name it anything but it's important to create variables with self-explanatory names so our scripts are easy to read and understand.
 - `script` refers to the script itself as it exists in the project.
-- `GetCustomProperty(string name)` is a function that gets a reference to the object in the custom property that is a part of the script.
-- `WaitForObject()` is a function that is a part of an `CoreObjectReference` that returns the actual object as it exists in the **Main Viewport** and **Hierarchy**.
+- `GetCustomProperty(string name)` is a function that gets a reference to the object in the **Custom Property** that we added in **Setting the Custom Properties**.
+- `WaitForObject()` is a function of the **Custom Property** object we referenced that prevents the script from trying to find it before it has been loaded into the game.
 
 ### Reference the Light
 
