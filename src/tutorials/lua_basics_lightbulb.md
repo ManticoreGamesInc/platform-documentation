@@ -128,7 +128,7 @@ Thinking ahead before we begin scripting, we need to decide what **Custom Proper
 
 Being this is a lightbulb and switch, we know we will have to reference those two objects.
 
-Additionally, in order to be able to allow the player's interaction to cause the switch to flip and the light to turn on, we'll need a reference to the trigger we just customized above.
+In order to be able to allow the player's interaction to cause the switch to flip and the light to turn on, we will also need a reference to the trigger we just customized above.
 
 To add a custom property to the script, click on the script and then drag-and-drop the object we are referencing into the **Custom** section of the **Properties** window.
 
