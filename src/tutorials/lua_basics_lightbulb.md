@@ -797,4 +797,4 @@ Trigger.interactedEvent:Connect(OnTriggerInteracted)
 
 ## Learn More
 
-[Scripting in Core](scripting_intro.md) | [Core API](../api/index.md) | [Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/)
+[Scripting in Core](scripting_intro.md) | [Core API](../api/index.md) | [Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/) | [Rotation API](../api/rotation.md) | [Trigger API](../api/trigger.md)
