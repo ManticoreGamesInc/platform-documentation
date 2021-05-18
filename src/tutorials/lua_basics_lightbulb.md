@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action upon player interaction.
+In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action when a player interacts with it.
 
 Together, we will create something that brightens every room: a light switch!
 
@@ -38,6 +38,8 @@ When a player presses ++F++ while near the light switch, it will flip and either
 { .image-inline-text .image-background }
 
 ![Open Light Switch Template](../img/LightBulb/updates/LuaLightbulb_OpenLightSwitchTemplate.png){: .image-frame .center loading="lazy" }
+
+### Add Template to Project
 
 1. Hold left-click on the **Light Bulb & Switch** package icon and drag it into your project by either dragging it into the **Main Viewport** somewhere in your world or dragging it into your **Hierarchy**.
 2. Make sure **Selection Mode** is set to **Group** so we select the entire template when clicking on it in the **Main Viewport**. You can use the ++C++ key to switch between **Group Selection Mode** and **Object Selection Mode**.
