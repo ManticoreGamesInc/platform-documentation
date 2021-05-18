@@ -407,12 +407,12 @@ Organized code is easily read and understood. Using **clear variable and functio
 Programmers use comments to define and explain certain parts of their code. Add comments to your code to make the purpose of each section clear.
 
 ```lua
--- References to the objects you will be interacting with in the script.
+-- References used when interacting with the scene objects
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 local Light = script:GetCustomProperty("Light"):WaitForObject()
 local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
 
--- Constants used when interacting with the scene objects.
+-- Constants used when interacting with the scene objects
 local ROTATION_ON = Rotation.New(0, -60, 0)
 local ROTATION_OFF = Rotation.New(0, -130, 0)
 local TIME_ROTATE = 0.1
@@ -738,7 +738,7 @@ You have now learned how a script can move and interact with objects within your
 ### Finished Script
 
 ```lua
--- References to the objects you will be interacting with in the script.
+-- References used when interacting with the scene objects
 local Switch = script:GetCustomProperty("Switch"):WaitForObject()
 local Light = script:GetCustomProperty("Light"):WaitForObject()
 local Trigger = script:GetCustomProperty("Trigger"):WaitForObject()
