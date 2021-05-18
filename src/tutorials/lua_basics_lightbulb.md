@@ -28,7 +28,7 @@ When a player presses ++F++ while near the light switch, it will flip and either
 2. In the search bar of the window, search `switch` and find **Lightbulb & Switch** by ***CoreAcademy***.
 3. Click **Import** to download the template into your project.
 
-![Lightbulb and Switch on Community Content](../img/LightBulb/updates/CCLightbulb.png){: .image-frame .center loading="lazy" }
+![Lightbulb and Switch on Community Content](../img/LightBulb/TemplateOnCC.png){: .image-frame .center loading="lazy" }
 
 ### Open the Template
 
