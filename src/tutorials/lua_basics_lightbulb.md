@@ -95,6 +95,8 @@ The template and the objects in the template will change from **blue**{: style="
 
 To create in-game interactions in Core, use a **Trigger**. A trigger defines the area and checks if any player enters, leaves, or presses the interact key, ++F++, near it.
 
+We will be using this trigger for the purposes of allowing them to interact with the switch. When a player pressed ++F++ near the light switch, it will activate the trigger and flip the switch.
+
 ![Trigger in Core Content](../img/LightBulb/trigger.png){: .image-frame .center loading="lazy" }
 
 1. Right-click the template and left-click **Add Gameplay Object** > **Add Trigger**.
