@@ -241,8 +241,8 @@ Maintenant que votre jeu est prêt, il est temps de le tester sérieusement avan
 2. Appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) pour lancer l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque participant.
 {: .image-inline-text .image-background }
 
-Essayez vos donjons, testez le comportement des ennemis, les objets de la boutique et assurez-vous que les joueurs ne puissent pas se retrouver bloqués dans le décor. Une fois que le jeu vous semble bon, vous pouvez passer à [publish](publishing.md)!
+Essayez vos donjons, testez le comportement des ennemis, les objets de la boutique et assurez-vous que les joueurs ne puissent pas se retrouver bloqués dans le décor. Une fois que le jeu vous semble bon, vous pouvez passer à [publish](publishing.fr.md)!
 
 ## En savoir plus
 
-[Publishing Your Game](publishing.md) | [Dungeon Crawler Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](publishing.fr.md) | [Dungeon Crawler Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)

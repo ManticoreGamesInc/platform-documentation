@@ -10,7 +10,7 @@ tags:
 
 ## Aperçu
 
-Les Avantages sont le système permettant de créer des achats au sein du jeu, afin que les joueurs puissent soutenir les créateurs en échange de contenu exclusif. Pour utiliser les Avantages dans un jeu, les créateurs doivent remplir certaines conditions [minimum requirements](joining_perks.md) et postuler au Programme Avantages [Perks Program](perks_program.md).
+Les Avantages sont le système permettant de créer des achats au sein du jeu, afin que les joueurs puissent soutenir les créateurs en échange de contenu exclusif. Pour utiliser les Avantages dans un jeu, les créateurs doivent remplir certaines conditions [minimum requirements](joining_perks.fr.md) et postuler au Programme Avantages [Perks Program](perks_program.fr.md).
 
 ## Types d'Avantages
 
@@ -164,4 +164,4 @@ La couleur d'un Avantage ![Perks Icon](../img/EditorManual/icons/AssetType_PerkR
 
 ## En savoir plus
 
-[The Perks Program](perks_program.md) | [Core API Reference](../api/player.md) | [Joining the Perks Program](joining_perks.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.md)
+[The Perks Program](perks_program.fr.md) | [Core API Reference](../api/player.md) | [Joining the Perks Program](joining_perks.fr.md) | [About In-Game Perks](https://support.coregames.com/hc/en-us/articles/360060361453-About-In-Game-Perks) | [Guidelines for Creating Perks](perks_rules.fr.md)
