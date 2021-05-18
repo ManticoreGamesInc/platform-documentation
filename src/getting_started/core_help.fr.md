@@ -18,7 +18,7 @@ La section Foire Aux Questions [The Frequently Asked Questions](https://support.
 
 ## Discord des créateurs Core
 
-Le Discord des créateurs Core [Core Creator Discord](https://discord.gg/85k8A7V) est un serveur social en direct sur lequel vous trouverez régulièrement d'autres créateurs avec qui discuter de vos problèmes et des solutions potentielles. Il propose des salons dans différentes langues et un système de discussion audio. C'est l'endroit idéal pour trouver des testeurs et obtenir des avis sur votre jeu.
+Le Discord des créateurs Core [Core Creator Discord](https://discord.gg/core-creators) est un serveur social en direct sur lequel vous trouverez régulièrement d'autres créateurs avec qui discuter de vos problèmes et des solutions potentielles. Il propose des salons dans différentes langues et un système de discussion audio. C'est l'endroit idéal pour trouver des testeurs et obtenir des avis sur votre jeu.
 
 ## Centre d'assistance
 
