@@ -97,7 +97,7 @@ Any objects in a client context cannot be collided with by players or targetted 
 
 Scripts inside of a client context will run on the client side,but can only affect things that are in the client context. So a client context script cannot move an object in the default context, for example, even if that object were networked.
 
-If you need to have a script in a client context affect server logic, use `Events.BroadcastToServer()`. See the [Core API](https://docs.coregames.com/core_api/#events) for more information.
+If you need to have a script in a client context affect server logic, use `Events.BroadcastToServer()`. See the [Core API](../api/events.md) for more information.
 ​
 !!! note
     Every child of the client context is ignored by the server, but the client context ITSELF is still a normal object that can be referenced by Lua scripts and (if it is marked as networked) moved or manipulated.
