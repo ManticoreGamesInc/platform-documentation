@@ -85,7 +85,7 @@ for i, entry in ipairs(leaderboard) do
     end
     -- Get the additional data
     local playerLevel = data["level"] or 0
-    
+
     print(i .. ")", entry.name, ":", entry.score, "- Level " .. playerLevel)
 end
 ```
@@ -206,7 +206,7 @@ Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 
 ## Tutorials
 
-Check out our [Persistent Data Storage in Core](../tutorials/persistent_storage_tutorial/) tutorial to learn how to apply this API in practice.
+Check out our [Persistent Data Storage in Core](../tutorials/persistent_storage_tutorial.md) tutorial to learn how to apply this API in practice.
 
 ## Learn More
 
