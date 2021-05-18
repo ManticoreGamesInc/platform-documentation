@@ -91,7 +91,7 @@ The template and the objects in the template will change from **blue**{: style="
 
 !["Point Light Properties"](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
 
-### Find the Trigger
+### Add a Trigger
 
 To create in-game interactions in Core, use a **Trigger**. A trigger defines the area and checks if any player enters, leaves, or presses the interact key, ++F++, near it.
 
