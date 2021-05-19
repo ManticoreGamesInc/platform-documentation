@@ -193,14 +193,14 @@ To figure out how to rotate the switch, you will rotate it around in game, and t
 
 Click on the **Switch (networked)** group in the **Hierarchy** to select it. Note that you will need to select the entire group, not just the cube inside of it, because the entire group is what the `Switch` variable you defined earlier refers to.
 
-![Selected Switch Object](../img/LightBulb/updates/SelectedSwitchObject.png){: .image-frame .center loading="lazy" }
+![Selected Switch Object](../img/LightBulb/SelectedSwitchObject.png){: .image-frame .center loading="lazy" }
 
 ### Find the Switch's Current Rotation
 
 Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/Icon_TransformRotation.png) button, or pressing ++E++
 { .image-inline-text .image-background }
 
-![Switch Rotation Mode](../img/LightBulb/updates/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
+![Switch Rotation Mode](../img/LightBulb/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
 
 !!! hint
     The editor keyboard shortcuts, such that ++E++ switches to **Rotation** mode, can help productivity and speed while using the Core editor. Check out all the keybindings in our [Editor Keybindings](editor_keybindings.md) reference.
