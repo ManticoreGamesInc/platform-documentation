@@ -550,7 +550,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
             player:RemoveResource("Crowbar", 1)
             propChestSmallClosed.visibility = Visibility.FORCE_OFF
             propChestSmallOpened.visibility = Visibility.INHERIT
-            World.SpawnAsset(propOpeningVFX, (position = theTrigger:GetWorldPosition()))
+            World.SpawnAsset(propOpeningVFX, {position = theTrigger:GetWorldPosition()})
             theTrigger:Destroy()
         else
             UI.PrintToScreen("No crowbar")
