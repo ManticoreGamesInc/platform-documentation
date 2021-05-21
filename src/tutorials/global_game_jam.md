@@ -1,23 +1,16 @@
 ---
 id: global_game_jam
-name: Core for Global Game Jam
-title: Learn Core for Global Game Jam
+name: Core for Game Jams
+title: Core for Game Jams
 tags:
     - Reference
 ---
 
-# Learn Core for Global Game Jam
+# Core for Game Jams
 
 ## Welcome to Core
 
-<lite-youtube videoid="fL6HMs9frgw" playlabel="GGJ Online (2021) Keynote and Theme Reveal Video"></lite-youtube>
-{: .video-container }
-
-Welcome Global Game Jammers!
-
 Core is a complete game development, publishing, and multiplayer hosting platform that combines ease of use with professional polish. In this document, you will find an essential outline of the systems in Core and directions to the tutorials and tools that will get you creating right away.
-
-This year, Manticore Games sponsored a [Global Game Jam Diversifier](https://globalgamejam.org/news/ggj-online-diversifiers) to make a game in Core that incorporates Community Content by another Global Game Jammer. Here you can learn where to start, what Community Content is, and all the ways you can leverage Core to quickly iterate through your game idea.
 
 ### Coming from Other Platforms
 
