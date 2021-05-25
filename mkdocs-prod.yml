@@ -334,7 +334,6 @@ plugins:
         getting_started/other_engines.md: other_platforms/unity.md
         getting_started/troubleshooting.md: getting_started/core_help.md
         getting_started/other_platforms.md: other_platforms/unity.md
-        tutorials/environmental_art.md: tutorials/environment_art.md
         tutorials/collaboration.md: tutorials/github.md
         tutorials/rpg_framework_reference.md: tutorials/dungeon_framework_reference.md
         tutorials/rpg_framework_documentation.md: tutorials/dungeon_framework_reference.md
