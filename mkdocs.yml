@@ -326,7 +326,6 @@ plugins:
         tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
         tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
-        tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
