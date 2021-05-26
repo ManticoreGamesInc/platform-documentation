@@ -30,6 +30,8 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.StopAcceptingPlayers()` | `None` | Sets the current server instance to stop accepting new players. Note that players already in the process of joining the server will still be accepted, and `Game.playerJoinedEvent` may still fire for a short period of time after a call to this function returns. Other new players will be directed to a different instance of the game. | Server-Only |
 | `Game.IsAcceptingPlayers()` | `boolean` | Returns `true` if the current server instance is still accepting new players. Returns `false` if the server has stopped accepting new players due to a call to `Game.StopAcceptingPlayers()`. | None |
 | `Game.TransferAllPlayersToGame(string gameId)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in game ID. Does not work in preview mode or in games played locally. | Server-Only |
+| `Game.TransferAllPlayersToGame(CoreGameInfo)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameInfo`. Does not work in preview mode or in games played locally. | Server-Only |
+| `Game.TransferAllPlayersToGame(CoreGameCollectionEntry)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameCollectionEntry`. Does not work in preview mode or in games played locally. | Server-Only |
 
 ## Events
 
