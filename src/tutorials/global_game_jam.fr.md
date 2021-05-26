@@ -17,7 +17,7 @@ Bienvenue aux participants de la Global Game Jam!
 
 Core est une plateforme de développement, d'édition et d'organisation de jeux (multijoueurs ou non) combinant une interface intuitive à un rendu professionnel. Dans ce document, vous trouverez une présentation des systèmes à l'œuvre dans Core ainsi que plusieurs suggestions de tutoriels et d'outils pour démarrer.
 
-Cette année, Manticore Games a sponsorisé [Global Game Jam Diversifier](https://globalgamejam.org/news/ggj-online-diversifiers) en vue de faire un jeu dans Core intégrant des contenus de la communauté créés par d'autres participants. Vous allez donc découvrir par quoi commencer, ce que sont les contenus de la communauté, et comment exploiter Core au mieux pour donner vie à votre projet de jeu.
+Cette année, Manticore Games a sponsorisé la [Global Game Jam Diversifier](https://globalgamejam.org/news/ggj-online-diversifiers) en vue de faire un jeu dans Core intégrant des contenus de la communauté créés par d'autres participants. Vous allez donc découvrir par quoi commencer, ce que sont les contenus de la communauté, et comment exploiter Core au mieux pour donner vie à votre projet de jeu.
 
 ### Créateurs sur d'autres plateformes
 
@@ -34,16 +34,16 @@ Les jeux Core reposent sur des fichiers stockés localement. La collaboration au
 
 Les modèles de Core vous permettent de démarrer un projet disposant déjà de mécanismes fonctionnels, afin de vous concentrer sur son univers ou l'agencement des niveaux. Ces tutoriels vous présenteront quelques-uns des types de jeu disponibles.
 
-- [Deathmatch](my_first_multiplayer_game.fr.md)
-- [Dungeon](first_game_rpg.fr.md)
+- [Combat à mort](my_first_multiplayer_game.fr.md)
+- [Donjon](first_game_rpg.fr.md)
 
 ### Jeux ouverts de la communauté
 
 Au-delà des modèles de Core, il existe des centaines de jeux développés par la communauté et dont les créateurs autorisent la modification. Voici quelques exemples:
 
-![Community Games](../img/GGJ/GGJ_CommunityGames.png){: .center loading="lazy" }
+![Jeux de la communauté](../img/GGJ/GGJ_CommunityGames.png){: .center loading="lazy" }
 
-- Le [Survival Jam Kit](survival_kit.md) a été créé pour une précédente Game Jam et inclut des fonctionnalités comme l'inventaire et la fabrication d'objets, ainsi qu'une documentation complète et un [tutorial](survival_tutorial.md).
+- Le [Kit de survie des Game Jam](survival_kit.md) a été créé pour une précédente Game Jam et inclut des fonctionnalités comme l'inventaire et la fabrication d'objets, ainsi qu'une documentation complète et un [tutoriel](survival_tutorial.md).
 
 - La plupart des jeux créés par [Manticore Games](https://www.coregames.com/user/37edf67a267b45bd8b93be513218b428) et par [Core's Team META](https://www.coregames.com/user/901b7628983c4c8db4282f24afeda57a) sont ouverts à la modification. Ils peuvent être plus complexes à appréhender mais donnent de bons exemples des possibilités infinies de Core.
 
@@ -59,7 +59,7 @@ Au-delà des modèles de Core, il existe des centaines de jeux développés par 
 
 ### Aptitudes
 
-Les aptitudes [Abilities](abilities.md) constituent le premier outil d'animation et d'interaction du joueur. Elles se composent de plusieurs phases distinctes et renvoient les données concernant l'orientation du joueur au moment de leur utilisation. Vous trouverez en outre la liste complète des Animations et Postures d'Animation [Animations and Animation Stances](../api/animations.md) disponibles.
+Les [Aptitudes](abilities.md) constituent le premier outil d'animation et d'interaction du joueur. Elles se composent de plusieurs phases distinctes et renvoient les données concernant l'orientation du joueur au moment de leur utilisation. Vous trouverez en outre la liste complète des [Animations et Postures d'Animation](../api/animations.md) disponibles.
 
 ### Terrain
 
@@ -67,32 +67,32 @@ Le système de Terrain de Core vous permet de générer un terrain à partir de 
 
 ### Modeling
 
-La création de [Art in Core](art_reference.md) se fait principalement par **kitbashing**. Vous ne pouvez pas importer vos propres éléments et la création se base sur les modèles disponibles dans Core. Ensuite, les structures comme les **Groupes** et les **Modèles** vous permettent de traiter les éléments comme des objets distincts.
+La [Création artistique dans Core](art_reference.md) se fait principalement par **kitbashing**. Vous ne pouvez pas importer vos propres éléments et la création se base sur les modèles disponibles dans Core. Ensuite, les structures comme les **Groupes** et les **Modèles** vous permettent de traiter les éléments comme des objets distincts.
 
 ### Armes
 
-Les Armes [Weapons](weapons.md) dans Core peuvent être utilisées pour plusieurs outils, et vous permettent d'associer des effets spéciaux ou des sons, des effets visuels, des projectiles et des effets d'impact. Il existe de nombreux modèles d'armes dans les **Contenus Core** ou encore dans les **Contenus de la communauté**.
+Les [Armes](weapons.md) dans Core peuvent être utilisées pour plusieurs outils, et vous permettent d'associer des effets spéciaux ou des sons, des effets visuels, des projectiles et des effets d'impact. Il existe de nombreux modèles d'armes dans les **Contenus Core** ou encore dans les **Contenus de la communauté**.
 
 ### Composants de Core
 
-![Game Components](../img/GGJ/GGJ_GameComponents.png){: .center loading="lazy" }
+![Éléments de jeu](../img/GGJ/GGJ_GameComponents.png){: .center loading="lazy" }
 
-Les Éléments de jeu [Game Components](../api/components.md) disponibles dans les **Contenus Core** incluent de nombreux systèmes destinés à ajouter des fonctionnalités à votre jeu: classements, plaques de joueur, ressources à collecter...
+Les [Éléments de jeu](../api/components.md) disponibles dans les **Contenus Core** incluent de nombreux systèmes destinés à ajouter des fonctionnalités à votre jeu: classements, plaques de joueur, ressources à collecter...
 
 ### Lua
 
 Core utilise le langage Lua pour gérer les scripts dans les jeux. S'il est possible de développer des jeux en utilisant les composants proposés par Core et par les autres créateurs, vous pouvez également lire et écrire vous-même des scripts afin de rendre vos jeux réellement uniques.
 
-- Le tutoriel des bases de Lua[The Lua Lightbulb Tutorial](lua_basics_lightbulb.md) est un tutoriel complet présentant Lua, ainsi que la façon dont les scripts et objets interagissent dans Core.
-- Le guide de style Lua [The Lua Style Guide](lua_style_guide.md) donnera aux programmeurs plus expérimentés un aperçu du fonctionnement de Lua dans Core.
+- [Le tutoriel des bases de Lua](lua_basics_lightbulb.md) est un tutoriel complet présentant Lua, ainsi que la façon dont les scripts et objets interagissent dans Core.
+- [Le guide de style Lua](lua_style_guide.md) donnera aux programmeurs plus expérimentés un aperçu du fonctionnement de Lua dans Core.
 
-Vous trouverez également plusieurs vidéos sur la [CoreGames YouTube Channel](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ) montrant comment relever les défis, quel que soit votre niveau d'expérience.
+Vous trouverez également plusieurs vidéos sur la [chaîne YouTube de CoreGames](https://www.youtube.com/channel/UCBPqo7cK1bktfRfMGAAqnbQ) montrant comment relever les défis, quels que soient votre niveau et votre expérience.
 
 ### Contenus de la communauté
 
-Les [**Community Content**](../getting_started/community_content.fr.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](template_reference.md) encourage la collaboration entre graphistes et programmeurs.
+Les [**Contenus de la communauté**](../getting_started/community_content.fr.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](template_reference.md) encourage la collaboration entre graphistes et programmeurs.
 
-![Instruments on Community Content](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
+![Outils des contenus de la communauté](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
 
 ### Exemple: Construire une ville vivante virtuellement sans script
 
