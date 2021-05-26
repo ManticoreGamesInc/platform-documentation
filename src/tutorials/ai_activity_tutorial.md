@@ -45,7 +45,7 @@ The template contains:
 
 ### Open the Template
 
-1. In the **Core Content** window, find the **Imported Content** section and then find **TicTacToe Game** ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" }.
+1. In the **Core Content** window, find the **Imported Content** section and then find **TicTacToe Tutorial** ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" }.
 { .image-inline-text .image-background }
 2. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" } icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png){: style="height:34px" } icon.
 { .image-inline-text .image-background }
