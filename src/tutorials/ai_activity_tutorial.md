@@ -217,6 +217,12 @@ end
 Finally, select and verify there is a valid board position to capture.
 
 ```lua
+-- If the AI has not chosen a board position, it is time to do that now
+
+-- serverUserData contains extra information about the activity
+-- that is user-defined and accessible to the server
+local activityData = activity.serverUserData
+
 -- If there is no valid capture position then we need to attempt a capture
 -- Otherwise, keep it above Idle priority
 if not activityData.capturePosition or activityData.capturePosition < 0 then
