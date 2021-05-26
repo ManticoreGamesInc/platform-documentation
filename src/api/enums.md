@@ -139,6 +139,13 @@ tags:
 | `NetReferenceType.CREATOR_PERK` | `3` | Creator perk. |
 | `NetReferenceType.UNKNOWN` | `0` | Unknown `NetReference`. |
 
+## Orientation
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `Orientation.HORIZONTAL` | `0` | Scrolls horizontally. |
+| `Orientation.VERTICAL` | `1` | Scrolls vertically. |
+
 ## PlayerTransferReason
 
 | Enum Name | Value | Description |

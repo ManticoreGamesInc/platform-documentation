@@ -33,6 +33,7 @@ A UIControl for displaying an image.
 | `SetImage(Player)` | `None` | Downloads and sets a Player's profile picture as the texture for this UIImage control. | **Deprecated** |
 | `SetPlayerProfile(Player)` | `None` | Downloads and sets a Player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(CorePlayerProfile)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
+| `SetPlayerProfile(CoreFriendCollectionEntry)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(string playerId)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 
 ## Tutorials
