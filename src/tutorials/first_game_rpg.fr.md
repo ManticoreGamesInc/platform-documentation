@@ -28,11 +28,11 @@ Pour commencer, utilisez le menu **Créer** pour démarrer un nouveau projet.
 
 ### Verrouiller le projet
 
-Ce modèle contient de nombreux scripts et éléments essentiels qu'il serait fâcheux de modifier accidentellement. Pour empêcher cela, utilisez la fonction **Verrouillage** ![Lock](../img/EditorManual/icons/Icon_Lock.png).
+Ce modèle contient de nombreux scripts et éléments essentiels qu'il serait fâcheux de modifier accidentellement. Pour empêcher cela, utilisez la fonction **Verrouiller** ![Verrouiller](../img/EditorManual/icons/Icon_Lock.png).
 {: .image-inline-text .image-background }
 
 1. Dans la **Hiérarchie**, appuyez sur le bouton **Réduire tout** pour fermer tous les dossiers.
-2. Cliquez sur l'icône **Verrouillage** ![Lock](../img/EditorManual/icons/Icon_Lock.png) à côté de chaque dossier, à l'exception du dossier **Carte**.
+2. Cliquez sur l'icône **Verrouiller** ![Lock](../img/EditorManual/icons/Icon_Lock.png) à côté de chaque dossier, à l'exception du dossier **Carte**.
 {: .image-inline-text .image-background }
 
 ![Hierarchy Folders Locked](../img/RPG/HierarchyLockAllButMap.png){: .center loading="lazy" }
@@ -44,10 +44,10 @@ Ensuite, nous allons cacher des éléments du projet afin de travailler sur une 
 - Il est plus facile de se concentrer sur une partie de la carte à la fois.
 - Vous pouvez cliquer sur des objets pour les sélectionner sans pour autant attraper des objets non désirés au passage.
 
-1. Cliquez sur **Visible** ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **Paramètres interface** pour cacher tous les éléments d'interface à l'écran.
+1. Cliquez sur **Visible** ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **UI Settings** pour cacher tous les éléments d'interface à l'écran.
 {: .image-inline-text .image-background}
 2. Cliquez sur la flèche à côté de **Carte** pour ouvrir le dossier **Carte**.
-3. Cliquez sur ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté des dossiers **Salon**, **Donjons** et **Mur** afin de ne voir que les cases grises du sol.
+3. Cliquez sur ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté des dossiers **Lobby**, **Dungeons** et **Wall** afin de ne voir que les cases grises du sol.
 {: .image-inline-text .image-background }
 4. Cliquez sur ![Lock](../img/EditorManual/icons/Icon_Lock.png) à côté de **Kill Zone** pour empêcher tout changement concernant cet élément.
 {: .image-inline-text .image-background }
@@ -63,7 +63,7 @@ Maintenant que les autres éléments sont cachés, vous pouvez faire un clic gau
 !!! hint
     Vous pouvez maintenir ++Ctrl++ et cliquer pour désélectionner les objets, ou maintenir ++Maj++ et cliquer pour sélectionner plus d'objets.
 
-1. Assurez-vous que le **Mode sélection d'objets** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) est bien activé en cliquant sur l'icône ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png) dans la barre d'outils supérieure puis en cliquant sur **Objet**, ou en appuyant sur ++C++.
+1. Assurez-vous que le **Mode sélection d'objets** ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) est bien activé en cliquant sur l'icône ![Object Mode](../img/EditorManual/icons/Icon_GroupMode.png) dans la barre d'outils supérieure puis en cliquant sur **Object**, ou en appuyant sur ++C++.
 {: .image-inline-text .image-background}
 2. Appuyez sur le bouton gauche de la souris puis glissez le curseur sur les cases du sol à sélectionner.
 3. Ouvrez le dossier **Matériaux** dans **Contenus Core** et sélectionnez le matériau à utiliser pour votre sélection.
@@ -114,10 +114,10 @@ Utilisez les matériaux et revêtements pour terminer la conception du mur exté
 ### Rendre le premier donjon visible
 
 1. Verrouillez le dossier **Mur** afin d'effectuer des changements sans sélectionner les murs extérieurs.
-2. Cliquez sur l'icône ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **Donjons** pour afficher tous les éléments du donjon.
+2. Cliquez sur l'icône ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **Dungeons** pour afficher tous les éléments du donjon.
 {: .image-inline-text .image-background }
 3. Cliquez sur la flèche à côté de **Donjons** pour voir les dossiers des trois donjons.
-4. Cliquez sur ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **Donjon 2** et **Donjon 3** afin que seul le premier donjon soit visible.
+4. Cliquez sur ![Visible](../img/EditorManual/icons/Icon_Visible.png) à côté de **Dungeon 2** et **Dungeon 3** afin que seul le premier donjon soit visible.
 {: .image-inline-text .image-background }
 
 ![Hierarchy Setup to Edit Dungeon 1](../img/RPG/HierarchySetupDungeon1.png){: .center loading="lazy" }
@@ -126,7 +126,7 @@ Utilisez les matériaux et revêtements pour terminer la conception du mur exté
 
 Les ennemis n'obéissent pas aux mêmes règles de collision que les joueurs. Ils suivent en effet un **NavMesh** qui définit les zones dans lesquelles ils peuvent aller ou non. Pour bâtir un donjon dans lequel les ennemis ne pourront pas traverser les objets, nous devons définir ce NavMesh.
 
-1. Sélectionnez le dossier **NavMesh** dans la Hiérarchie et cliquez sur **Verrouillage** ![Lock](../img/EditorManual/icons/Icon_Lock.png) pour autoriser les modifications.
+1. Sélectionnez le dossier **NavMesh** dans la Hiérarchie et cliquez sur **Lock** ![Lock](../img/EditorManual/icons/Icon_Lock.png) pour autoriser les modifications.
 {: .image-inline-text .image-background}
 2. Dans la fenêtre **Propriétés**, modifiez la propriété **Visibilité** sur **Forcer**.
 
@@ -150,7 +150,7 @@ Vous pouvez utiliser la même méthode que pour les murs extérieurs afin de mod
 
 ### Terminer les donjons
 
-Répétez ce processus pour remplacer tous les éléments à nu du Donjon 1. Une fois ceci fait, verrouillez le Donjon 1 et rendez le Donjon 2 visible, puis faites de même pour Donjon 3.
+Répétez ce processus pour remplacer tous les éléments à nu du Dungeon 1. Une fois ceci fait, verrouillez le Dungeon 1 et rendez le Dungeon 2 visible, puis faites de même pour Dungeon 3.
 
 ## Personnaliser la boutique
 
@@ -168,7 +168,7 @@ Vous pouvez créer de nouveaux objets à acheter en sélectionnant le modèle **
 
 Pour déplacer les objets dans la boutique, assurez-vous d'activer le **Mode sélection groupée**. Vous pourrez ainsi sélectionner le modèle avec ses textes, éléments visuels et interactifs.
 
-Cliquez sur l'icône ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) dans la barre d'outils supérieure et sélectionnez **Groupe**, ou appuyez sur ++C++ pour passer d'un mode à l'autre.
+Cliquez sur l'icône ![Object Mode](../img/EditorManual/icons/Icon_ObjectMode.png) dans la barre d'outils supérieure et sélectionnez **Group**, ou appuyez sur ++C++ pour passer d'un mode à l'autre.
 {: .image-inline-text .image-background }
 
 À présent, vous pouvez cliquez sur les objets à déplacer dans l'environnement que vous avez conçu pour eux.
@@ -180,7 +180,7 @@ Vous pouvez utiliser les nombreux éléments de fantasy disponibles pour votre b
 1. Utilisez la recherche dans la fenêtre **Contenus de la communauté** pour trouver des modèles.
 2. Cliquez sur le bouton **Importer** pour en ajouter à votre projet.
 3. Ouvrez la fenêtre **Contenus Core** et repérez la section **Contenus importés**.
-4. Double-cliquez sur l'icône **Collection** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png){: style="width: 32px;" } pour l'ouvrir.
+4. Double-cliquez sur l'icône **Bundle** ![Lock](../img/EditorManual/icons/AssetType_Bundle.png){: style="width: 32px;" } pour l'ouvrir.
 {: .image-inline-text .image-background }
 5. Glissez l'icône verte **Modèle** dans la **Vue principale** pour l'ajouter au décor.
 
@@ -216,7 +216,7 @@ Pour terminer le projet, nous allons ajouter un peu de terrain autour du donjon.
 
 1. Déplacez le terrain généré afin qu'il s'adapte à vos donjons.
 2. Dans le menu **Propriétés**, cliquez sur l'onglet **Peindre** et sélectionnez *Créer nouveau matériau de terrain**.
-3. Des textures de falaises et de prairies seront automatiquement appliquées, ce qui s'accorde bien à ce décor. Vous pourrez personnaliser tout cela à l'aide des autres canaux de matériaux. Consultez le tutoriel [Environment Art](environment_art.md) pour en apprendre plus sur ce processus.
+3. Des textures de falaises et de prairies seront automatiquement appliquées, ce qui s'accorde bien à ce décor. Vous pourrez personnaliser tout cela à l'aide des autres canaux de matériaux. Consultez le tutoriel [Décors et environnements](environment_art.md) pour en apprendre plus sur ce processus.
 
 ![Painted Terrain](../img/RPG/PaintedTerrain.png){: .center loading="lazy" }
 
@@ -241,8 +241,8 @@ Maintenant que votre jeu est prêt, il est temps de le tester sérieusement avan
 2. Appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) pour lancer l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque participant.
 {: .image-inline-text .image-background }
 
-Essayez vos donjons, testez le comportement des ennemis, les objets de la boutique et assurez-vous que les joueurs ne puissent pas se retrouver bloqués dans le décor. Une fois que le jeu vous semble bon, vous pouvez passer à [publish](publishing.fr.md)!
+Essayez vos donjons, testez le comportement des ennemis, les objets de la boutique et assurez-vous que les joueurs ne puissent pas se retrouver bloqués dans le décor. Une fois que le jeu vous semble bon, vous pouvez passer à la [publication](publishing.fr.md)!
 
 ## En savoir plus
 
-[Publishing Your Game](publishing.fr.md) | [Dungeon Crawler Framework Reference](dungeon_framework_reference.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publier votre jeu](publishing.fr.md) | [Cadre de référence pour Dungeon Crawler](dungeon_framework_reference.md) | [Tutoriel Décor et environnements](environment_art.md) | [Tutoriel Armes](weapons.md)
