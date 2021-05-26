@@ -33,18 +33,18 @@ Pour commencer, utilisez le menu **Créer** pour démarrer un nouveau projet.
 
 ### Cliquer sur **Créer nouveau**
 
-![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
+![Créer nouveau](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
 
 1. Lorsque Core est ouvert, cliquez sur l'onglet **Créer** dans le menu de gauche.
 2. Cliquer sur **Créer un nouveau jeu**
 
 ### Sélectionner le modèle **Match à mort**
 
-![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
+![Match à mort](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
 
 <!-- ### Create a new Project
 
-![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
+![Nom](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
 
 1. Cliquez sur **Voir les modèles** sous l'option **Modèles de jeu Core**.
 2. Cliquez sur **Match à mort**.
@@ -67,7 +67,7 @@ Le modèle Match à mort vous fournit une arène de jeu complète et toutes les 
 
 Comme dans tout projet de jeu Core, vous disposez d'emblée de contrôles prédéfinis pour votre personnage.
 
-- Déplacez le personnage avec les touches ++W++, ++A++, ++S++ et ++D++.
+- Déplacez le personnage avec les touches ++Z++, ++Q++, ++S++ et ++D++.
 - Sautez avec ++Space++.
 - Accroupissez-vous avec ++C++.
 - Enfourchez une monture avec ++G++.
@@ -79,12 +79,12 @@ En plus des options de déplacement, **Match à mort** fournit également à cha
 - Tirez avec l'arme par défaut avec le clic gauche de la souris.
 - Ouvrez ou fermez une porte avec ++F++.
 
-![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
+![Mode de jeu](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
 
 ### Tester la jouabilité en multijoueur
 
 Les projets Core sont par défaut dotés d'une fonctionnalité réseau multijoueur. Comme il s'agit d'un élément-clé de ce jeu, il est important de tester un maximum en utilisant le **mode Aperçu multijoueur**.
-![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
+![Deux joueurs](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
 
 1. Cliquez sur ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) pour passer le mode Aperçu en Multijoueur.
     {: .image-inline-text .image-background}
@@ -122,7 +122,7 @@ Core met à votre disposition une immense bibliothèque d'éléments 3D, de mat
 
 Vous pouvez déplacer, faire pivoter et modifier la taille des objets.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png ) ou ++W++ active le mode Translation.
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++Z++ active le mode Translation.
 {: .image-inline-text .image-background}
 - ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ active le mode Rotation.
 {: .image-inline-text .image-background}

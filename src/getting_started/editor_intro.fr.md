@@ -30,7 +30,7 @@ La Vue principale correspond à la fenêtre dans laquelle apparaissent tous les 
 ### Modifier la vue
 
 - Maintenez le **bouton droit de la souris** pour changer l'orientation de la vue.
-    - ++W++, ++A++, ++S++ et ++D++ déplacent le point de vue vers l'avant, la gauche, la droite et l'arrière.
+    - ++Z++, ++Q++, ++S++ et ++D++ déplacent le point de vue vers l'avant, la gauche, la droite et l'arrière.
     - ++Alt++ permet de tourner autour d'un objet sélectionné.
 - Utilisez la **molette** pour zoomer ou dézoomer.
 - Maintenez le **bouton de la molette** pour glisser la vue vers la gauche, la droite, le haut ou le bas.
@@ -85,17 +85,17 @@ Les objets et scripts que vous créez apparaissent dans cette fenêtre, de même
 
 La barre d'outils contient les différentes options de manipulation.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++W++ pour **Transformer la position**. Cela affichera trois flèches partant de la position actuelle de l'objet. Suivez l'une des flèches pour déplacer l'objet le long de l'axe correspondant.
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++Z++ pour **Transformer la position**. Cela affichera trois flèches partant de la position actuelle de l'objet. Suivez l'une des flèches pour déplacer l'objet le long de l'axe correspondant.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) ou ++G++ pour **Adapter la position**. Cela déplacera l'objet en fonction de la taille sélectionnée.
+- ![Snap position](../img/EditorManual/icons/Icon_SnapPosition.png) ou ++G++ pour **Adapter la position**. Cela déplacera l'objet en fonction de la taille sélectionnée.
 {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ pour **Transformer la rotation**. Cela affichera trois courbes. Suivez l'une d'elles pour faire tourner l'objet le long de la direction correspondante.
+- ![Rotate tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ pour **Transformer la rotation**. Cela affichera trois courbes. Suivez l'une d'elles pour faire tourner l'objet le long de la direction correspondante.
 {: .image-inline-text .image-background}
-- ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) ou ++G++ pour **Adapter la rotation** et faire tourner l'objet en fonction de l'angle sélectionné.
+- ![Snap position](../img/EditorManual/icons/Icon_SnapRotation.png) ou ++G++ pour **Adapter la rotation** et faire tourner l'objet en fonction de l'angle sélectionné.
 {: .image-inline-text .image-background}
-- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) ou ++R++ pour **Adapter l'échelle**. Cela affichera trois bras portant des cubes et partant du centre de l'objet. Faites glisser l'un des cubes pour modifier la taille de l'objet en fonction de la dimension correspondante ou sélectionnez le cube central pour dimensionner l'objet en conservant ses proportions.
+- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) ou ++R++ pour **Transformer l'échelle**. Cela affichera trois bras portant des cubes et partant du centre de l'objet. Faites glisser l'un des cubes pour modifier la taille de l'objet en fonction de la dimension correspondante ou sélectionnez le cube central pour dimensionner l'objet en conservant ses proportions.
 {: .image-inline-text .image-background}
-- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) ou ++G++ pour **Adapter l'échelle**. Cela redimensionnera l'objet en fonction de la taille sélectionnée.
+- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) ou ++G++ pour **Transformer l'échelle**. Cela redimensionnera l'objet en fonction de la taille sélectionnée.
 {: .image-inline-text .image-background}
 
 !!! note
@@ -105,7 +105,7 @@ La barre d'outils contient les différentes options de manipulation.
 
 Les scripts vous permettent de programmer le comportement des différents objets du projet. Les scripts de Core utilisent le langage [Lua](https://www.lua.org/manual/5.3/) et [Core Lua API](../api/index.md).
 
-- ![Script](../img/EditorManual/icons/Icon_Script.png) crée un script qui apparaîtra dans vos **Contenus du projet**.
+- ![Script](../img/EditorManual/icons/Icon_Script.png) crée un script qui apparaîtra dans vos **contenus du projet**.
 {: .image-inline-text .image-background}
 - Les scripts peuvent être glissés directement dans la Hiérarchie ou sur un objet censé devenir son parent.
 
@@ -119,4 +119,4 @@ L'Éditeur Core enregistre automatiquement votre projet de façon régulière, m
 
 ## En savoir plus
 
-[Your First Game](my_first_multiplayer_game.fr.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
+[Mon premier jeu](my_first_multiplayer_game.fr.md) | [Raccourcis clavier de l'Éditeur Core](editor_keybindings.md)
