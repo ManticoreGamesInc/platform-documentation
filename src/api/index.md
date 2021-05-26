@@ -33,21 +33,22 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 |:-:|:-:|:-:|:-:|
 | [AIActivity](../api/aiactivity.md) | [AIActivityHandler](../api/aiactivityhandler.md) | [Ability](../api/ability.md) | [AbilityPhaseSettings](../api/abilityphasesettings.md) |
 | [AbilityTarget](../api/abilitytarget.md) | [AnimatedMesh](../api/animatedmesh.md) | [AreaLight](../api/arealight.md) | [Audio](../api/audio.md) |
-| [Camera](../api/camera.md) | [Color](../api/color.md) | [CoreGameCollectionEntry](../api/coregamecollectionentry.md) | [CoreGameInfo](../api/coregameinfo.md) |
-| [CoreMesh](../api/coremesh.md) | [CoreObject](../api/coreobject.md) | [CoreObjectReference](../api/coreobjectreference.md) | [CorePlayerProfile](../api/coreplayerprofile.md) |
-| [Damage](../api/damage.md) | [Decal](../api/decal.md) | [Equipment](../api/equipment.md) | [Event](../api/event.md) |
-| [EventListener](../api/eventlistener.md) | [Folder](../api/folder.md) | [HitResult](../api/hitresult.md) | [Hook](../api/hook.md) |
-| [HookListener](../api/hooklistener.md) | [ImpactData](../api/impactdata.md) | [LeaderboardEntry](../api/leaderboardentry.md) | [Light](../api/light.md) |
-| [MergedModel](../api/mergedmodel.md) | [NetReference](../api/netreference.md) | [NetworkContext](../api/networkcontext.md) | [Object](../api/object.md) |
-| [Player](../api/player.md) | [PlayerSettings](../api/playersettings.md) | [PlayerStart](../api/playerstart.md) | [PlayerTransferData](../api/playertransferdata.md) |
-| [PointLight](../api/pointlight.md) | [Projectile](../api/projectile.md) | [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) |
-| [Rotation](../api/rotation.md) | [Script](../api/script.md) | [ScriptAsset](../api/scriptasset.md) | [SmartAudio](../api/smartaudio.md) |
-| [SmartObject](../api/smartobject.md) | [SpotLight](../api/spotlight.md) | [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) |
-| [Terrain](../api/terrain.md) | [Transform](../api/transform.md) | [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) |
-| [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) | [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) |
-| [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) | [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) |
-| [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) | [Vfx](../api/vfx.md) |
-| [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) | | |
+| [Camera](../api/camera.md) | [Color](../api/color.md) | [CoreFriendCollection](../api/corefriendcollection.md) | [CoreFriendCollectionEntry](../api/corefriendcollectionentry.md) |
+| [CoreGameCollectionEntry](../api/coregamecollectionentry.md) | [CoreGameInfo](../api/coregameinfo.md) | [CoreMesh](../api/coremesh.md) | [CoreObject](../api/coreobject.md) |
+| [CoreObjectReference](../api/coreobjectreference.md) | [CorePlayerProfile](../api/coreplayerprofile.md) | [Damage](../api/damage.md) | [Decal](../api/decal.md) |
+| [Equipment](../api/equipment.md) | [Event](../api/event.md) | [EventListener](../api/eventlistener.md) | [Folder](../api/folder.md) |
+| [HitResult](../api/hitresult.md) | [Hook](../api/hook.md) | [HookListener](../api/hooklistener.md) | [ImpactData](../api/impactdata.md) |
+| [LeaderboardEntry](../api/leaderboardentry.md) | [Light](../api/light.md) | [MergedModel](../api/mergedmodel.md) | [NetReference](../api/netreference.md) |
+| [NetworkContext](../api/networkcontext.md) | [Object](../api/object.md) | [Player](../api/player.md) | [PlayerSettings](../api/playersettings.md) |
+| [PlayerStart](../api/playerstart.md) | [PlayerTransferData](../api/playertransferdata.md) | [PointLight](../api/pointlight.md) | [Projectile](../api/projectile.md) |
+| [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) | [Rotation](../api/rotation.md) | [Script](../api/script.md) |
+| [ScriptAsset](../api/scriptasset.md) | [SmartAudio](../api/smartaudio.md) | [SmartObject](../api/smartobject.md) | [SpotLight](../api/spotlight.md) |
+| [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) | [Terrain](../api/terrain.md) | [Transform](../api/transform.md) |
+| [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) | [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) |
+| [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) |
+| [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) | [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) |
+| [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) | [Vfx](../api/vfx.md) | [Weapon](../api/weapon.md) |
+| [WorldText](../api/worldtext.md) | | | |
 
 ## Core Lua Namespaces
 

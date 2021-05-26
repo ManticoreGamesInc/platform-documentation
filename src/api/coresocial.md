@@ -16,6 +16,7 @@ The CoreSocial namespace contains functions for retrieving social metadata from 
 | -------------- | ----------- | ----------- | ---- |
 | `CoreSocial.IsFriendsWithLocalPlayer(Player)` | `bool` | Returns `true` if the given Player is friends with the local player. | Client-Only |
 | `CoreSocial.IsFriendsWithLocalPlayer(string playerId)` | `bool` | Returns `true` if the specified player is friends with the local player. | Client-Only |
+| `CoreSocial.GetFriends(Player)` | [`CoreFriendCollection`](corefriendcollection.md) | Requests a list of the given Player's friends. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. Results may be cached for later calls. A partial list of friends may be returned, depending on how many friends the player has. See `CoreFriendCollection` for information on retrieving more results. If a player has no friends, or when called in multiplayer preview mode for a bot player, an empty `CoreFriendCollection` will be returned. | None |
 
 ## Examples
 
