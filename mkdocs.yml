@@ -248,6 +248,7 @@ extra:
   #     link: /fr/
   #     lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
+  generator: false
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
