@@ -16,7 +16,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
       links[i].hostname !== "" &&
       links[i].title !== "Edit this page" &&
       links[i].title !== "Provide feedback about this page" &&
-      links[i].querySelector("a:not([download-button])")
+      links[i].classList.contains("download-button") !== true
     ) {
       links[i].target = "_blank"
       links[i].classList.add("external")
