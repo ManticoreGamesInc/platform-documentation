@@ -48,7 +48,20 @@ This is the best option for complex/advanced data types like Core Object Referen
 !!! note
     When copying-and-pasting an object itself, all of the **Custom Properties** of the original object will already be pasted into the copied object.
 
-## Editing Custom Properties Through Script
+## Getting Custom Properties Through Script
+
+A **Custom Property** can be assigned to a variable in a script for easy reference and editing.
+
+In the script, for each **Custom Property** being referenced, type:
+
+```lua
+local CustomPropertyName = script:GetCustomProperty("CustomPropertyName")
+```
+
+!!! note
+    **Custom Properties** can be applied to any object, not just a script. Replace `script` with whatever object that the **Custom Property** being retrieved is on.
+
+## Editing Custom Property Values Through Script
 
 **Custom Properties** can by edited during runtime through scripts.
 
@@ -172,10 +185,56 @@ The advanced/complex data types that are supported as custom properties are:
 
 ### Asset Reference
 
+An **Asset Reference** contain a value that points to a script or template in the **Project Content** window.
+
+#### Requiring Scripts
+
+An **Asset Reference** can be used to `require` scripts and gain access to its properties and functions. This is commonplace for APIs and Modules.
+
+Say that for there is a script **Custom Property** called "SampleAPI," it can be required by typing:
+
+```lua
+local API = require(script:GetCustomProperty("SampleAPI"))
+```
+
+Then, to use a function of the API, such as `TestFunction()`, type:
+
+```lua
+API.TestFunction()
+```
+
+#### Spawning Templates
+
+An **Asset Reference** can be used to point to templates that can be spawned into the game. If there is a template referenced called "CubeTemplate", it can be spawned by typing:
+
+```lua
+local CubeTemplate = script:GetCustomProperty("CubeTemplate")
+
+local spawnedCube = World.SpawnAsset(CubeTemplate)
+```
+
 ### Core Object Reference
+
+A **Core Object Reference** contains a value that points to any object in the **Hierarchy**.
+
+When getting this reference into a variable, `:WaitForObject()` needs to be added to the end in order to get the actual object in the **Hierarchy** and wait until it is loaded into the game.
+
+More information can be found in the [CoreObjectReference API](/api/coreobjectreference/) and the [CoreObject API](/api/coreobject/).
+
+For example, to get the **Core Object Reference** of a Cube in the game and to edit it's name, type:
+
+```lua
+local Cube = script:GetCustomProperty("Cube"):WaitForObject()
+
+Cube.name = "Special Cube"
+```
 
 ### Net Reference
 
+A **Net Reference** contains a value that points to a **Leaderboard**, a **Shared Storage Key**, or a **Perk**.
+
+More information can be found at the [Leaderboards Tutorial](/tutorials/leaderboards), the [Shared Storage Tutorial](/tutorials/shared_storage), and the [Perks Tutorial](/perks/implementing_perks)
+
 ## Learn More
 
-[Data Types Reference](/tutorials/scripting_intro/#data-types) | [Color API](/api/color) | [Leaderboards Tutorial](leaderboards.md) | [Shared Storage Tutorial](shared_storage.md) | [Rotation API](/api/rotation/) | [CoreObject API Reference Functions](/api/coreobject/#functions) | [CoreObject API Reference Examples](/api/coreobject/#setnetworkedcustomproperty) | [CoreObject API Reference Events](/api/coreobject/#events) | [CoreObject API Reference Examples](/api/coreobject/#networkedpropertychangedevent)
+[Data Types Reference](/tutorials/scripting_intro/#data-types) | [Color API](/api/color) | [Leaderboards Tutorial](/tutorials/leaderboards) | [Shared Storage Tutorial](/tutorials/shared_storage) | [Perks Tutorial](/perks/implementing_perks) | [Rotation API](/api/rotation) | [CoreObject API Reference Functions](/api/coreobject/#functions) | [CoreObject API Reference Examples](/api/coreobject/#setnetworkedcustomproperty) | [CoreObject API Reference Events](/api/coreobject/#events) | [CoreObject API Reference Examples](/api/coreobject/#networkedpropertychangedevent)
