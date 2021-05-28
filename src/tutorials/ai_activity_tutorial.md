@@ -45,7 +45,7 @@ The template contains:
 
 ### Open the Template
 
-1. In the **Core Content** window, find the **Imported Content** section and then find **TicTacToe Game** ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" }.
+1. In the **Core Content** window, find the **Imported Content** section and then find **TicTacToe Tutorial** ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" }.
 { .image-inline-text .image-background }
 2. Double-click the ![Package](../img/EditorManual/icons/AssetType_Bundle.png){: style="height:34px" } icon to open it. You should now see the green ![Template](../img/EditorManual/icons/TemplateIcon.png){: style="height:34px" } icon.
 { .image-inline-text .image-background }
@@ -217,6 +217,12 @@ end
 Finally, select and verify there is a valid board position to capture.
 
 ```lua
+-- If the AI has not chosen a board position, it is time to do that now
+
+-- serverUserData contains extra information about the activity
+-- that is user-defined and accessible to the server
+local activityData = activity.serverUserData
+
 -- If there is no valid capture position then we need to attempt a capture
 -- Otherwise, keep it above Idle priority
 if not activityData.capturePosition or activityData.capturePosition < 0 then

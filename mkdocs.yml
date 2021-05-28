@@ -23,10 +23,10 @@ nav:
           - Install Core: getting_started/installing_core.md
           - Intro to the Editor: getting_started/editor_intro.md
           - Make Your First Game:
-            - Start Here: getting_started/start.md
-            - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
-            - Create an RPG Game: tutorials/first_game_rpg.md
-            - Create a Survival Game: tutorials/survival_tutorial.md
+              - Start Here: getting_started/start.md
+              - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
+              - Create an RPG Game: tutorials/first_game_rpg.md
+              - Create a Survival Game: tutorials/survival_tutorial.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
           - Core for Game Jams: tutorials/global_game_jam.md
@@ -114,6 +114,8 @@ nav:
           - Audio: api/audio.md
           - Camera: api/camera.md
           - Color: api/color.md
+          - CoreFriendCollection: api/corefriendcollection.md
+          - CoreFriendCollectionEntry: api/corefriendcollectionentry.md
           - CoreGameCollectionEntry: api/coregamecollectionentry.md
           - CoreGameInfo: api/coregameinfo.md
           - CoreMesh: api/coremesh.md
@@ -169,6 +171,7 @@ nav:
           - Vector2: api/vector2.md
           - Vector3: api/vector3.md
           - Vector4: api/vector4.md
+          - Vehicle: api/vehicle.md
           - Vfx: api/vfx.md
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
@@ -194,6 +197,8 @@ nav:
       - Forums: https://forums.coregames.com
   - News:
       - News: https://forums.coregames.com/c/community/5
+  - Content Creator Kit:
+      - Core Content Creator Kit: creator_kit/index.md
   - Feedback:
       - Feedback: https://support.coregames.com/hc/en-us/requests/new
 
@@ -326,7 +331,6 @@ plugins:
         tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
         tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
-        tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
