@@ -15,10 +15,11 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
       links[i].hostname !== window.location.hostname &&
       links[i].hostname !== "" &&
       links[i].title !== "Edit this page" &&
-      links[i].title !== "Provide feedback about this page"
+      links[i].title !== "Provide feedback about this page" &&
+      links[i].querySelector("a:not([download-button])")
     ) {
       links[i].target = "_blank"
-      links[i].className = "external"
+      links[i].classList.add("external")
       links[i].rel = "noopener"
     }
   }
@@ -54,6 +55,7 @@ function switchTheme(e) {
   } else {
     document.documentElement.setAttribute("data-theme", "light")
     localStorage.setItem("theme", "light")
+    toggleSwitch.checked = false
   }
 }
 
