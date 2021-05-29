@@ -37,18 +37,18 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [CoreGameCollectionEntry](../api/coregamecollectionentry.md) | [CoreGameInfo](../api/coregameinfo.md) | [CoreMesh](../api/coremesh.md) | [CoreObject](../api/coreobject.md) |
 | [CoreObjectReference](../api/coreobjectreference.md) | [CorePlayerProfile](../api/coreplayerprofile.md) | [Damage](../api/damage.md) | [Decal](../api/decal.md) |
 | [Equipment](../api/equipment.md) | [Event](../api/event.md) | [EventListener](../api/eventlistener.md) | [Folder](../api/folder.md) |
-| [HitResult](../api/hitresult.md) | [Hook](../api/hook.md) | [HookListener](../api/hooklistener.md) | [ImpactData](../api/impactdata.md) |
-| [LeaderboardEntry](../api/leaderboardentry.md) | [Light](../api/light.md) | [MergedModel](../api/mergedmodel.md) | [NetReference](../api/netreference.md) |
-| [NetworkContext](../api/networkcontext.md) | [Object](../api/object.md) | [Player](../api/player.md) | [PlayerSettings](../api/playersettings.md) |
-| [PlayerStart](../api/playerstart.md) | [PlayerTransferData](../api/playertransferdata.md) | [PointLight](../api/pointlight.md) | [Projectile](../api/projectile.md) |
-| [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) | [Rotation](../api/rotation.md) | [Script](../api/script.md) |
-| [ScriptAsset](../api/scriptasset.md) | [SmartAudio](../api/smartaudio.md) | [SmartObject](../api/smartobject.md) | [SpotLight](../api/spotlight.md) |
-| [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) | [Terrain](../api/terrain.md) | [Transform](../api/transform.md) |
-| [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) | [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) |
-| [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) |
-| [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) | [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) |
-| [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) | [Vfx](../api/vfx.md) | [Weapon](../api/weapon.md) |
-| [WorldText](../api/worldtext.md) | | | |
+| [FourWheeledVehicle](../api/fourwheeledvehicle.md) | [HitResult](../api/hitresult.md) | [Hook](../api/hook.md) | [HookListener](../api/hooklistener.md) |
+| [ImpactData](../api/impactdata.md) | [LeaderboardEntry](../api/leaderboardentry.md) | [Light](../api/light.md) | [MergedModel](../api/mergedmodel.md) |
+| [NetReference](../api/netreference.md) | [NetworkContext](../api/networkcontext.md) | [Object](../api/object.md) | [Player](../api/player.md) |
+| [PlayerSettings](../api/playersettings.md) | [PlayerStart](../api/playerstart.md) | [PlayerTransferData](../api/playertransferdata.md) | [PointLight](../api/pointlight.md) |
+| [Projectile](../api/projectile.md) | [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) | [Rotation](../api/rotation.md) |
+| [Script](../api/script.md) | [ScriptAsset](../api/scriptasset.md) | [SmartAudio](../api/smartaudio.md) | [SmartObject](../api/smartobject.md) |
+| [SpotLight](../api/spotlight.md) | [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) | [Terrain](../api/terrain.md) |
+| [Transform](../api/transform.md) | [TreadedVehicle](../api/treadedvehicle.md) | [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) |
+| [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) | [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) |
+| [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) | [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) |
+| [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) |
+| [Vfx](../api/vfx.md) | [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) | |
 
 ## Core Lua Namespaces
 
@@ -65,7 +65,7 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
 
-!!! note "Built-In Lua Functions"
+??? note "Built-In Lua Functions"
     - `assert`
     - `collectgarbage` (modified to only accept a `count` parameter to get current Lua memory usage)
     - `error`

@@ -4720,6 +4720,48 @@
 			]
 		},
 		{
+			"Name": "FourWheeledVehicle",
+			"Description": "FourWheeledVehicle is a Vehicle with wheels. (Four of them.)",
+			"BaseType": "Vehicle",
+			"Properties": [
+				{
+					"Name": "turnRadius",
+					"Description": "Returns the radius, in centimeters, measured by the inner wheels of the vehicle while making a turn.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "HitResult",
 			"Description": "Contains data pertaining to an impact or raycast.",
 			"Properties": [
@@ -9328,6 +9370,48 @@
 			]
 		},
 		{
+			"Name": "TreadedVehicle",
+			"Description": "TreadedVehicle is a Vehicle with treads, such as a tank or a tonk.",
+			"BaseType": "Vehicle",
+			"Properties": [
+				{
+					"Name": "turnSpeed",
+					"Description": "Returns the turn speed in degrees per second.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Trigger",
 			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A Player walks into it):",
 			"BaseType": "CoreObject",
@@ -9876,7 +9960,7 @@
 		},
 		{
 			"Name": "UIContainer",
-			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen.\nIt has no properties or functions of its own, but inherits everything from CoreObject.",
+			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject.",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -11556,14 +11640,6 @@
 				{
 					"Name": "maxSpeed",
 					"Description": "Returns the maximum speed of the vehicle in centimeters per second.",
-					"Type": "number",
-					"Tags": [
-						"ReadOnly"
-					]
-				},
-				{
-					"Name": "turningRadius",
-					"Description": "Returns the radius, in centimeters, measured by the inner wheels of the vehicle while making a turn.",
 					"Type": "number",
 					"Tags": [
 						"ReadOnly"
