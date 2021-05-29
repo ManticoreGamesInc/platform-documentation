@@ -128,6 +128,7 @@ nav:
           - Event: api/event.md
           - EventListener: api/eventlistener.md
           - Folder: api/folder.md
+          - FourWheeledVehicle: api/fourwheeledvehicle.md
           - HitResult: api/hitresult.md
           - Hook: api/hook.md
           - HookListener: api/hooklistener.md
@@ -157,6 +158,7 @@ nav:
           - StaticMesh: api/staticmesh.md
           - Task: api/task.md
           - Terrain: api/terrain.md
+          - TreadedVehicle: api/treadedvehicle.md
           - Transform: api/transform.md
           - Trigger: api/trigger.md
           - UIButton: api/uibutton.md
