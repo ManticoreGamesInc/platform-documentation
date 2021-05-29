@@ -55,7 +55,7 @@ To get started, use the **Create** menu to make a new project
 
 The Deathmatch framework gives you a complete game arena and shooter functionality out of the box.
 
-![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center loading="lazy" }
+![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.jpg){: .center loading="lazy" }
 
 ### Test Player Movement
 
