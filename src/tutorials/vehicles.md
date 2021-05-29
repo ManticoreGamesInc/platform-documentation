@@ -16,7 +16,7 @@ tags:
 
 ### Four Wheeled Vehicles
 
-<!-- TODO: This can match the docs sections, just keep the explanatory examples out and focus on the barebones information -->
+<!-- TODO: This can match the google doc sections, just keep the explanatory examples out and focus on the barebones information -->
 
 ### Treaded Vehicles
 
