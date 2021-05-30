@@ -2,7 +2,8 @@
 id: home_fr
 title: Accueil de la documentation de Core
 name: Accueil de la documentation de Core
-hide_tags: true
+hide:
+    - tags
 ---
 
 # Documentation Core
