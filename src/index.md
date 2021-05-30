@@ -2,7 +2,8 @@
 id: home
 title: Core Documentation Home
 name: Core Documentation Home
-hide_tags: true
+hide:
+    - tags
 ---
 
 # Core Documentation

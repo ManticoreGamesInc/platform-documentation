@@ -7,6 +7,7 @@ tags:
 hide:
     - navigation
     - toc
+    - tags
 ---
 
 <style>
@@ -31,6 +32,8 @@ hide:
 <div class="google-slides-container">
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTirg6wN7kiRXevYeBu9SVRcT3cPAK6NxxFMf6Se68gAdlYDWIo5H6gOllrsteX5tpgBp3krfOxDBFX/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </div>
+
+## Downloads
 
 <hr/>
 <div style="text-align: center; margin-left: auto; margin-right: auto;">
