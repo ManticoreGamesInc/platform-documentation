@@ -78,7 +78,7 @@ Example using:
 
 ### `GetStackTrace`
 
-When debugging, it can often be useful to see exactly which code is executing, and which code called it. You a "stack trace" will give you this information. It is a list of every function on the call stack.
+When debugging, it can often be useful to see exactly which code is executing, and which code called it. A "stack trace" will give you this information. It is a list of every function on the call stack.
 
 This sample shows how to get and print out the stack traces. They will be slightly different depending on which thread is examining them.
 
