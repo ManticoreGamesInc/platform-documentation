@@ -246,7 +246,7 @@ extra:
     - name: English
       link: /
       lang: en
-    - name: Français
+    - name: Français (Beta)
       link: /fr/
       lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
