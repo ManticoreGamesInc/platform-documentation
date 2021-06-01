@@ -3,7 +3,7 @@ id: editor_intro_fr
 name: Introduction à l'Éditeur Core
 title: Introduction à l'Éditeur Core
 tags:
-    - Reference
+    - Référence
 ---
 
 # Introduction à l'Éditeur Core
