@@ -1,8 +1,25 @@
+# Temporary and binary files
+*~
+*.py[cod]
+*.so
+*.cfg
+!.isort.cfg
+!setup.cfg
+*.orig
+*.log
+*.pot
+__pycache__/*
+.cache/*
+.*.swp
+*/.ipynb_checkpoints/*
+.DS_Store
+
 # Ignore IDE specifics
 .idea/
 .vs/
 .vscode/*
 !.vscode/extensions.json
+!.vscode/tasks.json
 .netlify
 node_modules
 src/assets/api/test.lua

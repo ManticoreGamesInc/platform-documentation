@@ -128,6 +128,7 @@ nav:
           - Event: api/event.md
           - EventListener: api/eventlistener.md
           - Folder: api/folder.md
+          - FourWheeledVehicle: api/fourwheeledvehicle.md
           - HitResult: api/hitresult.md
           - Hook: api/hook.md
           - HookListener: api/hooklistener.md
@@ -157,6 +158,7 @@ nav:
           - StaticMesh: api/staticmesh.md
           - Task: api/task.md
           - Terrain: api/terrain.md
+          - TreadedVehicle: api/treadedvehicle.md
           - Transform: api/transform.md
           - Trigger: api/trigger.md
           - UIButton: api/uibutton.md
@@ -240,13 +242,13 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
-  # alternate:
-  #   - name: English
-  #     link: /
-  #     lang: en
-  #   - name: Français
-  #     link: /fr/
-  #     lang: fr
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Français (Beta)
+      link: /fr/
+      lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
   social:
@@ -312,10 +314,10 @@ plugins:
   - search
   - tags:
       tags_file: generated/tags.md
-  # - i18n:
-  #     default_language: en
-  #     languages:
-  #       fr: Français
+  - i18n:
+      default_language: en
+      languages:
+        fr: Français
   - minify:
       minify_html: true
   - git-revision-date-localized

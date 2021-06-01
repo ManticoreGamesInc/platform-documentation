@@ -146,7 +146,7 @@ function IdleActivity.stop(activity)
 end
 
 -- Instantiates and returns an AIActivity managed by the aiActivityHandler
-local IdleActivityInstance = aiActivityHandler:AddActivity("Idle", IdleActivity)
+local IdleActivityInstance = aiActivityHandler:AddActivity("IdleActivity", IdleActivity)
 
 -- Parameter table for defining the tick, tickHighestPriority, start, stop functions
 local CaptureActivity = {}
@@ -172,7 +172,7 @@ function CaptureActivity.stop(activity)
 end
 
 -- Instantiates and returns an AIActivity managed by the AiActivityHandler
-local CaptureActivityInstance = aiActivityHandler:AddActivity("Capture", CaptureActivity)
+local CaptureActivityInstance = aiActivityHandler:AddActivity("CaptureActivity", CaptureActivity)
 ```
 
 ## Implementing the Capture AI Activity

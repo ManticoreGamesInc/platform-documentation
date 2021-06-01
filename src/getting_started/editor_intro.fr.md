@@ -1,123 +1,122 @@
 ---
 id: editor_intro_fr
-name: Introduction à l'éditeur de Core
-title: Introduction à l'éditeur de Core
+name: Introduction à l'Éditeur Core
+title: Introduction à l'Éditeur Core
 tags:
     - Reference
 ---
 
-# Introduction to the Core Editor
+# Introduction à l'Éditeur Core
 
 <lite-youtube videoid="TKOtPN9ujEE" playlabel="Introduction to the Core Editor"></lite-youtube>
 {: .video-container }
 
-## Creating a New Project
+## Créer un nouveau projet
 
-There are three options for starting a new project:
+Il existe trois options pour démarrer un nouveau projet:
 
-- **New Empty Project** creates a project with just the blank default elements.
-- **Core Game Frameworks** include complete gameplay functionality to modify and customize.
-- **Community Shared Games** are games by Core Creators that have been shared for others to customize or change completely.
+- **Nouveau projet vierge** crée un projet à partir des éléments de base par défaut.
+- **Modèle de jeu Core** inclut des éléments jouables à modifier et personnaliser.
+- Les **Jeux partagés de la communauté** sont des jeux créés et partagés par les créateurs Core en vue d'être modifiés par autrui.
 
-## Editor Windows
+## Fenêtres de l'Éditeur
 
-The Core Editor is made up of different windows which can be resized and repositioned freely. All of the windows can be opened from the **Window** tab in the top menu bar. The Editor layout can be restored to its original form using the **Reset View to Default** option in the **Window** menu.
+L'Éditeur Core est composé de plusieurs fenêtres que vous pouvez dimensionner et positionner librement. Toutes les fenêtres peuvent être ouvertes à partir de l'onglet **Fenêtre** du menu supérieur. Vous pouvez restaurer la disposition par défaut en utilisant l'option **Vue par défaut** du menu **Fenêtre**.
 
-## Main Viewport
+## Vue principale
 
-The Main Viewport is the window into all visual aspects of a project. It will appear with the name of the project as the title on the Window.
+La Vue principale correspond à la fenêtre dans laquelle apparaissent tous les éléments visuels du projet. Cette fenêtre porte le nom du titre du projet.
 
-### Changing the View
+### Modifier la vue
 
-- Hold the **right mouse button** to change the direction the view is facing.
-    - ++W++, ++A++, ++S++, and ++D++ will move view position forward, left, right, and back.
-    - ++Alt++ will orbit around a selected object.
-- Use the **scroll wheel** to move the view closer or further away.
-- Hold the **wheel button**  to slide the view left, right, up, or down.
-- Press ++F++ with an object selected to move the view to focus on that object.
+- Maintenez le **bouton droit de la souris** pour changer l'orientation de la vue.
+    - ++Z++, ++Q++, ++S++ et ++D++ déplacent le point de vue vers l'avant, la gauche, la droite et l'arrière.
+    - ++Alt++ permet de tourner autour d'un objet sélectionné.
+- Utilisez la **molette** pour zoomer ou dézoomer.
+- Maintenez le **bouton de la molette** pour glisser la vue vers la gauche, la droite, le haut ou le bas.
+- Appuyez sur ++F++ quand un objet est sélectionné pour centrer la vue sur cet objet.
 
-### Preview Mode
+### Mode Aperçu
 
-Preview Mode shows a project from a player perspective, allowing you to run through scenes and test features in person.
+Le mode Aperçu montre le projet du point de vue du joueur, ce qui vous permet de le tester par vous-même.
 
-- ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ will start Preview Mode.
+- ![Play](../img/EditorManual/icons/Icon_Play.png) ou ++equal++ lance le mode Aperçu.
 {: .image-inline-text .image-background}
-- ++tab++ will pause the preview.
-- ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
- {: .image-inline-text .image-background}
-
-### Multiplayer Preview Mode
-
-**Multiplayer Preview Mode** can be used to test how your project behaves in a networked context, with more than one player.
-
-- ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
-    {: .image-inline-text .image-background}
-- Use the dropdown menu to select the number of players to test.
-- ![Play](../img/EditorManual/icons/Icon_Play.png) will start the preview. This will open a separate game window for each player.
+- ++tab++ met l'aperçu en pause.
+- ![Stop](../img/EditorManual/icons/Icon_Stop.png) ou ++equal++ met fin à l'aperçu.
 {: .image-inline-text .image-background}
-- ![Stop](../img/EditorManual/icons/Icon_Stop.png) will end the preview and close all windows
+
+### Mode Aperçu multijoueur
+
+Le **mode Aperçu multijoueur** vous permet de tester votre projet en ligne, avec plus qu'un seul joueur.
+
+- ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) pour passer du mode Aperçu au mode Aperçu multijoueur.
+{: .image-inline-text .image-background}
+- Utilisez le menu déroulant pour sélectionner le nombre de participants au test.
+- ![Play](../img/EditorManual/icons/Icon_Play.png) lance l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque participant.
+{: .image-inline-text .image-background}
+- ![Stop](../img/EditorManual/icons/Icon_Stop.png) met fin à l'aperçu et ferme toutes les fenêtres.
 {: .image-inline-text .image-background}
 
 !!! tip
-    **Multiplayer Preview Mode** is always the most accurate way to see how your game will appear over a network. You should use it often to test how your game.
+    Le **mode Aperçu multijoueur** est le plus fiable pour savoir comment votre jeu se comportera en ligne. Utilisez-le donc le plus souvent possible.
 
-## Hierarchy
+## Hiérarchie
 
-The Hierarchy shows all the objects that are currently in the project. These objects can be reordered by dragging and dropping. Dragging an object on top of another will make it a **child** of that object.
+La Hiérarchie montre tous les objets actuellement utilisés dans le projet. Vous pouvez les organiser en les glissant et en les déposant. Glissez un objet sur un autre pour en faire un **enfant** de ce dernier.
 
-**Child objects** are positioned relative to location in the scene of the **parent object** that they are nested under, and can access their parent object's properties in scripts.
+Les **objets enfants** sont placés en fonction de la position de leur **objet parent**, et peuvent accéder aux propriétés de l'objet parent via leurs scripts.
 
-## Content
+## Contenus
 
-### Core Content
+### Contenus Core
 
-The Core Content window contains all the art objects, sounds, textures, and game components that you need to build a game or scene. They can be found both through the different menu categories, as well as through the **Search** function.
+La fenêtre Contenus Core contient tous les éléments graphiques, sonores et ludiques nécessaires à l'élaboration de votre jeu. Vous pouvez les parcourir à travers les différentes catégories, ou en utilisant la fonction **Recherche**.
 
-### Community Content
+### Contenus de la communauté
 
-Templates made by other Core Creators to be shared in the community can be found in the Core Content tab.
+L'onglet Contenus Core propose des modèles réalisés par les autres créateurs Core et partagés avec la communauté.
 
-### Project Content
+### Contenus du projet
 
-Objects and scripts that you create will be in this window, as well as those that you import from Community Content.
+Les objets et scripts que vous créez apparaissent dans cette fenêtre, de même que ceux que vous importez depuis les Contenus de la communauté.
 
-## Manipulating Objects
+## Manipuler des objets
 
-The Toolbar contains the different options for manipulating objects.
+La barre d'outils contient les différentes options de manipulation.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or ++W++ to **Transform Position**. It will show three arrows from the object's current position. Drag any of the arrows to move the object along that axis.
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++Z++ pour **Transformer la position**. Cela affichera trois flèches partant de la position actuelle de l'objet. Suivez l'une des flèches pour déplacer l'objet le long de l'axe correspondant.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_SnapPosition.png) or ++G++ to **Snap Position**. It will move the object in whole steps according to the selected size.
- {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ to **Transform Rotation**. It will show three curves. Drag any of these to rotate the object along the direction of the curve.
- {: .image-inline-text .image-background}
-- ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or ++G++ to **Snap Rotation**, rotating the object in the selected degree interval.
+- ![Snap position](../img/EditorManual/icons/Icon_SnapPosition.png) ou ++G++ pour **Adapter la position**. Cela déplacera l'objet en fonction de la taille sélectionnée.
 {: .image-inline-text .image-background}
-- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
- {: .image-inline-text .image-background}
-- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Transform Scale**. It will resize the object in whole units according to the selected size.
+- ![Rotate tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ pour **Transformer la rotation**. Cela affichera trois courbes. Suivez l'une d'elles pour faire tourner l'objet le long de la direction correspondante.
+{: .image-inline-text .image-background}
+- ![Snap position](../img/EditorManual/icons/Icon_SnapRotation.png) ou ++G++ pour **Adapter la rotation** et faire tourner l'objet en fonction de l'angle sélectionné.
+{: .image-inline-text .image-background}
+- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) ou ++R++ pour **Transformer l'échelle**. Cela affichera trois bras portant des cubes et partant du centre de l'objet. Faites glisser l'un des cubes pour modifier la taille de l'objet en fonction de la dimension correspondante ou sélectionnez le cube central pour dimensionner l'objet en conservant ses proportions.
+{: .image-inline-text .image-background}
+- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) ou ++G++ pour **Transformer l'échelle**. Cela redimensionnera l'objet en fonction de la taille sélectionnée.
 {: .image-inline-text .image-background}
 
 !!! note
-    All of the **Snap** tools appear in the same location, to the right of the Transform Tools. This icon will change appearance and function depending on which Transform Tool is selected, and can always be turned on with ++G++.
+    Tous les outils **Adapter** apparaissent au même endroit, à droite des outils de Transformation. Cette icône change d'apparence et de fonction selon l'outil de Transformation sélectionné, et s'active toujours avec ++G++.
 
-## Adding Scripts
+## Ajouter des scripts
 
-Scripts allow you to program the behavior of different objects in the project. Core scripts are written in [Lua](https://www.lua.org/manual/5.3/) using the [Core Lua API](../api/index.md).
+Les scripts vous permettent de programmer le comportement des différents objets du projet. Les scripts de Core utilisent le langage [Lua](https://www.lua.org/manual/5.3/) et [Core Lua API](../api/index.md).
 
-- ![Script](../img/EditorManual/icons/Icon_Script.png) will create a script that will appear in your **Project Content**.
+- ![Script](../img/EditorManual/icons/Icon_Script.png) crée un script qui apparaîtra dans vos **contenus du projet**.
 {: .image-inline-text .image-background}
-- Scripts can be dragged directly into the Hierarchy or onto objects that should be their parent.
+- Les scripts peuvent être glissés directement dans la Hiérarchie ou sur un objet censé devenir son parent.
 
-### Event Log
+### Journal des événements
 
-The Event Log is where output from scripts, including errors, can be found. It is not open by default, but can be opened through the **Window** menu.
+Le Journal des événements répertorie l'issue des scripts (dont les erreurs). Il n'est pas ouvert par défaut mais vous pouvez le trouver dans le menu **Fenêtre**.
 
-## Saving the Project
+## Sauvegarder le projet
 
-The Core Editor will automatically save your work periodically, but this can also be done manually through **File** > **Save** or ++ctrl+S++.
+L'Éditeur Core enregistre automatiquement votre projet de façon régulière, mais vous pouvez sauvegarder manuellement via **Fichier** > **Sauvegarder** ou ++ctrl+S++.
 
-## Learn More
+## En savoir plus
 
-[Your First Game](my_first_multiplayer_game.fr.md) | [Core Editor Keyboard Shortcuts](editor_keybindings.md)
+[Mon premier jeu](my_first_multiplayer_game.fr.md) | [Raccourcis clavier de l'Éditeur Core](editor_keybindings.md)

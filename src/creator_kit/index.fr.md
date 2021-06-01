@@ -1,5 +1,5 @@
 ---
-id: creator_kit
+id: creator_kit_fr
 name: Creator Kit
 title: Creator Kit
 tags:

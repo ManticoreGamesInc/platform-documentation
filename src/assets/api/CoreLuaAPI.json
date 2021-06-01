@@ -84,7 +84,7 @@
 		},
 		{
 			"Name": "AIActivityHandler",
-			"Description": "AIActivityHandle is a CoreObject which can manage one or more `AIActivity`.  Each tick, the handler calls a function on each of its registered activities to give them a chance to reevaluate their priorities. It then ticks the highest priority activity again, allowing it to perform additional work.",
+			"Description": "AIActivityHandle is a CoreObject which can manage one or more `AIActivity`. Each tick, the handler calls a function on each of its registered activities to give them a chance to reevaluate their priorities. It then ticks the highest priority activity again, allowing it to perform additional work.",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -2057,6 +2057,125 @@
 								{
 									"Type": "string",
 									"Name": "hexString"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreFriendCollection",
+			"Description": "Contains a set of results from [CoreSocial.GetFriends()](coresocial.md). Depending on how many friends a player has, results may be separated into multiple pages. The `.hasMoreResults` property may be checked to determine whether more friends are available. Those results may be retrieved using the `:GetMoreResults()` function.",
+			"Properties": [
+				{
+					"Name": "hasMoreResults",
+					"Description": "Returns `true` if there are more friends available to be requested.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetResults",
+					"Description": "Returns the list of friends contained in this set of results. This may return an empty table for players who have no friends.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreFriendCollectionEntry>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetMoreResults",
+					"Description": "Requests the next set of results for this list of friends and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreFriendCollection",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreFriendCollectionEntry",
+			"Description": "Represents a single friend in a [CoreFriendCollection](corefriendcollection.md).",
+			"Properties": [
+				{
+					"Name": "id",
+					"Description": "The ID of the friend.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Description": "The name of the friend.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
 								}
 							]
 						}
@@ -4601,6 +4720,48 @@
 			]
 		},
 		{
+			"Name": "FourWheeledVehicle",
+			"Description": "FourWheeledVehicle is a Vehicle with wheels. (Four of them.)",
+			"BaseType": "Vehicle",
+			"Properties": [
+				{
+					"Name": "turnRadius",
+					"Description": "Returns the radius, in centimeters, measured by the inner wheels of the vehicle while making a turn.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "HitResult",
 			"Description": "Contains data pertaining to an impact or raycast.",
 			"Properties": [
@@ -5627,6 +5788,14 @@
 					]
 				},
 				{
+					"Name": "isVisible",
+					"Description": "Defaults to `true`. Set to `false` to hide the player and any attached objects which are set to inherit visibility. Note that using this property in conjunction with the deprecated `SetVisibility()` function may cause unpredictable results.",
+					"Type": "boolean",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
 					"Name": "isVisibleToSelf",
 					"Description": "Set whether to hide the Player model on Player's own client, for sniper scope, etc.",
 					"Type": "boolean",
@@ -5700,6 +5869,14 @@
 					"Name": "parentCoreObject",
 					"Description": "If the Player has been attached to a parent CoreObject, returns that object. Otherwise returns `nil`.",
 					"Type": "CoreObject",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "occupiedVehicle",
+					"Description": "Returns the `Vehicle` that the player currently occupies, or `nil` if the player is not occupying a vehicle.",
+					"Type": "Vehicle",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -6212,7 +6389,9 @@
 				},
 				{
 					"Name": "SetVisibility",
-					"Description": "Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player.",
+					"Description": "*This function is deprecated. Please use the `.isVisible` property instead.* Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player.SetVisibility is deprecated. Please use Player.isVisible instead.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -6505,9 +6684,33 @@
 				},
 				{
 					"Name": "TransferToGame",
-					"Description": "Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`.",
+					"Description": "Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. This function will raise an error if called from a client script on a player other than the local player.",
 					"Signatures": [
 						{
+							"Name": "WithGameCollectionEntry",
+							"Description": "Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameCollectionEntry`. This function will raise an error if called from a client script on a player other than the local player.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameCollectionEntry",
+									"Name": "gameCollectionEntry"
+								}
+							]
+						},
+						{
+							"Name": "WithGameInfo",
+							"Description": "Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameInfo`. This function will raise an error if called from a client script on a player other than the local player.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameInfo",
+									"Name": "gameInfo"
+								}
+							]
+						},
+						{
+							"Name": "WithId",
+							"Description": "Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. This function will raise an error if called from a client script on a player other than the local player.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -6516,9 +6719,6 @@
 								}
 							]
 						}
-					],
-					"Tags": [
-						"ServerOnly"
 					]
 				},
 				{
@@ -9170,6 +9370,48 @@
 			]
 		},
 		{
+			"Name": "TreadedVehicle",
+			"Description": "TreadedVehicle is a Vehicle with treads, such as a tank or a tonk.",
+			"BaseType": "Vehicle",
+			"Properties": [
+				{
+					"Name": "turnSpeed",
+					"Description": "Returns the turn speed in degrees per second.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Trigger",
 			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A Player walks into it):",
 			"BaseType": "CoreObject",
@@ -9718,9 +9960,18 @@
 		},
 		{
 			"Name": "UIContainer",
-			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen.\nIt has no properties or functions of its own, but inherits everything from CoreObject.",
+			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject.",
 			"BaseType": "UIControl",
 			"Properties": [
+				{
+					"Name": "opacity",
+					"Description": "Controls the opacity of the container's contents by multiplying the alpha component of descendants' colors. Note that other UIPanels and UIContainers in the hierarchy may also contribute their own opacity values. A resulting alpha value of 1 or greater is fully opaque, 0 is fully transparent.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
 				{
 					"Name": "type",
 					"Type": "string",
@@ -9982,6 +10233,17 @@
 							]
 						},
 						{
+							"Name": "WithFriendEntry",
+							"Description": "Downloads and sets a player's profile picture as the texture for this UIImage control.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreFriendCollectionEntry",
+									"Name": "friend"
+								}
+							]
+						},
+						{
 							"Name": "WithPlayerProfile",
 							"Description": "Downloads and sets a player's profile picture as the texture for this UIImage control.",
 							"Returns": [],
@@ -10107,6 +10369,15 @@
 					"Name": "shouldClipChildren",
 					"Description": "If `true`, children of this UIPanel will not draw outside of its bounds.",
 					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "opacity",
+					"Description": "Controls the opacity of the panel's contents by multiplying the alpha component of descendants' colors. Note that other UIPanels and UIContainers in the hierarchy may also contribute their own opacity values. A resulting alpha value of 1 or greater is fully opaque, 0 is fully transparent.",
+					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -10383,6 +10654,32 @@
 			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself.\r\n\r\nThey have no properties or functions of their own, but inherit everything from CoreObject and UIControl.",
 			"BaseType": "UIControl",
 			"Properties": [
+				{
+					"Name": "orientation",
+					"Description": "Determines whether the panel scrolls horizontally or vertically. Default is `Orientation.VERTICAL`.",
+					"Type": "Orientation",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "scrollPosition",
+					"Description": "The position in UI space of the scroll panel content. Defaults to 0, which is scrolled to the top or left, depending on orientation. Set to the value of `contentLength` to scroll to the end.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "contentLength",
+					"Description": "Returns the height or width of the scroll panel content, depending on orientation. This is the maximum value of `scrollPosition`.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
 				{
 					"Name": "type",
 					"Type": "string",
@@ -11312,6 +11609,298 @@
 			]
 		},
 		{
+			"Name": "Vehicle",
+			"Description": "Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player.",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "isAccelerating",
+					"Description": "Returns `true` if the vehicle is currently accelerating.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "driver",
+					"Description": "The Player currently driving the vehicle, or `nil` if there is no driver.",
+					"Type": "Player",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "mass",
+					"Description": "Returns the mass of the vehicle in kilograms.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxSpeed",
+					"Description": "Returns the maximum speed of the vehicle in centimeters per second.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "accelerationRate",
+					"Description": "Returns the approximate acceleration rate of the vehicle in centimeters per second squared.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "brakeStrength",
+					"Description": "Returns the maximum deceleration of the vehicle when stopping.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "tireFriction",
+					"Description": "Returns the amount of friction tires or treads have on the ground.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "gravityScale",
+					"Description": "Returns how much gravity affects this vehicle.  Default value is 1.9.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isDriverHidden",
+					"Description": "Returns `true` if the driver is made invisible while occupying the vehicle.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isDriverAttached",
+					"Description": "Returns `true` if the driver is attached to the vehicle while they occupy it.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isBrakeEngaged",
+					"Description": "Returns `true` if the driver of the vehicle is currently using the brakes.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isHandbrakeEngaged",
+					"Description": "Returns `true` if the driver of the vehicle is currently using the handbrake.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "driverAnimationStance",
+					"Description": "Returns the animation stance that will be applied to the driver while they occupy the vehicle.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "enterTrigger",
+					"Description": "Returns the Trigger a Player uses to occupy the vehicle.",
+					"Type": "Trigger",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "camera",
+					"Description": "Returns the Camera used for the driver while they occupy the vehicle.",
+					"Type": "Camera",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "driverEnteredEvent",
+					"Description": "Fired when a new driver occupies the vehicle.",
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "Player",
+							"Name": "newDriver"
+						}
+					]
+				},
+				{
+					"Name": "driverExitedEvent",
+					"Description": "Fired when a driver exits the vehicle.",
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "Player",
+							"Name": "oldDriver"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetPhysicsBodyOffset",
+					"Description": "Returns the positional offset for the body collision of the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetPhysicsBodyScale",
+					"Description": "Returns the scale offset for the body collision of the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetDriver",
+					"Description": "Sets the given player as the new driver of the vehicle. A `nil` value will remove the current driver.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "driver"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "RemoveDriver",
+					"Description": "Removes the current driver from the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "AddImpulse",
+					"Description": "Adds an impulse force to the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "impulse"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetDriverPosition",
+					"Description": "Returns the position relative to the vehicle at which the driver is attached while occupying the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetDriverRotation",
+					"Description": "Returns the rotation with which the driver is attached while occupying the vehicle.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rotation"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Vfx",
 			"Description": "Vfx is a specialized type of SmartObject for visual effects. It inherits everything from SmartObject.",
 			"BaseType": "SmartObject",
@@ -11964,7 +12553,7 @@
 					]
 				}
 			],
-			"StaticEvents": [
+			"StaticHooks": [
 				{
 					"Name": "receiveMessageHook",
 					"Description": "Hook called when receiving a chat message from a Player. The `parameters` table contains a `string` named \"message\" containing the text of the message received, and a `string` named \"speakerName\" with the name of the message sender as it will be displayed in the chat window. Replacing \"message\" with an empty string will cancel receipt of the message.",
@@ -12339,6 +12928,25 @@
 					],
 					"Tags": [
 						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetFriends",
+					"Description": "Requests a list of the given Player's friends. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. Results may be cached for later calls. A partial list of friends may be returned, depending on how many friends the player has. See `CoreFriendCollection` for information on retrieving more results. If a player has no friends, or when called in multiplayer preview mode for a bot player, an empty `CoreFriendCollection` will be returned.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreFriendCollection"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
 					]
 				}
 			]
@@ -13044,6 +13652,30 @@
 					"Description": "Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in game ID. Does not work in preview mode or in games played locally.",
 					"Signatures": [
 						{
+							"Name": "WithGameCollectionEntry",
+							"Description": "Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameCollectionEntry`. Does not work in preview mode or in games played locally.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameCollectionEntry",
+									"Name": "gameCollectionEntry"
+								}
+							]
+						},
+						{
+							"Name": "WithGameInfo",
+							"Description": "Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameInfo`. Does not work in preview mode or in games played locally.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameInfo",
+									"Name": "gameInfo"
+								}
+							]
+						},
+						{
+							"Name": "WithGameId",
+							"Description": "Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in game ID. Does not work in preview mode or in games played locally.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -14293,6 +14925,22 @@
 					"Name": "UNKNOWN",
 					"Description": "Unknown `NetReference`.",
 					"Value": 0
+				}
+			]
+		},
+		{
+			"Name": "Orientation",
+			"Description": "Determines the orientation of a `UIScrollPanel`.",
+			"Values": [
+				{
+					"Name": "HORIZONTAL",
+					"Description": "Scrolls horizontally.",
+					"Value": 0
+				},
+				{
+					"Name": "VERTICAL",
+					"Description": "Scrolls vertically.",
+					"Value": 1
 				}
 			]
 		},

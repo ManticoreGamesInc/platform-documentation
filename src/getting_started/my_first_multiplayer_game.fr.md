@@ -1,115 +1,115 @@
 ---
 id: first_multiplayer_game_fr
-name: Mon premier jeu multi-joueurs
-title: Mon premier jeu multi-joueurs
+name: Mon premier jeu multijoueur
+title: Mon premier jeu multijoueur
 tags:
     - Tutorial
 ---
 
-# Build Your First Game In Core
+# Développez votre premier jeu dans Core
 
 <lite-youtube videoid="-rIbd612sUM" playlabel="Build Your First Game In Core"></lite-youtube>
 {: .video-container }
 
-## Overview
+## Aperçu
 
-Jump in and build a game using Core's Deathmatch framework. Customize as much or as little as you want to build this multiplayer arena shooter.
+Lancez-vous dans la création d'un jeu grâce au modèle Match à mort de Core Personnalisez selon vos envies pour développer un jeu de tir multijoueur en arène.
 
-- **Completion Time:** 10 minutes.
-- **Previous Knowledge:** [Installing Core](installing_core.fr.md)
-- **Skills you will learn:**
-    - Core Frameworks
-    - Core Content
-    - Manipulating Objects
-    - Applying Materials
-    - Collision
-    - Player Settings
-    - Game Settings
-    - Spawn Points
+- **Durée:** 10 minutes.
+- **Connaissances préalables:** [Installer Core](installing_core.fr.md)
+- **Compétences enseignées:**
+    - Modèles de Core
+    - Contenus Core
+    - Manipulation d'objets
+    - Application de matériaux
+    - Collisions
+    - Paramètres de joueur
+    - Paramètres de jeu
+    - Points d'apparition
 
-## Start a New Project
+## Démarrer un nouveau projet
 
-To get started, use the **Create** menu to make a new project
+Pour commencer, utilisez le menu **Créer** pour démarrer un nouveau projet.
 
-### Click **Create New**
+### Cliquer sur **Créer nouveau**
 
-![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
+![Créer nouveau](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
 
-1. With Core open, click the **Create** Tab on the left side menu.
-2. Click **Create New Game**.
+1. Lorsque Core est ouvert, cliquez sur l'onglet **Créer** dans le menu de gauche.
+2. Cliquer sur **Créer un nouveau jeu**
 
-### Select the **Deathmatch** framework
+### Sélectionner le modèle **Match à mort**
 
-![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
+![Match à mort](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
 
 <!-- ### Create a new Project
 
-![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
+![Nom](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
 
-1. Click **View Frameworks** in the **Core Game Frameworks** option.
-2. Click **Deathmatch**.
-3. Name your project. `MyFirstGame` works well, but choose any name.
-4. Click **Create**.
+1. Cliquez sur **Voir les modèles** sous l'option **Modèles de jeu Core**.
+2. Cliquez sur **Match à mort**.
+3. Donnez un nom à votre projet. "MonPremierJeu" est un bon exemple, mais n'importe quel nom fera l'affaire.
+4. Cliquez sur **Créer**.
 
-## Explore the Project
+### Explorer le projet
 
-The Deathmatch framework gives you a complete game arena and shooter functionality out of the box.
+Le modèle Match à mort vous fournit une arène de jeu complète et toutes les fonctionnalités d'un jeu de tir, prêtes à l'emploi.
 
-![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.png){: .center loading="lazy" }
+![Whitebox](../img/MyFirstMultiplayer/WhiteboxMapMarked.jpg){: .center loading="lazy" }
 
-### Test Player Movement
+### Tester le déplacement des joueurs
 
-- Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to preview your project as a player.
-  {: .image-inline-text .image-background}
-- Press ++tab++ to pause the preview.
-- Press ![Stop](../img/EditorManual/icons/Icon_Stop.png) or ++equal++ to stop the preview.
- {: .image-inline-text .image-background}
+- Appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) ou ++equal++ pour lancer un aperçu du point de vue d'un joueur.
+{: .image-inline-text .image-background}
+- Appuyez sur ++tab++ pour mettre l'aperçu en pause.
+- Appuyez sur ![Stop](../img/EditorManual/icons/Icon_Stop.png) ou ++equal++ pour mettre fin à l'aperçu.
+{: .image-inline-text .image-background}
 
-As in any Core game project, you already have a working character controller.
+Comme dans tout projet de jeu Core, vous disposez d'emblée de contrôles prédéfinis pour votre personnage.
 
-- Move the character with the ++W++, ++A++, ++S++, and ++D++ keys.
-- Jump with ++Space++.
-- Crouch with ++C++.
-- Ride a mount with ++G++.
+- Déplacez le personnage avec les touches ++Z++, ++Q++, ++S++ et ++D++.
+- Sautez avec ++Space++.
+- Accroupissez-vous avec ++C++.
+- Enfourchez une monture avec ++G++.
 
-### Test Shooter Mechanics
+### Tester les mécaniques de tir
 
-Besides player movement, **Deathmatch** also gives each player a gun to shoot, and the ability to open and close doors.
+En plus des options de déplacement, **Match à mort** fournit également à chaque joueur une arme à feu, ainsi que la capacité d'ouvrir et fermer les portes.
 
-- Shoot the default gun with the left mouse button.
-- Open and close a door with ++F++.
+- Tirez avec l'arme par défaut avec le clic gauche de la souris.
+- Ouvrez ou fermez une porte avec ++F++.
 
-![PlayMode](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
+![Mode de jeu](../img/MyFirstMultiplayer/PlayMode.jpg){: .center loading="lazy" }
 
-### Test Multiplayer Gameplay
+### Tester la jouabilité en multijoueur
 
-Core projects also include multiplayer networking by default. Because this is a crucial component of this game, it is important to test using **Multiplayer Preview Mode** as much as possible.
-![TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
+Les projets Core sont par défaut dotés d'une fonctionnalité réseau multijoueur. Comme il s'agit d'un élément-clé de ce jeu, il est important de tester un maximum en utilisant le **mode Aperçu multijoueur**.
+![Deux joueurs](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
 
-1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
+1. Cliquez sur ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) pour passer le mode Aperçu en Multijoueur.
     {: .image-inline-text .image-background}
 
-2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
+2. Appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) pour lancer l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque participant.
     {: .image-inline-text .image-background}
 
     ![MPPreview](../img/MyFirstMultiplayer/MultiplayerPreviewPlay.png){: .center loading="lazy" }
 
 !!! tip
-     You can use ++Alt+enter++ to toggle between fullscreen and windowed mode. You can also use ++Win+Arrow++ to dock the screens side by side.
+     Vous pouvez utiliser ++Alt+enter++ pour alterner entre le mode plein écran et fenêtré. Vous pouvez également utiliser ++Win+Arrow++ pour coller les écrans côte à côte.
 
-## Customize the Arena
+## Personnaliser l'arène
 
-### Explore Core Content
+### Explorer les contenus Core
 
-Core gives you a massive library of 3D assets, materials, sounds, and components for making games, which can be found in the **Core Content** Window.
+Core met à votre disposition une immense bibliothèque d'éléments 3D, de matériaux, de sons et autres composants pour la création de jeux. Vous trouverez tout cela dans la fenêtre **Contenus Core**.
 
 !!! note
-    You can reopen the **Core Content** window by going to **Window** > **Core Content** in the top menu bar.
+    Vous pouvez rouvrir la fenêtre **Contenus Core** dans le menu supérieur, sous **Fenêtre** > **Contenus Core**.
 
-1. Click **Core Content**.
-2. Drop down the **3D Objects** menu to see the props and objects that can be added to the scene.
-3. Click on the **Nature** subcategory.
-4. Choose a bush and some other props to drag into the scene.
+1. Cliquez sur **Contenus Core**.
+2. Déroulez le menu **Objets 3D** pour afficher les éléments de décor et objets pouvant être ajoutés sur la carte.
+3. Cliquez sur la sous-catégorie **Nature**.
+4. Choisissez un buisson et d'autres éléments à placer sur la carte.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -118,16 +118,15 @@ Core gives you a massive library of 3D assets, materials, sounds, and components
     </video>
 </div>
 
-### Create Hiding Places
+### Créer des cachettes
 
-You can move, turn, and resize objects.
+Vous pouvez déplacer, faire pivoter et modifier la taille des objets.
 
-- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png )
- or ++W++ activates Translation Mode.
+- ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++Z++ active le mode Translation.
 {: .image-inline-text .image-background}
-- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png)  or ++E++ activates Rotation Mode.
+- ![Rotate Tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ active le mode Rotation.
 {: .image-inline-text .image-background}
-- ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ activates Scale Mode.
+- ![Snap Position](../img/EditorManual/icons/Icon_TransformScale.png) ou ++R++ active le mode Dimensions.
 {: .image-inline-text .image-background}
 
 <div class="mt-video">
@@ -137,21 +136,21 @@ You can move, turn, and resize objects.
     </video>
 </div>
 
-1. Click on the bush and press ++G++ to move it.
-2. Use the arrows to move it into a good hiding place for a player.
-3. Press ++R++ to change the size of the bush.
-4. Click and drag the white box at the center of the bush to resize it proportionately.
-5. Move, rotate, and scale the rest of the objects to enhance the scene.
+1. Cliquez sur le buisson et appuyez sur ++G++ pour le déplacer.
+2. Utilisez les flèches pour le positionner à un endroit qui en ferait une bonne cachette.
+3. Appuyez sur ++R++ pour modifier la taille du buisson.
+4. Cliquez sur le carré blanc au centre du buisson et faites-le glisser pour modifier sa taille tout en conservant ses proportions.
+5. Déplacez, faites pivoter et redimensionnez les autres objets pour améliorer votre carte.
 
-### Turn Off Collision
+### Désactiver les collisions
 
-By default, Core objects have collision, so players can't just walk into bushes yet.
+Par défaut, les objets Core sont sujets aux collisions, ce qui empêche les joueurs de traverser les buissons.
 
-1. Test this by pressing ![Play](../img/EditorManual/icons/Icon_Play.png) to preview the game.
+1. Pour tester ceci, appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) pour passer en mode Aperçu.
 {: .image-inline-text .image-background}
-2. Look at your props from a player perspective. You should be able to walk up to a bush, but collide with it once you touch it.
-3. Click on the bush to select it, and open the **Properties** window.
-4. Find the **Collision** property and change it to **Force Off**.
+2. Examinez vos éléments de décor du point de vue d'un joueur. Vous pouvez vous approcher d'un buisson, mais celui-ci vous bloquera le passage lorsque vous le touchez.
+3. Cliquez sur le buisson pour le sélectionner, puis ouvrez la fenêtre **Propriétés*.
+4. Repérez la propriété **Collision**, et réglez-la sur **Désactivation forcée**.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -160,19 +159,19 @@ By default, Core objects have collision, so players can't just walk into bushes 
     </video>
 </div>
 
-You should now be able to walk into a bush. Test this in **Multiplayer Preview Mode** to see how well it works for concealment.
+Désormais, vous devriez pouvoir traverser le buisson. Testez cela en **mode Aperçu multijoueur** pour voir si cette cachette est efficace.
 
 !!! note
-    You can reopen the **Properties** window by going to **Window** > **Properties** in the top menu bar.
+    Vous pouvez rouvrir la fenêtre **Propriétés** dans le menu supérieur, sous **Fenêtre** > **Propriétés**.
 
-## Finishing the Arena
+## Peaufiner l'arène
 
-### Add a Material to an Object
+### Ajouter un matériau à un objet
 
-**Materials** allow you to add colors and textures to the objects in the scene, by dragging and dropping them onto objects.
+Les **matériaux** vous permettent d'ajouter des couleurs et des textures aux objets sur la carte; il suffit pour cela de les faire glisser, puis de les déposer.
 
-1. In the **Core Content** window, drop down the **Materials** menu to see the options.
-2. Pick a material, and drag it onto one of the objects in the scene.
+1. Dans la fenêtre **Contenus Core**, déroulez le menu **Matériaux** pour consulter les options.
+2. Choisissez un matériau, puis faites-le glisser sur un des objets de la carte.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -181,12 +180,12 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
     </video>
 </div>
 
-### Cover the Walls
+### Habiller les murs
 
-You can apply a material to multiple objects by selecting them.
+Vous pouvez appliquer un matériau à plusieurs objets en les sélectionnant.
 
-- Use ++shift+Left Click++ to select more objects.
-- Left click and drag to select objects in an area.
+- Utilisez ++shift+Left Click++ pour sélectionner plusieurs objets individuels, les uns après les autres.
+- Maintenez le clic gauche et faites glisser le curseur pour sélectionner les objets dans une zone.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -195,16 +194,16 @@ You can apply a material to multiple objects by selecting them.
     </video>
 </div>
 
-1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**
-2. Press ++enter++ to select everything from the search
-3. Choose a material, and drag it onto one of the walls.
+1. Dans la fenêtre **Hiérarchie**, saisissez "wall" dans la barre de recherche pour afficher uniquement les objets nommés **Whitebod Wall 01**.
+2. Appuyez sur ++enter++ pour sélectionner tous les résultats de la recherche.
+3. Choisissez un matériau, puis faites-le glisser sur un des murs.
 
 !!! note
-    You can also select the entire list by clicking the first object in the list, then holding ++shift++ and scroll down to click the last.
+    Vous pouvez également sélectionner la liste entière en cliquant sur le premier élément de la liste, puis en maintenant ++shift++ et en faisant défiler la liste jusqu'au bout.
 
-### Give Everything a Material
+### Attribuer un matériau à tous les objets
 
-You can continue using these techniques to complete the appearance of your Deathmatch arena. Try searching for each of these labels to apply materials in groups:
+Vous pouvez continuer à employer ces techniques pour parachever l'aspect visuel de votre arène de match à mort. Essayez de chercher chacune de ces catégories pour appliquer des matériaux collectivement:
 
 - `stairs`
 - `window insert`
@@ -213,64 +212,64 @@ You can continue using these techniques to complete the appearance of your Death
 ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center loading="lazy" }
 
 !!! info
-    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
+    Vous pouvez personnaliser les matériaux et leur application aux objets. Plus d'informations dans le tutoriel sur la personnalisation des matériaux [Custom Material Tutorial](custom_materials.md).
 
-## Customizing Gameplay
+## Personnaliser la jouabilité
 
-In this final section, you will find different ways to change the gameplay itself.
+Dans cette dernière section, vous apprendrez différentes façons de modifier la manière dont le jeu se joue.
 
-### Add Double Jumping
+### Ajouter un double saut
 
 ![PlayerSettings](../img/MyFirstMultiplayer/PlayerSettings.png){: .center loading="lazy" }
 
-1. Find **Player Settings** by searching for it in the **Hierarchy**.
-2. Open the **Properties** window to see all the settings that can be changed for each player
-3. In the **Jump** section, change **Jump Max Count** to `2`,
-4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to test out double-jumping with ++Space++.
+1. Cherchez la section **Paramètres de joueur** dans la **Hiérarchie**.
+2. Ouvrez la fenêtre **Propriétés** pour afficher tous les paramètres pouvant être modifiés pour chaque joueur.
+3. Dans la section **Saut**, réglez **Nombres de sauts max.** sur `2`.
+4. Appuyez sur ![Play](../img/EditorManual/icons/Icon_Play.png) pour tester le double saut avec ++Space++.
 {: .image-inline-text .image-background}
 
 ![DoubleJump](../img/MyFirstMultiplayer/DoubleJump.png){: .center loading="lazy" }
 
-### Change The Round Kill Limit
+### Modifier la limite de victimes de la manche
 
-In the top left corner of the screen in game, you can see that you win the Deathmatch by killing 10 opponents. This can be changed in **Game Settings**.
+Dans le coin supérieur gauche de l'écran de jeu, vous constaterez qu'il faut éliminer 10 adversaires pour remporter le match à mort. Vous pouvez modifier cela dans les **Paramètres de jeu**.
 
 ![RoundKillLimit](../img/MyFirstMultiplayer/RoundKillLimit.png){: .center loading="lazy" }
 
-1. Search for **Round Kill Limit** in the **Hierarchy**.
-2. Open the **Properties** window.
-3. Find the **KillLimit** property and change it to `2`.
-4. Start a **Multiplayer Preview** of your game, and see if you win by shooting an opponent twice.
+1. Cherchez la section **Limite de victimes de la manche** dans la **Hiérarchie**.
+2. Ouvrez la fenêtre **Propriétés*.
+3. Repérez la propriété **KillLimit** et réglez-la sur `2`.
+4. Lancez un **aperçu multijoueur** de votre jeu, et vérifiez si vous gagnez en abattant un adversaire deux fois.
 {: .image-inline-text .image-background}
 
 ![ChangedKillLimit](../img/MyFirstMultiplayer/ChangedKillLimit.png){: .center loading="lazy" }
 
-### Change the UI Instructions
+### Modifier les instructions d'interface
 
-Although the game now ends after two kills, the instructions shown on the screen still tell players to shoot for ten.
+Bien que la partie se termine désormais au bout de 2 victimes, les instructions à l'écran indiquent toujours aux joueurs d'éliminer 10 adversaires.
 
-1. Search for **UI Text Box** under **Game Instructions** in the **Hierarchy**.
-2. Open the **Properties** window.
-3. Change the **Text** property to match your game's win condition.
+1. Cherchez la section **Boîte de dialogue d'interface** sous **Instructions de jeu** dans la **Hiérarchie**.
+2. Ouvrez la fenêtre **Propriétés*.
+3. Modifiez la propriété **Texte** pour qu'elle corresponde aux conditions de victoire de votre jeu.
 
 ![ChangedGameInstructions](../img/MyFirstMultiplayer/ChangedGameInstructions.png){: .center loading="lazy" }
 
-### Move the Player Start
+### Déplacer le point de départ des joueurs
 
-Let's move the "Player Start" where players spawn to be further apart. Press ++V++ to toggle gizmo visibility-- you can now see the camera, spawn points, and trigger boxes.
+Déplaçons le "point de départ des joueurs" afin que les joueurs apparaissent plus loin les uns des autres. Appuyez sur ++V++ pour activer/désactiver l'affichage des éléments cachés; vous pouvez désormais voir la caméra, les points d'apparition et les zones de déclenchement.
 
-1. Search for **Spawn Point** in the **Hierarchy**.
-2. Move the spawn points around the map the same way you would any object.
+1. Cherchez la section **Point d'apparition** dans la **Hiérarchie**.
+2. Déplacez les points d'apparition sur la carte, comme n'importe quel autre objet.
 
 ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center loading="lazy" }
 
 !!! tip
-    Press ++0++ to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
+    Appuyez sur ++0++ pour créer un point d'apparition à l'emplacement de votre curseur. D'autres [raccourcis de l'Éditeur](editor_keybindings.md) permettent de simplifier la création de votre jeu.
 
-## Publishing a Game
+## Publier un jeu
 
-You now have a complete and unique deathmatch-style game. If you are ready to test it with real human players, then [publish your game](publishing.fr.md)
+Vous avez désormais créé un jeu de style match à mort complet et unique. Si vous êtes prêt(e) à le tester avec de vrais joueurs humains, alors [publiez votre jeu](publishing.fr.md)
 
-## Next Steps
+## Étapes suivantes
 
-[Publish a Game](publishing.fr.md) | [Terrain Tutorial](environment_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](abilities.md)
+[Publier un jeu](publishing.fr.md) | [Tutoriel sur le terrain](environment_art.md) | [Tutoriel de base sur les armes](weapons.md) | [Tutoriel sur les aptitudes](abilities.md)

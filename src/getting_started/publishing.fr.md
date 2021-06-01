@@ -8,48 +8,48 @@ tags:
 
 # Publier un jeu
 
-La publication de votre projet de base permet au monde entier de le tester et de recevoir des commentaires, ainsi que de familiariser la communauté avec votre jeu et votre marque. Vous pouvez décider si votre projet est prêt à être publié à l'aide de la [liste de contrôle de publication](publishing_checklist.fr.md).
+Publier votre projet Core le rend accessible à tous les joueurs, ce qui leur permettra de le tester et de vous donner leur avis, et sera l'occasion de constituer une communauté autour de votre jeu et votre marque. Pour savoir si votre jeu est prêt à être publié, consultez la [liste de prépublication](publishing_checklist.md).
 
-## Publier à partir de l'éditeur principal
+## Publier depuis l'Éditeur Core
 
-1. Ouvrez votre projet dans le **Core Editor**.
-2. Cliquez sur le bouton ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publish Game** dans le coin supérieur droit de l'éditeur.
-{: .image-inline-text .image-background }
+1. Ouvrez votre projet dans l'**Éditeur Core**.
+2. Cliquez sur le bouton ![Rocket](../img/EditorManual/icons/HierarchyIcon_Publish.png) **Publier jeu** dans le coin supérieur droit de l'Éditeur.
+{: .image-inline-text .image-background}
 
 ![PublishButton](../img/MyFirstMultiplayer/PublishButtonMarked.png){: .center loading="lazy" }
 
 !!! note
-    Vous pouvez également publier à partir de **File** > **Publish**.
+    Vous pouvez également publier sous **Fichier** > **Publier**.
 
 ## Remplir la description
 
-De bonnes informations sur le jeu sont essentielles pour aider les joueurs à trouver votre jeu et à comprendre ce qu'il est.
+Une bonne description est capitale pour aider les joueurs à trouver votre jeu et à comprendre son principe.
 
 1. Donnez un nom à votre jeu.
 2. Rédigez une description.
-3. Ajoutez des balises pertinentes.
-4. Prenez une capture d'écran pour votre jeu.
-    - Vous pouvez faire des captures d'écran dans l'éditeur avec le bouton de l'appareil photo.
-    - Vous pouvez également sélectionner un fichier image dans votre répertoire via le bouton dossier.
+3. Ajoutez des mots-clés (tags) pertinents.
+4. Prenez une capture d'écran de votre jeu.
+   - Vous pouvez prendre des captures dans l'Éditeur avec le bouton orné d'un appareil photo.
+   - Vous pouvez également sélectionner un fichier image dans votre répertoire avec le bouton orné d'un dossier.
 
 ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
 !!! info
-    Si vous cochez la case **Open for Editing**, d'autres Core Creators pourront utiliser une copie de votre jeu comme point de départ pour créer le leur.
+    Cocher la case **Ouvert à la modification** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
 
 ## Publier
 
-1. Cliquez sur **Publish** dans le coin inférieur droit.
-2. Chaque fois que vous êtes prêt à mettre à jour la version publiée du jeu, vous devez republier en utilisant le bouton **Review & Update**.
+1. Cliquez sur **Publier** dans le coin inférieur droit.
+2. Chaque fois que vous souhaitez mettre à jour la version publiée de votre jeu, vous devrez le publier à nouveau avec le bouton **Vérifier & mettre à jour**.
 
 ![PublishSuccess](../img/MyFirstMultiplayer/PublishSuccess.png){: .center loading="lazy" }
 
-## Succès
+## Félicitations
 
-Votre jeu est maintenant en ligne! Visitez la page de votre jeu dans l'onglet Core **Games** pour l'essayer en ligne.
+Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'onglet **Jeux** de Core pour l'essayer en ligne.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 
 ## En savoir plus
 
-[Liste de contrôle de la publication](publishing_checklist.fr.md) | [Modèles de partage](template_reference.md)
+[Liste de prépublication](publishing_checklist.fr.md) | [Partager des modèles](template_reference.md)
