@@ -88,6 +88,7 @@ The template and the objects in the template will change from **blue**{: style="
 5. In the **Lighting** section of **Properties**, check the box next to **Advanced Settings** to see more options to customize the light.
 6. Check the box for **Use Temperature**, and lower the **Temperature** property to create a warm glow color to the light.
 7. Since you want the light to be off by default, set the **Visibility** property to **Force Off**.
+8. So that you are able to edit the light in the future through the script, enable networking by right-clicking the light in the **Hierarchy** then clicking **Enable Networking**.
 
 ![Point Light Properties](../img/LightBulb/lightProperties.png "Point Light in the Properties window."){: .image-frame .center loading="lazy" }
 
