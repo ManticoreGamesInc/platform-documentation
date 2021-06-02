@@ -14,6 +14,8 @@ tags:
 
 ### Select the Racing Framework
 
+![Open Racing Framework](../img/RacingTutorial/RacingTutorial_OpenFrameworkGames.png){: .center loading="lazy" }
+
 <!-- TODO: Match the name exactly -->
 
 
