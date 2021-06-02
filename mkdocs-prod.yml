@@ -54,6 +54,7 @@ nav:
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - Racing Tutorial: tutorials/racing_tutorial.md
           - Scene Creation: tutorials/scene_creation.md
           - Scripting:
               - Scripting (Beginner): tutorials/lua_basics_helloworld.md
