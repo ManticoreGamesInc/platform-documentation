@@ -62,8 +62,8 @@ Let's explore transforming a prop/model of a car into a fully functional **Four 
 
 First, you need to add the base of the physics vehicle to the project.
 
-1. In the **Core Content** window, search "Four Wheeled Vehicle". The first result should be the template to add. Hold left-click on the template and drag it anywhere in your **Main Viewport** or in the **Hierarchy**.
-2. Name this template anything you want it to be. This will refer to it in the future as "Orange Sedan".
+1. In the **Core Content** window, search "**Four Wheeled Vehicle**". The first result should be the template to add. Hold left-click on the template and drag it anywhere in your **Main Viewport** or in the **Hierarchy**.
+2. Name this template anything you want it to be. This will refer to it in the future as **Orange Sedan**.
 
 Within the **Orange Sedan** template, there is a **ClientContent**. This will contain all of the visuals for the car, such as the body and wheels.
 
@@ -96,15 +96,15 @@ Deinstance the prop vehicle by right-clicking on it then pressing **Deinstance T
 
 ### Connect the Visual Wheels to the Orange Sedan
 
-In the **Wheels** section of the **Properties** window for the **Orange Sedan**, there are **CoreObjectReferences** for each wheel, named "Front Left Wheel", "Front Right Wheel", "Rear Left Wheel", and "Rear Right Wheel" respectively.
+In the **Wheels** section of the **Properties** window for the **Orange Sedan**, there are **CoreObjectReferences** for each wheel, named **Front Left Wheel**, **Front Right Wheel**, **Rear Left Wheel**, and **Rear Right Whee** respectively.
 
 ![Orange Sedan Wheels Properties](../img/Vehicles/OrangeSedanWheelsProperties.png)
 
 #### Change the Names of the Visual Wheels
 
-To prevent future confusion, change the names of each wheel to its respective location on the vehicle, such as "Front Left Wheel".
+To prevent future confusion, change the names of each wheel to its respective location on the vehicle, such as **Front Left Wheel**.
 
-1. Navigate to the "Accessories" group within the prop vehicle.
+1. Navigate to the **Accessories** group within the prop vehicle.
 2. For each wheel, look at where it is according to the orientation of the vehicle and change its name accordingly.
 
 ![Change Names of Wheels](../img/Vehicles/ChangeNamesOfWheels.png)
@@ -117,7 +117,7 @@ Now that each wheel is named, drag-and-drop each wheel into the corresponding pr
 
 #### Adjust the Radius, Width, and Offset of Each Wheel
 
-Now that the location and size of the wheels for the **Orange Sedan** are known, the "Wheel Radius", "Wheel Width", and "Wheel Offset" properties for each wheel can be altered as fit.
+Now that the location and size of the wheels for the **Orange Sedan** are known, the **Wheel Radius**, **Wheel Width**, and **Wheel Offset** properties for each wheel can be altered as fit.
 
 This has to be determined through trial-and-error and looking at the wheel visually. There is a yellow gizmo for each wheel that visualizes its collision. Try to match this as closely to the visual wheel as possible.
 
