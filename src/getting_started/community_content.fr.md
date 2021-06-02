@@ -3,7 +3,7 @@ id : community_content
 name : Community Content
 title : Contenu communautaire
 tags :
-    - Référence
+    - Reference
 ---
 
 # Contenu communautaire
