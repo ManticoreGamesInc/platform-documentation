@@ -314,10 +314,10 @@ plugins:
   - search
   - tags:
       tags_file: generated/tags.md
-  - i18n:
-      default_language: en
-      languages:
-        fr: Français
+  # - i18n:
+  #     default_language: en
+  #     languages:
+  #       fr: Français
   - git-revision-date-localized
   - autolinks
   - redirects:
