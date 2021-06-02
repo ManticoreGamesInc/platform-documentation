@@ -813,41 +813,6 @@ See also: [Rotation.New](rotation.md) | [Vector3.UP](vector3.md)
 
 Example using:
 
-### `SetVisibility`
-
-### `GetVisibility`
-
-You can make a player visible or invisible with `SetVisibility()`, and can check on their status with `GetVisibility()`. This sample gives the player the ability to turn invisible by pressing the shift key.
-
-```lua
-local shiftKeyBinding = "ability_feet"
-
-function OnBindingPressed(player, bindingPressed)
-    if bindingPressed == shiftKeyBinding and player:GetVisibility() == true then
-        player:SetVisibility(false)
-    end
-end
-
-function OnBindingReleased(player, bindingReleased)
-    if bindingReleased == shiftKeyBinding and player:GetVisibility() == false then
-        player:SetVisibility(true)
-    end
-end
-
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-    player.bindingReleasedEvent:Connect(OnBindingReleased)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
-
----
-
-Example using:
-
 ### `SetWorldScale`
 
 ### `GetWorldScale`
@@ -893,6 +858,39 @@ trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 See also: [CoreObject.parent](coreobject.md) | [Object.IsA](object.md) | [Trigger.beginOverlapEvent](trigger.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
+### `isVisible`
+
+You can make a player visible or invisible by setting the `isVisible` property, as well as check on their current visibility status. This sample gives the player the ability to turn invisible by pressing the shift key.
+
+```lua
+local shiftKeyBinding = "ability_feet"
+
+function OnBindingPressed(player, bindingPressed)
+    if bindingPressed == shiftKeyBinding and player.isVisible then
+        player.isVisible = false
+    end
+end
+
+function OnBindingReleased(player, bindingReleased)
+    if bindingReleased == shiftKeyBinding and (not player.isVisible) then
+        player.isVisible = true
+    end
+end
+
+function OnPlayerJoined(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+    player.bindingReleasedEvent:Connect(OnBindingReleased)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
