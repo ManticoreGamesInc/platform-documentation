@@ -15,17 +15,17 @@ tags:
 
 Il existe trois options pour démarrer un nouveau projet:
 
-- **Nouveau projet vierge** crée un projet à partir des éléments de base par défaut.
-- **Modèle de jeu Core** inclut des éléments jouables à modifier et personnaliser.
-- Les **Jeux partagés de la communauté** sont des jeux créés et partagés par les créateurs Core en vue d'être modifiés par autrui.
+- **New Empty Project** crée un projet à partir d'éléments basiques.
+- **Core Game Frameworks** propose des styles de jeux à modifier et personnaliser.
+- Les **Community Shared Games** sont des jeux créés et partagés par les créateurs Core en vue d'être personnalisés ou totalement transformés par d'autres créateurs.
 
 ## Fenêtres de l'Éditeur
 
-L'Éditeur Core est composé de plusieurs fenêtres que vous pouvez dimensionner et positionner librement. Toutes les fenêtres peuvent être ouvertes à partir de l'onglet **Fenêtre** du menu supérieur. Vous pouvez restaurer la disposition par défaut en utilisant l'option **Vue par défaut** du menu **Fenêtre**.
+L'Éditeur Core est composé de plusieurs fenêtres que vous pouvez redimensionner et positionner librement. Toutes les fenêtres peuvent être ouvertes à partir de l'onglet **Window** du menu supérieur. Vous pouvez restaurer la disposition par défaut en utilisant l'option **Reset View to Default** du menu **Window**.
 
 ## Vue principale
 
-La Vue principale correspond à la fenêtre dans laquelle apparaissent tous les éléments visuels du projet. Cette fenêtre porte le nom du titre du projet.
+La Vue principale correspond à la fenêtre dans laquelle apparaissent tous les éléments visuels du projet. Cette fenêtre porte le nom du projet.
 
 ### Modifier la vue
 
@@ -48,12 +48,12 @@ Le mode Aperçu montre le projet du point de vue du joueur, ce qui vous permet d
 
 ### Mode Aperçu multijoueur
 
-Le **mode Aperçu multijoueur** vous permet de tester votre projet en ligne, avec plus qu'un seul joueur.
+Le **mode Aperçu multijoueur** vous permet de tester votre projet dans un contexte multijoueur, avec plusieurs clients (joueurs) en parallèle.
 
 - ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) pour passer du mode Aperçu au mode Aperçu multijoueur.
 {: .image-inline-text .image-background}
-- Utilisez le menu déroulant pour sélectionner le nombre de participants au test.
-- ![Play](../img/EditorManual/icons/Icon_Play.png) lance l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque participant.
+- Utilisez le menu déroulant pour sélectionner le nombre de joueurs au test.
+- ![Play](../img/EditorManual/icons/Icon_Play.png) lance l'aperçu. Cela ouvrira une fenêtre de jeu pour chaque joueur.
 {: .image-inline-text .image-background}
 - ![Stop](../img/EditorManual/icons/Icon_Stop.png) met fin à l'aperçu et ferme toutes les fenêtres.
 {: .image-inline-text .image-background}
@@ -61,23 +61,23 @@ Le **mode Aperçu multijoueur** vous permet de tester votre projet en ligne, ave
 !!! tip
     Le **mode Aperçu multijoueur** est le plus fiable pour savoir comment votre jeu se comportera en ligne. Utilisez-le donc le plus souvent possible.
 
-## Hiérarchie
+## Hierarchy
 
-La Hiérarchie montre tous les objets actuellement utilisés dans le projet. Vous pouvez les organiser en les glissant et en les déposant. Glissez un objet sur un autre pour en faire un **enfant** de ce dernier.
+La **Hierarchy** montre tous les objets actuellement utilisés dans le projet. Vous pouvez les organiser en les glissant et en les déposant. Glissez un objet sur un autre pour en faire un **enfant** de ce dernier.
 
 Les **objets enfants** sont placés en fonction de la position de leur **objet parent**, et peuvent accéder aux propriétés de l'objet parent via leurs scripts.
 
 ## Contenus
 
-### Contenus Core
+### Core Content
 
-La fenêtre Contenus Core contient tous les éléments graphiques, sonores et ludiques nécessaires à l'élaboration de votre jeu. Vous pouvez les parcourir à travers les différentes catégories, ou en utilisant la fonction **Recherche**.
+La fenêtre **Core Content** contient tous les éléments graphiques, sonores et ludiques nécessaires à l'élaboration de votre jeu. Vous pouvez les parcourir à travers les différentes catégories, ou en utilisant la fonction **Recherche**.
 
-### Contenus de la communauté
+### Community Content
 
-L'onglet Contenus Core propose des modèles réalisés par les autres créateurs Core et partagés avec la communauté.
+L'onglet **Community Content** propose des templates réalisés par les autres créateurs Core et partagés avec la communauté.
 
-### Contenus du projet
+### Project Content
 
 Les objets et scripts que vous créez apparaissent dans cette fenêtre, de même que ceux que vous importez depuis les Contenus de la communauté.
 
@@ -87,9 +87,9 @@ La barre d'outils contient les différentes options de manipulation.
 
 - ![Transform Position](../img/EditorManual/icons/Icon_TransformPosition.png) ou ++Z++ pour **Transformer la position**. Cela affichera trois flèches partant de la position actuelle de l'objet. Suivez l'une des flèches pour déplacer l'objet le long de l'axe correspondant.
 {: .image-inline-text .image-background}
-- ![Snap position](../img/EditorManual/icons/Icon_SnapPosition.png) ou ++G++ pour **Adapter la position**. Cela déplacera l'objet en fonction de la taille sélectionnée.
+- ![Snap position](../img/EditorManual/icons/Icon_SnapPosition.png) ou ++G++ pour **Adapter la position**. Cela déplacera l'objet sur une grille en fonction de la taille sélectionnée.
 {: .image-inline-text .image-background}
-- ![Rotate tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ pour **Transformer la rotation**. Cela affichera trois courbes. Suivez l'une d'elles pour faire tourner l'objet le long de la direction correspondante.
+- ![Rotate tool](../img/EditorManual/icons/Icon_TransformRotation.png) ou ++E++ pour **Transformer la rotation**. Cela affichera trois courbes. Cliquez et glissez l'une d'elles pour faire tourner l'objet le long de la direction correspondante.
 {: .image-inline-text .image-background}
 - ![Snap position](../img/EditorManual/icons/Icon_SnapRotation.png) ou ++G++ pour **Adapter la rotation** et faire tourner l'objet en fonction de l'angle sélectionné.
 {: .image-inline-text .image-background}
@@ -103,20 +103,20 @@ La barre d'outils contient les différentes options de manipulation.
 
 ## Ajouter des scripts
 
-Les scripts vous permettent de programmer le comportement des différents objets du projet. Les scripts de Core utilisent le langage [Lua](https://www.lua.org/manual/5.3/) et [Core Lua API](../api/index.md).
+Les scripts vous permettent de programmer le comportement des différents objets du projet. Les scripts de Core utilisent le langage [Lua](https://www.lua.org/manual/5.3/) et [l'API Lua de Core](../api/index.md).
 
-- ![Script](../img/EditorManual/icons/Icon_Script.png) crée un script qui apparaîtra dans vos **contenus du projet**.
+- ![Script](../img/EditorManual/icons/Icon_Script.png) crée un script qui apparaîtra dans votre **Project Content**.
 {: .image-inline-text .image-background}
-- Les scripts peuvent être glissés directement dans la Hiérarchie ou sur un objet censé devenir son parent.
+- Les scripts peuvent être glissés directement dans la **Hierarchy** ou sur un objet censé devenir son parent.
 
 ### Journal des événements
 
-Le Journal des événements répertorie l'issue des scripts (dont les erreurs). Il n'est pas ouvert par défaut mais vous pouvez le trouver dans le menu **Fenêtre**.
+Utilisez le Journal des événements, **Event Log**, afin d'accéder aux lignes de debug générés par les scripts ainsi qu'aux erreurs. Il n'est pas ouvert par défaut mais vous pouvez le trouver dans le menu **Window**.
 
 ## Sauvegarder le projet
 
-L'Éditeur Core enregistre automatiquement votre projet de façon régulière, mais vous pouvez sauvegarder manuellement via **Fichier** > **Sauvegarder** ou ++ctrl+S++.
+L'Éditeur Core enregistre automatiquement votre projet de façon régulière, mais vous pouvez sauvegarder manuellement via **File** > **Save** ou ++ctrl+S++.
 
 ## En savoir plus
 
-[Mon premier jeu](my_first_multiplayer_game.fr.md) | [Raccourcis clavier de l'Éditeur Core](editor_keybindings.md)
+[Mon premier jeu multijoueur](my_first_multiplayer_game.fr.md) | [Raccourcis clavier de l'Éditeur Core](editor_keybindings.md)
