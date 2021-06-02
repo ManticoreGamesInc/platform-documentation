@@ -12,9 +12,14 @@ tags:
 
 ### Open the Core Editor
 
+
+
+1. Select the **CREATE** menu.
+2. 
+ 
 ### Select the Racing Framework
 
-![Open Racing Framework](../img/RacingTutorial/RacingTutorial_OpenFrameworkGames.png){: .center loading="lazy" }
+![Open Racing Framework](../img/RacingTutorial/RacingTutorial_OpenFrameworkGames.png)
 
 <!-- TODO: Match the name exactly -->
 
