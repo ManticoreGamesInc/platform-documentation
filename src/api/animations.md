@@ -135,7 +135,15 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `dual_melee_right_hand_slash_left`  | A melee attack in which the right hand swings a weapon from left to right.     | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `dual_melee_right_hand_slash_right` | A melee attack in which the right hand swings a weapon from right to left.     | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `dual_melee_right_hand_thrust`      | A melee attack in which the right hand thrusts a weapon forward.               | Supports variable cast phase time. Supports time-stretched execute phase time. |
-| `dual_melee_unsheathe`              | Pulls the weapons off the back.                                                | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_melee_unsheathe`              | Pulls the weapons off the back.                                                | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time. |
+
+| Dual Katana Melee Animations            | Description                                                                            | Notes                                                                          |
+| --------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `dual_katana_left_hand_slash_left`      | A melee attack in which the left hand swings a weapon from left to right.              | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_katana_right_hand_slash_right`    | A melee attack in which the right hand swings a weapon from right to left.             | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_katana_right_hand_slash_vertical` | A melee attack in which the right hand swings a weapon downward in front of the player | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_katana_right_hand_thrust`         | A melee attack in which the right hand thrusts the weapon directly forward             | Supports variable cast phase time. Supports time-stretched execute phase time. |
+| `dual_katana_unsheathe`                 | Pulls the weapons off the back.                                                        | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time. |
 
 ## Animation Stances
 
@@ -200,6 +208,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | ------------------------ | ----------------------------------------------------------------------------------------- |
 | `dual_melee_stance`      | This will cause the Player to walk or stand with both hands posed to hold a melee weapon. |
 | `dual_melee_block_high`  | A stance that has both weapons held in front of the Player in a defensive pose.           |
+| `dual_katana_stance`     | This will cause the player to walk or stand with each hand posed to hold a katana sword (or other melee weapon). Left-hand melee weapon is optional. |
 
 ## How to Turn on Ragdoll
 
