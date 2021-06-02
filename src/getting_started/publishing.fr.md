@@ -8,7 +8,7 @@ tags:
 
 # Publier un jeu
 
-Publier votre projet Core le rend accessible à tous les joueurs, ce qui leur permettra de le tester et de vous donner leur avis, et sera l'occasion de constituer une communauté autour de votre jeu et votre marque. Pour savoir si votre jeu est prêt à être publié, consultez la [liste de prépublication](publishing_checklist.md).
+Publier votre projet Core le rend accessible à tous les joueurs, ce qui leur permettra de le tester et de vous donner leur avis. Ce sera aussi l'occasion de constituer une communauté autour de votre jeu et votre marque. Pour savoir si votre jeu est prêt à être publié, consultez la [Checklist de Prépublication](publishing_checklist.fr.md).
 
 ## Publier depuis l'Éditeur Core
 
@@ -35,21 +35,21 @@ Une bonne description est capitale pour aider les joueurs à trouver votre jeu e
 ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
 !!! info
-    Cocher la case **Ouvert à la modification** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
+    Cocher la case **open for Editing** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
 
 ## Publier
 
-1. Cliquez sur **Publier** dans le coin inférieur droit.
-2. Chaque fois que vous souhaitez mettre à jour la version publiée de votre jeu, vous devrez le publier à nouveau avec le bouton **Vérifier & mettre à jour**.
+1. Cliquez sur **Publish** dans le coin inférieur droit.
+2. Chaque fois que vous souhaitez mettre à jour la version publiée de votre jeu, vous devrez le publier à nouveau avec le bouton **Review & Update**.
 
 ![PublishSuccess](../img/MyFirstMultiplayer/PublishSuccess.png){: .center loading="lazy" }
 
 ## Félicitations
 
-Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'onglet **Jeux** de Core pour l'essayer en ligne.
+Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'onglet **Games** de Core pour l'essayer en ligne.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 
 ## En savoir plus
 
-[Liste de prépublication](publishing_checklist.fr.md) | [Partager des modèles](template_reference.md)
+[Checklist de Prépublication](publishing_checklist.fr.md) | [Partager des templates](template_reference.md)
