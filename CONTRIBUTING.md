@@ -46,6 +46,7 @@ git config pull.rebase true # We use rebase instead of merge
     ```
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
+    - Note: If it complains about `pip` not being a thing, use `pip3` instead.
 
 2. Install Node.js Packages
 
