@@ -22,6 +22,170 @@ The CoreSocial namespace contains functions for retrieving social metadata from 
 
 Example using:
 
+### `GetFriends`
+
+### `GetResults`
+
+### `GetMoreResults`
+
+### `name`
+
+### `id`
+
+In this client script, a function is setup to gather the names and ID of all players that are Core friends of the local player. The function is then called and the data is printed out to the Event Log. The pagination aspect of the friend collection, with `GetMoreResults()` is worth considering as part of the game's user interface, instead of collecting the entire data set as in this example. That is because these CoreSocial functions yield the thread as they wait for the results, which might cause the UI to freeze for players that have hundreds of friends.
+
+```lua
+function GetAllFriendEntries(player)
+    local friendCollection = CoreSocial.GetFriends(player)
+    local entries = friendCollection:GetResults()
+    
+    while true do
+        friendCollection = friendCollection:GetMoreResults()
+        if friendCollection then
+            local moreEntries = friendCollection:GetResults()
+            for _,entry in ipairs(moreEntries) do
+                table.insert(entries, entry)
+            end
+        else
+            break
+        end
+    end
+    return entries
+end
+
+local player = Game.GetLocalPlayer()
+print("All friends of " .. player.name .. ":")
+
+local entries = GetAllFriendEntries(player)
+for _,entry in ipairs(entries) do
+    print(entry.name .. " : " .. entry.id)
+end
+```
+
+See also: [Game.GetLocalPlayer](game.md)
+
+---
+
+Example using:
+
+### `GetFriends`
+
+### `GetResults`
+
+### `GetMoreResults`
+
+### `name`
+
+### `id`
+
+In this second example, pagination is used to peruse the player's friend list. The size of the page is flexible, to best fit the user interface and not tied to the return limits of `GetResults()`. UI buttons could be tied to the `NextPage()` and `PreviousPage()` functions, but here we demonstrate by printing out all the pages into the Event Log. The functions `HasNextPage()` and `HasPreviousPage()` can be used to disable/enable the next & previous buttons.
+
+```lua
+local PLAYER = Game.GetLocalPlayer()
+local PAGE_SIZE = 5
+local currentPageIndex = 1
+local friendCollection = nil
+local allEntries = nil
+local currentPage = nil
+local moreToLoad = true
+local pageCount = 0
+
+function Init()
+    friendCollection = CoreSocial.GetFriends(PLAYER)
+    local entries = friendCollection:GetResults()
+    
+    if allEntries == nil then
+        allEntries = entries
+    else
+        for _,entry in ipairs(entries) do
+            table.insert(allEntries, entry)
+        end
+    end
+    
+    if #allEntries < PAGE_SIZE * 2 then
+        LoadMore()
+    end
+    
+    UpdateCurrentPage()
+end
+
+function UpdateCurrentPage()
+    pageCount = math.ceil(#allEntries / PAGE_SIZE)
+    currentPage = {}
+    local startIndex = (currentPageIndex - 1) * PAGE_SIZE + 1
+    local endIndex = startIndex + PAGE_SIZE - 1
+    for i = startIndex, endIndex do
+        if i > #allEntries then
+            return currentPage
+        end
+        table.insert(currentPage, allEntries[i])
+    end
+    return currentPage
+end
+
+function LoadMore()
+    friendCollection = friendCollection:GetMoreResults()
+    if friendCollection then
+        local moreEntries = friendCollection:GetResults()
+        for _,entry in ipairs(moreEntries) do
+            table.insert(allEntries, entry)
+        end
+    else
+        moreToLoad = false
+    end
+end
+
+function NextPage()
+    if moreToLoad and (currentPageIndex + 2) * PAGE_SIZE > #allEntries then
+        LoadMore()
+    end
+    if currentPageIndex * PAGE_SIZE + 1 <= #allEntries then
+        currentPageIndex = currentPageIndex + 1
+    end    
+    return UpdateCurrentPage()
+end
+
+function PreviousPage()
+    if currentPageIndex <= 1 then
+        return currentPage
+    end
+    currentPageIndex = currentPageIndex - 1
+    
+    return UpdateCurrentPage()
+end
+
+function HasNextPage()
+    return currentPageIndex < pageCount
+end
+
+function HasPreviousPage()
+    return currentPageIndex > 1
+end
+
+Init()
+
+-- Print all pages to the Event Log
+
+function PrintCurrentPage()
+    print("\nPage " .. currentPageIndex)
+    for _,entry in ipairs(currentPage) do
+        print(entry.name .. " : " .. entry.id)
+    end
+end
+
+PrintCurrentPage()
+while HasNextPage() do
+    NextPage()
+    PrintCurrentPage()
+end
+```
+
+See also: [Game.GetLocalPlayer](game.md)
+
+---
+
+Example using:
+
 ### `IsFriendsWithLocalPlayer`
 
 In this example, when a player joins the game, we look through all other players to see if one of them is friends with the new player. If that's the case, then we send a message to the server to request a change of team, so the players can be on the same team.
