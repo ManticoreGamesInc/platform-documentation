@@ -49,7 +49,7 @@ Leaderboards are created through the **Global Leaderboards** window, and can be 
 
 ### Add a NetReference as a Custom Property
 
-To reference a Leaderboard in a script, use a [NetReference](netreference.md).
+To reference a Leaderboard in a script, use a [NetReference](../api/netreference.md).
 
 <div class="figure-block">
     <figure>
@@ -70,7 +70,7 @@ To reference a Leaderboard in a script, use a [NetReference](netreference.md).
 
 Leaderboards do not instantly load, so the **HasLeaderboards** function can be used to check if it is loaded before displaying or adding new entries.
 
-This code shows an example of using [**Task.Spawn** with **Task.Wait**](task.md), to continue checking for a loaded Leaderboard before continuing to the next step
+This code shows an example of using [**Task.Spawn** with **Task.Wait**](../api/task.md), to continue checking for a loaded Leaderboard before continuing to the next step
 
 ```lua
 function loadLeaderboard()
@@ -107,7 +107,7 @@ end
 
 ### Displaying Leaderboard Entries
 
-Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](leaderboardentry.md) which have name, id, score and additionalData properties that can be used to display the data.
+Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](../api/leaderboardentry.md) which have name, id, score and additionalData properties that can be used to display the data.
 
 You can create a text asset that is spawned for each Leaderboard entry, or create a group of texts ahead of time for the total number of entries, and update their `text` property.
 
@@ -139,4 +139,4 @@ end
 
 ## Learn More
 
-[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](../api/leaderboards.md) | [LeaderboardEntry Object in the Core API](leaderboardentry.md) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](task.md)
+[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](../api/leaderboards.md) | [LeaderboardEntry Object in the Core API](../api/leaderboardentry.md) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](../api/task.md)
