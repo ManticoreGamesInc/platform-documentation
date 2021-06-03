@@ -24,7 +24,7 @@ Pour pouvoir participer au programme Perks, certaines conditions doivent être r
 !!! info
     Par "utilisateur actif quotidien", on entend chaque compte qui se connecte à votre jeu au cours d'une journée. Atteindre 50 utilisateurs actifs quotidiens en un mois correspond à un total de 1 500 utilisateurs, mais chaque utilisateur est compté une fois par jour. Pour en savoir plus sur les données permettant de savoir combien d'utilisateurs jouent à vos jeux, consultez l'article [Analyse de données](creator_analytics.md).
 
-Pour savoir comment rejoindre le système, consultez l'article [Participer au Perks Program](https://support.coregames.com/hc/en-us/articles/1500000105081-Joining-the-Perks-Program) du centre d'assistance Core. Pour des conseils permettant de faire augmenter les utilisateurs actifs quotidiens sur vos jeux, consultez le guide [Améliorer votre jeu](https://docs.coregames.com/tutorials/improving_your_game/).
+Pour savoir comment rejoindre le système, consultez l'article [Participer au Perks Program](https://support.coregames.com/hc/en-us/articles/1500000105081-Joining-the-Perks-Program) du centre d'assistance Core. Pour des conseils permettant de faire augmenter le DAU sur vos jeux, consultez le guide [Améliorer votre jeu](https://docs.coregames.com/tutorials/improving_your_game/).
 
 ## S'inscrire au programme
 

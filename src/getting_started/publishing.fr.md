@@ -35,7 +35,7 @@ Une bonne description est capitale pour aider les joueurs à trouver votre jeu e
 ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
 !!! info
-    Cocher la case **open for Editing** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
+    Cocher la case **Open for Editing** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
 
 ## Publier
 
