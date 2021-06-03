@@ -10,7 +10,7 @@ tags:
 
 ## Aperçu
 
-Les Perks sont le système permettant de créer des achats au sein du jeu, afin que les joueurs puissent soutenir les créateurs en échange de contenu exclusif. Pour utiliser les Perks dans un jeu, les créateurs doivent remplir [certaines conditions](joining_perks.md) et postuler au système [Perks Program](perks_program.md).
+Les Perks sont le système permettant de créer des achats au sein du jeu, afin que les joueurs puissent soutenir les créateurs en échange de contenu exclusif. Pour utiliser les Perks dans un jeu, les créateurs doivent remplir [certaines conditions](joining_perks.md) et postuler au [Perks Program](perks_program.md).
 
 ## Types dePerks
 
@@ -18,7 +18,7 @@ Les Perks sont divisés en plusieurs types, basés sur le moment et la fréquenc
 
 ### Permanents
 
-Chaque joueur ne peut acheter un **Permanent Perks** qu'une seule fois.
+Chaque joueur ne peut acheter un **Permanent Perk** qu'une seule fois.
 
 ### Durée limitée
 
