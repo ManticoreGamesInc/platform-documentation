@@ -13,7 +13,7 @@ tags:
 
 ## Aperçu
 
-Lancez-vous dans la création d'un jeu grâce au modèle Match à mort de Core. Personnalisez selon vos envies pour développer un jeu de tir multijoueur en arène.
+Lancez-vous dans la création d'un jeu grâce au modèle Match à mort (Deathmatch) de Core. Personnalisez selon vos envies pour développer un jeu de tir multijoueur en arène.
 
 - **Durée:** 10 minutes.
 - **Connaissances préalables:** [Installer Core](installing_core.fr.md)
