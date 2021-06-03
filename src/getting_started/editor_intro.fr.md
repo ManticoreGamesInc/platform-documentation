@@ -16,7 +16,7 @@ tags:
 Il existe trois options pour démarrer un nouveau projet:
 
 - **New Empty Project** crée un projet à partir d'éléments basiques.
-- **Core Game Frameworks** propose des styles de jeux à modifier et personnaliser.
+- **Core Game Frameworks** propose des bases de jeux à modifier et personnaliser.
 - Les **Community Shared Games** sont des jeux créés et partagés par les créateurs Core en vue d'être personnalisés ou totalement transformés par d'autres créateurs.
 
 ## Fenêtres de l'Éditeur
