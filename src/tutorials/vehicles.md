@@ -1,5 +1,5 @@
 ---
-id: vehicles
+id: vehicle_reference
 name: Vehicle Reference
 title: Vehicle Reference
 tags:
