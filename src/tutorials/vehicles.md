@@ -73,7 +73,7 @@ Within the **Orange Sedan** template, there is a **ClientContent**. This will co
 !!! info
     The vehicle should not overlap the **Spawn Point** to avoid collision issues.
 
-![Searching Core Content for Four Wheeled Vehicle](../img/Vehicles/SearchingCoreContentForFourWheeledVehicle.png) {: .center loading="lazy" }
+![Searching Core Content for Four Wheeled Vehicle](../img/Vehicles/SearchingCoreContentForFourWheeledVehicle.png){: .center loading="lazy" }
 
 ### Find and Add a Prop Vehicle to the Orange Sedan
 
@@ -85,9 +85,9 @@ Once the prop vehicle is in the **ClientContext**, make sure the position of the
 !!! info
     You may have to add the prop vehicle somewhere else in the **Hierarchy** and then move it into the **ClientContext**.
 
-![Searching Core Content for Urban Sedan](../img/Vehicles/SearchingCoreContentForUrbanSedan.png) {: .center loading="lazy" }
+![Searching Core Content for Urban Sedan](../img/Vehicles/SearchingCoreContentForUrbanSedan.png){: .center loading="lazy" }
 
-![Prop in Orange Sedan](../img/Vehicles/PropInOrangeSedan.png) {: .center loading="lazy" }
+![Prop in Orange Sedan](../img/Vehicles/PropInOrangeSedan.png){: .center loading="lazy" }
 
 ### Deinstance the Prop Vehicle
 
@@ -95,13 +95,13 @@ To be able to edit the vehicle, it needs to be deinstanced.
 
 Deinstance the prop vehicle by right-clicking on it then pressing **Deinstance This Object**.
 
-![Deinstance Prop Vehicle](../img/Vehicles/DeinstancePropVehicle.png) {: .center loading="lazy" }
+![Deinstance Prop Vehicle](../img/Vehicles/DeinstancePropVehicle.png){: .center loading="lazy" }
 
 ### Connect the Visual Wheels to the Orange Sedan
 
 In the **Wheels** section of the **Properties** window for the **Orange Sedan**, there are **CoreObjectReferences** for each wheel, named `Front Left Wheel`, `Front Right Wheel`, `Rear Left Wheel`, and `Rear Right Wheel` respectively.
 
-![Orange Sedan Wheels Properties](../img/Vehicles/OrangeSedanWheelsProperties.png) {: .center loading="lazy" }
+![Orange Sedan Wheels Properties](../img/Vehicles/OrangeSedanWheelsProperties.png){: .center loading="lazy" }
 
 #### Change the Names of the Visual Wheels
 
@@ -110,13 +110,13 @@ Change the names of each wheel to its respective location on the vehicle, such a
 1. Find the **Accessories** group within the prop vehicle.
 2. For each wheel, look at where it is according to the orientation of the vehicle and change its name accordingly.
 
-![Change Names of Wheels](../img/Vehicles/ChangeNamesOfWheels.png) {: .center loading="lazy" }
+![Change Names of Wheels](../img/Vehicles/ChangeNamesOfWheels.png){: .center loading="lazy" }
 
 #### Assign the Visual Wheels to the Wheels Properties of the Orange Sedan
 
 Now that each wheel is named, drag-and-drop each wheel into the corresponding property in the **Wheels** section of the **Properties** window for the **Orange Sedan**.
 
-![Orange Sedan Wheels Properties Filled](../img/Vehicles/OrangeSedanWheelsPropertiesFilled.png) {: .center loading="lazy" }
+![Orange Sedan Wheels Properties Filled](../img/Vehicles/OrangeSedanWheelsPropertiesFilled.png){: .center loading="lazy" }
 
 #### Adjust the Radius, Width, and Offset of Each Wheel
 
@@ -127,7 +127,7 @@ This has to be determined through trial-and-error and looking at the wheel visua
 !!! hint
     If you do not see the gizmos, press ++V++ to enable them.
 
-![Editing Radius and Width and Offset for Each Wheel](../img/Vehicles/EditingRadiusAndWidthAndOffsetForEachWheel.png) {: .center loading="lazy" }
+![Editing Radius and Width and Offset for Each Wheel](../img/Vehicles/EditingRadiusAndWidthAndOffsetForEachWheel.png){: .center loading="lazy" }
 
 ### Adjust Vehicle Properties as Deemed Fit
 
