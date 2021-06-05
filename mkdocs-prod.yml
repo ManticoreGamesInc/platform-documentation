@@ -94,6 +94,7 @@ nav:
           - Templates: tutorials/template_reference.md
           - Triggers: tutorials/triggers.md
           - UI: tutorials/ui_reference.md
+          - Vehicles: tutorials/vehicles.md
           - Weapons: tutorials/weapons.md
   - Core API:
       - API Index: api/index.md
