@@ -141,4 +141,4 @@ Once everything has been set up and to your liking, you can press the **Play** b
 
 ## Learn More
 
-[Vehicle Type and Examples on the Core Lua API](vehicle.md)
+[Vehicle Type and Examples on the Core Lua API](../api/vehicle.md)
