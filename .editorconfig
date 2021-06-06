@@ -10,3 +10,7 @@ insert_final_newline = true
 
 [{*.yml,*.js,*.toml}]
 indent_size = 2
+
+[CoreLuaAPI.json]
+end_of_line = crlf
+insert_final_newline = false
