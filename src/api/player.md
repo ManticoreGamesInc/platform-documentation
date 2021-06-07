@@ -54,7 +54,7 @@ Player is an object representation of the state of a player connected to the gam
 | `isVisible` | `boolean` | Defaults to `true`. Set to `false` to hide the player and any attached objects which are set to inherit visibility. Note that using this property in conjunction with the deprecated `SetVisibility()` function may cause unpredictable results. | Read-Write |
 | `isCollidable` | `boolean` | Defaults to `true`. Set to `false` to disable collision on the player and any attached objects set to inherit collision. | Read-Write |
 | `isMovementEnabled` | `boolean` | Defaults to `true`. Set to `false` to disable player movement. Unlike `movementControlMode`, which can disable movement input, setting `isMovementEnabled` to `false` freezes the Player in place, ignoring gravity and reactions to collision or impulses, unless the Player's transform is explicitly changed or the Player is attached to a parent CoreObject that moves. | Read-Write |
-| `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
+| `movementControlMode` | [`MovementControlMode`](enums.md#movementcontrolmode) | Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Directional movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed. | Read-Write |
 | `lookControlMode` | [`LookControlMode`](enums.md#lookcontrolmode) | Specify how players control their look direction. Default: LookControlMode.RELATIVE. LookControlMode.NONE: Look input is ignored. LookControlMode.RELATIVE: Look input controls the current look direction. LookControlMode.LOOK_AT_CURSOR: Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. | Read-Write |
 | `lookSensitivity` | `number` | Multiplier on the Player look rotation speed relative to cursor movement. This is independent from user's preferences, both will be applied as multipliers together. Default = 1.0. | Read-Write, Client-Only |
 | `spreadModifier` | `number` | Modifier added to the Player's targeting spread. | Read-Write |
@@ -222,9 +222,11 @@ end
 function OnPlayerDied(player, damage)
     print("Player " .. player.name .. " has been killed!")
 
-    -- Now, revive them after 2 seconds at a spawn point:
+    -- Now, revive them after 2 seconds at a specific position and rotation:
     Task.Wait(2)
-    player:Respawn(Vector3.New(0, 0, 500), Rotation.New(0, 0, 45))
+    local pos = Vector3.New(0, 0, 500)
+    local rot = Rotation.New(0, 0, 45)
+    player:Respawn({position = pos, rotation = rot})
 end
 
 function OnPlayerRespawn(player)
