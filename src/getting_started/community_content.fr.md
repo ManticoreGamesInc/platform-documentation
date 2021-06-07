@@ -12,7 +12,7 @@ tags :
 
 Les créations publiées en tant que [templates](template_reference.md) open-source se trouvent dans la fenêtre **Community Content**. Ces templates peuvent être de simples modèles, des ensembles d'objets, des scripts ou des objets entièrement scriptés.
 
-Le contenu communautaire permet d'avoir une plus grande variété de contenu à choisir lors de la construction d'un projet, et le partage de templates dans le contenu communautaire permet aux créateurs de Core de collaborer sur les modèles et les outils ainsi que de partager leurs innovations au sein de Core.
+Le contenu communautaire permet d'avoir une plus grande variété de contenu à choisir lors de la construction d'un projet. Le partage de templates dans le contenu communautaire permet aux créateurs de Core de collaborer sur les modèles et les outils ainsi que de partager leurs innovations au sein de Core.
 
 ## Importation de contenu communautaire
 
