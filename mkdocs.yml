@@ -2,7 +2,7 @@
 site_name: Core Documentation
 site_description: API Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
-site_url: https://development.docs.coregames.com
+site_url: !ENV [MKDOCS_SITE_URL, 'https://development.docs.coregames.com']
 
 # Repository
 # repo_name: ManticoreGamesInc/platform-documentation
@@ -243,6 +243,9 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
   alternate:
     - name: English
       link: /
