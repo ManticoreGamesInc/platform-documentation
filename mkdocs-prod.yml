@@ -243,6 +243,9 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
   alternate:
     - name: English
       link: /
@@ -355,7 +358,3 @@ plugins:
         tutorials/lua_reference.md: tutorials/scripting_intro.md
         tutorials/overview.md: tutorials/abilities.md
         tutorials/videos/pistol_shooter.md: https://www.youtube.com/CoreGamesOfficial
-
-google_analytics:
-  - UA-142884846-4
-  - auto
