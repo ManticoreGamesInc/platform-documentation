@@ -245,7 +245,7 @@ extra_javascript:
 extra:
   analytics:
     provider: google
-    property: UA-142884846-4
+    property: !ENV GOOGLE_ANALYTICS_KEY
   alternate:
     - name: English
       link: /
