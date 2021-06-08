@@ -246,13 +246,6 @@ extra:
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: Français (Beta)
-      link: /fr/
-      lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
   social:
@@ -321,9 +314,9 @@ plugins:
   - i18n:
       default_language: en
       languages:
-        fr: Français
+        fr: Français (Beta)
   - minify:
-      minify_html: true
+      minify_html: !ENV MKDOCS_MINIFY
   - git-revision-date-localized
   - autolinks
   - redirects:
@@ -340,7 +333,6 @@ plugins:
         tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
         tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
-        tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md

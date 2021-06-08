@@ -246,13 +246,6 @@ extra:
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: Français (Beta)
-      link: /fr/
-      lang: fr
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
   social:
@@ -321,7 +314,9 @@ plugins:
   # - i18n:
   #     default_language: en
   #     languages:
-  #       fr: Français
+  #       fr: Français (Beta)
+  - minify:
+      minify_html: !ENV MKDOCS_MINIFY
   - git-revision-date-localized
   - autolinks
   - redirects:
