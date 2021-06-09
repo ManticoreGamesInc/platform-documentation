@@ -111,69 +111,19 @@ More information can be found in the [CoreObject API Reference Events](../api/co
 
 For more information on simple data types such as string, number, and boolean, check out our [Data Types Reference](../tutorials/scripting_intro.md/#data-types).
 
-The simple data types that are supported as custom properties are:
+There are a few simple data types supported as custom properties.
 
-- Bool
-- Color
-- Float
-- Int
-- Rotation
-- String
-- Vector2
-- Vector3
-- Vector4
-
-### Bool
-
-A **Boolean** is only ever `true` or `false`. This can be best compared to on/off, yes/no, etc.
-
-In custom properties, they are expressed as a check box that is either checked (`true`) or unchecked (`false`).
-
-**Booleans** are most often used in if-statements that allow you to write code that is only executed if certain conditions are met, such as the boolean being `true`.
-
-### Color
-
-A **Color** is a Core class that contains values for `red`, `green`, `blue`, and `alpha` (transparency).
-
-**Colors** are helpful constants that can assist in UI programming, spawning assets of different colors, etc.
-
-More information can be found in the [Color API](../api/color.md).
-
-### Float
-
-A **Float** is a number that can have decimals, such as `0.1`, `1.2`, `139.8`, etc.
-
-### Int
-
-An **Int** is a number that can not have decimals and must be whole, such as `0`, `1`, `139`, etc.
-
-### Rotation
-
-A **Rotation** is a Core class that contains values for `x`, `y`, and `z` on rotation axis.
-
-More information can be found in the [Rotation API](../api/rotation.md).
-
-### String
-
-A **String** is a collection of any value you want, such as numbers, letters, punctuation, and emojis. They are represented in double quotes (" ") in code so that the computer does not mistake them for code. However, this is not necessary for custom properties as **String** custom properties are represented as a text box that can be typed in.
-
-### Vector2
-
-A **Vector2** contains values for `x` and `y` and is usually useful for storing UI positions/size or any two-dimensional structures.
-
-More information can be found in the [Vector2 API](../api/vector2.md).
-
-### Vector3
-
-A **Vector3** contains values for `x`, `y`, and `z` and is usually useful for storing 3D positions/size or any three-dimensional structures.
-
-More information can be found in the [Vector3 API](../api/vector3.md).
-
-### Vector4
-
-A **Vector4** contains values for `x`, `y`, `z`, and `w` and is useful for any four-dimensional structures.
-
-More information can be found in the [Vector4 API](../api/vector4.md).
+| Data Type    | Description |
+| ------------ | ----------- |
+| **Bool**     | A **Boolean** is only ever `true` or `false`. This can be best compared to on/off, yes/no, etc.<br /><br />In custom properties, they are expressed as a check box that is either checked (`true`) or unchecked (`false`).<br /><br />**Booleans** are most often used in if-statements that allow you to write code that is only executed if certain conditions are met, such as the boolean being `true`. |
+| **Color**    | A **Color** is a Core class that contains values for `red`, `green`, `blue`, and `alpha` (transparency).<br /><br />**Colors** are helpful constants that can assist in UI programming, spawning assets of different colors, etc.<br /><br />More information can be found in the [Color API](../api/color.md). |
+| **Float**    | A **Float** is a number that can have decimals, such as `0.1`, `1.2`, `139.8`, etc. |
+| **Int**      | An **Int** is a number that can not have decimals and must be whole, such as `0`, `1`, `139`, etc. |
+| **Rotation** | A **Rotation** is a Core class that contains values for `x`, `y`, and `z` on rotation axis.<br /><br />More information can be found in the [Rotation API](../api/rotation.md). |
+| **String**   | A **String** is a collection of any value you want, such as numbers, letters, punctuation, and emojis. They are represented in double quotes (`" "`) in code so that the computer does not mistake them for code. However, this is not necessary for custom properties as **String** custom properties are represented as a text box that can be typed in. |
+| **Vector2**  | A **Vector2** contains values for `x` and `y` and is usually useful for storing UI positions/size or any two-dimensional structures.<br /><br />More information can be found in the [Vector2 API](../api/vector2.md). |
+| **Vector3**  | A **Vector3** contains values for `x`, `y`, and `z` and is usually useful for storing 3D positions/size or any three-dimensional structures.<br /><br />More information can be found in the [Vector3 API](../api/vector3.md). |
+| **Vector4**  | A **Vector4** contains values for `x`, `y`, `z`, and `w` and is useful for any four-dimensional structures.<br /><br />More information can be found in the [Vector4 API](../api/vector4.md). |
 
 ## Advanced Data Types
 
