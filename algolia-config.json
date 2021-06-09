@@ -9,6 +9,12 @@
                 "reference"
             ]
         },
+        {
+            "url": "https://docs.coregames.com/(?P<lang>.*?)/",
+            "variables": {
+                "lang": ["en", "fr"]
+            }
+        },
         "https://docs.coregames.com"
     ],
     "sitemap_urls": [
@@ -56,7 +62,8 @@
         "distinct": true,
         "optionalWords": [],
         "queryLanguages": [
-            "en"
+            "en",
+            "fr"
         ],
         "attributesForFaceting": [
             "searchable(tags)"
@@ -97,7 +104,8 @@
         ],
         "maxFacetHits": 100,
         "indexLanguages": [
-            "en"
+            "en",
+            "fr"
         ],
         "synonyms": [
             [
