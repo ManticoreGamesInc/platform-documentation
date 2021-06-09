@@ -87,7 +87,7 @@ This will change the value of the **Custom Property** to be newValue and will be
 !!! note
     The script will error if the new value is either not the same data type as the **Custom Property** or if the **Custom Property** is not networked.
 
-More information can be found in the [CoreObject API Reference Functions](../api/coreobject.md/#functions) and [CoreObject API Reference Examples](../api/coreobject.md/#setnetworkedcustomproperty).
+More information can be found in the [CoreObject API Reference Functions](../api/coreobject.md#functions) and [CoreObject API Reference Examples](../api/coreobject.md#setnetworkedcustomproperty).
 
 ### Custom Property Changed Event
 
@@ -105,11 +105,11 @@ end
 CorObject.networkedPropertyChangedEvent:Connect(OnCustomPropertyChanged)
 ```
 
-More information can be found in the [CoreObject API Reference Events](../api/coreobject.md/#events) and [CoreObject API Reference Examples](../api/coreobject.md/#networkedpropertychangedevent).
+More information can be found in the [CoreObject API Reference Events](../api/coreobject.md#events) and [CoreObject API Reference Examples](../api/coreobject.md#networkedpropertychangedevent).
 
 ## Simple Data Types
 
-For more information on simple data types such as string, number, and boolean, check out our [Data Types Reference](../tutorials/scripting_intro.md/#data-types).
+For more information on simple data types such as string, number, and boolean, check out our [Data Types Reference](../tutorials/scripting_intro.md#data-types).
 
 There are a few simple data types supported as custom properties.
 
@@ -187,4 +187,4 @@ More information can be found at the [Leaderboards Tutorial](../tutorials/leader
 
 ## Learn More
 
-[Data Types Reference](../tutorials/scripting_intro.md/#data-types) | [Color API](../api/color.md) | [Leaderboards Tutorial](../tutorials/leaderboards.md) | [Shared Storage Tutorial](../tutorials/shared_storage.md) | [Perks Tutorial](../perks/implementing_perks.md) | [Rotation API](../api/rotation.md) | [CoreObject API Reference Functions](../api/coreobject.md/#functions) | [CoreObject API Reference Examples](../api/coreobject.md/#setnetworkedcustomproperty) | [CoreObject API Reference Events](../api/coreobject.md/#events) | [CoreObject API Reference Examples](../api/coreobject.md/#networkedpropertychangedevent)
+[Data Types Reference](../tutorials/scripting_intro.md#data-types) | [Color API](../api/color.md) | [Leaderboards Tutorial](../tutorials/leaderboards.md) | [Shared Storage Tutorial](../tutorials/shared_storage.md) | [Perks Tutorial](../perks/implementing_perks.md) | [Rotation API](../api/rotation.md) | [CoreObject API Reference Functions](../api/coreobject.md#functions) | [CoreObject API Reference Examples](../api/coreobject.md#setnetworkedcustomproperty) | [CoreObject API Reference Events](../api/coreobject.md#events) | [CoreObject API Reference Examples](../api/coreobject.md#networkedpropertychangedevent)
