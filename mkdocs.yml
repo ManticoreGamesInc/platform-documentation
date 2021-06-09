@@ -243,6 +243,13 @@ extra_javascript:
   - assets/javascripts/lite-yt-embed.js
 
 extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Français (Beta)
+      link: /fr/
+      lang: fr
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
