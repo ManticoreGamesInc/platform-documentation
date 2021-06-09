@@ -87,7 +87,7 @@ This will change the value of the **Custom Property** to be newValue and will be
 !!! note
     The script will error if the new value is either not the same data type as the **Custom Property** or if the **Custom Property** is not networked.
 
-More information can be found in the [CoreObject API Reference Functions](/api/coreobject/#functions) and [CoreObject API Reference Examples](/api/coreobject/#setnetworkedcustomproperty).
+More information can be found in the [CoreObject API Reference Functions](../api/coreobject.md/#functions) and [CoreObject API Reference Examples](../api/coreobject.md/#setnetworkedcustomproperty).
 
 ### Custom Property Changed Event
 
@@ -105,11 +105,11 @@ end
 CorObject.networkedPropertyChangedEvent:Connect(OnCustomPropertyChanged)
 ```
 
-More information can be found in the [CoreObject API Reference Events](/api/coreobject/#events) and [CoreObject API Reference Examples](/api/coreobject/#networkedpropertychangedevent).
+More information can be found in the [CoreObject API Reference Events](../api/coreobject.md/#events) and [CoreObject API Reference Examples](../api/coreobject.md/#networkedpropertychangedevent).
 
 ## Simple Data Types
 
-For more information on simple data types such as string, number, and boolean, check out our [Data Types Reference](/tutorials/scripting_intro/#data-types).
+For more information on simple data types such as string, number, and boolean, check out our [Data Types Reference](../tutorials/scripting_intro.md/#data-types).
 
 The simple data types that are supported as custom properties are:
 
@@ -137,7 +137,7 @@ A **Color** is a Core class that contains values for `red`, `green`, `blue`, and
 
 **Colors** are helpful constants that can assist in UI programming, spawning assets of different colors, etc.
 
-More information can be found in the [Color API](/api/color).
+More information can be found in the [Color API](../api/color.md).
 
 ### Float
 
@@ -151,7 +151,7 @@ An **Int** is a number that can not have decimals and must be whole, such as `0`
 
 A **Rotation** is a Core class that contains values for `x`, `y`, and `z` on rotation axis.
 
-More information can be found in the [Rotation API](/api/rotation/).
+More information can be found in the [Rotation API](../api/rotation.md).
 
 ### String
 
@@ -161,19 +161,19 @@ A **String** is a collection of any value you want, such as numbers, letters, pu
 
 A **Vector2** contains values for `x` and `y` and is usually useful for storing UI positions/size or any two-dimensional structures.
 
-More information can be found in the [Vector2 API](/api/vector2/).
+More information can be found in the [Vector2 API](../api/vector2.md).
 
 ### Vector3
 
 A **Vector3** contains values for `x`, `y`, and `z` and is usually useful for storing 3D positions/size or any three-dimensional structures.
 
-More information can be found in the [Vector3 API](/api/vector3/).
+More information can be found in the [Vector3 API](../api/vector3.md).
 
 ### Vector4
 
 A **Vector4** contains values for `x`, `y`, `z`, and `w` and is useful for any four-dimensional structures.
 
-More information can be found in the [Vector4 API](/api/vector4/).
+More information can be found in the [Vector4 API](../api/vector4.md).
 
 ## Advanced Data Types
 
@@ -219,7 +219,7 @@ A **Core Object Reference** contains a value that points to any object in the **
 
 When getting this reference into a variable, `:WaitForObject()` needs to be added to the end in order to get the actual object in the **Hierarchy** and wait until it is loaded into the game.
 
-More information can be found in the [CoreObjectReference API](/api/coreobjectreference/) and the [CoreObject API](/api/coreobject/).
+More information can be found in the [CoreObjectReference API](../api/coreobjectreference.md) and the [CoreObject API](../api/coreobject.md).
 
 For example, to get the **Core Object Reference** of a Cube in the game and to edit it's name, type:
 
@@ -233,8 +233,8 @@ Cube.name = "Special Cube"
 
 A **Net Reference** contains a value that points to a **Leaderboard**, a **Shared Storage Key**, or a **Perk**.
 
-More information can be found at the [Leaderboards Tutorial](/tutorials/leaderboards), the [Shared Storage Tutorial](/tutorials/shared_storage), and the [Perks Tutorial](/perks/implementing_perks)
+More information can be found at the [Leaderboards Tutorial](../tutorials/leaderboards.md), the [Shared Storage Tutorial](../tutorials/shared_storage.md), and the [Perks Tutorial](../perks/implementing_perks.md)
 
 ## Learn More
 
-[Data Types Reference](/tutorials/scripting_intro/#data-types) | [Color API](/api/color) | [Leaderboards Tutorial](/tutorials/leaderboards) | [Shared Storage Tutorial](/tutorials/shared_storage) | [Perks Tutorial](/perks/implementing_perks) | [Rotation API](/api/rotation) | [CoreObject API Reference Functions](/api/coreobject/#functions) | [CoreObject API Reference Examples](/api/coreobject/#setnetworkedcustomproperty) | [CoreObject API Reference Events](/api/coreobject/#events) | [CoreObject API Reference Examples](/api/coreobject/#networkedpropertychangedevent)
+[Data Types Reference](../tutorials/scripting_intro.md/#data-types) | [Color API](../api/color.md) | [Leaderboards Tutorial](../tutorials/leaderboards.md) | [Shared Storage Tutorial](../tutorials/shared_storage.md) | [Perks Tutorial](../perks/implementing_perks.md) | [Rotation API](../api/rotation.md) | [CoreObject API Reference Functions](../api/coreobject.md/#functions) | [CoreObject API Reference Examples](../api/coreobject.md/#setnetworkedcustomproperty) | [CoreObject API Reference Events](../api/coreobject.md/#events) | [CoreObject API Reference Examples](../api/coreobject.md/#networkedpropertychangedevent)
