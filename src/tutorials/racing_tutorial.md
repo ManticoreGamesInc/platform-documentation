@@ -24,15 +24,14 @@ The **Racing Framework** provides everything you need to start making your first
 
 ![Choose A Game Framework](../img/RacingTutorial/SelectGameFramework.png){: .center loading="lazy"}
 
- ![Racing Game Framework](../img/RacingTutorial/SelectRacingFramework.png){: .center loading="lazy"}
+![Racing Game Framework](../img/RacingTutorial/SelectRacingFramework.png){: .center loading="lazy"}
 
 ## Testing the Racing Framework
-After creating your **Racing Framework** game you should play it to make sure that everything is working. Playing the **Racing Framework** game will also familiarize you with how the system functions.
 
+After creating your **Racing Framework** game you should play it to make sure that everything is working. Playing the **Racing Framework** game will also familiarize you with how the system functions.
 
 ## Changing the Truck
 In this section you will modify the **Pickup Truck** from the **Racing Framework**. The modifications you will make to the **Pickup Truck** can also be made to any other cars in the **Racing Framework**.
-
 
 ### Adding the Pickup Truck into the scene
  You first need to add the **Pickup Truck** into your hierarchy before you can modify the **Pickup Truck** template.
@@ -44,7 +43,6 @@ In this section you will modify the **Pickup Truck** from the **Racing Framework
 
 You will now see a list of car templates in the bottom window. These car templates are the same cars that you can find in the car selection area in your **Racing Framework** game.
 
-
 <div class="mt-video" style="width:100%">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:100%">
         <source src="/img/RacingTutorial/DragCarIntoHierarchy.mp4" type="video/mp4" />
@@ -52,9 +50,10 @@ You will now see a list of car templates in the bottom window. These car templat
 </div>
 
 ## Changing the Look of the Pickup Truck
-### Opening up the Truck
-The first change to the **Pickup Truck** will change what the **Pickup Truck** looks like. You will be adding a cone on top of the **Pickup Truck**. Using the following steps you can change the **Pickup Truck** to look like anything.
 
+### Opening up the Truck
+
+The first change to the **Pickup Truck** will change what the **Pickup Truck** looks like. You will be adding a cone on top of the **Pickup Truck**. Using the following steps you can change the **Pickup Truck** to look like anything.
 
 !!!tip
     Click on the
@@ -87,13 +86,11 @@ You now will have to find the cone asset from the **Core Content** window.
 5. Click on the **Urban** tab
 6. Click on the **Street** tab
 
-
 <div class="mt-video" style="width:100%">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:100%">
         <source src="/img/RacingTutorial/FindingTheCone.mp4" type="video/mp4" />
     </video>
 </div>
-
 
 Now that you have found the cone asset. Drag the cone asset into the **Body** folder of your **Pickup Truck**. You will see a popup window that says **DEINSTANCE TEMPLATE** at the top. Click on the **Deinstance** button.
 
@@ -120,6 +117,7 @@ A template is similar to a blueprint. A template tells Core what objects need to
 To modify a template you first have to deinstance the template (a deinstanced template will be teal). You deinstanced the **Pickup Truck** template so that you could modify the **Pickup Truck**.
 
 ## Updating the Pickup Truck Template
+
 After you have modified the template you have to update it. One way to update a template is to select a teal object from the template and press the ![ListLayout](../img/RacingTutorial/UpdateTemplateButton.png){: loading="lazy" style="height:2em; width:auto" .image-inline-text} icon.
 
 Another way to update a template is to right click on one of the teal objects and select **Update Template From This** from the pop up menu.
@@ -144,7 +142,6 @@ Now that you have the **Pickup Truck (networked)** selected. In the bottom right
 
 ![Pickup Truck Properties](../img/RacingTutorial/TruckProperties.png){: .center loading="lazy"}
 
-
 You need to scroll down in the **Properties** window until you a section named **Vehicle**. In the **Vehicle** section you will see two properties **Max Speed** and **Acceleration**. The **Max Speed** property controls the maximum speed of the **Pickup Truck**. The **Acceleration** property of the **Pickup Truck** controls the acceleration of the **Pickup Truck**.
 
 ![Pickup Truck Speed And Acceleration](../img/RacingTutorial/TruckStats.png){: .center loading="lazy"}
@@ -159,7 +156,8 @@ Finally, click on the update template icon. This will update the **Pickup Truck*
 
 ![UpdateTemplateIconLocation](../img/RacingTutorial/UpdateTemplateButtonLocation.png){: .center loading="lazy"}
 
- You can now delete the **Pickup Truck (netowrked)** object in your hierarchy by clicking on it and pressing the ++backspace** key.
+You can now delete the **Pickup Truck (networked)** object in your hierarchy by clicking on it and pressing the ++backspace** key.
+
 ## Changing the Track
 
 This section will cover the steps necessary to modify any track from the **Racing Framework**.
@@ -202,7 +200,6 @@ Next, you will remove the railings on the track.
         <source src="/img/RacingTutorial/RemoveRailing.mp4" type="video/mp4" />
     </video>
 </div>
-
 
 Next, you will rotate the curved track.
 <div class="mt-video" style="width:50%">
@@ -247,7 +244,6 @@ The minimap will draw a road that connects each **Trigger** to the **Trigger** b
         <source src="/img/RacingTutorial/RemoveTriggers.mp4" type="video/mp4" />
     </video>
 </div>
-
 
 ## Learn More
 
