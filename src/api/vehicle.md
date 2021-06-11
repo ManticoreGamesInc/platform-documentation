@@ -187,7 +187,7 @@ See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player
 
 Example Using:
 
-### `AddImpulse` 
+### `AddImpulse`
 
 ### `driverEnteredEvent`
 
