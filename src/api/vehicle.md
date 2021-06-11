@@ -194,6 +194,7 @@ Example Using:
 ### `driverExitedEvent`
 
 In this example, when the driver of the vehicle presses space the vehicle launches up and forward a slight amount in the direction the vehicle is facing.
+
 ```lua
 local VEHICLE = script:FindAncestorByType('Vehicle')
 local BindingPressConnection = nil
