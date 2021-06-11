@@ -2228,6 +2228,13 @@
 					]
 				},
 				{
+					"Name": "isPromoted",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -4287,6 +4294,139 @@
 			]
 		},
 		{
+			"Name": "CurveKey",
+			"Description": "A `CurveKey` represents a key point on a `SimpleCurve`, providing a value for a specific point in time on that curve. Additional properties may be used to control the shape of that curve.",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Description": "Constructs a new CurveKey.",
+					"Signatures": [
+						{
+							"Name": "WithCurveKey",
+							"Description": "Makes a copy of the given CurveKey.",
+							"Returns": [
+								{
+									"Type": "CurveKey"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "CurveKey",
+									"Name": "other"
+								}
+							]
+						},
+						{
+							"Name": "WithOptionalParams",
+							"Description": "Constructs a CurveKey with the given time and value. An optional table may be provided to override the following parameters:<br>`interpolation (CurveInterpolation)`: Sets the `interpolation` property of the curve key. Defaults to `CurveInterpolation.LINEAR`.<br>`arriveTangent (number)`: Sets the `arriveTangent` property of the curve key. Defaults to 0.<br>`leaveTangent (number)`: Sets the `leaveTangent` property of the curve key. Defaults to 0.<br>`tangent (number)`: Sets both the `arriveTangent` and `leaveTangent` properties of the curve key. It is an error to specify `arriveTangent` or `leaveTangent` if `tangent` is provided.",
+							"Returns": [
+								{
+									"Type": "CurveKey"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
+								},
+								{
+									"Type": "number",
+									"Name": "value"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters"
+								}
+							]
+						},
+						{
+							"Name": "WithTimeValue",
+							"Description": "Constructs a CurveKey with the given time and value. An optional table may be provided to override the following parameters:<br>`interpolation (CurveInterpolation)`: Sets the `interpolation` property of the curve key. Defaults to `CurveInterpolation.LINEAR`.<br>`arriveTangent (number)`: Sets the `arriveTangent` property of the curve key. Defaults to 0.<br>`leaveTangent (number)`: Sets the `leaveTangent` property of the curve key. Defaults to 0.<br>`tangent (number)`: Sets both the `arriveTangent` and `leaveTangent` properties of the curve key. It is an error to specify `arriveTangent` or `leaveTangent` if `tangent` is provided.",
+							"Returns": [
+								{
+									"Type": "CurveKey"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
+								},
+								{
+									"Type": "number",
+									"Name": "value"
+								}
+							]
+						},
+						{
+							"Name": "Default",
+							"Description": "Constructs a new CurveKey.",
+							"Returns": [
+								{
+									"Type": "CurveKey"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "interpolation",
+					"Description": "The interpolation mode between this curve key and the next.",
+					"Type": "CurveInterpolation"
+				},
+				{
+					"Name": "time",
+					"Description": "The time at this curve key.",
+					"Type": "number"
+				},
+				{
+					"Name": "value",
+					"Description": "The value at this curve key.",
+					"Type": "number"
+				},
+				{
+					"Name": "arriveTangent",
+					"Description": "The arriving tangent at this key when using cubic interpolation.",
+					"Type": "number"
+				},
+				{
+					"Name": "leaveTangent",
+					"Description": "The leaving tangent at this key when using cubic interpolation.",
+					"Type": "number"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Damage",
 			"Description": "To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:",
 			"Constructors": [
@@ -5525,6 +5665,14 @@
 					]
 				},
 				{
+					"Name": "isSpawned",
+					"Description": "True if the player is in a spawned state, false if the player is despawned.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "isDead",
 					"Description": "True if the Player is dead, otherwise false.",
 					"Type": "boolean",
@@ -5835,7 +5983,7 @@
 				},
 				{
 					"Name": "movementControlMode",
-					"Description": "Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed.",
+					"Description": "Specify how players control their movement. Clients can only read. Default: MovementControlMode.LOOK_RELATIVE. MovementControlMode.NONE: Directional movement input is ignored. MovementControlMode.LOOK_RELATIVE: Forward movement follows the current player's look direction. MovementControlMode.VIEW_RELATIVE: Forward movement follows the current view's look direction. MovementControlMode.FACING_RELATIVE: Forward movement follows the current player's facing direction. MovementControlMode.FIXED_AXES: Movement axis are fixed.",
 					"Type": "MovementControlMode",
 					"Tags": [
 						"ServerOnly"
@@ -5871,6 +6019,39 @@
 					"Type": "CoreObject",
 					"Tags": [
 						"ReadOnly"
+					]
+				},
+				{
+					"Name": "spawnMode",
+					"Description": "Specifies how a start point is selected when a player initially spawns or spawns from a despawned state.",
+					"Type": "RespawnMode",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "respawnMode",
+					"Description": "Specifies how a start point is selected when a player respawns.",
+					"Type": "RespawnMode",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "respawnDelay",
+					"Description": "The delay in seconds from when a player dies until they respawn.",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "respawnTimeRemaining",
+					"Description": "The number of seconds remaining until the player respawns. Returns 0 if the player is already spawned.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly",
+						"ServerOnly"
 					]
 				},
 				{
@@ -5935,8 +6116,28 @@
 					]
 				},
 				{
+					"Name": "spawnedEvent",
+					"Description": "Fired when the Player spawns. Indicates the start point at which they spawned and the spawn key used to select the start point. The start point may be nil if a position was specified when spawning the player.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "PlayerStart",
+							"Name": "playerStart"
+						},
+						{
+							"Type": "string",
+							"Name": "spawnKey"
+						}
+					]
+				},
+				{
 					"Name": "respawnedEvent",
-					"Description": "Fired when the Player respawns.",
+					"Description": "Fired when the Player respawns. *This event has been deprecated. Please use spawnedEvent instead.*",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player.respawnedEvent is deprecated. Please use Player.spawnedEvent instead.",
 					"Parameters": [
 						{
 							"Type": "Player",
@@ -6485,12 +6686,36 @@
 					]
 				},
 				{
+					"Name": "Spawn",
+					"Description": "Resurrects a dead player or spawns a despawned player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
 					"Name": "Respawn",
-					"Description": "Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used.",
+					"Description": "*This function is deprecated. Please use `Player:Spawn()` instead.* Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "Player:Respawn() is deprecated. Please use Player:Spawn() instead.",
 					"Signatures": [
 						{
 							"Name": "WithPositionRotation",
-							"Description": "Resurrects a dead Player at a specific location and rotation. This form of `Player:Respawn()` may be removed at some point in the future. It is recommended to use the optional parameter table if position and rotation need to be specified. For example: `player:Respawn({position = newPosition, rotation = newRotation})`",
+							"Description": "*This function is deprecated. Please use `Player:Spawn()` instead. For example: `player:Spawn({position = newPosition, rotation = newRotation})`* Resurrects a dead Player at a specific location and rotation.",
 							"IsDeprecated": true,
 							"DeprecationMessage": "Player:Respawn(Vector3, Rotation) is deprecated.  Please use optional parameters table instead: Player:Respawn({position = Vector3, rotation = Rotation})",
 							"Returns": [],
@@ -6514,6 +6739,19 @@
 								}
 							]
 						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "Despawn",
+					"Description": "Despawns the player. While despawned, the player is invisible, has no collision, and cannot move. Use the `Spawn()` function to respawn the player.",
+					"Signatures": [
 						{
 							"Returns": [],
 							"Parameters": []
@@ -7151,6 +7389,23 @@
 					"Tags": [
 						"ServerOnly",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "playerScaleMultiplier",
+					"Description": "The scale applied to a player that is spawned at this start point.",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "spawnTemplateId",
+					"Description": "The asset ID of a template spawned on clients when a player spawns at this start point. May be nil.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
 					]
 				},
 				{
@@ -8342,6 +8597,182 @@
 								{
 									"Type": "string",
 									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "SimpleCurve",
+			"Description": "A two-dimensional curve made up of some number of `CurveKey` instances specifying the value of the curve at various points in time. Values between those key points are interpolated based on properties of the curve and the curve keys.",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Description": "Constructs a SimpleCurve with a set of curve keys. An optional table may be provided to override the following parameters:<br>`preExtrapolation (CurveExtrapolation)`: Sets the `preExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`postExtrapolation (CurveExtrapolation)`: Sets the `postExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`defaultValue (number)`: Sets the `defaultValue` property of the curve. Defaults to 0.",
+					"Signatures": [
+						{
+							"Name": "WithOptionalParams",
+							"Description": "Constructs a SimpleCurve with a set of curve keys. An optional table may be provided to override the following parameters:<br>`preExtrapolation (CurveExtrapolation)`: Sets the `preExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`postExtrapolation (CurveExtrapolation)`: Sets the `postExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`defaultValue (number)`: Sets the `defaultValue` property of the curve. Defaults to 0.",
+							"Returns": [
+								{
+									"Type": "SimpleCurve"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "keys"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters"
+								}
+							]
+						},
+						{
+							"Name": "WithKeys",
+							"Description": "Constructs a SimpleCurve with a set of curve keys. An optional table may be provided to override the following parameters:<br>`preExtrapolation (CurveExtrapolation)`: Sets the `preExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`postExtrapolation (CurveExtrapolation)`: Sets the `postExtrapolation` property of the curve. Defaults to `CurveExtrapolation.CYCLE`.<br>`defaultValue (number)`: Sets the `defaultValue` property of the curve. Defaults to 0.",
+							"Returns": [
+								{
+									"Type": "SimpleCurve"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "keys"
+								}
+							]
+						},
+						{
+							"Name": "WithSimpleCurve",
+							"Description": "Makes a copy of the given SimpleCurve.",
+							"Returns": [
+								{
+									"Type": "SimpleCurve"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "SimpleCurve",
+									"Name": "other"
+								}
+							]
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "preExtrapolation",
+					"Description": "The extrapolation mode for values before the first curve key.",
+					"Type": "CurveExtrapolation"
+				},
+				{
+					"Name": "postExtrapolation",
+					"Description": "The extrapolation mode for values after the last curve key.",
+					"Type": "CurveExtrapolation"
+				},
+				{
+					"Name": "defaultValue",
+					"Description": "The default value for this curve if no keys are available.",
+					"Type": "number"
+				},
+				{
+					"Name": "minTime",
+					"Description": "Returns the smallest time from the curve's key points. Returns 0 if the curve contains no keys.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxTime",
+					"Description": "Returns the largest time from the curve's key points. Returns 0 if the curve contains no keys.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "minValue",
+					"Description": "Returns the smallest value from the curve's key points. Returns 0 if the curve contains no keys.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxValue",
+					"Description": "Returns the largest value from the curve's key points. Returns 0 if the curve contains no keys.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetValue",
+					"Description": "Returns the value of the curve at the specified time.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetSlope",
+					"Description": "Returns the slope (derivative) of the curve at the specified time. This may return nil in certain cases where the curve values are not continuous.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "time"
 								}
 							]
 						}
@@ -9609,6 +10040,15 @@
 					]
 				},
 				{
+					"Name": "shouldScaleToFit",
+					"Description": "Whether or not the button's label should scale down to fit within the bounds of this control.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -10131,6 +10571,24 @@
 					]
 				},
 				{
+					"Name": "isFlippedHorizontal",
+					"Description": "Whether or not the image is flipped horizontally.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isFlippedVertical",
+					"Description": "Whether or not the image is flipped vertically.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -10174,7 +10632,7 @@
 				},
 				{
 					"Name": "SetImage",
-					"Description": "Sets the UIImage to a new MUID. You can get this MUID from an Asset Reference.",
+					"Description": "Sets the UIImage to a new image asset ID. You can get this ID from an Asset Reference.",
 					"Signatures": [
 						{
 							"Name": "WithPlayer",
@@ -10191,7 +10649,7 @@
 						},
 						{
 							"Name": "WithId",
-							"Description": "Sets the UIImage to a new MUID. You can get this MUID from an Asset Reference.",
+							"Description": "Sets the UIImage to a new image asset ID. You can get this ID from an Asset Reference.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -10555,6 +11013,15 @@
 					]
 				},
 				{
+					"Name": "fillType",
+					"Description": "Controls the direction in which the progress bar fills.",
+					"Type": "ProgressBarFillType",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -10563,6 +11030,74 @@
 				}
 			],
 			"MemberFunctions": [
+				{
+					"Name": "SetFillImage",
+					"Description": "Sets the progress bar fill to use the image specified by the given asset ID.",
+					"Signatures": [
+						{
+							"Name": "WithId",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "imageId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetFillImage",
+					"Description": "Returns the asset ID of the image used for the progress bar fill.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetBackgroundImage",
+					"Description": "Sets the progress bar background to use the image specified by the given asset ID.",
+					"Signatures": [
+						{
+							"Name": "WithId",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "imageId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetBackgroundImage",
+					"Description": "Returns the asset ID of the image used for the progress bar background.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
 				{
 					"Name": "GetFillColor",
 					"Description": "Returns the color of the fill.",
@@ -10651,7 +11186,7 @@
 		},
 		{
 			"Name": "UIScrollPanel",
-			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself.\r\n\r\nThey have no properties or functions of their own, but inherit everything from CoreObject and UIControl.",
+			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself.",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -10733,6 +11268,15 @@
 					]
 				},
 				{
+					"Name": "outlineSize",
+					"Description": "The thickness of the outline around text in this control. A value of 0 means no outline.",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "justification",
 					"Description": "Determines the alignment of `text`. Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER.",
 					"Type": "TextJustify",
@@ -10753,6 +11297,15 @@
 				{
 					"Name": "shouldClipText",
 					"Description": "Whether or not text should be clipped when exceeding the bounds of this control.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "shouldScaleToFit",
+					"Description": "Whether or not text should scale down to fit within the bounds of this control.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -10892,6 +11445,39 @@
 								{
 									"Type": "Vector2",
 									"Name": "vector2"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetOutlineColor",
+					"Description": "Returns the color of the text's outline.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Color"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetOutlineColor",
+					"Description": "Sets the color of the text's outline.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Color",
+									"Name": "color"
 								}
 							]
 						}
@@ -13398,7 +13984,7 @@
 				},
 				{
 					"Name": "GetPlayers",
-					"Description": "Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`.",
+					"Description": "Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -14738,6 +15324,58 @@
 			]
 		},
 		{
+			"Name": "CurveExtrapolation",
+			"Description": "Specifies how curve values are extrapolated outside the beginning and end of a curve.",
+			"Values": [
+				{
+					"Name": "CYCLE",
+					"Description": "Repeats the curve in a cycle.",
+					"Value": 0
+				},
+				{
+					"Name": "CYCLE_WITH_OFFSET",
+					"Description": "Repeats the curve in a cycle with an offset relative to the first or last key's value.",
+					"Value": 1
+				},
+				{
+					"Name": "OSCILLATE",
+					"Description": "Extrapolates a sinusoidal curve.",
+					"Value": 2
+				},
+				{
+					"Name": "LINEAR",
+					"Description": "Curves follow a linearly increasing or decreasing value before and after the ends of the curve.",
+					"Value": 3
+				},
+				{
+					"Name": "CONSTANT",
+					"Description": "Values remain constant, using the first key value before the beginning of the curve and the last key value after the end of the curve.",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "CurveInterpolation",
+			"Description": "Specifies how curve values are interpolated between curve keys.",
+			"Values": [
+				{
+					"Name": "LINEAR",
+					"Description": "Uses linear interpolation, with the value moving in a straight line from one key to the next.",
+					"Value": 0
+				},
+				{
+					"Name": "CONSTANT",
+					"Description": "Uses a constant value, resulting in stepped changes from one key to the next.",
+					"Value": 1
+				},
+				{
+					"Name": "CUBIC",
+					"Description": "Uses cubic interpolation to generate a smooth curve.",
+					"Value": 2
+				}
+			]
+		},
+		{
 			"Name": "DamageReason",
 			"Description": "Indicates the reason a player is taking damage.",
 			"Values": [
@@ -14992,6 +15630,78 @@
 					"Name": "EXIT",
 					"Description": "Player exited Core. Core was sad.",
 					"Value": 8
+				}
+			]
+		},
+		{
+			"Name": "ProgressBarFillType",
+			"Description": "Controls the direction in which the progress bar fills.",
+			"Values": [
+				{
+					"Name": "LEFT_TO_RIGHT",
+					"Description": "Progress bar fills from left to right.",
+					"Value": 0
+				},
+				{
+					"Name": "RIGHT_TO_LEFT",
+					"Description": "Progress bar fills from right to left.",
+					"Value": 1
+				},
+				{
+					"Name": "TOP_TO_BOTTOM",
+					"Description": "Progress bar fills from top to bottom.",
+					"Value": 3
+				},
+				{
+					"Name": "BOTTOM_TO_TOP",
+					"Description": "Progress bar fills from bottom to top.",
+					"Value": 4
+				},
+				{
+					"Name": "FROM_CENTER",
+					"Description": "Progress bar fills from the center outward.",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "RespawnMode",
+			"Description": "Specifies whether a player spawns or respawns automatically, and how a start point is selected when they spawn.",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Description": "Player does not spawn or respawn automatically.",
+					"Value": 0
+				},
+				{
+					"Name": "IN_PLACE",
+					"Description": "Respawns the player at the same location and rotation as when they died.",
+					"Value": 1
+				},
+				{
+					"Name": "ROUND_ROBIN",
+					"Description": "Selects start points in a repeating sequential pattern.",
+					"Value": 2
+				},
+				{
+					"Name": "AT_CLOSEST_SPAWN_POINT",
+					"Description": "Respawns the player at the start point closest to the location the player died.",
+					"Value": 3
+				},
+				{
+					"Name": "FARTHEST_FROM_OTHER_PLAYERS",
+					"Description": "Respawns the player at the start point farthest from any other player.",
+					"Value": 4
+				},
+				{
+					"Name": "FARTHEST_FROM_ENEMY",
+					"Description": "Respawns the player at the start point farthest from an enemy player.",
+					"Value": 5
+				},
+				{
+					"Name": "RANDOM",
+					"Description": "Respawns the player at a random start point.",
+					"Value": 6
 				}
 			]
 		},
