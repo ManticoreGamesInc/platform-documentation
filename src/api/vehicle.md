@@ -118,6 +118,50 @@ See also: [CoreObject.parent](coreobject.md) | [Player.GetAbilities](player.md) 
 
 Example using:
 
+### `driverEnteredEvent`
+
+### `driverExitedEvent`
+
+### `accelerationRate`
+
+### `maxSpeed`
+
+### `tireFriction`
+
+In this example, when the driver of the vehicle presses the spacebar, the vehicle launches up and forward a slight amount in the direction the vehicle is facing.
+
+```lua
+local VEHICLE = script:FindAncestorByType("Vehicle")
+local bindingPressListener = nil
+
+function OnBindingPressed(player, binding)
+    if binding == "ability_extra_17" then
+        -- Vector3 (forward, 0, up) rotated into the world space of the vehicle
+        local impulseVector = VEHICLE:GetWorldRotation() * Vector3.New(1000, 0, 1000)
+        VEHICLE:AddImpulse(impulseVector * VEHICLE.mass)
+    end
+end
+
+function OnDriverEntered(vehicle, player)
+    bindingPressListener = player.bindingPressedEvent:Connect(OnBindingPressed)
+end
+
+function OnDriverExited(vehicle, player)
+    if bindingPressListener and bindingPressListener.isConnected then
+        bindingPressListener:Disconnect()
+    end
+end
+
+VEHICLE.driverEnteredEvent:Connect(OnDriverEntered)
+VEHICLE.driverExitedEvent:Connect(OnDriverExited)
+```
+
+See also: [CoreObject.AddImpulse](coreobject.md) | [Player.bindingPressedEvent](player.md) | [EventListener.Disconnect](eventlistener.md) | [Vector3.New](vector3.md)
+
+---
+
+Example using:
+
 ### `driverExitedEvent`
 
 In this example, players take damage when they exit a vehicle that is in motion. The amount of damage taken is variable, depending on how fast the vehicle is going. This script expects to be placed as a child of the vehicle.
