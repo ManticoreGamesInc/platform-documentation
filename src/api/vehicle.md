@@ -185,42 +185,6 @@ See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player
 
 ---
 
-Example Using:
-
-### `AddImpulse`
-
-### `driverEnteredEvent`
-
-### `driverExitedEvent`
-
-In this example, when the driver of the vehicle presses space the vehicle launches up and forward a slight amount in the direction the vehicle is facing.
-
-```lua
-local VEHICLE = script:FindAncestorByType('Vehicle')
-local BindingPressConnection = nil
-
-function OnBindingPress(player, binding)
-    if (binding == 'ability_extra_17') then
-        VEHICLE:AddImpulse(VEHICLE:GetWorldRotation() * Vector3.New(1000000,0,1000000))
-    end
-end
-
-function OnDriverEntered(vehicle, player)
-    BindingPressConnection = player.bindingPressedEvent:Connect(OnBindingPress)
-end
-
-function OnDriverExited(vehicle, player)
-    BindingPressConnection:Disconnect()
-end
-
-VEHICLE.driverEnteredEvent:Connect(OnDriverEntered)
-VEHICLE.driverExitedEvent:Connect(OnDriverExited)
-```
-
-See also: [CoreObject.GetWorldRotation](coreobject.md) | [Player.bindingPressedEvent](player.md)
-
----
-
 Example using:
 
 ### `occupiedVehicle`
