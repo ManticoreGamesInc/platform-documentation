@@ -30,9 +30,11 @@ The **Racing Framework** provides everything you need to start making your first
 After creating your **Racing Framework** game you should play it to make sure that everything is working. Playing the **Racing Framework** game will also familiarize you with how the system functions.
 
 ## Changing the Truck
+
 In this section you will modify the **Pickup Truck** from the **Racing Framework**. The modifications you will make to the **Pickup Truck** can also be made to any other cars in the **Racing Framework**.
 
 ### Adding the Pickup Truck into the scene
+
  You first need to add the **Pickup Truck** into your hierarchy before you can modify the **Pickup Truck** template.
 
 1. Open the **Project Content** window
@@ -76,6 +78,7 @@ You first need to expand the **Pickup Truck** in your hierarchy so that you can 
 The **Body** folder contains all of the pieces that make up the main body of the **Pickup Truck**. You will be adding a cone into this **Body** folder.
 
 ### Finding and Adding the Cone
+
 You now will have to find the cone asset from the **Core Content** window.
 
 1. Click on the **Core Content** window
@@ -170,6 +173,7 @@ In this section, you will be removing a portion of the track to change its shape
 The <u>**Blue**{: style="color: rgb(23,159,227)"}</u> section represents track that will be removed from the minimap. The <u>**Orange**{: style="color: rgb(255,153,0)"}</u> section represents the track section that you will add to the track and minimap.
 
 You will use the hotkey actions below to do the following:
+
 1. Delete the buildings on top of the detour
 2. Remove the Railings on the Curves of the track
 3. Reposition the track to fill in the <u>**Orange**{: style="color: rgb(255,153,0)"}</u> section
