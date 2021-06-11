@@ -123,6 +123,7 @@ nav:
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
           - CorePlayerProfile: api/coreplayerprofile.md
+          - CurveKey: api/curvekey.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -153,6 +154,7 @@ nav:
           - Rotation: api/rotation.md
           - Script: api/script.md
           - ScriptAsset: api/scriptasset.md
+          - SimpleCurve: api/simplecurve.md
           - SmartAudio: api/smartaudio.md
           - SmartObject: api/smartobject.md
           - SpotLight: api/spotlight.md
