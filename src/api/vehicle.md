@@ -188,7 +188,9 @@ See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player
 Example Using:
 
 ### `AddImpulse` 
+
 ### `driverEnteredEvent`
+
 ### `driverExitedEvent`
 
 In this example, when the driver of the vehicle presses space the vehicle launches up and forward a slight amount in the direction the vehicle is facing.
