@@ -18,6 +18,7 @@ A UIControl for a button, should be inside client context.
 | `fontSize` | `integer` | Returns the font size of the label text. | Read-Write |
 | `isInteractable` | `boolean` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
 | `shouldClipToSize` | `boolean` | Whether or not the button and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
+| `shouldScaleToFit` | `boolean` | Whether or not the button's label should scale down to fit within the bounds of this control. | Read-Write |
 
 ## Functions
 
