@@ -21,7 +21,6 @@ The **Racing Framework** provides everything you need to start making your first
 * Click on the **View Frameworks** button
 * Select the **Racing Framework**
 
-
 ![Choose A Game Framework](../img/RacingTutorial/SelectGameFramework.png){: .center loading="lazy"}
 
 ![Racing Game Framework](../img/RacingTutorial/SelectRacingFramework.png){: .center loading="lazy"}
