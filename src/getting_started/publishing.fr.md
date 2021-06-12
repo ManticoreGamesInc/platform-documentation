@@ -8,7 +8,7 @@ tags:
 
 # Publier un jeu
 
-Publier votre projet Core le rend accessible à tous les joueurs, ce qui leur permettra de le tester et de vous donner leur avis. Ce sera aussi l'occasion de constituer une communauté autour de votre jeu et votre marque. Pour savoir si votre jeu est prêt à être publié, consultez la [Checklist de Prépublication](publishing_checklist.fr.md).
+Publier votre projet Core le rend accessible à tous les joueurs, ce qui leur permettra de le tester et de vous donner leur avis. Ce sera aussi l'occasion de constituer une communauté autour de votre jeu et votre marque. Pour savoir si votre jeu est prêt à être publié, consultez la [Checklist de Prépublication](publishing_checklist.md).
 
 ## Publier depuis l'Éditeur Core
 
@@ -35,7 +35,7 @@ Une bonne description est capitale pour aider les joueurs à trouver votre jeu e
 ![PublishWindow](../img/MyFirstMultiplayer/PublishWindow.png){: .center loading="lazy" }
 
 !!! info
-    Cocher la case **open for Editing** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
+    Cocher la case **Open for Editing** autorisera les autres créateurs Core à utiliser une copie de votre jeu en tant que base pour réaliser leur propre projet.
 
 ## Publier
 
@@ -52,4 +52,4 @@ Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'ongle
 
 ## En savoir plus
 
-[Checklist de Prépublication](publishing_checklist.fr.md) | [Partager des templates](template_reference.md)
+[Checklist de Prépublication](publishing_checklist.md) | [Partager des templates](template_reference.md)

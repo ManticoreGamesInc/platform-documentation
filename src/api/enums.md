@@ -74,6 +74,24 @@ tags:
 | `CoreModalType.MOUNT_PICKER` | `3` | The modal dialog in which the player selects which of their mounts to use. |
 | `CoreModalType.EMOTE_PICKER` | `4` | The modal dialog in which the player selects an emote to play. |
 
+## CurveExtrapolation
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `CurveExtrapolation.CYCLE` | `0` | Repeats the curve in a cycle. |
+| `CurveExtrapolation.CYCLE_WITH_OFFSET` | `1` | Repeats the curve in a cycle with an offset relative to the first or last key's value. |
+| `CurveExtrapolation.OSCILLATE` | `2` | Extrapolates a sinusoidal curve. |
+| `CurveExtrapolation.LINEAR` | `3` | Curves follow a linearly increasing or decreasing value before and after the ends of the curve. |
+| `CurveExtrapolation.CONSTANT` | `4` | Values remain constant, using the first key value before the beginning of the curve and the last key value after the end of the curve. |
+
+## CurveInterpolation
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `CurveInterpolation.LINEAR` | `0` | Uses linear interpolation, with the value moving in a straight line from one key to the next. |
+| `CurveInterpolation.CONSTANT` | `1` | Uses a constant value, resulting in stepped changes from one key to the next. |
+| `CurveInterpolation.CUBIC` | `2` | Uses cubic interpolation to generate a smooth curve. |
+
 ## DamageReason
 
 | Enum Name | Value | Description |
@@ -159,6 +177,28 @@ tags:
 | `PlayerTransferReason.PORTAL` | `6` | Player used a portal from one game to another (or otherwise made use of the `TransferToGame()` function.) |
 | `PlayerTransferReason.AFK` | `7` | Player was disconnected for being AFK. |
 | `PlayerTransferReason.EXIT` | `8` | Player exited Core. Core was sad. |
+
+## ProgressBarFillType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `ProgressBarFillType.LEFT_TO_RIGHT` | `0` | Progress bar fills from left to right. |
+| `ProgressBarFillType.RIGHT_TO_LEFT` | `1` | Progress bar fills from right to left. |
+| `ProgressBarFillType.TOP_TO_BOTTOM` | `3` | Progress bar fills from top to bottom. |
+| `ProgressBarFillType.BOTTOM_TO_TOP` | `4` | Progress bar fills from bottom to top. |
+| `ProgressBarFillType.FROM_CENTER` | `2` | Progress bar fills from the center outward. |
+
+## RespawnMode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `RespawnMode.NONE` | `0` | Player does not spawn or respawn automatically. |
+| `RespawnMode.IN_PLACE` | `1` | Respawns the player at the same location and rotation as when they died. |
+| `RespawnMode.ROUND_ROBIN` | `2` | Selects start points in a repeating sequential pattern. |
+| `RespawnMode.AT_CLOSEST_SPAWN_POINT` | `3` | Respawns the player at the start point closest to the location the player died. |
+| `RespawnMode.FARTHEST_FROM_OTHER_PLAYERS` | `4` | Respawns the player at the start point farthest from any other player. |
+| `RespawnMode.FARTHEST_FROM_ENEMY` | `5` | Respawns the player at the start point farthest from an enemy player. |
+| `RespawnMode.RANDOM` | `6` | Respawns the player at a random start point. |
 
 ## RotationMode
 

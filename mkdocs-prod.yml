@@ -95,6 +95,7 @@ nav:
           - Templates: tutorials/template_reference.md
           - Triggers: tutorials/triggers.md
           - UI: tutorials/ui_reference.md
+          - Vehicles: tutorials/vehicles.md
           - Weapons: tutorials/weapons.md
   - Core API:
       - API Index: api/index.md
@@ -123,6 +124,7 @@ nav:
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
           - CorePlayerProfile: api/coreplayerprofile.md
+          - CurveKey: api/curvekey.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -153,6 +155,7 @@ nav:
           - Rotation: api/rotation.md
           - Script: api/script.md
           - ScriptAsset: api/scriptasset.md
+          - SimpleCurve: api/simplecurve.md
           - SmartAudio: api/smartaudio.md
           - SmartObject: api/smartobject.md
           - SpotLight: api/spotlight.md
@@ -250,6 +253,9 @@ extra:
     - name: Français (Beta)
       link: /fr/
       lang: fr
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
   social:
@@ -318,9 +324,9 @@ plugins:
   - i18n:
       default_language: en
       languages:
-        fr: Français
+        fr: Français (Beta)
   - minify:
-      minify_html: true
+      minify_html: !ENV MKDOCS_MINIFY
   - git-revision-date-localized
   - autolinks
   - redirects:
@@ -337,7 +343,6 @@ plugins:
         tutorials/gameplay/lua_basics_manticoin.md: tutorials/lua_basics_manticoin.md
         tutorials/gameplay/persistent_storage.md: tutorials/persistent_storage.md
         tutorials/art/scene_creation.md: tutorials/scene_creation.md
-        tutorials/art/environmental_art.md: tutorials/environment_art.md
         tutorials/art/modeling_basics.md: tutorials/modeling_basics.md
         tutorials/gameplay/lua_style_guide.md: tutorials/lua_style_guide.md
         getting_started/other_engines.md: other_platforms/unity.md
@@ -355,7 +360,3 @@ plugins:
         tutorials/lua_reference.md: tutorials/scripting_intro.md
         tutorials/overview.md: tutorials/abilities.md
         tutorials/videos/pistol_shooter.md: https://www.youtube.com/CoreGamesOfficial
-
-google_analytics:
-  - UA-142884846-4
-  - auto
