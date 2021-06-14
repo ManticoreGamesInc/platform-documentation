@@ -15,7 +15,7 @@ copyright: "&copy; 2021 Manticore Games, Inc. Core&trade; is a trademark of Mant
 # Directory for the documentation pages
 docs_dir: src
 
-# If you add or remove a page, you must also add or remove in mkdocs-prod.yml
+# If you add or remove a page, you must add it here
 nav:
   - Documentation:
       - Home: index.md
@@ -325,10 +325,11 @@ plugins:
       tags_file: generated/tags.md
   - git-revision-date-localized
   - ezlinks
-  # - i18n:
-  #     default_language: en
-  #     languages:
-  #       fr: Français (Beta)
+  - i18n:
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, true]
+      languages:
+        fr: Français (Beta)
   - minify:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
@@ -337,7 +338,6 @@ plugins:
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
-        tutorials/examples.md: https://docs.coregames.com/api/examples.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
         tutorials/gameplay/weapons.md: tutorials/weapons.md
         tutorials/gameplay/abilities_advanced.md: tutorials/abilities_advanced.md
