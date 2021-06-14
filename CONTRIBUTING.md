@@ -79,7 +79,7 @@ Now, depending on what you want to add, you can create your new Markdown files a
 
 ### Check in your Changes
 
-- Make sure to add your new page to the index of pages in `mkdocs.yml` and `mkdocs-prod.yml`.
+- Make sure to add your new page to the index of pages in `mkdocs.yml`.
 - Commit any changes to your branch and push to the repository. (e.g. `git push -u origin camera-controls`)
 - When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `development`.
 - Our system will automatically build a version of the site for you to view live.
@@ -94,7 +94,7 @@ git checkout development
 git pull # Make sure `development` is up to date with upstream
 ```
 
-If you want to sync an ongoing feature branch to the current state of `development` you have to rebase it on top of it and then force push. Warning: [force pushing](https://www.git-tower.com/learn/git/faq/git-force-push/) is a desctructive action and you should make sure to you are not overwriting anything.
+If you want to sync an ongoing feature branch to the current state of `development` you have to rebase it on top of it and then force push. Warning: [force pushing](https://www.git-tower.com/learn/git/faq/git-force-push/) is a destructive action and you should make sure to you are not overwriting anything.
 
 ```console
 git checkout development
