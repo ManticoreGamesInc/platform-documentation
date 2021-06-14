@@ -210,15 +210,15 @@ Example using:
 
 ### `diedEvent`
 
-### `respawnedEvent`
+### `spawnedEvent`
 
 ### `ApplyDamage`
 
 ### `Die`
 
-### `Respawn`
+### `Spawn`
 
-There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
+There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and spawning, as well as how to make a player automatically respawn after dying.
 
 One important thing to note - `player.damagedEvent` and `player.diedEvent` only execute on the server, so if you are writing a script that runs inside of a client context, it will not receive these events!
 
@@ -234,10 +234,10 @@ function OnPlayerDied(player, damage)
     Task.Wait(2)
     local pos = Vector3.New(0, 0, 500)
     local rot = Rotation.New(0, 0, 45)
-    player:Respawn({position = pos, rotation = rot})
+    player:Spawn({position = pos, rotation = rot})
 end
 
-function OnPlayerRespawn(player)
+function OnPlayerSpawn(player)
     print("Player " .. player.name .. " is back!")
 end
 
@@ -245,7 +245,7 @@ end
 for _, p in pairs(Game.GetPlayers()) do
     p.damagedEvent:Connect(OnPlayerDamage)
     p.diedEvent:Connect(OnPlayerDied)
-    p.respawnedEvent:Connect(OnPlayerRespawn)
+    p.spawnedEvent:Connect(OnPlayerSpawn)
 end
 player:ApplyDamage(Damage.New(25))
 Task.Wait(1)
