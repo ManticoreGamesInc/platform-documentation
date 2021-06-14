@@ -10,8 +10,6 @@ tags:
 
 A UIControl that supports scrolling a child UIControl that is larger than itself.
 
-They have no properties or functions of their own, but inherit everything from CoreObject and UIControl.
-
 ## Properties
 
 | Property Name | Return Type | Description | Tags |

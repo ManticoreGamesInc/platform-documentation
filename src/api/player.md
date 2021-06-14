@@ -51,6 +51,11 @@ Player is an object representation of the state of a player connected to the gam
 | `isSwimming` | `boolean` | True if the Player is swimming in water. | Read-Only |
 | `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
 | `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
+| `isSpawned` | `boolean` | True if the player is in a spawned state, false if the player is despawned. | Read-Only |
+| `spawnMode` | [`RespawnMode`](enums.md#respawnmode) | Specifies how a start point is selected when a player initially spawns or spawns from a despawned state. | Read-Write |
+| `respawnMode` | [`RespawnMode`](enums.md#respawnmode) | Specifies how a start point is selected when a player respawns. | Read-Write |
+| `respawnDelay` | `number` | The delay in seconds from when a player dies until they respawn. | Read-Write |
+| `respawnTimeRemaining` | `number` | The number of seconds remaining until the player respawns. Returns 0 if the player is already spawned. | Read-Only, Server-Only |
 | `isVisible` | `boolean` | Defaults to `true`. Set to `false` to hide the player and any attached objects which are set to inherit visibility. Note that using this property in conjunction with the deprecated `SetVisibility()` function may cause unpredictable results. | Read-Write |
 | `isCollidable` | `boolean` | Defaults to `true`. Set to `false` to disable collision on the player and any attached objects set to inherit collision. | Read-Write |
 | `isMovementEnabled` | `boolean` | Defaults to `true`. Set to `false` to disable player movement. Unlike `movementControlMode`, which can disable movement input, setting `isMovementEnabled` to `false` freezes the Player in place, ignoring gravity and reactions to collision or impulses, unless the Player's transform is explicitly changed or the Player is attached to a parent CoreObject that moves. | Read-Write |
@@ -90,8 +95,10 @@ Player is an object representation of the state of a player connected to the gam
 | `SetVisibility(boolean, [boolean])` | `None` | *This function is deprecated. Please use the `.isVisible` property instead.* Shows or hides the Player. The second parameter is optional, defaults to true, and determines if attachments to the Player are hidden as well as the Player. | Server-Only, **Deprecated** |
 | `GetVisibility()` | `boolean` | Returns whether or not the Player is hidden. | None |
 | `EnableRagdoll([string socketName, number weight])` | `None` | Enables ragdoll for the Player, starting on `socketName` weighted by `weight` (between 0.0 and 1.0). This can cause the Player capsule to detach from the mesh. All parameters are optional; `socketName` defaults to the root and `weight` defaults to 1.0. Multiple bones can have ragdoll enabled simultaneously. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | Server-Only |
-| `Respawn([table parameters])` | `None` | Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used. | Server-Only |
-| `Respawn(Vector, Rotation)` | `None` | Resurrects a dead Player at a specific location and rotation. This form of `Player:Respawn()` may be removed at some point in the future. It is recommended to use the optional parameter table if position and rotation need to be specified. For example: `player:Respawn({position = newPosition, rotation = newRotation})` | Server-Only, **Deprecated** |
+| `Spawn([table parameters])` | `None` | Resurrects a dead player or spawns a despawned player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used. | Server-Only |
+| `Despawn()` | `None` | Despawns the player. While despawned, the player is invisible, has no collision, and cannot move. Use the `Spawn()` function to respawn the player. | Server-Only |
+| `Respawn([table parameters])` | `None` | *This function is deprecated. Please use `Player:Spawn()` instead.* Resurrects a dead Player based on respawn settings in the game (default in-place). An optional table may be provided to override the following parameters:<br>`position (Vector3)`: Respawn at this position. Defaults to the position of the spawn point selected based on the game's respawn settings, or the player's current position if no spawn point was selected.<br>`rotation (Rotation)`: Sets the player's rotation after respawning. Defaults to the rotation of the selected spawn point, or the player's current rotation if no spawn point was selected.<br>`scale (Vector3)`: Sets the player's scale after respawning. Defaults to the Player Scale Multiplier of the selected spawn point, or the player's current scale if no spawn point was selected. Player scale must be uniform. (All three components must be equal.)<br>`spawnKey (string)`: Only spawn points with the given `spawnKey` will be considered. If omitted, only spawn points with a blank `spawnKey` are used. | Server-Only, **Deprecated** |
+| `Respawn(Vector, Rotation)` | `None` | *This function is deprecated. Please use `Player:Spawn()` instead. For example: `player:Spawn({position = newPosition, rotation = newRotation})`* Resurrects a dead Player at a specific location and rotation. | Server-Only, **Deprecated** |
 | `GetViewWorldPosition()` | [`Vector3`](vector3.md) | Get position of the Player's camera view. | None |
 | `GetViewWorldRotation()` | [`Rotation`](rotation.md) | Get rotation of the Player's camera view. | None |
 | `GetLookWorldRotation()` | [`Rotation`](rotation.md) | Get the rotation for the direction the Player is facing. | None |
@@ -130,7 +137,8 @@ Player is an object representation of the state of a player connected to the gam
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player takes damage. | Server-Only |
 | `diedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player dies. | Server-Only |
-| `respawnedEvent` | `Event<`[`Player`](player.md)`>` | Fired when the Player respawns. | Server-Only |
+| `respawnedEvent` | `Event<`[`Player`](player.md) player`>` | Fired when the Player respawns. *This event has been deprecated. Please use spawnedEvent instead.* | Server-Only, **Deprecated** |
+| `spawnedEvent` | `Event<`[`Player`](player.md) player, PlayerStart playerStart, string spawnKey`>` | Fired when the Player spawns. Indicates the start point at which they spawned and the spawn key used to select the start point. The start point may be nil if a position was specified when spawning the player. | Server-Only |
 | `bindingPressedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
 | `bindingReleasedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
 | `resourceChangedEvent` | `Event<`[`Player`](player.md) player, string resourceType, integer newAmount`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
@@ -202,15 +210,15 @@ Example using:
 
 ### `diedEvent`
 
-### `respawnedEvent`
+### `spawnedEvent`
 
 ### `ApplyDamage`
 
 ### `Die`
 
-### `Respawn`
+### `Spawn`
 
-There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and respawning, as well as how to make a player automatically respawn after dying.
+There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and spawning, as well as how to make a player automatically respawn after dying.
 
 One important thing to note - `player.damagedEvent` and `player.diedEvent` only execute on the server, so if you are writing a script that runs inside of a client context, it will not receive these events!
 
@@ -226,10 +234,10 @@ function OnPlayerDied(player, damage)
     Task.Wait(2)
     local pos = Vector3.New(0, 0, 500)
     local rot = Rotation.New(0, 0, 45)
-    player:Respawn({position = pos, rotation = rot})
+    player:Spawn({position = pos, rotation = rot})
 end
 
-function OnPlayerRespawn(player)
+function OnPlayerSpawn(player)
     print("Player " .. player.name .. " is back!")
 end
 
@@ -237,7 +245,7 @@ end
 for _, p in pairs(Game.GetPlayers()) do
     p.damagedEvent:Connect(OnPlayerDamage)
     p.diedEvent:Connect(OnPlayerDied)
-    p.respawnedEvent:Connect(OnPlayerRespawn)
+    p.spawnedEvent:Connect(OnPlayerSpawn)
 end
 player:ApplyDamage(Damage.New(25))
 Task.Wait(1)

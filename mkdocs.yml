@@ -2,7 +2,7 @@
 site_name: Core Documentation
 site_description: API Documentation & Tutorials for the Core Platform.
 site_author: Manticore Games, Inc.
-site_url: !ENV [MKDOCS_SITE_URL, 'https://development.docs.coregames.com']
+site_url: !ENV [MKDOCS_SITE_URL, "https://development.docs.coregames.com"]
 
 # Repository
 # repo_name: ManticoreGamesInc/platform-documentation
@@ -15,7 +15,7 @@ copyright: "&copy; 2021 Manticore Games, Inc. Core&trade; is a trademark of Mant
 # Directory for the documentation pages
 docs_dir: src
 
-# If you add or remove a page, you must also add or remove in mkdocs-prod.yml
+# If you add or remove a page, you must add it here
 nav:
   - Documentation:
       - Home: index.md
@@ -51,6 +51,7 @@ nav:
           - Abilities: tutorials/abilities.md
           - AI Activities: tutorials/ai_activity_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
+          - Curves: tutorials/curves.md
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
@@ -60,6 +61,7 @@ nav:
               - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
               - Scripting (Advanced): tutorials/lua_basics_manticoin.md
           - Survival Contest Kit: tutorials/survival_kit.md
+          - Racing Framework Kit: tutorials/racing_tutorial.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
@@ -71,6 +73,7 @@ nav:
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Custom Materials: tutorials/custom_materials.md
+          - Custom Properties: tutorials/custom_properties.md
           - Editor Shortcuts: editor_keybindings.md
           - Frameworks:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
@@ -123,6 +126,7 @@ nav:
           - CoreObject: api/coreobject.md
           - CoreObjectReference: api/coreobjectreference.md
           - CorePlayerProfile: api/coreplayerprofile.md
+          - CurveKey: api/curvekey.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -153,6 +157,7 @@ nav:
           - Rotation: api/rotation.md
           - Script: api/script.md
           - ScriptAsset: api/scriptasset.md
+          - SimpleCurve: api/simplecurve.md
           - SmartAudio: api/smartaudio.md
           - SmartObject: api/smartobject.md
           - SpotLight: api/spotlight.md
@@ -318,21 +323,21 @@ plugins:
   - search
   - tags:
       tags_file: generated/tags.md
-  # - i18n:
-  #     default_language: en
-  #     languages:
-  #       fr: Français (Beta)
+  - git-revision-date-localized
+  - ezlinks
+  - i18n:
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, true]
+      languages:
+        fr: Français (Beta)
   - minify:
       minify_html: !ENV MKDOCS_MINIFY
-  - git-revision-date-localized
-  - autolinks
   - redirects:
       redirect_maps:
         start.md: getting_started/start.md
         getting_started.md: getting_started/editor_intro.md
         news/showcase/just_getting_started.md: getting_started/editor_intro.md
         showcase/just_getting_started.md: getting_started/editor_intro.md
-        tutorials/examples.md: https://docs.coregames.com/api/examples.md
         tutorials/gameplay/abilities.md: tutorials/abilities.md
         tutorials/gameplay/weapons.md: tutorials/weapons.md
         tutorials/gameplay/abilities_advanced.md: tutorials/abilities_advanced.md
