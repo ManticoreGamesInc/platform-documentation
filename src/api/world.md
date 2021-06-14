@@ -199,3 +199,22 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player.md) | [Game.playerJoinedEvent](game.md) | [Vector3.UP](vector3.md) | [Event.Connect](event.md)
 
 ---
+
+Example using:
+
+### `SpawnAsset`
+
+The function `World.SpawnAsset()` also supports spawning non-template assets, such as a `UI Image` or `Script`. In this example, the Alien icon is set as a custom property of the script. The script is placed as a child of a UI Container. The script spawns the image as a child of the container and aligns it to the center of the screen.
+
+```lua
+local UI_CONTAINER = script.parent
+local UI_IMAGE = script:GetCustomProperty("Alien")
+
+local image = World.SpawnAsset(UI_IMAGE, {parent = UI_CONTAINER})
+image.anchor = UIPivot.MIDDLE_CENTER
+image.dock = UIPivot.MIDDLE_CENTER
+```
+
+See also: [UIControl.anchor](uicontrol.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
