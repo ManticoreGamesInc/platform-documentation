@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-Curves in Core provide a variety of uses to a game creator. With curves, a creator can customize the path and speed it takes for an object to interpolate between two points, a creator can creating a bouncing coin, a creator can create fully customizable and beautiful UI interpolations, and so much more
+Curves in Core provide a variety of uses to a game creator. With curves, a creator can customize the path and speed it takes for an object to interpolate between two points, a creator can creating a bouncing coin, a creator can create fully customizable and beautiful UI interpolations, and so much more.
 
 ## Curve Custom Properties
 
