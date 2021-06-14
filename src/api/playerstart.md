@@ -33,26 +33,30 @@ In this example, 5 seconds after the game starts, all players will respawn at th
 ```lua
 local playerStartSettings = script.parent
 
---All players that use this spawnpoint will have a team of 1 when respawned
+--All players that use this spawnpoint will be on team 1 when respawned
 playerStartSettings.team = 1
 
 --When a player spawns at this spawnpoint, they will be twice their normal size
 playerStartSettings.playerScaleMultiplier = Vector3.New(2, 2, 2)
 
---Set the "spawnLey" of this spawn point so that it can be referenced when a player respawns
+--Set the "spawnKey" of this spawn point so that it can be referenced when a player respawns
 playerStartSettings.spawnKey = "FirstSpawnPoint"
 
---Get a list of all players
-local players = Game.GetPlayers()
+function OnGameStarted()
+    --Get a list of all players
+    local players = Game.GetPlayers()
 
---Wait 5 seconds before respawning all players at this spawn point
-Task.Wait(5)
+    --Wait 5 seconds before respawning all players at this spawn point
+    Task.Wait(5)
 
-for _, player in ipairs(players) do
-    player:Spawn({spawnKey="FirstSpawnPoint"})
+    for _, player in ipairs(players) do
+        player:Spawn({spawnKey="FirstSpawnPoint"})
+    end
 end
+
+Game.roundStartEvent:Connect(OnGameStarted)
 ```
 
-See also: [Player.Spawn](player.md) | [Task.Wait](task.md) | [Game.GetPlayers](game.md) | [Vector3.New](vector3.md)
+See also: [Player.Spawn](player.md) | [Task.Wait](task.md) | [Game.GetPlayers](game.md) | [CoreObject.parent](coreobject.md) | [Vector3.New](vector3.md)
 
 ---
