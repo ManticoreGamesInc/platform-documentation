@@ -146,6 +146,7 @@ There are a few simple data types supported as custom properties.
 | **Vector2**  | A **Vector2** contains values for `x` and `y` and is usually useful for storing UI positions/size or any two-dimensional structures.<br /><br />More information can be found in the [Vector2 API](../api/vector2.md). |
 | **Vector3**  | A **Vector3** contains values for `x`, `y`, and `z` and is usually useful for storing 3D positions/size or any three-dimensional structures.<br /><br />More information can be found in the [Vector3 API](../api/vector3.md). |
 | **Vector4**  | A **Vector4** contains values for `x`, `y`, `z`, and `w` and is useful for any four-dimensional structures.<br /><br />More information can be found in the [Vector4 API](../api/vector4.md). |
+| **Simple Curves**  | A **Simple Curve** contains keyframes with a curve connecting the points to be used to get values at any point in time.<br /><br />More information can be found in the [SimpleCurve API](../api/simplecurve.md). |
 
 ## Advanced Data Types
 
