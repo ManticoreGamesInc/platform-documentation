@@ -71,6 +71,7 @@ nav:
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Custom Materials: tutorials/custom_materials.md
+          - Custom Properties: tutorials/custom_properties.md
           - Editor Shortcuts: editor_keybindings.md
           - Frameworks:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
