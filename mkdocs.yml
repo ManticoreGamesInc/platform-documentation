@@ -326,8 +326,8 @@ plugins:
   - git-revision-date-localized
   - ezlinks
   - i18n:
-      default_language_only: !ENV MKDOCS_I18N
-      default_language: en
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, true]
       languages:
         fr: Français (Beta)
   - minify:
