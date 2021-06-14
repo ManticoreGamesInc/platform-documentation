@@ -254,7 +254,6 @@ Task.Wait(1)
 -- This will kill the player, because they only have 100 health by default.
 player:ApplyDamage(Damage.New(100))
 Task.Wait(2.1)
-Task.Wait(2.1)
 -- We can also kill the player directly, regardless of health
 player:Die()
 ```
