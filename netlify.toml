@@ -15,15 +15,15 @@
 # inherit these settings.
 [context.deploy-preview]
   publish = "site"
-  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false", MKDOCS_SITE_URL = "$DEPLOY_PRIME_URL" }
-  command = "mkdocs build"
+  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false" }
+  command = "MKDOCS_SITE_URL=$DEPLOY_PRIME_URL mkdocs build"
 
 # Branch Deploy context: all deploys that are not from a pull/merge request or
 # from the Production branch will inherit these settings.
 [context.branch-deploy]
   publish = "site"
-  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false", MKDOCS_SITE_URL = "$DEPLOY_PRIME_URL" }
-  command = "mkdocs build"
+  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false" }
+  command = "MKDOCS_SITE_URL=$DEPLOY_PRIME_URL mkdocs build"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
