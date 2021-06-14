@@ -46,26 +46,26 @@ The **Curve Editor** is home to changing how a curve and its keyframes behaves.
 
 A window like such should appear:
 
-![Curve Editor](../img/Curves/CurveEditor.png){: .center loading="lazy" }
+![!Curve Editor](../img/Curves/CurveEditor.png){: .center loading="lazy" }
 
 ### Curve Graph
 
 The largest portion of the **Curve Editor** window is the **Curve Graph**. This is a visual representation of the curve and is used to create and edit keyframes.
 
-![Curve Graph](../img/Curves/CurveGraph.png){: .center loading="lazy" }
+![!Curve Graph](../img/Curves/CurveGraph.png){: .center loading="lazy" }
 
 #### Creating a Keyframe
 
 1. Move your mouse to the location on the curve you want the keyframe to be inserted.
 2. Right-click and then click **Add Key(s)**.
 
-![Add Keys](../img/Curves/AddKeys.png){: .center loading="lazy" }
+![!Add Keys](../img/Curves/AddKeys.png){: .center loading="lazy" }
 
 ### Curve List
 
 On the left of the **Curve Editor** window is the **Curve List**. The root of this is object the curves are a part of and under that is a list of all curves attached to it. This makes switch between curves easier for quickly making edits.
 
-![Curve List](../img/Curves/CurveList.png){: .center loading="lazy" }
+![!Curve List](../img/Curves/CurveList.png){: .center loading="lazy" }
 
 ### In / Out
 
@@ -87,11 +87,11 @@ A keyframe is a physical representations of a point on the curve.
 
 | Name                   | Description |
 | ---------------------- | ----------- |
-| **Time**               | Point in time relative to the beginning (`0`) of the curve<br/>![Time](../img/Curves/Time.png){: .center loading="lazy" } |
-| **Value**              | The position that the curve should be in at the corresponding point in time<br/>![Value](../img/Curves/Value.png){: .center loading="lazy" } |
-| **Interpolation Type** | How the curve will transition to the next keyframe<br/>![Interpolation Type](../img/Curves/InterpolationType.png){: .center loading="lazy" } |
-| **Tangent Type**       | How the tangents will be determined for the previous and next keyframe<br/>![Tangent Type](../img/Curves/TangentType.png){: .center loading="lazy" } |
-| **Tangent Values**     | The value for the previous / next tangent if **Tangent Type** is `user-set`<br/>![Tangent Values](../img/Curves/TangentValues.png){: .center loading="lazy" } |
+| **Time**               | Point in time relative to the beginning (`0`) of the curve<br/>![!Time](../img/Curves/Time.png){: .center loading="lazy" } |
+| **Value**              | The position that the curve should be in at the corresponding point in time<br/>![!Value](../img/Curves/Value.png){: .center loading="lazy" } |
+| **Interpolation Type** | How the curve will transition to the next keyframe<br/>![!Interpolation Type](../img/Curves/InterpolationType.png){: .center loading="lazy" } |
+| **Tangent Type**       | How the tangents will be determined for the previous and next keyframe<br/>![!Tangent Type](../img/Curves/TangentType.png){: .center loading="lazy" } |
+| **Tangent Values**     | The value for the previous / next tangent if **Tangent Type** is `user-set`<br/>![!Tangent Values](../img/Curves/TangentValues.png){: .center loading="lazy" } |
 
 #### Interpolation Type
 
@@ -99,9 +99,9 @@ There are three interpolation types:
 
 | Name                       | Description |
 | -------------------------- | ----------- |
-| **Constant Interpolation** | The value will remain constant until it reach the next keyframe to which it will snap to the next value<br/>![Constant Interpolation](../img/Curves/ConstantInterpolation.png){: .center loading="lazy" } |
-| **Linear Interpolation**   | The value will lerp linearly to the next keyframe<br/>![Linear Interpolation](../img/Curves/LinearInterpolation.png){: .center loading="lazy" } |
-| **Cubic Interpolation**    | The value will use a cubic algorithm to transition to the next keyframe<br/>![Cubic Interpolation](../img/Curves/CubicInterpolation.png){: .center loading="lazy" } |
+| **Constant Interpolation** | The value will remain constant until it reach the next keyframe to which it will snap to the next value<br/>![!Constant Interpolation](../img/Curves/ConstantInterpolation.png){: .center loading="lazy" } |
+| **Linear Interpolation**   | The value will lerp linearly to the next keyframe<br/>![!Linear Interpolation](../img/Curves/LinearInterpolation.png){: .center loading="lazy" } |
+| **Cubic Interpolation**    | The value will use a cubic algorithm to transition to the next keyframe<br/>![!Cubic Interpolation](../img/Curves/CubicInterpolation.png){: .center loading="lazy" } |
 
 #### Tangent Type and Values
 
@@ -109,9 +109,9 @@ There are three tangent types:
 
 | Name                      | Description |
 | ------------------------- | ----------- |
-| **Automatic Computation** | Core will take into account the position in time, the value, and surrounding keyframes to automatically set a tangent<br/>![Automatic Computation Tangent](../img/Curves/AutomaticTangent.png){: .center loading="lazy" } |
-| **User-Set Aligned**      | The tangent can be set by the creator and the previous/next tangent will retain the same values<br/>![User-Set Aligned Tangent](../img/Curves/UserSetAlignedTangent.png){: .center loading="lazy" } |
-| **User-Set Independent**  | The tangent can be set by the creator but the previous and next values can be set without changing the other<br/>![User-Set Independent Tangent](../img/Curves/UserSetIndependentTangent.png){: .center loading="lazy" } |
+| **Automatic Computation** | Core will take into account the position in time, the value, and surrounding keyframes to automatically set a tangent<br/>![!Automatic Computation Tangent](../img/Curves/AutomaticTangent.png){: .center loading="lazy" } |
+| **User-Set Aligned**      | The tangent can be set by the creator and the previous/next tangent will retain the same values<br/>![!User-Set Aligned Tangent](../img/Curves/UserSetAlignedTangent.png){: .center loading="lazy" } |
+| **User-Set Independent**  | The tangent can be set by the creator but the previous and next values can be set without changing the other<br/>![!User-Set Independent Tangent](../img/Curves/UserSetIndependentTangent.png){: .center loading="lazy" } |
 
 ### Viewport Settings
 
