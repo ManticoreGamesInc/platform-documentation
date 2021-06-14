@@ -10,12 +10,17 @@
             ]
         },
         {
-            "url": "https://docs.coregames.com/(?P<lang>.*?)/",
-            "variables": {
-                "lang": ["en", "fr"]
+            "url": "https://docs.coregames.com/fr/",
+            "extra_attributes": {
+                "lang": "fr"
             }
         },
-        "https://docs.coregames.com"
+        {
+            "url": "https://docs.coregames.com/",
+            "extra_attributes": {
+                "lang": "en"
+            }
+        }
     ],
     "sitemap_urls": [
         "https://docs.coregames.com/sitemap.xml"
@@ -67,7 +72,8 @@
             "fr"
         ],
         "attributesForFaceting": [
-            "searchable(tags)"
+            "searchable(tags)",
+            "lang"
         ],
         "attributesToSnippet": [
             "content:10"
