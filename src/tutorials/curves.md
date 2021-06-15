@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-Curves in Core provide a variety of uses to a game creator. With curves, a creator can customize the path and speed it takes for an object to interpolate between two points, a creator can creating a bouncing coin, a creator can create fully customizable and beautiful UI interpolations, and so much more.
+Curves in Core provide a variety of uses to a game creator. With curves, a creator can customize the path and speed it takes for an object to interpolate between two points, create a bouncing coin, create fully customizable and beautiful UI animations, and so much more.
 
 ## Curve Custom Properties
 
@@ -63,7 +63,7 @@ The largest portion of the **Curve Editor** window is the **Curve Graph**. This 
 
 ### Curve List
 
-On the left of the **Curve Editor** window is the **Curve List**. The root of this is object the curves are a part of and under that is a list of all curves attached to it. This makes switch between curves easier for quickly making edits.
+On the left of the **Curve Editor** window is the **Curve List**. This lists selected objects with curve properties and under each is a list of all curves attached to that object. This makes switching between curves easier for quickly making edits.
 
 ![!Curve List](../img/Curves/CurveList.png){: .center loading="lazy" }
 
@@ -78,20 +78,20 @@ There are five different behaviours:
 | **Cycle**             | Repeat the curve |
 | **Cycle with Offset** | Repeat the curve but start the next value where the last left value off |
 | **Oscillate**         | Repeat the curve but flip the time values |
-| **Linear**            | Takes the tangency from the first two (in) or last two (out) keys and extrapolates it forever before/after respectively |
+| **Linear**            | Extends the line from the first two (in) or last two (out) keys and extrapolates it forever before/after respectively |
 | **Constant**          | Takes the value of the first (in) or last (out) key and sets a constant value before/after respectively |
 
 ### Keyframes
 
-A keyframe is a physical representations of a point on the curve.
+A keyframe is a user-set point that controls the shape of the curve.
 
 | Name                   | Description |
 | ---------------------- | ----------- |
 | **Time**               | Point in time relative to the beginning (`0`) of the curve<br/>![!Time](../img/Curves/Time.png){: .center loading="lazy" } |
 | **Value**              | The position that the curve should be in at the corresponding point in time<br/>![!Value](../img/Curves/Value.png){: .center loading="lazy" } |
 | **Interpolation Type** | How the curve will transition to the next keyframe<br/>![!Interpolation Type](../img/Curves/InterpolationType.png){: .center loading="lazy" } |
-| **Tangent Type**       | How the tangents will be determined for the previous and next keyframe<br/>![!Tangent Type](../img/Curves/TangentType.png){: .center loading="lazy" } |
-| **Tangent Values**     | The value for the previous / next tangent if **Tangent Type** is `user-set`<br/>![!Tangent Values](../img/Curves/TangentValues.png){: .center loading="lazy" } |
+| **Tangent Type**       | How the tangents will be aligned for this keyframe<br/>![!Tangent Type](../img/Curves/TangentType.png){: .center loading="lazy" } |
+| **Tangent Values**     | The value for the in/out tangent if **Tangent Type** is `user-set`<br/>![!Tangent Values](../img/Curves/TangentValues.png){: .center loading="lazy" } |
 
 #### Interpolation Type
 
@@ -100,7 +100,7 @@ There are three interpolation types:
 | Name                       | Description |
 | -------------------------- | ----------- |
 | **Constant Interpolation** | The value will remain constant until it reach the next keyframe to which it will snap to the next value<br/>![!Constant Interpolation](../img/Curves/ConstantInterpolation.png){: .center loading="lazy" } |
-| **Linear Interpolation**   | The value will lerp linearly to the next keyframe<br/>![!Linear Interpolation](../img/Curves/LinearInterpolation.png){: .center loading="lazy" } |
+| **Linear Interpolation**   | The value will interpolate linearly to the next keyframe<br/>![!Linear Interpolation](../img/Curves/LinearInterpolation.png){: .center loading="lazy" } |
 | **Cubic Interpolation**    | The value will use a cubic algorithm to transition to the next keyframe<br/>![!Cubic Interpolation](../img/Curves/CubicInterpolation.png){: .center loading="lazy" } |
 
 #### Tangent Type and Values
@@ -110,15 +110,15 @@ There are three tangent types:
 | Name                      | Description |
 | ------------------------- | ----------- |
 | **Automatic Computation** | Core will take into account the position in time, the value, and surrounding keyframes to automatically set a tangent<br/>![!Automatic Computation Tangent](../img/Curves/AutomaticTangent.png){: .center loading="lazy" } |
-| **User-Set Aligned**      | The tangent can be set by the creator and the previous/next tangent will retain the same values<br/>![!User-Set Aligned Tangent](../img/Curves/UserSetAlignedTangent.png){: .center loading="lazy" } |
-| **User-Set Independent**  | The tangent can be set by the creator but the previous and next values can be set without changing the other<br/>![!User-Set Independent Tangent](../img/Curves/UserSetIndependentTangent.png){: .center loading="lazy" } |
+| **User-Set Aligned**      | The tangent can be set by the creator and the in/out tangent will remain aligned<br/>![!User-Set Aligned Tangent](../img/Curves/UserSetAlignedTangent.png){: .center loading="lazy" } |
+| **User-Set Independent**  | The tangent can be set by the creator but the in/out values can be set without changing one another<br/>![!User-Set Independent Tangent](../img/Curves/UserSetIndependentTangent.png){: .center loading="lazy" } |
 
 ### Viewport Settings
 
 In the top right of the **Curve Editor** window is a blue button that opens the **Viewport Settings**. This allows you to customize how the **Curve Graph** looks by changing the range of time and the range of values that is visible.
 
 !!! hint
-    You can zoom in and out of the **Curve Graph** by holding ++Ctrl++ and then scrolling with your mouse wheel.
+    You can zoom in and out of the **Curve Graph** with your mouse wheel. By holding ++Ctrl++ or ++Shift++, you can zoom just vertically or horizontally.
 
 ![Viewport Settings](../img/Curves/ViewportSettings.png){: .center loading="lazy" }
 
@@ -133,7 +133,7 @@ In the top right of the **Curve Editor** window is a blue button that opens the 
 
 ## Getting the Value of a Curve for a Time
 
-A main powerhouse feature of curves is to be able to get a value on a specific point in time in correlation to the beginning of the curve. For instance, if a curve has a range of `0` - `3` seconds on a liner path and you get the value at `1.5` seconds, the value returned would be `1.5`.
+A main powerhouse feature of curves is to be able to get a value on a specific point in time anywhere along the curve. For instance, if a curve has a range of `0` - `3` seconds on a linear path and you get the value at `1.5` seconds, the value returned would be `1.5`.
 
 This can be obtained through `SimpleCurve:GetValue(time)`. More information can be found at the [SimpleCurve API](../api/simplecurve.md#getvalue).
 
