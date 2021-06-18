@@ -212,7 +212,7 @@ nav:
 
 # Theme configuration
 theme:
-  name: null
+  name: material
   custom_dir: mkdocs-material/material
   language: en
   font:
