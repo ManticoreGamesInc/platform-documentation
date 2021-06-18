@@ -51,7 +51,7 @@ jobs:
       - name: Wait for Netlify
         uses: jakejarvis/wait-action@master
         with:
-          time: '300s'
+          time: '360s'
 
       - uses: darrenjennings/algolia-docsearch-action@master
         with:
