@@ -15,7 +15,7 @@ helping out!
 The Core Documentation Platform is built on [mkdocs](https://github.com/mkdocs/mkdocs/) and following plugins for it:
 
 - [mkdocs-material](https://github.com/squidfunk/mkdocs-material/)
-- [mkdocs-autolinks](https://github.com/midnightprioriem/mkdocs-autolinks-plugin)
+- [mkdocs-ezlinks](https://github.com/orbikm/mkdocs-ezlinks-plugin)
 - [mkdocs-git-revision-date-localized](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin)
 - [mkdocs-material-extensions](https://github.com/facelessuser/mkdocs-material-extensions)
 - [mkdocs-redirects](https://github.com/datarobot/mkdocs-redirects)
