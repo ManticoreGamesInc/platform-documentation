@@ -26,8 +26,7 @@
         "https://docs.coregames.com/sitemap.xml"
     ],
     "stop_urls": [
-        "https://docs.coregames.com/generated/tags/",
-        "https://docs.coregames.com/fr/"
+        "https://docs.coregames.com/generated/tags/"
     ],
     "selectors": {
         "default": {
