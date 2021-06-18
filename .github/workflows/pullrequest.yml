@@ -40,13 +40,6 @@ jobs:
       - name: Run Tests
         run: npm run lint
 
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Build
-        run: mkdocs build
-
       - name: Wait for the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1.2
         id: netlify
