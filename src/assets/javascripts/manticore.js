@@ -14,8 +14,7 @@ addListenerMulti(document, "DOMContentLoaded DOMContentSwitch", (event) => {
     if (
       links[i].hostname !== window.location.hostname &&
       links[i].hostname !== "" &&
-      links[i].title !== "Edit this page" &&
-      links[i].title !== "Provide feedback about this page" &&
+      links[i].classList.contains("md-icon") !== true &&
       links[i].classList.contains("download-button") !== true
     ) {
       links[i].target = "_blank"
