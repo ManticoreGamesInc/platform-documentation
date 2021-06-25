@@ -19,6 +19,7 @@ Metadata about a published game in a collection on the Core platform. Additional
 | `name` | `string` | The name of the game. | Read-Only |
 | `ownerId` | `string` | The player ID of the creator who published the game. | Read-Only |
 | `ownerName` | `string` | The player name of the creator who published the game. | Read-Only |
+| `isPromoted` | `bool` | Whether or not this game is promoted. | Read-Only |
 
 ## Learn More
 
