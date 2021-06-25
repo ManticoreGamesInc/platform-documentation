@@ -48,8 +48,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `SetWorldRotation(Rotation)` | `None` | The absolute rotation. | None |
 | `GetWorldScale()` | [`Vector3`](vector3.md) | The absolute scale. | None |
 | `SetWorldScale(Vector3)` | `None` | The absolute scale. | None |
-| `GetVelocity()` | [`Vector3`](vector3.md) | The object's velocity in world space. | None |
-| `SetVelocity(Vector3)` | `None` | Set the object's velocity in world space. Only works for physics objects. | None |
+| `GetVelocity()` | [`Vector3`](vector3.md) | The object's velocity in world space. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | None |
+| `SetVelocity(Vector3)` | `None` | Set the object's velocity in world space. Only works for physics objects. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | None |
 | `GetAngularVelocity()` | [`Vector3`](vector3.md) | The object's angular velocity in degrees per second. | None |
 | `SetAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in world space. Only works for physics objects. | None |
 | `SetLocalAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in local space. Only works for physics objects. | None |
@@ -79,9 +79,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `MoveTo(Vector3, number, [boolean])` | `None` | Smoothly moves the object to the target location over a given amount of time (seconds). Third parameter specifies if the given destination is in local space (true) or world space (false). | None |
 | `RotateTo(Rotation/Quaternion, number, [boolean])` | `None` | Smoothly rotates the object to the target orientation over a given amount of time. Third parameter specifies if given rotation is in local space (true) or world space (false). | None |
 | `ScaleTo(Vector3, number, [boolean])` | `None` | Smoothly scales the object to the target scale over a given amount of time. Third parameter specifies if the given scale is in local space (true) or world space (false). | None |
-| `MoveContinuous(Vector3, [boolean])` | `None` | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). | None |
-| `RotateContinuous(Rotation/Quaternion, [number, [boolean]])` | `None` | Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). | None |
-| `RotateContinuous(Vector3, [boolean])` | `None` | Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). | None |
+| `MoveContinuous(Vector3, [boolean])` | `None` | Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | None |
+| `RotateContinuous(Rotation/Quaternion, [number, [boolean]])` | `None` | Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second. | None |
+| `RotateContinuous(Vector3, [boolean])` | `None` | Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second. | None |
 | `ScaleContinuous(Vector3, [boolean])` | `None` | Smoothly scales the object over time by the given scale vector per second. Second parameter specifies if the given scale rate is in local space (true) or world space (false). | None |
 | `StopMove()` | `None` | Interrupts further movement from MoveTo(), MoveContinuous(), or Follow(). | None |
 | `StopRotate()` | `None` | Interrupts further rotation from RotateTo(), RotateContinuous(), LookAtContinuous(), or LookAtLocalView(). | None |
@@ -91,6 +91,10 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `LookAtContinuous(Object, [boolean], [number])` | `None` | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target (in radians/second). If speed is not supplied it tracks as fast as possible. | None |
 | `LookAtLocalView([boolean])` | `None` | Continuously looks at the local camera. The boolean parameter is optional and locks the pitch. (Client-only) | None |
 | `Destroy()` | `None` | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | None |
+| `ReorderBeforeSiblings()` | `None` | Reorders this object before all of its siblings in the hierarchy. | None |
+| `ReorderAfterSiblings()` | `None` | Reorders this object after all of its siblings in the hierarchy. | None |
+| `ReorderBefore(CoreObject sibling)` | `None` | Reorders this object just before the specified sibling in the hierarchy. | None |
+| `ReorderAfter(CoreObject sibling)` | `None` | Reorders this object just after the specified sibling in the hierarchy. | None |
 
 ## Events
 
