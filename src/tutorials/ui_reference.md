@@ -18,13 +18,13 @@ UI in Core includes all the 2D elements that can be used to build menus, notific
 
 A **Control** (UIControl) is a **CoreObject** which serves as a base class for other Controls. All UI classes include the properties within a Control such as the position and size properties.
 
-More information can be found in the [UIControl API](../src/api/uicontrol.md)
+More information can be found in the [UIControl API](../api/uicontrol.md)
 
 ### Container
 
 All other UI elements must be a descendant of a **Container** (UIContainer) to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject.
 
-More information can be found in the [UIContainer API](../src/api/uicontainer.md)
+More information can be found in the [UIContainer API](../api/uicontainer.md)
 
 #### Container Types
 
@@ -45,19 +45,19 @@ A **Panel** (UIPanel) can be used for containing and laying out other UI element
 
 Panels also have an **Opacity** that will be applied to all elements inside of it.
 
-More information can be found in the [UIPanel API](../src/api/uipanel.md)
+More information can be found in the [UIPanel API](../api/uipanel.md)
 
 ### Scroll Panel
 
 A **Scroll Panel** (UIScrollPanel) is a Panel that has a scroll bar for overflowing elements.
 
-More information can be found in the [UIScrollPanel API](../src/api/uiscrollpanel.md)
+More information can be found in the [UIScrollPanel API](../api/uiscrollpanel.md)
 
 ### Image
 
 An **Image** (UIImage) displays a given image (found in the **Core Content** window).
 
-More information can be found in the [UIImage API](../src/api/uiimage.md)
+More information can be found in the [UIImage API](../api/uiimage.md)
 
 #### Change the Image in the Editor
 
@@ -77,11 +77,11 @@ The color of an image can be changed dynamically by using the `UIImage:SetColor(
 
 A **Text** (UIText) displays text.
 
-More information can be found in the [UIText API](../src/api/uitext.md)
+More information can be found in the [UIText API](../api/uitext.md)
 
 #### Text Fonts
 
-![Sample of Core Fonts](../img/UI/UI_Fonts.png){: .center loading="lazy"}
+![Sample of Core Fonts](../img/UI/UI_Fonts.png){: .center loading="lazy" }
 
 #### Change the Font
 
@@ -109,7 +109,7 @@ When the text is being rendered on the screen, you can get the amount of pixels 
 
 A **Progress Bar** (UIProgressBar) displays a dynamically filled rectangle that can be used for things such as health indicators, loading screen, and much more.
 
-More information can be found in the [UIProgressBar API](../src/api/uiprogressbar.md)
+More information can be found in the [UIProgressBar API](../api/uiprogressbar.md)
 
 #### Change the Progress with Script
 
@@ -123,7 +123,7 @@ ProgressBarObject.progress = 0.6 -- 60%
 
 A **Button** (UIButton) can be clicked and interacted with. This must be in a client context to function.
 
-More information can be found in the [UIButton API](../src/api/uibutton.md)
+More information can be found in the [UIButton API](../api/uibutton.md)
 
 #### Listening to Events
 
@@ -143,7 +143,7 @@ ButtonObject.clickedEvent:Connect(OnButtonClicked)
 
 A **Perk Purchase Button** (UIPerkPurchaseButton) is similar to a regular button but allows players to purchase perks within a game. It is designed to present a consistent purchasing experience for players across all games.
 
-More information can be found in the [UIPerkPurchaseButton API](../src/api/uiperkpurchasebutton.md)
+More information can be found in the [UIPerkPurchaseButton API](../api/uiperkpurchasebutton.md)
 
 ## Toggling UI With a Trigger
 
@@ -151,7 +151,7 @@ There may be situations you want to show **UI** when a player enters a certain a
 
 In this example, the trigger will show a **UI** that informs the player that they are in a specific zone, the "Red Zone."
 
-![Trigger Zone](../src/img/UIReference/TriggerZone.png){: .center loading="lazy"}
+![Trigger Zone](../img/UIReference/TriggerZone.png){: .center loading="lazy" }
 
 ### Create a Script
 
@@ -159,7 +159,7 @@ First, you need to create a script that will handle this implementation.
 
 1. Create a script inside the **UI** that will be toggled using the trigger. The name of the script can be anything; this tutorial will be using `ToggleOnTrigger`.
 
-![Toggle On Trigger Script](../src/img/UIReference/ToggleOnTriggerScript.png){: .center loading="lazy"}
+![Toggle On Trigger Script](../img/UIReference/ToggleOnTriggerScript.png){: .center loading="lazy" }
 
 ### Create Custom Properties for the UI and Trigger
 
@@ -170,7 +170,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 3. While having the script selected in the hierarchy, in the **Properties** window, add a **CoreObjectReference** **Custom Property** to the script and name it `Trigger`.
 4. Drag-and-drop the **Trigger** from the **Hierarchy** into the **Custom Property** you just created.
 
-![Toggle On Trigger Custom Properties](../src/img/UIReference/ToggleOnTriggerCustomProperties.png){: .center loading="lazy"}
+![Toggle On Trigger Custom Properties](../img/UIReference/ToggleOnTriggerCustomProperties.png){: .center loading="lazy" }
 
 ### Create Variable References for the UI and Trigger
 
@@ -266,7 +266,7 @@ Finally, you can disable the visibility of the UI so that when the **Player** sp
 1. Click the UI in the **Hierarchy**.
 2. In the **Properties** window, change the **Visibility** to **Force Off**.
 
-![Toggle On Trigger Visibility](../src/img/UIReference/ToggleOnTriggerVisibility.png){: .center loading="lazy"}
+![Toggle On Trigger Visibility](../img/UIReference/ToggleOnTriggerVisibility.png){: .center loading="lazy" }
 
 ### Final Code
 
@@ -302,7 +302,7 @@ There may be situations you want to show **UI** when a player presses a certain 
 
 In this example, pressing ++T++ will show a **UI** that gives some quick information to the player about the game.
 
-![Quick Information](../src/img/UIReference/QuickInformation.png){: .center loading="lazy"}
+![Quick Information](../img/UIReference/QuickInformation.png){: .center loading="lazy" }
 
 ### Create a Script
 
@@ -310,7 +310,7 @@ First, you need to create a script that will handle this implementation.
 
 1. Create a script inside the **UI** that will be toggled using the trigger. The name of the script can be anything; this tutorial will be using `ToggleOnBinding`.
 
-![Toggle On Binding Script](../src/img/UIReference/ToggleOnBindingScript.png){: .center loading="lazy"}
+![Toggle On Binding Script](../img/UIReference/ToggleOnBindingScript.png){: .center loading="lazy" }
 
 ### Create Custom Properties for the UI and Binding
 
@@ -321,7 +321,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 3. While having the script selected in the hierarchy, in the **Properties** window, add a **String** **Custom Property** to the script and name it `Binding`.
 4. Search the binding list for what binding you want to use. This example will be using ++T++, which is `ability_extra_24`.
 
-![Toggle On Binding Custom Properties](../src/img/UIReference/ToggleOnBindingCustomProperties.png){: .center loading="lazy"}
+![Toggle On Binding Custom Properties](../img/UIReference/ToggleOnBindingCustomProperties.png){: .center loading="lazy" }
 
 ### Create Variable References for the UI and Binding
 
@@ -397,7 +397,7 @@ Finally, you can disable the visibility of the UI so that when the **Player** sp
 
 2. In the **Properties** window, change the **Visibility** to **Force Off**.
 
-![Toggle On Binding Visibility](../src/img/UIReference/ToggleOnBindingVisibility.png){: .center loading="lazy"}
+![Toggle On Binding Visibility](../img/UIReference/ToggleOnBindingVisibility.png){: .center loading="lazy" }
 
 ### Final Code
 
@@ -429,7 +429,7 @@ There may be situations you want to show **UI** when a player presses a button o
 
 In this example, pressing the button will show a **UI** that gives some quick information to the player about the game.
 
-![Quick Information with Button](../src/img/UIReference/QuickInformationWithButton.png){: .center loading="lazy"}
+![Quick Information with Button](../img/UIReference/QuickInformationWithButton.png){: .center loading="lazy" }
 
 ### Create a Script
 
@@ -437,7 +437,7 @@ First, you need to create a script that will handle this implementation.
 
 1. Create a script inside the **UI** that will be toggled using the trigger. The name of the script can be anything; this tutorial will be using `ToggleOnButton`.
 
-![Toggle On Button Script](../src/img/UIReference/ToggleOnButtonScript.png){: .center loading="lazy"}
+![Toggle On Button Script](../img/UIReference/ToggleOnButtonScript.png){: .center loading="lazy" }
 
 ### Create Custom Properties for the UI and Trigger
 
@@ -448,7 +448,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 3. While having the script selected in the hierarchy, in the **Properties** window, add a **CoreObjectReference** **Custom Property** to the script and name it `Button`.
 4. Drag-and-drop the **Button** from the **Hierarchy** into the **Custom Property** you just created.
 
-![Toggle On Button Custom Properties](../src/img/UIReference/ToggleOnButtonCustomProperties.png){: .center loading="lazy"}
+![Toggle On Button Custom Properties](../img/UIReference/ToggleOnButtonCustomProperties.png){: .center loading="lazy" }
 
 ### Create Variable References for the UI and Button
 
@@ -507,7 +507,7 @@ Finally, you can disable the visibility of the UI so that when the **Player** sp
 1. Click the UI in the **Hierarchy**.
 2. In the **Properties** window, change the **Visibility** to **Force Off**.
 
-![Toggle On Button Visibility](../src/img/UIReference/ToggleOnButtonVisibility.png){: .center loading="lazy"}
+![Toggle On Button Visibility](../img/UIReference/ToggleOnButtonVisibility.png){: .center loading="lazy" }
 
 ### Final Code
 
