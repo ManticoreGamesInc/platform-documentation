@@ -29,14 +29,14 @@ Player is an object representation of the state of a player connected to the gam
 | `deaths` | `integer` | The number of times the player has died. | Read-Write |
 | `stepHeight` | `number` | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
 | `maxWalkSpeed` | `number` | Maximum speed while the player is on the ground. Clients can only read. Default = 640. | Read-Write |
-| `maxAcceleration` | `number` | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. | Read-Write |
+| `maxAcceleration` | `number` | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. Acceleration is expressed in centimeters per second squared. | Read-Write |
 | `brakingDecelerationFalling` | `number` | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
 | `brakingDecelerationWalking` | `number` | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
 | `groundFriction` | `number` | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | `number` | Multiplier for friction when braking. Default = 0.6. | Read-Write |
 | `walkableFloorAngle` | `number` | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
 | `maxJumpCount` | `integer` | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
-| `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. | Read-Write |
+| `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. Speed is expressed in centimeters per second. | Read-Write |
 | `gravityScale` | `number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
 | `maxSwimSpeed` | `number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
 | `touchForceFactor` | `number` | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
@@ -52,7 +52,7 @@ Player is an object representation of the state of a player connected to the gam
 | `isWalking` | `boolean` | True if the Player is in walking mode. | Read-Only |
 | `isDead` | `boolean` | True if the Player is dead, otherwise false. | Read-Only |
 | `isSpawned` | `boolean` | True if the player is in a spawned state, false if the player is despawned. | Read-Only |
-| `spawnMode` | [`RespawnMode`](enums.md#respawnmode) | Specifies how a start point is selected when a player initially spawns or spawns from a despawned state. | Read-Write |
+| `spawnMode` | [`SpawnMode`](enums.md#spawnmode) | Specifies how a start point is selected when a player initially spawns or spawns from a despawned state. | Read-Write |
 | `respawnMode` | [`RespawnMode`](enums.md#respawnmode) | Specifies how a start point is selected when a player respawns. | Read-Write |
 | `respawnDelay` | `number` | The delay in seconds from when a player dies until they respawn. | Read-Write |
 | `respawnTimeRemaining` | `number` | The number of seconds remaining until the player respawns. Returns 0 if the player is already spawned. | Read-Only, Server-Only |
@@ -84,8 +84,8 @@ Player is an object representation of the state of a player connected to the gam
 | `GetWorldScale()` | [`Vector3`](vector3.md) | The absolute scale of this player. | None |
 | `SetWorldScale(Vector3)` | `None` | The absolute scale of this player (must be uniform). | Server-Only |
 | `AddImpulse(Vector3)` | `None` | Adds an impulse force to the Player. | Server-Only |
-| `GetVelocity()` | [`Vector3`](vector3.md) | Gets the current velocity of the Player. | None |
-| `SetVelocity(Vector3)` | `None` | Sets the Player's velocity to the given amount. | Server-Only |
+| `GetVelocity()` | [`Vector3`](vector3.md) | Gets the current velocity of the Player. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | None |
+| `SetVelocity(Vector3)` | `None` | Sets the Player's velocity to the given amount. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | Server-Only |
 | `ResetVelocity()` | `None` | Resets the Player's velocity to zero. | Server-Only |
 | `GetAbilities()` | `Array<`[`Ability`](ability.md)`>` | Array of all Abilities assigned to this Player. | None |
 | `GetEquipment()` | `Array<`[`Equipment`](equipment.md)`>` | Array of all Equipment assigned to this Player. | None |
@@ -130,6 +130,9 @@ Player is an object representation of the state of a player connected to the gam
 | `Detach()` | `None` | If the Player is attached to a parent CoreObject, detaches them and re-enables player movement. | Server-Only |
 | `GetJoinTransferData()` | [`PlayerTransferData`](playertransferdata.md) | Returns data indicating how a player joined the game (via browsing, portal, social invite, etc) and the game ID of their previous game if they joined directly from another game. Join data should be available during the player's entire session. | None |
 | `GetLeaveTransferData()` | [`PlayerTransferData`](playertransferdata.md) | Returns data indicating how a player left the game (via browsing, portal, social invite, etc) and the game ID of their next game if they are directly joining another game. Leave data is not valid until `Game.playerLeftEvent` has fired for the player. | None |
+| `SetPrivateNetworkedData(string key, value)` | [`PrivateNetworkedDataResultCode`](enums.md#privatenetworkeddataresultcode) | Sets the private networked data for this player associated with the key. Value can be any type that could be sent with a networked event. Each key is replicated independently, and this data is only sent to the owning player. | Server-Only |
+| `GetPrivateNetworkedData(string key)` | `value` | Returns the private networked data on this player associated with the given key or nil if no data is found. | None |
+| `GetPrivateNetworkedDataKeys()` | `Array<string>` | Returns an array of all keys with private data set. | None |
 
 ## Events
 
@@ -147,6 +150,7 @@ Player is an object representation of the state of a player connected to the gam
 | `emoteStartedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player begins playing an emote. | None |
 | `emoteStoppedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player stops playing an emote or an emote is interrupted. | None |
 | `animationEvent` | `Event<`[`Player`](player.md) player, string eventName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it and the name of the event at those points. | Client-Only |
+| `privateNetworkedDataChangedEvent` | `Event<`[`Player`](player.md) player, string key`>` | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
 
 ## Hooks
 
