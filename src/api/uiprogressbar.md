@@ -16,6 +16,8 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | -------- | ----------- | ----------- | ---- |
 | `progress` | `number` | From 0 to 1, how full the bar should be. | Read-Write |
 | `fillType` | [`ProgressBarFillType`](enums.md#progressbarfilltype) | Controls the direction in which the progress bar fills. | Read-Write |
+| `fillTileType` | [`ImageTileType`](enums.md#imagetiletype) | How the fill texture is tiled. | Read-Write |
+| `backgroundTileType` | [`ImageTileType`](enums.md#imagetiletype) | How the background texture is tiled. | Read-Write |
 
 ## Functions
 

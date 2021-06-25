@@ -39,8 +39,8 @@ Projectile is a specialized Object which moves through the air in a parabolic sh
 | `GetWorldTransform()` | [`Transform`](transform.md) | Transform data for the Projectile in world space. | None |
 | `GetWorldPosition()` | [`Vector3`](vector3.md) | Position of the Projectile in world space. | None |
 | `SetWorldPosition(Vector3)` | `None` | Position of the Projectile in world space. | None |
-| `GetVelocity()` | [`Vector3`](vector3.md) | Current direction and speed vector of the Projectile. | None |
-| `SetVelocity(Vector3)` | `None` | Current direction and speed vector of the Projectile. | None |
+| `GetVelocity()` | [`Vector3`](vector3.md) | Current direction and speed vector of the Projectile. Speed is expressed in centimeters per second. | None |
+| `SetVelocity(Vector3)` | `None` | Current direction and speed vector of the Projectile. Speed is expressed in centimeters per second. | None |
 
 ## Class Functions
 
