@@ -1051,68 +1051,6 @@
 					]
 				},
 				{
-					"Name": "SetMaterialForSlot",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "assetId"
-								},
-								{
-									"Type": "string",
-									"Name": "slotName"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "GetMaterialSlot",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "MaterialSlot",
-									"IsOptional": true
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "slotName"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "GetMaterialSlots",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "Array<MaterialSlot>"
-								}
-							],
-							"Parameters": []
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -2291,7 +2229,6 @@
 				},
 				{
 					"Name": "isPromoted",
-					"Description": "Whether or not this game is promoted.",
 					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
@@ -3088,7 +3025,7 @@
 				},
 				{
 					"Name": "GetVelocity",
-					"Description": "The object's velocity in world space. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second.",
+					"Description": "The object's velocity in world space.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -3102,7 +3039,7 @@
 				},
 				{
 					"Name": "SetVelocity",
-					"Description": "Set the object's velocity in world space. Only works for physics objects. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second.",
+					"Description": "Set the object's velocity in world space. Only works for physics objects.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -3534,7 +3471,7 @@
 				},
 				{
 					"Name": "MoveContinuous",
-					"Description": "Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false). The velocity vector indicates the direction, with its magnitude expressed in centimeters per second.",
+					"Description": "Smoothly moves the object over time by the given velocity vector. Second parameter specifies if the given velocity is in local space (true) or world space (false).",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -3738,11 +3675,11 @@
 				},
 				{
 					"Name": "RotateContinuous",
-					"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+					"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 					"Signatures": [
 						{
 							"Name": "WithAngularVelocityAndLocal",
-							"Description": "Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3757,7 +3694,7 @@
 						},
 						{
 							"Name": "WithAngularVelocity",
-							"Description": "Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given angular velocity. Second parameter specifies whether to interpret the given velocity in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3768,7 +3705,7 @@
 						},
 						{
 							"Name": "WithQuaternionAndMultiplierAndLocal",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3787,7 +3724,7 @@
 						},
 						{
 							"Name": "WithQuaternionAndMultiplier",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3802,7 +3739,7 @@
 						},
 						{
 							"Name": "WithQuaternion",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3813,7 +3750,7 @@
 						},
 						{
 							"Name": "WithRotationAndMultiplierAndLocal",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3832,7 +3769,7 @@
 						},
 						{
 							"Name": "WithRotationAndMultiplier",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -3847,7 +3784,7 @@
 						},
 						{
 							"Name": "WithRotation",
-							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)). Angular velocity is expressed in degrees per second.",
+							"Description": "Smoothly rotates the object over time by the given rotation (per second). The second parameter is an optional multiplier, for very fast rotations. Third parameter specifies if the given rotation or quaternion is in local space (true) or world space (false (default)).",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -4112,72 +4049,6 @@
 						{
 							"Returns": [],
 							"Parameters": []
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "ReorderBeforeSiblings",
-					"Description": "Reorders this object before all of its siblings in the hierarchy.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": []
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "ReorderAfterSiblings",
-					"Description": "Reorders this object after all of its siblings in the hierarchy.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": []
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "ReorderBefore",
-					"Description": "Reorders this object just before the specified sibling in the hierarchy.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "CoreObject",
-									"Name": "sibling"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "ReorderAfter",
-					"Description": "Reorders this object just after the specified sibling in the hierarchy.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "CoreObject",
-									"Name": "sibling"
-								}
-							]
 						}
 					],
 					"Tags": [
@@ -5546,127 +5417,6 @@
 			]
 		},
 		{
-			"Name": "MaterialSlot",
-			"Properties": [
-				{
-					"Name": "slotName",
-					"Type": "string",
-					"Tags": [
-						"ReadOnly"
-					]
-				},
-				{
-					"Name": "mesh",
-					"Type": "CoreMesh",
-					"Tags": [
-						"ReadOnly"
-					]
-				},
-				{
-					"Name": "materialAssetId",
-					"Type": "string"
-				},
-				{
-					"Name": "isSmartMaterial",
-					"Type": "boolean"
-				},
-				{
-					"Name": "type",
-					"Type": "string",
-					"Tags": [
-						"ReadOnly"
-					]
-				}
-			],
-			"MemberFunctions": [
-				{
-					"Name": "SetUVTiling",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "Vector2",
-									"Name": "uv"
-								}
-							]
-						},
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "number",
-									"Name": "u"
-								},
-								{
-									"Type": "number",
-									"Name": "v"
-								}
-							]
-						}
-					]
-				},
-				{
-					"Name": "GetUVTiling",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "Vector2"
-								}
-							],
-							"Parameters": []
-						}
-					]
-				},
-				{
-					"Name": "SetColor",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "Color",
-									"Name": "color"
-								}
-							]
-						}
-					]
-				},
-				{
-					"Name": "GetColor",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "Color"
-								}
-							],
-							"Parameters": []
-						}
-					]
-				},
-				{
-					"Name": "IsA",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "boolean"
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "typeName"
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
 			"Name": "MergedModel",
 			"Description": "MergedModel is a special Folder that combines CoreMesh descendants into a single mesh. Note that MergedModel is still a beta feature, and as such could change in the future.",
 			"BaseType": "Folder",
@@ -6004,8 +5754,6 @@
 				},
 				{
 					"Name": "isSliding",
-					"IsDeprecated": true,
-					"DeprecationMessage": "Player.isSliding is not currently implemented. It will be removed in a future release.",
 					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
@@ -6029,7 +5777,7 @@
 				},
 				{
 					"Name": "maxAcceleration",
-					"Description": "Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. Acceleration is expressed in centimeters per second squared.",
+					"Description": "Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800.",
 					"Type": "number",
 					"Tags": [
 						"ServerOnly"
@@ -6141,7 +5889,7 @@
 				},
 				{
 					"Name": "jumpVelocity",
-					"Description": "Vertical speed applied to Player when they jump. Default = 900. Speed is expressed in centimeters per second.",
+					"Description": "Vertical speed applied to Player when they jump. Default = 900.",
 					"Type": "number",
 					"Tags": [
 						"ServerOnly"
@@ -6276,7 +6024,7 @@
 				{
 					"Name": "spawnMode",
 					"Description": "Specifies how a start point is selected when a player initially spawns or spawns from a despawned state.",
-					"Type": "SpawnMode",
+					"Type": "RespawnMode",
 					"Tags": [
 						"ServerOnly"
 					]
@@ -6519,20 +6267,6 @@
 							"Name": "perkReference"
 						}
 					]
-				},
-				{
-					"Name": "privateNetworkedDataChangedEvent",
-					"Description": "Fired when the player's private data changes. On the client, only the local player's private data is available.",
-					"Parameters": [
-						{
-							"Type": "Player",
-							"Name": "player"
-						},
-						{
-							"Type": "string",
-							"Name": "key"
-						}
-					]
 				}
 			],
 			"Hooks": [
@@ -6685,7 +6419,7 @@
 				},
 				{
 					"Name": "GetVelocity",
-					"Description": "Gets the current velocity of the Player. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second.",
+					"Description": "Gets the current velocity of the Player.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -6759,7 +6493,7 @@
 				},
 				{
 					"Name": "SetVelocity",
-					"Description": "Sets the Player's velocity to the given amount. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second.",
+					"Description": "Sets the Player's velocity to the given amount.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -7572,65 +7306,6 @@
 					]
 				},
 				{
-					"Name": "SetPrivateNetworkedData",
-					"Description": "Sets the private networked data for this player associated with the key. Value can be any type that could be sent with a networked event. Each key is replicated independently, and this data is only sent to the owning player.",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "PrivateNetworkedDataResultCode"
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "key"
-								},
-								{
-									"Type": "value",
-									"Name": "value"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"ServerOnly"
-					]
-				},
-				{
-					"Name": "GetPrivateNetworkedData",
-					"Description": "Returns the private networked data on this player associated with the given key or nil if no data is found.",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "value"
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "key"
-								}
-							]
-						}
-					]
-				},
-				{
-					"Name": "GetPrivateNetworkedDataKeys",
-					"Description": "Returns an array of all keys with private data set.",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "table"
-								}
-							],
-							"Parameters": []
-						}
-					]
-				},
-				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -8111,7 +7786,7 @@
 				},
 				{
 					"Name": "GetVelocity",
-					"Description": "Current direction and speed vector of the Projectile. Speed is expressed in centimeters per second.",
+					"Description": "Current direction and speed vector of the Projectile.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -8125,7 +7800,7 @@
 				},
 				{
 					"Name": "SetVelocity",
-					"Description": "Current direction and speed vector of the Projectile. Speed is expressed in centimeters per second.",
+					"Description": "Current direction and speed vector of the Projectile.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -9582,68 +9257,6 @@
 				}
 			],
 			"MemberFunctions": [
-				{
-					"Name": "SetMaterialForSlot",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "assetId"
-								},
-								{
-									"Type": "string",
-									"Name": "slotName"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "GetMaterialSlot",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "MaterialSlot",
-									"IsOptional": true
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "slotName"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "GetMaterialSlots",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "Array<MaterialSlot>"
-								}
-							],
-							"Parameters": []
-						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -11403,24 +11016,6 @@
 					"Name": "fillType",
 					"Description": "Controls the direction in which the progress bar fills.",
 					"Type": "ProgressBarFillType",
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "fillTileType",
-					"Description": "How the fill texture is tiled.",
-					"Type": "ImageTileType",
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
-					]
-				},
-				{
-					"Name": "backgroundTileType",
-					"Description": "How the background texture is tiled.",
-					"Type": "ImageTileType",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -13839,7 +13434,7 @@
 				},
 				{
 					"Name": "GetGameCollection",
-					"Description": "Requests a list of games belonging to a given collection. This function may yield until a result is available, and may raise an error if the collection ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls. Supported collection IDs include: \"new\", \"popular\", \"hot_games\", \"active\", \"featured\", \"highest_rated\", \"most_played\", \"most_engaging\", \"solo_friendly\", and \"tournament\".",
+					"Description": "Requests a list of games belonging to a given collection. This function may yield until a result is available, and may raise an error if the collection ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls. Supported collection IDs include: \"new\", \"popular\", \"hot_games\", \"active\", \"featured\", \"highest_rated\", \"most_played\", and \"tournament\".",
 					"Signatures": [
 						{
 							"Returns": [
@@ -15833,32 +15428,6 @@
 			]
 		},
 		{
-			"Name": "ImageTileType",
-			"Description": "How a UI Texture is tiled or stretched.",
-			"Values": [
-				{
-					"Name": "NONE",
-					"Description": "The texture is stretched to the size of the container.",
-					"Value": 0
-				},
-				{
-					"Name": "HORIZONTAL",
-					"Description": "The texture is tiled horizontally and stretched vertically.",
-					"Value": 1
-				},
-				{
-					"Name": "VERTICAL",
-					"Description": "The texture is tiled vertically and stretched horizontally.",
-					"Value": 2
-				},
-				{
-					"Name": "BOTH",
-					"Description": "The texture is tiled along both axes.",
-					"Value": 3
-				}
-			]
-		},
-		{
 			"Name": "LeaderboardType",
 			"Description": "Identifies a specific leaderboard type associated with a leaderboard key.",
 			"Values": [
@@ -15967,8 +15536,6 @@
 				},
 				{
 					"Name": "SLIDING",
-					"IsDeprecated": true,
-					"DeprecationMessage": "MovementMode.SLIDING is not currently implemented. It will be removed in a future release.",
 					"Value": 6
 				}
 			]
@@ -16067,27 +15634,6 @@
 			]
 		},
 		{
-			"Name": "PrivateNetworkedDataResultCode",
-			"Description": "Status code returned when setting private player data.",
-			"Values": [
-				{
-					"Name": "SUCCESS",
-					"Description": "The operation succeeded.",
-					"Value": 0
-				},
-				{
-					"Name": "FAILURE",
-					"Description": "An error occurred.",
-					"Value": 1
-				},
-				{
-					"Name": "EXCEEDED_SIZE_LIMIT",
-					"Description": "The value is too large and was not stored.",
-					"Value": 2
-				}
-			]
-		},
-		{
 			"Name": "ProgressBarFillType",
 			"Description": "Controls the direction in which the progress bar fills.",
 			"Values": [
@@ -16120,11 +15666,11 @@
 		},
 		{
 			"Name": "RespawnMode",
-			"Description": "Specifies whether a player respawns automatically, and how a start point is selected when they spawn.",
+			"Description": "Specifies whether a player spawns or respawns automatically, and how a start point is selected when they spawn.",
 			"Values": [
 				{
 					"Name": "NONE",
-					"Description": "Player does not respawn automatically.",
+					"Description": "Player does not spawn or respawn automatically.",
 					"Value": 0
 				},
 				{
@@ -16177,32 +15723,6 @@
 					"Name": "LOOK_ANGLE",
 					"Description": "Camera rotates based on player's look direction.",
 					"Value": 2
-				}
-			]
-		},
-		{
-			"Name": "SpawnMode",
-			"Description": "Specifies how a start point is selected when a player spawns.",
-			"Values": [
-				{
-					"Name": "RANDOM",
-					"Description": "Spawns the player at a random start point.",
-					"Value": 0
-				},
-				{
-					"Name": "ROUND_ROBIN",
-					"Description": "Selects start points in a repeating sequential pattern.",
-					"Value": 1
-				},
-				{
-					"Name": "FARTHEST_FROM_OTHER_PLAYERS",
-					"Description": "Spawns the player at the start point farthest from any other player.",
-					"Value": 2
-				},
-				{
-					"Name": "FARTHEST_FROM_ENEMY",
-					"Description": "Spawns the player at the start point farthest from an enemy player.",
-					"Value": 3
 				}
 			]
 		},
