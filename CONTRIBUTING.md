@@ -24,8 +24,8 @@ If you don't want to deal with all the technicalities because you only want to d
 First, make sure that you have:
 
 - [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup) (not required)
-- [Python](https://www.python.org/) >= 3.7.0
-- [Node.js](https://nodejs.org/en/download/) >= 12.0.0
+- [Python](https://www.python.org/) >= 3.8.0
+- [Node.js](https://nodejs.org/en/download/) >= 15.0.0 & npm >= 7
 
 ### Clone the Repository
 
