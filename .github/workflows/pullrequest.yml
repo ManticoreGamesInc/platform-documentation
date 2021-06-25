@@ -45,7 +45,7 @@ jobs:
         id: netlify
         with:
           site_name: "manticore-docs"
-          max_timeout: 180
+          max_timeout: 360
 
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v7
