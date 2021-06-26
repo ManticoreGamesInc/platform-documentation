@@ -399,7 +399,7 @@ function OnRoundEnd()
     -- Respawn all the players
     local allPlayers = Game.GetPlayers()
     for _, player in ipairs(allPlayers) do
-        player:Respawn()
+        player:Spawn()
     end
 
     Game.ResetTeamScores()
@@ -423,7 +423,7 @@ function Tick()
 end
 ```
 
-See also: [Game.EndRound](game.md) | [Player.Respawn](player.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md) | [Event.Connect](event.md)
+See also: [Game.EndRound](game.md) | [Player.Spawn](player.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md) | [Event.Connect](event.md)
 
 ---
 
