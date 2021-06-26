@@ -43,6 +43,80 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 Example using:
 
+### `GetScreenPosition`
+
+The `GetScreenPosition` method is a powerful function that does a lot of behind the scenes math to convert any 3D point in the game world into a 2D screen coordinate. This script will use the `GetScreenPosition` method to cause a UI Text object to jump to different players and follow each player for 2 second intervals.
+
+Your UI Text object needs to be set to dock in the top-left of the screen for the `GetScreenPosition` method to provide accurate 2D coordinates. Your UI Text object should also be a direct child of a UI Container for the `GetScreenPosition` method to provide accurate 2D coordinates.
+
+```lua
+-- Grab the text object
+local propUIText = script:GetCustomProperty("UIText"):WaitForObject()
+
+-- Represents how many seconds are left until the UI Text moves to the next player
+local timeLeft = 0
+
+-- Determines how long (in seconds) the text hovers above the name of a player
+local intervalTime = 2
+
+-- Represents which player the UI Text will is currently hovering over
+local playerIndex = 1
+
+-- Stores a list of players in the game
+local playerList = Game.GetPlayers()
+
+-- Stores the player object that the UI Text should hover above
+local targetPlayer = nil
+
+function Tick(deltaTime)
+    -- Update the "playerList" to reflect any changes to the list of players in the game (players leaving the game or entering the game)
+    playerList = Game.GetPlayers()
+
+    -- Update the "timeLeft" variable
+    timeLeft = timeLeft - deltaTime
+
+    -- If "timeLeft" has reached 0 and there are still players in the game, reset the "timeLeft" variable and move the text to the next player
+    if(timeLeft <= 0 and #playerList > 0) then
+        -- Reset the "timeLeft" variable to "intervalTime" number of seconds
+        timeLeft = intervalTime
+
+        -- Move the "playerIndex" to the next player in the "playerLIst"
+        playerIndex = playerIndex + 1
+
+        -- If "playerIndex" is larger than the length of "playerList", reset "playerIndex" to the beginning of "playerList"
+        if(playerIndex > #playerList) then
+            playerIndex = 1
+        end
+
+        -- Update the "targetPlayer" variable with the player object located at "playerIndex" position on the "playerList"
+        targetPlayer = playerList[playerIndex]
+    end
+
+    -- If "targetPlayer" refers to an actual player, update the position of the UI Text to
+    -- be above that player's head
+    if(Object.IsValid(targetPlayer)) then
+        -- Get the position of the player's head by vertically offseting the position of the player
+        local playerHeadPos = targetPlayer:GetWorldPosition() + Vector3.New(0, 0, 120)
+
+        -- Convert the position of the player's head to 2D coordinates
+        local playerHeadScreenPos = UI.GetScreenPosition(playerHeadPos)
+
+        -- Change the text of the UI Text to display the name of the "targetPlayer"
+        propUIText.text = targetPlayer.name
+
+        -- Move the UI Text to the "playerHeadScreenPos" position
+        propUIText.x = playerHeadScreenPos.x
+        propUIText.y = playerHeadScreenPos.y
+    end
+end
+```
+
+See also: [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [UIText.textObject.IsValid](uitext.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
 ### `coreModalChangedEvent`
 
 This client script listens for changes in the local player's modal and prints to the Event Log information about which modal was opened, or if modals were closed.
