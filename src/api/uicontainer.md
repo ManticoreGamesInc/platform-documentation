@@ -25,7 +25,7 @@ Example using:
 UI transitions provide a great way for you to show your creativity to players. This example will show you how to create a simple fade in. This script will cause the UI Container and all of the children of the UI Container to fade into view over 4 seconds by using the `opacity` property of the UI Container.
 
 ```lua
--- "timePassed" will keep track of the number of seconds that have passed since 
+-- "timePassed" will keep track of the number of seconds that have passed since
 -- the script began running
 local timePassed = 0
 
@@ -47,7 +47,7 @@ function Tick(deltaTime)
 end
 ```
 
-See also: [CoreMath.Lerp](coremath.md) | [CoreObejct.GetCustomProperty](coreobejct.md)
+See also: [CoreMath.Lerp](coremath.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 
