@@ -18,6 +18,14 @@ See AnimatedMesh for meshes with animations.
 | -------- | ----------- | ----------- | ---- |
 | `isSimulatingDebrisPhysics` | `boolean` | If `true`, physics will be enabled for the mesh. | Read-Write, Client-Only |
 
+## Functions
+
+| Function Name | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `SetMaterialForSlot(string assetId, string slotName)` | `None` | Set the material in the given slot to the material specified by assetId. | None |
+| `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. | None |
+| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this animatedMesh. | None |
+
 ## Examples
 
 Example using:

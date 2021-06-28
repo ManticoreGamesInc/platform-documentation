@@ -110,6 +110,15 @@ tags:
 | `FacingMode.FACE_AIM_ALWAYS` | `1` | Player always faces the direction of their aim. |
 | `FacingMode.FACE_MOVEMENT` | `2` | Player faces the direction of their movement. |
 
+## ImageTileType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `ImageTileType.NONE` | `0` | The texture is stretched to the size of the container. |
+| `ImageTileType.HORIZONTAL` | `1` | The texture is tiled horizontally and stretched vertically. |
+| `ImageTileType.VERTICAL` | `2` | The texture is tiled vertically and stretched horizontally. |
+| `ImageTileType.BOTH` | `3` | The texture is tiled along both axes. |
+
 ## LeaderboardType
 
 | Enum Name | Value | Description |
@@ -178,6 +187,14 @@ tags:
 | `PlayerTransferReason.AFK` | `7` | Player was disconnected for being AFK. |
 | `PlayerTransferReason.EXIT` | `8` | Player exited Core. Core was sad. |
 
+## PrivateNetworkedDataResultCode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `PrivateNetworkedDataResultCode.SUCCESS` | `0` | The operation succeeded. |
+| `PrivateNetworkedDataResultCode.FAILURE` | `1` | An error occurred. |
+| `PrivateNetworkedDataResultCode.EXCEEDED_SIZE_LIMIT` | `2` | The value is too large and was not stored. |
+
 ## ProgressBarFillType
 
 | Enum Name | Value | Description |
@@ -192,7 +209,7 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `RespawnMode.NONE` | `0` | Player does not spawn or respawn automatically. |
+| `RespawnMode.NONE` | `0` | Player does not respawn automatically. |
 | `RespawnMode.IN_PLACE` | `1` | Respawns the player at the same location and rotation as when they died. |
 | `RespawnMode.ROUND_ROBIN` | `2` | Selects start points in a repeating sequential pattern. |
 | `RespawnMode.AT_CLOSEST_SPAWN_POINT` | `3` | Respawns the player at the start point closest to the location the player died. |
@@ -207,6 +224,15 @@ tags:
 | `RotationMode.CAMERA` | `0` | Default, uses the rotation of the active `Camera` object. |
 | `RotationMode.NONE` | `1` | Camera does not rotate. |
 | `RotationMode.LOOK_ANGLE` | `2` | Camera rotates based on player's look direction. |
+
+## SpawnMode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `SpawnMode.RANDOM` | `0` | Spawns the player at a random start point. |
+| `SpawnMode.ROUND_ROBIN` | `1` | Selects start points in a repeating sequential pattern. |
+| `SpawnMode.FARTHEST_FROM_OTHER_PLAYERS` | `2` | Spawns the player at the start point farthest from any other player. |
+| `SpawnMode.FARTHEST_FROM_ENEMY` | `3` | Spawns the player at the start point farthest from an enemy player. |
 
 ## StorageResultCode
 

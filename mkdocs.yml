@@ -140,6 +140,7 @@ nav:
           - ImpactData: api/impactdata.md
           - LeaderboardEntry: api/leaderboardentry.md
           - Light: api/light.md
+          - MaterialSlot: api/materialslot.md
           - MergedModel: api/mergedmodel.md
           - NetReference: api/netreference.md
           - NetworkContext: api/networkcontext.md

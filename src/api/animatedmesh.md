@@ -33,6 +33,9 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `GetAnimationDuration(string animationName)` | `number` | Returns the duration of the animation in seconds. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 | `GetMeshForSlot(integer slotIndex)` | `string` | Returns the asset ID of the mesh assigned to the specified slot on this `AnimatedMesh`. Returns `nil` if no mesh is assigned to the slot. | Client-Only |
 | `SetMeshForSlot(integer slotIndex, string assetId)` | `None` | Assigns a mesh to the specified slot on this `AnimatedMesh`. If `assetId` is an empty string or identifies an incompatible asset, the slot will be cleared. | Client-Only |
+| `SetMaterialForSlot(string assetId, string slotName)` | `None` | Set the material in the given slot to the material specified by assetId. | None |
+| `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. | None |
+| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this animatedMesh. | None |
 
 ## Events
 
@@ -139,6 +142,44 @@ PrintAnimatedMeshData(dragonMesh)
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `GetMeshForSlot`
+
+### `SetMeshForSlot`
+
+In this example, a client script copies the mesh slots from one `AnimatedMesh` to another.
+
+```lua
+local ANIM_MESH_1 = script:GetCustomProperty("AnimMesh1"):WaitForObject()
+local ANIM_MESH_2 = script:GetCustomProperty("AnimMesh2"):WaitForObject()
+
+function Clear(animMesh)
+    animMesh:SetMeshForSlot(1, "")
+    animMesh:SetMeshForSlot(2, "")
+    animMesh:SetMeshForSlot(3, "")
+    animMesh:SetMeshForSlot(4, "")
+end
+
+function CopyMeshAtSlot(slotIndex)
+    local mesh = ANIM_MESH_1:GetMeshForSlot(slotIndex)
+    if mesh then
+        ANIM_MESH_2:SetMeshForSlot(slotIndex, mesh)
+    end
+end
+
+Clear(ANIM_MESH_2)
+
+CopyMeshAtSlot(1)
+CopyMeshAtSlot(2)
+CopyMeshAtSlot(3)
+CopyMeshAtSlot(4)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
 
