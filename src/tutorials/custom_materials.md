@@ -169,9 +169,9 @@ This can be done with the `:GetMaterialSlots()` function (or `:GetMaterialSlot(s
 
 For example, consider the **`Craftsman Roof 01 Corner In`** mesh. If you look at the properties panel while selecting a **CoreObject** that uses this mesh, you will see three different materials: **Roof**, **Ceiling**, and **Trim**.
 
-![Roof](../src/img/Materials/Roof.png){: .center loading="lazy" }
+![Roof](../img/Materials/Roof.png){: .center loading="lazy" }
 
-![Roof Properties](../src/img/Materials/RoofProperties.png){: .center loading="lazy" }
+![Roof Properties](../img/Materials/RoofProperties.png){: .center loading="lazy" }
 
 This is reflected when using the `:GetMaterialsSlots()` function. This can be tested by setting the Roof as a custom property (named `RoofObject` in this example) and then looping through the material slots and printing the `slotName` of each one.
 
@@ -193,7 +193,7 @@ Shared_Trim
 
 This shows there are three slots on that specific root object.
 
-![Printing Material Slots](../src/img/Materials/PrintingMaterialSlots.png){: .center loading="lazy" }
+![Printing Material Slots](../img/Materials/PrintingMaterialSlots.png){: .center loading="lazy" }
 
 However, if you did that with a cube, the output would simply be:
 
@@ -218,7 +218,7 @@ for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
 end
 ```
 
-![White Roof](../src/img/Materials/RoofWhite.png){: .center loading="lazy" }
+![White Roof](../img/Materials/RoofWhite.png){: .center loading="lazy" }
 
 What if you only want to change the color of one of the material slots, say just the `Building_Roof` material. There are two options: you can continue with the `for` loop or you can use the `:GetMaterialSlot(string)` function with just the name of the material slot you want to edit.
 
@@ -239,7 +239,7 @@ local roofMaterialSlot = RoofObject:GetMaterialSlot(MATERIAL_SLOT_NAME)
 roofMaterialSlot:SetColor(Color.WHITE)
 ```
 
-![White Roof with Only the Roof Material Slot Being White](../src/img/Materials/RoofWhiteSlotRoof.png){: .center loading="lazy" }
+![White Roof with Only the Roof Material Slot Being White](../img/Materials/RoofWhiteSlotRoof.png){: .center loading="lazy" }
 
 ### Replace the Material
 
@@ -267,7 +267,7 @@ for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
 end
 ```
 
-![Custom-Material Roof](../src/img/Materials/RoofCustomMaterial.png){: .center loading="lazy" }
+![Custom-Material Roof](../img/Materials/RoofCustomMaterial.png){: .center loading="lazy" }
 
 However, if you only want to change the color of one of the material slots, say just the `Building_Roof` material, there are two options. You can continue with the `for` loop or you can use the `:SetMaterialForSlot(string, string)` function with just the material and name of the material slot you want to edit.
 
@@ -288,7 +288,7 @@ end
 RoofObject:SetMaterialForSlot(Material, MATERIAL_SLOT_NAME)
 ```
 
-![Custom-Material Roof with Only the Roof Material Slot Being Custom](../src/img/Materials/RoofCustomMaterialSlotRoof.png){: .center loading="lazy" }
+![Custom-Material Roof with Only the Roof Material Slot Being Custom](../img/Materials/RoofCustomMaterialSlotRoof.png){: .center loading="lazy" }
 
 ## Learn More
 
