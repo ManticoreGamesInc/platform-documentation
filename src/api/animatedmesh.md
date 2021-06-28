@@ -206,6 +206,26 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
+### `GetMaterialSlots`
+
+### `SetMaterialForSlot`
+
+In this example an NPC's material is changed at runtime. The script is placed as a child of the NPC's animated mesh and the desired material is assigned to the script as a custom property.
+
+```lua
+local ANIM_MESH = script.parent
+local MATERIAL = script:GetCustomProperty("Material")
+    
+local matSlot = ANIM_MESH:GetMaterialSlots()[1]
+ANIM_MESH:SetMaterialForSlot(MATERIAL, matSlot.slotName)
+```
+
+See also: [MaterialSlot.slotName](materialslot.md) | [CoreObject.parent](coreobject.md)
+
+---
+
+Example using:
+
 ### `animationStance`
 
 ### `animationStancePlaybackRate`

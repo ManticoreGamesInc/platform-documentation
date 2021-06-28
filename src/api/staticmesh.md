@@ -22,6 +22,26 @@ See AnimatedMesh for meshes with animations.
 
 Example using:
 
+### `GetMaterialSlots`
+
+### `SetMaterialForSlot`
+
+In this example a cube's material is changed at runtime. The script is placed as a child of the cube object and the desired material is assigned to the script as a custom property.
+
+```lua
+local CUBE = script.parent
+local MATERIAL = script:GetCustomProperty("Material")
+    
+local matSlot = CUBE:GetMaterialSlots()[1]
+CUBE:SetMaterialForSlot(MATERIAL, matSlot.slotName)
+```
+
+See also: [MaterialSlot.slotName](materialslot.md) | [CoreObject.parent](coreobject.md)
+
+---
+
+Example using:
+
 ### `isSimulatingDebrisPhysics`
 
 The debris physics simulation is a client-only feature. The exact movement of simulated meshes is not expected to be the same across clients and should be used for visual effects, not for determining gameplay outcomes.
