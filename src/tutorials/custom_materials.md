@@ -236,7 +236,7 @@ end
 
 -- Option 2
 local roofMaterialSlot = RoofObject:GetMaterialSlot(MATERIAL_SLOT_NAME)
-materialSlot:SetColor(Color.WHITE)
+roofMaterialSlot:SetColor(Color.WHITE)
 ```
 
 ![White Roof with Only the Roof Material Slot Being White](../src/img/Materials/RoofWhiteSlotRoof.png){: .center loading="lazy" }
@@ -279,7 +279,7 @@ local MATERIAL_SLOT_NAME = "Building_Roof"
 
 -- Option 1
 for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
-    if materialSlot.slotName == "Building_Roof" then
+    if materialSlot.slotName == MATERIAL_SLOT_NAME then
         RoofObject:SetMaterialForSlot(Material, materialSlot.slotName)
     end
 end
