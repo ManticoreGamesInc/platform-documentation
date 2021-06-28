@@ -191,7 +191,7 @@ Example using:
 This example will localize the position of "propObject" based on the rotation of "propOrigin". The localized position is the position of an object from the perspective of another object. The localized position in this example will be stored in the variable named "localizedPosition".
 
 ```lua
---Get the object that will be the origin of this localization. 
+--Get the object that will be the origin of this localization.
 --The localized position will be from the perspective of this "Origin" object.
 local propOrigin = script:GetCustomProperty("Origin"):WaitForObject()
 --Get the object that will have its position localized. This is the object
@@ -204,12 +204,12 @@ local posDiff = propObject:GetWorldPosition() - Origin:GetWorldPosition()
 --Get the quaternion of the "propOrigin" object
 local propOriginQuaternion = propOrigin:GetWorldTransform():GetQuaternion()
 
---Rotate the "posDiff" vector using the quaternion of "propOrigin". This rotated vector contains the localized 
+--Rotate the "posDiff" vector using the quaternion of "propOrigin". This rotated vector contains the localized
 --position of "propObject" with "propOrigin" as the origin point and origin rotaiton
 local localizedPosition = propOriginQuaternion * posDiff
 ```
 
-See also: [function:CoreObject.GetWorldTransform](function.md)
+See also: [CoreObject.GetWorldTransform](coreobject.md) | [Transform.GetQuaternion](transform.md)
 
 ---
 

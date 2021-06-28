@@ -1052,6 +1052,7 @@
 				},
 				{
 					"Name": "SetMaterialForSlot",
+					"Description": "Set the material in the given slot to the material specified by assetId.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -1074,6 +1075,7 @@
 				},
 				{
 					"Name": "GetMaterialSlot",
+					"Description": "Get the MaterialSlot object for the given slot.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -1097,6 +1099,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
+					"Description": "Get an array of all MaterialSlots on this animatedMesh.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -5547,9 +5550,11 @@
 		},
 		{
 			"Name": "MaterialSlot",
+			"Description": "Contains data about a material slot on a static or animated mesh.",
 			"Properties": [
 				{
 					"Name": "slotName",
+					"Description": "Reference to a CoreObject or Player impacted.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -5557,6 +5562,7 @@
 				},
 				{
 					"Name": "mesh",
+					"Description": "The mesh this MaterialSlot is on.",
 					"Type": "CoreMesh",
 					"Tags": [
 						"ReadOnly"
@@ -5564,10 +5570,12 @@
 				},
 				{
 					"Name": "materialAssetId",
+					"Description": "The material asset in this slot.",
 					"Type": "string"
 				},
 				{
 					"Name": "isSmartMaterial",
+					"Description": "True if we are using this as a smart material.",
 					"Type": "boolean"
 				},
 				{
@@ -5581,6 +5589,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "SetUVTiling",
+					"Description": "Set the U and V tiling values.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5608,6 +5617,7 @@
 				},
 				{
 					"Name": "GetUVTiling",
+					"Description": "Returns a Vector2 of the U and V tiling values.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -5621,6 +5631,7 @@
 				},
 				{
 					"Name": "SetColor",
+					"Description": "Set the color for this slot.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5635,6 +5646,7 @@
 				},
 				{
 					"Name": "GetColor",
+					"Description": "Returns the color of this slot.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -9584,6 +9596,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "SetMaterialForSlot",
+					"Description": "Set the material in the given slot to the material specified by assetId.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -9606,6 +9619,7 @@
 				},
 				{
 					"Name": "GetMaterialSlot",
+					"Description": "Get the MaterialSlot object for the given slot.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -9629,6 +9643,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
+					"Description": "Get an array of all MaterialSlots on this animatedMesh.",
 					"Signatures": [
 						{
 							"Returns": [
