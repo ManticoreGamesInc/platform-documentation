@@ -155,6 +155,141 @@ Some materials have properties specific to them. For example, the ceramic materi
 
 Change the name of each custom material by editing the text field at the top of the **Material Editor**. This will allow you to easily find and re-use the material on different objects in the game.
 
+## Materials and Scripts
+
+With the introduction of the Materials API and [MaterialSlot](../api/materialslot.md)s, creators have the ability to edit and switch the material of a [StaticMesh](../api/staticmesh.md) or [AnimatedMesh](../api/animatedmesh.md) at runtime with scripts.
+
+### Get the Material Slots
+
+A [MaterialSlot](../api/materialslot.md) contains data about a material slot on a static or animated mesh.
+
+Meshes can have an undefined range of material slots. For instance, a cube mesh would have one material slot while a roof mesh may have three: the roof, the ceiling, and the trim. Therefore, you need to get all of these material slots from the mesh to be able to change them.
+
+This can be done with the `:GetMaterialSlots()` function (or `:GetMaterialSlot(string)` if you already know the name of the **MaterialSlot** you are trying to get) of [StaticMesh](../api/staticmesh.md) and [AnimatedMesh](../api/animatedmesh.md). Then, you can loop through those materials slots to either edit or ignore them.
+
+For example, consider the **`Craftsman Roof 01 Corner In`** mesh. If you look at the properties panel while selecting a **CoreObject** that uses this mesh, you will see three different materials: **Roof**, **Ceiling**, and **Trim**.
+
+![Roof](../img/Materials/Roof.png){: .center loading="lazy" }
+
+![Roof Properties](../img/Materials/RoofProperties.png){: .center loading="lazy" }
+
+This is reflected when using the `:GetMaterialsSlots()` function. This can be tested by setting the Roof as a custom property (named `RoofObject` in this example) and then looping through the material slots and printing the `slotName` of each one.
+
+```lua
+local RoofObject = script:GetCustomProperty("RoofObject"):WaitForObject()
+
+for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
+    print(materialSlot.slotName)
+end
+```
+
+The output of that script should be:
+
+```txt
+Building_Roof
+Building_Ceiling
+Shared_Trim
+```
+
+This shows there are three slots on that specific root object.
+
+![Printing Material Slots](../img/Materials/PrintingMaterialSlots.png){: .center loading="lazy" }
+
+However, if you did that with a cube, the output would simply be:
+
+```txt
+Shared_BaseMaterial
+```
+
+### Edit the Material Slot
+
+With each material slot, there is a set of properties to edit and functions that can be called that will manipulate how the material appears.
+
+!!! note
+    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../tutorials/networking.md) and the [Contexts API](../api/contexts.md).
+
+For instance, there is an option to change the color of the material slot using the `:SetColor(Color)` function of [MaterialSlot](../api/materialslot.md).
+
+```lua
+local RoofObject = script:GetCustomProperty("RoofObject"):WaitForObject()
+
+for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
+    materialSlot:SetColor(Color.WHITE)
+end
+```
+
+![White Roof](../img/Materials/RoofWhite.png){: .center loading="lazy" }
+
+What if you only want to change the color of one of the material slots, say just the `Building_Roof` material. There are two options: you can continue with the `for` loop or you can use the `:GetMaterialSlot(string)` function with just the name of the material slot you want to edit.
+
+```lua
+local RoofObject = script:GetCustomProperty("RoofObject"):WaitForObject()
+
+local MATERIAL_SLOT_NAME = "Building_Roof"
+
+-- Option 1
+for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
+    if materialSlot.slotName == MATERIAL_SLOT_NAME then
+        materialSlot:SetColor(Color.WHITE)
+    end
+end
+
+-- Option 2
+local roofMaterialSlot = RoofObject:GetMaterialSlot(MATERIAL_SLOT_NAME)
+roofMaterialSlot:SetColor(Color.WHITE)
+```
+
+![White Roof with Only the Roof Material Slot Being White](../img/Materials/RoofWhiteSlotRoof.png){: .center loading="lazy" }
+
+### Replace the Material
+
+In many cases, you may have already created materials using the in-editor tools and want to completely replace the material on the object with the one you created and have in the **Project Content** window.
+
+This can be done with the `:SetMaterialForSlot(string, string)` function of [StaticMesh](../api/staticmesh.md)/[AnimatedMesh](../api/animatedmesh.md).
+
+!!! note
+    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../tutorials/networking.md) and the [Contexts API](../api/contexts.md).
+
+First, add the custom material to the script as a custom property.
+
+1. Open the **Project Content** window and navigate to the **My Materials** category.
+2. Drag-and-drop the material you wish to replace with into the **Properties** window while the script is selected in either the **Hierarchy** or in the **Project Content**.
+3. Name the custom property something that will be easy to reference; this example will use `Material`.
+
+Then, reference the custom property in the script and set each material slot's material to the one you wish to replace it with.
+
+```lua
+local RoofObject = script:GetCustomProperty("RoofObject"):WaitForObject()
+local Material = script:GetCustomProperty("Material")
+
+for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
+    RoofObject:SetMaterialForSlot(Material, materialSlot.slotName)
+end
+```
+
+![Custom-Material Roof](../img/Materials/RoofCustomMaterial.png){: .center loading="lazy" }
+
+However, if you only want to change the color of one of the material slots, say just the `Building_Roof` material, there are two options. You can continue with the `for` loop or you can use the `:SetMaterialForSlot(string, string)` function with just the material and name of the material slot you want to edit.
+
+```lua
+local RoofObject = script:GetCustomProperty("RoofObject"):WaitForObject()
+local Material = script:GetCustomProperty("Material")
+
+local MATERIAL_SLOT_NAME = "Building_Roof"
+
+-- Option 1
+for _, materialSlot in pairs(RoofObject:GetMaterialSlots()) do
+    if materialSlot.slotName == MATERIAL_SLOT_NAME then
+        RoofObject:SetMaterialForSlot(Material, materialSlot.slotName)
+    end
+end
+
+-- Option 2
+RoofObject:SetMaterialForSlot(Material, MATERIAL_SLOT_NAME)
+```
+
+![Custom-Material Roof with Only the Roof Material Slot Being Custom](../img/Materials/RoofCustomMaterialSlotRoof.png){: .center loading="lazy" }
+
 ## Learn More
 
-[Environment Art](environment_art.md) | [Modeling Basics](modeling_basics.md)
+[Environment Art](environment_art.md) | [Modeling Basics](modeling_basics.md) | [MaterialSlot API](../api/materialslot.md) | [StaticMesh API](../api/staticmesh.md) | [AnimatedMesh API](../api/animatedmesh.md) | [Networking Reference](../tutorials/networking.md) | [Contexts API](../api/contexts.md)
