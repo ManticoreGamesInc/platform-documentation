@@ -205,7 +205,7 @@ local posDiff = propObject:GetWorldPosition() - Origin:GetWorldPosition()
 local propOriginQuaternion = propOrigin:GetWorldTransform():GetQuaternion()
 
 --Rotate the "posDiff" vector using the quaternion of "propOrigin". This rotated vector contains the localized
---position of "propObject" with "propOrigin" as the origin point and origin rotaiton
+--position of "propObject" with "propOrigin" as the origin point and origin rotation
 local localizedPosition = propOriginQuaternion * posDiff
 ```
 

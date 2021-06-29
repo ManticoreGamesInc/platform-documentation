@@ -256,7 +256,7 @@ In this example an NPC's material is changed at runtime. The script is placed as
 ```lua
 local ANIM_MESH = script.parent
 local MATERIAL = script:GetCustomProperty("Material")
-    
+
 local matSlot = ANIM_MESH:GetMaterialSlots()[1]
 ANIM_MESH:SetMaterialForSlot(MATERIAL, matSlot.slotName)
 ```

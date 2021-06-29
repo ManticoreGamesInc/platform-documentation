@@ -86,7 +86,7 @@ end
 
 -- This function will be called whenever the player presses down on the button
 function OnPress(button)
-    -- Change the text dispalyed by the button
+    -- Change the text displayed by the button
     button.text = "Button is being held"
 end
 
@@ -114,7 +114,7 @@ end
 propUIButton.clickedEvent:Connect(OnClick)
 
 -- Bind the "OnPress" function to the "pressedEvent" of the button so that the "OnPress" function
--- is fired immediately after the mouse is held down and ontop of the button
+-- is fired immediately after the mouse is held down and on top of the button
 propUIButton.pressedEvent:Connect(OnPress)
 
 -- Bind the "OnRelease" function to the "releasedEvent" of the button. This will cause the "OnRelease" function
@@ -130,7 +130,7 @@ propUIButton.hoveredEvent:Connect(OnHover)
 propUIButton.unhoveredEvent:Connect(OnUnhover)
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCursorVisble](ui.md)
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCursorVisible](ui.md)
 
 ---
 
@@ -140,7 +140,7 @@ Example using:
 
 ### `unhoveredEvent`
 
-This example will will show you how to change the color of a button by using the `SetButtonColor` method. It's important to remeber that colors in Core use red, gree, and blue values between 0 and 1 as opposed to values between 0 and 255.
+This example will will show you how to change the color of a button by using the `SetButtonColor` method. It's important to remember that colors in Core use red, gree, and blue values between 0 and 1 as opposed to values between 0 and 255.
 
 ```lua
 -- Make the cursor visible
@@ -166,7 +166,7 @@ end
 propUIButton.unhoveredEvent:Connect(OnUnhover)
 ```
 
-See also: [Color.New](color.md) | [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCursorVisble](ui.md)
+See also: [Color.New](color.md) | [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCursorVisible](ui.md)
 
 ---
 
