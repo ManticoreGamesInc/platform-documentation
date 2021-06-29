@@ -22,7 +22,7 @@ Because Shared Storage keys are associated with an account, they can only be use
 
 ### Creating Multiple Levels Using Shared Data
 
-**Cross-Game** storage can be used to easily create multiple levels of the same game, by publishing the secondary levels privately, and creating portals between the games. However, each of these levels is still its own game, which means that any chance that is made that needs to be in all levels will need to be individually implemented in each project.
+**Cross-Game** storage can be used to easily create multiple levels of the same game, by publishing the secondary levels privately, and creating portals between the games. However, each of these levels is still its own game, which means that any change that is made that needs to be in all levels will need to be individually implemented in each project.
 
 ## Using Shared Storage Keys
 
