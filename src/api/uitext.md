@@ -60,7 +60,7 @@ local secondCounter = 0
 -- Give the shadow a black color
 local shadowBlackColor = Color.BLACK
 
--- This color will not be visibile because the alpha value is 0
+-- This color will not be visible because the alpha value is 0
 local shadowInvisibleColor = Color.New(0, 1, 0, 0)
 
 function Tick(deltaTime)
@@ -69,12 +69,12 @@ function Tick(deltaTime)
 
     -- Once 1 second has passed, toggle the visibility of the shadow
     Task.Wait(1)
-    
-    -- If the current color of the text shadow is black, make the shadow invisbile using "shadowInvisibleColor"
+
+    -- If the current color of the text shadow is black, make the shadow invisible using "shadowInvisibleColor"
     if(propUIText:GetShadowColor() == shadowBlackColor) then
         -- Set the color of the text shadow to black
         propUIText:SetShadowColor(shadowInvisibleColor)
-    -- If the current color of the text shadow is invisible, make the shadow visbile using "shadowBlackColor"
+    -- If the current color of the text shadow is invisible, make the shadow visible using "shadowBlackColor"
     elseif (propUIText:GetShadowColor() == shadowInvisibleColor) then
         -- Set the color of the text shadow to an invisible color
         propUIText:SetShadowColor(shadowBlackColor)
