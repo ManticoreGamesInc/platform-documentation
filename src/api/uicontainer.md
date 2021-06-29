@@ -39,7 +39,7 @@ function Tick(deltaTime)
     -- Pick a value between 0 and 1 based on a percent (timepassed * 0.25)
     -- If the expression (timepassed * 0.25) is less than or equal to 0, the "Lerp" function will output 0
     -- If the expression (timepassed * 0.25) is greater than or equal to 1, the "Lerp" function will output 0
-    -- If the expression (timepassed * 0.25) is inbetween 0 and 1, the "Lerp" function will output a value between 0 and 1
+    -- If the expression (timepassed * 0.25) is in between 0 and 1, the "Lerp" function will output a value between 0 and 1
     local newOpacity = CoreMath.Lerp(0, 1, timePassed * 0.25)
 
     -- Update the opacity of the UIContainer and all of its children

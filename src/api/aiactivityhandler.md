@@ -58,11 +58,11 @@ local GameOver = {}
 
 -- Called every frame for all activities, usually used to set the priority
 function Lobby.tick(activity, deltaTime)
-    if isLobby 
+    if isLobby
     and activity.elapsedTime >= LOBBY_DURATION
     and #Game.GetPlayers() >= MIN_PLAYERS_TO_START then
         activity.priority = 0
-        
+
     elseif not isRound then
         activity.priority = 200
     end
@@ -70,13 +70,13 @@ end
 -- Called when this activity first becomes the highest priority
 function Lobby.start(activity)
     print("Lobby start")
-    
+
     isLobby = true
 end
 -- called when this was the highest priority, and a different activity has just taken over
 function Lobby.stop(activity)
     print("Lobby stop")
-    
+
     isLobby = false
 end
 
@@ -89,14 +89,14 @@ end
 -- called when this activity first becomes the highest priority
 function Round.start(activity)
     print("Round start")
-    
+
     Game.StartRound()
     isRound = true
 end
 -- called when this was the highest priority, and a different activity has just taken over
 function Round.stop(activity)
     print("Round stop")
-    
+
     Game.EndRound()
     isRound = false
 end
@@ -124,13 +124,13 @@ end
 -- called when this activity first becomes the highest priority
 function GameOver.start(activity)
     print("GameOver start")
-    
+
     isGameOver = true
 end
 -- called when this was the highest priority, and a different activity has just taken over
 function GameOver.stop(activity)
     print("GameOver stop")
-    
+
     isGameOver = false
 end
 

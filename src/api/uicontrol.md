@@ -34,7 +34,7 @@ Example using:
 
 Being able to control the position and rotation of UI elements is an extremely valuable skill when developing games in Core. This example will show you how you can change the position of a UI element by using the `x` and `y` properties of that element. Also, this example will demonstrate how to set the rotatation a UI element by using the `rotationAngle` property of that UI element.
 
-This example will move a UI object in a circlular path while also rotating that UI object.
+This example will move a UI object in a circular path while also rotating that UI object.
 
 ```lua
 -- Get the UI object
