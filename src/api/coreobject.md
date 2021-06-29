@@ -747,6 +747,96 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
+### `ReorderAfter`
+
+### `ReorderAfterSiblings`
+
+In this example, a UI Panel has several buttons as children. At runtime they are sorted vertically, one below the other. The player can click to drag them and change their order, depending on where they are released. The draw order of the buttons is updated to reflect the new positions. Draw order is changed with the methods `ReorderAfter()` and `ReorderAfterSiblings()`.
+
+```lua
+local UI_PANEL = script:GetCustomProperty("UIPanel"):WaitForObject()
+local allButtons = UI_PANEL:FindDescendantsByType("UIButton")
+
+UI.SetCursorVisible(true)
+UI.SetCanCursorInteractWithUI(true)
+
+local deltaY = 0
+local activeButton = nil
+
+function Tick(deltaTime)
+    if activeButton then
+        local cursorPos = UI.GetCursorPosition()
+        activeButton.x = CoreMath.Lerp(activeButton.x, 10, deltaTime * 12)
+        activeButton.y = cursorPos.y + deltaY
+    end
+end
+
+function OnPressed(button)
+    activeButton = button
+    local cursorPos = UI.GetCursorPosition()
+    deltaY = button.y - cursorPos.y
+
+    button:ReorderAfterSiblings()
+end
+
+function OnReleased(button)
+    activeButton = nil
+
+    local lastButton = allButtons[#allButtons]
+
+    if button.y < allButtons[1].y then
+        MoveToIndex(button, 1)
+
+    elseif button ~= lastButton and button.y > lastButton.y then
+        MoveToIndex(button, #allButtons)
+    else
+        for i,btn in ipairs(allButtons) do
+            if button.y < btn.y then
+                if button.clientUserData.index > i then
+                    MoveToIndex(button, i)
+                else
+                    MoveToIndex(button, i - 1)
+                end
+                break
+            end
+        end
+    end
+    UpdatePositions()
+end
+
+function MoveToIndex(button, index)
+    table.remove(allButtons, button.clientUserData.index)
+    table.insert(allButtons, index, button)
+end
+
+function UpdatePositions()
+    local y = 0
+    for i,btn in ipairs(allButtons) do
+        btn.x = 0
+        btn.y = y
+        y = y + btn.height
+
+        if i > 1 then
+            btn:ReorderAfter(allButtons[i - 1])
+        end
+        btn.clientUserData.index = i
+    end
+end
+
+for _,btn in ipairs(allButtons) do
+    btn.pressedEvent:Connect(OnPressed)
+    btn.releasedEvent:Connect(OnReleased)
+end
+
+UpdatePositions()
+```
+
+See also: [UI.GetCursorPosition](ui.md) | [UIComponent.y](uicomponent.md) | [UIButton.pressedEvent](uibutton.md) | [CoreObject.clientUserData](coreobject.md) | [CoreMath.Lerp](coremath.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+
+---
+
+Example using:
+
 ### `name`
 
 ### `id`
