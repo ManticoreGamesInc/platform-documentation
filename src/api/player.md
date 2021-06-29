@@ -303,7 +303,7 @@ end
 Game.playerJoinedEvent:Connect(function(player)
     player.emoteStartedEvent:Connect(OnEmoteStarted)
     player.emoteStoppedEvent:Connect(OnEmoteStopped)
-    
+
     local message = "Welcome to the server " .. player.name ..
     "! There are currently " .. CountPlayersDancing() .. " players dancing."
     Task.Wait(1)
@@ -821,6 +821,99 @@ player:SetWorldTransform(originalTransform)
 ```
 
 See also: [Rotation.New](rotation.md) | [Vector3.UP](vector3.md)
+
+---
+
+Example using:
+
+### `SetPrivateNetworkedData`
+
+### `GetPrivateNetworkedData`
+
+### `GetPrivateNetworkedDataKeys`
+
+### `privateNetworkedDataChangedEvent`
+
+### `FAILURE`
+
+In this example, a player's inventory data is transferred from server to client. The server first accesses permanent storage to see if the player has previously played the game. If not, their inventory is initialized with starting items. Then, the server uses the private networked data API to transfer this information to the client script. Client scripts cannot access storage directly, so they depend on this transfer in order to display to the user interface what's contained in the inventory. Furthermore, because the transfer is private, other players don't incur networking costs. Plus, knowing other players' inventories is not important for the gameplay in this case.
+
+```lua
+-- BEGIN REGION: Server script
+function InitInventory(player, data)
+    if not data.inventory then
+        print(player.name .. " is a new player. Give them starting inventory.")
+        data.inventory = {
+            ["sword"] = 1,
+            ["shield"] = 1,
+            ["rupies"] = 15,
+        }
+    else
+        print(player.name .. " already has inventory from a previous play session.")
+    end
+    player.serverUserData.inventory = data.inventory
+end
+
+function OnPlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+    InitInventory(player, data)
+
+    -- Transfer storage to the client
+    for key,value in pairs(data) do
+        local resultCode = player:SetPrivateNetworkedData(key, value)
+
+        if resultCode == PrivateNetworkedDataResultCode.FAILURE then
+            warn("Setting private data " .. key .. " for player " ..
+                player.name .. " failed.")
+
+        elseif resultCode == PrivateNetworkedDataResultCode.EXCEEDED_SIZE_LIMIT then
+            warn("Setting private data " .. key .. " for player " ..
+                player.name .. " exceeded the limit.")
+        end
+    end
+end
+
+function OnPlayerLeft(player)
+    local data = Storage.GetPlayerData(player)
+    data.inventory = player.serverUserData.inventory
+    Storage.SetPlayerData(player, data)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerLeftEvent:Connect(OnPlayerLeft)
+-- END REGION: Server script
+
+-- BEGIN REGION: Client script
+local PLAYER = Game.GetLocalPlayer()
+
+function UpdateFromNetworkedData(key)
+    local data = PLAYER:GetPrivateNetworkedData(key)
+    -- TODO: This would depend on your type of data and game system
+    -- E.g.: An inventory of items
+    if key == "inventory" then
+        for itemId,count in pairs(data) do
+            print(PLAYER.name .. " has " .. count .. " copies of " .. itemId)
+        end
+        PLAYER.clientUserData.inventory = data
+    end
+end
+
+-- React to changes in the data, or receive the initial replication in case
+-- the client script loaded before the networked data had replicated
+function OnPrivateNetworkedDataChanged(player, key)
+    UpdateFromNetworkedData(key)
+end
+
+PLAYER.privateNetworkedDataChangedEvent:Connect(OnPrivateNetworkedDataChanged)
+
+-- In case the client script loaded after the networked data has replicated
+for i,key in ipairs(PLAYER:GetPrivateNetworkedDataKeys()) do
+    UpdateFromNetworkedData(key)
+end
+-- END REGION: Client script
+```
+
+See also: [Storage.GetPlayerData](storage.md) | [Game.playerJoinedEvent](game.md) | [Player.clientUserData](player.md)
 
 ---
 
