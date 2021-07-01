@@ -75,7 +75,7 @@ The Core Content window contains all the art objects, sounds, textures, and game
 
 ### Community Content
 
-Templates made by other Core Creators to be shared in the community can be found in the Core Content tab.
+Templates made by other Core Creators to be shared in the community can be found in the Community Content tab.
 
 ### Project Content
 
