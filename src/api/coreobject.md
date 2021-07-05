@@ -831,7 +831,7 @@ end
 UpdatePositions()
 ```
 
-See also: [UI.GetCursorPosition](ui.md) | [UIComponent.y](uicomponent.md) | [UIButton.pressedEvent](uibutton.md) | [CoreObject.clientUserData](coreobject.md) | [CoreMath.Lerp](coremath.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+See also: [UI.GetCursorPosition](ui.md) | [UIControl.y](uicontrol.md) | [UIButton.pressedEvent](uibutton.md) | [CoreObject.clientUserData](coreobject.md) | [CoreMath.Lerp](coremath.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
 
