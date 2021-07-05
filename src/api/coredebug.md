@@ -18,7 +18,7 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.DrawBox(Vector3 center, Vector3 dimensions, [table optionalParameters])` | `None` | Draws a debug box, with dimension specified as a vector. `optionalParameters` has same options as `DrawLine()`, with addition of: `rotation (Rotation)` - rotation of the box. | None |
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | `None` | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. | None |
 | `CoreDebug.GetTaskStackTrace([Task task])` | `string` | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
-| `CoreDebug.GetStackTrace()` | `string` | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
+| `CoreDebug.GetStackTrace()` | `string` | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace if one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
 
 ## Examples
 
