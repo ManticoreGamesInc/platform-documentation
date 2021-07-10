@@ -2,7 +2,7 @@
 
 # Core Platform Documentation
 
-[![Website Build Status](https://api.netlify.com/api/v1/badges/c0780d7f-a678-49fd-b50e-ffe26f95147f/deploy-status)](https://app.netlify.com/sites/manticore-docs/deploys) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Development)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Development%29%22) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production%29%22)
+[![Open in VSCode](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ManticoreGames/platform-documentation) [![Website Build Status](https://api.netlify.com/api/v1/badges/c0780d7f-a678-49fd-b50e-ffe26f95147f/deploy-status)](https://app.netlify.com/sites/manticore-docs/deploys) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Development)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Development%29%22) [![Build Status](https://github.com/ManticoreGamesInc/platform-documentation/workflows/Build%20&%20Deploy%20(Production)/badge.svg)](https://github.com/ManticoreGamesInc/platform-documentation/actions?query=workflow%3A%22Build+%26+Deploy+%28Production%29%22)
 
 ![Logo](https://i.imgur.com/qGXJGGE.jpeg)
 </div>
@@ -23,7 +23,7 @@ The Core Documentation Platform is built on [mkdocs](https://github.com/mkdocs/m
 
 ## Related Repositories
 
-- [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A [VS Code](https://code.visualstudio.com/) extension that provides basic autocomplete support for the Core Lua API. (public)
+- [vscode-core](https://github.com/ManticoreGamesInc/vscode-core) - A [VS Code](https://code.visualstudio.com/) extension that adds support for the Core Lua API. (public)
 - [LuaAPIDocumentation](https://github.com/ManticoreGamesInc/LuaAPIDocumentation) - Generates the API pages in `src/api/` as well as the index and enums pages and the `.luacheckrc` and `.luacompleterc` files. (private)
 - [mkdocs-material](https://github.com/ManticoreGamesInc/mkdocs-material) - Our fork of the [mkdocs-material](https://github.com/squidfunk/mkdocs-material/) theme. Included as a submodule. (public)
 
