@@ -19,11 +19,12 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `camera` | [`Camera`](camera.md) | Returns the Camera used for the driver while they occupy the vehicle. | Read-Only |
 | `driverAnimationStance` | `string` | Returns the animation stance that will be applied to the driver while they occupy the vehicle. | Read-Only |
 | `mass` | `number` | Returns the mass of the vehicle in kilograms. | Read-Only |
-| `maxSpeed` | `number` | Returns the maximum speed of the vehicle in centimeters per second. | Read-Only |
-| `accelerationRate` | `number` | Returns the approximate acceleration rate of the vehicle in centimeters per second squared. | Read-Only |
-| `brakeStrength` | `number` | Returns the maximum deceleration of the vehicle when stopping. | Read-Only |
-| `tireFriction` | `number` | Returns the amount of friction tires or treads have on the ground. | Read-Only |
-| `gravityScale` | `number` | Returns how much gravity affects this vehicle.  Default value is 1.9. | Read-Only |
+| `maxSpeed` | `number` | The maximum speed of the vehicle in centimeters per second. | Read-Write |
+| `accelerationRate` | `number` | The approximate acceleration rate of the vehicle in centimeters per second squared. | Read-Write |
+| `brakeStrength` | `number` | The maximum deceleration of the vehicle when stopping. | Read-Write |
+| `coastBrakeStrength` | `number` | The deceleration of the vehicle while coasting (with no forward or backward input). | Read-Write |
+| `tireFriction` | `number` | The amount of friction tires or treads have on the ground. | Read-Write |
+| `gravityScale` | `number` | How much gravity affects this vehicle.  Default value is 1.9. | Read-Write |
 | `isAccelerating` | `boolean` | Returns `true` if the vehicle is currently accelerating. | Read-Only |
 | `isDriverHidden` | `boolean` | Returns `true` if the driver is made invisible while occupying the vehicle. | Read-Only |
 | `isDriverAttached` | `boolean` | Returns `true` if the driver is attached to the vehicle while they occupy it. | Read-Only |
@@ -48,6 +49,13 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | ----- | ----------- | ----------- | ---- |
 | `driverEnteredEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a new driver occupies the vehicle. | None |
 | `driverExitedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a driver exits the vehicle. | None |
+
+## Hooks
+
+| Hook Name | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `clientMovementHook` | `Hook<`[`Vehicle`](vehicle.md) vehicle, table parameters`>` | Hook called when processing the driver's input. The `parameters` table contains "throttleInput", "steeringInput", and "isHandbrakeEngaged". This is only called on the driver's client. "throttleInput" is a number -1.0, to 1.0, with positive values indicating forward input. "steeringInput" is the same, and positive values indicate turning to the right. "isHandbrakeEngaged" is a boolean. | Client-Only |
+| `serverMovementHook` | `Hook<`[`Vehicle`](vehicle.md) vehicle, table parameters`>` | Hook called when on the server for a vehicle with no driver. This has the same parameters as clientMovementHook. | Server-Only |
 
 ## Examples
 
@@ -193,6 +201,88 @@ VEHICLE.driverExitedEvent:Connect(OnDriverExited)
 ```
 
 See also: [CoreObject.GetVelocity](coreobject.md) | [Vector3.size](vector3.md) | [Player.isDead](player.md) | [CoreMath.Lerp](coremath.md) | [Damage.New](damage.md)
+
+---
+
+Example using:
+
+### `serverMovementHook`
+
+This script leverages the movement hook to implement a crude AI that autopilots a vehicle. It avoids obstacles and if it gets stuck, it backs up. It expects to be added as a server script under the vehicle's hierarchy. The script's position inside the vehicle is important, it should be at the front bumper, almost touching the vehicle, and its X-axis should point forward, in the direction the vehicle moves.
+
+```lua
+local VEHICLE = script:FindAncestorByType("Vehicle")
+if not VEHICLE then return end
+
+local reverseClock = 0
+local forwardClock = 0
+local deltaTime = 0
+local averageSpeed = 100
+
+function OnMovementHook(vehicle, params)
+    -- Disable the handbrake
+    params.isHandbrakeEngaged = false
+    
+    -- Pre-process information about the script's position and rotation
+    local pos = script:GetWorldPosition()
+    local qRotation = Quaternion.New(script:GetWorldRotation())
+    local forwardV = qRotation:GetForwardVector()
+    local rightV = qRotation:GetRightVector() * 120
+    local speed = VEHICLE:GetVelocity().size
+    averageSpeed = CoreMath.Lerp(averageSpeed, speed, 0.1)
+    speed = math.max(speed * 1.2, 120)
+    local velocity = forwardV * speed
+    -- Cast 3 rays forward to see if they hit something. The decisions to
+    -- steer and accelerate are based on the results of these:
+    local centerHit = World.Raycast(pos, pos + velocity)
+    local leftHit = World.Raycast(pos - rightV, pos - rightV + velocity)
+    local rightHit = World.Raycast(pos + rightV, pos + rightV + velocity)
+    
+    -- Reverse logic in case the vehicle gets stuck
+    if forwardClock > 0 then
+        forwardClock = forwardClock - deltaTime
+        params.throttleInput = 1 -- Press the gas
+        
+    elseif reverseClock <= 0 and averageSpeed < 30 then
+        -- Randomize the reverse duration in case multiple cars get stuck on each other
+        reverseClock = 1 + math.random()
+    end
+    
+    if reverseClock > 0 then
+        reverseClock = reverseClock - deltaTime
+        params.throttleInput = -1 -- Go in reverse
+        if reverseClock <= 0 then
+            forwardClock = 1
+        end
+        
+    elseif centerHit then
+        params.throttleInput = 0 -- Let go of gas
+    else
+        params.throttleInput = 1 -- Press the gas
+    end
+    
+    -- Steer left/right
+    if reverseClock > 0 then
+        params.steeringInput = 1 -- Right (reverse)
+        
+    elseif rightHit then
+        params.steeringInput = -1 -- Left
+    
+    elseif leftHit then
+        params.steeringInput = 1 -- Right
+    else
+        params.steeringInput = 0 -- Don't steer
+    end
+end
+
+function Tick(dt)
+    deltaTime = dt
+end
+
+VEHICLE.serverMovementHook:Connect(OnMovementHook)
+```
+
+See also: [CoreObject.GetVelocity](coreobject.md) | [World.Raycast](world.md) | [Quaternion.GetForwardVector](quaternion.md) | [Vector3.size](vector3.md) | [CoreMath.Lerp](coremath.md)
 
 ---
 

@@ -14,4 +14,4 @@ TreadedVehicle is a Vehicle with treads, such as a tank or a tonk.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `turnSpeed` | `number` | Returns the turn speed in degrees per second. | Read-Only |
+| `turnSpeed` | `number` | The turn speed in degrees per second. | Read-Write |

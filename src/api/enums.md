@@ -73,6 +73,7 @@ tags:
 | `CoreModalType.CHARACTER_PICKER` | `2` | The modal popup in which the player selects one of their characters. |
 | `CoreModalType.MOUNT_PICKER` | `3` | The modal dialog in which the player selects which of their mounts to use. |
 | `CoreModalType.EMOTE_PICKER` | `4` | The modal dialog in which the player selects an emote to play. |
+| `CoreModalType.SOCIAL_MENU` | `6` | The dialog opened when inspecting another player. |
 
 ## CurveExtrapolation
 
@@ -216,6 +217,13 @@ tags:
 | `RespawnMode.FARTHEST_FROM_OTHER_PLAYERS` | `4` | Respawns the player at the start point farthest from any other player. |
 | `RespawnMode.FARTHEST_FROM_ENEMY` | `5` | Respawns the player at the start point farthest from an enemy player. |
 | `RespawnMode.RANDOM` | `6` | Respawns the player at a random start point. |
+
+## RewardsDialogTab
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `RewardsDialogTab.QUESTS` | `1` | The quests tab. |
+| `RewardsDialogTab.GAMES` | `2` | The games tab. |
 
 ## RotationMode
 
