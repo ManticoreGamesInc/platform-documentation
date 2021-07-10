@@ -2382,6 +2382,14 @@
 					]
 				},
 				{
+					"Name": "maxPlayers",
+					"Description": "The maximum number of players per game instance.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "isQueueEnabled",
 					"Description": "`true` if the game was published with queueing enabled.",
 					"Type": "boolean",
@@ -4998,10 +5006,11 @@
 			"Properties": [
 				{
 					"Name": "turnRadius",
-					"Description": "Returns the radius, in centimeters, measured by the inner wheels of the vehicle while making a turn.",
+					"Description": "The radius, in centimeters, measured by the inner wheels of the vehicle while making a turn.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -5654,6 +5663,46 @@
 									"Type": "Color"
 								}
 							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetColor",
+					"Description": "Resets the color of this slot to the original value.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetUVTiling",
+					"Description": "Resets the U and V tiling to their original values.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetIsSmartMaterial",
+					"Description": "Resets whether or not this is used as a smart material.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetMaterialAssetId",
+					"Description": "Resets this to the original material asset.",
+					"Signatures": [
+						{
+							"Returns": [],
 							"Parameters": []
 						}
 					]
@@ -7295,6 +7344,27 @@
 					]
 				},
 				{
+					"Name": "GrantRewardPoints",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "rewardPoints"
+								},
+								{
+									"Type": "string",
+									"Name": "activityName"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
 					"Name": "ActivateFlying",
 					"Description": "Activates the Player flying mode.",
 					"Signatures": [
@@ -7743,6 +7813,14 @@
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
+					]
+				},
+				{
+					"Name": "key",
+					"Description": "The key associated with this start point.",
+					"Type": "string",
+					"Tags": [
+						"ServerOnly"
 					]
 				},
 				{
@@ -10209,10 +10287,11 @@
 			"Properties": [
 				{
 					"Name": "turnSpeed",
-					"Description": "Returns the turn speed in degrees per second.",
+					"Description": "The turn speed in degrees per second.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -11111,6 +11190,30 @@
 								{
 									"Type": "CorePlayerProfile",
 									"Name": "playerProfile"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "SetGameScreenshot",
+					"Description": "Downloads and sets a game screenshot as the texture for this UIImage control. The screenshot may come from a different game.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "gameId"
+								},
+								{
+									"Type": "integer",
+									"Name": "screenshotIndex",
+									"IsOptional": true
 								}
 							]
 						}
@@ -12645,42 +12748,56 @@
 				},
 				{
 					"Name": "maxSpeed",
-					"Description": "Returns the maximum speed of the vehicle in centimeters per second.",
+					"Description": "The maximum speed of the vehicle in centimeters per second.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
 					"Name": "accelerationRate",
-					"Description": "Returns the approximate acceleration rate of the vehicle in centimeters per second squared.",
+					"Description": "The approximate acceleration rate of the vehicle in centimeters per second squared.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
 					"Name": "brakeStrength",
-					"Description": "Returns the maximum deceleration of the vehicle when stopping.",
+					"Description": "The maximum deceleration of the vehicle when stopping.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "coastBrakeStrength",
+					"Description": "The deceleration of the vehicle while coasting (with no forward or backward input).",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
 					"Name": "tireFriction",
-					"Description": "Returns the amount of friction tires or treads have on the ground.",
+					"Description": "The amount of friction tires or treads have on the ground.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
 					"Name": "gravityScale",
-					"Description": "Returns how much gravity affects this vehicle.  Default value is 1.9.",
+					"Description": "How much gravity affects this vehicle.  Default value is 1.9.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -12773,6 +12890,42 @@
 						{
 							"Type": "Player",
 							"Name": "oldDriver"
+						}
+					]
+				}
+			],
+			"Hooks": [
+				{
+					"Name": "clientMovementHook",
+					"Description": "Hook called when processing the driver's input. The `parameters` table contains \"throttleInput\", \"steeringInput\", and \"isHandbrakeEngaged\". This is only called on the driver's client. \"throttleInput\" is a number -1.0, to 1.0, with positive values indicating forward input. \"steeringInput\" is the same, and positive values indicate turning to the right. \"isHandbrakeEngaged\" is a boolean.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "table",
+							"Name": "parameters"
+						}
+					]
+				},
+				{
+					"Name": "serverMovementHook",
+					"Description": "Hook called when on the server for a vehicle with no driver. This has the same parameters as clientMovementHook.",
+					"Tags": [
+						"ServerOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "table",
+							"Name": "parameters"
 						}
 					]
 				}
@@ -13700,7 +13853,7 @@
 				},
 				{
 					"Name": "GetStackTrace",
-					"Description": "Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace is one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script.",
+					"Description": "Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace if one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -15412,6 +15565,46 @@
 					"Tags": [
 						"ClientOnly"
 					]
+				},
+				{
+					"Name": "SetRewardsDialogVisible",
+					"Description": "Sets whether the rewards dialog is visible, and optionally which tab is active.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "boolean",
+									"Name": "isVisible"
+								},
+								{
+									"Type": "RewardsDialogTab",
+									"Name": "currentTab",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsRewardsDialogVisible",
+					"Description": "Returns whether the rewards dialog is currently visible.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
 				}
 			],
 			"StaticEvents": [
@@ -15740,6 +15933,11 @@
 					"Name": "EMOTE_PICKER",
 					"Description": "The modal dialog in which the player selects an emote to play.",
 					"Value": 4
+				},
+				{
+					"Name": "SOCIAL_MENU",
+					"Description": "The dialog opened when inspecting another player.",
+					"Value": 6
 				}
 			]
 		},
@@ -16171,6 +16369,22 @@
 					"Name": "RANDOM",
 					"Description": "Respawns the player at a random start point.",
 					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "RewardsDialogTab",
+			"Description": "Specifies a tab on the rewards dialog window.",
+			"Values": [
+				{
+					"Name": "QUESTS",
+					"Description": "The quests tab.",
+					"Value": 1
+				},
+				{
+					"Name": "GAMES",
+					"Description": "The games tab.",
+					"Value": 2
 				}
 			]
 		},
