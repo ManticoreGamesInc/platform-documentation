@@ -23,6 +23,7 @@ Metadata about a published game on the Core platform.
 | `screenshotCount` | `integer` | The number of screenshots published with the game. | Read-Only |
 | `hasWorldCapture` | `boolean` | `true` if the game was published with a captured view of the world for use with portals. | Read-Only |
 | `isQueueEnabled` | `boolean` | `true` if the game was published with queueing enabled. | Read-Only |
+| `maxPlayers` | `number` | Returns the maximum number of players that can exist on one server instance of the game | Read-Only |
 
 ## Functions
 
