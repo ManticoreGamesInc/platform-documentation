@@ -37,8 +37,41 @@ A UIControl for displaying an image.
 | `SetPlayerProfile(CorePlayerProfile)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(CoreFriendCollectionEntry)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(string playerId)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
+| `SetGameScreenshot(string gameId, [integer screenshotIndex])` | `None` | Downloads and sets a game screenshot as the texture for this UIImage control. The screenshot may come from a different game. | None |
 
 ## Examples
+
+Example using:
+
+### `SetGameScreenshot`
+
+Similar to portals, it's possible to show screenshots from another game inside 2D UI. In this example, we have a UI Image added as a custom property of the script. The script asks Core for the list of featured games and scrolls through all the screenshots for those games. In the end, the image is cleared back to normal.
+
+```lua
+local IMAGE = script:GetCustomProperty("UIImage"):WaitForObject()
+
+local featuredGames = CorePlatform.GetGameCollection("featured")
+
+for _,entry in ipairs(featuredGames) do
+    print("Showing screenshots for " .. entry.name)
+    
+    local gameInfo = CorePlatform.GetGameInfo(entry.id)
+    local count = gameInfo.screenshotCount
+    
+    -- Show each of the game's screenshots
+    for i = 1,count do
+        IMAGE:SetGameScreenshot(entry.id, i)
+        Task.Wait(1)
+    end
+end
+
+-- Clear it
+IMAGE:SetGameScreenshot("")
+```
+
+See also: [CorePlatform.GetGameCollection](coreplatform.md) | [CoreGameCollectionEntry.id](coregamecollectionentry.md) | [CoreGameInfo.screenshotCount](coregameinfo.md) | [Task.Wait](task.md)
+
+---
 
 Example using:
 

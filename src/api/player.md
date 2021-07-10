@@ -826,6 +826,51 @@ See also: [Rotation.New](rotation.md) | [Vector3.UP](vector3.md)
 
 Example using:
 
+### `GrantRewardPoints`
+
+In this example, a player receives a daily reward of 100 points (RP) when they join the game. The reward name can be anything, so we use "Daily" here, to identify it. Lua's os.date() system is used in conjunction with Storage, to figure out if this is the first time the player has joined today.
+
+```lua
+local REWARD_AMOUNT = 100
+local REWARD_NAME = "Daily"
+
+function IsFirstJoinToday(player)
+    local today = os.date("*t")
+    local day = today.day
+    local month = today.month
+    
+    print("Day = " .. day)
+    print("Month = " .. month)
+    
+    local data = Storage.GetPlayerData(player)
+    if day ~= data.lastJoinDay 
+    or month ~= data.lastJoinMonth then
+        data.lastJoinDay = day
+        data.lastJoinMonth = month
+        Storage.SetPlayerData(player, data)
+        return true
+    end
+    return false
+end
+
+function OnPlayerJoined(player)
+    if IsFirstJoinToday(player) then
+        player:GrantRewardPoints(REWARD_AMOUNT, REWARD_NAME)
+        print("Awarded")
+    else
+        print("Not awarded")
+    end
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Storage.GetPlayerData](storage.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
 ### `SetPrivateNetworkedData`
 
 ### `GetPrivateNetworkedData`

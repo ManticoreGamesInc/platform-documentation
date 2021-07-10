@@ -32,6 +32,8 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.SetReticleVisible(boolean show)` | `None` | Shows or hides the reticle for the Player. | Client-Only |
 | `UI.GetCursorHitResult()` | [`HitResult`](hitresult.md) | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
 | `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | [`Vector3`](vector3.md) | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
+| `UI.SetRewardsDialogVisible(boolean isVisible, [RewardsDialogTab currentTab])` | `None` | Sets whether the rewards dialog is visible, and optionally which tab is active. | None |
+| `UI.IsRewardsDialogVisible()` | `boolean` | Returns whether the rewards dialog is currently visible. | None |
 
 ## Events
 
@@ -117,6 +119,42 @@ See also: [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [U
 
 Example using:
 
+### `SetRewardsDialogVisible`
+
+### `IsRewardsDialogVisible`
+
+This example shows the basic usage of the reward points UI. It's possible to show the rewards dialog, in either the Quest or Game tabs, by calling `UI.SetRewardsDialogVisible()`. With the function `UI.IsRewardsDialogVisible()` we can detect when the player closes the dialog.
+
+```lua
+local PLAYER = Game.GetLocalPlayer()
+
+local isDialogOpen = false
+
+function Tick()
+    if isDialogOpen and not UI.IsRewardsDialogVisible() then
+        isDialogOpen = false
+        print("Player closed the Reward Points dialog.")
+    end
+end
+
+function OnBindingPressed(player, action)
+    if action == "ability_extra_1" then
+        UI.SetRewardsDialogVisible(true, RewardsDialogTab.REWARD_POINT_GAMES)
+        
+    elseif action == "ability_extra_2" then
+        UI.SetRewardsDialogVisible(true, RewardsDialogTab.QUESTS)
+    end
+end
+
+PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [RewardsDialogTab](rewardsdialogtab.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+
+---
+
+Example using:
+
 ### `coreModalChangedEvent`
 
 This client script listens for changes in the local player's modal and prints to the Event Log information about which modal was opened, or if modals were closed.
@@ -135,6 +173,9 @@ function ToStringModaltype(modalType)
 
     -- Popup when the player is choosing an emote
     if modalType == CoreModalType.EMOTE_PICKER then return "EMOTE PICKER" end
+    
+    -- Popup when the player is inspecting another player for social actions
+    if modalType == CoreModalType.SOCIAL_MENU then return "SOCIAL MENU" end
 
     -- Fallback, future-proof
     return "???" .. tostring(modalType)
