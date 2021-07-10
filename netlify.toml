@@ -25,12 +25,12 @@
   environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false" }
   command = "MKDOCS_SITE_URL=$DEPLOY_PRIME_URL mkdocs build"
 
-# Redirects and headers are GLOBAL for all builds – they do not get scoped to
-# contexts no matter where you define them in the file.
-# For context-specific rules, use _headers or _redirects files, which are
-# PER-DEPLOY.
+  # Redirects and headers are GLOBAL for all builds – they do not get scoped to
+  # contexts no matter where you define them in the file.
+  # For context-specific rules, use _headers or _redirects files, which are
+  # PER-DEPLOY.
 
-# [[redirects]]
-#   from = "/*"
-#   to = "/404/"
-#   status = 404
+  # [[redirects]]
+  #   from = "/*"
+  #   to = "/404/"
+  #   status = 404
