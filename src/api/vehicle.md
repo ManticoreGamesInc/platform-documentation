@@ -19,10 +19,12 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `camera` | [`Camera`](camera.md) | Returns the Camera used for the driver while they occupy the vehicle. | Read-Only |
 | `driverAnimationStance` | `string` | Returns the animation stance that will be applied to the driver while they occupy the vehicle. | Read-Only |
 | `mass` | `number` | Returns the mass of the vehicle in kilograms. | Read-Only |
-| `maxSpeed` | `number` | Returns the maximum speed of the vehicle in centimeters per second. | Read-Only |
-| `accelerationRate` | `number` | Returns the approximate acceleration rate of the vehicle in centimeters per second squared. | Read-Only |
-| `brakeStrength` | `number` | Returns the maximum deceleration of the vehicle when stopping. | Read-Only |
-| `tireFriction` | `number` | Returns the amount of friction tires or treads have on the ground. | Read-Only |
+| `maxSpeed` | `number` | The maximum speed of the vehicle in centimeters per second. Default value is 6000. | Read-Write |
+| `accelerationRate` | `number` | The approximate acceleration rate of the vehicle in centimeters per second squared. Default value is 470. | Read-Write |
+| `turnRadius` | `number` | The shortest radius a vehicle can make when turning. Default value is 530. | Read-Write |
+| `brakeStrength` | `number` | The maximum deceleration of the vehicle when stopping. Default value is 10. | Read-Write |
+| `coastBreakStrength` | `number` | The maximum deceleration the vehicle experiences when coasting. Default value is 1. | Read-Write |
+| `tireFriction` | `number` | The amount of friction tires or treads have on the ground. Default value is 5. | Read-Write |
 | `gravityScale` | `number` | Returns how much gravity affects this vehicle.  Default value is 1.9. | Read-Only |
 | `isAccelerating` | `boolean` | Returns `true` if the vehicle is currently accelerating. | Read-Only |
 | `isDriverHidden` | `boolean` | Returns `true` if the driver is made invisible while occupying the vehicle. | Read-Only |
@@ -173,13 +175,13 @@ local LETHAL_SPEED = 4000
 
 function OnDriverExited(vehicle, player)
     if MAX_SAFE_SPEED >= LETHAL_SPEED then return end
-    
+
     local speed = vehicle:GetVelocity().size
     print("Exit speed = " .. speed)
-    
+
     if not player.isDead and speed > MAX_SAFE_SPEED then
         local t = (speed - MAX_SAFE_SPEED) / (LETHAL_SPEED - MAX_SAFE_SPEED)
-        
+
         local amount = CoreMath.Lerp(0, player.maxHitPoints, t)
         if amount > 0 then
             local damage = Damage.New(amount)
@@ -304,7 +306,7 @@ function RateVehicle(vehicle)
     local accele = RateStat(vehicle.accelerationRate, ACCELE_MIN, ACCELE_MAX)
     local topSpeed = RateStat(vehicle.maxSpeed, TOP_SPEED_MIN, TOP_SPEED_MAX)
     local handling = RateStat(vehicle.tireFriction, HANDLING_MIN, HANDLING_MAX)
-    
+
     -- Print vehicle ratings to the Event Log
     print(vehicle.name)
     print("Acceleration: " .. accele)
