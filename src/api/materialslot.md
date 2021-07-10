@@ -28,6 +28,9 @@ Contains data about a material slot on a static or animated mesh.
 | `GetUVTiling()` | [`Vector2`](vector2.md) | Returns a Vector2 of the U and V tiling values. | None |
 | `SetColor(Color)` | `None` | Set the color for this slot. | None |
 | `GetColor()` | [`Color`](color.md) | Returns the color of this slot. | None |
+| `ResetColor()` | `None` | Resets the color of the material to the color that was originally assigned to the material slot in the editor | None |
+| `ResetIsSmartMaterial()` | `None` | Resets the smart material status of the of the material to what was originally assigned in the editor | None |
+| `ResetUVTiling()` | `None` | Resets the UV tiling settings the of the material to what was originally assigned in the editor | None |
 
 ## Examples
 
