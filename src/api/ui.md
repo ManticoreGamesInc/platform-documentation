@@ -140,7 +140,7 @@ end
 function OnBindingPressed(player, action)
     if action == "ability_extra_1" then
         UI.SetRewardsDialogVisible(true, RewardsDialogTab.REWARD_POINT_GAMES)
-        
+
     elseif action == "ability_extra_2" then
         UI.SetRewardsDialogVisible(true, RewardsDialogTab.QUESTS)
     end
@@ -149,7 +149,7 @@ end
 PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-See also: [RewardsDialogTab](rewardsdialogtab.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [RewardsDialogTab](enums.md#rewardsdialogtab) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
 
 ---
 
@@ -173,7 +173,7 @@ function ToStringModaltype(modalType)
 
     -- Popup when the player is choosing an emote
     if modalType == CoreModalType.EMOTE_PICKER then return "EMOTE PICKER" end
-    
+
     -- Popup when the player is inspecting another player for social actions
     if modalType == CoreModalType.SOCIAL_MENU then return "SOCIAL MENU" end
 
