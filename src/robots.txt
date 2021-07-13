@@ -1,2 +1,0 @@
-Sitemap: https://docs.coregames.com/sitemap.xml.gz
-User-agent: *
