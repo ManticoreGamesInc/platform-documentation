@@ -47,6 +47,8 @@ nav:
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
           - Implementing Perks: perks/implementing_perks.md
+      - Reward Points Program:
+          - About Reward Points: reward_points/reward_points_reference.md
       - Tutorials:
           - Abilities: tutorials/abilities.md
           - AI Activities: tutorials/ai_activity_tutorial.md
