@@ -27,7 +27,7 @@
 
 [context.branch-deploy.headers]
   for = "/*"
-  [context.banch-deploy.headers.values]
+  [context.branch-deploy.headers.values]
     X-Robots-Tag = "noindex"
 
   # Redirects and headers are GLOBAL for all builds – they do not get scoped to
