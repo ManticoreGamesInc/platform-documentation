@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-The Reward Points (**RP**) system rewards players for playing games by giving them points they can spend on **Core** cosmetics. The goal of **RP** is to increase player engagement, to give Perks creators new rewards they can give out to their players, and to encourage players to explore new games.
+The Reward Points (**RP**) system rewards players for playing games by giving them points they can spend on Core cosmetics. The goal of **RP** is to increase player engagement, to give Perks creators new rewards they can give out to their players, and to encourage players to explore new games.
 
 While they cannot be exchanged for Core Credits, they can be earned for free by playing games. Perks Program creators can add Reward Points to their games to give away a daily **RP** to players of their games.
 
@@ -72,7 +72,7 @@ When a player reaches the **RP** limit for the day across all creators, the play
 
 ## Implementing RP with the Core API
 
-Reward Points are granted to the player via Reward Point Events. An example of this can be found in the <a href="../../api/player/#grantrewardpoints">daily rewards</a> code snippet on the Player API page. Currently only Perks Program creators are able to add these events into their games.
+Reward Points are granted to the player via Reward Point Events. An example of this can be found in the [daily rewards](../api/player.md#grantrewardpoints) code snippet on the Player API page. Currently only Perks Program creators are able to add these events into their games.
 
 Once you’ve implemented **RP**, you will need to publish your game for them to be activated.
 
