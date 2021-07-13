@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-The Grind Currency (“**Core Reward Points**”, or “**RP**”) system rewards players’ engagement with a new currency. This currency can only be spent on platform-level cosmetic items and cannot be exchanged for Core Credits. We will start with Quests as the primary way to earn RP, but also allow **Perks Program** Creators to give away an allocation of RP for engagement in their games.
+The Grind Currency (“**Core Reward Points**”, or “**RP**”) system rewards players’ engagement with a new currency. This currency can only be spent on platform-level cosmetic items and cannot be exchanged for Core Credits. We will start with Quests as the primary way to earn RP, but also allow **Perks Program** creators to give away an allocation of RP for engagement in their games.
 
 ## Goals
 
@@ -19,11 +19,9 @@ The goal of **RP** is to incentivize player engagement in specific game systems 
 
 ### Owning, Spending, and Obtaining RP
 
-You are able to track how many **RP** you have through your **RP** Wallet.
+You are able to track how many **RP** you have through your **RP** Wallet. **RP** will not expire and cannot be transferred between players. Also, **RP** cannot be exchanged for **Credits** and **Credits** cannot be exchanged for **RP**.
 
 ![RP Wallet](../img/RewawrdPointsReference/../RewardPointsReference/RP_Wallet.png){: .center loading="lazy"}
-
-**RP** will not expire and cannot be transferred between players. Also, **RP** cannot be exchanged for **Credits** and **Credits** cannot be exchanged for **RP**.
 
 **RP** is used to purchase Cosmetic Items in Core. Currently **RP** can be used to purchase heroes, mounts, and emotes. In the future, **RP** will also be used to purchase profile pictures and player housing features.
 
@@ -75,7 +73,7 @@ When a player reaches the **RP** limit for the day across all creators, the play
 
 ### Adding RP To your Game
 
-Currently only **Perks Program** Creators will be able to add **RP** events into their games. To enable **RP** events in your game, you must publish your game.
+Currently only **Perks Program** creators will be able to add **RP** events into their games. To enable **RP** events in your game, you must publish your game.
 
 ![Publish Game](../img/RewardPointsReference/SelectPublishButton.png){: .center loading="lazy"}
 
@@ -85,13 +83,13 @@ In the **GAME PUBLISH SETTINGS** screen, click on the empty box at the bottom-le
 
 ### Additional Content
 
-**Perk Creators** will also be given new assets related to the **RP** system:
+**Perk Program** creators will also be given new assets related to the **RP** system:
 
 - Reward Points UI Icon
 - Reward Points 3D Model
 
 ![Image]
 
-**Perks Creators** will be able to enable an in-game widget that will allow players to see how much **RP** the player has earned towards the current **Creator Daily Cap**. The dimensions and position of the widget will be modifiable for **Perks Creators** via the Core game editor.
+**Perks Program** creators will be able to enable an in-game widget that will allow players to see how much **RP** the player has earned towards the current **Creator Daily Cap**. The dimensions and position of the widget will be modifiable for **Perks Program** creators via the Core game editor.
 
 ![Image]
