@@ -23,16 +23,22 @@ You are able to track how many **RP** you have through your **RP** Wallet. **RP*
 
 ![RP Wallet](../img/RewawrdPointsReference/../RewardPointsReference/RP_Wallet.png){: .center loading="lazy"}
 
-**RP** is used to purchase Cosmetic Items in Core. Currently **RP** can be used to purchase heroes, mounts, and emotes. In the future, **RP** will also be used to purchase profile pictures and player housing features.
+**RP** is used to purchase Cosmetic Items in Core. Currently **RP** can be used to purchase heroes, mounts, and emotes from the **Shop**. In the future, **RP** will also be used to purchase profile pictures and player housing features.
 
 Players are able to earn **RP** in the following ways:
 
 - Quests
 - Games by **Perks Program** creators
 
-Click on the **EARN** button next you your **RP** counter to see a list of quests and games that will give you **RP**.
+Click on the **EARN** button next you your **RP** counter to see a multiple ways you can earn **RP**.
 
 ![Earn RP](../img/RewardPointsReference/Earn_RP.png){: .center loading="lazy"}
+
+After clicking on the **EARN** button, you will see a pop up window. Clicking on the **REWARD POINT GAMES** tab in this pop up window will display a list of games that use the **RP** system. Clicking on the **REWARD POINT QUESTS** tab in this pop up window will display a list of quests that you can complete to gain **RP**.
+
+![Earn RP Window Games](../img/RewardPointsReference/EarnRPTab.png){: .center loading="lazy"}
+
+![Earn RP Window Quests](../img/RewardPointsReference/EarnRPTabQuests.png){: .center loading="lazy"}
 
 ## Earning RP in Creator Games
 
@@ -65,11 +71,11 @@ If a player loses their login streak, then their retention bonus will be reset t
 
 When a player reaches their **RP** limit for the current creator, the player will receive a notification that reads "Creator RP Cap Reached".
 
-![RP Total Cap Notification]
+![!RP Total Cap Notification](../img/RewardPointsReference/CreatorCapNotification.png){: .center loading="lazy"}
 
 When a player reaches the **RP** limit for the day across all creators, the player will receive a notification that reads "Daily RP Cap Reached".
 
-![RP Daily Cap Notification]
+![!RP Daily Cap Notification](../img/RewardPointsReference/DailyCapNotification.png){: .center loading="lazy"}
 
 ### Adding RP To your Game
 
@@ -79,17 +85,16 @@ Currently only **Perks Program** creators will be able to add **RP** events into
 
 In the **GAME PUBLISH SETTINGS** screen, click on the empty box at the bottom-left to enable the **RP** events in your game.
 
-![Enable Reward Points](../img/RewardPointsReference/EnableRewardPoints.png){: .center loading="lazy"}
+![!Enable Reward Points](../img/RewardPointsReference/EnableRewardPoints.png){: .center loading="lazy"}
 
 ### Additional Content
 
-**Perk Program** creators will also be given new assets related to the **RP** system:
+**Perk Program** creators will also be given three new assets related to the **RP** system:
 
-- Reward Points UI Icon
-- Reward Points 3D Model
-
-![Image]
+| Reward Points UI Icon | Reward Points UI Flat Icon | Reward Points Medal (RP) |
+|:---------:|:--------------:|:-------------:|
+| ![Enable Reward Points](../img/RewardPointsReference/RPIcon.png){: .center loading="lazy"} | ![Enable Reward Points](../img/RewardPointsReference/RPFlatIcon.png){: .center loading="lazy"} | ![Enable Reward Points](../img/RewardPointsReference/RPMedal3D.png){: .center loading="lazy"}
 
 **Perks Program** creators will be able to enable an in-game widget that will allow players to see how much **RP** the player has earned towards the current **Creator Daily Cap**. The dimensions and position of the widget will be modifiable for **Perks Program** creators via the Core game editor.
 
-![Image]
+![!RP Counter Widget](../img/RewardPointsReference/RPCounter.png){: .center loading="lazy"}
