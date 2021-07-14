@@ -288,6 +288,63 @@ See also: [CoreObject.GetVelocity](coreobject.md) | [World.Raycast](world.md) | 
 
 Example using:
 
+### `AddImpulse`
+
+### `maxSpeed`
+
+### `serverUserData`
+
+In this example, when a vehicle enters a trigger, the vehicle will be launched forward for 0.5 seconds.
+
+```lua
+-- Get the trigger object that will represent the boost pad
+local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- This function will be called whenever an object enters the trigger
+function OnEnter(trigger, other)
+    -- Check if a vehicle has entered the trigger
+    if(other:IsA("Vehicle")) then
+
+        -- Get a vector that represents the direction the boost pad is pointing in
+        local direction = trigger:GetWorldRotation() * Vector3.RIGHT
+
+        -- Apply a force to the vehicle to give the vehicle sudden increase in speed
+        other:AddImpulse(direction * 2000000)
+    
+        -- Check if the  maximum speed of the vehicle has already been increased
+        if(not other.serverUserData.isBoosting) then
+            other.serverUserData.isBoosting = true
+
+            -- Store the original maximum speed of the vehicle. The "originalMaxSpeed" property
+            -- is used in case any other road obstacles are modifying the "maxSpeed" of the vehicle
+            local originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
+            
+            -- Increase the maximum speed of the vehicle by 300%`
+            other.maxSpeed = originalMaxSpeed * 4.0
+            
+            -- Wait 0.5 seconds before returning the vehicle to its original speed
+            Task.Wait(0.5)
+
+            -- Return the vehicle to its original speed
+            other.maxSpeed = originalMaxSpeed 
+
+            -- Set "isBoosting" to false so that the speed increase of boost pads can be activated
+            -- when the vehicle passes over another boost pad
+            other.serverUserData.isBoosting = false
+        end
+    end
+end
+-- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
+-- when an object enters the "propTrigger" the "OnEnter" function is executed
+propTrigger.beginOverlapEvent:Connect(OnEnter)
+```
+
+See also: [event:Trigger.beginOverlapEvent](event.md) | [operator:Rotation * Vector3](operator.md)
+
+---
+
+Example using:
+
 ### `SetDriver`
 
 In this example, a vehicle is spawned for each player at the moment they join the game. Also, when they leave the game we destroy the vehicle. For best results, delete the `Enter Trigger` that usually comes with vehicles and set the vehicle's `Exit Binding` to `None`.
@@ -316,6 +373,65 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
 See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player.md) | [World.SpawnAsset](world.md) | [Object.IsValid](object.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
+### `SetLocalAngularVelocity`
+
+### `tireFriction`
+
+### `maxSpeed`
+
+### `driver`
+
+In this example, entering the trigger will act like an oil slick. Any vehicles that enter the trigger will spin out of control.
+
+```lua
+-- Get the trigger that will represent the oil slick area
+local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- This function will be called whenever an object enters the trigger
+function OnEnter(trigger, other)
+    -- Check if the object entering is a vehicle and if the vehicle is currently not in an oil slick
+    if(other:IsA("Vehicle") and not other.serverUserData.inOil) then
+        -- Set the oil slick status of the vehicle to "true" so that any more oil slicks that the vehicle passes
+        -- over do not affect the vehicle.
+        other.serverUserData.inOil = true
+
+        -- Store the original max speed of the vehicle
+        local originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
+
+        -- Store the original tire friction of the vehicle
+        local originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
+
+        -- Set the maximum speed of the vehicle to 0 to stop it from moving
+        other.maxSpeed = 1000
+
+        -- Set the tire friction of the wheels to 0 so that the car can easily spin
+        other.tireFriction = 0.5
+
+        -- Make the vehicle spin for 2 seconds
+        other:SetLocalAngularVelocity(Vector3.New(0, 0, 999))
+
+        Task.Wait(2)
+
+        -- Reset the specifications of the vehicle to the values before the vehicle entered the oil slick
+        other.maxSpeed = originalMaxSpeed
+        -- Resetting the "tireFriction" will cause the vehicle to stop spinning
+        other.tireFriction = originalTireFriction
+
+        -- Reset the in oil status of the vehicle so that the vehicle can be affected by another oil slick.
+        other.serverUserData.inOil = false
+    end
+end
+-- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
+-- when an object enters the "propTrigger" the "OnEnter" function is executed
+propTrigger.beginOverlapEvent:Connect(OnEnter)
+```
+
+See also: [event:Trigger.beginOverlapEvent](event.md) | [property:CoreObject.serverUserData](property.md)
 
 ---
 
@@ -410,5 +526,76 @@ end
 ```
 
 See also: [World.FindObjectsByType](world.md) | [CoreObject.name](coreobject.md)
+
+---
+
+Example using:
+
+### `maxSpeed`
+
+### `tireFriction`
+
+### `accelerationRate`
+
+### `turnRadius`
+
+Off road sections are an excellent to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once the vehicles exits the trigger the vehicle will drive at its original speed.
+
+```lua
+-- Get the trigger object that will represent the off road area
+local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- This function will be called whenever an object enters the trigger
+function OnEnter(trigger, other)
+    -- Check if a vehicle has entered the trigger and if that vehicle is currently not off road
+    if(other:IsA("Vehicle") and not other.serverUserData.offRoad) then  
+
+        -- Set the off road status of the vehicle to "true"
+        other.serverUserData.offRoad = true
+
+        -- Store the original specifications of the vehicle. The "serverUserData" properties
+        -- are used in the case that other road obstacles are modifying the specifications of the vehicle
+        other.serverUserData.originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
+        other.serverUserData.originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
+        other.serverUserData.originalAccelerationRate = other.serverUserData.originalAccelerationRate or other.accelerationRate
+        other.serverUserData.originalTurnRadius = other.serverUserData.originalTurnRadius or other.turnRadius
+
+        -- Increase the tire friction of the vehicle by 900%, this will give the vehicle more traction
+        other.tireFriction = other.tireFriction * 10.0  
+        -- Decrease the maximum speed of the vehicle by 90%
+        other.maxSpeed = other.maxSpeed * 0.1 
+        -- Decrease the acceleration of the vehicle by 80%
+        other.accelerationRate = other.accelerationRate * 0.2
+        -- Shrink the turn radius by 80%, this will allow the vehicle to make tighter turns
+        other.turnRadius = other.tireFriction * 0.2
+    end
+end
+
+-- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
+-- when an object enters the "propTrigger" the "OnEnter" function is executed
+propTrigger.beginOverlapEvent:Connect(OnEnter)
+
+-- This function will be called whenever an object enters the trigger
+function OnExit(trigger, other)
+    -- If a vehicle has entered the trigger and the vehicle is off road, then reset
+    -- the vehicle specifications (maximum speed, acceleration, turning radius)
+    if(other:IsA("Vehicle") and Object.IsValid(other.driver) and other.serverUserData.offRoad) then   
+        -- Set the off road status of the vehicle to "false"
+        other.serverUserData.offRoad = false 
+
+        -- Reset the vehicle specifications to the values before the vehicle
+        -- had entered the boost pad
+        other.maxSpeed = other.serverUserData.originalMaxSpeed
+        other.turnRadius = other.serverUserData.originalTurnRadius
+        other.accelerationRate = other.serverUserData.originalAccelerationRate
+    end
+end
+
+-- Bind the "OnExit" function to the "endOverlapEvent" of the "propTrigger" so that
+-- when an object exits the "propTrigger" the "OnExit" function is executed
+propTrigger.endOverlapEvent:Connect(OnExit)
+```
+
+See also: [event:Trigger.beginOverlapEvent](event.md) | [property:CoreObject.serverUserData](property.md)
 
 ---
