@@ -39,8 +39,8 @@ Sockets are different points on a player's character mesh. They can be used for 
 
 | Unarmed Animations            | Description | Notes |
 | ----------------------------- | ------------------------------------------------------------------------------------ | ----- |
-| `unarmed_thumb_up`            | Thumbs up!                                                                           | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
-| `unarmed_thumb_down`          | Thumbs down!                                                                         | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
+| `unarmed_thumbs_up`            | Thumbs up!                                                                           | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
+| `unarmed_thumbs_down`          | Thumbs down!                                                                         | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 | `unarmed_rochambeau_rock`     | Rock, paper, scissors game. This chooses rock as the end result.                     | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 | `unarmed_rochambeau_paper`    | Rock, paper, scissors game. This chooses paper as the end result.                    | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
 | `unarmed_rochambeau_scissors` | rock, paper, scissors game. This chooses scissors as the end result.                 | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time |
