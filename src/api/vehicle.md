@@ -61,6 +61,171 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 
 Example using:
 
+### `occupiedVehicle`
+
+In this example, we can imagine a racing game where various start points are defined for the players. When a new round starts we teleport all players who have a vehicle to the starting points, so they can begin a new race. The start point objects are all children of a common group/folder that is set as a custom property. The objects used for start points can be anything, such as an empty group. For this type of invisible "level design object", sometimes creators use a server-context with a static mesh inside, so you can see the points during edit time, but they won't appear or collide for clients.
+
+```lua
+local START_POINTS_PARENT = script:GetCustomProperty("StartPoints"):WaitForObject()
+local START_POINTS = START_POINTS_PARENT:GetChildren()
+
+function OnRoundStart()
+    for i,player in ipairs(Game.GetPlayers()) do
+        local vehicle = player.occupiedVehicle
+        if vehicle then
+            -- Teleport them to the start points
+            local startPoint = START_POINTS[i]
+            if startPoint then
+                local pos = startPoint:GetWorldPosition()
+                local rot = startPoint:GetWorldRotation()
+                vehicle:SetWorldPosition(pos)
+                vehicle:SetWorldRotation(rot)
+            else
+                warn("Insufficient start points for all players")
+            end
+            -- Stop their movement
+            vehicle:SetVelocity(Vector3.ZERO)
+            vehicle:SetAngularVelocity(Vector3.ZERO)
+        end
+    end
+end
+
+Game.roundStartEvent:Connect(OnRoundStart)
+```
+
+See also: [CoreObject.SetVelocity](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetPlayers](game.md) | [Vector3.ZERO](vector3.md)
+
+---
+
+Example using:
+
+### `accelerationRate`
+
+### `maxSpeed`
+
+### `tireFriction`
+
+This example takes vehicle stats (acceleration, max speed and tire friction) and normalizes them to rating values between 1 and 5. This could be used, for example, in the UI of a vehicle selection screen to show how vehicles compare to each other in their various stats. When the script runs it searches the game for all vehicles that exist and prints their ratings to the Event Log.
+
+```lua
+local ACCELE_MIN = 400
+local ACCELE_MAX = 4000
+local TOP_SPEED_MIN = 2000
+local TOP_SPEED_MAX = 20000
+local HANDLING_MIN = 0.5
+local HANDLING_MAX = 10
+
+local RATING_LEVELS = 5
+
+function RateStat(value, min, max)
+    if value >= max then
+        return RATING_LEVELS
+    end
+    if value > min and max > min then
+        local p = (value - min) / (max - min)
+        local rating = p * RATING_LEVELS
+        rating = math.floor(rating) + 1
+        return rating
+    end
+    return 1
+end
+
+function RateVehicle(vehicle)
+    local accele = RateStat(vehicle.accelerationRate, ACCELE_MIN, ACCELE_MAX)
+    local topSpeed = RateStat(vehicle.maxSpeed, TOP_SPEED_MIN, TOP_SPEED_MAX)
+    local handling = RateStat(vehicle.tireFriction, HANDLING_MIN, HANDLING_MAX)
+
+    -- Print vehicle ratings to the Event Log
+    print(vehicle.name)
+    print("Acceleration: " .. accele)
+    print("Top Speed: " .. topSpeed)
+    print("Handling: " .. handling)
+    print("")
+end
+
+-- Search for all vehicles and rate them
+for _,vehicle in ipairs(World.FindObjectsByType("Vehicle")) do
+    RateVehicle(vehicle)
+end
+```
+
+See also: [World.FindObjectsByType](world.md) | [CoreObject.name](coreobject.md)
+
+---
+
+Example using:
+
+### `maxSpeed`
+
+### `tireFriction`
+
+### `accelerationRate`
+
+### `turnRadius`
+
+Off road sections are an excellent to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once the vehicles exits the trigger the vehicle will drive at its original speed.
+
+```lua
+-- Get the trigger object that will represent the off road area
+local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- This function will be called whenever an object enters the trigger
+function OnEnter(trigger, other)
+    -- Check if a vehicle has entered the trigger and if that vehicle is currently not off road
+    if(other:IsA("Vehicle") and not other.serverUserData.offRoad) then
+
+        -- Set the off road status of the vehicle to "true"
+        other.serverUserData.offRoad = true
+
+        -- Store the original specifications of the vehicle. The "serverUserData" properties
+        -- are used in the case that other road obstacles are modifying the specifications of the vehicle
+        other.serverUserData.originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
+        other.serverUserData.originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
+        other.serverUserData.originalAccelerationRate = other.serverUserData.originalAccelerationRate or other.accelerationRate
+        other.serverUserData.originalTurnRadius = other.serverUserData.originalTurnRadius or other.turnRadius
+
+        -- Increase the tire friction of the vehicle by 900%, this will give the vehicle more traction
+        other.tireFriction = other.tireFriction * 10.0
+        -- Decrease the maximum speed of the vehicle by 90%
+        other.maxSpeed = other.maxSpeed * 0.1
+        -- Decrease the acceleration of the vehicle by 80%
+        other.accelerationRate = other.accelerationRate * 0.2
+        -- Shrink the turn radius by 80%, this will allow the vehicle to make tighter turns
+        other.turnRadius = other.tireFriction * 0.2
+    end
+end
+
+-- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
+-- when an object enters the "propTrigger" the "OnEnter" function is executed
+propTrigger.beginOverlapEvent:Connect(OnEnter)
+
+-- This function will be called whenever an object enters the trigger
+function OnExit(trigger, other)
+    -- If a vehicle has entered the trigger and the vehicle is off road, then reset
+    -- the vehicle specifications (maximum speed, acceleration, turning radius)
+    if(other:IsA("Vehicle") and Object.IsValid(other.driver) and other.serverUserData.offRoad) then
+        -- Set the off road status of the vehicle to "false"
+        other.serverUserData.offRoad = false
+
+        -- Reset the vehicle specifications to the values before the vehicle
+        -- had entered the boost pad
+        other.maxSpeed = other.serverUserData.originalMaxSpeed
+        other.turnRadius = other.serverUserData.originalTurnRadius
+        other.accelerationRate = other.serverUserData.originalAccelerationRate
+    end
+end
+
+-- Bind the "OnExit" function to the "endOverlapEvent" of the "propTrigger" so that
+-- when an object exits the "propTrigger" the "OnExit" function is executed
+propTrigger.endOverlapEvent:Connect(OnExit)
+```
+
+See also: [event:Trigger.beginOverlapEvent](event.md) | [CoreObject.serverUserData](coreobject.md)
+
+---
+
+Example using:
+
 ### `SetDriver`
 
 ### `driverExitedEvent`
@@ -181,13 +346,13 @@ local LETHAL_SPEED = 4000
 
 function OnDriverExited(vehicle, player)
     if MAX_SAFE_SPEED >= LETHAL_SPEED then return end
-    
+
     local speed = vehicle:GetVelocity().size
     print("Exit speed = " .. speed)
-    
+
     if not player.isDead and speed > MAX_SAFE_SPEED then
         local t = (speed - MAX_SAFE_SPEED) / (LETHAL_SPEED - MAX_SAFE_SPEED)
-        
+
         local amount = CoreMath.Lerp(0, player.maxHitPoints, t)
         if amount > 0 then
             local damage = Damage.New(amount)
@@ -222,7 +387,7 @@ local averageSpeed = 100
 function OnMovementHook(vehicle, params)
     -- Disable the handbrake
     params.isHandbrakeEngaged = false
-    
+
     -- Pre-process information about the script's position and rotation
     local pos = script:GetWorldPosition()
     local qRotation = Quaternion.New(script:GetWorldRotation())
@@ -237,37 +402,37 @@ function OnMovementHook(vehicle, params)
     local centerHit = World.Raycast(pos, pos + velocity)
     local leftHit = World.Raycast(pos - rightV, pos - rightV + velocity)
     local rightHit = World.Raycast(pos + rightV, pos + rightV + velocity)
-    
+
     -- Reverse logic in case the vehicle gets stuck
     if forwardClock > 0 then
         forwardClock = forwardClock - deltaTime
         params.throttleInput = 1 -- Press the gas
-        
+
     elseif reverseClock <= 0 and averageSpeed < 30 then
         -- Randomize the reverse duration in case multiple cars get stuck on each other
         reverseClock = 1 + math.random()
     end
-    
+
     if reverseClock > 0 then
         reverseClock = reverseClock - deltaTime
         params.throttleInput = -1 -- Go in reverse
         if reverseClock <= 0 then
             forwardClock = 1
         end
-        
+
     elseif centerHit then
         params.throttleInput = 0 -- Let go of gas
     else
         params.throttleInput = 1 -- Press the gas
     end
-    
+
     -- Steer left/right
     if reverseClock > 0 then
         params.steeringInput = 1 -- Right (reverse)
-        
+
     elseif rightHit then
         params.steeringInput = -1 -- Left
-    
+
     elseif leftHit then
         params.steeringInput = 1 -- Right
     else
@@ -310,7 +475,7 @@ function OnEnter(trigger, other)
 
         -- Apply a force to the vehicle to give the vehicle sudden increase in speed
         other:AddImpulse(direction * 2000000)
-    
+
         -- Check if the  maximum speed of the vehicle has already been increased
         if(not other.serverUserData.isBoosting) then
             other.serverUserData.isBoosting = true
@@ -318,15 +483,15 @@ function OnEnter(trigger, other)
             -- Store the original maximum speed of the vehicle. The "originalMaxSpeed" property
             -- is used in case any other road obstacles are modifying the "maxSpeed" of the vehicle
             local originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
-            
+
             -- Increase the maximum speed of the vehicle by 300%`
             other.maxSpeed = originalMaxSpeed * 4.0
-            
+
             -- Wait 0.5 seconds before returning the vehicle to its original speed
             Task.Wait(0.5)
 
             -- Return the vehicle to its original speed
-            other.maxSpeed = originalMaxSpeed 
+            other.maxSpeed = originalMaxSpeed
 
             -- Set "isBoosting" to false so that the speed increase of boost pads can be activated
             -- when the vehicle passes over another boost pad
@@ -339,7 +504,7 @@ end
 propTrigger.beginOverlapEvent:Connect(OnEnter)
 ```
 
-See also: [event:Trigger.beginOverlapEvent](event.md) | [operator:Rotation * Vector3](operator.md)
+See also: [event:Trigger.beginOverlapEvent](event.md) | [Rotation * Vector3](rotation.md)
 
 ---
 
@@ -431,171 +596,6 @@ end
 propTrigger.beginOverlapEvent:Connect(OnEnter)
 ```
 
-See also: [event:Trigger.beginOverlapEvent](event.md) | [property:CoreObject.serverUserData](property.md)
-
----
-
-Example using:
-
-### `occupiedVehicle`
-
-In this example, we can imagine a racing game where various start points are defined for the players. When a new round starts we teleport all players who have a vehicle to the starting points, so they can begin a new race. The start point objects are all children of a common group/folder that is set as a custom property. The objects used for start points can be anything, such as an empty group. For this type of invisible "level design object", sometimes creators use a server-context with a static mesh inside, so you can see the points during edit time, but they won't appear or collide for clients.
-
-```lua
-local START_POINTS_PARENT = script:GetCustomProperty("StartPoints"):WaitForObject()
-local START_POINTS = START_POINTS_PARENT:GetChildren()
-
-function OnRoundStart()
-    for i,player in ipairs(Game.GetPlayers()) do
-        local vehicle = player.occupiedVehicle
-        if vehicle then
-            -- Teleport them to the start points
-            local startPoint = START_POINTS[i]
-            if startPoint then
-                local pos = startPoint:GetWorldPosition()
-                local rot = startPoint:GetWorldRotation()
-                vehicle:SetWorldPosition(pos)
-                vehicle:SetWorldRotation(rot)
-            else
-                warn("Insufficient start points for all players")
-            end
-            -- Stop their movement
-            vehicle:SetVelocity(Vector3.ZERO)
-            vehicle:SetAngularVelocity(Vector3.ZERO)
-        end
-    end
-end
-
-Game.roundStartEvent:Connect(OnRoundStart)
-```
-
-See also: [CoreObject.SetVelocity](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetPlayers](game.md) | [Vector3.ZERO](vector3.md)
-
----
-
-Example using:
-
-### `accelerationRate`
-
-### `maxSpeed`
-
-### `tireFriction`
-
-This example takes vehicle stats (acceleration, max speed and tire friction) and normalizes them to rating values between 1 and 5. This could be used, for example, in the UI of a vehicle selection screen to show how vehicles compare to each other in their various stats. When the script runs it searches the game for all vehicles that exist and prints their ratings to the Event Log.
-
-```lua
-local ACCELE_MIN = 400
-local ACCELE_MAX = 4000
-local TOP_SPEED_MIN = 2000
-local TOP_SPEED_MAX = 20000
-local HANDLING_MIN = 0.5
-local HANDLING_MAX = 10
-
-local RATING_LEVELS = 5
-
-function RateStat(value, min, max)
-    if value >= max then
-        return RATING_LEVELS
-    end
-    if value > min and max > min then
-        local p = (value - min) / (max - min)
-        local rating = p * RATING_LEVELS
-        rating = math.floor(rating) + 1
-        return rating
-    end
-    return 1
-end
-
-function RateVehicle(vehicle)
-    local accele = RateStat(vehicle.accelerationRate, ACCELE_MIN, ACCELE_MAX)
-    local topSpeed = RateStat(vehicle.maxSpeed, TOP_SPEED_MIN, TOP_SPEED_MAX)
-    local handling = RateStat(vehicle.tireFriction, HANDLING_MIN, HANDLING_MAX)
-    
-    -- Print vehicle ratings to the Event Log
-    print(vehicle.name)
-    print("Acceleration: " .. accele)
-    print("Top Speed: " .. topSpeed)
-    print("Handling: " .. handling)
-    print("")
-end
-
--- Search for all vehicles and rate them
-for _,vehicle in ipairs(World.FindObjectsByType("Vehicle")) do
-    RateVehicle(vehicle)
-end
-```
-
-See also: [World.FindObjectsByType](world.md) | [CoreObject.name](coreobject.md)
-
----
-
-Example using:
-
-### `maxSpeed`
-
-### `tireFriction`
-
-### `accelerationRate`
-
-### `turnRadius`
-
-Off road sections are an excellent to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once the vehicles exits the trigger the vehicle will drive at its original speed.
-
-```lua
--- Get the trigger object that will represent the off road area
-local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
-
--- This function will be called whenever an object enters the trigger
-function OnEnter(trigger, other)
-    -- Check if a vehicle has entered the trigger and if that vehicle is currently not off road
-    if(other:IsA("Vehicle") and not other.serverUserData.offRoad) then  
-
-        -- Set the off road status of the vehicle to "true"
-        other.serverUserData.offRoad = true
-
-        -- Store the original specifications of the vehicle. The "serverUserData" properties
-        -- are used in the case that other road obstacles are modifying the specifications of the vehicle
-        other.serverUserData.originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
-        other.serverUserData.originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
-        other.serverUserData.originalAccelerationRate = other.serverUserData.originalAccelerationRate or other.accelerationRate
-        other.serverUserData.originalTurnRadius = other.serverUserData.originalTurnRadius or other.turnRadius
-
-        -- Increase the tire friction of the vehicle by 900%, this will give the vehicle more traction
-        other.tireFriction = other.tireFriction * 10.0  
-        -- Decrease the maximum speed of the vehicle by 90%
-        other.maxSpeed = other.maxSpeed * 0.1 
-        -- Decrease the acceleration of the vehicle by 80%
-        other.accelerationRate = other.accelerationRate * 0.2
-        -- Shrink the turn radius by 80%, this will allow the vehicle to make tighter turns
-        other.turnRadius = other.tireFriction * 0.2
-    end
-end
-
--- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
--- when an object enters the "propTrigger" the "OnEnter" function is executed
-propTrigger.beginOverlapEvent:Connect(OnEnter)
-
--- This function will be called whenever an object enters the trigger
-function OnExit(trigger, other)
-    -- If a vehicle has entered the trigger and the vehicle is off road, then reset
-    -- the vehicle specifications (maximum speed, acceleration, turning radius)
-    if(other:IsA("Vehicle") and Object.IsValid(other.driver) and other.serverUserData.offRoad) then   
-        -- Set the off road status of the vehicle to "false"
-        other.serverUserData.offRoad = false 
-
-        -- Reset the vehicle specifications to the values before the vehicle
-        -- had entered the boost pad
-        other.maxSpeed = other.serverUserData.originalMaxSpeed
-        other.turnRadius = other.serverUserData.originalTurnRadius
-        other.accelerationRate = other.serverUserData.originalAccelerationRate
-    end
-end
-
--- Bind the "OnExit" function to the "endOverlapEvent" of the "propTrigger" so that
--- when an object exits the "propTrigger" the "OnExit" function is executed
-propTrigger.endOverlapEvent:Connect(OnExit)
-```
-
-See also: [event:Trigger.beginOverlapEvent](event.md) | [property:CoreObject.serverUserData](property.md)
+See also: [event:Trigger.beginOverlapEvent](event.md) | [CoreObject.serverUserData](coreobject.md)
 
 ---
