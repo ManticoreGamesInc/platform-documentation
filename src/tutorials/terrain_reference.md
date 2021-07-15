@@ -115,7 +115,7 @@ You will see a window named **STATIC MESH PICKER** pop up in the middle of your 
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:50%">
-        <source src="/img/TerrainReference/SelectArch.mp4" type="video/mp4" />
+        <source src="/img/TerrainReference/SelectArchFromStaticMeshes.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -235,6 +235,51 @@ Below is the side by side comparison of the **Food Corn 01** at 100% and the **F
 
 ![Terrain Debug Mode](../img/TerrainReference/DebugModeExample.png){: .center loading="lazy"}
 
+## Foliage Tool
+
+An extremely import feature of any terrain is Foliage. In the Core Terrain System, Foliage are simple objects that are attached to a specific material. In most cases foliage takes the form of trees, boulders, and bushes. The Foliage system allows you to generate and place the objects automatically instead of placing them by hand. Each foliage object is tied to a specific material. Foliage objects will only spawn on the terrain material they are associated with.
+
+You must select your **Terrain** object in the hierarchy window and then click on the **Foliage** tab in the properties window. This will open the **Foliage** editor for your terrain,
+
+![Select Terrain From Hierarchy](../img/TerrainReference/SelectTerrainFromHierarchy.png){: .center loading="lazy"}
+
+![Select Foliage Tab](../img/TerrainReference/SelectFoliageTab.png){: .center loading="lazy"}
+
+### Adding Foliage
+
+To add a new foliage object, click on the **Add Foliage** button. You will now see a pop up window in the center of your screen called **STATIC MESH PICKER**. Select a mesh from this window and then click on the **Done** button.
+
+![Click on add Foliage Button](../img/TerrainReference/ClickOnAddFoliageButton.png){: .center loading="lazy"}
+
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:50%">
+        <source src="/img/TerrainReference/SelectArchFromStaticMeshes.mp4" type="video/mp4" />
+    </video>
+</div>
+
+!!!note
+    When adding foliage you can only use assets from the    **STATIC MESH PICKER**. You are not be able to use your own templates as foliage.
+
+You should now see the object you selected as foliage spread throughout your terrain. By default the foliage you added will be associated with your first material. This means that the foliage you just made will only appear on terrain areas covered by your first material.
+
+![Arch on Terrain](../img/TerrainReference/ArchOnTerrain.png){: .center loading="lazy"}
+
+### Foliage Properties
+
+#### Material Channel
+
+Foliage objects come with many different properties that you can modify. The **Material Channel** property allows you to control which terrain material your foliage will spawn on top of. To modify this property, you must first click on your foliage. Then, you must select one of the four terrain materials you want your foliage to be spawned on.
+
+<div class="mt-video">
+    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:50%">
+        <source src="/img/TerrainReference/SwitchFoliageMaterialAssociation.mp4" type="video/mp4" />
+    </video>
+</div>
+
+#### Spawn Settings
+
+#### View Distance Settings
+
 ## Heightmaps
 
 Heightmaps allow creators to create terrain from images. The brightness of each pixel controls how tall the point of terrain associated with that pixel will be.
@@ -277,13 +322,19 @@ The **Height Offset** setting determines what the default height of the terrain 
 
 ![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy"}
 
+To import your heightmap, click on the the ![load file icon](../img/TerrainReference/ImportIcon.png){: loading="lazy" style="height:2em; width:auto" .image-inline-text} icon next to **Heightmap** field. You will see a **File Explorer** window open which will allow you to select a `.png` file from your file system. Double click on your `.png` to import it. Then, click on the **Import** button in the **IMPORT TERRAIN HEIGHTMAP** window to import your heightmap.
+
+![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy"}
+
+![Click on Import Button](../img/TerrainReference/ImportPNGMap.png){: .center loading="lazy"}
+
 ## Weightmap
 
 Weightmaps are similar to heightmaps. Weightmaps store material data for terrain in the form of a `.png` file. To understand how this works it is important to know how data is stored in a `.png` file. The pixels in most `.png` files are made up of four color channels: **red**{: style="color:red"}, **green**{: style="color:green"}, **blue**{: style="color:blue"}, and **alpha**. The strength of these color channels determine the color of each pixel in a `.png` image. For example, a high **red**{: style="color:red"} channel and **blue**{: style="color:blue"} channel value will create a **magenta**{: style="color:magenta"} colored pixel. The **alpha** channel is used to determine the transparency of a specific pixel in a `.png` image. The image below demonstrates how differing the strength of the **red**{: style="color:red"}, **green**{: style="color:green"}, and **blue**{: style="color:blue"} channels can create the **orange**{style="color:orange"} color in the Core logo.
 
 ![Png Example](../img/TerrainReference/PngExample.png){: .center loading="lazy"}
 
-Weightmaps use these four color channels to paint the terrain. Weightmaps tie each of the four color channels the four materials associate dwith your terrain.
+Weightmaps use these four color channels to paint the terrain. Weightmaps tie each of the four color channels the four materials associated with your terrain.
 
 - The **red**{: style="color:red"} channel is tied to the _first_ material
 - The **green**{: style="color:green"} channel is tied to the _second_ material
@@ -308,3 +359,16 @@ Weightmaps use these four color channels to paint the terrain. Weightmaps tie ea
     If the weightmap `.png` file you made uses the **alpha** channel, then you must enable the **Import Alpha Channel** property in the **IMPORT TERRAIN HEIGHTMAP** window before generating your terrain.
 
     ![Import Alpha Channel](../img/TerrainReference/ImportAlphaChannelWindow.png){: .center loading="lazy" style="max-height:14em"}
+
+To import your weightmap you must follow the same steps you followed for importing the heightmap. In the **IMPORT TERRAIN HEIGHTMAP** window click on the ![load file icon](../img/TerrainReference/ImportIcon.png){: loading="lazy" style="height:2em; width:auto" .image-inline-text} icon next to the **Weightmap** field and select an `.png` file for your weightmap. Then click on the **Import** button.
+
+![Import Weightmap File](../img/TerrainReference/ImportWeightmapIcon.png){: .center loading="lazy"}
+
+![Click on Import Button](../img/TerrainReference/ImportPNGMap.png){: .center loading="lazy"}
+
+Weightmap images need to square `.png` images. The **Terrain Generator** will only accept weightmap images of the following sizes:
+
+- (128 x 128)
+- (256 x 256)
+- (512 x 512)
+- (1024 x 1024)
