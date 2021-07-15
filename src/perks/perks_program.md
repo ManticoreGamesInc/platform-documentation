@@ -14,7 +14,7 @@ tags:
 
 # About the Perks Program and Monetization
 
-The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](joining_perks.md) gives access to [**Perks**](implementing_perks.md), which are in-game purchases built specifically for Core.
+The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](joining_perks.md) gives access to [**Perks**](implementing_perks.md) and the [**Reward Points**](reward_points_reference.md) system. Both [**Perks**](implementing_perks.md) and [**Reward Points**](reward_points_reference.md) are in-game purchases built specifically for Core.
 
 To qualify for adding Perks to your games, there are two requirements:
 
