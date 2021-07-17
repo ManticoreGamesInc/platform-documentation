@@ -103,7 +103,7 @@ Destructive sculpting allows you to indent terrain by removing terrain under you
 
 ## Brush Tools
 
-When editing terrain there are multiple tools that you can use to modify your terrain. Three tools that you will use often are the **Surface**, **Shape**, and **Smooth** tools. To change the bursh tool, you must click on the button with the name of your current brush tool. You will see a drop down menu filled with the different brush tools. Now, click on the brush tool that you want to use.
+When editing terrain there are multiple tools that you can use to modify your terrain. Three tools that you will use often are the **Surface**, **Shape**, and **Smooth** tools. To change the brush tool, you must click on the button with the name of your current brush tool. You will see a drop down menu filled with the different brush tools. Now, click on the brush tool that you want to use.
 
 ![Brush Tool Drop Down Menu](../img/TerrainReference/BrushToolDropDown.png){: .center loading="lazy"}
 
