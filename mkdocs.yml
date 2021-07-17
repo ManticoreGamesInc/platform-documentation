@@ -53,6 +53,7 @@ nav:
           - Chat Hooks: tutorials/chat_tutorial.md
           - Curves: tutorials/curves.md
           - Environment Art: tutorials/environment_art.md
+          - Terrain Reference: tutorials/terrain_reference.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
           - Scene Creation: tutorials/scene_creation.md
