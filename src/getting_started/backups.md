@@ -23,7 +23,7 @@ For a detailed breakdown of what all these folders do and how changes in the Cor
 3. Inside, you should find a folder called **Core** (it may be **CORE**).
 4. Open the **Saved** folder.
 5. Open the **Maps** folder.
-6. In this folder, you should one folder for each saved project in the Core Editor.
+6. In this folder, you should have one folder for each saved project in the Core Editor.
 
 ### Open the Project File from the Core Editor
 
