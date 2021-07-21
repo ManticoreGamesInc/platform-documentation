@@ -23,8 +23,9 @@ See AnimatedMesh for meshes with animations.
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `SetMaterialForSlot(string assetId, string slotName)` | `None` | Set the material in the given slot to the material specified by assetId. | None |
-| `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. | None |
-| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this animatedMesh. | None |
+| `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified. | None |
+| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
+| `ResetMaterialSlot(string slotName)` | `None` | Resets a material slot to its original state. | None |
 
 ## Examples
 

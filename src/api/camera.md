@@ -34,6 +34,8 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `currentYaw` | `number` | The current yaw of the Player's free control. | Read-Write, Client-Only |
 | `minYaw` | `number` | The minimum yaw for free control. | Read-Write |
 | `maxYaw` | `number` | The maximum yaw for free control. | Read-Write |
+| `useAsAudioListener` | `boolean` | Whether the local player's audio should be attenuated and spatialized based on their view position while this is the active camera. | Read-Write |
+| `audioListenerOffset` | [`Vector3`](vector3.md) | The local offset to the view position when using this camera as the audio listener. | Read-Write |
 
 ## Functions
 

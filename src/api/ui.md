@@ -32,8 +32,11 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.SetReticleVisible(boolean show)` | `None` | Shows or hides the reticle for the Player. | Client-Only |
 | `UI.GetCursorHitResult()` | [`HitResult`](hitresult.md) | Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode. | Client-Only |
 | `UI.GetCursorPlaneIntersection(Vector3 pointOnPlane, [Vector3 planeNormal])` | [`Vector3`](vector3.md) | Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`. | Client-Only |
-| `UI.SetRewardsDialogVisible(boolean isVisible, [RewardsDialogTab currentTab])` | `None` | Sets whether the rewards dialog is visible, and optionally which tab is active. | None |
-| `UI.IsRewardsDialogVisible()` | `boolean` | Returns whether the rewards dialog is currently visible. | None |
+| `UI.SetRewardsDialogVisible(boolean isVisible, [RewardsDialogTab currentTab])` | `None` | Sets whether the rewards dialog is visible, and optionally which tab is active. | Client-Only |
+| `UI.IsRewardsDialogVisible()` | `boolean` | Returns whether the rewards dialog is currently visible. | Client-Only |
+| `UI.SetSocialMenuEnabled(boolean isEnabled)` | `None` | Sets whether the social menu is enabled. | Client-Only |
+| `UI.IsSocialMenuEnabled()` | `boolean` | Returns whether the social menu is enabled. | Client-Only |
+| `UI.GetCoreModalType()` | [`CoreModalType`](enums.md#coremodaltype) | Returns the currently active core modal, or nil if none is active. | Client-Only |
 
 ## Events
 

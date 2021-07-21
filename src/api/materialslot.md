@@ -16,6 +16,7 @@ Contains data about a material slot on a static or animated mesh.
 | -------- | ----------- | ----------- | ---- |
 | `slotName` | `string` | Reference to a CoreObject or Player impacted. | Read-Only |
 | `mesh` | [`CoreMesh`](coremesh.md) | The mesh this MaterialSlot is on. | Read-Only |
+| `materialAssetName` | `string` | The name of the material asset in this slot. | Read-Only |
 | `materialAssetId` | `FString` | The material asset in this slot. | Read-Write |
 | `isSmartMaterial` | `boolean` | True if we are using this as a smart material. | Read-Write |
 
@@ -32,6 +33,7 @@ Contains data about a material slot on a static or animated mesh.
 | `ResetUVTiling()` | `None` | Resets the U and V tiling to their original values. | None |
 | `ResetIsSmartMaterial()` | `None` | Resets whether or not this is used as a smart material. | None |
 | `ResetMaterialAssetId()` | `None` | Resets this to the original material asset. | None |
+| `GetCustomMaterial()` | [`CustomMaterial`](custommaterial.md) | Get the custom material in this material slot. This errors if the slot does not have a custom material. | Client-Only |
 
 ## Examples
 
