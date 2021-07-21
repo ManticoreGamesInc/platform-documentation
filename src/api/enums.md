@@ -111,6 +111,16 @@ tags:
 | `FacingMode.FACE_AIM_ALWAYS` | `1` | Player always faces the direction of their aim. |
 | `FacingMode.FACE_MOVEMENT` | `2` | Player faces the direction of their movement. |
 
+## IKAnchorType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `IKAnchorType.LEFTHAND` | `0` | Coming Soon |
+| `IKAnchorType.RIGHTHAND` | `1` | Coming Soon |
+| `IKAnchorType.HIP` | `2` | Coming Soon |
+| `IKAnchorType.LEFTFOOT` | `3` | Coming Soon |
+| `IKAnchorType.RIGHTFOOT` | `4` | Coming Soon |
+
 ## ImageTileType
 
 | Enum Name | Value | Description |

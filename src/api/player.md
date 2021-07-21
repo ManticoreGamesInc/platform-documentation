@@ -70,6 +70,8 @@ Player is an object representation of the state of a player connected to the gam
 | `isVisibleToSelf` | `boolean` | Set whether to hide the Player model on Player's own client, for sniper scope, etc. | Read-Write, Client-Only |
 | `parentCoreObject` | [`CoreObject`](coreobject.md) | If the Player has been attached to a parent CoreObject, returns that object. Otherwise returns `nil`. | Read-Only |
 | `occupiedVehicle` | [`Vehicle`](vehicle.md) | Returns the `Vehicle` that the player currently occupies, or `nil` if the player is not occupying a vehicle. | Read-Only |
+| `isInParty` | `boolean` | Returns whether this player is in a party. This is known regardless of if the party is public or private. | Read-Only |
+| `isPartyLeader` | `boolean` | Returns whether this player is the leader of a public party. | Read-Only |
 
 ## Functions
 
@@ -134,6 +136,9 @@ Player is an object representation of the state of a player connected to the gam
 | `GetPrivateNetworkedData(string key)` | `value` | Returns the private networked data on this player associated with the given key or nil if no data is found. | None |
 | `GetPrivateNetworkedDataKeys()` | `Array<string>` | Returns an array of all keys with private data set. | None |
 | `GrantRewardPoints(int rewardPoints, string activityName)` | `None` | Adds an amount of Reward Points to a player for completing a certain activity. | Server-Only |
+| `GetIKAnchors()` | `Array<`[`IKAnchor`](ikanchor.md)`>` | Returns an array of all IKAnchor objects activated on this player. | None |
+| `IsInPartyWith(Player)` | `boolean` | Returns whether both players are in the same public party. | None |
+| `GetPartyInfo()` | `PartyInfo` | If the player is in a party, returns a PartyInfo object with data about that party. | None |
 
 ## Events
 

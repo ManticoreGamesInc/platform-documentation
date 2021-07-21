@@ -18,7 +18,7 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `enterTrigger` | [`Trigger`](trigger.md) | Returns the Trigger a Player uses to occupy the vehicle. | Read-Only |
 | `camera` | [`Camera`](camera.md) | Returns the Camera used for the driver while they occupy the vehicle. | Read-Only |
 | `driverAnimationStance` | `string` | Returns the animation stance that will be applied to the driver while they occupy the vehicle. | Read-Only |
-| `mass` | `number` | Returns the mass of the vehicle in kilograms. | Read-Only |
+| `mass` | `number` | Returns the mass of the vehicle in kilograms. | Read-Write |
 | `maxSpeed` | `number` | The maximum speed of the vehicle in centimeters per second. | Read-Write |
 | `accelerationRate` | `number` | The approximate acceleration rate of the vehicle in centimeters per second squared. | Read-Write |
 | `brakeStrength` | `number` | The maximum deceleration of the vehicle when stopping. | Read-Write |
@@ -42,6 +42,8 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `GetPhysicsBodyScale()` | [`Vector3`](vector3.md) | Returns the scale offset for the body collision of the vehicle. | None |
 | `GetDriverPosition()` | [`Vector3`](vector3.md) | Returns the position relative to the vehicle at which the driver is attached while occupying the vehicle. | None |
 | `GetDriverRotation()` | [`Rotation`](rotation.md) | Returns the rotation with which the driver is attached while occupying the vehicle. | None |
+| `GetCenterOfMassOffset()` | [`Vector3`](vector3.md) | Returns the center of mass offset for this vehicle. | None |
+| `SetCenterOfMassOffset(Vector3 offset)` | `None` | Sets the center of mass offset for this vehicle. This resets the vehicle state and may not behave nicely if called repeatedly or while in motion. | None |
 
 ## Events
 

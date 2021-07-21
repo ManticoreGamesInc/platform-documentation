@@ -1091,10 +1091,6 @@
 								}
 							]
 						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
 					]
 				},
 				{
@@ -1108,6 +1104,20 @@
 								}
 							],
 							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetMaterialSlot",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "slotName"
+								}
+							]
 						}
 					],
 					"Tags": [
@@ -1471,6 +1481,8 @@
 				{
 					"Name": "isOrthographic",
 					"Description": "Whether the camera uses an isometric (orthographic) view or perspective.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "isOrthographic is deprecated. A distant camera with low field of view is a good replacement.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -1489,6 +1501,8 @@
 				{
 					"Name": "viewWidth",
 					"Description": "The width of the view with an isometric view. Has a minimum value of 1.0.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "viewWidth is deprecated, A distance camera with low field of view is a good replacement.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -1613,6 +1627,22 @@
 					"Name": "maxYaw",
 					"Description": "The maximum yaw for free control.",
 					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "useAsAudioListener",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "audioListenerOffset",
+					"Type": "Vector3",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -4567,6 +4597,173 @@
 			]
 		},
 		{
+			"Name": "CustomMaterial",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "SetProperty",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "Vector2",
+									"Name": "value"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "boolean",
+									"Name": "value"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "value"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "Color",
+									"Name": "value"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "number",
+									"Name": "value"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetProperty",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"IsVariadic": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetPropertyNames",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetBaseMaterial",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "Find",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CustomMaterial",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "assetId"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Damage",
 			"Description": "To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:",
 			"Constructors": [
@@ -5246,6 +5443,165 @@
 			]
 		},
 		{
+			"Name": "IKAnchor",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "target",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "anchorType",
+					"Type": "IKAnchorType",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "blendInTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "blendOutTime",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "weight",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "activatedEvent",
+					"Parameters": [
+						{
+							"Type": "IKAnchor",
+							"Name": "ikanchor"
+						},
+						{
+							"Type": "Object",
+							"Name": "target"
+						}
+					]
+				},
+				{
+					"Name": "deactivatedEvent",
+					"Parameters": [
+						{
+							"Type": "IKAnchor",
+							"Name": "ikanchor"
+						},
+						{
+							"Type": "Object",
+							"Name": "target"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Activate",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "target"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "Deactivate",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority"
+					]
+				},
+				{
+					"Name": "GetAimOffset",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetAimOffset",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "aim offset"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "ImpactData",
 			"Description": "A data structure containing all information about a specific Weapon interaction, such as collision with a character.",
 			"Properties": [
@@ -5578,6 +5934,13 @@
 					]
 				},
 				{
+					"Name": "materialAssetName",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "materialAssetId",
 					"Description": "The material asset in this slot.",
 					"Type": "string"
@@ -5705,6 +6068,22 @@
 							"Returns": [],
 							"Parameters": []
 						}
+					]
+				},
+				{
+					"Name": "GetCustomMaterial",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CustomMaterial"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
@@ -5941,6 +6320,20 @@
 					"Type": "integer",
 					"Tags": [
 						"ServerOnly"
+					]
+				},
+				{
+					"Name": "isInParty",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isPartyLeader",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
 					]
 				},
 				{
@@ -6617,6 +7010,37 @@
 			],
 			"MemberFunctions": [
 				{
+					"Name": "GetPartyInfo",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "PartyInfo"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsInPartyWith",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
 					"Name": "GetWorldTransform",
 					"Description": "The absolute Transform of this player.",
 					"Signatures": [
@@ -6794,6 +7218,19 @@
 							"Returns": [
 								{
 									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetIkAnchors",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<IKAnchor>"
 								}
 							],
 							"Parameters": []
@@ -9713,10 +10150,6 @@
 								}
 							]
 						}
-					],
-					"Tags": [
-						"RequiresAuthority",
-						"Dynamic"
 					]
 				},
 				{
@@ -9730,6 +10163,20 @@
 								}
 							],
 							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ResetMaterialSlot",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "slotName"
+								}
+							]
 						}
 					],
 					"Tags": [
@@ -11708,6 +12155,39 @@
 			]
 		},
 		{
+			"Name": "UIRewardPointsMeter",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "UIScrollPanel",
 			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself.",
 			"BaseType": "UIControl",
@@ -12743,7 +13223,8 @@
 					"Description": "Returns the mass of the vehicle in kilograms.",
 					"Type": "number",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -13037,6 +13518,37 @@
 							],
 							"Parameters": []
 						}
+					]
+				},
+				{
+					"Name": "GetCenterOfMassOffset",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetCenterOfMassOffset",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "offset"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -15220,6 +15732,23 @@
 			"Description": "The UI namespace contains a set of class functions allowing you to get information about a Player's display and push information to their HUD. Most functions require the script to be inside a ClientContext and execute for the local Player.",
 			"StaticFunctions": [
 				{
+					"Name": "GetCoreModalType",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreModalType",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "ShowFlyUpText",
 					"Description": "Shows a quick text on screen that tracks its position relative to a world position. The last parameter is an optional table containing additional parameters: duration (number) - How long the text should remain on the screen. Default duration is 0.5 seconds; color (Color) - The color of the Text. Default is white; font (string) - Asset ID for the font to use; isBig (boolean) - When true, larger text is used.",
 					"Signatures": [
@@ -15592,6 +16121,39 @@
 				{
 					"Name": "IsRewardsDialogVisible",
 					"Description": "Returns whether the rewards dialog is currently visible.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetSocialMenuEnabled",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "boolean",
+									"Name": "isEnabled"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsSocialMenuEnabled",
 					"Signatures": [
 						{
 							"Returns": [
@@ -16042,6 +16604,31 @@
 					"Name": "FACE_MOVEMENT",
 					"Description": "Player faces the direction of their movement.",
 					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "IKAnchorType",
+			"Values": [
+				{
+					"Name": "LEFTHAND",
+					"Value": 0
+				},
+				{
+					"Name": "RIGHTHAND",
+					"Value": 1
+				},
+				{
+					"Name": "HIP",
+					"Value": 2
+				},
+				{
+					"Name": "LEFTFOOT",
+					"Value": 3
+				},
+				{
+					"Name": "RIGHTFOOT",
+					"Value": 4
 				}
 			]
 		},
