@@ -128,6 +128,7 @@ nav:
           - CoreObjectReference: api/coreobjectreference.md
           - CorePlayerProfile: api/coreplayerprofile.md
           - CurveKey: api/curvekey.md
+          - CustomMaterial: api/custommaterial.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -138,6 +139,7 @@ nav:
           - HitResult: api/hitresult.md
           - Hook: api/hook.md
           - HookListener: api/hooklistener.md
+          - IKAnchor: api/ikanchor.md
           - ImpactData: api/impactdata.md
           - LeaderboardEntry: api/leaderboardentry.md
           - Light: api/light.md
@@ -147,6 +149,7 @@ nav:
           - NetworkContext: api/networkcontext.md
           - Object: api/object.md
           - Other: api/other.md
+          - PartyInfo: api/partyinfo.md
           - PhysicsObject: api/physicsobject.md
           - Player: api/player.md
           - PlayerSettings: api/playersettings.md
@@ -176,6 +179,7 @@ nav:
           - UIPanel: api/uipanel.md
           - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
           - UIProgressBar: api/uiprogressbar.md
+          - UIRewardPointsMeter: api/uirewardpointsmeter.md
           - UIScrollPanel: api/uiscrollpanel.md
           - UIText: api/uitext.md
           - Vector2: api/vector2.md
