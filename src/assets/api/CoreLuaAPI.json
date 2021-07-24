@@ -1075,7 +1075,7 @@
 				},
 				{
 					"Name": "GetMaterialSlot",
-					"Description": "Get the MaterialSlot object for the given slot.",
+					"Description": "Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -1095,7 +1095,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
-					"Description": "Get an array of all MaterialSlots on this animatedMesh.",
+					"Description": "Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -1109,6 +1109,7 @@
 				},
 				{
 					"Name": "ResetMaterialSlot",
+					"Description": "Resets a material slot to its original state.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -1634,6 +1635,7 @@
 				},
 				{
 					"Name": "useAsAudioListener",
+					"Description": "Whether the local player's audio should be attenuated and spatialized based on their view position while this is the active camera.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -1642,6 +1644,7 @@
 				},
 				{
 					"Name": "audioListenerOffset",
+					"Description": "The local offset to the view position when using this camera as the audio listener.",
 					"Type": "Vector3",
 					"Tags": [
 						"RequiresAuthority",
@@ -4598,6 +4601,7 @@
 		},
 		{
 			"Name": "CustomMaterial",
+			"Description": "CustomMaterial objects represent a custom material made in core. They can have their properties changed from script.",
 			"Properties": [
 				{
 					"Name": "type",
@@ -4610,6 +4614,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "SetProperty",
+					"Description": "Sets the given property of the material.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -4676,10 +4681,14 @@
 								}
 							]
 						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
 					"Name": "GetProperty",
+					"Description": "Gets the value of a given property.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -4694,10 +4703,14 @@
 								}
 							]
 						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
 					"Name": "GetPropertyNames",
+					"Description": "Returns an array of all property names on this CustomMaterial.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -4707,10 +4720,14 @@
 							],
 							"Parameters": []
 						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
-					"Name": "GetBaseMaterial",
+					"Name": "GetBaseMaterialId",
+					"Description": "Returns the asset id of the material this CustomMaterial was based on.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -4720,6 +4737,9 @@
 							],
 							"Parameters": []
 						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
@@ -4744,6 +4764,7 @@
 			"StaticFunctions": [
 				{
 					"Name": "Find",
+					"Description": "Returns a CustomMaterial with the given assetId. This function may yield while loading data.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -4759,6 +4780,9 @@
 								}
 							]
 						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				}
 			]
@@ -5444,10 +5468,12 @@
 		},
 		{
 			"Name": "IKAnchor",
+			"Description": "IK Anchors allow creators to augment animations so that character poses can be customized. It allows a creator to specify attachment points for specific bones such as hands, feet and hips. When activated, the anchor moves the specified bone to the position and orientation of the anchor, overriding the normal animation state. Creators can add IK anchors points for a character to grab and animate anchors to create entirely new animations. A weight can be specified to indicate how much of the underlaying animation is blended to the IK anchor. Some anchors may have aim offsets that specify what direction joints attached to the specific bone should aim to reach when the IK anchor is active.",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
 					"Name": "target",
+					"Description": "Which Player the IKAnchor is activated on.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -5455,6 +5481,7 @@
 				},
 				{
 					"Name": "anchorType",
+					"Description": "Which socket this IKAnchor applies to.",
 					"Type": "IKAnchorType",
 					"Tags": [
 						"ReadOnly"
@@ -5462,6 +5489,7 @@
 				},
 				{
 					"Name": "blendInTime",
+					"Description": "The duration over which this IKAnchor is blended when it is activated.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -5470,6 +5498,7 @@
 				},
 				{
 					"Name": "blendOutTime",
+					"Description": "The duration over which this IKAnchor is blended when it is deactivated.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -5478,6 +5507,7 @@
 				},
 				{
 					"Name": "weight",
+					"Description": "The amount this IKAnchor blends with the underlying animation. A value of 0 means the animation is player unchanged, and a value of 1 means the animation is ignored and the IKAnchor is used.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -5495,6 +5525,7 @@
 			"Events": [
 				{
 					"Name": "activatedEvent",
+					"Description": "Fired when this IKAnchor is activated on a player.",
 					"Parameters": [
 						{
 							"Type": "IKAnchor",
@@ -5508,6 +5539,7 @@
 				},
 				{
 					"Name": "deactivatedEvent",
+					"Description": "Fired when this IKAnchor is deactivated from a player.",
 					"Parameters": [
 						{
 							"Type": "IKAnchor",
@@ -5523,6 +5555,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "Activate",
+					"Description": "Activates the IKAnchor on the given player.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5540,6 +5573,7 @@
 				},
 				{
 					"Name": "Deactivate",
+					"Description": "Deactives the IKAnchor from whatever player it is active on.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5552,6 +5586,7 @@
 				},
 				{
 					"Name": "GetAimOffset",
+					"Description": "Returns the aim offset property.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -5565,6 +5600,7 @@
 				},
 				{
 					"Name": "SetAimOffset",
+					"Description": "Sets the aim offset of this IKAnchor.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5935,6 +5971,7 @@
 				},
 				{
 					"Name": "materialAssetName",
+					"Description": "The name of the material asset in this slot.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -6072,6 +6109,7 @@
 				},
 				{
 					"Name": "GetCustomMaterial",
+					"Description": "Get the custom material in this material slot. This errors if the slot does not have a custom material.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -6294,6 +6332,123 @@
 			]
 		},
 		{
+			"Name": "PartyInfo",
+			"Description": "Contains data about a party, returned by Player:GetPartyInfo()",
+			"Properties": [
+				{
+					"Name": "id",
+					"Description": "The party Id.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Description": "The party name.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "partySize",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maxPartySize",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "partyLeaderId",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isPlayAsParty",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetTags",
+					"Description": "Returns an array of the party's tags.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetMemberIds",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsFull",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Player",
 			"Description": "Player is an object representation of the state of a player connected to the game, as well as their avatar in the world.",
 			"BaseType": "Object",
@@ -6324,6 +6479,7 @@
 				},
 				{
 					"Name": "isInParty",
+					"Description": "Returns whether this player is in a party. This is known regardless of if the party is public or private.",
 					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
@@ -6331,6 +6487,7 @@
 				},
 				{
 					"Name": "isPartyLeader",
+					"Description": "Returns whether this player is the leader of a public party.",
 					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
@@ -7011,6 +7168,7 @@
 			"MemberFunctions": [
 				{
 					"Name": "GetPartyInfo",
+					"Description": "If the player is in a party, returns a PartyInfo object with data about that party.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -7024,6 +7182,7 @@
 				},
 				{
 					"Name": "IsInPartyWith",
+					"Description": "Returns whether both players are in the same public party.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -7225,7 +7384,8 @@
 					]
 				},
 				{
-					"Name": "GetIkAnchors",
+					"Name": "GetIKAnchors",
+					"Description": "Returns an array of all IKAnchor objects activated on this player.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -7782,6 +7942,7 @@
 				},
 				{
 					"Name": "GrantRewardPoints",
+					"Description": "Adds an amount of Reward Points to a player for completing a certain activity.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -10134,7 +10295,7 @@
 				},
 				{
 					"Name": "GetMaterialSlot",
-					"Description": "Get the MaterialSlot object for the given slot.",
+					"Description": "Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -10154,7 +10315,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
-					"Description": "Get an array of all MaterialSlots on this animatedMesh.",
+					"Description": "Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -10168,6 +10329,7 @@
 				},
 				{
 					"Name": "ResetMaterialSlot",
+					"Description": "Resets a material slot to its original state.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -12156,6 +12318,7 @@
 		},
 		{
 			"Name": "UIRewardPointsMeter",
+			"Description": "A UIControl that displays the a players progress towards the daily Reward Points cap.",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -13220,7 +13383,7 @@
 				},
 				{
 					"Name": "mass",
-					"Description": "Returns the mass of the vehicle in kilograms.",
+					"Description": "The mass of the vehicle in kilograms.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -13522,6 +13685,7 @@
 				},
 				{
 					"Name": "GetCenterOfMassOffset",
+					"Description": "Returns the center of mass offset for this vehicle.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -13535,6 +13699,7 @@
 				},
 				{
 					"Name": "SetCenterOfMassOffset",
+					"Description": "Sets the center of mass offset for this vehicle. This resets the vehicle state and may not behave nicely if called repeatedly or while in motion.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -15733,6 +15898,7 @@
 			"StaticFunctions": [
 				{
 					"Name": "GetCoreModalType",
+					"Description": "Returns the currently active core modal, or nil if none is active.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -16137,6 +16303,7 @@
 				},
 				{
 					"Name": "SetSocialMenuEnabled",
+					"Description": "Sets whether the social menu is enabled.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -16154,6 +16321,7 @@
 				},
 				{
 					"Name": "IsSocialMenuEnabled",
+					"Description": "Returns whether the social menu is enabled.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -16609,25 +16777,31 @@
 		},
 		{
 			"Name": "IKAnchorType",
+			"Description": "Which bone this IKAnchor applies to.",
 			"Values": [
 				{
-					"Name": "LEFTHAND",
+					"Name": "LEFT_HAND",
+					"Description": "The left hand.",
 					"Value": 0
 				},
 				{
-					"Name": "RIGHTHAND",
+					"Name": "RIGHT_HAND",
+					"Description": "The right hand.",
 					"Value": 1
 				},
 				{
-					"Name": "HIP",
+					"Name": "PELVIS",
+					"Description": "The pelvis.",
 					"Value": 2
 				},
 				{
-					"Name": "LEFTFOOT",
+					"Name": "LEFT_FOOT",
+					"Description": "The left foot.",
 					"Value": 3
 				},
 				{
-					"Name": "RIGHTFOOT",
+					"Name": "RIGHT_FOOT",
+					"Description": "The right foot.",
 					"Value": 4
 				}
 			]

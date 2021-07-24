@@ -115,11 +115,11 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `IKAnchorType.LEFTHAND` | `0` | Coming Soon |
-| `IKAnchorType.RIGHTHAND` | `1` | Coming Soon |
-| `IKAnchorType.HIP` | `2` | Coming Soon |
-| `IKAnchorType.LEFTFOOT` | `3` | Coming Soon |
-| `IKAnchorType.RIGHTFOOT` | `4` | Coming Soon |
+| `IKAnchorType.LEFT_HAND` | `0` | The left hand. |
+| `IKAnchorType.RIGHT_HAND` | `1` | The right hand. |
+| `IKAnchorType.PELVIS` | `2` | The pelvis. |
+| `IKAnchorType.LEFT_FOOT` | `3` | The left foot. |
+| `IKAnchorType.RIGHT_FOOT` | `4` | The right foot. |
 
 ## ImageTileType
 
