@@ -138,7 +138,7 @@ Player is an object representation of the state of a player connected to the gam
 | `GrantRewardPoints(int rewardPoints, string activityName)` | `None` | Adds an amount of Reward Points to a player for completing a certain activity. | Server-Only |
 | `GetIKAnchors()` | `Array<`[`IKAnchor`](ikanchor.md)`>` | Returns an array of all IKAnchor objects activated on this player. | None |
 | `IsInPartyWith(Player)` | `boolean` | Returns whether both players are in the same public party. | None |
-| `GetPartyInfo()` | `PartyInfo` | If the player is in a party, returns a PartyInfo object with data about that party. | None |
+| `GetPartyInfo()` | [`PartyInfo`](partyinfo.md) | If the player is in a party, returns a PartyInfo object with data about that party. | None |
 
 ## Events
 
