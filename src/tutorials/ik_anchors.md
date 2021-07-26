@@ -5,7 +5,7 @@ title: IK Anchors
 tags:
     - Reference
 ---
-# Animation with IK Anchors
+# IK and Custom Animations
 
 ## Overview
 
