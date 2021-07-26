@@ -1,4 +1,4 @@
-markdown-full-yaml-metadata==2.0.1
+markdown-full-yaml-metadata==2.0.2
 markdown==3.3.4
 mkdocs-ezlinks-plugin==0.1.11
 mkdocs-git-revision-date-localized-plugin==0.9.2
