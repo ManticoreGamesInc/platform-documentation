@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-Players can be animated using the two types of animations here, as well as through custom animations created using [IK Anchors](../api/ikanchors.md). The **Animation Stance** animations can be applied to players and used continuously while players are moving, and the **Animation** category must be associated with an [**Ability**](../api/ability.md) and activated that way.
+Players can be animated using the two types of animations here, as well as through custom animations created using [IK Anchors](../api/ikanchor.md). The **Animation Stance** animations can be applied to players and used continuously while players are moving, and the **Animation** category must be associated with an [**Ability**](../api/ability.md) and activated that way.
 
 **AnimatedMesh** objects use a different set of animations from players which vary based on the type of AnimatedMesh. See the [AnimatedMesh Reference](../api/animatedmesh.md) for more information.
 
