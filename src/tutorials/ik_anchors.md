@@ -5,15 +5,16 @@ title: IK Anchors
 tags:
     - Reference
 ---
-# IK Anchors
+# Animation with IK Anchors
 
 ## Overview
 
 IK Anchors are a system for modifying player animations. Players can be animated by setting their ``animationStance`` property, or by creating an [**Ability**](https://docs.coregames.com/api/ability/) and calling its ``Play`` method. **IK Anchors** allow creators to change the way specific joints move to create customized animations.
 
-<!-- IK Anchors allow creators to augment animations so that character poses can be customized. It allows a creator to specify attachment points for specific bones such as hands, feet and hips. When activated, the anchor moves the specified bone to its position and orientation, overriding the normal animation state. Creators can add IK anchors points for a character to grab and animate anchors to create entirely new animations. A weight can be specified to indicate how much of the underlying animation is blended to the IK anchor. Some anchors may have aim offsets that specify what direction joints attached to the specific bone should aim to reach when the IK anchor is active. See the API section for more info. -->
 
 ## IK Anchor Bones and Properties
+
+IK Anchors work with a specific set of points (bones) on the player models and have properties that allow creators to customize the way they move the player skeleton.
 
 ### Bones
 
@@ -56,7 +57,13 @@ Select the **IK Anchor** and drag it into the Scene or **Hierarchy** to add it t
 
 ### Select the Correct Socket
 
+With the **IK Anchor** selected, open the **Properties** window. Change the **Anchor Type** property to match the bone that should be controlled.
+
+![Anchor Type Property](../img/IK/IKAnchors_AnchorType.png)
+
 ### Activate the IK Anchor
+
+To make an **IK Anchor** start controlling a player's bone, call the ``Activate`` method with the target **Player**. See the [IK_Anchor API entry](https://docs.coregames.com/api/ikanchor/) to learn more and see examples of ways to use IK Anchors.
 
 ---
 ## Learn More
