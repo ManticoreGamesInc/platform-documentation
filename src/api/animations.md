@@ -9,6 +9,14 @@ tags:
 
 # Player Animations & Sockets
 
+## Overview
+
+Players can be animated using the two types of animations here, as well as through custom animations created using [IK Anchors](../api/ikanchors.md). The **Animation Stance** animations can be applied to players and used continuously while players are moving, and the **Animation** category must be associated with an [**Ability**](../api/ability.md) and activated that way.
+
+**AnimatedMesh** objects use a different set of animations from players which vary based on the type of AnimatedMesh. See the [AnimatedMesh Reference](../api/animatedmesh.md) for more information.
+
+## The Design of Animations in Core
+
 In Core, all ability animations are valid on any of the available body types. Each of the ability animations timing and/or translation values should behave identically across the body types.
 All ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the player does not execute any other ability or movement. In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
 
