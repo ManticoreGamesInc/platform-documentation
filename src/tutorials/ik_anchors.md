@@ -9,8 +9,9 @@ tags:
 
 ## Overview
 
-IK Anchors are a system for modifying player animations. Players can be animated by setting their ``animationStance`` property, or by creating an [**Ability**](https://docs.coregames.com/api/ability/) and calling its ``Play`` method. **IK Anchors** allow creators to change the way specific joints move to create customized animations.
+IK Anchors are a system for modifying player animations. Players can be animated by setting their ``animationStance`` property, or by creating an [**Ability**](https://docs.coregames.com/api/ability/). **IK Anchors** allow creators to change the way specific joints move to create customized animations.
 
+For a complete list of the existing player animations and animation stances, see [Player Animations and Sockets](https://docs.coregames.com/api/animations/).
 
 ## IK Anchor Bones and Properties
 
@@ -44,13 +45,13 @@ There are 5 different bones that IK Anchors can control:
 
 ### Add an IK Anchor Object
 
-The **IK Anchor** object can be found in the **Game Objects** section of **Core Content**, under **Game Components**
+The **IK Anchor** object can be found in the **Game Objects** section of **Core Content**, under **Game Components**.
 
-![The IK Anchor object in Game Objects](../img/IK/IKAnchors_FindInGameplayObjects.png)
+![The IK Anchor object in Game Objects](../img/IK/IKAnchors_FindInGameplayObjects.png){: .center loading="lazy" }
 
 Select the **IK Anchor** and drag it into the Scene or **Hierarchy** to add it to the project.
 
-![The IK Anchor object in World](../img/IK/IKAnchors_LeftHandInWorld.png)
+![The IK Anchor object in World](../img/IK/IKAnchors_LeftHandInWorld.png){: .center loading="lazy" }
 
 !!!tip
     To make the **IK Anchor** object visible in the world, press the ++V++ key while it is selected. To make your IK Anchors always visible, select them and in the **Properties** window change **Editor Indicator Visibility** to **Always Visible**.
@@ -59,7 +60,7 @@ Select the **IK Anchor** and drag it into the Scene or **Hierarchy** to add it t
 
 With the **IK Anchor** selected, open the **Properties** window. Change the **Anchor Type** property to match the bone that should be controlled.
 
-![Anchor Type Property](../img/IK/IKAnchors_AnchorType.png)
+![Anchor Type Property](../img/IK/IKAnchors_AnchorType.png){: .center loading="lazy" }
 
 ### Activate the IK Anchor
 
