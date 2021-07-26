@@ -9,9 +9,9 @@ tags:
 
 ## Overview
 
-IK Anchors are a system for modifying player animations. Players can be animated by setting their ``animationStance`` property, or by creating an [**Ability**](https://docs.coregames.com/api/ability/). **IK Anchors** allow creators to change the way specific joints move to create customized animations.
+IK Anchors are a system for modifying player animations. Players can be animated by setting their `animationStance` property, or by creating an [**Ability**](../api/ability.md). **IK Anchors** allow creators to change the way specific joints move to create customized animations.
 
-For a complete list of the existing player animations and animation stances, see [Player Animations and Sockets](https://docs.coregames.com/api/animations/).
+For a complete list of the existing player animations and animation stances, see [Player Animations and Sockets](../api/animations.md).
 
 ## IK Anchor Bones and Properties
 
@@ -38,8 +38,8 @@ There are 5 different bones that IK Anchors can control:
 | Blend Out Time | How long it should take for the bone to revert when the Anchor is deactivated. |
 
 ![Aim Offset Relative to IK Anchor](../img/IK/IKAnchors_AimOffset.png)
-*Pelvis, left, and right foot anchored, with **Aim Offset** at Y = 50 and Y = -50 (fig. 1), and both at Z = 50 (fig. 2)*
-<!-- TODO: @Stanzilla can you make this smaller, like a figcaption element? Do we have a standardized way to do that? -->
+_Pelvis, left, and right foot anchored, with **Aim Offset** at Y = 50 and Y = -50 (fig. 1), and both at Z = 50 (fig. 2)_
+{: .image-cluster}
 
 ## Adding IK Anchors
 
@@ -64,9 +64,10 @@ With the **IK Anchor** selected, open the **Properties** window. Change the **An
 
 ### Activate the IK Anchor
 
-To make an **IK Anchor** start controlling a player's bone, call the ``Activate`` method with the target **Player**. See the [IK_Anchor API entry](https://docs.coregames.com/api/ikanchor/) to learn more and see examples of ways to use IK Anchors.
+To make an **IK Anchor** start controlling a player's bone, call the `Activate` method with the target **Player**. See the [IKAnchor API entry](../api/ikanchor.md) to learn more and see examples of ways to use IK Anchors.
 
 ---
+
 ## Learn More
 
-[IK_Anchor in the Core Lua API](https://docs.coregames.com/api/ikanchor/) | [Player Animations and Sockets](https://docs.coregames.com/api/animations/) | [Player in the Core Lua API](https://docs.coregames.com/api/player/) | [Abilities Tutorial](abilities.md)
+[IKAnchor in the Core Lua API](../api/ikanchor.md) | [Player Animations and Sockets](../api/animations.md) | [Player in the Core Lua API](../api/player.md) | [Abilities Tutorial](abilities.md)
