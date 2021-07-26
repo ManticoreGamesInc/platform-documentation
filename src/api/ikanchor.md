@@ -35,3 +35,50 @@ IKAnchors are objects that can be used to control player animations. They can be
 | ----- | ----------- | ----------- | ---- |
 | `activatedEvent` | `Event<`[`IKAnchor`](ikanchor.md), [`Player`](player.md)`>` | Fired when this IKAnchor is activated on a player. | None |
 | `deactivatedEvent` | `Event<`[`IKAnchor`](ikanchor.md), [`Player`](player.md)`>` | Fired when this IKAnchor is deactivated from a player. | None |
+
+## Examples
+
+Example using:
+
+### `Activate`
+
+### `Deactivate`
+
+In this example, the local player is tilted forward when they run. This is done by slightly rotating a pelvis IK anchor forwards and then activating and deactivating it depending on the speed of the player.
+
+```lua
+-- Core object reference to a pelvis IK anchor
+local IKAnchor = script:GetCustomProperty("IKAnchor"):WaitForObject()
+
+-- The minimum speed the player has to be moving at for the IK anchors to be activated
+local ACTIVATION_SPEED = 500
+
+-- How many degrees forward the player will lean when running
+local LEAN_ANGLE = 15
+
+local player = Game.GetLocalPlayer()
+
+-- Store the current activation status of the IK Anchor
+local isActivated = false
+
+-- Attach the IK Anchor object to the root joint of the player so they move together
+IKAnchor:AttachToPlayer(player, "pelvis")
+
+IKAnchor:SetRotation(Rotation.New(0, -LEAN_ANGLE, 0))
+
+function Tick(deltaTime)
+-- Deactivate the IK Anchor if the player is not grounded, not pressing the "W" key, or not moving faster than the `ACTIVATION_SPEED`
+    if((not player.isWalking or not player:IsBindingPressed("ability_extra_21") or player:GetVelocity().size <= ACTIVATION_SPEED) and isActivated) then
+        IKAnchor:Deactivate(player)
+        isActivated = false
+    -- Only activate the IK Anchor if the player is grounded, pressing the "W" key, and moving faster than the `ACTIVATION_SPEED`
+    elseif (player.isWalking and not isActivated and player:IsBindingPressed("ability_extra_21") and player:GetVelocity().size > ACTIVATION_SPEED) then
+        IKAnchor:Activate(player)
+        isActivated = true
+    end
+end
+```
+
+See also: [CoreObject.AttachToPlayer](coreobject.md) | [player.IsBindingPressed](player.md) | [Game.GetLocalPlayer](game.md)
+
+---
