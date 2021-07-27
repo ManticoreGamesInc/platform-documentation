@@ -9,7 +9,7 @@
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
 [context.production]
-  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false", MKDOCS_SITE_URL = "https://docs.coregames.com", GOOGLE_ANALYTICS_KEY = "UA-142884846-4", MKDOCS_MINIFY = "true" }
+  environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false", MKDOCS_SITE_URL = "https://docs.coregames.com", GOOGLE_ANALYTICS_KEY = "UA-142884846-4", MKDOCS_MINIFY = "true", ROBOTS = "all" }
 
 # Deploy Preview context: all deploys generated from a pull/merge request will
 # inherit these settings.
@@ -23,7 +23,7 @@
 [context.branch-deploy]
   publish = "site"
   environment = { DEFAULT_LANGUAGE = "en", DEFAULT_LANGUAGE_ONLY = "false" }
-  command = "MKDOCS_SITE_URL=$DEPLOY_PRIME_URL mkdocs build && cp robots.txt site/robots.txt"
+  command = "MKDOCS_SITE_URL=$DEPLOY_PRIME_URL mkdocs build"
 
   # Redirects and headers are GLOBAL for all builds – they do not get scoped to
   # contexts no matter where you define them in the file.
