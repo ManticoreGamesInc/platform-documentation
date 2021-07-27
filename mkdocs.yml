@@ -267,6 +267,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
+  robots: !ENV [ROBOTS, "noindex"]
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators
