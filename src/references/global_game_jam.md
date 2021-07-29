@@ -60,7 +60,7 @@ The Terrain system in Core allows you to generate terrain from height maps or sc
 
 ### Modeling
 
-Creating [Art in Core](art_reference.md) is done primarily through **kitbashing**. There are no imports, so new models are created using the primitives in Core. After that, structures like **Groups** and **Templates** allow you to treat these as a single object.
+Creating [Art in Core](art.md) is done primarily through **kitbashing**. There are no imports, so new models are created using the primitives in Core. After that, structures like **Groups** and **Templates** allow you to treat these as a single object.
 
 ### Weapons
 
@@ -83,7 +83,7 @@ There are also a number of videos currently available on the [CoreGames YouTube 
 
 ## Community Content
 
-[**Community Content**](../getting_started/community_content.md) is a massive collection of props, scripts, costumes, weapons, and complete game systems created and shared by creators for others to use. Core is designed to easily incorporate these different pieces into games, and facilitates easy collaboration between artists and programmers through the [Template](template_reference.md) system.
+[**Community Content**](../getting_started/community_content.md) is a massive collection of props, scripts, costumes, weapons, and complete game systems created and shared by creators for others to use. Core is designed to easily incorporate these different pieces into games, and facilitates easy collaboration between artists and programmers through the [Template](templates.md) system.
 
 ![Instruments on Community Content](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
 

@@ -37,7 +37,7 @@ nav:
           - World of Warcraft: other_platforms/world_of_warcraft.md
       - Best Practices:
           - Backing Up Your Projects: getting_started/backups.md
-          - Collaboration: references/collaboration_overview.md
+          - Collaboration: references/collaboration.md
           - Creator Analytics: tutorials/creator_analytics.md
           - GitHub and Core: tutorials/github.md
           - Improving Your Game: tutorials/improving_your_game.md
@@ -67,10 +67,10 @@ nav:
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
       - Core Editor Manual:
-          - AI: references/ai_reference.md
-          - Animated Meshes: references/animated_mesh.md
-          - Art in Core: references/art_reference.md
-          - Audio: references/audio_reference.md
+          - AI: references/ai.md
+          - Animated Meshes: references/animated_meshes.md
+          - Art in Core: references/art.md
+          - Audio: references/audio.md
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Curves: references/curves.md
@@ -78,13 +78,13 @@ nav:
           - Custom Properties: references/custom_properties.md
           - Editor Shortcuts: references/editor_keybindings.md
           - Frameworks:
-              - Dungeon Framework Reference: references/dungeon_framework_reference.md
+              - Dungeon Framework Reference: references/dungeon_framework.md
           - Game Components: api/components.md
           - IK and Custom Animations: references/ik_anchors.md
           - Interconnected Games: references/interconnected_games.md
           - Leaderboards: references/leaderboards.md
           - Merged Models: references/merged_models.md
-          - Modeling Reference: references/modeling_reference.md
+          - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
           - Object Generator: references/object_generator.md
           - Offline Storage: references/offline_storage.md
@@ -92,15 +92,15 @@ nav:
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: references/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
-          - Portals: references/portal_reference.md
+          - Portals: references/portals.md
           - Project Files: getting_started/project_files.md
           - Publishing Checklist: getting_started/publishing_checklist.md
           - Queued Games: references/queues.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: references/shared_storage.md
-          - Templates: references/template_reference.md
+          - Templates: references/templates.md
           - Triggers: references/triggers.md
-          - UI: references/ui_reference.md
+          - UI: references/ui.md
           - Vehicles: references/vehicles.md
           - Weapons: references/weapons.md
   - Core API:
@@ -344,34 +344,34 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
-        tutorials/ai_reference.md: references/ai_reference.md
-        tutorials/animated_mesh.md: references/animated_mesh.md
-        tutorials/art_reference.md: references/art_reference.md
-        tutorials/audio_reference.md: references/audio_reference.md
-        tutorials/collaboration_overview.md: references/collaboration_overview.md
+        tutorials/ai_reference.md: references/ai.md
+        tutorials/animated_mesh.md: references/animated_meshes.md
+        tutorials/art_reference.md: references/art.md
+        tutorials/audio_reference.md: references/audio.md
+        tutorials/collaboration_overview.md: references/collaboration.md
         tutorials/curves.md: references/curves.md
         tutorials/custom_materials.md: references/custom_materials.md
         tutorials/custom_properties.md: references/custom_properties.md
-        tutorials/dungeon_framework_reference.md: references/dungeon_framework_reference.md
+        tutorials/dungeon_framework_reference.md: references/dungeon_framework.md
         editor_keybindings.md: references/editor_keybindings.md
         tutorials/global_game_jam.md: references/global_game_jam.md
         tutorials/ik_anchors.md: references/ik_anchors.md
         tutorials/interconnected_games.md: references/interconnected_games.md
         tutorials/leaderboards.md: references/leaderboards.md
         tutorials/merged_models.md: references/merged_models.md
-        tutorials/modeling_reference.md: references/modeling_reference.md
+        tutorials/modeling_reference.md: references/modeling.md
         tutorials/networking.md: references/networking.md
         tutorials/object_generator.md: references/object_generator.md
         tutorials/offline_storage.md: references/offline_storage.md
         tutorials/party_system.md: references/party_system.md
         tutorials/persistent_storage.md: references/persistent_storage.md
-        tutorials/portal_reference.md: references/portal_reference.md
+        tutorials/portal_reference.md: references/portals.md
         tutorials/queues.md: references/queues.md
         tutorials/shared_storage.md: references/shared_storage.md
         tutorials/survival_kit.md: references/survival_kit.md
-        tutorials/template_reference.md: references/template_reference.md
+        tutorials/template_reference.md: references/templates.md
         tutorials/triggers.md: references/triggers.md
-        tutorials/ui_reference.md: references/ui_reference.md
+        tutorials/ui_reference.md: references/ui.md
         tutorials/vehicles.md: references/vehicles.md
         tutorials/weapons.md: references/weapons.md
         start.md: getting_started/start.md

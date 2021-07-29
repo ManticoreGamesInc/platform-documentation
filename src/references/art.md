@@ -63,13 +63,13 @@ Materials can be entirely customized, and saved changes to them synchronized acr
 
 Using pre-made models in Core is not the only way to create art. Models can be combined using **folders** and **groups** to be treated as a single piece.
 
-To learn more about grouping objects, see the [Complex Modeling](modeling_reference.md) reference.
+To learn more about grouping objects, see the [Complex Modeling](modeling.md) reference.
 
 ### Templates
 
 Templates allow you to synchronize changes to one model across all of its copies, transfer models between projects, and share them for the rest of the Creator Community to further develop or use in their games.
 
-To learn how to create and share templates, see the [Template](template_reference.md) reference.
+To learn how to create and share templates, see the [Template](templates.md) reference.
 
 ## Environment Art
 
