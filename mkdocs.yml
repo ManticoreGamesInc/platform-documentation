@@ -79,6 +79,7 @@ nav:
           - Frameworks:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
           - Game Components: api/components.md
+          - IK and Custom Animations: tutorials/ik_anchors.md
           - Interconnected Games: tutorials/interconnected_games.md
           - Leaderboards: tutorials/leaderboards.md
           - Merged Models: tutorials/merged_models.md
@@ -266,6 +267,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
+  robots: !ENV [ROBOTS, "noindex"]
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators

@@ -22,7 +22,7 @@ jobs:
           python-version: 3.8
 
       - name: Setup Node
-        uses: actions/setup-node@v2.2.0
+        uses: actions/setup-node@v2.3.0
         with:
           node-version: 14.x
           cache: npm
@@ -39,7 +39,7 @@ jobs:
           max_timeout: 360
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v7
+        uses: treosh/lighthouse-ci-action@8.0.0
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:
