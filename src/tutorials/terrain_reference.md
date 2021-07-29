@@ -145,7 +145,7 @@ Clicking on the button with the current alignment will open a dropdown menu of b
 
 #### Surface Alignment
 
-The **Surface** alignment option attaches the brush to the surface of the terrain. This allows you to easily add terrain features such as hills and mountains.
+The **Surface** alignment option attaches the brush to the surface of the terrain.
 
 #### Other Alignments
 
@@ -255,7 +255,7 @@ Below is the side by side comparison of the **Food Corn 01** at 100% and the **F
 
 ## Foliage Tool
 
-In the Core Terrain System, foliage are simple objects that are generated at random positions on a specific terrain material. In most cases, your foliage will take the form of trees, boulders, and bushes. The foliage system will automatically generate and place the foliage on the terrain. Each foliage object is tied to a specific terrain material. Foliage objects will only spawn on the terrain material they are associated with.
+In the Core Terrain System, foliage are simple objects that are generated at random positions on a specific terrain material. In most cases, foliage will take the form of trees, boulders, and bushes. The foliage system will automatically generate and place the foliage on the terrain. Each foliage object is tied to a specific terrain material. Foliage objects will only spawn on the terrain material they are associated with.
 
 The **Foliage** tab in the **Properties** window of the selected terrain object is used to configure the settings for generating foliage on a terrain object.
 
@@ -322,7 +322,7 @@ The **Surface Alignment** property determines how the foliage will be oriented w
 *Up Alignment (left) vs. Surface Alignment (right)*
 {: .image-cluster }
 
-The **Ground Slope Angle** controls the type of slope the foliage is allowed to spawn on. You can use this to prevent foliage like trees from spawning on the side of a cliffs. The **Group Slope Angle** property has two settings. The first setting is the minimum slope angle. The second setting is the maximum slope angle. The table below demonstrates how manipulating the first and second settings for the **Ground Slop Angle** property changes the locations that foliage spawns at.
+The **Ground Slope Angle** controls the type of slope the foliage is allowed to spawn on. **Ground Slope Angle** can be used to prevent foliage like trees from spawning on the side of a cliffs. The **Group Slope Angle** property has two settings. The first setting is the minimum slope angle. The second setting is the maximum slope angle. The table below demonstrates how manipulating the first and second settings for the **Ground Slop Angle** property changes the locations that foliage spawns at.
 
 | 0° - 30°  |  30° - 90° | 0° - 90° | 90° - 180° |
 |:---------:|:----------:|:--------:|:----------:|
@@ -352,7 +352,7 @@ The **Scaling** property allows for fine control over the minimum and maximum sc
 | Uniform        | ![Uniform Scaling](../img/TerrainReference/UniformScalingProperties.png){: style="max-width: 100%" } |
 | XY Lock        | ![Lock XY Scaling](../img/TerrainReference/LockXYScale.png){: style="max-width: 100%" } |
 
-The **Height** property determines at what altitude the foliage can spawn. This property is extremely useful when creating terrain with bodies of water. You can use this property to prevent trees or bushes from spawning below the water level. There are two settings for this property. The first setting is the minimum height. The second setting is the maximum height.
+The **Height** property determines at what altitude the foliage can spawn. This property is extremely useful when creating terrain with bodies of water. This property could be used to prevent foliage like trees and bushes from spawning below the water level. There are two settings for this property. The first setting is the minimum height. The second setting is the maximum height.
 
 ![Height Property](../img/TerrainReference/HeightProperty.png){: .center loading="lazy" }
 
@@ -492,7 +492,7 @@ Weightmaps use these four color channels to automatically paint the terrain. Wei
 </p>
 
 !!!note
-    If your weightmap `.png` file uses the **alpha** channel, then you must enable the **Import Alpha Channel** property in the **IMPORT TERRAIN HEIGHTMAP** window before generating terrain.
+    If the weightmap `.png` file uses the **alpha** channel, then the **Import Alpha Channel** property in the **IMPORT TERRAIN HEIGHTMAP** window must be enabled before generating terrain.
 
     ![Import Alpha Channel](../img/TerrainReference/ImportAlphaChannelWindow.png){: .center loading="lazy" style="max-height:14em" }
 
