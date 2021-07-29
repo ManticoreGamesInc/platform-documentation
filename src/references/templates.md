@@ -24,7 +24,7 @@ This document will explain how to **create templates**, **publish** them to Comm
 
 ## Creating Templates
 
-To learn how to create groups and folders, see the [Complex Objects reference](modeling_reference.md).
+To learn how to create groups and folders, see the [Complex Objects reference](modeling.md).
 
 ### Create a Template from a Group
 
@@ -188,4 +188,4 @@ To learn more about importing and using **Community Content** templates, see the
 
 ## Learn More
 
-[Community Content](community_content.md) | [Modeling Complex Objects](modeling_reference.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
+[Community Content](community_content.md) | [Modeling Complex Objects](modeling.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)

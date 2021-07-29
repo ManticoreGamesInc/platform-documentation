@@ -67,7 +67,7 @@ Le système de Terrain de Core vous permet de générer un terrain à partir de 
 
 ### Modeling
 
-La [Création artistique dans Core](art_reference.md) se fait principalement par **kitbashing**. Vous ne pouvez pas importer vos propres éléments et la création se base sur les modèles disponibles dans Core. Ensuite, les structures comme les **Groupes** et les **Modèles** vous permettent de traiter les éléments comme des objets distincts.
+La [Création artistique dans Core](art.md) se fait principalement par **kitbashing**. Vous ne pouvez pas importer vos propres éléments et la création se base sur les modèles disponibles dans Core. Ensuite, les structures comme les **Groupes** et les **Modèles** vous permettent de traiter les éléments comme des objets distincts.
 
 ### Armes
 
@@ -90,7 +90,7 @@ Vous trouverez également plusieurs vidéos sur la [chaîne YouTube de CoreGames
 
 ### Contenus de la communauté
 
-Les [**Contenus de la communauté**](../getting_started/community_content.fr.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](template_reference.md) encourage la collaboration entre graphistes et programmeurs.
+Les [**Contenus de la communauté**](../getting_started/community_content.fr.md) constituent une immense collection d'accessoires, scripts, costumes, armes et systèmes de jeu créés et partagés par les créateurs. Core est conçu pour intégrer facilement ces différents éléments dans les jeux, et le système de [Template](templates.md) encourage la collaboration entre graphistes et programmeurs.
 
 ![Outils des contenus de la communauté](../img/GGJ/GGJ_CommunityContentInstruments.png){: .center loading="lazy" }
 

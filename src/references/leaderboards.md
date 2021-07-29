@@ -139,4 +139,4 @@ end
 
 ## Learn More
 
-[Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](../api/leaderboards.md) | [LeaderboardEntry Object in the Core API](../api/leaderboardentry.md) | [UI Reference](ui_reference.md) | [Task Namespace in the Core API](../api/task.md)
+[Persistent Storage Tutorial](../tutorials/persistent_storage_tutorial.md) | [Leaderboards Namespace in the Core API](../api/leaderboards.md) | [LeaderboardEntry Object in the Core API](../api/leaderboardentry.md) | [UI Reference](../references/ui.md) | [Task Namespace in the Core API](../api/task.md)

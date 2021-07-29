@@ -250,4 +250,4 @@ The minimap will draw a road that connects each **Trigger** to the **Trigger** b
 
 ## Learn More
 
-[Templates](template_reference.md) | [Environment Art](environment_art.md)
+[Templates](templates.md) | [Environment Art](environment_art.md)
