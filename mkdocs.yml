@@ -87,6 +87,7 @@ nav:
           - Networking: tutorials/networking.md
           - Object Generator: tutorials/object_generator.md
           - Offline Storage: tutorials/offline_storage.md
+          - Party System: tutorials/party_system.md
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
