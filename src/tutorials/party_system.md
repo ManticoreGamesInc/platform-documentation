@@ -6,47 +6,31 @@ tags:
     - Reference
 ---
 
-# Party System Reference
+# Party System
 
 ## Overview
 
-**Party System** allow players to easily join games with a group of people. A party has a leader that can move all the members of a party to the same instance of a any game.
+The **Party System** allows players to form groups that move through the Multiverse together, joining the same server instance of any game with sufficient player count. Creators have access to whether a player in their game is part of a party, and whether or not they are the leader of that party, to customize the
 
-## Party Settings
+A party has a leader that can move all the members of a party to the same instance of a any game.
+
+## Party Settings for Players
 
 Party leaders can set a variety of settings in the Party Tab of the social menu.
 
-- If the "Play with Party" setting is on, then the party members will automatically go to whatever game instance the leader goes to. If this is off, then all party members can all join games independently.
+- If the **Play with Party** setting is enabled, then the party members will automatically go to whatever game instance the leader goes to. If *Play with Party* is disabled, players can play different games while remaining part of the party.
+- Parties can also be made **Public**, which will allow other users to join them. The **Party Name** and **Genre Tags** describe what their party will be doing and playing.
+- A player who is not in a party can use the **Party Tab** to search for a public party that matches what they are looking for.
 
-- Parties can also be made public, which will allow other users to join them. Use Party names and Genre Tags to better describe your party.
+## Player Party Information
 
-- A player that is not in a party can use the Party Tab to search for a public party that matches what they are looking for.
+Each player has a set of properties and functions to retrieve data about their party.bCreators can check if a player is in a party and if they are the party leader using the `.isInParty` and `.isPartyLeader` properties. Creators can also determine if two players are in the same party using the `IsInPartyWith` function.
 
-## Player's Party Information
+### Moving an Entire Party to a Child Game
 
-Each player has a set of properties and functions to retrieve data about their party. You can know if a player is inside a party and if he is a party leader using the `.isInParty` and `.isPartyLeader` properties. You can also determine if two players are in the same party using the `player:IsInPartyWith(other)` method.
+For creators who use ``TransferToGame`` to move players between Child Games or Scenes, all players in a party can be moved together by moving the party leader to the child game. See the [Player section of the Core API](../api/player.md) for examples.
 
-If your game has two teams, you can for example use this to force them to be on the same team.
-
-
-## Party Properties
-
-The function `player:GetPartyInfo()` returns an `PartyInfo` object that contains several properties about the current party of the player.
-
-| Property                                 | Description |
-| ---------------------------------------- | ----------- |
-| **id**                                   | The Party id. |
-| **name**                                 | The Party name. |
-| **partySize**                            | The size of the Party. |
-| **maxPartySize**                         | The maximum size of the Party. |
-
-| Functions                                | Description |
-| ---------------------------------------- | ----------- |
-| **GetMembersIds()**                      | Returns the list of members ids. |
-| **GetTags()**                            | Returns the list of tags of this Party. |
-| **IsFull()**                             | Returns true if **maxPartySize** is reached. |
-
----
+--
 
 ## Learn More
 
