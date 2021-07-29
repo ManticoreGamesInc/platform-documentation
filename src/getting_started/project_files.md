@@ -48,4 +48,4 @@ Once Community Content is added to a project by double clicking it from the **Co
 
 ## Learn More
 
-[Templates](../tutorials/template_reference.md) | [GitHub Tutorial](../tutorials/github.md) | [Community Content](community_content.md) | [Backing Up a Project](backups.md)
+[Templates](../references/template_reference.md) | [GitHub Tutorial](../tutorials/github.md) | [Community Content](community_content.md) | [Backing Up a Project](backups.md)

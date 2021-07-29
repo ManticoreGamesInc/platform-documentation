@@ -35,4 +35,4 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 ## Tutorials
 
-[UI in Core](../tutorials/ui_reference.md) | [Implementing Perks](../perks/implementing_perks.md)
+[UI in Core](../references/ui_reference.md) | [Implementing Perks](../perks/implementing_perks.md)

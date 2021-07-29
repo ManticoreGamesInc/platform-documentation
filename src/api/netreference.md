@@ -19,4 +19,4 @@ A reference to a network resource, such as a player leaderboard. NetReferences a
 
 ## Tutorials
 
-[Networking in Core](../tutorials/networking.md)
+[Networking in Core](../references/networking.md)

@@ -2,7 +2,7 @@
 id: vfx_tutorial
 name: Visual Effects in Core
 title: Visual Effects in Core
-categories:
+tags:
     - Tutorial
 ---
 
