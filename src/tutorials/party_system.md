@@ -28,7 +28,7 @@ Each player has a set of properties and functions to retrieve data about their p
 
 ### Moving an Entire Party to a Child Game
 
-For creators who use ``TransferToGame`` to move players between Child Games or Scenes, all players in a party can be moved together by moving the party leader to the child game. See the [Player section of the Core API](../api/player.md) for examples.
+For creators who use `TransferToGame` to move players between Child Games or Scenes, all players in a party can be moved together by moving the party leader to the child game. See the [Player section of the Core API](../api/player.md) for examples.
 
 --
 
