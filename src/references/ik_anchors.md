@@ -70,4 +70,4 @@ To make an **IK Anchor** start controlling a player's bone, call the `Activate` 
 
 ## Learn More
 
-[IKAnchor in the Core Lua API](../api/ikanchor.md) | [Player Animations and Sockets](../api/animations.md) | [Player in the Core Lua API](../api/player.md) | [Abilities Tutorial](abilities.md)
+[IKAnchor in the Core Lua API](../api/ikanchor.md) | [Player Animations and Sockets](../api/animations.md) | [Player in the Core Lua API](../api/player.md) | [Abilities Tutorial](ability_tutorial.md)

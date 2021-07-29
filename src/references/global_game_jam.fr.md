@@ -59,7 +59,7 @@ Au-delà des modèles de Core, il existe des centaines de jeux développés par 
 
 ### Aptitudes
 
-Les [Aptitudes](abilities.md) constituent le premier outil d'animation et d'interaction du joueur. Elles se composent de plusieurs phases distinctes et renvoient les données concernant l'orientation du joueur au moment de leur utilisation. Vous trouverez en outre la liste complète des [Animations et Postures d'Animation](../api/animations.md) disponibles.
+Les [Aptitudes](ability_tutorial.md) constituent le premier outil d'animation et d'interaction du joueur. Elles se composent de plusieurs phases distinctes et renvoient les données concernant l'orientation du joueur au moment de leur utilisation. Vous trouverez en outre la liste complète des [Animations et Postures d'Animation](../api/animations.md) disponibles.
 
 ### Terrain
 

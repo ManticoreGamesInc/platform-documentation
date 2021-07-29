@@ -3,7 +3,7 @@ id: scripting_intro
 name: Intro to Scripting
 title: Intro to Scripting
 tags:
-    - Reference
+    - Tutorial
 ---
 
 # Intro to Scripting

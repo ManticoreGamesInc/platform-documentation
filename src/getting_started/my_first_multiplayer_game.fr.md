@@ -272,4 +272,4 @@ Vous avez désormais créé un jeu de style match à mort complet et unique. Si 
 
 ## Étapes suivantes
 
-[Publier un jeu](publishing.fr.md) | [Tutoriel sur le terrain](environment_art.md) | [Tutoriel de base sur les armes](weapons.md) | [Tutoriel sur les aptitudes](abilities.md)
+[Publier un jeu](publishing.fr.md) | [Tutoriel sur le terrain](environment_art.md) | [Tutoriel de base sur les armes](weapons.md) | [Tutoriel sur les aptitudes](ability_tutorial.md)

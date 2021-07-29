@@ -656,4 +656,4 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 ## Tutorials
 
-[Abilities in Core](../tutorials/abilities.md)
+[Abilities in Core](../tutorials/ability_tutorial.md)

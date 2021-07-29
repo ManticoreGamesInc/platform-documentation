@@ -151,4 +151,4 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [Color.New](color.md)
 
 ## Tutorials
 
-[UI in Core](../tutorials/ui_reference.md)
+[UI in Core](../references/ui_reference.md)
