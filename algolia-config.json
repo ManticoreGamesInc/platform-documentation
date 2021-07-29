@@ -4,10 +4,10 @@
         {
             "url": "https://docs.coregames.com/api/",
             "selectors_key": "api",
-            "tags": [
-                "api",
-                "reference"
-            ]
+            "tags": "api",
+            "extra_attributes": {
+                "lang": "en"
+            }
         },
         {
             "url": "https://docs.coregames.com/fr/",
@@ -26,7 +26,7 @@
         "https://docs.coregames.com/sitemap.xml"
     ],
     "stop_urls": [
-        "https://docs.coregames.com/generated/tags/"
+        "https://docs.coregames.com/generated/"
     ],
     "selectors": {
         "default": {
@@ -71,7 +71,7 @@
             "fr"
         ],
         "attributesForFaceting": [
-            "searchable(tags)",
+            "tags",
             "lang"
         ],
         "attributesToSnippet": [
