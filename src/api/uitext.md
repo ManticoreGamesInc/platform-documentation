@@ -167,4 +167,4 @@ See also: [CoreObject.GetCustomProperty](coreobject.md)
 
 ## Tutorials
 
-[UI in Core](../references/ui_reference.md)
+[UI in Core](../references/ui.md)

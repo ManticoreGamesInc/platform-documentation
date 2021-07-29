@@ -27,7 +27,7 @@ Core comes with a huge number of built in assets that can be used in creating yo
 
 Every asset can be customized by resizing, rotating, and all of the **Materials** can be replaced with dramatically different textures, including animated special effects textures. You can find all the base materials in the **Materials** section of **Core Content**.
 
-The technique used in Core to create your own props and models is called [**kitbashing**](art_reference.md), and essentially involves grouping the existing Core models together so that they can be treated as a single object. You can create a new type of asset to create copies or spawn in game by turning a group into a **Template**.
+The technique used in Core to create your own props and models is called [**kitbashing**](art.md), and essentially involves grouping the existing Core models together so that they can be treated as a single object. You can create a new type of asset to create copies or spawn in game by turning a group into a **Template**.
 
 One of the biggest advantages of using **Templates** is that they can be easily shared with other creators, and there is a huge collection of shared templates available which you can find in the **Community Content** window.
 
@@ -65,11 +65,11 @@ The primary way that scripts can start behavior around your game is through **Ev
 
 ### Collaboration
 
-Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fornite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](template_reference.md) that can be imported into the main project.
+Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fornite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](templates.md) that can be imported into the main project.
 
 You can also use **version control** tools like GitHub. See the [complete guide to setting up GitHub desktop with Core](github.md) to learn more.
 
-To learn about creating teams and organizing projects, see the [Core Collaboration Guide](collaboration_overview.md).
+To learn about creating teams and organizing projects, see the [Core Collaboration Guide](collaboration.md).
 
 ## Terminology
 
@@ -98,4 +98,4 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ### References
 
-[Modeling Props](art_reference.md) | [Templates](template_reference.md) | [Core Collaboration Guide](collaboration_overview.md) | [Core API](../api/index.md)
+[Modeling Props](art.md) | [Templates](templates.md) | [Core Collaboration Guide](collaboration.md) | [Core API](../api/index.md)

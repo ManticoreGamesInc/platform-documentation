@@ -61,7 +61,7 @@ Right click on the **Lightbulb & Switch** template in the **Hierarchy** and clic
 The template and the objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template can now be edited.
 
 !!! info
-    Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](template_reference.md).
+    Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](templates.md).
 
 ### Create and Add a New Script
 

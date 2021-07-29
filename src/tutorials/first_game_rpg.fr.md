@@ -245,4 +245,4 @@ Essayez vos donjons, testez le comportement des ennemis, les objets de la boutiq
 
 ## En savoir plus
 
-[Publier votre jeu](publishing.fr.md) | [Cadre de référence pour Dungeon Crawler](dungeon_framework_reference.md) | [Tutoriel Décor et environnements](environment_art.md) | [Tutoriel Armes](weapons.md)
+[Publier votre jeu](publishing.fr.md) | [Cadre de référence pour Dungeon Crawler](dungeon_framework.md) | [Tutoriel Décor et environnements](environment_art.md) | [Tutoriel Armes](weapons.md)

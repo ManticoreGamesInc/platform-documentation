@@ -89,4 +89,4 @@ Core Object (**.pbt**) files are very small in size, and easy to pass between pr
 
 ## Learn More
 
-[Player in Core API Reference](../api/player.md) | [Player.TransferToGame Example](../api/player.md#examples) | [Publishing Reference](../getting_started/publishing.md) | [Shared Storage](shared_storage.md) | [Template Reference](template_reference.md)
+[Player in Core API Reference](../api/player.md) | [Player.TransferToGame Example](../api/player.md#examples) | [Publishing Reference](../getting_started/publishing.md) | [Shared Storage](shared_storage.md) | [Template Reference](templates.md)
