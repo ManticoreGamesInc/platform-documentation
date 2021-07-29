@@ -47,7 +47,7 @@ nav:
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
           - Implementing Perks: perks/implementing_perks.md
-          - Implementing Reward Points: reward_points/reward_points_reference.md
+          - Implementing Reward Points: perks/reward_points.md
       - Tutorials:
           - Abilities: tutorials/ability_tutorial.md
           - AI Activities: tutorials/ai_activity_tutorial.md
@@ -344,6 +344,7 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
+        reward_points/reward_points_reference.md: perks/reward_points.md
         tutorials/ai_reference.md: references/ai.md
         tutorials/animated_mesh.md: references/animated_meshes.md
         tutorials/art_reference.md: references/art.md
