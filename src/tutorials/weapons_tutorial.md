@@ -79,7 +79,7 @@ The in-editor window scene weapon will be completely "empty" having almost no vi
 
     This model should all be contained in a group, and this group should be made a child of the weapon by dragging the folder onto the weapon.
 
-    If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art_reference.md)** page or try a **[Tutorial](modeling_basics.md)**.
+    If you'd like more tips on how to model and create art in Core, visit the **[Art Reference](art.md)** page or try a **[Tutorial](modeling_basics.md)**.
 
     This attaches the visuals of the weapon to the function of the weapon!
 

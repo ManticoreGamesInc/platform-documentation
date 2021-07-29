@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-Creations published as open-source [templates](template_reference.md) can be found in the **Community Content** window. These templates can be small models, packages of props, scripts, or fully scripted objects.
+Creations published as open-source [templates](templates.md) can be found in the **Community Content** window. These templates can be small models, packages of props, scripts, or fully scripted objects.
 
 Community content creates a wider variety of assets to choose from while building a project, and sharing templates with Community Content allows Core Creators to collaborate on models and tools and share their innovations within Core.
 
@@ -58,7 +58,7 @@ To use the template in your project, click and drag the green template icon into
 
 ## Publishing Your Own Content
 
-To share your own templates on Community Content, see the [Template reference](template_reference.md).
+To share your own templates on Community Content, see the [Template reference](templates.md).
 
 ## Community Shared Games
 
@@ -68,4 +68,4 @@ To start a game from a community framework, open the **Create** menu of the Core
 
 ## Learn More
 
-[Templates](template_reference.md) | [Complex Models](modeling_reference.md) | [Publishing](publishing.md)
+[Templates](templates.md) | [Complex Models](modeling.md) | [Publishing](publishing.md)

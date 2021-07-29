@@ -255,7 +255,7 @@ If you are not collaborating, you can **merge** the changes on to your local mai
 
 ### Using Templates
 
-Creating **templates** is an easy way to have multiple contributors to a project, without having to use Git. See the [Template Reference](template_reference.md) for more information on how to do this.
+Creating **templates** is an easy way to have multiple contributors to a project, without having to use Git. See the [Template Reference](templates.md) for more information on how to do this.
 
 ## Version Control Terminology
 
@@ -280,4 +280,4 @@ Creating **templates** is an easy way to have multiple contributors to a project
 
 ## Learn More
 
-[Template Reference](template_reference.md) | [Complex Modeling](modeling_basics.md) | [Publishing](publishing.md)
+[Template Reference](templates.md) | [Complex Modeling](modeling_basics.md) | [Publishing](publishing.md)

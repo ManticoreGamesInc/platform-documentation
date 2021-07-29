@@ -52,4 +52,4 @@ Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'ongle
 
 ## En savoir plus
 
-[Checklist de Prépublication](publishing_checklist.md) | [Partager des templates](template_reference.md)
+[Checklist de Prépublication](publishing_checklist.md) | [Partager des templates](templates.md)
