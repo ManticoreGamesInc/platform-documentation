@@ -36,7 +36,7 @@ If you're fresh and new to any kind of programming, it would be good to visit th
 
 ---
 
-Before doing this tutorial, make sure you've already gone through the **[Ability](abilities.md)** tutorial and the **[Weapon](weapons.md)** tutorial to understand the basics of how these things work.
+Before doing this tutorial, make sure you've already gone through the **[Ability](ability_tutorial.md)** tutorial and the **[Weapon](weapons.md)** tutorial to understand the basics of how these things work.
 
 We're going to be making a more complex `weapon` that utilizes scripting, and has multiple abilities.
 
@@ -827,7 +827,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 ### Connecting UI
 
-You'll probably want to set up User Interface (UI) for your fire staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](abilities.md#core-component-ability-display)**'s section on UI.
+You'll probably want to set up User Interface (UI) for your fire staff's abilities. For a refresher on how to set this up, check out the **[Ability Tutorial](ability_tutorial.md#core-component-ability-display)**'s section on UI.
 
 ## Examples
 

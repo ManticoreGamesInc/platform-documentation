@@ -3,7 +3,7 @@ id: modeling
 name: Modeling Basics
 title: Modeling Basics
 tags:
-    - Reference
+    - Tutorial
 ---
 
 # Modeling Basics

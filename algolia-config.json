@@ -10,6 +10,10 @@
             }
         },
         {
+            "url": "https://docs.coregames.com/references/",
+            "tags": "reference"
+        },
+        {
             "url": "https://docs.coregames.com/fr/",
             "extra_attributes": {
                 "lang": "fr"

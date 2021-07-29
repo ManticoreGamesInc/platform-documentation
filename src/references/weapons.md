@@ -162,4 +162,4 @@ There are several ways to make sure players start with weapons. This example wil
 
 ## Learn More
 
-[Basic Weapons Tutorial](weapons_tutorial.md) | [Abilities and Equipment Tutorial](abilities.md) | [Advanced Abilities Tutorial](abilities_advanced.md)
+[Basic Weapons Tutorial](weapons_tutorial.md) | [Abilities and Equipment Tutorial](ability_tutorial.md) | [Advanced Abilities Tutorial](abilities_advanced.md)
