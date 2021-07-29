@@ -1,10 +1,9 @@
 ---
-id: reward_points_reference
-name: Reward Points Reference
-title: Reward Points Reference
+id: reward_points
+name: Reward Points
+title: Reward Points
 tags:
-    - Tutorial
-    - Game Creation
+    - Perks
 ---
 
 # Reward Points
