@@ -844,12 +844,12 @@ function IsFirstJoinToday(player)
     local today = os.date("*t")
     local day = today.day
     local month = today.month
-    
+
     print("Day = " .. day)
     print("Month = " .. month)
-    
+
     local data = Storage.GetPlayerData(player)
-    if day ~= data.lastJoinDay 
+    if day ~= data.lastJoinDay
     or month ~= data.lastJoinMonth then
         data.lastJoinDay = day
         data.lastJoinMonth = month
@@ -1172,6 +1172,42 @@ end
 ```
 
 See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `isInParty`
+
+### `isPartyLeader`
+
+### `IsInPartyWith`
+
+This example will teleport any players to their team leader if the leader is connected.
+
+```lua
+function OnPlayerJoined(player)
+    -- If the player is not in a party, stop here
+    if not player.isInParty then
+        return
+    end
+
+    local players = Game.GetPlayers()
+    -- Go through each player
+    for _, p in ipairs(players) do
+        -- If the other player is the leader
+        if p ~= player and p:IsInPartyWith(player) and p.isPartyLeader then
+            -- Teleport the player to the leader
+            player:SetWorldPosition(p:GetWorldPosition())
+            return
+        end
+    end
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Game.playerJoinedEvent](game.md) | [Player:IsInPartyWith](player.md)
 
 ---
 

@@ -59,6 +59,6 @@ If you are a developer on another platform, check out our guides to quickly lear
 
 ## Learn More
 
-[Learn Lua](../tutorials/lua_basics_helloworld.md) | [Core Lua API](../api/index.md) | [Intro for Artists](../tutorials/art_reference.md) | [Publishing](publishing.md)
+[Learn Lua](../tutorials/lua_basics_helloworld.md) | [Core Lua API](../api/index.md) | [Intro for Artists](../references/art_reference.md) | [Publishing](publishing.md)
 
 <!-- TODO: Unreal, Minecraft Mods -->

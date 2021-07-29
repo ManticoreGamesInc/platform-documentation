@@ -881,4 +881,4 @@ See also: [Equipment.owner](equipment.md) | [Player.spreadModifier](player.md) |
 
 ## Tutorials
 
-[Weapons in Core](../tutorials/weapons.md) | [Weapons & Abilities (Advanced)](../tutorials/abilities_advanced.md)
+[Weapons in Core](../references/weapons.md) | [Weapons & Abilities (Advanced)](../tutorials/abilities_advanced.md)

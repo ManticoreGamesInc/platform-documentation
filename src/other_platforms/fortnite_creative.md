@@ -94,7 +94,7 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 ### Recommended Tutorials
 
 - [Scripting Tutorial](lua_basics_lightbulb.md)
-- [Abilities Tutorial](abilities.md)
+- [Abilities Tutorial](ability_tutorial.md)
 
 ### References
 

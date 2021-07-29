@@ -206,7 +206,7 @@ Shared_BaseMaterial
 With each material slot, there is a set of properties to edit and functions that can be called that will manipulate how the material appears.
 
 !!! note
-    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../tutorials/networking.md) and the [Contexts API](../api/contexts.md).
+    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../references/networking.md) and the [Contexts API](../api/contexts.md).
 
 For instance, there is an option to change the color of the material slot using the `:SetColor(Color)` function of [MaterialSlot](../api/materialslot.md).
 
@@ -248,7 +248,7 @@ In many cases, you may have already created materials using the in-editor tools 
 This can be done with the `:SetMaterialForSlot(string, string)` function of [StaticMesh](../api/staticmesh.md)/[AnimatedMesh](../api/animatedmesh.md).
 
 !!! note
-    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../tutorials/networking.md) and the [Contexts API](../api/contexts.md).
+    If you get an error saying that you **`Attempted to modify a field on a non-networked object`**, then you must either make the object networked or put it into a context.<br><br>More information can be found in the [Networking Reference](../references/networking.md) and the [Contexts API](../api/contexts.md).
 
 First, add the custom material to the script as a custom property.
 
@@ -292,4 +292,4 @@ RoofObject:SetMaterialForSlot(Material, MATERIAL_SLOT_NAME)
 
 ## Learn More
 
-[Environment Art](environment_art.md) | [Modeling Basics](modeling_basics.md) | [MaterialSlot API](../api/materialslot.md) | [StaticMesh API](../api/staticmesh.md) | [AnimatedMesh API](../api/animatedmesh.md) | [Networking Reference](../tutorials/networking.md) | [Contexts API](../api/contexts.md)
+[Environment Art](environment_art.md) | [Modeling Basics](modeling_basics.md) | [MaterialSlot API](../api/materialslot.md) | [StaticMesh API](../api/staticmesh.md) | [AnimatedMesh API](../api/animatedmesh.md) | [Networking Reference](../references/networking.md) | [Contexts API](../api/contexts.md)
