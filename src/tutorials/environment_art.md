@@ -323,8 +323,8 @@ There are other complete sky templates available, as well as the different versi
 
 ### Finish the Scene
 
-The final step is to add structures and props that finish the scene. See the [Complex Modeling](modeling_reference.md) and [Community Content](community_content.md) reference to learn about creating props and using props made by other Core creators.
+The final step is to add structures and props that finish the scene. See the [Complex Modeling](modeling.md) and [Community Content](community_content.md) reference to learn about creating props and using props made by other Core creators.
 
 ## Learn More
 
-[Custom Materials](custom_materials.md) | [Complex Modeling](modeling_reference.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
+[Custom Materials](custom_materials.md) | [Complex Modeling](modeling.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)

@@ -224,7 +224,7 @@ Your Text Box probably came with another UI Container, but as this is already a 
 !!! tip
     All UI Elements come with a UI Container automatically to help you use them more immediately.
 
-Feel free to play around and customize how the Text Control looks and where it is displayed on the screen. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](ui_reference.md) is a cool reference to check out.
+Feel free to play around and customize how the Text Control looks and where it is displayed on the screen. Using UI is a fantastic way to give your game a unique and professional feel. For more information about UI, [here](../references/ui.md) is a cool reference to check out.
 
 Now let's make a simple map and populate it with coins.
 

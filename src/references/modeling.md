@@ -93,7 +93,7 @@ Folders and groups can be added to other folders and groups. This allows for cle
 
 ### Templates
 
-Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. They also allow you to share your creations on Community Content. See the [Template tutorial](template_reference.md) to learn more.
+Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. They also allow you to share your creations on Community Content. See the [Template tutorial](templates.md) to learn more.
 
 ### Merged Models
 
@@ -101,4 +101,4 @@ Merged models are a way of grouping objects together to reduce the rendering cal
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](template_reference.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](templates.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)

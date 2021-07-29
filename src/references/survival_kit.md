@@ -76,4 +76,4 @@ If you find a model in the world that you would like to copy and use elsewhere, 
 
 ## Learn More
 
-[Survival Tutorial](survival_tutorial.md) | [Template Reference](template_reference.md)
+[Survival Tutorial](survival_tutorial.md) | [Template Reference](templates.md)

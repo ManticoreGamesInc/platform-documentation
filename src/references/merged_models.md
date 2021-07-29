@@ -76,4 +76,4 @@ Merged Models are created using the same method as groups and folders:
 
 ## Learn More
 
-[Modeling in Core](modeling_reference.md) | [Network Contexts](networking.md)
+[Modeling in Core](modeling.md) | [Network Contexts](networking.md)

@@ -29,7 +29,7 @@ This section contains the existing logic of the game.
 
 ### UI Settings
 
-This section includes all the of the information displayed on the screen to tell players about their health, XP, coins, abilities, and which location they are in. You can change the way these are displayed. Check out the Core [UI Reference](ui_reference.md) to learn more about using the 2D User Interface elements.
+This section includes all the of the information displayed on the screen to tell players about their health, XP, coins, abilities, and which location they are in. You can change the way these are displayed. Check out the Core [UI Reference](../references/ui.md) to learn more about using the 2D User Interface elements.
 
 ### Map
 
