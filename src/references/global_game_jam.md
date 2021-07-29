@@ -52,7 +52,7 @@ Beyond Core Frameworks, there are hundreds of Community Games that have been mar
 
 ### Abilities
 
-[Abilities](abilities.md) are the primary way to make player interactions and animations. They have several different phase events and can return data about where the player was targeting when used. You can also find a complete list of the available [Animations and Animation Stances](../api/animations.md).
+[Abilities](ability_tutorial.md) are the primary way to make player interactions and animations. They have several different phase events and can return data about where the player was targeting when used. You can also find a complete list of the available [Animations and Animation Stances](../api/animations.md).
 
 ### Terrain
 

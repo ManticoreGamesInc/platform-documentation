@@ -210,4 +210,4 @@ Check out our [Persistent Data Storage in Core](../tutorials/persistent_storage_
 
 ## Learn More
 
-[NetReference on the Core API](netreference.md) | [Persistent Storage Reference](../tutorials/persistent_storage.md)
+[NetReference on the Core API](netreference.md) | [Persistent Storage Reference](../references/persistent_storage.md)

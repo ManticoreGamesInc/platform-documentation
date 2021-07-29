@@ -3,7 +3,7 @@ id: scene_creation
 name: Scene Creation in Core
 title: Scene Creation in Core
 tags:
-    - Reference
+    - Tutorial
 ---
 
 # Scene Creation in Core
