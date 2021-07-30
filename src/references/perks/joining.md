@@ -4,6 +4,7 @@ name: Enrolling in the Core Perks Program
 title: Enrolling in the Core Perks Program
 tags:
     - Perks
+    - Reference
 ---
 
 # Joining the Perks Program
