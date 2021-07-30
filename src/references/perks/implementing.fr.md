@@ -4,6 +4,7 @@ name: Comment implémenter les Perks
 title: Comment implémenter les Perks
 tags:
     - Perks
+    - Reference
 ---
 
 # Perks
