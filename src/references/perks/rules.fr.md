@@ -4,6 +4,7 @@ name: Règlement de Core concernant la monétisation
 title: Règlement de Core concernant la monétisation
 tags:
     - Perks
+    - Reference
 ---
 
 # Règlement de Core concernant la monétisation

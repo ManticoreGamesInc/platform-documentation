@@ -4,6 +4,7 @@ name: Core Monetization Rules
 title: Core Monetization Rules
 tags:
     - Perks
+    - Reference
 ---
 
 # Core Monetization Rules

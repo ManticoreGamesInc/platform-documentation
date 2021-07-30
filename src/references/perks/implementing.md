@@ -4,6 +4,7 @@ name: How to Implement Perks
 title: How to Implement Perks
 tags:
     - Perks
+    - Reference
 ---
 
 # Perks

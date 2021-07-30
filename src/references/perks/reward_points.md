@@ -4,6 +4,7 @@ name: Reward Points
 title: Reward Points
 tags:
     - Perks
+    - Reference
 ---
 
 # Reward Points
