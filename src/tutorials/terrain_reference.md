@@ -25,7 +25,7 @@ The **Terrain Creator** is used to generate large landscapes. Often, the terrain
 
 ## Creating Terrain
 
-Click on the ![mountain icon](../img/EditorManual/icons/HierarchyIcon_Terrain.png) icon at the top of the Core Editor to open the **TERRAIN CREATOR** drop down menu.
+Click on the ![mountain icon](../img/EditorManual/icons/HierarchyIcon_Terrain.png)terrain creator icon at the top of the Core Editor to open the **TERRAIN CREATOR** drop down menu.
 {: .image-inline-text .image-background }
 
 ![Click on Terrain Icon](../img/TerrainReference/HighlightTerrainCreatorButton.png){: .center loading="lazy" }
@@ -87,7 +87,7 @@ If the **Sculpt** tab has been selected, clicking and hold the ++left-button++ o
 
 ### Additive Sculpting
 
-Clicking on the ![Pull Terrain Icon](../img/EditorManual/icons/Icon_TerrainPull.png) icon will enable **Additive Sculpting**. Additive sculpting adds to the terrain by creating new terrain under the brush. The **Additive Sculpting** exists on both the **Surface** and **Shape** tools.
+Click on the ![Pull Terrain Icon](../img/EditorManual/icons/Icon_TerrainPull.png)additive sculpting icon to enable **Additive Sculpting**. Additive sculpting adds to the terrain by creating new terrain under the brush. The **Additive Sculpting** exists on both the **Surface** and **Shape** tools.
 {: .image-inline-text .image-background }
 
 ![Additive Mode](../img/TerrainReference/AdditiveMode.png){: .center loading="lazy" }
@@ -100,7 +100,7 @@ Clicking on the ![Pull Terrain Icon](../img/EditorManual/icons/Icon_TerrainPull.
 
 ### Destructive Sculpting
 
-Clicking on the ![Push Terrain Icon](../img/EditorManual/icons/Icon_TerrainPush.png) icon will enable **DEstructive Sculpting**. Destructive sculpting removes terrain under the brush. The **Destructive Sculpting** setting exists on both the **Surface** and **Shape** tools.
+Clicking on the ![Push Terrain Icon](../img/EditorManual/icons/Icon_TerrainPush.png)destructive sculpting icon will enable **DEstructive Sculpting**. Destructive sculpting removes terrain under the brush. The **Destructive Sculpting** setting exists on both the **Surface** and **Shape** tools.
 {: .image-inline-text .image-background }
 
 ![Destructive Mode](../img/TerrainReference/DestructiveMode.png){: .center loading="lazy" }
@@ -220,7 +220,7 @@ The **Material Base** property determines what material will be displayed on the
 
 #### Switching Materials
 
-Clicking on the ![Icon Close](../img/EditorManual/icons/Icon_Close.png) icon at the top left of the **Material Editor** window will save all changes to the terrain materials and close the **Material Editor** window.
+Clicking on the ![Icon Close](../img/EditorManual/icons/Icon_Close.png)close window icon at the top left of the **Material Editor** window will save all changes to the terrain materials and close the **Material Editor** window.
 {: .image-inline-text .image-background }
 
 ![Close Material Editor](../img/TerrainReference/CloseMaterialEditor.png){: .center loading="lazy" }
@@ -457,7 +457,7 @@ The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determi
 
 ![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
 
-Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window.
+Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window.
 {: .image-inline-text .image-background }
 
 ![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }
@@ -496,7 +496,7 @@ Weightmaps use these four color channels to automatically paint the terrain. Wei
 
     ![Import Alpha Channel](../img/TerrainReference/ImportAlphaChannelWindow.png){: .center loading="lazy" style="max-height:14em" }
 
-Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png)icon next to the **Weightmap** field will open a **File Explorer** window in which you can select a `.png` file from your computer to use as a weightmap.
+Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Weightmap** field will open a **File Explorer** window in which you can select a `.png` file from your computer to use as a weightmap.
 {: .image-inline-text .image-background }
 
 ![Import Weightmap File](../img/TerrainReference/ImportWeightmapIcon.png){: .center loading="lazy" }
