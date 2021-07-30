@@ -54,10 +54,10 @@ local featuredGames = CorePlatform.GetGameCollection("featured")
 
 for _,entry in ipairs(featuredGames) do
     print("Showing screenshots for " .. entry.name)
-
+    
     local gameInfo = CorePlatform.GetGameInfo(entry.id)
     local count = gameInfo.screenshotCount
-
+    
     -- Show each of the game's screenshots
     for i = 1,count do
         IMAGE:SetGameScreenshot(entry.id, i)
@@ -132,7 +132,7 @@ function Tick(deltaTime)
         -- Reset the "timer" to 2 seconds
         timer = 2
 
-        -- Get the id of the friend at the current index of the array
+        -- Get the id of the friend at the current index of the array 
         local friend_id = friends[currentIndex].id
 
         -- Update the image with the friend's profile picture
@@ -205,4 +205,4 @@ See also: [CoreObject.GetCustomProperty](coreobject.md)
 
 ## Tutorials
 
-[UI in Core](../references/ui.md)
+[UI in Core](../references/ui_reference.md)
