@@ -19,4 +19,4 @@ A UIControl which can be used for containing and laying out other UI controls.
 
 ## Tutorials
 
-[UI in Core](../references/ui.md)
+[UI in Core](../references/ui_reference.md)
