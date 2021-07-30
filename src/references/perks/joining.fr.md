@@ -4,6 +4,7 @@ name: S'inscrire au programme Perks Core
 title: S'inscrire au programme Perks Core
 tags:
     - Perks
+    - Reference
 ---
 
 # Participer au programme Perks

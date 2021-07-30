@@ -4,6 +4,7 @@ name: À propos du programme Perks et de la monétisation
 title: À propos du programme Perks et de la monétisation
 tags:
     - Perks
+    - Reference
 ---
 
 <style>
