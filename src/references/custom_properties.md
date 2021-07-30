@@ -234,7 +234,7 @@ local spawnedCube = World.SpawnAsset(CubeTemplate)
 
 A **Net Reference** contains a value that points to a **Leaderboard**, a **Shared Storage Key**, or a **Perk** which are data that is stored on the Core backend and are accessible across all your projects.
 
-More information can be found at the [Leaderboards Tutorial](../references/leaderboards.md), the [Shared Storage Tutorial](../references/shared_storage.md), and the [Perks Tutorial](../perks/implementing_perks.md)
+More information can be found at the [Leaderboards Tutorial](../references/leaderboards.md), the [Shared Storage Tutorial](../references/shared_storage.md), and the [Perks Tutorial](../references/perks/implementing.md)
 
 ## Learn More
 
@@ -251,4 +251,4 @@ More information can be found at the [Leaderboards Tutorial](../references/leade
 [Vector4 API](../api/vector4.md) |
 [Leaderboards Tutorial](../references/leaderboards.md) |
 [Shared Storage Tutorial](../references/shared_storage.md) |
-[Perks Tutorial](../perks/implementing_perks.md)
+[Perks Tutorial](../references/perks/implementing.md)

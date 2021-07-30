@@ -14,7 +14,7 @@ tags:
 
 # About the Perks Program and Monetization
 
-The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](joining_perks.md) gives access to [**Perks**](implementing_perks.md) and the [**Reward Points**](reward_points_reference.md) system. Both [**Perks**](implementing_perks.md) and [**Reward Points**](reward_points_reference.md) are in-game purchases built specifically for Core.
+The Perks Program enables Core creators to make money with their games using a complete monetization system that can be customized to any game type. [Joining the program](../perks/joining.md) gives access to [**Perks**](../perks/implementing.md) and the [**Reward Points**](../perks/reward_points.md) system. Both [**Perks**](../perks/implementing.md) and [**Reward Points**](../perks/reward_points.md) are in-game purchases built specifically for Core.
 
 To qualify for adding Perks to your games, there are two requirements:
 
@@ -28,7 +28,7 @@ Creators in the Perks Program have access to Core’s Perks system, which enable
 
 ## How Perks Work
 
-![Player Credit Purchase Flow](../img/Perks/Perks_PlayerPurchaseFlow.png){: .center loading="lazy"}
+![Player Credit Purchase Flow](../../img/Perks/Perks_PlayerPurchaseFlow.png){: .center loading="lazy"}
 
 Creators can monetize their games through Perks, which allow them to sell in-game benefits to players for Core Credits. There are three types of perks, separated by how often your players are able to purchase them:
 
@@ -41,15 +41,15 @@ Creators can monetize their games through Perks, which allow them to sell in-gam
 
 Creators control what kind of perks they use and how to add them to their games. There is no limit to the number of Perks a creator can have, and one Perk can apply to several of a creator’s games.
 
-Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](../api/player.md). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game’s monetization.
+Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](../../api/player.md). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game’s monetization.
 
 When a player buys a Perk, Core handles the transaction from start to finish. The Credits go to the creator’s account, at which point the creator can spend them in other Core games or in the Core shop.
 
-To learn more about how to create Perks for your game, see the [Perks reference](implementing_perks.md)
+To learn more about how to create Perks for your game, see the [Perks reference](../perks/implementing.md)
 
 ## Redeeming Core Credits
 
-![Creator Credit Flow](../img/Perks/Perks_CreatorCreditFlow.png){: .center loading="lazy"}
+![Creator Credit Flow](../../img/Perks/Perks_CreatorCreditFlow.png){: .center loading="lazy"}
 
 Creators directly receive all the Core Credits that are spent on Perks. When the creator accumulates credits above a payout threshold, they become eligible for converting credits to real-world currency. These can be initiated through the [Creator Dashboard](https://www.coregames.com/create/dashboard).
 
@@ -59,7 +59,7 @@ See the [Core Credits redemption](https://support.coregames.com/hc/en-us/article
 
 > Core shares revenue with creators in an even 50/50 split.
 
-![50/50 graphic](../img/Perks/Perks_FiftyFifty.png){: .center loading="lazy"}
+![50/50 graphic](../../img/Perks/Perks_FiftyFifty.png){: .center loading="lazy"}
 
 Creators can receive this split by opting to convert their Core Credits to real-world currency as described above. When converting, creators receive 50% of the revenue spent on their Perks.
 
@@ -69,18 +69,18 @@ By developing on Core, creators can build anything from a deep traditional MMO w
 
 Most development platforms provide only a subset of those benefits, passing the cost of the rest to creators. Other UGC platforms, such as Roblox, take a much larger share of revenue – or don’t allow monetization at all.
 
-![Core Revenue Split vs Competitor](../img/Perks/Perks_CoreRoblox.png){: .center loading="lazy"}
+![Core Revenue Split vs Competitor](../../img/Perks/Perks_CoreRoblox.png){: .center loading="lazy"}
 
-![Core Revenue Split vs Competitor](../img/Perks/Perks_PlatformCostChart.png){: .center loading="lazy"}
+![Core Revenue Split vs Competitor](../../img/Perks/Perks_PlatformCostChart.png){: .center loading="lazy"}
 
 By using Core, creators get a larger share of revenue compared to other similar platforms while also having access to the full stack of tools to build, publish, and grow their games.
 
 ## Applying to the Perks Program
 
-Once you have reached the minimum DAU to qualify, you can [apply to the Perks Program](joining_perks.md) here. For tips on how to improve your game to meet the minimum DAU requirement, check out the [improving your game to increase DAU guide](../tutorials/improving_your_game.md).
+Once you have reached the minimum DAU to qualify, you can [apply to the Perks Program](../perks/joining.md) here. For tips on how to improve your game to meet the minimum DAU requirement, check out the [improving your game to increase DAU guide](../../tutorials/improving_your_game.md).
 
 ---
 
 ## Learn More
 
-[Implementing Perks](implementing_perks.md) | [Creator Analytics](creator_analytics.md) | [How to Join the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [Enrolling in the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Guidelines for Creating Perks](perks_rules.md)
+[Implementing Perks](../perks/implementing.md) | [Creator Analytics](../../tutorials/creator_analytics.md) | [How to Join the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063182-How-to-Join-the-Perks-Program) | [Enrolling in the Perks Program](https://support.coregames.com/hc/en-us/articles/1500000063581-Enrolling-in-the-Perks-Program) | [Guidelines for Creating Perks](../perks/rules.md)
