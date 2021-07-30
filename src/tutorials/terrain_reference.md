@@ -31,7 +31,6 @@ Click on the ![mountain icon](../img/EditorManual/icons/HierarchyIcon_Terrain.pn
 ![Click on Terrain Icon](../img/TerrainReference/HighlightTerrainCreatorButton.png){: .center loading="lazy" }
 
 The **TERRAIN CREATOR** drop down menu contains two options, **Generate New Terrain** and **Import From Heightmap**. The **Generate New Terrain** option will open the **GENERATE NEW TERRAIN** window which is used to create new terrain by modifying pre-existing terrain types. The **Import From Heightmap** option will open the **IMPORT TERRAIN HEIGHTMAP** window.
-
 {: .image-inline-text .image-background }
 
 ![Generate Terrain](../img/TerrainReference/ClickOnGenerateNewTerrain.png){: .center loading="lazy" }
@@ -44,13 +43,13 @@ The left left side of the **GENERATE NEW TERRAIN** window  contains list of diff
 
 ![Terrain Generator](../img/TerrainReference/TerrainGeneratorWindow.png){: .center loading="lazy" }
 
-### Terrain Settings
+#### Terrain Settings
 
 The **General** section contains settings that will apply to all types of terrain. The **Voxel Size** setting determines how large the voxels of the terrain will be. A voxel is like a 3D pixel. The smaller the voxels are, the more detail the terrain can have. The **Terrain Size** setting determines how many voxels the terrain will have. The higher the voxel count, the larger the terrain can be. The downside of increasing the number of voxels is that the terrain use up more of the limited terrain memory space. Creators are limited between 50MB and 100MB of terrain memory space depending on the maximum number of players for the game.
 
 The **Parameters** section contains settings that will vary depending on the terrain type selected. For example, the **Cube World** is the only terrain type with the **Edge Length** setting.
 
-### Terrain Types
+#### Terrain Types
 
 Clicking on one of the terrain types from the list on the left side of the **GENERATE NEW TERRAIN** window will select that terrain type. Below are three sample images of what the different terrain types look like.
 
@@ -66,6 +65,57 @@ The **Terrain** object in the **Hierarchy** window will probably appear **red**{
 
 !!!tip
     Double clicking on a terrain object in **Hierarchy** window will bring that terrain object into view in the **Main Viewport** window.
+
+### Heightmaps
+
+Heightmaps allows creators to generate terrain objects from `.png` images. The brightness of each pixel in the `.png` image controls how tall the point of terrain associated with that pixel will be.
+
+#### Formatting Heightmaps
+
+Heightmap images need to square **gray-scaled** `.png` images. The **Terrain Generator** will only accept heightmap images of the following sizes:
+
+- 128 x 128
+- 256 x 256
+- 512 x 512
+- 1024 x 1024
+
+!!!tip
+    There are multiple [websites](https://onlinepngtools.com/convert-png-to-grayscale) that can be used to convert `.png` images to **gray-scale** images."
+
+#### Importing Heightmaps
+
+To create a terrain object from a heightmap, first click on the ![mountain icon](../img/EditorManual/icons/HierarchyIcon_Terrain.png) icon. Clicking on the **Import From Heightmap** in the **TERRAIN CREATOR** window will open the **IMPORT TERRAIN HEIGHTMAP** window.
+{: .image-inline-text .image-background }
+
+![Click On Import From Heightmap Button](../img/TerrainReference/ImportHeightMapButton.png){: .center loading="lazy" }
+
+The settings in the **IMPORT TERRAIN HEIGHTMAP** window determine how much influence the heightmap will have in the generation of terrain.
+
+![!Heightmap Window](../img/TerrainReference/HeightmapWindow.png){: .center loading="lazy" }
+
+ Below is an example of a heightmap `.png` file and the terrain generated from that heightmap `.png` file. This heightmap image was generously provided by the **Core** creator **docbdesign**.
+
+![Source Image](../img/TerrainReference/jurassic_map_1.png "image_tooltip")
+![Terrain Output](../img/TerrainReference/IslandTerrain.png "image_tooltip")
+*Heightmap Source Image (left) vs. Terrain Generated from Heightmap (right)*
+{: .image-cluster }
+
+The **Voxel Size** setting in the **IMPORT TERRAIN HEIGHTMAP** window determines how large the voxels of the terrain will be. Smaller voxel sizes will shrink the terrain but increase the amount of detail.
+
+![Voxel Settings](../img/TerrainReference/VoxelSize.png){: .center loading="lazy" }
+
+The **Height Multiplier** setting in the **IMPORT TERRAIN HEIGHTMAP** window changes how much influence the brightness of a pixel has on the height of the generated terrain.
+
+The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determines what the default height of the generated terrain will be.
+
+![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
+
+Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
+{: .image-inline-text .image-background }
+
+![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }
+
+![Click on Import Button](../img/TerrainReference/ImportPNGMap.png){: .center loading="lazy" }
 
 ## Sculpting
 
@@ -249,7 +299,7 @@ The strength of materials is even more so visible by using the **Debug Mode** in
 
 ![Enable Debug Mode](../img/TerrainReference/EnableDebugMode.png){: .center loading="lazy" }
 
-Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the _first_ terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#Weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: .Color_YELLOW } color.
+Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the _first_ terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#Weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: style="color:#D6D13E" } color.
 
 ![Terrain Debug Mode](../img/TerrainReference/DebugModeExample.png){: .center loading="lazy" }
 
@@ -278,13 +328,13 @@ Clicking on the **Add Foliage** button will open the **STATIC MESH PICKER** wind
 !!!note
     When adding foliage only use assets from the **STATIC MESH PICKER** window can be used. Custom templates cannot be used as foliage.
 
-The object selected from the **STATIC MESH PICKER** window will now be randomly spread throughout the terrain as foliage. By default, the foliage added will be associated with the _first_ terrain material. This means that the foliage that was just made will only appear on terrain areas covered by the _first_ terrain material.
+The object selected from the **STATIC MESH PICKER** window will now be randomly spread throughout the terrain as foliage. By default, the foliage added will be associated with the _first_ terrain material. This means that the foliage that was generated will only appear on terrain areas covered by the material in the first material slot of the terrain.
 
 ![Arch on Terrain](../img/TerrainReference/ArchOnTerrain.png){: .center loading="lazy" }
 
 ### Removing Foliage
 
-To remove foliage, right click on then foliage object. Then select the **Remove** option from the drop down list.
+To remove foliage, right click on the foliage object. Then select the **Remove** option from the drop down list. Alternatively, painting over a foliage instance with a different terrain material will remove that foliage instance. This alternative method will only remove the foliage instance if the foliage instance is not associated with the newly painted terrain material.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:50%">
@@ -413,56 +463,6 @@ There are two options to reduce the memory used by terrain: **Optimize** and **S
 The **Simplify Voxels** option is more effective than the **Optimize** option however, the **Simplify Voxels** option can reduce the detail of terrain. Clicking on the **Simplify Voxels** button will automatically simplify the terrain. Depending on the complexity of the terrain, the simplification of terrain voxels may take multiple minutes.
 
 ![Simplify Voxels](../img/TerrainReference/SimplifyVoxels.png){: .center loading="lazy" }
-
-## Heightmaps
-
-Heightmaps allows creators to generate terrain objects from `.png` images. The brightness of each pixel in the `.png` image controls how tall the point of terrain associated with that pixel will be.
-
-### Formatting Heightmaps
-
-Heightmap images need to square **gray-scaled** `.png` images. The **Terrain Generator** will only accept heightmap images of the following sizes:
-
-- 128 x 128
-- 256 x 256
-- 512 x 512
-- 1024 x 1024
-
-!!!tip There are multiple [websites](https://onlinepngtools.com/convert-png-to-grayscale) that can be used to convert `.png` images to **gray-scale** images."
-
-### Importing Heightmaps
-
-To create a terrain object from a heightmap, first click on the ![mountain icon](../img/EditorManual/icons/HierarchyIcon_Terrain.png) icon. Clicking on the **Import From Heightmap** in the **TERRAIN CREATOR** window will open the **IMPORT TERRAIN HEIGHTMAP** window.
-{: .image-inline-text .image-background }
-
-![Click On Import From Heightmap Button](../img/TerrainReference/ImportHeightMapButton.png){: .center loading="lazy" }
-
-The settings in the **IMPORT TERRAIN HEIGHTMAP** window determine how much influence the heightmap will have in the generation of terrain.
-
-![!Heightmap Window](../img/TerrainReference/HeightmapWindow.png){: .center loading="lazy" }
-
- Below is an example of a heightmap `.png` file and the terrain generated from that heightmap `.png` file. This heightmap image was generously provided by the **Core** creator **docbdesign**.
-
-![Source Image](../img/TerrainReference/jurassic_map_1.png "image_tooltip")
-![Terrain Output](../img/TerrainReference/IslandTerrain.png "image_tooltip")
-*Heightmap Source Image (left) vs. Terrain Generated from Heightmap (right)*
-{: .image-cluster }
-
-The **Voxel Size** setting in the **IMPORT TERRAIN HEIGHTMAP** window determines how large the voxels of the terrain will be. Smaller voxel sizes will shrink the terrain but increase the amount of detail.
-
-![Voxel Settings](../img/TerrainReference/VoxelSize.png){: .center loading="lazy" }
-
-The **Height Multiplier** setting in the **IMPORT TERRAIN HEIGHTMAP** window changes how much influence the brightness of a pixel has on the height of the generated terrain.
-
-The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determines what the default height of the generated terrain will be.
-
-![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
-
-Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window.
-{: .image-inline-text .image-background }
-
-![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }
-
-![Click on Import Button](../img/TerrainReference/ImportPNGMap.png){: .center loading="lazy" }
 
 ## Weightmaps
 
