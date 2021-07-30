@@ -1,5 +1,5 @@
 ---
-id: terrain_reference
+id: terrain
 name: Terrain in Core
 title: Terrain in Core
 tags:

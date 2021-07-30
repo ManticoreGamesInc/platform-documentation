@@ -53,7 +53,6 @@ nav:
           - AI Activities: tutorials/ai_activity_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
           - Environment Art: tutorials/environment_art.md
-          - Terrain Reference: tutorials/terrain_reference.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
           - Scene Creation: tutorials/scene_creation.md
@@ -99,6 +98,7 @@ nav:
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: references/shared_storage.md
           - Templates: references/templates.md
+          - Terrain: references/terrain.md
           - Triggers: references/triggers.md
           - UI: references/ui.md
           - Vehicles: references/vehicles.md
