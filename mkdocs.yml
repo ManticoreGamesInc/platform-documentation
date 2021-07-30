@@ -47,6 +47,7 @@ nav:
           - Perks Rules: perks/perks_rules.md
           - Joining the Perks Program: perks/joining_perks.md
           - Implementing Perks: perks/implementing_perks.md
+          - Implementing Reward Points: reward_points/reward_points_reference.md
       - Tutorials:
           - Abilities: tutorials/abilities.md
           - AI Activities: tutorials/ai_activity_tutorial.md
@@ -79,6 +80,7 @@ nav:
           - Frameworks:
               - Dungeon Framework Reference: tutorials/dungeon_framework_reference.md
           - Game Components: api/components.md
+          - IK and Custom Animations: tutorials/ik_anchors.md
           - Interconnected Games: tutorials/interconnected_games.md
           - Leaderboards: tutorials/leaderboards.md
           - Merged Models: tutorials/merged_models.md
@@ -86,6 +88,7 @@ nav:
           - Networking: tutorials/networking.md
           - Object Generator: tutorials/object_generator.md
           - Offline Storage: tutorials/offline_storage.md
+          - Party System: tutorials/party_system.md
           - Performance Panel: getting_started/performance_panel.md
           - Persistent Storage: tutorials/persistent_storage.md
           - Play-Mode Profiler: getting_started/profiler.md
@@ -128,6 +131,7 @@ nav:
           - CoreObjectReference: api/coreobjectreference.md
           - CorePlayerProfile: api/coreplayerprofile.md
           - CurveKey: api/curvekey.md
+          - CustomMaterial: api/custommaterial.md
           - Damage: api/damage.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
@@ -138,6 +142,7 @@ nav:
           - HitResult: api/hitresult.md
           - Hook: api/hook.md
           - HookListener: api/hooklistener.md
+          - IKAnchor: api/ikanchor.md
           - ImpactData: api/impactdata.md
           - LeaderboardEntry: api/leaderboardentry.md
           - Light: api/light.md
@@ -147,6 +152,7 @@ nav:
           - NetworkContext: api/networkcontext.md
           - Object: api/object.md
           - Other: api/other.md
+          - PartyInfo: api/partyinfo.md
           - PhysicsObject: api/physicsobject.md
           - Player: api/player.md
           - PlayerSettings: api/playersettings.md
@@ -176,6 +182,7 @@ nav:
           - UIPanel: api/uipanel.md
           - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
           - UIProgressBar: api/uiprogressbar.md
+          - UIRewardPointsMeter: api/uirewardpointsmeter.md
           - UIScrollPanel: api/uiscrollpanel.md
           - UIText: api/uitext.md
           - Vector2: api/vector2.md
@@ -262,6 +269,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   feedback_url: https://github.com/ManticoreGamesInc/platform-documentation/issues/new
   generator: false
+  robots: !ENV [ROBOTS, "noindex"]
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/core-creators

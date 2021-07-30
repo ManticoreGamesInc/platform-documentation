@@ -14,4 +14,4 @@ FourWheeledVehicle is a Vehicle with wheels. (Four of them.)
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `turnRadius` | `number` | Returns the radius, in centimeters, measured by the inner wheels of the vehicle while making a turn. | Read-Only |
+| `turnRadius` | `number` | The radius, in centimeters, measured by the inner wheels of the vehicle while making a turn. | Read-Write |
