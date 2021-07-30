@@ -200,4 +200,4 @@ See also: [CoreModalType](enums.md#coremodaltype)
 
 ## Tutorials
 
-[UI in Core](../references/ui_reference.md)
+[UI in Core](../references/ui.md)

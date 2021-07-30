@@ -53,4 +53,4 @@ See also: [CoreMath.Lerp](coremath.md) | [CoreObject.GetCustomProperty](coreobje
 
 ## Tutorials
 
-[UI in Core](../references/ui_reference.md)
+[UI in Core](../references/ui.md)
