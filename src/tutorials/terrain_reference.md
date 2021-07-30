@@ -100,7 +100,7 @@ Click on the ![Pull Terrain Icon](../img/EditorManual/icons/Icon_TerrainPull.png
 
 ### Destructive Sculpting
 
-Clicking on the ![Push Terrain Icon](../img/EditorManual/icons/Icon_TerrainPush.png)destructive sculpting icon will enable **DEstructive Sculpting**. Destructive sculpting removes terrain under the brush. The **Destructive Sculpting** setting exists on both the **Surface** and **Shape** tools.
+Clicking on the ![Push Terrain Icon](../img/EditorManual/icons/Icon_TerrainPush.png)destructive sculpting icon will enable **Destructive Sculpting**. Destructive sculpting removes terrain under the brush. The **Destructive Sculpting** setting exists on both the **Surface** and **Shape** tools.
 {: .image-inline-text .image-background }
 
 ![Destructive Mode](../img/TerrainReference/DestructiveMode.png){: .center loading="lazy" }
