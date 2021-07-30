@@ -43,11 +43,11 @@ nav:
           - Improving Your Game: tutorials/improving_your_game.md
           - Lua Style Guide: tutorials/lua_style_guide.md
       - Perks Program:
-          - About the Perks Program: perks/perks_program.md
-          - Perks Rules: perks/perks_rules.md
-          - Joining the Perks Program: perks/joining_perks.md
-          - Implementing Perks: perks/implementing_perks.md
-          - Implementing Reward Points: perks/reward_points.md
+          - About the Perks Program: references/perks/program.md
+          - Perks Rules: references/perks/rules.md
+          - Joining the Perks Program: references/perks/joining.md
+          - Implementing Perks: references/perks/implementing.md
+          - Implementing Reward Points: references/perks/reward_points.md
       - Tutorials:
           - Abilities: tutorials/ability_tutorial.md
           - AI Activities: tutorials/ai_activity_tutorial.md
@@ -344,7 +344,13 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
-        reward_points/reward_points_reference.md: perks/reward_points.md
+        perks/implementing_perks.md: references/perks/implementing.md
+        perks/joining_perks.md: references/perks/joining.md
+        perks/perks_program.md: references/perks/program.md
+        perks/perks_rules.md: references/perks/rules.md
+        perks/perks.md: references/perks/program.md
+        perks/index.md: references/perks/program.md
+        reward_points/reward_points_reference.md: references/perks/reward_points.md
         tutorials/ai_reference.md: references/ai.md
         tutorials/animated_mesh.md: references/animated_meshes.md
         tutorials/art_reference.md: references/art.md
@@ -385,8 +391,6 @@ plugins:
         getting_started/other_platforms.md: other_platforms/unity.md
         tutorials/environmental_art.md: tutorials/environment_art.md
         tutorials/collaboration.md: tutorials/github.md
-        perks/perks.md: perks/implementing_perks.md
-        perks/index.md: perks/perks_program.md
         api/ability_bindings.md: api/key_bindings.md
         core_api.md: api/index.md
         api/examples.md: api/index.md

@@ -172,4 +172,4 @@ See also: [Color.New](color.md) | [CoreObject.GetCustomProperty](coreobject.md) 
 
 ## Tutorials
 
-[UI in Core](../references/ui.md)
+[UI in Core](../references/ui_reference.md)
