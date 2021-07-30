@@ -1485,7 +1485,7 @@ Example using:
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
-Learn more about Perks [here](https://docs.coregames.com/perks/perks/).
+Learn more about Perks [here](https://docs.coregames.com/references/perks/program/).
 
 Repeatable Perks - This type of Perk can be purchased any number of times by players. In this example, we implement the sale of in game currency through multiple bundles and track the purchases using storage and resources. This script will track each Perk bundle to grant users the currency/resource.
 
@@ -1599,7 +1599,7 @@ Example using:
 
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
-Learn more about Perks [here](https://docs.coregames.com/perks/perks/).
+Learn more about Perks [here](https://docs.coregames.com/references/perks/program/).
 
 In the following example, a script is a child of a Perk Purchase Button, of type `UIPerkPurchaseButton`. The user interface container that has the button is in a client context. The specifics of the Perk come in through the custom property `MyPerk`, which is then assigned to the button with `SetPerkReference()`. When the player joins we connect to the `perkChangedEvent` and print out their existing perks with the LogPerks() function.
 

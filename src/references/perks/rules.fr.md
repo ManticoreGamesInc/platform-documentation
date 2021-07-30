@@ -36,4 +36,4 @@ Si nous découvrons qu'un créateur abuse du système de Perks, ou si plusieurs 
 
 ## En savoir plus
 
-[Le programme Perks](perks_program.fr.md) | [Implémenter des Perks](implementing_perks.fr.md)
+[Le programme Perks](../perks/program.md) | [Implémenter des Perks](../perks/implementing.md)

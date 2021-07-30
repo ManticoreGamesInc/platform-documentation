@@ -20,4 +20,4 @@ A UIControl that supports scrolling a child UIControl that is larger than itself
 
 ## Learn More
 
-[UI in Core](../references/ui.md)
+[UI in Core](../references/ui_reference.md)
