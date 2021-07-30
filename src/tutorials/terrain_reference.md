@@ -303,7 +303,7 @@ Below is the side by side comparison of the **Food Corn 01** at 100% and the **F
 
 ![Terrain Debug Mode](../img/TerrainReference/DebugModeExample.png){: .center loading="lazy" }
 
-## Foliage Tool
+## Foliage
 
 In the Core Terrain System, foliage are simple objects that are generated at random positions on a specific terrain material. In most cases, foliage will take the form of trees, boulders, and bushes. The foliage system will automatically generate and place the foliage on the terrain. Each foliage object is tied to a specific terrain material. Foliage objects will only spawn on the terrain material they are associated with.
 
