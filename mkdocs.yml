@@ -313,6 +313,7 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
       linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
   - pymdownx.keys:
       camel_case: true
   - pymdownx.magiclink:
