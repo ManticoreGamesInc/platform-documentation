@@ -310,7 +310,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
   - pymdownx.keys:
       camel_case: true
   - pymdownx.magiclink:
