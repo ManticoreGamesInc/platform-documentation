@@ -54,7 +54,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `SetAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in world space. Only works for physics objects. | None |
 | `SetLocalAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in local space. Only works for physics objects. | None |
 | `GetReference()` | [`CoreObjectReference`](coreobjectreference.md) | Returns a CoreObjectReference pointing at this object. | None |
-| `GetChildren()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing the object's children, may be empty. | None |
+| `GetChildren()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing the object's children, may be empty. Order is not guaranteed to match what is in the hierarchy. | None |
 | `IsVisibleInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are visible. | None |
 | `IsCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable. | None |
 | `IsCameraCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable with the camera. | None |
