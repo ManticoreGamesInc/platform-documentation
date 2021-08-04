@@ -57,6 +57,16 @@ tags:
 | `BroadcastMessageResultCode.EXCEEDED_RATE_WARNING_LIMIT` | `3` | The message was sent, but the current rate of chat messages is approaching the allowed limit. |
 | `BroadcastMessageResultCode.EXCEEDED_RATE_LIMIT` | `4` | The message was not sent because too many messages have been sent too quickly. |
 
+## CameraCaptureResolution
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `CameraCaptureResolution.VERY_SMALL` | `0` | 64x64 |
+| `CameraCaptureResolution.SMALL` | `1` | 128x128 |
+| `CameraCaptureResolution.MEDIUM` | `2` | 256x256 |
+| `CameraCaptureResolution.LARGE` | `3` | 512x512 |
+| `CameraCaptureResolution.VERY_LARGE` | `4` | 1024x1024 |
+
 ## Collision
 
 | Enum Name | Value | Description |
@@ -304,3 +314,11 @@ tags:
 | `Visibility.INHERIT` | `0` | Object is visible if its parent is visible, or if it has no parent. |
 | `Visibility.FORCE_ON` | `1` | Object is visible, regardless of parent state. |
 | `Visibility.FORCE_OFF` | `2` | Object is not visible, regardless of parent state. |
+
+## VoiceChatMode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `VoiceChatMode.NONE` | `0` | Voice chat is disabled. |
+| `VoiceChatMode.TEAM` | `1` | Voice chat is enabled for team members. |
+| `VoiceChatMode.ALL` | `2` | Voice chat is enabled for all players in the game instance. |

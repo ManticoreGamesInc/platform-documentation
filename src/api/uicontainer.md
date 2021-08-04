@@ -15,6 +15,14 @@ A UIContainer is a type of UIControl. All other UI elements must be a descendant
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `opacity` | `number` | Controls the opacity of the container's contents by multiplying the alpha component of descendants' colors. Note that other UIPanels and UIContainers in the hierarchy may also contribute their own opacity values. A resulting alpha value of 1 or greater is fully opaque, 0 is fully transparent. | Read-Write |
+| `cylinderArcAngle` | `number` | When the container is rendered in 3D space, this adjusts the curvature of the canvas in degrees. Changing this value will force a redraw. | Read-Write |
+
+## Functions
+
+| Function Name | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetCanvasSize()` | [`Vector2`](vector2.md) | Returns the size of the canvas when drawn in 3D space. | None |
+| `SetCanvasSize(Vector2)` | `None` | Sets the size of the canvas when drawn in 3D space. | None |
 
 ## Examples
 

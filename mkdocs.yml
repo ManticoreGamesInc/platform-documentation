@@ -121,6 +121,7 @@ nav:
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
           - Camera: api/camera.md
+          - CameraCapture: api/cameracapture.md
           - Color: api/color.md
           - CoreFriendCollection: api/corefriendcollection.md
           - CoreFriendCollectionEntry: api/corefriendcollectionentry.md
@@ -203,10 +204,12 @@ nav:
           - Environment: api/environment.md
           - Events: api/events.md
           - Game: api/game.md
+          - Input: api/input.md
           - Leaderboards: api/leaderboards.md
           - Storage: api/storage.md
           - Teams: api/teams.md
           - UI: api/ui.md
+          - VoiceChat: api/voicechat.md
           - World: api/world.md
   - Core Academy:
       - Academy: https://learn.coregames.com
