@@ -1095,7 +1095,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
-					"Description": "Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified.",
+					"Description": "Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -1644,7 +1644,9 @@
 				},
 				{
 					"Name": "audioListenerOffset",
-					"Description": "The local offset to the view position when using this camera as the audio listener.",
+					"Description": "This property is deprecated. Please use the GetAudioListenerOffset() and SetAudioListenerOffset() functions instead.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "audioListenerOffset is deprecated. Use GetAudioListenerOffset() and SetAudioListenerOffset() instead.",
 					"Type": "Vector3",
 					"Tags": [
 						"RequiresAuthority",
@@ -1744,6 +1746,147 @@
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetAudioListenerOffset",
+					"Description": "Returns the local offset to the view position when using this camera as the audio listener.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetAudioListenerOffset",
+					"Description": "Sets the local offset to the view position when using this camera as the audio listener.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "offset"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Capture",
+					"Description": "Captures an image at the specified resolution using this camera. Returns a `CameraCapture` object that may be used to display this image or refresh the capture. May return `nil` if the maximum number of capture instances at the desired resolution has been exceeded. The optional parameter table is currently unused.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CameraCapture",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "CameraCaptureResolution",
+									"Name": "resolution"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CameraCapture",
+			"Description": "CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Captures can be created using a fixed set of resolutions, and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.\r\n\r\nCurrently, creators are limited to the following:\r\n* Up to 256 `VERY_SMALL` captures.\r\n* In addition to Up to 64 `SMALL` capture.\r\n* In addition to Up to 16 `MEDIUM` captures.\r\n* In addition to Up to 4 `LARGE` captures.\r\n* In addition to Up to 1 `VERY_LARGE` capture.",
+			"Properties": [
+				{
+					"Name": "resolution",
+					"Description": "The resolution of this capture.",
+					"Type": "CameraCaptureResolution",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "camera",
+					"Description": "The Camera to capture from.",
+					"Type": "Camera"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsValid",
+					"Description": "Returns `true` if this capture instance has valid resources.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Refresh",
+					"Description": "Recaptures the render using the current camera.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "Release",
+					"Description": "Releases the texture resources associated with this capture instance. This instance will become invalid and should no longer be used.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
 					]
 				},
 				{
@@ -5468,7 +5611,7 @@
 		},
 		{
 			"Name": "IKAnchor",
-			"Description": "IK Anchors allow creators to augment animations so that character poses can be customized. It allows a creator to specify attachment points for specific bones such as hands, feet and hips. When activated, the anchor moves the specified bone to the position and orientation of the anchor, overriding the normal animation state. Creators can add IK anchors points for a character to grab and animate anchors to create entirely new animations. A weight can be specified to indicate how much of the underlaying animation is blended to the IK anchor. Some anchors may have aim offsets that specify what direction joints attached to the specific bone should aim to reach when the IK anchor is active.",
+			"Description": "IKAnchors are objects that can be used to control player animations. They can be used to specify the position of a specific hand, foot, or the hips of a player, and can be controlled from script to create complex animations.",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -5529,7 +5672,7 @@
 					"Parameters": [
 						{
 							"Type": "IKAnchor",
-							"Name": "ikanchor"
+							"Name": "ikAnchor"
 						},
 						{
 							"Type": "Object",
@@ -5543,7 +5686,7 @@
 					"Parameters": [
 						{
 							"Type": "IKAnchor",
-							"Name": "ikanchor"
+							"Name": "ikAnchor"
 						},
 						{
 							"Type": "Object",
@@ -5573,7 +5716,7 @@
 				},
 				{
 					"Name": "Deactivate",
-					"Description": "Deactives the IKAnchor from whatever player it is active on.",
+					"Description": "Deactivates the IKAnchor from whatever player it is active on.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -5607,7 +5750,7 @@
 							"Parameters": [
 								{
 									"Type": "Vector3",
-									"Name": "aim offset"
+									"Name": "aimOffset"
 								}
 							]
 						}
@@ -5955,7 +6098,7 @@
 			"Properties": [
 				{
 					"Name": "slotName",
-					"Description": "Reference to a CoreObject or Player impacted.",
+					"Description": "The name of this slot.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -6337,7 +6480,7 @@
 			"Properties": [
 				{
 					"Name": "id",
-					"Description": "The party Id.",
+					"Description": "The party ID.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -6353,6 +6496,7 @@
 				},
 				{
 					"Name": "partySize",
+					"Description": "The current size of the party.",
 					"Type": "integer",
 					"Tags": [
 						"ReadOnly"
@@ -6360,6 +6504,7 @@
 				},
 				{
 					"Name": "maxPartySize",
+					"Description": "The maximum size of the party.",
 					"Type": "integer",
 					"Tags": [
 						"ReadOnly"
@@ -6367,6 +6512,7 @@
 				},
 				{
 					"Name": "partyLeaderId",
+					"Description": "The player ID of the party leader.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -6374,6 +6520,15 @@
 				},
 				{
 					"Name": "isPlayAsParty",
+					"Description": "When true, calls to `Player:TransferToGame()` made on the party leader will transfer all players in the party.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isPublic",
+					"Description": "Returns `true` if this party is public, meaning anyone can join.",
 					"Type": "boolean",
 					"Tags": [
 						"ReadOnly"
@@ -6404,6 +6559,7 @@
 				},
 				{
 					"Name": "GetMemberIds",
+					"Description": "Returns an array of the player IDs of the party's members.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -6417,6 +6573,7 @@
 				},
 				{
 					"Name": "IsFull",
+					"Description": "Returns `true` if the party is at maximum capacity.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -6428,6 +6585,67 @@
 						}
 					]
 				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "PhysicsObject",
+			"Description": "A CoreObject with simulated physics that can interact with players and other objects.",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "team",
+					"Description": "Assigns the physics object to a team. Value range from `0` to `4`. `0` is neutral team.",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isTeamCollisionEnabled",
+					"Description": "If `false`, and the physics object has been assigned to a valid team, players on that team will not collide with the object.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isEnemyCollisionEnabled",
+					"Description": "If `false`, and the physics object has been assigned to a valid team, players on other teams will not collide with the object.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -10315,7 +10533,7 @@
 				},
 				{
 					"Name": "GetMaterialSlots",
-					"Description": "Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified.",
+					"Description": "Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -11503,6 +11721,15 @@
 					]
 				},
 				{
+					"Name": "cylinderArcAngle",
+					"Description": "When the container is rendered in 3D space, this adjusts the curvature of the canvas in degrees. Changing this value will force a redraw.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -11511,6 +11738,39 @@
 				}
 			],
 			"MemberFunctions": [
+				{
+					"Name": "GetCanvasSize",
+					"Description": "Returns the size of the canvas when drawn in 3D space.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetCanvasSize",
+					"Description": "Sets the size of the canvas when drawn in 3D space.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "size"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -11910,6 +12170,25 @@
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "SetCameraCapture",
+					"Description": "Sets the UIImage to display the given camera capture. If the given capture is not valid, it will be ignored. If the capture is released while in use, this UIImage will revert to its default image.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CameraCapture",
+									"Name": "cameraCapture"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"ClientOnly"
 					]
 				},
 				{
@@ -13383,7 +13662,7 @@
 				},
 				{
 					"Name": "mass",
-					"Description": "The mass of the vehicle in kilograms.",
+					"Description": "Returns the mass of the vehicle in kilograms.",
 					"Type": "number",
 					"Tags": [
 						"RequiresAuthority",
@@ -16355,6 +16634,44 @@
 			]
 		},
 		{
+			"Name": "VoiceChat",
+			"Description": "The VoiceChat namespace contains functions for controlling voice chat in a game.",
+			"StaticFunctions": [
+				{
+					"Name": "GetVoiceChatMode",
+					"Description": "Returns the current voice chat mode.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "VoiceChatMode"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "SetVoiceChatMode",
+					"Description": "Enables or disables voice chat in the current game.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "VoiceChatMode",
+									"Name": "voiceChatMode"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				}
+			]
+		},
+		{
 			"Name": "World",
 			"Description": "World is a collection of functions for finding objects in the world.",
 			"StaticFunctions": [
@@ -16615,6 +16932,37 @@
 				{
 					"Name": "EXCEEDED_RATE_LIMIT",
 					"Description": "The message was not sent because too many messages have been sent too quickly.",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "CameraCaptureResolution",
+			"Description": "Indicates the resolution of a camera capture render target.",
+			"Values": [
+				{
+					"Name": "VERY_SMALL",
+					"Description": "64x64",
+					"Value": 0
+				},
+				{
+					"Name": "SMALL",
+					"Description": "128x128",
+					"Value": 1
+				},
+				{
+					"Name": "MEDIUM",
+					"Description": "256x256",
+					"Value": 2
+				},
+				{
+					"Name": "LARGE",
+					"Description": "512x512",
+					"Value": 3
+				},
+				{
+					"Name": "VERY_LARGE",
+					"Description": "1024x1024",
 					"Value": 4
 				}
 			]
@@ -17362,6 +17710,27 @@
 				{
 					"Name": "FORCE_OFF",
 					"Description": "Object is not visible, regardless of parent state.",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "VoiceChatMode",
+			"Description": "Controls whether voice chat is enabled in the game.",
+			"Values": [
+				{
+					"Name": "NONE",
+					"Description": "Voice chat is disabled.",
+					"Value": 0
+				},
+				{
+					"Name": "TEAM",
+					"Description": "Voice chat is enabled for team members.",
+					"Value": 1
+				},
+				{
+					"Name": "ALL",
+					"Description": "Voice chat is enabled for all players in the game instance.",
 					"Value": 2
 				}
 			]

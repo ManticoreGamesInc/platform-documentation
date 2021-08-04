@@ -35,7 +35,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minYaw` | `number` | The minimum yaw for free control. | Read-Write |
 | `maxYaw` | `number` | The maximum yaw for free control. | Read-Write |
 | `useAsAudioListener` | `boolean` | Whether the local player's audio should be attenuated and spatialized based on their view position while this is the active camera. | Read-Write |
-| `audioListenerOffset` | [`Vector3`](vector3.md) | The local offset to the view position when using this camera as the audio listener. | Read-Write |
+| `audioListenerOffset` | [`Vector3`](vector3.md) | This property is deprecated. Please use the GetAudioListenerOffset() and SetAudioListenerOffset() functions instead. | Read-Write, **Deprecated** |
 
 ## Functions
 
@@ -45,6 +45,9 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `SetPositionOffset(Vector3)` | `None` | An offset added to the camera or follow target's eye position to the Player's view. | None |
 | `GetRotationOffset()` | [`Rotation`](rotation.md) | A rotation added to the camera or follow target's eye position. | None |
 | `SetRotationOffset(Rotation)` | `None` | A rotation added to the camera or follow target's eye position. | None |
+| `GetAudioListenerOffset()` | [`Vector3`](vector3.md) | Returns the local offset to the view position when using this camera as the audio listener. | None |
+| `SetAudioListenerOffset(Vector3)` | `None` | Sets the local offset to the view position when using this camera as the audio listener. | None |
+| `Capture(CameraCaptureResolution, [table optionalParameters])` | [`CameraCapture`](cameracapture.md) | Captures an image at the specified resolution using this camera. Returns a `CameraCapture` object that may be used to display this image or refresh the capture. May return `nil` if the maximum number of capture instances at the desired resolution has been exceeded. The optional parameter table is currently unused. | Client-Only |
 
 ## Examples
 

@@ -74,7 +74,8 @@ local function GiveDog(player)
     -- Properties are camelCase, constants are UPPER_CASE
     doggo.color = Colors.BROWN
 
-    -- Member functions are called with a ':' (while static functions, see above, are called with a '.')
+    -- Member functions are called with a ':'
+    -- While static functions, see above, are called with a '.'
     doggo:AttachToPlayer(player, PlayerSockets.RIGHT_ANKLE)
 end
 
@@ -86,7 +87,8 @@ Real example:
 
 ```lua
 --[[
-    When a player collides with a coin, give them the coin as a resource and remove the coin from the world
+    When a player collides with a coin,
+    give them the coin as a resource and remove the coin from the world
 ]]
 
 -- Handle picking up a coin
