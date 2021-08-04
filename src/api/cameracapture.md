@@ -11,6 +11,7 @@ tags:
 CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Captures can be created using a fixed set of resolutions, and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
 
 Currently, creators are limited to the following:
+
 * Up to 256 `VERY_SMALL` captures.
 * In addition to Up to 64 `SMALL` capture.
 * In addition to Up to 16 `MEDIUM` captures.
