@@ -24,7 +24,7 @@ See AnimatedMesh for meshes with animations.
 | -------- | ----------- | ----------- | ---- |
 | `SetMaterialForSlot(string assetId, string slotName)` | `None` | Set the material in the given slot to the material specified by assetId. | None |
 | `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified. | None |
-| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this animatedMesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
+| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
 | `ResetMaterialSlot(string slotName)` | `None` | Resets a material slot to its original state. | None |
 
 ## Examples
@@ -33,7 +33,29 @@ Example using:
 
 ### `GetMaterialSlots`
 
+In this example, the `slotName` property of all material slots belonging to the CUBE will be printed to the event log.
+
+```lua
+local CUBE = script.parent
+
+-- Get an array of material slots
+local MaterialSlots = CUBE:GetMaterialSlots()
+
+-- Print the names of all material slots belonging to the "CUBE"
+for index, materialSlot in ipairs(MaterialSlots) do
+    print(materialSlot.slotName)
+end
+```
+
+See also: [MaterialSlot.slotName](materialslot.md)
+
+---
+
+Example using:
+
 ### `SetMaterialForSlot`
+
+### `GetMaterialSlots`
 
 In this example a cube's material is changed at runtime. The script is placed as a child of the cube object and the desired material is assigned to the script as a custom property.
 
