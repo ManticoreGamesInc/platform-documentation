@@ -60,6 +60,7 @@ nav:
               - Scripting (Beginner): tutorials/lua_basics_helloworld.md
               - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
               - Scripting (Advanced): tutorials/lua_basics_manticoin.md
+              - Scripting Race Timer: tutorials/race_timer.md
           - Survival Contest Kit: references/survival_kit.md
           - Racing Framework Kit: tutorials/racing_tutorial.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
