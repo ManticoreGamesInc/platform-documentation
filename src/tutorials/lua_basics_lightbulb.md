@@ -105,7 +105,7 @@ You will be using this trigger for the purposes of allowing them to interact wit
 3. Resize the trigger to be the the distance you want players to be able to interact with the switch.
 4. Right-click the trigger then left-click **Enable Networking**.
 
-!!! info
+!!! hint
     You also can add trigger objects to a project from the **Core Content** window, in the **Gameplay Objects** section.
 
 ![Trigger Location](../img/LightBulb/image20.png){: .image-frame .center loading="lazy" }
@@ -203,7 +203,7 @@ Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/
 
 ![Switch Rotation Mode](../img/LightBulb/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
 
-!!! hint
+!!! info
     The editor keyboard shortcuts, such that ++E++ switches to **Rotation** mode, can help productivity and speed while using the Core editor. Check out all the keybindings in our [Editor Keybindings](editor_keybindings.md) reference.
 
 Look at the **Properties** window. In the **Transform** section. You should see a property called **Rotation** with an **X**, **Y**, and **Z** value.
@@ -228,7 +228,7 @@ Your rotations may be different, but will most likely look like this:
 
 ### Create Variables for Each Rotation
 
-Now that you know the rotations of the switch for "on" and "off", you can save them as variables. On the next line of your `LightSwitchToggle` add these lines:
+Now that you know the rotations of the switch for "on" and "off", you can save them as variables. Variables that will not be altered throughout the script, like the on/off rotation variables here, are called constants. Constants are usually in **CAPS_CASE**, meaning all upper-case letters with **_** between each word.On the next line of your `LightSwitchToggle` add these lines:
 
 ```lua
 local ROTATION_ON = Rotation.New(0, -60, 0)
@@ -241,9 +241,6 @@ local ROTATION_OFF = Rotation.New(0, -130, 0)
 !!! note
     You will almost always use `Rotation.New` when rotating an object, but there is also a predefined Rotation called `Rotation.ZERO` which will rotate the object to `0, 0, 0`.
     [Learn more about Rotations on the Core API](../api/rotation.md) page.
-
-!!! note
-    Constants are variables that will not be altered throughout the script, like the on/off rotation variables defined. Constants are usually in **CAPS_CASE**, meaning all upper-case letters with **_** between each word.
 
 ### Make the Switch Rotate with a Script
 
@@ -273,7 +270,7 @@ local TIME_ROTATE = 2
 Switch:RotateTo(ROTATION_ON, TIME_ROTATE)
 ```
 
-!!! note
+!!! tip
     You define the time to rotate with a new variable as this makes it easier to edit in the future. It is best to avoid **magic numbers** whenever possible. **Magic Numbers** are direct usage of numbers in code, such as if you did `Switch:RotateTo(Rotation.New(0, -60, 0), 2)`. If you did not define the time as a variable, it may be confusing when looking at the code later.
 
 ### Test out the Switch
@@ -440,7 +437,7 @@ Light.visibility = Visibility.INHERIT
 ```
 
 - `Light` is the object you are trying to alter.
-- `visiblity` is the property you are trying to change.
+- `visibility` is the property you are trying to change.
 - `Visibility` is a set of possible values with options of visibility that an object can be: `FORCE_ON`, `FORCE_OFF`, or `INHERIT`.
 - `INHERIT` is a value of Visibility that means the object is visible if its parent is visible.
 
