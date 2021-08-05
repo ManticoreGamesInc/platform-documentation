@@ -73,7 +73,7 @@ We'll explain what this line does in a moment, but for now, make sure your `Mant
 
 Running this should continuously rotate the coin in the air. Shiny!
 
-!!! note "If your coin is halfway into the ground, select the Manticoin template and drag it upwards in the world--or to wherever you like!"
+!!! tip "If your coin is halfway into the ground, select the Manticoin template and drag it upwards in the world--or to wherever you like!"
 
 Okay, so what did we just do?
 
@@ -85,7 +85,7 @@ Okay, so what did we just do?
     * Methods are simply functions that belong to an object.
 * `Rotation.New(Number x, Number y, Number z)` -> Here, we create a vector to rotate the object on the z axis by 200, spinning the coin along the z axis by the requisite speed. `Rotation` is a **Core Class** that has the method `.New`, which takes in parameters for the x, y, and z. `.New` returns a `Rotation`, which is exactly what we need to pass in to `RotateContinuous()`. How convenient!
 
-!!! note "If you want to know which other methods are available for every object, check out our [API docs](../api/index.md) page."
+!!! info "If you want to know which other methods are available for every object, check out our [API docs](../api/index.md) page."
 
 ### Spin Cleanup
 
@@ -185,7 +185,7 @@ UI Objects are 2D elements that can be used to show the Heads Up Displays (often
    * Rename the **UI Text Box** to `CoinUI`.
    * In the properties panel, set `Text` to be blank by default by deleting the existing text that is already there.
 
-!!! info
+!!! info "Difference between Client Context and a Folder"
     While visually similar in the Hierarchy, **Client Context** is different from a folder - the easiest way to think about it is that its contents will be unique to each player's client (or computer). In other words, the server doesn't care about it.
 
 ### Updating UI Text
@@ -207,7 +207,7 @@ function Tick()
 end
 ```
 
-!!! info
+!!! warning
     Calling `Task.Wait()` without sending in an argument will default to wait a single tick. It supports float arguments and yields the Task for that many seconds.
     Note: For better performance we'd ideally write code that *only* updates the UI when the coin count changes, but this example favors using simple code over robust systems.
 
@@ -254,7 +254,7 @@ Press ++ctrl+W++ to duplicate it how many times you like and spread them out a l
 
 Organization is important in your hierarchy. You can put objects together via folders or grouping!
 
-!!! note
+!!! info "Difference between Folders and Groups"
     Folders and groups are very similar, but have one huge distinction: folders treat their children as independent objects, whereas a group will treat them as part of a larger whole. Trying to select a single object in a group will select the entire group, causing *all* items in the group to be modified by any changes you make.
 
 Now we will write a script to make the game round-based.

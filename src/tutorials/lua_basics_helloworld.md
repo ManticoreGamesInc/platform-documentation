@@ -50,8 +50,7 @@ Your new script will appear in the **Project Content** window, in the **My Scrip
 
 ![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .image-frame .center loading="lazy" }
 
-!!! info
-    You can also configure Core to open in an external editor instead of the built-in editor. See the  [editor integrations](extensions.md) page to learn more.
+!!! tip "You can also configure Core to open in an external editor instead of the built-in editor. See the [editor integrations](extensions.md) page to learn more."
 
 ### Writing the Script
 
@@ -70,7 +69,7 @@ Now we have created a simple script! However, we need to actually add it to our 
 1. To add your script to the game, drag it from the **My Scripts** area of the **Project Content** tab to the **Hierarchy** window, usually on the right side of the editor.
 
     ![The Hierarchy](../img/scripting/theHierarchy.png "This is where everything that is active in your current game live."){: .image-frame .center loading="lazy" }
-    !!! info "If any of these windows are missing, open them again from the **Window** menu in the top menu bar."
+    !!! tip "If any of these windows are missing, open them again from the **Window** menu in the top menu bar."
 
 2. Press **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ at the top of the editor, and see your message appear on screen in the top left corner!
 { .image-inline-text .image-background }
@@ -150,7 +149,7 @@ Init()
 
 Now if you save and run this, you'll see your message appear on the screen! Excellent.
 
-!!! note
+!!! info
     Lua requires functions to be declared on a line before any line that calls them. To keep this organized, we will put all function declarations at the top of the script, and calls further down.
 
 ### Review: Creating and Using a Function
