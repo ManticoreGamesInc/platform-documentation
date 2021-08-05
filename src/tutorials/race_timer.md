@@ -41,7 +41,7 @@ We now need to create a track for players to run on.  A track has been uploaded 
 Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy** and **Deinstance** it.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/cc_template_deinstance.mp4" type="video/mp4" />
     </video>
 </div>
@@ -71,7 +71,7 @@ When a race is about to start, we need to move the players to the starting line.
 7. Set **Visibility** to **Force Off** for all **Position** objects.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/create_start_positions.mp4" type="video/mp4" />
     </video>
 </div>
@@ -421,7 +421,7 @@ We need a way to manage the state of the game, and a simple way to handle that f
     We wait another 2 seconds by using `Task.Wait` and notify the players to go so they know when to start running.  At the same time we  enable all players by calling `EnablePlayers`.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/test_race_server_only_script.mp4" type="video/mp4" />
     </video>
 </div>
@@ -631,7 +631,7 @@ We need to add a trigger to the finish line so that when the player overlaps the
     The **Finish** trigger now needs to be placed at the finish line, making sure that it covers all the way across the track for the player to overlap with.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/finish_trigger.mp4" type="video/mp4" />
     </video>
 </div>
@@ -707,7 +707,7 @@ We can now connect the `beginOverlapEvent` event up.  Place this just before the
 Enter **Play** mode and test everything is working.  Crossing the finish line will print out the race time in the **Event Log**.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/test_race.mp4" type="video/mp4" />
     </video>
 </div>
@@ -1008,7 +1008,7 @@ Create a new script called **Race_Manager_Client** and place it into the Client 
 3. Drag and drop the **Timer** text object onto the **Add Custom Property** button, and rename the property to **raceTime**.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/create_client_manager_script.mp4" type="video/mp4" />
     </video>
 </div>
@@ -1208,7 +1208,7 @@ Finally the functions are connected to the events which are called from the serv
 Enter **Play** mode and test the game.  Now the player will receive a notification letting them know to get ready and when to go, along with displaying the race timer and stopping the timer when the player crosses the finish line.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/client_manager_script.mp4" type="video/mp4" />
     </video>
 </div>
@@ -1825,7 +1825,7 @@ All new code above should be added to the end of the **Race_Manager_Client** scr
 Enter **Play** mode to test the game.  You should notice when finishing the race the Best and Last time gets updated.  Exit and enter **Play** mode again, this time you should see the time for **Best Time** is displayed.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/best_last_stats.mp4" type="video/mp4" />
     </video>
 </div>
@@ -1860,7 +1860,7 @@ Leaderboards allow you to store data for players that get automatically sorted. 
 6. Click the **Create** button to create the leaderboard.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/create_leaderboard.mp4" type="video/mp4" />
     </video>
 </div>
@@ -1887,7 +1887,7 @@ We now need to create the server script that will submit the players time to the
 4. Name the custom property to **fastestTimeLb**.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/leaderbaord_server_prop.mp4" type="video/mp4" />
     </video>
 </div>
@@ -2212,7 +2212,7 @@ We now need to update the in world leaderboard with the leaderboard data.
 7. Rename the custom property to **entries**.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/leaderboard_client_props.mp4" type="video/mp4" />
     </video>
 </div>
@@ -2310,7 +2310,7 @@ The above code handles looping over the leaderboard list.  It fetches each entry
 Lines 10 and 11 update the name and time by using the [entry](../api/leaderboardentry/) from the leaderboard list.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/leaderboard.mp4" type="video/mp4" />
     </video>
 </div>
@@ -2421,7 +2421,7 @@ We now have a template that will be used later for adding to the UI dynamically 
     Create as many triggers as you need.  These triggers can be named to something more interesting as they will be displayed in the UI.  Make sure that players can't get around the triggers by making them oversized to cover all the objects (track and rails in this case).
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/split_triggers.mp4" type="video/mp4" />
     </video>
 </div>
@@ -2912,7 +2912,7 @@ We need to update the **Race_Manager_Client** script so that it has references t
 3. Drag and drop the template for the split entry onto the script and rename it to **splitEntry**.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/split_client_props.mp4" type="video/mp4" />
     </video>
 </div>
@@ -3140,7 +3140,7 @@ Finally we need to update the height of the **Splits** panel.  This is easily do
 Enter **Play** mode and test the splits.  When running the race the color of the next split should change to indicate to the player which one they are on.  The split times will persist for each race so the player can see the split from the previous race.
 
 <div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls class="center" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/splits_finished.mp4" type="video/mp4" />
     </video>
 </div>
@@ -3833,7 +3833,7 @@ Add line 10 to the `RaceFinished` function so that when the player has overlappe
 Enter **Play** mode and listen to the new sound effects added at the start of the race and when crossing the finish line.
 
 <div class="mt-video" style="width:100%">
-    <video muted autoplay playsinline controls class="center" style="width:100%">
+    <video muted autoplay playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/audio_cues.mp4" type="video/mp4" />
     </video>
 </div>
@@ -4113,7 +4113,7 @@ Add the lines on line 11 and 18 to play and stop the confetti.  When the player 
 Enter **Play** mode and cross the finish line to see the confetti effect.
 
 <div class="mt-video" style="width:100%">
-    <video muted autoplay playsinline controls class="center" style="width:100%">
+    <video muted autoplay playsinline controls loop class="center" style="width:100%">
         <source src="/img/RaceTimerTutorial/finished_effect.mp4" type="video/mp4" />
     </video>
 </div>
