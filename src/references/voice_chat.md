@@ -10,17 +10,17 @@ tags:
 
 ## Summary
 
-The `Voice Chat` system in **Core** allows for the players to talk to each other in game by using a microphone.  The **Voice Chat** system can allow for players on the same team to talk to each other to discuss tactics, or open to all.  This can make games much more enjoyable and can improve the experience for players.
+The `Voice Chat` system in **Core** allows for the players to talk to each other in game by using a microphone. The **Voice Chat** system can allow for players on the same team to talk to each other to discuss tactics, or open to all.This can make games much more enjoyable and can improve the experience for players.
 
 ## Enabling Voice Chat
 
-All new projects created have **Voice Chat** enabled by default with the **Voice Chat Mode** property set to **All**.  Existing projects prior to **Voice Chat** will require enabling it and republishing the game.
+All new projects created have **Voice Chat** enabled by default with the **Voice Chat Mode** property set to **All**. Existing projects prior to **Voice Chat** will require enabling it and republishing the game.
 
 **Voice Chat** settings can be found on the **Game Settings** object.
 
 ![Voice Chat Properties](../img/VoiceChat/editor_settings.png){: .center loading="lazy" }
 
-There are serveral properties to the **Voice Chat** system.  Let's go over what each one does.
+There are several properties to the **Voice Chat** system. Let's go over what each one does.
 
 ### Voice Chat Mode
 
@@ -44,7 +44,7 @@ There are serveral properties to the **Voice Chat** system.  Let's go over what 
 
 - **Positional**
 
-    As players move away from each other, their voices will become quieter.  As players move towards each other, the voices will become louder.  This is also known as **Proximity Chat**.
+    As players move away from each other, their voices will become quieter. As players move towards each other, the voices will become louder. This is also known as **Proximity Chat**.
 
 ### Voice Radius
 
@@ -52,7 +52,7 @@ The radius at which the voices can be heard at full volume.
 
 ### Voice Falloff
 
-If the distance from the sound's origin is greater than the sound's radius, the sound will gradually diminish over the falloff distance.  The max range a sound can be heard at is the **Radius** + **Falloff**.
+If the distance from the sound's origin is greater than the sound's radius, the sound will gradually diminish over the falloff distance. The max range a sound can be heard at is the **Radius** + **Falloff**.
 
 ### Voice Audio Fade Model
 
@@ -94,10 +94,10 @@ The options available are **Top**, **Center**, and **Bottom**.
 
 ### Voice Chat Vertical Flow
 
-The vertcial alignment for users displayed within the voice chat windows.
+The vertical alignment for users displayed within the voice chat windows.
 
 The options available are **Top to Bottom** and **Bottom to Top**
 
 ## Learn More
 
-[Voice Chat API](../api/voicechat/)
+[Voice Chat API](../api/voicechat.md)
