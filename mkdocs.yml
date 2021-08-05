@@ -102,6 +102,7 @@ nav:
           - Triggers: references/triggers.md
           - UI: references/ui.md
           - Vehicles: references/vehicles.md
+          - Voice Chat: references/voice_chat.md
           - Weapons: references/weapons.md
   - Core API:
       - API Index: api/index.md
