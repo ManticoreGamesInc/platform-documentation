@@ -62,7 +62,7 @@ When a race is about to start, we need to move the players to the starting line.
 !!! tip
     As a visual aid to help move the starting positions, an object such as a **Cube** can be used.  For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects.  **Group** objects have minimal properties (i.e. no **Rendering**) compared to other objects.
 
-1. Create a new group called **Starting Positions** inside the **Race Timer Turorial - Track** group.
+1. Create a new group called **Starting Positions** inside the **Race Timer Tutorial - Track** group.
 2. Drag and drop a **Cube** from **Core Content** into the **Starting Positions** group.
 3. Set **Game Collision** to **Force Off** for the **Cube** object.
 4. Set **Camera Collision** to **Force Off** for the **Cube** object.
@@ -142,7 +142,7 @@ The race manager server script is going to handle a few different things.  We wi
 Create a new script called **Race_Manager_Server** and place it into the **Server Context** folder.  Before opening the script we need to setup the custom property for the positions so **Lua** has access to them.
 
 !!! tip
-    It's good habbit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel.  With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
+    It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel.  With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
 
 We want each player to be moved to a random lane position.  At the same time we need to mark each player as in the race to keep track of who is and isn't currently racing because players can join the game while a race is in progress.
 
@@ -193,7 +193,7 @@ local function DisablePlayerMovement(player)
 end
 ```
 
-The code above contains two helper functions that will allow us to disable and enable player movment.  We need to prevent players who are at the starting positions from moving.
+The code above contains two helper functions that will allow us to disable and enable player movement.  We need to prevent players who are at the starting positions from moving.
 
 !!! tip
     Any function that doesn't need to be accessed outside of the script should be marked as `local`.  This doesn't include functions that are overridden like `Tick`.
@@ -390,7 +390,7 @@ We need a way to manage the state of the game, and a simple way to handle that f
 
     We need to make a repeating task if one hasn't been setup.  This task will handle the state of the game by repeating every 10 seconds.  Because the length of the track doesn't take very long to finish for the player, we limit the amount of time per race to 10 seconds.
 
-    For the inital spawning of the task, we delay it by 14 seconds to take into account for the 4 seconds in the body where `Task.Wait` is used.  If we don't do this, then the first race on the server will be short.
+    For the initial spawning of the task, we delay it by 14 seconds to take into account for the 4 seconds in the body where `Task.Wait` is used.  If we don't do this, then the first race on the server will be short.
 
     Using a repeating task has an added benefit of resetting the race if any players are AFK (Away From KeyBoard).
 
@@ -402,7 +402,7 @@ We need a way to manage the state of the game, and a simple way to handle that f
 
 2. Check if there are players in the game.
 
-    The task handler will check to see if there are any players in the game.  If ther number of players is `0` then we exit the handler early by using `return`.
+    The task handler will check to see if there are any players in the game.  If there number of players is `0` then we exit the handler early by using `return`.
 
 3. Stop the current race that is in progress.
 
@@ -913,7 +913,7 @@ Enter **Play** mode and test everything is working.  Crossing the finish line wi
 
 ## User Interface
 
-We want to display some UI to the player so they have a visual way to tell what's going on.  We are going to setup a few different peices of the UI.
+We want to display some UI to the player so they have a visual way to tell what's going on.  We are going to setup a few different pieces of the UI.
 
 - Race Timer
 
@@ -1215,7 +1215,7 @@ Enter **Play** mode and test the game.  Now the player will receive a notificati
 
 ## Persistent Storage
 
-It would be nice to store the players fastest time so that it is displayed to them everytime they join the game.  We will update both race manager scripts.  Here is an overview of what will be covered.
+It would be nice to store the players fastest time so that it is displayed to them every time they join the game.  We will update both race manager scripts.  Here is an overview of what will be covered.
 
 - Enable player storage
 - **Race_Manager_Server**
@@ -1888,7 +1888,7 @@ We now need to create the server script that will submit the players time to the
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/RaceTimerTutorial/leaderbaord_server_prop.mp4" type="video/mp4" />
+        <source src="/img/RaceTimerTutorial/leaderboard_server_prop.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -1967,7 +1967,7 @@ end
 Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on line 12.  When the player overlaps the finish line trigger, their time will be submitted to the leaderboards.
 
 !!! tip
-    It's a good idea to seperate code like this, especially when scripts get very big.  Using broadcasts in the same context (server in this case) has no network cost.  This is a good way to speak to scripts and allows you to break things up for easier management.
+    It's a good idea to separate code like this, especially when scripts get very big.  Using broadcasts in the same context (server in this case) has no network cost.  This is a good way to speak to scripts and allows you to break things up for easier management.
 
 ??? "Updated **Race_Manager_Server** Script"
     ```lua linenums="1"
@@ -2779,7 +2779,7 @@ Finally we need to setup the overlap events for all the split triggers.  We do t
 
             players[obj.id].inRace = false
 
-            -- Subracting the start time from the finish time gives the total time it took to run this race
+            -- Subtracting the start time from the finish time gives the total time it took to run this race
             -- for this player.
 
             local finalTime = players[obj.id].finishTime - players[obj.id].startTime
@@ -3388,7 +3388,7 @@ local function SetSprintBinding(player)
 end
 ```
 
-Add the above code just below the `SendPrivateData` function.  This function will setup the binding for the player when they press and release the ++shift++ key.  The `maxWalkSpeed` of the player is modified to ajust the speed of the player when they sprint.
+Add the above code just below the `SendPrivateData` function.  This function will setup the binding for the player when they press and release the ++shift++ key.  The `maxWalkSpeed` of the player is modified to adjust the speed of the player when they sprint.
 
 ```lua linenums="1" hl_lines="20"
 local function OnPlayerJoined(player)
@@ -3614,7 +3614,7 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
 
         if Object.IsValid(obj) and obj:IsA("Player") and players[obj.id] ~= nil and players[obj.id].inRace then
 
-            -- Update the "players" table with the finihed time.
+            -- Update the "players" table with the finished time.
 
             players[obj.id].finishTime = time()
 
@@ -3626,7 +3626,7 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
 
             players[obj.id].inRace = false
 
-            -- Subracting the start time from the finish time gives the total time it took to run this race
+            -- Subtracting the start time from the finish time gives the total time it took to run this race
             -- for this player.
 
             local finalTime = players[obj.id].finishTime - players[obj.id].startTime
