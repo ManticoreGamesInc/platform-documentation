@@ -259,6 +259,8 @@ extra_css:
 extra_javascript:
   - assets/javascripts/manticore.js
   - assets/javascripts/lite-yt-embed.js
+  - assets/javascripts/tables.js
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
 
 extra:
   alternate:
