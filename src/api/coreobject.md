@@ -26,7 +26,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `isServerOnly` | `boolean` | If `true`, this object was spawned on the server and is not replicated to clients. | Read-Only |
 | `isNetworked` | `boolean` | If `true`, this object replicates from the server to clients. | Read-Only |
 | `lifeSpan` | `number` | Duration after which the object is destroyed. | Read-Write |
-| `sourceTemplateId` | `string` | The ID of the template from which this `CoreObject` was instantiated. `nil` if the object did not come from a template. | Read-Only |
+| `sourceTemplateId` | `string` | The ID of the template from which this `CoreObject` was instantiated. `0000000000000000` if this object is not a template. Deinstanced templates also return `0000000000000000`. | Read-Only |
 
 ## Functions
 
