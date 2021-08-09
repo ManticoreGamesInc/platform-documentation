@@ -312,14 +312,14 @@ print(material:GetProperty("roughness_multiplier"))
 
 ### Set Material Property
 
-Materials can also have their properties set at runtime using `SetProperty`.  This can lead to interesting ideas to make objects more dynamic in the world that can react to the players or the world around.
+Materials can also have their properties set at runtime using `SetProperty`. This can lead to interesting ideas to make objects more dynamic in the world that can react to the players or the world around.
 
-For example when it rains, objects become more shiny.  By modifying the **Roughness Multiplier** property over time, an object can appear to be getting wetter.
+For example when it rains, objects become more shiny. By modifying the **Roughness Multiplier** property over time, an object can appear to be getting wetter.
 
 ```lua
 local DEFAULT_FLOOR = script:GetCustomProperty("defaultFloor"):WaitForObject()
 
--- Get first material slot.  Default Floor in a new project has only 1 slot.
+-- Get first material slot. Default Floor in a new project has only 1 slot.
 
 local slot = DEFAULT_FLOOR:GetMaterialSlots()[1]
 
