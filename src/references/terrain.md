@@ -205,13 +205,13 @@ The **View**, **Ground**, and **Up** alignment options work differently from the
 |:-------------------:|:----------------:|:-------------:|
 |![View Alignment](../img/TerrainReference/ViewMode.png){: style="width:15em" }|![Ground Alignment](../img/TerrainReference/GroundMode.png){: style="width:15em" }|![Up Alignment](../img/TerrainReference/UpMode.png){: style="width:15em" }
 |The drawing plane is aligned with the camera|The drawing plane is parallel to the ground|The drawing plane always points towards the camera and is upright|
-|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="/img/TerrainReference/ViewMode.mp4" type="video/mp4" /></video></div>|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="/img/TerrainReference/GroundMode.mp4" type="video/mp4" /></video></div>|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="/img/TerrainReference/UpMode.mp4" type="video/mp4" /></video></div>|
+|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="../img/TerrainReference/ViewMode.mp4" type="video/mp4" /></video></div>|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="../img/TerrainReference/GroundMode.mp4" type="video/mp4" /></video></div>|<div class="mt-video"><video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:15em"><source src="../img/TerrainReference/UpMode.mp4" type="video/mp4" /></video></div>|
 
 The **green**{: style="color: green" } dashed lines in the diagrams above represent the **Distance to Camera** property. The **Distance to Camera** property determines how far the drawing plane should be from the camera. The **Air Mode** property must be enabled for the **Distance to Camera** property to be visible.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class = "center" style="width:50%">
-        <source src="/img/TerrainReference/EnableAirMode.mp4" type="video/mp4" />
+        <source src="../img/TerrainReference/EnableAirMode.mp4" type="video/mp4" />
     </video>
 </div>
 
