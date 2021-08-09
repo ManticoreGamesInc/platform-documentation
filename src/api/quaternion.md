@@ -199,7 +199,7 @@ local propOrigin = script:GetCustomProperty("Origin"):WaitForObject()
 local propObject = script:GetCustomProperty("Object"):WaitForObject()
 
 --Create a vector pointing from "propOrigin" to "propObject"
-local posDiff = propObject:GetWorldPosition() - Origin:GetWorldPosition()
+local posDiff = propObject:GetWorldPosition() - propOrigin:GetWorldPosition()
 
 --Get the quaternion of the "propOrigin" object
 local propOriginQuaternion = propOrigin:GetWorldTransform():GetQuaternion()
