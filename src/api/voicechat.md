@@ -25,9 +25,9 @@ Example using:
 
 ### `GetVoiceChatMode`
 
-This example shows to switch the Voice Chat Mode.
+This example shows how to change the Voice Chat Mode. It will only allow an admin player to change the mode for the server by pressing 1, 2, or 3. When the mode has changed, all players in the game will be notified in chat.
 
-Only an admin player can change the mode for the server by pressing 1, 2, or 3.  When the mode has changed, all players in the game will be notified in chat.
+Changing mode could be done automatically. For example, in the lobby the mode could be set to **ALL** so all players can hear each other, but in game it could be set to **TEAM** so only players on the same team can hear each other. This could be handy when discussing tactics.
 
 ```lua
 -- Name of the player who is allowed to change the voice chat mode.
