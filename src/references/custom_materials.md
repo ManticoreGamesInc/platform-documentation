@@ -157,7 +157,7 @@ Change the name of each custom material by editing the text field at the top of 
 
 ## Materials and Scripts
 
-With the introduction of the Materials API and [MaterialSlot](../api/materialslot.md)s, creators have the ability to edit and switch the material of a [StaticMesh](../api/staticmesh.md) or [AnimatedMesh](../api/animatedmesh.md) at runtime with scripts.
+With the introduction of the Materials API and [MaterialSlot](../api/materialslot.md), creators have the ability to edit and switch the material of a [StaticMesh](../api/staticmesh.md) or [AnimatedMesh](../api/animatedmesh.md) at runtime, and get / set properties of the material with scripts.
 
 ### Get the Material Slots
 
@@ -289,6 +289,83 @@ RoofObject:SetMaterialForSlot(Material, MATERIAL_SLOT_NAME)
 ```
 
 ![Custom-Material Roof with Only the Roof Material Slot Being Custom](../img/Materials/RoofCustomMaterialSlotRoof.png){: .center loading="lazy" }
+
+### Get Material Property
+
+Materials have their properties exposed at runtime that can be accessed using `GetProperty`.
+
+```lua
+local DEFAULT_FLOOR = script:GetCustomProperty("defaultFloor"):WaitForObject()
+
+-- Get first slot from the default floor object
+
+local slot = DEFAULT_FLOOR:GetMaterialSlots()[1]
+
+-- Get the material
+
+local material = slot:GetCustomMaterial()
+
+-- Print out the roughness multiplier
+
+print(material:GetProperty("roughness_multiplier"))
+```
+
+### Set Material Property
+
+Materials can also have their properties set at runtime using `SetProperty`. This can lead to interesting ideas to make objects more dynamic in the world that can react to the players or the world around.
+
+For example when it rains, objects become more shiny. By modifying the **Roughness Multiplier** property over time, an object can appear to be getting wetter.
+
+```lua
+local DEFAULT_FLOOR = script:GetCustomProperty("defaultFloor"):WaitForObject()
+
+-- Get first material slot. Default Floor in a new project has only 1 slot.
+
+local slot = DEFAULT_FLOOR:GetMaterialSlots()[1]
+
+-- Get the material from the slot.
+
+local material = slot:GetCustomMaterial()
+
+-- How long the lerp will take.
+
+local duration = 4
+
+-- How long has passed.
+
+local elapsed = 0
+
+-- Lerped value updated each tick
+
+local lerpedValue = 0
+
+function Tick(dt)
+
+    -- Check if the elapsed time is less than the duration.
+
+    if elapsed < duration then
+        lerpedValue = CoreMath.Lerp(1, 0, elapsed / duration)
+    else
+        lerpedValue = 0
+    end
+
+    -- Increment the elapsed time by adding the delta time which is the time since the last tick.
+
+    elapsed = elapsed + dt
+
+    -- Update the roughness for the material by using the lerped value
+
+    material:SetProperty("roughness_multiplier", lerpedValue)
+end
+```
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/Materials/setproperty_roughness.mp4" type="video/mp4" />
+    </video>
+</div>
+
+In the video above the roughness for the object will change over time to become more shiny.
 
 ## Learn More
 
