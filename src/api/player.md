@@ -1007,7 +1007,7 @@ local trigger = script.parent
 function OnBeginOverlap(theTrigger, player)
   -- The object's type must be checked because CoreObjects also overlap triggers
     if player and player:IsA("Player") then
-        player:TransferToGame("577d80/core-royale")
+        player:TransferToGame("e39f3e/core-world")
     end
 end
 
