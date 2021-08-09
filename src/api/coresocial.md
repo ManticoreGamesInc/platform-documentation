@@ -38,7 +38,7 @@ In this client script, a function is setup to gather the names and ID of all pla
 function GetAllFriendEntries(player)
     local friendCollection = CoreSocial.GetFriends(player)
     local entries = friendCollection:GetResults()
-    
+
     while true do
         friendCollection = friendCollection:GetMoreResults()
         if friendCollection then
@@ -93,7 +93,7 @@ local pageCount = 0
 function Init()
     friendCollection = CoreSocial.GetFriends(PLAYER)
     local entries = friendCollection:GetResults()
-    
+
     if allEntries == nil then
         allEntries = entries
     else
@@ -101,11 +101,11 @@ function Init()
             table.insert(allEntries, entry)
         end
     end
-    
+
     if #allEntries < PAGE_SIZE * 2 then
         LoadMore()
     end
-    
+
     UpdateCurrentPage()
 end
 
@@ -141,7 +141,7 @@ function NextPage()
     end
     if currentPageIndex * PAGE_SIZE + 1 <= #allEntries then
         currentPageIndex = currentPageIndex + 1
-    end    
+    end
     return UpdateCurrentPage()
 end
 
@@ -150,7 +150,7 @@ function PreviousPage()
         return currentPage
     end
     currentPageIndex = currentPageIndex - 1
-    
+
     return UpdateCurrentPage()
 end
 
@@ -193,9 +193,8 @@ In this example, when a player joins the game, we look through all other players
 ```lua
 -- Client script, goes inside a client context
 local player = Game.GetLocalPlayer()
-for _,p in ipairs(Game.GetPlayers()) do
-    if player ~= p and
-    CoreSocial.IsFriendsWithLocalPlayer(p) then
+for _, p in ipairs(Game.GetPlayers()) do
+    if player ~= p and CoreSocial.IsFriendsWithLocalPlayer(p) then
         local friendId = p.id
         Events.BroadcastToServer("Friendly", friendId)
         break
@@ -204,7 +203,7 @@ end
 
 -- Server script, can be in default context or server context
 function OnFriendly(player, friendId)
-    local friendPlayer = Game.FindPlayer(playerId)
+    local friendPlayer = Game.FindPlayer(friendId)
     if Object.IsValid(friendPlayer) then
         player.team = friendPlayer.team
     end
@@ -237,12 +236,13 @@ local leaderboard = Leaderboards.GetLeaderboard(LEADERBOARD_REF, LeaderboardType
 for i, entry in ipairs(leaderboard) do
     local playerId = entry.id
     local additionalMessage =  ""
+
     if playerId == player.id then
         additionalMessage = "You"
-    else
+
+    elseif CoreSocial.IsFriendsWithLocalPlayer(playerId) then
         additionalMessage = "friend"
     end
-    local isFriends = CoreSocial.IsFriendsWithLocalPlayer(playerId)
     print(i .. ")", entry.name, ":", entry.score, "- "..additionalMessage)
 end
 ```
