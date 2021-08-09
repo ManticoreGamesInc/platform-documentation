@@ -233,6 +233,7 @@ theme:
     code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.instant
     - navigation.sections
     - navigation.tracking
