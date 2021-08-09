@@ -15860,6 +15860,29 @@
 			]
 		},
 		{
+			"Name": "Input",
+			"Description": "The Input namespace contains functions and hooks for responding to player input.",
+			"StaticHooks": [
+				{
+					"Name": "escapeHook",
+					"Description": "Hook called when the local player presses the Escape key. The `parameters` table contains a `boolean` named \"openPauseMenu\", which may be set to `false` to prevent the pause menu from being opened. Players may press `Shift-Esc` to force the pause menu to open without calling this hook.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "table",
+							"Name": "parameters"
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Leaderboards",
 			"Description": "The Leaderboards namespace contains a set of functions for retrieving and updating player leaderboard data. Use the Global Leaderboards tab in the Core Editor to configure leaderboards for your game. Then drag a leaderboard from the Global Leaderboards tab to a `NetReference` custom property for use with the Leaderboards API.",
 			"StaticFunctions": [
