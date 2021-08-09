@@ -337,16 +337,16 @@ local elapsed = 0
 
 -- Lerped value updated each tick
 
-local lerped_value = 0
+local lerpedValue = 0
 
 function Tick(dt)
 
     -- Check if the elapsed time is less than the duration.
 
-    if(elapsed < duration) then
-        lerped_value = CoreMath.Lerp(1, 0, elapsed / duration)
+    if elapsed < duration then
+        lerpedValue = CoreMath.Lerp(1, 0, elapsed / duration)
     else
-        lerped_value = 0
+        lerpedValue = 0
     end
 
     -- Increment the elapsed time by adding the delta time which is the time since the last tick.
@@ -355,7 +355,7 @@ function Tick(dt)
 
     -- Update the roughness for the material by using the lerped value
 
-    material:SetProperty("roughness_multiplier", lerped_value)
+    material:SetProperty("roughness_multiplier", lerpedValue)
 end
 ```
 
