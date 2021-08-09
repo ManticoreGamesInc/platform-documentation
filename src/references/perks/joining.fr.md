@@ -13,7 +13,7 @@ tags:
 
 Participer au programme Perks permet aux créateurs Core d'être rémunérés par leurs jeux, grâce à un système de monétisation très complet pouvant être adapté à n'importe quel type de jeu.
 
-Pour une présentation détaillée du programme, consultez l'article [Perks Program](../perks/program.md), ainsi que l'article [Implémentation des Perks](../implementing.md) pour apprendre comment les implémenter en jeu.
+Pour une présentation détaillée du programme, consultez l'article [Perks Program](../perks/program.md), ainsi que l'article [Implémentation des Perks](../perks/implementing.md) pour apprendre comment les implémenter en jeu.
 
 ## Conditions nécessaires pour participer au programme Perks
 
