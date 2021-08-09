@@ -125,12 +125,12 @@ function Tick(deltaTime)
     -- Determine the distance between the UI Container and the local player
     local distance = (propContainer:GetWorldPosition() - player:GetWorldPosition()).size
 
-    -- Clamp the calculated distance between the values of 0 and "MAX_DIST"
-    distance = CoreMath.Clamp(distance, 0, MAX_DIST)
+    -- Find the percent distance from MAX_DIST and clamp that value between 0 and 1
+    local t = CoreMath.Clamp(distance/MAX_DIST)
 
     -- Calculate the arc angle of the UI container based on the distance from the local player to the
     -- UI Container
-    local curvatureAngle = 180 - CoreMath.Lerp(0, 180, distance/MAX_DIST)
+    local curvatureAngle = CoreMath.Lerp(180, 0, t)
 
     -- Update the arc angle of the UI Container
     propContainer.cylinderArcAngle = curvatureAngle
