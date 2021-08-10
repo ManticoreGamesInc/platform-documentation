@@ -1082,7 +1082,7 @@ local function Go()
 end
 ```
 
-Add the above code below the `GetReady` function. This will update the `GET_READY` text to let players know they can start running. The variable `timerStarted` gets set to `true` so that the body of the `Tick` function can start updating the race timer for the player. After 1 second we clear out the text so it doesn't stay on the screen for the player while they are racing.
+Add the above code below the `GetReady` function. This will update the `GET_READY` text to let players know they can start running. The variable `timerStarted` gets set to `true` so that the body of the `Tick` function can start updating the race timer for the player. After 1 second, we clear out the text so it doesn't stay on the screen for the player while they are racing.
 
 ```lua linenums="1"
 local function StopRace()
