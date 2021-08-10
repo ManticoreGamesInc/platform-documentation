@@ -1092,7 +1092,7 @@ local function StopRace()
 end
 ```
 
-Add the above code below the `Go` function. This sets `timerStarted` to false to stop incrementing the timer in the `Tick` function, and also the `timer` and `RACE_TIME` get reset ready for the next race.
+Add the above code below the `Go` function. This sets `timerStarted` to `false` to stop incrementing the timer in the `Tick` function, and also the `timer` and `RACE_TIME` get reset ready for the next race.
 
 ```lua linenums="1"
 local function RaceFinished(finalTime)
@@ -1614,8 +1614,8 @@ Your UI **Hierarchy** should now look like this.
 
 We need to add the 2 text objects created in the previous section for best time and last time as custom properties on the **Race_Manager_Client** script.
 
-1. Drag and drop the **Best Time** text object onto the script as new custom property and rename it to **bestTime**.
-2. Drag and drop the **Last Time** text object onto the script as new custom property and rename it to **lastTime**.
+1. Drag and drop the **Best Time** text object onto the script as a new custom property and rename the new custom property to **bestTime**.
+2. Drag and drop the **Last Time** text object onto the script as a new custom property and rename the new custom property to **lastTime**.
 
 ```lua linenums="1"
 local BEST_TIME = script:GetCustomProperty("bestTime"):WaitForObject()
