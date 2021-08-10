@@ -638,7 +638,7 @@ We need to add a trigger to the finish line so that when the player overlaps the
 
 ### Trigger Overlap
 
-Next we need to modify the **Race_Manager_Server** script so that the finish line trigger can be hooked up to detect when a player has overlapped it.
+Next, we need to modify the **Race_Manager_Server** script so that the finish line trigger can be hooked up to detect when a player has overlapped it.
 
 Add the following line to the top of the script so that it's under the **STARTING POSITIONS** variable.
 
@@ -1025,7 +1025,7 @@ local RACE_TIME = script:GetCustomProperty("raceTime"):WaitForObject()
 - `GET_READY` is a reference to the UI text object that will notify the players when the race is about to start.
 - `RACE_TIME` is a reference to the UI text object that will show the player the current time of the race.
 
-Next we need a few variables setup that will be used throughout the script.
+Next, we need a few variables setup that will be used throughout the script.
 
 ```lua linenums="1"
 local timerStarted = false
@@ -1327,7 +1327,7 @@ The above code will call the `SendPrivateData` function to send the data to the 
 Storage.SetPlayerData(player, data)
 ```
 
-Next we update the storage for the player so that the best time is saved.
+Next, we update the storage for the player so that the best time is saved.
 
 Finally we need to make one more change so that when the player cross the finish line the time is checked to see if it's faster than their last time. To do this we are going to make a small change to the `OnFinishTriggerOverlap` function.
 
@@ -3764,7 +3764,7 @@ In this section we are going to add some audio to the starting race and finish l
 
 ![!Audio](../img/RaceTimerTutorial/audio_props.png){: .center loading="lazy" }
 
-Next we need to add the audio and finish line trigger as custom properties on the **Race_Manager_Client** script.
+Next, we need to add the audio and finish line trigger as custom properties on the **Race_Manager_Client** script.
 
 1. Drag and drop the audio for **Get Ready** as a custom property and rename it to **readySnd**.
 2. Drag and drop the audio for **Go** as a custom property and rename it to **goSnd**.
