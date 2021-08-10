@@ -1044,7 +1044,7 @@ function Tick(dt)
 end
 ```
 
-Next add the `Tick` function. This is a special **Core** function that gets called every frame. The `Tick` function has a parameter that gives you the time difference between the current and previous tick.
+Next, add the `Tick` function. This is a special **Core** function that gets called every frame. The `Tick` function has a parameter that gives you the time difference between the current and previous tick.
 
 The `Tick` function checks to see if `timerStarted` is set to true. This is to prevent the UI for the race timer getting constantly updated when it doesn't need to be.
 
