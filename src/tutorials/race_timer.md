@@ -12,7 +12,7 @@ tags:
 
 In this tutorial we are going to explore more of the **Core** API to make a race timer for a multiplayer game from start to finish.
 
-* **Completion Time:** ??
+* **Completion Time:** ~3 hours
 * **Knowledge Level:** It's recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
 * **Skills you will learn:**
     * When to use Client and Server contexts
@@ -49,7 +49,7 @@ Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy*
 If you enter **Play** mode you will notice the spawn position isn't in an ideal location for any player that joins the game. Move the **Spawn Point** so that it's before the starting position on the track.
 
 !!! tip
-    Pressing ++V++ will toggle the visibility of Gizmos. With visibility on, it's easy to see where to move objects such as the **Spawn Point**.
+    Pressing ++V++ will toggle the visibility of Gizmos. With gizmo visibility on, it's easy to see where to move objects such as the **Spawn Point**.
 
 ![!Spawn Point](../img/RaceTimerTutorial/move_spawn_point.png){: .center loading="lazy" }
 
@@ -136,15 +136,17 @@ The race manager server script is going to handle a few different things. We wil
 - Only start races when the server has players.
 - Move players to the starting positions.
 - Let the players know the race is about to begin and when to go.
-- Keep track of each players race time.
+- Keep track of the race time for each player.
 - Stop the race when time has ran out before starting a new race.
 
-Create a new script called **Race_Manager_Server** and place it into the **Server Context** folder. Before opening the script we need to setup the custom property for the positions so **Lua** has access to them.
+Create a new script called **Race_Manager_Server** and place the script you created into the **Server Context** folder. Before opening the script, we need to setup the custom property for the positions so **Lua** has access to them.
 
 !!! tip
-    It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel. With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
+    It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel.  For example, a server script could be called **GameManagerServer**, and the client script could be called **GameManagerClient**.
 
-We want each player to be moved to a random lane position. At the same time we need to mark each player as in the race to keep track of who is and isn't currently racing because players can join the game while a race is in progress.
+    With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
+
+We want each player to be moved to a random lane position. At the same time we need to mark each player in the race to keep track of who is and isn't currently racing because players can join the game while a race is in progress.
 
 1. Click on **Race_Manager_Server** so it becomes the active object selected.
 2. Drag and drop the group **Starting Positions** onto the **Add Custom Property** button.
@@ -202,15 +204,15 @@ The code above contains two helper functions that will allow us to disable and e
 
 ```lua linenums="1"
 local function MovePlayersToStart()
-    for k, p in ipairs(Game.GetPlayers()) do
-        DisablePlayerMovement(p)
+    for index, currentPlayer in ipairs(Game.GetPlayers()) do
+        DisablePlayerMovement(currentPlayer)
 
         local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-        p:SetWorldPosition(startPosition:GetWorldPosition())
-        p:SetWorldRotation(startPosition:GetWorldRotation())
+        currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+        currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
-        players[p.id].inRace = true
+        players[currentPlayer.id].inRace = true
     end
 end
 ```
@@ -227,19 +229,19 @@ p:SetWorldRotation(startPosition:GetWorldRotation())
 To place players randomly along the start line, we can select a random child from `START_POSITIONS`. The rotation of the child is also used for the player to make sure the player character is facing down the track.
 
 ```lua
-players[p.id].inRace = true
+players[currentPlayer.id].inRace = true
 ```
 
-We need to keep track of when players are in a race. We can do this by setting a property `inRace` to true that can be used later on.
+We need to keep track of when players are in a race. We can do this by setting the property `inRace` to `true`.
 
 ### Enabling Players in Race
 
 ```lua linenums="1"
 local function EnablePlayers()
-    for k, p in ipairs(Game.GetPlayers()) do
-        if players[p.id].inRace then
-            EnablePlayerMovement(p)
-            players[p.id].startTime = time()
+    for index, currentPlayer in ipairs(Game.GetPlayers()) do
+        if players[currentPlayer.id].inRace then
+            EnablePlayerMovement(currentPlayer)
+            players[currentPlayer.id].startTime = time()
         end
     end
 end
@@ -248,7 +250,7 @@ end
 The `EnablePlayers` function is called later on by the race task. This function loops over all players that have `inRace` set to `true`. If the property is `true`, then the player have their movement enabled.
 
 ```lua linenums="1"
-players[p.id].startTime = time()
+players[currentPlayer.id].startTime = time()
 ```
 
 This line sets the time that the race started. We need to keep accurate track of the time, so this is recorded on the server which will be used later to work out how long it took the player to finish the race.
@@ -273,13 +275,13 @@ local function OnPlayerJoined(player)
 end
 ```
 
-The function `OnPlayerJoined` is called each time a player joins the server. To begin with we need to disable player mounts and player jumping. We want this to be a sprint race, so setting `maxJumpCount` to `0` prevents the player from jumping.
+The function `OnPlayerJoined` is called each time a player joins the server. To begin, we need to disable player mounts and player jumping. We want this to be a sprint race, so setting `maxJumpCount` to `0` prevents the player from jumping.
 
-We can also use this handler to push each new player to the `players` table to keep track of players in the game. The value stored in the table is a table with some defaults setup that will be used throughout the script.
+We can also use the handler `OnPlayerJoined` to push each new player to the `players` table to keep track of players in the game. The value stored in the table is a table with some defaults setup that will be used throughout the script.
 
 - `inRace`
 
-    This property gets updated with either `true` or `false`. If a player joins late while a race is already in progress, then we can use this to determine which players are actively racing.
+    This property gets updated with either `true` or `false`. If a player joins late while a race is already in progress, then we can use this property to determine which players are actively racing.
 
 - `startTime`
 
@@ -297,46 +299,46 @@ local function OnPlayerLeft(player)
 end
 ```
 
-When a player leaves the game, we need cleanup the `players` table by removing the player from it. Setting the value to `nil` is a good way to tell `Lua` that we no longer need it.
+When a player leaves the game, we need to cleanup the `players` table by removing the player from the `players` table. Setting the value to `nil` is a good way to tell **Lua** that we no longer need it.
 
 ```lua linenums="1"
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-We need to hook up the events when a player joins and leaves.
+We need to connect the `OnPlayerJoined` and `OnPlayerLeft` events to the `playerJoinedEvent` event and `playerLeftEvent` event.
 
 ### Race Notification
 
-We want to let the players know when to get ready and when to go. Place both functions just after the **OnPlayerLeft** function.
+We want to let the players know when to get ready and when to go. Place both functions just after the `OnPlayerLeft` function.
 
 ```lua linenums="1"
 local function TellPlayersToGetReady()
-    for k, p in ipairs(Game.GetPlayers()) do
-        if players[p.id].inRace then
-            Events.BroadcastToPlayer(p, "GetReady")
+    for index, currentPlayer in ipairs(Game.GetPlayers()) do
+        if players[currentPlayer.id].inRace then
+            Events.BroadcastToPlayer(currentPlayer, "GetReady")
         end
     end
 end
 ```
 
-The function **TellPlayersToGetReady** will broadcast to each player that is marked as in the race. This is done so players who join late don't receive the notification. Later on in the tutorial we will listen for this broadcast event and setup a handler.
+The function `TellPlayersToGetReady` will broadcast to each player that is marked as in the race. This is done so players who join late don't receive the notification. Later on in the tutorial we will listen for this broadcast event and setup a handler.
 
 ```lua linenums="1"
 local function TellPlayersToGo()
-    for k, p in ipairs(Game.GetPlayers()) do
-        if players[p.id].inRace then
-            Events.BroadcastToPlayer(p, "Go")
+    for index, currentPlayer in ipairs(Game.GetPlayers()) do
+        if players[currentPlayer.id].inRace then
+            Events.BroadcastToPlayer(currentPlayer, "Go")
         end
     end
 end
 ```
 
-The function **TellPlayersToGo** will broadcast to each player that is marked as in the race. Later on in the tutorial we will listen for this broadcast event and setup a handler.
+The function `TellPlayersToGo` will broadcast to each player that is marked as in the race. Later on in the tutorial we will listen for this broadcast event and setup a handler.
 
 ### Stopping the Race
 
-We need to handle stopping a race when the time is up. So place the function below just after the **TellPlayersToGo** function.
+We need to handle stopping a race when the race timer has finished, so place the function below just after the `TellPlayersToGo` function.
 
 ```lua linenums="1"
 local function StopRace()
@@ -348,7 +350,7 @@ local function StopRace()
 end
 ```
 
-The function **StopRace** will loop through all the players on the server and set the property `inRace` to `false` indicating they are no longer in the race. We then broadcast to all players that the race should be stopped. Later on in the tutorial we will listen for this broadcast event and setup a handler.
+The function `StopRace` will loop through all the players on the server and set the property `inRace` to `false` indicating they are no longer in the race. We then broadcast to all players that the race should be stopped. Later on in the tutorial, we will listen for this broadcast event and create a handler.
 
 ### Repeating Task
 
@@ -382,27 +384,25 @@ end
 task_handler()
 ```
 
-We need a way to manage the state of the game, and a simple way to handle that for this example is using a task.
-
-![!Flow Chart](../img/RaceTimerTutorial/game_flow_chart.png){: .center loading="lazy" }
+We need a way to manage the state of the game, and a simple way to handle that for this example is using a task.  The **Race_Manager_Server** script will complete the following processes.
 
 1. Check if the task has not been setup.
 
-    We need to make a repeating task if one hasn't been setup. This task will handle the state of the game by repeating every 10 seconds. Because the length of the track doesn't take very long to finish for the player, we limit the amount of time per race to 10 seconds.
+    We need to make a repeating task if one hasn't been setup. This task will repeat every 10 seconds and handle the state of the game. Because the length of the track doesn't take very long to finish for the player, we limit the duration of each race to 10 seconds.
 
-    For the initial spawning of the task, we delay it by 14 seconds to take into account for the 4 seconds in the body where `Task.Wait` is used. If we don't do this, then the first race on the server will be short.
+    We delay the initial spawning of the task by 14 seconds to take into account the 4 seconds when `Task.Wait` is used. If we don't do this, then the first race on the server will be short.
 
-    Using a repeating task has an added benefit of resetting the race if any players are AFK (Away From KeyBoard).
+    Using a repeating task has an added benefit of resetting the race if any players are inactive.
 
     ```lua
     raceTask.repeatCount = -1
     ```
 
-    We want to have the spawned task repeat constantly, so setting `repeatCount` to `-1` allows that.
+    We set `repeatCount` to `-1` to force the task to repeat forever.
 
 2. Check if there are players in the game.
 
-    The task handler will check to see if there are any players in the game. If there number of players is `0` then we exit the handler early by using `return`.
+    The task handler will check to see if there are any players in the game. If the number of players is `0`, then we exit the handler early by using `return`.
 
 3. Stop the current race that is in progress.
 
@@ -418,7 +418,7 @@ We need a way to manage the state of the game, and a simple way to handle that f
 
 6. Notify players to go, and enable movement.
 
-    We wait another 2 seconds by using `Task.Wait` and notify the players to go so they know when to start running. At the same time we  enable all players by calling `EnablePlayers`.
+    We wait another 2 seconds by using `Task.Wait` and notify the players to go so they know when to start running. At the same time we enable all players by calling `EnablePlayers`.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -458,25 +458,25 @@ Enter **Play** mode and test everything is working. If you have followed the tut
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -487,10 +487,10 @@ Enter **Play** mode and test everything is working. If you have followed the tut
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -534,17 +534,17 @@ Enter **Play** mode and test everything is working. If you have followed the tut
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
@@ -638,9 +638,9 @@ We need to add a trigger to the finish line so that when the player overlaps the
 
 ### Trigger Overlap
 
-Next, we need to modify the **Race_Manager_Server** script so that the finish line trigger can be hooked up to detect when a player has overlapped it.
+Next, we need to modify the **Race_Manager_Server** script so that the finish line trigger can be used to detect when a player has overlapped it.
 
-Add the following line to the top of the script so that it's under the **STARTING POSITIONS** variable.
+Add the following line to the top of the script so that it's under the `STARTING POSITIONS` variable.
 
 ```lua linenums="1"
 local FINISH_TRIGGER = script:GetCustomProperty("finishTrigger"):WaitForObject()
@@ -669,7 +669,7 @@ The trigger handler above will make sure that the `obj` is valid and is a `Playe
 players[obj.id].finishTime = time()
 ```
 
-We then set `finishTime` to the current time since the game started. This means that we now have a start and end time which we can use later to determine the players best time.
+We then set `finishTime` to the current time since the game started. This means that we now have a start and end time which we can use later to determine the best time of the player.
 
 ```lua linenums="1"
 players[obj.id].inRace = false
@@ -735,25 +735,25 @@ Enter **Play** mode and test everything is working. Crossing the finish line wil
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -764,10 +764,10 @@ Enter **Play** mode and test everything is working. Crossing the finish line wil
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -831,17 +831,17 @@ Enter **Play** mode and test everything is working. Crossing the finish line wil
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
@@ -925,7 +925,7 @@ We want to display some UI to the player so they have a visual way to tell what'
 
 - Best Time
 
-    Later on in the tutorial we will be saving the players best time.
+    Later on in the tutorial we will be saving the best time of the player.
 
 - Last Time
 
@@ -997,7 +997,7 @@ Create a **UI Text** object and rename it to **Get Ready**. Place this inside th
 
 This text object will get updated by a client script to let players know when to start running.
 
-We will revisit the UI a bit later to add support for showing the players best time and last time.
+We will revisit the UI a bit later to add support for showing the best time of the player and last time.
 
 ## Race Manager Client Script
 
@@ -1032,8 +1032,8 @@ local timerStarted = false
 local timer = 0
 ```
 
-- `timerStarted` will either be true or false to indicate that the race timer has started.
-- `timer` this will get incremented when the race has started for the client. It will hold the time for the current race.
+- `timerStarted` will either be `true` or `false` to indicate that the race timer has started.
+- `timer` will get incremented when the race has started for the client. The `timer` variable will hold the time for the current race.
 
 ```lua linenums="1"
 function Tick(dt)
@@ -1055,7 +1055,9 @@ RACE_TIME.text = string.format("%.3f", timer)
 `string.format` is used to format strings. The first parameter is the format of the string that can contain specifiers. Because we want to show a floating point value with 3 decimal places, we can use `%.3f`. The second parameter is what will be used as the replacement. In this case we pass the `timer` variable which contains the current race time. This will be constantly updated for the player.
 
 !!! tip
-    The format string follows the same rules as the printf family of standard C functions. The only differences are that the options/modifiers *, l, L, n, p, and h are not supported and that there is an extra option, q.
+    The format string follows the same rules as the `printf` family of standard C functions. The only differences are that the options/modifiers *, l, L, n, p, and h are not supported and that there is an extra option, q.
+
+    See the [printf](http://www.cplusplus.com/reference/cstdio/printf/) reference for more information.
 
 ```lua linenums="1"
 timer = timer + dt
@@ -1272,7 +1274,7 @@ Add the above code to the bottom of the `OnPlayerJoined` function. This code wil
 SendPrivateData(player, "bestTime", data.bestTime)
 ```
 
-Using the `SendPrivateData` function we created previously, we send the player, a string for the key, and the players best time.
+Using the `SendPrivateData` function we created previously, we send the player, a string for the key, and the best time of the player.
 
 ### Check for Best Time
 
@@ -1300,13 +1302,13 @@ This function will receive the player, and the last time from the last race they
 local data = Storage.GetPlayerData(player) or {}
 ```
 
-The line above attempts to load the players data from **Storage**. If there is no data stored, then `data` will default to an empty table, otherwise it will be `nil`.
+The line above attempts to load the player's data from **Storage**. If there is no data stored, then `data` will default to an empty table, otherwise it will be `nil`.
 
 ```lua linenums="1"
 if((data.bestTime == nil or data.bestTime == 0) or lastTime < data.bestTime) then
 ```
 
-The line above checks if `bestTime` is `nil` or if the `bestTime` is equal to `0`. This is done because if this is the players first race, then `bestTime` will be `nil`, so we have nothing to compare it too against the `lastTime` provided to the function as the second parameter.
+The line above checks if `bestTime` is `nil` or if the `bestTime` is equal to `0`. This is done because if this is the player's first race, then `bestTime` will be `nil`, so we have nothing to compare it too against the `lastTime` provided to the function as the second parameter.
 
 ```lua linenums="1"
 lastTime < data.bestTime
@@ -1346,7 +1348,7 @@ local function OnFinishTriggerOverlap(trigger, obj)
 end
 ```
 
-On line 8 we add a call to `CheckForBestTime` so that when the player has overlapped the finish line trigger, it will call that function to check if the final time is faster than the time stored.
+Open the **Race_Manager_Server** script and add line 8 to the `OnFinishTriggerOverlap` function.  `CheckForBestTime` will check if the final time is faster than the time stored.
 
 ??? "Update **Race_Manager_Server** Script"
     ```lua linenums="1"
@@ -1371,25 +1373,25 @@ On line 8 we add a call to `CheckForBestTime` so that when the player has overla
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -1400,10 +1402,10 @@ On line 8 we add a call to `CheckForBestTime` so that when the player has overla
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -1482,7 +1484,7 @@ On line 8 we add a call to `CheckForBestTime` so that when the player has overla
 
             print(finalTime) -- Print out the time to test
 
-            -- Check if the final time was better than the players best time.
+            -- Check if the final time was better than the best time of the player.
 
             CheckForBestTime(obj, finalTime)
 
@@ -1496,17 +1498,17 @@ On line 8 we add a call to `CheckForBestTime` so that when the player has overla
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
@@ -1578,7 +1580,7 @@ On line 8 we add a call to `CheckForBestTime` so that when the player has overla
 
 ## Update UI
 
-We need to update the UI to add support for showing the players best time and last time.
+We need to update the UI to add support for showing the best time of the player and last time.
 
 1. Create a new **UI Image** object inside the **UI Container** and rename it to **Stats**.
 
@@ -1646,7 +1648,7 @@ Modify the `RaceFinished` function and add line 5 to it. This will update the te
 
 ### Receiving Private Data
 
-If you remember the **Race_Manager_Server** script is sending private networked data to the client. This data contains the players best time. We need to modify the client script to check when the data has changed so we can update the UI.
+If you remember the **Race_Manager_Server** script is sending private networked data to the client. This data contains the best time of the player. We need to modify the client script to check when the data has changed so we can update the UI.
 
 ```lua linenums="1"
 local function UpdateFromNetworkData(key)
@@ -1664,7 +1666,7 @@ end
 
 The above function will be called when the client script has loaded, and also be called from a handler when the networked data has changed.
 
-The function receives the key for the networked data, we have to check to see what the key is so we know what data we are dealing with.
+The function receives the key for the networked data, we have to check to see what the key is so we know what data we are using.
 
 ```lua linenums="1"
 local data = localPlayer:GetPrivateNetworkedData(key)
@@ -1682,7 +1684,7 @@ if key == "bestTime" then
 end
 ```
 
-We only have one key that we need to check, that being **bestTime**. If the key matches, we can then update the players best time in the UI.
+We only have one key that we need to check, that being **bestTime**. If the key matches, we can then update the best time of the player in the UI.
 
 ```lua linenums="1"
 local function OnPrivateDataChanged(player, key)
@@ -1700,7 +1702,7 @@ for i, key in ipairs(localPlayer:GetPrivateNetworkedDataKeys()) do
 end
 ```
 
-Finally there could be a time where the data from the server has already been replicated. This means that the `privateNetworkedDataChangedEvent` event may not fire due to not being connected in time, so it won't know about any change that has already happened. To get around this issue we can loop over all the private networked keys and perform an update from the stored data.
+Finally there could be a time where the data from the server has already been replicated. This means that the `privateNetworkedDataChangedEvent` event may not fire due to not being connected in time, so the script won't know about any change that has already happened. To get around this issue we can loop over all the private networked keys and perform an update from the stored data.
 
 !!! tip
     **Replicated** means that the data that is sent from the server is copied to the clients. In this case the data is being replicated just to the client that owns it due to using the private networked method. Other methods such as networked properties are replicated to all clients in the game. This can be bad if you want the data to be private, and also use unnecessary network bandwidth if other clients don't need the data.
@@ -1953,7 +1955,7 @@ local function OnFinishTriggerOverlap(trigger, obj)
 
         local finalTime = players[obj.id].finishTime - players[obj.id].startTime
 
-        -- Check if the final time was better than the players best time.
+        -- Check if the final time was better than the best time of the player.
 
         CheckForBestTime(obj, finalTime)
 
@@ -1964,7 +1966,7 @@ local function OnFinishTriggerOverlap(trigger, obj)
 end
 ```
 
-Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on line 12. When the player overlaps the finish line trigger, their time will be submitted to the leaderboards.
+Open the **Race_Manager_Server** script and modify the **OnFinishTriggerOverlap** function by adding the broadcast seen on line 12. When the player overlaps the finish line trigger, their time will be submitted to the leaderboards.
 
 !!! tip
     It's a good idea to separate code like this, especially when scripts get very big. Using broadcasts in the same context (server in this case) has no network cost. This is a good way to speak to scripts and allows you to break things up for easier management.
@@ -1992,25 +1994,25 @@ Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on lin
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -2021,10 +2023,10 @@ Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on lin
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -2101,7 +2103,7 @@ Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on lin
 
             local finalTime = players[obj.id].finishTime - players[obj.id].startTime
 
-            -- Check if the final time was better than the players best time.
+            -- Check if the final time was better than the best time of the player.
 
             CheckForBestTime(obj, finalTime)
 
@@ -2119,17 +2121,17 @@ Modify the **OnFinishTriggerOverlap** function and add the broadcast seen on lin
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
@@ -2272,7 +2274,7 @@ updater.repeatInterval = 20
 updater.repeatCount = -1
 ```
 
-It's nice having a leaderboard update while players are in the game. Using a repeating task is a good way to do this. It will update the leaderboards every 20 seconds.
+It's nice having a leaderboard update while players are in the game. Using a repeating task is a good way to do this. The task will update the leaderboards every 20 seconds.
 
 ```lua linenums="1"
 if Leaderboards.HasLeaderboards() then
@@ -2305,7 +2307,7 @@ for k, v in pairs(list) do
 end
 ```
 
-The above code handles looping over the leaderboard list. It fetches each entry from the `ENTRIES` children list by using a `counter` that is incremented on each iteration. If the counter is greater than 10, then the loop will be broke by using the `break` keyword.
+The above code handles looping over the leaderboard list. The code fetches each entry from the `ENTRIES` children list by using a `counter` that is incremented on each iteration. If the counter is greater than 10, then the loop will be broke by using the `break` keyword.
 
 Lines 10 and 11 update the name and time by using the [entry](../api/leaderboardentry/) from the leaderboard list.
 
@@ -2462,7 +2464,7 @@ local function OnPlayerJoined(player)
 end
 ```
 
-Add the code on line 10. We need to keep track of the splits the player has overlapped. To do this we can store them in a table called `splits` for each player.
+Open the **Race_Manager_Server** script and add the code on line 10 to the `OnPlayerJoined` function. We need to keep track of the splits the player has overlapped. To do this we can store them in a table called `splits` for each player.
 
 ```lua linenums="1"
 local function GetTotalPreviousSplitTime(splits)
@@ -2548,9 +2550,9 @@ end
 
 We need to update the `OnFinishTriggerOverlap` function to reset the splits and include the finish line split time.
 
-- On line 5 add a call to the `UpdateSplitTime` function. We increment the index to a number that doesn't exist so that the split time for the finish line trigger is recorded and sent to the player.
+- Open the **Race_Manager_Server** script and add line 5 to the `OnFinishTriggerOverlap` function. We increment the index to a number that doesn't exist so that the split time for the finish line trigger is recorded and sent to the player.
 
-- On line 11 we need to reset the players `splits` table because they have finished the race.
+- Open the **Race_Manager_Server** script and add line 11 to the `OnFinishTriggerOverlap` function.  We need to reset the players `splits` table because they have finished the race.
 
 ```lua linenums="1"
 local function OnSplitTriggerOverlap(index, trig, obj)
@@ -2562,7 +2564,7 @@ end
 
 Add the above function just below the `OnFinishTriggerOverlap` function.
 
-The `OnSplitTriggerOverlap` function will be the handler that is called when the player overlaps a split trigger. When the player overlaps the trigger, it will make sure the player is in the race and update the split time for that specific trigger.
+The `OnSplitTriggerOverlap` function will be the handler that is called when the player overlaps a split trigger. When the player overlaps the trigger, the script will make sure the player is in the race and update the split time for that specific trigger.
 
 ```lua linenums="1" hl_lines="4"
 local function StopRace()
@@ -2622,25 +2624,25 @@ Finally we need to setup the overlap events for all the split triggers. We do th
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -2651,10 +2653,10 @@ Finally we need to setup the overlap events for all the split triggers. We do th
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -2767,7 +2769,7 @@ Finally we need to setup the overlap events for all the split triggers. We do th
 
         if Object.IsValid(obj) and obj:IsA("Player") and players[obj.id] ~= nil and players[obj.id].inRace then
 
-            -- Update the "players" table with the finihed time.
+            -- Update the "players" table with the finished time.
 
             players[obj.id].finishTime = time()
 
@@ -2788,7 +2790,7 @@ Finally we need to setup the overlap events for all the split triggers. We do th
 
             players[obj.id].splits = {}
 
-            -- Check if the final time was better than the players best time.
+            -- Check if the final time was better than the best time of the player.
 
             CheckForBestTime(obj, finalTime)
 
@@ -2814,17 +2816,17 @@ Finally we need to setup the overlap events for all the split triggers. We do th
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
@@ -2952,7 +2954,7 @@ local function ClearActiveSplit()
 end
 ```
 
-Add the above function just below `Tick` function. This function will clear the current active split by setting the color of each text object to white. It makes sure the current split is greater than `0` as array indexing in `Lua` starts from `1`.
+Add the `ClearActiveSplit` function just below `Tick` function. The `ClearActiveSplit`  will clear the current active split by setting the color of each text object to white. It makes sure the current split is greater than `0` as array indexing in `Lua` starts from `1`.
 
 ```lua linenums="1"
 local function UpdateActiveSplit()
@@ -3366,7 +3368,7 @@ Enter **Play** mode and test the splits. When running the race the color of the 
 
 ## Polishing
 
-In this section we are going to add a litle polish to project by adding a sprint feature, audio, and some effects.
+In this section we are going to add a little polish to project by adding a sprint feature, audio, and some effects.
 
 ### Sprinting
 
@@ -3451,25 +3453,25 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
     ]]
 
     local function MovePlayersToStart()
-        for k, p in ipairs(Game.GetPlayers()) do
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
 
             -- Need to disable player movement at the start to prevent players
             -- from moving forward before the race has started.
 
-            DisablePlayerMovement(p)
+            DisablePlayerMovement(currentPlayer)
 
             -- Fetch a random starting position for this player and set their world position
             -- and rotation. The rotation is based on the rotation of the "position" object.
 
             local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
-            p:SetWorldPosition(startPosition:GetWorldPosition())
-            p:SetWorldRotation(startPosition:GetWorldRotation())
+            currentPlayer:SetWorldPosition(startPosition:GetWorldPosition())
+            currentPlayer:SetWorldRotation(startPosition:GetWorldRotation())
 
             -- Mark this player as in the race which is used later on to make sure the player
             -- is a valid racer when crossing the finish line.
 
-            players[p.id].inRace = true
+            players[currentPlayer.id].inRace = true
         end
     end
 
@@ -3480,10 +3482,10 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
     ]]
 
     local function EnablePlayers()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                EnablePlayerMovement(p)
-                players[p.id].startTime = time()
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                EnablePlayerMovement(currentPlayer)
+                players[currentPlayer.id].startTime = time()
             end
         end
     end
@@ -3635,7 +3637,7 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
 
             players[obj.id].splits = {}
 
-            -- Check if the final time was better than the players best time.
+            -- Check if the final time was better than the best time of the player.
 
             CheckForBestTime(obj, finalTime)
 
@@ -3661,17 +3663,17 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
     ]]
 
     local function TellPlayersToGetReady()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "GetReady")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "GetReady")
             end
         end
     end
 
     local function TellPlayersToGo()
-        for k, p in ipairs(Game.GetPlayers()) do
-            if players[p.id].inRace then
-                Events.BroadcastToPlayer(p, "Go")
+        for index, currentPlayer in ipairs(Game.GetPlayers()) do
+            if players[currentPlayer.id].inRace then
+                Events.BroadcastToPlayer(currentPlayer, "Go")
             end
         end
     end
