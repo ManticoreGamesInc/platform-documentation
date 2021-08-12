@@ -85,7 +85,7 @@ The **In Place** setting forces players to respawn at the same place the player 
 
 The **Round Robin** setting orders spawn points in a list from top of the heirarhcy to bottom. Players will then spawn at the spawn point at the beginning of this list. Every time a player respawns, the player will spawn at the next spawn point in the list. If a player has respawned at the last spawn point in the list, the player will then respawn at the spawn point located at the beginning of the list.
 
-| Respawn Number| Spawn point|
+| Respawn Number| Spawn Point|
 |:------:|:----------:|
 | First time respawning | ![First Spawnpoint](../img/SpawnPointReference/FirstSpawnpoint.png) |
 | Second time respawning | ![Second Spawnpoint](../img/SpawnPointReference/SecondSpawnpoint.png) |
