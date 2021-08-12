@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The **Party System** allows players to form groups that move through the Multiverse together, joining the same server instance of any game with sufficient player count. Creators have access to whether a player in their game is part of a party, and whether or not they are the leader of that party, to customize the
+The **Party System** allows players to form groups that move through the Multiverse together, joining the same server instance of any game with sufficient player count. Creators have access to whether a player in their game is part of a party, and whether or not they are the leader of that party, to customize the name and description.
 
 A party has a leader that can move all the members of a party to the same instance of a any game.
 
