@@ -97,6 +97,7 @@ nav:
           - Queued Games: references/queues.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: references/shared_storage.md
+          - Spawn Points: references/spawnpoints.md
           - Templates: references/templates.md
           - Terrain: references/terrain.md
           - Triggers: references/triggers.md
