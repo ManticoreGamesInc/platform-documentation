@@ -48,7 +48,7 @@ Persistent Player Storage is available under the namespace called **Storage**. T
 * `Storage.SetPlayerData(Player, table)`
     * Is server-only
 
-All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
+All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Temp/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
 
 Each player table has a **maximum size limit of 16Kb**.
 
@@ -104,7 +104,7 @@ To start, we are going to save a video game classic: a player's game score.
 
     ```lua
     local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName"):WaitForObject()
-    local SCore_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
+    local SCORE_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
     ```
 
 2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the number 1 key. This function looks like:
@@ -123,7 +123,7 @@ To start, we are going to save a video game classic: a player's game score.
             local errorCode, errorMsg = Storage.SetPlayerData(whichPlayer, playerDataTable)
 
             if errorCode == StorageResultCode.SUCCESS then
-                SCore_LABEL.text = tostring(playerDataTable.score)
+                SCORE_LABEL.text = tostring(playerDataTable.score)
             else
                 UI.PrintToScreen(errorMsg)
             end
@@ -150,7 +150,7 @@ To start, we are going to save a video game classic: a player's game score.
             playerDataTable.score = 0
         end
 
-        SCore_LABEL.text = tostring(playerDataTable.score)
+        SCORE_LABEL.text = tostring(playerDataTable.score)
         PLAYERNAME_LABEL.text = player.name .. " Score:"
 
         player.bindingPressedEvent:Connect(OnBindingPressed)
@@ -207,7 +207,7 @@ We're going to edit the script we already used in the first half of the tutorial
             playerDataTable.score = 0
         end
 
-        SCore_LABEL.text = tostring(playerDataTable.score)
+        SCORE_LABEL.text = tostring(playerDataTable.score)
         PLAYERNAME_LABEL.text = player.name .. " Score:"
 
         player.bindingPressedEvent:Connect(OnBindingPressed)
