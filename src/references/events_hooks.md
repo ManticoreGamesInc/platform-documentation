@@ -61,7 +61,7 @@ tags:
     myEvent = Events.Connect("CallOnce", function(msg)
         print(msg)
 
-        -- Check if the eventListener is connected, if so, disconnect.
+        -- Check if myEvent is connected, if so, disconnect.
 
         if myEvent.isConnected then
             myEvent:Disconnect()
