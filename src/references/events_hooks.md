@@ -56,21 +56,21 @@ tags:
     ```lua linenums="1"
     -- Script "B"
 
-    local eventListener
+    local myEvent
 
-    eventListener = Events.Connect("CallOnce", function(msg)
+    myEvent = Events.Connect("CallOnce", function(msg)
         print(msg)
 
         -- Check if the eventListener is connected, if so, disconnect.
 
-        if eventListener.isConnected then
-            eventListener:Disconnect()
-            eventListener = nil
+        if myEvent.isConnected then
+            myEvent:Disconnect()
+            myEvent = nil
         end
     end)
     ```
 
-    In the above code, the event `CallOnce` is broadcasted which will fire all listeners attached to that event. The connected listener will only be fired once. A reference to the `EventListener` is stored in the `eventListener` variable so that the event `CallOnce` can be disconnected later.
+    In the above code, the event `CallOnce` is broadcasted which will fire all listeners attached to that event. The connected listener will only be fired once. A reference to the `eventListener` is stored in the `myEvent` variable so that the event `CallOnce` can be disconnected later.
 
 - `Events.BroadcastToAllPlayers`
 
