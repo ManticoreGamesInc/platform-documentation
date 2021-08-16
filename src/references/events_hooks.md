@@ -416,7 +416,7 @@ Below is an example that sets up some listeners, and later when the script has b
 
 local evts = {}
 
--- When a listener is setup, it gets add to the evts table
+-- When a listener is setup, it gets added to the evts table
 
 evts[#evts + 1] = Events.Connect("YourEvent", SomeFunction)
 evts[#evts + 1] = Events.Connect("YourOtherEvent", SomeOtherFunction)
