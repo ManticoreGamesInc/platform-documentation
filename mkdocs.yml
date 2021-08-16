@@ -76,6 +76,7 @@ nav:
           - Custom Materials: references/custom_materials.md
           - Custom Properties: references/custom_properties.md
           - Editor Shortcuts: references/editor_keybindings.md
+          - Events and Hooks: references/events_hooks.md
           - Frameworks:
               - Dungeon Framework Reference: references/dungeon_framework.md
           - Game Components: api/components.md
