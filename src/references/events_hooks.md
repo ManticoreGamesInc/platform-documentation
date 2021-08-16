@@ -167,7 +167,7 @@ Each of the following functions return a `BroadcastEventResultCode` and error me
 
     Rate limited to 10 per second. The rate limit is per **Player** and not for all players.
 
-See [Events](../api/events.md) API for more information.
+See [Events](../api/events.md) API and [Platform Limits](https://forums.coregames.com/t/platform-limits/1616) for more information.
 
 ### Data Transfer
 
