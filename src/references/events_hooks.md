@@ -56,21 +56,21 @@ tags:
     ```lua linenums="1"
     -- Script "B"
 
-    local evt = nil
+    local eventListener
 
-    evt = Events.Connect("CallOnce", function(msg)
+    eventListener = Events.Connect("CallOnce", function(msg)
         print(msg)
 
-        -- Check if the evt is connected, if so, disconnect.
+        -- Check if the eventListener is connected, if so, disconnect.
 
-        if evt ~= nil and evt.isConnected then
-            evt:Disconnect()
-            evt = nil
+        if eventListener.isConnected then
+            eventListener:Disconnect()
+            eventListener = nil
         end
     end)
     ```
 
-    In the above code, the event `CallOnce` is broadcasted which will fire all listeners attached to that event. The connected listener will only be fired once. A reference to the `EventListener` is stored in the `evt` variable so that the event `CallOnce` can be disconnected later.
+    In the above code, the event `CallOnce` is broadcasted which will fire all listeners attached to that event. The connected listener will only be fired once. A reference to the `EventListener` is stored in the `eventListener` variable so that the event `CallOnce` can be disconnected later.
 
 - `Events.BroadcastToAllPlayers`
 
@@ -106,8 +106,8 @@ tags:
     ```lua linenums="1"
     -- Client script
 
-    Events.Connect("OnJoinSay", function(msg)
-        print(msg)
+    Events.Connect("OnJoinSay", function(message)
+        print(message)
     end)
     ```
 
@@ -324,6 +324,8 @@ See [Player](../api/player.md#events) and [Bindings](../api/key_bindings.md) API
 
 A **Trigger** is an invisible and non-colliding **CoreObject** which fires events when it interacts with another object (e.g. A **Player** walks into it). **Triggers** can be used in a wide range of cases, one of them being a way to detect when a **Player** has entered the **Trigger** to show an interaction label to open a door.
 
+!!! tip "A **Trigger** will also work in a **Client Context** by setting the **Collision** property to **Force On**."
+
 ```lua linenums="1"
 local TRIGGER = script:GetCustomProperty("pickupTrigger")
 
@@ -342,11 +344,7 @@ end)
 
 In the example code above, the listeners will display a message in the **Event Log** when the **Player** enters and exits the **Trigger**.
 
-!!! tip
-    A **Trigger** will also work in a **Client Context** by setting the **Collision** property to **Force On**.
-
-!!! warn
-    When a **Vehicle** enters or exits a **Trigger**, it will fire the listener twice.
+!!! warning "When a **Vehicle** enters or exits a **Trigger**, it will fire the listener twice."
 
 See [Trigger](../api/trigger.md#events) API for more information.
 
@@ -394,8 +392,7 @@ See [Movement](../api/player.md#hooks) API for more information.
 
 The Input namespace contains hooks for responding to player input. For example, in a lot of games the ++escape++ key is used to open up a games menu. In **Core** the default behaviour is to open up the browse games page. Using an **Input** hook, this can be changed.
 
-!!! tip
-    Players may press ++Shift++ + ++Esc++ to force the pause menu to open if the default behaviour has been changed for the ++escape++ key.
+!!! tip "Players may press ++Shift++ + ++Esc++ to force the pause menu to open if the default behaviour has been changed for the ++escape++ key."
 
 See [Input](../api/input.md) API for more information.
 
@@ -414,17 +411,17 @@ Below is an example that sets up some listeners, and later when the script has b
 ```lua linenums="1"
 -- A table will be used to store all listeners
 
-local evts = {}
+local myEvents = {}
 
--- When a listener is setup, it gets added to the evts table
+-- When a listener is setup, it gets added to the myEvents table
 
-evts[#evts + 1] = Events.Connect("YourEvent", SomeFunction)
-evts[#evts + 1] = Events.Connect("YourOtherEvent", SomeOtherFunction)
+myEvents[#myEvents + 1] = Events.Connect("YourEvent", SomeFunction)
+myEvents[#myEvents + 1] = Events.Connect("YourOtherEvent", SomeOtherFunction)
 
 -- When the script is destroyed, disconnect all events by looping through the table
 
 script.destroyEvent:Connect(function()
-    for index, event in ipairs(evts) do
+    for index, event in ipairs(myEvents) do
         if(event.isConnected) then
             event:Disconnect()
         end
