@@ -48,7 +48,7 @@ Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy*
 
 If you enter **Play** mode you will notice the spawn position isn't in an ideal location for any player that joins the game. Move the **Spawn Point** so that it's before the starting position on the track.
 
-!!! tip
+!!! tip "Toggle Gizmos"
     Pressing ++V++ will toggle the visibility of Gizmos. With gizmo visibility on, it's easy to see where to move objects such as the **Spawn Point**.
 
 ![!Spawn Point](../img/RaceTimerTutorial/move_spawn_point.png){: .center loading="lazy" }
@@ -59,7 +59,7 @@ When a race is about to start, we need to move the players to the starting line.
 
 ### Creating Lane Positions
 
-!!! tip
+!!! tip "Visual Aid for Placing Spawn Points"
     As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (i.e. no **Rendering**) compared to other objects.
 
 1. Create a new group called **Starting Positions** inside the **Race Timer Tutorial - Track** group.
@@ -124,7 +124,7 @@ end)
 
 In the above script, see line 9 where the item ID is sent to the server only. The server script should then handle validating if the player can purchase the item, and if so it will initiate the purchase and possibly broadcast back to the client if it was successful or not.
 
-!!! tip
+!!! tip "Default Context"
     There is another context called **Default Context**. Any script in this context is also viewable by the client. So if you have code you want to protect from prying eyes, consider moving it to a **Server Context**.
 
 For further information checkout [Networking in Core](../references/networking/)
@@ -141,7 +141,7 @@ The race manager server script is going to handle a few different things. We wil
 
 Create a new script called **Race_Manager_Server** and place the script you created into the **Server Context** folder. Before opening the script, we need to setup the custom property for the positions so **Lua** has access to them.
 
-!!! tip
+!!! tip "Script Naming Convention"
     It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel.  For example, a server script could be called **GameManagerServer**, and the client script could be called **GameManagerClient**.
 
     With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
@@ -158,7 +158,7 @@ Your **Hierarchy** and **Race_Manager_Server** script should now look like the b
 
 Open up the **Race_Manager_Server** script by double clicking on it.
 
-!!! tip
+!!! tip "Script Editor"
     **Core** comes with a script editor built in. You can change which editor is used in the **Settings** under the **Editor** section. Another popular editor is **Visual Studio Code** which has an extension for the **Core API**.
 
 ```lua  linenums="1"
@@ -180,8 +180,7 @@ local players = {}
 
     We need to keep track of the players in the game. A good way to do that is putting players that have joined into a table for access later on.
 
-!!! tip
-    The word **Handler** is just a more specific term for **function** that is used with events. **Handlers** are also known as **Callbacks**.
+!!! tip "The word **Handler** is just a more specific term for **function** that is used with events. **Handlers** are also known as **Callbacks**."
 
 ### Enable / Disable Player Movement
 
@@ -197,8 +196,7 @@ end
 
 The code above contains two helper functions that will allow us to disable and enable player movement. We need to prevent players who are at the starting positions from moving.
 
-!!! tip
-    Any function that doesn't need to be accessed outside of the script should be marked as `local`. This doesn't include functions that are overridden like `Tick`.
+!!! tip "Any function that doesn't need to be accessed outside of the script should be marked as `local`. This doesn't include functions that are overridden like `Tick`."
 
 ### Move Player to Starting Line
 
@@ -255,8 +253,7 @@ players[currentPlayer.id].startTime = time()
 
 This line sets the time that the race started. We need to keep accurate track of the time, so this is recorded on the server which will be used later to work out how long it took the player to finish the race.
 
-!!! tip
-    `time()` returns the time in seconds (floating point) since the game started on the server.
+!!! tip "`time()` returns the time in seconds (floating point) since the game started on the server."
 
 ### Player Joined / Left Events
 
@@ -695,7 +692,7 @@ Events.BroadcastToPlayer(obj, "RaceFinished", finalTime)
 
 We broadcast to the player that the race has finished, and also send their final time. Later on we will connect to this event from the client to update the time displayed in the UI with the time sent from the server.
 
-!!! tip
+!!! tip "Client vs Server Trust"
     We don't trust the client to send their race time, so this is all tracked on the server and sent to the client when the player has finished the race. If the race time was tracked client side and then submitted to the server, this could be exploited by the client by modifying the data that is sent from client to server. Nearly anything the client does needs to ask for data (i.e. final race time), or get permission from the server.
 
 ```lua linenums="1"
@@ -936,8 +933,7 @@ We want to display some UI to the player so they have a visual way to tell what'
 1. Create a **Client Context** in the folder **Race Timer Tutorial - Track** and name it **UI**.
 2. Create a **UI Container** inside the **UI** folder.
 
-!!! tip
-    It's recommended that all UI goes into a **Client Context**. Most of the time when part of the UI needs to be updated, it's updated with data that is specifically for one player.
+!!! tip "It's recommended that all UI goes into a **Client Context**. Most of the time when part of the UI needs to be updated, it's updated with data that is specifically for one player."
 
 The **Hierarchy** structure should now look like this:
 
@@ -947,8 +943,7 @@ The **Hierarchy** structure should now look like this:
 
 We are going to create some UI that will show the current race time to the player. All UI objects will be placed inside the **UI Container** from now on.
 
-!!! tip
-    It's good practice to name each UI object. As UI gets more complex with lots of object, it will be easier to find which object to change if they are correctly name for what their purpose is.
+!!! tip "It's good practice to name each UI object. As UI gets more complex with lots of object, it will be easier to find which object to change if they are correctly name for what their purpose is."
 
 1. Create a **UI Image** object and rename it to **Race Timer**.
 
@@ -983,8 +978,7 @@ Here is how the **Hierarchy** and UI look once the above steps have been complet
 
 ![!UI and Race Timer Hierarchy](../img/RaceTimerTutorial/race_timer_ui_hierarchy.png){: .center loading="lazy" }
 
-!!! tip
-    Feel free to design the UI how you want it to look. Just make sure that there is a text object for the race timer.
+!!! tip "Feel free to design the UI how you want it to look. Just make sure that there is a text object for the race timer."
 
 ### Ready / Go Notification
 
@@ -1054,7 +1048,7 @@ RACE_TIME.text = string.format("%.3f", timer)
 
 `string.format` is used to format strings. The first parameter is the format of the string that can contain specifiers. Because we want to show a floating point value with 3 decimal places, we can use `%.3f`. The second parameter is what will be used as the replacement. In this case we pass the `timer` variable which contains the current race time. This will be constantly updated for the player.
 
-!!! tip
+!!! tip "string.format"
     The format string follows the same rules as the `printf` family of standard C functions. The only differences are that the options/modifiers *, l, L, n, p, and h are not supported and that there is an extra option, q.
 
     See the [printf](http://www.cplusplus.com/reference/cstdio/printf/) reference for more information.
@@ -1233,8 +1227,7 @@ By default player storage is not enabled. This can be enabled very easily by fin
 
 ![!Enable Player Storage](../img/RaceTimerTutorial/enable_player_storage.png){: .center loading="lazy" }
 
-!!! tip
-    Any script that attempts to access or save to player storage will throw a warning in the **Event Log** letting you know that it isn't enabled.
+!!! tip "Any script that attempts to access or save to player storage will throw a warning in the **Event Log** letting you know that it isn't enabled."
 
 ### Sending Data to Client
 
@@ -1704,7 +1697,7 @@ end
 
 Finally there could be a time where the data from the server has already been replicated. This means that the `privateNetworkedDataChangedEvent` event may not fire due to not being connected in time, so the script won't know about any change that has already happened. To get around this issue we can loop over all the private networked keys and perform an update from the stored data.
 
-!!! tip
+!!! tip "Replication"
     **Replicated** means that the data that is sent from the server is copied to the clients. In this case the data is being replicated just to the client that owns it due to using the private networked method. Other methods such as networked properties are replicated to all clients in the game. This can be bad if you want the data to be private, and also use unnecessary network bandwidth if other clients don't need the data.
 
 All new code above should be added to the end of the **Race_Manager_Client** script.
@@ -1968,7 +1961,7 @@ end
 
 Open the **Race_Manager_Server** script and modify the **OnFinishTriggerOverlap** function by adding the broadcast seen on line 12. When the player overlaps the finish line trigger, their time will be submitted to the leaderboards.
 
-!!! tip
+!!! tip "Modular Code"
     It's a good idea to separate code like this, especially when scripts get very big. Using broadcasts in the same context (server in this case) has no network cost. This is a good way to speak to scripts and allows you to break things up for easier management.
 
 ??? "Updated **Race_Manager_Server** Script"
@@ -2419,8 +2412,7 @@ We now have a template that will be used later for adding to the UI dynamically 
 1. In the **Triggers** group, create a new group called **Splits**.
 2. Add new triggers to the **Splits** group and place them on the track.
 
-!!! tip
-    Create as many triggers as you need. These triggers can be named to something more interesting as they will be displayed in the UI. Make sure that players can't get around the triggers by making them oversized to cover all the objects (track and rails in this case).
+!!! tip "Create as many triggers as you need. These triggers can be named to something more interesting as they will be displayed in the UI. Make sure that players can't get around the triggers by making them oversized to cover all the objects (track and rails in this case)."
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -3105,8 +3097,7 @@ local entry = World.SpawnAsset(SPLIT_ENTRY, {
 
 The above code creates a new instance of the `SPLIT_ENTRY` template and sets the parent of it to the **Splits** panel by using the `SPLITS_PANEL` reference.
 
-!!! tip
-    If no parent is set for a spawned asset, it will appear in the root of the **Hierarchy**.
+!!! tip "If no parent is set for a spawned asset, it will appear in the root of the **Hierarchy**."
 
 ```lua linenums="1"
 entry:FindChildByName("Split Name").text = t.name
