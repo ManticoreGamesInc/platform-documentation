@@ -56,7 +56,7 @@ tags:
     ```lua linenums="1"
     -- Script "B"
 
-    local evt = nil;
+    local evt = nil
 
     evt = Events.Connect("CallOnce", function(msg)
         print(msg)
@@ -153,7 +153,7 @@ Functions in the **Events** namespace that communicate across the network have r
 
 When approaching the allowed rate limit, a warning will be displayed in the **Event Log**.
 
-Each of the following functions return a `BroadcastEventResultCode` and error message. See the enums for the result code [here](../api/enums/#broadcasteventresultcode).
+Each of the following functions return a `BroadcastEventResultCode` and error message. See the enums for the result code [here](../api/enums.md#broadcasteventresultcode).
 
 - `BroadcastToAllPlayers`
 
@@ -167,7 +167,7 @@ Each of the following functions return a `BroadcastEventResultCode` and error me
 
     Rate limited to 10 per second. The rate limit is per **Player** and not for all players.
 
-See [Events](../api/events/) API for more information.
+See [Events](../api/events.md) API for more information.
 
 ### Data Transfer
 
@@ -181,7 +181,7 @@ The functions in the **Events** namespace have a limit of 128 bytes per broadcas
 
     This is ideal for transferring large chunks of data to the player. For example, loading the player's inventory from **Storage** which could contain a large number of items. Data has very low priority compared to broadcasting. This has the added benefit where data is replicated to the receiving client and not all clients.
 
-See [SetNetworkedCustomProperty](../api/coreobject/#setnetworkedcustomproperty/) and [SetPrivateNetworkedData](../api/player/#setprivatenetworkeddata).
+See [SetNetworkedCustomProperty](../api/coreobject.md#setnetworkedcustomproperty/) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
 
 ## Object Events
 
@@ -209,7 +209,7 @@ ability.executeEvent:Connect(OnExecute)
 
 In the example code above, the **Ability** will fire `executeEvent` each time the **Ability** is used. The listener function will check the amount of ammo for the weapon, if the ammo is less than or equal to `lowAmmoPercent` a sound will be spawned. This is useful to provide feedback to the player.
 
-See [Ability](../api/ability/) API for more information.
+See [Ability](../api/ability.md) API for more information.
 
 ### AnimatedMesh
 
@@ -233,7 +233,7 @@ See [Ability](../api/ability/) API for more information.
 
     In the code above, the `AnimEventListener` will fire if the animation has an event. In this case the `unarmed_claw` animation has an `impact` event. This could be useful for playing a slash effect when the raptor impacts an object such as a **Player**.
 
-See [AnimatedMesh](../api/animatedmesh/) API for more information.
+See [AnimatedMesh](../api/animatedmesh.md) API for more information.
 
 ### CoreObject
 
@@ -254,13 +254,13 @@ RAPTOR:Destroy()
 
 In the example code above, a Raptor is destroyed by calling the `Destroy` function after 1 second. The `destroyEvent` gets the object that was destroyed.
 
-See [CoreObject](../api/coreobject/#events) API for more information.
+See [CoreObject](../api/coreobject.md#events) API for more information.
 
 ### Equipment
 
 **Equipment** is a **CoreObject** representing an equippable item for players. They generally have a visual component that attaches to the Player, but a visual component is not a requirement. Any Ability objects added as children of the **Equipment** are added / removed from the Player automatically as it becomes equipped / unequipped.
 
-See [Equipment](../api/equipment/#events) API for more information.
+See [Equipment](../api/equipment.md#events) API for more information.
 
 ### Game
 
@@ -296,13 +296,13 @@ The **Game** namespace has a collection of functions and events related to playe
 
     Knowing when a player has left the game can be used in many ways. From updating the player's **Storage**, to cleaning up variables and tables that may hold references to the **Player** leaving the game.
 
-See [Game](../api/game/#events) API for more information.
+See [Game](../api/game.md#events) API for more information.
 
 ### IK Anchor
 
 **IKAnchors** are objects that can be used to control player animations. They can be used to specify the position of a specific hand, foot, or the hips of a **Player**. **IKAnchors** have events that can be listened too to detect when an **IKAnchor** is activated on a player, and deactivated from the player.
 
-See [IKAnchors](../api/ikanchor/#events) API for more information.
+See [IKAnchors](../api/ikanchor.md#events) API for more information.
 
 ### Player
 
@@ -318,7 +318,7 @@ end)
 
 In the code above, when a player presses a binding, it will print out to the **Event Log** what the binding was. This is useful if you need to perform a specific action based on what binding the **Player** has pressed.
 
-See [Player](../api/player/#events) and [Bindings](../api/key_bindings/) API for more information.
+See [Player](../api/player.md#events) and [Bindings](../api/key_bindings.md) API for more information.
 
 ### Trigger
 
@@ -348,19 +348,19 @@ In the example code above, the listeners will display a message in the **Event L
 !!! warn
     When a **Vehicle** enters or exits a **Trigger**, it will fire the listener twice.
 
-See [Trigger](../api/trigger/#events) API for more information.
+See [Trigger](../api/trigger.md#events) API for more information.
 
 ### Vehicle
 
 **Vehicle** is a CoreObject representing a vehicle that can be occupied and driven by a **Player**. Events can be setup to listen for when a **Player** enters or exits a **Vehicle**.
 
-See [Vehicle](../api/vehicle/#events) API for more information.
+See [Vehicle](../api/vehicle.md#events) API for more information.
 
 ### Weapon
 
 A **Weapon** is an Equipment that comes with built-in Abilities and fires Projectiles. Some weapons may have projectiles, so it may be useful to know when a projectile has spawned, or when it has impacted something like a wall.
 
-See [Weapon](../api/weapon/#events) API for more information.
+See [Weapon](../api/weapon.md#events) API for more information.
 
 ## UI Events
 
@@ -370,25 +370,25 @@ The **UI** namespace contains a set of class functions allowing you to get infor
 
 A **UIButton** is a useful UI component that allows players to interact with the **UIButton**, and various listeners can fire depending on the state of the **UIButton**. For example, detecting when a **Player** has clicked the button. Or when a player has hovered over the **UIButton** to grow the size of the **UIButton** for a nice animation effect.
 
-See [UIButton](../api/uibutton/#events) API for more information.
+See [UIButton](../api/uibutton.md#events) API for more information.
 
 ## Hooks
 
 **Hooks** appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired. **Hooks** are similar to **Events**, the difference being that a **Hook** is used to view or change something that's already going on in a system.
 
-See [Hook](../api/hook/) and [Hook](../api/hooklistener/) API for more information.
+See [Hook](../api/hook.md) and [Hook](../api/hooklistener.md) API for more information.
 
 ### Chat
 
 The Chat namespace contains functions and hooks for sending and reacting to chat messages. This could be used for example, as a way for an admin to use special commands in the chat to perform actions either on the server (moderation), or in game (give a player a resource). **Chat** hooks can even be used to turn a **Chat** into a game.
 
-See [Chat](../api/chat/#hooks) API for more information.
+See [Chat](../api/chat.md#hooks) API for more information.
 
 ### Movement
 
 The **Movement** hook is called when processing a player's movement. The parameters table contains a Vector3 named "direction", indicating the direction the player will move. For example, in a click to move game, the client script would detect mouse input and modify the players direction.
 
-See [Movement](../api/player/#hooks) API for more information.
+See [Movement](../api/player.md#hooks) API for more information.
 
 ### Input
 
@@ -397,13 +397,13 @@ The Input namespace contains hooks for responding to player input. For example, 
 !!! tip
     Players may press ++Shift++ + ++Esc++ to force the pause menu to open if the default behaviour has been changed for the ++escape++ key.
 
-See [Input](../api/input/) API for more information.
+See [Input](../api/input.md) API for more information.
 
 ### Vehicle
 
 Vehicles have 2 movement hooks that work on the client and server. The client hook `clientMovementHook` is called when processing the driver's input. `serverMovementHook` is called when on the server for a vehicle with no driver. This has the same parameters as `clientMovementHook`.
 
-See [Vehicle](../api/vehicle/#hooks) API for more information.
+See [Vehicle](../api/vehicle.md#hooks) API for more information.
 
 ## Disconnecting
 
