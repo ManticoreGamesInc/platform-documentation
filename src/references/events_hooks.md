@@ -330,13 +330,13 @@ A **Trigger** is an invisible and non-colliding **CoreObject** which fires event
 local TRIGGER = script:GetCustomProperty("pickupTrigger")
 
 TRIGGER.beginOverlapEvent:Connect(function(trigger, obj)
-    if(Object.IsValid(obj) and obj:IsA("Player")) then
+    if Object.IsValid(obj) and obj:IsA("Player") then
         print("Player entered the trigger").
     end
 end)
 
 TRIGGER.endOverlapEvent:Connect(function(trigger, obj)
-    if(Object.IsValid(obj) and obj:IsA("Player")) then
+    if Object.IsValid(obj) and obj:IsA("Player") then
         print("Player left the trigger").
     end
 end)
@@ -422,7 +422,7 @@ myEvents[#myEvents + 1] = Events.Connect("YourOtherEvent", SomeOtherFunction)
 
 script.destroyEvent:Connect(function()
     for index, event in ipairs(myEvents) do
-        if(event.isConnected) then
+        if event.isConnected then
             event:Disconnect()
         end
     end
