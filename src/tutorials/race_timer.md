@@ -17,7 +17,7 @@ In this tutorial we are going to explore more of the **Core** API to make a race
 * **Skills you will learn:**
     * When to use Client and Server contexts
     * Accurate time keeping
-    * Broadcasting to the client
+    * Communicating from server to client
     * Persistent storage
     * Sending and receiving private data
     * Submitting and retrieving leaderboard data
@@ -25,39 +25,26 @@ In this tutorial we are going to explore more of the **Core** API to make a race
 ---
 
 ## Setting up Project and Track
+<!-- TODO: Move CC to official account -->
+!!! tip "Community Content Track"
+    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CommanderFoo**.
 
-Start with making a new empty project.
-
-![!New Empty Project](../img/RaceTimerTutorial/create_new_project.png){: .center loading="lazy" }
-
-In the **Hierarchy** delete the object **Default Floor** as we will not be needing this for the track.
-
-![!Remove Default Floor](../img/RaceTimerTutorial/remove_default_floor.png){: .center loading="lazy" }
-
-We now need to create a track for players to run on. A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CommanderFoo**.
-
-![!Community Content Template](../img/RaceTimerTutorial/import_track.png){: .center loading="lazy" }
-
-Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy** and **Deinstance** it.
-
-<div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/RaceTimerTutorial/cc_template_deinstance.mp4" type="video/mp4" />
-    </video>
-</div>
+1. Create a new empty project
+2. In the **Hierarchy** delete the object **Default Floor**
+3. Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy**.
 
 If you enter **Play** mode you will notice the spawn position isn't in an ideal location for any player that joins the game. Move the **Spawn Point** so that it's before the starting position on the track.
-
-!!! tip "Toggle Gizmos"
-    Pressing ++V++ will toggle the visibility of Gizmos. With gizmo visibility on, it's easy to see where to move objects such as the **Spawn Point**.
 
 ![!Spawn Point](../img/RaceTimerTutorial/move_spawn_point.png){: .center loading="lazy" }
 
 ## Starting Line
 
-When a race is about to start, we need to move the players to the starting line. Instead of grouping all players up in one spot, we can create a few positions along the starting line and randomly pick one to place the player at. There is still a possibility of players spawning in the same location, and to fix this it would require a more advanced system to keep track of which lanes have been assigned. For this tutorial we will keep it simple.
+When a race is about to start, we need to move the players to the starting line.
 
-### Creating Lane Positions
+!!! tip "Player Grouping"
+    Instead of grouping all players up in one spot, we can create a few positions along the starting line and randomly pick one to place the player at. There is still a possibility of players spawning in the same location, and to fix this it would require a more advanced system to keep track of which lanes have been assigned. For this tutorial we will keep it simple.
+
+### Create Lane Positions
 
 !!! tip "Visual Aid for Placing Spawn Points"
     As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (i.e. no **Rendering**) compared to other objects.
@@ -76,21 +63,23 @@ When a race is about to start, we need to move the players to the starting line.
     </video>
 </div>
 
-## Setup Script Hierarchy
+## Client and Server Context
 
-We need to setup the script folder and contexts in the **Hierarchy**.
+### Set up Script Hierarchy
+
+You need to set up the script folder and contexts in the **Hierarchy**.
 
 1. Create a folder called **Scripts** inside the **Race Timer Tutorial - Track** group.
 2. Create a **Client Context** inside the **Scripts** folder.
 3. Create a **Server Context** inside the **Scripts** folder.
 
-### Client Context vs Server Context
+### Server Authoritative Design
 
-Understanding the difference between these two contexts can help you understand where to place **Lua** scripts and what they should be used for.
+A game server is a server which is the authoritative source of events in a game. The server sends data about the game state to allow players, which is used to maintain their own accurate version of the game world.
 
-Anything in the **Client Context** exists on the clients version of the game. This means that there is no network traffic, and anything that gets modified is applied to that local player and not all players on the server.
+Anything in the **Client Context** exists on each player's version of the game. This means that there is no network traffic, and anything that gets modified is applied to that local player and not all players on the server.
 
-With **Lua** scripts, nothing sensitive should be stored in a **Client Context** script, and any action the client can do should always be sent to a script in a **Server Context** to validate it. **The client should never be trusted.**
+Nothing sensitive should be stored in a **Client Context** script, and any action the client can do should always be sent to a script in a **Server Context** to validate it. The client should never be treated as an authority on the state of the game for all players.
 
 Take a look at the example below of what is bad vs good.
 
@@ -107,7 +96,7 @@ shop_button.clickedEvent:Connect(function()
 end)
 ```
 
-In the above script, see line 9 where the price and the ID of the shop item is being sent to the server. This is bad because the broadcast to the server is also sending the price of the item which could be modified by the client.
+This code above is bad because the broadcast to the server is also sending the price of the item which could be modified by the client.
 
 ```lua linenums="1" hl_lines="9"
 -- Client script
@@ -122,14 +111,14 @@ shop_button.clickedEvent:Connect(function()
 end)
 ```
 
-In the above script, see line 9 where the item ID is sent to the server only. The server script should then handle validating if the player can purchase the item, and if so it will initiate the purchase and possibly broadcast back to the client if it was successful or not.
+The server script should then handle validating if the player can purchase the item, and if so it will initiate the purchase and possibly broadcast back to the client if it was successful or not.
 
 !!! tip "Default Context"
-    There is another context called **Default Context**. Any script in this context is also viewable by the client. So if you have code you want to protect from prying eyes, consider moving it to a **Server Context**.
+    There is another context called **Default Context**. Any script in this context is also viewable by the client. If you have code you want to protect from prying eyes, consider moving it to a **Server Context**.
 
-For further information checkout [Networking in Core](../references/networking/)
+For further information check out [Networking in Core](../references/networking/)
 
-## Race Manager Server Script
+## Creating the Race Manager Server Script
 
 The race manager server script is going to handle a few different things. We will be modifying this script a few times throughout the tutorial. In this section the following items will be covered.
 
