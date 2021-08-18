@@ -163,6 +163,10 @@ Example using:
 
 ### `ammoType`
 
+### `isAmmoFinite`
+
+### `currentAmmo`
+
 In this simple auto-reload script, the weapon's current ammo is monitored. If it goes to zero and the player has ammo of the correct type, then the reload ability is activated. This script only works in a client-context and expects the Reload ability to be assigned as a custom property.
 
 ```lua
