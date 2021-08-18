@@ -1,22 +1,19 @@
 ---
-id: physicsobject
-name: PhysicsObject
-title: PhysicsObject
+id: damageableobject
+name: DamageableObject
+title: DamageableObject
 tags:
     - API
 ---
 
-# PhysicsObject
+# DamageableObject
 
-A CoreObject with simulated physics that can interact with players and other objects. PhysicsObject also implements the [Damageable](damageable.md) interface.
+DamageableObject is a CoreObject which implements the [Damageable](damageable.md) interface.
 
 ## Properties
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `team` | `integer` | Assigns the physics object to a team. Value range from `0` to `4`. `0` is neutral team. | Read-Write |
-| `isTeamCollisionEnabled` | `boolean` | If `false`, and the physics object has been assigned to a valid team, players on that team will not collide with the object. | Read-Write |
-| `isEnemyCollisionEnabled` | `boolean` | If `false`, and the physics object has been assigned to a valid team, players on other teams will not collide with the object. | Read-Write |
 | `hitPoints` | `number` | Current amount of hit points. | Read-Write |
 | `maxHitPoints` | `number` | Maximum amount of hit points. | Read-Write |
 | `isDead` | `boolean` | True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called. | Read-Only |
@@ -38,5 +35,5 @@ A CoreObject with simulated physics that can interact with players and other obj
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<`[`PhysicsObject`](physicsobject.md) object, Damage damage`>` | Fired when the object takes damage. | Server-Only |
-| `diedEvent` | `Event<`[`PhysicsObject`](physicsobject.md) object, Damage damage`>` | Fired when the object dies. | Server-Only |
+| `damagedEvent` | `Event<`[`DamageableObject`](damageableobject.md) object, Damage damage`>` | Fired when the object takes damage. | Server-Only |
+| `diedEvent` | `Event<`[`DamageableObject`](damageableobject.md) object, Damage damage`>` | Fired when the object dies. | Server-Only |
