@@ -8,7 +8,7 @@ tags:
 
 # Player
 
-Player is an object representation of the state of a player connected to the game, as well as their avatar in the world.
+Player is an object representation of the state of a player connected to the game, as well as their avatar in the world. Player also implements the [Damageable](damageable.md) interface.
 
 ## Properties
 
@@ -23,8 +23,8 @@ Player is an object representation of the state of a player connected to the gam
 | `desiredFacingMode` | [`FacingMode`](enums.md#facingmode) | Which controls mode to use for this Player. May be overridden by certain movement modes like MovementMode.SWIMMING or when mounted. Possible values are FacingMode.FACE_AIM_WHEN_ACTIVE, FacingMode.FACE_AIM_ALWAYS, and FacingMode.FACE_MOVEMENT. | Read-Write, Server-Only |
 | `defaultRotationRate` | `number` | Determines how quickly the Player turns to match the camera's look. Set to -1 for immediate rotation. Currently only supports rotation around the Z-axis. | Read-Write, Server-Only |
 | `currentRotationRate` | `number` | Reports the real rotation rate that results from any active mechanics/movement overrides. | Read-Only |
-| `hitPoints` | `number` | Current amount of hitpoints. | Read-Write |
-| `maxHitPoints` | `number` | Maximum amount of hitpoints. | Read-Write |
+| `hitPoints` | `number` | Current amount of hit points. | Read-Write |
+| `maxHitPoints` | `number` | Maximum amount of hit points. | Read-Write |
 | `kills` | `integer` | The number of times the player has killed another player. | Read-Write |
 | `deaths` | `integer` | The number of times the player has died. | Read-Write |
 | `stepHeight` | `number` | Maximum height in centimeters the Player can step up. Range is 0-100. Default = 45. | Read-Write |
@@ -114,6 +114,7 @@ Player is an object representation of the state of a player connected to the gam
 | `TransferToGame(string)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in game ID. Example: The game ID for the URL `https://www.coregames.com/games/577d80/core-royale` is `577d80/core-royale`. This function will raise an error if called from a client script on a player other than the local player. | None |
 | `TransferToGame(CoreGameInfo)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameInfo`. This function will raise an error if called from a client script on a player other than the local player. | None |
 | `TransferToGame(CoreGameCollectionEntry)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameCollectionEntry`. This function will raise an error if called from a client script on a player other than the local player. | None |
+| `TransferToScene(string sceneName, [table parameters])` | `None` | Does not work in preview mode or in games played locally. Transfers player to the scene specified by the passed-in scene name. The specified scene must be a scene within the same game. This function will raise an error if called from a client script on a player other than the local player. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the player at a spawn point with a matching key. If an invalid key is provided, the player will spawn at the origin, (0, 0, 0). | None |
 | `GetAttachedObjects()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(boolean)` | `None` | Forces a player in or out of mounted state. | Server-Only |
 | `GetActiveCamera()` | [`Camera`](camera.md) | Returns whichever camera is currently active for the Player. | Client-Only |
@@ -155,7 +156,7 @@ Player is an object representation of the state of a player connected to the gam
 | `movementModeChangedEvent` | `Event<`[`Player`](player.md) player, MovementMode newMovementMode, MovementMode previousMovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
 | `emoteStartedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player begins playing an emote. | None |
 | `emoteStoppedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player stops playing an emote or an emote is interrupted. | None |
-| `animationEvent` | `Event<`[`Player`](player.md) player, string eventName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it and the name of the event at those points. | Client-Only |
+| `animationEvent` | `Event<`[`Player`](player.md) player, string eventName, string animationName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
 | `privateNetworkedDataChangedEvent` | `Event<`[`Player`](player.md) player, string key`>` | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
 
 ## Hooks

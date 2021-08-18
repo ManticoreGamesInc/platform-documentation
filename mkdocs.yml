@@ -113,6 +113,8 @@ nav:
       - Enums: api/enums.md
       - Key Bindings: api/key_bindings.md
       - Lua Style Guide: tutorials/lua_style_guide.md
+      - Interfaces:
+          - Damageable: api/damageable.md
       - Types:
           - Ability: api/ability.md
           - AbilityPhaseSettings: api/abilityphasesettings.md
@@ -136,6 +138,7 @@ nav:
           - CurveKey: api/curvekey.md
           - CustomMaterial: api/custommaterial.md
           - Damage: api/damage.md
+          - DamageableObject: api/damageableobject.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
           - Event: api/event.md
