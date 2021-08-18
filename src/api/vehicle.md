@@ -8,7 +8,7 @@ tags:
 
 # Vehicle
 
-Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player.
+Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player. Vehicle also implements the [Damageable](damageable.md) interface.
 
 ## Properties
 
@@ -30,6 +30,15 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `isDriverAttached` | `boolean` | Returns `true` if the driver is attached to the vehicle while they occupy it. | Read-Only |
 | `isBrakeEngaged` | `boolean` | Returns `true` if the driver of the vehicle is currently using the brakes. | Read-Only |
 | `isHandbrakeEngaged` | `boolean` | Returns `true` if the driver of the vehicle is currently using the handbrake. | Read-Only |
+| `hitPoints` | `number` | Current amount of hit points. | Read-Write |
+| `maxHitPoints` | `number` | Maximum amount of hit points. | Read-Write |
+| `isDead` | `boolean` | True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called. | Read-Only |
+| `isImmortal` | `boolean` | When set to `true`, this object cannot die. | Read-Write |
+| `isInvulnerable` | `boolean` | When set to `true`, this object does not take damage. | Read-Write |
+| `destroyOnDeath` | `boolean` | When set to `true`, this object will automatically be destroyed when it dies. | Read-Write |
+| `destroyOnDeathDelay` | `number` | Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0. | Read-Write |
+| `destroyOnDeathClientTemplateId` | `string` | Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death. | Read-Write |
+| `destroyOnDeathNetworkedTemplateId` | `string` | Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death. | Read-Write |
 
 ## Functions
 
@@ -44,6 +53,8 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `GetDriverRotation()` | [`Rotation`](rotation.md) | Returns the rotation with which the driver is attached while occupying the vehicle. | None |
 | `GetCenterOfMassOffset()` | [`Vector3`](vector3.md) | Returns the center of mass offset for this vehicle. | None |
 | `SetCenterOfMassOffset(Vector3 offset)` | `None` | Sets the center of mass offset for this vehicle. This resets the vehicle state and may not behave nicely if called repeatedly or while in motion. | None |
+| `ApplyDamage(Damage)` | `None` | Damages the vehicle, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies. | Server-Only |
+| `Die([Damage])` | `None` | Kills the vehicle, unless it is immortal. The optional Damage parameter is a way to communicate cause of death. | Server-Only |
 
 ## Events
 
@@ -51,6 +62,8 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | ----- | ----------- | ----------- | ---- |
 | `driverEnteredEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a new driver occupies the vehicle. | None |
 | `driverExitedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a driver exits the vehicle. | None |
+| `damagedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Damage`](damage.md)`>` | Fired when the vehicle takes damage. | Server-Only |
+| `diedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Damage`](damage.md)`>` | Fired when the vehicle dies. | Server-Only |
 
 ## Hooks
 

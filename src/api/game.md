@@ -32,6 +32,8 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.TransferAllPlayersToGame(string gameId)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in game ID. Does not work in preview mode or in games played locally. | Server-Only |
 | `Game.TransferAllPlayersToGame(CoreGameInfo)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameInfo`. Does not work in preview mode or in games played locally. | Server-Only |
 | `Game.TransferAllPlayersToGame(CoreGameCollectionEntry)` | `None` | Similar to `Player:TransferToGame()`, transfers all players to the game specified by the passed in `CoreGameCollectionEntry`. Does not work in preview mode or in games played locally. | Server-Only |
+| `Game.TransferAllPlayersToScene(string sceneName)` | `None` | Similar to `Player:TransferToScene()`, transfers all players to the scene specified by the passed in scene name. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0). | Server-Only |
+| `Game.GetCurrentSceneName()` | `string` | Returns the name of the current scene. | None |
 
 ## Events
 
