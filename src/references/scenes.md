@@ -143,4 +143,6 @@ other:TransferToScene(sceneName, {spawnKey = "TutorialArea"})
 
 Any data stored in **Storage** is transferred to the scene being loaded. For example, if a player has inventory data, this means the scene can look at the **Storage** for the player to retrieve that data without needing to use a **Shared Storage Key**.
 
-<!-- TODO: Add link here to Scenes API -->
+## Learn More
+
+[TransferToScene](../api/player.md) | [TransferAllPlayersToScene](../api/game.md) | [GetCurrentSceneName](../api/game.md)
