@@ -18,8 +18,6 @@ All projects come with one scene by default called **Main**, which will be shown
 
 Creating a **Scene** can be done from the **Scene** drop down in the main **Core** toolbar. Clicking on the **Scene** drop down will show a list of all scenes for the project, and a **Create New Scene** button at the bottom of that list.
 
-!!! info "**Core** supports up to 64 scenes per project."
-
 ![Scene Drop Down](../img/scenes/scene_menu.png){: .center loading="lazy" }
 
 1. Click the **Scene** drop down in the toolbar
@@ -27,6 +25,11 @@ Creating a **Scene** can be done from the **Scene** drop down in the main **Core
 3. Enter a name for the new scene
 
 When a new scene has been created, you will be asked if you want to load that scene now.
+
+!!! info "Limits"
+    - Support for up to 64 scenes per project.
+    - Maximum total size of a game is 500mb.
+    - Maximum size of a scene is 100mb.
 
 ## Loading a Scene
 
@@ -102,9 +105,9 @@ Click on the **Publish Game** button to bring up the **Game Publishing Settings*
 
 The **Game Publishing Settings** window has a **Scenes** drop down where you can select which scenes should be included when publishing.
 
-![Publishing Scenes](../img/scenes/publish_scenes.png){: .center loading="lazy" }
+!!! info "When publishing any scenes that isn't the main scene, **Core** will only publish the assets used for that scene."
 
-When publishing any scenes that isn't the main scene, **Core** will only publish the assets used for that scene.
+![Publishing Scenes](../img/scenes/publish_scenes.png){: .center loading="lazy" }
 
 ## Transferring to a Scene
 
@@ -135,5 +138,9 @@ TRIGGER.beginOverlapEvent:Connect(OnOverlap)
 ```lua
 other:TransferToScene(sceneName, {spawnKey = "TutorialArea"})
 ```
+
+## Storage
+
+Any data stored in **Storage** is transferred to the scene being loaded. For example, if a player has inventory data, this means the scene can look at the **Storage** for the player to retrieve that data without needing to use a **Shared Storage Key**.
 
 <!-- TODO: Add link here to Scenes API -->
