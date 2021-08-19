@@ -200,6 +200,9 @@ end
 
 `MovePlayersToStart` will get called later by the race task. This function handles disabling the player movement, setting position and rotation by looping over all players that are currently in the game.
 
+!!! info ipairs()
+    The `ipairs()` function will iterate over index value pairs. These are key value pairs where the keys are indices in an array. The order that elements are returned is guaranteed to be in the order of the indices, and keys are are not an integer will be skipped.
+
 ```lua linenums="1"
 local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
 
@@ -1243,7 +1246,7 @@ We will store the players fastest time so that it is displayed to them every tim
     - Wait for data to be received
     - Update UI with fastest time
 
-### Player Storage
+### Enable Player Storage
 
 Player storage is a way to save data for players persistently so that it is available across sessions. For example, saving a players inventory so it is available to them next time they login to the game.
 
@@ -1253,7 +1256,7 @@ By default player storage is not enabled. This can be enabled very easily by fin
 
 !!! tip "If you are missing the **Game Settings** object from your **Hierarchy**, you can add it back in from **Core Content**."
 
-### Sending Data to Client
+### Send Data to Client
 
 When a player joins the game, we want to send their own data to them. Sending data to a client from the server can be done in a few different ways. Clients cannot access **Storage**, so we must retrieve the data on the server and send it to the client. A very good method that we will be using is **Private Networked Data**. This allows us to securely get the players data just to them.
 
@@ -1865,7 +1868,7 @@ Enter **Play** mode to test the game. You should notice when finishing the race 
     </video>
 </div>
 
-## Fastest Time Leaderboard
+## Create Fastest Time Leaderboard
 
 It can be fun for players to fight it out on the leaderboard for the fastest time. In this section you will learn:
 
@@ -1912,7 +1915,7 @@ Once imported drag and drop it into the **Hierarchy** and place the leaderboard 
 
 ![!Last Time Properties](../img/RaceTimerTutorial/place_leaderboard.png){: .center loading="lazy" }
 
-### Leaderboard Server Script
+### Create Leaderboard Server Script
 
 We now need to create the server script that will submit the players time to the leaderboard.
 
@@ -2006,7 +2009,7 @@ Open the **RaceManager_Server** script and modify the **OnFinishTriggerOverlap**
 !!! tip "Modular Code"
     It's a good idea to separate code like this, especially when scripts get very big. Using broadcasts in the same context (server in this case) has no network cost. This is a good way to speak to scripts and allows you to break things up for easier management.
 
-### Updated RaceManager_Server Script
+### The Updated RaceManager_Server Script
 
 ??? "RaceManager_Server"
     ```lua linenums="1"
@@ -2238,7 +2241,7 @@ Open the **RaceManager_Server** script and modify the **OnFinishTriggerOverlap**
     task_handler()
     ```
 
-### Leaderboard Client Script
+### Create Leaderboard Client Script
 
 We now need to update the in world leaderboard with the leaderboard data.
 
@@ -2410,7 +2413,7 @@ In the video the race is run a few times, and shows the initial entry added to t
     updater.repeatCount = -1
     ```
 
-## Time Splits
+## Add Time Splits
 
 In this section we are going to add time splits to the track that update in the UI as the player passes the split. This will allow the player to see at what point on the track they need to improve on. The track in this tutorial is short and straight, so there isn't much a player could do to improve on their time. With a more interesting track this could be a useful feature to have.
 
@@ -3411,7 +3414,7 @@ Enter **Play** mode and test the splits. When running the race the color of the 
 
 In this section we are going to add a little polish to project by adding a sprint feature, audio, and some effects.
 
-### Sprinting
+### Add Sprinting
 
 Currently it's very slow running a race, so let's allow the players to sprint when holding the ++shift++ key down.
 
@@ -3797,7 +3800,7 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
 
 Enter **Play** mode and hold down ++shift++ to sprint. You should now be able to set an even quicker time.
 
-### Audio
+### Add Audio
 
 In this section we are going to add some audio to the starting race and finish line.
 
@@ -4117,7 +4120,7 @@ Enable the sound on the video above to hear sound effects.
     SPLITS_PANEL.parent.height = SPLITS_PANEL.parent.height + (#children * 42)
     ```
 
-### Effects
+### Add Effects
 
 Finally let's add a simple effect that plays when the player finishes the race.
 
