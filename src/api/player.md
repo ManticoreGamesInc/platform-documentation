@@ -8,7 +8,7 @@ tags:
 
 # Player
 
-Player is an object representation of the state of a player connected to the game, as well as their avatar in the world. Player also implements the [Damageable](damageable.md) interface.
+Player is an object representation of the state of a player connected to the game, as well as their avatar in the world.
 
 ## Properties
 
