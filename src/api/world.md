@@ -31,6 +31,38 @@ World is a collection of functions for finding objects in the world.
 
 Example using:
 
+### `Boxcast`
+
+In this example any object that the player looks at will be outlined using an Outline Object. This is done using World.Boxcast(), which returns a hitResult with the impacted object. Using a Boxcast here is useful because the player doesn't have to look directly at an object for it to be highlighted but just close to it.
+
+```lua
+local OutlineObject = script:GetCustomProperty("OutlineObject"):WaitForObject()
+
+local LOCAL_PLAYER = Game.GetLocalPlayer()
+local viewedObject = nil
+
+function Tick()
+    local rayStart = LOCAL_PLAYER:GetViewWorldPosition()
+    local lookVector = LOCAL_PLAYER:GetViewWorldRotation() * Vector3.FORWARD
+    local hitResult = World.Boxcast(rayStart, rayStart + (lookVector * 5000), Vector3.New(30), {ignorePlayers=LOCAL_PLAYER})
+
+    if hitResult and not hitResult.other:IsA("Player") and hitResult.other ~= viewedObject then
+        OutlineObject:SetSmartProperty("Object To Outline", hitResult.other)
+        OutlineObject:SetSmartProperty("Enabled", true)
+        viewedObject = hitResult.other
+    elseif not hitResult then
+        OutlineObject:SetSmartProperty("Enabled", false)
+        viewedObject = nil
+    end
+end
+```
+
+See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md) | [CoreLua.Tick](coreluafunctions.md)
+
+---
+
+Example using:
+
 ### `FindObjectById`
 
 Finds an object in the hierarchy based on it's unique ID. To find an object's ID, right-click them in the hierarchy and select "Copy MUID". An object's ID can also be obtained at runtime through the `id` property. In this example we search for the default sky folder and print a warning if we find it.
@@ -179,6 +211,43 @@ See also: [HitResult.GetImpactPosition](hitresult.md) | [CoreObject.GetCustomPro
 
 Example using:
 
+### `RaycastAll`
+
+This example allows player's to damage other players that they are aiming at. This is done using World.RaycastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good usecase for this function would be for a laser gun.
+
+```lua
+function OnBindingPressed(player, binding)
+    if binding == "ability_primary" then
+        local rayStart = player:GetViewWorldPosition()
+        local lookVector = player:GetViewWorldRotation() * Vector3.FORWARD
+        local results = World.RaycastAll(rayStart, rayStart + (lookVector * 5000), {ignorePlayers=player, shouldDebugRender = true})
+
+        for _, hitResult in ipairs(results) do
+            if hitResult.other:IsA("Player") then
+                if not hitResult.other.isDead then
+                    local dmg = Damage.New(10)
+                    hitResult.other:ApplyDamage(dmg)
+                end
+            else
+                break
+            end
+        end
+    end
+end
+
+function OnPlayerJoined(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md)
+
+---
+
+Example using:
+
 ### `SpawnAsset`
 
 In this example, whenever a player dies, an explosion VFX template is spawned  in their place and their body is flown upwards. The SpawnAsset() function also returns a reference to the new object, which allows us to do any number of adjustments to it--in this case a custom life span. This example assumes an explosion template exists in the project and it was added as a custom property onto the script object.
@@ -221,5 +290,74 @@ image.dock = UIPivot.MIDDLE_CENTER
 ```
 
 See also: [UIControl.anchor](uicontrol.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
+### `Spherecast`
+
+In this example any object that the player looks at will be outlined using an Outline Object. This is done using World.Spherecast(), which returns a hitResult with the impacted object. Using a Spherecast here is useful because the player doesn't have to look directly at an object for it to be highlighted but just close to it.
+
+```lua
+local OutlineObject = script:GetCustomProperty("OutlineObject"):WaitForObject()
+
+local LOCAL_PLAYER = Game.GetLocalPlayer()
+local viewedObject = nil
+
+function Tick()
+    local rayStart = LOCAL_PLAYER:GetViewWorldPosition()
+    local lookVector = LOCAL_PLAYER:GetViewWorldRotation() * Vector3.FORWARD
+    local hitResult = World.Spherecast(rayStart, rayStart + (lookVector * 5000), 30, {ignorePlayers=LOCAL_PLAYER})
+
+    if hitResult and not hitResult.other:IsA("Player") and hitResult.other ~= viewedObject then
+        OutlineObject:SetSmartProperty("Object To Outline", hitResult.other)
+        OutlineObject:SetSmartProperty("Enabled", true)
+        viewedObject = hitResult.other
+    elseif not hitResult then
+        OutlineObject:SetSmartProperty("Enabled", false)
+        viewedObject = nil
+    end
+end
+```
+
+See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md) | [CoreLua.Tick](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `SpherecastAll`
+
+This example allows player's to damage other players that they are aiming at. This is done using World.SpherecastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good usecase for this function would be for a laser gun.
+
+```lua
+function OnBindingPressed(player, binding)
+    if binding == "ability_primary" then
+        local rayStart = player:GetViewWorldPosition()
+        local lookVector = player:GetViewWorldRotation() * Vector3.FORWARD
+        local results = World.SpherecastAll(rayStart, rayStart + (lookVector * 5000), 50, {ignorePlayers=player, shouldDebugRender = true})
+
+        for _, hitResult in ipairs(results) do
+            if hitResult.other:IsA("Player") then
+                if not hitResult.other.isDead then
+                    local dmg = Damage.New(10)
+                    hitResult.other:ApplyDamage(dmg)
+                end
+            else
+                break
+            end
+        end
+    end
+end
+
+function OnPlayerJoined(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md)
 
 ---

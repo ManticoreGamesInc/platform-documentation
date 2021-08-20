@@ -1021,6 +1021,38 @@ See also: [CoreObject.parent](coreobject.md) | [Object.IsA](object.md) | [Trigge
 
 Example using:
 
+### `TransferToScene`
+
+This example shows how to transfer a player to a scene called **Tutorial** when the player overlaps the trigger. By setting the optional spawn parameter, the player will spawn at a specific location when loading into the scene.
+
+It's important that the scene name used, matches exactly the name for the scene you want to transfer the player too.
+
+```lua
+local PORTAL_TRIGGER = script:GetCustomProperty("PortalTrigger"):WaitForObject()
+
+-- Name of the scene to transfer the player too.
+local sceneName = "Tutorial"
+
+-- Function will be called when the player overlaps the trigger.
+local function OnTriggerOverlap(trigger, obj)
+
+    -- Check the object overlapping the trigger is a Player.
+    if obj:IsA("Player") then
+
+        -- Transfer the player to the scene, and set the spawn point.
+        obj:TransferToScene(sceneName, { spawnKey = "TutorialStart" })
+    end
+end
+
+PORTAL_TRIGGER.beginOverlapEvent:Connect(OnTriggerOverlap)
+```
+
+See also: [Game.TransferAllPlayersToScene](game.md)
+
+---
+
+Example using:
+
 ### `isVisible`
 
 You can make a player visible or invisible by setting the `isVisible` property, as well as check on their current visibility status. This sample gives the player the ability to turn invisible by pressing the shift key.

@@ -850,7 +850,7 @@
 			"Events": [
 				{
 					"Name": "animationEvent",
-					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it and the name of the event at those points.",
+					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself.",
 					"Tags": [
 						"ClientOnly"
 					],
@@ -862,6 +862,10 @@
 						{
 							"Type": "string",
 							"Name": "eventName"
+						},
+						{
+							"Type": "string",
+							"Name": "animationName"
 						}
 					]
 				}
@@ -1831,7 +1835,7 @@
 		},
 		{
 			"Name": "CameraCapture",
-			"Description": "CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Captures can be created using a fixed set of resolutions, and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.\r\n\r\nCurrently, creators are limited to the following:\r\n* Up to 256 `VERY_SMALL` captures.\r\n* In addition to Up to 64 `SMALL` capture.\r\n* In addition to Up to 16 `MEDIUM` captures.\r\n* In addition to Up to 4 `LARGE` captures.\r\n* In addition to Up to 1 `VERY_LARGE` capture.",
+			"Description": "CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Captures can be created using a fixed set of resolutions, and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.\r\n\r\nCurrently, creators are limited to the following:\r\n\r\n* Up to 256 `VERY_SMALL` captures.\r\n* In addition to Up to 64 `SMALL` capture.\r\n* In addition to Up to 16 `MEDIUM` captures.\r\n* In addition to Up to 4 `LARGE` captures.\r\n* In addition to Up to 1 `VERY_LARGE` capture.",
 			"Properties": [
 				{
 					"Name": "resolution",
@@ -2898,7 +2902,7 @@
 				},
 				{
 					"Name": "sourceTemplateId",
-					"Description": "The ID of the template from which this `CoreObject` was instantiated. `nil` if the object did not come from a template.",
+					"Description": "The ID of the template from which this `CoreObject` was instantiated. `0000000000000000` if this object is not a template. Deinstanced templates also return `0000000000000000`.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -3360,7 +3364,7 @@
 				},
 				{
 					"Name": "GetChildren",
-					"Description": "Returns a table containing the object's children, may be empty.",
+					"Description": "Returns a table containing the object's children, may be empty. Order is not guaranteed to match what is in the hierarchy.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -6713,7 +6717,7 @@
 				},
 				{
 					"Name": "hitPoints",
-					"Description": "Current amount of hitpoints.",
+					"Description": "Current amount of hit points.",
 					"Type": "number",
 					"Tags": [
 						"ServerOnly"
@@ -6721,7 +6725,7 @@
 				},
 				{
 					"Name": "maxHitPoints",
-					"Description": "Maximum amount of hitpoints.",
+					"Description": "Maximum amount of hit points.",
 					"Type": "number",
 					"Tags": [
 						"ServerOnly"
@@ -7292,7 +7296,7 @@
 				},
 				{
 					"Name": "animationEvent",
-					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it and the name of the event at those points.",
+					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return \"animation_stance\" as the animation name.",
 					"Tags": [
 						"ClientOnly"
 					],
@@ -7304,6 +7308,10 @@
 						{
 							"Type": "string",
 							"Name": "eventName"
+						},
+						{
+							"Type": "string",
+							"Name": "animationName"
 						}
 					]
 				},
@@ -8102,6 +8110,26 @@
 					]
 				},
 				{
+					"Name": "TransferToScene",
+					"Description": "Does not work in preview mode or in games played locally. Transfers player to the scene specified by the passed-in scene name. The specified scene must be a scene within the same game. This function will raise an error if called from a client script on a player other than the local player. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the player at a spawn point with a matching key. If an invalid key is provided, the player will spawn at the origin, (0, 0, 0).",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "sceneName"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
 					"Name": "HasPerk",
 					"Description": "Returns `true` if the player has one or more of the specified perk.",
 					"Signatures": [
@@ -8683,6 +8711,14 @@
 				{
 					"Name": "gameId",
 					"Description": "The ID of the game the player joined from or left to join. Returns `nil` if the player joined while not already connected to a game or left for a reason other than joining another game. Also returns `nil` if the player has opted out of sharing this information.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sceneId",
+					"Description": "The scene ID that the player joined from or left to join. May return `nil`.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -15737,7 +15773,7 @@
 				},
 				{
 					"Name": "StopAcceptingPlayers",
-					"Description": "Sets the current server instance to stop accepting new players. Note that players already in the process of joining the server will still be accepted, and `Game.playerJoinedEvent` may still fire for a short period of time after a call to this function returns. Other new players will be directed to a different instance of the game.",
+					"Description": "Locks the current server instance to stop accepting new players. Note that players already in the process of joining the server will still be accepted, and `Game.playerJoinedEvent` may still fire for a short period of time after a call to this function returns. Other new players will be directed to a different instance of the game.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -15802,6 +15838,43 @@
 					],
 					"Tags": [
 						"ServerOnly"
+					]
+				},
+				{
+					"Name": "TransferAllPlayersToScene",
+					"Description": "Similar to `Player:TransferToScene()`, transfers all players to the scene specified by the passed in scene name. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0).",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "sceneName"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetCurrentSceneName",
+					"Description": "Returns the name of the current scene.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
 					]
 				}
 			],
@@ -16814,7 +16887,7 @@
 				},
 				{
 					"Name": "Raycast",
-					"Description": "Traces a ray from `rayStart` to `rayEnd`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. <br /> Optional parameters can be provided to control the results of the Raycast: `ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed; `ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players.",
+					"Description": "Traces a ray from `startPosition` to `endPosition`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. Note that if a raycast starts inside an object, that object will not be returned by the raycast. <br /> Optional parameters can be provided to control the results of the Raycast:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list. <br/>`shouldDebugRender (boolean)`: If `true`, enables visualization of the raycast in world space for debugging. <br/>`debugRenderDuration (number)`: Number of seconds for which debug rendering should remain on screen. Defaults to 1 second. <br/>`debugRenderThickness (number)`: The thickness of lines drawn for debug rendering. Defaults to 1. <br/>`debugRenderColor (Color)`: Overrides the color of lines drawn for debug rendering. If not specified, multiple colors may be used to indicate where results were hit.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -16831,6 +16904,164 @@
 								{
 									"Type": "Vector3",
 									"Name": "endPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "RaycastAll",
+					"Description": "Traces a ray from `startPosition` to `endPosition`, returning a list of `HitResult` instances with data about all objects found along the ray. Returns an empty table if no intersection is found. Note that if a raycast starts inside an object, that object will not be returned by the raycast. Optional parameters can be provided to control the results of the raycast using the same parameters supported by `World.Raycast()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<HitResult>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Spherecast",
+					"Description": "Traces a sphere with the specified radius from `startPosition` to `endPosition`, returning a `HitResult` with data about the first object hit along the way. Returns `nil` if no intersection is found. Note that a sphere cast starting entirely inside an object with complex collision may not return that object. Optional parameters can be provided to control the results of the sphere cast using the same parameters supported by `World.Raycast()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "SpherecastAll",
+					"Description": "Traces a sphere with the specified radius from `startPosition` to `endPosition`, returning a list of `HitResult` instances with data about all objects found along the path of the sphere. Returns an empty table if no intersection is found. Note that a sphere cast starting entirely inside an object with complex collision may not return that object. Optional parameters can be provided to control the results of the sphere cast using the same parameters supported by `World.Raycast()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<HitResult>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Boxcast",
+					"Description": "Traces a box with the specified size from `startPosition` to `endPosition`, returning a `HitResult` with data about the first object hit along the way. Returns `nil` if no intersection is found. Note that a box cast starting entirely inside an object with complex collision may not return that object. Optional parameters can be provided to control the results of the box cast using the same parameters supported by `World.Raycast()`, as well as the following additional parameters: <br/>`shapeRotation (Rotation)`: Rotation of the box shape being cast. Defaults to (0, 0, 0). <br/>`isWorldShapeRotation (boolean)`: If `true`, the `shapeRotation` parameter specifies a rotation in world space, or if no `shapeRotation` is provided, the box will be axis-aligned. Defaults to `false`, meaning the rotation of the box is relative to the direction in which it is being cast.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "boxSize"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "BoxcastAll",
+					"Description": "Traces a box with the specified size from `startPosition` to `endPosition`, returning a list of `HitResult` instances with data about all objects found along the path of the box. Returns an empty table if no intersection is found. Note that a box cast starting entirely inside an object with complex collision may not return that object. Optional parameters can be provided to control the results of the box cast using the same parameters supported by `World.Raycast()` and `World.Boxcast()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<HitResult>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "startPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "endPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "boxSize"
 								},
 								{
 									"Type": "table",
@@ -17408,6 +17639,11 @@
 					"Name": "EXIT",
 					"Description": "Player exited Core. Core was sad.",
 					"Value": 8
+				},
+				{
+					"Name": "PORTAL_SCENE",
+					"Description": "Player used a portal from one scene to another (or otherwise made use of the `TransferToScene()` function.)",
+					"Value": 9
 				}
 			]
 		},
