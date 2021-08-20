@@ -24,7 +24,7 @@ In this tutorial we are going to explore more of the **Core** API to make a race
 
 ---
 
-## Setting up Project and Track
+## Create Project and Track
 <!-- TODO: Move CC to official account -->
 !!! tip "Community Content Track"
     A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CoreAcademy**.
@@ -37,7 +37,7 @@ If you enter **Play** mode you will notice the spawn position isn't in an ideal 
 
 ![!Spawn Point](../img/RaceTimerTutorial/move_spawn_point.png){: .center loading="lazy" }
 
-## Starting Line
+## Create Starting Line
 
 When a race is about to start, we need to move the players to the starting line.
 
@@ -118,7 +118,7 @@ The server script should then handle validating if the player can purchase the i
 
 For further information check out [Networking in Core](../references/networking/)
 
-## Creating the Race Manager Server Script
+## Create Race Manager Server Script
 
 The race manager server script is going to handle a few different things. We will be modifying this script a few times throughout the tutorial. In this section the following items will be covered.
 
@@ -313,7 +313,7 @@ end
 
 The function `TellPlayersToGo` will broadcast to each player that is marked as in the race. Later on in the tutorial we will listen for this broadcast event and setup a handler.
 
-### Stopping the Race
+### Stop the Race
 
 We need to handle stopping a race when the race timer has finished, so place the function below just after the `TellPlayersToGo` function.
 
@@ -589,7 +589,7 @@ Enter **Play** mode and test everything is working. If you have followed the tut
     task_handler()
     ```
 
-## Finish Line
+## Create Finish Line Trigger
 
 We need to add a trigger to the finish line so that when the player overlaps the trigger, the time is recorded.
 
@@ -615,7 +615,7 @@ We need to add a trigger to the finish line so that when the player overlaps the
     </video>
 </div>
 
-### Trigger Overlap
+### Create Trigger Overlap Handler
 
 Modify the **RaceManager_Server** script so that the finish line trigger can be used to detect when a player has overlapped it.
 
@@ -902,7 +902,7 @@ Enter **Play** mode and test everything is working. Crossing the finish line wil
     task_handler()
     ```
 
-## User Interface
+## Create User Interface
 
 We want to display some UI to the player so they have a visual way to tell what's going on. We are going to set up the following UI.
 
@@ -1600,7 +1600,7 @@ Open the **RaceManager_Server** script and add line 8 to the `OnFinishTriggerOve
     task_handler()
     ```
 
-## Updating the Race UI
+## Update Race User Interface
 
 We need to update the UI to add support for showing the best time of the player and last time.
 
@@ -1680,7 +1680,7 @@ end
 
 Modify the `RaceFinished` function and add line 5 to it. This will update the text for the `LAST_TIME` when the race is finished by the player.
 
-### Receiving Private Data
+### Get Private Player Data
 
 If you remember the **RaceManager_Server** script is sending private networked data to the client. This data contains the best time of the player. We need to modify the client script to check when the data has changed so we can update the UI.
 
@@ -1877,7 +1877,7 @@ It can be fun for players to fight it out on the leaderboard for the fastest tim
 - Retrieving leaderboard data
 - Display in world for players to view
 
-### Creating a leaderboard
+### Create a Leaderboard
 
 Leaderboards allow you to store data for players that get automatically sorted. This is a good way to show players who has the fastest time.
 
@@ -2424,7 +2424,7 @@ Creating a time split feature isn't as complicated as it would first seem.
 - Modify the **RaceManager_Server** script to keep track of the time between splits.
 - Modify the **RaceManager_Client** script to dynamically add and modify the time splits for the UI.
 
-### Update UI
+### Update User Interface
 
 We need a place in the UI to display the time splits to the player. Adding these could get quite tedious, so it will be done automatically in the client script later.
 
@@ -3414,7 +3414,7 @@ Enter **Play** mode and test the splits. When running the race the color of the 
 
 In this section we are going to add a little polish to project by adding a sprint feature, audio, and some effects.
 
-### Add Sprinting
+### Add Player Sprint
 
 Currently it's very slow running a race, so let's allow the players to sprint when holding the ++shift++ key down.
 
