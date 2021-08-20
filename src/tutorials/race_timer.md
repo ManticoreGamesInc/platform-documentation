@@ -27,7 +27,7 @@ In this tutorial we are going to explore more of the **Core** API to make a race
 ## Setting up Project and Track
 <!-- TODO: Move CC to official account -->
 !!! tip "Community Content Track"
-    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CommanderFoo**.
+    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CoreAcademy**.
 
 1. Create a new empty project
 2. In the **Hierarchy** delete the object **Default Floor**
@@ -1907,7 +1907,7 @@ Leaderboards allow you to store data for players that get automatically sorted. 
 
 We need to display the leaderboard in the world to players. A leaderboard can have quite a few components too it and how you design it's up to you.
 
-In **Community Content** find **Race Timer Tutorial - Board** by **CommanderFoo** and import it.
+In **Community Content** find **Race Timer Tutorial - Board** by **CoreAcademy** and import it.
 
 ![!Last Time Properties](../img/RaceTimerTutorial/cc_leaderboard.png){: .center loading="lazy" }
 
