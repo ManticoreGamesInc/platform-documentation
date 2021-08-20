@@ -104,12 +104,12 @@ Using a cylinder that is placed between 2 objects, it can be used as a projector
 
 ![Min Max Slope](../img/EnvironIntro/OG_min0_max90.png)
 ![Min Max Slope](../img/EnvironIntro/OG_min0_max90_above.png)
-*Min Slope 0, Max Slope 90, Direction to Spawn set to Below (Left), Min Slope 0, Max Slope 90, Direction to Spawn set to Above (Right)*
+*Min Slope 0, Max Slope 90, Direction to spawn below (Left), Min Slope 0, Max Slope 90, Direction to spawn above (Right)*
 {: .image-cluster}
 
 ![Min Max Slope](../img/EnvironIntro/OG_min20_max60.png)
 ![Min Max Slope](../img/EnvironIntro/OG_min0_max90_above.png)
-*Min Slope 20, Max Slope 60, Direction to Spawn set to Below (Left), Min Slope 20, Max Slope 60, Direction to Spawn set to Above (Right)*
+*Min Slope 20, Max Slope 60, Direction to spawn below (Left), Min Slope 20, Max Slope 60, Direction to spawn above (Right)*
 {: .image-cluster}
 
 ### Group in Folder
