@@ -50,6 +50,24 @@ If you would like to randomize the color of your spawned objects check **Use Ran
 
 ![ArtIntro](../img/EnvironIntro/image25.png "Art Screenshot"){: .center loading="lazy" }
 
+### Spawn Vertical
+
+Leave **Spawn Vertical** unchecked if you want your objects to spawn aligned to the terrain. It's best to leave **Spawn Vertical** unchecked for organic things like plants and trees.
+
+![ArtIntro1](../img/EnvironIntro/image37.png "Art Screenshot1")
+![ArtIntro2](../img/EnvironIntro/image8.png "Art Screenshot2")
+*Spawn Vertical unchecked (left) vs. checked (right)*
+{: .image-cluster}
+
+### Spawn Only on Terrain
+
+Checking **Only Spawn On Terrain** ensures spawned objects will only spawn on the terrain - if left unchecked they will spawn on anything underneath the object selected in the **Hierarchy**.
+
+![ArtIntro1](../img/EnvironIntro/image38.png "Art Screenshot1")
+![ArtIntro2](../img/EnvironIntro/image39.png "Art Screenshot2")
+*Only Spawn on Terrain checked (left) vs. unchecked (right)*
+{: .image-cluster}
+
 ### In-Between Distance
 
 **In-Between Distance** controls how far apart objects are from each other in meters. If **Distance** is set to `5`, each object will spawn in the center of a 5x5 meter square. Higher numbers means objects will spawn further apart.
@@ -72,22 +90,26 @@ TL;DR: The higher **Position Randomness** is set to, the more displaced objects 
 *Randomness set to 0 (top left), Randomness set to 0.5 (top right), Randomness set to 1 (bottom left), Randomness set to 3 (bottom right)*
 {: .image-cluster}
 
-### Spawn Upright
+### Min and Max Allowable Slope
 
-Leave **Spawn Upright** unchecked if you want your objects to spawn aligned to the terrain. It's best to leave **Spawn Upright** unchecked for organic things like plants and trees.
+The **Min Allowable Slope** and **Max Allowable Slope**, controls the allowed angle between the surface normal and World Up vector (0, 90 degrees).
 
-![ArtIntro1](../img/EnvironIntro/image37.png "Art Screenshot1")
-![ArtIntro2](../img/EnvironIntro/image8.png "Art Screenshot2")
-*Spawn Upright unchecked (left) vs. checked (right)*
+![Min Max Slope](../img/EnvironIntro/OG_Base.png)
+
+Using a cylinder that is placed between 2 objects, it can be used as a projector that will project the selected asset to the object above or below, depending on the **Direction to Spawn** setting.
+
+1. Select an asset from **Project Content**
+2. Select the cylinder in the **Hierarchy**
+3. Click **Populate**
+
+![Min Max Slope](../img/EnvironIntro/OG_min0_max90.png)
+![Min Max Slope](../img/EnvironIntro/OG_min0_max90_above.png)
+*Min Slope 0, Max Slope 90, Direction to spawn below (Left), Min Slope 0, Max Slope 90, Direction to spawn above (Right)*
 {: .image-cluster}
 
-### Spawn Only on Terrain
-
-Checking **Only Spawn On Terrain** ensures spawned objects will only spawn on the terrain - if left unchecked they will spawn on anything underneath the object selected in the **Hierarchy**.
-
-![ArtIntro1](../img/EnvironIntro/image38.png "Art Screenshot1")
-![ArtIntro2](../img/EnvironIntro/image39.png "Art Screenshot2")
-*Only Spawn on Terrain checked (left) vs. unchecked (right)*
+![Min Max Slope](../img/EnvironIntro/OG_min20_max60.png)
+![Min Max Slope](../img/EnvironIntro/OG_min0_max90_above.png)
+*Min Slope 20, Max Slope 60, Direction to spawn below (Left), Min Slope 20, Max Slope 60, Direction to spawn above (Right)*
 {: .image-cluster}
 
 ### Group in Folder
