@@ -10,9 +10,9 @@ tags:
 
 ## Summary
 
- An **Event** is something that happens. The source of the event can be many things, from an object, broadcast, to even **Player** input. For example, when the **Player** presses a key, any event listeners connected to a binding event will be fired, allowing you to react and perform any additional tasks based on which binding was pressed.
+An **Event** is something that happens. The source of the event can be many things, from an object, broadcast, to even **Player** input. For example, when the **Player** presses a key, any event listeners connected to a binding event will be fired, allowing you to react and perform any additional tasks based on which binding was pressed.
 
- A **Hook** is like an event, but the purpose is to view or change something that's already going on. For example, modifying the player direction in a movement hook.
+A **Hook** is like an event, but the purpose is to view or change something that's already going on. For example, modifying the player direction in a movement hook.
 
 ## Broadcasting and Connecting
 
@@ -181,7 +181,7 @@ The functions in the **Events** namespace have a limit of 128 bytes per broadcas
 
     This is ideal for transferring large chunks of data to the player. For example, loading the player's inventory from **Storage** which could contain a large number of items. This has the added benefit where data is replicated to the receiving client and not all clients.
 
-See [SetNetworkedCustomProperty](../api/coreobject.md#setnetworkedcustomproperty/) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
+See [SetNetworkedCustomProperty](../api/coreobject.md#setnetworkedcustomproperty) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
 
 ## Object Events
 
