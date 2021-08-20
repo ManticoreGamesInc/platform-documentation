@@ -428,3 +428,7 @@ script.destroyEvent:Connect(function()
     end
 end)
 ```
+
+## Learn More
+
+[Event](../api/event.md) | [Hook](../api/hook.md) | [HookListener](../api/hooklistener.md) | [EventListener](../api/eventlistener.md)
