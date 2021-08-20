@@ -98,7 +98,7 @@ The **Min Allowable Slope** and **Max Allowable Slope**, controls the allowed an
 
 Using a cylinder that is placed between 2 objects, it can be used as a projector that will project the selected asset to the object above or below, depending on the **Direction to Spawn** setting.
 
-1. Select asset from **Project Content**
+1. Select an asset from **Project Content**
 2. Select the cylinder in the **Hierarchy**
 3. Click **Populate**
 
