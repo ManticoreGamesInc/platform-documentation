@@ -37,6 +37,16 @@ Good game information is essential to helping players find your game and underst
 !!! info
     Checking the **Open for Editing** box will allow other Core Creators to use a copy of your game as a starting point to make their own.
 
+## Scenes
+
+Publishing a game will allow you to select which scenes you want to publish. If no scenes have been created, then the main scene will be selected by default. If there are new scenes added to your project, those scenes will need to be ticked in the scenes drop down so that they are published.
+
+The **Game Publishing Settings** window has a **Scenes** drop down where you can select which scenes should be included when publishing.
+
+!!! info "When publishing any scenes that isn't the main scene, **Core** will only publish the assets used for that scene."
+
+![Publishing Scenes](../img/getting_started/scenes.png){: .center loading="lazy" }
+
 ## Publish
 
 1. Click **Publish** in the bottom right corner.
