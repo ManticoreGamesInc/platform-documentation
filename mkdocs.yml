@@ -76,6 +76,7 @@ nav:
           - Curves: references/curves.md
           - Custom Materials: references/custom_materials.md
           - Custom Properties: references/custom_properties.md
+          - Damageable Object: references/damageable_object.md
           - Editor Shortcuts: references/editor_keybindings.md
           - Events and Hooks: references/events_hooks.md
           - Frameworks:
