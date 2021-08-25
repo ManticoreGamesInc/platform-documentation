@@ -56,7 +56,7 @@ A **Damageable Object** that is client only (i.e. placed into a **Client Context
 
 ## The Damageable Properties
 
-The **Damageable Object** uses the **Damageable** interface that unifies health, damage, and death behavior with players and some of objects (i.e. Vehicles, Physics Shape). Below are the properties of the **Damageable** interface that can be found on a few different objects in **Project Content**.
+The **Damageable Object** uses the **Damageable** interface that unifies health, damage, and death behavior with players and some objects (i.e. Vehicles, Physics Shape). Below are the properties of the **Damageable** interface that can be found on a few different objects in **Project Content**.
 
 | Property Name | Description | API Property |
 | ------------- | ----------- | ------------ |
