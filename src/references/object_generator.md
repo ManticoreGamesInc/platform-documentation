@@ -94,7 +94,7 @@ TL;DR: The higher **Position Randomness** is set to, the more displaced objects 
 
 The **Min Allowable Slope** and **Max Allowable Slope**, controls the allowed angle between the surface normal and World Up vector (0, 90 degrees).
 
-![Min Max Slope](../img/EnvironIntro/OG_Base.png)
+![Min Max Slope](../img/EnvironIntro/OG_base.png)
 
 Using a cylinder that is placed between 2 objects, it can be used as a projector that will project the selected asset to the object above or below, depending on the **Direction to Spawn** setting.
 
