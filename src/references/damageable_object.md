@@ -52,6 +52,8 @@ By default, a **Damageable Object** that is placed into your **Hierarchy** will 
 
 A **Damageable Object** that is client only (i.e. placed into a **Client Context**), will have no collision, or server side gameplay. Damage can still be applied to the **Damageable Object** from a client script. This can be used for visuals, for example, the damage is sent from the server to the client which gets applied to the **Damageable Object**.
 
+??? info "`ApplyDamage(Damage)` can also be used on the client to apply damage to the **Damageable Object**."
+
 ## The Damageable Properties
 
 The **Damageable Object** uses the **Damageable** interface that unifies health, damage, and death behavior with players and some of objects (i.e. Vehicles, Physics Shape). Below are the properties of the **Damageable** interface that can be found on a few different objects in **Project Content**.
@@ -85,4 +87,4 @@ Below is a list of some of the objects that implement the **Damageable** interfa
 
 ## Learn More
 
-<!-- TODO: Add learn more links here when we have them -->
+[DamageableObject](../api/damageableobject.md) | [Damageable](../api/damageable.md) | [Damage](../api/damage.md) | [AIActivity](../api/aiactivity.md) | [AIActivityHandler](../api/aiactivityhandler.md)
