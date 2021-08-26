@@ -62,6 +62,7 @@ nav:
               - Scripting (Advanced): tutorials/lua_basics_manticoin.md
               - Scripting (Expert): tutorials/race_timer.md
           - Survival Contest Kit: references/survival_kit.md
+          - Script Debugger: tutorials/script_debugger.md
           - Racing Framework Kit: tutorials/racing_tutorial.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
