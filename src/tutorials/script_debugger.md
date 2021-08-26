@@ -85,7 +85,7 @@ You need to add a breakpoint so the **Script Debugger** knows where to pause exe
 1. Edit Script
 2. Add a breakpoint to line 2 of the script
 3. Play the game
-4. Step into the script by clicking ![Step Into](../img/ScriptDebugger/step_into.png){: .image-inline-text .image-background }
+4. Step into the script by clicking ![Step Into](../img/ScriptDebugger/step_into_icon.png){: .image-inline-text .image-background }
 5. Inspect the `randomIndex` variable
 6. Inspect the `animals` table
 7. Resume execution by clicking ![Resume](../img/ScriptDebugger/resume_execution.png){: .image-inline-text .image-background }
@@ -167,7 +167,7 @@ If you have any breakpoints, remove them. You are going to add a new breakpoint 
 **Step Into** will be frequently used, as you can use it to step through a script line by line. This also includes functions. If a function is about to be called, and you want to debug the code in that function, the next step is to go into that function and debug it line by line by using **Step Into**.
 
 1. Play the game
-2. Click on ![Step Into](../img/ScriptDebugger/step_into.png){: .image-inline-text .image-background }to step through the script
+2. Click on ![Step Into](../img/ScriptDebugger/step_into_icon.png){: .image-inline-text .image-background }to step through the script
 
 Keep an eye on the green arrow in the left margin, see how it moves from line 21, to line 6 when you **Step Into** the `GetRandomIndex` function. Same happens when you reach line 22, the green arrow in the left margin will jump to line 14 of the `GetAnimal` function.
 
@@ -182,8 +182,8 @@ Keep an eye on the green arrow in the left margin, see how it moves from line 21
 Sometimes you may not want to step into a function, especially if you have big functions, or functions that are calling other functions. This is where **Step Over** becomes useful. When used, the **Script Debugger** will execute the function as one complete step, and move to the next line.
 
 1. Play the game
-2. Click on ![Step Over](../img/ScriptDebugger/step_over.png){: .image-inline-text .image-background } to step over the `GetRandomIndex` function
-3. Click on ![Step Into](../img/ScriptDebugger/step_into.png){: .image-inline-text .image-background } to step into the `GetAnimal` function
+2. Click on ![Step Over](../img/ScriptDebugger/step_over_icon.png){: .image-inline-text .image-background } to step over the `GetRandomIndex` function
+3. Click on ![Step Into](../img/ScriptDebugger/step_into_icon.png){: .image-inline-text .image-background } to step into the `GetAnimal` function
 
 The green arrow in the left margin moves to line 22 when stepping over. Before, when using **Step Into**, it would move the green arrow into the `GetRandomIndex` function. Also, when stepping through the `GetAnimal` function, the **Script Debugger** steps out of the function when it executes line 15. This is because the function `GetAnimal` returned because the if condition on line 14 is true. If the condition was false, then the **Script Debugger** would have moved to line 18.
 
@@ -198,8 +198,8 @@ The green arrow in the left margin moves to line 22 when stepping over. Before, 
 **Step Out** is used when you are done debugging a function step by step, and just want the **Script Debugger** to run the entire function. This useful when you are stepping into a function and only care about debugging part of it.
 
 1. Play the game
-2. Click on ![Step Into](../img/ScriptDebugger/step_over.png){: .image-inline-text .image-background } to step into the `GetRandomIndex` function
-3. Click on ![Step Out](../img/ScriptDebugger/step_out.png){: .image-inline-text .image-background } to step out of the `GetRandomIndex` function
+2. Click on ![Step Into](../img/ScriptDebugger/step_over_icon.png){: .image-inline-text .image-background } to step into the `GetRandomIndex` function
+3. Click on ![Step Out](../img/ScriptDebugger/step_out_icon.png){: .image-inline-text .image-background } to step out of the `GetRandomIndex` function
 
 When stepping out of the `GetRandomIndex` function, the green arrow jumps from line 6, to line 22.
 
