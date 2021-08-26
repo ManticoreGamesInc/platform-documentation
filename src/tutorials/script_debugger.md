@@ -167,7 +167,7 @@ If you have any breakpoints, remove them. You are going to add a new breakpoint 
 **Step Into** will be frequently used, as you can use it to step through a script line by line. This also includes functions. If a function is about to be called, and you want to debug the code in that function, the next step is to go into that function and debug it line by line by using **Step Into**.
 
 1. Play the game
-2. Click on ![Step Into](../img/ScriptDebugger/step_into_icon.png){: .image-inline-text .image-background }to step through the script
+2. Click on ![Step Into](../img/ScriptDebugger/step_into_icon.png){: .image-inline-text .image-background } to step through the script
 
 Keep an eye on the green arrow in the left margin, see how it moves from line 21, to line 6 when you **Step Into** the `GetRandomIndex` function. Same happens when you reach line 22, the green arrow in the left margin will jump to line 14 of the `GetAnimal` function.
 
