@@ -54,18 +54,18 @@ nav:
           - Chat Hooks: tutorials/chat_tutorial.md
           - Environment Art: tutorials/environment_art.md
           - Modeling Basics: tutorials/modeling_basics.md
+          - Model a Room: tutorials/scene_creation.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
-          - Scene Creation: tutorials/scene_creation.md
-          - Scripting:
-              - Scripting (Beginner): tutorials/lua_basics_helloworld.md
-              - Scripting (Intermediate): tutorials/lua_basics_lightbulb.md
-              - Scripting (Advanced): tutorials/lua_basics_manticoin.md
-              - Scripting (Expert): tutorials/race_timer.md
-          - Survival Contest Kit: references/survival_kit.md
-          - Racing Framework Kit: tutorials/racing_tutorial.md
+          - Learn Lua:
+              - Hello World: tutorials/lua_basics_helloworld.md
+              - Lightbulb: tutorials/lua_basics_lightbulb.md
+              - Race Timer: tutorials/race_timer.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
-          - Weapons & Abilities (Advanced): tutorials/abilities_advanced.md
+          - Weapons & Abilities: tutorials/abilities_advanced.md
+      - Frameworks:
+          - Survival Kit: references/survival_kit.md
+          - Racing Framework: tutorials/racing_tutorial.md
       - Core Editor Manual:
           - AI: references/ai.md
           - Animated Meshes: references/animated_meshes.md
@@ -361,6 +361,7 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
+        tutorials/lua_basics_manticoin.md: tutorials/race_timer.md
         perks/implementing_perks.md: references/perks/implementing.md
         perks/joining_perks.md: references/perks/joining.md
         perks/perks_program.md: references/perks/program.md
