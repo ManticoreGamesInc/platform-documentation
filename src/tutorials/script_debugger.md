@@ -138,7 +138,7 @@ end
 -- Get an animal from the array based on the index passed in
 
 local function GetAnimal(randomIndex)
-    if(animals[randomIndex] ~= nil) then
+    if animals[randomIndex] ~= nil then
         return animals[randomIndex]
     end
 
