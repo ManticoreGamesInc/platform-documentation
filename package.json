@@ -44,7 +44,7 @@
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-plugin-import": "^2.24.2",
         "eslint-plugin-prettier": "^3.4.1",
-        "husky": "4.3.8",
+        "husky": "7.0.2",
         "lite-youtube-embed": "^0.2.0",
         "markdownlint-cli": "^0.28.1",
         "prettier": "^2.3.2"
