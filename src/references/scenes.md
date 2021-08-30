@@ -153,7 +153,8 @@ Parties work differently for scenes. Currently, you can not transfer all party m
 
 ## Migrating from Child Games to Scenes
 
-If you've been using our Child Games system previously, [here's how you convert it]((https://forums.coregames.com/t/migrating-from-child-games-to-scenes/1900) to the new **Scenes** system.
+If you've been using our Child Games system previously, [here's how you convert it](https://forums.coregames.com/t/migrating-from-child-games-to-scenes/1900) to the new **Scenes** system.
+
 ## Learn More
 
 [TransferToScene](../api/player.md) | [TransferAllPlayersToScene](../api/game.md) | [GetCurrentSceneName](../api/game.md)
