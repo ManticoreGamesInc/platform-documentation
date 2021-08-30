@@ -52,7 +52,7 @@ By default, a **Damageable Object** that is placed into your **Hierarchy** will 
 
 A **Damageable Object** that is client only (i.e. placed into a **Client Context**), will have no collision, or server side gameplay. Damage can still be applied to the **Damageable Object** from a client script. This can be used for visuals, for example, the damage is sent from the server to the client which gets applied to the **Damageable Object**.
 
-??? info "`ApplyDamage(Damage)` can also be used on the client to apply damage to the **Damageable Object**."
+!!! info "`ApplyDamage(Damage)` can also be used on the client to apply damage to the **Damageable Object**."
 
 ## The Damageable Properties
 
@@ -60,14 +60,14 @@ The **Damageable Object** uses the **Damageable** interface that unifies health,
 
 | Property Name | Description | API Property |
 | ------------- | ----------- | ------------ |
-| Max Hit Points | Maximum hit points of the object. Values less than or equal to 0 will be ignored. | maxHitPoints |
-| Starting Hit Points | The hit points of the object when the object is spawned. Cannot be greater than **Max Hit Points** or less than 0. | hitPoints |
-| Start Invulnerable | When true, the object cannot take damage. | isInvulnerable |
-| Start Immortal | The object doesn't automatically die when the hit points is less than or equal to 0. | isImmortal |
-| Destroy on Death | If true, when the object dies, destroy the object. | destroyOnDeath |
-| Destroy on Death Delay | Time, in seconds, after the object dies when it will be automatically destroyed if **Destroy on Death** is true. | destroyOnDeathDelay |
-| Destroy on Death Client TemplateId | Spawns the template on the client at the location of the Damageable after the death delay. This is the most efficient for visual-only effects. | destroyOnDeathClientTemplateId |
-| Destroy on Death Networked TemplateId | Spawns a networked template at the location of the Damageable after the death delay. This is useful for spawning gameplay from a destroyed Damageable. | destroyOnDeathNetworkedTemplateId |
+| Max Hit Points | Maximum hit points of the object. Values less than or equal to 0 will be ignored. | `maxHitPoints` |
+| Starting Hit Points | The hit points of the object when the object is spawned. Cannot be greater than **Max Hit Points** or less than 0. | `hitPoints` |
+| Start Invulnerable | When true, the object cannot take damage. | `isInvulnerable` |
+| Start Immortal | The object doesn't automatically die when the hit points is less than or equal to 0. | `isImmortal` |
+| Destroy on Death | If true, when the object dies, destroy the object. | `destroyOnDeath` |
+| Destroy on Death Delay | Time, in seconds, after the object dies when it will be automatically destroyed if **Destroy on Death** is true. | `destroyOnDeathDelay` |
+| Destroy on Death Client TemplateId | Spawns the template on the client at the location of the Damageable after the death delay. This is the most efficient for visual-only effects. | `destroyOnDeathClientTemplateId` |
+| Destroy on Death Networked TemplateId | Spawns a networked template at the location of the Damageable after the death delay. This is useful for spawning gameplay from a destroyed Damageable. | `destroyOnDeathNetworkedTemplateId` |
 
 ## Objects that Implement Damageable Interface
 
@@ -79,11 +79,12 @@ For example, add a Vehicle to the **Hierarchy** and look at the properties panel
 
 Below is a list of some of the objects that implement the **Damageable** interface.
 
-- Vehicle
-- Damageable Object
-- Physics Shape
+- [Vehicle Object](../api/vehicle.md)
+- [Damageable Object](../api/damageableobject.md)
+- [Physics Object](../api/physicsobject.md)
+- [Player Object](../api/player.md)
 
-??? info "Vehicle and Physics shape will default to "invulnerable"."
+!!! info "Vehicle and Physics shape will default to "invulnerable"."
 
 ## Learn More
 
