@@ -114,6 +114,19 @@ It is literally just a list of file and folder names that Git does not need to k
     .core_backup/
     ```
 
+### Set the correct Attributes
+
+The Core Editor saves `.pbt` files with Linux line endings (LF) by default, to prevent git from changing the line endings to Windows (CRLF) and therefore give you a bunch of changes that you did not make each time, we are going to add a **.gitattributes** file to force the correct behavior.
+
+1. Create a new file and call it `.gitattributes`.
+
+2. Copy and paste the text below into the file:
+
+    ```sh
+    # Core saves .pbt files as LF by default
+    *.pbt text eol=lf
+    ```
+
 ### Make a Commit
 
 Once your Core Project has been added to GitHub desktop, any time you save changes to the project, the changed files should show up in the **Changes** tab.
@@ -265,6 +278,7 @@ Creating **templates** is an easy way to have multiple contributors to a project
 | **GitHub**            | One of several websites that allows cloud storage of Git projects  |
 | **History**           | The list of changes to files in a project  |
 | **.gitignore**        | A special file that lists all the files and folders that do not need to be tracked with Git  |
+| **.gitattributes**    | A special file that controls Git settings line line endings and other attributes. |
 | **Repository**        | A project that is tracked with Git. Sometimes shortened to **repo**  |
 | **Local Repository**  | The tracked version of a project saved on your computer |
 | **Remote Repository** | An online version of the project, which can be shared and downloaded onto other computers |
