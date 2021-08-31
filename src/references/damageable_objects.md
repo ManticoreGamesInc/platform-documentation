@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-The **Damageable Object** is a **Core Object** that implements the **Damageable** interface, which has properties like the **Player** that allow it to react to damage received.
+The **Damageable Object** is a **Core Object** that implements the **Damageable** interface and has properties, events, and functions for objects which can take damage and die.
 
 The **Damageable Object** makes tracking damage and destroying objects very easy. Children of a **Damageable Object** that are hit by a projectile (or another damage source), will look for an ancestor that is a **Damageable** and automatically deduct the damage from health of the **Damageable**. You have control over what happens when the health of the **Damageable Object** reaches 0.
 
