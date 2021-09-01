@@ -143,6 +143,18 @@ other:TransferToScene(sceneName, {spawnKey = "TutorialArea"})
 
 Any data stored in **Storage** is transferred to the scene being loaded. For example, if a player has inventory data, this means the scene can look at the **Storage** for the player to retrieve that data without needing to use a **Shared Storage Key**.
 
+## Leaderboards
+
+Any **Leaderboard** setup for your project will be available to all your scenes. For example, if you have a score that persists between scenes, then this can be submitted to a **Leaderboard** from any scene within your project.
+
+## Parties
+
+Parties work differently for scenes. Currently, you can not transfer all party members to another scene. You can transfer each party member individually to a scene, but it is not guaranteed all party members will be in the same scene instance.
+
+## Migrating from Child Games to Scenes
+
+If you've been using our Child Games system previously, [here's how you convert it](https://forums.coregames.com/t/migrating-from-child-games-to-scenes/1900) to the new **Scenes** system.
+
 ## Learn More
 
 [TransferToScene](../api/player.md) | [TransferAllPlayersToScene](../api/game.md) | [GetCurrentSceneName](../api/game.md)
