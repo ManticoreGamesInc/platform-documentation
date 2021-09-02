@@ -82,7 +82,7 @@ The **Script Task** drop down will list all the scripts, and also indicate which
 
 ![!Task List](../img/ScriptDebugger/task_list.png){: .center loading="lazy" }
 
-!!! "Script execution order in preview will not necessarily be the same for the public version of your game."
+!!! warning "Script execution order in preview will not necessarily be the same for the public version of your game."
 
 ## Stack Frames
 
