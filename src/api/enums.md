@@ -316,6 +316,13 @@ tags:
 | `Visibility.FORCE_ON` | `1` | Object is visible, regardless of parent state. |
 | `Visibility.FORCE_OFF` | `2` | Object is not visible, regardless of parent state. |
 
+## VoiceChannelType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `VoiceChannelType.NORMAL` | `0` | A regular voice chat channel. Player volume is not affected by player position. |
+| `VoiceChannelType.POSITIONAL` | `1` | A positional voice chat channel. Player volume is affected by the speaker's position in relation to the listener. |
+
 ## VoiceChatMode
 
 | Enum Name | Value | Description |
