@@ -10,13 +10,9 @@ tags:
 
 ## Overview
 
-Sometimes when writing code, it doesn't always behave as expected. Those unexpected results can lead to parts of your game being broken for your players, and potentially ruin the experience. Spending time looking for those errors in a script can be very time consuming. This is where the **Script Debugger** in **Core** can help narrow down where in the script the error occurred.
+The **Script Debugger** can help narrow down which lines of code have issues or bugs by allowing creators to pause script execution and move specifically through different lines of **Core** Lua scripts. Spending time looking for issues or bugs in a script can be very time consuming. This is where the **Script Debugger** in **Core** can help narrow down where in the script there are issues or bugs.
 
-## What is a Script Debugger?
-
-The **Script Debugger** in **Core** is a tool used to examine the state of a game while it is running. The **Script Debugger** can be set to pause the game at specific points in a script by setting **breakpoints**, so that values of variables and objects can be inspected. Using the **Script Debugger**, allows you to step through your scripts slowly to determine where an issue may be in a game.
-
-There are different ways that a game can be debugged to find issues (also know as **Bugs**). A common way is to use the `print` function to print out to the **Event Log**, however, this can be a slow process when more complex errors occur in a game, so using a debugger could save a lot of time.
+A common way to debug a game to find issues or bugs, is to use the `print` function to print out values to the **Event Log**. An advantage of using the **Script Debugger** is the whole game state can be debugged. When using the `print` method, values that get printed, need to be thought about in advanced.
 
 ## Opening the Script Debugger
 
@@ -33,7 +29,7 @@ From the **Window** menu, select **Script Debugger** to open up the **Script Deb
 
 The **Script Debugger** needs to be enabled so any breakpoints added, will pause the execution of the game. This allows areas of interest in a script to be inspected that may contain an issue.
 
-Clicking on the ![Disabled](../img/ScriptDebugger/script_debugger_disabled.png)icon will enable the **Script Debugger**. When enabled, the icon will turn red ![Enabled](../img/ScriptDebugger/script_debugger_enabled.png), indicating the **Script Debugger** is turned on. With the **Script Debugger** now turned on, any breakpoints added will pause execution of the game.
+Clicking on the ![Disabled](../img/ScriptDebugger/script_debugger_disabled.png)icon will enable the **Script Debugger**. When enabled, the icon will turn red ![Enabled](../img/ScriptDebugger/script_debugger_enabled.png), indicating the **Script Debugger** is enabled. With the **Script Debugger** now enabled, any breakpoints added will pause execution of the game.
 {: .image-inline-text .image-background }
 
 !!! info "When disabling the **Script Debugger**, all breakpoints will also be disabled. This is useful, because all breakpoints don't need to be removed. Next time the **Script Debugger** is enabled, the breakpoints will also be enabled."
@@ -59,11 +55,11 @@ Removing a breakpoint works the same as adding a breakpoint. Clicking on the red
 
 ## Stepping Through a Script
 
-Stepping through a script is an important part of debugging, it allows creators to walk through each line of the script to inspect the variables and objects to see what is contained in them.
+When script execution is paused, the **Script Debugger** can step through the script to examine line by line to inspect variables and objects to help find issues and bugs.
 
 ### Step Into
 
-**Step Into** ![Step Into](../img/ScriptDebugger/step_into_icon.png)will be frequently used to step through a script line by line. This also includes functions. If a function is about to be called, and the code needs to be debugged in that function, then the next step is to go into that function and debug it line by line by using **Step Into**.
+**Step Into** ![Step Into](../img/ScriptDebugger/step_into_icon.png)can be used to step through a script line by line. If the line contains a function, the **Script Debugger** will enter that function and continue line by line.
 {: .image-inline-text .image-background }
 
 ### Step Over
@@ -73,28 +69,29 @@ Stepping through a script is an important part of debugging, it allows creators 
 
 ### Step Out
 
-**Step Out** ![Step Out](../img/ScriptDebugger/step_out_icon.png)is used to step out of a function. For example, when only part of a function needs to be debugged, stepping out will tell the **Script Debugger** to run the rest of that function.
+**Step Out** ![Step Out](../img/ScriptDebugger/step_out_icon.png)is used to step out of a function. The **Script Debugger** will execute the current function, and pauses at the first line outside of that function.
+
+For example, when part of a function needs to be debugged, stepping out will tell the **Script Debugger** to run the rest of that function.
 {: .image-inline-text .image-background }
 
-## Select a Script Task
+## Select a Running Script Task
 
-When a project gets bigger, more scripts are created to handle different parts of the game. Breakpoints can be added to different scripts, and the **Script Debugger** will pause execution for whichever script is running first that has a breakpoint set. Scripts that have not been completed can be stepped through. This can be done from **Script Task** drop down in the **Script Debugger** window.
+The **Script Debugger** will pause execution for any scripts that have breakpoints set. The **Script Task** dropdown lists all the scripts that are either running, scheduled, or completed. Only scripts that are running can be stepped through.
 
 The **Script Task** drop down will list all the scripts, and also indicate which one is currently running, scheduled, and which have completed.
 
 ![!Task List](../img/ScriptDebugger/task_list.png){: .center loading="lazy" }
 
-!!! Warning "Script Execution Order"
-    Do not rely on the script execution order in preview to be the same for the live version of your game. In some cases, scripts may not be in the order as you expect, especially with networked contexts.
+!!! "Script execution order in preview will not necessarily be the same for the public version of your game."
 
 ## Stack Frames
 
 The **Stack Frames** panel in the **Script Debugger** window, shows the function calls that are currently on the stack for the current running script task. The **Stack Frames** panel shows the order in which the functions are getting called, which is a good way to see the execution flow of the script for the current task.
 
-For example, in the picture below, you can see the execution flow for the current running script.
+In the picture below, you can see the execution flow for the current running script.
 
 ![!Stack Frames](../img/ScriptDebugger/stack_frames.png){: .center loading="lazy" }
 
 ## Learn More
 
-[Intro to Scripting](../tutorials/scripting_intro.md) | [Lua Scripting Tutorial](../tutorials/lua_basics_helloworld.md) | [Lua Scripting Tutorial, Part 2](../tutorials/lua_basics_lightbulb.md) | [Advanced Scripting in Core](../tutorials/race_timer.md)
+[Intro to Scripting](../tutorials/scripting_intro.md) | [Lua Scripting Tutorial](../tutorials/lua_basics_helloworld.md) | [Advanced Scripting in Core](../tutorials/race_timer.md) | [Performance Panel](../getting_started/performance_panel/) | [AI Activity Tutorial](tutorials/ai_activity_tutorial/)
