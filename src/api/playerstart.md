@@ -18,6 +18,7 @@ PlayerStart is a CoreObject representing a spawn point for players.
 | `playerScaleMultiplier` | `number` | The scale applied to a player that is spawned at this start point. | Read-Write |
 | `spawnTemplateId` | `string` | The asset ID of a template spawned on clients when a player spawns at this start point. May be nil. | Read-Only |
 | `key` | `string` | The key associated with this start point. | Read-Write |
+| `shouldDecrowdPlayers` | `boolean` | When set to `true`, a collision check will be performed for spawning players to prevent them from overlapping with other players. | Read-Write |
 
 ## Examples
 

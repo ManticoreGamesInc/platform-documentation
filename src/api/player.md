@@ -8,7 +8,7 @@ tags:
 
 # Player
 
-Player is an object representation of the state of a player connected to the game, as well as their avatar in the world.
+Player is an object representation of the state of a player connected to the game, as well as their avatar in the world. Player also implements the [Damageable](damageable.md) interface.
 
 ## Properties
 
@@ -32,6 +32,7 @@ Player is an object representation of the state of a player connected to the gam
 | `maxAcceleration` | `number` | Max Acceleration (rate of change of velocity). Clients can only read. Default = 1800. Acceleration is expressed in centimeters per second squared. | Read-Write |
 | `brakingDecelerationFalling` | `number` | Deceleration when falling and not applying acceleration. Default = 0. | Read-Write |
 | `brakingDecelerationWalking` | `number` | Deceleration when walking and movement input has stopped. Default = 1000. | Read-Write |
+| `brakingDecelerationFlying` | `number` | Deceleration when flying and movement input has stopped. Default = 600. | Read-Write |
 | `groundFriction` | `number` | Friction when walking on ground. Default = 8.0 | Read-Write |
 | `brakingFrictionFactor` | `number` | Multiplier for friction when braking. Default = 0.6. | Read-Write |
 | `walkableFloorAngle` | `number` | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
@@ -39,6 +40,7 @@ Player is an object representation of the state of a player connected to the gam
 | `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. Speed is expressed in centimeters per second. | Read-Write |
 | `gravityScale` | `number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
 | `maxSwimSpeed` | `number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
+| `maxFlySpeed` | `number` | Maximum speed while the player is flying. Default = 600. | Read-Write |
 | `touchForceFactor` | `number` | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |
 | `isCrouchEnabled` | `boolean` | Turns crouching on/off for a Player. | Read-Write |
 | `mass` | `number` | Gets the mass of the Player. | Read-Only |
