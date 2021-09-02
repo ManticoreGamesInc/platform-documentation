@@ -200,6 +200,7 @@ nav:
           - Vector4: api/vector4.md
           - Vehicle: api/vehicle.md
           - Vfx: api/vfx.md
+          - VoiceChatChannel: api/voicechatchannel.md
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
