@@ -71,6 +71,7 @@ Interfaces list properties, functions, and events that types which implement tha
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
 | [Damageable](../api/damageable.md) | | | |
+
 ## Built-In Lua Functions
 
 For security reasons, various built-in Lua functions have been restricted or removed entirely. The available functions are listed below. Note that Lua's built-in trigonometric functions use radians, while other functions in Core uses degrees. See the [reference manual](https://www.lua.org/manual/5.3/manual.html#6) for more information on what they do.
