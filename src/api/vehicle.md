@@ -8,7 +8,7 @@ tags:
 
 # Vehicle
 
-Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player.
+Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player. Vehicle also implements the [Damageable](damageable.md) interface.
 
 ## Properties
 
@@ -30,6 +30,15 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `isDriverAttached` | `boolean` | Returns `true` if the driver is attached to the vehicle while they occupy it. | Read-Only |
 | `isBrakeEngaged` | `boolean` | Returns `true` if the driver of the vehicle is currently using the brakes. | Read-Only |
 | `isHandbrakeEngaged` | `boolean` | Returns `true` if the driver of the vehicle is currently using the handbrake. | Read-Only |
+| `hitPoints` | `number` | Current amount of hit points. | Read-Write |
+| `maxHitPoints` | `number` | Maximum amount of hit points. | Read-Write |
+| `isDead` | `boolean` | True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called. | Read-Only |
+| `isImmortal` | `boolean` | When set to `true`, this object cannot die. | Read-Write |
+| `isInvulnerable` | `boolean` | When set to `true`, this object does not take damage. | Read-Write |
+| `destroyOnDeath` | `boolean` | When set to `true`, this object will automatically be destroyed when it dies. | Read-Only |
+| `destroyOnDeathDelay` | `number` | Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0. | Read-Only |
+| `destroyOnDeathClientTemplateId` | `string` | Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death. | Read-Only |
+| `destroyOnDeathNetworkedTemplateId` | `string` | Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death. | Read-Only |
 
 ## Functions
 
@@ -44,6 +53,8 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `GetDriverRotation()` | [`Rotation`](rotation.md) | Returns the rotation with which the driver is attached while occupying the vehicle. | None |
 | `GetCenterOfMassOffset()` | [`Vector3`](vector3.md) | Returns the center of mass offset for this vehicle. | None |
 | `SetCenterOfMassOffset(Vector3 offset)` | `None` | Sets the center of mass offset for this vehicle. This resets the vehicle state and may not behave nicely if called repeatedly or while in motion. | None |
+| `ApplyDamage(Damage)` | `None` | Damages the vehicle, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies. | Server-Only |
+| `Die([Damage])` | `None` | Kills the vehicle, unless it is immortal. The optional Damage parameter is a way to communicate cause of death. | Server-Only |
 
 ## Events
 
@@ -51,6 +62,8 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | ----- | ----------- | ----------- | ---- |
 | `driverEnteredEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a new driver occupies the vehicle. | None |
 | `driverExitedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Player`](player.md)`>` | Fired when a driver exits the vehicle. | None |
+| `damagedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Damage`](damage.md)`>` | Fired when the vehicle takes damage. | Server-Only |
+| `diedEvent` | `Event<`[`Vehicle`](vehicle.md), [`Damage`](damage.md)`>` | Fired when the vehicle dies. | Server-Only |
 
 ## Hooks
 
@@ -165,7 +178,7 @@ Example using:
 
 ### `turnRadius`
 
-Off road sections are an excellent to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once the vehicles exits the trigger the vehicle will drive at its original speed.
+Off road sections are an excellent way to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once a vehicle exits the trigger, it will drive at its original speed.
 
 ```lua
 -- Get the trigger object that will represent the off road area
@@ -257,6 +270,73 @@ VEHICLE.driverExitedEvent:Connect(OnDriverExited)
 ```
 
 See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Player.name](player.md) | [Chat.BroadcastMessage](chat.md) | [Trigger.interactedEvent](trigger.md)
+
+---
+
+Example using:
+
+### `damagedEvent`
+
+### `diedEvent`
+
+### `driver`
+
+Vehicles implement the DamageableObject interface. As such, they have all the properties and events from that type. In this example, we add a script to a vehicle that causes it to pass to the driver some of the damage it receives. By default, a vehicle's damageable properties are configured to make them immune-- Change them for this example to work.
+
+```lua
+local VEHICLE = script:FindAncestorByType("Vehicle")
+local CHANCE_TO_PASS_DAMAGE = 0.5
+local DAMAGE_REDUCTION = 0.2
+local ON_DEATH_DIRECT_DAMAGE_TO_DRIVER = 75
+
+function ApplyDamageToDriver(newAmount, vehicleDamage)
+    -- Create new damage object for the player
+    local damage = Damage.New(newAmount)
+    -- Copy properties from the vehicle's damage object
+    damage.reason = vehicleDamage.reason
+    damage.sourceAbility = vehicleDamage.sourceAbility
+    damage.sourcePlayer = vehicleDamage.sourcePlayer
+    damage:SetHitResult(vehicleDamage:GetHitResult())
+    
+    local player = VEHICLE.driver
+    -- If we think the player will die from this damage, eject them and
+    -- wait a bit, so they will ragdoll correctly
+    if player.hitPoints <= damage.amount then
+        VEHICLE:RemoveDriver()
+        Task.Wait(0.15)
+    end
+    -- Apply it
+    player:ApplyDamage(damage)
+end
+
+function OnDamaged(_, damage)
+    if damage.amount <= 0 then return end
+    if not Object.IsValid(VEHICLE.driver) then return end
+    
+    -- Chance to apply damage to the player or prevent it completely
+    if math.random() >= CHANCE_TO_PASS_DAMAGE then return end
+    
+    -- Reduction of the original damage amount
+    local newAmount = damage.amount * (1 - DAMAGE_REDUCTION)
+    newAmount = math.ceil(newAmount)
+    
+    -- Apply reduced damage
+    ApplyDamageToDriver(newAmount, damage)
+end
+
+function OnDied(_, damage)
+    if not Object.IsValid(VEHICLE.driver) then return end
+    local player = VEHICLE.driver
+    
+    -- Apply the on-death damage
+    ApplyDamageToDriver(ON_DEATH_DIRECT_DAMAGE_TO_DRIVER, damage)
+end
+
+VEHICLE.damagedEvent:Connect(OnDamaged)
+VEHICLE.diedEvent:Connect(OnDied)
+```
+
+See also: [DamageableObject.damagedEvent](damageableobject.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Damage.New](damage.md) | [Player.ApplyDamage](player.md) | [Object.IsValid](object.md)
 
 ---
 
