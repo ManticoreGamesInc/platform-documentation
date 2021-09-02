@@ -73,6 +73,8 @@ The **Damageable Object** uses the **Damageable** interface that unifies health,
 | Destroy on Death Client TemplateId | Spawns the template on the client at the location of the Damageable after the death delay. This is the most efficient for visual-only effects. |
 | Destroy on Death Networked TemplateId | Spawns a networked template at the location of the Damageable after the death delay. This is useful for spawning gameplay from a destroyed Damageable. |
 
+See [Damageable Object](api/damageableobject/) API information and examples.
+
 ## Objects that Implement Damageable Interface
 
 Some objects implement the **Damageable** interface that allows for it to receive health, damage, and death behaviour. **Damageable Objects** have `hitPoints` and `maxHitPoints` properties in the **Damageable** category of the object **Properties** panel.
