@@ -10,16 +10,16 @@ tags:
 
 ## Overview
 
-The **Script Debugger** can help narrow down which lines of code have issues or bugs by allowing creators to pause script execution and move specifically through different lines of **Core** Lua scripts. Spending time looking for issues or bugs in a script can be very time consuming. This is where the **Script Debugger** in **Core** can help narrow down where in the script there are issues or bugs.
+The **Script Debugger** can help narrow down which lines of code have issues or bugs by allowing creators to pause script execution and move specifically through different lines of Core Lua scripts.
 
-A common way to debug a game to find issues or bugs, is to use the `print` function to print out values to the **Event Log**. An advantage of using the **Script Debugger** is the whole game state can be debugged. When using the `print` method, values that get printed, need to be thought about in advanced.
+A common way to debug a game to find issues or bugs, is to use the `print` function to print out values to the **Event Log**.
 
 ## Opening the Script Debugger
 
 From the **Window** menu, select **Script Debugger** to open up the **Script Debugger** window.
 
 !!! info "Script Debugger and External Editors"
-    The **Script Debugger** only works with the **Script Editor** in **Core**, and not external editors.
+    The **Script Debugger** only works with the **Script Editor** in Core, and not external editors.
 
 ![Opening](../img/ScriptDebugger/opening_script_debugger.png)
 ![Window](../img/ScriptDebugger/script_debugger_window.png)
@@ -27,12 +27,12 @@ From the **Window** menu, select **Script Debugger** to open up the **Script Deb
 
 ## Enabling the Script Debugger
 
-The **Script Debugger** needs to be enabled so any breakpoints added, will pause the execution of the game. This allows areas of interest in a script to be inspected that may contain an issue.
+The **Script Debugger** needs to be enabled so that breakpoints added will pause the execution of the game. This allows areas of interest in a script to be inspected that may contain an issue.
 
-Clicking on the ![Disabled](../img/ScriptDebugger/script_debugger_disabled.png)icon will enable the **Script Debugger**. When enabled, the icon will turn red ![Enabled](../img/ScriptDebugger/script_debugger_enabled.png), indicating the **Script Debugger** is enabled. With the **Script Debugger** now enabled, any breakpoints added will pause execution of the game.
+Clicking on the ![Disabled](../img/ScriptDebugger/script_debugger_disabled.png)icon will enable the **Script Debugger**. When enabled, the icon will turn red ![Enabled](../img/ScriptDebugger/script_debugger_enabled.png), indicating that the **Script Debugger** is enabled. With the **Script Debugger** now enabled, any breakpoints added will pause execution of the game.
 {: .image-inline-text .image-background }
 
-!!! info "When disabling the **Script Debugger**, all breakpoints will also be disabled. This is useful, because all breakpoints don't need to be removed. Next time the **Script Debugger** is enabled, the breakpoints will also be enabled."
+!!! info "When disabling the **Script Debugger**, all breakpoints will also be disabled. This allows creators to disable all breakpoints without removing them. Next time the **Script Debugger** is enabled, the breakpoints will also be enabled."
 
 ## Enabling Pause on Error
 
@@ -41,7 +41,7 @@ The **Script Debugger** has the option to automatically pause the game when an e
 
 ## Adding and Removing Breakpoints
 
-A breakpoint is a marker that can set for a specific line in a script. More than one marker can be set in a script, but only one can be set for each line. Markers can be set by left clicking with the mouse in the far left margin of the **Script Editor**.
+A breakpoint is a way to mark a specific line in a script for debugging. More than one marker can be set in a script, but only one can be set for each line. Markers can be set by left clicking with the mouse in the far left margin of the **Script Editor**.
 
 ### Adding a Breakpoint
 
@@ -51,7 +51,7 @@ A breakpoint can be added so the **Script Debugger** knows where to pause execut
 
 ### Removing a Breakpoint
 
-Removing a breakpoint works the same as adding a breakpoint. Clicking on the red circle in the far left margin of **Script Editor** will remove the breakpoint. When the game is played, the **Script Debugger** will not pause execution if no breakpoints are present.
+Removing a breakpoint works the same way as adding a breakpoint. Clicking on the red circle in the far left margin of **Script Editor** will remove the breakpoint. When the game is played, the **Script Debugger** will not pause execution if no breakpoints are present.
 
 ## Stepping Through a Script
 
