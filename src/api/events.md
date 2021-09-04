@@ -46,9 +46,7 @@ The maximum size a networked event can send is 128 bytes and all networked event
     - Vector3
     - Vector4
 
-If working with Byte encoding, Events.Broadcast supports all 255 possible values per byte.
-
-Events.BroadcastToPlayer supports UTF8 but only the values 1-127 for ASCII.
+If strings are used to broadcast byte encoded data over the network (via Events.BroadcastToPlayer, Events.BroadcastToAllPlayers or Events.BroadcastToServer) then their characters must have ASCII values within the range 1-127. Strings used locally and not sent over the network (i. e. Events.Broadcast) can use the full 0-255 range.
 
 ## Examples
 
