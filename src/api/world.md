@@ -329,6 +329,76 @@ See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md) | [
 
 Example using:
 
+### `Spherecast`
+
+In this example a sphere (Static Mesh) is placed in the game with this script as a child. As the player looks around, they give a possible movement direction for the sphere. The algorithm takes the player's input and predicts where the sphere would impact if it were moved in that direction. The impact normal and reflection/bounce direction are also calculated.
+
+```lua
+local SPHERE = script.parent
+local RADIUS = SPHERE:GetWorldScale().x * 50
+local RANGE = 1000
+
+local HALF_PI = math.pi / 2
+local player = nil
+
+function Tick()
+    if not Object.IsValid(player) then return end
+    
+    local direction = player:GetViewWorldRotation() * Vector3.FORWARD
+    direction = direction:GetNormalized()
+    
+    -- The movement vector
+    local startPos = SPHERE:GetWorldPosition()
+    local endPos = startPos + direction * RANGE
+    
+    -- Spherecast gives us the point of impact of the sphere
+    local hitResult = World.Spherecast(startPos, endPos, RADIUS, {ignoreObjects = SPHERE})
+    if hitResult then
+        -- Project the impact point onto the movement vector
+        local A = startPos
+        local B = endPos
+        local P = hitResult:GetImpactPosition()
+        local AP = P - A
+        local AB = B - A
+        local projection = A + (AP..AB) / (AB..AB) * AB
+        
+        -- Calculate where the sphere's center will be at moment of impact
+        local distanceImpactToProj = (projection - P).size
+        local angle = math.acos(distanceImpactToProj / RADIUS)
+        local centerPos = projection - direction * RADIUS * angle / HALF_PI
+        
+        -- This impact normal is not the same you'll get from the HitResult
+        local normal = (centerPos - P):GetNormalized()
+        
+        -- Get the direction of movement after impact
+        local reflection = AB - 2 * (AB .. normal) * normal
+        
+        -- Draw where the sphere will be at moment of impact
+        CoreDebug.DrawSphere(centerPos, RADIUS)
+        -- Draw movement vector
+        CoreDebug.DrawLine(startPos, centerPos, {thickness = 3, color = Color.RED})
+        -- Draw normal vector
+        CoreDebug.DrawLine(P, P + normal * 200, {thickness = 3, color = Color.MAGENTA})
+        -- Draw reflection; direction of movement after impact
+        CoreDebug.DrawLine(centerPos, centerPos + reflection, {thickness = 3, color = Color.YELLOW})
+    else
+        -- There was no impact. E.g. Player aimed into the sky
+        CoreDebug.DrawLine(startPos, endPos, {thickness = 3, color = Color.RED})
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(p)
+    -- The first player to join gains control of the movement vector
+    player = p
+end)
+```
+
+See also: [Player.GetViewWorldRotation](player.md) | [CoreDebug.DrawLine](coredebug.md) | [Vector3.GetNormalized](vector3.md) | [CoreObject.GetWorldScale](coreobject.md) | [Game.PlayerJoinedEvent](game.md)
+
+---
+
+Example using:
+
 ### `SpherecastAll`
 
 This example allows player's to damage other players that they are aiming at. This is done using World.SpherecastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good usecase for this function would be for a laser gun.

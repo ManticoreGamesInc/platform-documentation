@@ -25,7 +25,9 @@ Example using:
 Core has a default pause menu that appears when a player presses the ESC key. This client script demonstrates how to prevent Core's default pause from occurring and replace it with a custom menu. As a fallback in case your UI gets stuck, Shift + ESC allows you to access Core's default pause, even with the escape hook in place.
 
 ```lua
+-- "MenuPanel" is a UI Panel assigned as a custom property to the script.
 local CUSTOM_MENU = script:GetCustomProperty("MenuPanel"):WaitForObject()
+-- "ExitButton" is a UI Button within that panel. Also assigned as a custom property.
 local EXIT_BUTTON = script:GetCustomProperty("ExitButton"):WaitForObject()
 
 CUSTOM_MENU.visibility = Visibility.FORCE_OFF
@@ -50,7 +52,7 @@ end
 function OnEscape(localPlayer, params)
     -- Prevents Core's default pause from appearing
     params.openPauseMenu = false
-    
+
     -- Toggle the custom menu on/off
     if isShowingMenu then
         HideMenu()
