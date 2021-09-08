@@ -5046,6 +5046,191 @@
 			]
 		},
 		{
+			"Name": "DamageableObject",
+			"Description": "DamageableObject is a CoreObject which implements the [Damageable](damageable.md) interface.",
+			"BaseType": "CoreObject",
+			"Implements": [
+				"Damageable"
+			],
+			"Properties": [
+				{
+					"Name": "hitPoints",
+					"Description": "Current amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxHitPoints",
+					"Description": "Maximum amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isDead",
+					"Description": "True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isImmortal",
+					"Description": "When set to `true`, this object cannot die.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isInvulnerable",
+					"Description": "When set to `true`, this object does not take damage.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "destroyOnDeath",
+					"Description": "When set to `true`, this object will automatically be destroyed when it dies.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathDelay",
+					"Description": "Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathClientTemplateId",
+					"Description": "Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathNetworkedTemplateId",
+					"Description": "Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "damagedEvent",
+					"Description": "Fired when the object takes damage.",
+					"Parameters": [
+						{
+							"Type": "DamageableObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				},
+				{
+					"Name": "diedEvent",
+					"Description": "Fired when the object dies.",
+					"Parameters": [
+						{
+							"Type": "DamageableObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "ApplyDamage",
+					"Description": "Damages the object, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Die",
+					"Description": "Kills the object, unless it is immortal. The optional Damage parameter is a way to communicate cause of death.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Decal",
 			"Description": "A Decal is a SmartObject representing a decal that is projected onto nearby surfaces.",
 			"BaseType": "SmartObject",
@@ -5371,6 +5556,9 @@
 			"Name": "FourWheeledVehicle",
 			"Description": "FourWheeledVehicle is a Vehicle with wheels. (Four of them.)",
 			"BaseType": "Vehicle",
+			"Implements": [
+				"Damageable"
+			],
 			"Properties": [
 				{
 					"Name": "turnRadius",
@@ -6611,8 +6799,11 @@
 		},
 		{
 			"Name": "PhysicsObject",
-			"Description": "A CoreObject with simulated physics that can interact with players and other objects.",
+			"Description": "A CoreObject with simulated physics that can interact with players and other objects. PhysicsObject also implements the [Damageable](damageable.md) interface.",
 			"BaseType": "CoreObject",
+			"Implements": [
+				"Damageable"
+			],
 			"Properties": [
 				{
 					"Name": "team",
@@ -6642,6 +6833,82 @@
 					]
 				},
 				{
+					"Name": "hitPoints",
+					"Description": "Current amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxHitPoints",
+					"Description": "Maximum amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isDead",
+					"Description": "True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isImmortal",
+					"Description": "When set to `true`, this object cannot die.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isInvulnerable",
+					"Description": "When set to `true`, this object does not take damage.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "destroyOnDeath",
+					"Description": "When set to `true`, this object will automatically be destroyed when it dies.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathDelay",
+					"Description": "Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathClientTemplateId",
+					"Description": "Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathNetworkedTemplateId",
+					"Description": "Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -6649,7 +6916,79 @@
 					]
 				}
 			],
+			"Events": [
+				{
+					"Name": "damagedEvent",
+					"Description": "Fired when the object takes damage.",
+					"Parameters": [
+						{
+							"Type": "PhysicsObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				},
+				{
+					"Name": "diedEvent",
+					"Description": "Fired when the object dies.",
+					"Parameters": [
+						{
+							"Type": "PhysicsObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				}
+			],
 			"MemberFunctions": [
+				{
+					"Name": "ApplyDamage",
+					"Description": "Damages the object, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Die",
+					"Description": "Kills the object, unless it is immortal. The optional Damage parameter is a way to communicate cause of death.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -6672,8 +7011,11 @@
 		},
 		{
 			"Name": "Player",
-			"Description": "Player is an object representation of the state of a player connected to the game, as well as their avatar in the world.",
+			"Description": "Player is an object representation of the state of a player connected to the game, as well as their avatar in the world. Player also implements the [Damageable](damageable.md) interface.",
 			"BaseType": "Object",
+			"Implements": [
+				"Damageable"
+			],
 			"Properties": [
 				{
 					"Name": "id",
@@ -6885,6 +7227,14 @@
 					]
 				},
 				{
+					"Name": "brakingDecelerationFlying",
+					"Description": "Deceleration when flying and movement input has stopped. Default = 600.",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
 					"Name": "groundFriction",
 					"Description": "Friction when walking on ground. Default = 8.0",
 					"Type": "number",
@@ -6991,6 +7341,14 @@
 				{
 					"Name": "maxSwimSpeed",
 					"Description": "Maximum speed while the player is swimming. Default = 420.",
+					"Type": "number",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "maxFlySpeed",
+					"Description": "Maximum speed while the player is flying. Default = 600.",
 					"Type": "number",
 					"Tags": [
 						"ServerOnly"
@@ -8663,6 +9021,14 @@
 					"Name": "key",
 					"Description": "The key associated with this start point.",
 					"Type": "string",
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "shouldDecrowdPlayers",
+					"Description": "When set to `true`, a collision check will be performed for spawning players to prevent them from overlapping with other players.",
+					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
 					]
@@ -11147,6 +11513,9 @@
 			"Name": "TreadedVehicle",
 			"Description": "TreadedVehicle is a Vehicle with treads, such as a tank or a tonk.",
 			"BaseType": "Vehicle",
+			"Implements": [
+				"Damageable"
+			],
 			"Properties": [
 				{
 					"Name": "turnSpeed",
@@ -12130,12 +12499,13 @@
 				},
 				{
 					"Name": "GetImage",
-					"Description": "Returns the imageId assigned to this UIImage control.",
+					"Description": "Returns the `imageId` assigned to this UIImage control. **Note:** As of 1.0.211, this function returns `nil` instead of `\"0BADBADBADBADBAD\"` when no image asset has been set.",
 					"Signatures": [
 						{
 							"Returns": [
 								{
-									"Type": "string"
+									"Type": "string",
+									"IsOptional": true
 								}
 							],
 							"Parameters": []
@@ -13677,8 +14047,11 @@
 		},
 		{
 			"Name": "Vehicle",
-			"Description": "Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player.",
+			"Description": "Vehicle is a CoreObject representing a vehicle that can be occupied and driven by a player. Vehicle also implements the [Damageable](damageable.md) interface.",
 			"BaseType": "CoreObject",
+			"Implements": [
+				"Damageable"
+			],
 			"Properties": [
 				{
 					"Name": "isAccelerating",
@@ -13816,6 +14189,82 @@
 					]
 				},
 				{
+					"Name": "hitPoints",
+					"Description": "Current amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "maxHitPoints",
+					"Description": "Maximum amount of hit points.",
+					"Type": "number",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isDead",
+					"Description": "True if the object is dead, otherwise false. Death occurs when damage is applied which reduces hit points to 0, or when the `Die()` function is called.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isImmortal",
+					"Description": "When set to `true`, this object cannot die.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isInvulnerable",
+					"Description": "When set to `true`, this object does not take damage.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "destroyOnDeath",
+					"Description": "When set to `true`, this object will automatically be destroyed when it dies.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathDelay",
+					"Description": "Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0.",
+					"Type": "number",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathClientTemplateId",
+					"Description": "Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "destroyOnDeathNetworkedTemplateId",
+					"Description": "Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -13849,6 +14298,34 @@
 						{
 							"Type": "Player",
 							"Name": "oldDriver"
+						}
+					]
+				},
+				{
+					"Name": "damagedEvent",
+					"Description": "Fired when the vehicle takes damage.",
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				},
+				{
+					"Name": "diedEvent",
+					"Description": "Fired when the vehicle dies.",
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "vehicle"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
 						}
 					]
 				}
@@ -14032,6 +14509,48 @@
 					]
 				},
 				{
+					"Name": "ApplyDamage",
+					"Description": "Damages the vehicle, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Die",
+					"Description": "Kills the vehicle, unless it is immortal. The optional Damage parameter is a way to communicate cause of death.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						},
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -14103,6 +14622,143 @@
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "VoiceChatChannel",
+			"Description": "A VoiceChatChannel represents a channel in voice chat, which may be used to find which players are in the channel and mute or unmute players.",
+			"Properties": [
+				{
+					"Name": "name",
+					"Description": "The name of this channel.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "channelType",
+					"Description": "This channel's type.",
+					"Type": "VoiceChannelType",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetPlayers",
+					"Description": "Returns a list of players in this channel.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Player>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsPlayerInChannel",
+					"Description": "Returns `true` if the given player is in this channel, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsPlayerMuted",
+					"Description": "Returns `true` if the given player is muted in this channel, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "MutePlayer",
+					"Description": "Mutes the given player in this channel.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "UnmutePlayer",
+					"Description": "Unmutes the given player in this channel.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
 					]
 				},
 				{
@@ -16764,6 +17420,193 @@
 					"Tags": [
 						"ServerOnly"
 					]
+				},
+				{
+					"Name": "GetChannel",
+					"Description": "Returns the channel with the given name, or `nil` if no such channel exists.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "VoiceChatChannel",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "channelName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetChannels",
+					"Description": "Returns a list of voice chat channels.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<VoiceChatChannel>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetChannelsForPlayer",
+					"Description": "Returns a list of voice chat channels that the given player is in.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<VoiceChatChannel>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsPlayerInChannel",
+					"Description": "Returns `true` if the given player is in the specified channel, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "channelName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "MutePlayerInChannel",
+					"Description": "Mutes the given player in the specified channel.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "channelName"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "UnmutePlayerInChannel",
+					"Description": "Unmutes the given player in the specified channel.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "channelName"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "IsPlayerMutedInChannel",
+					"Description": "Returns `true` if the given player is muted in the specified channel, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "channelName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsPlayerSpeaking",
+					"Description": "Returns true if the given player is currently speaking in the game channel.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetPlayerSpeakingVolume",
+					"Description": "Returns a value from 0.0 to 1.0 to indicate how loudly the given player is speaking.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
 				}
 			]
 		},
@@ -17058,6 +17901,62 @@
 								{
 									"Type": "Vector3",
 									"Name": "endPosition"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "boxSize"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindObjectsOverlappingSphere",
+					"Description": "Returns all objects found overlapping or within a sphere with the specified position and radius. Optional parameters can be provided to control the results of the search:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Object>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
+								},
+								{
+									"Type": "number",
+									"Name": "radius"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FindObjectsOverlappingBox",
+					"Description": "Returns all objects found overlapping or within a box with the specified position and size. Optional parameters can be provided to control the results of the search using the same parameters as `World.FindObjectsOverlappingSphere()`, as well as the following:<br/>`shapeRotation (Rotation)`: Rotation of the box shape being checked. Defaults to (0, 0, 0).",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Object>"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "position"
 								},
 								{
 									"Type": "Vector3",
@@ -17974,6 +18873,22 @@
 			]
 		},
 		{
+			"Name": "VoiceChannelType",
+			"Description": "Indicates the type of a voice chat channel.",
+			"Values": [
+				{
+					"Name": "NORMAL",
+					"Description": "A regular voice chat channel. Player volume is not affected by player position.",
+					"Value": 0
+				},
+				{
+					"Name": "POSITIONAL",
+					"Description": "A positional voice chat channel. Player volume is affected by the speaker's position in relation to the listener.",
+					"Value": 1
+				}
+			]
+		},
+		{
 			"Name": "VoiceChatMode",
 			"Description": "Controls whether voice chat is enabled in the game.",
 			"Values": [
@@ -17991,6 +18906,92 @@
 					"Name": "ALL",
 					"Description": "Voice chat is enabled for all players in the game instance.",
 					"Value": 2
+				}
+			]
+		}
+	],
+	"Interfaces": [
+		{
+			"Name": "Damageable",
+			"Description": "Damageable is an interface which defines properties, events, and functions for objects which can take damage and die.",
+			"Properties": [
+				{
+					"Name": "hitPoints",
+					"Description": "Current amount of hit points.",
+					"Type": "number"
+				},
+				{
+					"Name": "maxHitPoints",
+					"Description": "Maximum amount of hit points.",
+					"Type": "number"
+				}
+			],
+			"Events": [
+				{
+					"Name": "damagedEvent",
+					"Description": "Fired when the Damageable takes damage.",
+					"Parameters": [
+						{
+							"Type": "Damageable",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				},
+				{
+					"Name": "diedEvent",
+					"Description": "Fired when the Damageable dies.",
+					"Parameters": [
+						{
+							"Type": "Damageable",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "ApplyDamage",
+					"Description": "Damages a Damageable, unless it is invulnerable. If its hit points reach 0 and it is not immortal, it dies.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "Die",
+					"Description": "Kills the Damageable, unless it is immortal. The optional Damage parameter is a way to communicate cause of death.",
+					"Signatures": [
+						{
+							"Name": "Default",
+							"Returns": [],
+							"Parameters": []
+						},
+						{
+							"Name": "WithDamage",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Damage",
+									"Name": "damage"
+								}
+							]
+						}
+					]
 				}
 			]
 		}

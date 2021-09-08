@@ -30,6 +30,37 @@ The VoiceChat namespace contains functions for controlling voice chat in a game.
 
 Example using:
 
+### `IsPlayerSpeaking`
+
+In this example, a client context is setup with a UI Container and some UI Images underneath. This script finds all those images and assigns one to each player, setting the player's profile picture to appear in the image and tinting the image green whenever they speak.
+
+```lua
+local IMAGES = script.parent:FindDescendantsByType("UIImage")
+
+function Tick()
+    for i,player in ipairs(Game.GetPlayers()) do
+        local image = IMAGES[i]
+        if image then
+            image:SetPlayerProfile(player)
+            
+            if VoiceChat.IsPlayerSpeaking(player) then
+                -- If this player is speaking, tint their picture green
+                image:SetColor(Color.GREEN)
+            else
+                -- Otherwise, set their picture color back to normal
+                image:SetColor(Color.WHITE)
+            end
+        end
+    end
+end
+```
+
+See also: [CoreObject.FindDescendantsByType](coreobject.md) | [UIImage.SetPlayerProfile](uiimage.md) | [Game.GetPlayers](game.md) | [Color.GREEN](color.md)
+
+---
+
+Example using:
+
 ### `SetVoiceChatMode`
 
 ### `GetVoiceChatMode`
