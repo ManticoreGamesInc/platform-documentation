@@ -32,7 +32,7 @@ A UIControl for displaying an image.
 | `SetShadowOffset(Vector2)` | `None` | Sets the offset of the image's drop shadow in UI space. | None |
 | `GetImage()` | `string` | Returns the `imageId` assigned to this UIImage control. **Note:** As of 1.0.211, this function returns `nil` instead of `"0BADBADBADBADBAD"` when no image asset has been set. | **Breaking-Change** |
 | `SetImage(string imageId)` | `None` | Sets the UIImage to a new image asset ID. You can get this ID from an Asset Reference. | None |
-| `SetImage(Player)` | `None` | Downloads and sets a Player's profile picture as the texture for this UIImage control. | **Deprecated** |
+| `SetImage(Player)` | `None` | Downloads and sets a Player's profile picture as the texture for this UIImage control. | <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
 | `SetPlayerProfile(Player)` | `None` | Downloads and sets a Player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(CorePlayerProfile)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(CoreFriendCollectionEntry)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
