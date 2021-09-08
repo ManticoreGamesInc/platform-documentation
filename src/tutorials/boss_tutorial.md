@@ -32,6 +32,15 @@ Create a new project.
 
 Get the tutorial map from CC with components.
 
+## Add Player Weapon
+
+Need to be able to damage floor tiles.
+
+### Create Player Server Script
+
+Add weapon property.
+Explain code.
+
 ## Damageable Floor Tiles
 
 Need a better title??
@@ -109,16 +118,7 @@ Boss will target player and shoot with random cool down.
 Boss can damage floor tiles.
 Boss can damage and kill player.
 
-## Add Player Weapon
-
-Need to be able to hurt the boss.
-
-### Create Player Server Script
-
-Add weapon property.
-Explain code.
-
-### Create Damage Client Script
+## Create Damage Client Script
 
 It's feedback related, but ShowFlyUpText is a hidden gem that is simple to use. Script is small. Remove?
 
