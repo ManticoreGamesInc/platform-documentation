@@ -266,6 +266,7 @@ theme:
 extra_css:
   - assets/stylesheets/lite-yt-embed.css
   - assets/stylesheets/docsearch.css
+  # - assets/stylesheets/manticore.css
 
 extra_javascript:
   - assets/javascripts/manticore.js
