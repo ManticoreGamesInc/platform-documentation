@@ -84,6 +84,7 @@ nav:
               - Dungeon Framework Reference: references/dungeon_framework.md
           - Game Components: api/components.md
           - IK and Custom Animations: references/ik_anchors.md
+          - Interaction System: references/interaction_system.md
           - Interconnected Games: references/interconnected_games.md
           - Leaderboards: references/leaderboards.md
           - Merged Models: references/merged_models.md
