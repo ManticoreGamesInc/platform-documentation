@@ -71,6 +71,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `unarmed_shout`              | A shout animation. The character shouts at the sky during cast loop, and directs a shout forward in the execute | Supports variable cast phase time. |
 | `unarmed_stomp`              | A stomp animation. The cast loop holds the right foot in the air. | Supports variable cast phase time. |
 | `unarmed_punch_right_flying_uppercut` | A jumping right uppercut punch. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
+| `unarmed_watering_can` | A watering can animation. | Supports variable cast phase time. |
 
 ### One-Hand
 
@@ -92,6 +93,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `1hand_pistol_unsheathe`       | Pulls the pistol from an invisible belt holster. | This animation works best with a cast phase duration of 0.21 or less. |
 | `1hand_pistol_reload_magazine` | Reloads a bottom-loading pistol clip. | Supports variable cast time. |
 | `1hand_pistol_whip` | A melee attack that uses the handle of the pistol. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
+| `1hand_pistol_left_hand_toss`  | A left handed toss animation while holding a pistol in the right hand.  | Supports variable cast phase time. |
 
 ### Two-Hand
 
@@ -131,6 +133,7 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `2hand_rifle_reload_magazine`  | Reloads an automatic rifle magazine. | Supports variable cast time. |
 | `2hand_rocket_reload_magazine` | A reload that works better for `over the shoulder` weapon geometry using the 2hand_rifle_stance and associated animations. | Supports variable cast time. |
 | `2hand_rifle_butt` | A melee attack that uses the stock of the rifle. | Supports variable cast phase time. Supports time-stretched execute phase time.  |
+| `2hand_rifle_left_hand_toss`   | A left handed toss animation while holding a rifle in the right hand. | Supports variable cast time. |
 
 ### Dual Wield Melee
 
@@ -152,6 +155,8 @@ Sockets are different points on a player's character mesh. They can be used for 
 | `dual_katana_right_hand_slash_vertical` | A melee attack in which the right hand swings a weapon downward in front of the player | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `dual_katana_right_hand_thrust`         | A melee attack in which the right hand thrusts the weapon directly forward             | Supports variable cast phase time. Supports time-stretched execute phase time. |
 | `dual_katana_unsheathe`                 | Pulls the weapons off the back.                                                        | Currently does NOT support a variable cast phase time. Currently does NOT support a time-stretched execute phase time. |
+| `dual_katana_left_hand_throw`           | A throw animation using the left hand. Useful for shuriken or other small weapon throwing.  | Supports variable cast phase time. |
+| `dual_katana_right_hand_throw`          | A throw animation using the right hand. Useful for shuriken or other small weapon throwing. | Supports variable cast phase time. |
 
 ## Animation Stances
 
