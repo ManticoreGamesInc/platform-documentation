@@ -12,7 +12,7 @@ tags:
 
 The **Damageable Object** is a **Core Object** that implements the **Damageable** interface and has properties, events, and functions for objects which can take damage and die.
 
-The **Damageable Object** streamlines damage and destroying objects. Children of a **Damageable Object** that are hit by a projectile (or another damage source), will look for an ancestor that is a **Damageable** and automatically deduct the damage from health of the **Damageable**. Creators can control what happens when the health of the **Damageable Object** reaches 0 through the [DamageableObject type in the Core Lua API](../api/damageableobject.md)
+The **Damageable Object** streamlines damage and destroying objects. Children of a **Damageable Object** that are hit by a projectile (or another damage source), will look for an ancestor that is a **Damageable** and automatically deduct the damage from health of the **Damageable**. Creators can control what happens when the health of the **Damageable Object** reaches 0 through the [DamageableObject type in the Core Lua API](../api/damageableobject.md).
 
 A benefit to **Damageable Objects**, is no scripting is needed to damage an object and destroy it. This can all be controlled from the custom properties, which makes it quick and easy to setup.
 
