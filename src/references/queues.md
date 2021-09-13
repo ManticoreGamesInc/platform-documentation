@@ -22,7 +22,7 @@ You can enable queueing for a game through the **Publish Menu**. Check the box l
 
 ### Joining Queues
 
-The process for joining a queued game is exactly the same as any other from a player perspective. When a player presses the play button, they will be added to a queue, and will display in their friends' lists as "Queing for ..." the game selected.
+The process for joining a queued game is exactly the same as any other from a player perspective. When a player presses the play button, they will be added to a queue, and will display in their friends' lists as "Queuing for ..." the game selected.
 
 ![Queueing for Core Royale](../img/Queues/Queueing_PlayerInQueue.png){: .center loading="lazy" }
 

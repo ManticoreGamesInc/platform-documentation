@@ -70,7 +70,7 @@ All VFX have a ***Play*** button at the top of their **Properties** window, so t
 
 ### Special Effect Materials
 
-Besides all of the more literal visual effects that Core includes, there is also a categorey of **Materials** that lend themselves nicely to VFX, the SpecialEffects materials:
+Besides all of the more literal visual effects that Core includes, there is also a category of **Materials** that lend themselves nicely to VFX, the SpecialEffects materials:
 
 ![Special Effect Materials](../img/VFXtutorial/SpecialEffectMaterials.png "You can get real creative with these."){: .center loading="lazy" }
 
@@ -451,7 +451,7 @@ To start, open up a new project or whatever project you'd like to make this trea
     !!! tip
         Make sure to pay attention to your casing of a resource. The resource "Crowbar" is completely different from "crowbar".
 
-Now when walking up the crowbar, the player will automaticall pick it up! But, it still has the coin sound effect by default, and that feels pretty weird with this object. So, let's create a new effect to play!
+Now when walking up the crowbar, the player will automatically pick it up! But, it still has the coin sound effect by default, and that feels pretty weird with this object. So, let's create a new effect to play!
 
 #### Creating a Pickup Effect Template
 

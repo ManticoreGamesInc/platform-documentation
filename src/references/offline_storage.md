@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-Creators can access stored player data, both in normal [Persistant Storage](persistent_storage.md) tables and [Shared Data Keys](shared_storage.md) when players are offline using **Offline Storage**. This data can searched and loaded for players by ID, but not changed unless the player is online.
+Creators can access stored player data, both in normal [Persistent Storage](persistent_storage.md) tables and [Shared Data Keys](shared_storage.md) when players are offline using **Offline Storage**. This data can searched and loaded for players by ID, but not changed unless the player is online.
 
 ## Accessing Player Data
 

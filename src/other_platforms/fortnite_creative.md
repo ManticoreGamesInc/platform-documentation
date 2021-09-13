@@ -65,7 +65,7 @@ The primary way that scripts can start behavior around your game is through **Ev
 
 ### Collaboration
 
-Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fornite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](templates.md) that can be imported into the main project.
+Some of the best games in Core are made by teams, but the collaboration style is a bit different from Fortnite Creative because creators cannot actually work in the same space at the same time. The easiest way to collaborate on games is to have one creator make [Templates](templates.md) that can be imported into the main project.
 
 You can also use **version control** tools like GitHub. See the [complete guide to setting up GitHub desktop with Core](github.md) to learn more.
 

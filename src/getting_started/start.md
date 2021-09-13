@@ -52,7 +52,7 @@ If you are a developer on another platform, check out our guides to quickly lear
 
 - [Unity](../other_platforms/unity.md)
 - [Roblox](../other_platforms/roblox.md)
-- [Fornite Creative](../other_platforms/fortnite_creative.md)
+- [Fortnite Creative](../other_platforms/fortnite_creative.md)
 - [World of Warcraft](../other_platforms/world_of_warcraft.md)
 
 ---
