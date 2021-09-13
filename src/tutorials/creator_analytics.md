@@ -26,7 +26,7 @@ To find the monthly retention data for all your games, see the [Create Page](htt
 Data for all your games is aggregated by month into a single CSV file. By default, this will select the most recent month, but you can also choose data from previous months with the drop-down menu.
 
 !!! note
-    The earliest data availabe will be from October 2020 for creators who joined the Payouts Program before October 2020.
+    The earliest data available will be from October 2020 for creators who joined the Payouts Program before October 2020.
 
 ### Importing the CSV
 
