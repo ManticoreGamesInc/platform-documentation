@@ -30,7 +30,7 @@ Make sure your computer meets the system requirements as stated in the [FAQ](htt
 ### Download for Windows
 
 1. Log in to [the Core Website](https://www.coregames.com/login "CoreGames Login") with your Core account.
-2. Click **Download Core** to dowload the Core installer.
+2. Click **Download Core** to download the Core installer.
 3. Once the download finishes, open the `CoreLauncherInstall.exe` file  to install the Core Launcher.
 4. Click the **Core Launcher** icon from your Desktop to update to the latest version of Core.
 
