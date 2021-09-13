@@ -9,7 +9,7 @@ tags:
 
 # Core Monetization Rules
 
-The goal of Perks is to foster a mutually beneficial relationship between players and creators where players are able to purchase in-game benefits that enhance their experience while creators are financially supported and able to continue developing games playmers love
+The goal of Perks is to foster a mutually beneficial relationship between players and creators where players are able to purchase in-game benefits that enhance their experience while creators are financially supported and able to continue developing games players love
 
 With that in mind, we have created rules on monetization and monetization tactics in order to foster a positive relationship and trust between players and creators.
 

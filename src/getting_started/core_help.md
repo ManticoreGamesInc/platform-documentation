@@ -30,4 +30,4 @@ If you have noticed something you think is an error, help us by making a [Bug Re
 
 ## Updating the Documentation
 
-This documentation is written and editted both by Manticore and by the Core Creator Community. Create a [GitHub Issue](https://github.com/ManticoreGamesInc/platform-documentation/issues) that describes what is missing or needs to be changed to help us improve.
+This documentation is written and edited both by Manticore and by the Core Creator Community. Create a [GitHub Issue](https://github.com/ManticoreGamesInc/platform-documentation/issues) that describes what is missing or needs to be changed to help us improve.
