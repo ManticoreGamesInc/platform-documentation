@@ -161,6 +161,54 @@ See also: [CoreObject.visibility](coreobject.md) | [Player.bindingPressedEvent](
 
 Example using:
 
+### `FindObjectsOverlappingBox`
+
+In this example we search a room for all objects belonging to team 1 and team 2. The script is placed in one corner of the room and another object (such as an empty group) is placed in the opposite corner of the volume. The position of those objects can be used to calculate the center of the room, as well as its size on all 3 axes.
+
+```lua
+local OPPOSITE_CORNER_OBJ = script:GetCustomProperty("OppositeObject"):WaitForObject()
+local oppositeCorner = OPPOSITE_CORNER_OBJ:GetWorldPosition()
+local corner = script:GetWorldPosition()
+
+local center = (corner + oppositeCorner) / 2
+local delta = corner - oppositeCorner
+local size = Vector3.New(math.abs(delta.x), math.abs(delta.y), math.abs(delta.z))
+
+local team1Objects = World.FindObjectsOverlappingBox(center, size, {ignoreTeams = 2})
+local team2Objects = World.FindObjectsOverlappingBox(center, size, {ignoreTeams = 1})
+```
+
+See also: [CoreObject.GetWorldPosition](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Vector3.New](vector3.md)
+
+---
+
+Example using:
+
+### `FindObjectsOverlappingSphere`
+
+Players are also of type Damageable. In this example, we use the World.FindObjectsOverlappingSphere() to determine all objects in the explosion area and then apply damage to the damageable ones.
+
+```lua
+local EXPLOSION_RADIUS = 500
+
+local epicenter = script:GetWorldPosition()
+local allObjects = World.FindObjectsOverlappingSphere(epicenter, EXPLOSION_RADIUS)
+
+for _, obj in ipairs(allObjects) do
+if obj:IsA("Damageable") then
+    local dmg = Damage.New(100)
+    dmg.reason = DamageReason.COMBAT
+    obj:ApplyDamage(dmg)
+end
+end
+```
+
+See also: [Damage.New](damage.md) | [Damageable.ApplyDamage](damageable.md) | [CoreObject.GetWorldPosition](coreobject.md) | [Other.IsA](other.md)
+
+---
+
+Example using:
+
 ### `GetRootObject`
 
 There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.
@@ -343,14 +391,14 @@ local player = nil
 
 function Tick()
     if not Object.IsValid(player) then return end
-    
+
     local direction = player:GetViewWorldRotation() * Vector3.FORWARD
     direction = direction:GetNormalized()
-    
+
     -- The movement vector
     local startPos = SPHERE:GetWorldPosition()
     local endPos = startPos + direction * RANGE
-    
+
     -- Spherecast gives us the point of impact of the sphere
     local hitResult = World.Spherecast(startPos, endPos, RADIUS, {ignoreObjects = SPHERE})
     if hitResult then
@@ -361,18 +409,18 @@ function Tick()
         local AP = P - A
         local AB = B - A
         local projection = A + (AP..AB) / (AB..AB) * AB
-        
+
         -- Calculate where the sphere's center will be at moment of impact
         local distanceImpactToProj = (projection - P).size
         local angle = math.acos(distanceImpactToProj / RADIUS)
         local centerPos = projection - direction * RADIUS * angle / HALF_PI
-        
+
         -- This impact normal is not the same you'll get from the HitResult
         local normal = (centerPos - P):GetNormalized()
-        
+
         -- Get the direction of movement after impact
         local reflection = AB - 2 * (AB .. normal) * normal
-        
+
         -- Draw where the sphere will be at moment of impact
         CoreDebug.DrawSphere(centerPos, RADIUS)
         -- Draw movement vector
