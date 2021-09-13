@@ -91,7 +91,7 @@ The font can also be changed with script by using the `UIText:SetFont()` functio
 
 #### Change the Text with Script
 
-The content of the text (what is actually beind displayed) can be changed by setting a new value to the `UIText.text` property to a new string.
+The content of the text (what is actually being displayed) can be changed by setting a new value to the `UIText.text` property to a new string.
 
 ```lua
 TextObject.text = "New Value"
