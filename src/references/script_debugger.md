@@ -70,6 +70,7 @@ When script execution is paused, the **Script Debugger** can step through the sc
 ### Step Out
 
 **Step Out** ![Step Out](../img/ScriptDebugger/step_out_icon.png)is used to step out of a function. The **Script Debugger** will execute the current function, and pauses at the first line outside of that function.
+{: .image-inline-text .image-background }
 
 For example, when part of a function needs to be debugged, stepping out will tell the **Script Debugger** to run the rest of that function.
 {: .image-inline-text .image-background }
