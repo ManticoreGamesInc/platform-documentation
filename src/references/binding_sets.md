@@ -257,7 +257,7 @@ As an example, detecting the player input device to customize the UI depending o
 
 ## Migrating an Existing Project to use Binding Sets
 
-Projects created before **Binding Sets** were added to **Core** can be migrated to use **Binding Sets**, [here's how you can convert](https://forums.coregames.com/) to a Binding Set.
+Projects created before **Binding Sets** were added to **Core** can be migrated to use **Binding Sets**, [here's how to convert](https://forums.coregames.com/) to a Binding Set.
 
 <!-- TODO: Make link go to forum migrating post -->
 
