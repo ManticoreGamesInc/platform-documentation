@@ -89,7 +89,7 @@ The **Script Task** drop down will list all the scripts, and also indicate which
 
 The **Stack Frames** panel in the **Script Debugger** window, shows the function calls that are currently on the stack for the current running script task. The **Stack Frames** panel shows the order in which the functions are getting called, which is a good way to see the execution flow of the script for the current task.
 
-In the picture below, you can see the execution flow for the current running script.
+In the picture below, the execution flow for the current running script can be seen.
 
 ![!Stack Frames](../img/ScriptDebugger/stack_frames.png){: .center loading="lazy" }
 
