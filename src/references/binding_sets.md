@@ -12,7 +12,7 @@ A **Binding Set** contains a set of actions a creator has defined for the game a
 
 New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own.
 
-!!! warning "If there is no **Binding Set** in the **Hierarchy**, then the player will not be able to perform any action."
+!!! info "If there is no **Binding Set** in the **Hierarchy**, the default controls will be used."
 
 ## Opening the Bindings Manager Window
 
