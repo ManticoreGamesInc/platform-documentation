@@ -10,9 +10,7 @@ tags:
 
 A **Binding Set** contains a set of actions a creator has defined for the game and the default key bindings to trigger those actions.
 
-New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own.
-
-!!! info "If there is no **Binding Set** in the **Hierarchy**, the default controls will be used."
+New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own. If there is no **Binding Set** in the **Hierarchy**, the default controls will be used.
 
 ## Opening the Bindings Manager Window
 
@@ -23,8 +21,6 @@ From the **Window** menu, select **Bindings Manager** to open up the **Bindings 
 ## Creating a Binding Set
 
 A **Binding Set** needs to be placed into the **Hierarchy**. A new **Binding Set** will not overwrite an existing **Binding Set** that is in the **Hierarchy**. For example, if one **Binding Set** has ++Space++ set to perform the **Jump** action, and another **Binding Set** has ++Space++ set for to perform the **Crouch** action, then both actions will be performed.
-
-!!! warning "Placing a **Binding Set** in a **Server Context** will not work in local multiplayer or a published game."
 
 ### Bindings Manager
 
@@ -64,12 +60,9 @@ Bindings support a secondary key and controller input. Meaning that the player c
 
 ### Core Behavior
 
-When creating a binding, a **Core Behavior** needs to be selected from the drop down so that the **Binding Set** knows which action to perform when the binding is triggered.
+When creating a binding, a **Core Behavior** needs to be selected so that the **Binding Set** knows which action to perform when the binding is triggered. When a **Core Behavior** is selected, the binding will get auto filled with the default **Core** values for the keyboard and controller inputs.
 
 ![!Core Behavior](../img/BindingSets/core_behaviors.png){: .center loading="lazy" }
-
-!!! info "Binding Defaults"
-    When a binding is created, and a **Core Behavior** is selected from the drop down, the binding will get auto filled with the default **Core** values for the keyboard and controller inputs.
 
 ### Binding Types
 
@@ -87,22 +80,13 @@ Bindings can be networked so the value and input events are replicated to the se
 
 ![!Networked Binding](../img/BindingSets/networked_bindings.png){: .center loading="lazy" }
 
-The following events and functions only work on the server if a binding is networked.
-
-| Name | Description |
-| ---- | ----------- |
-| `actionPressedEvent` | Fired when a player starts an input action by pressing a key, button, or other input control. |
-| `actionReleasedEvent` | Fired when a player stops an input action by releasing a key, button, or other input control. |
-| `GetActionValue` | Returns the current input value associated with the specified action. |
-| `IsActionHeld` | Returns `true` if the specified action is currently being held by the player, otherwise returns `false`. |
+For information on which events and functions work with networked bindings, see the [Input API](/api/input.md).
 
 ## Deleting a Binding
 
 A binding can be deleted from a **Binding Set** by accessing the option menu and selecting **Delete Binding** from the **Bindings Manager** window.
 
 ![!Delete Binding](../img/BindingSets/delete_binding.png){: .center loading="lazy" }
-
-!!! warning "Deleting a binding is an action that can not be undone using the **Undo** feature."
 
 ## Deleting a Binding Set
 
@@ -120,8 +104,6 @@ A deleted **Binding Set** can be restored by clicking on the **Restore** button.
 
 ![!Restore Deleted Binding Set](../img/BindingSets/restore_set.png){: .center loading="lazy" }
 
-!!! warning "Only **Binding Sets** deleted in the current session can be restored."
-
 ## Using Input Functions and Events
 
 The **Input** namespace has various functions and events that can be used with bindings from **Binding Sets**.
@@ -134,38 +116,13 @@ Input.actionPressedEvent:Connect(function(player, action, value)
 end)
 ```
 
-### Events
-
-| Name | Description |
-| ---- | ----------- |
-| `Input.actionPressedEvent` | Fired when a player starts an input action by pressing a key, button, or other input control. |
-| `Input.actionReleasedEvent` | Fired when a player stops an input action by releasing a key, button, or other input control. |
-| `Input.inputTypeChangedEvent` | Fired when the active input device has changed to a new type of input. |
-
-### Functions
-
-| Name | Description |
-| ---- | ----------- |
-| `Input.GetActionValue` | Returns the current input value associated with the specified action. |
-| `Input.IsActionHeld` | Returns `true` if the specified action is currently being held by the player, otherwise returns `false`. |
-| `Input.GetCurrentInputType` | Returns the current active input type. |
-| `Input.IsYAxisInverted` | Returns `true` if the player has inverted the Y axis in their settings for the given input type, otherwise returns `false`. |
-| `Input.GetActionDescription` | Returns the description set in the Bindings Manager for the specified action. Returns `nil` if given an invalid action name. |
+See the [Input API](/api/input.md) for all the events and functions.
 
 ## Detecting Input Type
 
 Detecting what input device a player is using, can allow for creators to customize the UI depending on the player's input device.
 
-The input type can be determined by checking the returned value from `Input.GetCurrentInputType` and `Input.inputTypeChangedEvent`. There are 2 input types supported.
-
-| Name | Description |
-| ---- | ----------- |
-| `InputType.CONTROLLER` | Input from a game controller. |
-| `InputType.KEYBOARD_AND_MOUSE` | Input from a keyboard and mouse.
-
-!!! warning "Getting the input device for a player must be done in a Client Context."
-
-As an example, detecting the player input device to customize the UI depending on if they input device is keyboard or controller.
+The input type can be determined by checking the returned value from `Input.GetCurrentInputType` and `Input.inputTypeChangedEvent`. For example, detecting the player input device to customize the UI depending on if they input device is keyboard or controller.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
