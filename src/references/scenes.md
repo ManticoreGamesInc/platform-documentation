@@ -23,9 +23,9 @@ Creating a **Scene** can be done from the **Scenes** panel. Clicking on the **Sc
 *Scenes button (left), Scenes panel (right)*
 {: .image-cluster}
 
-1. Open the **Scenes** panel
+1. Open the **Scenes** panel.
 2. Click the **Create New Scene** button at the bottom of the **Scenes** panel.
-3. Enter a name for the new scene
+3. Enter a name for the new scene.
 
 When a new scene has been created, the creator will be asked if they want to load the new scene.
 
@@ -42,8 +42,8 @@ A **Scene** can be loaded by clicking on the scene name in the **Scene** panel.
 
 Another way to load a scene is from the **Scene** options panel.
 
-1. Click the button to the right of the scene
-2. Click **Load Scene** from the options menu
+1. Click the button to the right of the scene.
+2. Click **Load Scene** from the options menu.
 
 ![Loading Scene](../img/scenes/option_load_scene.png){: .center loading="lazy" }
 
@@ -51,9 +51,9 @@ Another way to load a scene is from the **Scene** options panel.
 
 Any scene in the project can be renamed. Scenes can't share the same name as each other. If a scene is renamed to the same name as an existing scene in the project, then that new name will be appended an index. For example, if there is already a scene named "Tutorial", renaming another scene to "Tutorial" will be named "Tutorial_1".
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Rename Scene** from the options menu, and set the new name for the scene
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Rename Scene** from the options menu, and set the new name for the scene.
 
 ![Renaming a Scene](../img/scenes/option_rename_scene.png){: .center loading="lazy" }
 
@@ -61,9 +61,9 @@ Any scene in the project can be renamed. Scenes can't share the same name as eac
 
 The main scene for a project, is the scene that will be loaded for players by default when entering your game. Any scene created can be set up as the main scene for the project. For example, if there is 2 scenes that have a different theme (i.e. Christmas vs Summer), it is easy to change which scene is the main one and republish your project. When players load your game, they will load the main scene first.
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Set as Main Scene** from the options menu
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Set as Main Scene** from the options menu.
 
 After a scene has been set as the main scene, the name of that scene will also contain the text **Main** to indicate that scene is now the main scene for your project.
 
@@ -77,9 +77,9 @@ Duplicating a scene is a good way to use an existing scene as a base. All assets
 
 When duplicating a scene, **Core** will name the duplicated scene the same name as the scene being duplicated, but append an index to the end so it is unique. For example, duplicating the scene "Opening Level" will be named "Opening Level_1".
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Duplicate Scene** from the options menu
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Duplicate Scene** from the options menu.
 
 ![Duplicate a Scene](../img/scenes/option_duplicate_scene.png){: .center loading="lazy" }
 
@@ -89,9 +89,9 @@ Scenes can be included or excluded when publishing a game. This can be done from
 
 If a scene is already set to **Include for Publish**, the option will change to **Exclude from Publish**.
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Include for Publish** from the options menu
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Include for Publish** from the options menu.
 
 ![Include for Publish](../img/scenes/option_include_for_publish.png){: .center loading="lazy" }
 
@@ -101,9 +101,9 @@ To delete a scene from your project, it can not be currently loaded, or set as t
 
 !!! info "**Core** will confirm if the scene should be deleted."
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Delete Scene** from the options menu
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Delete Scene** from the options menu.
 
 ![Deleting a Scene](../img/scenes/option_delete_scene.png){: .center loading="lazy" }
 
@@ -111,9 +111,9 @@ To delete a scene from your project, it can not be currently loaded, or set as t
 
 Each scene created is a physical folder on your system. Only scenes that have been saved can be revealed in the explorer.
 
-1. Open the **Scenes** panel
-2. Click the button to the right of the scene
-3. Click **Show Scene in Explorer** from the options menu
+1. Open the **Scenes** panel.
+2. Click the button to the right of the scene.
+3. Click **Show Scene in Explorer** from the options menu.
 
 ![Show in Explorer](../img/scenes/option_show_in_explorer.png){: .center loading="lazy" }
 
