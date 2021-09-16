@@ -52,9 +52,9 @@ Adding a binding to a **Binding Set** can be done from the **Bindings Manager** 
 
 For example, setting the key ++Q++ to perform the **Jump** action.
 
-1. Add **Basic Binding**
-2. Select **Jump** from the **Core Behavior** drop down
-3. Set the letter ++Q++ from the **Keyboard Primary** drop down
+1. Add **Basic Binding**.
+2. Select **Jump** from the **Core Behavior** drop down.
+3. Set the letter ++Q++ from the **Keyboard Primary** drop down.
 
 ![!Jump Action](../img/BindingSets/jump_action.png){: .center loading="lazy" }
 
