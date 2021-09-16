@@ -46,6 +46,10 @@ Once the **Interaction System Package** has been added to your project, all the 
 !!! note
     For all the examples, ``ability_primary`` is the default keybinding, and are therefore activated by clicking. This can be changed by changing the **PressBinding** property on the component scripts.
 
+### Changing and Debugging Interaction Settings
+
+The 
+
 ## Interaction System Modules
 
 ### Cursor Interaction Module
@@ -62,7 +66,7 @@ The **Cursor Interaction Module** allows custom interactions with UI Buttons, in
 
 ### Look
 
-The **Look Interaction Example** checks if a player's reticle (or the center of the screen, regardless if there is a displayed reticle) is intersecting a specific object.
+The **Look Interaction Example** checks if a player's look direction is intersecting a specific object. By default, this will be the center of the screen, but as cameras adjust it will remain a raycast from the player's to the look direction.
 
 #### Example
 
