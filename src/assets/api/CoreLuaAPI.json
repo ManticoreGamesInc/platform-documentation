@@ -1470,6 +1470,40 @@
 			]
 		},
 		{
+			"Name": "BindingSet",
+			"Description": "BindingSet is a CoreObject which contains a set of actions a creator has defined for a game and the default key bindings to trigger those actions.",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Camera",
 			"Description": "Camera is a CoreObject which is used both to configure Player Camera settings as well as to represent the position and rotation of the Camera in the world. Cameras can be configured in various ways, usually following a specific Player's view, but can also have a fixed orientation and/or position.\r\n\r\nEach Player (on their client) can have a default Camera and an override Camera. If they have neither, camera behavior falls back to a basic third-person behavior. Default Cameras should be used for main gameplay while override Cameras are generally employed as a temporary view, such as a when the Player is sitting in a mounted turret.",
 			"BaseType": "CoreObject",
@@ -10141,6 +10175,14 @@
 					]
 				},
 				{
+					"Name": "scriptAssetId",
+					"Description": "Returns the asset ID of the script this instance is executing.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -14307,7 +14349,7 @@
 					"Parameters": [
 						{
 							"Type": "Vehicle",
-							"Name": "vehicle"
+							"Name": "object"
 						},
 						{
 							"Type": "Damage",
@@ -14321,7 +14363,7 @@
 					"Parameters": [
 						{
 							"Type": "Vehicle",
-							"Name": "vehicle"
+							"Name": "object"
 						},
 						{
 							"Type": "Damage",
@@ -16591,6 +16633,163 @@
 		{
 			"Name": "Input",
 			"Description": "The Input namespace contains functions and hooks for responding to player input.",
+			"StaticFunctions": [
+				{
+					"Name": "GetActionValue",
+					"Description": "Returns the current input value associated with the specified action. This will return a `Vector2` for direction bindings, a `number` for basic and axis bindings, or `nil` for invalid bindings. `nil` may also be returned when called on the server with a non-networked action name or a networked action which simply hasn't been pressed yet.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsActionHeld",
+					"Description": "Returns `true` if the specified action is currently being held by the player, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCurrentInputType",
+					"Description": "Returns the current active input type.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "InputType"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsYAxisInverted",
+					"Description": "Returns `true` if the player has inverted the Y axis in their settings for the given input type, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "InputType",
+									"Name": "inputType"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetActionDescription",
+					"Description": "Returns the description set in the Bindings Manager for the specified action. Returns `nil` if given an invalid action name.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				}
+			],
+			"StaticEvents": [
+				{
+					"Name": "actionPressedEvent",
+					"Description": "Fired when a player starts an input action by pressing a key, button, or other input control. The third parameter, `value`, will be a `Vector2` for direction bindings, or a `number` for axis and basic bindings.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "string",
+							"Name": "action"
+						},
+						{
+							"Type": "value",
+							"Name": "value"
+						}
+					]
+				},
+				{
+					"Name": "actionReleasedEvent",
+					"Description": "Fired when a player stops an input action by releasing a key, button, or other input control.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "string",
+							"Name": "action"
+						}
+					]
+				},
+				{
+					"Name": "inputTypeChangedEvent",
+					"Description": "Fired when the active input device has changed to a new type of input.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "InputType",
+							"Name": "inputType"
+						}
+					]
+				}
+			],
 			"StaticHooks": [
 				{
 					"Name": "escapeHook",
@@ -18330,6 +18529,22 @@
 					"Name": "BOTH",
 					"Description": "The texture is tiled along both axes.",
 					"Value": 3
+				}
+			]
+		},
+		{
+			"Name": "InputType",
+			"Description": "Specifies a type or method of user input.",
+			"Values": [
+				{
+					"Name": "KEYBOARD_AND_MOUSE",
+					"Description": "Input from a keyboard and mouse.",
+					"Value": 0
+				},
+				{
+					"Name": "CONTROLLER",
+					"Description": "Input from a game controller.",
+					"Value": 1
 				}
 			]
 		},

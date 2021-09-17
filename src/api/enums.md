@@ -140,6 +140,13 @@ tags:
 | `ImageTileType.VERTICAL` | `2` | The texture is tiled vertically and stretched horizontally. |
 | `ImageTileType.BOTH` | `3` | The texture is tiled along both axes. |
 
+## InputType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `InputType.KEYBOARD_AND_MOUSE` | `0` | Input from a keyboard and mouse. |
+| `InputType.CONTROLLER` | `1` | Input from a game controller. |
+
 ## LeaderboardType
 
 | Enum Name | Value | Description |
