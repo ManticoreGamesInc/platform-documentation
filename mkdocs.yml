@@ -129,6 +129,7 @@ nav:
           - AnimatedMesh: api/animatedmesh.md
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
+          - BindingSet: api/bindingset.md
           - Camera: api/camera.md
           - CameraCapture: api/cameracapture.md
           - Color: api/color.md
