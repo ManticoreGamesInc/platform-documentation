@@ -214,9 +214,7 @@ The input type can be determined by checking the returned value from `Input.GetC
 
 ## Migrating an Existing Project to use Binding Sets
 
-Projects created before **Binding Sets** were added to **Core** can be migrated to use **Binding Sets**, [here's how to convert](https://forums.coregames.com/) to a Binding Set.
-
-<!-- TODO: Make link go to forum migrating post -->
+Projects created before **Binding Sets** were added to **Core** can be migrated to use **Binding Sets**, [here's how to convert](https://forums.coregames.com/t/migrating-to-binding-sets/2033) to a Binding Set.
 
 ## Learn More
 
