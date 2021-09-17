@@ -31,7 +31,7 @@ The Main Viewport is the window into all visual aspects of a project. It will ap
 
 - Hold the **right mouse button** to change the direction the view is facing.
     - ++W++, ++A++, ++S++, and ++D++ will move view position forward, left, right, and back.
-    - ++Alt++ will orbit around a selected object.
+- Hold ++Alt++ and use the **left mouse button** to orbit around a selected object.
 - Use the **scroll wheel** to move the view closer or further away.
 - Hold the **wheel button**  to slide the view left, right, up, or down.
 - Press ++F++ with an object selected to move the view to focus on that object.
