@@ -166,7 +166,7 @@ Updating templates with change all the instances in your game, but to update the
 1. In your **Project Content** window.
 2. Find the **My Shared Content** folder on the right side.
 3. Right click the template *in the left-side navigation*, and select **Republish**.
-4. In the publishing prompt, add a description of the most recent changes to the **Release Notes** section, so that creators know what to expect.
+4. In the publishing prompt, add a description of the most recent changes to the **Summary** section, so that creators know what to expect.
 
 ![Republish](../img/EditorManual/Art/RepublishTemplate.png "Republish"){: .center loading="lazy" }
 
