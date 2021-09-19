@@ -30,7 +30,7 @@ This is the best option for many simple data types like strings, numbers, and bo
 3. Click on the data type the value of the custom property will contain.
 4. Type the name the custom property will be referred by.
 5. Edit the value of the custom property as needed.
-6. Add tooltip if needed. This can be used to explain what the custom property does.
+6. Add tooltip if needed. This can be used to explain what the custom property is for.
 
 ![Properties Window](../img/CustomProperties/PropertiesWindow.png)
 
@@ -65,6 +65,8 @@ There are 2 ways to add a tooltip to a custom property.
     ![!Tooltip](../img/CustomProperties/EditCustomPropertyTooltip.png)
 
     ![!Tooltip](../img/CustomProperties/SetTooltipPanel.png)
+
+When hovering over a custom property that has a tooltip set, it will display a box with the information set as the tooltip.
 
 ![!Tooltip](../img/CustomProperties/TooltipExample.png)
 
