@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-**Custom Properties** are incredibly powerful tools that allow game creators to assign values like numbers, colors, and references to other objects as a part of one object, template, or script. These values can be edited in the editor or during runtime to allow for easy customization and to give something its own configuration or personality.
+**Custom Properties** allow game creators to assign values like numbers, colors, and references to other objects as a part of one object, template, or script. These values can be edited in the editor or during runtime to allow for easy customization and to give something its own configuration or personality.
 
 These allow for easy referencing in scripts or changing variables through the Properties window, rather than directly through code.
 
@@ -30,6 +30,7 @@ This is the best option for many simple data types like strings, numbers, and bo
 3. Click on the data type the value of the custom property will contain.
 4. Type the name the custom property will be referred by.
 5. Edit the value of the custom property as needed.
+6. Add tooltip if needed. This can be used to explain what the custom property does.
 
 ![Properties Window](../img/CustomProperties/PropertiesWindow.png)
 
@@ -45,6 +46,28 @@ This is the best option for complex/advanced data types like Core Object Referen
 2. Hold click on the other object that will be the custom property for the first object.
 3. Drag the other object into bottom of the **Properties** window of the first object.
 
+## Adding Tooltips to Custom Properties
+
+Adding tooltips to custom properties is useful for adding a description to explain what the custom property is for. This is very useful when sharing content, such as publishing to **Community Content**. When the custom property is hovered over, the tooltip will be displayed and contain the information set by the creator.
+
+There are 2 ways to add a tooltip to a custom property.
+
+1. When creating a custom property.
+
+    When a custom property is being created, there is an option in the **Add Property** panel to set the tooltip.
+
+    ![!Tooltip](../img/CustomProperties/AddPropertyTooltip.png)
+
+2. Edit existing custom property.
+
+    Existing custom properties can have a tooltip set by right clicking on them, and selecting **Set Custom Property ToolTip**.
+
+    ![!Tooltip](../img/CustomProperties/EditCustomPropertyTooltip.png)
+
+    ![!Tooltip](../img/CustomProperties/SetTooltipPanel.png)
+
+![!Tooltip](../img/CustomProperties/TooltipExample.png)
+
 ## Copying Custom Properties
 
 **Custom Properties** can be copied and pasted to other objects.
@@ -57,7 +80,7 @@ This is the best option for complex/advanced data types like Core Object Referen
 6. Click **Add Copied Custom Properties**.
 
 !!! note
-    Core will automatically copy-and-paste all of the custom properties of the original object when you duplicate it.
+    Core will automatically copy-and-paste all of the custom properties of the original object when it is duplicated.
 
 ## Referencing Custom Properties Through Script
 
@@ -85,7 +108,7 @@ Custom properties can by edited during runtime through scripts if the object and
 
 ### Enable Networking
 
-Firstly, the object and the custom property must have networking enabled for the custom property to be edited during runtime. You will get an error if it is not networked.
+Firstly, the object and the custom property must have networking enabled for the custom property to be edited during runtime. An error will occur if it is not networked.
 
 1. Right-click on the object
 2. Click **Enable Networking**. The object should have `(networked)` at the end of its name when viewed in the **Hierarchy**.
@@ -102,7 +125,7 @@ Firstly, the object and the custom property must have networking enabled for the
 
 To change the value of the custom property of a CoreObject use the `CorObject:SetNetworkedCustomProperty()` function of **CoreObject**. More information in the [CoreObject API Reference](../api/coreobject.md#setnetworkedcustomproperty).
 
-For example, to set the `TimeRemaining` custom property of a `Cube` to `10` (in seconds), you would type:
+For example, to set the `TimeRemaining` custom property of a `Cube` to `10` (in seconds), type:
 
 ```lua
 CubeObject:SetNetworkedCustomProperty("TimeRemaining", 10)
@@ -137,12 +160,12 @@ There are a few simple data types supported as custom properties.
 
 | Data Type    | Description |
 | ------------ | ----------- |
-| **Bool**     | A **Boolean** is only ever `true` or `false`. This can be best compared to on/off, yes/no, etc.<br /><br />In custom properties, they are expressed as a check box that is either checked (`true`) or unchecked (`false`).<br /><br />**Booleans** are most often used in if-statements that allow you to write code that is only executed if certain conditions are met, such as the boolean being `true`. |
+| **Bool**     | A **Boolean** is only ever `true` or `false`. This can be best compared to on/off, yes/no, etc.<br /><br />In custom properties, they are expressed as a check box that is either checked (`true`) or unchecked (`false`).<br /><br />**Booleans** are most often used in if-statements that allow creators to write code that is only executed if certain conditions are met, such as the boolean being `true`. |
 | **Color**    | A **Color** is a Core class that contains values for `red`, `green`, `blue`, and `alpha` (transparency).<br /><br />**Colors** are helpful constants that can assist in UI programming, spawning assets of different colors, etc.<br /><br />More information can be found in the [Color API](../api/color.md). |
 | **Float**    | A **Float** is a number that can have decimals, such as `0.1`, `1.2`, `139.8`, etc. |
 | **Int**      | An **Int** is a number that can not have decimals and must be whole, such as `0`, `1`, `139`, etc. |
 | **Rotation** | A **Rotation** is a Core class that contains values for `x`, `y`, and `z` on rotation axis.<br /><br />More information can be found in the [Rotation API](../api/rotation.md). |
-| **String**   | A **String** is a collection of any value you want, such as numbers, letters, punctuation, and emojis. They are represented in double quotes (`" "`) in code so that the computer does not mistake them for code. However, this is not necessary for custom properties as **String** custom properties are represented as a text box that can be typed in. |
+| **String**   | A **String** is a collection of any value, such as numbers, letters, punctuation, and emojis. They are represented in double quotes (`" "`) in code so that the computer does not mistake them for code. However, this is not necessary for custom properties as **String** custom properties are represented as a text box that can be typed in. |
 | **Vector2**  | A **Vector2** contains values for `x` and `y` and is usually useful for storing UI positions/size or any two-dimensional structures.<br /><br />More information can be found in the [Vector2 API](../api/vector2.md). |
 | **Vector3**  | A **Vector3** contains values for `x`, `y`, and `z` and is usually useful for storing 3D positions/size or any three-dimensional structures.<br /><br />More information can be found in the [Vector3 API](../api/vector3.md). |
 | **Vector4**  | A **Vector4** contains values for `x`, `y`, `z`, and `w` and is useful for any four-dimensional structures.<br /><br />More information can be found in the [Vector4 API](../api/vector4.md). |
@@ -164,7 +187,7 @@ When getting this reference into a variable, `:WaitForObject()` needs to be adde
 
 More information can be found in the [CoreObjectReference API](../api/coreobjectreference.md) and the [CoreObject API](../api/coreobject.md).
 
-For example, say you want to rotate a cube 45 degrees every 2 seconds. You would:
+For example, rotating a cube 45 degrees every 2 seconds.
 
 1) Add a **Core Object Reference** custom property to the script referencing Cube called `CubeObject`
 2) Create a **Rotation** custom property to the script called `RotationIncrement`
@@ -196,7 +219,7 @@ This includes referencing **Templates** so that they can be spawned without havi
 
 #### Requiring Scripts
 
-An **Asset Reference** can be used to `require` scripts and gain access to its properties and functions. This is commonplace for APIs/Modules created by you that include a table of values/functions to be used between scripts.
+An **Asset Reference** can be used to `require` scripts and gain access to its properties and functions. This is commonplace for APIs/Modules that include a table of values/functions to be used between scripts.
 
 Say that there is a script **Asset Reference** custom property called `SampleAPI`, it can be included into the script by using `require`, similar to `script.context`, to get what was returned from the script.
 
@@ -212,7 +235,7 @@ end
 return SampleAPI
 ```
 
-Then, you can use the `TestFunction` function of the `SampleAPI` script by typing:
+Then, use the `TestFunction` function of the `SampleAPI` script by typing:
 
 ```lua
 local SampleAPI = require(script:GetCustomProperty("SampleAPI"))
