@@ -20,7 +20,7 @@ The project includes many systems that are typical of the Survival genre, includ
 
 The Survival Jam Kit was made as a game open for editing that can be found in **Community Projects**.
 
-![Community Projects](../img/Survival/Survival_CommunityProjects.png){: .center loading="lazy" }
+![Community Projects](../img/NewFrameworks/NewFrameworks_CommunityProjects.png){: .center loading="lazy" }
 
 To create a copy to edit:
 
@@ -29,7 +29,7 @@ To create a copy to edit:
 3. Type `Survival` into the search, and select the project titled **Survival-Framework**.
 4. Give it the name of your project in the **Name** field and press **Download**.
 
-![Survival Game](../img/Survival/Survival_Game.png){: .center loading="lazy" }
+![Survival Game](../img/NewFrameworks/NewFrameworks_SurvivalKit.png){: .center loading="lazy" }
 
 ### Testing the Game
 
