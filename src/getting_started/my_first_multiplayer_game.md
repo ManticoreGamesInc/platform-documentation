@@ -31,25 +31,23 @@ Jump in and build a game using Core's Deathmatch framework. Customize as much or
 
 To get started, use the **Create** menu to make a new project
 
-### Click **Create New**
+### Open the **NEW PROJECT** Menu
 
-![Create New](../img/MyFirstMultiplayer/CreateNew.png){: .center loading="lazy" }
+![Create New](../img/NewFrameworks/NewFrameworks_NewProject.png){: .center loading="lazy" }
 
-1. With Core open, click the **Create** Tab on the left side menu.
-2. Click **Create New Game**.
+1. With Core open, click the **CREATE** tab in the top menu bar.
+2. Click the **NEW PROJECT** tab at the top of the **CREATE** menu.
 
-### Select the **Deathmatch** framework
+### Select the **Deathmatch** Framework
 
-![Deathmatch](../img/MyFirstMultiplayer/Deathmatch.png){: .center loading="lazy" }
+![Deathmatch](../img/NewFrameworks/NewFrameworks_Deathmatch.jpg){: .center loading="lazy" }
 
-<!-- ### Create a new Project
+1. In the **GAMEPLAY FRAMEWORKS** section, select **Deathmatch**.
+2. In the right side panel, name your project. `MyFirstGame` works well, but choose any name.
+3. Click **CREATE**.
 
-![Name](../img/MyFirstMultiplayer/MyFirstMultiplayerGame.png){: .center loading="lazy" } -->
-
-1. Click **View Frameworks** in the **Core Game Frameworks** option.
-2. Click **Deathmatch**.
-3. Name your project. `MyFirstGame` works well, but choose any name.
-4. Click **Create**.
+!!! note
+    The name you chose for the project at this stage does not have to match the final name of the published game.
 
 ## Explore the Project
 
