@@ -41,4 +41,4 @@ SmartAudio objects are SmartObjects that wrap sound files. Similar to Audio obje
 
 ## Tutorials
 
-[Audio in Core](../references/ui.md)
+[Audio in Core](../references/audio.md)

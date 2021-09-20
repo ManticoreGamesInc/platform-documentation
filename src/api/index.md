@@ -59,11 +59,11 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [Chat](../api/chat.md) | [CoreDebug](../api/coredebug.md) | [CoreMath](../api/coremath.md) | [CorePlatform](../api/coreplatform.md) |
-| [CoreSocial](../api/coresocial.md) | [CoreString](../api/corestring.md) | [Environment](../api/environment.md) | [Events](../api/events.md) |
-| [Game](../api/game.md) | [Input](../api/input.md) | [Leaderboards](../api/leaderboards.md) | [Storage](../api/storage.md) |
-| [Teams](../api/teams.md) | [UI](../api/ui.md) | [VoiceChat](../api/voicechat.md) | [World](../api/world.md) |
-
+| [Chat](../api/chat.md) | [CoreDebug](../api/coredebug.md) | [CoreLuaFunctions](../api/coreluafunctions.md) | [CoreMath](../api/coremath.md) |
+| [CorePlatform](../api/coreplatform.md) | [CoreSocial](../api/coresocial.md) | [CoreString](../api/corestring.md) | [Environment](../api/environment.md) |
+| [Events](../api/events.md) | [Game](../api/game.md) | [Input](../api/input.md) | [Leaderboards](../api/leaderboards.md) |
+| [Storage](../api/storage.md) | [Teams](../api/teams.md) | [UI](../api/ui.md) | [VoiceChat](../api/voicechat.md) |
+| [World](../api/world.md) | | | |
 ## Core Lua Interfaces
 
 Interfaces list properties, functions, and events that types which implement that interface must have. When a type implements an interface, the `IsA()` function will return `true` for the interface name. For example, `someVehicle:IsA("Damageable")` will return `true`, because the `Vehicle` type implements the `Damageable` interface.
