@@ -17,13 +17,22 @@ The **Racing Framework** provides everything you need to start making your first
 
 ## Create a Racing Framework Game
 
-* Create a new project
-* Click on the **View Frameworks** button
-* Select the **Racing Framework**
+To get started, use the **CREATE** menu to make a new project
 
-![Choose A Game Framework](../img/RacingTutorial/SelectGameFramework.png){: .center loading="lazy"}
+### Open the **NEW PROJECT** Menu
 
-![Racing Game Framework](../img/RacingTutorial/SelectRacingFramework.png){: .center loading="lazy"}
+![Create New](../img/NewFrameworks/NewFrameworks_NewProject.png){: .center loading="lazy" }
+
+1. With Core open, click the **CREATE** tab in the top menu bar.
+2. Click the **NEW PROJECT** tab at the top of the **CREATE** menu.
+
+### Select the **Racing** Framework
+
+![Deathmatch](../img/NewFrameworks/NewFrameworks_Racing.jpg){: .center loading="lazy" }
+
+1. In the **GAMEPLAY FRAMEWORKS** section, select **Racing**.
+2. In the right side panel, name your project.
+3. Click **CREATE**.
 
 ## Testing the Racing Framework
 
