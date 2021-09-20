@@ -20,7 +20,7 @@ The project includes many systems that are typical of the Survival genre, includ
 
 The Survival Jam Kit was made as a game open for editing that can be found in **Community Projects**.
 
-![Community Projects](../img/Survival/Survival_CommunityProjects.png){: .center loading="lazy" }
+![Community Projects](../img/NewFrameworks/NewFrameworks_CommunityProjects.png){: .center loading="lazy" }
 
 To create a copy to edit:
 
