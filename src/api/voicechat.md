@@ -35,6 +35,7 @@ Example using:
 In this example, a client context is setup with a UI Container and some UI Images underneath. This script finds all those images and assigns one to each player, setting the player's profile picture to appear in the image and tinting the image green whenever they speak.
 
 ```lua
+-- Client Only
 local IMAGES = script.parent:FindDescendantsByType("UIImage")
 
 function Tick()
@@ -42,7 +43,7 @@ function Tick()
         local image = IMAGES[i]
         if image then
             image:SetPlayerProfile(player)
-            
+
             if VoiceChat.IsPlayerSpeaking(player) then
                 -- If this player is speaking, tint their picture green
                 image:SetColor(Color.GREEN)
