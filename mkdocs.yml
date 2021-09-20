@@ -71,6 +71,7 @@ nav:
           - Animated Meshes: references/animated_meshes.md
           - Art in Core: references/art.md
           - Audio: references/audio.md
+          - Binding Sets: references/binding_sets.md
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Curves: references/curves.md
