@@ -42,11 +42,12 @@ To get started, use the **Create** menu to make a new project
 
 ![Deathmatch](../img/NewFrameworks/NewFrameworks_Deathmatch.jpg){: .center loading="lazy" }
 
+1. In the **GAMEPLAY FRAMEWORKS** section, select **Deathmatch**.
+2. In the right side panel, name your project. `MyFirstGame` works well, but choose any name.
+3. Click **CREATE**.
 
-1. Click **View Frameworks** in the **Core Game Frameworks** option.
-2. Click **Deathmatch**.
-3. Name your project. `MyFirstGame` works well, but choose any name.
-4. Click **Create**.
+!!! note
+    The name you chose for the project at this stage does not have to match the final name of the published game.
 
 ## Explore the Project
 

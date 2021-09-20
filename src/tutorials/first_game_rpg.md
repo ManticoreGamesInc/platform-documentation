@@ -10,19 +10,22 @@ tags:
 
 ## Create a Framework Game
 
-To get started, use the **Create** menu to make a new project
+To get started, use the **CREATE** menu to make a new project
 
-### Click **Create New**
+### Open the **NEW PROJECT** Menu
 
-1. With Core open, click the **Create** Tab on the left side menu.
-2. Click **Create New Game**.
+![Create New](../img/NewFrameworks/NewFrameworks_NewProject.png){: .center loading="lazy" }
 
-### Select the **Dungeon Crawler** framework
+1. With Core open, click the **CREATE** tab in the top menu bar.
+2. Click the **NEW PROJECT** tab at the top of the **CREATE** menu.
 
-1. Click **View Frameworks** in the **Core Game Frameworks** option.
-2. Click **Dungeon Crawler**.
-3. Name your project.
-4. Click **Create**.
+### Select the **Dungeon Crawler** Framework
+
+![Deathmatch](../img/NewFrameworks/NewFrameworks_Dungeon.jpg){: .center loading="lazy" }
+
+1. In the **GAMEPLAY FRAMEWORKS** section, select **Dungeon Crawler**.
+2. In the right side panel, name your project.
+3. Click **CREATE**.
 
 ## Building the Floor and Walls
 
