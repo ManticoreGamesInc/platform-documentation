@@ -30,7 +30,6 @@ This is the best option for many simple data types like strings, numbers, and bo
 3. Click on the data type the value of the custom property will contain.
 4. Type the name the custom property will be referred by.
 5. Edit the value of the custom property as needed.
-6. Add tooltip if needed. This can be used to explain what the custom property is for.
 
 ![Properties Window](../img/CustomProperties/PropertiesWindow.png)
 
@@ -69,6 +68,42 @@ There are 2 ways to add a tooltip to a custom property.
 When hovering over a custom property that has a tooltip set, it will display a box with the information set as the tooltip.
 
 ![!Tooltip](../img/CustomProperties/TooltipExample.png)
+
+## Add Custom Property Categories
+
+Custom properties can be placed inside custom categories. This can be a good way of organising the custom properties so it easier to manage when there is a large number of custom properties.
+
+![!Categories](../img/CustomProperties/CustomCategories.png)
+
+### Create a Category
+
+When adding a new custom property, the **Add Property** panel has fields where a **Category** can be selected, or created, and a **Sub Category** can be selected, or created.
+
+To create a new **Category**, click inside the **Category** field and type the category to be created. The same applies for **Sub Category**. A custom property can have a root **Category** and a **Sub Category**
+
+![!Category](../img/CustomProperties/AddPropertyCategory.png)
+
+### Add Custom Property to Category
+
+Adding a property to a **Category** or **Sub Category** can be done from 2 locations.
+
+1. Add Property Panel.
+
+    When creating a new custom property, clicking inside the **Category** field will list any existing categories that have been created. Select the category to add the custom property too. This also applies to **Sub Categories**.
+
+    ![!Add to Category](../img/CustomProperties/AddToCategory.png)
+
+2. Move to Category.
+
+    From the **Properties** panel, custom properties can be moved to a category. Right click on the custom property to be moved, select **Move To Category**, and select the category.
+
+    ![!Move to Category](../img/CustomProperties/MoveToCategory.png)
+
+### Rename or Delete Category
+
+Renaming or deleting categories can be done from the options panel from the **Properties** panel.
+
+![!Rename or Delete Category](../img/CustomProperties/RenameDeleteCategory.png)
 
 ## Copying Custom Properties
 
