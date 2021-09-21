@@ -37,7 +37,7 @@ In this tutorial you are going to create a multiplayer boss fight. Players will 
 You will be importing an asset from **Community Content** that will contain various components you will drop into the **Hierarchy** while you follow the tutorial.
 
 1. Open the **Community Content** panel.
-2. Search for **Boss Fight Tutorial** by **CoreAcademy**.
+2. Search for `Boss Fight Tutorial` by **CoreAcademy**.
 3. Click **Import**.
 
 ![!Community Content](../img/BossTutorial/cc.png)
@@ -68,7 +68,7 @@ The player needs a weapon for the fight to do damage to the boss and environment
 
 2. Add **Advanced Assault Rifle** template as a custom property.
 
-    You can drag the **Advanced Assault Rifle** template onto the **PlayerServer** script as a custom property. Name the custom property **Weapon**.
+    You can drag the **Advanced Assault Rifle** template onto the **PlayerServer** script as a custom property. Name the custom property `Weapon`.
 
 3. Edit the **PlayerServer** script and add the code below.
 
@@ -134,7 +134,7 @@ The boss is going to be a **Damageable Object** that can take damage and die. Yo
 
 2. Set the **Max Hit Points** to 1000.
 3. Set the **Starting Hit Points** to 1000.
-4. Rename the **Damageable Object** to **Boss Damageable Object**.
+4. Rename the **Damageable Object** to `Boss Damageable Object`.
 
 Leave all other properties for the **Damageable Object** default values for now.
 
@@ -165,7 +165,7 @@ You will notice there are quite a few components inside the **Boss Geo** templat
 The boss AI will need to know which players are within range so a target can be selected to shoot at. A perimeter trigger will be used to detect players who enter and leave the trigger.
 
 1. Add a **Trigger** to the **Boss Damageable Object**.
-2. Rename the trigger to **Shoot Perimeter**.
+2. Rename the trigger to `Shoot Perimeter`.
 3. Scale the trigger so it covers the big room.
 
     When scaling the trigger, make sure to cover the big room with the boss. You can make the trigger bigger then the room, but do not overlap the starting room where the players spawn.
@@ -179,7 +179,7 @@ In this section you will be create the AI for the boss. The boss needs to transi
 1. Open the **AI Debugger** from the **Window** menu.
 2. Select the **Boss Damageable Object** in the **Hierarchy**.
 3. Click **Create New Handler** in the **AI Debugger** window.
-4. Rename the new **Activity Handler** in the **Hierarchy** to **Boss AI Handler**.
+4. Rename the new **Activity Handler** in the **Hierarchy** to `Boss AI Handler`.
 
 With the **Activity Handler** created, you will be able to create activities with a script that will be registered with the handler.
 
@@ -1458,7 +1458,7 @@ In this section you will be creating a script to show the damage the player is d
 
 3. Add **Color** custom property.
 
-    Add a new **Color** custom property to the **DamageClient** script. Name the custom property **ImmuneColor**.
+    Add a new **Color** custom property to the **DamageClient** script. Name the custom property `ImmuneColor`.
 
     The color property will be used to change the color of the fly up text when the boss is immune to damage.
 
@@ -2550,19 +2550,19 @@ The **ShieldGeneratorClient** script will be responsible for turning off the sou
 
 2. Add **Sound** custom property.
 
-    Drag the sound object **Sci-fi Energy Generator Drone 01 SFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property **Sound**.
+    Drag the sound object **Sci-fi Energy Generator Drone 01 SFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Sound`.
 
 3. Add **Effect** custom property.
 
-    Drag the effect object **Point To Point Electrical Beam VFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property **Effect**.
+    Drag the effect object **Point To Point Electrical Beam VFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Effect`.
 
 4. Add **Trigger** custom property.
 
-    Drag the **Trigger** inside the **Shield Generator** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property **Trigger**.
+    Drag the **Trigger** inside the **Shield Generator** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Trigger`.
 
 5. Add **Mast** custom property.
 
-    Drag the mast object **Antenna Mast 02** from the **Geo** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property to **Mast**.
+    Drag the mast object **Antenna Mast 02** from the **Geo** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property to `Mast`.
 
 6. Add the following code to the **ShieldGeneratorClient** script.
 
@@ -2648,7 +2648,7 @@ The **ShieldGeneratorServer** script will be responsible for checking when a pla
 
 2. Add **Trigger** custom property.
 
-    Drag the **Trigger** onto the **ShieldGeneratorServer** script as a custom property. Name the custom property **Trigger**.
+    Drag the **Trigger** onto the **ShieldGeneratorServer** script as a custom property. Name the custom property `Trigger`.
 
 3. Add the following code to the **ShieldGeneratorServer** script.
 
@@ -3034,11 +3034,11 @@ The **BossHealthUIClient** script needs to change the color of the various UI co
 
 1. Add **BossName** custom property.
 
-    Drag the **Boss Name** text object onto the **BossHealthUIClient** as a custom property. Name the custom property **BossName**.
+    Drag the **Boss Name** text object onto the **BossHealthUIClient** as a custom property. Name the custom property `BossName`.
 
 2. Add **SkullBackground** custom property.
 
-    Drag the **Background** image object onto the **BossHealthUIClient** as a custom property. Name the custom property **SkullBackground**.
+    Drag the **Background** image object onto the **BossHealthUIClient** as a custom property. Name the custom property `SkullBackground`.
 
 3. Update the **BossHealthUIClient** Script.
 
@@ -3108,7 +3108,7 @@ In this section you will be creating groups of barrels that can be placed around
 
 1. Create **Damageable Object**.
 
-    Create a **Damageable Object** and rename it to **Barrels Damageable Object**.
+    Create a **Damageable Object** and rename it to `Barrels Damageable Object`.
 
     Set the **Max Hit Points** and **Starting Hit Points** properties to 50. This is so that the group of barrels will take a few shots from the player or the boss to be destroyed.
 
@@ -3122,7 +3122,7 @@ In this section you will be creating groups of barrels that can be placed around
 
 4. Create a **Client Context**.
 
-    Add a **Client Context** as a child of **Barrels Damageable Object**. Rename the **Client Context** to **Effects**. This will be used to show an effect to the player to encourage them to investigate the group of barrels.
+    Add a **Client Context** as a child of **Barrels Damageable Object**. Rename the **Client Context** to `Effects`. This will be used to show an effect to the player to encourage them to investigate the group of barrels.
 
     !!! tip "Client Context Effects, Sounds, and UI"
         Objects such as effects, sounds, and UI will always be in a **Client Context**. Those types of objects do not need to be synced up between the clients. This is an advantage, as it is less network usage, and reduces the load on the server.
@@ -3133,7 +3133,7 @@ In this section you will be creating groups of barrels that can be placed around
 
 6. Create **Damageable Object**.
 
-    Create another **Damageable Object** and place it as a child of **Barrels Damageable Object** and rename it to **Barrel Damageable Object Child**. This will be a barrel that can be destroyed on its own by the player if it is shot first.
+    Create another **Damageable Object** and place it as a child of **Barrels Damageable Object** and rename it to `Barrel Damageable Object Child`. This will be a barrel that can be destroyed on its own by the player if it is shot first.
 
     Set the **Max Hit Points** and **Starting Hit Points** properties to 50.
 
@@ -3193,7 +3193,7 @@ A server script will be responsible for checking if the player can pick up the i
 
 2. Add **Trigger** custom property.
 
-    Drag the trigger object inside the **Injector Pickup** group onto the **InjectorPickupServer** script. Name the custom property **Trigger**.
+    Drag the trigger object inside the **Injector Pickup** group onto the **InjectorPickupServer** script. Name the custom property `Trigger`.
 
 3. Update **Injector Pickup** template.
 
@@ -3321,7 +3321,7 @@ The **PlayerClient** script will check when the resource `injectors` value chang
 
 2. Add **Injector** custom property.
 
-    Find the **Injector** UI panel in the **UI** group, and drag it onto the **PlayerClient** script as a custom property. Name the custom property **Injector**.
+    Find the **Injector** UI panel in the **UI** group, and drag it onto the **PlayerClient** script as a custom property. Name the custom property `Injector`.
 
 3. Open the **PlayerClient** script.
 
@@ -3746,7 +3746,7 @@ Having the health show in the UI for the player will help them be a little more 
 
 3. Add **HealthPulseCurve** custom property.
 
-    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property **HealthPulseCurve**.
+    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `HealthPulseCurve`.
 
 4. Edit the Curve **HealthPulseCurve**.
 
@@ -4172,7 +4172,7 @@ When a player joins and there are already shield generators that have been disab
 
 3. Create transition curve.
 
-    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property **TransitionCurve**.
+    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `TransitionCurve`.
 
     Edit the curve and select **EaseIn** as the **Curve Preset**. The reason for picking this curve is so that the transition stays more opaque at the beginning, and then will speed up towards the end of the duration.
 
