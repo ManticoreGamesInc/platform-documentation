@@ -18,8 +18,8 @@ All projects come with one scene by default called **Main**, which will be shown
 
 Creating a **Scene** can be done from the **Scenes** panel. Clicking on the **Scenes** button at the top of the **Hierarchy** will open a panel that will show a list of all scenes for the project, and a **Create New Scene** button at the bottom of that list.
 
-![Scene Button](../img/scenes/scenes_button.png)
-![Scene Panel](../img/scenes/scenes_panel.png)
+![Scene Button](../img/Scenes/scenes_button.png)
+![Scene Panel](../img/Scenes/scenes_panel.png)
 *Scenes button (left), Scenes panel (right)*
 {: .image-cluster}
 
@@ -45,7 +45,7 @@ Another way to load a scene is from the **Scene** options panel.
 1. Click the button to the right of the scene.
 2. Click **Load Scene** from the options menu.
 
-![Loading Scene](../img/scenes/option_load_scene.png){: .center loading="lazy" }
+![Loading Scene](../img/Scenes/option_load_scene.png){: .center loading="lazy" }
 
 ## Renaming a Scene
 
@@ -55,7 +55,7 @@ Any scene in the project can be renamed. Scenes can't share the same name as eac
 2. Click the button to the right of the scene.
 3. Click **Rename Scene** from the options menu, and set the new name for the scene.
 
-![Renaming a Scene](../img/scenes/option_rename_scene.png){: .center loading="lazy" }
+![Renaming a Scene](../img/Scenes/option_rename_scene.png){: .center loading="lazy" }
 
 ## Setting a Main Scene
 
@@ -69,7 +69,7 @@ After a scene has been set as the main scene, the name of that scene will also c
 
 Scenes set to **Main Scene** will also be the first scene loaded when loading your project.
 
-![Set Main Scene](../img/scenes/option_set_main_scene.png){: .center loading="lazy" }
+![Set Main Scene](../img/Scenes/option_set_main_scene.png){: .center loading="lazy" }
 
 ## Duplicating a Scene
 
@@ -81,7 +81,7 @@ When duplicating a scene, **Core** will name the duplicated scene the same name 
 2. Click the button to the right of the scene.
 3. Click **Duplicate Scene** from the options menu.
 
-![Duplicate a Scene](../img/scenes/option_duplicate_scene.png){: .center loading="lazy" }
+![Duplicate a Scene](../img/Scenes/option_duplicate_scene.png){: .center loading="lazy" }
 
 ## Include for Publish
 
@@ -93,7 +93,7 @@ If a scene is already set to **Include for Publish**, the option will change to 
 2. Click the button to the right of the scene.
 3. Click **Include for Publish** from the options menu.
 
-![Include for Publish](../img/scenes/option_include_for_publish.png){: .center loading="lazy" }
+![Include for Publish](../img/Scenes/option_include_for_publish.png){: .center loading="lazy" }
 
 ## Deleting a Scene
 
@@ -105,7 +105,7 @@ To delete a scene from your project, it can not be currently loaded, or set as t
 2. Click the button to the right of the scene.
 3. Click **Delete Scene** from the options menu.
 
-![Deleting a Scene](../img/scenes/option_delete_scene.png){: .center loading="lazy" }
+![Deleting a Scene](../img/Scenes/option_delete_scene.png){: .center loading="lazy" }
 
 ## Show Scene in Explorer
 
@@ -115,7 +115,7 @@ Each scene created is a physical folder on your system. Only scenes that have be
 2. Click the button to the right of the scene.
 3. Click **Show Scene in Explorer** from the options menu.
 
-![Show in Explorer](../img/scenes/option_show_in_explorer.png){: .center loading="lazy" }
+![Show in Explorer](../img/Scenes/option_show_in_explorer.png){: .center loading="lazy" }
 
 ## Publishing Scenes
 
@@ -123,13 +123,13 @@ Publishing a game will allow creators to select which scenes to publish. If no s
 
 Click on the **Publish Game** button to bring up the **Game Publishing Settings**.
 
-![Publish Button](../img/scenes/publish_button.png){: .center loading="lazy" }
+![Publish Button](../img/Scenes/publish_button.png){: .center loading="lazy" }
 
 The **Game Publishing Settings** window has a **Scenes** drop down where creators can select which scenes should be included when publishing.
 
 !!! info "When publishing any scenes that isn't the main scene, **Core** will only publish the assets used for that scene."
 
-![Publishing Scenes](../img/scenes/publish_scenes.png){: .center loading="lazy" }
+![Publishing Scenes](../img/Scenes/publish_scenes.png){: .center loading="lazy" }
 
 ## Transferring to a Scene
 
