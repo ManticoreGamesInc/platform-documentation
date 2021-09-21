@@ -83,7 +83,7 @@ Core Object (**.pbt**) files are very small in size, and easy to pass between pr
 2. Make sure the object is select in the **Hierarchy** and press ++Ctrl++ + ++C++.
 3. Save and close the current project, and open up the connected or related project through the Core client.
 4. Press Ctrl+V to paste the template in.
-5. Choose "Overwrite Existing Assets" to replace the previous version with tne new one.
+5. Choose "Overwrite Existing Assets" to replace the previous version with the new one.
 
 ---
 
