@@ -92,9 +92,9 @@ nav:
           - Object Generator: references/object_generator.md
           - Offline Storage: references/offline_storage.md
           - Party System: references/party_system.md
-          - Performance Panel: getting_started/performance_panel.md
+          - Performance Panel: references/performance_panel.md
           - Persistent Storage: references/persistent_storage.md
-          - Play-Mode Profiler: getting_started/profiler.md
+          - Play-Mode Profiler: references/profiler.md
           - Portals: references/portals.md
           - Project Files: getting_started/project_files.md
           - Publishing Checklist: getting_started/publishing_checklist.md
@@ -367,6 +367,8 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
+        getting_started/profiler.md: references/profiler.md
+        getting_started/performance_panel.md: references/performance_panel.md
         tutorials/lua_basics_manticoin.md: tutorials/race_timer.md
         perks/implementing_perks.md: references/perks/implementing.md
         perks/joining_perks.md: references/perks/joining.md
