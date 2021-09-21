@@ -27,10 +27,10 @@ In this tutorial you are going to explore more of the **Core** API to make a rac
 ## Create Project and Track
 <!-- TODO: Move CC to official account -->
 !!! tip "Community Content Track"
-    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for **Race Timer Tutorial - Track** by **CoreAcademy**.
+    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for `Race Timer Tutorial - Track` by **CoreAcademy**.
 
-1. Create a new empty project
-2. In the **Hierarchy** delete the object **Default Floor**
+1. Create a new empty project.
+2. In the **Hierarchy** delete the object **Default Floor**.
 3. Drag and drop the template **Race Timer Tutorial - Track** into the **Hierarchy**.
 
 If you enter **Play** mode you will notice the spawn position isn't in an ideal location for any player that joins the game. Move the **Spawn Point** so that it's before the starting position on the track.
@@ -53,7 +53,7 @@ When a race is about to start, you need to move the players to the starting line
 2. Drag and drop a **Cube** from **Core Content** into the **Starting Positions** group.
 3. Set **Game Collision** to **Force Off** for the **Cube** object.
 4. Set **Camera Collision** to **Force Off** for the **Cube** object.
-5. Rename **Cube** to **Position**.
+5. Rename **Cube** to `Position`.
 6. Duplicate and space these out along the starting line.
 7. Set **Visibility** to **Force Off** for all **Position** objects.
 
@@ -139,7 +139,7 @@ You want each player to be moved to a random lane position. At the same time you
 
 1. Click on **RaceManager_Server** so it becomes the active object selected.
 2. Drag and drop the group **Starting Positions** onto the **Add Custom Property** button.
-3. Rename the custom property to **startingPositions**.
+3. Rename the custom property to `startingPositions`.
 
 Your **Hierarchy** and **RaceManager_Server** script will now look like the below image.
 
@@ -593,19 +593,19 @@ Enter **Play** mode and test everything is working. If you have followed the tut
 
 You need to add a trigger to the finish line so that when the player overlaps the trigger, the time is recorded.
 
-1. Create Trigger Group
+1. Create Trigger Group.
 
     Create a new group inside of your track group, and call it **Triggers**. This group will contain the finish line trigger and a few other triggers later on in the tutorial.
 
-2. Add Trigger
+2. Add Trigger.
 
     Add a new **Trigger** inside the **Triggers** group and name it **Finish**.
 
-3. Add Custom Property
+3. Add Custom Property.
 
-    The **RaceManager_Server** script needs to have a way to reference the finish line trigger. Click on the **RaceManager_Server** script so it becomes the active object in the **Hierarchy** and drag the **Finish** trigger onto the **Add Custom Property** button. Rename the new custom property to **finishTrigger**.
+    The **RaceManager_Server** script needs to have a way to reference the finish line trigger. Click on the **RaceManager_Server** script so it becomes the active object in the **Hierarchy** and drag the **Finish** trigger onto the **Add Custom Property** button. Rename the new custom property to `finishTrigger`.
 
-4. Position Trigger
+4. Position Trigger.
 
     The **Finish** trigger now needs to be placed at the finish line, making sure that it covers all the way across the track for the player to overlap with.
 
@@ -941,31 +941,31 @@ You are going to create some UI that will show the current race time to the play
 
 #### Create Frame Image
 
-Create a **UI Image** object and rename it to **Race Timer**. This image will be the frame for the race timer.
+Create a **UI Image** object and rename it to `Race Timer`. This image will be the frame for the race timer.
 
 ![!Race Timer Image Properties](../img/RaceTimerTutorial/race_timer_props.png){: .center loading="lazy" }
 
 #### Create Background Image
 
-Create a **UI Image** object and rename it to **Background**. Place this inside the **Race Timer** image as a child. This will be the background image within the frame.
+Create a **UI Image** object and rename it to `Background`. Place this inside the **Race Timer** image as a child. This will be the background image within the frame.
 
 ![!Background Properties](../img/RaceTimerTutorial/background_props.png){: .center loading="lazy" }
 
 #### Create Timer Panel
 
-Create a **UI Panel** object and rename it to **Timer Panel**. Place this inside the **Race Timer** image as a child. This panel will hold a few objects for the actual timer.
+Create a **UI Panel** object and rename it to `Timer Panel`. Place this inside the **Race Timer** image as a child. This panel will hold a few objects for the actual timer.
 
 ![!Panel Properties](../img/RaceTimerTutorial/timer_panel_props.png){: .center loading="lazy" }
 
 #### Create Panel Background Image
 
-Create a **UI Image** object and rename it to **Background**. Place this inside **Timer Panel**
+Create a **UI Image** object and rename it to `Background`. Place this inside **Timer Panel**
 
 ![!Background Properties](../img/RaceTimerTutorial/race_timer_background_props.png){: .center loading="lazy" }
 
 #### Create Text Object
 
-Create a **UI Text** object and rename it to **Timer**. Place this inside **Timer Panel** as a child. Set the text to **0.000**. This text object will display the race timer to the player.
+Create a **UI Text** object and rename it to `Timer`. Place this inside **Timer Panel** as a child. Set the text to **0.000**. This text object will display the race timer to the player.
 
 ![!Timer Text Properties](../img/RaceTimerTutorial/race_timer_text_props_1.png){: .center loading="lazy" }
 ![!Timer Text Properties](../img/RaceTimerTutorial/race_timer_text_props_2.png){: .center loading="lazy" }
@@ -980,7 +980,7 @@ Here is how the **Hierarchy** and UI look once the above steps have been complet
 
 You are going to add a visual cue to the UI when a race is about to start and when the player can go.
 
-Create a **UI Text** object and rename it to **Get Ready**. Place this inside the **UI Container**.
+Create a **UI Text** object and rename it to `Get Ready`. Place this inside the **UI Container**.
 
 ![!UI Text Get Ready Properties](../img/RaceTimerTutorial/get_ready_ui_1.png){: .center loading="lazy" }
 ![!UI Text Get Ready Properties](../img/RaceTimerTutorial/get_ready_ui_2.png){: .center loading="lazy" }
@@ -996,8 +996,8 @@ Create a new script called **RaceManager_Client** and place it into the Client C
 ### Add Custom Properties
 
 1. Select the **RaceManager_Client** script so it becomes the active object in the **Hierarchy**.
-2. Drag and drop the **Get Ready** text object onto the **Add Custom Property** button, and rename the property to **getReady**.
-3. Drag and drop the **Timer** text object onto the **Add Custom Property** button, and rename the property to **raceTime**.
+2. Drag and drop the **Get Ready** text object onto the **Add Custom Property** button, and rename the property to `getReady`.
+3. Drag and drop the **Timer** text object onto the **Add Custom Property** button, and rename the property to `raceTime`.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1606,38 +1606,38 @@ You need to update the UI to add support for showing the best time of the player
 
 ### Create Stats Frame Image
 
-Create a new **UI Image** object inside the **UI Container** as a child, and rename it to **Stats**.
+Create a new **UI Image** object inside the **UI Container** as a child, and rename it to `Stats`.
 
 ![!Stats Image Properties](../img/RaceTimerTutorial/stats_props.png){: .center loading="lazy" }
 
 ### Create Stats Background Image
 
-Create a new **UI Image** object inside the **Stats** object as a child, and rename it to **Background**.
+Create a new **UI Image** object inside the **Stats** object as a child, and rename it to `Background`.
 
 ![!Background Image Properties](../img/RaceTimerTutorial/stats_background_props.png){: .center loading="lazy" }
 
 ### Create Stats Panel
 
-Create a new **UI Panel** object inside the **Stats** object as a child, and rename it to **Times**.
+Create a new **UI Panel** object inside the **Stats** object as a child, and rename it to `Times`.
 
 ![!Times Panel Properties](../img/RaceTimerTutorial/times_panel_props.png){: .center loading="lazy" }
 
 ### Create Background Image
 
-Create a new **UI Image** object inside the **Times** object as a child, and rename it to **Background**.
+Create a new **UI Image** object inside the **Times** object as a child, and rename it to `Background`.
 
 ![!Background Image Properties](../img/RaceTimerTutorial/times_background_props.png){: .center loading="lazy" }
 
 ### Create Best Time Text Object
 
-Create a new **UI Text** object in the **Times** object as a child, and rename it to **Best Time**.
+Create a new **UI Text** object in the **Times** object as a child, and rename it to `Best Time`.
 
 ![!Best Time Properties](../img/RaceTimerTutorial/best_time_props_1.png){: .center loading="lazy" }
 ![!Best Time Properties](../img/RaceTimerTutorial/best_time_props_2.png){: .center loading="lazy" }
 
 ### Create Last Time Text Object
 
-Create a new **UI Text** object in the **Times** object as a child, and rename it to **Last Time**.
+Create a new **UI Text** object in the **Times** object as a child, and rename it to `Last Time`.
 
 ![!Last Time Properties](../img/RaceTimerTutorial/last_time_props_1.png){: .center loading="lazy" }
 ![!Last Time Properties](../img/RaceTimerTutorial/last_time_props_2.png){: .center loading="lazy" }
@@ -1650,8 +1650,8 @@ Your UI **Hierarchy** will now look like this.
 
 You need to add the 2 text objects created in the previous section for best time and last time as custom properties on the **RaceManager_Client** script.
 
-1. Drag and drop the **Best Time** text object onto the script as a new custom property and rename the new custom property to **bestTime**.
-2. Drag and drop the **Last Time** text object onto the script as a new custom property and rename the new custom property to **lastTime**.
+1. Drag and drop the **Best Time** text object onto the script as a new custom property and rename the new custom property to `bestTime`.
+2. Drag and drop the **Last Time** text object onto the script as a new custom property and rename the new custom property to `lastTime`.
 
 ```lua linenums="1"
 local BEST_TIME = script:GetCustomProperty("bestTime"):WaitForObject()
@@ -2251,7 +2251,7 @@ You now need to update the in world leaderboard with the leaderboard data.
 4. Name the custom property to **fastestTimeLb**.
 5. Deinstance the leaderboard template.
 6. Drag the **Entries** group onto the **Race_Leaderboard_Client** script as a new custom property.
-7. Rename the custom property to **entries**.
+7. Rename the custom property to `entries`.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -2428,7 +2428,7 @@ Creating a time split feature isn't as complicated as it would first seem.
 
 You need a place in the UI to display the time splits to the player. Adding these could get quite tedious, so it will be done automatically in the client script later.
 
-1. Create a new **UI Panel** inside the **Stats** panel and rename it to **Splits**.
+1. Create a new **UI Panel** inside the **Stats** panel and rename it to `Splits`.
 
     This will be the container that will hold each split.
 
@@ -2475,7 +2475,7 @@ You need to modify the **RaceManager_Server** script so that it keeps track of w
 
 1. Click the **RaceManager_Server** script to make it the active object in the **Hierarchy**.
 2. Drag and drop the **Splits** group onto the **Add Custom Property** button.
-3. Rename the custom property to **splitTriggers**.
+3. Rename the custom property to `splitTriggers`.
 
 ```lua linenums="1"
 local SPLIT_TRIGGERS = script:GetCustomProperty("splitTriggers"):WaitForObject()
@@ -2952,9 +2952,9 @@ Finally you need to setup the overlap events for all the split triggers. You do 
 
 You need to update the **RaceManager_Client** script so that it has references to a few things as well as update the UI with the split times.
 
-1. Drag and drop the **Splits** panel onto the script as a custom property and rename it to **splitsPanel**.
-2. Drag and drop the **Splits** group inside the **Triggers** group onto the script as a custom property and rename it to **splitTriggers**.
-3. Drag and drop the template for the split entry onto the script and rename it to **splitEntry**.
+1. Drag and drop the **Splits** panel onto the script as a custom property and rename it to `splitsPanel`.
+2. Drag and drop the **Splits** group inside the **Triggers** group onto the script as a custom property and rename it to `splitTriggers`.
+3. Drag and drop the template for the split entry onto the script and rename it to `splitEntry`.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -3804,7 +3804,7 @@ Enter **Play** mode and hold down ++shift++ to sprint. You will now be able to s
 
 In this section you are going to add some audio to the starting race and finish line.
 
-1. Create a new **Client Context** and rename it to **Audio**.
+1. Create a new **Client Context** and rename it to `Audio`.
 2. Find audio that will be played when the player is notified to **Get Ready**. Drop it into the **Audio** folder.
 3. Find audio that will be played when the player is notified to **GO**. Drop it into the **Audio** folder.
 4. Find audio that will be played when the player crosses the finish line. Drop it into the **Audio** folder.
@@ -3814,10 +3814,10 @@ In this section you are going to add some audio to the starting race and finish 
 
 Next, you need to add the audio and finish line trigger as custom properties on the **RaceManager_Client** script.
 
-1. Drag and drop the audio for **Get Ready** as a custom property and rename it to **readySnd**.
-2. Drag and drop the audio for **Go** as a custom property and rename it to **goSnd**.
-3. Drag and drop the audio for crossing the finish line as a custom property and rename it to **cheerSnd**.
-4. Drag and drop the finish line trigger as a custom property and rename it to **finishTrigger**.
+1. Drag and drop the audio for **Get Ready** as a custom property and rename it to `readySnd`.
+2. Drag and drop the audio for **Go** as a custom property and rename it to `goSnd`.
+3. Drag and drop the audio for crossing the finish line as a custom property and rename it to `cheerSnd`.
+4. Drag and drop the finish line trigger as a custom property and rename it to `finishTrigger`.
 
 ![!Audio](../img/RaceTimerTutorial/audio_polish.png){: .center loading="lazy" }
 
@@ -4124,9 +4124,9 @@ Enable the sound on the video above to hear sound effects.
 
 Finally let's add a simple effect that plays when the player finishes the race.
 
-1. Create a **Client Context** folder and rename it to **Effects**.
+1. Create a **Client Context** folder and rename it to `Effects`.
 2. Find the **Confetti** effect in the **Core Content** panel and place it into the **Effects** folder.
-3. Drag and drop the effect onto the **RaceManager_Client** script as a custom property and rename it to **confettiVFX**.
+3. Drag and drop the effect onto the **RaceManager_Client** script as a custom property and rename it to `confettiVFX`.
 
 ![!Confetti](../img/RaceTimerTutorial/confetti_hierarchy.png){: .center loading="lazy" }
 
