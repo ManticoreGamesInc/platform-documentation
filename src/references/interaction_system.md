@@ -112,7 +112,7 @@ Drag the **Pointer Interaction Template** from **Project Content** into the scen
 The **Trigger Interaction Module** works much like a client-side interactable trigger, but allows for custom keybindings and has more events that can be accessed for that interaction.
 
 !!! info
-    This module will react to Trigger interactions by the local Player or all Players depending on the Input Settings. By default the Trigger module will only react to the local Player in order  to act like the other Input Modules. If the setting "TriggerLocally" is false then Trigger inputs from all Players will run. This can be a useful way to mimic networked play without using any actual networking but it could affect your interactions in unexpected ways.
+    This module will react to Trigger interactions by the local Player or all players depending on the Input Settings. By default the Trigger module will only react to the local Player in order  to act like the other Interaction Modules. If the setting "TriggerLocally" is false then trigger inputs from all players will run. This can be a useful way to mimic networked play without using any actual networking but it could affect your interactions in unexpected ways.
 
 <!-- TODO: Add video of interaction example -->
 <div class="mt-video" style="width:100%">
