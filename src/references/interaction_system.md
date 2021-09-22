@@ -12,8 +12,6 @@ The sample **Components** included in the Interaction System allow creators to d
 !!! note
     The **Interaction System** works only in a **Client Context**, which means any change made or object spawned will only be visible to the player doing the interaction. To learn more, see the [Networking](networking.md) reference.
 
-<!-- TODO: Check that link -->
-
 ## Adding the Interaction System to a Project
 
 ### Add the Interaction System Package
@@ -46,9 +44,22 @@ Once the **Interaction System Package** has been added to your project, all the 
 !!! note
     For all the examples, ``ability_primary`` is the default keybinding, and are therefore activated by clicking. This can be changed by changing the **PressBinding** property on the component scripts.
 
-### Changing and Debugging Interaction Settings
+## Interaction Settings
 
-The 
+The Interaction System includes a template which will allow you to debug interactions, and change settings.
+
+### Add the Interaction Settings Template
+
+1. In **Project Content**, find the **My Templates** section.
+2. Select the **Interaction System** folder.
+3. Click and drag the **Interaction Settings** template into the Hierarchy.
+4. Select the **Interaction Settings** template in the Hierarchy, and open the **Properties** window.
+
+### Interaction Settings Properties
+
+- **LookModule_Distance** allows you to adjust the maximum distance between the player and the object to activate the Look Interaction.
+- **TriggerModule_OnlyLocalPlayer** keeps trigger overlaps only activating on the client of the player who enters the trigger. See the **Trigger Interaction Module** section below for more information.
+- **ShowDebug** spawn a pointer that shows the direction of different interactions.
 
 ## Interaction System Modules
 
@@ -62,23 +73,32 @@ The **Cursor Interaction Module** allows custom interactions with UI Buttons, in
 - Clicking and dragging on the outer part of the window will reposition it using the **Draggable Object Component**.
 - Each of the white boxes will change color when clicked using the **Change Color Component**, and add themselves to a selection set using the **Selectable Component**.
 
-<!-- TODO: Add video of interaction example -->
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/InteractionSystem/InteractionSystem_CursorExample.mp4" type="video/mp4" />
+    </video>
+</div>
 
-### Look
+### Look Interaction Module
 
 The **Look Interaction Example** checks if a player's look direction is intersecting a specific object. By default, this will be the center of the screen, but as cameras adjust it will remain a raycast from the player's to the look direction.
 
-#### Example
+#### Look Interaction Example
 
 - When the center of the screen is over the sphere, it should turn yellow using the **Change Color Component**, and show a ring on the floor using the **Toggle Visibility Component**.
 - When clicked, the sphere should change color to Blue, also from the **Change Color Component**.
-<!-- TODO: Add video of interaction example -->
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/InteractionSystem/InteractionSystem_CursorExample.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Pointer
 
 Similar to the **Cursor Interaction Module**, the **Pointer Interaction Module** uses the position of the cursor, but for objects in the world, rather than UI. It has the added benefit of being able to detect the angle of intersection with the mouse and the surface of the target object.
 
-#### Example
+#### Pointer Interaction Example
 
 Drag the **Pointer Interaction Template** from **Project Content** into the scene, and start a preview. The cursor will be visible, and the sphere can be interacted by moving the cursor over it, and by clicking.
 
@@ -95,8 +115,13 @@ The **Trigger Interaction Module** works much like a client-side interactable tr
     This module will react to Trigger interactions by the local Player or all Players depending on the Input Settings. By default the Trigger module will only react to the local Player in order  to act like the other Input Modules. If the setting "TriggerLocally" is false then Trigger inputs from all Players will run. This can be a useful way to mimic networked play without using any actual networking but it could affect your interactions in unexpected ways.
 
 <!-- TODO: Add video of interaction example -->
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/InteractionSystem/InteractionSystem_TriggerExample.mp4" type="video/mp4" />
+    </video>
+</div>
 
-#### Example
+#### Trigger Interaction Example
 
 Drag the **Trigger Interaction Template** from **Project Content** into the scene, and start a preview. You can interact with the cube by walking close enough to overlap its trigger, and then clicking.
 
