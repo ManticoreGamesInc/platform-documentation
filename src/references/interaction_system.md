@@ -123,11 +123,11 @@ The **Trigger Interaction Module** works much like a client-side interactable tr
 
 #### Trigger Interaction Example
 
-Drag the **Trigger Interaction Template** from **Project Content** into the scene, and start a preview. You can interact with the cube by walking close enough to overlap its trigger, and then clicking.
+Drag the **Trigger Interaction Template** from **Project Content** into the scene, and start a preview. Interact with the cube by walking close enough to overlap its trigger, and then clicking.
 
 ## Module Events
 
-The Interaction Modules each have several events that can be used as points to broadcast to server scripts, spawn VFX or sound, or anything else that supports individualized design of in-game interactions. SO
+The Interaction Modules each have several events that can be used as points to broadcast to server scripts, spawn VFX or sound, or anything else that supports individualized design of in-game interactions.
 
 ### Events for All Modules
 
@@ -154,7 +154,7 @@ The Interaction Modules each have several events that can be used as points to b
 
 All components can be found in the **My Scripts** section of **Project Content**. Open the **Interaction System** folder and then the **Components** folder.
 
-1. Place the objects that should be interacted with using the component in a group that will server as the ``ComponentRoot`` and place that group in a **Client Context** folder.
+1. Place the objects that should be interacted with using the component in a group that will serve as the ``ComponentRoot`` and place that group in a **Client Context** folder.
 2. Drag the the component from **Project Content** into the **Client Context** folder.
 3. Select the group created in step one, and drag it into the ``ComponentRoot`` custom property of the Component script in the Hierarchy.
 4. In **Project Content**, find the **Modules** folder in the **Interaction System** folder under **My Scripts**. Choose the type of interaction, and drag the corresponding Module script into the ``APIInteractionModule`` custom property of the Component script.
