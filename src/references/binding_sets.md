@@ -3,7 +3,7 @@ id: binding_set_reference
 name: Binding Sets Reference
 title: Binding Sets Reference
 tags:
-    - Reference
+  - Reference
 ---
 
 # Binding Sets
@@ -68,11 +68,11 @@ When creating a binding, a **Core Behavior** needs to be selected so that the **
 
 There are 3 different types of bindings that can created.
 
-| Binding Type | Description |
-| ------------ | ----------- |
-| Basic Binding | Basic bindings have a value of either 0 or 1, pressed or released, and act like buttons. |
-| Axis Binding | Axis bindings can take on any float value, not just 0 or 1, like a gamepad trigger held half way, or how fast the mouse's scroll wheel is moving up or down. |
-| Directional Binding | Directional bindings are for 2d controls like moving the player or rotating the camera and have a vector2 value. |
+| Binding Type        | Description                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Basic Binding       | Basic bindings have a value of either `0` or `1`, pressed or released, and act like buttons.                                                                        |
+| Axis Binding        | Axis bindings can take on any `number` value, not just `0` or `1`, like a gamepad trigger held half way, or how fast the mouse's scroll wheel is moving up or down. |
+| Directional Binding | Directional bindings are for 2D controls like moving the player or rotating the camera and have a `Vector2` value.                                                  |
 
 ### Networked Bindings
 
