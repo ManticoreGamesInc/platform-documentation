@@ -10,6 +10,8 @@ tags:
 
 # Creating a Boss Fight
 
+![!Preview](../img/BossTutorial/preview.png){: .center loading="lazy" }
+
 ## Overview
 
 In this tutorial you are going to create a multiplayer boss fight. Players will need to disable all of the generators by inserting a pickup that can be found around the map. After all generators have been disabled, the boss will then be vulnerable to damage.
@@ -40,7 +42,7 @@ You will be importing an asset from **Community Content** that will contain vari
 2. Search for `Boss Fight Tutorial` by **CoreAcademy**.
 3. Click **Import**.
 
-![!Community Content](../img/BossTutorial/cc.png)
+![!Community Content](../img/BossTutorial/cc.png){: .center loading="lazy" }
 
 ### Add Map Template to Hierarchy
 
@@ -48,7 +50,7 @@ A map has been created for you that you will place into the **Hierarchy**.
 
 1. Click the **Project Content** tab.
 2. Click **My Templates** under **All Content**.
-3. Drag the template **Boss Fight Map** into the **Hierarchy**.
+3. Add the template **Boss Fight Map** into the **Hierarchy**.
 4. Deinstance the **Boss Right Map** template in the **Hierarchy**.
 5. Test the game.
 
@@ -62,29 +64,31 @@ The player needs a weapon for the fight to do damage to the boss and environment
 
 ### Create PlayerServer Script
 
-1. Create a new script called **PlayerServer**.
+Create a new script called **PlayerServer** and place the **PlayerServer** script inside the group **Boss Fight Map** in the **Hierarchy**.
 
-    Place the **PlayerServer** script inside the group **Boss Fight Map** in the **Hierarchy**
+#### Add Weapon Custom Property
 
-2. Add **Advanced Assault Rifle** template as a custom property.
+Add the **Advanced Assault Rifle** template onto the **PlayerServer** script as a custom property. Name the custom property `Weapon`.
 
-    You can drag the **Advanced Assault Rifle** template onto the **PlayerServer** script as a custom property. Name the custom property `Weapon`.
+![!Weapon Custom Property](../img/BossTutorial/custom_property_weapon.png){: .center loading="lazy" }
 
-3. Edit the **PlayerServer** script and add the code below.
+#### Edit PlayerServer Script
 
-    ```lua
-    local WEAPON = script:GetCustomProperty("Weapon")
+Edit the **PlayerServer** script and add the code below.
 
-    local function OnPlayerJoined(player)
-        local weapon = World.SpawnAsset(WEAPON)
+```lua
+local WEAPON = script:GetCustomProperty("Weapon")
 
-        weapon:Equip(player)
-    end
+local function OnPlayerJoined(player)
+    local weapon = World.SpawnAsset(WEAPON)
 
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
-    ```
+    weapon:Equip(player)
+end
 
-    The code above will spawn the weapon and equip it on the player when they join.
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+The code above will spawn the weapon and equip it on the player when they join.
 
 ### The PlayerServer Script
 
@@ -126,30 +130,23 @@ In this section you will be creating the boss that players will be fighting agai
 
 The boss is going to be a **Damageable Object** that can take damage and die. You will create a **Damageable Object** that will have children components that will automatically be destroyed when the boss reaches 0 health.
 
-1. Add a **Damageable Object** to the **Hierarchy**.
+#### Add Damageable Object
 
-    You can find this in **Core Content** under **Gameplay Objects**.
+Add a **Damageable Object** to the **Hierarchy**. You can find this in **Core Content** under **Gameplay Objects**. Name the **Damageable Object** `Boss Damageable Object`.
 
-    ![!Damageable Object](../img/BossTutorial/damageable_object_core_content.png)
+![!Damageable Object](../img/BossTutorial/damageable_object_core_content.png){: .center loading="lazy" }
 
-2. Set the **Max Hit Points** to 1000.
-3. Set the **Starting Hit Points** to 1000.
-4. Rename the **Damageable Object** to `Boss Damageable Object`.
+#### Set Max Hit Points
 
-Leave all other properties for the **Damageable Object** default values for now.
+Set the **Max Hit Points** to 1000 in the **Properties** of the **Damageable Object**.
+
+#### Set Starting Hit Points
+
+Set the **Starting Hit Points** to 1000 in the **Properties** of the **Damageable Object**.
 
 ### Add Boss Geo Template to Hierarchy
 
 A template for what the boss will look like has been included. It also contains some effects, UI, and helper objects that will be used later on in the tutorial.
-
-1. Drag the template **Boss Geo** onto the **Boss Damageable Object** in the **Hierarchy** so it becomes a child.
-2. Move the **Boss Damageable Object** to the center of the map.
-
-    Make sure that the **Boss Geo** position is at 0 for **x**, **y**, and **z**.
-
-3. Test the game.
-
-    Shoot the boss to make sure it can be destroyed.
 
 You will notice there are quite a few components inside the **Boss Geo** template. Some of these will be used later on in the tutorial.
 
@@ -160,21 +157,37 @@ You will notice there are quite a few components inside the **Boss Geo** templat
 | Fly Up Text Target | Will be used to position the damage numbers that will fly up and display to the player when shooting the boss. |
 | Health Bar | Displays the current health of the boss, this will be updated by a script you will write in a later section. |
 
+#### Add Boss Geo Template
+
+Add the template **Boss Geo** onto the **Boss Damageable Object** in the **Hierarchy** so it becomes a child.
+
+#### Position Boss Damageable Object
+
+Move the **Boss Damageable Object** to the center of the map. Make sure that the **Boss Geo** position is at 0 for **x**, **y**, and **z**.
+
+#### Test the Game
+
+Shoot the boss to make sure it can be destroyed.
+
 ## Create Boss Perimeter Trigger
 
 The boss AI will need to know which players are within range so a target can be selected to shoot at. A perimeter trigger will be used to detect players who enter and leave the trigger.
 
-1. Add a **Trigger** to the **Boss Damageable Object**.
-2. Rename the trigger to `Shoot Perimeter`.
-3. Scale the trigger so it covers the big room.
+### Add Perimeter Trigger
 
-    When scaling the trigger, make sure to cover the big room with the boss. You can make the trigger bigger then the room, but do not overlap the starting room where the players spawn.
+Add a **Trigger** to the **Boss Damageable Object** and name rename it to `Shoot Perimeter`.
 
-    ![!Damageable Object](../img/BossTutorial/perimeter_trigger.png)
+Scale the trigger so it covers the big room.
+
+When scaling the trigger, make sure to cover the big room with the boss. You can make the trigger bigger then the room, but do not overlap the starting room where the players spawn.
+
+![!Damageable Object](../img/BossTutorial/perimeter_trigger.png){: .center loading="lazy" }
 
 ## Create AI Activity Handler
 
 In this section you will be create the AI for the boss. The boss needs to transition between different states depending on what is happening in the game. You will use an **AI Activity Handler** that will have 2 activities for handling the idle and shoot states.
+
+See ![AI](references/ai.md) for more information about the **AI Activity Handler**.
 
 1. Open the **AI Debugger** from the **Window** menu.
 2. Select the **Boss Damageable Object** in the **Hierarchy**.
@@ -189,100 +202,112 @@ With the **Activity Handler** created, you will be able to create activities wit
 
 In this section you will be creating the script that will handle the AI for the boss.
 
-1. Create a new script called **BossAIServer**.
+#### Create BossAIServer Script
 
-    Place the script **BossAIServer** as a child of **Boss AI Handler** in the **Hierarchy**.
+Create a new script called **BossAIServer**, place the script **BossAIServer** as a child of **Boss AI Handler** in the **Hierarchy**.
 
-2. Drag **Boss Geo** onto the **BossAIServer** script as a custom property.
-3. Drag **Shoot Perimeter** onto the **BossAIServer** script as a custom property.
-4. Edit the **BossAIServer** script, and place the follow code into the file.
+#### Create Boss Geo Custom Property
 
-    ```lua
-    local ACTIVITY_HANDLER = script.parent
-    local BOSS_GEO = script:GetCustomProperty("BossGeo"):WaitForObject()
-    local SHOOT_PERIMETER = script:GetCustomProperty("ShootPerimeter"):WaitForObject()
+Add **Boss Geo** onto the **BossAIServer** script as a custom property and rename it to **BossGeo**.
 
-    -- Current target the AI is focused on
-    local target = nil
+![!BossGeo Custom Property](../img/BossTutorial/custom_property_bossgeo.png){: .center loading="lazy" }
 
-    -- Targets in range of the AI
-    local shootTargets = {}
+#### Create Shoot Perimeter Custom Property
 
-    -- If a player enters the shoot perimeter of the AI, add
-    -- them to the shootTargets table
-    function OnPlayerEnterShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            table.insert(shootTargets, player)
-        end
+Add **Shoot Perimeter** onto the **BossAIServer** script as a custom property, and rename it to **ShootPerimeter**.
+
+![!ShootPerimeter Custom Property](../img/BossTutorial/custom_property_shootperimeter.png){: .center loading="lazy" }
+
+#### Edit BossAIServer Script
+
+Edit the **BossAIServer** script, and place the follow code into the file.
+
+```lua
+local ACTIVITY_HANDLER = script.parent
+local BOSS_GEO = script:GetCustomProperty("BossGeo"):WaitForObject()
+local SHOOT_PERIMETER = script:GetCustomProperty("ShootPerimeter"):WaitForObject()
+
+-- Current target the AI is focused on
+local target = nil
+
+-- Targets in range of the AI
+local shootTargets = {}
+
+-- If a player enters the shoot perimeter of the AI, add
+-- them to the shootTargets table
+function OnPlayerEnterShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        table.insert(shootTargets, player)
     end
+end
 
-    -- If the player leaves the shoot perimeter of the AI, remove
-    -- them from the shootTargets table.
-    function OnPlayerLeftShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            for index, value in ipairs(shootTargets) do
-                if value == player then
-                    table.remove(shootTargets, index)
+-- If the player leaves the shoot perimeter of the AI, remove
+-- them from the shootTargets table.
+function OnPlayerLeftShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        for index, value in ipairs(shootTargets) do
+            if value == player then
+                table.remove(shootTargets, index)
 
-                    if(target == player and Object.IsValid(BOSS_GEO)) then
-                        BOSS_GEO:StopRotate()
-                    end
-
-                    break
+                if(target == player and Object.IsValid(BOSS_GEO)) then
+                    BOSS_GEO:StopRotate()
                 end
+
+                break
             end
         end
     end
+end
 
-    SHOOT_PERIMETER.beginOverlapEvent:Connect(OnPlayerEnterShoot)
-    SHOOT_PERIMETER.endOverlapEvent:Connect(OnPlayerLeftShoot)
-    ```
+SHOOT_PERIMETER.beginOverlapEvent:Connect(OnPlayerEnterShoot)
+SHOOT_PERIMETER.endOverlapEvent:Connect(OnPlayerLeftShoot)
+```
 
-    The above code handles detecting when a player has entered the perimeter and left.
+The above code handles detecting when a player has entered the perimeter and left.
 
-    ```lua
-    local ACTIVITY_HANDLER = script.parent
-    ```
+```lua
+local ACTIVITY_HANDLER = script.parent
+```
 
-    Because the script is a direct child of the **Boss AI Handler**, you can get a reference to the handler by using `script.parent`.
+Because the script is a direct child of the **Boss AI Handler**, you can get a reference to the handler by using `script.parent`.
 
-    ```lua
-    function OnPlayerEnterShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            table.insert(shootTargets, player)
-        end
+```lua
+function OnPlayerEnterShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        table.insert(shootTargets, player)
     end
-    ```
+end
+```
 
-    The `OnPlayerEnterShoot` function will insert the player who has entered the perimeter trigger to the `shootTargets` table. This is used later on by the shoot activity to determine which player becomes the target for the boss to shoot at.
+The `OnPlayerEnterShoot` function will insert the player who has entered the perimeter trigger to the `shootTargets` table. This is used later on by the shoot activity to determine which player becomes the target for the boss to shoot at.
 
-    ```lua
-    function OnPlayerLeftShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            for index, value in ipairs(shootTargets) do
-                if value == player then
-                    table.remove(shootTargets, index)
+```lua
+function OnPlayerLeftShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        for index, value in ipairs(shootTargets) do
+            if value == player then
+                table.remove(shootTargets, index)
 
-                    if(target == player and Object.IsValid(BOSS_GEO)) then
-                        BOSS_GEO:StopRotate()
-                    end
-
-                    break
+                if(target == player and Object.IsValid(BOSS_GEO)) then
+                    BOSS_GEO:StopRotate()
                 end
+
+                break
             end
         end
     end
-    ```
+end
+```
 
-    The `OnPlayerLeftShoot` function will remove the player who has left the perimeter trigger, as they will no longer be a valid target for the boss to shoot at.
+The `OnPlayerLeftShoot` function will remove the player who has left the perimeter trigger, as they will no longer be a valid target for the boss to shoot at.
 
-    ```lua
-    if(target == player and Object.IsValid(BOSS_GEO)) then
-        BOSS_GEO:StopRotate()
-    end
-    ```
+```lua
+if(target == player and Object.IsValid(BOSS_GEO)) then
+    BOSS_GEO:StopRotate()
+end
+```
 
-    The boss will be rotating towards the target currently selected, but when that target leaves the perimeter, the boss needs to stop rotating until it finds a new target. Using `StopRotate` will interrupt the continuous rotation that will be done in the shoot state later.
+The boss will be rotating towards the target currently selected, but when that target leaves the perimeter, the boss needs to stop rotating until it finds a new target. Using `StopRotate` will interrupt the continuous rotation that will be done in the shoot state later.
 
 ### Create Boss Idle State
 
@@ -290,56 +315,56 @@ This is the default state of the boss. When the boss does not have a target in r
 
 You need to create an idle activity and register that activity to the **Boss AI Handler**.
 
-1. Create activities table.
+#### Create Activities Table
 
-    ```lua
-    local activities = {
+```lua
+local activities = {
 
-        idle = {}
+    idle = {}
 
-    }
-    ```
+}
+```
 
-    This table will be used to store the activities for the states that will be added to the **AI Handler** later on.
+This table will be used to store the activities for the states that will be added to the **AI Handler** later on.
 
-2. Create idle `tick` function.
+#### Create Idle Tick Function
 
-    ```lua
-    function activities.idle.tick(activity, deltaTime)
-        activity.priority = 100
-    end
-    ```
+```lua
+function activities.idle.tick(activity, deltaTime)
+    activity.priority = 100
+end
+```
 
-    The activity `tick` function runs every frame even when that activity is not the highest priority. In this case for the idle activity, you want it to be the highest priority when the game starts so the boss starts out in the idle state.
+The activity `tick` function runs every frame even when that activity is not the highest priority. In this case for the idle activity, you want it to be the highest priority when the game starts so the boss starts out in the idle state.
 
-3. Create idle `start` function.
+#### Create idle Start Function
 
-    ```lua
-    function activities.idle.start(activity, deltaTime)
-        Task.Wait(.5)
-        BOSS_GEO:RotateTo(Rotation.New(0, 0, 0), 2)
-    end
-    ```
+```lua
+function activities.idle.start(activity, deltaTime)
+    Task.Wait(.5)
+    BOSS_GEO:RotateTo(Rotation.New(0, 0, 0), 2)
+end
+```
 
-    Each time the idle activity becomes the highest priority, the `start` function will be called. In this case the boss will rotate back to the start position after half a second waiting. This activity will be highest priority when starting the game, and will also become highest priority when the boss can not find any targets.
+Each time the idle activity becomes the highest priority, the `start` function will be called. In this case the boss will rotate back to the start position after half a second waiting. This activity will be highest priority when starting the game, and will also become highest priority when the boss can not find any targets.
 
-4. Add activity to handler.
+#### Add Activity to Handler
 
-    Activities need to be added to the handler. This can be done by looping over all the activities in the `activities` table created in step 1.
+Activities need to be added to the handler. This can be done by looping over all the activities in the `activities` table created in step 1.
 
-    ```lua
-    for k, a in pairs(activities) do
-        ACTIVITY_HANDLER:AddActivity(k, activities[k])
-    end
-    ```
+```lua
+for k, a in pairs(activities) do
+    ACTIVITY_HANDLER:AddActivity(k, activities[k])
+end
+```
 
-5. Play the game.
+#### Test the Game
 
-    The boss will not do anything because it does not know who to target, so it will be in the idle state constantly because it is the highest priority activity.
+The boss will not do anything because it does not know who to target, so it will be in the idle state constantly because it is the highest priority activity.
 
-    In the **AI Debugger**, click on the **Boss AI Handler** to see the idle state listed.
+In the **AI Debugger**, click on the **Boss AI Handler** to see the idle state listed.
 
-    ![!Idle State](../img/BossTutorial/ai_debugger_idle_state.png)
+![!Idle State](../img/BossTutorial/ai_debugger_idle_state.png){: .center loading="lazy" }
 
 ### Create Boss Shoot State
 
@@ -347,148 +372,150 @@ This state will become the highest priority when the boss has a valid target in 
 
 You will be creating a shoot activity, and adding that activity to the handler.
 
-1. Add `shoot` table to `activities` table.
+#### Create Shoot Table
 
-    ```lua hl_lines="4"
-    local activities = {
+Add a new property called `shoot` table to the `activities` table.
 
-        idle = {},
-        shoot = {}
+```lua hl_lines="4"
+local activities = {
 
-    }
-    ```
+    idle = {},
+    shoot = {}
 
-2. Add new variables.
+}
+```
 
-    ```lua
-    local shootCooldownMin = 0
-    local shootCooldownMax = 3
-    local shootElapsed = 0
-    local hasShot = false
-    local randomCooldown = 0
-    local isCharging = false
-    ```
+#### Add Shoot Variables
 
-    The variables above will be used when the shoot activity is the highest priority.
+```lua
+local shootCooldownMin = 0
+local shootCooldownMax = 3
+local shootElapsed = 0
+local hasShot = false
+local randomCooldown = 0
+local isCharging = false
+```
 
-    | Name | Description |
-    | ---- | ----------- |
-    | `shootCooldownMin` | The minium amount of time the cooldown can be for the boss to shoot again. |
-    | `shootCooldownMax` | The maximum amount of time the cooldown can be for the boss to shoot again. |
-    | `shootElapsed` | The amount of time elapsed since last shooting. This is used to work out if the boss can shoot again. |
-    | `hasShot` | When the boss shoots, this is updated to true. When it is false, then the boss can shoot again. |
-    | `randomCooldown` | This is the random cooldown time that gets changed on each shot. |
-    | `isCharging` | Each shot from the boss requires a charge before it can shoot the projectile. |
+The variables above will be used when the shoot activity is the highest priority.
 
-3. Add `GetRandomTarget` function.
+| Name | Description |
+| ---- | ----------- |
+| `shootCooldownMin` | The minium amount of time the cooldown can be for the boss to shoot again. |
+| `shootCooldownMax` | The maximum amount of time the cooldown can be for the boss to shoot again. |
+| `shootElapsed` | The amount of time elapsed since last shooting. This is used to work out if the boss can shoot again. |
+| `hasShot` | When the boss shoots, this is updated to true. When it is false, then the boss can shoot again. |
+| `randomCooldown` | This is the random cooldown time that gets changed on each shot. |
+| `isCharging` | Each shot from the boss requires a charge before it can shoot the projectile. |
 
-    The boss will select a random target that is in the perimeter. It is possible for the same target to be selected again, so that same target could get shot at more than once.
+#### Create GetRandomTarget Function
 
-    ```lua
-    local function GetRandomTarget()
-        return shootTargets[math.random(#shootTargets)]
+The boss will select a random target that is in the perimeter. It is possible for the same target to be selected again, so that same target could get shot at more than once.
+
+```lua
+local function GetRandomTarget()
+    return shootTargets[math.random(#shootTargets)]
+end
+```
+
+The `GetRandomTarget` function will return a random entry from the `shootTargets` array.
+
+#### Create ShootProjectile Function
+
+```lua
+local function ShootProjectile()
+
+end
+```
+
+The code for the `shootProjectile` function will be wrote later. This function will handle shooting a projectile at the current target.
+
+#### Create Shoot Tick Function
+
+```lua
+function activities.shoot.tick(activity, deltaTime)
+    if #shootTargets > 0  then
+        activity.priority = 200
+    else
+        activity.priority = 0
     end
-    ```
+end
+```
 
-    The `GetRandomTarget` function will return a random entry from the `shootTargets` array.
+The `tick` function will run every frame. The `tick` function will check the `shootTargets` array to see if there are any targets in the perimeter for the boss to shoot at. If there are targets, then the priority for the shoot activity gets set to 200. The shoot activity will become the highest priority for the handler. If there are no targets, then the priority is lowered, and idle activity will become highest priority.
 
-4. Add `ShootProjectile` function.
+#### Create Shoot Priority Function
 
-    ```lua
-    local function ShootProjectile()
+You need to create the `tickHighestPriority` function, so that when the shoot activity becomes the highest priority, the boss will shoot at the target.
 
-    end
-    ```
+```lua
+function activities.shoot.tickHighestPriority(activity, deltaTime)
+    if Object.IsValid(target) then
+        if(not hasShot) then
+            ShootProjectile()
+        elseif not isCharging then
+            if(randomCooldown == 0) then
+                randomCooldown = math.random(shootCooldownMin, shootCooldownMax)
+            end
 
-    The code for the `shootProjectile` function will be wrote later. This function will handle shooting a projectile at the current target.
+            shootElapsed = shootElapsed + deltaTime
 
-5. Add shoot `tick` function.
+            if shootElapsed >= randomCooldown and hasShot then
+                target = GetRandomTarget()
 
-    ```lua
-    function activities.shoot.tick(activity, deltaTime)
-        if #shootTargets > 0  then
-            activity.priority = 200
-        else
-            activity.priority = 0
-        end
-    end
-    ```
-
-    The `tick` function will run every frame. The `tick` function will check the `shootTargets` array to see if there are any targets in the perimeter for the boss to shoot at. If there are targets, then the priority for the shoot activity gets set to 200. The shoot activity will become the highest priority for the handler. If there are no targets, then the priority is lowered, and idle activity will become highest priority.
-
-6. Add shoot `tickHighestPriority` function.
-
-    You need to create the `tickHighestPriority` function, so that when the shoot activity becomes the highest priority, the boss will shoot at the target.
-
-    ```lua
-    function activities.shoot.tickHighestPriority(activity, deltaTime)
-        if Object.IsValid(target) then
-            if(not hasShot) then
-                ShootProjectile()
-            elseif not isCharging then
-                if(randomCooldown == 0) then
-                    randomCooldown = math.random(shootCooldownMin, shootCooldownMax)
+                if Object.IsValid(target) then
+                    BOSS_GEO:LookAtContinuous(target, false, 2.0)
                 end
 
-                shootElapsed = shootElapsed + deltaTime
-
-                if shootElapsed >= randomCooldown and hasShot then
-                    target = GetRandomTarget()
-
-                    if Object.IsValid(target) then
-                        BOSS_GEO:LookAtContinuous(target, false, 2.0)
-                    end
-
-                    shootElapsed = 0
-                    randomCooldown = 0
-                    hasShot = false
-                end
+                shootElapsed = 0
+                randomCooldown = 0
+                hasShot = false
             end
         end
     end
-    ```
+end
+```
 
-    If the boss has not shot a projectile, then the `ShootProjectile` function will be called, otherwise the `tickHighestPriority` function will check if the boss is not charging up the next shot.
+If the boss has not shot a projectile, then the `ShootProjectile` function will be called, otherwise the `tickHighestPriority` function will check if the boss is not charging up the next shot.
 
-    ```lua
-    if(randomCooldown == 0) then
-        randomCooldown = math.random(shootCooldownMin, shootCooldownMax)
-    end
-    ```
+```lua
+if(randomCooldown == 0) then
+    randomCooldown = math.random(shootCooldownMin, shootCooldownMax)
+end
+```
 
-    The above code will only set a random cooldown if `randomCooldown` is 0. This is to provide some randomness to make it harder for players to predict the shooting pattern of the boss.
+The above code will only set a random cooldown if `randomCooldown` is 0. This is to provide some randomness to make it harder for players to predict the shooting pattern of the boss.
 
-    ```lua
-    shootElapsed = shootElapsed + deltaTime
+```lua
+shootElapsed = shootElapsed + deltaTime
 
-    if shootElapsed >= randomCooldown and hasShot then
-    ```
+if shootElapsed >= randomCooldown and hasShot then
+```
 
-    Here you check if the elapsed time since the boss last shot is greater than or equal to the `randomCooldown` value. You also need to check that `hasShot` is true, indicating that the boss has already shot a projectile. This means the boss will only look for a new target if it already shot at an existing target, and has cooled down.
+Here you check if the elapsed time since the boss last shot is greater than or equal to the `randomCooldown` value. You also need to check that `hasShot` is true, indicating that the boss has already shot a projectile. This means the boss will only look for a new target if it already shot at an existing target, and has cooled down.
 
-    ```lua
-    if Object.IsValid(target) then
-        BOSS_GEO:LookAtContinuous(target, false, 2.0)
-    end
-    ```
+```lua
+if Object.IsValid(target) then
+    BOSS_GEO:LookAtContinuous(target, false, 2.0)
+end
+```
 
-    If there is a valid target, then the `BOSS_GEO` is set to look at the target continuously.
+If there is a valid target, then the `BOSS_GEO` is set to look at the target continuously.
 
-7. Add shoot `start` function.
+#### Create Shoot Start Function
 
-    When the shoot activity becomes the highest priority, the `start` function is called. The `start` function will be called every time the shoot activity becomes the highest priority.
+When the shoot activity becomes the highest priority, the `start` function is called. The `start` function will be called every time the shoot activity becomes the highest priority.
 
-    ```lua
-    function activities.shoot.start(activity, deltaTime)
-        local tmpTarget = GetRandomTarget()
-        BOSS_GEO:LookAtContinuous(tmpTarget, false, .5)
-        Task.Wait(1)
-        target = tmpTarget
-        tmpTarget = nil
-    end
-    ```
+```lua
+function activities.shoot.start(activity, deltaTime)
+    local tmpTarget = GetRandomTarget()
+    BOSS_GEO:LookAtContinuous(tmpTarget, false, .5)
+    Task.Wait(1)
+    target = tmpTarget
+    tmpTarget = nil
+end
+```
 
-    The code above will get a random target and store it in the variable `tmpTarget`. This is so that the `BOSS_GEO` has time to switch to the new target before shooting.
+The code above will get a random target and store it in the variable `tmpTarget`. This is so that the `BOSS_GEO` has time to switch to the new target before shooting.
 
 ### The BossAIServer Script
 
@@ -649,7 +676,10 @@ You will be creating a shoot activity, and adding that activity to the handler.
 
 ### Test the Game
 
-Test the game and make sure the boss tracks you when you enter the perimeter. When you die, the boss will move back to the idle position.
+Test the game and make sure the following work.
+
+- Boss tracks the player entering the perimeter.
+- When the player is killed, the boss will move back to the idle position.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -661,202 +691,213 @@ Test the game and make sure the boss tracks you when you enter the perimeter. Wh
 
 The boss will be shooting a projectile at the current target. Players who get hit by the projectile will take damage.
 
+![!Projectile](../img/BossTutorial/boss_projectile.png){: .center loading="lazy" }
+
 ### Create Boss Projectile Code
 
 For the boss to shoot a projectile, it needs a reference to the projectile template, and where to shoot the projectile from.
 
-1. Add **Shoot From** object as a custom property.
+#### Add ShootPosition Custom Property
 
-    Inside the **Boss Geo** group, look for the **Shoot From** object, and drop that into the **BossAIServer** script as a custom property. Call this custom property **ShootPosition**. This will be used by the projectile code to determine where the projectile will be spawned at.
+Inside the **Boss Geo** group, look for the **Shoot From** object, and drop that into the **BossAIServer** script as a custom property. Call this custom property **ShootPosition**. This will be used by the projectile code to determine where the projectile will be spawned at.
 
-2. Add projectile template as a custom property.
+![!ShootPosition Custom Property](../img/BossTutorial/custom_property_shootposition.png){: .center loading="lazy" }
 
-    In **Project Content** under **My Templates**, find the template called **Boss Projectile** and drop it onto the **BossAIServer** script as a custom property. Call this custom property **Projectile**. This is the template that will be spawned when the boss shoots at a target.
+#### Add Projectile Custom Property
 
-3. Add property references for projectile and shoot position.
+In **Project Content** under **My Templates**, find the template called **Boss Projectile** and drop it onto the **BossAIServer** script as a custom property. Call this custom property **Projectile**. This is the template that will be spawned when the boss shoots at a target.
 
-    ```lua
-    local PROJECTILE = script:GetCustomProperty("Projectile")
-    local SHOOT_POSITION = script:GetCustomProperty("ShootPosition"):WaitForObject()
-    ```
+![!Projectile Custom Property](../img/BossTutorial/custom_property_projectile.png){: .center loading="lazy" }
 
-    Add the 2 lines above to the top of your script.
+#### Add Property References
 
-4. Add projectile code to `ShootProjectile` function.
+```lua
+local PROJECTILE = script:GetCustomProperty("Projectile")
+local SHOOT_POSITION = script:GetCustomProperty("ShootPosition"):WaitForObject()
+```
 
-    In an earlier section, you added the `ShootProjectile` function, which is an empty function. Add the code below in replace of the `ShootProjectile` function.
+Add the 2 lines above at the top of your script.
 
-    ```lua
-    local function ShootProjectile()
-        if isCharging then
-            return
-        end
+#### Update ShootProjectile Function
 
-        isCharging = true
+In an earlier section, you added the `ShootProjectile` function, which is an empty function. Add the code below in replace of the `ShootProjectile` function.
 
-        local startPos = SHOOT_POSITION:GetWorldPosition()
-
-        Events.BroadcastToAllPlayers("PlayChargeUpEffect")
-
-        Task.Wait(.5)
-
-        if not Object.IsValid(BOSS_GEO) then
-            return
-        end
-
-        local direction = BOSS_GEO:GetWorldRotation() * Vector3.FORWARD
-        local theProjectile = Projectile.Spawn(PROJECTILE, startPos, direction)
-
-        theProjectile.speed = 7000
-        theProjectile.shouldDieOnImpact = false
-        theProjectile.lifeSpan = 3.5
-        theProjectile.gravityScale = 0.1
-
-        isCharging = false
-        hasShot = true
+```lua
+local function ShootProjectile()
+    if isCharging then
+        return
     end
-    ```
 
-    The `ShootProjectile` function will make sure there is a valid target to shoot at, if there is, spawn a projectile.
+    isCharging = true
 
-    ```lua
+    local startPos = SHOOT_POSITION:GetWorldPosition()
+
     Events.BroadcastToAllPlayers("PlayChargeUpEffect")
-    ```
 
-    The **Boss Geo** template you added to your **Hierarchy** comes with an effect script called **EffectsClient** that will play a charge up effect for all players to see. This is added to help players have time to react to the projectile being shot at them.
+    Task.Wait(.5)
 
-    ```lua
+    if not Object.IsValid(BOSS_GEO) then
+        return
+    end
+
     local direction = BOSS_GEO:GetWorldRotation() * Vector3.FORWARD
-    ```
-
-    The projectile needs to know the direction to head towards. Because the boss rotates when tracking a target, then the direction also changes. You can get the forward direction of an object using `Vector3.FORWARD`, and multiplying the forward direction with the **Boss Geo** rotation will give us the direction the boss is facing.
-
-    ```lua
     local theProjectile = Projectile.Spawn(PROJECTILE, startPos, direction)
-    ```
 
-    A projectile is spawned at the `startPos`, and will shoot in the direction the boss is facing.
-
-    ```lua
+    theProjectile.speed = 7000
     theProjectile.shouldDieOnImpact = false
-    ```
+    theProjectile.lifeSpan = 3.5
+    theProjectile.gravityScale = 0.1
 
-    Because of the type of projectile effect being used, you do not want the projectile to die on impact, because the trail effect from the projectile would be instantly removed.
+    isCharging = false
+    hasShot = true
+end
+```
+
+The `ShootProjectile` function will make sure there is a valid target to shoot at, if there is, spawn a projectile.
+
+```lua
+Events.BroadcastToAllPlayers("PlayChargeUpEffect")
+```
+
+The **Boss Geo** template you added to your **Hierarchy** comes with an effect script called **EffectsClient** that will play a charge up effect for all players to see. This is added to help players have time to react to the projectile being shot at them.
+
+```lua
+local direction = BOSS_GEO:GetWorldRotation() * Vector3.FORWARD
+```
+
+The projectile needs to know the direction to head towards. Because the boss rotates when tracking a target, then the direction also changes. You can get the forward direction of an object using `Vector3.FORWARD`, and multiplying the forward direction with the **Boss Geo** rotation will give us the direction the boss is facing.
+
+```lua
+local theProjectile = Projectile.Spawn(PROJECTILE, startPos, direction)
+```
+
+A projectile is spawned at the `startPos`, and will shoot in the direction the boss is facing.
+
+```lua
+theProjectile.shouldDieOnImpact = false
+```
+
+Because of the type of projectile effect being used, you do not want the projectile to die on impact, because the trail effect from the projectile would be instantly removed.
 
 ### Create Boss Projectile Impact Code
 
 The projectile does not do any damage to the player, or the floor tiles. You need to add impact code to handle what happens to those impacted objects.
 
-1. Add `GetDamageable` function.
+#### Create GetDamageable Function
 
-    You only want to apply damage to objects that can receive damage. A player and the floor tile implement the **Damageable Objects** interface. This means that the player and floor tile have health, and can die.
+You only want to apply damage to objects that can receive damage. A player and the floor tile implement the **Damageable Objects** interface. This means that the player and floor tile have health, and can die.
 
-    Add the function below above the `ShootProjectile` function.
+Create the function above the `ShootProjectile` function.
 
-    ```lua
-    local function GetDamageable(obj)
-        if obj:IsA("Damageable") then
-            return obj
-        else
-            return obj:FindAncestorByType("Damageable")
-        end
+```lua
+local function GetDamageable(obj)
+    if obj:IsA("Damageable") then
+        return obj
+    else
+        return obj:FindAncestorByType("Damageable")
     end
-    ```
+end
+```
 
-    The `GetDamageable` function will attempt to find an object that is **Damageable**.
+The `GetDamageable` function will attempt to find an object that is **Damageable**.
 
-2. Add `OnImpact` function.
+#### Create OnImpact Function
 
-    You need to know which objects are being impacted by the projectile shot by the boss. Knowing which objects were impacted, allows you to determine if they should receive damage, and how much damage they should receive.
+You need to know which objects are being impacted by the projectile shot by the boss. Knowing which objects were impacted, allows you to determine if they should receive damage, and how much damage they should receive.
 
-    Add the function below above the `ShootProjectile` function.
+Create the function below the `ShootProjectile` function.
 
-    ```lua
-    local function OnImpact(projectile, obj, hit)
-        if Object.IsValid(obj) then
-            -- CoreDebug.DrawSphere(hit:GetImpactPosition(), 500, { duration = 1 })
+```lua
+local function OnImpact(projectile, obj, hit)
+    if Object.IsValid(obj) then
+        -- CoreDebug.DrawSphere(hit:GetImpactPosition(), 500, { duration = 1 })
 
-            local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
+        local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
 
-            for index, object in ipairs(results) do
-                if Object.IsValid(object) then
-                    local damage = Damage.New()
+        for index, object in ipairs(results) do
+            if Object.IsValid(object) then
+                local damage = Damage.New()
 
-                    damage.reason = DamageReason.NPC
+                damage.reason = DamageReason.NPC
 
-                    if object:IsA("Player") then
-                        Events.BroadcastToPlayer(object, "ShakeScreen", .8, 4.6)
-                        damage.amount = 40
+                if object:IsA("Player") then
+                    Events.BroadcastToPlayer(object, "ShakeScreen", .8, 4.6)
+                    damage.amount = 40
 
-                        object:ApplyDamage(damage)
-                    else
-                        local damageable = GetDamageable(object)
+                    object:ApplyDamage(damage)
+                else
+                    local damageable = GetDamageable(object)
 
-                        if Object.IsValid(damageable) then
-                            damage.amount = 25
+                    if Object.IsValid(damageable) then
+                        damage.amount = 25
 
-                            damageable:ApplyDamage(damage)
-                        end
+                        damageable:ApplyDamage(damage)
                     end
                 end
             end
         end
     end
-    ```
+end
+```
 
-    The `OnImpact` function will be setup as an event handler that will fire every time the projectile impacts an object.
+The `OnImpact` function will be setup as an event handler that will fire every time the projectile impacts an object.
 
-    ```lua
-    -- CoreDebug.DrawSphere(hit:GetImpactPosition(), 500, { duration = 1 })
-    ```
+```lua
+-- CoreDebug.DrawSphere(hit:GetImpactPosition(), 500, { duration = 1 })
+```
 
-    The above line can be uncommented to see the impact position and size when the projectile has impacted an object. This is useful if you need to debug the projectile to see where it is impacting on the map. The size of `DrawSphere` needs to be the same as `FindObjectsOverlappingSphere`.
+The above line can be uncommented to see the impact position and size when the projectile has impacted an object. This is useful if you need to debug the projectile to see where it is impacting on the map. The size of `DrawSphere` needs to be the same as `FindObjectsOverlappingSphere`.
 
-    ```lua
-    local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
-    ```
+```lua
+local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
+```
 
-    You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not not return the **BOSS_GEO**.
+You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not not return the **BOSS_GEO**.
 
-    ![!Impact Size](../img/BossTutorial/impact_size.png)
+![!Impact Size](../img/BossTutorial/impact_size.png){: .center loading="lazy" }
 
-    ```lua
-    if object:IsA("Player") then
-        Events.BroadcastToPlayer(object, "ShakeScreen", .8, 4.6)
-        damage.amount = 40
+```lua
+if object:IsA("Player") then
+    Events.BroadcastToPlayer(object, "ShakeScreen", .8, 4.6)
+    damage.amount = 40
 
-        object:ApplyDamage(damage)
-    ```
+    object:ApplyDamage(damage)
+```
 
-    You need to check if the object is a **Player** and apply damage. At the same time, a broadcast to the player is done to play a screen shake effect.
+You need to check if the object is a **Player** and apply damage. At the same time, a broadcast to the player is done to play a screen shake effect.
 
-    ```lua
-    else
-        local damageable = GetDamageable(object)
+```lua
+else
+    local damageable = GetDamageable(object)
 
-        if Object.IsValid(damageable) then
-            damage.amount = 25
+    if Object.IsValid(damageable) then
+        damage.amount = 25
 
-            damageable:ApplyDamage(damage)
-        end
+        damageable:ApplyDamage(damage)
     end
-    ```
+end
+```
 
-    If the object is not a **Player**, then attempt to find a **Damageable Object** and apply damage to it. In this case those objects are limited to the floor tile at the moment.
+If the object is not a **Player**, then attempt to find a **Damageable Object** and apply damage to it. In this case those objects are limited to the floor tile at the moment.
 
-3. Connect `OnImpact` to `impactEvent`.
+#### Connect impactEvent
 
-    You need to connect the `OnImpact` function to the `impactEvent`. This event will fire each time the projectile has impacted an object.
+You need to connect the `OnImpact` function to the `impactEvent`. This event will fire each time the projectile has impacted an object.
 
-    ```lua
-    theProjectile.impactEvent:Connect(OnImpact)
-    ```
+```lua
+theProjectile.impactEvent:Connect(OnImpact)
+```
 
-    Add the above line just after when the projectile is spawned, to the `ShootProjectile` function.
+Add the above line just after when the projectile is spawned, to the `ShootProjectile` function.
 
 ### Test the Game
 
-The boss will target the player and shoot a projectile. If the projectile hits a floor tile, that tile will become damaged and be replaced with a hot floor tile. Test to make sure the player can also be killed by the projectile. At full player health, it will take 3 shots from the boss to kill a player.
+Make sure the following work.
+
+- The boss targets a player
+- The boss shoots a projectile.
+- Projectiles damage floor tiles.
+- Player can killed by the projectile.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1101,34 +1142,38 @@ When the boss receives damage, the health bar above the boss should update so pl
 
 Create a new script called **BossHealthUIClient**, and place that script into the **Scripts** group inside **Boss Geo** in the **Hierarchy**.
 
-1. Add **Health Bar** as a custom property.
+#### Add HealthBar Custom Property
 
-    The script needs a reference to the health bar for the boss. Inside the **UI** group, drag the **Health Bar** object onto the **BossHealthUIClient** script as a custom property. Call the custom property **HealthBar**.
+The script needs a reference to the health bar for the boss. Inside the **UI** group, add the **Health Bar** object onto the **BossHealthUIClient** script as a custom property. Call the custom property **HealthBar**.
 
-2. Add **Boss Damageable Object** as a custom property.
+![!HealthBar Custom Property](../img/BossTutorial/custom_property_healthbar.png){: .center loading="lazy" }
 
-    The script also needs a reference to the **Damageable Object** for the boss so the script can access the health properties of the **Damageable Object**. Drag the **Boss Damageable Object** as a custom property on the **BossHealthUIClient** script. Call the custom property **Damageable**.
+#### Add Damageable Custom Property
 
-3. Add the code below to the **BossHealthUIClient** script.
+The script also needs a reference to the **Damageable Object** for the boss so the script can access the health properties of the **Damageable Object**. add the **Boss Damageable Object** as a custom property on the **BossHealthUIClient** script. Call the custom property **Damageable**.
 
-    ```lua
-    local HEALTHBAR = script:GetCustomProperty("HealthBar"):WaitForObject()
-    local DAMAGEABLE = script:GetCustomProperty("Damageable"):WaitForObject()
+![!Damageable Custom Property](../img/BossTutorial/custom_property_damageable.png){: .center loading="lazy" }
 
-    local canTickHealth = false
+#### Edit BossHealthUIClient Script
 
-    function Tick()
-        if canTickHealth then
-            HEALTHBAR.progress = DAMAGEABLE.hitPoints / DAMAGEABLE.maxHitPoints
-        end
+```lua
+local HEALTHBAR = script:GetCustomProperty("HealthBar"):WaitForObject()
+local DAMAGEABLE = script:GetCustomProperty("Damageable"):WaitForObject()
+
+local canTickHealth = false
+
+function Tick()
+    if canTickHealth then
+        HEALTHBAR.progress = DAMAGEABLE.hitPoints / DAMAGEABLE.maxHitPoints
     end
+end
 
-    Events.Connect("CanUpdateBossHealthBar", function()
-        canTickHealth = true
-    end)
-    ```
+Events.Connect("CanUpdateBossHealthBar", function()
+    canTickHealth = true
+end)
+```
 
-    The health bar progress will update as the health of the boss changes. The broadcast event `CanUpdateBossHealthBar` is called on the server, letting the script know that the health bar can be updated after the boss has started receiving damage.
+The health bar progress will update as the health of the boss changes. The broadcast event `CanUpdateBossHealthBar` is called on the server, letting the script know that the health bar can be updated after the boss has started receiving damage.
 
 ### The BossHealthUIClient Script
 
@@ -1154,42 +1199,44 @@ Create a new script called **BossHealthUIClient**, and place that script into th
 
 The client script **BossHealthUIClient** needs to be told that it can update the health bar for the boss. So you need to update the **BossAIServer** to detect when the **Damageable Object** has received damage.
 
-1. Add **Boss Damageable Object** as a custom property.
+#### Add Damageable Custom Property
 
-    Drag the **Boss Damageable Object** onto the **BossAIServer** script as a custom property. Call the custom property **Damageable**.
+Add the **Boss Damageable Object** onto the **BossAIServer** script as a custom property. Call the custom property **Damageable**.
 
-2. Update **BossAIServer** Script.
+![!Damageable Custom Property](../img/BossTutorial/custom_property_damageable_bossaiserver.png){: .center loading="lazy" }
 
-    You need to update the **BossAIServer** script to listen for any damage received to the **Damageable Object** for the boss.
+#### Update BossAIServer Script
 
-    ```lua
-    local DAMAGEABLE = script:GetCustomProperty("Damageable"):WaitForObject()
-    ```
+You need to update the **BossAIServer** script to listen for any damage received to the **Damageable Object** for the boss.
 
-    Add the above line to the top of the **BossAIServer** script.
+```lua
+local DAMAGEABLE = script:GetCustomProperty("Damageable"):WaitForObject()
+```
 
-    ```lua
-    local sentUpdateBossHealthBar = false
-    ```
+Add the above line to the top of the **BossAIServer** script.
 
-    Add the above line to the top of the **BossAIServer** script.
+```lua
+local sentUpdateBossHealthBar = false
+```
 
-    ```lua
-    local function OnDamaged(obj, damage)
-        if not sentUpdateBossHealthBar then
-            Events.BroadcastToAllPlayers("CanUpdateBossHealthBar")
-            sentUpdateBossHealthBar = true
-        end
+Add the above line to the top of the **BossAIServer** script.
+
+```lua
+local function OnDamaged(obj, damage)
+    if not sentUpdateBossHealthBar then
+        Events.BroadcastToAllPlayers("CanUpdateBossHealthBar")
+        sentUpdateBossHealthBar = true
     end
+end
 
-    DAMAGEABLE.damagedEvent:Connect(OnDamaged)
-    ```
+DAMAGEABLE.damagedEvent:Connect(OnDamaged)
+```
 
-    Add the above code to the bottom of the **BossAIServer** script. The `OnDamaged` function will fire when the boss receives damage. It will broadcast to all players letting them know that the health bar for the boss can be updated. This only needs to happen once, so you can use a boolean `sentUpdateBossHealthBar` to prevent additional broadcasts.
+Add the above code to the bottom of the **BossAIServer** script. The `OnDamaged` function will fire when the boss receives damage. It will broadcast to all players letting them know that the health bar for the boss can be updated. This only needs to happen once, so you can use a boolean `sentUpdateBossHealthBar` to prevent additional broadcasts.
 
 ### Test the game
 
-Shooting the boss will update the health bar.
+Shoot the boss and make sure the health bar updates.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1446,50 +1493,58 @@ In this section you will be creating a script to show the damage the player is d
 
 ### Create DamageClient Script
 
-1. Create a new script called **DamageClient**.
+#### Create DamageClient Script
 
-    Place the **DamageClient** script into the **Client** group found under the **Boss Fight Map** group.
+Create a new script called **DamageClient**, and place the **DamageClient** script into the **Client** group found under the **Boss Fight Map** group.
 
-2. Drag the **Fly Up Text Target** on to the **DamageClient** script as a custom property.
+#### Add Fly Up Text Target Custom Property
 
-    Name the custom property **FlyupPosition**.
+Add the **Fly Up Text Target** on to the **DamageClient** script as a custom property
 
-    The damage numbers that will show up need to know where to be positioned in the world. The **Fly Up Text Target** object inside the **Client** group found in the **Boss Geo** group will act as a helper object to get a reference to a position in the world.
+Name the custom property **FlyupPosition**.
 
-3. Add **Color** custom property.
+The damage numbers that will show up need to know where to be positioned in the world. The **Fly Up Text Target** object inside the **Client** group found in the **Boss Geo** group will act as a helper object to get a reference to a position in the world.
 
-    Add a new **Color** custom property to the **DamageClient** script. Name the custom property `ImmuneColor`.
+![!FlyupPosition Custom Property](../img/BossTutorial/custom_property_flyupposition.png){: .center loading="lazy" }
 
-    The color property will be used to change the color of the fly up text when the boss is immune to damage.
+#### Add Color Custom Property
 
-4. Add the following code.
+Add a new **Color** custom property to the **DamageClient** script. Name the custom property `ImmuneColor`.
 
-    ```lua
-    local FLYUP_POSITION = script:GetCustomProperty("FlyupPosition"):WaitForObject()
-    local IMMUNE_COLOR = script:GetCustomProperty("ImmuneColor")
+The color property will be used to change the color of the fly up text when the boss is immune to damage.
 
-    local function ShowDamage(damageAmount, isImmune)
-        if isImmune then
-            UI.ShowFlyUpText("Immune", FLYUP_POSITION:GetWorldPosition(), {
+![!ImmuneColor Custom Property](../img/BossTutorial/custom_property_immunecolor.png){: .center loading="lazy" }
 
-                isBig = true,
-                color = IMMUNE_COLOR
+#### Create ShowDamage Function
 
-            })
-        else
-            UI.ShowFlyUpText(tostring(damageAmount), FLYUP_POSITION:GetWorldPosition(), {
+Add the following code to the **DamageClient** script.
 
-                isBig = true,
-                color = Color.YELLOW
+```lua
+local FLYUP_POSITION = script:GetCustomProperty("FlyupPosition"):WaitForObject()
+local IMMUNE_COLOR = script:GetCustomProperty("ImmuneColor")
 
-            })
-        end
+local function ShowDamage(damageAmount, isImmune)
+    if isImmune then
+        UI.ShowFlyUpText("Immune", FLYUP_POSITION:GetWorldPosition(), {
+
+            isBig = true,
+            color = IMMUNE_COLOR
+
+        })
+    else
+        UI.ShowFlyUpText(tostring(damageAmount), FLYUP_POSITION:GetWorldPosition(), {
+
+            isBig = true,
+            color = Color.YELLOW
+
+        })
     end
+end
 
-    Events.Connect("ShowDamage", ShowDamage)
-    ```
+Events.Connect("ShowDamage", ShowDamage)
+```
 
-    The `ShowDamage` event will be called from the server and display the damage the player has done to the boss.
+The `ShowDamage` event will be called from the server and display the damage the player has done to the boss.
 
 ### The DamageClient Script
 
@@ -1914,47 +1969,50 @@ Add the above lines to the bottom of the script. The `EnableWeapon` and `Disable
 
 When the player enters or exits the perimeter trigger, you need to enable or disable the weapon abilities for that player.
 
-1. Update `OnPlayerEnterShoot` function.
+#### Update OnPlayerEnterShoot Function
 
-    ```lua hl_lines="5"
-    function OnPlayerEnterShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            table.insert(shootTargets, player)
+```lua hl_lines="5"
+function OnPlayerEnterShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        table.insert(shootTargets, player)
 
-            Events.Broadcast("EnableWeapon", player)
-        end
+        Events.Broadcast("EnableWeapon", player)
     end
-    ```
+end
+```
 
-    Add line 5 to the `OnPlayerEnterShoot` function. This line will fire the `EnableWeapon` event. The `player` is passed to the event so that the event handler knows which player to enable the weapon abilities for.
+Add line 5 to the `OnPlayerEnterShoot` function. This line will fire the `EnableWeapon` event. The `player` is passed to the event so that the event handler knows which player to enable the weapon abilities for.
 
-2. Update `OnPlayerLeftShoot` function.
+#### Update OnPlayerLeftShoot Function
 
-    ```lua hl_lines="3"
-    function OnPlayerLeftShoot(trigger, player)
-        if Object.IsValid(player) and player:IsA("Player") then
-            Events.Broadcast("DisableWeapon", player)
+```lua hl_lines="3"
+function OnPlayerLeftShoot(trigger, player)
+    if Object.IsValid(player) and player:IsA("Player") then
+        Events.Broadcast("DisableWeapon", player)
 
-            for index, value in ipairs(shootTargets) do
-                if value == player then
-                    table.remove(shootTargets, index)
+        for index, value in ipairs(shootTargets) do
+            if value == player then
+                table.remove(shootTargets, index)
 
-                    if(target == player and Object.IsValid(BOSS_GEO)) then
-                        BOSS_GEO:StopRotate()
-                    end
-
-                    break
+                if(target == player and Object.IsValid(BOSS_GEO)) then
+                    BOSS_GEO:StopRotate()
                 end
+
+                break
             end
         end
     end
-    ```
+end
+```
 
-    On line 3, a broadcast event is fired that will disable the weapon abilities for the player. This will also fire when the player dies.
+On line 3, a broadcast event is fired that will disable the weapon abilities for the player. This will also fire when the player dies.
 
 ### Test the game
 
-When the player spawns in at the start, shooting the weapon will be disabled. Moving closer into the main room the boss is in will enable the weapon.
+Test the following.
+
+- Shooting ability is disabled outside the perimeter.
+- Shooting is enabled when inside the perimeter.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -2224,53 +2282,55 @@ Enable the property **Start Invulnerable** on the **Boss Damageable Object**.
 
 You need to listen for when the projectiles from the weapon impact an object to determine what to show for the player.
 
-1. Add `GetValidTarget` function.
+#### Create GetValidTarget Function
 
-    ```lua
-    local function GetValidTarget(target)
-        if not Object.IsValid(target) then
-            return nil
-        end
-
-        if target:IsA("Damageable") then
-            return target
-        end
-
-        return target:FindAncestorByType("Damageable")
+```lua
+local function GetValidTarget(target)
+    if not Object.IsValid(target) then
+        return nil
     end
-    ```
 
-    The function `GetValidTarget` will be used to find a target that implements the **Damageable** interface so you can see if that object is invulnerable.
+    if target:IsA("Damageable") then
+        return target
+    end
 
-2. Update `OnPlayerJoined` function.
+    return target:FindAncestorByType("Damageable")
+end
+```
 
-    When a player joins the game they are given a weapon. You need to listen for when a target has been impacted.
+The function `GetValidTarget` will be used to find a target that implements the **Damageable** interface so you can see if that object is invulnerable.
 
-    ```lua
-    weapon.targetImpactedEvent:Connect(OnImpact)
-    ```
+#### Update OnPlayerJoined Function
 
-    Add the above line just after when you equip the weapon on for the player.
+When a player joins the game they are given a weapon. You need to listen for when a target has been impacted.
 
-3. Create `OnImpact` function.
+```lua
+weapon.targetImpactedEvent:Connect(OnImpact)
+```
 
-    ```lua
-    local function OnImpact(weaponObj, impactData)
-        local target = GetValidTarget(impactData.targetObject)
+Add the above line just after when you equip the weapon on for the player.
 
-        if Object.IsValid(target) then
-            if target.isInvulnerable then
-                Events.BroadcastToPlayer(impactData.weaponOwner, "ShowDamage", 0, true)
-            end
+#### Create OnImpact Function
+
+```lua
+local function OnImpact(weaponObj, impactData)
+    local target = GetValidTarget(impactData.targetObject)
+
+    if Object.IsValid(target) then
+        if target.isInvulnerable then
+            Events.BroadcastToPlayer(impactData.weaponOwner, "ShowDamage", 0, true)
         end
     end
-    ```
+end
+```
 
-    The `OnImpact` will look at the object being impacted to see if it is invulnerable. If it is, the owner of the weapon receives a broadcast that will show the damage. The 4th argument is set to true, indicating the object hit is immune to the damage.
+The `OnImpact` will look at the object being impacted to see if it is invulnerable. If it is, the owner of the weapon receives a broadcast that will show the damage. The 4th argument is set to true, indicating the object hit is immune to the damage.
 
 ### Test the game
 
-When a player shoots the boss, it will display **Immune**.
+When a player shoots the boss, it will display **Immune** in front of the Boss.
+
+![!Immune](../img/BossTutorial/immune.png){: .center loading="lazy" }
 
 ### Updated PlayerServer Script
 
@@ -2357,7 +2417,7 @@ When a player shoots the boss, it will display **Immune**.
     Events.Connect("DisableWeapon", DisableWeapon)
     ```
 
-## Add Player Sprint Ability
+## Adding Player Sprint Ability
 
 Right now the player can be killed fairly easy by the boss as it is hard to get away from the damage of the projectile. Adding a sprint ability to the player will give them more of a chance, and as a side benefit, helps you test your game more quickly because you can move around faster.
 
@@ -2532,88 +2592,94 @@ The shield generator will be an object that the player must disable for the boss
 
 ### Add Shield Generator Template
 
-1. Add **Shield Generator** Template to **Hierarchy**.
+In **Project Content** under **My Templates**, find the template called **Shield Generator** and drop it into your **Hierarchy**.
 
-    In **Project Content** under **My Templates**, find the template called **Shield Generator** and drop it into your **Hierarchy**.
-
-2. Deinstance the template.
-
-    The **Shield Generator** template will be updated so multiple instances of the template can be placed around the room with the boss in it.
+The **Shield Generator** template will be updated so multiple instances of the template can be placed around the room with the boss in it.
 
 ### Create ShieldGeneratorClient Script
 
 The **ShieldGeneratorClient** script will be responsible for turning off the sound and effects of the **Shield Generator** when it receives a broadcast from the server.
 
-1. Create a script called **ShieldGeneratorClient**.
+#### Create ShieldGeneratorClient Script
 
-    Place the **ShieldGeneratorClient** script into the **Client** group inside the **Shield Generator** group in the **Hierarchy**.
+Create a script called **ShieldGeneratorClient**, and place the **ShieldGeneratorClient** script into the **Client** group inside the **Shield Generator** group in the **Hierarchy**.
 
-2. Add **Sound** custom property.
+#### Add Sound Custom Property
 
-    Drag the sound object **Sci-fi Energy Generator Drone 01 SFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Sound`.
+Add the sound object **Sci-fi Energy Generator Drone 01 SFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Sound`.
 
-3. Add **Effect** custom property.
+![!Sound Custom Property](../img/BossTutorial/custom_property_sound.png){: .center loading="lazy" }
 
-    Drag the effect object **Point To Point Electrical Beam VFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Effect`.
+#### Add Effect Custom Property
 
-4. Add **Trigger** custom property.
+Add the effect object **Point To Point Electrical Beam VFX** from the **Effects / Audio** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Effect`.
 
-    Drag the **Trigger** inside the **Shield Generator** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Trigger`.
+![!Effect Custom Property](../img/BossTutorial/custom_property_effect.png){: .center loading="lazy" }
 
-5. Add **Mast** custom property.
+#### Add Trigger Custom Property
 
-    Drag the mast object **Antenna Mast 02** from the **Geo** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property to `Mast`.
+Add the **Trigger** inside the **Shield Generator** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property `Trigger`.
 
-6. Add the following code to the **ShieldGeneratorClient** script.
+![!Trigger Custom Property](../img/BossTutorial/custom_property_trigger.png){: .center loading="lazy" }
 
-    ```lua
-    local SOUND = script:GetCustomProperty("Sound"):WaitForObject()
-    local EFFECT = script:GetCustomProperty("Effect"):WaitForObject()
-    local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
-    local MAST = script:GetCustomProperty("Mast"):WaitForObject()
+#### Add Mast Custom Property
 
-    local function DisableGenerator()
-        SOUND:Stop()
-        EFFECT:Stop()
+Add the mast object **Antenna Mast 02** from the **Geo** group, onto the **ShieldGeneratorClient** script as a custom property. Name the custom property to `Mast`.
 
-        local slot = MAST:GetMaterialSlots()[1]
-        local material = slot:GetCustomMaterial()
+![!Mast Custom Property](../img/BossTutorial/custom_property_mast.png){: .center loading="lazy" }
 
-        material:SetProperty("emissive_boost", 0)
-    end
+#### Edit ShieldGeneratorClient Script
 
-    Events.Connect("DisableGenerator" .. TRIGGER.id, DisableGenerator)
-    ```
+Add the following code to the **ShieldGeneratorClient** script.
 
-    The above code will disable the generator when the broadcast event is fired.
+```lua
+local SOUND = script:GetCustomProperty("Sound"):WaitForObject()
+local EFFECT = script:GetCustomProperty("Effect"):WaitForObject()
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+local MAST = script:GetCustomProperty("Mast"):WaitForObject()
 
-    ```lua
+local function DisableGenerator()
     SOUND:Stop()
     EFFECT:Stop()
-    ```
 
-    When the function `DisableGenerator` is called, it will turn off the sound and effect to indicate to the player that the shield generator has been disabled.
-
-    ```lua
     local slot = MAST:GetMaterialSlots()[1]
     local material = slot:GetCustomMaterial()
-    ```
 
-    The **MAST** in the **Geo** group has an emissive material. When the player turns off the shield generator, you can alter the emissive boost amount to give the impression that it has been disabled. Since you know the first slot of the material at index 1 is the emissive material, you can grab a direct reference too it.
-
-    ```lua
     material:SetProperty("emissive_boost", 0)
-    ```
+end
 
-    Setting the material property `emissive_boost` to `0` will appear to turn off the mast.
+Events.Connect("DisableGenerator" .. TRIGGER.id, DisableGenerator)
+```
 
-    ```lua
-    Events.Connect("DisableGenerator" .. TRIGGER.id, DisableGenerator)
-    ```
+The above code will disable the generator when the broadcast event is fired.
 
-    The shield generator will be disabled by receiving a broadcast from a server script. Each broadcast event concatenates the `TRIGGER.id` to make sure it is a unique broadcast for that shield generator. If you don not include this, then when the server sends the broadcast to the client, all shield generators will appear to turn off.
+```lua
+SOUND:Stop()
+EFFECT:Stop()
+```
 
-??? "The ShieldGeneratorClient Script"
+When the function `DisableGenerator` is called, it will turn off the sound and effect to indicate to the player that the shield generator has been disabled.
+
+```lua
+local slot = MAST:GetMaterialSlots()[1]
+local material = slot:GetCustomMaterial()
+```
+
+The **MAST** in the **Geo** group has an emissive material. When the player turns off the shield generator, you can alter the emissive boost amount to give the impression that it has been disabled. Since you know the first slot of the material at index 1 is the emissive material, you can grab a direct reference too it.
+
+```lua
+material:SetProperty("emissive_boost", 0)
+```
+
+Setting the material property `emissive_boost` to `0` will appear to turn off the mast.
+
+```lua
+Events.Connect("DisableGenerator" .. TRIGGER.id, DisableGenerator)
+```
+
+The shield generator will be disabled by receiving a broadcast from a server script. Each broadcast event concatenates the `TRIGGER.id` to make sure it is a unique broadcast for that shield generator. If you don not include this, then when the server sends the broadcast to the client, all shield generators will appear to turn off.
+
+??? "ShieldGeneratorClient"
     ```lua
     local SOUND = script:GetCustomProperty("Sound"):WaitForObject()
     local EFFECT = script:GetCustomProperty("Effect"):WaitForObject()
@@ -2642,45 +2708,49 @@ The **ShieldGeneratorClient** script will be responsible for turning off the sou
 
 The **ShieldGeneratorServer** script will be responsible for checking when a player has interacted with the trigger so it can turn off the generator.
 
-1. Create a script called **ShieldGeneratorServer**.
+#### Create ShieldGeneratorServer Script
 
-    Place the **ShieldGeneratorServer** script inside the **Shield Generator** group in the **Default Context**.
+Create a script called **ShieldGeneratorServer**, and place the **ShieldGeneratorServer** script inside the **Shield Generator** group in the **Default Context**.
 
-2. Add **Trigger** custom property.
+#### Add Trigger Custom Property
 
-    Drag the **Trigger** onto the **ShieldGeneratorServer** script as a custom property. Name the custom property `Trigger`.
+Add the **Trigger** onto the **ShieldGeneratorServer** script as a custom property. Name the custom property `Trigger`.
 
-3. Add the following code to the **ShieldGeneratorServer** script.
+![!Trigger Custom Property](../img/BossTutorial/custom_property_trigger_shield_server.png){: .center loading="lazy" }
 
-    ```lua
-    local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+#### Edit ShieldGeneratorServer Script
 
-    local function OnInteracted(trigger, obj)
-        if Object.IsValid(obj) and obj:IsA("Player") then
-            TRIGGER.isInteractable = false
-            Events.Broadcast("GeneratorDisabled", TRIGGER.id)
-            Events.BroadcastToAllPlayers("DisableGenerator" .. TRIGGER.id)
-        end
+Add the following code to the **ShieldGeneratorServer** script.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+
+local function OnInteracted(trigger, obj)
+    if Object.IsValid(obj) and obj:IsA("Player") then
+        TRIGGER.isInteractable = false
+        Events.Broadcast("GeneratorDisabled", TRIGGER.id)
+        Events.BroadcastToAllPlayers("DisableGenerator" .. TRIGGER.id)
     end
+end
 
-    TRIGGER.interactedEvent:Connect(OnInteracted)
-    ```
+TRIGGER.interactedEvent:Connect(OnInteracted)
+```
 
-    The code above will check if the object that is interacting with the trigger is a **Player** type. If it is a **Player** type, then the property `isInteractable` for the trigger, is set to `false` to prevent players interacting with it again.
+The code above will check if the object that is interacting with the trigger is a **Player** type. If it is a **Player** type, then the property `isInteractable` for the trigger, is set to `false` to prevent players interacting with it again.
 
-    ```lua
-    Events.Broadcast("GeneratorDisabled", TRIGGER.id)
-    ```
+```lua
+Events.Broadcast("GeneratorDisabled", TRIGGER.id)
+```
 
-    The broadcast event `GeneratorDisabled` is triggered. This will be listened for in the **BossAIServer** script that you will update later on.
+The broadcast event `GeneratorDisabled` is triggered. This will be listened for in the **BossAIServer** script that you will update later on.
 
-    ```lua
-    Events.BroadcastToAllPlayers("DisableGenerator" .. TRIGGER.id)
-    ```
+```lua
+Events.BroadcastToAllPlayers("DisableGenerator" .. TRIGGER.id)
+```
 
-    You need to broadcast to all the players so the **ShieldGeneratorClient** script knows which shield generator to turn off.
+You need to broadcast to all the players so the **ShieldGeneratorClient** script knows which shield generator to turn off.
 
-??? "The ShieldGeneratorServer Script"
+??? "ShieldGeneratorServer"
     ```lua
     local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
 
@@ -2715,34 +2785,34 @@ You will notice that the effect for the generators may not meet in the middle wh
 
 You need to update the **BossAIServer** script so that it knows how many shield generators have been disabled.
 
-1. Add `generatorsDisabled` variable.
+#### Add generatorsDisabled Variable
 
-    ```lua
-    local generatorsDisabled = 0
-    ```
+```lua
+local generatorsDisabled = 0
+```
 
-    Add the above variable to the top of the **BossAIServer** script. This is a counter that will be incremented each time a shield generator has been disabled by a player.
+Add the above variable to the top of the **BossAIServer** script. This is a counter that will be incremented each time a shield generator has been disabled by a player.
 
-2. Add `GeneratorDisabled` function.
+#### Create GeneratorDisabled Function
 
-    ```lua
-    local function GeneratorDisabled()
-        generatorsDisabled = generatorsDisabled + 1
+```lua
+local function GeneratorDisabled()
+    generatorsDisabled = generatorsDisabled + 1
 
-        if generatorsDisabled == 3 then
-            DAMAGEABLE.isInvulnerable = false
-            Events.BroadcastToAllPlayers("EnableBossHealthBar")
-        end
+    if generatorsDisabled == 3 then
+        DAMAGEABLE.isInvulnerable = false
+        Events.BroadcastToAllPlayers("EnableBossHealthBar")
     end
-    ```
+end
+```
 
-    The `GeneratorDisabled` function will increment the `generatorsDisabled` counter. When it equals 3, then the boss will become vulnerable to damage. This is done by setting the `isInvulnerable` property of a **Damageable Object** to `false`.
+The `GeneratorDisabled` function will increment the `generatorsDisabled` counter. When it equals 3, then the boss will become vulnerable to damage. This is done by setting the `isInvulnerable` property of a **Damageable Object** to `false`.
 
-    ```lua
-    Events.BroadcastToAllPlayers("EnableBossHealthBar")
-    ```
+```lua
+Events.BroadcastToAllPlayers("EnableBossHealthBar")
+```
 
-    This event is broadcasted to all the players. This will change the color of the boss health bar to indicate to players that it is now vulnerable to damage.
+This event is broadcasted to all the players. This will change the color of the boss health bar to indicate to players that it is now vulnerable to damage.
 
 ### Test the Game
 
@@ -3032,42 +3102,49 @@ When the boss is vulnerable to damage, the health bar needs to be updated so tha
 
 The **BossHealthUIClient** script needs to change the color of the various UI components that build up the heath bar, and boss name.
 
-1. Add **BossName** custom property.
+#### Add BossName Custom Property
 
-    Drag the **Boss Name** text object onto the **BossHealthUIClient** as a custom property. Name the custom property `BossName`.
+Add the **Boss Name** text object onto the **BossHealthUIClient** as a custom property. Name the custom property `BossName`.
 
-2. Add **SkullBackground** custom property.
+![!BossName Custom Property](../img/BossTutorial/custom_property_bossname.png){: .center loading="lazy" }
 
-    Drag the **Background** image object onto the **BossHealthUIClient** as a custom property. Name the custom property `SkullBackground`.
+#### Add SkullBackground Custom Property
 
-3. Update the **BossHealthUIClient** Script.
+Add the **Background** image object onto the **BossHealthUIClient** as a custom property. Name the custom property `SkullBackground`.
 
-    ```lua
-    local BOSS_NAME = script:GetCustomProperty("BossName"):WaitForObject()
-    local SKULL_BACKGROUND = script:GetCustomProperty("SkullBackground"):WaitForObject()
-    ```
+![!SkullBackground Custom Property](../img/BossTutorial/custom_property_skullbackground.png){: .center loading="lazy" }
 
-    Add the variable references to the top of the **BossHealthUIClient** client script so you can access those UI components to change the color.
+#### Update BossHealthUIClient Script
 
-    ```lua
-    local function EnableHealthBar()
-        HEALTHBAR:SetFillColor(Color.YELLOW)
-        BOSS_NAME:SetColor(Color.YELLOW)
-        SKULL_BACKGROUND:SetColor(Color.YELLOW)
-    end
-    ```
+```lua
+local BOSS_NAME = script:GetCustomProperty("BossName"):WaitForObject()
+local SKULL_BACKGROUND = script:GetCustomProperty("SkullBackground"):WaitForObject()
+```
 
-    Add the `EnableHealthBar` function that will update the various UI components that make up the health bar and boss name that the players will see. The color will be changed to **YELLOW** when the boss is vulnerable to damage. This will make it appear that the health bar has been enabled to players.
+Add the variable references to the top of the **BossHealthUIClient** client script so you can access those UI components to change the color.
 
-    ```lua
-    Events.Connect("EnableBossHealthBar", EnableHealthBar)
-    ```
+```lua
+local function EnableHealthBar()
+    HEALTHBAR:SetFillColor(Color.YELLOW)
+    BOSS_NAME:SetColor(Color.YELLOW)
+    SKULL_BACKGROUND:SetColor(Color.YELLOW)
+end
+```
 
-    Add the `EnableBossHealthBar` event that will be called from the server, and broadcasted to all players.
+Add the `EnableHealthBar` function that will update the various UI components that make up the health bar and boss name that the players will see. The color will be changed to **YELLOW** when the boss is vulnerable to damage. This will make it appear that the health bar has been enabled to players.
+
+```lua
+Events.Connect("EnableBossHealthBar", EnableHealthBar)
+```
+
+Add the `EnableBossHealthBar` event that will be called from the server, and broadcasted to all players.
 
 ### Test the Game
 
-Test the game to make sure when all shield generators are turn off, the boss health bar and name turns yellow to indicate the boss can now receive damage from the player.
+Test the game to make sure the following work.
+
+- All shield generators turn off
+- The boss health bar turns yellow
 
 ### The Updated BossHealthUIClient Script
 
@@ -3106,40 +3183,38 @@ In this section you will be creating groups of barrels that can be placed around
 
 ### Create Damageable Objects
 
-1. Create **Damageable Object**.
+Create a **Damageable Object** and rename it to `Barrels Damageable Object`.
 
-    Create a **Damageable Object** and rename it to `Barrels Damageable Object`.
+Set the **Max Hit Points** and **Starting Hit Points** properties to 50. This is so that the group of barrels will take a few shots from the player or the boss to be destroyed.
 
-    Set the **Max Hit Points** and **Starting Hit Points** properties to 50. This is so that the group of barrels will take a few shots from the player or the boss to be destroyed.
+#### Add Sci-fi Barrel 02
 
-2. Add **Sci-fi Barrel 02**.
+Add some **Sci-fi Barrel 02** objects from **Core Content** as a child of **Barrels Damageable Object**. Place them however you like.
 
-    Add some **Sci-fi Barrel 02** objects from **Core Content** as a child of **Barrels Damageable Object**. Place them however you like.
+#### Set Destroy on Death Client TemplateId
 
-3. Set **Destroy on Death Client TemplateId**.
+When the barrels are destroyed, an explosion effect will be played. Add the template **Barrel Basic Explosion** on to the property **Destroy on Death Client TemplateId** on the object **Barrels Damageable Object**.
 
-    When the barrels are destroyed, an explosion effect will be played. Drag the template **Barrel Basic Explosion** on to the property **Destroy on Death Client TemplateId** on the object **Barrels Damageable Object**.
+#### Create Client Context
 
-4. Create a **Client Context**.
+Add a **Client Context** as a child of **Barrels Damageable Object**. Rename the **Client Context** to `Effects`. This will be used to show an effect to the player to encourage them to investigate the group of barrels.
 
-    Add a **Client Context** as a child of **Barrels Damageable Object**. Rename the **Client Context** to `Effects`. This will be used to show an effect to the player to encourage them to investigate the group of barrels.
+!!! tip "Client Context Effects, Sounds, and UI"
+    Objects such as effects, sounds, and UI will always be in a **Client Context**. Those types of objects do not need to be synced up between the clients. This is an advantage, as it is less network usage, and reduces the load on the server.
 
-    !!! tip "Client Context Effects, Sounds, and UI"
-        Objects such as effects, sounds, and UI will always be in a **Client Context**. Those types of objects do not need to be synced up between the clients. This is an advantage, as it is less network usage, and reduces the load on the server.
+#### Add Callout Sparkle Effect
 
-5. Add **Callout Sparkle** Effect.
+From **Core Content**, add the effect **Callout Sparkle** to the **Effects** group, and change the properties and position until you are happy with it.
 
-    From **Core Content**, add the effect **Callout Sparkle** to the **Effects** group, and change the properties and position until you are happy with it.
+#### Create Damageable Object
 
-6. Create **Damageable Object**.
+Create another **Damageable Object** and place it as a child of **Barrels Damageable Object** and rename it to `Barrel Damageable Object Child`. This will be a barrel that can be destroyed on its own by the player if it is shot first.
 
-    Create another **Damageable Object** and place it as a child of **Barrels Damageable Object** and rename it to `Barrel Damageable Object Child`. This will be a barrel that can be destroyed on its own by the player if it is shot first.
+Set the **Max Hit Points** and **Starting Hit Points** properties to 50.
 
-    Set the **Max Hit Points** and **Starting Hit Points** properties to 50.
+#### Add Sci-fi Barrel 01
 
-7. Add **Sci-fi Barrel 01**.
-
-    Add one **Sci-fi Barrel 01** object from **Core Content** as a child of **Barrel Damageable Object Child**.
+Add one **Sci-fi Barrel 01** object from **Core Content** as a child of **Barrel Damageable Object Child**.
 
 You should have something similar to the picture below.
 
@@ -3149,13 +3224,13 @@ You should have something similar to the picture below.
 
 When either of the **Damageable Objects** are destroyed, they can automatically spawn a template with no scripting needed for effects by setting the **Destroy on Death Client TemplateId** property.
 
-1. Update **Barrels Damageable Object**.
+#### Update Barrels Damageable Object
 
-    Drag the template **Barrel Basic Explosion** onto the property **Destroy on Death Client TemplateId**.
+Add the template **Barrel Basic Explosion** onto the property **Destroy on Death Client TemplateId**.
 
-2. Update **Barrel Damageable Object Child**.
+#### Update Barrel Damageable Object Child
 
-    Drag the template **Barrel Basic Explosion 2** onto the property **Destroy on Death Client TemplateId**. This is a similar effect to the first explosion template but is a different color.
+Add the template **Barrel Basic Explosion 2** onto the property **Destroy on Death Client TemplateId**. This is a similar effect to the first explosion template but is a different color.
 
 ### Create **Barrels** Template
 
@@ -3181,92 +3256,94 @@ Players can just run to each shield generator and turn them off. In this section
 
 ### Add Injector Pickup Template to Hierarchy
 
-In **Project Content** under **My Templates**, drag the template **Injector Pickup** into the **Hierarchy** and deinstance it.
+In **Project Content** under **My Templates**, add the template **Injector Pickup** into the **Hierarchy** and deinstance it.
 
 ### Create InjectorPickupServer
 
 A server script will be responsible for checking if the player can pick up the injector. Only one injector can be carried by the player.
 
-1. Create a script called **InjectorPickupServer**.
+#### Create InjectorPickupServer Script
 
-    Place **InjectorPickupServer** script inside the **Injector Pickup** group, in the **Default Context**.
+Create a script called **InjectorPickupServer**, and place **InjectorPickupServer** script inside the **Injector Pickup** group, in the **Default Context**.
 
-2. Add **Trigger** custom property.
+#### Add Trigger Custom Property
 
-    Drag the trigger object inside the **Injector Pickup** group onto the **InjectorPickupServer** script. Name the custom property `Trigger`.
+Add the trigger object inside the **Injector Pickup** group onto the **InjectorPickupServer** script. Name the custom property `Trigger`.
 
-3. Update **Injector Pickup** template.
+#### Update Injector Pickup Template
 
-    Right click on the **Injector Pickup** template and select **Update Template**. The **Injector Pickup** can be removed from the **Hierarchy** because it will be spawned in automatically when the **Barrels Damageable Object** is destroyed. Later on you will be updating the **Barrels Damageable Object** to spawn in the **Injector Pickup**.
+Right click on the **Injector Pickup** template and select **Update Template**. The **Injector Pickup** can be removed from the **Hierarchy** because it will be spawned in automatically when the **Barrels Damageable Object** is destroyed. Later on you will be updating the **Barrels Damageable Object** to spawn in the **Injector Pickup**.
 
-4. Add the below code to the **InjectorPickupServer** script.
+#### Edit InjectorPickupServer Script
 
-    ```lua
-    local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+Add the below code to the **InjectorPickupServer** script.
 
-    local function PickupItem(trigger, obj)
-        if Object.IsValid(obj) and obj:IsA("Player") and not obj.isDead then
-            if obj:GetResource("injectors") == 0 then
-                obj:SetResource("injectors", 1)
-                TRIGGER.parent:Destroy()
-            else
-                Events.BroadcastToPlayer(obj, "PlayErrorSound")
-            end
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+
+local function PickupItem(trigger, obj)
+    if Object.IsValid(obj) and obj:IsA("Player") and not obj.isDead then
+        if obj:GetResource("injectors") == 0 then
+            obj:SetResource("injectors", 1)
+            TRIGGER.parent:Destroy()
+        else
+            Events.BroadcastToPlayer(obj, "PlayErrorSound")
         end
     end
+end
 
-    local evt = TRIGGER.interactedEvent:Connect(PickupItem)
+local evt = TRIGGER.interactedEvent:Connect(PickupItem)
 
-    TRIGGER.destroyEvent:Connect(function()
-        if evt.isConnected then
-            evt:Disconnect()
-        end
-    end)
-    ```
+TRIGGER.destroyEvent:Connect(function()
+    if evt.isConnected then
+        evt:Disconnect()
+    end
+end)
+```
 
-    The `PickupItem` function will check if the player can pick up the injector.
+The `PickupItem` function will check if the player can pick up the injector.
 
-    ```lua
-    if Object.IsValid(obj) and obj:IsA("Player") and not obj.isDead then
-    ```
+```lua
+if Object.IsValid(obj) and obj:IsA("Player") and not obj.isDead then
+```
 
-    The line above makes sure it is the player interacting with the trigger, and they are not dead by checking the `isDead` property is false. If a player dies near the injector, they could still pickup the injector, so checking if they are not dead will solve this problem.
+The line above makes sure it is the player interacting with the trigger, and they are not dead by checking the `isDead` property is false. If a player dies near the injector, they could still pickup the injector, so checking if they are not dead will solve this problem.
 
-    ```lua
-    if obj:GetResource("injectors") == 0 then
-        obj:SetResource("injectors", 1)
-    ```
+```lua
+if obj:GetResource("injectors") == 0 then
+    obj:SetResource("injectors", 1)
+```
 
-    The above code will check if the resource `injectors` is 0, and if so, set the `injector` resource value to 1.
+The above code will check if the resource `injectors` is 0, and if so, set the `injector` resource value to 1.
 
-    ```lua
-    TRIGGER.parent:Destroy()
-    ```
+```lua
+TRIGGER.parent:Destroy()
+```
 
-    When the player picks up the injector, the parent object will be destroyed so the injector is removed from the world.
+When the player picks up the injector, the parent object will be destroyed so the injector is removed from the world.
 
-    ```lua
-     Events.BroadcastToPlayer(obj, "PlayErrorSound")
-    ```
+```lua
+    Events.BroadcastToPlayer(obj, "PlayErrorSound")
+```
 
-     If the player already is holding an injector, then broadcast to the player so an error sound is played.
+    If the player already is holding an injector, then broadcast to the player so an error sound is played.
 
-    !!! info "`PlayErrorSound` is an event that can be found in the `AudioClient` script that is already setup for you."
+!!! info "`PlayErrorSound` is an event that can be found in the `AudioClient` script that is already setup for you."
 
-    ```lua
-    local evt = TRIGGER.interactedEvent:Connect(PickupItem)
+```lua
+local evt = TRIGGER.interactedEvent:Connect(PickupItem)
 
-    TRIGGER.destroyEvent:Connect(function()
-        if evt.isConnected then
-            evt:Disconnect()
-        end
-    end)
-    ```
+TRIGGER.destroyEvent:Connect(function()
+    if evt.isConnected then
+        evt:Disconnect()
+    end
+end)
+```
 
-    The above code will setup the `interactedEvent`, and also handle disconnecting the event when the trigger is destroyed.
+The above code will setup the `interactedEvent`, and also handle disconnecting the event when the trigger is destroyed.
 
-    !!! info "Disconnecting Event Listeners"
-        It is a good habit to disconnect any event listener that is no longer needed to improve the performance of your game. As you game gets bigger, more and more events will likely be used, and if those event listeners are left in memory, it could cause performance issues for your game.
+!!! info "Disconnecting Event Listeners"
+    It is a good habit to disconnect any event listener that is no longer needed to improve the performance of your game. As you game gets bigger, more and more events will likely be used, and if those event listeners are left in memory, it could cause performance issues for your game.
 
 ### The InjectorPickupServer Script
 
@@ -3304,10 +3381,10 @@ A server script will be responsible for checking if the player can pick up the i
 Now that you have the pickup template created, it needs to be added to the **Destroy on Death Networked TemplateId** property.
 
 1. Select one **Barrels Damageable Object** in the **Hierarchy**.
-2. Drag the **Injector Pickup** template onto the property **Destroy on Death Networked TemplateId**.
+2. Add the **Injector Pickup** template onto the property **Destroy on Death Networked TemplateId**.
 3. Update the **Barrels Damageable Object** template.
 
-    By updating one **Barrels Damageable Object**, the others will get updated with those changes.
+By updating one **Barrels Damageable Object**, the others will get updated with those changes.
 
 When the **Barrels Damageable Object** is destroy, the **Injector Pickup** will be spawned that the player can pick up. At the moment the player can not do anything with the injector.
 
@@ -3315,37 +3392,39 @@ When the **Barrels Damageable Object** is destroy, the **Injector Pickup** will 
 
 The **PlayerClient** script will check when the resource `injectors` value changes so it can show or hide a UI element.
 
-1. Create **PlayerClient** script.
+#### Create PlayerClient Script
 
-    Create a script called **PlayerClient** and place it into the **Client** group inside the **Boss Fight Map** group.
+Create a script called **PlayerClient** and place it into the **Client** group inside the **Boss Fight Map** group.
 
-2. Add **Injector** custom property.
+#### Add Injector Custom Property
 
-    Find the **Injector** UI panel in the **UI** group, and drag it onto the **PlayerClient** script as a custom property. Name the custom property `Injector`.
+Find the **Injector** UI panel in the **UI** group, and add it onto the **PlayerClient** script as a custom property. Name the custom property `Injector`.
 
-3. Open the **PlayerClient** script.
+![!Injector Custom Property](../img/BossTutorial/custom_property_injector.png){: .center loading="lazy" }
 
-    Add the following code to the **PlayerClient** script.
+#### Edit PlayerClient Script
 
-    ```lua
-    local INJECTOR = script:GetCustomProperty("Injector"):WaitForObject()
+Add the following code to the **PlayerClient** script.
 
-    local localPlayer = Game.GetLocalPlayer()
+```lua
+local INJECTOR = script:GetCustomProperty("Injector"):WaitForObject()
 
-    local function ResourceChanged(player, resourceName, newAmount)
-        if resourceName == "injectors" then
-            if newAmount == 0 then
-                INJECTOR.visibility = Visibility.FORCE_OFF
-            else
-                INJECTOR.visibility = Visibility.FORCE_ON
-            end
+local localPlayer = Game.GetLocalPlayer()
+
+local function ResourceChanged(player, resourceName, newAmount)
+    if resourceName == "injectors" then
+        if newAmount == 0 then
+            INJECTOR.visibility = Visibility.FORCE_OFF
+        else
+            INJECTOR.visibility = Visibility.FORCE_ON
         end
     end
+end
 
-    localPlayer.resourceChangedEvent:Connect(ResourceChanged)
-    ```
+localPlayer.resourceChangedEvent:Connect(ResourceChanged)
+```
 
-    The `ResourceChanged` function will be called when a resource has changed value. The `ResourceChanged` function will check to see if the resource that changed is named `injectors`. If the `newAmount` is `0`, then the visibility of the `INJECTOR` panel is turned off, otherwise it is turned on so players know they are carrying an injector.
+The `ResourceChanged` function will be called when a resource has changed value. The `ResourceChanged` function will check to see if the resource that changed is named `injectors`. If the `newAmount` is `0`, then the visibility of the `INJECTOR` panel is turned off, otherwise it is turned on so players know they are carrying an injector.
 
 ### Update ShieldGeneratorServer Script
 
@@ -3463,7 +3542,7 @@ local function GeneratorDisabled(triggerID)
 end
 ```
 
-Add the `GeneratorDisabled` function after the `UpdateGameState` function.
+Create the `GeneratorDisabled` function after the `UpdateGameState` function.
 
 The `GeneratorDisabled` function is triggered when a shield generator has been disabled. The `GeneratorDisabled` function receives the trigger ID for the shield generator being disabled, this is added to the end of `GeneratorsTurnedOff` table by adding `1` to the current total entries.
 
@@ -3481,7 +3560,7 @@ The **ClientReady** event will be called when the client is ready to receive the
 
 ### The Updated PlayerServer Script
 
-??? PlayerServer
+??? "PlayerServer"
     ```lua
     local WEAPON = script:GetCustomProperty("Weapon")
 
@@ -3635,7 +3714,7 @@ local function UpdateGameState(generatorsDisabledIDStr)
 end
 ```
 
-Add the above function `UpdateGameState` to the **PlayerClient** script. This function will be called from the **PlayerServer** script when it is ready to send the game state to the player.
+Create the above function `UpdateGameState` in the **PlayerClient** script. This function will be called from the **PlayerServer** script when it is ready to send the game state to the player.
 
 ```lua
 if string.len(generatorsDisabledIDStr) > 0 then
@@ -3736,61 +3815,70 @@ You will need to test the game in multiplayer preview to make sure the game stat
 
 Having the health show in the UI for the player will help them be a little more cautious when stepping on the hot floor tiles. You will be using a curve to animate the health UI to pulsate when the health of the player is 50% or lower.
 
-1. Enable **Player Health Panel**.
+### Enable Player Health Panel
 
-    The **Player Health Panel** component in the **UI** container, has the **Visibility** turned off. Set the **Visibility** property to **Inherit from Parent**. In doing so, you will see the heart image in the top left of the screen.
+The **Player Health Panel** component in the **UI** container, has the **Visibility** turned off. Set the **Visibility** property to **Inherit from Parent**. In doing so, you will see the heart image in the top left of the screen.
 
-2. Add **HealthBar** custom property.
+### Add HealthBar Custom Property
 
-    Inside the **Player Health Panel**, drag **UI Progress Bar** onto the **PlayerClient** script as a custom property. Name the custom property **HealthBar**.
+Inside the **Player Health Panel**, add **UI Progress Bar** onto the **PlayerClient** script as a custom property. Name the custom property **HealthBar**.
 
-3. Add **HealthPulseCurve** custom property.
+![!HealthBar Custom Property](../img/BossTutorial/custom_property_healthbar_playerclient.png){: .center loading="lazy" }
 
-    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `HealthPulseCurve`.
+### Add HealthPulseCurve Custom Property
 
-4. Edit the Curve **HealthPulseCurve**.
+Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `HealthPulseCurve`.
 
-    The curve will need to constantly animate the heart while the player health is 50% or below. So you need a curve that repeats because the heart will need to shrink and grow.
+![!HealthPulseCurve Custom Property](../img/BossTutorial/custom_property_healthpulsecurve.png){: .center loading="lazy" }
 
-    ![!Health Curve](../img/BossTutorial/health_curve.png){: .center loading="lazy" }
+### Edit HealthPulseCurve Curve
 
-    From **Curve Presets**, select **EaseOut**, and then select **Oscillate** for **In** and **Out**.
+The curve will need to constantly animate the heart while the player health is 50% or below. So you need a curve that repeats because the heart will need to shrink and grow.
 
-5. Add the code below to **PlayerClient**.
+![!Health Curve](../img/BossTutorial/health_curve.png){: .center loading="lazy" }
 
-    ```lua
-    local HEALTH_BAR = script:GetCustomProperty("HealthBar"):WaitForObject()
-    local HEALTH_PULSE_CURVE = script:GetCustomProperty("HealthPulseCurve")
-    ```
+From **Curve Presets**, select **EaseOut**, and then select **Oscillate** for **In** and **Out**.
 
-    Add the variable references to the top of the **PlayerClient** script.
+### Update PlayerClient Script
 
-    ```lua
-    local healthElapsedTime = 0
+Add the code below to **PlayerClient**.
 
-    function Tick(deltaTime)
-        HEALTH_BAR.progress = localPlayer.hitPoints / localPlayer.maxHitPoints
+```lua
+local HEALTH_BAR = script:GetCustomProperty("HealthBar"):WaitForObject()
+local HEALTH_PULSE_CURVE = script:GetCustomProperty("HealthPulseCurve")
+```
 
-        if(HEALTH_BAR.progress <= .5) then
-            healthElapsedTime = healthElapsedTime + deltaTime
+Add the variable references to the top of the **PlayerClient** script.
 
-            local value = HEALTH_PULSE_CURVE:GetValue(healthElapsedTime) * 40
+```lua
+local healthElapsedTime = 0
 
-            HEALTH_BAR.width = math.floor(value)
-            HEALTH_BAR.height = math.floor(value)
-        end
+function Tick(deltaTime)
+    HEALTH_BAR.progress = localPlayer.hitPoints / localPlayer.maxHitPoints
+
+    if(HEALTH_BAR.progress <= .5) then
+        healthElapsedTime = healthElapsedTime + deltaTime
+
+        local value = HEALTH_PULSE_CURVE:GetValue(healthElapsedTime) * 40
+
+        HEALTH_BAR.width = math.floor(value)
+        HEALTH_BAR.height = math.floor(value)
     end
-    ```
+end
+```
 
-    Add the above code to the **PlayerClient** script. This code will handle animating the `HEALTH_BAR` when the health of the player is 50% or lower.
+Add the above code to the **PlayerClient** script. This code will handle animating the `HEALTH_BAR` when the health of the player is 50% or lower.
 
 ### Test the Game
 
-Test the game by taking damage and making sure the health image pulsates when the player health is 50% of lower.
+Test the game and make sure the following work.
+
+- Player taking damage reduces the health bar.
+- Health bar at 50% or lower pulsates the health bar.
 
 ### Updated PlayerClient Script
 
-??? PlayerClient
+??? "PlayerClient"
     ```lua
     local INJECTOR = script:GetCustomProperty("Injector"):WaitForObject()
     local HEALTH_BAR = script:GetCustomProperty("HealthBar"):WaitForObject()
@@ -3860,7 +3948,7 @@ In this section you will add a little bit of polish to the game.
 
 When the boss is killed, nothing happens. It is not very satisfying.
 
-Drag the template **Boss Death Explosion** onto the property **Destroy on Death Client TemplateId** on the **Boss Damageable Object**. When the boss is killed, an explosion effect will be spawned for all players.
+Add the template **Boss Death Explosion** onto the property **Destroy on Death Client TemplateId** on the **Boss Damageable Object**. When the boss is killed, an explosion effect will be spawned for all players.
 
 ### Update BossAIServer
 
@@ -3884,7 +3972,7 @@ Add the above line to the end of the **BossAIServer** script. This line will lis
 
 ### Updated BossAIServer Script
 
-??? BossAIServer
+??? "BossAIServer"
     ```lua
     local ACTIVITY_HANDLER = script.parent
     local BOSS_GEO = script:GetCustomProperty("BossGeo"):WaitForObject()
@@ -4162,50 +4250,54 @@ Add the above line to the end of the **BossAIServer** script. This line will lis
 
 When a player joins and there are already shield generators that have been disabled, there is a small delay in receiving the update on the client, so players will see the effects turn off. You can hide this by having a transition at the beginning of the game when the player joins.
 
-1. Set **Transition** Visibility.
+#### Set Transition Visibility
 
-    In the the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
+In the the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
 
-2. Add **Transition** custom property.
+#### Add Transition Custom Property
 
-    Drag the **Transition** panel onto the **PlayerClient** script as a custom property. Name the custom property **Transition**.
+Add the **Transition** panel onto the **PlayerClient** script as a custom property. Name the custom property **Transition**.
 
-3. Create transition curve.
+![!Transition Custom Property](../img/BossTutorial/custom_property_transition.png){: .center loading="lazy" }
 
-    Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `TransitionCurve`.
+#### Create TransitionCurve Custom Property
 
-    Edit the curve and select **EaseIn** as the **Curve Preset**. The reason for picking this curve is so that the transition stays more opaque at the beginning, and then will speed up towards the end of the duration.
+Add a **SimpleCurve** custom property to the **PlayerClient** script. Name the custom property `TransitionCurve`.
 
-4. Update **PlayerClient** Script.
+![!TransitionCurve Custom Property](../img/BossTutorial/custom_property_transitioncurve.png){: .center loading="lazy" }
 
-    Update the **PlayerClient** script with the code below.
+Edit the curve and select **EaseIn** as the **Curve Preset**. The reason for picking this curve is so that the transition stays more opaque at the beginning, and then will speed up towards the end of the duration.
 
-    ```lua
-    local TRANSITION = script:GetCustomProperty("Transition"):WaitForObject()
-    local TRANSITION_CURVE = script:GetCustomProperty("TransitionCurve")
-    ```
+#### Update PlayerClient Script
 
-    Add the variable references to the top of the **PlayerClient** script.
+Update the **PlayerClient** script with the code below.
 
-    ```lua
-    local fadeOutTransition = false
-    local transitionElapsedTime = 0
-    local fadeDuration = 3
-    ```
+```lua
+local TRANSITION = script:GetCustomProperty("Transition"):WaitForObject()
+local TRANSITION_CURVE = script:GetCustomProperty("TransitionCurve")
+```
 
-    Add the above variables to the top of the script. `fadeDuration` controls how long the fade will take.
+Add the variable references to the top of the **PlayerClient** script.
 
-    ```lua
-    if fadeOutTransition and transitionElapsedTime < fadeDuration  then
-        transitionElapsedTime = transitionElapsedTime + deltaTime
+```lua
+local fadeOutTransition = false
+local transitionElapsedTime = 0
+local fadeDuration = 3
+```
 
-        local value = TRANSITION_CURVE:GetValue(transitionElapsedTime / fadeDuration)
+Add the above variables to the top of the script. `fadeDuration` controls how long the fade will take.
 
-        TRANSITION.opacity = 1 - value
-    end
-    ```
+```lua
+if fadeOutTransition and transitionElapsedTime < fadeDuration  then
+    transitionElapsedTime = transitionElapsedTime + deltaTime
 
-    Add the above code to the `Tick` function. This will handle fading out the curve based on the duration of `fadeDuration`.
+    local value = TRANSITION_CURVE:GetValue(transitionElapsedTime / fadeDuration)
+
+    TRANSITION.opacity = 1 - value
+end
+```
+
+Add the above code to the `Tick` function. This will handle fading out the curve based on the duration of `fadeDuration`.
 
 ### Updated PlayerClient Script
 
@@ -4305,7 +4397,7 @@ Do a final game test to make sure all the components you have added while follow
 
 The finished project for this tutorial is available to play and edit.
 
-<https://www.coregames.com/games/15fa6bcbb4354b0db17e38fb46ceeb4c>
+<https://www.coregames.com/games/15fa6b/boss-fight-tutorial>
 
 ## Summary
 
@@ -4320,10 +4412,6 @@ Have think about what other interesting mechanics, or improvements can be added 
 - Add more Boss attacks (i.e teleport, ground slam).
 - Damageable boss parts that need to be destroyed first.
 - Drop pickup from player if they leave the game.
-
-Share your creations with the Core Creators Discord community.
-
-<https://discord.gg/core-creators>
 
 ## Learn More
 
