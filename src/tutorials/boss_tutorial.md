@@ -4414,3 +4414,5 @@ Have think about what other interesting mechanics, or improvements can be added 
 ## Learn More
 
 [AI Activities](/tutorials/ai_activity_tutorial.md) | [Damageable Objects](/references/damageable_objects.md) | [Custom Materials](/references/custom_materials.md) | [Curves](/references/curves.md) | [Triggers](/references/triggers.md) | [Weapons](/references/weapons.md)
+
+<https://forums.coregames.com/t/advanced-scripting-in-core-boss-fight-tutorial/2062>
