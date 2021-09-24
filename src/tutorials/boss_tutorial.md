@@ -6,8 +6,6 @@ tags:
     - Tutorial
 ---
 
-<!-- TODO: Send Zaz the CC template with boss assets -->
-
 # Creating a Boss Fight
 
 ![!Preview](../img/BossTutorial/preview.png){: .center loading="lazy" }
