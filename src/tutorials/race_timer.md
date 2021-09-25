@@ -4411,3 +4411,5 @@ Here are some ideas that you could consider implementing:
 - Race winner notification.
 - Total wins leaderboard.
 - Sprinting upgrades.
+
+For feedback and questions, please reach out to us on this tutorial's [forum thread](https://forums.coregames.com/t/advanced-scripting-in-core-race-timer-tutorial/2061).
