@@ -4395,7 +4395,7 @@ Do a final game test to make sure all the components you have added while follow
 
 The finished project for this tutorial is available to play and edit.
 
-<https://www.coregames.com/games/15fa6b/boss-fight-tutorial>
+For feedback and questions, please reach out to us on this tutorial's [forum thread](https://www.coregames.com/games/15fa6b/boss-fight-tutorial).
 
 ## Summary
 
