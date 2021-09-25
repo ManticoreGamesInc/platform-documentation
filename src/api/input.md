@@ -24,15 +24,15 @@ The Input namespace contains functions and hooks for responding to player input.
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `Input.actionPressedEvent` | `Event<`[`Player`](player.md) string actionName, value value`>` | Fired when a player starts an input action by pressing a key, button, or other input control. The third parameter, `value`, will be a `Vector2` for direction bindings, or a `number` for axis and basic bindings. | None |
-| `Input.actionReleasedEvent` | `Event<`[`Player`](player.md) string actionName`>` | Fired when a player stops an input action by releasing a key, button, or other input control. | None |
-| `Input.inputTypeChangedEvent` | `Event<`[`Player`](player.md) InputType`>` | Fired when the active input device has changed to a new type of input. | None |
+| `Input.actionPressedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` actionName, `value` value> | Fired when a player starts an input action by pressing a key, button, or other input control. The third parameter, `value`, will be a `Vector2` for direction bindings, or a `number` for axis and basic bindings. | None |
+| `Input.actionReleasedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` actionName> | Fired when a player stops an input action by releasing a key, button, or other input control. | None |
+| `Input.inputTypeChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`InputType`](enums.md#inputtype) inputType> | Fired when the active input device has changed to a new type of input. | None |
 
 ## Hooks
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `escapeHook` | `Hook<`[`Player`](player.md) player, table parameters`>` | Hook called when the local player presses the Escape key. The `parameters` table contains a `boolean` named "openPauseMenu", which may be set to `false` to prevent the pause menu from being opened. Players may press `Shift-Esc` to force the pause menu to open without calling this hook. | Client-Only |
+| `escapeHook` | [`Hook`](hook.md)<[`Player`](player.md) player, `table` parameters> | Hook called when the local player presses the Escape key. The `parameters` table contains a `boolean` named "openPauseMenu", which may be set to `false` to prevent the pause menu from being opened. Players may press `Shift-Esc` to force the pause menu to open without calling this hook. | Client-Only |
 
 ## Examples
 
@@ -194,6 +194,6 @@ Input.inputTypeChangedEvent:Connect(updateInputImage)
 updateInputImage(Game.GetLocalPlayer(), Input.GetCurrentInputType())
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Input.GetCurrentInputType](input.md) | [InputType.KEYBOARD_AND_MOUSE](inputtype.md)
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Input.GetCurrentInputType](input.md) | [KEYBOARD_AND_MOUSE](enums.md#keyboard_and_mouse)
 
 ---

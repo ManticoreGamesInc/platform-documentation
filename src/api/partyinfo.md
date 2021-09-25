@@ -26,6 +26,6 @@ Contains data about a party, returned by Player:GetPartyInfo()
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetTags()` | `Array<string>` | Returns an array of the party's tags. | None |
-| `GetMemberIds()` | `Array<string>` | Returns an array of the player IDs of the party's members. | None |
+| `GetTags()` | `Array`<`string`> | Returns an array of the party's tags. | None |
+| `GetMemberIds()` | `Array`<`string`> | Returns an array of the player IDs of the party's members. | None |
 | `IsFull()` | `boolean` | Returns `true` if the party is at maximum capacity. | None |

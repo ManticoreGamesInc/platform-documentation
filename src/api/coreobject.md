@@ -54,7 +54,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `SetAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in world space. Only works for physics objects. | None |
 | `SetLocalAngularVelocity(Vector3)` | `None` | Set the object's angular velocity in degrees per second in local space. Only works for physics objects. | None |
 | `GetReference()` | [`CoreObjectReference`](coreobjectreference.md) | Returns a CoreObjectReference pointing at this object. | None |
-| `GetChildren()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing the object's children, may be empty. Order is not guaranteed to match what is in the hierarchy. | None |
+| `GetChildren()` | `Array`<[`CoreObject`](coreobject.md)> | Returns a table containing the object's children, may be empty. Order is not guaranteed to match what is in the hierarchy. | None |
 | `IsVisibleInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are visible. | None |
 | `IsCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable. | None |
 | `IsCameraCollidableInHierarchy()` | `boolean` | Returns true if this object and all of its ancestors are collidable with the camera. | None |
@@ -62,15 +62,15 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `FindAncestorByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose name matches the provided name. If none match, returns nil. | None |
 | `FindChildByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose name matches the provided name. If none match, returns nil. | None |
 | `FindDescendantByName(string name)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose name matches the provided name. If none match, returns nil. | None |
-| `FindDescendantsByName(string name)` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
+| `FindDescendantsByName(string name)` | `Array`<[`CoreObject`](coreobject.md)> | Returns the descendants whose name matches the provided name. If none match, returns an empty table. | None |
 | `FindAncestorByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first parent or ancestor whose type is or extends the specified type. For example, calling FindAncestorByType('CoreObject') will return the first ancestor that is any type of CoreObject, while FindAncestorByType('StaticMesh') will only return the first mesh. If no ancestors match, returns nil. | None |
 | `FindChildByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first immediate child whose type is or extends the specified type. If none match, returns nil. | None |
 | `FindDescendantByType(string typeName)` | [`CoreObject`](coreobject.md) | Returns the first child or descendant whose type is or extends the specified type. If none match, returns nil. | None |
-| `FindDescendantsByType(string typeName)` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
+| `FindDescendantsByType(string typeName)` | `Array`<[`CoreObject`](coreobject.md)> | Returns the descendants whose type is or extends the specified type. If none match, returns an empty table. | None |
 | `FindTemplateRoot()` | [`CoreObject`](coreobject.md) | If the object is part of a template, returns the root object of the template (which may be itself). If not part of a template, returns nil. | None |
 | `IsAncestorOf(CoreObject)` | `boolean` | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on a CoreObject. | None |
-| `GetCustomProperty(string propertyName)` | `value, boolean` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an integer, number, boolean, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a boolean, true if found and false if not. | None |
+| `GetCustomProperty(string propertyName)` | `value`, `boolean` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an integer, number, boolean, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a boolean, true if found and false if not. | None |
 | `SetNetworkedCustomProperty(string propertyName, value)` | `boolean` | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | None |
 | `AttachToPlayer(Player, string socketName)` | `None` | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | None |
 | `AttachToLocalView()` | `None` | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only |
@@ -100,12 +100,12 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `childAddedEvent` | `Event<`[`CoreObject`](coreobject.md) parent, CoreObject newChild`>` | Fired when a child is added to this object. | None |
-| `childRemovedEvent` | `Event<`[`CoreObject`](coreobject.md) parent, CoreObject removedChild`>` | Fired when a child is removed from this object. | None |
-| `descendantAddedEvent` | `Event<`[`CoreObject`](coreobject.md) ancestor, CoreObject newChild`>` | Fired when a child is added to this object or any of its descendants. | None |
-| `descendantRemovedEvent` | `Event<`[`CoreObject`](coreobject.md) ancestor, CoreObject removedChild`>` | Fired when a child is removed from this object or any of its descendants. | None |
-| `destroyEvent` | `Event<`[`CoreObject`](coreobject.md)`>` | Fired when this object is about to be destroyed. | None |
-| `networkedPropertyChangedEvent` | `Event<`[`CoreObject`](coreobject.md) owner, string propertyName`>` | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
+| `childAddedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) parent, [`CoreObject`](coreobject.md) newChild> | Fired when a child is added to this object. | None |
+| `childRemovedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) parent, [`CoreObject`](coreobject.md) removedChild> | Fired when a child is removed from this object. | None |
+| `descendantAddedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) ancestor, [`CoreObject`](coreobject.md) newChild> | Fired when a child is added to this object or any of its descendants. | None |
+| `descendantRemovedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) ancestor, [`CoreObject`](coreobject.md) removedChild> | Fired when a child is removed from this object or any of its descendants. | None |
+| `destroyEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md)> | Fired when this object is about to be destroyed. | None |
+| `networkedPropertyChangedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) owner, `string` propertyName> | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
 
 ## Examples
 
