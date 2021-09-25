@@ -4412,4 +4412,4 @@ Here are some ideas that you could consider implementing:
 - Total wins leaderboard.
 - Sprinting upgrades.
 
-<https://forums.coregames.com/t/advanced-scripting-in-core-race-timer-tutorial/2061>
+For feedback and questions, please reach out to us on this tutorial's [forum thread](https://forums.coregames.com/t/advanced-scripting-in-core-race-timer-tutorial/2061).
