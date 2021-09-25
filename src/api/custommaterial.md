@@ -16,7 +16,7 @@ CustomMaterial objects represent a custom material made in core. They can have t
 | -------- | ----------- | ----------- | ---- |
 | `SetProperty(string propertyName, value)` | `None` | Sets the given property of the material. | Client-Only |
 | `GetProperty(string propertyName)` | `value` | Gets the value of a given property. | Client-Only |
-| `GetPropertyNames()` | `Array<string>` | Returns an array of all property names on this CustomMaterial. | Client-Only |
+| `GetPropertyNames()` | `Array`<`string`> | Returns an array of all property names on this CustomMaterial. | Client-Only |
 | `GetBaseMaterialId()` | `string` | Returns the asset id of the material this CustomMaterial was based on. | Client-Only |
 
 ## Class Functions

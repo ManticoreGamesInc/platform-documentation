@@ -14,7 +14,7 @@ Contains data pertaining to an impact or raycast.
 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `other` | `CoreObject or Player` | Reference to a CoreObject or Player impacted. | Read-Only |
+| `other` | [`CoreObject`](coreobject.md) or Player | Reference to a CoreObject or Player impacted. | Read-Only |
 | `socketName` | `string` | If the hit was on a Player, `socketName` tells you which spot on the body was hit. | Read-Only |
 
 ## Functions

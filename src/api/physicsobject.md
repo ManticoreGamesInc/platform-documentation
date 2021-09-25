@@ -38,5 +38,5 @@ A CoreObject with simulated physics that can interact with players and other obj
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<`[`PhysicsObject`](physicsobject.md) object, Damage damage`>` | Fired when the object takes damage. | Server-Only |
-| `diedEvent` | `Event<`[`PhysicsObject`](physicsobject.md) object, Damage damage`>` | Fired when the object dies. | Server-Only |
+| `damagedEvent` | [`Event`](event.md)<[`PhysicsObject`](physicsobject.md) object, [`Damage`](damage.md) damage> | Fired when the object takes damage. | Server-Only |
+| `diedEvent` | [`Event`](event.md)<[`PhysicsObject`](physicsobject.md) object, [`Damage`](damage.md) damage> | Fired when the object dies. | Server-Only |

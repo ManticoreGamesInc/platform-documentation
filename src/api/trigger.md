@@ -26,15 +26,15 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | -------- | ----------- | ----------- | ---- |
 | `IsOverlapping(CoreObject)` | `boolean` | Returns true if given CoreObject overlaps with the Trigger. | None |
 | `IsOverlapping(Player)` | `boolean` | Returns true if given player overlaps with the Trigger. | None |
-| `GetOverlappingObjects()` | `Array<`[`Object`](object.md)`>` | Returns a list of all objects that are currently overlapping with the Trigger. | None |
+| `GetOverlappingObjects()` | `Array`<[`Object`](object.md)> | Returns a list of all objects that are currently overlapping with the Trigger. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `beginOverlapEvent` | `Event<`[`Trigger`](trigger.md) trigger, Object other`>` | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | None |
-| `endOverlapEvent` | `Event<`[`Trigger`](trigger.md) trigger, Object other`>` | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
-| `interactedEvent` | `Event<`[`Trigger`](trigger.md) trigger, Player`>` | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
+| `beginOverlapEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Object`](object.md) other> | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | None |
+| `endOverlapEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Object`](object.md) other> | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
+| `interactedEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Player`](player.md)> | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
 
 ## Examples
 

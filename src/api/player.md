@@ -91,8 +91,8 @@ Player is an object representation of the state of a player connected to the gam
 | `GetVelocity()` | [`Vector3`](vector3.md) | Gets the current velocity of the Player. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | None |
 | `SetVelocity(Vector3)` | `None` | Sets the Player's velocity to the given amount. The velocity vector indicates the direction, with its magnitude expressed in centimeters per second. | Server-Only |
 | `ResetVelocity()` | `None` | Resets the Player's velocity to zero. | Server-Only |
-| `GetAbilities()` | `Array<`[`Ability`](ability.md)`>` | Array of all Abilities assigned to this Player. | None |
-| `GetEquipment()` | `Array<`[`Equipment`](equipment.md)`>` | Array of all Equipment assigned to this Player. | None |
+| `GetAbilities()` | `Array`<[`Ability`](ability.md)> | Array of all Abilities assigned to this Player. | None |
+| `GetEquipment()` | `Array`<[`Equipment`](equipment.md)> | Array of all Equipment assigned to this Player. | None |
 | `ApplyDamage(Damage)` | `None` | Damages a Player. If their hit points go below 0 they die. | Server-Only |
 | `Die([Damage])` | `None` | Kills the Player. They will ragdoll and ignore further Damage. The optional Damage parameter is a way to communicate cause of death. | Server-Only |
 | `DisableRagdoll()` | `None` | Disables all ragdolls that have been set on the Player. | Server-Only |
@@ -108,7 +108,7 @@ Player is an object representation of the state of a player connected to the gam
 | `GetLookWorldRotation()` | [`Rotation`](rotation.md) | Get the rotation for the direction the Player is facing. | None |
 | `SetLookWorldRotation(Rotation)` | `None` | Set the rotation for the direction the Player is facing. | Client-Only |
 | `ClearResources()` | `None` | Removes all resources from a player. | Server-Only |
-| `GetResources()` | `table<string, integer>` | Returns a table containing the names and amounts of the player's resources. | None |
+| `GetResources()` | `table`<`string`, `integer`> | Returns a table containing the names and amounts of the player's resources. | None |
 | `GetResource(string name)` | `integer` | Returns the amount of a resource owned by a player. Returns 0 by default. | None |
 | `SetResource(string name, integer amount)` | `None` | Sets a specific amount of a resource on a player. | Server-Only |
 | `AddResource(string name, integer amount)` | `None` | Adds an amount of a resource to a player. | Server-Only |
@@ -117,7 +117,7 @@ Player is an object representation of the state of a player connected to the gam
 | `TransferToGame(CoreGameInfo)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameInfo`. This function will raise an error if called from a client script on a player other than the local player. | None |
 | `TransferToGame(CoreGameCollectionEntry)` | `None` | Does not work in preview mode or in games played locally. Transfers player to the game specified by the passed-in `CoreGameCollectionEntry`. This function will raise an error if called from a client script on a player other than the local player. | None |
 | `TransferToScene(string sceneName, [table parameters])` | `None` | Does not work in preview mode or in games played locally. Transfers player to the scene specified by the passed-in scene name. The specified scene must be a scene within the same game. This function will raise an error if called from a client script on a player other than the local player. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the player at a spawn point with a matching key. If an invalid key is provided, the player will spawn at the origin, (0, 0, 0). | None |
-| `GetAttachedObjects()` | `Array<`[`CoreObject`](coreobject.md)`>` | Returns a table containing CoreObjects attached to this player. | None |
+| `GetAttachedObjects()` | `Array`<[`CoreObject`](coreobject.md)> | Returns a table containing CoreObjects attached to this player. | None |
 | `SetMounted(boolean)` | `None` | Forces a player in or out of mounted state. | Server-Only |
 | `GetActiveCamera()` | [`Camera`](camera.md) | Returns whichever camera is currently active for the Player. | Client-Only |
 | `GetDefaultCamera()` | [`Camera`](camera.md) | Returns the default Camera object the Player is currently using. | Client-Only |
@@ -137,9 +137,9 @@ Player is an object representation of the state of a player connected to the gam
 | `GetLeaveTransferData()` | [`PlayerTransferData`](playertransferdata.md) | Returns data indicating how a player left the game (via browsing, portal, social invite, etc) and the game ID of their next game if they are directly joining another game. Leave data is not valid until `Game.playerLeftEvent` has fired for the player. | None |
 | `SetPrivateNetworkedData(string key, value)` | [`PrivateNetworkedDataResultCode`](enums.md#privatenetworkeddataresultcode) | Sets the private networked data for this player associated with the key. Value can be any type that could be sent with a networked event. Each key is replicated independently, and this data is only sent to the owning player. | Server-Only |
 | `GetPrivateNetworkedData(string key)` | `value` | Returns the private networked data on this player associated with the given key or nil if no data is found. | None |
-| `GetPrivateNetworkedDataKeys()` | `Array<string>` | Returns an array of all keys with private data set. | None |
+| `GetPrivateNetworkedDataKeys()` | `Array`<`string`> | Returns an array of all keys with private data set. | None |
 | `GrantRewardPoints(int rewardPoints, string activityName)` | `None` | Adds an amount of Reward Points to a player for completing a certain activity. | Server-Only |
-| `GetIKAnchors()` | `Array<`[`IKAnchor`](ikanchor.md)`>` | Returns an array of all IKAnchor objects activated on this player. | None |
+| `GetIKAnchors()` | `Array`<[`IKAnchor`](ikanchor.md)> | Returns an array of all IKAnchor objects activated on this player. | None |
 | `IsInPartyWith(Player)` | `boolean` | Returns whether both players are in the same public party. | None |
 | `GetPartyInfo()` | [`PartyInfo`](partyinfo.md) | If the player is in a party, returns a PartyInfo object with data about that party. | None |
 
@@ -147,25 +147,25 @@ Player is an object representation of the state of a player connected to the gam
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player takes damage. | Server-Only |
-| `diedEvent` | `Event<`[`Player`](player.md) player, Damage damage`>` | Fired when the Player dies. | Server-Only |
-| `respawnedEvent` | `Event<`[`Player`](player.md) player`>` | Fired when the Player respawns. *This event has been deprecated. Please use spawnedEvent instead.* | Server-Only, **Deprecated** |
-| `spawnedEvent` | `Event<`[`Player`](player.md) player, PlayerStart playerStart, string spawnKey`>` | Fired when the Player spawns. Indicates the start point at which they spawned and the spawn key used to select the start point. The start point may be nil if a position was specified when spawning the player. | Server-Only |
-| `bindingPressedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
-| `bindingReleasedEvent` | `Event<`[`Player`](player.md) player, string binding`>` | Fired when an action binding is released. Second parameter tells you which binding. | None |
-| `resourceChangedEvent` | `Event<`[`Player`](player.md) player, string resourceType, integer newAmount`>` | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
-| `perkChangedEvent` | `Event<`[`Player`](player.md) player, NetReference perkReference`>` | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
-| `movementModeChangedEvent` | `Event<`[`Player`](player.md) player, MovementMode newMovementMode, MovementMode previousMovementMode`>` | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
-| `emoteStartedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player begins playing an emote. | None |
-| `emoteStoppedEvent` | `Event<`[`Player`](player.md) player, string emoteId`>` | Fired when the Player stops playing an emote or an emote is interrupted. | None |
-| `animationEvent` | `Event<`[`Player`](player.md) player, string eventName, string animationName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
-| `privateNetworkedDataChangedEvent` | `Event<`[`Player`](player.md) player, string key`>` | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
+| `damagedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`Damage`](damage.md) damage> | Fired when the Player takes damage. | Server-Only |
+| `diedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`Damage`](damage.md) damage> | Fired when the Player dies. | Server-Only |
+| `respawnedEvent` | [`Event`](event.md)<[`Player`](player.md) player> | Fired when the Player respawns. *This event has been deprecated. Please use spawnedEvent instead.* | Server-Only, **Deprecated** |
+| `spawnedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`PlayerStart`](playerstart.md) playerStart, `string` spawnKey> | Fired when the Player spawns. Indicates the start point at which they spawned and the spawn key used to select the start point. The start point may be nil if a position was specified when spawning the player. | Server-Only |
+| `bindingPressedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` binding> | Fired when an action binding is pressed. Second parameter tells you which binding. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | None |
+| `bindingReleasedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` binding> | Fired when an action binding is released. Second parameter tells you which binding. | None |
+| `resourceChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` resourceType, `integer` newAmount> | Fired when a resource changed, indicating the type of the resource and its new amount. | None |
+| `perkChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`NetReference`](netreference.md) perkReference> | Fired when a player's list of owned perks has changed, indicating which perk's amount has changed. Do not expect this event to fire for perks that a player already has when they join a game. Use the `HasPerk(NetReference)` or `GetPerkCount(NetReference)` function for any initial logic that needs to be handled when joining. Also, this event may not actively fire when a perk expires, but it may fire for an expired perk as a result of purchasing a different perk. | None |
+| `movementModeChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`MovementMode`](enums.md#movementmode) newMovementMode, [`MovementMode`](enums.md#movementmode) previousMovementMode> | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
+| `emoteStartedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player begins playing an emote. | None |
+| `emoteStoppedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player stops playing an emote or an emote is interrupted. | None |
+| `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
+| `privateNetworkedDataChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` key> | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
 
 ## Hooks
 
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `movementHook` | `Hook<`[`Player`](player.md) player, table parameters`>` | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
+| `movementHook` | [`Hook`](hook.md)<[`Player`](player.md) player, `table` parameters> | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
 
 ## Additional Info
 
