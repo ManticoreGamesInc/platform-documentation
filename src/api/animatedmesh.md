@@ -23,10 +23,10 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetAnimationNames()` | `Array<string>` | Returns an array of all available animations on this object. | None |
-| `GetAnimationStanceNames()` | `Array<string>` | Returns an array of all available animation stances on this object. | None |
-| `GetSocketNames()` | `Array<string>` | Returns an array of all available sockets on this object. | None |
-| `GetAnimationEventNames(string animationName)` | `Array<string>` | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
+| `GetAnimationNames()` | `Array`<`string`> | Returns an array of all available animations on this object. | None |
+| `GetAnimationStanceNames()` | `Array`<`string`> | Returns an array of all available animation stances on this object. | None |
+| `GetSocketNames()` | `Array`<`string`> | Returns an array of all available sockets on this object. | None |
+| `GetAnimationEventNames(string animationName)` | `Array`<`string`> | Returns an array of available animation event names for the specified animation. Raises an error if `animationName` is not a valid animation on this mesh. | None |
 | `AttachCoreObject(CoreObject objectToAttach, string socketName)` | `None` | Attaches the specified object to the specified socket on the mesh if they exist. | Client-Only |
 | `PlayAnimation(string animationName, [table parameters])` | `None` | Plays an animation on the animated mesh.<br /> Optional parameters can be provided to control the animation playback: `startPosition (number)`: A number between 0 and 1 controlling where in the animation playback will start; `playbackRate (number)`: Controls how fast the animation plays; `shouldLoop (boolean)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed. | Client-Only |
 | `StopAnimations()` | `None` | Stops all in-progress animations played via `PlayAnimation` on this object. | Client-Only |
@@ -35,14 +35,14 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 | `SetMeshForSlot(integer slotIndex, string assetId)` | `None` | Assigns a mesh to the specified slot on this `AnimatedMesh`. If `assetId` is an empty string or identifies an incompatible asset, the slot will be cleared. | Client-Only |
 | `SetMaterialForSlot(string assetId, string slotName)` | `None` | Set the material in the given slot to the material specified by assetId. | None |
 | `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified. | None |
-| `GetMaterialSlots()` | `Array<`[`MaterialSlot`](materialslot.md)`>` | Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
+| `GetMaterialSlots()` | `Array`<[`MaterialSlot`](materialslot.md)> | Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
 | `ResetMaterialSlot(string slotName)` | `None` | Resets a material slot to its original state. | None |
 
 ## Events
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `animationEvent` | `Event<`[`AnimatedMesh`](animatedmesh.md) string eventName, string animationName`>` | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself. | Client-Only |
+| `animationEvent` | [`Event`](event.md)<[`AnimatedMesh`](animatedmesh.md) animatedMesh, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself. | Client-Only |
 
 ## Examples
 

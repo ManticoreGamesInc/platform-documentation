@@ -15,11 +15,11 @@ Game is a collection of functions and events related to players in the game, rou
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Game.GetLocalPlayer()` | [`Player`](player.md) | Returns the local player. | Client-Only |
-| `Game.GetPlayers([table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
+| `Game.GetPlayers([table parameters])` | `Array`<[`Player`](player.md)> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
 | `Game.FindPlayer(string playerId)` | [`Player`](player.md) | Returns the Player with the given player ID, if they're currently in the game. Otherwise returns `nil`. | None |
 | `Game.FindNearestPlayer(Vector3 position, [table parameters])` | [`Player`](player.md) | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInCylinder(Vector3 position, number radius, [table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
-| `Game.FindPlayersInSphere(Vector3 position, number radius, [table parameters])` | `Array<`[`Player`](player.md)`>` | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
+| `Game.FindPlayersInCylinder(Vector3 position, number radius, [table parameters])` | `Array`<[`Player`](player.md)> | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
+| `Game.FindPlayersInSphere(Vector3 position, number radius, [table parameters])` | `Array`<[`Player`](player.md)> | Returns a table with all Players that are in the given spherical area. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.StartRound()` | `None` | Fire all events attached to roundStartEvent. | Server-Only |
 | `Game.EndRound()` | `None` | Fire all events attached to roundEndEvent. | Server-Only |
 | `Game.GetTeamScore(integer team)` | `integer` | Returns the current score for the specified team. Only teams 0 - 4 are valid. | None |
@@ -39,11 +39,11 @@ Game is a collection of functions and events related to players in the game, rou
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `Game.playerJoinedEvent` | `Event<`[`Player`](player.md)`>` | Fired when a player has joined the game and their character is ready. When used in client context it will fire off for each player already connected to the server. | None |
-| `Game.playerLeftEvent` | `Event<`[`Player`](player.md)`>` | Fired when a player has disconnected from the game or their character has been destroyed. This event fires before the player has been removed, so functions such as `Game.GetPlayers()` will still include the player that is about to leave unless using the `ignorePlayers` filter within the parameters. | None |
+| `Game.playerJoinedEvent` | [`Event`](event.md)<[`Player`](player.md)> | Fired when a player has joined the game and their character is ready. When used in client context it will fire off for each player already connected to the server. | None |
+| `Game.playerLeftEvent` | [`Event`](event.md)<[`Player`](player.md)> | Fired when a player has disconnected from the game or their character has been destroyed. This event fires before the player has been removed, so functions such as `Game.GetPlayers()` will still include the player that is about to leave unless using the `ignorePlayers` filter within the parameters. | None |
 | `Game.roundStartEvent` | [`Event`](event.md) | Fired when StartRound is called on game. | None |
 | `Game.roundEndEvent` | [`Event`](event.md) | Fired when EndRound is called on game. | None |
-| `Game.teamScoreChangedEvent` | `Event<integer team>` | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
+| `Game.teamScoreChangedEvent` | [`Event`](event.md)<`integer` team> | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
 
 ## Examples
 

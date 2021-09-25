@@ -48,13 +48,13 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `readyEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
-| `castEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters the Cast phase. | None |
-| `executeEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Execute phase. | None |
-| `recoveryEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Recovery. | None |
-| `cooldownEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability enters Cooldown. | None |
-| `interruptedEvent` | `Event<`[`Ability`](ability.md)`>` | Fired when the Ability is interrupted. | None |
-| `tickEvent` | `Event<`[`Ability`](ability.md) ability, number deltaTime`>` | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
+| `readyEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability becomes ready. In this phase it is possible to activate it again. | None |
+| `castEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability enters the Cast phase. | None |
+| `executeEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability enters Execute phase. | None |
+| `recoveryEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability enters Recovery. | None |
+| `cooldownEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability enters Cooldown. | None |
+| `interruptedEvent` | [`Event`](event.md)<[`Ability`](ability.md)> | Fired when the Ability is interrupted. | None |
+| `tickEvent` | [`Event`](event.md)<[`Ability`](ability.md) ability, `number` deltaTime> | Fired every tick while the Ability is active (isEnabled = true and phase is not ready). | None |
 
 ## Examples
 

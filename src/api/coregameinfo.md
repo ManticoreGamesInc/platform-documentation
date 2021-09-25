@@ -29,7 +29,7 @@ Metadata about a published game on the Core platform.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetTags()` | `Array<string>` | Returns a list of the tags selected when this game was published. | None |
+| `GetTags()` | `Array`<`string`> | Returns a list of the tags selected when this game was published. | None |
 
 ## Learn More
 
