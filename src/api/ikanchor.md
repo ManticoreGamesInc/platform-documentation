@@ -33,8 +33,8 @@ IKAnchors are objects that can be used to control player animations. They can be
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `activatedEvent` | `Event<`[`IKAnchor`](ikanchor.md), [`Player`](player.md)`>` | Fired when this IKAnchor is activated on a player. | None |
-| `deactivatedEvent` | `Event<`[`IKAnchor`](ikanchor.md), [`Player`](player.md)`>` | Fired when this IKAnchor is deactivated from a player. | None |
+| `activatedEvent` | [`Event`](event.md)<[`IKAnchor`](ikanchor.md) ikAnchor, [`Player`](player.md) player> | Fired when this IKAnchor is activated on a player. | None |
+| `deactivatedEvent` | [`Event`](event.md)<[`IKAnchor`](ikanchor.md) ikAnchor, [`Player`](player.md) player> | Fired when this IKAnchor is deactivated from a player. | None |
 
 ## Examples
 

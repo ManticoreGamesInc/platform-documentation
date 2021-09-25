@@ -20,7 +20,7 @@ Contains a set of results from [CoreSocial.GetFriends()](coresocial.md). Dependi
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetResults()` | `Array<`[`CoreFriendCollectionEntry`](corefriendcollectionentry.md)`>` | Returns the list of friends contained in this set of results. This may return an empty table for players who have no friends. | None |
+| `GetResults()` | `Array`<[`CoreFriendCollectionEntry`](corefriendcollectionentry.md)> | Returns the list of friends contained in this set of results. This may return an empty table for players who have no friends. | None |
 | `GetMoreResults()` | [`CoreFriendCollection`](corefriendcollection.md) | Requests the next set of results for this list of friends and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. | None |
 
 ## Learn More

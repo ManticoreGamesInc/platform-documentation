@@ -28,5 +28,5 @@ Damageable is an interface which defines properties, events, and functions for o
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `damagedEvent` | `Event<Damageable damageable, Damage damage>` | Fired when the Damageable takes damage. | Server-Only |
-| `diedEvent` | `Event<Damageable damageable, Damage damage>` | Fired when the Damageable dies. | Server-Only |
+| `damagedEvent` | [`Event`](event.md)<`Damageable` damageable, [`Damage`](damage.md) damage> | Fired when the Damageable takes damage. | Server-Only |
+| `diedEvent` | [`Event`](event.md)<`Damageable` damageable, [`Damage`](damage.md) damage> | Fired when the Damageable dies. | Server-Only |

@@ -62,8 +62,8 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | `Event<`[`Weapon`](weapon.md), [`ImpactData`](impactdata.md)`>` | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
-| `projectileSpawnedEvent` | `Event<`[`Weapon`](weapon.md), [`Projectile`](projectile.md)`>` | Fired when a Weapon spawns a projectile. | None |
+| `targetImpactedEvent` | [`Event`](event.md)<[`Weapon`](weapon.md) weapon, [`ImpactData`](impactdata.md) impactData> | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
+| `projectileSpawnedEvent` | [`Event`](event.md)<[`Weapon`](weapon.md) weapon, [`Projectile`](projectile.md) projectile> | Fired when a Weapon spawns a projectile. | None |
 
 ## Examples
 
