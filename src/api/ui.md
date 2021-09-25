@@ -42,7 +42,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `UI.coreModalChangedEvent` | <[`CoreModalType`](enums.md#coremodaltype)`>` | Fired when the local player pauses the game or opens one of the built-in modal dialogs, such as the emote or mount picker. The modal parameter will be `nil` when the player has closed all built-in modals. | Client-Only |
+| `UI.coreModalChangedEvent` | [`Event`](event.md)<[`CoreModalType`](enums.md#coremodaltype)> | Fired when the local player pauses the game or opens one of the built-in modal dialogs, such as the emote or mount picker. The modal parameter will be `nil` when the player has closed all built-in modals. | Client-Only |
 
 ## Examples
 

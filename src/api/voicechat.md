@@ -19,8 +19,8 @@ The VoiceChat namespace contains functions for controlling voice chat in a game.
 | `VoiceChat.IsPlayerSpeaking(Player)` | `boolean` | Returns true if the given player is currently speaking in the game channel. | Client-Only |
 | `VoiceChat.GetPlayerSpeakingVolume(Player)` | `number` | Returns a value from 0.0 to 1.0 to indicate how loudly the given player is speaking. | Client-Only |
 | `VoiceChat.GetChannel(string channelName)` | [`VoiceChatChannel`](voicechatchannel.md) | Returns the channel with the given name, or `nil` if no such channel exists. | None |
-| `VoiceChat.GetChannels()` | `Array<`[`VoiceChatChannel`](voicechatchannel.md)`>` | Returns a list of voice chat channels. | None |
-| `VoiceChat.GetChannelsForPlayer(Player)` | `Array<`[`VoiceChatChannel`](voicechatchannel.md)`>` | Returns a list of voice chat channels that the given player is in. | None |
+| `VoiceChat.GetChannels()` | `Array`<[`VoiceChatChannel`](voicechatchannel.md)> | Returns a list of voice chat channels. | None |
+| `VoiceChat.GetChannelsForPlayer(Player)` | `Array`<[`VoiceChatChannel`](voicechatchannel.md)> | Returns a list of voice chat channels that the given player is in. | None |
 | `VoiceChat.IsPlayerInChannel(Player, string channelName)` | `boolean` | Returns `true` if the given player is in the specified channel, otherwise returns `false`. | None |
 | `VoiceChat.MutePlayerInChannel(Player, string channelName)` | `none` | Mutes the given player in the specified channel. | Server-Only |
 | `VoiceChat.UnmutePlayerInChannel(Player, string channelName)` | `none` | Unmutes the given player in the specified channel. | Server-Only |
