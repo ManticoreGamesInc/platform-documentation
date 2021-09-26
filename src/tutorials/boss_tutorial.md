@@ -2812,6 +2812,14 @@ Events.BroadcastToAllPlayers("EnableBossHealthBar")
 
 This event is broadcasted to all the players. This will change the color of the boss health bar to indicate to players that it is now vulnerable to damage.
 
+#### Add GeneratorDisabled Event
+
+```lua
+Events.Connect("GeneratorDisabled", GeneratorDisabled)
+```
+
+The **BossAIServer** needs to listen for when a generator has been disabled so it can update the `generatorsDisabled` disabled count. Add this code to the bottom of the **BossAIServer** script.
+
 ### Test the Game
 
 Test the game by running to each shield generator and turning it off. Make sure the following work.
