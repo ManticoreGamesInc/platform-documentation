@@ -73,6 +73,7 @@ nav:
           - Art in Core: references/art.md
           - Audio: references/audio.md
           - Binding Sets: references/binding_sets.md
+          - Cameras and Settings: references/cameras_and_settings.md
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Curves: references/curves.md
