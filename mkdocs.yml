@@ -77,7 +77,6 @@ nav:
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Curves: references/curves.md
-          - Custom Materials: references/custom_materials.md
           - Custom Properties: references/custom_properties.md
           - Damageable Objects: references/damageable_objects.md
           - Editor Shortcuts: references/editor_keybindings.md
@@ -89,6 +88,7 @@ nav:
           - Interaction System: references/interaction_system.md
           - Interconnected Games: references/interconnected_games.md
           - Leaderboards: references/leaderboards.md
+          - Materials: references/materials.md
           - Merged Models: references/merged_models.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
@@ -370,6 +370,7 @@ plugins:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
       redirect_maps:
+        references/custom_materials.md: references/materials.md
         getting_started/profiler.md: references/profiler.md
         getting_started/performance_panel.md: references/performance_panel.md
         tutorials/lua_basics_manticoin.md: tutorials/race_timer.md
