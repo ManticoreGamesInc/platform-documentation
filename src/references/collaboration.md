@@ -108,11 +108,11 @@ Although it is not possible for creators to be working on the same project in th
 
 ### Templates and Community Content
 
-Templates are a way to package things you have created in Core. They can be used to turn a kitbashed model into a spawnable asset, or create several copies of a prop in your game that can be updated all at once. They are also extremely useful for passing assets between games, either by publishing them to community content, or sharing them as files. To learn more about how to do this, see the [template reference](templates.md).
+Templates are a way to package things you have created in Core. They can be used to turn a kitbashed model into a spawnable asset, or create several copies of a prop in your game that can be updated all at once. They are also extremely useful for passing assets between games, either by publishing them to community content, or sharing them as files. To learn more about how to do this, see the [template reference](../references/templates.md).
 
 ### GitHub
 
-**Git** is a system for managing software projects with multiple contributors, and [GitHub](https://github.com/) is just one of many available systems. To learn more about setting up a project on GitHub, see the [GitHub tutorial](github.md)
+**Git** is a system for managing software projects with multiple contributors, and [GitHub](https://github.com/) is just one of many available systems. To learn more about setting up a project on GitHub, see the [GitHub tutorial](../tutorials/github.md)
 
 !!! tip
     Did you know that all of Core Documentation is hosted on GitHub for editing by the Core Creator Community? Click the pencil icon in the top right corner of any page to help improve documentation!
@@ -133,9 +133,9 @@ To avoid this problem, the best practice is to create **Folders** in Core that s
 
 ### Cloud Drives
 
-Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [Dropbox](https://www.dropbox.com/), [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions. Just make sure that you and your partners are not trying to write to the same files at the same time. It is not recommended to have your Core project directory set to a folder inside of a shared cloud drive, and write to it directly from Core, as it is difficult or impossible to guarantee that edits will not collide.
+Because Core maps are fairly small and easy to compress and send, they can easily be shared in cloud drives like [Dropbox](https://www.dropbox.com/), [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) or [Google Drive](https://drive.google.com/drive). The challenge with this is making sure that creators are always working on the most recent version of the project, as well as not overwriting other people's changes, but for a small team, this can be one of the easiest solutions. Just make sure that you and your partners are not trying to write to the same files at the same time. It is **not recommended** to have your Core project directory set to a folder inside of a shared cloud drive, and write to it directly from Core, as it is difficult or impossible to guarantee that edits will not collide.
 
-### VSCode Liveshare
+### VSCode Live Share
 
 Some code editors have an option to create a shared version of program files, that will allow creators to always keep their work synchronized. You can use [VSCode Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share) to set this up for a project. See the [lesson on setting up Core to use VSCode](https://learn.coregames.com/lessons/setting-up-your-coding-environment/) from the [Core Academy Intro to Lua Course](https://learn.coregames.com/courses/intro-to-lua/) to get started with this option.
 

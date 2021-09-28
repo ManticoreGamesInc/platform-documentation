@@ -67,7 +67,7 @@ Click **File** and select **Add local repository...**.
 
 1. In the **Local path** field, click **Choose** and navigate to your project folder.
 2. You will see a warning that says:
-    ``This directory does not appear to be a Git repository``
+    `This directory does not appear to be a Git repository`
 3. Click the **create a repository link**.
 4. The **Name** field should match the project folder name. Do not change this.
 5. Make sure the **Git ignore** field is set to **None**.
@@ -124,7 +124,9 @@ The Core Editor saves `.pbt` files with Linux line endings (LF) by default, to p
 
     ```sh
     # Core saves .pbt files as LF by default
-    *.pbt text eol=lf
+    *.pbt text eol=lf -delta
+    # Terrain files are binary and we don't need delta diffs for them
+    *.terrain binary -delta
     ```
 
 ### Make a Commit
@@ -139,7 +141,7 @@ What you write here will be your reference for the most recent changes made, so 
 
 ## Uploading a Project
 
-With a local git repository, you have a saved record of the different stages of a project. To back it up online, and to make it so that you can download the project onto different machines easily, you will need a **remote repository**, which will be another copy of the project files, and the record of the changes, hosted online.
+With a local Git repository, you have a saved record of the different stages of a project. To back it up online, and to make it so that you can download the project onto different machines easily, you will need a **remote repository**, which will be another copy of the project files, and the record of the changes, hosted online.
 
 ### Create a Remote Repository
 
@@ -269,6 +271,10 @@ If you are not collaborating, you can **merge** the changes on to your local mai
 ### Using Templates
 
 Creating **templates** is an easy way to have multiple contributors to a project, without having to use Git. See the [Template Reference](templates.md) for more information on how to do this.
+
+### Dealing with Serialization Changes
+
+Every time Core gets updated, an internal number, called `SerializationVersion` gets increased to signal that the format of your save files are up to date with the current Core version. This can cause merge conflicts when not handled correctly. We suggest you have one dedicated person on the team who handles the serialization changes commit. When Core updates, that person loads up the project, saves it with the new version and pushes just that change as an isolated commit that everyone can then pull.
 
 ## Version Control Terminology
 
