@@ -368,7 +368,7 @@ watchingCube:LookAtContinuous(movingCube)
 Task.Wait(5)
 
 --[[#Description
-    It's also possible to make an object always look at EVERY player. This obviously only works
+    It's also possible to make an object always look at EVERY player. This only works
     on objects that are in a client context, but the `LookAtLocalView` function causes a client-context
     object to always turn and face the local player.
 ]]

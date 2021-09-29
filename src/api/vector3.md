@@ -263,7 +263,7 @@ for i = 1, 10, 0.05 do
         -- So this makes it a really easy way to check if a vector is within a certain angle
         -- of another vector. (Especially if we combine it with the previous check to make sure
         -- they're facing the same direction!)
-        if (objToPlayer ^ objectAim).size < math.sin(15) then
+        if (objToPlayer ^ objectAim).size < math.sin(math.rad(15)) then
             print("I see you!")
         end
     end
