@@ -240,13 +240,11 @@ Both are perfectly valid, but following convention allows for the usage call to 
 ```lua
 -- Good
 table.sort(stuff, function(a, b)
-    local sum = a + b
-
-    return math.abs(sum) > 3
+    return GetValue(a) > GetValue(b)
 end)
 
 -- Bad
-table.sort(stuff, function(a, b) local sum = a + b return math.abs(sum) > 3 end)
+table.sort(stuff, function(a, b) return GetValue(a) > GetValue(b) end)
 ```
 
 - Put a space before and after operators, except when clarifying precedence.
