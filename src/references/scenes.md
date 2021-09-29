@@ -171,7 +171,7 @@ Any **Leaderboard** setup for your project will be available to all your scenes.
 
 ## Parties
 
-If players are in a party, and the party leader has the option **Play with Party** enabled, then when using `TransferToScene`, all party members will be transferred if the number of players in the party does not exceeded the maximum players allowed for the scene.
+If players are in a party, and the party leader has the option **Play with Party** enabled, then when using `TransferToScene`, all party members will be transferred if the number of players in the party does not exceed the maximum players allowed for the scene.
 
 ## Migrating from Child Games to Scenes
 
