@@ -36,7 +36,7 @@ There can be a maximum of 4 teams with **Team Versus** mode, and each player tha
 
 If the **Team Mode** on the **Team Settings** object is set to **Team Versus**, additional spawn points will be needed to create the teams (maximum of 4 teams). If only one spawn point is in the **Hierarchy**, or the **Team** property is the same for all spawn points, then all players will be on the same team.
 
-See the [Spawn Points](/references/spawnpoints.md) for more information.
+See [Spawn Points](/references/spawnpoints.md) for more information.
 
 ## Team Autobalancer
 
