@@ -30,7 +30,7 @@ On the **Team Settings** object, there is a drop down for the **Team Mode** that
 | Team Versus | Player are assigned to teams that are hostile to each other. |
 | Friendly | Players are friendly to all other players. |
 
-There can be a maximum of 4 teams with **Team Versus** mode, and each player that joins the game is randomly assigned to a team. This means that teams could become uneven due to the random team assigning. This can be solved from Lua using a script, or using the **Team Autobalance** component.
+There can be a maximum of 4 teams with **Team Versus** mode, and each player that joins the game is randomly assigned to a team. This means that teams could become uneven due to it being random on what team the player is put on. This can be solved from Lua using a script, or using the **Team Autobalance** component.
 
 ## Spawn Points
 
