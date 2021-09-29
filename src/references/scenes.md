@@ -171,7 +171,7 @@ Any **Leaderboard** setup for your project will be available to all your scenes.
 
 ## Parties
 
-Parties work differently for scenes. Currently, creators can not transfer all party members to another scene. Creators can transfer each party member individually to a scene, but it is not guaranteed all party members will be in the same scene instance.
+If players are in a party, and the party leader has the option **Play with Party** enabled, then when using `TransferToScene`, all party members will be transferred if the number of players in the party does not exceeded the maximum players allowed for the scene.
 
 ## Migrating from Child Games to Scenes
 
