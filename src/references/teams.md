@@ -12,6 +12,8 @@ tags:
 
 There can be different team modes in games, for example, players working together in a team to accomplish a goal (co-operative, team objective), or where all players are fighting against each other (deathmatch, free for all).
 
+Players on opposite teams will have collision, but players on the same team will not have collision, so they will walk through each other. This is the only way to have collision for certain groups of players.
+
 When creating a new project, the default mode will be **Friendly**. This means that players will not be able to apply damage to each other.
 
 ## Team Settings
