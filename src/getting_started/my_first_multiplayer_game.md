@@ -210,7 +210,7 @@ You can continue using these techniques to complete the appearance of your Death
 ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center loading="lazy" }
 
 !!! info
-    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](custom_materials.md).
+    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](materials.md).
 
 ## Customizing Gameplay
 

@@ -330,4 +330,4 @@ The final step is to add structures and props that finish the scene. See the [Co
 
 ## Learn More
 
-[Custom Materials](custom_materials.md) | [Complex Modeling](modeling.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
+[Custom Materials](materials.md) | [Complex Modeling](modeling.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
