@@ -129,7 +129,7 @@ There are more degrees of rotation available in the drop down menu.
 
    Every object in Core has a material slot. You can change the color and material of everything in the scene to exactly how you want it.
 
-   If you would like to edit your materials more, check out [Custom Materials](custom_materials.md).
+   If you would like to edit your materials more, check out [Custom Materials](materials.md).
 
    ![SceneCreation](../img/SceneCreation/image10.png "image_tooltip"){: .center loading="lazy" }
 

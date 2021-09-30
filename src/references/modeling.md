@@ -29,7 +29,7 @@ Creating new 3D models in Core can be done by positioning, scaling, and rotating
 
 ### Customizing Materials
 
-Materials can be added by dragging and dropping them onto an object, and customized through the **Properties** window. To learn more about materials and customization, see the [Custom Materials reference](custom_materials.md).
+Materials can be added by dragging and dropping them onto an object, and customized through the **Properties** window. To learn more about materials and customization, see the [Custom Materials reference](materials.md).
 
 ## Combining Objects into New Models
 
@@ -101,4 +101,4 @@ Merged models are a way of grouping objects together to reduce the rendering cal
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Tutorial](templates.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](custom_materials.md)
+[Community Content](community_content.md) | [Template Tutorial](templates.md) | [Modeling Tutorial](modeling_basics.md) | [Introduction to the Editor](editor_intro.md) | [Custom Materials](materials.md)
