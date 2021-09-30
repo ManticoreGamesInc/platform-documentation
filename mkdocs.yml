@@ -150,6 +150,7 @@ nav:
           - CustomMaterial: api/custommaterial.md
           - Damage: api/damage.md
           - DamageableObject: api/damageableobject.md
+          - DateTime: api/datetime.md
           - Decal: api/decal.md
           - Equipment: api/equipment.md
           - Event: api/event.md
