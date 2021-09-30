@@ -212,7 +212,7 @@ Vous pouvez continuer à employer ces techniques pour parachever l'aspect visuel
 ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center loading="lazy" }
 
 !!! info
-    Vous pouvez personnaliser les matériaux et leur application aux objets. Plus d'informations dans le tutoriel sur la personnalisation des matériaux [Custom Material Tutorial](custom_materials.md).
+    Vous pouvez personnaliser les matériaux et leur application aux objets. Plus d'informations dans le tutoriel sur la personnalisation des matériaux [Custom Material Tutorial](materials.md).
 
 ## Personnaliser la jouabilité
 
