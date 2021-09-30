@@ -55,7 +55,7 @@ Each animated mesh has four gear slots to which the Animated Mesh gear can be ad
 
 Materials can be added to non-humanoid animated meshes like any 3D object, to create a single uniform color, and can be added to the skeletal rig and individual gear like normal static meshes.
 
-To change the individual colors that are part of an animated mesh material, create a new custom material from the material that the mesh begins with. To learn more about using custom materials, see the [custom materials](custom_materials.md) reference.
+To change the individual colors that are part of an animated mesh material, create a new custom material from the material that the mesh begins with. To learn more about using custom materials, see the [custom materials](materials.md) reference.
 
 ## Animations
 
@@ -83,4 +83,4 @@ To attach objects to the appropriate mesh, you can use a script and the `AttachC
 
 ## Learn More
 
-[Example Code](../api/animatedmesh.md) | [Player Animations](../api/animations.md) | [Custom Materials](custom_materials.md)
+[Example Code](../api/animatedmesh.md) | [Player Animations](../api/animations.md) | [Custom Materials](materials.md)
