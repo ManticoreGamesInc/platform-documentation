@@ -391,7 +391,7 @@ plugins:
         tutorials/audio_reference.md: references/audio.md
         tutorials/collaboration_overview.md: references/collaboration.md
         tutorials/curves.md: references/curves.md
-        tutorials/custom_materials.md: references/custom_materials.md
+        tutorials/custom_materials.md: references/materials.md
         tutorials/custom_properties.md: references/custom_properties.md
         tutorials/dungeon_framework_reference.md: references/dungeon_framework.md
         editor_keybindings.md: references/editor_keybindings.md
