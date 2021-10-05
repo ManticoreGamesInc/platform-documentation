@@ -84,6 +84,7 @@ nav:
           - Frameworks:
               - Dungeon Framework Reference: references/dungeon_framework.md
           - Game Components: api/components.md
+          - Gatherables: references/gatherables.md
           - IK and Custom Animations: references/ik_anchors.md
           - Interaction System: references/interaction_system.md
           - Interconnected Games: references/interconnected_games.md
