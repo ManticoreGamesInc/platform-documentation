@@ -18,7 +18,7 @@ Gatherables work by providing features through the Custom Properties of differen
 
 The **Gatherables and Inventory** Example Project can be found in the **CREATE** menu alongside the Empty and Framework project options.
 
-![Gatherables and Inventory Example](../img/Gatherables/Gatherables_.png)
+![Gatherables and Inventory Example](../img/Gatherables/Gatherables_OpenExampleProject)
 
 1. In Core, click the **CREATE** tab at the top to open options for new and existing projects.
 2. In the top bar menu of **CREATE**, select **NEW PROJECT**.
@@ -105,7 +105,7 @@ You can choose which tools are valid to use with a gatherable object, as well as
 
 #### Change the Gatherable State
 
-Gatherables can show up as multiple different world models as they are gathered. A Gatherable with only one state, like the **Gatherable Cube** disappears when it is gathered, where as others, like **Gatherable Trees** and **Gatherable Stones** change their appearance each time they are gathered. To find an example of how these can look, search for ``Gatherable Tree`` in **Project Content** to find the three different models used as the tree is gathered.
+Gatherables can show up as multiple different world models as they are gathered. A Gatherable with only one state, like the **Gatherable Cube** disappears when it is gathered, where as others, like **Gatherable Trees** and **Gatherable Stones** change their appearance each time they are gathered. To find an example of how these can look, search for `Gatherable Tree` in **Project Content** to find the three different models used as the tree is gathered.
 
 ![Gatherable Tree States](../img/Gatherables/Gatherables_GatherableTreeStates.png))
 
@@ -151,7 +151,7 @@ To add a new tool you need to create a reference in the **Tools Database**. See 
 
 As in the example scenes, there are two types of database that can be added to a project, **Gatherables Database** and **Tools Database**. Both are needed to make the item systems and gathering possible. If you are starting from a new, empty scene, you will need to add these templates.
 
-1. In **Project Content**, search for ``database``.
+1. In **Project Content**, search for `database`.
 2. Find the **Gatherables Database** template and add it to the scene.
 3. Find the **Tools Database** template and add it to the scene.
 
@@ -173,7 +173,7 @@ The easiest way to add an item to the database is to duplicate an existing entry
 
 ## Currency
 
-## Icons 
+## Icons
 -->
 
 ---
