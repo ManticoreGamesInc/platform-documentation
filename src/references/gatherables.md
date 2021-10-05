@@ -18,7 +18,7 @@ Gatherables work by providing features through the Custom Properties of differen
 
 The **Gatherables and Inventory** Example Project can be found in the **CREATE** menu alongside the Empty and Framework project options.
 
-![Gatherables and Inventory Example]()
+![Gatherables and Inventory Example](../img/Gatherables/Gatherables_.png)
 
 1. In Core, click the **CREATE** tab at the top to open options for new and existing projects.
 2. In the top bar menu of **CREATE**, select **NEW PROJECT**.
@@ -58,13 +58,13 @@ The second example scene shows another way that Gatherables can be used, with a 
 1. Open the **Scenes** window and find the **Gatherables - Isometric** scene.
 2. Click the menu icon and select **Load Scene**.
 
-![Open Isometric Scene]
+![Open Isometric Scene](../img/Gatherables/SelectIsometricScene.png)
 
 ## README's
 
 Each module of the Gatherables and Inventory system has its own detailed explanation inside of the project. To find all the README files, open **Project Content** and search for `readme`. Double click each one to open in the script editor.
 
-![All README Files]()
+![All README Files](../img/Gatherables/Gatherables_AllReadmeFiles.png)
 
 ## Gatherable Objects
 
@@ -107,7 +107,7 @@ You can choose which tools are valid to use with a gatherable object, as well as
 
 Gatherables can show up as multiple different world models as they are gathered. A Gatherable with only one state, like the **Gatherable Cube** disappears when it is gathered, where as others, like **Gatherable Trees** and **Gatherable Stones** change their appearance each time they are gathered. To find an example of how these can look, search for ``Gatherable Tree`` in **Project Content** to find the three different models used as the tree is gathered.
 
-![Gatherable Tree Templates]()
+![Gatherable Tree States](../img/Gatherables/Gatherables_GatherableTreeStates.png))
 
 1. Create models for each state your gatherable should have.
 2. Create a new template for each state. These do not need to be networked, because they will be spawned in a Client Context. See the [Templates reference](templates.md) for more information.
