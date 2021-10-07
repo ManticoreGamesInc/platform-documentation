@@ -201,7 +201,7 @@ end
 `MovePlayersToStart` will get called later by the race task. This function handles disabling the player movement, setting position and rotation by looping over all players that are currently in the game.
 
 !!! info "ipairs()"
-    The `ipairs()` function will iterate over index value pairs. These are key value pairs where the keys are indices in an array. The order that elements are returned is guaranteed to be in the order of the indices, and keys are are not an integer will be skipped.
+    The `ipairs()` function will iterate over index value pairs. These are key value pairs where the keys are indices in an array. The order that elements are returned is guaranteed to be in the order of the indices, and keys that are not an integer will be skipped over.
 
 ```lua linenums="1"
 local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
