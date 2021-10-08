@@ -8,7 +8,7 @@ tags:
 
 # UIScrollPanel
 
-A UIControl that supports scrolling a child UIControl that is larger than itself.
+A UIControl that supports scrolling a child UIControl that is larger than itself. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 

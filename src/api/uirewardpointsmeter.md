@@ -8,4 +8,4 @@ tags:
 
 # UIRewardPointsMeter
 
-A UIControl that displays the a players progress towards the daily Reward Points cap.
+A UIControl that displays the a players progress towards the daily Reward Points cap. Inherits from [UIControl](uicontrol.md).
