@@ -8,7 +8,7 @@ tags:
 
 # UIProgressBar
 
-A UIControl that displays a filled rectangle which can be used for things such as a health indicator.
+A UIControl that displays a filled rectangle which can be used for things such as a health indicator. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 
@@ -57,7 +57,7 @@ function Tick(deltaTime)
     -- Get a percentage representing how much health the player currently has
     local healthPercent = player.hitPoints / player.maxHitPoints
 
-    -- Update the fill of the progress bar 
+    -- Update the fill of the progress bar
     propUIProgressBar.progress = healthPercent
 
     --=======================================================================================================
