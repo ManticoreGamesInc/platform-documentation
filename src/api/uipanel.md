@@ -8,7 +8,7 @@ tags:
 
 # UIPanel
 
-A UIControl which can be used for containing and laying out other UI controls.
+A UIControl which can be used for containing and laying out other UI controls. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 

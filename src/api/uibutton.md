@@ -8,7 +8,7 @@ tags:
 
 # UIButton
 
-A UIControl for a button, should be inside client context.
+A UIControl for a button, should be inside client context. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 

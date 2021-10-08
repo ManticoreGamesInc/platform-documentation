@@ -8,7 +8,7 @@ tags:
 
 # UIPerkPurchaseButton
 
-A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games.
+A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 

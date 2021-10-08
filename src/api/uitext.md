@@ -8,7 +8,7 @@ tags:
 
 # UIText
 
-A UIControl which displays a basic text label.
+A UIControl which displays a basic text label. Inherits from [UIControl](uicontrol.md).
 
 ## Properties
 
