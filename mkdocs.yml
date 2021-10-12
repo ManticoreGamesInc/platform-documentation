@@ -61,6 +61,7 @@ nav:
               - Lightbulb: tutorials/lua_basics_lightbulb.md
               - Race Timer: tutorials/race_timer.md
               - Boss Fight: tutorials/boss_tutorial.md
+              - Cosmetic System: tutorials/cosmetic_tutorial.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
