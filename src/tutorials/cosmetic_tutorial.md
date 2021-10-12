@@ -6,9 +6,6 @@ tags:
     - Tutorial
 ---
 
-<!-- TODO: Add forum link -->
-<!-- TODO: Send Zaz CC stuff -->
-
 # Creating a Cosmetic System
 
 ## Overview
@@ -61,7 +58,7 @@ When positioning the trigger, make sure it is high enough up, otherwise the play
 
 1. Create new **Trigger** object.
 2. Move the trigger so it is on the platform object (found in the **Envir** group).
-3. Change the trigger shape to **Capsule**.
+3. Change the trigger **Shape** to **Capsule** in the **Properties** panel.
 4. Scale the trigger to cover the platform.
 
 ![!Trigger Properties](../img/CosmeticTutorial/trigger_properties.png){: .center loading="lazy" }
@@ -112,7 +109,7 @@ local function DisablePlayer(player)
 end
 ```
 
-Create the `DisablePlayer` function. This will handle disabling the player when they enter the trigger. The `desiredFacingMode` property for the player is set to `FACE_MOVEMENT`, otherwise the player's character can end up facing away from the camera.
+Create the `DisablePlayer` function. This will stop the player being able to move their character, or use their mount while the cosmetic UI is open. The `desiredFacingMode` property for the player is set to `FACE_MOVEMENT`, otherwise the player's character can end up facing away from the camera.
 
 #### Create EnablePlayer Function
 
@@ -124,7 +121,7 @@ local function EnablePlayer(player)
 end
 ```
 
-Create the `EnablePlayer` function. This will handle enabling the player when they close the cosmetic UI.
+Create the `EnablePlayer` function. This will give back control to the player's character so they can move around and use their mount when the cosmetic UI has been closed.
 
 #### Create OnTriggerOverlap Function
 
@@ -144,12 +141,14 @@ local function OnTriggerOverlap(trigger, obj)
 end
 ```
 
-Create the `OnTriggerOverlap` function. This function will check the overlapping object to see if it is a **Player** type. If it is a player, then `DisablePlayer` is called to disable the players control.
+Create the `OnTriggerOverlap` function. This function will check the object that entered the bounds of the trigger is a **Player** type. If it is a player that entered the trigger, then `DisablePlayer` is called to disable the players control of their character.
 
 ```lua
 obj:SetWorldPosition(Vector3.New(triggerPos.x, triggerPos.y, triggerPos.z))
 obj:SetWorldRotation(Rotation.New(0, 0, triggerRot.z))
 ```
+
+The position and rotation of the player needs to be set. The position of the player can be set using the position of the trigger. The `z` rotation of the trigger is used for the player so the player's character faces the direction of the trigger. This will make the player's character face the cosmetic camera.
 
 The position and rotation of the player needs to be set. You can use the position and rotation of the trigger. Using the rotation gives you more flexibility on the direction a player is facing.
 
@@ -216,7 +215,7 @@ Test the game and make sure the following work.
 
 - Player is positioned when entering the trigger.
 - Player is rotated to face the camera when entering the trigger.
-- Movement controls are disabled.
+- Movement controls are disabled, so movement inputs do not move the player.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -533,7 +532,7 @@ Test the game and make sure the following work.
 - Cosmetic UI panel shows when player enters the trigger.
 - Buttons and panels update when clicking on them.
 - Clicking the **Close** button closes the UI.
-- Camera override is cleared, and player can move.
+- Camera override is cleared and transitions back to the default camera.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1016,6 +1015,8 @@ The UI items in the panels will be white, this will be solved in the next sectio
 ## Setup UI Camera Capturing
 
 In this section you will set up the camera capturing template and modify the **CosmeticUIClient** script so that the cosmetic items show in the UI panels for each category.
+
+![!UI Capture](../img/CosmeticTutorial/camera_capture_ui_items.png){: .center loading="lazy" }
 
 ### Add UI Capture Template
 
@@ -2378,7 +2379,7 @@ There are other solutions that can be used if networked objects is a big concern
 
 The [finished project](https://www.coregames.com/games/3b7ab0/cosmetic-tutorial) for this tutorial is available to play and edit.
 
-For feedback and questions, please reach out to us on this tutorial's [forum thread](LINK HERE).
+<!-- For feedback and questions, please reach out to us on this tutorial's [forum thread](LINK HERE). -->
 
 ## Summary
 
