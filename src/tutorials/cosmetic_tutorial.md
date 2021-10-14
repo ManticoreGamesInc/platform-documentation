@@ -2379,7 +2379,7 @@ There are other solutions that can be used if networked objects is a big concern
 
 The [finished project](https://www.coregames.com/games/3b7ab0/cosmetic-tutorial) for this tutorial is available to play and edit.
 
-<!-- For feedback and questions, please reach out to us on this tutorial's [forum thread](LINK HERE). -->
+For feedback and questions, please reach out to us on this tutorial's [forum thread](https://forums.coregames.com/t/advanced-scripting-in-core-cosmetic-system-tutorial/2183).
 
 ## Summary
 
