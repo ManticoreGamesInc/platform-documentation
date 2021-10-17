@@ -176,7 +176,7 @@ local MOUSE_IMAGE = script:GetCustomProperty("MouseImage"):WaitForObject()
 local CONTROLLER_IMAGE = script:GetCustomProperty("ControllerImage"):WaitForObject()
 
 -- Fired when the input has changed.
-local function updateInputImage(player, changedInputType)
+function UpdateInputImage(player, changedInputType)
     -- Check the changed input type by comparing with the
     -- InputType enum.
     if changedInputType == InputType.KEYBOARD_AND_MOUSE then
@@ -188,10 +188,10 @@ local function updateInputImage(player, changedInputType)
     end
 end
 
-Input.inputTypeChangedEvent:Connect(updateInputImage)
+Input.inputTypeChangedEvent:Connect(UpdateInputImage)
 
 -- Update the input type image first time
-updateInputImage(Game.GetLocalPlayer(), Input.GetCurrentInputType())
+UpdateInputImage(Game.GetLocalPlayer(), Input.GetCurrentInputType())
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Input.GetCurrentInputType](input.md) | [KEYBOARD_AND_MOUSE](enums.md#keyboard_and_mouse)
