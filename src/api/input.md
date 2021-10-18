@@ -176,7 +176,7 @@ local MOUSE_IMAGE = script:GetCustomProperty("MouseImage"):WaitForObject()
 local CONTROLLER_IMAGE = script:GetCustomProperty("ControllerImage"):WaitForObject()
 
 -- Fired when the input has changed.
-function UpdateInputImage(player, changedInputType)
+local function UpdateInputImage(player, changedInputType)
     -- Check the changed input type by comparing with the
     -- InputType enum.
     if changedInputType == InputType.KEYBOARD_AND_MOUSE then
