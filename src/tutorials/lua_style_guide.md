@@ -17,13 +17,7 @@ This document aims to provide a general overview of what we at Manticore see as 
 ```lua
 local myImport = require("assetID")
 
-myImport.Foo()
-```
-
-Current syntax:
-
-```lua
-local myImport = World.FindObjectByID("assetID")
+...
 
 myImport.Foo()
 ```
