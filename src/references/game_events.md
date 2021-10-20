@@ -171,4 +171,4 @@ end
 
 ## Learn More
 
-[CoreGameEvent](../api/coregameevent.md) | [CoreGameEventCollection](../api/coregameeventcollection.md) | [CoreGameEventState](../api/enums.mdcoregameeventstate)
+[CoreGameEvent](../api/coregameevent.md) | [CoreGameEventCollection](../api/coregameeventcollection.md) | [CoreGameEventState](../api/enums.md#coregameeventstate)
