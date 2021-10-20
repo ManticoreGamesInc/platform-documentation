@@ -10,19 +10,23 @@ tags:
 
 ## Overview
 
-Events are designed to help increase Engagement and Retention in your games. Users will be able to browse Events for all games or view Events specific to games on the game details page.
+**Game Events** are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events creator for specific games on the game details page.
 
-Events are available to everyone, however, Creators in the Perks Program will have the ability to create more events, and events with a longer length.
+**Game Events** are available to everyone, however, Creators in the Perks Program will have the ability to create more events, and with a longer length.
+
+**Game Events** are different to the [Events API](/api/events.md). The Events API is used for Broadcasting from Lua scripts.
+
+<!-- TODO: Add image of events in the client when it's live. -->
 
 ## Accessing the Events Page
 
-Events are created from **Events** page in the **Creator Portal** area on the [Core Games Website](https://coregames.com). Accessing the **Creator Portal** can be done by logging in, and selecting **Creator Portal** from the drop down menu.
+**Game Events** are created from the **Events** page in the **Creator Portal** area on the [Core Games Website](https://coregames.com). Accessing the **Creator Portal** can be done by logging in, and selecting **Creator Portal** from the drop down menu.
 
 ![!Creator Portal Menu](../img/GameEvents/creator_portal_menu.png){: .center loading="lazy" }
 
 ![!Events Menu](../img/GameEvents/events_menu.png){: .center loading="lazy" }
 
-## Events List Page
+## Game Events List Page
 
 When you access the **Events** page, there will see a list of all the events that have been created, along with filter options. By default, the **Scheduled** and **Active** filters for the event state will be selected so that the events list only contains events for the games that match those filters.
 
@@ -38,7 +42,7 @@ On the **Events** page, click on the button **Create Event**, which will take yo
 
 When a game is selected for the event, the drop down will display to the right of the game, how many events have been created, and the maximum amount that can be created for each game.
 
-For creators in the Perk Program, 15 slots are available per game, and 5 slots available to creators not in the Perks Program. Slots will be freed up when events have finished, or been cancelled.
+For creators in the Perk Program, 15 current and future events are available per game, and 5 total events available to creators not in the Perks Program.
 
 ![!Event Limit](../img/GameEvents/game_limit.png){: .center loading="lazy" }
 
@@ -100,7 +104,7 @@ Each event listed on the **Events** page, will have a button on the right side t
 
 ## Registering for an Event
 
-Players can register for events from the [Events](https://coregames.com/events) page, or from inside **Core**. Players registering for an event will allow them keep track of specific events they are interested in, and receive notifications when events begin.
+Players can register for events from the [Events page](https://coregames.com/events), from the **Core** client, or in the games themselves if creators implement a UI Event RSVP Button. Players registering for an event will allow them keep track of specific events they are interested in, and receive notifications when events begin.
 
 Players can also unregister from events at anytime, this will remove the event from the player's event list, and they will not receive a notification when the event begins.
 
@@ -118,7 +122,7 @@ Each game event created will have a **Game Event Id** that can be copied and add
 
 ## Game Events API
 
-There is an API that can be accessed from Lua scripts that can retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
+The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts that can retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
 
 For example, displaying a custom countdown timer for an event that will begin can be done by fetching the game event data.
 
