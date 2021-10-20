@@ -8,22 +8,36 @@ tags:
 
 # Game Events
 
----
-
 ## Overview
+
+[Game Events](/references/game_events.md) are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
 
 In this tutorial you will learn how to award double coins when objects are killed while the event is active. After the event has ended, players will earn coins at the standard rate.
 
 This can be used for various resources, such as awarding double XP, wood, metals, etc.
 
 * **Completion Time:** ~1 hour
-* **Knowledge Level:** None
+* **Prerequisite Skills:** None
 * **Skills you will learn:**
     * Creating a weapon pickup.
     * Creating damageable objects the player can kill.
     * Creating a game event.
     * Retrieving game event data with Lua.
     * Awarding double coins when objects are killed while the game event is active.
+
+## Create Game Event
+
+In this section you will be creating the game event first.
+
+### Publish Game
+
+To create a game event for your game, the game needs to be published so that it is selectable from the Game Events page. If you are modifying an existing game, consider having a unlisted version for testing.
+
+### Create Game Event
+
+Login to the **Creator Dashboard** on the [Core Games website](https://coregames.com) and create a new game event. For testing, set the start date and time to as soon as possible so you don't need to wait too long to test the game event in your game.
+
+For more in depth explanation of Game Events, see the [Game Events page](/references/game_events.md).
 
 ## Create Damageable Objects
 
@@ -108,6 +122,26 @@ Add the above variables to the script.
 | `eventActive` | When the event is active, this will become true, and be used later in the code to check if the game event is active. |
 | `task` | A reference to a spawned task that will be created later. This is set here so the task can be cancelled later if needed. |
 
+### Copy Game Event ID
+
+From the events page, copy the **Game Event Id** for the game event you created earlier.
+
+![!Created Event](../img/GameEventsTutorial/created_event.png){: .center loading="lazy" }
+
+#### Set gameID and eventID Variables
+
+The game event ID that you copied is a string containing the game ID and event ID separated by a hyphen (-).
+
+For example:
+
+```lua
+-- Game ID - Event ID
+-- 43e20f9cbf1243acac452a66ed5ac1zc-c833c6898a99454daf96e7159c46af5z
+```
+
+- Take the first part of that string, and update the `gameID` variable.
+- Take the second part of that string, and update the `eventID` variable.
+
 ### Create CheckEventState Function
 
 ```lua
@@ -132,13 +166,13 @@ Create the `CheckEventState` function at the end of the script. This function wi
 local eventData = CorePlatform.GetGameEvent(gameID, eventID)
 ```
 
-The `GetGameEvent` function requires the ID for the game, and game event that you want to retrieve the data for. These ID values can be retrieved from the Game Events page on the Core website in the **Creator Portal** section. Later on you will be creating a game event, and updating the `gameID` and `eventID` variables.
+The [GetGameEvent](/api/coregameevent.md) function requires the ID for the game, and game event that you want to retrieve the data for. These ID values can be retrieved from the Game Events page on the Core website in the **Creator Portal** section. Later on you will be creating a game event, and updating the `gameID` and `eventID` variables.
 
 ```lua
 if eventData.state == CoreGameEventState.ACTIVE then
 ```
 
-If the game event data exists, then you can check the state of the game event by using the `CoreGameEventState.ACTIVE` enum. If the game event is in an active state, then the variable `eventActive` is set to true, otherwise set to false. By switching the value of the `eventActive` variable, you can automatically have double coins turn on and off when the game event begins and ends.
+If the game event data exists, then you can check the state of the game event by using the [CoreGameEventState.ACTIVE enum](/api/enums.md#coregameeventstate). If the game event is in an active state, then the variable `eventActive` is set to true, otherwise set to false. By switching the value of the `eventActive` variable, you can automatically have double coins turn on and off when the game event begins and ends.
 
 ### Create Task
 
@@ -148,7 +182,7 @@ task.repeatCount = -1
 task.repeatInterval = 60
 ```
 
-A task is created that will repeat forever every 60 seconds. This task will call the `CheckEventState` function, which will check the game event state. The reason a task is used here, is that you need to still periodically check the game event state to update the `eventActive` variable. Eventually the game event will end, and if a server instance continues to stay active after the game event has finished, players would still receive double coins.
+A task is created that will repeat forever every 60 seconds. This task will call the [CoreGameEventState](/api/enums.md#coregameeventstate) function, which will check the game event state. The reason a task is used here, is that you need to still periodically check the game event state to update the `eventActive` variable. Eventually the game event will end, and if a server instance continues to stay active after the game event has finished, players would still receive double coins.
 
 ### Create OnDied Function
 
@@ -333,45 +367,19 @@ Add the **UI Event RSVP Button** from **Platform Tools** in **Core Content** to 
 
 ![!Event Button](../img/GameEventsTutorial/event_button_added.png){: .center loading="lazy" }
 
-## Create Game Event
+### Copy Game Event Id
 
-In this section you will be creating the game event and updating the `gameID`, and `eventID` variable, and also the UI game event button.
-
-### Publish Game
-
-To create a game event for your game, the game needs to be published so that it is selectable from the Game Events page. If you are modifying an existing game, consider having a unlisted version for testing.
-
-### Create Game Event
-
-Login to the **Creator Dashboard** on the [Core Games](https://coregames.com) website and create a new game event. For testing, set the start date and time to as soon as possible so you don't need to wait too long to test the game event in your game.
-
-For more in depth explanation of Game Events, see the [Game Events](/references/game_events.md) page.
-
-When you have created a game event, copy the **Game Event Id** for the game event you created from the game events list page.
+From the events page, copy the **Game Event Id** for the game event you created earlier.
 
 ![!Created Event](../img/GameEventsTutorial/created_event.png){: .center loading="lazy" }
 
-### Update UI Event RSVP Button
+### Set Event ID Property
 
-Now you have created a game event, and have the game event ID copied. You can paste the game event ID into the **Event ID** property in the **Properties Panel**.
+With the **Game Event Id** copied, paste it into the **Event ID** property in the **Properties Panel**.
 
-![!Created Event](../img/GameEventsTutorial/created_event.png){: .center loading="lazy" }
+![!Created Event](../img/GameEventsTutorial/update_event_button.png){: .center loading="lazy" }
 
-### Update WatchDamageableObjectsServer Script
-
-The game event ID that you copied is a string containing the game ID and event ID separated by a hyphen (-).
-
-For example:
-
-```lua
--- Game ID - Event ID
--- 43e20f9cbf1243acac452a66ed5ac1zc-c833c6898a99454daf96e7159c46af5z
-```
-
-- Take the first part of that string, and update the `gameID` variable.
-- Take the second part of that string, and update the `eventID` variable.
-
-### Test the Game
+## Test the Game
 
 Test the game and make sure the UI game event button shows a valid game event. If the game event has not started, then the event button will have the time remaining before it begins below it.
 
