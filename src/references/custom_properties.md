@@ -141,7 +141,7 @@ This is automatically generated in the **Custom** section of the **Properties** 
 
 ## Changing Custom Property Values Through Script
 
-Custom properties can by edited during runtime through scripts if the object and custom property is networked.
+Custom properties can by edited during runtime through scripts if the object is networked and custom properties are dynamic.
 
 ### Enable Networking
 
@@ -150,22 +150,22 @@ Firstly, the object and the custom property must have networking enabled for the
 1. Right-click on the object.
 2. Click **Enable Networking**. The object should have `(networked)` at the end of its name when viewed in the **Hierarchy**.
 3. Right-click on the custom property that will be edited during runtime.
-4. Click **Enable Property Networking**. The custom property should be orange now.
+4. Click **Enable Dynamic Property**. The custom property should be orange now.
 
 ![Networked Object](../img/CustomProperties/NetworkedObject.png){: .center loading="lazy" }
 
-![Enable Property Networking](../img/CustomProperties/EnablePropertyNetworking.png){: .center loading="lazy" }
+![Enable Dynamic Property](../img/CustomProperties/EnablePropertyNetworking.png){: .center loading="lazy" }
 
-![Networked Custom Property](../img/CustomProperties/NetworkedCustomProperty.png){: .center loading="lazy" }
+![Dynamic Custom Property](../img/CustomProperties/NetworkedCustomProperty.png){: .center loading="lazy" }
 
 ### Change the Value of the Custom Property
 
-To change the value of the custom property of a CoreObject use the `CorObject:SetNetworkedCustomProperty()` function of **CoreObject**. More information in the [CoreObject API Reference](../api/coreobject.md#setnetworkedcustomproperty).
+To change the value of the custom property of a CoreObject use the `CorObject:SetCustomProperty()` function of **CoreObject**. More information in the [CoreObject API Reference](../api/coreobject.md#setcustomproperty).
 
 For example, to set the `TimeRemaining` custom property of a `Cube` to `10` (in seconds), type:
 
 ```lua
-CubeObject:SetNetworkedCustomProperty("TimeRemaining", 10)
+CubeObject:SetCustomProperty("TimeRemaining", 10)
 ```
 
 This will change the value of the custom property to be `10` and will be replicated to the client.
@@ -175,7 +175,7 @@ This will change the value of the custom property to be `10` and will be replica
 
 ### Listening to the Custom Property Changed Event
 
-When a custom property is changed, an event, `CoreObject.networkedCustomPropertyChangedEvent`, is fired on the object. More information can be found in the [CoreObject API Reference](../api/coreobject.md#networkedpropertychangedevent).
+When a custom property is changed, an event, `CoreObject.customPropertyChangedEvent`, is fired on the object. More information can be found in the [CoreObject API Reference](../api/coreobject.md#customPropertyChangedEvent).
 
 An example listener to this event:
 
@@ -186,7 +186,7 @@ function OnCustomPropertyChanged(coreObject, customPropertyName)
     print(string.format("New value of %s for %s is now %s", customPropertyName, coreObject.name, newValue))
 end
 
-CorObject.networkedPropertyChangedEvent:Connect(OnCustomPropertyChanged)
+CorObject.customPropertyChangedEvent:Connect(OnCustomPropertyChanged)
 ```
 
 ## Simple Data Types
@@ -301,8 +301,8 @@ More information can be found at the [Leaderboards Tutorial](../references/leade
 [CoreObjectReference API](../api/coreobjectreference.md) |
 [CoreObject API](../api/coreobject.md) |
 [CoreObject GetCustomProperty](../api/coreobject.md#getcustomproperty) |
-[CoreObject SetNetworkedCustomProperty](../api/coreobject.md#setnetworkedcustomproperty) |
-[CoreObject NetworkedPropertyChangedEvent](../api/coreobject.md#networkedpropertychangedevent) |
+[CoreObject SetCustomProperty](../api/coreobject.md#setcustomproperty) |
+[CoreObject CustomPropertyChangedEvent](../api/coreobject.md#customPropertyChangedEvent) |
 [Data Types Reference](../tutorials/scripting_intro.md#data-types) |
 [Color API](../api/color.md) |
 [Rotation API](../api/rotation.md) |
