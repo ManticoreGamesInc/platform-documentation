@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-**Game Events** are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events creator for specific games on the game details page.
+**Game Events** are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
 
 **Game Events** are available to everyone, however, Creators in the Perks Program will have the ability to create more events, and with a longer length.
 
