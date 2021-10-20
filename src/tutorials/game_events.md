@@ -411,4 +411,4 @@ Game Events can be used for a wide range of things for your game to encourage pl
 
 ## Learn More
 
-[Perks Program](/references/perks/program.md) | [Game Events Reference](/references/game_events.md) | [Damageable Objects](/references/damageable_objects.md)
+[Perks Program](../references/perks/program.md) | [Game Events Reference](../references/game_events.md) | [Damageable Objects](../references/damageable_objects.md)
