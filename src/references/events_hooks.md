@@ -173,15 +173,15 @@ See [Events](../api/events.md) API and [Platform Limits](https://forums.coregame
 
 The functions in the **Events** namespace have a limit of 128 bytes per broadcast. Broadcasts have higher priority over other methods for transferring data over the network. When needing to transfer far more data over the network, there are better alternatives that can be used.
 
-- Networked Properties
+- Dynamic Properties
 
-    Using networked properties is a way to transfer data to all clients. This is very useful when clients need to know about the game state, or setting AI animations. Networked properties are replicated to all clients, this has the benefit of all clients receiving the change, however it increases network traffic. The data is replicated as soon as possible, but changing a lot of properties, or having a large amount of data can cause a delay.
+    Using dynamic properties is a way to transfer data to all clients. This is very useful when clients need to know about the game state, or setting AI animations. Dynamic properties are replicated to all clients, this has the benefit of all clients receiving the change, however it increases network traffic. The data is replicated as soon as possible, but changing a lot of properties, or having a large amount of data can cause a delay.
 
 - Private Networked Data
 
     This is ideal for transferring large chunks of data to the player. For example, loading the player's inventory from **Storage** which could contain a large number of items. This has the added benefit where data is replicated to the receiving client and not all clients.
 
-See [SetNetworkedCustomProperty](../api/coreobject.md#setnetworkedcustomproperty) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
+See [SetCustomProperty](../api/coreobject.md#setcustomproperty) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
 
 ## Object Events
 
