@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-[Game Events](/references/game_events.md) are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
+[Game Events](../references/game_events.md) are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
 
 In this tutorial you will learn how to award double coins when objects are killed while the event is active. After the event has ended, players will earn coins at the standard rate.
 
@@ -37,7 +37,7 @@ To create a game event for your game, the game needs to be published so that it 
 
 Login to the **Creator Dashboard** on the [Core Games website](https://coregames.com) and create a new game event. For testing, set the start date and time to as soon as possible so you don't need to wait too long to test the game event in your game.
 
-For more in depth explanation of Game Events, see the [Game Events page](/references/game_events.md).
+For more in depth explanation of Game Events, see the [Game Events page](../references/game_events.md).
 
 ## Create Damageable Objects
 
@@ -166,13 +166,13 @@ Create the `CheckEventState` function at the end of the script. This function wi
 local eventData = CorePlatform.GetGameEvent(gameID, eventID)
 ```
 
-The [GetGameEvent](/api/coregameevent.md) function requires the ID for the game, and game event that you want to retrieve the data for. These ID values can be retrieved from the Game Events page on the Core website in the **Creator Portal** section. Later on you will be creating a game event, and updating the `gameID` and `eventID` variables.
+The [GetGameEvent](../api/coregameevent.md) function requires the ID for the game, and game event that you want to retrieve the data for. These ID values can be retrieved from the Game Events page on the Core website in the **Creator Portal** section. Later on you will be creating a game event, and updating the `gameID` and `eventID` variables.
 
 ```lua
 if eventData.state == CoreGameEventState.ACTIVE then
 ```
 
-If the game event data exists, then you can check the state of the game event by using the [CoreGameEventState.ACTIVE enum](/api/enums.md#coregameeventstate). If the game event is in an active state, then the variable `eventActive` is set to true, otherwise set to false. By switching the value of the `eventActive` variable, you can automatically have double coins turn on and off when the game event begins and ends.
+If the game event data exists, then you can check the state of the game event by using the [CoreGameEventState.ACTIVE enum](../api/enums.md#coregameeventstate). If the game event is in an active state, then the variable `eventActive` is set to true, otherwise set to false. By switching the value of the `eventActive` variable, you can automatically have double coins turn on and off when the game event begins and ends.
 
 ### Create Task
 
@@ -182,7 +182,7 @@ task.repeatCount = -1
 task.repeatInterval = 60
 ```
 
-A task is created that will repeat forever every 60 seconds. This task will call the [CoreGameEventState](/api/enums.md#coregameeventstate) function, which will check the game event state. The reason a task is used here, is that you need to still periodically check the game event state to update the `eventActive` variable. Eventually the game event will end, and if a server instance continues to stay active after the game event has finished, players would still receive double coins.
+A task is created that will repeat forever every 60 seconds. This task will call the [CoreGameEventState](../api/enums.md#coregameeventstate) function, which will check the game event state. The reason a task is used here, is that you need to still periodically check the game event state to update the `eventActive` variable. Eventually the game event will end, and if a server instance continues to stay active after the game event has finished, players would still receive double coins.
 
 ### Create OnDied Function
 
