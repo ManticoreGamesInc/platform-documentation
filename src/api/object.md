@@ -81,7 +81,7 @@ In this example, multiple copies of the same script are placed into the scene. A
 
 For this to work all scripts should be in a client context. In order to visualize the effect, objects (e.g. a Cubes) can be added as children of the scripts.
 
-As the name implies, `clientUserData` is a non-networked property on the client only.
+As the name implies, `clientUserData` is a non-dynamic property on the client only.
 
 ```lua
 local allScripts = World.FindObjectsByName(script.name)
@@ -128,7 +128,7 @@ Example using:
 
 In this example we are trying to figure out which player was the first to join the game and promote them with some gameplay advantage. That's easy for the first player joining, but because players can join and leave at any moment, the first player to join might leave, at which point we need to promote the next (oldest) player. To accomplish this, we keep count of how many players have joined and save that number onto each player's `serverUserData`--a kind of waiting list.
 
-As the name implies, `serverUserData` is a non-networked property on the server only.
+As the name implies, `serverUserData` is a non-dynamic property on the server only.
 
 ```lua
 local primaryPlayer = nil

@@ -145,6 +145,8 @@ nav:
           - CoreFriendCollection: api/corefriendcollection.md
           - CoreFriendCollectionEntry: api/corefriendcollectionentry.md
           - CoreGameCollectionEntry: api/coregamecollectionentry.md
+          - CoreGameEvent: api/coregameevent.md
+          - CoreGameEventCollection: api/coregameeventcollection.md
           - CoreGameInfo: api/coregameinfo.md
           - CoreMesh: api/coremesh.md
           - CoreObject: api/coreobject.md
@@ -200,6 +202,7 @@ nav:
           - UIButton: api/uibutton.md
           - UIContainer: api/uicontainer.md
           - UIControl: api/uicontrol.md
+          - UIEventRSVPButton: api/uieventrsvpbutton.md
           - UIImage: api/uiimage.md
           - UIPanel: api/uipanel.md
           - UIPerkPurchaseButton: api/uiperkpurchasebutton.md
