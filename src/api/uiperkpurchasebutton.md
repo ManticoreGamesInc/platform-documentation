@@ -27,11 +27,11 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `clickedEvent` | [`Event`](event.md)<[`UIButton`](uibutton.md)> | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
-| `pressedEvent` | [`Event`](event.md)<[`UIButton`](uibutton.md)> | Fired when button is pressed. (mouse button down) | None |
-| `releasedEvent` | [`Event`](event.md)<[`UIButton`](uibutton.md)> | Fired when button is released. (mouse button up) | None |
-| `hoveredEvent` | [`Event`](event.md)<[`UIButton`](uibutton.md)> | Fired when button is hovered. | None |
-| `unhoveredEvent` | [`Event`](event.md)<[`UIButton`](uibutton.md)> | Fired when button is unhovered. | None |
+| `clickedEvent` | [`Event`](event.md)<[`UIPerkPurchaseButton`](uiperkpurchasebutton.md)> | Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox. | None |
+| `pressedEvent` | [`Event`](event.md)<[`UIPerkPurchaseButton`](uiperkpurchasebutton.md)> | Fired when button is pressed. (mouse button down) | None |
+| `releasedEvent` | [`Event`](event.md)<[`UIPerkPurchaseButton`](uiperkpurchasebutton.md)> | Fired when button is released. (mouse button up) | None |
+| `hoveredEvent` | [`Event`](event.md)<[`UIPerkPurchaseButton`](uiperkpurchasebutton.md)> | Fired when button is hovered. | None |
+| `unhoveredEvent` | [`Event`](event.md)<[`UIPerkPurchaseButton`](uiperkpurchasebutton.md)> | Fired when button is unhovered. | None |
 
 ## Tutorials
 

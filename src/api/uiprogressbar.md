@@ -57,7 +57,7 @@ function Tick(deltaTime)
     -- Get a percentage representing how much health the player currently has
     local healthPercent = player.hitPoints / player.maxHitPoints
 
-    -- Update the fill of the progress bar
+    -- Update the fill of the progress bar 
     propUIProgressBar.progress = healthPercent
 
     --=======================================================================================================

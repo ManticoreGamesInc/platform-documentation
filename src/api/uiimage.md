@@ -37,6 +37,7 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 | `SetPlayerProfile(CorePlayerProfile)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(CoreFriendCollectionEntry)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
 | `SetPlayerProfile(string playerId)` | `None` | Downloads and sets a player's profile picture as the texture for this UIImage control. | None |
+| `SetGameEvent(CoreGameEvent event)` | `None` | Downloads and sets a game event image as the texture for this UIImage control. | None |
 | `SetGameScreenshot(string gameId, [integer screenshotIndex])` | `None` | Downloads and sets a game screenshot as the texture for this UIImage control. The screenshot may come from a different game. | None |
 | `SetCameraCapture(CameraCapture)` | `None` | Sets the UIImage to display the given camera capture. If the given capture is not valid, it will be ignored. If the capture is released while in use, this UIImage will revert to its default image. | Client-Only |
 
@@ -55,10 +56,10 @@ local featuredGames = CorePlatform.GetGameCollection("featured")
 
 for _,entry in ipairs(featuredGames) do
     print("Showing screenshots for " .. entry.name)
-
+    
     local gameInfo = CorePlatform.GetGameInfo(entry.id)
     local count = gameInfo.screenshotCount
-
+    
     -- Show each of the game's screenshots
     for i = 1,count do
         IMAGE:SetGameScreenshot(entry.id, i)
@@ -133,7 +134,7 @@ function Tick(deltaTime)
         -- Reset the "timer" to 2 seconds
         timer = 2
 
-        -- Get the id of the friend at the current index of the array
+        -- Get the id of the friend at the current index of the array 
         local friend_id = friends[currentIndex].id
 
         -- Update the image with the friend's profile picture
