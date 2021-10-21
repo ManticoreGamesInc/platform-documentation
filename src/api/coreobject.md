@@ -71,7 +71,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `IsAncestorOf(CoreObject)` | `boolean` | Returns true if this CoreObject is a parent somewhere in the hierarchy above the given parameter object. False otherwise. | None |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on a CoreObject. | None |
 | `GetCustomProperty(string propertyName)` | `value`, `boolean` | Gets data which has been added to an object using the custom property system. Returns the value, which can be an integer, number, boolean, string, Vector2, Vector3, Vector4, Rotation, Color, CoreObjectReference, a MUID string (for Asset References), NetReference, or nil if not found. Second return value is a boolean, true if found and false if not. | None |
-| `SetNetworkedCustomProperty(string propertyName, value)` | `boolean` | Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | None |
+| `SetCustomProperty(string propertyName, value)` | `boolean` | Sets the named custom property if it is marked as dynamic and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | None |
+| `SetNetworkedCustomProperty(string propertyName, value)` | `boolean` | *This function is deprecated. Please use `CoreObject:SetCustomProperty()` instead.* Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.) | <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
 | `AttachToPlayer(Player, string socketName)` | `None` | Attaches a CoreObject to a Player at a specified socket. The CoreObject will be un-parented from its current hierarchy and its `parent` property will be nil. See [Socket Names](../api/animations.md#socket-names) for the list of possible values. | None |
 | `AttachToLocalView()` | `None` | Attaches a CoreObject to the local player's camera. Reminder to turn off the object's collision otherwise it will cause camera to jitter. | Client-Only |
 | `Detach()` | `None` | Detaches a CoreObject from any player it has been attached to, or from its parent object. | None |
@@ -105,7 +106,8 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `descendantAddedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) ancestor, [`CoreObject`](coreobject.md) newChild> | Fired when a child is added to this object or any of its descendants. | None |
 | `descendantRemovedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) ancestor, [`CoreObject`](coreobject.md) removedChild> | Fired when a child is removed from this object or any of its descendants. | None |
 | `destroyEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md)> | Fired when this object is about to be destroyed. | None |
-| `networkedPropertyChangedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) owner, `string` propertyName> | Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
+| `customPropertyChangedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) owner, `string` propertyName> | Fired whenever any of the dynamic custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | None |
+| `networkedPropertyChangedEvent` | [`Event`](event.md)<[`CoreObject`](coreobject.md) owner, `string` propertyName> | *This event is deprecated. Please use `CoreObject.customPropertyChangedEvent` instead.* Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed. | <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
 
 ## Examples
 
@@ -690,26 +692,26 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
-### `SetNetworkedCustomProperty`
+### `SetCustomProperty`
 
-### `networkedPropertyChangedEvent`
+### `customPropertyChangedEvent`
 
 ### `GetReference`
 
-Networked custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
+Dynamic custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
 
-To create a networked custom property, right click a custom property in the Core editor, and select "Enable Property Networking."
+To create a dynamic custom property, right click a custom property in the Core editor, and select "Enable Dynamic Property."
 
-Once a custom property has been set to be networked, the server can change its value at runtime via `SetNetworkedCustomProperty()`, and the client can listen for changes to that property via `networkedPropertyChangedEvent`.
+Once a custom property has been set to be networked, the server can change its value at runtime via `SetCustomProperty()`, and the client can listen for changes to that property via `customPropertyChangedEvent`.
 
-In this sample, it is assumed that the script has a custom networked property.
+In this sample, it is assumed that the script has a custom dynamic property.
 
 In a client context, we can set up listeners to tell us when a custom property changes, and what its current value is:
 
 ```lua
 -- Client context:
-script.networkedPropertyChangedEvent:Connect(function(coreObject, propertyName)
-    print("The networked property [" .. coreObject.name .. "] just had its ["
+script.customPropertyChangedEvent:Connect(function(coreObject, propertyName)
+    print("The dynamic property [" .. coreObject.name .. "] just had its ["
             .. propertyName .. "] property changed.")
 
     local newValue = coreObject:GetCustomProperty(propertyName)
@@ -721,10 +723,10 @@ end)
 ]]
 
 -- Server context:
-script:SetNetworkedCustomProperty("NetworkedGreeting", "Buenos Dias")
+script:SetCustomProperty("NetworkedGreeting", "Buenos Dias")
 
 -- The client should print out:
--- The networked property [test_CoreObject] just had its [NetworkedGreeting] property changed.
+-- The dynamic property [test_CoreObject] just had its [NetworkedGreeting] property changed.
 -- New value: Buenos Dias
 
 --[[#description
@@ -737,7 +739,7 @@ script:SetNetworkedCustomProperty("NetworkedGreeting", "Buenos Dias")
 -- Server context:
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
 local cube = World.SpawnAsset(propCubeTemplate)
-script:SetNetworkedCustomProperty("NetworkedCoreObjectReference", cube:GetReference())
+script:SetCustomProperty("NetworkedCoreObjectReference", cube:GetReference())
 
 ```
 
