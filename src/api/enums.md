@@ -79,9 +79,9 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `CoreGameEventState.ACTIVE` | `1` | Coming Soon |
-| `CoreGameEventState.SCHEDULED` | `0` | Coming Soon |
-| `CoreGameEventState.CANCELLED` | `2` | Coming Soon |
+| `CoreGameEventState.ACTIVE` | `1` | The event is currently active. |
+| `CoreGameEventState.SCHEDULED` | `0` | The event is scheduled to begin in the future. |
+| `CoreGameEventState.CANCELED` | `2` | The event has been canceled and will not run. |
 
 ## CoreModalType
 
@@ -206,10 +206,10 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `NetworkContextType.NETWORKED` | `2` | Coming Soon |
-| `NetworkContextType.CLIENT_CONTEXT` | `3` | Coming Soon |
-| `NetworkContextType.SERVER_CONTEXT` | `4` | Coming Soon |
-| `NetworkContextType.STATIC_CONTEXT` | `5` | Coming Soon |
+| `NetworkContextType.NETWORKED` | `2` | Spawned on the server and replicated to clients. |
+| `NetworkContextType.CLIENT_CONTEXT` | `3` | Spawned on the client only. |
+| `NetworkContextType.SERVER_CONTEXT` | `4` | Spawned on the server only. |
+| `NetworkContextType.STATIC_CONTEXT` | `5` | Spawned independently on client or server and not replicated. |
 
 ## Orientation
 
