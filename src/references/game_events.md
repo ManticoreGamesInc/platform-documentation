@@ -28,7 +28,7 @@ tags:
 
 ## Game Events List Page
 
-When you access the **Events** page, there will see a list of all the events that have been created, along with filter options. By default, the **Scheduled** and **Active** filters for the event state will be selected so that the events list only contains events for the games that match those filters.
+When you access the **Events** page, there you will see a list of all the events that have been created, along with filter options. By default, the **Scheduled** and **Active** filters for the event state will be selected so that the events list only contains events for the games that match those filters.
 
 ![!Events List](../img/GameEvents/events_list.png){: .center loading="lazy" }
 
@@ -104,7 +104,7 @@ Each event listed on the **Events** page, will have a button on the right side t
 
 ## Registering for an Event
 
-Players can register for events from the [Events page](https://coregames.com/events), from the **Core** client, or in the games themselves if creators implement a UI Event RSVP Button. Players registering for an event will allow them keep track of specific events they are interested in, and receive notifications when events begin.
+Players can register for events from the [Events page](https://coregames.com/events), from the **Core** client, or in the games themselves if creators implement a UI Event RSVP Button. Players registering for an event, will allow them to keep track of specific events they are interested in, and receive notifications when events begin.
 
 Players can also unregister from events at anytime, this will remove the event from the player's event list, and they will not receive a notification when the event begins.
 
@@ -122,7 +122,7 @@ Each game event created will have a **Game Event Id** that can be copied and add
 
 ## Game Events API
 
-The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts that can retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
+The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts to retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
 
 For example, displaying a custom countdown timer for an event that will begin can be done by fetching the game event data.
 
@@ -130,11 +130,8 @@ For example, displaying a custom countdown timer for an event that will begin ca
 -- UI Text to display the countdown.
 local COUNTDOWN = script:GetCustomProperty("Countdown"):WaitForObject()
 
-local gameID = "43e20f9cbf1243acac452a66ed5ac15z"
-local eventID = "399a1c2db8c4478cb15b12925d2abc4z"
-
--- GetGameEvent requires the Game Id, and Event Id.
-local eventData = CorePlatform.GetGameEvent(gameID, eventID)
+local eventID = "f103d21c132244c28442a658af80f8a1-07fd5df674564459a241babf72fbaa21"
+local eventData = CorePlatform.GetGameEvent(eventID)
 local timestamp = 0
 
 -- Check if the event data exists.
@@ -149,19 +146,21 @@ end
 function Tick()
     if eventData ~= nil then
         local diff = timestamp - DateTime.CurrentTime().secondsSinceEpoch
-
-        local hrs = math.floor(diff / 3600)
-        local mins = math.floor(diff / 60 % 60)
+        local days = math.floor(diff / 86400)
+        local hrs = math.floor((diff % 86400) / 3600)
+        local mins = math.floor((diff % 3600) / 60)
         local secs = math.floor(diff % 60)
 
         if diff > 0 then
-            COUNTDOWN.text = string.format("Event Starts In: %02i:%02i:%02i", hrs, mins, secs)
+            COUNTDOWN.text = string.format("Event Starts In: %02i:%02i:%02i:%02i", days, hrs, mins, secs)
         else
             COUNTDOWN.text = "Event Has Started"
         end
     end
 end
 ```
+
+The `eventID` value can be retrieved by copying the **Game Event Id** for the event from the Events page accessed from the creator portal.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
