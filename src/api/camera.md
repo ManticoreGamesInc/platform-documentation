@@ -17,7 +17,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `followPlayer` | [`Player`](player.md) | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write |
-| `isOrthographic` | `boolean` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write |
+| `isOrthographic` | `boolean` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write, **Deprecated** |
 | `fieldOfView` | `number` | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write |
 | `viewWidth` | `number` | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write |
 | `useCameraSocket` | `boolean` | If you have a followPlayer, then use their camera socket. This is often preferable for first-person cameras, and gives a bit of view bob. | Read-Write |
