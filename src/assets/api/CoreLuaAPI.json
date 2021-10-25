@@ -2544,6 +2544,207 @@
 			]
 		},
 		{
+			"Name": "CoreGameEvent",
+			"Description": "Metadata about a creator-defined event for a game on the Core platform.",
+			"Properties": [
+				{
+					"Name": "id",
+					"Description": "The ID of the event.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "gameId",
+					"Description": "The ID of the game this event belongs to.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "name",
+					"Description": "The display name of the event.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "referenceName",
+					"Description": "The reference name of the event.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "description",
+					"Description": "The description of the event.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "state",
+					"Description": "The current state of the event (active, scheduled, etc).",
+					"Type": "CoreGameEventState",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "registeredPlayerCount",
+					"Description": "The number of players currently registered for this event.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetTags",
+					"Description": "Returns a list of the tags selected when this event was published.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetStartDateTime",
+					"Description": "Returns the start date and time of the event.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetEndDateTime",
+					"Description": "Returns the end date and time of the event.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "CoreGameEventCollection",
+			"Description": "Contains a set of results from [CorePlatform.GetGameEventCollection()](coreplatform.md) and related functions. Depending on how many events are available, results may be separated into multiple pages. The `.hasMoreResults` property may be checked to determine whether more events are available. Those results may be retrieved using the `:GetMoreResults()` function.",
+			"Properties": [
+				{
+					"Name": "hasMoreResults",
+					"Description": "Returns `true` if there are more events available to be requested.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetResults",
+					"Description": "Returns the list of events contained in this set of results. This may return an empty table.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<CoreGameEvent>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetMoreResults",
+					"Description": "Requests the next set of results for this list of events and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameEventCollection",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "CoreGameInfo",
 			"Description": "Metadata about a published game on the Core platform.",
 			"Properties": [
@@ -3018,8 +3219,24 @@
 					]
 				},
 				{
+					"Name": "customPropertyChangedEvent",
+					"Description": "Fired whenever any of the dynamic custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed.",
+					"Parameters": [
+						{
+							"Type": "CoreObject",
+							"Name": "owner"
+						},
+						{
+							"Type": "string",
+							"Name": "propertyName"
+						}
+					]
+				},
+				{
 					"Name": "networkedPropertyChangedEvent",
-					"Description": "Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed.",
+					"Description": "*This event is deprecated. Please use `CoreObject.customPropertyChangedEvent` instead.* Fired whenever any of the networked custom properties on this object receive an update. The event is fired on the server and the client. Event payload is the owning object and the name of the property that just changed.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "CoreObject.networkedPropertyChangedEvent is deprecated.  Please use CoreObject.customPropertyChangedEvent instead.",
 					"Parameters": [
 						{
 							"Type": "CoreObject",
@@ -4461,8 +4678,37 @@
 					]
 				},
 				{
+					"Name": "SetCustomProperty",
+					"Description": "Sets the named custom property if it is marked as dynamic and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.)",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "value",
+									"Name": "propertyValue"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "SetNetworkedCustomProperty",
-					"Description": "Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked or in a client/server context. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.)",
+					"Description": "*This function is deprecated. Please use `CoreObject:SetCustomProperty()` instead.* Sets the named custom property if it is marked as replicated and the object it belongs to is server-side networked. The value must match the existing type of the property, with the exception of CoreObjectReference properties (which accept a CoreObjectReference or a CoreObject) and Asset Reference properties (which accept a string MUID). AssetReferences, CoreObjectReferences, and NetReferences also accept `nil` to clear their value, although `GetCustomProperty()` will still return an unassigned CoreObjectReference or NetReference rather than `nil`. (See the `.isAssigned` property on those types.)",
+					"IsDeprecated": true,
+					"DeprecationMessage": "CoreObject:SetNetworkedCustomProperty() is deprecated. Please use CoreObject:SetCustomProperty() instead.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -5257,6 +5503,265 @@
 								{
 									"Type": "string",
 									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "DateTime",
+			"Description": "An immutable representation of a date and time, which may be either local time or UTC.",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Description": "Constructs a new DateTime instance, defaulting to midnight on January 1, 1970, UTC. The `parameters` table may contain the following values to specify the date and time:<br/>`year (integer)`: Specifies the year. <br/>`month (integer)`: Specifies the month, from 1 to 12. <br/>`day (integer)`: Specifies the day of the month, from 1 to the last day of the specified month. <br/>`hour (integer)`: Specifies the hour of the day, from 0 to 23. <br/>`minute (integer)`: Specifies the minute, from 0 to 59. <br/>`second (integer)`: Specifies the second, from 0 to 59. <br/>`millisecond (integer)`: Specifies the millisecond, from 0 to 999. <br/>`isLocal (boolean)`: If true, the new DateTime will be in local time. Defaults to false for UTC. <br/>Values outside of the supported range for each field will be clamped, and a warning will be logged.",
+					"Signatures": [
+						{
+							"Name": "WithParamTable",
+							"Description": "Constructs a new DateTime instance, defaulting to midnight on January 1, 1970, UTC. The `parameters` table may contain the following values to specify the date and time:<br/>`year (integer)`: Specifies the year. <br/>`month (integer)`: Specifies the month, from 1 to 12. <br/>`day (integer)`: Specifies the day of the month, from 1 to the last day of the specified month. <br/>`hour (integer)`: Specifies the hour of the day, from 0 to 23. <br/>`minute (integer)`: Specifies the minute, from 0 to 59. <br/>`second (integer)`: Specifies the second, from 0 to 59. <br/>`millisecond (integer)`: Specifies the millisecond, from 0 to 999. <br/>`isLocal (boolean)`: If true, the new DateTime will be in local time. Defaults to false for UTC. <br/>Values outside of the supported range for each field will be clamped, and a warning will be logged.",
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "timeParameterTable",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "year",
+					"Description": "The year component of this DateTime.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "month",
+					"Description": "The month component of this DateTime, from 1 to 12.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "day",
+					"Description": "The day component of this DateTime, from 1 to 31.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "hour",
+					"Description": "The hour component of this DateTime, from 0 to 23.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "minute",
+					"Description": "The minute component of this DateTime, from 0 to 59.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "second",
+					"Description": "The second component of this DateTime, from 0 to 59.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "millisecond",
+					"Description": "The millisecond component of this DateTime, from 0 to 999.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isLocal",
+					"Description": "True if this DateTime is in the local time zone, false if it's UTC.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "secondsSinceEpoch",
+					"Description": "Returns the number of seconds since midnight, January 1, 1970, UTC. Note that this ignores the millisecond component of this DateTime.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "millisecondsSinceEpoch",
+					"Description": "Returns the number of milliseconds since midnight, January 1, 1970, UTC.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "ToLocalTime",
+					"Description": "Returns a copy of this DateTime adjusted to local time. If this DateTime is already in local time, simply returns a copy of this DateTime.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ToUtcTime",
+					"Description": "Returns a copy of this DateTime adjusted to UTC. If this DateTime is already in UTC, simply returns a copy of this DateTime.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "ToIsoString",
+					"Description": "Returns this date and time, adjusted to UTC, formatted as an ISO 8601 string (`YYYY-mm-ddTHH:MM:SS.sssZ`)",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"StaticFunctions": [
+				{
+					"Name": "CurrentTime",
+					"Description": "Returns the current date and time in UTC. The `optionalParameters` table may contain the following values to change the date and time returned: <br/>`isLocal (boolean)`: If true, the current local time will be returned instead of UTC.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FromSecondsSinceEpoch",
+					"Description": "Returns the date and time that is `secondsSinceEpoch` seconds since midnight, January 1, 1970, UTC.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "timestampInSeconds"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FromMillisecondsSinceEpoch",
+					"Description": "Returns the date and time that is `millisecondsSinceEpoch` milliseconds since midnight, January 1, 1970, UTC.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "timestampInMs"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "FromIsoString",
+					"Description": "Parses the given string as an ISO 8601 formatted date (`YYYY-MM-DD`) or date and time (`YYYY-mm-ddTHH:MM:SS(.sss)(Z/+hh:mm/+hhmm/-hh:mm/-hhmm)`). Returns the parsed UTC DateTime, or `nil` if the string was an invalid format.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DateTime",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "timeString"
 								}
 							]
 						}
@@ -8519,6 +9024,9 @@
 								}
 							]
 						}
+					],
+					"Tags": [
+						"ServerOnly"
 					]
 				},
 				{
@@ -9119,6 +9627,14 @@
 				{
 					"Name": "sceneId",
 					"Description": "The scene ID that the player joined from or left to join. May return `nil`.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "sceneName",
+					"Description": "The scene name that the player joined from or left to join. May return `nil`.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -11755,7 +12271,7 @@
 		},
 		{
 			"Name": "UIButton",
-			"Description": "A UIControl for a button, should be inside client context.",
+			"Description": "A UIControl for a button, should be inside client context. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -12155,7 +12671,7 @@
 		},
 		{
 			"Name": "UIContainer",
-			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject.",
+			"Description": "A UIContainer is a type of UIControl. All other UI elements must be a descendant of a UIContainer to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -12336,8 +12852,112 @@
 			]
 		},
 		{
+			"Name": "UIEventRSVPButton",
+			"Description": "A UIControl for a button which allows players to register for an event within a game. Similar to `UIButton`, but designed to present a consistent experience for players across all games. Inherits from [UIControl](uicontrol.md).",
+			"BaseType": "UIControl",
+			"Properties": [
+				{
+					"Name": "isInteractable",
+					"Description": "Returns whether the button can interact with the cursor (click, hover, etc).",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "eventId",
+					"Description": "Returns the ID of the event for which this button is currently configured. This ID can be found in the creator dashboard or using the `CoreGameEvent.id` property of an event returned from various `CorePlatform` functions.",
+					"Type": "string",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "clickedEvent",
+					"Description": "Fired when button is clicked. This triggers on mouse-button up, if both button-down and button-up events happen inside the button hitbox.",
+					"Parameters": [
+						{
+							"Type": "UIEventRSVPButton",
+							"Name": "button"
+						}
+					]
+				},
+				{
+					"Name": "pressedEvent",
+					"Description": "Fired when button is pressed. (mouse button down)",
+					"Parameters": [
+						{
+							"Type": "UIEventRSVPButton",
+							"Name": "button"
+						}
+					]
+				},
+				{
+					"Name": "releasedEvent",
+					"Description": "Fired when button is released. (mouse button up)",
+					"Parameters": [
+						{
+							"Type": "UIEventRSVPButton",
+							"Name": "button"
+						}
+					]
+				},
+				{
+					"Name": "hoveredEvent",
+					"Description": "Fired when button is hovered.",
+					"Parameters": [
+						{
+							"Type": "UIEventRSVPButton",
+							"Name": "button"
+						}
+					]
+				},
+				{
+					"Name": "unhoveredEvent",
+					"Description": "Fired when button is unhovered.",
+					"Parameters": [
+						{
+							"Type": "UIEventRSVPButton",
+							"Name": "button"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "UIImage",
-			"Description": "A UIControl for displaying an image.",
+			"Description": "A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -12540,6 +13160,25 @@
 					]
 				},
 				{
+					"Name": "SetGameEvent",
+					"Description": "Downloads and sets a game event image as the texture for this UIImage control.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameEvent",
+									"Name": "gameEvent"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "GetImage",
 					"Description": "Returns the `imageId` assigned to this UIImage control. **Note:** As of 1.0.211, this function returns `nil` instead of `\"0BADBADBADBADBAD\"` when no image asset has been set.",
 					"Signatures": [
@@ -12661,7 +13300,7 @@
 		},
 		{
 			"Name": "UIPanel",
-			"Description": "A UIControl which can be used for containing and laying out other UI controls.",
+			"Description": "A UIControl which can be used for containing and laying out other UI controls. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -12713,7 +13352,7 @@
 		},
 		{
 			"Name": "UIPerkPurchaseButton",
-			"Description": "A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games.",
+			"Description": "A UIControl for a button which allows players to purchase perks within a game. Similar to `UIButton`, but designed to present a consistent purchasing experience for players across all games. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -12841,7 +13480,7 @@
 		},
 		{
 			"Name": "UIProgressBar",
-			"Description": "A UIControl that displays a filled rectangle which can be used for things such as a health indicator.",
+			"Description": "A UIControl that displays a filled rectangle which can be used for things such as a health indicator. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -13045,7 +13684,7 @@
 		},
 		{
 			"Name": "UIRewardPointsMeter",
-			"Description": "A UIControl that displays the a players progress towards the daily Reward Points cap.",
+			"Description": "A UIControl that displays the a players progress towards the daily Reward Points cap. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -13079,7 +13718,7 @@
 		},
 		{
 			"Name": "UIScrollPanel",
-			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself.",
+			"Description": "A UIControl that supports scrolling a child UIControl that is larger than itself. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -13139,7 +13778,7 @@
 		},
 		{
 			"Name": "UIText",
-			"Description": "A UIControl which displays a basic text label.",
+			"Description": "A UIControl which displays a basic text label. Inherits from [UIControl](uicontrol.md).",
 			"BaseType": "UIControl",
 			"Properties": [
 				{
@@ -15733,6 +16372,120 @@
 							]
 						}
 					]
+				},
+				{
+					"Name": "GetGameEvent",
+					"Description": "Requests metadata for a creator event with the given event ID. Event IDs for specific events may be found in the Creator Events Dashboard. This function may yield until a result is available, and may raise an error if the event ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameEvent"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "eventId"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetGameEventCollection",
+					"Description": "Requests a list of creator events belonging to a given collection. This function may yield until a result is available, and may raise an error if the collection ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls. Supported event collection IDs include: \"active\", \"upcoming\", \"popular\", and \"suggested\". <br/>The following optional parameters are supported:<br/>`state (CoreGameEventState)`: Filters the returned collection to include only events with the specified state. By default, active and upcoming events are returned.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameEventCollection"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "collectionId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetGameEventsForGame",
+					"Description": "Requests a list of creator events for the specified game. This function may yield until a result is available, and may raise an error if the game ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls. <br/>The following optional parameters are supported:<br/>`state (CoreGameEventState)`: Filters the returned events to include only events with the specified state. By default, active and upcoming events are returned. <br/>`tag (string)`: Filters the returned events to include only events with the given tag.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameEventCollection"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "gameId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsPlayerRegisteredForGameEvent",
+					"Description": "Returns `true` if the given player is registered for the given event, or `false` if they are not. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. Results may be cached for later calls, and so may also not be immediately up to date. This function will raise an error if called from a client script with a player other than the local player.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "CoreGameEvent",
+									"Name": "gameEvent"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetRegisteredGameEvents",
+					"Description": "Requests a list of creator events for which the given player is registered. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. This function will raise an error if called from a client script with a player other than the local player. Results may be cached for later calls. <br/>The following optional parameters are supported:<br/>`state (CoreGameEventState)`: Filters the returned events to include only events with the specified state. By default, active and upcoming events are returned.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreGameEventCollection"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -16539,6 +17292,60 @@
 					]
 				},
 				{
+					"Name": "TransferPlayersToGame",
+					"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+					"Signatures": [
+						{
+							"Name": "WithGameCollectionEntry",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameCollectionEntry`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameCollectionEntry",
+									"Name": "gameCollectionEntry"
+								},
+								{
+									"Type": "Array<Player>",
+									"Name": "players"
+								}
+							]
+						},
+						{
+							"Name": "WithGameInfo",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameInfo`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreGameInfo",
+									"Name": "gameInfo"
+								},
+								{
+									"Type": "Array<Player>",
+									"Name": "players"
+								}
+							]
+						},
+						{
+							"Name": "WithGameId",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "gameId"
+								},
+								{
+									"Type": "Array<Player>",
+									"Name": "players"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
 					"Name": "TransferAllPlayersToScene",
 					"Description": "Similar to `Player:TransferToScene()`, transfers all players to the scene specified by the passed in scene name. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0).",
 					"Signatures": [
@@ -16548,6 +17355,33 @@
 								{
 									"Type": "string",
 									"Name": "sceneName"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "TransferPlayersToScene",
+					"Description": "Similar to `Player:TransferToScene()`, transfers the specified list of players to the scene specified by the passed in scene name. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0).",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "sceneName"
+								},
+								{
+									"Type": "Array<Player>",
+									"Name": "players"
 								},
 								{
 									"Type": "table",
@@ -17905,7 +18739,7 @@
 				},
 				{
 					"Name": "SpawnAsset",
-					"Description": "Spawns an instance of an asset into the world. Optional parameters can specify a parent for the spawned object. Supported parameters include: parent (CoreObject) <br /> If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform; `position (Vector3)`: Position of the spawned object; `rotation (Rotation or Quaternion)`: Rotation of the spawned object; `scale (Vector3)`: Scale of the spawned object.",
+					"Description": "Spawns an instance of an asset into the world. Optional parameters can specify a parent, transform, or other properties of the spawned object. Note that when spawning a template, most optional parameters apply only to the root object of the spawned template. <br/>Supported parameters include: <br/>`parent (CoreObject)`: If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform. <br/>`position (Vector3)`: Position of the spawned object. <br/>`rotation (Rotation or Quaternion)`: Rotation of the spawned object. <br/>`scale (Vector3)`: Scale of the spawned object. <br/>`transform (Transform)`: The full transform of the spawned object. If `transform` is specified, it is an error to also specify `position`, `rotation`, or `scale`. <br/>`networkContext (NetworkContext)`: Overrides the network context of the spawned object. This may be used, for example, to spawn networked or static objects from a server only context, or client-only objects from a client script running in a static context, but it cannot spawn client only objects from a server script or networked objects from a client script. If an invalid context is specified, an error will be raised. <br/>`name (string)`: Set the name of the spawned object. <br/>`team (integer)`: Set the team on the spawned object. <br/>`lifeSpan (number)`: Set the life span of the spawned object. <br/>`collision (Collision)`: Set the collision of the spawned object. <br/>`visibility (Visibility)`: Set the visibility of the spawned object. <br/>`cameraCollision (Collision)`: Set the camera collision of the spawned object. <br/>`color (Color)`: Set the color of the spawned object.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18341,6 +19175,27 @@
 			]
 		},
 		{
+			"Name": "CoreGameEventState",
+			"Description": "Indicates the status of a CoreGameEvent.",
+			"Values": [
+				{
+					"Name": "ACTIVE",
+					"Description": "The event is currently active.",
+					"Value": 1
+				},
+				{
+					"Name": "SCHEDULED",
+					"Description": "The event is scheduled to begin in the future.",
+					"Value": 0
+				},
+				{
+					"Name": "CANCELED",
+					"Description": "The event has been canceled and will not run.",
+					"Value": 2
+				}
+			]
+		},
+		{
 			"Name": "CoreModalType",
 			"Description": "Identifies the type of a Core built-in modal dialog.",
 			"Values": [
@@ -18686,6 +19541,32 @@
 					"Name": "UNKNOWN",
 					"Description": "Unknown `NetReference`.",
 					"Value": 0
+				}
+			]
+		},
+		{
+			"Name": "NetworkContextType",
+			"Description": "Indicates the network context to use when spawning an object.",
+			"Values": [
+				{
+					"Name": "NETWORKED",
+					"Description": "Spawned on the server and replicated to clients.",
+					"Value": 2
+				},
+				{
+					"Name": "CLIENT_CONTEXT",
+					"Description": "Spawned on the client only.",
+					"Value": 3
+				},
+				{
+					"Name": "SERVER_CONTEXT",
+					"Description": "Spawned on the server only.",
+					"Value": 4
+				},
+				{
+					"Name": "STATIC_CONTEXT",
+					"Description": "Spawned independently on client or server and not replicated.",
+					"Value": 5
 				}
 			]
 		},
