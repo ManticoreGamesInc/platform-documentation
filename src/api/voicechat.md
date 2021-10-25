@@ -30,6 +30,39 @@ The VoiceChat namespace contains functions for controlling voice chat in a game.
 
 Example using:
 
+### `GetChannelsForPlayer`
+
+### `MutePlayer`
+
+### `UnmutePlayer`
+
+In this example, players are muted when they die and unmuted when they respawn. While it's possible to mute a player in a specific channel, this example loops through all the channels a player participates in and mutes them in all.
+
+```lua
+function OnDied(player)
+    for _,channel in ipairs(VoiceChat.GetChannelsForPlayer(player)) do
+        channel:MutePlayer(player)
+    end
+end
+
+function OnSpawned(player)
+    for _,channel in ipairs(VoiceChat.GetChannelsForPlayer(player)) do
+        channel:UnmutePlayer(player)
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.diedEvent:Connect(OnDied)
+    player.spawnedEvent:Connect(OnSpawned)
+end)
+```
+
+See also: [Game.playerJoinedEvent](game.md) | [Player.diedEvent](player.md)
+
+---
+
+Example using:
+
 ### `IsPlayerSpeaking`
 
 In this example, a client context is setup with a UI Container and some UI Images underneath. This script finds all those images and assigns one to each player, setting the player's profile picture to appear in the image and tinting the image green whenever they speak.
