@@ -36,12 +36,101 @@ print("### Active Games ###")
 
 local popularGames = CorePlatform.GetGameCollection("active")
 
-for i,entry in ipairs(popularGames) do
+for i, entry in ipairs(popularGames) do
     print(i .. ") " .. entry.name .. " (by " .. entry.ownerName .. ")")
 end
 ```
 
 See also: [CoreGameCollectionEntry](coregamecollectionentry.md)
+
+---
+
+Example using:
+
+### `GetGameEvent`
+
+In this example, a specific event is fetched. If found, a countdown begins, with the remaining time until the event begins updated every second. The countdown text is print to the Event Log, but it could be set into the UI for players to see.
+
+```lua
+local EVENT_ID = "a3040c7ff0ca4a148d98191c701afe9a-ec20a9adcf374e7ab1ef5f862499c834"
+local eventData = CorePlatform.GetGameEvent(EVENT_ID)
+
+function Tick()
+    Task.Wait(1)
+    if eventData ~= nil then
+        local eventStart = eventData:GetStartDateTime()
+        local diff = eventStart.secondsSinceEpoch - DateTime.CurrentTime().secondsSinceEpoch
+        if diff >= 0 then
+            print(eventData.name .." starts In: ".. FormatCasualTimespan(diff))
+        else
+            print(eventData.name .." has started")
+        end
+    end
+end
+
+function FormatCasualTimespan(totalSeconds)
+    if totalSeconds <= 0 then
+        return "0s"
+    end
+    local seconds = totalSeconds
+    local minutes = math.floor(seconds / 60)
+    seconds = seconds - minutes*60
+
+    if minutes > 0 then
+        local hours = math.floor(minutes / 60)
+        minutes = minutes - hours*60
+
+        if hours > 0 then
+            local days = math.floor(hours / 24)
+            hours = hours - days*24
+
+            if days > 0 then
+                if hours > 0 then
+                    return days.."d " .. hours.."h " .. minutes.."m"
+                end
+                return days.."d"
+
+            elseif (minutes > 0) then
+                return hours.."h " .. minutes.."m " .. seconds.."s"
+            end
+            return hours.."h"
+        end
+        return minutes.."m " .. seconds.."s"
+    end
+    return seconds.."s"
+end
+```
+
+See also: [CoreGameEvent.GetStartDateTime](coregameevent.md) | [DateTime.CurrentTime](datetime.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `GetGameEventsForGame`
+
+In this example we look at all the events for a given game. The status of each one is printed to the Event Log. Events can be Active or Scheduled, in which case they have a remaining time or upcoming time, respectively. Events can also be in a "Canceled" state, but we ignore those. The advantages of using countdowns to express the end of an event (or wait for an upcoming one) are to build anticipation in the eyes of players, but also to avoid any complications with time zones for players around the world.
+
+```lua
+local GAME_ID = "a3040c7ff0ca4a148d98191c701afe9a"
+
+local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
+local gameEvents = collection:GetResults()
+for i, eventData in ipairs(gameEvents) do
+    if eventData.state == CoreGameEventState.ACTIVE then
+        local eventEnd = eventData:GetEndDateTime()
+        local time = eventEnd.secondsSinceEpoch - DateTime.CurrentTime().secondsSinceEpoch
+        print(eventData.name.." is active. Ends in "..time.." seconds")
+
+    elseif eventData.state == CoreGameEventState.SCHEDULED then
+        local eventStart = eventData:GetStartDateTime()
+        local time = eventStart.secondsSinceEpoch - DateTime.CurrentTime().secondsSinceEpoch
+        print(eventData.name.." is scheduled. Starts in "..time.." seconds")
+    end
+end
+```
+
+See also: [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState.ACTIVE](coregameeventstate.md) | [DateTime.CurrentTime](datetime.md)
 
 ---
 
@@ -166,5 +255,88 @@ Chat.LocalMessage(creatorProfile.description)
 ```
 
 See also: [Chat.LocalMessage](chat.md) | [Game.GetLocalPlayer](game.md) | [Player.name](player.md)
+
+---
+
+Example using:
+
+### `GetRegisteredGameEvents`
+
+In this example, when a player joins we check if they are registered for any upcoming game events. Results are print out to the Event Log.
+
+```lua
+function OnPlayerJoined(player)
+    local params = {state = CoreGameEventState.SCHEDULED}
+    local collection = CorePlatform.GetRegisteredGameEvents(player, params)
+    local gameEvents = collection:GetResults()
+    if #gameEvents == 0 then
+        print(player.name .. " is not registered for any upcoming events.")
+    else
+        print(player.name .. " is registered for:")
+        for i, eventData in ipairs(gameEvents) do
+            local eventStart = eventData:GetStartDateTime()
+            local time = eventStart.secondsSinceEpoch - DateTime.CurrentTime().secondsSinceEpoch
+            print(eventData.name..". Starts in "..time.." seconds")
+        end
+    end
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState.SCHEDULED](coregameeventstate.md) | [CoreGameEvent.GetStartDateTime](coregameevent.md) | [DateTime.CurrentTime](datetime.md) | [Player.name](player.md)
+
+---
+
+Example using:
+
+### `IsPlayerRegisteredForGameEvent`
+
+In this example, a client script controls a UI that prompts players to join (RSVP) an upcoming game event. In case the player has already registered for the event, then the UI does not show. The UI is populated with information about the event, such as name and description. Also, the RSVP Button must be given the game event's `id` in order to connect correctly with the platform service. The UI becomes hidden when the RSVP or Close buttons are clicked.
+
+```lua
+local GAME_ID = "a3040c7ff0ca4a148d98191c701afe9a"
+
+local UI_ROOT = script:GetCustomProperty("UIContainer"):WaitForObject()
+local CLOSE_BUTTON = script:GetCustomProperty("UIButton"):WaitForObject()
+local UI_EVENT_NAME = script:GetCustomProperty("UITextBox"):WaitForObject()
+local UI_EVENT_DESCRIPTION = script:GetCustomProperty("UITextBox_1"):WaitForObject()
+local RSVP_BUTTON = script:GetCustomProperty("UIEventRSVPButton"):WaitForObject()
+
+local player = Game.GetLocalPlayer()
+
+function ShowUI()
+    UI_ROOT.visibility = Visibility.INHERIT
+end
+
+function HideUI()
+    UI_ROOT.visibility = Visibility.FORCE_OFF
+end
+
+function UpdateContents(eventData)
+    UI_EVENT_NAME.text = eventData.name
+    UI_EVENT_DESCRIPTION.text = eventData.description
+    RSVP_BUTTON.eventId = eventData.id
+end
+
+function EvaluateUpcomingEvent()
+    local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
+    for i, eventData in ipairs(collection:GetResults()) do
+        if eventData.state == CoreGameEventState.SCHEDULED
+        and not CorePlatform.IsPlayerRegisteredForGameEvent(player, eventData) then
+            UpdateContents(eventData)
+            ShowUI()
+            return
+        end
+    end
+end
+
+CLOSE_BUTTON.clickedEvent:Connect(HideUI)
+RSVP_BUTTON.clickedEvent:Connect(HideUI)
+
+EvaluateUpcomingEvent()
+```
+
+See also: [UIEventRSVPButton.eventId](uieventrsvpbutton.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState.SCHEDULED](coregameeventstate.md) | [UIButton.clickedEvent](uibutton.md) | [UITextBox.text](uitextbox.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
