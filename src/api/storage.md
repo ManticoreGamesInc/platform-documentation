@@ -85,7 +85,7 @@ for i, entry in ipairs(leaderboard) do
     end
     -- Get the additional data
     local playerLevel = data["level"] or 0
-
+    
     print(i .. ")", entry.name, ":", entry.score, "- Level " .. playerLevel)
 end
 ```
