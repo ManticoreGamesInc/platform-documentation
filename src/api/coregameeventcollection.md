@@ -75,7 +75,7 @@ end
 Game.roundStartEvent:Connect(OnRoundStart)
 ```
 
-See also: [Game.roundStartEvent](game.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState.ACTIVE](coregameeventstate.md) | [Player.GetEquipment](player.md) | [Equipment.Equip](equipment.md) | [World.SpawnAsset](world.md) | [CoreObject.Destroy](coreobject.md) | [Object.IsValid](object.md)
+See also: [Game.roundStartEvent](game.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState](enums.md#coregameeventstate) | [Player.GetEquipment](player.md) | [Equipment.Equip](equipment.md) | [World.SpawnAsset](world.md) | [CoreObject.Destroy](coreobject.md) | [Object.IsValid](object.md)
 
 ---
 
@@ -119,7 +119,7 @@ end
 PrintCollection()
 ```
 
-See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState.ACTIVE](coregameeventstate.md) | [DateTime.CurrentTime](datetime.md)
+See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState](enums.md#coregameeventstate) | [DateTime.CurrentTime](datetime.md)
 
 ---
 
