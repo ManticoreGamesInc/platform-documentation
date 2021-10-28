@@ -78,7 +78,7 @@ RSVP_BUTTON.clickedEvent:Connect(HideUI)
 EvaluateUpcomingEvent()
 ```
 
-See also: [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState.SCHEDULED](coregameeventstate.md) | [UIButton.clickedEvent](uibutton.md) | [UITextBox.text](uitextbox.md) | [CoreObject.GetCustomProperty](coreobject.md)
+See also: [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEvent.state](coregameevent.md) | [CoreGameEventState](enums.md#coregameeventstate) | [UIButton.clickedEvent](uibutton.md) | [UIText.text](uitext.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 
