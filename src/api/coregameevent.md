@@ -85,7 +85,7 @@ RSVP_BUTTON.clickedEvent:Connect(HideUI)
 EvaluateUpcomingEvent()
 ```
 
-See also: [UIEventRSVPButton.eventId](uieventrsvpbutton.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventState.SCHEDULED](coregameeventstate.md) | [UIButton.clickedEvent](uibutton.md) | [UITextBox.text](uitextbox.md) | [CoreObject.GetCustomProperty](coreobject.md)
+See also: [UIEventRSVPButton.eventId](uieventrsvpbutton.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventState](enums.md#coregameeventstate) | [UIButton.clickedEvent](uibutton.md) | [UIText.text](uitext.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 
@@ -134,7 +134,7 @@ Game.playerJoinedEvent:Connect(function(player)
 end)
 ```
 
-See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState.ACTIVE](coregameeventstate.md) | [Player.AddResource](player.md) | [Game.playerJoinedEvent](game.md)
+See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState](enums.md#coregameeventstate) | [Player.AddResource](player.md) | [Game.playerJoinedEvent](game.md)
 
 ---
 
@@ -183,7 +183,7 @@ for i, eventData in ipairs(gameEvents) do
 end
 ```
 
-See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState.ACTIVE](coregameeventstate.md) | [DateTime.CurrentTime](datetime.md)
+See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState](enums.md#coregameeventstate) | [DateTime.CurrentTime](datetime.md)
 
 ---
 
