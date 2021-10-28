@@ -43,7 +43,7 @@ Start by making the geometry (the 3D object) to represent your crafting material
     - **Description** is information about the item displayed to the player. It could be a clue for how this item is useful.
     - **Rarity** is how unusual it is to find.
 
-!! info
+!!! info
     All of the **Rarity** options can be found in **Gameplay Systems** > **Item Systems** > **Item Rarities**
 
 ### Change the Geometry
