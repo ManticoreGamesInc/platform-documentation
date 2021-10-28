@@ -95,7 +95,7 @@ The Toolbar contains the different options for manipulating objects.
 {: .image-inline-text .image-background }
 - ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
 {: .image-inline-text .image-background }
-- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Transform Scale**. It will resize the object in whole units according to the selected size.
+- ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Snap Scale**. It will resize the object in whole units according to the selected size.
 {: .image-inline-text .image-background }
 
 !!! note
