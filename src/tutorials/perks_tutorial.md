@@ -257,7 +257,7 @@ local inTrigger = false
 
 #### Create CloseUI Function
 
-This function will be called when the `clickedEvent` listener for `SHOP_BUTTON` is fired, and when the player leaves the `SHOP_TRIGGER` volume.
+The `CloseUI` function will be responsible for closing the UI when the `clickedEvent` listener for `SHOP_BUTTON` is fired, and when the player leaves the `SHOP_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -286,7 +286,7 @@ end
 
 #### Create OnInteracted Function
 
-This function will be called when the player interacts with the `SHOP_TRIGGER`. The function will check to make sure `inTrigger` is true, indicating that the player is inside the `SHOP_TRIGGER` volume.
+The `OnInteracted` function will be called when the player interacts with the `SHOP_TRIGGER`. The function will check to make sure `inTrigger` is true, indicating that the player is inside the `SHOP_TRIGGER` volume.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -311,7 +311,7 @@ obj == localPlayer
 
 #### Create OnExitTrigger Function
 
-This function will check if the local player has exited the `SHOP_TRIGGER` volume and close the shop UI. The `inTrigger` variable is set to false so that the interaction label is turned off.
+The `OnExitTrigger` will check if the local player has exited the `SHOP_TRIGGER` volume and close the shop UI. The `inTrigger` variable is set to false so that the interaction label is turned off.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -324,7 +324,7 @@ end
 
 #### Create OnEnterTrigger Function
 
-This function will check when the local player has entered the `SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player. The `inTrigger` variable is set to true, indicating the player is inside the `SHOP_TRIGGER` volume.
+The `OnEnterTrigger` will check when the local player has entered the `SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player. The `inTrigger` variable is set to true, indicating the player is inside the `SHOP_TRIGGER` volume.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -340,13 +340,27 @@ end
 
 #### Connect Events
 
-Connect up the events at the end of the script.
+Connect the `CloseUI` function to the `ClickedEvent` for the `SHOP_BUTTON`. When the `SHOP_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 SHOP_BUTTON.clickedEvent:Connect(CloseUI)
+```
 
+Connect the `OnInteracted` function to the `interactedEvent` for the `SHOP_TRIGGER`. When trigger is interacted with, it will show or hide the UI for the player.
+
+```lua
 SHOP_TRIGGER.interactedEvent:Connect(OnInteracted)
+```
+
+Connect the `OnExitTrigger` function to the `endOverlapEvent` for the `SHOP_TRIGGER`. When the player exits the trigger volume, it will automatically close the UI for the player.
+
+```lua
 SHOP_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
+```
+
+Connect the `OnEnterTrigger` function to the `beginOverlapEvent` for the `SHOP_TRIGGER`. When the player enters the trigger volume, it will enable the interaction label for the player, so they can open the UI.
+
+```lua
 SHOP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
 
@@ -409,8 +423,8 @@ SHOP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 
 Test the game and make sure the following work:
 
-- Trigger interaction label is enabled when entering the trigger volume.
-- Trigger interaction label is disabled when exiting the trigger volume.
+- Trigger interaction label is visible when entering the trigger volume.
+- Trigger interaction label is not visible when exiting the trigger volume.
 - Shop UI opens when pressing ++F++.
 - Shop UI closes when clicking on the close button.
 - Shop UI closes when the player leaves the trigger volume.
@@ -461,7 +475,7 @@ local GEMS_AMOUNT = script:GetCustomProperty("GemsAmount"):WaitForObject()
 
 ##### Create UpdateResources Function
 
-This function will check which resource has changed, and update the text value for the resource that was updated. This will allow the player to see how much of a resource they have.
+The `UpdateResources` will check which resource has changed, and update the text value for the resource that was updated. This will allow the player to see how much of a resource they have.
 
 ```lua
 local function UpdateResources(player, resource, amount)
@@ -636,11 +650,11 @@ local PERKS = {
 | `storageKey` | The key used in the table that will be stored in player storage. |
 
 !!! tip "Hierarchy Lookup"
-    If you have a lot of perks, a better way instead of a large table, is to create a look list in the **Hierarchy**. The list would contain an entry for each perk, along with the data (similar to each entry in the `PERKS` table).
+    If you have a lot of perks, instead of creating a large table, you could create a look list in the **Hierarchy**. The list would contain an entry for each perk, along with the data (similar to each entry in the `PERKS` table). This will allow you to edit and update the list from the editor without needing to open the script.
 
 #### Create GetPerkData Function
 
-This function will loop through the `PERKS` table to find a perk that matches the `perk` parameter that is passed in.
+The `GetPerkData` will loop through the `PERKS` table to find a perk that matches the `perk` parameter that is passed in.
 
 ```lua
 local function GetPerkData(perk)
@@ -656,7 +670,7 @@ end
 
 #### Create PerkChanged Function
 
-This function is the listener that will be fired when the player has purchased a resource perk. The `perk` parameter will be the perk the player purchased, which can be used to lookup the perk data from the `PERKS` table.
+The `PerkChanged` function is the listener that will be fired when the player has purchased a resource perk. The `perk` parameter will be the perk the player purchased, which can be used to lookup the perk data from the `PERKS` table.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -773,11 +787,11 @@ Test the game and make sure that each perk purchased, updates the amount in the 
 
 ### Store Player Resources Persistently
 
-The resources that the player purchases needs to be stored persistently so that the next session, the game will load from storage the amount of resources the player has.
+The resources that the player purchases need to be stored persistently so that in the next session, the game will load from storage the amount of resources the player has.
 
 #### Update ResourceShopServer Script
 
-You will need to make some changes to a few of the functions in the **ResourceShopServer** script.
+You will need to make some changes to a few of the functions in the **ResourceShopServer** script so the player's resources are loaded and saved to player storage.
 
 ##### Update PerkChanged Function
 
@@ -1058,7 +1072,7 @@ As you work through this section, you should see some familiarity with how thing
 
 ### Create Tip Jar Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open the tip jar UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label is visible for the player for them to open the tip jar UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **Tip Jar Trigger**.
@@ -1153,7 +1167,7 @@ local inTrigger = false
 
 #### Create CloseUI Function
 
-This function will be called when the `clickedEvent` for `TIP_JAR_BUTTON` is fired, and when the player leaves the `TIP_JAR_TRIGGER` volume.
+The `CloseUI` will be called when the `clickedEvent` for `TIP_JAR_BUTTON` is fired, and when the player leaves the `TIP_JAR_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -1182,7 +1196,7 @@ end
 
 #### Create OnInteracted Function
 
-This function will be called when the player interacts with the `TIP_JAR_TRIGGER`.
+The `OnInteracted` will be called when the player interacts with the `TIP_JAR_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -1198,7 +1212,7 @@ end
 
 #### Create OnExitTrigger Function
 
-This function will check if the local player has exited the `TIP_JAR_TRIGGER` volume, and close the tip jar UI.
+The `OnExitTrigger` will check if the local player has exited the `TIP_JAR_TRIGGER` volume, and close the tip jar UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -1211,7 +1225,7 @@ end
 
 #### Create OnEnterTrigger Function
 
-This function will check when the local player has entered the `TIP_JAR_TRIGGER` volume and turn on interaction so the label will show up for the player.
+The `OnEnterTrigger` will check when the local player has entered the `TIP_JAR_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -1224,13 +1238,27 @@ end
 
 #### Connect Events
 
-Connect up the events at the end of the script.
+Connect the `CloseUI` function to the `ClickedEvent` for the `TIP_JAR_BUTTON`. When the `TIP_JAR_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 TIP_JAR_BUTTON.clickedEvent:Connect(CloseUI)
+```
 
+Connect the `OnInteracted` function to the `interactedEvent` for the `TIP_JAR_TRIGGER`. When trigger is interacted with, it will show or hide the UI for the player.
+
+```lua
 TIP_JAR_TRIGGER.interactedEvent:Connect(OnInteracted)
+```
+
+Connect the `OnExitTrigger` function to the `endOverlapEvent` for the `TIP_JAR_TRIGGER`. When the player exits the trigger volume, it will automatically close the UI for the player.
+
+```lua
 TIP_JAR_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
+```
+
+Connect the `OnEnterTrigger` function to the `beginOverlapEvent` for the `TIP_JAR_TRIGGER`. When the player enters the trigger volume, it will enable the interaction label for the player, so they can open the UI.
+
+```lua
 TIP_JAR_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
 
@@ -1293,8 +1321,8 @@ TIP_JAR_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 
 Test the game and make sure the following work:
 
-- Trigger interaction label is enabled when entering the trigger volume.
-- Trigger interaction label is disabled when exiting the trigger volume.
+- Trigger interaction label is visible when entering the trigger volume.
+- Trigger interaction label is not visible when exiting the trigger volume.
 - Tip jar UI opens when pressing ++F++.
 - Tip jar UI closes when clicking on the close button.
 - Tip jar UI closes when the player leaves the trigger volume.
@@ -1341,7 +1369,7 @@ local TIP_JAR_100 = script:GetCustomProperty("TipJar100")
 
 #### Create SubmitLeaderboardEntry Function
 
-This function will check if the game has leaderboards, and then will submit the player's score. The score will be the total amount that player has tipped.
+The `SubmitLeaderboardEntry` will check if the game has leaderboards, and then will submit the player's score. The score will be the total amount that player has tipped.
 
 ```lua
 local function SubmitLeaderboardEntry(player, score)
@@ -1353,7 +1381,7 @@ end
 
 #### Create PerkChanged Function
 
-This function will be called when the `perkChanged` event has fired when a player purchases a perk. It will check to see which perk was purchased, and store the perk amount in the `amount` variable.
+The `PerkChanged` function will be called when the `perkChanged` event has fired when a player purchases a perk. It will check to see which perk was purchased, and store the perk amount in the `amount` variable.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -1482,7 +1510,7 @@ local LEADERBOARD_ENTRIES = script:GetCustomProperty("LeaderboardEntries"):WaitF
 
 #### Create UpdateLeaderboard Function
 
-This function will refresh the leaderboard by spawning a task that repeats forever, but will repeat every 10 seconds.
+The `UpdateLeaderboard` function will refresh the leaderboard by spawning a task that repeats forever, but will repeat every 10 seconds.
 
 !!! tip "Task Repeating Interval"
     For the tutorial the `repeatInterval` property for the task is set to `10` seconds. For a public game, 30 seconds would be more ideal.
@@ -1511,7 +1539,7 @@ local function UpdateLeaderboard()
 end
 ```
 
-Fetches the global list for the **Top Tippers** leaderboard that you created.
+The `GetLeaderboard` function will fetch the global list for the **Top Tippers** leaderboard that you created.
 
 ```lua
 local list = Leaderboards.GetLeaderboard(TOP_TIPPERS_LEADERBOARD, LeaderboardType.GLOBAL)
@@ -1658,6 +1686,8 @@ In this section you will be creating a sprint boost perk that can be purchased b
 
 ### Add Sprint Boost Template to Hierarchy
 
+The assets you imported from Community Content contain a sprint boost template that you can use to follow along with the tutorial.
+
 1. Click the **Project Content** tab.
 2. Click **My Templates** under **All Content**.
 3. Add the template **Perks Tutorial - Sprint Boost** into the **Hierarchy**.
@@ -1667,7 +1697,7 @@ In this section you will be creating a sprint boost perk that can be purchased b
 
 ### Create Sprint Boost Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume, so the interaction label can be enabled for the player for them to open the sprint boost UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume, so the interaction label is visible for the player for them to open the sprint boost UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **Sprint Boost Trigger**.
@@ -1751,7 +1781,7 @@ local inTrigger = false
 
 #### Create CloseUI Function
 
-This function will called when the `clickedEvent` for `SPRINT_BOOST_BUTTON` is fired, and when the player leaves the `SPRINT_BOOST_TRIGGER` volume.
+The `CloseUI` function will called when the `clickedEvent` for `SPRINT_BOOST_BUTTON` is fired, and when the player leaves the `SPRINT_BOOST_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -1770,7 +1800,7 @@ end
 
 #### Create OnInteracted Function
 
-This function will be called when the player interacts with the `SPRINT_BOOST_TRIGGER`.
+The `OnInteracted` function will be called when the player interacts with the `SPRINT_BOOST_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -1786,7 +1816,7 @@ end
 
 #### Create OnExitTrigger Function
 
-This function will check if the local player has exited the `SPRINT_BOOST_TRIGGER` volume, and close the sprint boost UI.
+The `OnExitTrigger` function will check if the local player has exited the `SPRINT_BOOST_TRIGGER` volume, and close the sprint boost UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -1799,7 +1829,7 @@ end
 
 #### Create OnEnterTrigger Function
 
-This function will check when the local player has entered the `SPRINT_BOOST_TRIGGER` volume and turn on interaction so the label will show up for the player.
+The `OnEnterTrigger` function will check when the local player has entered the `SPRINT_BOOST_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -1812,13 +1842,27 @@ end
 
 #### Connect Events
 
-Connect up the events at the end of the script.
+Connect the `CloseUI` function to the `ClickedEvent` for the `SPRINT_BOOST_BUTTON`. When the `SPRINT_BOOST_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 SPRINT_BOOST_BUTTON.clickedEvent:Connect(CloseUI)
+```
 
+Connect the `OnInteracted` function to the `interactedEvent` for the `SPRINT_BOOST_TRIGGER`. When trigger is interacted with, it will show or hide the UI for the player.
+
+```lua
 SPRINT_BOOST_TRIGGER.interactedEvent:Connect(OnInteracted)
+```
+
+Connect the `OnExitTrigger` function to the `endOverlapEvent` for the `SPRINT_BOOST_TRIGGER`. When the player exits the trigger volume, it will automatically close the UI for the player.
+
+```lua
 SPRINT_BOOST_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
+```
+
+Connect the `OnEnterTrigger` function to the `beginOverlapEvent` for the `SPRINT_BOOST_TRIGGER`. When the player enters the trigger volume, it will enable the interaction label for the player, so they can open the UI.
+
+```lua
 SPRINT_BOOST_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
 
@@ -1881,8 +1925,8 @@ SPRINT_BOOST_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 
 Test the game and make sure the following work:
 
-- Trigger interaction label is enabled when entering the trigger volume.
-- Trigger interaction label is disabled when exiting the trigger volume.
+- Trigger interaction label is visible when entering the trigger volume.
+- Trigger interaction label is not visible when exiting the trigger volume.
 - Sprint boost UI opens when pressing ++F++.
 - Sprint boost UI closes when clicking on the close button.
 - Sprint boost UI closes when the player leaves the trigger volume.
@@ -1922,7 +1966,7 @@ local players = {}
 
 #### Create PerkChanged Function
 
-This function will check if the perk that was purchased by the player, is the sprint boost perk. If it is, then it will apply the speed boost to that player and all other players on the server.
+The `PerkChanged` function will check if the perk that was purchased by the player, is the sprint boost perk. If it is, then it will apply the speed boost to that player and all other players on the server.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -1974,7 +2018,7 @@ end
 
 #### Create OnJoined Function
 
-This function will add the player who joined to the `players` table to keep track if they have a boost or not. At the same time, the `perkChangedEvent` is connected so that when that player purchases a perk, the `PerkChanged` function will be called.
+The `OnJoined` function will add the player who joined to the `players` table to keep track if they have a boost or not. At the same time, the `perkChangedEvent` is connected so that when that player purchases a perk, the `PerkChanged` function will be called.
 
 ```lua
 local function OnJoined(player)
@@ -1988,7 +2032,7 @@ local function OnJoined(player)
 end
 ```
 
-This function will remove the player from the `players` table. Setting the value to `nil` will remove that entry from the table.
+The `OnLeft` function will remove the player from the `players` table. Setting the value to `nil` will remove that entry from the table.
 
 ```lua
 local function OnLeft(player)
@@ -2000,7 +2044,7 @@ end
 
 #### Create Tick Function
 
-Create the `Tick` function at the end of the script. This function will loop over all players in the game to check if the `endTime` is less that the current up time of the server (`time()`). If the `endTime` is lower than `time()`, then the player's `maxWalkSpeed` is reset back to the `NORMAL_SPEED`.
+Create the `Tick` function at the end of the script. The `Tick` function will loop over all players in the game to check if the `endTime` is less that the current up time of the server (`time()`). If the `endTime` is lower than `time()`, then the player's `maxWalkSpeed` is reset back to the `NORMAL_SPEED`.
 
 The `Tick` function will run every frame, though in this case you don't need it to run every frame, so it can be slowed down using `Task.Wait(1)`. This means that it will wait 1 second until the next frame.
 
@@ -2093,8 +2137,8 @@ Game.playerLeftEvent:Connect(OnLeft)
 
 Test the game and make sure the following work:
 
-- Sprint boost is applied to when purchasing the perk.
-- Sprint boost is applied to other players.
+- Sprint boost is applied when purchasing the perk.
+- Sprint boost is applied other players.
 - Sprint boost extends the duration just for the player who purchased the perk.
 - Sprint boost expires and sprint speed is returned to normal.
 
@@ -2125,7 +2169,7 @@ In this section you will be creating a VIP (Very Important Player) shop that wil
 
 ### Create VIP Shop Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open the VIP shop UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label is visible for the player for them to open the VIP shop UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **VIP Shop Trigger**.
@@ -2239,7 +2283,7 @@ local vipStatuses = { VIP_BRONZE_STATUS, VIP_SILVER_STATUS, VIP_GOLD_STATUS }
 
 #### Create CloseUI Function
 
-This function will be called when the `clickedEvent` for `VIP_SHOP_BUTTON` is fired, and when the player leaves the `VIP_SHOP_TRIGGER` volume.
+The `CloseUI` function will be called when the `clickedEvent` for `VIP_SHOP_BUTTON` is fired, and when the player leaves the `VIP_SHOP_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -2258,7 +2302,7 @@ end
 
 #### Create OnInteracted Function
 
-This function will be called when the player interacts with the `VIP_SHOP_TRIGGER`.
+The `OnInteracted` function will be called when the player interacts with the `VIP_SHOP_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -2274,7 +2318,7 @@ end
 
 #### Create OnExitTrigger Function
 
-This function will check if the local player has exited the `VIP_SHOP_TRIGGER` volume, and close the VIP shop UI.
+The `OnExitTrigger` function will check if the local player has exited the `VIP_SHOP_TRIGGER` volume, and close the VIP shop UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -2287,7 +2331,7 @@ end
 
 #### Create OnEnterTrigger Function
 
-This function will check when the local player has entered the `VIP_SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player.
+The `OnEnterTrigger` function will check when the local player has entered the `VIP_SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -2300,7 +2344,7 @@ end
 
 #### Create ShowVIPStatus Function
 
-This function is a helper function to try and reduce writing duplicate code for turn on and off each VIP status visibility.
+The `ShowVIPStatus` function is a helper function to try and reduce writing duplicate code for turn on and off each VIP status visibility.
 
 When a VIP status needs to be shown, all other VIP statuses need to have their visibility turn off. You can loop over the `vipStatuses` array, and compare the `statusToShow` value for each iteration. If there is a match, then that status is shown in the UI to the player.
 
@@ -2318,7 +2362,7 @@ end
 
 #### Create UpdateStatus Function
 
-This function will be called when the player's resource gets updated. It will check to see if the resource is either of the VIP statuses, and if the value if the status is `1`, then the highest status purchased by the player is shown in the UI by called `ShowVIPStatus`.
+The `UpdateStatus` function will be called when the player's resource gets updated. It will check to see if the resource is either of the VIP statuses, and if the value if the status is `1`, then the highest status purchased by the player is shown in the UI by calling `ShowVIPStatus`.
 
 ```lua
 local function UpdateStatus(player, resource, amount)
@@ -2340,13 +2384,27 @@ end
 
 #### Connect Events
 
-Connect up the events at the end of the script.
+Connect the `CloseUI` function to the `ClickedEvent` for the `VIP_SHOP_BUTTON`. When the `VIP_SHOP_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 VIP_SHOP_BUTTON.clickedEvent:Connect(CloseUI)
+```
 
+Connect the `OnInteracted` function to the `interactedEvent` for the `VIP_SHOP_TRIGGER`. When trigger is interacted with, it will show or hide the UI for the player.
+
+```lua
 VIP_SHOP_TRIGGER.interactedEvent:Connect(OnInteracted)
+```
+
+Connect the `OnExitTrigger` function to the `endOverlapEvent` for the `VIP_SHOP_TRIGGER`. When the player exits the trigger volume, it will automatically close the UI for the player.
+
+```lua
 VIP_SHOP_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
+```
+
+Connect the `OnEnterTrigger` function to the `beginOverlapEvent` for the `VIP_SHOP_TRIGGER`. When the player enters the trigger volume, it will enable the interaction label for the player, so they can open the UI.
+
+```lua
 VIP_SHOP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
 
@@ -2458,8 +2516,8 @@ end
 
 Test the game and make sure the following work:
 
-- Trigger interaction label is enabled when entering the trigger volume.
-- Trigger interaction label is disabled when exiting the trigger volume.
+- Trigger interaction label is visible when entering the trigger volume.
+- Trigger interaction label is not visible when exiting the trigger volume.
 - VIP shop UI opens when pressing ++F++.
 - VIP shop UI closes when clicking on the close button.
 - VIP shop UI closes when the player leaves the trigger volume.
@@ -2473,7 +2531,7 @@ Test the game and make sure the following work:
 
 ### Create VIPShopServer Script
 
-Create a new script called `VIPShopServer`, and place it into the **Server** group, in the **Scripts** group. The **VIPShopServer** script will be responsible for setting the player to VIP, and giving them the coins, and resources when they purchase a VIP perk.
+Create a new script called `VIPShopServer`, and place it into the **Server** group, in the **Scripts** group. The **VIPShopServer** script will be responsible for setting the player to VIP, and giving them the coins and resources when they purchase a VIP perk.
 
 - Add the **VIP Bronze** perk as a custom property. Name the property `VIPBronze`.
 - Add the **VIP Silver** perk as a custom property. Name the property `VIPSilver`.
@@ -2495,7 +2553,7 @@ local VIP_GOLD_PERK = script:GetCustomProperty("VIPGold")
 
 #### Create PerkChanged Function
 
-This function is responsible for checking which perk the player has purchased, awarding the resources, and updating the player's storage.
+The `PerkChanged` function is responsible for checking which perk the player has purchased, awarding the resources, and updating the player's storage.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -2540,7 +2598,7 @@ end
 
 #### Create OnJoined Function
 
-This function will check to see which VIP perks the player has purchased by using the `HasPerk` function. If the player does own a VIP perk, then the resource will get set. This is used so you can check on the client if the player is a VIP or not so the VIP badge can be displayed to the player.
+The `OnJoined` function will check to see which VIP perks the player has purchased by using the `HasPerk` function. If the player does own a VIP perk, then the resource will get set. This is used so you can check on the client if the player is a VIP or not so the VIP badge can be displayed to the player.
 
 ```lua
 local function OnJoined(player)
@@ -2562,7 +2620,7 @@ end
 
 #### Create OnChatMessage Function
 
-This function will be called anytime a message has been received by a player. It will check if the `speaker` has a perk, and if so, will add the VIP status to the front of their name for everyone else in game to see.
+The `OnChatMessage` function will be called anytime a message has been received by a player. It will check if the `speaker` has a perk, and if so, will add the VIP status to the front of their name for everyone else in game to see.
 
 ```lua
 local function OnChatMessage(speaker, params)
@@ -2684,7 +2742,7 @@ While working through the tutorial, you may have noticed how similar each system
 <!--
 ## Feedback and Questions
 
-For feedback and questions, please reach out to us on this tutorial's [forum thread]().
+For feedback and questions, join the discussion on this tutorial's [forum thread]().
 -->
 
 ## Learn More
