@@ -10,11 +10,11 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to create different perk systems that could be used in your game to make money.
+In this tutorial you are going to create different Sellable in-game items and experiences that could be used in your game to monetize your game.
 
-Creators that are in the **Perks Program** are able to make money in their game using the built in monetization system.
+Creators that are in the **Perks Program** are able to monetize their game using the built in monetization system.
 
-For further information about the **Perks Program**, click [here](/references/perks/program.md).
+For further information about the **Perks Program**, see the [Perks Program reference](/references/perks/program.md).
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -36,7 +36,7 @@ For further information about the **Perks Program**, click [here](/references/pe
 
 ## Enable Player Storage
 
-Storage will need to be enabled so that data can persist for the player between game sessions. For example, if a player purchases a resource perk, then this will need to be saved for the player so they don't lose any resources they don't use in the current game session.
+[Player Storage](../references/persistent_storage.md) will need to be enabled so that data can persist for the player between game sessions. For example, if a player purchases a resource perk, then this will need to be saved for the player so they don't lose any resources they don't use in the current game session.
 
 ![!Enable Storage](../img/PerksTutorial/player_storage.png){: .center loading="lazy" }
 
@@ -62,7 +62,7 @@ The default spawn point for the player is not in a good starting position, so mo
     </video>
 </div>
 
-## Create a Resource Shop
+## Creating a Resource Shop
 
 A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (i.e. killing enemies).
 
@@ -92,7 +92,7 @@ In this tutorial you will create a resource shop that sells 4 items. Below is a 
 
 ### Create Shop Trigger
 
-You will use a trigger so you can detect when the player has entered the trigger volume, and then display the interaction label so the player can open up the shop UI.
+You will use a trigger so you can detect when the player has entered the trigger volume, and then display the interaction label so the player can open the shop UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **Resource Shop Trigger**.
@@ -141,7 +141,7 @@ Click the **Create Perk** button at the bottom of the **Perks Manager** window a
 
 All the perks in the resource shop will be repeatable so players can buy multiple of the same perk.
 
-!!! warning "Perk names must be unique. If the **Create Perk** is disabled, check for an existing perk with the same name."
+!!! warning "Perk names must be unique. If the **Create Perk** button is disabled, check for an existing perk with the same name."
 
 ![!All Perks](../img/PerksTutorial/perks_manager_all_perks.png){: .center loading="lazy" }
 
@@ -185,14 +185,16 @@ Each resource item needs to be added to the **Items** panel in the **Resource Sh
 
 Do the following for each shop resource. Since 4 perks were created, then 4 items should be added to the shop UI.
 
-- Drag the template **Perks Tutorial - Resource Shop Item** into the **Items** panel.
-- Rename the item to one of the resources being sold (i.e. `Coins`).
-- Expand the group and set the **text** property for the **Amount** object in the **Properties Panel**.
-- Change the **Image** property for the **image** object in the **Properties Panel**.
-- Select the **Button** object.
-- Add the Perk for this item to the **Perk Reference** property in the **Properties Panel**.
+1. Drag the template **Perks Tutorial - Resource Shop Item** into the **Items** panel.
+2. Rename the item to one of the resources being sold (i.e. `Coins`).
+3. Open the group in the **Hierarchy** and set the **text** property for the **Amount** object in the **Properties** panel.
+4. Change the **Image** property for the **image** object in the **Properties** panel.
+5. Select the **Button** object.
+6. Add the Perk for this item to the **Perk Reference** property in the **Properties** panel.
 
-The perk reference in the **Properties** panel can be set a few different ways.
+#### Setting Perk References
+
+The perk reference in the **Properties** panel can be set a few different ways:
 
 - Dragging the perk reference from the **Perks Manager** window onto the **Perk Reference** property.
 - Double clicking on the **Perk Reference** property and selecting the perk.
@@ -212,9 +214,9 @@ See how the items in the UI are overlapping.
 
 #### Set Item Position
 
-The width of the item, and a little spacing between each item is 165. Move each item after the first item by 165 for the **X Offset** property. You can use the **X Offset** field to handle the calculation each time for you by using the addition operator. For example, `165+165`.
+The width of the **UI Image**, and a little spacing between each image is 165. Move each item after the first item by 165 for the **X Offset** property. You can use the **X Offset** field to handle the calculation each time for you by using the addition operator. For example, `165+165`.
 
-After all the items have been positioned, the **Resource Shop** panel **Visibility** property can be set to **Force Off** in the **Properties Panel**.
+After all the images have been positioned, the **Resource Shop** panel **Visibility** property can be set to **Force Off** in the **Properties** panel.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -234,9 +236,9 @@ The **ResourceShopClient** script needs references to a few things, so you will 
 
 ![!Properties](../img/PerksTutorial/resource_shop_client_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create Shop UI Variables
 
-Open up the **ResourceShopClient** script.
+Open the **ResourceShopClient** script.
 
 ```lua
 local SHOP_UI = script:GetCustomProperty("ShopUI"):WaitForObject()
@@ -257,6 +259,8 @@ The `inTrigger` variable will be used to determine if the player is in the trigg
 
 #### Create CloseUI Function
 
+This function will be called when the `clickedEvent` listener for `SHOP_BUTTON` is fired, and when the player leaves the `SHOP_TRIGGER` volume.
+
 ```lua
 local function CloseUI()
     SHOP_UI.visibility = Visibility.FORCE_OFF
@@ -272,7 +276,7 @@ local function CloseUI()
 end
 ```
 
-Create the `CloseUI` function. This function will be called when the `clickedEvent` listener for `SHOP_BUTTON` is fired, and when the player leaves the `SHOP_TRIGGER` volume.
+If the player closes the shop UI, they could still be inside the trigger volume, so you don't want to turn off the interaction label, otherwise the player would need to leave the trigger volume, and enter again.
 
 ```lua
 if inTrigger then
@@ -282,9 +286,9 @@ else
 end
 ```
 
-If the player closes the shop UI, they could still be inside the trigger volume, so you don't want to turn of the interaction label, otherwise the player would need to leave the trigger volume, and enter again.
-
 #### Create OnInteracted Function
+
+This function will be called when the player interacts with the `SHOP_TRIGGER`. The function will check to make sure `inTrigger` is true, indicating that the player is inside the `SHOP_TRIGGER` volume.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -298,18 +302,18 @@ local function OnInteracted(trigger, obj)
 end
 ```
 
-Create the `OnInteracted` function at the end of the script. This function will be called when the player interacts with the `SHOP_TRIGGER`. The function will check to make sure `inTrigger` is true, indicating that the player is inside the `SHOP_TRIGGER` volume.
+The last part of the `if` condition checks to see if the `obj` that has entered the `SHOP_TRIGGER` is the local player.
 
 ```lua
 obj == localPlayer
 ```
 
-The last part of the `if` condition checks to see if the `obj` that has entered the `SHOP_TRIGGER` is the local player.
-
 !!! tip "Client Triggers"
     The listener for a client trigger can fire if another player enters the trigger volume. This is because players are replicated to each client. Meaning, you have copy of each player in the game on your side that has a collision capsule. To prevent this, check that the obj in the trigger volume matches the local player.
 
 #### Create OnExitTrigger Function
+
+This function will check if the local player has exited the `SHOP_TRIGGER` volume and close the shop UI. The `inTrigger` variable is set to false so that the interaction label is turned off.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -320,9 +324,9 @@ local function OnExitTrigger(trigger, obj)
 end
 ```
 
-Create the `OnExitTrigger` at the end of the script. This function will check if the local player has exited the `SHOP_TRIGGER` volume and close the shop UI. The `inTrigger` variable is set to false so that the interaction label is turned off.
-
 #### Create OnEnterTrigger Function
+
+This function will check when the local player has entered the `SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player. The `inTrigger` variable is set to true, indicating the player is inside the `SHOP_TRIGGER` volume.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -333,12 +337,12 @@ local function OnEnterTrigger(trigger, obj)
 end
 ```
 
-Create the `OnEnterTrigger` function at the end of the script. This function will check when the local player has entered the `SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player. The `inTrigger` variable is set to true, indicating the player is inside the `SHOP_TRIGGER` volume.
-
 !!! tip "Trigger Interaction Label"
     If a trigger is interactable, then the interaction label can show up to the player even when that player has not entered the trigger volume (i.e. the player getting close to the trigger volume). This is why the `inTrigger` variable is used, to make sure the player is inside the trigger volume before showing the interaction label.
 
 #### Connect Events
+
+Connect up the events at the end of the script.
 
 ```lua
 SHOP_BUTTON.clickedEvent:Connect(CloseUI)
@@ -347,8 +351,6 @@ SHOP_TRIGGER.interactedEvent:Connect(OnInteracted)
 SHOP_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
 SHOP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
-
-Connect up the events at the end of the script.
 
 #### The ResourceShopClient Script
 
@@ -407,7 +409,7 @@ Connect up the events at the end of the script.
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Trigger interaction label is enabled when entering the trigger volume.
 - Trigger interaction label is disabled when exiting the trigger volume.
@@ -448,7 +450,9 @@ Each **Amount** object inside each resource item in the **Perks Tutorial - Playe
 
 ![!Properties](../img/PerksTutorial/resource_shop_player_resources_props.png){: .center loading="lazy" }
 
-##### Create Variables
+##### Create Amount Variables
+
+Create these variables so you have a reference to each **UI Text** for each resource item in the shop. The `text`property will be set, based on how much of that resource the player has.
 
 ```lua
 local PUMPKINS_AMOUNT = script:GetCustomProperty("PumpkinsAmount"):WaitForObject()
@@ -457,9 +461,9 @@ local XP_POTIONS_AMOUNT = script:GetCustomProperty("XPPotionsAmount"):WaitForObj
 local GEMS_AMOUNT = script:GetCustomProperty("GemsAmount"):WaitForObject()
 ```
 
-Create the variables above so you have reference to each property.
-
 ##### Create UpdateResources Function
+
+This function will check which resource has changed, and update the text value for the resource that was updated. This will allow the player to see how much of a resource they have.
 
 ```lua
 local function UpdateResources(player, resource, amount)
@@ -475,23 +479,19 @@ local function UpdateResources(player, resource, amount)
 end
 ```
 
-Create the `UpdateResources` function, and add it just before where you connect the events. This function will check which resource has changed, and update the text value for the resource that was updated. This will allow the player to see how much of a resource they have.
+The `text` property of a `UIText` component needs to be a `string`. Because the `amount` is an `integer`, you need to convert it to a string using the `tostring` function.
 
 ```lua
 tostring(amount)
 ```
 
-The `text` property of a `UIText` component needs to be a `string`. Because the `amount` is an `integer`, you need to convert it to a string using the `tostring` function.
-
 ##### Connect Resource Event
+
+You need to know when a resource has changed so the UI can be updated. When a player's resource has changed using functions such as `AddResource`, `SetResource`, and `RemoveResource`, the `resourceChangeEvent` will be fired, allowing you to check which resource has changed, and to update the UI with the new amount.
 
 ```lua
 localPlayer.resourceChangedEvent:Connect(UpdateResources)
 ```
-
-Add the above line to the end of your script.
-
-You need to know when a resource has changed so the UI can be updated. When a player's resource has changed using functions such as `AddResource`, `SetResource`, and `RemoveResource`, the `resourceChangeEvent` will be fired, allowing you to check which resource has changed, and to update the UI with the new amount.
 
 ##### The ResourceShopClient Script
 
@@ -584,7 +584,9 @@ The **ResourceShopServer** needs to know about the resource perks. Add each reso
 
 #### Create Perks Table
 
-Open up the **ResourceShopServer** script.
+Open the **ResourceShopServer** script.
+
+The `PERKS` table contains an entry for each resource perk which also includes some data. Storing them in a table like this will be easier later on when you need to persistently store them, as you can just loop through the `PERKS` table.
 
 ```lua
 local PERKS = {
@@ -628,11 +630,9 @@ local PERKS = {
 }
 ```
 
-Add the above code to the script. The `PERKS` table contains an entry for each resource perk which also includes some data. Storing them in a table like this will be easier later on when you need to persistently store them, as you can just loop through the `PERKS` table.
-
 | Property | Description |
 | -------- | ----------- |
-| `perk` | Reference to the perk custom property. |
+| `perk` | Net reference to the perk custom property. |
 | `resourceKey` | The resource key that will be used for add / setting the resource for the player. |
 | `resourceAmount` | The amount to give to the player when they purchase the resource perk. |
 | `storageKey` | The key used in the table that will be stored in player storage. |
@@ -641,6 +641,8 @@ Add the above code to the script. The `PERKS` table contains an entry for each r
     If you have a lot of perks, a better way instead of a large table, is to create a look list in the **Hierarchy**. The list would contain an entry for each perk, along with the data (similar to each entry in the `PERKS` table).
 
 #### Create GetPerkData Function
+
+This function will loop through the `PERKS` table to find a perk that matches the `perk` parameter that is passed in.
 
 ```lua
 local function GetPerkData(perk)
@@ -654,9 +656,9 @@ local function GetPerkData(perk)
 end
 ```
 
-Create the `GetPerkData` function, and place it after the `PERKS` table. This function will loop through the `PERKS` table to find a perk that matches the `perk` parameter that is passed in.
-
 #### Create PerkChanged Function
+
+This function is the listener that will be fired when the player has purchased a resource perk. The `perk` parameter will be the perk the player purchased, which can be used to lookup the perk data from the `PERKS` table.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -668,15 +670,15 @@ local function PerkChanged(buyer, perk)
 end
 ```
 
-Create the `PerkChanged` function just after the `GetPerkData` function. This function is the listener that will be fired when the player has purchased a resource perk. The `perk` parameter will be the perk the player purchased, which can be used to lookup the perk data from the `PERKS` table.
+This will also trigger the `resourceChangedEvent` on the client in the **ResourceShopClient** script, so will update the player's UI.
 
 ```lua
 buyer:AddResource(perkData.resourceKey, perkData.resourceAmount)
 ```
 
-The resource amount for the perk purchased, is added to the player's resource. This will also trigger the `resourceChangedEvent` on the client in the **ResourceShopClient** script, so will update the player's UI.
-
 #### Create OnJoined Function
+
+When the player purchases a perk, the listener `PerkChanged` will be called, which will update the player's resource.
 
 ```lua
 local function OnJoined(player)
@@ -684,15 +686,13 @@ local function OnJoined(player)
 end
 ```
 
-Create the `OnJoined` function at the end of the script. When the player purchases a perk, the listener `PerkChanged` will be called, which will update the player's resource.
-
 #### Connect playerJoinedEvent
+
+When a player joins the game, the `OnJoined` listener will be called.
 
 ```lua
 Game.playerJoinedEvent:Connect(OnJoined)
 ```
-
-Add the above line to the end of your script. When a player joins the game, the `OnJoined` listener will be called.
 
 #### The ResourceShopServer Script
 
@@ -783,6 +783,8 @@ You will need to make some changes to a few of the functions in the **ResourceSh
 
 ##### Update PerkChanged Function
 
+Update the `PerkChanged` function to add support for player storage.
+
 ```lua
 local function PerkChanged(buyer, perk)
     local perkData = GetPerkData(perk)
@@ -802,13 +804,13 @@ local function PerkChanged(buyer, perk)
 end
 ```
 
-Update the `PerkChanged` function with the above code.
+Each time a perk has been purchased, the player's storage data is loaded and stored in the `playerData` variable. This will be a table, even if there is no data stored.
 
 ```lua
 local playerData = Storage.GetPlayerData(buyer)
 ```
 
-Each time a perk has been purchased, the player's storage data is loaded and stored in the `playerData` variable. This will be a table, even if there is no data stored.
+Check to see if the `storageKey` for the perk exists in the player's data. If it doesn't, create it and set the resource value to `0`. This is done to make sure there is a valid entry for the perk in the `playerData` table.
 
 ```lua
 if not playerData[perkData.storageKey] then
@@ -816,24 +818,24 @@ if not playerData[perkData.storageKey] then
 end
 ```
 
-Check to see if the `storageKey` for the perk exists in the player's data. If it doesn't, create it and set the resource value to `0`. This is done to make sure there is a valid entry for the perk in the `playerData` table.
-
 !!! tip "Shortcut"
     A shortcut for the above code can be wrote as `playerData[perkData.storageKey] = playerData[perkData.storageKey] or 0`. If the value is nil, then 0 will be stored. This reduces readability, but is handy to know.
+
+Update the value in the table with the the amount the player has just purchased.
 
 ```lua
 playerData[perkData.storageKey] = playerData[perkData.storageKey] + perkData.resourceAmount
 ```
 
-Update the value in the table with the the amount the player has just purchased.
+Update the player's storage. This is done after each purchase to make sure the data stored is the most up to date data.
 
 ```lua
 Storage.SetPlayerData(buyer, playerData)
 ```
 
-Update the player's storage. This is done after each purchase to make sure the data stored is the most up to date data.
-
 ##### Update OnJoined Function
+
+The `OnJoined` function needs to be updated, so that when the player joins, the `PERKS` table is looped over and sets the player's resource for the perk on that iteration of the loop.
 
 ```lua
 local function OnJoined(player)
@@ -846,8 +848,6 @@ local function OnJoined(player)
     player.perkChangedEvent:Connect(PerkChanged)
 end
 ```
-
-The `OnJoined` function needs to be updated with the above code, so that when the player joins, the `PERKS` table is looped over and sets the player's resource for the perk on that iteration of the loop.
 
 ##### The ResourceShopServer Script
 
@@ -937,13 +937,13 @@ The `OnJoined` function needs to be updated with the above code, so that when th
 
 The final thing left to do, is update the **ResourceShopClient** script.
 
+This code will loop over all the local player's resources, and update the resource in the UI. The reason for this, is that when the resources get set on the server when the player joins the game, the `resourceChangeEvent` for the client may not be connected yet.
+
 ```lua
 for key, value in pairs(localPlayer:GetResources()) do
     UpdateResources(localPlayer, key, value)
 end
 ```
-
-Add the above code to the end of the script. This code will loop over all the local player's resources, and update the resource in the UI. The reason for this, is that when the resources get set on the server when the player joins the game, the `resourceChangeEvent` for the client may not be connected yet.
 
 ##### The ResourceShopClient Script
 
@@ -1025,7 +1025,7 @@ Add the above code to the end of the script. This code will loop over all the lo
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Purchasing a perk updates the UI.
 - Leaving and rejoining the game loads the resources from storage.
@@ -1037,7 +1037,7 @@ Test the game and make sure the following work.
     </video>
 </div>
 
-## Create Tip Jar
+## Creating a Tip Jar
 
 In this section you will be creating a tip jar where players can give you a tip in game. You will also be adding a leaderboard to keep track of the top 10 tippers.
 
@@ -1060,7 +1060,7 @@ As you work through this section, you should see some familiarity with how thing
 
 ### Create Tip Jar Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open up the tip jar UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open the tip jar UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **Tip Jar Trigger**.
@@ -1115,7 +1115,7 @@ The tip jar template comes with some UI already set up. You will need to create 
 
 Create 3 perk buttons inside the **Items** group in the **Tip Jar** group. You can drag the **UI Perk Purchase Button** from **Perk Tools** in **Project Content** into your **Hierarchy**.
 
-For each perk added to the UI, drag the perk reference onto the **Perk Reference** property in the **Properties Panel**.
+For each perk added to the UI, drag the perk reference onto the **Perk Reference** property in the **Properties** panel.
 
 !!! tip "View Tip Jar UI"
     Turn on the **Visibility** of the **Tip Jar** panel to see the UI while you position the buttons.
@@ -1134,9 +1134,11 @@ Create a new script called `TipJarClient` and place it into the **Client** group
 
 ![!Properties](../img/PerksTutorial/tip_jar_client_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create UI Variables
 
-Open up the **TipJarClient** script.
+Open the **TipJarClient** script.
+
+Create the variables so you have a reference to the UI objects for the Tip Jar.
 
 ```lua
 local TIP_JAR_UI = script:GetCustomProperty("TipJarUI"):WaitForObject()
@@ -1144,18 +1146,16 @@ local TIP_JAR_TRIGGER = script:GetCustomProperty("TipJarTrigger"):WaitForObject(
 local TIP_JAR_BUTTON = script:GetCustomProperty("TipJarButton"):WaitForObject()
 ```
 
-Create the above variables so you have references to the properties you added.
+The `inTrigger` variable will be used to determine if the player is in the trigger or not.
 
 ```lua
 local localPlayer = Game.GetLocalPlayer()
 local inTrigger = false
 ```
 
-Create the above variables.
-
-The `inTrigger` variable will be used to determine if the player is in the trigger or not.
-
 #### Create CloseUI Function
+
+This function will be called when the `clickedEvent` for `TIP_JAR_BUTTON` is fired, and when the player leaves the `TIP_JAR_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -1172,7 +1172,7 @@ local function CloseUI()
 end
 ```
 
-Create the `CloseUI` function. This function will be called when the `clickedEvent` for `TIP_JAR_BUTTON` is fired, and when the player leaves the `TIP_JAR_TRIGGER` volume.
+If the player closes the Tip Jar UI, they could still be inside the trigger volume, so you don't want to turn of the interaction label, otherwise the player would need to leave the trigger volume, and enter again.
 
 ```lua
 if inTrigger then
@@ -1182,9 +1182,9 @@ else
 end
 ```
 
-If the player closes the Tip Jar UI, they could still be inside the trigger volume, so you don't want to turn of the interaction label, otherwise the player would need to leave the trigger volume, and enter again.
-
 #### Create OnInteracted Function
+
+This function will be called when the player interacts with the `TIP_JAR_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -1198,9 +1198,9 @@ local function OnInteracted(trigger, obj)
 end
 ```
 
-Create the `OnInteracted` function at the end of the script. This function will be called when the player interacts with the `TIP_JAR_TRIGGER`.
-
 #### Create OnExitTrigger Function
+
+This function will check if the local player has exited the `TIP_JAR_TRIGGER` volume, and close the tip jar UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -1211,9 +1211,9 @@ local function OnExitTrigger(trigger, obj)
 end
 ```
 
-Create the `OnExitTrigger` at the end of the script. This function will check if the local player has exited the `TIP_JAR_TRIGGER` volume, and close the tip jar UI.
-
 #### Create OnEnterTrigger Function
+
+This function will check when the local player has entered the `TIP_JAR_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -1224,9 +1224,9 @@ local function OnEnterTrigger(trigger, obj)
 end
 ```
 
-Create the `OnEnterTrigger` function at the end of the script. This function will check when the local player has entered the `TIP_JAR_TRIGGER` volume and turn on interaction so the label will show up for the player.
-
 #### Connect Events
+
+Connect up the events at the end of the script.
 
 ```lua
 TIP_JAR_BUTTON.clickedEvent:Connect(CloseUI)
@@ -1235,8 +1235,6 @@ TIP_JAR_TRIGGER.interactedEvent:Connect(OnInteracted)
 TIP_JAR_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
 TIP_JAR_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
-
-Connect up the events at the end of the script.
 
 #### The TipJarClient Script
 
@@ -1295,7 +1293,7 @@ Connect up the events at the end of the script.
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Trigger interaction label is enabled when entering the trigger volume.
 - Trigger interaction label is disabled when exiting the trigger volume.
@@ -1329,9 +1327,11 @@ Create a new script called `TipJarServer`, and place it into the **Server** grou
 
 ![!Properties](../img/PerksTutorial/tip_jar_server_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create Perk & Leaderboard Variables
 
-Open up the **TipJarServer** script.
+Open the **TipJarServer** script.
+
+You need a reference to the leaderboard, and the 3 tip jar perks.
 
 ```lua
 local TOP_TIPPERS_LEADERBOARD = script:GetCustomProperty("TopTippers")
@@ -1341,9 +1341,9 @@ local TIP_JAR_50 = script:GetCustomProperty("TipJar50")
 local TIP_JAR_100 = script:GetCustomProperty("TipJar100")
 ```
 
-Add the above variables that are references to the leaderboard, and all the perks.
-
 #### Create SubmitLeaderboardEntry Function
+
+This function will check if the game has leaderboards, and then will submit the player's score. The score will be the total amount that player has tipped.
 
 ```lua
 local function SubmitLeaderboardEntry(player, score)
@@ -1353,9 +1353,9 @@ local function SubmitLeaderboardEntry(player, score)
 end
 ```
 
-Create the `SubmitLeaderboardEntry` at the end of the script. This function will check if the game has leaderboards, and then will submit the player's score. The score will be the total amount that player has tipped.
-
 #### Create PerkChanged Function
+
+This function will be called when the `perkChanged` event has fired when a player purchases a perk. It will check to see which perk was purchased, and store the perk amount in the `amount` variable.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -1382,25 +1382,25 @@ local function PerkChanged(buyer, perk)
 end
 ```
 
-Create the `PerkChanged` event at the end of the script. This function will be called when the `perkChanged` event has fired when a player purchases a perk. It will check to see which perk was purchased, and store the perk amount in the `amount` variable.
+The total tips amount for the player is updated with the `amount`.
 
 ```lua
 playerData.tips = playerData.tips + amount
 ```
 
-The total tips amount for the player is updated with the `amount`.
+Update the player's storage, and submit the total tip amount to the leaderboard.
 
 ```lua
 Storage.SetPlayerData(buyer, playerData)
 SubmitLeaderboardEntry(buyer, playerData.tips)
 ```
 
-Update the player's storage, and submit the total tip amount to the leaderboard.
-
 !!! warning "Multiple perkChanged Events"
     Something to be aware of, is if you have multiple `perkChanged` events, all of them will fire when the player purchases a perk.
 
 #### Create OnJoined Function
+
+ When the player joins the game, the `perkChangedEvent` will be connected.
 
 ```lua
 local function OnJoined(player)
@@ -1408,15 +1408,13 @@ local function OnJoined(player)
 end
 ```
 
-Create the `OnJoined` at the end of the script. When the player joins the game, the `perkChangedEvent` will be connected.
-
 #### Connect Event
+
+You need to connect up the `playerJoinedEvent` so the `OnJoined` listener is fired when a player joins the game.
 
 ```lua
 Game.playerJoinedEvent:Connect(OnJoined)
 ```
-
-Add the above line to the end of the script to connect up the `playerJoinedEvent` so the `OnJoined` listener is fired when a player joins the game.
 
 #### The TipJarServer Script
 
@@ -1473,18 +1471,23 @@ The **TipJarClient** script needs to be updated so that it loads the leaderboard
 
 ![!Properties](../img/PerksTutorial/tip_jar_update_client_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create Leaderboard Variables
 
-Open up the **TipJarClient** script.
+Open the **TipJarClient** script.
+
+You will need a reference to the leaderboard to get the submitted entries, and a reference to the UI entries so they can be updated to display the names and amount of the top tippers.
 
 ```lua
 local TOP_TIPPERS_LEADERBOARD = script:GetCustomProperty("TopTippers")
 local LEADERBOARD_ENTRIES = script:GetCustomProperty("LeaderboardEntries"):WaitForObject()
 ```
 
-Create the variables above at the top of the script.
-
 #### Create UpdateLeaderboard Function
+
+This function will refresh the leaderboard by spawning a task that repeats forever, but will repeat every 10 seconds.
+
+!!! tip "Task Repeating Interval"
+    For the tutorial the `repeatInterval` property for the task is set to `10` seconds. For a public game, 30 seconds would be more ideal.
 
 ```lua
 local function UpdateLeaderboard()
@@ -1510,16 +1513,13 @@ local function UpdateLeaderboard()
 end
 ```
 
-Create the `UpdateLeaderboard` function, and add it just before the events are connected. This function will refresh the leaderboard by spawning a task that repeats forever, but will repeat every 10 seconds.
-
-!!! tip "Task Repeating Interval"
-    For the tutorial the `repeatInterval` property for the task is set to `10` seconds. For a public game, 30 seconds would be more ideal.
+Fetches the global list for the **Top Tippers** leaderboard that you created.
 
 ```lua
 local list = Leaderboards.GetLeaderboard(TOP_TIPPERS_LEADERBOARD, LeaderboardType.GLOBAL)
 ```
 
-Fetches the global list for the **Top Tippers** leaderboard that you created.
+Iterate through the `list`, on each iteration, it will use the `index` to get a reference to the leaderboard entry child.
 
 ```lua
 for index, value in ipairs(list) do
@@ -1532,28 +1532,26 @@ for index, value in ipairs(list) do
 end
 ```
 
-The above code will iterate through the `list`, on each iteration, it will use the `index` to get a reference to the leaderboard entry child.
+If the `entry` is not `nil`, then find the `Name` and `Amount`, and update the `text` properties.
 
 ```lua
 entry:FindDescendantByName("Name").text = value.name
 entry:FindDescendantByName("Amount").text = string.format("%0.f", value.score)
 ```
 
-If the `entry` is not `nil`, then find the `Name` and `Amount`, and update the `text` properties.
+Because the `score` value is an `integer`, you need to convert it to a `string` so it can be set for the `text` property. You can use either `tostring`, or better, use `string.format` so the string can be formatted to display with no decimal points. For example, `string.format` in this case will return `300` instead of `300.0`.
 
 ```lua
 string.format("%0.f", value.score)
 ```
 
-Because the `score` value is an `integer`, you need to convert it to a `string` so it can be set for the `text` property. You can use either `tostring`, or better, use `string.format` so the string can be formatted to display with no decimal points. For example, `string.format` in this case will return `300` instead of `300.0`.
-
 #### Call UpdateLeaderboard Function
+
+At the end of the script, you need to call the `UpdateLeaderboard()` function.
 
 ```lua
 UpdateLeaderboard()
 ```
-
-At the end of the script, you need to call the `UpdateLeaderboard()` function.
 
 ### The TipJarClient Script
 
@@ -1639,7 +1637,7 @@ At the end of the script, you need to call the `UpdateLeaderboard()` function.
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Leaderboard entries are loaded (if there are entries).
 - Leaderboards update (currently 10 seconds per refresh).
@@ -1650,7 +1648,7 @@ Test the game and make sure the following work.
     </video>
 </div>
 
-## Create Player Sprint Boost
+## Creating a Player Sprint Boost
 
 In this section you will be creating a sprint boost perk that can be purchased by the player. Not only will the player who purchases the perk receive the boost, but it will also apply to all other players in the game. As an extra incentive to the player to purchase the boost, that player's boost time will be extended if they already have a boost active that they originally purchased.
 
@@ -1671,7 +1669,7 @@ In this section you will be creating a sprint boost perk that can be purchased b
 
 ### Create Sprint Boost Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume, so the interaction label can be enabled for the player for them to open up the sprint boost UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume, so the interaction label can be enabled for the player for them to open the sprint boost UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **Sprint Boost Trigger**.
@@ -1720,7 +1718,7 @@ The sprint boost template comes with some UI already set up. You will need to cr
 
 Create one perk button inside the **Items** group in the **Sprint Boost** group. You can drag the **UI Perk Purchase Button** from **Perk Tools** in **Project Content** into your **Hierarchy**.
 
-Add the sprint boost perk to the **Perk Reference** property in the **Properties Panel**.
+Add the sprint boost perk to the **Perk Reference** property in the **Properties** panel.
 
 ![!Perk Button](../img/PerksTutorial/perk_button.png){: .center loading="lazy" }
 
@@ -1736,9 +1734,13 @@ Create a new script called `SprintBoostClient`, and place it into the **Client**
 
 ![!Properties](../img/PerksTutorial/sprint_boost_client_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create Sprint Boost Variables
 
-Open up the **SprintBoostClient** script.
+Open the **SprintBoostClient** script.
+
+Create references to the sprint boost UI. You will also need a reference to the local player that will be used to see if the player in the trigger is the local player.
+
+The `inTrigger` variable will be used to determine if the player is in the trigger or not.
 
 ```lua
 local SPRINT_BOOST_UI = script:GetCustomProperty("SprintBoostUI"):WaitForObject()
@@ -1749,11 +1751,9 @@ local localPlayer = Game.GetLocalPlayer()
 local inTrigger = false
 ```
 
-Create the above variables.
-
-The `inTrigger` variable will be used to determine if the player is in the trigger or not.
-
 #### Create CloseUI Function
+
+This function will called when the `clickedEvent` for `SPRINT_BOOST_BUTTON` is fired, and when the player leaves the `SPRINT_BOOST_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -1770,9 +1770,9 @@ local function CloseUI()
 end
 ```
 
-Create the `CloseUI` function. This function will called when the `clickedEvent` for `SPRINT_BOOST_BUTTON` is fired, and when the player leaves the `SPRINT_BOOST_TRIGGER` volume.
-
 #### Create OnInteracted Function
+
+This function will be called when the player interacts with the `SPRINT_BOOST_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -1786,9 +1786,9 @@ local function OnInteracted(trigger, obj)
 end
 ```
 
-Create the `OnInteracted` function at the end of the script. This function will be called when the player interacts with the `SPRINT_BOOST_TRIGGER`.
-
 #### Create OnExitTrigger Function
+
+This function will check if the local player has exited the `SPRINT_BOOST_TRIGGER` volume, and close the sprint boost UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -1799,9 +1799,9 @@ local function OnExitTrigger(trigger, obj)
 end
 ```
 
-Create the `OnExitTrigger` at the end of the script. This function will check if the local player has exited the `SPRINT_BOOST_TRIGGER` volume, and close the sprint boost UI.
-
 #### Create OnEnterTrigger Function
+
+This function will check when the local player has entered the `SPRINT_BOOST_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -1812,9 +1812,9 @@ local function OnEnterTrigger(trigger, obj)
 end
 ```
 
-Create the `OnEnterTrigger` function at the end of the script. This function will check when the local player has entered the `SPRINT_BOOST_TRIGGER` volume and turn on interaction so the label will show up for the player.
-
 #### Connect Events
+
+Connect up the events at the end of the script.
 
 ```lua
 SPRINT_BOOST_BUTTON.clickedEvent:Connect(CloseUI)
@@ -1823,8 +1823,6 @@ SPRINT_BOOST_TRIGGER.interactedEvent:Connect(OnInteracted)
 SPRINT_BOOST_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
 SPRINT_BOOST_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
-
-Connect up the events at the end of the script.
 
 #### The SprintBoostClient Script
 
@@ -1883,7 +1881,7 @@ Connect up the events at the end of the script.
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Trigger interaction label is enabled when entering the trigger volume.
 - Trigger interaction label is disabled when exiting the trigger volume.
@@ -1909,9 +1907,11 @@ Create a new script called `SprintBoostServer`, and place it into the **Server**
 
 ![!Properties](../img/PerksTutorial/sprint_boost_server_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create Sprint Boost Variables
 
-Open up the **SprintBoostServer** script.
+Open the **SprintBoostServer** script.
+
+The `players` variable holds an empty table for now. When a player joins the game, they will be added to this table so you can keep track if they have a speed boost or not.
 
 ```lua
 local NORMAL_SPEED = script:GetCustomProperty("NormalSpeed")
@@ -1922,9 +1922,9 @@ local SPRINT_BOOST_PERK = script:GetCustomProperty("SprintBoostPerk")
 local players = {}
 ```
 
-Add the above variables. The `players` variable holds an empty table for now. When a player joins the game, they will be added to this table so you can keep track if they have a speed boost or not.
-
 #### Create PerkChanged Function
+
+This function will check if the perk that was purchased by the player, is the sprint boost perk. If it is, then it will apply the speed boost to that player and all other players on the server.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -1949,7 +1949,7 @@ local function PerkChanged(buyer, perk)
 end
 ```
 
-Create the `PerkChanged` function. This function will check if the perk that was purchased by the player, is the sprint boost perk. If it is, then it will apply the speed boost to that player and all other players on the server.
+If a player purchases the speed boost perk again while an existing speed boost is active, then the time of the speed boost is extended, instead of it being just the `BOOST_DURATION`. This only applies to the player who purchases the perk.
 
 ```lua
 if players[buyer.id].hasBoost then
@@ -1960,7 +1960,9 @@ else
 end
 ```
 
-If a player purchases the speed boost perk again while an existing speed boost is active, then the time of the speed boost is extended, instead of it being just the `BOOST_DURATION`. This only applies to the player who purchases the perk.
+When a player purchases the speed boost perk, a loop is done over all players in the game, and any player that is not the player who purchased the perk, will receive the speed boost.
+
+If the perk is purchased again while other players still have a speed boost, then their end time will only be the `BOOST_DURATION`, and will not be extended. This gives the player who purchased the perk a slight benefit.
 
 ```lua
 for i, player in ipairs(Game.GetPlayers()) do
@@ -1972,11 +1974,9 @@ for i, player in ipairs(Game.GetPlayers()) do
 end
 ```
 
-When a player purchases the speed boost perk, a loop is done over all players in the game, and any player that is not the player who purchased the perk, will receive the speed boost.
-
-If the perk is purchased again while other players still have a speed boost, then their end time will only be the `BOOST_DURATION`, and will not be extended. This gives the player who purchased the perk a slight benefit.
-
 #### Create OnJoined Function
+
+This function will add the player who joined to the `players` table to keep track if they have a boost or not. At the same time, the `perkChangedEvent` is connected so that when that player purchases a perk, the `PerkChanged` function will be called.
 
 ```lua
 local function OnJoined(player)
@@ -1990,7 +1990,7 @@ local function OnJoined(player)
 end
 ```
 
-Create the `OnJoined` function at the end of the script. This function will add the player who joined to the `players` table to keep track if they have a boost or not. At the same time, the `perkChangedEvent` is connected so that when that player purchases a perk, the `PerkChanged` function will be called.
+This function will remove the player from the `players` table. Setting the value to `nil` will remove that entry from the table.
 
 ```lua
 local function OnLeft(player)
@@ -2000,9 +2000,11 @@ local function OnLeft(player)
 end
 ```
 
-Create the `OnLeft` function at the end of the script. This function will remove the player from the `players` table. Setting the value to `nil` will remove that entry from the table.
-
 #### Create Tick Function
+
+Create the `Tick` function at the end of the script. This function will loop over all players in the game to check if the `endTime` is less that the current up time of the server (`time()`). If the `endTime` is lower than `time()`, then the player's `maxWalkSpeed` is reset back to the `NORMAL_SPEED`.
+
+The `Tick` function will run every frame, though in this case you don't need it to run every frame, so it can be slowed down using `Task.Wait(1)`. This means that it will wait 1 second until the next frame.
 
 ```lua
 function Tick()
@@ -2017,18 +2019,14 @@ function Tick()
 end
 ```
 
-Create the `Tick` function at the end of the script. This function will loop over all players in the game to check if the `endTime` is less that the current up time of the server (`time()`). If the `endTime` is lower than `time()`, then the player's `maxWalkSpeed` is reset back to the `NORMAL_SPEED`.
-
-The `Tick` function will run every frame, though in this case you don't need it to run every frame, so it can be slowed down using `Task.Wait(1)`. This means that it will wait 1 second until the next frame.
-
 #### Connect Events
+
+Connect up the events at the end of the script. These events will fire when the player joins and leaves the game.
 
 ```lua
 Game.playerJoinedEvent:Connect(OnJoined)
 Game.playerLeftEvent:Connect(OnLeft)
 ```
-
-Add the the above lines to the end of the script to connect up the events. These events will fire when the player joins and leaves the game.
 
 #### The SprintBoostServer Script
 
@@ -2095,7 +2093,7 @@ Add the the above lines to the end of the script to connect up the events. These
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Sprint boost is applied to when purchasing the perk.
 - Sprint boost is applied to other players.
@@ -2108,7 +2106,7 @@ Test the game and make sure the following work.
     </video>
 </div>
 
-## Create a VIP Shop
+## Creating a VIP Shop
 
 In this section you will be creating a VIP (Very Important Player) shop that will have perk packages players can purchase that will last for a limited amount of time. Each package will give the player a special chat status, gems and coins.
 
@@ -2129,7 +2127,7 @@ In this section you will be creating a VIP (Very Important Player) shop that wil
 
 ### Create VIP Shop Trigger
 
-A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open up the VIP shop UI.
+A trigger will need to be added so you can detect when the player has entered the trigger volume so the interaction label can be enabled for the player for them to open the VIP shop UI.
 
 - Create a **Trigger**, and place it inside the **Triggers** group in the **Hierarchy**.
 - Rename the trigger to **VIP Shop Trigger**.
@@ -2183,9 +2181,9 @@ Both UI containers have their own set of perk buttons that need to have the **Pe
 
 #### Set 2D UI Perk References
 
-In the **UI** group, set the **Perk Reference** property in the **Properties Panel** for each VIP perk found in the **Items** group.
+In the **UI** group, set the **Perk Reference** property in the **Properties** panel for each VIP perk found in the **Items** group.
 
-Do this for Bronze, Silver, and Gold, by expanding the group and finding **UI Perk Purchase Button**.
+Do this for Bronze, Silver, and Gold, by opening the group in the **Hierarchy** and finding **UI Perk Purchase Button**.
 
 ![!Perk Refs](../img/PerksTutorial/vip_shop_2d_ui_perk_references.png){: .center loading="lazy" }
 
@@ -2193,9 +2191,9 @@ Do this for Bronze, Silver, and Gold, by expanding the group and finding **UI Pe
 
 The **World UI** also has perk buttons that need the **Perk Reference** set for each one.
 
-In the **World UI** group, set the **Perk Reference** property in the **Properties Panel** for each VIP perk.
+In the **World UI** group, set the **Perk Reference** property in the **Properties** panel for each VIP perk.
 
-Do this for Bronze, Silver, and Gold, by expanding the group and finding **UI Perk Purchase Button**.
+Do this for Bronze, Silver, and Gold, by opening the group in the **Hierarchy** and finding **UI Perk Purchase Button**.
 
 ![!Perk Refs](../img/PerksTutorial/vip_shop_world_ui_perk_references.png){: .center loading="lazy" }
 
@@ -2215,9 +2213,11 @@ In the **VIP Status** panel, add each VIP status as a custom property. The VIP s
 
 ![!Properties](../img/PerksTutorial/vip_shop_client_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create VIP Shop Variables
 
-Open up the **VIPShopClient** script.
+Open the **VIPShopClient** script.
+
+Create the variables so you have a reference to the various UI components, and the status UI.
 
 ```lua
 local VIP_SHOP_UI = script:GetCustomProperty("VIPShopUI"):WaitForObject()
@@ -2233,15 +2233,15 @@ local localPlayer = Game.GetLocalPlayer()
 local inTrigger = false
 ```
 
-Create the above variables.
+Each VIP status is added to the `vipStatuses` table to make it easier show or hide in the UI the highest status the player has purchased.
 
 ```lua
 local vipStatuses = { VIP_BRONZE_STATUS, VIP_SILVER_STATUS, VIP_GOLD_STATUS }
 ```
 
-Each VIP status is added to the `vipStatuses` table to make it easier show or hide in the UI the highest status the player has purchased.
-
 #### Create CloseUI Function
+
+This function will be called when the `clickedEvent` for `VIP_SHOP_BUTTON` is fired, and when the player leaves the `VIP_SHOP_TRIGGER` volume.
 
 ```lua
 local function CloseUI()
@@ -2258,9 +2258,9 @@ local function CloseUI()
 end
 ```
 
-Create the `CloseUI` function. This function will be called when the `clickedEvent` for `VIP_SHOP_BUTTON` is fired, and when the player leaves the `VIP_SHOP_TRIGGER` volume.
-
 #### Create OnInteracted Function
+
+This function will be called when the player interacts with the `VIP_SHOP_TRIGGER`.
 
 ```lua
 local function OnInteracted(trigger, obj)
@@ -2274,9 +2274,9 @@ local function OnInteracted(trigger, obj)
 end
 ```
 
-Create the `OnInteracted` function at the end of the script. This function will be called when the player interacts with the `VIP_SHOP_TRIGGER`.
-
 #### Create OnExitTrigger Function
+
+This function will check if the local player has exited the `VIP_SHOP_TRIGGER` volume, and close the VIP shop UI.
 
 ```lua
 local function OnExitTrigger(trigger, obj)
@@ -2287,9 +2287,9 @@ local function OnExitTrigger(trigger, obj)
 end
 ```
 
-Create the `OnExitTrigger` at the end of the script. This function will check if the local player has exited the `VIP_SHOP_TRIGGER` volume, and close the VIP shop UI.
-
 #### Create OnEnterTrigger Function
+
+This function will check when the local player has entered the `VIP_SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player.
 
 ```lua
 local function OnEnterTrigger(trigger, obj)
@@ -2300,9 +2300,11 @@ local function OnEnterTrigger(trigger, obj)
 end
 ```
 
-Create the `OnEnterTrigger` function at the end of the script. This function will check when the local player has entered the `VIP_SHOP_TRIGGER` volume and turn on interaction so the label will show up for the player.
-
 #### Create ShowVIPStatus Function
+
+This function is a helper function to try and reduce writing duplicate code for turn on and off each VIP status visibility.
+
+When a VIP status needs to be shown, all other VIP statuses need to have their visibility turn off. You can loop over the `vipStatuses` array, and compare the `statusToShow` value for each iteration. If there is a match, then that status is shown in the UI to the player.
 
 ```lua
 local function ShowVIPStatus(statusToShow)
@@ -2316,11 +2318,9 @@ local function ShowVIPStatus(statusToShow)
 end
 ```
 
-Create the `ShowVIPStatus` function at the end of the script. This function is a helper function to try and reduce writing duplicate code for turn on and off each VIP status visibility.
-
-When a VIP status needs to be shown, all other VIP statuses need to have their visibility turn off. You can loop over the `vipStatuses` array, and compare the `statusToShow` value for each iteration. If there is a match, then that status is shown in the UI to the player.
-
 #### Create UpdateStatus Function
+
+This function will be called when the player's resource gets updated. It will check to see if the resource is either of the VIP statuses, and if the value if the status is `1`, then the highest status purchased by the player is shown in the UI by called `ShowVIPStatus`.
 
 ```lua
 local function UpdateStatus(player, resource, amount)
@@ -2340,9 +2340,9 @@ local function UpdateStatus(player, resource, amount)
 end
 ```
 
-Create the `UpdateStatus` function at the end of the script. This function will be called when the player's resource gets updated. It will check to see if the resource is either of the VIP statuses, and if the value if the status is `1`, then the highest status purchased by the player is shown in the UI by called `ShowVIPStatus`.
-
 #### Connect Events
+
+Connect up the events at the end of the script.
 
 ```lua
 VIP_SHOP_BUTTON.clickedEvent:Connect(CloseUI)
@@ -2352,9 +2352,9 @@ VIP_SHOP_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
 VIP_SHOP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 ```
 
-Connect up the events at the end of the script.
-
 #### Connect resourceChangedEvent
+
+This code will loop over all the local player's resources. The reason for this, is that when the resources get set on the server when the player joins the game, the `resourceChangeEvent` for the client may not be connected yet.
 
 ```lua
 localPlayer.resourceChangedEvent:Connect(UpdateStatus)
@@ -2363,8 +2363,6 @@ for key, value in pairs(localPlayer:GetResources()) do
     UpdateStatus(localPlayer, key, value)
 end
 ```
-
-Add the above code to the end of the script. This code will loop over all the local player's resources. The reason for this, is that when the resources get set on the server when the player joins the game, the `resourceChangeEvent` for the client may not be connected yet.
 
 #### The VIPShopClient Script
 
@@ -2460,7 +2458,7 @@ Add the above code to the end of the script. This code will loop over all the lo
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Trigger interaction label is enabled when entering the trigger volume.
 - Trigger interaction label is disabled when exiting the trigger volume.
@@ -2485,9 +2483,11 @@ Create a new script called `VIPShopServer`, and place it into the **Server** gro
 
 ![!Properties](../img/PerksTutorial/vip_shop_server_props.png){: .center loading="lazy" }
 
-#### Create Variables
+#### Create VIP Perk Variables
 
-Open up the **VIPShopServer** script.
+Open the **VIPShopServer** script.
+
+Create these variables so you have a reference to each VIP perk.
 
 ```lua
 local VIP_BRONZE_PERK = script:GetCustomProperty("VIPBronze")
@@ -2495,9 +2495,9 @@ local VIP_SILVER_PERK = script:GetCustomProperty("VIPSilver")
 local VIP_GOLD_PERK = script:GetCustomProperty("VIPGold")
 ```
 
-Add the above variables so you have a reference to each VIP perk.
-
 #### Create PerkChanged Function
+
+This function is responsible for checking which perk the player has purchased, awarding the resources, and updating the player's storage.
 
 ```lua
 local function PerkChanged(buyer, perk)
@@ -2540,9 +2540,9 @@ local function PerkChanged(buyer, perk)
 end
 ```
 
-Create the `PerkChanged` function. This function is responsible for checking which perk the player has purchased, awarding the resources, and updating the player's storage.
-
 #### Create OnJoined Function
+
+This function will check to see which VIP perks the player has purchased by using the `HasPerk` function. If the player does own a VIP perk, then the resource will get set. This is used so you can check on the client if the player is a VIP or not so the VIP badge can be displayed to the player.
 
 ```lua
 local function OnJoined(player)
@@ -2562,9 +2562,9 @@ local function OnJoined(player)
 end
 ```
 
-Create the `OnJoined` function at the end of the script. This function will check to see which VIP perks the player has purchased by using the `HasPerk` function. If the player does own a VIP perk, then the resource will get set. This is used so you can check on the client if the player is a VIP or not so the VIP badge can be displayed to the player.
-
 #### Create OnChatMessage Function
+
+This function will be called anytime a message has been received by a player. It will check if the `speaker` has a perk, and if so, will add the VIP status to the front of their name for everyone else in game to see.
 
 ```lua
 local function OnChatMessage(speaker, params)
@@ -2578,16 +2578,14 @@ local function OnChatMessage(speaker, params)
 end
 ```
 
-Create the `OnChatMessage` function at the end of the script. This function will be called anytime a message has been received by a player. It will check if the `speaker` has a perk, and if so, will add the VIP status to the front of their name for everyone else in game to see.
-
 #### Connect Events
+
+Connect up the events at the end of the script.
 
 ```lua
 Game.playerJoinedEvent:Connect(OnJoined)
 Chat.receiveMessageHook:Connect(OnChatMessage)
 ```
-
-Connect up the events at the end of the script.
 
 #### The VIPServer Script
 
@@ -2668,7 +2666,7 @@ Connect up the events at the end of the script.
 
 ### Test the Game
 
-Test the game and make sure the following work.
+Test the game and make sure the following work:
 
 - Purchasing a VIP package give gems and coins.
 - VIP status is shown in the chat when sending messages.
@@ -2693,4 +2691,4 @@ For feedback and questions, please reach out to us on this tutorial's [forum thr
 
 ## Learn More
 
-[Perks Program](../references/perks/program.md) | [UI Perk Purchase Button](../api/uiperkpurchasebutton.md)
+[Perks Program](../references/perks/program.md) | [UI Perk Purchase Button](../api/uiperkpurchasebutton.md) | [UI Perk Purchase Button](../tutorials/persistent_storage_tutorial.md) | [Resource Change Event](../api/player.md#events)
