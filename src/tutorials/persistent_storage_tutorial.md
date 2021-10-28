@@ -50,7 +50,7 @@ Persistent Player Storage is available under the namespace called **Storage**. T
 
 All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Temp/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
 
-Each player table has a **maximum size limit of 32b**.
+Each player table has a **maximum size limit of 32kb**.
 
 To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [Core API](../api/storage.md).
 
