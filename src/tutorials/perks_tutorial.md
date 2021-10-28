@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to create different Sellable in-game items and experiences that could be used in your game to monetize your game.
+In this tutorial you are going to create different sellable in-game items and experiences that could be used in your game to monetize your game.
 
 Creators that are in the **Perks Program** are able to monetize their game using the built in monetization system.
 
@@ -125,7 +125,7 @@ Move the **Resource Shop Trigger** inside the Perks Shop. Place it in front of t
 
 When the **Resource Shop Trigger** has the `interactable` property set to true, the label of the **Resource Shop Trigger** will be shown to the player when they enter the **Resource Shop Trigger** volume.
 
-Set the **Label** property for the **Resource Shop Trigger** to `Resource Shop` in the **Properties** panel.
+Set the **Interaction Label** property for the **Resource Shop Trigger** to `Resource Shop` in the **Properties** panel.
 
 ![!Trigger Label](../img/PerksTutorial/resource_shop_trigger_label.png){: .center loading="lazy" }
 
@@ -817,7 +817,7 @@ end
 ```
 
 !!! tip "Shortcut"
-    A shortcut for the above code can be wrote as `playerData[perkData.storageKey] = playerData[perkData.storageKey] or 0`. If the value is nil, then 0 will be stored. This reduces readability, but is handy to know.
+    A shortcut for the above code can be written as `playerData[perkData.storageKey] = playerData[perkData.storageKey] or 0`. If the value is nil, then 0 will be stored. This reduces readability, but is handy to know.
 
 Update the value in the table with the the amount the player has just purchased.
 
@@ -1091,7 +1091,7 @@ Move the **Tip Jar Trigger** in front of the tip jar pedestal, and resize it.
 
 When the **Tip Jar Trigger** has the `interactable` property set to true, the label of the **Tip Jar Trigger** will be shown to the player when they enter the **Tip Jar Trigger** volume.
 
-Set the **Label** property for the **Tip Jar Trigger** to `Give Tip` in the **Properties** panel.
+Set the **Interaction Label** property for the **Tip Jar Trigger** to `Give Tip` in the **Properties** panel.
 
 ![!Trigger Label](../img/PerksTutorial/tip_jar_trigger_label.png){: .center loading="lazy" }
 
@@ -1700,7 +1700,7 @@ Move the **Sprint Boost Trigger** in front of the base of the sprint boost objec
 
 When the **Sprint Boost Trigger** has the `interactable` property set to true, the label of the **Sprint Boost Trigger** will be shown to the player when they enter the **Sprint Boost Trigger** volume.
 
-Set the **Label** property for the **Sprint Boost Trigger** to `Purchase Sprint Boost` in the **Properties** panel.
+Set the **Interaction Label** property for the **Sprint Boost Trigger** to `Purchase Sprint Boost` in the **Properties** panel.
 
 ![!Trigger Label](../img/PerksTutorial/sprint_boost_trigger_label.png){: .center loading="lazy" }
 
@@ -2158,7 +2158,7 @@ Move the **VIP Shop Trigger** in front of the base of the **Geo** objects, and r
 
 When the **VIP Shop Trigger** has the `interactable` property set to true, the label of the **VIP Shop Trigger** will be shown to the player when they enter the **VIP Shop Trigger** volume.
 
-Set the **Label** property for the **VIP Shop Trigger** to `Purchase VIP` in the **Properties** panel.
+Set the **Interaction Label** property for the **VIP Shop Trigger** to `Purchase VIP` in the **Properties** panel.
 
 ![!Trigger Label](../img/PerksTutorial/vip_shop_trigger_label.png){: .center loading="lazy" }
 
