@@ -170,4 +170,4 @@ The `eventID` value can be retrieved by copying the **Game Event Id** for the ev
 
 ## Learn More
 
-[CoreGameEvent](../api/coregameevent.md) | [CoreGameEventCollection](../api/coregameeventcollection.md) | [CoreGameEventState](../api/enums.md#coregameeventstate)
+[CoreGameEvent](../api/coregameevent.md) | [CoreGameEventCollection](../api/coregameeventcollection.md) | [CoreGameEventState](../api/enums.md#coregameeventstate) | [DateTime](../api/datetime.md)
