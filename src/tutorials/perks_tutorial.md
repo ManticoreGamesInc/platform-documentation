@@ -240,22 +240,20 @@ The **ResourceShopClient** script needs references to a few things, so you will 
 
 Open the **ResourceShopClient** script.
 
+Create these variables so you have a reference to the shop UI components.
+
 ```lua
 local SHOP_UI = script:GetCustomProperty("ShopUI"):WaitForObject()
 local SHOP_TRIGGER = script:GetCustomProperty("ShopTrigger"):WaitForObject()
 local SHOP_BUTTON = script:GetCustomProperty("ShopButton"):WaitForObject()
 ```
 
-Create the above variables so you have references to the properties you added.
+The `inTrigger` variable will be used to determine if the player is in the trigger or not
 
 ```lua
 local localPlayer = Game.GetLocalPlayer()
 local inTrigger = false
 ```
-
-Create the above variables.
-
-The `inTrigger` variable will be used to determine if the player is in the trigger or not.
 
 #### Create CloseUI Function
 
