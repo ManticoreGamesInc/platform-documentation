@@ -28,6 +28,7 @@ nav:
               - Create an RPG Game: tutorials/first_game_rpg.md
               - Create a Survival Game: tutorials/survival_tutorial.md
               - Create a CTF Game: tutorials/first_game_ctf.md
+              - Create a Battle Royale Game: tutorials/first_game_br.md
           - Publish a Game: getting_started/publishing.md
           - Getting Help in Core: getting_started/core_help.md
           - Core for Game Jams: references/global_game_jam.md
