@@ -63,6 +63,7 @@ nav:
               - Boss Fight: tutorials/boss_tutorial.md
               - Cosmetic System: tutorials/cosmetic_tutorial.md
               - Game Events: tutorials/game_events.md
+              - Perk Systems: tutorials/perks_tutorial.md
           - Visual Effects in Core: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
