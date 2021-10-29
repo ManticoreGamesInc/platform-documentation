@@ -340,7 +340,7 @@ end
 
 #### Connect Events
 
-Connect the `CloseUI` function to the `ClickedEvent` for the `SHOP_BUTTON`. When the `SHOP_BUTTON` is clicked by the player, it will close the UI.
+Connect the `CloseUI` function to the `clickedEvent` for the `SHOP_BUTTON`. When the `SHOP_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 SHOP_BUTTON.clickedEvent:Connect(CloseUI)
@@ -1238,7 +1238,7 @@ end
 
 #### Connect Events
 
-Connect the `CloseUI` function to the `ClickedEvent` for the `TIP_JAR_BUTTON`. When the `TIP_JAR_BUTTON` is clicked by the player, it will close the UI.
+Connect the `CloseUI` function to the `clickedEvent` for the `TIP_JAR_BUTTON`. When the `TIP_JAR_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 TIP_JAR_BUTTON.clickedEvent:Connect(CloseUI)
@@ -1842,7 +1842,7 @@ end
 
 #### Connect Events
 
-Connect the `CloseUI` function to the `ClickedEvent` for the `SPRINT_BOOST_BUTTON`. When the `SPRINT_BOOST_BUTTON` is clicked by the player, it will close the UI.
+Connect the `CloseUI` function to the `clickedEvent` for the `SPRINT_BOOST_BUTTON`. When the `SPRINT_BOOST_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 SPRINT_BOOST_BUTTON.clickedEvent:Connect(CloseUI)
@@ -2384,7 +2384,7 @@ end
 
 #### Connect Events
 
-Connect the `CloseUI` function to the `ClickedEvent` for the `VIP_SHOP_BUTTON`. When the `VIP_SHOP_BUTTON` is clicked by the player, it will close the UI.
+Connect the `CloseUI` function to the `clickedEvent` for the `VIP_SHOP_BUTTON`. When the `VIP_SHOP_BUTTON` is clicked by the player, it will close the UI.
 
 ```lua
 VIP_SHOP_BUTTON.clickedEvent:Connect(CloseUI)
