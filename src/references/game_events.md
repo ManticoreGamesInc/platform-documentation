@@ -114,7 +114,7 @@ Players can also unregister from events at anytime, this will remove the event f
 
 In the editor, there is a button component called **UI Event RSVP Button** that can be found in **Platform Tools**, in **Core Content**. This button can be used by players in game so they can register and unregister for an event. This button will also contain a countdown for when the event will begin.
 
-Each game event created will have a **Game Event Id** that can be copied and added to the **Event ID** property of the **UI Event RSVP Button** in the **Properties Panel**. If no ID is entered, or is invalid, then the button will be disabled.
+Each game event created will have a **Game Event Id** that can be copied and added to the **Event ID** property of the **UI Event RSVP Button** in the **Properties** window. If no ID is entered, or is invalid, then the button will be disabled.
 
 ![!Register For Event](../img/GameEvents/event_button.png){: .center loading="lazy" }
 

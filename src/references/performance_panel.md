@@ -1,14 +1,14 @@
 ---
 id: performance_estimation_panel
-name: Performance Estimation Panel
-title: Performance Estimation Panel
+name: Performance Estimation Window
+title: Performance Estimation Window
 tags:
     - Reference
 ---
 
-# Performance Estimation Panel
+# Performance Estimation Window
 
-The aim of the Performance Estimation panel is to provide Creators a way to estimate the performance of their game on various computers over the different video settings.
+The aim of the Performance Estimation window is to provide Creators a way to estimate the performance of their game on various computers over the different video settings.
 
 ![PerformancePanel](../img/getting_started/performance_panel.png){: .center loading="lazy" }
 
@@ -44,4 +44,4 @@ With both the visualizations, the key point to make is "**Lower is Better**". Th
     - The game is expected to run poorly.
     - The creator needs to walk through their scene and perform some content optimizations in order to get the game region out of the Red zone into the Yellow or Green zones.
 
-Again, it is worth reiterating that **this panel only serves to give an estimation of performance on other computers**, and should not be the only factor considered when thinking about how the game might actually run on players' computers. Playtests and player feedback is very valuable when it comes to understanding this aspect of game development.
+Again, it is worth reiterating that **this window only serves to give an estimation of performance on other computers**, and should not be the only factor considered when thinking about how the game might actually run on players' computers. Playtests and player feedback is very valuable when it comes to understanding this aspect of game development.

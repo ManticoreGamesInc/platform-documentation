@@ -27,7 +27,7 @@ In this tutorial you are going to explore more of the **Core** API to make a rac
 ## Create Project and Track
 
 !!! tip "Community Content Track"
-    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** panel by searching for `Race Timer Tutorial - Track` by **CoreAcademy**.
+    A track has been uploaded to **Community Content** to help you get started. This can be imported from the **Community Content** window by searching for `Race Timer Tutorial - Track` by **CoreAcademy**.
 
 1. Create a new empty project.
 2. In the **Hierarchy** delete the object **Default Floor**.
@@ -953,7 +953,7 @@ Create a **UI Image** object and rename it to `Background`. Place this inside th
 
 Create a **UI Panel** object and rename it to `Timer Panel`. Place this inside the **Race Timer** image as a child. This panel will hold a few objects for the actual timer.
 
-![!Panel Properties](../img/RaceTimerTutorial/timer_panel_props.png){: .center loading="lazy" }
+![!Window Properties](../img/RaceTimerTutorial/timer_panel_props.png){: .center loading="lazy" }
 
 #### Create Panel Background Image
 

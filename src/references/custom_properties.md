@@ -53,7 +53,7 @@ There are 2 ways to add a tooltip to a custom property.
 
 1. When creating a custom property.
 
-    When a custom property is being created, there is an option in the **Add Property** panel to set the tooltip.
+    When a custom property is being created, there is an option in the **Add Property** window to set the tooltip.
 
     ![!Tooltip](../img/CustomProperties/AddPropertyTooltip.png){: .center loading="lazy" }
 
@@ -77,7 +77,7 @@ Custom properties can be placed inside custom categories. This can be a good way
 
 ### Create a Category
 
-When adding a new custom property, the **Add Property** panel has fields where a **Category** can be selected, or created, and a **Sub Category** can be selected, or created.
+When adding a new custom property, the **Add Property** window has fields where a **Category** can be selected, or created, and a **Sub Category** can be selected, or created.
 
 To create a new **Category**, click inside the **Category** field and type the category to be created. The same applies for **Sub Category**. A custom property can have a root **Category** and a **Sub Category**.
 
@@ -87,7 +87,7 @@ To create a new **Category**, click inside the **Category** field and type the c
 
 Adding a property to a **Category** or **Sub Category** can be done from 2 locations.
 
-1. Add Property Panel.
+1. Add Property Window.
 
     When creating a new custom property, clicking inside the **Category** field will list any existing categories that have been created. Select the category to add the custom property too. This also applies to **Sub Categories**.
 
@@ -95,13 +95,13 @@ Adding a property to a **Category** or **Sub Category** can be done from 2 locat
 
 2. Move to Category.
 
-    From the **Properties** panel, custom properties can be moved to a category. Right click on the custom property to be moved, select **Move To Category**, and select the category.
+    From the **Properties** window, custom properties can be moved to a category. Right click on the custom property to be moved, select **Move To Category**, and select the category.
 
     ![!Move to Category](../img/CustomProperties/MoveToCategory.png){: .center loading="lazy" }
 
 ### Rename or Delete Category
 
-Renaming or deleting categories can be done from the options panel from the **Properties** panel.
+Renaming or deleting categories can be done from the options panel from the **Properties** window.
 
 ![!Rename or Delete Category](../img/CustomProperties/RenameDeleteCategory.png){: .center loading="lazy" }
 

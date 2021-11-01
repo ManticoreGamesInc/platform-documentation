@@ -44,7 +44,7 @@ For further information about the **Perks Program**, see the [Perks Program refe
 
 You will be importing an asset from **Community Content** that will contain various components you will drop into the **Hierarchy** while you follow the tutorial.
 
-1. Open the **Community Content** panel.
+1. Open the **Community Content** window.
 2. Search for `Perks Tutorial` by **CoreAcademy**.
 3. Click **Import**.
 
@@ -103,7 +103,7 @@ You will use a trigger so you can detect when the player has entered the trigger
 
 Because the trigger is in a client context, you need to force collision on, otherwise you will not be able to detect when a player has entered the trigger volume.
 
-Click on the **Resource Shop Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** panel. In doing so, the gizmo for the trigger volume will now show up in the scene view.
+Click on the **Resource Shop Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** window. In doing so, the gizmo for the trigger volume will now show up in the scene view.
 
 ![!Collision On](../img/PerksTutorial/resource_shop_trigger_collision_on.png){: .center loading="lazy" }
 
@@ -125,7 +125,7 @@ Move the **Resource Shop Trigger** inside the Perks Shop. Place it in front of t
 
 When the **Resource Shop Trigger** has the `interactable` property set to true, the label of the **Resource Shop Trigger** will be shown to the player when they enter the **Resource Shop Trigger** volume.
 
-Set the **Interaction Label** property for the **Resource Shop Trigger** to `Resource Shop` in the **Properties** panel.
+Set the **Interaction Label** property for the **Resource Shop Trigger** to `Resource Shop` in the **Properties** window.
 
 ![!Trigger Label](../img/PerksTutorial/resource_shop_trigger_label.png){: .center loading="lazy" }
 
@@ -187,14 +187,14 @@ Do the following for each shop resource. Since 4 perks were created, then 4 item
 
 1. Drag the template **Perks Tutorial - Resource Shop Item** into the **Items** panel.
 2. Rename the item to one of the resources being sold (i.e. `Coins`).
-3. Open the group in the **Hierarchy** and set the **text** property for the **Amount** object in the **Properties** panel.
-4. Change the **Image** property for the **image** object in the **Properties** panel.
+3. Open the group in the **Hierarchy** and set the **text** property for the **Amount** object in the **Properties** window.
+4. Change the **Image** property for the **image** object in the **Properties** window.
 5. Select the **Button** object.
-6. Add the Perk for this item to the **Perk Reference** property in the **Properties** panel.
+6. Add the Perk for this item to the **Perk Reference** property in the **Properties** window.
 
 #### Setting Perk References
 
-The perk reference in the **Properties** panel can be set a few different ways:
+The perk reference in the **Properties** window can be set a few different ways:
 
 - Dragging the perk reference from the **Perks Manager** window onto the **Perk Reference** property.
 - Double clicking on the **Perk Reference** property and selecting the perk.
@@ -206,7 +206,7 @@ The perk reference in the **Properties** panel can be set a few different ways:
 
 The UI items added for each resource that will be sold in the shop, will need to be positioned so they are spaced apart.
 
-To visually see how the UI will look, you can temporarily set the **Visibility** to **Force On** in the properties panel for the **Resource Shop** panel in the **Hierarchy**.
+To visually see how the UI will look, you can temporarily set the **Visibility** to **Force On** in the **Properties** window for the **Resource Shop** panel in the **Hierarchy**.
 
 See how the items in the UI are overlapping.
 
@@ -216,7 +216,7 @@ See how the items in the UI are overlapping.
 
 The width of the **UI Image**, and a little spacing between each image is 165. Move each item after the first item by 165 for the **X Offset** property. You can use the **X Offset** field to handle the calculation each time for you by using the addition operator. For example, `165+165`.
 
-After all the images have been positioned, the **Resource Shop** panel **Visibility** property can be set to **Force Off** in the **Properties** panel.
+After all the images have been positioned, the **Resource Shop** panel **Visibility** property can be set to **Force Off** in the **Properties** window.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1083,7 +1083,7 @@ A trigger will need to be added so you can detect when the player has entered th
 
 Because the trigger is in a client context, you need to force collision on, otherwise you will not be able to detect when a player has entered the trigger volume.
 
-Click on the **Tip Jar Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** panel. In doing so, the gizmo for the trigger volume will now show up in the scene view.
+Click on the **Tip Jar Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** window. In doing so, the gizmo for the trigger volume will now show up in the scene view.
 
 ![!Collision On](../img/PerksTutorial/tip_jar_trigger_collision_on.png){: .center loading="lazy" }
 
@@ -1105,7 +1105,7 @@ Move the **Tip Jar Trigger** in front of the tip jar pedestal, and resize it.
 
 When the **Tip Jar Trigger** has the `interactable` property set to true, the label of the **Tip Jar Trigger** will be shown to the player when they enter the **Tip Jar Trigger** volume.
 
-Set the **Interaction Label** property for the **Tip Jar Trigger** to `Give Tip` in the **Properties** panel.
+Set the **Interaction Label** property for the **Tip Jar Trigger** to `Give Tip` in the **Properties** window.
 
 ![!Trigger Label](../img/PerksTutorial/tip_jar_trigger_label.png){: .center loading="lazy" }
 
@@ -1127,7 +1127,7 @@ The tip jar template comes with some UI already set up. You will need to create 
 
 Create 3 perk buttons inside the **Items** group in the **Tip Jar** group. You can drag the **UI Perk Purchase Button** from **Perk Tools** in **Project Content** into your **Hierarchy**.
 
-For each perk added to the UI, drag the perk reference onto the **Perk Reference** property in the **Properties** panel.
+For each perk added to the UI, drag the perk reference onto the **Perk Reference** property in the **Properties** window.
 
 !!! tip "View Tip Jar UI"
     Turn on the **Visibility** of the **Tip Jar** panel to see the UI while you position the buttons.
@@ -1708,7 +1708,7 @@ A trigger will need to be added so you can detect when the player has entered th
 
 Because the trigger is in a client context, you need to force collision on, otherwise you will not be able to detect when a player has entered the trigger volume.
 
-Click on the **Sprint Boost Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** panel. In doing so, the gizmo for the trigger volume will now show up in the scene view.
+Click on the **Sprint Boost Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** window. In doing so, the gizmo for the trigger volume will now show up in the scene view.
 
 ![!Collision On](../img/PerksTutorial/sprint_boost_trigger_collision_on.png){: .center loading="lazy" }
 
@@ -1730,7 +1730,7 @@ Move the **Sprint Boost Trigger** in front of the base of the sprint boost objec
 
 When the **Sprint Boost Trigger** has the `interactable` property set to true, the label of the **Sprint Boost Trigger** will be shown to the player when they enter the **Sprint Boost Trigger** volume.
 
-Set the **Interaction Label** property for the **Sprint Boost Trigger** to `Purchase Sprint Boost` in the **Properties** panel.
+Set the **Interaction Label** property for the **Sprint Boost Trigger** to `Purchase Sprint Boost` in the **Properties** window.
 
 ![!Trigger Label](../img/PerksTutorial/sprint_boost_trigger_label.png){: .center loading="lazy" }
 
@@ -1746,7 +1746,7 @@ The sprint boost template comes with some UI already set up. You will need to cr
 
 Create one perk button inside the **Items** group in the **Sprint Boost** group. You can drag the **UI Perk Purchase Button** from **Perk Tools** in **Project Content** into your **Hierarchy**.
 
-Add the sprint boost perk to the **Perk Reference** property in the **Properties** panel.
+Add the sprint boost perk to the **Perk Reference** property in the **Properties** window.
 
 ![!Perk Button](../img/PerksTutorial/perk_button.png){: .center loading="lazy" }
 
@@ -2180,7 +2180,7 @@ A trigger will need to be added so you can detect when the player has entered th
 
 Because the trigger is in a client context, you need to force collision on, otherwise you will not be able to detect when a player has entered the trigger volume.
 
-Click on the **VIP Shop Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** panel. In doing so, the gizmo for the trigger volume will now show up in the scene view.
+Click on the **VIP Shop Trigger**, and set the **Game Collision** property to **Force On** in the **Properties** window. In doing so, the gizmo for the trigger volume will now show up in the scene view.
 
 ![!Collision On](../img/PerksTutorial/vip_shop_trigger_collision_on.png){: .center loading="lazy" }
 
@@ -2223,7 +2223,7 @@ Both UI containers have their own set of perk buttons that need to have the **Pe
 
 #### Set 2D UI Perk References
 
-In the **UI** group, set the **Perk Reference** property in the **Properties** panel for each VIP perk found in the **Items** group.
+In the **UI** group, set the **Perk Reference** property in the **Properties** window for each VIP perk found in the **Items** group.
 
 Do this for Bronze, Silver, and Gold, by opening the group in the **Hierarchy** and finding **UI Perk Purchase Button**.
 
@@ -2233,7 +2233,7 @@ Do this for Bronze, Silver, and Gold, by opening the group in the **Hierarchy** 
 
 The **World UI** also has perk buttons that need the **Perk Reference** set for each one.
 
-In the **World UI** group, set the **Perk Reference** property in the **Properties** panel for each VIP perk.
+In the **World UI** group, set the **Perk Reference** property in the **Properties** window for each VIP perk.
 
 Do this for Bronze, Silver, and Gold, by opening the group in the **Hierarchy** and finding **UI Perk Purchase Button**.
 
