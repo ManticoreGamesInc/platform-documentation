@@ -8,6 +8,8 @@ tags:
 
 # Game Events
 
+![!Events](../img/GameEvents/header.png){: .center loading="lazy" }
+
 ## Overview
 
 **Game Events** are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
@@ -15,8 +17,6 @@ tags:
 **Game Events** are available to everyone, however, Creators in the Perks Program will have the ability to create more events, and with a longer length.
 
 **Game Events** are different to the [Events API](/api/events.md). The Events API is used for Broadcasting from Lua scripts.
-
-<!-- TODO: Add image of events in the client when it's live. -->
 
 ## Accessing the Events Page
 
