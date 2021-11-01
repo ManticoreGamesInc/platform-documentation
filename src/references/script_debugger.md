@@ -95,4 +95,4 @@ In the picture below, the execution flow for the current running script can be s
 
 ## Learn More
 
-[Intro to Scripting](../tutorials/scripting_intro.md) | [Lua Scripting Tutorial](../tutorials/lua_basics_helloworld.md) | [Advanced Scripting in Core](../tutorials/race_timer.md) | [Performance Panel](../getting_started/performance_panel/) | [AI Activity Tutorial](tutorials/ai_activity_tutorial/)
+[Intro to Scripting](../tutorials/scripting_intro.md) | [Lua Scripting Tutorial](../tutorials/lua_basics_helloworld.md) | [Advanced Scripting in Core](../tutorials/race_timer.md) | [Performance Window](../getting_started/performance_panel/) | [AI Activity Tutorial](tutorials/ai_activity_tutorial/)

@@ -202,7 +202,7 @@ See the video below to see the difference when using a side scroller camera. The
 
 ### Controls
 
-The **Control** category in the **Properties** panel has properties to control how the player's character moves and rotates.
+The **Control** category in the **Properties** window has properties to control how the player's character moves and rotates.
 
 | Property | Description |
 | -------- | ----------- |

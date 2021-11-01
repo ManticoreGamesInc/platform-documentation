@@ -62,7 +62,7 @@ So, let's get started!
 
     ![Basic Rifle](/img/EditorManual/Weapons/weaponModelLocation.png "Layers and layers of options, dude."){: .center loading="lazy" }
 
-The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** panel.
+The first thing to do is to navigate over to **Core Content**, and scroll down to the *GAME OBJECTS* section. Within **Gameplay Objects**, drag a **Weapon** into your project **Hierarchy** window.
 
 A `weapon` in the **Hierarchy** includes two `Ability` Objects and a `PickupTrigger` beneath it--these objects are "children" of the "parent" weapon object.
 
@@ -102,7 +102,7 @@ The in-editor window scene weapon will be completely "empty" having almost no vi
 
 #### Change the weapon model's position
 
-1. Make sure that within the weapon's **Properties** panel, the **Socket** property is set to `right_prop`.
+1. Make sure that within the weapon's **Properties** window, the **Socket** property is set to `right_prop`.
 
     For a full list of all possible sockets that you could use, check out the **[Lua API](../api/animations.md)**.
 
@@ -154,7 +154,7 @@ Weapons come with a property for Damage--setting this determines how much gettin
 !!! tip "Not All Weapons Need to Shoot"
     The weapon system can be used for things that aren't weapons! If you were making a bubble blower, or a fishing pole, perhaps you would set the damage to 0 and use different visual effects. The key is that this is what actually happens when the player uses the weapon!
 
-1. With the `weapon` itself selected in the **Hierarchy**, check the **Properties** panel. Here is where we can set the **Damage** property to whatever we would like. In this case, let's set it to 25, so it will take 4 shots to kill a player with 100 health.
+1. With the `weapon` itself selected in the **Hierarchy**, check the **Properties** window. Here is where we can set the **Damage** property to whatever we would like. In this case, let's set it to 25, so it will take 4 shots to kill a player with 100 health.
 2. Now the weapon is set up to work! Test it out by using **Multiplayer Preview mode**, with 4 players selected.
 
 #### Multiplayer Preview

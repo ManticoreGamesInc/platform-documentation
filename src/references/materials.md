@@ -167,7 +167,7 @@ Meshes can have an undefined range of material slots. For instance, a cube mesh 
 
 This can be done with the `:GetMaterialSlots()` function (or `:GetMaterialSlot(string)` if you already know the name of the **MaterialSlot** you are trying to get) of [StaticMesh](../api/staticmesh.md) and [AnimatedMesh](../api/animatedmesh.md). Then, you can loop through those materials slots to either edit or ignore them.
 
-For example, consider the **`Craftsman Roof 01 Corner In`** mesh. If you look at the properties panel while selecting a **CoreObject** that uses this mesh, you will see three different materials: **Roof**, **Ceiling**, and **Trim**.
+For example, consider the **`Craftsman Roof 01 Corner In`** mesh. If you look at the **Properties** window while selecting a **CoreObject** that uses this mesh, you will see three different materials: **Roof**, **Ceiling**, and **Trim**.
 
 ![Roof](../img/Materials/Roof.png){: .center loading="lazy" }
 

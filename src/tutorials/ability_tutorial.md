@@ -120,7 +120,7 @@ For this tutorial, we are going to make the player wave hello.
 
         ![Ability Object in Hierarchy](../img/EditorManual/Abilities/EquipmentInHierarchy4.png "Ability Object in Hierarchy"){: .center loading="lazy" }
 
-    2. Rename the `Ability` object to "Wave" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** panel.
+    2. Rename the `Ability` object to "Wave" by clicking on the `Ability` object and pressing F2. This can also be done by right clicking and selecting "Rename", or by changing the name at the top of the **Properties** window.
 
     Now when the player picks up the equipment, they will automatically gain the `Ability`! Of course, we still need to set it up to cause the wave animation.
 
