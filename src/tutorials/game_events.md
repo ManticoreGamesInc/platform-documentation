@@ -8,6 +8,8 @@ tags:
 
 # Game Events
 
+![!Game Events](../img/GameEventsTutorial/header.png){: .center loading="lazy" }
+
 ## Overview
 
 [Game Events](../references/game_events.md) are designed to help increase engagement and retention in your games. Users will be able to browse events for all games or view events created for specific games on the game details page.
