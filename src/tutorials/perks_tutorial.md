@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to create different sellable in-game items and experiences that could be used in your game to monetize your game.
+In this tutorial you are going to create different sellable in-game items and experiences that could be used to monetize your game.
 
 Creators that are in the **Perks Program** are able to monetize their game using the built in monetization system.
 
@@ -2739,11 +2739,9 @@ Test the game and make sure the following work:
 
 While working through the tutorial, you may have noticed how similar each system was. The way the triggers are setup, the UI, etc. This is good, because then you can take what you have learned, and apply it to another idea for selling perks to players.
 
-<!--
 ## Feedback and Questions
 
-For feedback and questions, join the discussion on this tutorial's [forum thread]().
--->
+For feedback and questions, join the discussion on this tutorial's [forum thread](https://forums.coregames.com/t/perks-tutorial-creating-sellable-items-and-experiences/2267).
 
 ## Learn More
 
