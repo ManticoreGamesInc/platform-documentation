@@ -50,7 +50,7 @@ There is a complete tutorial available for learning the AIActivityHandler throug
 
 ## AI Debugger
 
-The AI Debugger is a panel in the **Project Content** window that allows creators to see all AI Activity Handlers, create new ones, and enable/disable them for preview.
+The AI Debugger is a window that allows creators to see all AI Activity Handlers, create new ones, and enable/disable them for preview.
 
 ### Open the AI Debugger
 
