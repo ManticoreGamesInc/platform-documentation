@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The Core Editor has a dedicated Performance Panel to diagnose performance issues at game creation time, including running the game in Multiplayer Preview mode to simulate client-server scenarios.
+The Core Editor has a dedicated Performance Window to diagnose performance issues at game creation time, including running the game in Multiplayer Preview mode to simulate client-server scenarios.
 
 But games and especially multiplayer games are beasts of a complicated nature, and it is often much more helpful to have some view into diagnostics with real clients connected to a real server, and see how the same game actually performs on a variety of machines under different gameplay scenarios.
 

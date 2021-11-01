@@ -100,7 +100,7 @@ nav:
           - Object Generator: references/object_generator.md
           - Offline Storage: references/offline_storage.md
           - Party System: references/party_system.md
-          - Performance Panel: references/performance_panel.md
+          - Performance Window: references/performance_panel.md
           - Persistent Storage: references/persistent_storage.md
           - Play-Mode Profiler: references/profiler.md
           - Portals: references/portals.md
