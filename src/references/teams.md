@@ -96,7 +96,7 @@ The **Game Settings** object has settings to control how teams can communicate w
 
 ### Game Chat
 
-The game chat category in the **Properties** panel has an option to change the **Chat Mode**. By default, this is set to **Team and All**.
+The game chat category in the **Properties** window has an option to change the **Chat Mode**. By default, this is set to **Team and All**.
 
 | Mode | Description |
 | ---- | ----------- |
@@ -109,7 +109,7 @@ The game chat category in the **Properties** panel has an option to change the *
 
 ### Voice Chat
 
-The voice chat category in the **Properties** panel has an option to change the **Voice Chat Mode**. By default this is set to **All**.
+The voice chat category in the **Properties** window has an option to change the **Voice Chat Mode**. By default this is set to **All**.
 
 | Mode | Description |
 | ---- | ----------- |

@@ -361,7 +361,7 @@ Test the game and make sure the amount of coins in the UI for the player update 
 
 The **UI Event RSVP Button** can be added to the UI so that players can register and unregister for the game event from within your game. The button also will contain information about the game event state. For example, it will display the amount of time remaining until the game event begins.
 
-Add the **UI Event RSVP Button** from **Platform Tools** in **Core Content** to the **UI Container** you created earlier. Later on you will be adding the game event ID to the the **Event ID** property in the **Properties Panel**. For the moment, the button will tell you that there is no game event loaded.
+Add the **UI Event RSVP Button** from **Platform Tools** in **Core Content** to the **UI Container** you created earlier. Later on you will be adding the game event ID to the the **Event ID** property in the **Properties** window. For the moment, the button will tell you that there is no game event loaded.
 
 ![!Event Button](../img/GameEventsTutorial/event_button_added.png){: .center loading="lazy" }
 
@@ -373,7 +373,7 @@ From the events page, copy the **Game Event Id** for the game event you created 
 
 ### Set Event ID Property
 
-With the **Game Event Id** copied, paste it into the **Event ID** property in the **Properties Panel**.
+With the **Game Event Id** copied, paste it into the **Event ID** property in the **Properties** window.
 
 ![!Created Event](../img/GameEventsTutorial/update_event_button.png){: .center loading="lazy" }
 

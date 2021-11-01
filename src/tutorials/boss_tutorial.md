@@ -36,7 +36,7 @@ In this tutorial you are going to create a multiplayer boss fight. Players will 
 
 You will be importing an asset from **Community Content** that will contain various components you will drop into the **Hierarchy** while you follow the tutorial.
 
-1. Open the **Community Content** panel.
+1. Open the **Community Content** window.
 2. Search for `Boss Fight Tutorial` by **CoreAcademy**.
 3. Click **Import**.
 

@@ -77,7 +77,7 @@ See [Damageable Object](api/damageableobject/) API for information and examples.
 
 ## Objects that Implement Damageable Interface
 
-Some objects implement the **Damageable** interface that allows for it to receive health, damage, and death behaviour. **Damageable Objects** have `hitPoints` and `maxHitPoints` properties in the **Damageable** category of the object **Properties** panel.
+Some objects implement the **Damageable** interface that allows for it to receive health, damage, and death behaviour. **Damageable Objects** have `hitPoints` and `maxHitPoints` properties in the **Damageable** category of the object **Properties** window.
 
 ![!Properties](../img/DamageableObjects/properties.png)
 *Properties of a Vehicle*
