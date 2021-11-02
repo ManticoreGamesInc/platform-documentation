@@ -1,16 +1,16 @@
 ---
 id: scripting_perks_tutorial_part2
-name: Perk Systems Part 2
-title: Perk Systems Part 2
+name: Perks Part 2
+title: Perks Part 2
 tags:
     - Tutorial
 ---
 
-# Perk Systems Part 2
+# Perks Part 2
 
 ## Overview
 
-In this tutorial, you will be continuing with the project from [Perk Systems Part 1](perks_tutorial.md). You will be improving a few of the previous systems, and adding some new features.
+In this tutorial, you will be continuing with the project from [Perks](perks_tutorial.md). You will be improving a few of the previous systems, and adding some new features.
 
 For further information about the **Perks Program**, click [here](/references/perks/program.md).
 
