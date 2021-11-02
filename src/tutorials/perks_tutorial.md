@@ -1,12 +1,12 @@
 ---
 id: scripting_perks_tutorial
-name: Perk Systems
-title: Perk Systems
+name: Perks
+title: Perks
 tags:
     - Tutorial
 ---
 
-# Perk Systems
+# Perks
 
 ## Overview
 
