@@ -11,13 +11,22 @@ tags:
 
 ## Overview
 
+Core has built-in animations and stances that can be applied to the player's character and animated meshes. Importing animations is not supported, but custom animations can be created for the player's character by using [IK Anchors](../api/ikanchor.md).
+
+Player characters and animated meshes can have an animation stance, which are states of movement that the mesh will continue, until a new animation stance is set. They can also can have an animation that are intended to be used once (but can be looped), and then let the mesh return to the animation state (stance).
+
+## Player Animations and Animation Stances
+
 Players can be animated using the two types of animations here, as well as through custom animations created using [IK Anchors](../api/ikanchor.md). The **Animation Stance** animations can be applied to players and used continuously while players are moving, and the **Animation** category must be associated with an [**Ability**](../api/ability.md) and activated that way.
+
+## Animated Mesh Animations and Animation Stances
 
 **AnimatedMesh** objects use a different set of animations from players which vary based on the type of AnimatedMesh. See the [AnimatedMesh Reference](../api/animatedmesh.md) for more information.
 
 ## The Design of Animations in Core
 
 In Core, all ability animations are valid on any of the available body types. Each of the ability animations timing and/or translation values should behave identically across the body types.
+
 All ability animations have a long "tail" that gracefully transitions the character back to idle pose. This animation tail is intended to only be seen if the player does not execute any other ability or movement. In nearly all practical use cases, the ability animation tails will be interrupted to do other game mechanics.
 
 !!! note
@@ -25,7 +34,7 @@ All ability animations have a long "tail" that gracefully transitions the charac
 
 ## Sockets
 
-Sockets are different points on a player's character mesh. They can be used for attaching objects, controlling a ragdoll effect and more.
+Sockets are different points on an animated and player's character mesh. They can be used for attaching objects, and controlling a ragdoll effect for the player's character.
 
 ![!Sockets Overview](../img/sockets.jpg){: .center loading="lazy" }
 
