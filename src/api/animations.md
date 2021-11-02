@@ -529,27 +529,6 @@ Sockets are different points on a player's character mesh. They can be used for 
 | unarmed_react_damage | A generic reaction to an impact.                                                                                                                              | animatedMesh |                        |
 | unarmed_spit         | An attack animation that could be used for a ranged attack. The intended use was to emit a projectile from the characters mouth (fireball, poison spit, etc). | animatedMesh | action                 |
 
-## Spider
-
-### Animation Stances
-
-| Unarmed              | Description                                                                                                                                                                                                                                               | Tags         | Events                                                                                                                                                 |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| unarmed_bind_pose    | This is a single frame animation of what the character looks like in default pose. This is useful for determining default socket locations/distances and rotations. This can be very useful to register geometry when building "costumes" for characters. | animatedMesh |                                                                                                                                                        |
-| unarmed_idle_ready   | A looping idle animation with fists up ready to strike or defend.                                                                                                                                                                                         | animatedMesh |                                                                                                                                                        |
-| unarmed_idle_relaxed | A looping idle animation that is relaxed and comfortable.                                                                                                                                                                                                 | animatedMesh |                                                                                                                                                        |
-| unarmed_run_forward  | A looping movement animation.                                                                                                                                                                                                                             | animatedMesh | leftFootstep, rightFootstep, leftFootstepExtra1, rightFootstepExtra1, leftFootstepExtra2, rightFootstepExtra2, leftFootstepExtra3, rightFootstepExtra3 |
-| unarmed_walk_forward | A looping slow movement animation.                                                                                                                                                                                                                        | animatedMesh | leftFootstep, rightFootstep, leftFootstepExtra1, rightFootstepExtra1, leftFootstepExtra2, rightFootstepExtra2, leftFootstepExtra3, rightFootstepExtra3 |
-
-### Play Animations
-
-| Unarmed              | Description                              | Tags         | Events                 |
-| -------------------- | ---------------------------------------- | ------------ | ---------------------- |
-| unarmed_bite         | A melee attack animation using the jaws. | animatedMesh | beginImpact, endImpact |
-| unarmed_death        | A simple death animation                 | animatedMesh | action                 |
-| unarmed_react_damage | A generic reaction to an impact.         | animatedMesh |                        |
-| unarmed_thrust       | A melee attack using the legs.           | animatedMesh | beginImpact, endImpact |
-
 ## How to Turn on Ragdoll
 
 If you want to turn on the [ragdoll](https://en.wikipedia.org/wiki/Ragdoll_physics) effect on players, use the following:
