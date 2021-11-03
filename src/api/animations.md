@@ -13,7 +13,7 @@ tags:
 
 Core has built-in animations and stances that can be applied to the player's character and animated meshes. Importing animations is not supported, but custom animations can be created for the player's character by using [IK Anchors](../api/ikanchor.md).
 
-Player characters and animated meshes can have an animation stance, which are states of movement that the mesh will continue, until a new animation stance is set. They can also can have an animation that are intended to be used once (but can be looped), and then let the mesh return to the animation state (stance).
+A player's character and animated mesh can have an animation stance, which are states of movement that the mesh will continue until a new animation stance is set. They can also can have an animation that are intended to be used once (but can be looped), and then let the mesh return to the animation state (stance).
 
 ## Player Animations and Animation Stances
 
