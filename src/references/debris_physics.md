@@ -34,9 +34,11 @@ Here are some examples on how **Debris Physics** can be used:
 
 Here's an example video of a damageable truck exploding and sending its parts everywhere:
 
-<!--- TODO add video of car being destroyed--->
-
-<!--- info linking to gabe forum post/youtube video? --->
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/DebrisPhysics/DebrisPhysics_ExplodingCar.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ## Where to find Debris Physics
 
@@ -78,5 +80,4 @@ The **Physics** section of the **Static Mesh's Properties** window has some sett
 
 ## Learn More
 
-<!--- TODO add learn more links (static meshes api, physics object api, vehicle ref, damageable objects)
-[DamageableObject](../api/damageableobject.md) | [Damageable](../api/damageable.md) | [Damage](../api/damage.md) | [AIActivity](../api/aiactivity.md) | [AIActivityHandler](../api/aiactivityhandler.md) | [Vehicles](../references/vehicles.md)
+[StaticMesh](../api/staticmesh.md) | [PhysicsObject](../api/physicsobject.md) | [Vehicles](../ref/vehicles.md) | [DamageableObject](../api/damageableobject.md)
