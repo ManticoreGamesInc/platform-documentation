@@ -3,9 +3,16 @@
     "MD004": false,
     "MD013": false,
     "MD024": false,
-    "MD025": { "level": 1, "front_matter_title": ""},
-    "MD029": { "style": "ordered" },
-    "MD007": { "indent": 4 },
+    "MD025": {
+        "level": 1,
+        "front_matter_title": ""
+    },
+    "MD029": {
+        "style": "ordered"
+    },
+    "MD007": {
+        "indent": 4
+    },
     "MD046": false,
     "no-alt-text": true,
     "no-inline-html": false,
