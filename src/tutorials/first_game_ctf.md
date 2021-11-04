@@ -14,7 +14,7 @@ The Capture The Flag framework contains two different game variations placed in 
 
 ## Creating a Framework Game
 
-To get started, use the **CREATE** menu to make a new project
+To get started, use the **CREATE** menu to make a new project.
 
 ### Open the **NEW PROJECT** Menu
 
@@ -46,13 +46,13 @@ The **Scenes** window displays all the available scenes in the project. By defau
 
 ### Test 1 Flag Scene
 
-The game will not start until there are at least two players so multiplayer networking must be enabled to test the game.
+The game will not start until there are at least two players so **Multiplayer Preview Mode** must be enabled to test the game.
 
 ![!TwoPlayers](../img/MyFirstMultiplayer/TwoPlayers.png){: .center loading="lazy" }
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
     {: .image-inline-text .image-background }
-2. Select the 2 Players option
+2. Select the 2 Players option.
 3. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
     {: .image-inline-text .image-background }
 4. On one of the game windows, grab the neutral flag in the center of the map and bring it back to capture zone for your team. The score should increase by one and reset the flag to the neutral zone.
@@ -89,8 +89,7 @@ Now that both scenes have been explored, this tutorial will move forward using t
 
 ![!Scene Window](../img/FrameworksCTF/FrameworksCTF_Scene.png){: .center loading="lazy" }
 
-!!! info
-    You can find more information about **Scenes** in the [Scenes Reference](scenes.md)
+!!! info You can find more information about **Scenes** in the [Scenes Reference](scenes.md)
 
 ## Change the Starting Weapon
 
@@ -98,7 +97,7 @@ The default starting weapon is basic rifle that does not allow the player the ai
 
 ### Find a New Weapon
 
-Inside the **Core Content** window, search the keyword `Advanced Sniper Rifle` to find a template of a long range weapon. Drag the Advanced Sniper Rifle template into the **Hierarchy** panel.
+Inside the **Core Content** window, search the keyword `Advanced Sniper Rifle` to find a template of a long range weapon. Drag the Advanced Sniper Rifle template into the **Hierarchy** window.
 
 ![!New Weapon](../img/FrameworksCTF/FrameworksCTF_CC_Sniper.png){: .center loading="lazy" }
 
@@ -120,10 +119,10 @@ The Advanced Sniper Rifle template has children scripts and a trigger box for pi
 
 You can now use the Sniper Rifle template to replace the starting weapon.
 
-1. Inside the **Hierarchy**, select the **Gameplay Settings > Starting Weapon** group
-2. Open the **Properties** window and scroll down to the **Custom** section to see the custom properties
-3. Open the **Project Content** window and find the **Sniper Rifle** template within **My Templates**
-4. Drag and drop the Sniper Rifle template into the **EquipmentTemplate** custom property
+1. Inside the **Hierarchy**, select the **Gameplay Settings > Starting Weapon** group.
+2. Open the **Properties** window and scroll down to the **Custom** section to see the custom properties.
+3. Open the **Project Content** window and find the **Sniper Rifle** template within **My Templates**.
+4. Drag and drop the Sniper Rifle template into the **EquipmentTemplate** custom property.
 
 ![!Starting Weapon](../img/FrameworksCTF/FrameworksCTF_StartingWeapon.png){: .center loading="lazy" }
 
@@ -270,4 +269,4 @@ Right click the **Damageable Object** in the Hierarchy and select Create New Tem
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) | [Scenes](scenes.md) | [Damageable Objects](damageable_objects.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](../getting_started/publishing.md) | [Scenes](../reference/scenes.md) | [Damageable Objects](../reference/damageable_objects.md) | [Weapons Tutorial](../tutorials/weapons_tutorial.md)
