@@ -181,7 +181,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 ### Create UI Items
 
-Each resource item needs to be added to the **Items** panel in the **Resource Shop** panel. An item template has been create for you that can be placed into the **Items** panel in the **Hierarchy**.
+Each resource item needs to be added to the **Items** panel in the **Resource Shop** panel. An item template has been created for you that can be placed into the **Items** panel in the **Hierarchy**.
 
 Do the following for each shop resource. Since 4 perks were created, then 4 items should be added to the shop UI.
 
