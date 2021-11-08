@@ -50,18 +50,6 @@ You will be importing an asset from **Community Content** that will contain vari
 
 ![!Community Content](../img/PerksTutorial/resource_shop_cc_asset.png){: .center loading="lazy" }
 
-### Move Player Spawn Point
-
-The default spawn point for the player is not in a good starting position, so move this to a better location so that the player doesn't spawn inside existing geometry.
-
-!!! tip "Press ++V++ to turn on gizmo visibility to view the bounding volume of the spawn point."
-
-<div class="mt-video" style="width:100%">
-    <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/PerksTutorial/spawn_point.mp4" type="video/mp4" />
-    </video>
-</div>
-
 ## Creating a Resource Shop
 
 A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (i.e. killing enemies).
@@ -89,6 +77,18 @@ In this tutorial you will create a resource shop that sells 4 items. Below is a 
 4. Deinstance the **Perks Tutorial - Starting Assets** template in the **Hierarchy**.
 
 ![!Content](../img/PerksTutorial/resource_shop_add_starting_template.png){: .center loading="lazy" }
+
+### Move Player Spawn Point
+
+The default spawn point for the player is not in a good starting position, so move this to a better location so that the player doesn't spawn inside existing geometry.
+
+!!! tip "Press ++V++ to turn on gizmo visibility to view the bounding volume of the spawn point."
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/PerksTutorial/spawn_point.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Create Shop Trigger
 
