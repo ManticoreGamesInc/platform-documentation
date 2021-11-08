@@ -33,14 +33,11 @@ To get started, use the **CREATE** menu to make a new project.
 
 ## Switching Between Scenes
 
-The framework has two different game modes that are in different scenes. Testing both modes requires knowing how to switch scenes in Core.
+The framework has two different game modes that are in different [scenes](../references/scenes.md). Testing both modes requires knowing how to switch scenes in Core.
 
 ### Open the Scenes Window
 
-The **Scenes** window displays all the available scenes in the project. By default, the project should have the Scenes window open next to the Properties window. The current scene displayed is highlighted orange, which should be 1 Flag.
-
-!!! note
-    You can reopen the **Scenes** window by going to **Window > Scenes** in the top menu bar.
+The **Scenes** window displays all the available scenes in the project. You can open the scenes window by clicking **Window > Scenes** in the top menu bar. The current scene displayed is highlighted orange, which should be 1 Flag.
 
 ![!Scene Window](../img/FrameworksCTF/FrameworksCTF_Scene.png){: .center loading="lazy" }
 
@@ -89,7 +86,7 @@ Now that both scenes have been explored, this tutorial will move forward using t
 
 ![!Scene Window](../img/FrameworksCTF/FrameworksCTF_Scene.png){: .center loading="lazy" }
 
-!!! info You can find more information about **Scenes** in the [Scenes Reference](scenes.md)
+!!! info "You can find more information about **Scenes** in the [Scenes Reference](scenes.md)"
 
 ## Change the Starting Weapon
 
