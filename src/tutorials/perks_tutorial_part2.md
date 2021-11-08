@@ -466,9 +466,9 @@ local function OnJoined(player)
 end
 ```
 
-#### The VIPServerScript
+#### The VIPShopServer Script
 
-??? "VIPServer"
+??? "VIPShopServer"
     ```lua
     local VIP_BRONZE_PERK = script:GetCustomProperty("VIPBronze")
     local VIP_SILVER_PERK = script:GetCustomProperty("VIPSilver")
@@ -965,6 +965,8 @@ CommandParser.AddCommand("give", {
 ```
 
 #### The GiftServer Script
+
+!!! warning "Make sure to update the admin names in the script."
 
 ??? "GiftServer"
     ```lua
@@ -1463,6 +1465,8 @@ CommandParser.AddCommand("remove", {
 ```
 
 #### The GiftServer Script
+
+!!! warning "Make sure to update the admin names in the script."
 
 ??? "GiftServer"
     ```lua
