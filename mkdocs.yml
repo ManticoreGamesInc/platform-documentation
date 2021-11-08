@@ -52,19 +52,19 @@ nav:
           - Abilities: tutorials/ability_tutorial.md
           - AI Activities: tutorials/ai_activity_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
+          - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - Destructible Objects: tutorials/boss_tutorial.md
           - Environment Art: tutorials/environment_art.md
+          - Game Events: tutorials/game_events.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Model a Room: tutorials/scene_creation.md
+          - Perk Systems: tutorials/perks_tutorial.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
           - Learn Lua:
               - Hello World: tutorials/lua_basics_helloworld.md
               - Lightbulb: tutorials/lua_basics_lightbulb.md
               - Race Timer: tutorials/race_timer.md
-              - Boss Fight: tutorials/boss_tutorial.md
-              - Cosmetic System: tutorials/cosmetic_tutorial.md
-              - Game Events: tutorials/game_events.md
-              - Perk Systems: tutorials/perks_tutorial.md
-          - Visual Effects in Core: tutorials/vfx_tutorial.md
+          - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
       - Frameworks:
