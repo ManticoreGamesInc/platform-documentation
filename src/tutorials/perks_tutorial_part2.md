@@ -1602,11 +1602,9 @@ Here are some ideas to challenge yourself:
 - Implement player to player gifting of resources and perks.
 - Create permanent perks the player can purchase (i.e. player titles, cosmetics).
 
-<!-- @TODO: Add link
 ## Feedback and Questions
 
-For feedback and questions, join the discussion on this tutorial's [forum thread]().
--->
+For feedback and questions, join the discussion on this tutorial's [forum thread](https://forums.coregames.com/t/perks-tutorial-part-2-creating-sellable-items-and-experiences/2320).
 
 ## Learn More
 
