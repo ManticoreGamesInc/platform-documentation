@@ -37,7 +37,10 @@ The framework has two different game modes that are in different [scenes](../ref
 
 ### Open the Scenes Window
 
-The **Scenes** window displays all the available scenes in the project. You can open the scenes window by clicking **Window > Scenes** in the top menu bar. The current scene displayed is highlighted orange, which should be 1 Flag.
+The **Scenes** window displays all the available scenes in the project. You can open the Scenes window by clicking **Window > Scenes** in the top menu bar. The current scene displayed is highlighted orange, which should be 1 Flag.
+
+!!! note
+    The 1 Flag scene is also marked as the **Main** scene. The main scene for a published project is the scene that will be loaded for players by default when entering your game.
 
 ![!Scene Window](../img/FrameworksCTF/FrameworksCTF_Scene.png){: .center loading="lazy" }
 
