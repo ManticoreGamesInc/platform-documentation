@@ -59,13 +59,13 @@ Test out the following features in the framework:
     - Basic Rifle
 - The round ends once there is one player remaining alive.
 
-!!! note "The video below has modified game settings to speed up the testing, which will be covered in this tutorial."
-
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/FrameworksBR/FrameworksBR_Testing.mp4" type="video/mp4" />
     </video>
 </div>
+
+!!! note "The tutorial will cover how to change settings to speed up the gameplay."
 
 ## Modifying the Airplane Template
 
@@ -76,7 +76,7 @@ The frameworks starts with the players inside of a paper airplane. You can modif
 ### Deinstance the Original Template
 
 1. In the **Project Content** window, search for the `Helper Plane` template.
-2. Drag the template into the **Viewport** window.
+2. Drag the template into the game.
 3. Right click the template and select **Deinstance this Template**.
 
 !!! tip "You can focus the camera on an object by selecting the object in the Hierarchy and pressing the ++F++ key."
@@ -89,13 +89,13 @@ The frameworks starts with the players inside of a paper airplane. You can modif
 
 ### Change the Colors
 
-Inside the Hierarchy, navigate to the **Geo** group that is inside the ClientContext of the **Helper_Plane**. There are three components that make up the airplane. One at a time, select a component and change the **Color Override** property inside the **Properties** window.
+In the Hierarchy, navigate to the **Geo** group that is inside the ClientContext of the **Helper_Plane**. There are three objects that make up the airplane. One at a time, select an object and change the **Color Override** property inside the **Properties** window.
 
 ![!Plane Color](../img/FrameworksBR/FrameworksBR_HelperPlaneColor.png){: .center loading="lazy" }
 
 ### Add a Decal
 
-You can continue customizing the airplane by using decals. Decals can be used to display a graphic on a surface.
+You can continue customizing the airplane by adding decals. Decals display graphics on a surface.
 
 1. Inside the **Core Content** window, find the **Art Objects** category and **Decals** subcategory.
 2. Drag and drop the **Decal Military Symbols 01** decal into the **Geo** group within the Hierarchy.
@@ -105,7 +105,7 @@ You can continue customizing the airplane by using decals. Decals can be used to
 ![!Plane Decal](../img/FrameworksBR/FrameworksBR_HelperPlaneDecal.png){: .center loading="lazy" }
 
 !!! info
-    Decals can also be modified such as changing the color. With the decal selected, open the **Properties** window and scroll down to the **Smart** category. Not all decals have the same properties. Some decals have a **Shape Index** property that change the graphic to different variations. For example, there are multiple military symbols available inside the **Decal Military Symbols 01** decal.
+    You can modify the decal by changing its properties. With the decal selected, open the **Properties** window and scroll down to the **Smart** section. Not all decals have the same properties. Some decals have a **Shape Index** property that change the graphic to different variations. For example, there are multiple military symbols available inside the **Decal Military Symbols 01** decal.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -206,7 +206,7 @@ There are several **Loot Spawner** objects placed throughout the map that contai
 
 ### Change Weapon in the Loot Table
 
-Core Content has many default weapons ready to be used. If you wish to learn how to create custom weapons, then refer to the [Weapons Reference](../references/weapons.md).
+Core Content has many default weapons ready to be used. To learn how to create custom weapons refer to the [Weapons Reference](../references/weapons.md).
 
 1. Select the new **Object (server)**.
 2. Open the **Properties** window and find the **LootTemplate** property.
