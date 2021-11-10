@@ -84,6 +84,7 @@ nav:
           - Curves: references/curves.md
           - Custom Properties: references/custom_properties.md
           - Damageable Objects: references/damageable_objects.md
+          - Debris Physics: references/debris_physics.md
           - Editor Shortcuts: references/editor_keybindings.md
           - Events and Hooks: references/events_hooks.md
           - Frameworks:
