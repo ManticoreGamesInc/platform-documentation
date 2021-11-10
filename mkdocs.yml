@@ -105,6 +105,7 @@ nav:
           - Party System: references/party_system.md
           - Performance Window: references/performance_panel.md
           - Persistent Storage: references/persistent_storage.md
+          - Physics Objects: references/physics_objects.md
           - Play-Mode Profiler: references/profiler.md
           - Portals: references/portals.md
           - Project Files: getting_started/project_files.md
