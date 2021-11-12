@@ -112,7 +112,7 @@ Templates are a way to package things you have created in Core. They can be used
 
 ### GitHub
 
-**Git** is a system for managing software projects with multiple contributors, and [GitHub](https://github.com/) is just one of many available systems. To learn more about setting up a project on GitHub, see the [GitHub tutorial](../tutorials/github.md)
+**Git** is a system for managing software projects with multiple contributors, and [GitHub](https://github.com/) is just one of many available systems. To learn more about setting up a project on GitHub, see the [GitHub tutorial](../tutorials/github.md).
 
 !!! tip
     Did you know that all of Core Documentation is hosted on GitHub for editing by the Core Creator Community? Click the pencil icon in the top right corner of any page to help improve documentation!
