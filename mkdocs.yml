@@ -327,6 +327,9 @@ extra:
     - icon: fontawesome/brands/twitch
       link: https://twitch.tv/corelive
       name: Twitch
+    - icon: fontawesome/brands/tiktok
+      link: https://www.tiktok.com/@coregames
+      name: TikTok
 
 markdown_extensions:
   - markdown.extensions.admonition
