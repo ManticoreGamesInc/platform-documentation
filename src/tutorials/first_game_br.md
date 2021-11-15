@@ -6,7 +6,7 @@ tags:
     - Tutorial
 ---
 
-# Create an Battle Royale in Core
+# Create a Battle Royale in Core
 
 ## Overview
 
