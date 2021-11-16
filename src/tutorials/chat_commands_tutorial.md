@@ -12,8 +12,8 @@ tags:
 
 In this tutorial you are going to create chat commands that can be typed into the chat that will perform an action if the player has permission, by using [chat hooks](../api/chat.md). You will be creating some general commands that can be useful for most games. You will also be creating commands that are aimed specifically at some of the frameworks to show how commands can be used to help test your game.
 
-* **Completion Time:** ~1 hours
-* **Knowledge Level:** ??
+* **Completion Time:** ~1 hour
+* **Knowledge Level:** It is recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
 * **Skills you will learn:**
     * Requiring the Command Parser API.
     * Creating permissions.
