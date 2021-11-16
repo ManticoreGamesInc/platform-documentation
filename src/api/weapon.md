@@ -25,6 +25,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 | `damage` | `number` | Damage applied to a Player when the weapon attack hits a player target. If set to zero, no damage is applied. | Read-Only |
 | `projectileTemplateId` | `string` | Asset reference for the visual body of the Projectile, for non-hitscan Weapons. | Read-Only |
 | `muzzleFlashTemplateId` | `string` | Asset reference for a Vfx to be attached to the muzzle point each time the Weapon attacks. | Read-Only |
+| `attackSoundTemplateId` | `string` | Asset reference for a sound effect to be played each time the Weapon attacks. | Read-Only |
 | `trailTemplateId` | `string` | Asset reference for a trail Vfx to follow the trajectory of the shot. | Read-Only |
 | `beamTemplateId` | `string` | Asset reference for a beam Vfx to be placed along the trajectory of the shot. Useful for hitscan Weapons or very fast Projectiles. | Read-Only |
 | `impactSurfaceTemplateId` | `string` | Asset reference of a Vfx to be attached to the surface of any CoreObjects hit by the attack. | Read-Only |
