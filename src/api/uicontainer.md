@@ -145,6 +145,39 @@ Example using:
 
 ### `opacity`
 
+UI transitions provide a great way for you to show your creativity to players. This example will show you how to create a simple fade in. This script will cause the UI Container and all of the children of the UI Container to fade into view over 4 seconds by using the `opacity` property of the UI Container.
+
+```lua
+-- "timePassed" will keep track of the number of seconds that have passed since
+-- the script began running
+local timePassed = 0
+
+-- Get the UIContainer object
+local propUIContainer = script:GetCustomProperty("UIContainer"):WaitForObject()
+
+function Tick(deltaTime)
+    -- Update the "timePassed" to keep track of the number of seconds that have passed
+    timePassed = timePassed + deltaTime
+
+    -- Pick a value between 0 and 1 based on a percent (timepassed * 0.25)
+    -- If the expression (timepassed * 0.25) is less than or equal to 0, the "Lerp" function will output 0
+    -- If the expression (timepassed * 0.25) is greater than or equal to 1, the "Lerp" function will output 0
+    -- If the expression (timepassed * 0.25) is in between 0 and 1, the "Lerp" function will output a value between 0 and 1
+    local newOpacity = CoreMath.Lerp(0, 1, timePassed * 0.25)
+
+    -- Update the opacity of the UIContainer and all of its children
+    propUIContainer.opacity = newOpacity
+end
+```
+
+See also: [CoreMath.Lerp](coremath.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
+### `opacity`
+
 This example will fade a UI Container in and out using events.
 
 ```lua
@@ -210,39 +243,6 @@ end)
 ```
 
 See also: [Events.Broadcast](events.md) | [CoreMath.Clamp](coremath.md)
-
----
-
-Example using:
-
-### `opacity`
-
-UI transitions provide a great way for you to show your creativity to players. This example will show you how to create a simple fade in. This script will cause the UI Container and all of the children of the UI Container to fade into view over 4 seconds by using the `opacity` property of the UI Container.
-
-```lua
--- "timePassed" will keep track of the number of seconds that have passed since
--- the script began running
-local timePassed = 0
-
--- Get the UIContainer object
-local propUIContainer = script:GetCustomProperty("UIContainer"):WaitForObject()
-
-function Tick(deltaTime)
-    -- Update the "timePassed" to keep track of the number of seconds that have passed
-    timePassed = timePassed + deltaTime
-
-    -- Pick a value between 0 and 1 based on a percent (timepassed * 0.25)
-    -- If the expression (timepassed * 0.25) is less than or equal to 0, the "Lerp" function will output 0
-    -- If the expression (timepassed * 0.25) is greater than or equal to 1, the "Lerp" function will output 0
-    -- If the expression (timepassed * 0.25) is in between 0 and 1, the "Lerp" function will output a value between 0 and 1
-    local newOpacity = CoreMath.Lerp(0, 1, timePassed * 0.25)
-
-    -- Update the opacity of the UIContainer and all of its children
-    propUIContainer.opacity = newOpacity
-end
-```
-
-See also: [CoreMath.Lerp](coremath.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 

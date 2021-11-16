@@ -41,8 +41,6 @@ Example using:
 
 ### `GetCustomMaterial`
 
-### `GetMaterialSlots`
-
 In this example, the texture of a cube will scroll horizontally. For this example to work, a custom material must be assigned to the first material slot of the cube
 
 ```lua
@@ -73,7 +71,7 @@ function Tick(deltaTime)
 end
 ```
 
-See also: [CustomMaterial.SetProperty](custommaterial.md)
+See also: [CustomMaterial.SetProperty](custommaterial.md) | [StaticMesh.GetMaterialSlots](staticmesh.md)
 
 ---
 
@@ -216,5 +214,30 @@ FirstMaterialSlot.materialAssetId = MATERIAL
 ```
 
 See also: [StaticMesh.GetMaterialSlots](staticmesh.md)
+
+---
+
+Example using:
+
+### `slotName`
+
+### `materialAssetName`
+
+### `mesh`
+
+In this example we scan an animated mesh and print out information about all its material slots.
+
+```lua
+local ANIM_MESH = script.parent
+
+for i,slot in ipairs(ANIM_MESH:GetMaterialSlots()) do
+    print("\nSlot "..i..":")
+    print("Slot Name = "..slot.slotName)
+    print("Material Name = "..slot.materialAssetName)
+    print("Mesh Asset ID = "..slot.mesh.meshAssetId)
+end
+```
+
+See also: [AnimatedMesh.GetMaterialSlots](animatedmesh.md) | [CoreMesh.meshAssetId](coremesh.md)
 
 ---

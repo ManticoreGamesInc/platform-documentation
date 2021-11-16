@@ -75,7 +75,7 @@ Example using:
 
 ### `Lerp`
 
-Vector3.Lerp is a function for finding a spot part way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
+Vector3.Lerp is a function for finding a spot part-way between two vectors. When combined with a tick function or loop, we can use it to smoothly animate something moving between two points.
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -162,62 +162,7 @@ See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 Example using:
 
-### `Vector3+Vector3`
-
-### `Vector3+Number`
-
-### `Vector3-Vector3`
-
-### `Vector3-Number`
-
-### `Vector3*Vector3`
-
-### `Vector3*Number`
-
-### `Number*Vector3`
-
-### `Vector3/Vector3`
-
-### `Vector3/Number`
-
-### `-Vector3`
-
-Most arithmetic operators will work on Vector3s in straightforward ways.
-
-```lua
-local a = Vector3.New(1, 2, 3)
-local b = Vector3.New(4, 5, 6)
-
--- Adding and subtracting vectors is the same as adding or subtracting each of their components.
-print(a + b) -- (5, 7, 9)
-print(b - a) -- (3, 3, 3)
-
--- You can also add or subtract a number and a vector - it will just add or subtract that
--- number from each component.
-print(a + 2) -- 3, 4, 5
-
-print(b - 2) -- 2, 3, 4
-
--- Multiplication and Division work the same way:
-print (a * b) -- 4, 10, 18
-print (a * 2) -- 2, 4, 6
-print (2 * a) -- 2, 4, 6
-
-print(a / b) -- (0.25, 0.4, 0.3)
-print(b / 4) -- (1, 1.25, 1.5)
-
--- You can also just negate a vector:
-
-print(-a) -- -1, -2, -3
-```
-
-See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
-
----
-
-Example using:
-
-### `GetNormalized()`
+### `GetNormalized`
 
 ### `Vector3`
 
@@ -272,6 +217,61 @@ end
 ```
 
 See also: [Vector3.New](vector3.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.GetWorldPosition](player.md) | [World.SpawnAsset](world.md) | [Transform.GetForwardVector](transform.md) | [CoreDebug.DrawLine](coredebug.md) | [Color.RED](color.md) | [CoreLua.print](coreluafunctions.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `Vector3+Vector3`
+
+### `Vector3+Number`
+
+### `Vector3-Vector3`
+
+### `Vector3-Number`
+
+### `Vector3*Vector3`
+
+### `Vector3*Number`
+
+### `Number*Vector3`
+
+### `Vector3/Vector3`
+
+### `Vector3/Number`
+
+### `-Vector3`
+
+Most arithmetic operators will work on Vector3s in straightforward ways.
+
+```lua
+local a = Vector3.New(1, 2, 3)
+local b = Vector3.New(4, 5, 6)
+
+-- Adding and subtracting vectors is the same as adding or subtracting each of their components.
+print(a + b) -- (5, 7, 9)
+print(b - a) -- (3, 3, 3)
+
+-- You can also add or subtract a number and a vector - it will just add or subtract that
+-- number from each component.
+print(a + 2) -- 3, 4, 5
+
+print(b - 2) -- 2, 3, 4
+
+-- Multiplication and Division work the same way:
+print (a * b) -- 4, 10, 18
+print (a * 2) -- 2, 4, 6
+print (2 * a) -- 2, 4, 6
+
+print(a / b) -- (0.25, 0.4, 0.3)
+print(b / 4) -- (1, 1.25, 1.5)
+
+-- You can also just negate a vector:
+
+print(-a) -- -1, -2, -3
+```
+
+See also: [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 

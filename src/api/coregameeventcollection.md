@@ -41,7 +41,7 @@ function IsEventActive(refName)
     local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
     for i, eventData in ipairs(collection:GetResults()) do
         if eventData.state == CoreGameEventState.ACTIVE
-        and eventData.referenceName == refName then
+        and eventData.referenceName == EVENT_REF_NAME then
             return true
         end
     end

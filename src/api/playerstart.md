@@ -28,7 +28,7 @@ Example using:
 
 ### `playerScaleMultiplier`
 
-### `spawnKey`
+### `key`
 
 In this example, 5 seconds after the game starts, all players will respawn at this spawnpoint. Also, all players will be twice as tall and be on team 1.
 
@@ -41,8 +41,8 @@ playerStartSettings.team = 1
 --When a player spawns at this spawnpoint, they will be twice their normal size
 playerStartSettings.playerScaleMultiplier = Vector3.New(2, 2, 2)
 
---Set the "spawnKey" of this spawn point so that it can be referenced when a player respawns
-playerStartSettings.spawnKey = "FirstSpawnPoint"
+--Set the spawn "key" of this spawn point so that it can be referenced when a player respawns
+playerStartSettings.key = "FirstSpawnPoint"
 
 function OnGameStarted()
     --Get a list of all players
