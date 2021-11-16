@@ -138,6 +138,7 @@ Player is an object representation of the state of a player connected to the gam
 | `SetPrivateNetworkedData(string key, value)` | [`PrivateNetworkedDataResultCode`](enums.md#privatenetworkeddataresultcode) | Sets the private networked data for this player associated with the key. Value can be any type that could be sent with a networked event. Each key is replicated independently, and this data is only sent to the owning player. | Server-Only |
 | `GetPrivateNetworkedData(string key)` | `value` | Returns the private networked data on this player associated with the given key or nil if no data is found. | None |
 | `GetPrivateNetworkedDataKeys()` | `Array`<`string`> | Returns an array of all keys with private data set. | None |
+| `GetPrivateNetworkedDataSize()` | `integer` | Returns the number of bytes used by private networked data on this player. Returns 0 if private networked data is not available. | None |
 | `GrantRewardPoints(int rewardPoints, string activityName)` | `None` | Adds an amount of Reward Points to a player for completing a certain activity. | Server-Only |
 | `GetIKAnchors()` | `Array`<[`IKAnchor`](ikanchor.md)> | Returns an array of all IKAnchor objects activated on this player. | None |
 | `IsInPartyWith(Player)` | `boolean` | Returns whether both players are in the same public party. | None |
