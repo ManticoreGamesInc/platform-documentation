@@ -281,6 +281,24 @@ See also: [CoreObject.parent](coreobject.md) | [Trigger.beginOverlapEvent](trigg
 
 Example using:
 
+### `AdvancePhase`
+
+### `GetCurrentPhase`
+
+In this example an ability is on cooldown, but can be set back to `Ready` by calling `AdvancePhase()`.
+
+```lua
+function EndAbilityCooldown(ability)
+    if ability:GetCurrentPhase() == AbilityPhase.COOLDOWN then
+        ability:AdvancePhase()
+    end
+end
+```
+
+---
+
+Example using:
+
 ### `GetCurrentPhase`
 
 ### `GetPhaseTimeRemaining`
@@ -360,6 +378,41 @@ ability.executeEvent:Connect(OnExecute)
 ```
 
 See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Player.GetWorldPosition](player.md) | [Game.FindPlayersInCylinder](game.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
+### `actionBinding`
+
+Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
+
+```lua
+local BINDING = script:GetCustomProperty("Binding")
+local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
+
+function GetLocalPlayerAbilityWithBinding()
+    local player = Game.GetLocalPlayer()
+    local abilities = player:GetAbilities()
+
+    for _, ability in pairs(abilities) do
+        if ability.actionBinding == BINDING then
+            return ability
+        end
+    end
+
+    return nil
+end
+
+function Tick()
+    local ability = GetLocalPlayerAbilityWithBinding()
+    if ability then
+        NAME_UI.text = ability.name
+    end
+end
+```
+
+See also: [CoreObject.name](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetLocalPlayer](game.md) | [Player.GetAbilities](player.md) | [UIText.text](uitext.md)
 
 ---
 
@@ -593,43 +646,6 @@ end
 ```
 
 See also: [CoreObject.FindAncestorByType](coreobject.md) | [Ability.owner](ability.md) | [Equipment.owner](equipment.md) | [Event.Connect](event.md)
-
----
-
-Example using:
-
-### `name`
-
-### `actionBinding`
-
-Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
-
-```lua
-local BINDING = script:GetCustomProperty("Binding")
-local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
-
-function GetLocalPlayerAbilityWithBinding()
-    local player = Game.GetLocalPlayer()
-    local abilities = player:GetAbilities()
-
-    for _, ability in pairs(abilities) do
-        if ability.actionBinding == BINDING then
-            return ability
-        end
-    end
-
-    return nil
-end
-
-function Tick()
-    local ability = GetLocalPlayerAbilityWithBinding()
-    if ability then
-        NAME_UI.text = ability.name
-    end
-end
-```
-
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetLocalPlayer](game.md) | [Player.GetAbilities](player.md) | [UIText.text](uitext.md)
 
 ---
 

@@ -48,6 +48,167 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 Example using:
 
+### `GetCoreModalType`
+
+Modals are temporary dialogs that popup, usually in the middle of the screen. They take over the input focus and give the player some options. Core has several built-in modals identified by the `CoreModalType`. In this example, we keep track of the current modal and print to the Event Log whenever there is a change to the active modal.
+
+```lua
+local lastModalType = nil
+
+function Tick()
+    local newType = UI.GetCoreModalType()
+    if lastModalType ~= newType then
+        lastModalType = newType
+        if newType then
+            print("New modal active: "..ModalTypeToString(newType))
+        else
+            print("Modal closed.")
+        end
+    end
+end
+
+function ModalTypeToString(modalType)
+    if modalType == CoreModalType.PAUSE_MENU then return "Pause Menu" end
+    if modalType == CoreModalType.CHARACTER_PICKER then return "Character Picker" end
+    if modalType == CoreModalType.MOUNT_PICKER then return "Mount Picker" end
+    if modalType == CoreModalType.EMOTE_PICKER then return "Emote Picker" end
+    if modalType == CoreModalType.SOCIAL_MENU then return "Social Menu" end
+    return "Unknown Modal" -- Future-proof fallback
+end
+```
+
+See also: [CoreModalType.PAUSE_MENU](coremodaltype.md)
+
+---
+
+Example using:
+
+### `GetCursorHitResult`
+
+### `SetCursorLockedToViewport`
+
+### `SetCursorVisible`
+
+In this example, a client script detects 3D objects being clicked on by using the function `UI.GetCursorHitResult()`. Sometimes nothing is clicked on, such as pointing into the sky. Results are print into the Event Log.
+
+```lua
+UI.SetCursorLockedToViewport(true)
+UI.SetCursorVisible(true)
+
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        local hit = UI.GetCursorHitResult()
+        if hit and hit.other then
+            print("Clicked on: "..hit.other.name)
+        else
+            print("Nothing was clicked on.")
+        end
+        UI.SetCursorVisible(false)
+        Task.Wait(0.2)
+        UI.SetCursorVisible(true)
+    end
+end
+
+Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `GetCursorPlaneIntersection`
+
+### `SetCursorVisible`
+
+Core packs several complex math operations that are really useful for gameplay scripts. In this example, we use the `UI.GetCursorPlaneIntersection()` to figure out which player is closest to the mouse cursor. The question of "who is closest to the cursor" is highly relative, as the cursor is in fact a 2D object, while the players are in 3D. To solve this, we can imagine the mouse cursor, instead of a 2D element, as being an infinite 3D line, starting at the camera and going directly forward. Therefore, we use `UI.GetCursorPlaneIntersection()` to create an imaginary 3D plane that is parallel to the camera. If the plane is placed on each player, an intersection of that plane and the cursor's 3D line occurs. This is similar to projecting the players onto the line and seeing who is closest to the line, based on their projected points. The example concludes by drawing a debug circle on the selected player.
+
+```lua
+local LOCAL_PLAYER = Game.GetLocalPlayer()
+
+local viewForward = nil
+local smallestDistSqr = nil
+local targetPlayer = nil
+local targetProjection = nil
+
+UI.SetCursorVisible(true)
+
+function Tick()
+    Reset()
+    for _,player in ipairs(Game.GetPlayers()) do
+        if player ~= LOCAL_PLAYER then
+            TestPlayer(player)
+        end
+    end
+    DrawDebug()
+end
+
+function Reset()
+    local viewRot = LOCAL_PLAYER:GetViewWorldRotation()
+    viewForward = Quaternion.New(viewRot):GetForwardVector()
+    
+    targetPlayer = nil
+end
+
+function TestPlayer(player)
+    local point = player:GetWorldPosition()
+    
+    local projection = UI.GetCursorPlaneIntersection(point, viewForward)
+    if not projection then return end
+    
+    local distSqr = (point - projection).sizeSquared
+    
+    if targetPlayer == nil 
+    or distSqr < smallestDistSqr then
+        smallestDistSqr = distSqr
+        targetPlayer = player
+        targetProjection = projection
+    end
+end
+
+function DrawDebug()
+    if targetPlayer then
+        local playerPos = targetPlayer:GetWorldPosition()
+        local params = {thickness = 3, color = Color.RED}
+        CoreDebug.DrawSphere(playerPos, 50, params)
+        CoreDebug.DrawLine(playerPos, targetProjection, params)
+    end
+end
+```
+
+See also: [Player.GetViewWorldRotation](player.md) | [Vector3.sizeSquared](vector3.md) | [Quaternion.GetForwardVector](quaternion.md) | [CoreDebug.DrawSphere](coredebug.md) | [Game.GetPlayers](game.md)
+
+---
+
+Example using:
+
+### `GetCursorPosition`
+
+In this client script we listen for the player's primary action (e.g. Left mouse click) then print the position of their cursor to the event log.
+
+```lua
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        local cursorPos = UI.GetCursorPosition()
+        if cursorPos then
+            print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
+        else
+            print("Clicked at an undefined position.")
+        end
+    end
+end
+
+local player = Game.GetLocalPlayer()
+player.bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
 ### `GetScreenPosition`
 
 The `GetScreenPosition` method is a powerful function that does a lot of behind the scenes math to convert any 3D point in the game world into a 2D screen coordinate. This script will use the `GetScreenPosition` method to cause a UI Text object to jump to different players and follow each player for 2 second intervals.
@@ -122,6 +283,122 @@ See also: [Game.GetPlayers](game.md) | [Player.GetWorldPosition](player.md) | [U
 
 Example using:
 
+### `GetScreenSize`
+
+Players will be using devices with wildly varied screen resolutions. Checking their resolution can be useful when polishing the game. For example, if they have a very wide screen, HUD elements in the corners will not deliver the same experience as someone with a more conventional 16:9 resolution. You can simulate different resolutions and screen ratios by changing the size of the main editor view, even while preview is running.
+
+```lua
+local screenSize = UI.GetScreenSize()
+local width = CoreMath.Round(screenSize.x)
+local height = CoreMath.Round(screenSize.y)
+print("The player's screen size is: "..width.."x"..height)
+```
+
+See also: [CoreMath.Round](coremath.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
+### `IsCursorLockedToViewport`
+
+### `PrintToScreen`
+
+Often times it's worth doing simple tests, to better understand how Core operates. In this client script we are checking if the cursor begins locked or not. May be worth testing in different situations, such as single-player preview and multiplayer, to see if that gives different results.
+
+```lua
+Task.Wait(1)
+if UI.IsCursorLockedToViewport() then
+    UI.PrintToScreen("Core begins with the cursor locked")
+else
+    UI.PrintToScreen("In Core, the cursor does not begin locked")
+end
+```
+
+See also: [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `IsCursorVisible`
+
+### `SetCursorVisible`
+
+### `CanCursorInteractWithUI`
+
+### `SetCanCursorInteractWithUI`
+
+There is a common problem in games that want to enable/disable the cursor when a UI screen appears/disappears. Sometimes, you can have multiple screens appear simultaneously. Scripts on both screens are competing to show/hide the same cursor and you can end up with the cursor hidden while one of the screens is still visible. In such a case, the game can even go into a bad state where the player is stuck. This problem can be solved by having a central service that handles showing/hiding the cursor. It keeps count of multiple requests and only hides once the count goes back to zero. Other scripts will call `_G.CursorUtils.ShowCursor()` and `_G.CursorUtils.HideCursor()`.
+
+```lua
+local API = {}
+_G.CursorUtils = API
+
+local usageCount = 0
+
+function API.ShowCursor()
+    if UI.CanCursorInteractWithUI()
+    or UI.IsCursorVisible() then
+        usageCount = usageCount + 1
+    else
+        usageCount = 1
+    end
+    UI.SetCanCursorInteractWithUI(true)
+    UI.SetCursorVisible(true)
+end
+
+function API.HideCursor()
+    usageCount = usageCount - 1
+    if usageCount <= 0 then
+        UI.SetCanCursorInteractWithUI(false)
+        UI.SetCursorVisible(false)
+    end
+end
+```
+
+---
+
+Example using:
+
+### `IsReticleVisible`
+
+### `SetReticleVisible`
+
+In this example, a client script toggles the default reticle on/off each time the left mouse button is clicked (or whatever is configured for the primary ability).
+
+```lua
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        if UI.IsReticleVisible() then
+            UI.SetReticleVisible(false)
+        else
+            UI.SetReticleVisible(true)
+        end
+    end
+end
+Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
+### `PrintToScreen`
+
+The `UI.PrintToScreen()` function can be really useful for debugging. Messages printed to the screen in this way last for a few seconds, then disappear.
+
+```lua
+UI.PrintToScreen("Hello World!")
+UI.PrintToScreen("And now, red", Color.RED)
+```
+
+---
+
+Example using:
+
 ### `SetRewardsDialogVisible`
 
 ### `IsRewardsDialogVisible`
@@ -153,6 +430,110 @@ PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 See also: [RewardsDialogTab](enums.md#rewardsdialogtab) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+
+---
+
+Example using:
+
+### `SetSocialMenuEnabled`
+
+### `IsSocialMenuEnabled`
+
+In this example, there is a designated area where the social menu becomes available to use. The area is defined by a trigger. Additionally, a UI element in the HUD turns on/off when the player is inside the area, to indicate that social interactions are available. When a trigger is inside a client-context, make sure collision on the context is enabled, otherwise the trigger will do nothing.
+
+```lua
+local TRIGGER = script:GetCustomProperty("SocialZone"):WaitForObject()
+local UI_PANEL = script:GetCustomProperty("HUDSocialIndicator"):WaitForObject()
+local PLAYER = Game.GetLocalPlayer()
+
+function Tick()
+    if UI.IsSocialMenuEnabled() then
+        UI_PANEL.visibility = Visibility.INHERIT
+    else
+        UI_PANEL.visibility = Visibility.FORCE_OFF
+    end
+    Task.Wait(1)
+end
+
+TRIGGER.beginOverlapEvent:Connect(function(trigger, other)
+    if other == PLAYER then
+        UI.SetSocialMenuEnabled(true)
+    end
+end)
+
+TRIGGER.endOverlapEvent:Connect(function(trigger, other)
+    if other == PLAYER then
+        UI.SetSocialMenuEnabled(false)
+    end
+end)
+```
+
+See also: [CoreObject.visibility](coreobject.md) | [Trigger.beginOverlapEvent](trigger.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+
+---
+
+Example using:
+
+### `ShowDamageDirection`
+
+In this example, the damage direction indicator is shown to a player when they take damage, but only if the source of that damage is another player. The script is broken into 2 parts, where the first one goes into a server script and the second one into a client script.
+
+```lua
+-- Server script:
+function OnDamaged(player, dmg)
+    local amount = dmg.amount
+    local position = nil
+    if dmg.sourcePlayer then
+        position = dmg.sourcePlayer:GetWorldPosition()
+    end
+    Events.BroadcastToPlayer(player, "TookDamage", amount, position)
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.damagedEvent:Connect(OnDamaged)
+end)
+
+-- Client script:
+function OnDamaged(amount, position)
+    if position then
+        UI.ShowDamageDirection(position)
+    end
+end
+
+Events.Connect("TookDamage", OnDamaged)
+```
+
+See also: [Damage.sourcePlayer](damage.md) | [Events.BroadcastToPlayer](events.md)
+
+---
+
+Example using:
+
+### `ShowFlyUpText`
+
+In this example, RP points can be granted to a player by calling the function GiveRewardPoints(player, amount). Additionally, a fly-up text appears and stays on screen for a bit, displaying the amount of RP that was gained. The script is broken into 2 parts, where the first one goes into a server script and the second one into a client script.
+
+```lua
+-- Server script:
+function GiveRewardPoints(player, amount)
+    player:GrantRewardPoints(amount, "MyRP")
+    
+    Events.BroadcastToPlayer(player, "ShowRPGain", amount)
+end
+
+-- Client script:
+local RP_COLOR = Color.New(0.18, 0.09, 0.36)
+
+function OnShowRPGain(amount)
+    local message = "+"..amount.." RP"
+    local pos = Game.GetLocalPlayer():GetWorldPosition() + Vector3.UP * 100
+    local params = {color = RP_COLOR, isBig = true}
+    UI.ShowFlyUpText(message, pos, params)
+end
+Events.Connect("ShowRPGain", OnShowRPGain)
+```
+
+See also: [Player.GrantRewardPoints](player.md) | [Events.BroadcastToPlayer](events.md) | [Game.GetLocalPlayer](game.md) | [Vector3.UP](vector3.md)
 
 ---
 

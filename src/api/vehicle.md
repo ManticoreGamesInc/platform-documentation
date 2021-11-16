@@ -241,6 +241,63 @@ See also: [event:Trigger.beginOverlapEvent](event.md) | [CoreObject.serverUserDa
 
 Example using:
 
+### `tireFriction`
+
+### `maxSpeed`
+
+### `driver`
+
+In this example, entering the trigger will act like an oil slick. Any vehicles that enter the trigger will spin out of control.
+
+```lua
+-- Get the trigger that will represent the oil slick area
+local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
+
+-- This function will be called whenever an object enters the trigger
+function OnEnter(trigger, other)
+    -- Check if the object entering is a vehicle and if the vehicle is currently not in an oil slick
+    if(other:IsA("Vehicle") and not other.serverUserData.inOil) then
+        -- Set the oil slick status of the vehicle to "true" so that any more oil slicks that the vehicle passes
+        -- over do not affect the vehicle.
+        other.serverUserData.inOil = true
+
+        -- Store the original max speed of the vehicle
+        local originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
+
+        -- Store the original tire friction of the vehicle
+        local originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
+
+        -- Set the maximum speed of the vehicle to 0 to stop it from moving
+        other.maxSpeed = 1000
+
+        -- Set the tire friction of the wheels to 0 so that the car can easily spin
+        other.tireFriction = 0.5
+
+        -- Make the vehicle spin for 2 seconds
+        other:SetLocalAngularVelocity(Vector3.New(0, 0, 999))
+
+        Task.Wait(2)
+
+        -- Reset the specifications of the vehicle to the values before the vehicle entered the oil slick
+        other.maxSpeed = originalMaxSpeed
+        -- Resetting the "tireFriction" will cause the vehicle to stop spinning
+        other.tireFriction = originalTireFriction
+
+        -- Reset the in oil status of the vehicle so that the vehicle can be affected by another oil slick.
+        other.serverUserData.inOil = false
+    end
+end
+-- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
+-- when an object enters the "propTrigger" the "OnEnter" function is executed
+propTrigger.beginOverlapEvent:Connect(OnEnter)
+```
+
+See also: [CoreObject.SetLocalAngularVelocity](coreobject.md) | [event:Trigger.beginOverlapEvent](event.md)
+
+---
+
+Example using:
+
 ### `SetDriver`
 
 ### `driverExitedEvent`
@@ -620,64 +677,5 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
 See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player.md) | [World.SpawnAsset](world.md) | [Object.IsValid](object.md) | [Game.playerJoinedEvent](game.md)
-
----
-
-Example using:
-
-### `SetLocalAngularVelocity`
-
-### `tireFriction`
-
-### `maxSpeed`
-
-### `driver`
-
-In this example, entering the trigger will act like an oil slick. Any vehicles that enter the trigger will spin out of control.
-
-```lua
--- Get the trigger that will represent the oil slick area
-local propTrigger = script:GetCustomProperty("Trigger"):WaitForObject()
-
--- This function will be called whenever an object enters the trigger
-function OnEnter(trigger, other)
-    -- Check if the object entering is a vehicle and if the vehicle is currently not in an oil slick
-    if(other:IsA("Vehicle") and not other.serverUserData.inOil) then
-        -- Set the oil slick status of the vehicle to "true" so that any more oil slicks that the vehicle passes
-        -- over do not affect the vehicle.
-        other.serverUserData.inOil = true
-
-        -- Store the original max speed of the vehicle
-        local originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
-
-        -- Store the original tire friction of the vehicle
-        local originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
-
-        -- Set the maximum speed of the vehicle to 0 to stop it from moving
-        other.maxSpeed = 1000
-
-        -- Set the tire friction of the wheels to 0 so that the car can easily spin
-        other.tireFriction = 0.5
-
-        -- Make the vehicle spin for 2 seconds
-        other:SetLocalAngularVelocity(Vector3.New(0, 0, 999))
-
-        Task.Wait(2)
-
-        -- Reset the specifications of the vehicle to the values before the vehicle entered the oil slick
-        other.maxSpeed = originalMaxSpeed
-        -- Resetting the "tireFriction" will cause the vehicle to stop spinning
-        other.tireFriction = originalTireFriction
-
-        -- Reset the in oil status of the vehicle so that the vehicle can be affected by another oil slick.
-        other.serverUserData.inOil = false
-    end
-end
--- Bind the "OnEnter" function to the "beginOverlapEvent" of the "propTrigger" so that
--- when an object enters the "propTrigger" the "OnEnter" function is executed
-propTrigger.beginOverlapEvent:Connect(OnEnter)
-```
-
-See also: [event:Trigger.beginOverlapEvent](event.md) | [CoreObject.serverUserData](coreobject.md)
 
 ---

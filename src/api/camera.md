@@ -55,10 +55,6 @@ Example using:
 
 ### `Capture`
 
-### `IsValid`
-
-### `Refresh`
-
 This example uses the Camera's `Capture()` and `Refresh()` to implement a rear-view mirror that appears when the player is using a vehicle. For the UI image to look correct, it should have equal width and height, as well as `Flip Horizontal` enabled.
 
 ```lua
@@ -105,7 +101,7 @@ function Tick()
 end
 ```
 
-See also: [UIImage.SetCameraCapture](uiimage.md) | [Game.GetLocalPlayer](game.md) | [Player.occupiedVehicle](player.md) | [Quaternion.GetForwardVector](quaternion.md) | [CoreObject.visibility](coreobject.md)
+See also: [CameraCapture.Refresh](cameracapture.md) | [UIImage.SetCameraCapture](uiimage.md) | [Game.GetLocalPlayer](game.md) | [Player.occupiedVehicle](player.md) | [Quaternion.GetForwardVector](quaternion.md) | [CoreObject.visibility](coreobject.md)
 
 ---
 

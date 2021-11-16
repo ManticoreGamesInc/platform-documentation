@@ -80,6 +80,12 @@ Example using:
 
 ### `Lerp`
 
+### `RED`
+
+### `GREEN`
+
+### `YELLOW`
+
 This utility function calculates a color useful for a health bar.
 
 ```lua
@@ -103,5 +109,64 @@ function GetHitPointsColor(currentHitPoints, maxHitPoints)
     return c
 end
 ```
+
+See also: [CoreMath.Clamp](coremath.md)
+
+---
+
+Example using:
+
+### `Random`
+
+### `ToStandardHex`
+
+### `ToLinearHex`
+
+### `r`
+
+### `g`
+
+### `b`
+
+### `a`
+
+In this example, 10 random colors are generated. Their values are printed out to the event log in three forms: standard hexadecimal, linear hexadecimal and RGBA float values.
+
+```lua
+function MakeRandomColor()
+    local c = Color.Random()
+    local sHex = c:ToStandardHex()
+    local lHex = c:ToLinearHex()
+    print("Random color. SHex = "..sHex..". LHex = "..lHex..". RBGA = ("
+        ..c.r..","..c.g..","..c.b..","..c.a..")")
+end
+
+for i = 1,10 do
+    MakeRandomColor()
+end
+```
+
+---
+
+Example using:
+
+### `GetDesaturated`
+
+In this example, the color of a UI text is slowly desaturated until it reaches grayscale.
+
+```lua
+local UI_TEXT = script:GetCustomProperty("UITextBox"):WaitForObject()
+local START_COLOR = UI_TEXT:GetColor()
+local SPEED = 0.2
+local elapsedTime = 1
+
+function Tick(deltaTime)
+    elapsedTime = CoreMath.Clamp(elapsedTime - deltaTime * SPEED)
+    local color = START_COLOR:GetDesaturated(elapsedTime)
+    UI_TEXT:SetColor(color)
+end
+```
+
+See also: [UIImage.GetColor](uiimage.md) | [CoreMath.Clamp](coremath.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
