@@ -117,7 +117,7 @@ See also: [Color.New](color.md)
 
 Example using:
 
-### `Intensity`
+### `intensity`
 
 In this example a light will repeatedly pulse. This is done by passing the current time (in seconds) into a sine wave function. The output of this sine wave function is then used as the intensity of the light causing to it pulse.
 

@@ -30,6 +30,42 @@ Example using:
 
 ### `y`
 
+This client script demonstrates how to animate a `UI Panel` to make it enter and exit the screen smoothly. By calling either `Show()` or `Hide()` we set the panel's desired position. In the Tick function we use `Lerp()` to update the value, which gives the animation an "ease out" behavior.
+
+```lua
+local UI_PANEL = script:GetCustomProperty("UIPanel"):WaitForObject()
+local LERP_SPEED = 12
+
+local START_POS = Vector2.New(UI_PANEL.x, UI_PANEL.y)
+local destination = START_POS
+
+function Show()
+    destination = START_POS
+end
+
+function Hide()
+    destination.y = START_POS.y + 800
+end
+
+function Tick(deltaTime)
+    local t = CoreMath.Clamp(deltaTime * LERP_SPEED)
+    local pos = Vector2.New(UI_PANEL.x, UI_PANEL.y)
+    pos = Vector2.Lerp(pos, destination, t)
+    UI_PANEL.x = pos.x
+    UI_PANEL.y = pos.y
+end
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Vector2.New](vector2.md)
+
+---
+
+Example using:
+
+### `x`
+
+### `y`
+
 ### `rotationAngle`
 
 Being able to control the position and rotation of UI elements is an extremely valuable skill when developing games in Core. This example will show you how you can change the position of a UI element by using the `x` and `y` properties of that element. Also, this example will demonstrate how to set the rotatation a UI element by using the `rotationAngle` property of that UI element.
