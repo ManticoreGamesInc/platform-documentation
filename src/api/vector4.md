@@ -67,3 +67,41 @@ A four-component vector.
 | `-Vector4` | [`Vector4`](vector4.md) | Returns the negation of the Vector4. | None |
 | `Vector4 .. Vector4` | `number` | Returns the dot product of the Vector4s. | None |
 | `Vector4 ^ Vector4` | [`Vector4`](vector4.md) | Returns the cross product of the Vector4s. | None |
+
+## Examples
+
+Example using:
+
+### `New`
+
+### `x`
+
+### `y`
+
+### `z`
+
+### `w`
+
+### `size`
+
+This example shows how a `Color` can be converted into a `Vector4`, which opens the possibility of some math operations that are available to the latter.
+
+```lua
+function ColorToVector4(color)
+    local v = Vector4.New()
+    v.x = color.r
+    v.y = color.g
+    v.z = color.b
+    v.w = color.a
+    return v
+end
+
+function GetMagnitudeOfColor(color)
+    local v = ColorToVector4(color)
+    return v.size
+end
+```
+
+See also: [Color.r](color.md)
+
+---

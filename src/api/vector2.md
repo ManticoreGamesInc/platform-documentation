@@ -63,3 +63,73 @@ A two-component vector that can represent a position or direction.
 | `-Vector2` | [`Vector2`](vector2.md) | Returns the negation of the Vector2. | None |
 | `Vector2 .. Vector2` | `number` | Returns the dot product of the Vector2s. | None |
 | `Vector2 ^ Vector2` | `number` | Returns the cross product of the Vector2s. | None |
+
+## Examples
+
+Example using:
+
+### `New`
+
+### `Lerp`
+
+### `x`
+
+### `y`
+
+This client script demonstrates how to animate a `UI Panel` to make it enter and exit the screen smoothly. By calling either `Show()` or `Hide()` we set the panel's desired position. In the Tick function we use `Lerp()` to update the value, which gives the animation an "ease out" behavior.
+
+```lua
+local UI_PANEL = script:GetCustomProperty("UIPanel"):WaitForObject()
+local LERP_SPEED = 12
+
+local START_POS = Vector2.New(UI_PANEL.x, UI_PANEL.y)
+local destination = START_POS
+
+function Show()
+    destination = START_POS
+end
+
+function Hide()
+    destination.y = START_POS.y + 800
+end
+
+function Tick(deltaTime)
+    local t = CoreMath.Clamp(deltaTime * LERP_SPEED)
+    local pos = Vector2.New(UI_PANEL.x, UI_PANEL.y)
+    pos = Vector2.Lerp(pos, destination, t)
+    UI_PANEL.x = pos.x
+    UI_PANEL.y = pos.y
+end
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIControl.x](uicontrol.md)
+
+---
+
+Example using:
+
+### `x`
+
+### `y`
+
+In this client script we listen for the player's primary action (e.g. Left mouse click) then print the position of their cursor to the event log.
+
+```lua
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        local cursorPos = UI.GetCursorPosition()
+        if cursorPos then
+            print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
+        else
+            print("Clicked at an undefined position.")
+        end
+    end
+end
+
+local player = Game.GetLocalPlayer()
+player.bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [UI.GetCursorPosition](ui.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+
+---
