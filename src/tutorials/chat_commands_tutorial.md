@@ -31,6 +31,10 @@ You will be importing an asset from **Community Content** that will help you cre
 
 ![!Community Content](../img/ChatCommands/cc_asset.png){: .center loading="lazy" }
 
+### Enable Player Storage
+
+The Command Parser will need to save the permission for the player persistently when you promote / demote a player. Make sure to enable **Player Storage** in the **Properties** window for the **Game Settings** object.
+
 ### Requiring the Command Parser API
 
 To create commands, you will need to require the **CommandParser** script so you have access to all the functions in the API.
@@ -1921,9 +1925,9 @@ end)
 
 ### Ragdoll
 
-Ragdoll physics can be a lot of fun. This command will enable the ragdoll physics for a few sockets.
+Ragdoll physics can be a lot of fun. This command will enable the ragdoll physics for a few [sockets](../api/animations.md).
 
-By calling the `EnableRadoll` function on the player, you can specify a socket and weight.
+By calling the `EnableRagdoll` function on the player, you can specify a socket and weight.
 
 ```lua
 -- /ragdoll on player
