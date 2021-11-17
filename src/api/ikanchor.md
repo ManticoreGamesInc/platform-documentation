@@ -26,7 +26,7 @@ IKAnchors are objects that can be used to control player animations. They can be
 | -------- | ----------- | ----------- | ---- |
 | `Activate(Player)` | `None` | Activates the IKAnchor on the given player. | None |
 | `Deactivate()` | `None` | Deactivates the IKAnchor from whatever player it is active on. | None |
-| `GetAimOffset(Ability)` | [`Vector3`](vector3.md) | Returns the aim offset property. | None |
+| `GetAimOffset()` | [`Vector3`](vector3.md) | Returns the aim offset property. | None |
 | `SetAimOffset(Vector3)` | `None` | Sets the aim offset of this IKAnchor. | None |
 
 ## Events
