@@ -79,11 +79,17 @@ Concurrent player storage works similar to [Persistent Storage](../references/pe
 
 ### Concurrent Shared Player Storage
 
-Concurrent shared player storage works similar to [Shared Storage](../references/shared_storage.md). The concurrent storage API can get and set, and share between the creators games. The difference with concurrent storage, is that the shared key can be updated while the player is offline.
+Concurrent shared player storage works similar to [Shared Storage](../references/shared_storage.md). The concurrent storage API can get and set, and share between the creators games. The difference with concurrent storage, is that the shared key can be updated while the player is offline, and across different game instances.
 
 ### Concurrent Shared Creator Storage
 
 Concurrent shared creator storage allows for creators to get and set data to a shared key that is available across different game servers. For example, if a player on one server finds a special enemy (i.e. for an event), other players on different server instances can be notified and also have the enemy spawned.
+
+## Read and Write Limits
+
+There is no request limit For reads, but if they are requested a lot they will end up cached and might be few seconds out of date.
+
+For writing, any single data has a limit of about 8 writes a second across all servers. Higher bursts are supported but for sustained throughput 8 is about the max. That assumes the callback is efficient. If creators exceed the limit, then the writes will start queuing up and could start timing out.
 
 ## Learn More
 
