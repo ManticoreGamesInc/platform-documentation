@@ -8,7 +8,7 @@ tags:
 
 # Concurrent Storage
 
-**Concurrent Storage** allows creators to wite data to a table for players or games concurrently. Meaning the games will have the ability to write data when the player is offline (or online but on a different server), or write data that is shared across game instances.
+**Concurrent Storage** allows creators to write data to a table for players or games concurrently. Meaning the games will have the ability to write data when the player is offline (or online but on a different server), or write data that is shared across game instances.
 
 Creators can have **up to 16** concurrent shared player keys, and **up to 16** concurrent shared creator keys. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [Net Reference](../api/netreference.md).
 
@@ -87,7 +87,7 @@ Concurrent shared creator storage allows for creators to get and set data to a s
 
 ## Read and Write Limits
 
-There is no request limit For reads, but if they are requested a lot they will end up cached and might be few seconds out of date.
+There is no request limit for reads, but if they are requested a lot they will end up cached and might be few seconds out of date.
 
 For writing, any single data has a limit of about 8 writes a second across all servers. Higher bursts are supported but for sustained throughput 8 is about the max. That assumes the callback is efficient. If creators exceed the limit, then the writes will start queuing up and could start timing out.
 
