@@ -40,3 +40,100 @@ Audio is a CoreObject that wrap sound files. Most properties are exposed in the 
 | `Stop()` | `None` | Stops sound playback. | None |
 | `FadeIn(number time)` | `None` | Starts playing and fades in the sound over the given time. | None |
 | `FadeOut(number time)` | `None` | Fades the sound out and stops over time seconds. | None |
+
+## Examples
+
+Example using:
+
+### `Play`
+
+### `Stop`
+
+### `FadeIn`
+
+### `FadeOut`
+
+### `isPlaying`
+
+In this example, a random song from a folder containing a list of songs is picked and played for 10 seconds before another song is picked at random.
+
+```lua
+-- Client script
+
+-- The folder containing a list of songs to pick from.
+local musicFolder = script:GetCustomProperty("music"):WaitForObject()
+
+-- The time a song is allowed to player for.
+local allowedPlayTime = 10
+
+-- If the song should fade in and out.
+local fadeInOut = true
+
+-- Duration of the fade in and out.
+local fadeInTime = 1
+local fadeOutTime = 1
+
+local songs = musicFolder:GetChildren()
+local current
+
+local totalPlayTime = 0
+
+-- Attempt to find a song that wasn't played previously.
+local function GetRandomSong()
+    local song
+
+    if current == nil then
+        song = songs[math.random(1, #songs)]
+    else
+        if #songs == 1 then
+            song = songs[1]
+        else
+            repeat
+                song = songs[math.random(1, #songs)]
+            until song ~= current
+        end
+    end
+
+    return song
+end
+
+local function PlaySong()
+    if current ~= nil then
+        if fadeInOut then
+            current:FadeOut(fadeOutTime)
+        else
+            current:Stop()
+        end
+    end
+
+    totalPlayTime = 0
+    current = GetRandomSong()
+
+    if fadeInOut then
+        current:FadeIn(fadeInTime)
+    else
+        current:Play()
+    end
+end
+
+-- Keep track of how long the song has been playing for.
+function Tick(dt)
+    if current ~= nil then
+        if totalPlayTime > allowedPlayTime then
+            PlaySong()
+        else
+            if not current.isPlaying then
+                totalPlayTime = 0
+            else
+                totalPlayTime = totalPlayTime + dt
+            end
+        end
+    end
+end
+
+PlaySong()
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreLua.Tick](coreluafunctions.md)
+
+---

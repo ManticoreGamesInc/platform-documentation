@@ -881,6 +881,45 @@ See also: [Storage.GetPlayerData](storage.md) | [Game.playerJoinedEvent](game.md
 
 Example using:
 
+### `HasPerk`
+
+In this example, limited time perks that players have purchased could still have active benefits (i.e. double xp) when the perk has expired while the player is still on the server. This could allow players to get extended perk benefits until they leave, or the server is closed.
+
+To solve this issue, a task can be spawned that checks all players on the server periodically if they have the limited time perk. For example, you might be using SetResource to flag players having a Gold VIP Pass. If the limited time perk has expired, then the flag can be set to 0, which would end the benefits for the player until they repurchase the perk.
+
+```lua
+-- Server script
+
+-- The limited time perk (net reference) to check.
+local LIMITED_TIME_PERK = script:GetCustomProperty("perk")
+
+-- Spawn the task when the server starts
+local perkCheckTask = Task.Spawn(function()
+
+    -- Loop through all the players on the server.
+    for index, player in ipairs(Game.GetPlayers()) do
+
+        -- If the player does not have the perk, reset their vip pass.
+        if not player:HasPerk(LIMITED_TIME_PERK) then
+
+            -- Your code would go here to handle resetting perk benefits.
+            player:SetResource("goldvippass", 0)
+        end
+    end
+end)
+
+perkCheckTask.repeatCount = -1
+
+-- The interval doesn't need to be fast
+perkCheckTask.repeatInterval = (60 * 5)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [Task.Spawn](task.md) | [Game.GetPlayers](game.md) | [Player.SetResource](player.md)
+
+---
+
+Example using:
+
 ### `SetPrivateNetworkedData`
 
 ### `GetPrivateNetworkedData`
