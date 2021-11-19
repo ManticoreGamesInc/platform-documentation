@@ -198,7 +198,10 @@ tags:
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
 | `NetReferenceType.LEADERBOARD` | `1` | Leaderboard key. |
-| `NetReferenceType.SHARED_STORAGE` | `2` | Player shared storage key. |
+| `NetReferenceType.SHARED_STORAGE` | `2` | Player shared storage key. *Note: `NetReferenceType.SHARED_STORAGE` is deprecated. Please use `NetReferenceType.SHARED_PLAYER_STORAGE` instead.* |
+| `NetReferenceType.SHARED_PLAYER_STORAGE` | `2` | Shared player storage key. |
+| `NetReferenceType.CONCURRENT_SHARED_PLAYER_STORAGE` | `4` | Concurrent shared player storage key. |
+| `NetReferenceType.CONCURRENT_CREATOR_STORAGE` | `5` | Concurrent creator storage key. |
 | `NetReferenceType.CREATOR_PERK` | `3` | Creator perk. |
 | `NetReferenceType.UNKNOWN` | `0` | Unknown `NetReference`. |
 
@@ -295,6 +298,7 @@ tags:
 | `StorageResultCode.FAILURE` | `2` | An error occurred saving the player's data. |
 | `StorageResultCode.STORAGE_DISABLED` | `1` | Player Storage is disabled in the game's settings. |
 | `StorageResultCode.EXCEEDED_SIZE_LIMIT` | `3` | The provided data is too large and could not be saved. |
+| `StorageResultCode.REQUEST_ALREADY_QUEUED` | `4` | A request was made to set creator or player data while a request was already in progress to update that same data. |
 
 ## TaskStatus
 
