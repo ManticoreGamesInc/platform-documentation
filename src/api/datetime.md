@@ -116,7 +116,7 @@ Example using:
 
 ### `second`
 
-In this example, a client-context script displays to the player their local clock. This appears in the form hh : mm : ss. The value is written to a `UI Text Box` that is assigned as a custom property.
+In this example, a client-context script displays to the player their local clock. This appears in the form `hh:mm:ss`. The value is written to a `UI Text Box` that is assigned as a custom property.
 
 ```lua
 local UI_TEXT = script:GetCustomProperty("UITextBox"):WaitForObject()
