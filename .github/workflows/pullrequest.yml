@@ -16,11 +16,11 @@ jobs:
           ref: manticore
           path: mkdocs-material
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.0
-        with:
-          python-version: 3.8
-          cache: "pip"
+      # - name: Set up Python 3.8
+      #   uses: actions/setup-python@v2.3.0
+      #   with:
+      #     python-version: 3.8
+      #     cache: "pip"
 
       - name: Setup Node
         uses: actions/setup-node@v2.4.1
@@ -37,7 +37,7 @@ jobs:
         id: netlify
         with:
           site_name: "manticore-docs"
-          max_timeout: 480
+          max_timeout: 520
 
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@8.0.0

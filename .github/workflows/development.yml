@@ -17,11 +17,12 @@ jobs:
           repository: ManticoreGamesInc/mkdocs-material
           ref: manticore
           path: mkdocs-material
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.0
-        with:
-          python-version: 3.8
-          cache: "pip"
+
+      # - name: Set up Python 3.8
+      #   uses: actions/setup-python@v2.3.0
+      #   with:
+      #     python-version: 3.8
+      #     cache: "pip"
 
       - name: Setup Node
         uses: actions/setup-node@v2.4.1
