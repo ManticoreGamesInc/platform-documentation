@@ -32,7 +32,7 @@ jobs:
         run: npm run lint
 
       - name: Wait for the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1.2
+        uses: jakepartusch/wait-for-netlify-action@v1.3
         id: netlify
         with:
           site_name: "manticore-docs"
