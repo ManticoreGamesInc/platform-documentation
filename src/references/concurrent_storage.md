@@ -13,7 +13,7 @@ tags:
 - For data associated with players that only needs to be changed when they are online, but can still be read offline, see the [Persistent Storage reference](persistent_storage.md).
 - For data shared across multiple games, but still associated with specific players, see the [Shared Storage reference](shared_storage.md).
 
-Creators can have **up to 16** concurrent shared player keys, and **up to 16** concurrent shared creator keys. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [Net Reference](../api/netreference.md).
+Creators can have **1** concurrent player key per game, **up to 16** concurrent shared player keys, and **up to 16** concurrent shared creator keys. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [Net Reference](../api/netreference.md).
 
 Check the [Storage API](../api/storage.md) for how to use concurrent storage from Lua scripts.
 
@@ -80,19 +80,50 @@ To save data to a concurrent shared storage key, creators will need to use its *
 
 Concurrent player storage works similar to [Persistent Storage](../references/persistent_storage.md). The concurrent storage API can get and set data for a player that is online, but also with the added benefit of getting and setting data while the player is offline, and on different game instances.
 
+You can use Concurrent Player Storage to create features like:
+
+- Offline / Cross Server Player to Player trading.
+- Offline / Cross Server Player vs Player base raid.
+- Offline / Cross Server Player 2 Player farm help and visit.
+- Player offline notifications.
+
 ### Concurrent Shared Player Storage
 
 Concurrent shared player storage works similar to [Shared Storage](../references/shared_storage.md). The concurrent storage API can get and set, and share between the creators games. The difference with concurrent storage, is that the shared key can be updated while the player is offline, and across different game instances.
 
+You can use Concurrent Shared Player Storage to create features like:
+
+- Offline / Cross Server Player to Player trading.
+- Offline / Cross Server Player vs Player base raid.
+- Offline / Cross Server Player 2 Player farm help and visit.
+- Player offline notifications.
+
 ### Concurrent Shared Creator Storage
 
 Concurrent shared creator storage allows for creators to get and set data to a shared key that is available across different game servers. For example, if a player on one server finds a special enemy (i.e. for an event), other players on different server instances can be notified and also have the enemy spawned.
+
+You can use Concurrent Shared Creator Storage to create features like:
+
+- Cross Game and In-Game global data.
+- Global player list across Servers and Games.
+- Global shared currency, items etc.
+- Auction house.
+- Persistent world
 
 ## Read and Write Limits
 
 There is no request limit for reads, but if they are requested a lot they will end up cached and might be few seconds out of date.
 
 For writing, any single data has a limit of about 8 writes a second across all servers. Higher bursts are supported but for sustained throughput 8 is about the max. That assumes the callback is efficient. If creators exceed the limit, then the writes will start queuing up and could start timing out.
+
+To avoid getting a long queue, reduce data saving frequency.
+
+## Playtesting & Debugging
+
+To effectively test what happens on server with concurrent calls, use message and error code when updating data. For every Set Concurrent Data calls you get 3 variables returning to use: `new data`, `error code`, `error message`. Utilize the error code and message in order to create print calls for debugging purposes. Doing this allows you to revisit your server logs and check on saving issues or any other bugs you may not encounter when testing locally in singleplayer and multiplayer preview mode.
+
+!!! warning "playerLeftEvent with set concurrent calls"
+    When testing concurrent storage locally, make sure to test in local multiplayer preview with **Allow zero clients**, otherwise any set concurrent calls in the `playerLeftEvent` listener will fail due to the server being killed instantly.
 
 ## Learn More
 
