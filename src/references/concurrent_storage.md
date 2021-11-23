@@ -95,7 +95,7 @@ You can use Concurrent Shared Player Storage to create features like:
 
 - Offline / Cross Server Player to Player trading.
 - Offline / Cross Server Player vs Player base raid.
-- Offline / Cross Server Player 2 Player farm help and visit.
+- Offline / Cross Server Player to Player farm help and visit.
 - Player offline notifications.
 
 ### Concurrent Shared Creator Storage
@@ -106,9 +106,9 @@ You can use Concurrent Shared Creator Storage to create features like:
 
 - Cross Game and In-Game global data.
 - Global player list across Servers and Games.
-- Global shared currency, items etc.
+- Global shared currency, items, etc.
 - Auction house.
-- Persistent world
+- Persistent world.
 
 ## Read and Write Limits
 
