@@ -8,7 +8,10 @@ tags:
 
 # Concurrent Storage
 
-**Concurrent Storage** allows creators to write data to a table for players or games concurrently. Meaning the games will have the ability to write data when the player is offline (or online but on a different server), or write data that is shared across game instances.
+**Concurrent Storage** allows creators to write data to a table for players or games the player is offline (or online but on a different server), or write data that is shared across game instances and not associated with a player.
+
+- For data associated with players that only needs to be changed when they are online, but can still be read offline, see the [Persistent Storage reference](persistent_storage.md).
+- For data shared across multiple games, but still associated with specific players, see the [Shared Storage reference](shared_storage.md).
 
 Creators can have **up to 16** concurrent shared player keys, and **up to 16** concurrent shared creator keys. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [Net Reference](../api/netreference.md).
 
