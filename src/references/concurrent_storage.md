@@ -84,7 +84,7 @@ You can use Concurrent Player Storage to create features like:
 
 - Offline / Cross Server Player to Player trading.
 - Offline / Cross Server Player vs Player base raid.
-- Offline / Cross Server Player 2 Player farm help and visit.
+- Offline / Cross Server Player to Player farm help and visit.
 - Player offline notifications.
 
 ### Concurrent Shared Player Storage
