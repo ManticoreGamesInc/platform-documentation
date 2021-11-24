@@ -31,12 +31,12 @@ Core storage allows a maximum of 32Kb (32768 bytes) of encoded data to be stored
 | `Storage.SetConcurrentSharedPlayerData(NetReference concurrentSharedStorageKey, string playerId, function callback)` | <`table` data, [`StorageResultCode`](enums.md#storageresultcode) resultCode, `string` errorMessage> | Updates the concurrent player data associated with the specified player and storage key. The storage key must be of type `CONCURRENT_SHARED_PLAYER_STORAGE`. This function retrieves the most recent copy of the player's data, then calls the creator-provided `callback` function with the data table as a parameter. `callback` is expected to return the player's updated data table, which will then be saved. This function yields until the entire process is complete, returning a copy of the player's updated data (`nil` if not available), a result code, and an optional error message if an error occurred. | Server-Only |
 | `Storage.GetConcurrentCreatorData(NetReference concurrentCreatorStorageKey)` | <`table` data, [`StorageResultCode`](enums.md#storageresultcode) resultCode, `string` errorMessage> | Requests the concurrent data associated with the given storage key. The storage key must be of type `CONCURRENT_CREATOR_STORAGE`. This data is player- and game-agnostic. This function may yield until data is available. Returns the data (`nil` if not available), a result code, and an optional error message if an error occurred. | Server-Only |
 | `Storage.SetConcurrentCreatorData(NetReference concurrentCreatorStorageKey, function callback)` | <`table` data, [`StorageResultCode`](enums.md#storageresultcode) resultCode, `string` errorMessage> | Updates the concurrent data associated with the given storage key. The storage key must be of type `CONCURRENT_CREATOR_STORAGE`. This data is player- and game-agnostic. This function retrieves the most recent copy of the creator data, then calls the creator-provided `callback` function with the data table as a parameter. `callback` is expected to return the updated data table, which will then be saved. This function yields until the entire process is complete, returning a copy of the updated data (`nil` if not available), a result code, and an optional error message if an error occurred. | Server-Only |
-| `Storage.ConnectToConcurrentPlayerDataChanged(string playerId, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent data associated with `playerId` for this game. Calls to `Storage.SetConcurrentPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `string` player ID, `table` player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
-| `Storage.ConnectToConcurrentSharedPlayerDataChanged(NetReference concurrentSharedStorageKey, string playerId, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent shared data associated with `playerId` and `concurrentSharedStorageKey`. Calls to `Storage.SetConcurrentSharedPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `string` player ID, `table` shared player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
-| `Storage.ConnectToConcurrentCreatorDataChanged(NetReference concurrentCreatorStorageKey, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent data associated with `concurrentCreatorStorageKey`. Calls to `Storage.SetConcurrentCreatorData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `table` creator data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | None |
-| `Storage.HasPendingSetConcurrentPlayerData(string playerId)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentPlayerData()` either waiting to be processed or actively running for the specified player ID. | None |
-| `Storage.HasPendingSetConcurrentSharedPlayerData(NetReference concurrentSharedStorageKey, string playerId)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentSharedPlayerData()` either waiting to be processed or actively running for the specified player ID and shared storage key. | None |
-| `Storage.HasPendingSetConcurrentCreatorData(NetReference concurrentCreatorStorageKey)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentCreatorData()` either waiting to be processed or actively running for the specified creator storage key. | None |
+| `Storage.ConnectToConcurrentPlayerDataChanged(string playerId, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent data associated with `playerId` for this game. Calls to `Storage.SetConcurrentPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `string` player ID, `table` player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server-Only |
+| `Storage.ConnectToConcurrentSharedPlayerDataChanged(NetReference concurrentSharedStorageKey, string playerId, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent shared data associated with `playerId` and `concurrentSharedStorageKey`. Calls to `Storage.SetConcurrentSharedPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `string` player ID, `table` shared player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server-Only |
+| `Storage.ConnectToConcurrentCreatorDataChanged(NetReference concurrentCreatorStorageKey, function eventListener, [...])` | [`EventListener`](eventlistener.md) | Listens for any changes to the concurrent data associated with `concurrentCreatorStorageKey`. Calls to `Storage.SetConcurrentCreatorData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `table` creator data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected. | Server-Only |
+| `Storage.HasPendingSetConcurrentPlayerData(string playerId)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentPlayerData()` either waiting to be processed or actively running for the specified player ID. | Server-Only |
+| `Storage.HasPendingSetConcurrentSharedPlayerData(NetReference concurrentSharedStorageKey, string playerId)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentSharedPlayerData()` either waiting to be processed or actively running for the specified player ID and shared storage key. | Server-Only |
+| `Storage.HasPendingSetConcurrentCreatorData(NetReference concurrentCreatorStorageKey)` | `boolean` | Returns `true` if this server has a pending call to `Storage.SetConcurrentCreatorData()` either waiting to be processed or actively running for the specified creator storage key. | Server-Only |
 
 ## Additional Info
 
@@ -54,6 +54,231 @@ Core storage allows a maximum of 32Kb (32768 bytes) of encoded data to be stored
     - table
 
 ## Examples
+
+Example using:
+
+### `GetConcurrentCreatorData`
+
+### `SetConcurrentCreatorData`
+
+### `ConnectToConcurrentCreatorDataChanged`
+
+### `HasPendingSetConcurrentCreatorData`
+
+With concurrent storage, a game can have data that is shared between all server instances and is not tied to any specific player. In this example, we track the total number of players in all servers. Due to the fact concurrent data becomes locked to the process that is modifying it, it would be suboptimal to update data immediately as players join/leave. Therefore, each server keeps track of a temporary "delta" value-- the difference between players joining and leaving during a small window of time. Periodically, the delta is added to the total and is reset. In this way, we are batching multiple changes into a single `Set` operation.
+
+```lua
+local CONCURRENT_KEY = script:GetCustomProperty("ConcurrentKey")
+local SEND_PERIOD = script:GetCustomProperty("SendPeriod") or 10
+
+-- Add players when they join. Subtract when they leave.
+local deltaPlayers = 0
+
+Game.playerJoinedEvent:Connect(function(player)
+    deltaPlayers = deltaPlayers + 1
+end)
+
+Game.playerLeftEvent:Connect(function(player)
+    deltaPlayers = deltaPlayers - 1
+end)
+
+function Tick()
+    Task.Wait(SEND_PERIOD)
+
+    -- Nothing has changed. Try again later
+    if deltaPlayers == 0 then return end
+
+    -- There's already a Set operation in progress. Try again later
+    if Storage.HasPendingSetConcurrentCreatorData(CONCURRENT_KEY) then return end
+
+    -- Apply the differece in total players
+    local data, result, message = Storage.SetConcurrentCreatorData(CONCURRENT_KEY, function(data)
+        if not data.totalPlayers then
+            data.totalPlayers = deltaPlayers
+        else
+            data.totalPlayers = data.totalPlayers + deltaPlayers
+        end
+        return data
+    end)
+    deltaPlayers = 0
+
+    -- Possible error message
+    if result ~= StorageResultCode.SUCCESS then
+        warn("Failed to set total players. Result code = " ..result ..", "..tostring(message))
+    end
+end
+
+-- Listen for changes to the data and update the `totalPlayers` variable.
+local totalPlayers = 0
+
+function OnConcurrentDataChanged(_, data)
+    if data.totalPlayers and data.totalPlayers ~= totalPlayers then
+        totalPlayers = data.totalPlayers
+        -- Tell everyone about the new total players across all games
+        Chat.BroadcastMessage("Total players: " .. totalPlayers)
+    end
+end
+Storage.ConnectToConcurrentCreatorDataChanged(CONCURRENT_KEY, OnConcurrentDataChanged)
+
+-- When this server instance comes online, fetch the latest data right away
+local data, result, message = Storage.GetConcurrentCreatorData(CONCURRENT_KEY)
+if result == StorageResultCode.SUCCESS then
+    OnConcurrentDataChanged(_, data)
+else
+    warn("Initial get of total players failed.")
+end
+```
+
+See also: [StorageResultCode](enums.md#storageresultcode) | [Chat.BroadcastMessage](chat.md) | [Game.playerJoinedEvent](game.md) | [Task.Wait](task.md) | [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
+### `GetConcurrentPlayerData`
+
+### `SetConcurrentPlayerData`
+
+### `ConnectToConcurrentPlayerDataChanged`
+
+### `HasPendingSetConcurrentPlayerData`
+
+Concurrent storage can be used to send data to a specific player, regardless if they are in the same server instance, or even online at all. In this example we implement an inbox to which messages can be sent. While it's natural that text messages could be sent this way, the same exact code could be used to send an entire table with complex data of different types. This allows rich communication between players. The idea of "inbox" can be abstracted away from the concept of text messages, towards general-purpose communication and asynchronous gameplay.
+
+```lua
+local NEW_MESSAGE_EVENT_ID = "NewMessage"
+
+local pendingIds = {}
+local pendingMessages = {}
+
+-- This function can be called to send any message to a player, even if they are not in the game
+function SendToPlayer(playerId, message)
+    table.insert(pendingIds, playerId)
+    table.insert(pendingMessages, message)
+end
+
+function Tick()
+    -- This Tick() will usually do nothing, until there is a new message waiting to be sent
+    if #pendingIds > 0 then
+        local playerId = pendingIds[1]
+        local message = pendingMessages[1]
+
+        -- In case concurrent storage is busy for this player, exit and try again later
+        if Storage.HasPendingSetConcurrentPlayerData(playerId) then return end
+
+        -- Moving ahead with the attempt to send message. Remove it from the pending queue
+        table.remove(pendingIds, 1)
+        table.remove(pendingMessages, 1)
+
+        -- Try to put the message into the player's inbox
+        local data, result, message = Storage.SetConcurrentPlayerData(playerId, function(data)
+            if not data.inbox then
+                data.inbox = {}
+            end
+            table.insert(data.inbox, message)
+            return data
+        end)
+
+        if result == StorageResultCode.EXCEEDED_SIZE_LIMIT then
+            warn("Inbox full for player " .. playerId)
+        end
+    end
+end
+
+-- Requests the latest concurrent storage data for a player
+function CheckInbox(player)
+    local playerId = player.id
+    local data, result, message = Storage.GetConcurrentPlayerData(playerId)
+    if result == StorageResultCode.SUCCESS then
+        NotifyInbox(player, data.inbox)
+    else
+        warn("Failed to get inbox for player " .. playerId .. ". Result code: " .. result)
+    end
+end
+
+-- Called when the server detects changes to a player's concurrent data
+function OnConcurrentPlayerDataChanged(playerId, data)
+    -- Find the actual player object based on their ID
+    local player = Game.FindPlayer(playerId)
+    NotifyInbox(player, data.inbox)
+end
+
+function NotifyInbox(player, inbox)
+    -- Send the messages to the player's Client. They could be displayed in the UI
+    -- At this point no messages are removed from their inbox
+    if Object.IsValid(player) and inbox ~= nil then
+        for _,message in ipairs(inbox) do
+            Events.BroadcastToPlayer(player, NEW_MESSAGE_EVENT_ID, message)
+        end
+    end
+end
+
+local playerStorageListeners = {}
+
+Game.playerJoinedEvent:Connect(function(player)
+    -- Only the server in which a player has joined listens for new messages in their inbox
+    local listener = Storage.ConnectToConcurrentPlayerDataChanged(player.id, OnConcurrentPlayerDataChanged)
+    -- Save the event listener so we can disconnect from it later
+    playerStorageListeners[player] = listener
+    Task.Wait(3)
+    -- After the player joins, check their inbox
+    if Object.IsValid(player) then
+        CheckInbox(player)
+    end
+end)
+
+Game.playerLeftEvent:Connect(function(player)
+    -- The player is leaving. Disconnect the event listener to stop receiving message events on this server
+    if playerStorageListeners[player].isConnected then
+        playerStorageListeners[player]:Disconnect()
+        playerStorageListeners[player] = nil
+    end
+end)
+```
+
+See also: [StorageResultCode](enums.md#storageresultcode) | [EventListener.Disconnect](eventlistener.md) | [Game.FindPlayer](game.md) | [Events.BroadcastToPlayer](events.md) | [Object.IsValid](object.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `GetConcurrentSharedPlayerData`
+
+### `SetConcurrentSharedPlayerData`
+
+In this example, we track the last timestamp and scene name in which a player joined the game. This could be used, for example, to augment a leaderboard with extra columns.
+
+```lua
+local STORAGE_KEY = script:GetCustomProperty("StorageKey")
+
+function OnPlayerJoined(player)
+    -- Do as much work as possible outside of the callback, to minimize duration of lock
+    local sceneName = Game.GetCurrentSceneName()
+    local timestamp = DateTime.CurrentTime():ToIsoString()
+    local lastSeenData = {
+        sceneName = sceneName,
+        timestamp = timestamp
+    }
+    Storage.SetConcurrentSharedPlayerData(STORAGE_KEY, player.id, function(data)
+        data.lastSeen = lastSeenData
+        return data
+    end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+
+function GetLastSeen(playerId)
+    local data, result = Storage.GetConcurrentSharedPlayerData(STORAGE_KEY, playerId)
+    if result == StorageResultCode.SUCCESS then
+        return data.lastSeen
+    end
+    return nil
+end
+```
+
+See also: [StorageResultCode](enums.md#storageresultcode) | [Game.GetCurrentSceneName](game.md) | [DateTime.CurrentTime](datetime.md)
+
+---
 
 Example using:
 
@@ -97,7 +322,7 @@ for i, entry in ipairs(leaderboard) do
     end
     -- Get the additional data
     local playerLevel = data["level"] or 0
-    
+
     print(i .. ")", entry.name, ":", entry.score, "- Level " .. playerLevel)
 end
 ```
