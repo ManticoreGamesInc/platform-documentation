@@ -77,7 +77,7 @@ function ModalTypeToString(modalType)
 end
 ```
 
-See also: [CoreModalType.PAUSE_MENU](coremodaltype.md)
+See also: [CoreModalType](enums.md#coremodaltype)
 
 ---
 
