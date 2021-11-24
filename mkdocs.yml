@@ -299,10 +299,10 @@ extra_javascript:
 extra:
   alternate:
     - name: English
-      link: /
+      link: ./
       lang: en
     - name: Français (Beta)
-      link: /fr/
+      link: ./fr/
       lang: fr
   analytics:
     provider: google
