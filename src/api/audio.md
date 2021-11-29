@@ -137,3 +137,45 @@ PlaySong()
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
+
+Example using:
+
+### `pitch`
+
+### `isPlaying`
+
+### `Play`
+
+In this client script the pitch of a piano note is modified over time to give it a vibrato-like effect.
+
+```lua
+local SFX = script:GetCustomProperty("PianoSampledInstrument01"):WaitForObject()
+local PITCH_CHANGE = 200
+local DURATION = 0.25
+local elapsedTime = 0
+
+function PlayWithLinearVibrato()
+    SFX.pitch = 0
+    SFX:Play()
+    elapsedTime = 0
+end
+
+function Tick(deltaTime)
+    if SFX.isPlaying and elapsedTime < DURATION then
+        elapsedTime = elapsedTime + deltaTime
+        if elapsedTime > DURATION then
+            elapsedTime = DURATION
+        end
+        -- Linear modification of pitch over time
+        SFX.pitch = PITCH_CHANGE * elapsedTime / DURATION
+        print("pitch = " .. SFX.pitch)
+    end
+end
+
+Task.Wait(1)
+PlayWithLinearVibrato()
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
+---
