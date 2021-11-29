@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to create 2 features using Concurrent Storage. You will be creating a player count tracker to display the amount of players in a scene that will show in the main lobby. You will also be creating a way for players to place down a guidance message to help other players. Each guidance message can be given coins to the player who created the guidance message.
+In this tutorial you will create two features using [**Concurrent Storage.**](concurrent_storage.md). You will create a player count tracker to display in the main lobby the number of players in a different scene. You will also create a way for players to place down a guidance message to help other players. Each guidance message will allow coins to be given the player who created it.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -44,17 +44,20 @@ Under **Community Projects**, search for `Concurrent`.
 
 ## Enable Concurrent Storage
 
-To use concurrent storage you will need to enable it. You can find the concurrent storage settings for player and creator by clicking on the **Game Settings** object in the **Hierarchy**. In the **Properties** window enable **Concurrent Player Storage** and **Concurrent Creator Storage**.
+To use concurrent storage you will need to enable it. You can find the concurrent storage settings for player and creator using the **Game Settings** object.
+
+1. in the **Hierarchy**, open the  the **Gameplay Settings** folder and select the **Game Settings** object.
+2. In the **Properties** window enable **Concurrent Player Storage** and **Concurrent Creator Storage**.
 
 ![!Enable Storage](../img/ConcurrentStorageTutorial/enable_concurrent_storage.png){: .center loading="lazy" }
 
 ## Testing Concurrent Storage
 
-Testing concurrent storage should be done in **Multiplayer Preview Mode** with the option **Allow zero clients** enabled. This is because any call to set concurrent storage data needs time to complete. If you test in **Local Preview Mode**, then because the server and client are combined, the server is instantly killed. For example, if you set concurrent data when the player leaves the game using `playerLeftEvent`, then the data will not save.
+Testing concurrent storage should be done in **Multiplayer Preview Mode** with the option **Allow zero clients** enabled. This is because any call to set concurrent storage data needs time to complete. If you test in **Local Preview Mode**, then because the server and client are combined, the server is instantly stops when the preview ends. For example, if you set concurrent data when the player leaves the game using `playerLeftEvent`, then the data will not save.
 
 ### Check Concurrent Storage Key File
 
-A good way to check that concurrent storage is being saved correctly, is to check the storage file that is created when data is saved.
+When data is saved during testing of a local project, it gets written to file in the local project files. You can check that concurrent storage is being saved correctly by opening this file.
 
 In **My Shared Keys** in the **Project Content** window, right click on a concurrent storage key and select **Show in Explorer**. This will then show you where the file is (if data has been saved already), allowing you to inspect the data and be able to delete it later if you need to reset the key.
 
@@ -103,7 +106,7 @@ Add the script as a custom property to the **TotalPlayersServer** script.
 
 #### Add Data Custom Property
 
-In the **Hierarchy** there is an object called **Data** that is networked. This object contains a dynamic property called **TotalPlayers**. This property will be updated from the server and read by the client. The **TotalPlayersServer** script needs a reference to it so it can set the dynamic property when the concurrent storage data changes.
+In the **Hierarchy** there is an object called **Data** that is networked. This object contains a [dynamic property](custom_properties.md) called **TotalPlayers**. This property will be updated from the server and read by the client. The **TotalPlayersServer** script needs a reference to it so it can set the dynamic property when the concurrent storage data changes.
 
 Add the **Data** object to the **TotalPlayersServer** script as a custom property.
 
@@ -129,7 +132,7 @@ local SCENES_LOOKUP = require(script:GetCustomProperty("ScenesLookup"))
 
 ##### Check if Key is Assigned
 
-It is worth adding in a check to make sure the concurrent storage key is assigned and not missing. This can be done by checking the property `isAssigned` and converting the `TOTAL_PLAYERS_KEY` to a string to check if is a missing reference. If the property is a missing reference, then `isAssigned` will return true, so you need this extra check.
+Because references can be changed, it is a good idea to make sure the concurrent storage key is assigned and not missing. This can be done by checking the property `isAssigned` and converting the `TOTAL_PLAYERS_KEY` to a string to check if is a missing reference. Even if the property is a missing reference, `isAssigned` will return true, so you need this extra check to ensure that you have both.
 
 ```lua
 if not TOTAL_PLAYERS_KEY.isAssigned or tostring(TOTAL_PLAYERS_KEY) == "Unknown NetReference" then
@@ -404,7 +407,7 @@ Create a new script called **UpdateTotalPlayersServer** and add the script to th
 
 #### Add Default Storage Key Custom Property
 
-Because this script is in multiple scenes and needs a reference to the concurrent storage key, you can add the custom property on the script directly in the **Project Content** window so that the custom property becomes a default property that will always be on the script when added to the **Hierarchy**.
+Because the **UpdateTotalPlayersServer** script is in multiple scenes and needs a reference to the concurrent storage key, you can add the custom property on the script directly in the **Project Content** window so that the custom property becomes a default property that will always be on the script when added to the **Hierarchy**.
 
 1. Click on the **UpdateTotalPlayersServer** script in the **Project Content** window.
 2. Add the **Total Players** concurrent storage key as a custom property.
@@ -413,7 +416,7 @@ Because this script is in multiple scenes and needs a reference to the concurren
 
 #### Create UpdateTotalPlayersServer Code
 
-Open up the **UpdateTotalPlayersServer** script and add the following reference to the concurrent shared key.
+Open the **UpdateTotalPlayersServer** script and add the following reference to the concurrent shared key.
 
 ```lua
 local TOTAL_PLAYERS_KEY = script:GetCustomProperty("TotalPlayers")
@@ -429,7 +432,7 @@ local currentSceneName = Game.GetCurrentSceneName()
 
 ##### Create Delta Variable
 
-A delta variable will have the changes between concurrent updates that will be applied on the next update. This variable will get updated when a player leaves or joins.
+A delta variable will track the changes between concurrent updates that will be applied on the next update. This variable will get updated when a player leaves or joins.
 
 ```lua
 local deltaPlayers = 0
@@ -459,8 +462,10 @@ The `UpdateTotalPlayers` function will check if the current scene is in the `dat
 
 The value of the entry into the `data` table is the current player count plus the `deltaPlayers` amount.
 
+<!-- TODO: Add redundant clarification on what a callback is in the body here. Without that a reader can't know what function we're referring to here.-->
+
 !!! warning "Callback Efficiency and Return Value"
-    It is important that the callback is efficient and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (i.e. `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
+    It is important that the callback is fast to execute and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (i.e. `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
 
 ```lua
 local function UpdateTotalPlayers(data)
