@@ -53,7 +53,7 @@ To use concurrent storage you will need to enable it. You can find the concurren
 
 ## Testing Concurrent Storage
 
-Testing concurrent storage should be done in **Multiplayer Preview Mode** with the option **Allow zero clients** enabled. This is because any call to set concurrent storage data needs time to complete. If you test in **Local Preview Mode**, then because the server and client are combined, the server is instantly stops when the preview ends. For example, if you set concurrent data when the player leaves the game using `playerLeftEvent`, then the data will not save.
+Testing concurrent storage should be done in **Multiplayer Preview Mode** with the option **Allow zero clients** enabled. This is because any call to set concurrent storage data needs time to complete. If you test in **Local Preview Mode**, then because the server and client are combined, the server is instantly stopped when the preview ends. For example, if you set concurrent data when the player leaves the game using `playerLeftEvent`, then the data will not save.
 
 ### Check Concurrent Storage Key File
 
