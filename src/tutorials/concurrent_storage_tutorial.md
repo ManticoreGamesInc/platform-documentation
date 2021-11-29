@@ -67,6 +67,42 @@ For example, if you have a concurrent creator storage key, then the file will be
 
 ![!Creator Storage](../img/ConcurrentStorageTutorial/creatorstorage.png){: .center loading="lazy" }
 
+## About Callbacks
+
+When using any `Set` concurrent storage function, a callback is required that is passed into the concurrent storage function which receives the table data that you can modify and then return back. The concurrent storage API places the callback into a queue which will be executed when the queue reaches it. The function is called a **Callback** because you are passing in a function to concurrent storage that will be called later.
+
+For example, in the code below a function (callback) is passed to `SetConcurrentCreatorData`.
+
+```lua
+local function MyFirstCallback(data)
+    print("My first callback was executed.")
+
+    return data
+end
+
+Storage.SetConcurrentCreatorData(CREATOR_KEY, MyFirstCallback)
+```
+
+Callbacks should be efficient, meaning they should execute as quickly as possible, otherwise the concurrent callback queue that holds all the functions it needs to execute could start to time out.
+
+For example, the code below could contain logic that would delay the return of the `data` table. Try and avoid any code that could slow down the return, consider moving it outside of the callback if possible.
+
+```lua
+local function MySlowCallback(data)
+    local items = obj:GetChildren()
+
+    for i, item in ipairs(items) do
+        for key, inventoryData in pairs(inventoryItems) do
+            -- More logic that could potentially slow this callback down.
+        end
+    end
+
+    return data
+end
+
+Storage.SetConcurrentCreatorData(CREATOR_KEY, MySlowCallback)
+```
+
 ## Total Players in Scene
 
 In this section you will be creating a feature that will track the amount of players that are in each scene and display the total players per scene in the main lobby in front of each scene portal. By using Concurrent Storage, you can save to a creator type key when a player joins or leaves a scene. In the main lobby scene, a script will detect any changes to the data and update the player counts for the scenes.
@@ -462,10 +498,8 @@ The `UpdateTotalPlayers` function will check if the current scene is in the `dat
 
 The value of the entry into the `data` table is the current player count plus the `deltaPlayers` amount.
 
-<!-- TODO: Add redundant clarification on what a callback is in the body here. Without that a reader can't know what function we're referring to here.-->
-
 !!! warning "Callback Efficiency and Return Value"
-    It is important that the callback is fast to execute and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (i.e. `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
+    It is important that the callback (function) is fast to execute and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (i.e. `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
 
 ```lua
 local function UpdateTotalPlayers(data)
