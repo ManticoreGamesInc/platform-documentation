@@ -14,7 +14,7 @@ tags:
 
 The same way [Persistent Storage](persistent_storage.md) allows creators to save player data between play sessions, **Shared Storage** allows creators to use that data in multiple Core games, make it possible for developers to create complete ecosystems of Core games where players have the same resources, equipment, or any other value that would create a meaningful difference in the player experience.
 
-**Shared Storage** allows creators to create storage tables, called **Shared Keys** that are associated with the account, rather than a specific game. Creators can have **up to 8** of these tables active in single project. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](../api/netreference.md).
+**Shared Storage** allows creators to create storage tables, called **Shared Keys** that are associated with their account, rather than a specific game. Creators can have **up to 8** of these tables active in a single project. In each project creators can select which keys are active through the **Shared Storage** window. Active keys can be found in the **Project Content** window in the **My Shared Keys** folder, and are accessed in scripts by their [**Net Reference**](../api/netreference.md).
 
 ### Account-Level Tables
 
