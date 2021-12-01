@@ -32,4 +32,4 @@ Core is in Early Access, which means it is still in early stages, with many feat
 
 ## About the Documentation
 
-The Core documentation is continuously written and edited by Manticore and members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon">edit</a> icon in the top right corner of any page of the documentation.
+The Core documentation is continuously written and edited by Manticore and the Members of the Creator Community. To contribute, click the <a href="#" title="Edit this page" class="md-icon">edit</a> icon in the top right corner of any page of the documentation.
