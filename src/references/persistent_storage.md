@@ -45,4 +45,7 @@ Storage is available in a read-only format for players who are offline as well. 
 
 ## Learn More
 
+<lite-youtube videoid="qVLFZBXv0BY" playlabel="Saving Player Data"></lite-youtube>
+{: .video-container }
+
 [Persistent Storage Examples](../api/storage.md) | [Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Shared Storage](shared_storage.md)
