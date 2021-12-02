@@ -452,6 +452,36 @@ See also: [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 Example using:
 
+### `movementHook`
+
+### `IsBindingPressed`
+
+### `GetViewWorldRotation`
+
+In this example, a client script prevents the player from moving normally. It does so connecting to the `movementHook` and setting the `direction` to zero. The player will instead move forward only when the primary key is pressed (Left mouse button).
+
+```lua
+local PLAYER = Game.GetLocalPlayer()
+
+function OnPlayerMovement(player, params)
+    if PLAYER:IsBindingPressed("ability_primary") then
+        local direction = Quaternion.New(PLAYER:GetViewWorldRotation()):GetForwardVector()
+        direction.z = 0
+        params.direction = direction:GetNormalized()
+    else
+        params.direction = Vector3.ZERO
+    end
+end
+
+PLAYER.movementHook:Connect(OnPlayerMovement)
+```
+
+See also: [Hook.Connect](hook.md) | [Game.GetLocalPlayer](game.md) | [Quaternion.GetForwardVector](quaternion.md) | [Vector3.GetNormalized](vector3.md)
+
+---
+
+Example using:
+
 ### `ActivateFlying`
 
 ### `ActivateWalking`
@@ -769,6 +799,55 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
 See also: [PlayerTransferReason](enums.md#playertransferreason) | [Player.TransferToGame](player.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
+
+---
+
+Example using:
+
+### `GetPartyInfo`
+
+### `isInParty`
+
+### `isPartyLeader`
+
+In this example, a trigger is setup as a teleporter that sends players to a random game. If the player entering the trigger is the leader of a party, then the entire party is transfered to the same game.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+    
+function OnBeginOverlap(_, player)
+    if not player:IsA("Player") then return end
+    
+    local destinationGame = GetRandomFeaturedGame()
+    
+    if player.isInParty and player.isPartyLeader then
+        -- Transfer the whole party
+        local partyOfPlayers = {}
+        local partyInfo = player:GetPartyInfo()
+        for _,playerId in ipairs(partyInfo:GetMemberIds()) do
+            local p = Game.FindPlayer(playerId)
+            if p then
+                table.insert(partyOfPlayers, p)
+            end
+        end
+        Game.TransferPlayersToGame(destinationGame, partyOfPlayers)
+    else
+        -- Transfer only the player who entered the trigger
+        player:TransferToGame(destinationGame)
+    end
+end
+
+function GetRandomFeaturedGame()
+    local collection = CorePlatform.GetGameCollection("featured")
+    local rndIndex = math.random(1, #collection)
+    local entry = collection[rndIndex]
+    return entry
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+See also: [PartyInfo.GetMemberIds](partyinfo.md) | [Game.TransferPlayersToGame](game.md) | [CorePlatform.GetGameCollection](coreplatform.md) | [Trigger.beginOverlapEvent](trigger.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
 
@@ -1426,6 +1505,44 @@ end
 ```
 
 See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `occupiedVehicle`
+
+In this example, we can imagine a racing game where various start points are defined for the players. When a new round starts we teleport all players who have a vehicle to the starting points, so they can begin a new race. The start point objects are all children of a common group/folder that is set as a custom property. The objects used for start points can be anything, such as an empty group. For this type of invisible "level design object", sometimes creators use a server-context with a static mesh inside, so you can see the points during edit time, but they won't appear or collide for clients.
+
+```lua
+local START_POINTS_PARENT = script:GetCustomProperty("StartPoints"):WaitForObject()
+local START_POINTS = START_POINTS_PARENT:GetChildren()
+
+function OnRoundStart()
+    for i,player in ipairs(Game.GetPlayers()) do
+        local vehicle = player.occupiedVehicle
+        if vehicle then
+            -- Teleport them to the start points
+            local startPoint = START_POINTS[i]
+            if startPoint then
+                local pos = startPoint:GetWorldPosition()
+                local rot = startPoint:GetWorldRotation()
+                vehicle:SetWorldPosition(pos)
+                vehicle:SetWorldRotation(rot)
+            else
+                warn("Insufficient start points for all players")
+            end
+            -- Stop their movement
+            vehicle:SetVelocity(Vector3.ZERO)
+            vehicle:SetAngularVelocity(Vector3.ZERO)
+        end
+    end
+end
+
+Game.roundStartEvent:Connect(OnRoundStart)
+```
+
+See also: [CoreObject.SetVelocity](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetPlayers](game.md) | [Vector3.ZERO](vector3.md)
 
 ---
 
