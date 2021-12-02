@@ -45,4 +45,6 @@ Storage is available in a read-only format for players who are offline as well. 
 
 ## Learn More
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qVLFZBXv0BY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [Persistent Storage Examples](../api/storage.md) | [Persistent Storage Tutorial](persistent_storage_tutorial.md) | [Shared Storage](shared_storage.md)
