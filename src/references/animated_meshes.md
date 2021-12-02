@@ -83,4 +83,6 @@ To attach objects to the appropriate mesh, you can use a script and the `AttachC
 
 ## Learn More
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EF9E18eoHWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [Example Code](../api/animatedmesh.md) | [Player Animations](../api/animations.md) | [Custom Materials](materials.md)
