@@ -76,4 +76,7 @@ Merged Models are created using the same method as groups and folders:
 
 ## Learn More
 
+<lite-youtube videoid="2DGqSG-DA5A" playlabel="Merged Models"></lite-youtube>
+{: .video-container }
+
 [Modeling in Core](modeling.md) | [Network Contexts](networking.md)
