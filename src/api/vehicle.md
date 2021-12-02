@@ -76,100 +76,6 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 
 Example using:
 
-### `occupiedVehicle`
-
-In this example, we can imagine a racing game where various start points are defined for the players. When a new round starts we teleport all players who have a vehicle to the starting points, so they can begin a new race. The start point objects are all children of a common group/folder that is set as a custom property. The objects used for start points can be anything, such as an empty group. For this type of invisible "level design object", sometimes creators use a server-context with a static mesh inside, so you can see the points during edit time, but they won't appear or collide for clients.
-
-```lua
-local START_POINTS_PARENT = script:GetCustomProperty("StartPoints"):WaitForObject()
-local START_POINTS = START_POINTS_PARENT:GetChildren()
-
-function OnRoundStart()
-    for i,player in ipairs(Game.GetPlayers()) do
-        local vehicle = player.occupiedVehicle
-        if vehicle then
-            -- Teleport them to the start points
-            local startPoint = START_POINTS[i]
-            if startPoint then
-                local pos = startPoint:GetWorldPosition()
-                local rot = startPoint:GetWorldRotation()
-                vehicle:SetWorldPosition(pos)
-                vehicle:SetWorldRotation(rot)
-            else
-                warn("Insufficient start points for all players")
-            end
-            -- Stop their movement
-            vehicle:SetVelocity(Vector3.ZERO)
-            vehicle:SetAngularVelocity(Vector3.ZERO)
-        end
-    end
-end
-
-Game.roundStartEvent:Connect(OnRoundStart)
-```
-
-See also: [CoreObject.SetVelocity](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Game.GetPlayers](game.md) | [Vector3.ZERO](vector3.md)
-
----
-
-Example using:
-
-### `accelerationRate`
-
-### `maxSpeed`
-
-### `tireFriction`
-
-This example takes vehicle stats (acceleration, max speed and tire friction) and normalizes them to rating values between 1 and 5. This could be used, for example, in the UI of a vehicle selection screen to show how vehicles compare to each other in their various stats. When the script runs it searches the game for all vehicles that exist and prints their ratings to the Event Log.
-
-```lua
-local ACCELE_MIN = 400
-local ACCELE_MAX = 4000
-local TOP_SPEED_MIN = 2000
-local TOP_SPEED_MAX = 20000
-local HANDLING_MIN = 0.5
-local HANDLING_MAX = 10
-
-local RATING_LEVELS = 5
-
-function RateStat(value, min, max)
-    if value >= max then
-        return RATING_LEVELS
-    end
-    if value > min and max > min then
-        local p = (value - min) / (max - min)
-        local rating = p * RATING_LEVELS
-        rating = math.floor(rating) + 1
-        return rating
-    end
-    return 1
-end
-
-function RateVehicle(vehicle)
-    local accele = RateStat(vehicle.accelerationRate, ACCELE_MIN, ACCELE_MAX)
-    local topSpeed = RateStat(vehicle.maxSpeed, TOP_SPEED_MIN, TOP_SPEED_MAX)
-    local handling = RateStat(vehicle.tireFriction, HANDLING_MIN, HANDLING_MAX)
-
-    -- Print vehicle ratings to the Event Log
-    print(vehicle.name)
-    print("Acceleration: " .. accele)
-    print("Top Speed: " .. topSpeed)
-    print("Handling: " .. handling)
-    print("")
-end
-
--- Search for all vehicles and rate them
-for _,vehicle in ipairs(World.FindObjectsByType("Vehicle")) do
-    RateVehicle(vehicle)
-end
-```
-
-See also: [World.FindObjectsByType](world.md) | [CoreObject.name](coreobject.md)
-
----
-
-Example using:
-
 ### `maxSpeed`
 
 ### `tireFriction`
@@ -293,40 +199,6 @@ propTrigger.beginOverlapEvent:Connect(OnEnter)
 ```
 
 See also: [CoreObject.SetLocalAngularVelocity](coreobject.md) | [event:Trigger.beginOverlapEvent](event.md)
-
----
-
-Example using:
-
-### `SetDriver`
-
-### `driverExitedEvent`
-
-In some games it will be important to override the built-in trigger behavior to add more gameplay. In this example, the vehicle belongs to a specific player (Bot1). If another player tries to drive it they will receive a message saying the car doesn't belong to them. This script expects to be placed as a child of the vehicle.
-
-```lua
-local VEHICLE = script:FindAncestorByType("Vehicle")
-local TRIGGER = script:GetCustomProperty("EnterTrigger"):WaitForObject()
-local OWNER = "Bot1"
-
-function OnInteracted(trigger, player)
-    if player.name == OWNER then
-        VEHICLE:SetDriver(player)
-        TRIGGER.isEnabled = false
-    else
-        Chat.BroadcastMessage("Not your car.", {players = player})
-    end
-end
-
-function OnDriverExited(player)
-    TRIGGER.isEnabled = true
-end
-
-TRIGGER.interactedEvent:Connect(OnInteracted)
-VEHICLE.driverExitedEvent:Connect(OnDriverExited)
-```
-
-See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Player.name](player.md) | [Chat.BroadcastMessage](chat.md) | [Trigger.interactedEvent](trigger.md)
 
 ---
 
@@ -677,5 +549,102 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
 See also: [CoreObject.Destroy](coreobject.md) | [Player.GetWorldPosition](player.md) | [World.SpawnAsset](world.md) | [Object.IsValid](object.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
+### `SetDriver`
+
+### `driverExitedEvent`
+
+In some games it will be important to override the built-in trigger behavior to add more gameplay. In this example, the vehicle belongs to a specific player (Bot1). If another player tries to drive it they will receive a message saying the car doesn't belong to them. This script expects to be placed as a child of the vehicle.
+
+```lua
+local VEHICLE = script:FindAncestorByType("Vehicle")
+local TRIGGER = script:GetCustomProperty("EnterTrigger"):WaitForObject()
+local OWNER = "Bot1"
+
+function OnInteracted(trigger, player)
+    if player.name == OWNER then
+        VEHICLE:SetDriver(player)
+        TRIGGER.isEnabled = false
+    else
+        Chat.BroadcastMessage("Not your car.", {players = player})
+    end
+end
+
+function OnDriverExited(player)
+    TRIGGER.isEnabled = true
+end
+
+TRIGGER.interactedEvent:Connect(OnInteracted)
+VEHICLE.driverExitedEvent:Connect(OnDriverExited)
+```
+
+See also: [CoreObject.FindAncestorByType](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Player.name](player.md) | [Chat.BroadcastMessage](chat.md) | [Trigger.interactedEvent](trigger.md)
+
+---
+
+Example using:
+
+### `accelerationRate`
+
+### `maxSpeed`
+
+### `tireFriction`
+
+This example takes vehicle stats (acceleration, max speed and tire friction) and normalizes them to rating values between 1 and 5. This could be used, for example, in the UI of a vehicle selection screen to show how vehicles compare to each other in their various stats. When the script runs it searches the game for all vehicles that exist and prints their ratings to the Event Log.
+
+```lua
+local ACCELE_MIN = 400
+local ACCELE_MAX = 4000
+local TOP_SPEED_MIN = 2000
+local TOP_SPEED_MAX = 20000
+local HANDLING_MIN = 0.5
+local HANDLING_MAX = 10
+
+local RATING_LEVELS = 5
+
+function RateStat(value, min, max)
+    if value >= max then
+        return RATING_LEVELS
+    end
+    if value > min and max > min then
+        local p = (value - min) / (max - min)
+        local rating = p * RATING_LEVELS
+        rating = math.floor(rating) + 1
+        return rating
+    end
+    return 1
+end
+
+function RateVehicle(vehicle)
+    local accele = RateStat(vehicle.accelerationRate, ACCELE_MIN, ACCELE_MAX)
+    local topSpeed = RateStat(vehicle.maxSpeed, TOP_SPEED_MIN, TOP_SPEED_MAX)
+    local handling = RateStat(vehicle.tireFriction, HANDLING_MIN, HANDLING_MAX)
+
+    -- Print vehicle ratings to the Event Log
+    print(vehicle.name)
+    print("Acceleration: " .. accele)
+    print("Top Speed: " .. topSpeed)
+    print("Handling: " .. handling)
+    if vehicle:IsA("TreadedVehicle") then
+        print("Type: Treaded, " .. vehicle.turnSpeed)
+    elseif vehicle:IsA("FourWheeledVehicle") then
+        print("Type: 4-wheel, " .. vehicle.turnRadius)
+    else
+        print("Type: Unknown")
+    end
+    print("")
+end
+
+-- Search for all vehicles and rate them
+for _,vehicle in ipairs(World.FindObjectsByType("Vehicle")) do
+    RateVehicle(vehicle)
+end
+```
+
+See also: [TreadedVehicle.turnSpeed](treadedvehicle.md) | [FourWheeledVehicle.turnRadius](fourwheeledvehicle.md) | [World.FindObjectsByType](world.md) | [CoreObject.name](coreobject.md)
 
 ---

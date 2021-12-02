@@ -90,7 +90,7 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `Follow(Object, [number, [number]])` | `None` | Follows a CoreObject or Player at a certain speed. If the speed is not supplied it will follow as fast as possible. The third parameter specifies a distance to keep away from the target. | None |
 | `LookAt(Vector3 position)` | `None` | Instantly rotates the object to look at the given position. | None |
 | `LookAtContinuous(Object, [boolean], [number])` | `None` | Smoothly rotates a CoreObject to look at another given CoreObject or Player. Second parameter is optional and locks the pitch, default is unlocked. Third parameter is optional and sets how fast it tracks the target (in radians/second). If speed is not supplied it tracks as fast as possible. | None |
-| `LookAtLocalView([boolean])` | `None` | Continuously looks at the local camera. The boolean parameter is optional and locks the pitch. (Client-only) | None |
+| `LookAtLocalView([boolean])` | `None` | Continuously looks at the local camera. The boolean parameter is optional and locks the pitch. | Client-Only |
 | `Destroy()` | `None` | Destroys the object and all descendants. You can check whether an object has been destroyed by calling `Object.IsValid(object)`, which will return true if object is still a valid object, or false if it has been destroyed. | None |
 | `ReorderBeforeSiblings()` | `None` | Reorders this object before all of its siblings in the hierarchy. | None |
 | `ReorderAfterSiblings()` | `None` | Reorders this object after all of its siblings in the hierarchy. | None |
