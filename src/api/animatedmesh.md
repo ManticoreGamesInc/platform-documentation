@@ -248,6 +248,42 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
+### `GetMaterialSlot`
+
+### `ResetMaterialSlot`
+
+In this example an NPC's body material is temporarily set to very bright when the function`ShowStatusColor()` is called. After a little time, it's set back to normal. We keep count of active status effects with the variable `statusCount`, so in case multiple calls to show the status color overlap during the wait time the material is not reset prematurally.
+
+```lua
+local ANIM_MESH = script.parent
+local SLOT_NAME = "0:Shared_BaseMaterial"
+local DURATION = 1.5
+local statusCount = 0
+
+function ShowStatusColor()
+    local slot = ANIM_MESH:GetMaterialSlot(SLOT_NAME)
+    if slot then
+        slot:SetColor(Color.WHITE * 10) --Very bright
+        
+        statusCount = statusCount + 1
+        Task.Wait(DURATION)
+        statusCount = statusCount - 1
+        
+        if statusCount <= 0 then
+            ANIM_MESH:ResetMaterialSlot(SLOT_NAME)
+        end
+    else
+        print("No slot found with name " .. SLOT_NAME)
+    end
+end
+```
+
+See also: [MaterialSlot.SetColor](materialslot.md) | [Color.WHITE](color.md) | [Task.Wait](task.md) | [CoreObject.parent](coreobject.md)
+
+---
+
+Example using:
+
 ### `GetMaterialSlots`
 
 ### `SetMaterialForSlot`

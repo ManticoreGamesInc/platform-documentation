@@ -150,6 +150,110 @@ end
 
 Example using:
 
+### `WHITE`
+
+### `GRAY`
+
+### `BLACK`
+
+### `TRANSPARENT`
+
+### `RED`
+
+### `GREEN`
+
+### `BLUE`
+
+### `CYAN`
+
+### `MAGENTA`
+
+### `YELLOW`
+
+### `ORANGE`
+
+### `PURPLE`
+
+### `BROWN`
+
+### `PINK`
+
+### `TAN`
+
+### `RUBY`
+
+### `EMERALD`
+
+### `SAPPHIRE`
+
+### `SILVER`
+
+### `SMOKE`
+
+In this example, the debug `DrawLine()` is used to draw all available color constants. Trigonometry is used for calculating a circle around the player and displaying all colors in a rotating shape.
+
+```lua
+local COLOR_CONSTANTS = {
+    Color.WHITE,
+    Color.GRAY,
+    Color.BLACK,
+    Color.TRANSPARENT,
+    Color.RED,
+    Color.GREEN,
+    Color.BLUE,
+    Color.CYAN,
+    Color.MAGENTA,
+    Color.YELLOW,
+    Color.ORANGE,
+    Color.PURPLE,
+    Color.BROWN,
+    Color.PINK,
+    Color.TAN,
+    Color.RUBY,
+    Color.EMERALD,
+    Color.SAPPHIRE,
+    Color.SILVER,
+    Color.SMOKE,
+}
+
+function Tick()
+    local playerPos = Game.GetLocalPlayer():GetWorldPosition()
+    local radius = 500
+    local angle = math.rad(360) / #COLOR_CONSTANTS
+    local params = { thickness = 10 }
+    
+    for i,c in ipairs(COLOR_CONSTANTS) do
+        params.color = c
+        local v = Vector3.ZERO
+        local theta = angle * (i - 1) + time()
+        v.x = math.cos(theta) * radius
+        v.y = math.sin(theta) * radius
+        CoreDebug.DrawLine(playerPos, playerPos + v, params)
+    end
+end
+```
+
+See also: [CoreDebug.DrawLine](coredebug.md) | [Game.GetLocalPlayer](game.md) | [Player.GetWorldPosition](player.md) | [Vector3.ZERO](vector3.md)
+
+---
+
+Example using:
+
+### `New`
+
+This example shows how to construct a new color object. The three parameters given to `New()` are the three primary colors of light: Red, Green and Blue. Here, we create a magenta color by using the values Red = 1, Green = 0 and Blue = 0.5.
+
+```lua
+local color = Color.New(1, 0, 0.5)
+UI.PrintToScreen("MAGENTA", color)
+```
+
+See also: [UI.PrintToScreen](ui.md)
+
+---
+
+Example using:
+
 ### `GetDesaturated`
 
 In this example, the color of a UI text is slowly desaturated until it reaches grayscale.

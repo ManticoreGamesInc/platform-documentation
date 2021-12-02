@@ -21,6 +21,43 @@ Metadata about a published game in a collection on the Core platform. Additional
 | `ownerName` | `string` | The player name of the creator who published the game. | Read-Only |
 | `isPromoted` | `bool` | Whether or not this game is promoted. | Read-Only |
 
+## Examples
+
+Example using:
+
+### `id`
+
+### `parentGameId`
+
+### `name`
+
+### `ownerId`
+
+### `ownerName`
+
+### `isPromoted`
+
+In this example we print to the event log information about all featured games.
+
+```lua
+local collection = CorePlatform.GetGameCollection("featured")
+
+print("FEATURED GAMES\n")
+for _,entry in ipairs(collection) do
+    print(entry.name.."\n"..
+          "  id: "..entry.id.."\n"..
+          "  parentGameId: "..tostring(entry.parentGameId).."\n"..
+          "  ownerName: "..entry.ownerName.."\n"..
+          "  ownerId: "..entry.ownerId.."\n"..
+          "  isPromoted: "..tostring(entry.isPromoted).."\n"
+    )
+end
+```
+
+See also: [CorePlatform.GetGameCollection](coreplatform.md)
+
+---
+
 ## Learn More
 
 [CorePlatform.GetGameCollection()](coreplatform.md)
