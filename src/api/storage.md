@@ -91,7 +91,7 @@ function Tick()
     -- There's already a Set operation in progress. Try again later
     if Storage.HasPendingSetConcurrentCreatorData(CONCURRENT_KEY) then return end
 
-    -- Apply the differece in total players
+    -- Apply the difference in total players
     local data, result, message = Storage.SetConcurrentCreatorData(CONCURRENT_KEY, function(data)
         if not data.totalPlayers then
             data.totalPlayers = deltaPlayers

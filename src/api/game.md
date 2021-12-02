@@ -155,6 +155,55 @@ See also: [CoreObject.GetWorldPosition](coreobject.md) | [Player.GetVelocity](pl
 
 Example using:
 
+### `GetCurrentGameId`
+
+### `IsAcceptingPlayers`
+
+### `StopAcceptingPlayers`
+
+### `TransferAllPlayersToGame`
+
+In this example, players can type the command `/reboot` into chat to send all players to a fresh server instance. It's the same game, just another copy of the server. Before transfering the players, we lock the server with `StopAcceptingPlayers()`, otherwise some players might reload into the same server instance.
+
+```lua
+local GAME_ID = Game.GetCurrentGameId()
+
+function OnChatMessage(params)
+    local message = string.lower(params.message)
+    if message == "/reboot" and Game.IsAcceptingPlayers() then
+        Game.StopAcceptingPlayers()
+        Game.TransferAllPlayersToGame(GAME_ID)
+    end
+end
+Chat.receiveMessageHook:Connect(OnChatMessage)
+```
+
+See also: [Chat.receiveMessageHook](chat.md)
+
+---
+
+Example using:
+
+### `GetCurrentSceneName`
+
+This example shows how to get the name of the current scene that the player is in.
+
+When a player joins the game, the name of the current scene is printed to the **Event Log**.
+
+```lua
+local function OnPlayerJoined(player)
+    print("Player is in scene: ", Game.GetCurrentSceneName())
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Player.TransferToScene](player.md)
+
+---
+
+Example using:
+
 ### `GetLocalPlayer`
 
 This function can only be called in a client script, as the server does not have a local player. This example prints the names of all players to the upper-left corner of the screen. The local player appears in green, while other player names appear blue. To test this example, place the script under a Client Context. From the point of view of each player, name colors appear different. That's because on each computer the local player is different.
@@ -327,26 +376,6 @@ See also: [Game.GetTeamScore](game.md) | [Event.Connect](event.md) | [Task.Wait]
 
 Example using:
 
-### `GetCurrentSceneName`
-
-This example shows how to get the name of the current scene that the player is in.
-
-When a player joins the game, the name of the current scene is printed to the **Event Log**.
-
-```lua
-local function OnPlayerJoined(player)
-    print("Player is in scene: ", Game.GetCurrentSceneName())
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-See also: [Player.TransferToScene](player.md)
-
----
-
-Example using:
-
 ### `TransferAllPlayersToScene`
 
 In this example, after 10 seconds, all players in the game will be transferred to another scene.
@@ -367,6 +396,82 @@ end
 ```
 
 See also: [Player.TransferToScene](player.md)
+
+---
+
+Example using:
+
+### `TransferPlayersToGame`
+
+### `FindPlayer`
+
+In this example, a trigger is setup as a teleporter that sends players to a random game. If the player entering the trigger is the leader of a party, then the entire party is transfered to the same game.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+    
+function OnBeginOverlap(_, player)
+    if not player:IsA("Player") then return end
+    
+    local destinationGame = GetRandomFeaturedGame()
+    
+    if player.isInParty and player.isPartyLeader then
+        -- Transfer the whole party
+        local partyOfPlayers = {}
+        local partyInfo = player:GetPartyInfo()
+        for _,playerId in ipairs(partyInfo:GetMemberIds()) do
+            local p = Game.FindPlayer(playerId)
+            if p then
+                table.insert(partyOfPlayers, p)
+            end
+        end
+        Game.TransferPlayersToGame(destinationGame, partyOfPlayers)
+    else
+        -- Transfer only the player who entered the trigger
+        player:TransferToGame(destinationGame)
+    end
+end
+
+function GetRandomFeaturedGame()
+    local collection = CorePlatform.GetGameCollection("featured")
+    local rndIndex = math.random(1, #collection)
+    local entry = collection[rndIndex]
+    return entry
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+See also: [Player.GetPartyInfo](player.md) | [PartyInfo.GetMemberIds](partyinfo.md) | [CorePlatform.GetGameCollection](coreplatform.md) | [Trigger.beginOverlapEvent](trigger.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+
+---
+
+Example using:
+
+### `TransferPlayersToScene`
+
+### `FindPlayersInCylinder`
+
+In this example, a group teleporter periodically sends any players who are standing inside of it to another scene. It then spawns a VFX at the location of the teleport, providing feedback to other players who may be watching nearby.
+
+```lua
+local SCENE_NAME = script:GetCustomProperty("SceneName")
+local VFX_TEMPLATE = script:GetCustomProperty("VFX")
+local PERIOD = 120 -- Two minutes
+local RADIUS = 500 -- 5 meters
+
+while true do
+    Task.Wait(PERIOD)
+    local pos = script:GetWorldPosition()
+    local players = Game.FindPlayersInCylinder(pos, RADIUS)
+    if #players > 0 then
+        Game.TransferPlayersToScene(SCENE_NAME, players)
+        World.SpawnAsset(VFX_TEMPLATE, {position = pos})
+    end
+end
+```
+
+See also: [World.SpawnAsset](world.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Task.Wait](task.md)
 
 ---
 
