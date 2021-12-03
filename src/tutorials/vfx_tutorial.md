@@ -619,3 +619,8 @@ Now you've got some basic effects set up for your treasure chest! You have learn
 In most cases you won't need to code to use the visual effects in Core. Often times templates will have a custom property for more effect templates, so you can make your own effects as templates and just drag and drop them into other content--just like the Fantasy Loot Bag we used.
 
 There are so many ways that you can make effects unique. By combining several of them, changing their properties dramatically, and using them connected through code you can change the timing and positions of effects in whatever ways you can dream up.
+
+##Learn More
+
+<lite-youtube videoid="a7e9IYfr76M" playlabel="VFX Tutorial"></lite-youtube>
+{: .video-container }
