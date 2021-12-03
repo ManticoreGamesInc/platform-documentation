@@ -123,3 +123,8 @@ Try adding your own garnishes using the techniques we used to make the pancakes.
 Through a combination of simple geometry, modified materials, and decals, you can create tons of different props of all shapes and sizes in Core. Experiment with different settings, shapes, and make sure to check out other people's creations in the Community Content folder for inspiration.
 
 ![ModelingBasics](../img/ModelingBasics/image15.png "Modeling Screenshot"){: .center loading="lazy" }
+
+## Learn More
+
+<lite-youtube videoid="tVGzlkq5dt0" playlabel="Modeling Basics"></lite-youtube>
+{: .video-container }
