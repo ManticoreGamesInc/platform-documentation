@@ -330,4 +330,7 @@ The final step is to add structures and props that finish the scene. See the [Co
 
 ## Learn More
 
+<lite-youtube videoid="KFYlOzx7wm0" playlistid="PLiTIshJkGqBNUC2D5R24wRJWi8d6Egxbn" playlabel="Environment Art"></lite-youtube>
+{: .video-container }
+
 [Custom Materials](materials.md) | [Complex Modeling](modeling.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
