@@ -145,3 +145,8 @@ Things you would usually place in a server context include:
 
 - Procedurally generated geometry that needs to have player collision
 - Complicated geometry that needs to be collidable, but only needs to move as a unit.
+
+## Learn More
+
+<lite-youtube videoid="MnPuWyN3oh4" playlabel="Networking"></lite-youtube>
+{: .video-container }

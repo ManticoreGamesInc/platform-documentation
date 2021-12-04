@@ -94,4 +94,7 @@ Shared storage is available in a read-only format for players who are offline as
 
 ## Learn More
 
+<lite-youtube videoid="LsQexb5UZNI" playlabel="Shared Storage"></lite-youtube>
+{: .video-container }
+
 [Shared Storage on the Core Lua API](../api/storage.md) | [Offline Storage Reference](offline_storage.md) | [Shared Storage Examples](../api/storage.md#examples) | [NetReference on the Core API](../api/netreference.md) | [Persistent Storage Reference](persistent_storage.md)
