@@ -94,4 +94,7 @@ Below is a list of some of the objects that implement the **Damageable** interfa
 
 ## Learn More
 
+<lite-youtube videoid="vhRsrpR4A_4" playlabel="Damageable Objects"></lite-youtube>
+{: .video-container }
+
 [DamageableObject](../api/damageableobject.md) | [Damageable](../api/damageable.md) | [Damage](../api/damage.md) | [AIActivity](../api/aiactivity.md) | [AIActivityHandler](../api/aiactivityhandler.md) | [Vehicles](../references/vehicles.md)
