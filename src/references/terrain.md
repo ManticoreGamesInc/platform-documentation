@@ -512,4 +512,7 @@ Weightmap images need to square `.png` images. The **Terrain Generator** will on
 
 ## Learn More
 
+<lite-youtube videoid="KFYlOzx7wm0" playlabel="Modeling Terrain"></lite-youtube>
+{: .video-container }
+
 [Environment Art](../tutorials/environment_art.md) | [Custom Materials](../references/materials.md)
