@@ -839,6 +839,53 @@ See also: [UI.GetCursorPosition](ui.md) | [UIControl.y](uicontrol.md) | [UIButto
 
 Example using:
 
+### `ReorderBefore`
+
+In this example, a black translucent image is spawned behind a panel and adjusted to fill the parent space. `ReorderBefore()` is used so the image will draw on top of other elements, but behind the designated UI element.
+
+```lua
+local IMAGE_TEMPLATE = script:GetCustomProperty("BlankImage")
+
+function AddModalFadeToDialog(uiDialogRoot)
+    local fadeImage = World.SpawnAsset(IMAGE_TEMPLATE, {parent = uiDialogRoot.parent})
+    
+    fadeImage:ReorderBefore(uiDialogRoot)
+    
+    fadeImage:SetColor(Color.New(0, 0, 0, 0.5))
+    
+    fadeImage.width = uiDialogRoot.parent.width
+    fadeImage.height = uiDialogRoot.parent.height
+    
+    fadeImage.anchor = UIPivot.TOP_LEFT
+    fadeImage.dock = UIPivot.TOP_LEFT
+end
+```
+
+See also: [Color.New](color.md) | [World.SpawnAsset](world.md) | [UIImage.SetColor](uiimage.md) | [UIControl.width](uicontrol.md)
+
+---
+
+Example using:
+
+### `ReorderBeforeSiblings`
+
+The draw order of UI elements is affected by their order in the hierarchy. In this example, calling `AddBackground()` spawns an image and moves it behind all the other elements.
+
+```lua
+local BG_TEMPLATE = script:GetCustomProperty("BackgroundImage")
+
+function AddBackground(uiPanel)
+    local bg = World.SpawnAsset(BG_TEMPLATE, {parent = uiPanel.parent})
+    bg:ReorderBeforeSiblings()
+end
+```
+
+See also: [World.SpawnAsset](world.md)
+
+---
+
+Example using:
+
 ### `name`
 
 ### `id`

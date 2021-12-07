@@ -712,10 +712,6 @@ Example using:
 
 ### `GetLeaveTransferData`
 
-### `gameId`
-
-### `reason`
-
 In this example, transfer data is printed to the server log each time a player joins or leaves the game. While this works in preview mode, there will never be a `gameId` in that case, and the `reason` for the transfer will always be `BROWSE`. Therefore, this example works best when the game is published.
 
 To see the server logs of a published game, select the Game Settings object in the hierarchy and enable "Play Mode Profiling". When playing the published game press F4 to see the profiler and access the logs. You may need a second player joining/leaving to observe the logs while testing the various different reasons.
@@ -798,7 +794,7 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-See also: [PlayerTransferReason](enums.md#playertransferreason) | [Player.TransferToGame](player.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
+See also: [PlayerTransferData.gameId](playertransferdata.md) | [PlayerTransferReason](enums.md#playertransferreason) | [Player.TransferToGame](player.md) | [Game.TransferAllPlayersToGame](game.md) | [CoreGameInfo.name](coregameinfo.md)
 
 ---
 
