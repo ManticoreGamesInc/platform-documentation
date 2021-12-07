@@ -22,7 +22,23 @@ Example using:
 
 ### `Connect`
 
-A simple example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnBindingPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's direction.
+How to reverse a player's walking direction.
+
+```lua
+Game.GetLocalPlayer().movementHook:Connect(function(player, params)
+    params.direction = -params.direction
+end)
+```
+
+See also: [Player.movementHook](player.md)
+
+---
+
+Example using:
+
+### `Connect`
+
+An example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnBindingPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's move direction.
 
 ```lua
 UI.SetCursorVisible(true)
@@ -62,21 +78,5 @@ PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 See also: [Player.bindingPressedEvent](player.md)
-
----
-
-Example using:
-
-### `Connect`
-
-How to reverse a player's walking direction.
-
-```lua
-Game.GetLocalPlayer().movementHook:Connect(function(player, params)
-params.direction = -params.direction
-end)
-```
-
-See also: [Player.movementHook](player.md)
 
 ---
