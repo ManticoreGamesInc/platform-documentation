@@ -305,3 +305,66 @@ MESH_OBJECT.team = math.random(1, 2)
 See also: [Object.IsValid](object.md) | [CoreObject.parent](coreobject.md) | [Game.IncreaseTeamScore](game.md) | [Damage.sourcePlayer](damage.md) | [Player.team](player.md)
 
 ---
+
+Example using:
+
+### `ApplyDamage`
+
+In this example, damage can be applied to all objects in an area, by calling `Explosion()`, passing the epicenter of the explosion. First, all damageable objects that are inside the area are found with `GetDamageablesInArea()`. Then, a damage object is created and applied to each one.
+
+```lua
+local RADIUS = 500
+local DAMAGE_AMOUNT = 50
+
+function Explosion(center)
+    local objects = GetDamageablesInArea(center, RADIUS)
+    for _,obj in ipairs(objects) do
+        local damage = Damage.New(DAMAGE_AMOUNT)
+        obj:ApplyDamage(damage)
+    end
+end
+
+function GetDamageablesInArea(center, radius)
+    --CPU optimization, to avoid square root later
+    local radiusSquared = radius * radius
+    
+    local result = {}
+    local allDamageables = World.FindObjectsByType("DamageableObject")
+    for _,obj in ipairs(allDamageables) do
+        local position = obj:GetWorldPosition()
+        local v = position - center
+        if v.sizeSquared <= RADIUS_SQUARED then
+            table.insert(result, obj)
+        end
+    end
+    return result
+end
+```
+
+See also: [Damage.New](damage.md) | [Vector3.sizeSquared](vector3.md) | [World.FindObjectsByType](world.md) | [CoreObject.GetWorldPosition](coreobject.md)
+
+---
+
+Example using:
+
+### `Die`
+
+In this example, the function `ApplyPoison()` can be called, passing any damageable object as parameter. Each object keeps track of how much poison they have, using the `serverUserData` table. When an object receives 10 or more poison they are killed.
+
+```lua
+function ApplyPoison(damageableObject)
+    if damageableObject.serverUserData.poisonCount then
+        damageableObject.serverUserData.poisonCount = damageableObject.serverUserData.poisonCount + 1
+        
+        if damageableObject.serverUserData.poisonCount >= 10 then
+            damageableObject:Die()
+        end
+    else
+        damageableObject.serverUserData.poisonCount = 1
+    end
+end
+```
+
+See also: [CoreObject.serverUserData](coreobject.md)
+
+---

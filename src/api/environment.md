@@ -21,3 +21,60 @@ The Environment namespace contains a set of functions for determining where a sc
 | `Environment.IsPreview()` | `boolean` | Returns `true` if running in preview mode. | None |
 | `Environment.IsMultiplayerPreview()` | `boolean` | Returns `true` if running in multiplayer preview mode. | None |
 | `Environment.IsSinglePlayerPreview()` | `boolean` | Returns `true` if running in single-player preview mode. | None |
+
+## Examples
+
+Example using:
+
+### `IsServer`
+
+### `IsClient`
+
+Sometimes a script can be written for use on either server or client contexts. In this example, we access the player's user data tables in an abstract way, by creating a function that checks the environment and returns the correct table.
+
+```lua
+function GetUserData(player)
+    if Environment.IsServer() then
+        return player.serverUserData
+        
+    elseif Environment.IsClient() then
+        return player.clientUserData
+    end
+end
+
+GetUserData(player)["example"] = true
+```
+
+See also: [Player.serverUserData](player.md)
+
+---
+
+Example using:
+
+### `IsSinglePlayerPreview`
+
+We may want to press a key to display some UI. However, in single-player preview mode, The [Tab] key pauses the simulation. In this example, we assign [Tab] to display the scoreboard. On each action the `Environment` is checked, to see if it is singler-player preview, in which case [Caps Lock] is used instead of [Tab].
+
+```lua
+function IsTabAction(actionBinding)
+    if Environment.IsSinglePlayerPreview() then
+        return actionBinding == "ability_extra_18" -- Caps Lock key
+    else
+        return actionBinding == "ability_extra_19" -- Tab key
+    end
+end
+
+function OnBindingPressed(player, action)
+    if IsTabAction(action) then
+        Events.Broadcast("ShowScoreboard")
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end)
+```
+
+See also: [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md) | [Events.Broadcast](events.md)
+
+---
