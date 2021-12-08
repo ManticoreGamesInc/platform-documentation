@@ -287,7 +287,7 @@ end
 
 #### Create DestroyPlatform Function
 
-The `DestroyPlatform` function will be called if the player lands on a bad platform. All shared assets that were spawned when creating the puzzle were put into the `sharedAssets` table, which is an array. By looping over the table you can check the platform exists and destroy it using `DestroySharedAsset` function.
+The `DestroyPlatform` function will be called if the player lands on a bad platform. All shared assets that were spawned when creating the puzzle were put into the `sharedAssets` table which is an array. By looping over the table you can check the platform exists and destroy it using `DestroySharedAsset` function.
 
 The `DestroySharedAsset` function is called from the network context, in this case it is the `STATIC_CONTAINER`. By passing in the shared asset to be destroyed, it will be removed from the server and the client for you.
 
@@ -303,7 +303,7 @@ end
 
 #### Create RestartGame Function
 
-If the player reaches the finish area, after 4 seconds, the game will restart. All the spawn assets that were created are removed using `DestroySharedAsset`, and then a new puzzle is created by calling `CreatePuzzle`.
+If the player reaches the finish area, after 4 seconds the game will restart. All the spawn assets that were created are removed using `DestroySharedAsset`, and then a new puzzle is created by calling `CreatePuzzle`.
 
 ```lua
 local function RestartGame()
@@ -329,7 +329,7 @@ local function RestartGame()
 end
 ```
 
-1. Disable player's jump while the puzzle is being destroyed and recreated.
+1. Disable the player's jump while the puzzle is being destroyed and recreated.
 2. Reset the player's total jumps for this puzzle.
 3. Respawn the player back to at the start area.
 4. Enable the player's jump so they can play again now that the puzzle has been created.
@@ -346,7 +346,7 @@ end
 
 #### Connect playerJoinedEvent
 
-Connect the `playerJoinedEvent` so when a player joins the game, the `PlayerJoined` function will be called.
+Connect the `playerJoinedEvent` so when a player joins the game the `PlayerJoined` function will be called.
 
 ```lua
 Game.playerJoinedEvent:Connect(PlayerJoined)
@@ -535,7 +535,7 @@ Test the game to make sure the following work.
 
 ## Create CheckForPlayer Script
 
-Create a new script called **CheckForPlayer**. This script will be placed inside the **Bad Platform** and **Good Platform**. It will handle checking if a player has entered the trigger volume, and react based on the type of platform it is in.
+Create a new script called **CheckForPlayer**. This script will be placed inside the **Bad Platform** and **Good Platform**. It will handle checking if a player has entered the trigger volume and react based on the type of platform it is in.
 
 In **Project Content** select the **CheckForPlayer** script, and add 2 new custom properties.
 
@@ -570,7 +570,7 @@ The **Good Platform** template needs to have the **CheckForPlayer** script added
 
 ### Edit CheckForPlayer Script
 
-This script will handle what happens to the player when they enter the trigger for the platform. If the script has the property **Solid** set to **false** (unchecked), then the player will fall through the platform. Each platform the player lands on will disable that player's jump for a small amount of time to prevent them from quickly jumping from one platform to the other. This adds a little bit of suspense when landing on a platform.
+The **CheckForPlayer** script will handle what happens to the player when they enter the trigger for the platform. If the script has the property **Solid** set to **false** (unchecked), then the player will fall through the platform. Each platform the player lands on will disable that player's jump for a small amount of time to prevent them from quickly jumping from one platform to the other. This adds a little bit of suspense when landing on a platform.
 
 Open up the **CheckForPlayer** script and add the following property references so you have a reference to the trigger for the platform, and if it is solid or not.
 
@@ -587,7 +587,7 @@ A script in a static context is created on the server and client, so you will ne
 
 When the environment is the server, you can broadcast to a server script that will disable the player's jump, and increment their jump resource amount. If the platform is not solid, then the shared asset is destroyed, otherwise the player's jump is enabled again.
 
-Being able to check what environment the script is being run in is a great way to handle things that need to be done in a specific context.
+Being able to check what environment the script is being run in is a great way to handle logic that need to be done in a specific context.
 
 ```lua
 local function BeginOverlap(trigger, obj)
@@ -662,7 +662,7 @@ TRIGGER.beginOverlapEvent:Connect(BeginOverlap)
 
 Test the game and make sure that for each pair of platforms moving forward, one of the platforms is destroyed.
 
-!!! tip "For the moment you can continue to test in local preview mode, but later on when you write the client code, you will need to test in multiplayer preview mode."
+!!! tip "For the moment you can continue to test in local preview mode, but later on when you write the client code that plays effects, you will need to test in multiplayer preview mode."
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -676,9 +676,9 @@ The player will need to know how many jumps they are currently at, and when they
 
 Create a new script called `UpdatePlayerUIClient`, and place it into the **Client** folder in the **Hierarchy**. This script will need references to some of the UI elements that come with the asset template.
 
-1. Find the **Move** image object and add it as a custom property.
-2. Find the **Still** image object and add it as a custom property.
-3. Find the **Jumps Amount** text object and add it as a custom property.
+1. Find the **Move** image object in the **Hierarchy** and add it as a custom property.
+2. Find the **Still** image object in the **Hierarchy** and add it as a custom property.
+3. Find the **Jumps Amount** text object in the **Hierarchy** and add it as a custom property.
 
 ![!Properties](../img/SpawnSharedAsset/player_ui_client_props.png){: .center loading="lazy" }
 
@@ -724,7 +724,7 @@ end
 
 #### Connect resourceChangedEvent
 
-To display the amount of jumps the player has done, you need to listen for when the player's resources has changed. This can be done by using the `resourceChangedEvent` and checking if the resource is `jumps`, if it is, the `JUMPS_AMOUNT` text is updated with the `newAmount`.
+To display the amount of jumps the player has done, you need to listen for when the player's resources has changed. This can be done by using the `resourceChangedEvent` and checking if the resource is `jumps`, and then updating the `JUMPS_AMOUNT` text with the `newAmount`.
 
 ```lua
 localPlayer.resourceChangedEvent:Connect(function(player, resource, newAmount)
@@ -795,7 +795,7 @@ Create a new script called `FinishArea`. This script will need to be placed insi
 1. Drag the **Finish Area** template from **Project Content** in to the **Hierarchy** and deinstance it.
 2. Drag the script **FinishArea** into the **Finish Area** group in the **Hierarchy**.
 3. Add the **Trigger** to the **FinishArea** script as a custom property.
-4. Update the *Finish Area** template and delete it from the **Hierarchy**.
+4. Update the **Finish Area** template and delete it from the **Hierarchy**.
 
 ![!Properties](../img/SpawnSharedAsset/finish_area_script_props.png){: .center loading="lazy" }
 
@@ -919,7 +919,7 @@ end
 
 #### Create PlayFinishArea Function
 
-The `PlayFinishArea` function will spawn the `CONFETTI_VFX` at the finish area. It will scale and position the effect volume based on the scale and position of the finish area. After 4 seconds, the vfx will be destroyed, which at that point, the game will restart.
+The `PlayFinishArea` function will spawn the `CONFETTI_VFX` at the finish area. It will scale and position the effect volume based on the scale and position of the finish area. After 4 seconds the vfx will be destroyed, which at that point the game will restart.
 
 ```lua
 local function PlayFinishArea(position, scale)
