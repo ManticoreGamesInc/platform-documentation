@@ -23,7 +23,6 @@ In this tutorial you are going to create a procedural puzzle game where players 
 * **Skills you will learn:**
     * Spawning shared assets.
     * Removing shared assets.
-    * ??
 
 ---
 
