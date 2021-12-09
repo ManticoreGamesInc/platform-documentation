@@ -23,6 +23,7 @@ Contains data pertaining to an impact or raycast.
 | -------- | ----------- | ----------- | ---- |
 | `GetImpactPosition()` | [`Vector3`](vector3.md) | The world position where the impact occurred. | None |
 | `GetImpactNormal()` | [`Vector3`](vector3.md) | Normal direction of the surface which was impacted. | None |
+| `GetShapePosition()` | [`Vector3`](vector3.md) | For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. Otherwise returns the world position where the impact occurred. | None |
 | `GetTransform()` | [`Transform`](transform.md) | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
 ## Examples
@@ -85,6 +86,46 @@ weapon.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [ImpactData.GetHitResult](impactdata.md) | [World.SpawnAsset](world.md) | [Weapon.targetImpactedEvent](weapon.md) | [Transform.GetPosition](transform.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
+### `GetShapePosition`
+
+### `GetImpactPosition`
+
+HitResult can be the output of `World.BoxCast()` and `World.SphereCast()`. In these cases, the hit result's `GetShapePosition()` returns the center of the shape at point of impact. In this example, we cast a sphere starting at the position of the mouse cursor on screen. At the point of impact we draw a red circle, to indicate where the sphere ended, as well as a yellow dot, to indicate the collision point.
+
+```lua
+local RADIUS = 50
+local PLAYER = Game.GetLocalPlayer()
+    
+UI.SetCursorVisible(true)
+
+function Tick()
+    local viewPosition = PLAYER:GetViewWorldPosition()
+    local viewForward = PLAYER:GetViewWorldRotation() * Vector3.FORWARD
+    
+    local cursorStart = UI.GetCursorPlaneIntersection(viewPosition + viewForward * 100, viewForward)
+    if not cursorStart then return end
+    
+    local direction = UI.GetCursorPlaneIntersection(viewPosition + viewForward * 200, viewForward)
+    direction = direction - cursorStart
+    
+    local hitResult = World.Spherecast(cursorStart, cursorStart + direction * 5000, RADIUS)
+
+    if hitResult then
+        local center = hitResult:GetShapePosition()
+        -- Draw red sphere representing where the spherecast ended
+        CoreDebug.DrawSphere(center, RADIUS, {color = Color.RED, thickness = 2})
+        -- Draw yellow dot representing the point of impact of the spherecast with objects
+        CoreDebug.DrawSphere(hitResult:GetImpactPosition(), 3, {color = Color.YELLOW, thickness = 4})
+    end
+end
+```
+
+See also: [Player.GetViewWorldPosition](player.md) | [UI.GetCursorPlaneIntersection](ui.md) | [World.Spherecast](world.md) | [CoreDebug.DrawSphere](coredebug.md) | [Vector3.FORWARD](vector3.md) | [Game.GetLocalPlayer](game.md)
 
 ---
 
