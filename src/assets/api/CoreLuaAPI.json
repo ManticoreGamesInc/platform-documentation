@@ -817,7 +817,7 @@
 				},
 				{
 					"Name": "animationStancePlaybackRate",
-					"Description": "The playback rate for the animation stance being played. Negative values will play the animation in reverse.",
+					"Description": "The playback rate for the animation stance being played.",
 					"Type": "number",
 					"Tags": [
 						"ClientOnly"
@@ -4439,7 +4439,7 @@
 				},
 				{
 					"Name": "LookAtLocalView",
-					"Description": "Continuously looks at the local camera. The boolean parameter is optional and locks the pitch. (Client-only)",
+					"Description": "Continuously looks at the local camera. The boolean parameter is optional and locks the pitch.",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -6059,7 +6059,7 @@
 		},
 		{
 			"Name": "Folder",
-			"Description": "Folder is a CoreObject representing a folder containing other objects.\r\n\r\nThey have no properties or functions of their own, but inherit everything from CoreObject.",
+			"Description": "Folder is a [CoreObject](coreobject.md) representing a folder containing other objects.\r\n\r\nThey have no properties or functions of their own, but inherit everything from [CoreObject](coreobject.md).",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -6183,6 +6183,20 @@
 				{
 					"Name": "GetImpactNormal",
 					"Description": "Normal direction of the surface which was impacted.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetShapePosition",
+					"Description": "For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. Otherwise returns the world position where the impact occurred.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -7116,6 +7130,53 @@
 			],
 			"MemberFunctions": [
 				{
+					"Name": "SpawnSharedAsset",
+					"Description": "Spawns an instance of an asset into the world as a child of a networked Static Context, also spawning copies of the asset on clients without the overhead of additional networked objects. Any object spawned this way cannot be modified, as with other objects within a Static Context, but they may be destroyed by calling `DestroySharedAsset()` on the same `NetworkContext` instance. Raises an error if called on a non-networked Static Context or a Static Context which is a descendant of a Client Context or Server Context. Optional parameters can specify a transform for the spawned object. <br/>Supported parameters include: <br/>`position (Vector3)`: Position of the spawned object, relative to the parent NetworkContext. <br/>`rotation (Rotation or Quaternion)`: Local rotation of the spawned object. <br/>`scale (Vector3 or number)`: Scale of the spawned object, may be specified as a `Vector3` or as a `number` for uniform scale. <br/>`transform (Transform)`: The full transform of the spawned object. If `transform` is specified, it is an error to also specify `position`, `rotation`, or `scale`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "CoreObject"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "assetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "DestroySharedAsset",
+					"Description": "Destroys an object that was spawned using `SpawnSharedAsset()`. Raises an error if `coreObject` was not created by this `NetworkContext`.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "CoreObject",
+									"Name": "coreObject"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -7481,6 +7542,20 @@
 						{
 							"Type": "Damage",
 							"Name": "damage"
+						}
+					]
+				},
+				{
+					"Name": "collidedEvent",
+					"Description": "Fired when the object collides with another object. The `HitResult` parameter describes the collision that occurred.",
+					"Parameters": [
+						{
+							"Type": "PhysicsObject",
+							"Name": "object"
+						},
+						{
+							"Type": "HitResult",
+							"Name": "hitResult"
 						}
 					]
 				}
@@ -8069,6 +8144,20 @@
 				}
 			],
 			"Events": [
+				{
+					"Name": "collidedEvent",
+					"Description": "Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "HitResult",
+							"Name": "hitResult"
+						}
+					]
+				},
 				{
 					"Name": "damagedEvent",
 					"Description": "Fired when the Player takes damage.",
@@ -9450,6 +9539,20 @@
 							"Returns": [
 								{
 									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetPrivateNetworkedDataSize",
+					"Description": "Returns the number of bytes used by private networked data on this player. Returns 0 if private networked data is not available.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "integer"
 								}
 							],
 							"Parameters": []
@@ -12320,6 +12423,14 @@
 					]
 				},
 				{
+					"Name": "boundAction",
+					"Description": "Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -13745,6 +13856,15 @@
 					"Type": "number",
 					"Tags": [
 						"ReadOnly"
+					]
+				},
+				{
+					"Name": "isInteractable",
+					"Description": "When `true`, panel scrolling is enabled. When `false`, scrolling is disabled. Defaults to `true`.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -15766,6 +15886,14 @@
 					]
 				},
 				{
+					"Name": "attackSoundTemplateId",
+					"Description": "Asset reference for a sound effect to be played each time the Weapon attacks.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -17293,11 +17421,11 @@
 				},
 				{
 					"Name": "TransferPlayersToGame",
-					"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+					"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transferred if also included in the list of players. Does not work in preview mode or in games played locally.",
 					"Signatures": [
 						{
 							"Name": "WithGameCollectionEntry",
-							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameCollectionEntry`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameCollectionEntry`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transferred if also included in the list of players. Does not work in preview mode or in games played locally.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -17312,7 +17440,7 @@
 						},
 						{
 							"Name": "WithGameInfo",
-							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameInfo`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in `CoreGameInfo`. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transferred if also included in the list of players. Does not work in preview mode or in games played locally.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -17327,7 +17455,7 @@
 						},
 						{
 							"Name": "WithGameId",
-							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally.",
+							"Description": "Similar to `Player:TransferToGame()`, transfers the specified list of players to the game specified by the passed in game ID. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transferred if also included in the list of players. Does not work in preview mode or in games played locally.",
 							"Returns": [],
 							"Parameters": [
 								{
@@ -17370,7 +17498,7 @@
 				},
 				{
 					"Name": "TransferPlayersToScene",
-					"Description": "Similar to `Player:TransferToScene()`, transfers the specified list of players to the scene specified by the passed in scene name. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transfered if also included in the list of players. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0).",
+					"Description": "Similar to `Player:TransferToScene()`, transfers the specified list of players to the scene specified by the passed in scene name. Note that if a party leader is included in the list of players to transfer, the \"Play as Party\" party setting is ignored, and other party members will only be transferred if also included in the list of players. Does not work in preview mode or in games played locally. <br/>The following optional parameters are supported:<br/>`spawnKey (string)`: Spawns the players at a spawn point with a matching key. If an invalid key is provided, the players will spawn at the origin, (0, 0, 0).",
 					"Signatures": [
 						{
 							"Returns": [],
@@ -17398,6 +17526,20 @@
 				{
 					"Name": "GetCurrentSceneName",
 					"Description": "Returns the name of the current scene.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCurrentGameId",
+					"Description": "Returns the ID of the current game. When called in preview mode, returns `nil` if the game has not been published, otherwise returns the published game ID.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -17720,7 +17862,7 @@
 		},
 		{
 			"Name": "Storage",
-			"Description": "The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.\r\n\r\nCore storage allows a maximum of 16Kb (16384 bytes) of encoded data to be stored. Any data exceeding this limit is not guaranteed to be stored and can potentially cause loss of stored data. Exceeding the limit will cause a warning to be displayed in the event log when in preview mode.\r\n\r\n`Storage.SizeOfData()` can be used to check the size of data (in bytes) before assigning to storage. If size limit has been exceeded consider replacing strings with numbers or using advanced techniques such as bit packing to reduce the size of data stored.",
+			"Description": "The Storage namespace contains a set of functions for handling persistent storage of data. To use the Storage API, you must place a Game Settings object in your game and check the Enable Player Storage property on it.\r\n\r\nCore storage allows a maximum of 32Kb (32768 bytes) of encoded data to be stored. Any data exceeding this limit is not guaranteed to be stored and can potentially cause loss of stored data. Exceeding the limit will cause a warning to be displayed in the event log when in preview mode.\r\n\r\n`Storage.SizeOfData()` can be used to check the size of data (in bytes) before assigning to storage. If size limit has been exceeded consider replacing strings with numbers or using advanced techniques such as bit packing to reduce the size of data stored.",
 			"StaticFunctions": [
 				{
 					"Name": "SizeOfData",
@@ -17787,6 +17929,364 @@
 								{
 									"Type": "table",
 									"Name": "data"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetConcurrentPlayerData",
+					"Description": "Requests the concurrent player data associated with the specified player. This function may yield until data is available. Returns the data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetConcurrentPlayerData",
+					"Description": "Updates the concurrent player data associated with the specified player. This function retrieves the most recent copy of the player's data, then calls the creator-provided `callback` function with the data table as a parameter. `callback` is expected to return the player's updated data table, which will then be saved. This function yields until the entire process is complete, returning a copy of the player's updated data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetConcurrentSharedPlayerData",
+					"Description": "Requests the concurrent player data associated with the specified player and storage key. The storage key must be of type `CONCURRENT_SHARED_PLAYER_STORAGE`. This function may yield until data is available. Returns the data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetConcurrentSharedPlayerData",
+					"Description": "Updates the concurrent player data associated with the specified player and storage key. The storage key must be of type `CONCURRENT_SHARED_PLAYER_STORAGE`. This function retrieves the most recent copy of the player's data, then calls the creator-provided `callback` function with the data table as a parameter. `callback` is expected to return the player's updated data table, which will then be saved. This function yields until the entire process is complete, returning a copy of the player's updated data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "string",
+									"Name": "playerId"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "GetConcurrentCreatorData",
+					"Description": "Requests the concurrent data associated with the given storage key. The storage key must be of type `CONCURRENT_CREATOR_STORAGE`. This data is player- and game-agnostic. This function may yield until data is available. Returns the data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "SetConcurrentCreatorData",
+					"Description": "Updates the concurrent data associated with the given storage key. The storage key must be of type `CONCURRENT_CREATOR_STORAGE`. This data is player- and game-agnostic. This function retrieves the most recent copy of the creator data, then calls the creator-provided `callback` function with the data table as a parameter. `callback` is expected to return the updated data table, which will then be saved. This function yields until the entire process is complete, returning a copy of the updated data (`nil` if not available), a result code, and an optional error message if an error occurred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								},
+								{
+									"Type": "StorageResultCode"
+								},
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ConnectToConcurrentPlayerDataChanged",
+					"Description": "Listens for any changes to the concurrent data associated with `playerId` for this game. Calls to `Storage.SetConcurrentPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `string` player ID, `table` player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ConnectToConcurrentSharedPlayerDataChanged",
+					"Description": "Listens for any changes to the concurrent shared data associated with `playerId` and `concurrentSharedStorageKey`. Calls to `Storage.SetConcurrentSharedPlayerData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `string` player ID, `table` shared player data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "string",
+									"Name": "playerId"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "ConnectToConcurrentCreatorDataChanged",
+					"Description": "Listens for any changes to the concurrent data associated with `concurrentCreatorStorageKey`. Calls to `Storage.SetConcurrentCreatorData()` from this or other game servers will trigger this listener. The listener function parameters should be: `NetReference` storage key, `table` creator data. Accepts any number of additional arguments after the listener function, those arguments will be provided, in order, after the `table` argument. Returns an EventListener which can be used to disconnect from the event or check if the event is still connected.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "EventListener"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "function",
+									"Name": "callback"
+								},
+								{
+									"Name": "argumentList",
+									"IsVariadic": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "HasPendingSetConcurrentPlayerData",
+					"Description": "Returns `true` if this server has a pending call to `Storage.SetConcurrentPlayerData()` either waiting to be processed or actively running for the specified player ID.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "HasPendingSetConcurrentSharedPlayerData",
+					"Description": "Returns `true` if this server has a pending call to `Storage.SetConcurrentSharedPlayerData()` either waiting to be processed or actively running for the specified player ID and shared storage key.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
+								},
+								{
+									"Type": "string",
+									"Name": "playerId"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ServerOnly"
+					]
+				},
+				{
+					"Name": "HasPendingSetConcurrentCreatorData",
+					"Description": "Returns `true` if this server has a pending call to `Storage.SetConcurrentCreatorData()` either waiting to be processed or actively running for the specified creator storage key.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "NetReference",
+									"Name": "netReference"
 								}
 							]
 						}
@@ -18739,7 +19239,7 @@
 				},
 				{
 					"Name": "SpawnAsset",
-					"Description": "Spawns an instance of an asset into the world. Optional parameters can specify a parent, transform, or other properties of the spawned object. Note that when spawning a template, most optional parameters apply only to the root object of the spawned template. <br/>Supported parameters include: <br/>`parent (CoreObject)`: If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform. <br/>`position (Vector3)`: Position of the spawned object. <br/>`rotation (Rotation or Quaternion)`: Rotation of the spawned object. <br/>`scale (Vector3)`: Scale of the spawned object. <br/>`transform (Transform)`: The full transform of the spawned object. If `transform` is specified, it is an error to also specify `position`, `rotation`, or `scale`. <br/>`networkContext (NetworkContext)`: Overrides the network context of the spawned object. This may be used, for example, to spawn networked or static objects from a server only context, or client-only objects from a client script running in a static context, but it cannot spawn client only objects from a server script or networked objects from a client script. If an invalid context is specified, an error will be raised. <br/>`name (string)`: Set the name of the spawned object. <br/>`team (integer)`: Set the team on the spawned object. <br/>`lifeSpan (number)`: Set the life span of the spawned object. <br/>`collision (Collision)`: Set the collision of the spawned object. <br/>`visibility (Visibility)`: Set the visibility of the spawned object. <br/>`cameraCollision (Collision)`: Set the camera collision of the spawned object. <br/>`color (Color)`: Set the color of the spawned object.",
+					"Description": "Spawns an instance of an asset into the world. Optional parameters can specify a parent, transform, or other properties of the spawned object. Note that when spawning a template, most optional parameters apply only to the root object of the spawned template. <br/>Supported parameters include: <br/>`parent (CoreObject)`: If provided, the spawned asset will be a child of this parent, and any Transform parameters are relative to the parent's Transform. <br/>`position (Vector3)`: Position of the spawned object. <br/>`rotation (Rotation or Quaternion)`: Rotation of the spawned object. <br/>`scale (Vector3 or number)`: Scale of the spawned object, may be specified as a `Vector3` or as a `number` for uniform scale. <br/>`transform (Transform)`: The full transform of the spawned object. If `transform` is specified, it is an error to also specify `position`, `rotation`, or `scale`. <br/>`networkContext` ([NetworkContextType](../api/enums#networkcontexttype)): Overrides the network context of the spawned object. This may be used, for example, to spawn networked or static objects from a server only context, or client-only objects from a client script running in a static context, but it cannot spawn client only objects from a server script or networked objects from a client script. If an invalid context is specified, an error will be raised. <br/>`name (string)`: Set the name of the spawned object. <br/>`team (integer)`: Set the team on the spawned object. <br/>`lifeSpan (number)`: Set the life span of the spawned object. <br/>`collision (Collision)`: Set the collision of the spawned object. <br/>`visibility (Visibility)`: Set the visibility of the spawned object. <br/>`cameraCollision (Collision)`: Set the camera collision of the spawned object. <br/>`color (Color)`: Set the color of the spawned object.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -19529,8 +20029,25 @@
 				},
 				{
 					"Name": "SHARED_STORAGE",
-					"Description": "Player shared storage key.",
+					"Description": "Player shared storage key. *Note: `NetReferenceType.SHARED_STORAGE` is deprecated. Please use `NetReferenceType.SHARED_PLAYER_STORAGE` instead.*",
+					"IsDeprecated": true,
+					"DeprecationMessage": "NetReferenceType.SHARED_STORAGE has been renamed to SHARED_PLAYER_STORAGE. SHARED_STORAGE will be removed in a future release.",
 					"Value": 2
+				},
+				{
+					"Name": "SHARED_PLAYER_STORAGE",
+					"Description": "Shared player storage key.",
+					"Value": 2
+				},
+				{
+					"Name": "CONCURRENT_SHARED_PLAYER_STORAGE",
+					"Description": "Concurrent shared player storage key.",
+					"Value": 4
+				},
+				{
+					"Name": "CONCURRENT_CREATOR_STORAGE",
+					"Description": "Concurrent creator storage key.",
+					"Value": 5
 				},
 				{
 					"Name": "CREATOR_PERK",
@@ -19821,6 +20338,11 @@
 					"Name": "EXCEEDED_SIZE_LIMIT",
 					"Description": "The provided data is too large and could not be saved.",
 					"Value": 3
+				},
+				{
+					"Name": "REQUEST_ALREADY_QUEUED",
+					"Description": "A request was made to set creator or player data while a request was already in progress to update that same data.",
+					"Value": 4
 				}
 			]
 		},
