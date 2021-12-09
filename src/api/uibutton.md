@@ -19,6 +19,7 @@ A UIControl for a button, should be inside client context. Inherits from [UICont
 | `isInteractable` | `boolean` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
 | `shouldClipToSize` | `boolean` | Whether or not the button and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
 | `shouldScaleToFit` | `boolean` | Whether or not the button's label should scale down to fit within the bounds of this control. | Read-Write |
+| `boundAction` | `string` | Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set. | Read-Only |
 
 ## Functions
 
@@ -167,6 +168,33 @@ propUIButton.unhoveredEvent:Connect(OnUnhover)
 ```
 
 See also: [Color.New](color.md) | [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCursorVisible](ui.md)
+
+---
+
+Example using:
+
+### `boundAction`
+
+### `pressedEvent`
+
+UI Buttons can be used as direct input to control the gameplay. This is especially useful for touch-screen devices, where UI Buttons can be setup as virtual controls. In this example, a UI Button has a value set for its `boundAction` property. When the button is pressed, the button's `pressedEvent` will callback. If the `boundAction` property has been set to a valid input action (e.g. "Jump") then the Input `actionPressedEvent` will also callback.
+
+```lua
+local UIBUTTON = script:GetCustomProperty("UIButton"):WaitForObject()
+
+UI.SetCursorVisible(true)
+UI.SetCanCursorInteractWithUI(true)
+
+UIBUTTON.pressedEvent:Connect(function()
+    print("Button: " .. UIBUTTON.boundAction)
+end)
+
+Input.actionPressedEvent:Connect(function(player, action, value)
+    print("Action: " .. action .. ", value: " .. tostring(value))
+end)
+```
+
+See also: [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCanCursorInteractWithUI](ui.md)
 
 ---
 

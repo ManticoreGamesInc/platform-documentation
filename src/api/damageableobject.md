@@ -368,3 +368,61 @@ end
 See also: [CoreObject.serverUserData](coreobject.md)
 
 ---
+
+Example using:
+
+### `isDead`
+
+This example shows how to search the game for all damageables and then filter them by some criteria. In this case, we create a function that returns all dead objects by checking the `isDead` property.
+
+```lua
+function GetAllDeadObjects()
+    local result = {}
+    local allDamageables = World.FindObjectsByType("Damageable")
+    for _,obj in ipairs(allDamageables) do
+        if obj.isDead then
+            table.insert(result, obj)
+        end
+    end
+    return result
+end
+```
+
+See also: [World.FindObjectsByType](world.md)
+
+---
+
+Example using:
+
+### `isImmortal`
+
+In this example, whenever a `Damageable` object overlaps a trigger it temporarily gains immortality. We keep track of the `immortalCount` in the case where the object would gain immortality a second time before the wait period completes from the first overlap. This could happen if the object went back and forth and hit the trigger multiple times, or if there are multiple triggers near each other with this same script.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+local IMMORTAL_DURATION = 2.5
+
+function OnTriggerOverlap(_, other)
+    if other:IsA("Damageable") then
+        other.isImmortal = true
+
+        if not other.serverUserData.immortalCount then
+            other.serverUserData.immortalCount = 0
+        end
+        other.serverUserData.immortalCount = other.serverUserData.immortalCount + 1
+        
+        Task.Wait(IMMORTAL_DURATION)
+        
+        other.serverUserData.immortalCount = other.serverUserData.immortalCount - 1
+        if other.serverUserData.immortalCount <= 0 then
+            other.isImmortal = false
+        end
+    end
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnTriggerOverlap)
+```
+
+See also: [CoreObject.serverUserData](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Task.Wait](task.md)
+
+---
