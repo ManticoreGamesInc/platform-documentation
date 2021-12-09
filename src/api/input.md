@@ -106,6 +106,29 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.W
 
 Example using:
 
+### `actionPressedEvent`
+
+### `actionReleasedEvent`
+
+This client script demonstrates how to listen for all input actions being pressed/released. Results appear in the Event Log.
+
+```lua
+function OnActionPressed(player, action, value)
+    print("Action: " .. action .. ", value: " .. tostring(value))
+end
+
+function OnActionReleased(player, action)
+    print("Action: " .. action)
+end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
+```
+
+---
+
+Example using:
+
 ### `escapeHook`
 
 Core has a default pause menu that appears when a player presses the ESC key. This client script demonstrates how to prevent Core's default pause from occurring and replace it with a custom menu. As a fallback in case your UI gets stuck, Shift + ESC allows you to access Core's default pause, even with the escape hook in place.

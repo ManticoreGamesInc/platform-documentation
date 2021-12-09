@@ -40,6 +40,36 @@ IKAnchors are objects that can be used to control player animations. They can be
 
 Example using:
 
+### `activatedEvent`
+
+### `deactivatedEvent`
+
+In this example, a point light is turned on/off in response to the `IK Anchor` being activated/deactivated.
+
+```lua
+local POINT_LIGHT = script:GetCustomProperty("PointLight"):WaitForObject()
+local IK_ANCHOR = script.parent
+
+POINT_LIGHT.visibility = Visibility.FORCE_OFF
+
+function OnActivated(ik, player)
+    POINT_LIGHT.visibility = Visibility.INHERIT
+end
+
+function OnDeactivated(ik, player)
+    POINT_LIGHT.visibility = Visibility.FORCE_OFF
+end
+
+IK_ANCHOR.activatedEvent:Connect(OnActivated)
+IK_ANCHOR.deactivatedEvent:Connect(OnDeactivated)
+```
+
+See also: [CoreObject.visibility](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
 ### `Activate`
 
 ### `Deactivate`

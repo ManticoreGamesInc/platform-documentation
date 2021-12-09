@@ -161,6 +161,7 @@ Player is an object representation of the state of a player connected to the gam
 | `emoteStoppedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player stops playing an emote or an emote is interrupted. | None |
 | `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
 | `privateNetworkedDataChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` key> | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
+| `collidedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`HitResult`](hitresult.md) hitResult> | Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred. | None |
 
 ## Hooks
 
@@ -1327,6 +1328,28 @@ See also: [Game.GetPlayers](game.md) | [CoreLua.print](coreluafunctions.md) | [T
 
 Example using:
 
+### `isCollidable`
+
+In this example, a trigger makes the player fall through the ground when they step on it. After a short wait period, the player's collision is resumed, so they may interact with whatever else is below the ground.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+
+TRIGGER.beginOverlapEvent:Connect(function(_,player)
+    if player:IsA("Player") then
+        player.isCollidable = false
+        Task.Wait(1.5)
+        player.isCollidable = true
+    end
+end)
+```
+
+See also: [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
 ### `isInParty`
 
 ### `isPartyLeader`
@@ -1358,6 +1381,50 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Game.playerJoinedEvent](game.md) | [Player:IsInPartyWith](player.md)
+
+---
+
+Example using:
+
+### `isMovementEnabled`
+
+### `animationStance`
+
+### `serverUserData`
+
+There are different approaches to stunning a player. In this example we disable player movement with `isMovementEnabled`. We keep count of the number of active stuns, in case more than one stun overlap in duration we don't want the player to exit the stun when the duration of the first one completes.
+
+```lua
+local STUN_DURATION = 1.5
+    
+function ApplyStunToPlayer(player)
+    player.isMovementEnabled = false
+    player.animationStance = "unarmed_stun_dizzy"
+    
+    -- Initialize stun count if needed
+    if not player.serverUserData.stunCount then
+        player.serverUserData.stunCount = 0
+    end
+    -- Keep track of how many times stun has been called, in case multiple stuns overlap in time
+    player.serverUserData.stunCount = player.serverUserData.stunCount + 1
+    
+    -- Duration of the stun effect
+    Task.Wait(STUN_DURATION)
+    
+    -- Stun effect has passed. Decrease the counter
+    player.serverUserData.stunCount = player.serverUserData.stunCount - 1
+    
+    -- If there are no more stuns active, cleanup
+    if player.serverUserData.stunCount <= 0 then
+        player.isMovementEnabled = true
+        
+        -- Put the animation back to normal
+        player.animationStance = "unarmed_stance"
+    end
+end
+```
+
+See also: [Task.Wait](task.md)
 
 ---
 
