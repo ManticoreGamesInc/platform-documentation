@@ -866,7 +866,7 @@ Test the game to make sure the game is restarted when the player gets to the fin
 
 ## Create EffectManagerClient Script
 
-Create a new script called `EffectManagerClient` and place it into the **Client** folder. This script handle playing audio and effects by listening for broadcasts.
+Create a new script called `EffectManagerClient` and place it into the **Client** folder. This script handles playing audio and effects by listening for broadcasts.
 
 ### Add Custom Properties
 
