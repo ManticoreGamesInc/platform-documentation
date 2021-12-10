@@ -1,12 +1,12 @@
 ---
 id: spawn_shared_asset_tutorial
-name: Spawn Shared Asset
-title: Spawn Shared Asset
+name: SpawnSharedAsset
+title: SpawnSharedAsset
 tags:
     - Tutorial
 ---
 
-# Spawn Shared Asset
+# SpawnSharedAsset
 
 ## Overview
 

@@ -69,7 +69,7 @@ nav:
               - Hello World: tutorials/lua_basics_helloworld.md
               - Lightbulb: tutorials/lua_basics_lightbulb.md
               - Race Timer: tutorials/race_timer.md
-          - ✨ Spawn Shared Asset: tutorials/spawn_shared_asset_tutorial.md
+          - ✨ SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
           - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
