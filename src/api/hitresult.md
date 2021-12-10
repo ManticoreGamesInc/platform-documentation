@@ -23,7 +23,7 @@ Contains data pertaining to an impact or raycast.
 | -------- | ----------- | ----------- | ---- |
 | `GetImpactPosition()` | [`Vector3`](vector3.md) | The world position where the impact occurred. | None |
 | `GetImpactNormal()` | [`Vector3`](vector3.md) | Normal direction of the surface which was impacted. | None |
-| `GetShapePosition()` | [`Vector3`](vector3.md) | For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. Otherwise returns the world position where the impact occurred. | None |
+| `GetShapePosition()` | [`Vector3`](vector3.md) | For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. In the case of HitResults not related to a box cast or sphere cast, returns the world position where the impact occurred. | None |
 | `GetTransform()` | [`Transform`](transform.md) | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
 
 ## Examples

@@ -161,7 +161,6 @@ Player is an object representation of the state of a player connected to the gam
 | `emoteStoppedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player stops playing an emote or an emote is interrupted. | None |
 | `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
 | `privateNetworkedDataChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` key> | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
-| `collidedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`HitResult`](hitresult.md) hitResult> | Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred. | None |
 
 ## Hooks
 
