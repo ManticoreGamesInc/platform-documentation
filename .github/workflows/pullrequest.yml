@@ -40,7 +40,7 @@ jobs:
           max_timeout: 520
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@8.0.0
+        uses: treosh/lighthouse-ci-action@8.2.0
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:
