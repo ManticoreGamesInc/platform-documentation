@@ -26,6 +26,98 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 
 Example using:
 
+### `anchor`
+
+### `dock`
+
+In this example, a client script controls the anchoring of a `UI Image`. The image is positioned on screen to reflect the player's movement input. If the player is not moving, then the image is at the center of the screen. If the player moves horizontally, the image is placed on the left/right side of the screen and on the top/bottom of the screen if the player is moving forward/backwards, respectively.
+
+```lua
+local UI_IMAGE = script.parent
+
+function Tick()
+    local movement = Input.GetActionValue(Game.GetLocalPlayer(), "Move")
+    
+    local x = movement.x
+    local y = movement.y
+    local pivot = UIPivot.MIDDLE_CENTER
+    
+    if y > 0 then
+        if x > 0 then
+            pivot = UIPivot.TOP_RIGHT
+        elseif x < 0 then
+            pivot = UIPivot.TOP_LEFT
+        else
+            pivot = UIPivot.TOP_CENTER
+        end
+    elseif y < 0 then
+        if x > 0 then
+            pivot = UIPivot.BOTTOM_RIGHT
+        elseif x < 0 then
+            pivot = UIPivot.BOTTOM_LEFT
+        else
+            pivot = UIPivot.BOTTOM_CENTER
+        end
+    else
+        if x > 0 then
+            pivot = UIPivot.MIDDLE_RIGHT
+        elseif x < 0 then
+            pivot = UIPivot.MIDDLE_LEFT
+        end
+    end
+    
+    UI_IMAGE.anchor = pivot
+    UI_IMAGE.dock = pivot
+end
+```
+
+See also: [Input.GetActionValue](input.md) | [Game.GetLocalPlayer](game.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
+### `width`
+
+### `height`
+
+Most of the UI components inherit from `UI Control` and have all if its properties. This client script demonstrates how to animate the size of a `UI Panel`. By calling `Grow()` or `Shrink()` the panel's size animates smoothly over time.
+
+```lua
+local UI_PANEL = script:GetCustomProperty("UIPanel"):WaitForObject()
+local LERP_SPEED = 12
+
+local defaultWidth = UI_PANEL.width
+local defaultHeight = UI_PANEL.height
+local targetScale = 1
+local fWidth = defaultWidth
+local fHeight = defaultHeight
+
+function Grow()
+    targetScale = 1
+end
+
+function Shrink()
+    targetScale = 0
+end
+
+function Tick(deltaTime)
+    local t = CoreMath.Clamp(deltaTime * LERP_SPEED)
+    
+    fWidth = CoreMath.Lerp(fWidth, defaultWidth * targetScale, t)
+    fHeight = CoreMath.Lerp(fHeight, defaultHeight * targetScale, t)
+    
+    UI_PANEL.width = CoreMath.Round(fWidth)
+    UI_PANEL.height = CoreMath.Round(fHeight)
+end
+```
+
+See also: [CoreMath.Lerp](coremath.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+
+---
+
+Example using:
+
 ### `x`
 
 ### `y`
@@ -56,7 +148,7 @@ function Tick(deltaTime)
 end
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Vector2.New](vector2.md)
+See also: [Vector2.Lerp](vector2.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
 
