@@ -33,22 +33,27 @@ Light is a light source that is a CoreObject. Generally a Light will be an insta
 
 Example using:
 
+### `GetColor`
+
 ### `SetColor`
 
-In this example, the light will be changed to a green color.
+In this example, the light will be changed by removing its red channel.
 
 ```lua
 --Grab the light object (spotlight, point light, or light volume).
-local propLight = script:GetCustomProperty("Light"):WaitForObject()
+local LIGHT = script:GetCustomProperty("Light"):WaitForObject()
 
---Create a green color
-local Green = Color.New(0, 0.8, 0)
+--Get the light's current color
+local color = LIGHT:GetColor()
 
---Change the light's color to the "Green" color
-propLight:SetColor(Green)
+--Clear the red component of the color
+color.r = 0
+
+--Set the color back into the light to apply the change
+LIGHT:SetColor(color)
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [Color.New](color.md)
+See also: [Color.r](color.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 
@@ -111,7 +116,7 @@ function Tick(deltaTime)
 end
 ```
 
-See also: [Color.New](color.md)
+See also: [Color.New](color.md) | [CoreObject.parent](coreobject.md)
 
 ---
 
@@ -123,7 +128,7 @@ In this example a light will repeatedly pulse. This is done by passing the curre
 
 ```lua
 --Get the light object (spotlight, point light, or light volume)
-local propLight = script:GetCustomProperty("Light"):WaitForObject()
+local LIGHT = script:GetCustomProperty("Light"):WaitForObject()
 
 --Changing this value changes the wavelength of the sine wave function
 local TIME_SCALAR = 8
@@ -144,10 +149,44 @@ function Tick(deltaTime)
     local intensity = (math.sin(timePassed * TIME_SCALAR) * AMPLITUDE)
 
     --Update the intensity of the light
-    propLight.intensity = intensity
+    LIGHT.intensity = intensity
 end
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
+### `team`
+
+### `isTeamColorUsed`
+
+In this example, a light and a trigger work in conjunction. When a player enters the trigger, team coloring is enabled for the light. When a player leaves the trigger the light's team settings go back to default.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+local LIGHT = script:GetCustomProperty("Light"):WaitForObject()
+
+function OnBeginOverlap(trigger, player)
+    if not player:IsA("Player") then return end
+    
+    LIGHT.team = player.team
+    LIGHT.isTeamColorUsed = true
+end
+
+function OnEndOverlap(trigger, player)
+    if not player:IsA("Player") then return end
+    
+    LIGHT.team = 0
+    LIGHT.isTeamColorUsed = false
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
+```
+
+See also: [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
