@@ -1203,6 +1203,26 @@ See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](gam
 
 Example using:
 
+### `collidedEvent`
+
+Each time a player bumps into another object they fire a `collidedEvent`. This example works on both server and client scripts. It shows how to connect to the event and prints the names of the objects into the Event Log.
+
+```lua
+function OnPlayerCollided(player, hitResult)
+    print(player.name .. " collided with " .. hitResult.other.name)
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.collidedEvent:Connect(OnPlayerCollided)
+end)
+```
+
+See also: [HitResult.other](hitresult.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
 ### `currentFacingMode`
 
 ### `desiredFacingMode`
