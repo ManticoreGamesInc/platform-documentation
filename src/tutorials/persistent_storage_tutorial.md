@@ -1,286 +1,529 @@
 ---
 id: persistent_storage
-name: Persistent Data Storage in Core
-title: Persistent Data Storage in Core
+name: Persistent Storage in Core
+title: Persistent Storage in Core
 tags:
     - Tutorial
 ---
 
-# Persistent Data Storage in Core
+# Persistent Storage in Core
 
 ## Overview
 
-An amazing way to keep people coming back to your projects is if they can continue to progress more each time.
+[**Persistent Storage**](../references/persistent_storage.md) allows you to store data for players in your game so when they return back in a future session, they can continue where they left off. This allows the players to continue their progress without starting from scratch.
 
-You might be familiar with this in many other games or projects you have played through; there are achievements, player levels, locked stages, the need to amass currency for certain items... the list can go on! Without persistent storage, each playthrough of a game starts completely from scratch and players do not get a sense of long-term accomplishment as easily as they could if their accomplishments were saved for them.
+You might be familiar with this in other games you have played; there are achievements, player levels, currency, inventory items, and many more. Without persistent storage, each time a player rejoins your game they would be starting from scratch, and players will not get a sense of long-term accomplishment.
 
-Here are just a few ideas on ways that persistent storage can be used:
+In this tutorial you will be learning how to save and load data for a player so that it persists between game sessions. You will add a weapon to destroy some objects that will save the players score. In the second part of the tutorial, you will also be persistently saving the weapon so when the player rejoins the game, they start with that weapon they last had equipped.
 
-* Player High Score
-* Player Level
-* Player Equipment
-* Player Resources
-* Object Location
-* Map Level for a Player
-* Currency
-* Achievements
-* Whatever else you can think of!
+Here are just a few ideas on ways persistent storage can be used:
 
-Really, anything that you might want to preserve for the next play session for that same player can be stored.
+* Player high score / player stats.
+* Player level / experience.
+* Player equipment / inventory.
+* Player resources (i.e. wood, metal, coal).
+* Currency (i.e. gold, gems).
+* Achievements / Trophies.
 
-![Overview Shot](../img/EditorManual/PersistentStorage/enablePlayerStorage.png){: .center loading="lazy" }
+--
 
-* **Completion Time:** 10 minutes
-* **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** already.
+* **Completion Time:** 20 minutes
+* **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](../tutorials/lua_basics_lightbulb.md)** already.
 * **Skills you will learn:**
-    * How to store variables persistently between game sessions
-    * How to spawn stored template save data
+    * How to store data for a player persistently between game sessions.
+    * Sending the player score from the server to the client to display in the UI.
+    * How to spawn the last equipment the player used when they join.
 
 ---
 
-## Storage in Core Lua
+## Enable Player Storage
 
-Persistent Player Storage is available under the namespace called **Storage**. The available built-in Lua calls are:
+For your game to store data persistently for players, you will need to enable player storage. Doing this will allow you to use the [Storage API](../api/storage.md) to Set and Get data for players.
 
-* `Storage.GetPlayerData(Player)`
-    * Returns a table
-    * Is server-only
-* `Storage.SetPlayerData(Player, table)`
-    * Is server-only
+### Modify Game Settings
 
-All successfully stored data in preview mode can be viewed in your computer's File Explorer in `Saved/Maps/your_map_name/Temp/Storage/`. This data is just for debugging purposes and does not get uploaded to Core servers.
+1. In the **Hierarchy** window, look for a folder called **Gameplay Settings** and open that folder.
+2. Look for an object called **Game Settings** and click on it to make it the active object in the **Hierarchy**.
+3. In the **Properties** window, look for an option called **Enable Player Storage**.
+4. Click on **Enable Player Storage** so it is enabled.
 
-Each player table has a **maximum size limit of 32kb**.
+!!! tip "Missing Game Settings"
+    If you do not have a **Game Settings** object in your **Hierarchy**, it can added to your hierarchy from the **Core Content** window by searching for **Game Settings**.
 
-To read more about the supported data types that can be saved, as well as the possible error code results, check out the Storage section of the [Core API](../api/storage.md).
+![!Game Settings](../img/PersistentStorage/game_settings.png){: .center loading="lazy" }
 
----
+## Add Objects to Hierarchy
 
-## Tutorial: Part One
+### Create Crates Group
 
-This tutorial is going to go over some basic examples of using Storage, as the Lua is simple but the possibilities are infinite.
+In the **Hierarchy** create a new group called `Crates`. This group will contain all the crates you will add.
 
-To start, we are going to save a video game classic: a player's game score.
+![!Add Group](../img/PersistentStorage/add_crates_group.png){: .center loading="lazy" }
 
-### Setting Up Storage
+### Add Crate Template
 
-1. Open a Core project.
+1. In **Core Content** search for `Damageable Crate`.
+2. Drag as many crates into the **Crates** group as you like, and move them around so they are spaced out.
 
-2. To turn on persistent game storage, we need a **Game Settings Object**. Every Core project comes with one by default. If you don't have one, navigate to the **Core Content** window, and click the **Settings Objects** tab under the **GAME OBJECTS** section. Drag the Game Settings Object from this section into your project Hierarchy.
+![!Crates](../img/PersistentStorage/add_crates.png){: .center loading="lazy" }
 
-    !!! info "Another Location for Settings Objects"
-        Settings objects can also be found in the top menu bar of Core, under **Object** > **Create Settings Object** > **Create Game Settings**.
+### Add Weapon Template
 
-3. Now select the Game Settings object in your Hierarchy, and check out the **Properties** window. Check the box for **Enable Player Storage** on.
+The player will need a weapon to destroy the crates.
 
-4. Create a new script using the button in the top toolbar of Core, and while you can call it whatever you like, in this tutorial let's call it `AddHighScore`.
+1. In **Core Content** search for `Advanced Assault Rifle`.
+2. Drag one rifle into the **Hierarchy**.
 
-    ![WorldText](../img/EditorManual/PersistentStorage/createNewScript.png){: .center loading="lazy" }
+![!Add Weapon](../img/PersistentStorage/add_weapon.png){: .center loading="lazy" }
 
-5. We need somewhere to display the changes to our score, so let's create some **World Text** to edit while the game runs.
+### Test the Game
 
-    1. In Core Content, under the **UI Elements** section, drag two WorldText objects into your project Hierarchy.
-    2. Name one of these `PlayerName`, and the other one `PlayerScore`.
-    3. Feel free to change the color or default text properties of these labels in the Properties window, or move them around in the world to where you would like. You might want to rotate them, and be aware of where the player is spawning to view these correctly.
+Test the game by picking up the weapon and shooting the crates. When the crates receive enough damage, they will be destroyed.
 
-    ![WorldText](../img/EditorManual/PersistentStorage/WorldTextExample.png){: .center loading="lazy" }
-
-6. Drag your `AddHighScore` script into your project Hierarchy if you haven't already.
-
-7. Next we'll want to create custom property references to this on the `AddHighScore` script. Select the `AddHighScore` script in the Hierarchy, and with it still selected, drag each one of the WorldText objects into the Properties window for `AddHighScore`. This will automatically create a Core Object Reference to the objects we are dragging in!
-
-    <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png" class="center">
-        <source src="/img/EditorManual/PersistentStorage/DragCustomProps.webm" type="video/webm" alt="Drag the labels onto the script."/>
-        <source src="/img/EditorManual/PersistentStorage/DragCustomProps.mp4" type="video/mp4" alt="Drag the labels onto the script."/>
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/PersistentStorage/test_crates.mp4" type="video/mp4" />
     </video>
+</div>
 
-8. Select both the `PlayerScore` & `PlayerName` objects in the Hierarchy, and right click them to select "**Enable Networking**". By doing this, they can be modified as the code runs. That way we can change what the text says!
+## Create ScoreServer Script
 
-9. Now on to the programming of storage itself! Open the `AddHighScore` script to get started.
+Create a new script called `ScoreServer` and add it to your **Hierarchy**. This script will handle saving and loading the player's data. When a crate has been destroyed, the player's score will be updated and saved.
 
-### Writing the Code
+![!Add Script](../img/PersistentStorage/add_script.png){: .center loading="lazy" }
 
-1. With our script open, we first need to access those references that we added as custom properties. This code looks like:
+### Add Crates Custom Property
 
+The **ScoreServer** script needs to know about the crates so it can award score to the player when they are destroyed.
+
+1. Click on the **ScoreServer** script in the **Hierarchy** so it becomes the active object.
+2. Drag the **Crates** group onto the **Add Custom Property** in the **Properties** window.
+
+![!Add Crates Property](../img/PersistentStorage/add_crates_prop.png){: .center loading="lazy" }
+
+### Edit ScoreServer Script
+
+Open up the **ScoreServer** script and add a reference to the crates for later use.
+
+```lua
+local CRATES = script:GetCustomProperty("Crates"):WaitForObject()
+```
+
+#### Create scoreAmount Variable
+
+Add the variable `scoreAmount` that will hold the amount of score to give to the player when they destroy a crate.
+
+```lua
+local scoreAmount = 50
+```
+
+#### Create PlayerJoined Function
+
+The `PlayerJoined` function will be called for each player that joins the game. It will get the player's storage data (table) and put it into the variable `data`. Using `SetResource`, you can set the `score` resource for the player using the `data.score` value. This value is what is saved in the player's storage. If there is no `score` property, then you can set the resource value to `0`.
+
+[`GetPlayerData`](../api/storage.md) requires the player as the first argument.
+
+```lua
+local function PlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+
+    player:SetResource("score", data.score or 0)
+end
+```
+
+#### Create PlayerLeft Function
+
+The `PlayerLeft` function will be called for each player that leaves the game. The function will get the current players score from the resource `score`, and store it in the `score` property of the `data` table. The player's `data` table is loaded here to make sure anything else that might be stored in the data is also saved.
+
+[`SetPlayerData`](../api/storage.md) requires 2 arguments, the player to save the data for, and a table of data that will be saved.
+
+```lua
+local function PlayerLeft(player)
+    local data = Storage.GetPlayerData(player)
+
+    data.score = player:GetResource("score")
+    Storage.SetPlayerData(player, data)
+end
+```
+
+#### Create CrateDestroyed Function
+
+The `CrateDestroyed` function will add the `scoreAmount` to the player's `score` resource for the player that destroyed the crated.
+
+```lua
+local function CrateDestroyed(obj, damage)
+    damage.sourcePlayer:AddResource("score", scoreAmount)
+end
+```
+
+#### Create WatchCrates Function
+
+The `WatchCrates` function will loop over all the crates in the `CRATES` group, and connect `CrateDestroyed` function to the `diedEvent`. When the player destroys a crate, the `diedEvent` will fire, which will call the `CrateDestroyed` function.
+
+```lua
+local function WatchCrates()
+    for index, crate in ipairs(CRATES:GetChildren()) do
+        crate.diedEvent:Connect(CrateDestroyed)
+    end
+end
+```
+
+#### Connect Events
+
+Connect up the events for when the player joins and leaves the game. These 2 events will load and save the player's data.
+
+```lua
+Game.playerJoinedEvent:Connect(PlayerJoined)
+Game.playerLeftEvent:Connect(PlayerLeft)
+```
+
+#### Call WatchCrates Function
+
+Call the `WatchCrates` function to setup the `diedEvent` for all the crates.
+
+```lua
+WatchCrates()
+```
+
+### The ScoreServer Script
+
+??? "ScoreServer"
     ```lua
-    local PLAYERNAME_LABEL = script:GetCustomProperty("PlayerName"):WaitForObject()
-    local SCORE_LABEL = script:GetCustomProperty("PlayerScore"):WaitForObject()
+    -- Get reference to the group that contains all the crates
+    local CRATES = script:GetCustomProperty("Crates"):WaitForObject()
+
+    -- The amount of score to give to the player when a crate is destroyed
+    local scoreAmount = 50
+
+    -- Function to call when the player joins the game.
+    -- This function will get the current players storage
+    -- data and set the resource "score" to either the
+    -- score saved, or 0 if it doesn't exist.
+
+    local function PlayerJoined(player)
+        local data = Storage.GetPlayerData(player)
+
+        player:SetResource("score", data.score or 0)
+    end
+
+    -- When the player leaves the game, save the score
+    -- to storage.
+    local function PlayerLeft(player)
+        local data = Storage.GetPlayerData(player)
+
+        data.score = player:GetResource("score")
+        Storage.SetPlayerData(player, data)
+    end
+
+    -- When a crate is destroyed, add to the players score.
+    local function CrateDestroyed(obj, damage)
+        damage.sourcePlayer:AddResource("score", scoreAmount)
+    end
+
+    -- Loop through all the children in the crates group
+    -- and connect up the diedEvent to call CrateDestroyed.
+    local function WatchCrates()
+        for index, crate in ipairs(CRATES:GetChildren()) do
+            crate.diedEvent:Connect(CrateDestroyed)
+        end
+    end
+
+    -- Connect up the player events for leaving and joining.
+    Game.playerJoinedEvent:Connect(PlayerJoined)
+    Game.playerLeftEvent:Connect(PlayerLeft)
+
+    -- Call WatchCrates to setup the diedEvents.
+    WatchCrates()
     ```
 
-2. Next comes the function for causing the score to increase. In our super simple case, we'll just increase the player's score by +1 every time they press the number 1 key. This function looks like:
+## Create Score UI
 
+The player will need to see what their score is when they join the game and when they destroy crates.
+
+1. Create a **Client Context** in the **Hierarchy** and call it `Client`.
+2. Create a **UI Container** inside the **Client** folder.
+3. Create a **UI Text** object inside the **UI Container**, and name the text object `Score Amount`.
+4. Modify the **Score Amount** by setting the font, color, size, and position to how you want.
+
+![!Score UI](../img/PersistentStorage/score_ui.png){: .center loading="lazy" }
+
+## Create ScoreClient Script
+
+Create a new script called `ScoreClient` and place it inside the **Client** folder. This script will be responsible for updating the score UI text to display the score the player has.
+
+### Add Score UI Text Custom Property
+
+The script needs a reference to the score UI text object.
+
+Add the **Score Amount** text object to the **ScoreClient** script as a custom property, name it `ScoreAmount`.
+
+![!Score Amount Property](../img/PersistentStorage/score_amount_prop.png){: .center loading="lazy" }
+
+### Edit **ScoreClient** Script
+
+Open up the **ScoreClient** script and add a reference to the property `ScoreAmount` so you can update the text in the UI for the player from the script.
+
+```lua
+local SCORE_AMOUNT = script:GetCustomProperty("ScoreAmount"):WaitForObject()
+```
+
+#### Create Local Player Variable
+
+Using the `Game.GetLocalPlayer` function will give you a reference to the local player (client).
+
+```lua
+local localPlayer = Game.GetLocalPlayer()
+```
+
+#### Create UpdateScore Function
+
+The `UpdateScore` function will be called to update the `SCORE_AMOUNT` text in the UI for the player. This will be called when the player's resources has changed, and also at the end of the script. You can check which resource has changed by checking the value of the `prop` parameter. In this case the `prop` value is being checked if it equals `score`.
+
+Because the `amount` parameter is a number (integer), it needs to be converted to a string before setting the `text` property.
+
+```lua
+local function UpdateScore(player, prop, amount)
+    if prop == "score" then
+        SCORE_AMOUNT.text = tostring(amount)
+    end
+end
+```
+
+#### Connect Resource Changed Event
+
+Connect up the `resourceChangedEvent`. This event will fire anytime a player's resource has changed. For example, if they destroy a crate the score will be updated for that player, so the event will fire which calls the `UpdateScore` function.
+
+```lua
+localPlayer.resourceChangedEvent:Connect(UpdateScore)
+```
+
+#### Call UpdateScore Function
+
+A manual call to `UpdateScore` is required, because the `resourceChangedEvent` may not have connected in time to receive the changes when the player joins the game.
+
+```lua
+UpdateScore(local_player, "score", localPlayer:GetResource("score"))
+```
+
+#### The ScoreClient Script
+
+??? "ScoreClient"
     ```lua
-    function OnBindingPressed(whichPlayer, binding)
+    local SCORE_AMOUNT = script:GetCustomProperty("ScoreAmount"):WaitForObject()
+
+    local localPlayer = Game.GetLocalPlayer()
+
+    local function UpdateScore(player, prop, amount)
+        if prop == "score" then
+            SCORE_AMOUNT.text = tostring(amount)
+        end
+    end
+
+    localPlayer.resourceChangedEvent:Connect(UpdateScore)
+
+    UpdateScore(local_player, "score", localPlayer:GetResource("score"))
+    ```
+
+### Test the Game
+
+Test the game and make sure the following work:
+
+- Destroying crates increases the score in the UI.
+- Leaving and rejoining the game displays the score the player had before leaving.
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/PersistentStorage/section_1_complete.mp4" type="video/mp4" />
+    </video>
+</div>
+
+## Save Player Weapon
+
+In this section you will learn how to save the player's weapon selection. Player's will be able to press ++1++ or ++2++ to switch between 2 different weapons.
+
+### Remove Advanced Assault Rifle
+
+Remove the advanced assault rifle that you added to your **Hierarchy** in the previous section. Instead of having the player pickup the weapon, it will be spawned into the world and equipped on the player.
+
+### Create WeaponServer Script
+
+Create a new script called `WeaponServer` and place it into your **Hierarchy**. This script will be responsible for spawning the player's weapon selection, and saving that selection to persistent storage so the next time they join the game they start out with the last weapon they equipped.
+
+#### Add Weapon Custom Properties
+
+The player will need at least 2 weapons to pick between.
+
+1. Search for `Advanced Assault Rifle` in **Core Content** and add it as a custom property.
+2. Search for `Basic Pistol` in **Core Content** and add it as a custom property.
+
+![!Add Weapons](../img/PersistentStorage/add_weapons_props.png){: .center loading="lazy" }
+
+#### Edit WeaponServer Script
+
+Open up the **WeaponServer** script and create a table called `weapons` that contains the references to the weapons you added as custom properties. A table is used so an index lookup can be done, as the index of the weapon will be saved to the player's storage.
+
+```lua
+local weapons = {
+
+    script:GetCustomProperty("AdvancedAssaultRifle"),
+    script:GetCustomProperty("AdvancedPistol")
+
+}
+```
+
+#### Create RemoveWeapon Function
+
+The `RemoveWeapon` function will destroy any equipment the player has to make sure the player can only have one item.
+
+```lua
+local function RemoveWeapon(player)
+    for e, equipment in pairs(player:GetEquipment()) do
+        equipment:Destroy()
+    end
+end
+```
+
+#### Create EquipWeapon Function
+
+The `EquipWeapon` function will spawn the weapon asset using [`SpawnAsset`](../api/world.md) based on the `index` that is passed in. At the same time it will save the index to the player's storage in the `weaponIndex` property.
+
+`SetPlayeData` requires 2 arguments, the player who you are saving the data for, and the table of data to be saved.
+
+```lua
+local function EquipWeapon(player, index)
+    RemoveWeapon(player)
+
+    if index ~= nil and weapons[index] ~= nil then
+        local weapon = World.SpawnAsset(weapons[index])
+
+        weapon:Equip(player)
+
+        local data = Storage.GetPlayerData(player)
+
+        data.weaponIndex = index
+        Storage.SetPlayerData(player, data)
+    end
+end
+```
+
+#### Create BindingPressed Function
+
+The [`BindingPressed`](../api/player.md) function will check which binding the player is pressing, and equip the correct weapon for the player.
+
+```lua
+local function BindingPressed(player, binding)
+    if binding == "ability_extra_1" then
+        EquipWeapon(player, 1)
+    elseif binding == "ability_extra_2" then
+        EquipWeapon(player, 2)
+    end
+end
+```
+
+#### Create PlayerJoined Function
+
+The `PlayerJoined` function will be called when the player joins the game. This function will get the player's data and pass the `weaponIndex` to the `EquipWeapon` function so it is spawned for that player. You also need to set up the `bindingPressedEvent` so the player can switch between the weapons.
+
+```lua
+local function PlayerJoined(player)
+    local data = Storage.GetPlayerData(player)
+
+    EquipWeapon(player, data.weaponIndex)
+    player.bindingPressedEvent:Connect(BindingPressed)
+end
+```
+
+#### Connect Player Joined Event
+
+Connect the [`playerJoinedEvent`](../api/player.md) so that when the player joins the game, they will continue with the weapon they last selected.
+
+```lua
+Game.playerJoinedEvent:Connect(PlayerJoined)
+```
+
+#### The WeaponServer Script
+
+??? "WeaponServer"
+    ```lua
+    local weapons = {
+
+        script:GetCustomProperty("AdvancedAssaultRifle"),
+        script:GetCustomProperty("AdvancedPistol")
+
+    }
+
+    local function RemoveWeapon(player)
+        for e, equipment in pairs(player:GetEquipment()) do
+            equipment:Destroy()
+        end
+    end
+
+    local function EquipWeapon(player, index)
+        RemoveWeapon(player)
+
+        if index ~= nil and weapons[index] ~= nil then
+            local weapon = World.SpawnAsset(weapons[index])
+
+            weapon:Equip(player)
+
+            local data = Storage.GetPlayerData(player)
+
+            data.weaponIndex = index
+            Storage.SetPlayerData(player, data)
+        end
+    end
+
+    local function BindingPressed(player, binding)
         if binding == "ability_extra_1" then
-            local playerDataTable = Storage.GetPlayerData(whichPlayer)
-
-            if playerDataTable.score then
-                playerDataTable.score = playerDataTable.score + 1
-            else
-                playerDataTable.score = 0
-            end
-
-            local errorCode, errorMsg = Storage.SetPlayerData(whichPlayer, playerDataTable)
-
-            if errorCode == StorageResultCode.SUCCESS then
-                SCORE_LABEL.text = tostring(playerDataTable.score)
-            else
-                UI.PrintToScreen(errorMsg)
-            end
+            EquipWeapon(player, 1)
+        elseif binding == "ability_extra_2" then
+            EquipWeapon(player, 2)
         end
     end
-    ```
 
-    !!! info "What is this function doing?"
-        In a nutshell, this is a function for what happens when the player presses any button. The first "if statement" is checking that the button the player pressed is the one that we are looking for, `ability_extra_1`.
+    local function PlayerJoined(player)
+        local data = Storage.GetPlayerData(player)
 
-    It then creates a reference to the player's storage data table. If the player already had an existing data table with `score` in it, it will add +1 to that score. If the player did not already have a data table, it will set the `score` entry of the data table to 0.
-
-    Next it's setting up an error message, so that when the function is activated it will print to the **Event Log** whether saving the data was successful or not.
-
-    And that's it!
-
-3. After that, the next function we need determines what to do when a player joins the game. This is where we can initialize the storage data table for that player, and set their `score` to 0 if they don't already have one. This code looks like:
-
-    ```lua
-    function OnPlayerJoined(player)
-        local playerDataTable = Storage.GetPlayerData(player)
-
-        if not playerDataTable.score then
-            playerDataTable.score = 0
-        end
-
-        SCORE_LABEL.text = tostring(playerDataTable.score)
-        PLAYERNAME_LABEL.text = player.name .. " Score:"
-
-        player.bindingPressedEvent:Connect(OnBindingPressed)
+        EquipWeapon(player, data.weaponIndex)
+        player.bindingPressedEvent:Connect(BindingPressed)
     end
+
+    Game.playerJoinedEvent:Connect(PlayerJoined)
     ```
 
-    !!! info "Okay, how about what this function is doing?"
-        This functions will happen every time a new player joins the game. This gives an opportunity to check their data table, plug in their data *(username and score)* to the UI we made, and create a starting `score` for them if they've never played before.
+### Test the Game
 
-        Lastly, it is connecting the previous function we made to the player event that happens whenever the player presses a button. Now the `OnBindingPressed()` function is hooked up!
+Test the game and make sure the following work:
 
-4. Finally, we've got to connect the `OnPlayerJoined()` function that we just wrote to the `playerJoinedEvent` in the `Game` namespace. This officially hooks up the function we made to the built-in event that is triggered when a player joins. Check it out below:
+- Pressing ++1++ or ++2++ changes the player's weapon.
+- Leaving and rejoining the game gives the last weapon the player selected.
 
-    ```lua
-    Game.playerJoinedEvent:Connect(OnPlayerJoined)
-    ```
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/PersistentStorage/final.mp4" type="video/mp4" />
+    </video>
+</div>
 
-5. Now press play to jump in the game and test it out!
+## Player Storage File Location
 
-    Whenever you press ++1++ on your keyboard, the number on-screen will increase!
+Something that is useful to know is where to find the storage files when you are locally testing your game. This can be useful to see what data is being saved for the player.
 
-![Final Result](../img/EditorManual/PersistentStorage/finalResult.png){: .center loading="lazy" }
+### Project Explorer Location
 
-Congrats, you've learned the basics of Persistent Data Storage in Core. Now go forth, and save awesome things!
+To find where you project exists, you can go to the **Create** tab and click on the option button and select **Show In Explorer**. This will open the folder to your project.
 
-If you'd like another example using a different type of object to save, try the second half of this tutorial.
+![!Location](../img/PersistentStorage/show_in_explorer.png){: .center loading="lazy" }
 
-## Tutorial: Part Two
+### Player Storage Files
 
-Saving a number is great and fine, but there are so many things that you can save with persistence. Next, let's try saving the player's equipment.
+If you have been saving data for a player using any of the [Storage API](../api/storage.md) functions, then you will see a **Temp** folder in your project folder. Open that folder up and you will see another folder called **Storage**. This is where the files for player storage are saved. These files can be opened so you can inspect the data in them. The name of the files are named after the player's ID.
 
-### Modifying Existing Code
+![!Data Files](../img/PersistentStorage/file_location.png){: .center loading="lazy" }
 
-We're going to edit the script we already used in the first half of the tutorial, `AddHighScore`. Since we already made an `OnPlayerJoined()` function here, it's easiest to modify this to also work for loading the equipment we are going to save.
+## Summary
 
-1. Open the `AddHighScore` script, and in the `OnPlayerJoined()` function, beneath the `Connect:` line that we wrote, include this code:
+Adding persistent storage to your game can improve the experience for players, and give them something to work for that will keep them coming back to play your game. This could be a leveling system, player stats, or whatever else you can think of.
 
-    ```lua
-    if not playerDataTable.equipment then
-        print("No player data equipment found.")
-        return
-    end
-    local newWeapon = World.SpawnAsset(playerDataTable.equipment)
-    newWeapon:Equip(player)
-    ```
+## Learn More
 
-    This means the whole function should now look like this:
-
-    ```lua
-    function OnPlayerJoined(player)
-        local playerDataTable = Storage.GetPlayerData(player)
-
-        if not playerDataTable.score then
-            playerDataTable.score = 0
-        end
-
-        SCORE_LABEL.text = tostring(playerDataTable.score)
-        PLAYERNAME_LABEL.text = player.name .. " Score:"
-
-        player.bindingPressedEvent:Connect(OnBindingPressed)
-
-        if not playerDataTable.equipment then
-            print("No player data equipment found.")
-            return
-        end
-        local newWeapon = World.SpawnAsset(playerDataTable.equipment)
-        newWeapon:Equip(player)
-    end
-    ```
-
-    !!! info "What's happening in this code change?"
-        We're doing almost exactly the same thing that we did for loading the player score. Instead of giving the player starting equipment by default, we are just printing a line to the **Event Log** alerting us that this player didn't have any saved equipment yet. If they did have saved equipment, then we are spawning an instance of that equipment and equipping it onto the player.
-
-2. Now that we've set up our code to load player equipment that we save, we need the actual equipment to save! For this tutorial, we are going to use one of the *Advanced Weapons* that are included in **Core Content**.
-
-    Navigate to Core Content, and drop down the **Game Components** category to find the weapons category. From within here, drag the *Advanced Shotgun* into your viewport window. You can choose any *Advanced Weapon* that you like--we just need to choose an *Advanced* weapon as they already come with the script that we need to modify.
-
-3. Once you've dragged in the Advanced Shotgun, you will be able to access all of its scripts from "**My Scripts**" in your **Project Content**.
-
-    The script we want to modify is called `EquipmentPickupServer`. Open this up to get started!
-
-4. When you open the script, you'll notice it is already full of variables and functions. We're going to scroll down to the `OnEquipped()` function, and add a few lines to it.
-
-    After all the existing content in the function, but still inside of it, add these lines of code:
-
-    ```lua
-    local playerDataTable = Storage.GetPlayerData(player)
-    playerDataTable.equipment = EQUIPMENT.sourceTemplateId
-    print(EQUIPMENT.sourceTemplateId)
-    Storage.SetPlayerData(player, playerDataTable)
-    ```
-
-    So now the whole `OnEquipped()` function should look like this:
-
-    ```lua
-    function OnEquipped(equipment, player)
-
-        -- Turn off trigger once equipped
-        if Object.IsValid(TRIGGER) then
-         TRIGGER.collision = Collision.FORCE_OFF
-        end
-
-        -- Spawn a pickup sound when a player picks up the weapon
-        if PICKUP_SOUND then
-            local pickupSound = World.SpawnAsset(PICKUP_SOUND, {position = script:GetWorldPosition()})
-
-            -- Set a default lifespan if the pickup sound template has 0 lifeSpan
-            if pickupSound.lifeSpan == 0 then
-                pickupSound.lifeSpan = DEFAULT_LIFESPAN
-            end
-        end
-
-        -- Saving equipment to player storage
-        local playerDataTable = Storage.GetPlayerData(player)
-        playerDataTable.equipment = EQUIPMENT.sourceTemplateId
-        print(EQUIPMENT.sourceTemplateId)
-        Storage.SetPlayerData(player, playerDataTable)
-    end
-    ```
-
-    !!! info "So what is happening this time?"
-        This function fires the moment a player picks up and equips the weapon. At that moment, it sets the `.equipment` property of the player storage to be equal to the template ID of the equipment that fired this function. This way, that exact template can be spawned in the `OnPlayerJoined()` function that we wrote in the first step on the `AddHighScore` script.
-
-5. We have everything hooked up now! Press play, and pick up the weapon. When you quit preview mode, this weapon will still be saved. Hit play again, and you will automatically have the weapon equipped to you.
-
-Now you know how to save something that needs to be spawned again on the next play session. More tools in your creator toolbelt!
-
----
-
-## Extra Tips & Info
-
-* Persistent storage data does not transfer between games nor can it be accessed between games.
-* Using this same method as the tutorial, you can save all types of data: weapons, player resources, player or object location; whatever you would like. The key elements are loading the player storage when a player joins the game, and setting the player storage when you want something to be saved to it.
+[Persistent Storage Reference](../references/persistent_storage.md) | [Storage API](../api/storage.md) | [Basic Weapons Tutorial](../tutorials/weapons_tutorial.md) | [Networking Reference](../references/networking.md) | [Shared Storage Reference](../references/shared_storage.md) | [Concurrent Storage Reference](../references/concurrent_storage.md) | [Concurrent Storage Tutorial](../tutorials/concurrent_storage_tutorial.md)
