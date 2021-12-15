@@ -191,14 +191,14 @@ tags:
 | `MovementMode.FALLING` | `3` | Player is jumping or falling. |
 | `MovementMode.SWIMMING` | `4` | Player is swimming. |
 | `MovementMode.FLYING` | `5` | Player is flying. |
-| `MovementMode.SLIDING` | `6` | Coming Soon |
+| `MovementMode.SLIDING` | `6` | MovementMode.SLIDING is not currently implemented. It will be removed in a future release. |
 
 ## NetReferenceType
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
 | `NetReferenceType.LEADERBOARD` | `1` | Leaderboard key. |
-| `NetReferenceType.SHARED_STORAGE` | `2` | Player shared storage key. *Note: `NetReferenceType.SHARED_STORAGE` is deprecated. Please use `NetReferenceType.SHARED_PLAYER_STORAGE` instead.* |
+| `NetReferenceType.SHARED_STORAGE` | `2` | NetReferenceType.SHARED_STORAGE has been renamed to SHARED_PLAYER_STORAGE. SHARED_STORAGE will be removed in a future release. |
 | `NetReferenceType.SHARED_PLAYER_STORAGE` | `2` | Shared player storage key. |
 | `NetReferenceType.CONCURRENT_SHARED_PLAYER_STORAGE` | `4` | Concurrent shared player storage key. |
 | `NetReferenceType.CONCURRENT_CREATOR_STORAGE` | `5` | Concurrent creator storage key. |
