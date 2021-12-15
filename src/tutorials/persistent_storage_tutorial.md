@@ -52,22 +52,6 @@ For your game to store data persistently for players, you will need to enable pl
 
 ![!Game Settings](../img/PersistentStorage/game_settings.png){: .center loading="lazy" }
 
-## Player Storage File Location
-
-Something that is useful to know is where to find the storage files when you are locally testing your game. This can be useful to see what data is being saved for the player.
-
-### Project Explorer Location
-
-To find where you project exists, you can goto the **Create** tab and click on the option button and select **Show In Explorer**. This will open the folder to your project.
-
-![!Location](../img/PersistentStorage/show_in_explorer.png){: .center loading="lazy" }
-
-### Player Storage Files
-
-If you have been saving data for a player using any of the [Storage API](../api/storage.md) functions, then you will see a **Temp** folder in your project folder. Open that folder up and you will see another folder called **Storage**. This is where the files for player storage are saved. These files can be opened so you can inspect the data in them. The name of the files are named after the player's ID.
-
-![!Data Files](../img/PersistentStorage/file_location.png){: .center loading="lazy" }
-
 ## Add Objects to Hierarchy
 
 ### Create Crates Group
@@ -519,6 +503,22 @@ Test the game and make sure the following work:
         <source src="/img/PersistentStorage/final.mp4" type="video/mp4" />
     </video>
 </div>
+
+## Player Storage File Location
+
+Something that is useful to know is where to find the storage files when you are locally testing your game. This can be useful to see what data is being saved for the player.
+
+### Project Explorer Location
+
+To find where you project exists, you can go to the **Create** tab and click on the option button and select **Show In Explorer**. This will open the folder to your project.
+
+![!Location](../img/PersistentStorage/show_in_explorer.png){: .center loading="lazy" }
+
+### Player Storage Files
+
+If you have been saving data for a player using any of the [Storage API](../api/storage.md) functions, then you will see a **Temp** folder in your project folder. Open that folder up and you will see another folder called **Storage**. This is where the files for player storage are saved. These files can be opened so you can inspect the data in them. The name of the files are named after the player's ID.
+
+![!Data Files](../img/PersistentStorage/file_location.png){: .center loading="lazy" }
 
 ## Summary
 
