@@ -102,6 +102,127 @@ The Dirt and Scifi areas are on top of each other. The cubes for each of these a
 
 ## Creating an Alien Egg
 
+The Alien Egg will be an item starting in the player's inventory. It will need 3 templates for being held in the player's hand, dropped on the floor, and seen in the inventory slot.
+
+These are the templates for the Red Fruit item. Note they all have the same art model but are transformed to the desired context (e.g. laying on the ground or placed in the player's hand).
+
+<!--- TODO add pic --->
+
+### Create the Art Model
+
+The art model for the egg will be a simple mesh shape with a material on it.
+
+1. Open the **Core Content** window and search for `Ovoid 01`.
+2. Drag and drop the mesh into the **Hierarchy**.
+3. Rename the mesh to `Alien Egg Model`.
+4. Select the mesh and open the **Properties** window.
+5. Set the **Material** property to `Plastic Matte`.
+6. Set the **Color Override** to a green color.
+
+<!--- TODO add pic --->
+
+### Duplicate the Red Fruit Item
+
+In the Hierarchy, open the **Global Database** folder and then expand the **Items** script. Any item that will be placed in the inventory will need data in this group. Right click the **Red Fruit** script and select **Duplicate**. Rename the duplicated Red Fruit script to `Alien Egg`.
+
+<!--- TODO add pic --->
+
+### Open the Alien Egg Properties
+
+Select the Alien Egg and open the Properties window. There are many custom properties for each item.
+
+<!--- TODO add table --->
+
+### Change the Name and Description
+
+Set the **Name** property to `Alien Egg`. Then, set the **Description** property to `An egg with an alien embryo inside.`.
+
+<!--- TODO add pic --->
+
+### Change the Drop Template
+
+The **DropTemplate** property should already have a template from the Red Fruit item named **Product - Fresh Red Fruit (Drop Icon)**. The template contains a Geo group with the mesh displaying the red fruit item on the ground.
+
+1. Click the **Find in Asset Catalog** button <!--- TODO add icon ---> to the right of the **DropTemplate** property to open the Project Content window with the template selected.
+2. Drag and drop the **Product - Fresh Red Fruit (Drop Icon)** template into the scene besides the Alien Egg Model.
+3. Right click the template and select **Deinstance This Object**.
+4. Right click the **Alien Egg Model** in the Hierarchy and select Duplicate.
+5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Drop Icon)**.
+6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
+7. Resize the duplicated Alien Egg Model to the desired in-game size.
+8. Delete the **Basic Pepper 02** mesh from the Geo folder.
+9. Right click **Product - Fresh Red Fruit (Drop Icon)** and select **Create New Template From This**.
+10. Name the template `Alien Egg (Drop Icon)`.
+11. Delete the **Alien Egg (Drop Icon)** template from the Hierarchy.
+12. Search the Hierarchy for the `Alien Egg` script and open the Properties window.
+13. Set the **DropTemplate** property to **Alien Egg (Drop Icon)**.
+
+<!--- TODO add pic --->
+
+### Change the Icon Asset
+
+The Icon Asset template has three different options to display an inventory icon. The option used for the red fruit template requires knowledge of the **Icon Generator**.
+
+!!! info "The Icon Generator"
+    The Icon Generator is a component used to render 3D icons. It uses a remote camera in a black box to capture an image of a template. The black box should be moved in a published project to a place out of sight.
+    <!--- TODO add pic --->
+
+#### Duplicate the Icon Asset
+
+The template for the icon asset is usually a particular size to get a clear capture on the camera. This is why using the red fruit icon asset as a base will make the process easier.
+
+1. Open the Project Content window and search for `Product - Fresh Red Fruit (Inventory Icon)`.
+2. Drag and drop the **Product - Fresh Red Fruit (Inventory Icon)** template into the scene besides the Alien Egg Model.
+3. Right click the **Product - Fresh Red Fruit (Inventory Icon)** and select **Deinstance This Object**.
+4. Right click the **Alien Egg Model** in the Hierarchy and select Duplicate.
+5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Inventory Icon)**.
+6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
+7. Resize the duplicated Alien Egg Model to match the red fruit.
+8. Delete the **Basic Pepper 02** mesh from the Geo folder.
+9. Right click **Product - Fresh Red Fruit (Inventory Icon)** and select **Create New Template From This**.
+10. Name the template `Alien Egg (Inventory Icon)`.
+11. Delete the **Alien Egg (Inventory Icon)** template from the Hierarchy.
+12. Search the Hierarchy for the `Alien Egg` script and open the Properties window.
+13. Set the **IconAsset** property to **Alien Egg (Inventory Icon)**.
+
+<!--- TODO add pic --->
+
+#### Visualize the Icon
+
+As long as the **Alien Egg (Inventory Icon)** matched the red fruit icon template, then it will most likely produce a clear inventory icon. However, it is good to know how the **Icon Generator** is placing the template in front of the capturing camera in case adjustments are needed.
+
+1. In the Hierarchy, expand the **UI** folder and right click the **Icon Generator** and select **Desinstance This Object**.
+2. Inside the Icon Generator, expand the **ClientContent** group and find the **Icon Container** group.
+3. Open the Project Content window and search for `Alien Egg (Inventory Icon)`.
+4. Drag and drop the template into the **Icon Container** group in the Hierarchy.
+5. Select the **Alien Egg (Inventory Icon)** and press ++F++ to focus the editor camera on it. The model should be centered and contained inside a gray box indicating the capture frame.
+6. If necessary, adjust the **Alien Egg Model** and update the **Alien Egg (Inventory Icon)** template.
+7. Delete the **Alien Egg (Inventory Icon)** template from the Hierarchy.
+
+<!--- TODO add pic --->
+
+### Change the Equipment Visual Template
+
+The Equipment Visual Template is the attached player equipment if an item is selected. The red fruit's equipment has a specific position and rotation to fit in the player's hand.
+
+1. Click the **Find in Asset Catalog** button <!--- TODO add icon ---> to the right of the **EquipmentVisualTemplate** property to open the Project Content window with the template selected.
+2. Drag and drop the **Product - Fresh Red Fruit (Held)** template into the scene besides the Alien Egg Model.
+3. Right click the template and select **Deinstance This Object**.
+4. Right click the **Alien Egg Model** in the Hierarchy and select Duplicate.
+5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Held)**.
+6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
+7. Resize the duplicated Alien Egg Model to the desired in-game size.
+8. Delete the **Basic Pepper 02** mesh from the Geo folder.
+9. Right click **Product - Fresh Red Fruit (Held)** and select **Create New Template From This**.
+10. Name the template `Alien Egg (Held)`.
+11. Delete the **Alien Egg (Held)** template from the Hierarchy.
+12. Search the Hierarchy for the `Alien Egg` script and open the Properties window.
+13. Set the **EquipmentVisualTemplate** property to **Alien Egg (Held)**.
+
+<!--- TODO add pic --->
+
+## Starting with an Alien Egg
+
 ## Creating a Burnt Egg
 
 ## Creating an Alien Raptor
