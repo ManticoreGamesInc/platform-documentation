@@ -30,7 +30,7 @@ Other use cases for using Player Storage:
 
 [Player Shared Storage](../references/shared_storage.md) is similar to **Player Storage**, the difference being that the key created can be used in your other games. Meaning that the data you save in one game can be loaded in a completely different game owned by you.
 
-Player Shared Storage can be used in a way that can allows your games to be more connected. For example, having a currency (i.e. Coins) that is shared across all your games. Players could earn coins from any of yours games, and with it being stored in a shared key, they could use that currency to purchase items (e.g., Cosmetics) from different games.
+Player Shared Storage can be used in a way that can allow your games to be more connected. For example, having a currency (i.e. Coins) that is shared across all your games. Players could earn coins from any of yours games, and with it being stored in a shared key, they could use that currency to purchase items (e.g., Cosmetics) from different games.
 
 Another idea of a using Player Shared Storage is a player loyalty system. When a player has played any of your other games, they could be rewarded loyalty points that can be spent on unique items that can only be purchased with loyalty points.
 
