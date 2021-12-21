@@ -452,6 +452,34 @@ See also: [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
 
 Example using:
 
+### `GetAttachedObjects`
+
+Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
+
+When attaching an object to a player you need to specify the "socket" you want to attach it to. The list of legal sockets can be found on its own page in the documentation.
+
+```lua
+local CUBE = script.parent
+CUBE.collision = Collision.FORCE_OFF
+
+Game.playerJoinedEvent:Connect(function(player)
+    -- Attach the cube to the player's head
+    CUBE:AttachToPlayer(player, "head")
+
+    -- We can then ask the player for a list of attached CoreObjects:
+    print("Attached objects: ")
+    for _, v in ipairs(player:GetAttachedObjects()) do
+        print(tostring(v.name))
+    end
+end)
+```
+
+See also: [CoreObject.AttachToPlayer](coreobject.md)
+
+---
+
+Example using:
+
 ### `movementHook`
 
 ### `IsBindingPressed`
@@ -1867,10 +1895,6 @@ Example using:
 
 ### `GetPerkCount`
 
-### `GetPerkReference`
-
-### `SetPerkReference`
-
 Perks are a system to create in-game purchases that allow players to support game creators and enable exclusive content.
 
 Learn more about Perks [here](https://docs.coregames.com/references/perks/program/).
@@ -1940,6 +1964,6 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-See also: [NetReference.isAssigned](netreference.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.name](player.md) | [CoreLua.print](coreluafunctions.md) | [UI.PrintToScreen](ui.md) | [Event.Connect](event.md)
+See also: [UIPerkPurchaseButton.SetPerkReference](uiperkpurchasebutton.md) | [NetReference.isAssigned](netreference.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Player.name](player.md) | [CoreLua.print](coreluafunctions.md) | [UI.PrintToScreen](ui.md) | [Event.Connect](event.md)
 
 ---

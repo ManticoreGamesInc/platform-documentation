@@ -286,8 +286,6 @@ Example using:
 
 ### `GetAttachedToSocketName`
 
-### `GetAttachedObjects`
-
 Whether you're building sticky-mines, or costumes, sometimes it is useful to be able to attach a `CoreObject` directly to a spot on a player.
 
 When attaching an object to a player you need to specify the "socket" you want to attach it to. The list of legal sockets can be found on its own page in the documentation.
@@ -312,14 +310,12 @@ end
 
 cube:Detach()
 
---[[#description
-It's also possible to attach objects to the local view on the client.
-Note that this only works from inside a client context:
-]]
+-- It's also possible to attach objects to the local view on the client.
+-- Note that this only works from inside a client context:
 cube:AttachToLocalView()
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
+See also: [Player.GetAttachedObjects](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
