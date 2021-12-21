@@ -49,7 +49,7 @@ A map has been created for you that you will place into the **Hierarchy**.
 1. Click the **Project Content** tab.
 2. Click **My Templates** under **All Content**.
 3. Add the template **Boss Fight Map** into the **Hierarchy**.
-4. Deinstance the **Boss Right Map** template in the **Hierarchy**.
+4. Deinstance the **Boss Fight Map** template in the **Hierarchy**.
 5. Test the game.
 
 When you test the game, you will be have an environment to move around in.
