@@ -25,7 +25,7 @@ Here are just a few ideas on ways persistent storage can be used:
 * Currency (i.e. gold, gems).
 * Achievements / Trophies.
 
---
+---
 
 * **Completion Time:** 20 minutes
 * **Knowledge Level:** No knowledge *absolutely* required, but this will be easier to understand with a grasp on **[Lua](../tutorials/lua_basics_lightbulb.md)** already.
