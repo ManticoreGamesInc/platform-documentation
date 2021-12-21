@@ -579,7 +579,7 @@ An icon generator will be a small setup made up of a plane, frame, light, dummy 
 
 The background will be used behind the object that will be rendered to the UI image. The material and color can be changed to get a different background based on the object being rendered. For example, a different color for epic items, and a different color for legendary items.
 
-1. In **Core Content** search for `Plane 1m - One Sided` and add it into the **Client Context** and rename it to `Background`.
+1. In **Core Content** type `Plane 1m` into the search to find **Plane 1m - One Sided** and add it into the **Client Context**. Rename it to `Background`.
 2. Set the **Position** in the **Properties** window to **X** `601`, **Z** `350`.
 3. Set the **Rotation** in the **Properties** window to **Y** `90`.
 4. Set the **Scale** in the **Properties** window to **X** `6`, **Y** `6`, **Z** `6`.
@@ -588,7 +588,7 @@ The background will be used behind the object that will be rendered to the UI im
 
 The frame will show in the rendered image. This is optional.
 
-1. In **Core Content** search for `pipe 4 sided thin` and add it into the **Client Context** and rename it to `Frame`.
+1. In **Core Content** type `Pipe - 4` into the search to find **Pipe - 4-Sided Thin** and add it into the **Client Context**. Rename it to `Frame`.
 2. Set the **Position** in the **Properties** window to **X** `600`, **Z** `350`.
 3. Set the **Rotation** in the **Properties** window to **Y** `90`.
 4. Set the **Scale** in the **Properties** window to **X** `3.6`, **Y** `3.6`, **Z** `0.01`.
@@ -597,7 +597,7 @@ The frame will show in the rendered image. This is optional.
 
 A point like will add a sphere gradient to the background and light up the object being rendered from behind, which will give it a nice effect.
 
-1. In **Core Content** search for `point light` and add it into the **Client Context**.
+1. In **Core Content** search for `Point Light` and add it into the **Client Context**.
 2. Set the **Position** in the **Properties** window to **X** `500`, **Z** `350`.
 3. In the light **Properties** window, set the **Intensity** to `35`, and **Attenuation Radius** to `400`.
 4. Adjust the light color to suit the game.
@@ -606,7 +606,7 @@ A point like will add a sphere gradient to the background and light up the objec
 
 The dummy object is used to show the bounds of what the camera will be rendering. So objects placed within the dummy object will be displayed in the UI.
 
-1. In **Core Content** search for `dummy object` and add it into the **Client Context**.
+1. In **Core Content** search for `Dummy Object` and add it into the **Client Context**.
 2. Set the **Position** in the **Properties** window to **X** `460`, **Z** `350`.
 3. In the **Properties** window, set the **X Scale** to `1.4`, **Y Scale** to `1.4`, **Z Scale** to `1.4`.
 
