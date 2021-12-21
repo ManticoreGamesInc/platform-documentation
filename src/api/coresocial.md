@@ -24,14 +24,6 @@ Example using:
 
 ### `GetFriends`
 
-### `GetResults`
-
-### `GetMoreResults`
-
-### `name`
-
-### `id`
-
 In this client script, a function is setup to gather the names and ID of all players that are Core friends of the local player. The function is then called and the data is printed out to the Event Log. The pagination aspect of the friend collection, with `GetMoreResults()` is worth considering as part of the game's user interface, instead of collecting the entire data set as in this example. That is because these CoreSocial functions yield the thread as they wait for the results, which might cause the UI to freeze for players that have hundreds of friends.
 
 ```lua
@@ -62,21 +54,13 @@ for _,entry in ipairs(entries) do
 end
 ```
 
-See also: [Game.GetLocalPlayer](game.md)
+See also: [CoreFriendCollection.GetResults](corefriendcollection.md) | [CoreFriendCollectionEntry.id](corefriendcollectionentry.md) | [Game.GetLocalPlayer](game.md)
 
 ---
 
 Example using:
 
 ### `GetFriends`
-
-### `GetResults`
-
-### `GetMoreResults`
-
-### `name`
-
-### `id`
 
 In this second example, pagination is used to peruse the player's friend list. The size of the page is flexible, to best fit the user interface and not tied to the return limits of `GetResults()`. UI buttons could be tied to the `NextPage()` and `PreviousPage()` functions, but here we demonstrate by printing out all the pages into the Event Log. The functions `HasNextPage()` and `HasPreviousPage()` can be used to disable/enable the next & previous buttons.
 
@@ -180,7 +164,7 @@ while HasNextPage() do
 end
 ```
 
-See also: [Game.GetLocalPlayer](game.md)
+See also: [CoreFriendCollection.GetResults](corefriendcollection.md) | [CoreFriendCollectionEntry.name](corefriendcollectionentry.md) | [Game.GetLocalPlayer](game.md)
 
 ---
 

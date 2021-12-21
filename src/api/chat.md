@@ -66,15 +66,15 @@ Being a hook, it is possible to modify contents of the triggering message. This 
 local badwordList = {["dang"] = true, ["darn"] = true, ["heck"] = true}
 
 function WordFilter(s)
-if badwordList[s:lower()] ~= nil then
-    return string.rep("#", s:len())
-end
+    if badwordList[s:lower()] ~= nil then
+        return string.rep("#", s:len())
+    end
 end
 
 function CheckForBlockedWords(speaker, params)
-local res = string.gsub(params.message, "%a+", WordFilter)
-print(res)
-params.message = res
+    local res = string.gsub(params.message, "%a+", WordFilter)
+    print(res)
+    params.message = res
 end
 
 Chat.receiveMessageHook:Connect(CheckForBlockedWords)
@@ -98,15 +98,15 @@ Example using:
 -- This needs to be in a client context. Chat.LocalMessage only
 -- sends to the local player.
 function WhoCommand(params)
-local message = string.lower(params.message)
-if message == "/who" then
-    local result = "Current players:\n  "
-    for _, p in ipairs(Game.GetPlayers()) do
-        result = result .. p.name .. "\n  "
+    local message = string.lower(params.message)
+    if message == "/who" then
+        local result = "Current players:\n  "
+        for _, p in ipairs(Game.GetPlayers()) do
+            result = result .. p.name .. "\n  "
+        end
+        Chat.LocalMessage(result)
+        params.message = ""
     end
-    Chat.LocalMessage(result)
-    params.message = ""
-end
 end
 
 Chat.sendMessageHook:Connect(WhoCommand)
