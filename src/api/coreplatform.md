@@ -228,12 +228,6 @@ Example using:
 
 ### `GetPlayerProfile`
 
-### `id`
-
-### `name`
-
-### `description`
-
 This client script example fetches the profile of the game's creator and uses information from it to print a welcome message into the chat window.
 
 ```lua
@@ -254,7 +248,7 @@ Chat.LocalMessage("by " .. creatorProfile.name)
 Chat.LocalMessage(creatorProfile.description)
 ```
 
-See also: [Chat.LocalMessage](chat.md) | [Game.GetLocalPlayer](game.md) | [Player.name](player.md)
+See also: [CorePlayerProfile.id](coreplayerprofile.md) | [Chat.LocalMessage](chat.md) | [Game.GetLocalPlayer](game.md) | [Player.name](player.md)
 
 ---
 
