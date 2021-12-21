@@ -549,7 +549,8 @@ A [Camera](../api/camera.md) will need to be added to the **Hierarchy** that wil
 
 1. Create a **Client Context** in the **Hierarchy**.
 2. Set the **Position** in the **Properties** window to **X** `-300`, **Z** `350`.
-3. Create a **Camera** in the **Client Context** and set the following properties in the **Properties** window:
+3. Set the **Field of View** in the **Properties** window to `60`.
+4. Create a **Camera** in the **Client Context** and set the following properties in the **Properties** window:
 
 | Property | Value |
 | -------- | ----- |
