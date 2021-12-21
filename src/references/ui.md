@@ -529,6 +529,124 @@ UI.SetCanCursorInteractWithUI(true)
 UI.SetCursorVisible(true)
 ```
 
+## Camera Captures
+
+[Camera](../api/camera.md) captures represents an image rendered by a **Camera** to be used elsewhere in the game, for example in the UI. Captures can be created using a fixed set of [resolutions](../api/cameracapture.md), and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
+
+The following table lists the number of images supported per [resolution](../api/cameracapture.md).
+
+| Resolution Size | Maximum Images |
+| --------------- | -------------- |
+| Very Small | 256 |
+| Small | 64 |
+| Medium | 16 |
+| Large | 4 |
+| Very Large | 1 |
+
+### Camera Setup
+
+A [Camera](../api/camera.md) will need to be added to the **Hierarchy** that will be setup just for taking captures. The camera will need certain properties changed so it is setup optimally for creating captures. If any of these properties are not changed, Core will display a warning in the **Event Log** with information on which properties to change.
+
+1. Create a **Client Context** in the **Hierarchy**.
+2. Set the **Position** in the **Properties** window to **X** `-300`, **Z** `350`.
+3. Create a **Camera** in the **Client Context** and set the following properties in the **Properties** window:
+
+| Property | Value |
+| -------- | ----- |
+| **Attach To Local Player** | Should be left unchecked. |
+| **Position Offset** | Should be set to Zero. |
+| **Initial Distance** | Should be set to Zero. |
+| **Adjustable Distance** | Should be left unchecked. |
+| **Base Rotation Mode** | Should be set to Camera. |
+| **Rotation Offset** | Should be set to Zero. |
+| **Free Control** | Should be left unchecked. |
+
+### Create UI
+
+To display the camera captures, a **UI Image** will be needed.
+
+1. Create a **UI Container** in the **Client Context**.
+2. Create a **UI Image** in the **UI Container** and name it `Icon`.
+
+### Create Icon Generator Setup
+
+An icon generator will be a small setup made up of a plane, frame, light, dummy object, and a script. It will allow for easy setup of creating icons to use in the UI. This setup would be hidden from players, this is usually placed under the map. The materials, colors, and lighting will be up to the creator to change to get the look they require.
+
+![!Icon Generator](../img/UI/camera_capture_setup.png){: .center loading="lazy" }
+
+#### Create Background
+
+The background will be used behind the object that will be rendered to the UI image. The material and color can be changed to get a different background based on the object being rendered. For example, a different color for epic items, and a different color for legendary items.
+
+1. In **Core Content** search for `Plane 1m - One Sided` and add it into the **Client Context** and rename it to `Background`.
+2. Set the **Position** in the **Properties** window to **X** `601`, **Z** `350`.
+3. Set the **Rotation** in the **Properties** window to **Y** `90`.
+4. Set the **Scale** in the **Properties** window to **X** `6`, **Y** `6`, **Z** `6`.
+
+#### Create Frame
+
+The frame will show in the rendered image. This is optional.
+
+1. In **Core Content** search for `pipe 4 sided thin` and add it into the **Client Context** and rename it to `Frame`.
+2. Set the **Position** in the **Properties** window to **X** `600`, **Z** `350`.
+3. Set the **Rotation** in the **Properties** window to **Y** `90`.
+4. Set the **Scale** in the **Properties** window to **X** `3.6`, **Y** `3.6`, **Z** `0.01`.
+
+#### Create Point Light
+
+A point like will add a sphere gradient to the background and light up the object being rendered from behind, which will give it a nice effect.
+
+1. In **Core Content** search for `point light` and add it into the **Client Context**.
+2. Set the **Position** in the **Properties** window to **X** `500`, **Z** `350`.
+3. In the light **Properties** window, set the **Intensity** to `35`, and **Attenuation Radius** to `400`.
+4. Adjust the light color to suit the game.
+
+#### Create Dummy Object
+
+The dummy object is used to show the bounds of what the camera will be rendering. So objects placed within the dummy object will be displayed in the UI.
+
+1. In **Core Content** search for `dummy object` and add it into the **Client Context**.
+2. Set the **Position** in the **Properties** window to **X** `460`, **Z** `350`.
+3. In the **Properties** window, set the **X Scale** to `1.4`, **Y Scale** to `1.4`, **Z Scale** to `1.4`.
+
+### Create CameraCaptureClient Script
+
+Capturing images needs to be done from a Lua script. The **Camera** object has a function called `Capture` that takes in an argument that specifies the [resolution](../api/cameracapture.md) of the capture.
+
+Create a new script called `CameraCaptureClient` and place it into the **Client Context** in the **Hierarchy**.
+
+#### Add Custom Properties
+
+The **CameraCaptureClient** script needs references to the UI image and Camera to use.
+
+1. Add the UI **Icon** image as a custom property and name it `Icon`.
+2. Add the **Camera** as a custom property and name it `Camera`.
+
+Open up the **CameraCaptureClient** script and create references to the properties.
+
+```lua
+local ICON = script:GetCustomProperty("Icon"):WaitForObject()
+local CAMERA = script:GetCustomProperty("Camera"):WaitForObject()
+```
+
+#### Camera Capture
+
+Create the following code, which will create a capture using the `Capture` function, and passing in a [resolution](../api/cameracapture.md). The `Capture` function will return a `CameraCapture` object that may be used to display this image or refresh the capture. The `Capture` function may return `nil` if the maximum number of capture instances at the desired resolution has been exceeded.
+
+A `CameraCapture` can be refreshed or released. When releasing a `CameraCapture` the instance will become invalid and should no longer be used.
+
+```lua
+local capture = CAMERA:Capture(CameraCaptureResolution.SMALL)
+
+ICON:SetCameraCapture(capture)
+```
+
+### Test the Icon Generator
+
+Place an object within the bounds of the dummy object, and enter play mode. You should see the object, frame, and background show in the UI.
+
+![!Icon Generator](../img/UI/final_capture.png){: .center loading="lazy" }
+
 ## Learn More
 
-[UIControl](../api/uicontrol.md) | [UIText](../api/uitext.md) | [Events](../api/events.md)
+[UIControl](../api/uicontrol.md) | [UIText](../api/uitext.md) | [Events](../api/events.md) | [CameraCapture](../api/cameracapture.md) | [Camera](../api/camera.md)
