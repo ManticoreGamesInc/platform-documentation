@@ -47,6 +47,24 @@ Example using:
 
 ### `Play`
 
+In this example, a small script is placed as the child of an audio object in the hierarchy. After a 3 second wait we play the sound. For best results place audio objects inside a client context.
+
+```lua
+local SFX = script.parent
+
+Task.Wait(3)
+
+SFX:Play()
+```
+
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `Play`
+
 ### `Stop`
 
 ### `FadeIn`
@@ -177,5 +195,34 @@ PlayWithLinearVibrato()
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `volume`
+
+In this example, two UI buttons are setup to control the volume of a music object. The script is placed as a child of the music object and the buttons are added to the script as custom properties.
+
+```lua
+local MUSIC = script.parent
+local PLUS_BUTTON = script:GetCustomProperty("PlusButton"):WaitForObject()
+local MINUS_BUTTON = script:GetCustomProperty("MinusButton"):WaitForObject()
+
+MUSIC:Play()
+
+function IncreaseVolume()
+    MUSIC.volume = MUSIC.volume + 0.1
+end
+
+function DecreaseVolume()
+    MUSIC.volume = MUSIC.volume - 0.1
+end
+
+PLUS_BUTTON.clickedEvent:Connect(IncreaseVolume)
+MINUS_BUTTON.clickedEvent:Connect(DecreaseVolume)
+```
+
+See also: [UIButton.clickedEvent](uibutton.md) | [CoreObject.parent](coreobject.md)
 
 ---
