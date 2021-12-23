@@ -57,6 +57,30 @@ See also: [CoreObject.parent](coreobject.md) | [Color.Lerp](color.md)
 
 Example using:
 
+### `SetFont`
+
+In this example, we change the font on a World Text at runtime. Each second we alternate between two different fonts. Note that not every font works with World Text objects. If an unsupported font is assigned with `SetFont()` the World Text resets to its default font.
+
+```lua
+local WORLD_TEXT = script:GetCustomProperty("WorldText"):WaitForObject()
+local FONT_1 = script:GetCustomProperty("Font1")
+local FONT_2 = script:GetCustomProperty("Font2")
+
+while true do
+    Task.Wait(1)
+    WORLD_TEXT:SetFont(FONT_1)
+    
+    Task.Wait(1)
+    WORLD_TEXT:SetFont(FONT_2)
+end
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
 ### `text`
 
 Change the contents of a WorldText object with the `text` property. In this example, when a new player joins the game their name is written to the WorldText. It's also demonstrated that `<br>` can be used to insert line breaks. This script expects to be the child of a WorldText object that is placed in the scene.

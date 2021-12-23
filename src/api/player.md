@@ -176,6 +176,26 @@ Learn more about Hooks on the [Hook API](hook.md) page.
 
 Example using:
 
+### `animationEvent`
+
+In this example, a client script listens for animation events on the player. When one such occurs, information about the event is printed to the Event Log.
+
+```lua
+function OnAnimationEvent(player, eventName, animationName)
+    print(player.name .. " triggered an animation event:")
+    print("Event name = " .. eventName)
+    print("Animation name = " .. animationName)
+end
+
+Game.GetLocalPlayer().animationEvent:Connect(OnAnimationEvent)
+```
+
+See also: [Game.GetLocalPlayer](game.md)
+
+---
+
+Example using:
+
 ### `bindingPressedEvent`
 
 ### `bindingReleasedEvent`
@@ -871,7 +891,7 @@ end
 TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-See also: [PartyInfo.GetMemberIds](partyinfo.md) | [Game.TransferPlayersToGame](game.md) | [CorePlatform.GetGameCollection](coreplatform.md) | [Trigger.beginOverlapEvent](trigger.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+See also: [PartyInfo.GetMemberIds](partyinfo.md) | [Game.TransferPlayersToGame](game.md) | [CorePlatform.GetGameCollection](coreplatform.md) | [Trigger.beginOverlapEvent](trigger.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Other.IsA](other.md)
 
 ---
 
@@ -1192,7 +1212,7 @@ end
 PORTAL_TRIGGER.beginOverlapEvent:Connect(OnTriggerOverlap)
 ```
 
-See also: [Game.TransferAllPlayersToScene](game.md)
+See also: [Game.TransferAllPlayersToScene](game.md) | [Other.IsA](other.md) | [Trigger.beginOverlapEvent](trigger.md)
 
 ---
 
