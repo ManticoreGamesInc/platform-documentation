@@ -40,6 +40,30 @@ A two-dimensional curve made up of some number of `CurveKey` instances specifyin
 
 Example using:
 
+### `New`
+
+### `GetValue`
+
+Curves are powerful data structures that allow various kinds of interpolation between numbers. In this example, we construct a minimal curve, with only two points. We then ask for the interpolated value at the middle of the curve (time = 0.5). The value of 2.5 should appear in the Event Log.
+
+```lua
+local keys = {
+    CurveKey.New(0, 0),
+    CurveKey.New(1, 5)
+}
+
+local curve = SimpleCurve.New(keys)
+
+local value = curve:GetValue(0.5)
+print(tostring(value))
+```
+
+See also: [CurveKey.New](curvekey.md)
+
+---
+
+Example using:
+
 ### `GetValue`
 
 This example implements a state machine with 4 states, for the purpose of animating a UI element, such as a popup dialog that is center-aligned on screen. Two `Simple Curve` properties are added to the script to control the animation of the UI as it enters or exits the screen. Given the time elapsed during the enter and exit states, the curves give us a value (between 0 and 1) that we use for the UI's y-axis.
@@ -127,5 +151,48 @@ SetState(STATE_DISABLED)
 ```
 
 See also: [CoreObject.visibility](coreobject.md) | [Events.Connect](events.md) | [UIControl.y](uicontrol.md)
+
+---
+
+Example using:
+
+### `preExtrapolation`
+
+### `postExtrapolation`
+
+### `defaultValue`
+
+### `minTime`
+
+### `maxTime`
+
+### `minValue`
+
+### `maxValue`
+
+In this example, the script has a custom property of type `SimpleCurve`. At runtime, the properties of the curve are print into the Event Log. The min/max properties are read-only, but can be useful to some algorithms, as they define the "bounds" of the curve.
+
+```lua
+local CURVE = script:GetCustomProperty("Curve")
+
+function ExtrapolationToString(value)
+    if value == CurveExtrapolation.CYCLE then return "CYCLE" end
+    if value == CurveExtrapolation.CYCLE_WITH_OFFSET then return "CYCLE_WITH_OFFSET" end
+    if value == CurveExtrapolation.OSCILLATE then return "OSCILLATE" end
+    if value == CurveExtrapolation.LINEAR then return "LINEAR" end
+    if value == CurveExtrapolation.CONSTANT then return "CONSTANT" end
+    return "UNKNOWN"
+end
+
+print("preExtrapolation = " .. ExtrapolationToString(CURVE.preExtrapolation))
+print("postExtrapolation = " .. ExtrapolationToString(CURVE.postExtrapolation))
+print("defaultValue = " .. CURVE.defaultValue)
+print("minTime = " .. CURVE.minTime)
+print("maxTime = " .. CURVE.maxTime)
+print("minValue = " .. CURVE.minValue)
+print("maxValue = " .. CURVE.maxValue)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md)
 
 ---

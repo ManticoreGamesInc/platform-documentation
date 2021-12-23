@@ -187,6 +187,6 @@ TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
-See also: [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.GetCustomProperty](coreobject.md)
+See also: [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Other.IsA](other.md)
 
 ---

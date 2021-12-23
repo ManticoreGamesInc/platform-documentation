@@ -135,7 +135,7 @@ end
 PHYSICS_OBJECT.collidedEvent:Connect(OnObjectCollided)
 ```
 
-See also: [Damage.New](damage.md) | [HitResult.other](hitresult.md) | [DamageableObject.isDead](damageableobject.md) | [CoreObject.parent](coreobject.md) | [Event.Connect](event.md)
+See also: [Damage.New](damage.md) | [HitResult.other](hitresult.md) | [DamageableObject.isDead](damageableobject.md) | [CoreObject.parent](coreobject.md) | [Other.IsA](other.md) | [Event.Connect](event.md)
 
 ---
 
@@ -330,6 +330,6 @@ function Tick()
 end
 ```
 
-See also: [CoreMesh.isTeamColorUsed](coremesh.md) | [Player.team](player.md) | [HitResult.other](hitresult.md) | [Task.Wait](task.md) | [Event.Connect](event.md)
+See also: [CoreMesh.isTeamColorUsed](coremesh.md) | [Player.team](player.md) | [HitResult.other](hitresult.md) | [Other.IsA](other.md) | [Task.Wait](task.md) | [Event.Connect](event.md)
 
 ---
