@@ -34,3 +34,43 @@ Seed-based random stream of numbers. Useful for deterministic RNG problems, for 
 | `GetVector3()` | [`Vector3`](vector3.md) | Returns a random unit vector. | None |
 | `GetVector3FromCone(Vector3 direction, number halfAngle)` | [`Vector3`](vector3.md) | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction` and `halfAngle` (in degrees). | None |
 | `GetVector3FromCone(Vector3 direction, number horizontalHalfAngle, number verticalHalfAngle)` | [`Vector3`](vector3.md) | Returns a random unit vector, uniformly distributed, from inside a cone defined by `direction`, `horizontalHalfAngle` and `verticalHalfAngle` (in degrees). | None |
+
+## Examples
+
+Example using:
+
+### `New`
+
+### `seed`
+
+### `GetNumber`
+
+With `Random Stream` we can generate a sequence of random values and guarantee they will always be the same values. This is useful in various situations, but in this example we initialize a `Random Stream` on the server and send the seed to all clients, so they can reproduce the sequence. This way, we only need to send the seed across the network, instead of sending the entire sequence of RNG. The "NetworkedObject" is a Core Object in the hierarchy that has networking enabled, plus it has a custom property called "seed" that is set as dynamic. The seed could also have been sent via a networked event, but a custom property allows players who join later to read the value at any time.
+
+```lua
+-- Server script
+print("Server")
+local NET_OBJ = script:GetCustomProperty("NetworkedObject"):WaitForObject()
+
+local rng = RandomStream.New()
+NET_OBJ:SetCustomProperty("seed", rng.seed)
+
+for i = 1, 5 do
+    print(rng:GetNumber(1, 10))
+end
+
+-- Client script
+print("Client")
+local NET_OBJ = script:GetCustomProperty("NetworkedObject"):WaitForObject()
+
+local seed = NET_OBJ:GetCustomProperty("seed")
+local rng = RandomStream.New(seed)
+
+for i = 1, 5 do
+    print(rng:GetNumber(1, 10))
+end
+```
+
+See also: [CoreObject.SetCustomProperty](coreobject.md)
+
+---

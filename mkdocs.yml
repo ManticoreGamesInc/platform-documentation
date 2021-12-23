@@ -69,6 +69,7 @@ nav:
               - Hello World: tutorials/lua_basics_helloworld.md
               - Lightbulb: tutorials/lua_basics_lightbulb.md
               - Race Timer: tutorials/race_timer.md
+          - ✨ SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
           - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
@@ -122,6 +123,7 @@ nav:
           - Shared Data Storage: references/shared_storage.md
           - Spawn Points: references/spawnpoints.md
           - ✨ Spawned Shared Assets: references/spawned_shared_assets.md
+          - ✨ Storage Options: references/selecting_a_storage_type.md
           - Teams: references/teams.md
           - Templates: references/templates.md
           - Terrain: references/terrain.md
