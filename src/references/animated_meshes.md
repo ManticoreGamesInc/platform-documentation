@@ -79,7 +79,7 @@ The **Bind Pose** animation stance is designed to make it easy to determine wher
 
 To attach objects to the appropriate mesh, you can use a script and the `AttachCoreObject` method. For more specific examples, see the [Core API](../api/animatedmesh.md).
 
-```YourMeshName.AttachCoreObject(object, socketname)```
+```YourMeshName:AttachCoreObject(object, socketname)```
 
 ## Learn More
 
