@@ -59,9 +59,13 @@ Core includes a wide variety of materials for different situations, which can be
 
 They also have **Smart Materials** which applies a material uniformly based on the position on the map, allowing you to create seamless transitions between different pieces.
 
+### Monetization
+
+The [Perks Program](../references/perks/program.md) enables Core creators to make money with their games using a complete monetization system that can be customized to any game type.
+
 ### Core is in Early Access
 
-Core is still in Early Access, which means there are a number of features that are yet to come, like monetization and cross-platform support. As an Early Access Creator, you are in a position to build some of the first ground-breaking games in Core and to influence its direction through feedback and creation.
+Core is still in Early Access, which means there are a number of features that are yet to come, like cross-platform support. As an Early Access Creator, you are in a position to build some of the first ground-breaking games in Core and to influence its direction through feedback and creation.
 
 ### Terminology
 
