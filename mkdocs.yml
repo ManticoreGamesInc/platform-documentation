@@ -65,7 +65,7 @@ nav:
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
-          - Producers: tutorials/producers_tutorial.md
+          - ✨ Producers: tutorials/producers_tutorial.md
           - Learn Lua:
               - Hello World: tutorials/lua_basics_helloworld.md
               - Lightbulb: tutorials/lua_basics_lightbulb.md

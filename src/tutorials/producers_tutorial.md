@@ -72,7 +72,8 @@ Test the game and make sure the following works.
 </div>
 
 !!! warning
-    While in Preview Mode, players can press ++F1++ to **reset the Player's Data**. This is useful for testing new items or features in the game. However, this should be removed before publishing a game.
+    While in Preview Mode, players can press ++F1++ to **reset the Player's Data**. This is a useful tool for testing new items or features in the game. However, this should be removed before publishing a game. Search `Reset Data Tool` in the Hierarchy and open the Properties window to disable the tool.
+    ![!Reset Data](../img/ProducersTutorial/Producer_ResetData.png){: .center loading="lazy" }
 
 ## Creating a Scifi Placeable Area
 
@@ -213,7 +214,7 @@ The template for the **Icon Asset** is usually a particular size to get a clear 
 
 As long as the **Alien Egg (Inventory Icon)** matched the red fruit Icon Asset template, then it will most likely produce a clear inventory icon. However, it is good to know how the **Icon Generator** is placing the template in front of the capturing camera in case adjustments are needed.
 
-1. In the Hierarchy, expand the **UI** folder and right click the **Icon Generator** and select **Desinstance This Object**.
+1. In the Hierarchy, expand the **UI** folder and right click the **Icon Generator** and select **Deinstance This Object**.
 2. Inside the Icon Generator, expand the **ClientContent** group and find the **Icon Container** group.
 3. Open the Project Content window and search for `Alien Egg (Inventory Icon)`.
 4. Drag and drop the template into the **Icon Container** group in the Hierarchy.
@@ -364,8 +365,8 @@ The Burnt Egg item is now ready to be tested so it will need to be added as a st
 2. Right click the **Alien Egg** script and select **Duplicate**.
 3. Rename the duplicated script to `Burnt Egg`.
 4. Select the **Burnt Egg** script and open the Properties window.
-5. Set the ItemId property to Burnt Egg.
-6. Set the SlotIndex property to 3.
+5. Set the **ItemId** property to `Burnt Egg`.
+6. Set the **SlotIndex** property to `3`.
 
 ![!Burnt Egg Start](../img/ProducersTutorial/Producer_BurntEgg_Start.png){: .center loading="lazy" }
 
@@ -429,7 +430,7 @@ In the Hierarchy, open the **Global Database** folder and expand the **Items** s
 
 ### Set the Item Properties
 
-The Alien Raptor is not be equippable so an equipment template is not needed.
+The Alien Raptor is not equippable so an equipment template is not needed.
 
 1. Select the **Alien Raptor** script and open the **Properties** window.
 2. Set the **Name** property to `Alien Raptor`.
@@ -715,7 +716,7 @@ The **Collision Cube** needs to activate the **Can Overlap Triggers** property t
 3. Right click the template and select **Deinstance This Object**.
 4. Search **Core Content** for a `Cube` mesh.
 5. Drag and drop the **Cube** into the **Geo** group.
-6. Transform the **Cube** match the dimensions of the **Incubator**.
+6. Transform the **Cube** to match the dimensions of the **Incubator**.
 7. Select the **Cube** and open the Properties window.
 8. Activate the **Can Overlap Triggers** property.
 
@@ -746,7 +747,7 @@ The **Trigger Template** will use triggers to check if a Placeable is going to o
 3. Right click the template and select **Deinstance This Object**.
 4. Search **Core Content** for a `Trigger`.
 5. Drag and drop the **Trigger** into the **Incubator (Drop Icon)** template.
-6. Transform the **Trigger** match the dimensions of the **Incubator Model**.
+6. Transform the **Trigger** to match the dimensions of the **Incubator Model**.
 
 ![!Incubator Placeable Trigger](../img/ProducersTutorial/Producer_Incubator_Trigger.png){: .center loading="lazy" }
 
@@ -815,7 +816,7 @@ The **Terminal (Drop Icon)** was scaled down to look more like a pickup, but the
 2. Drag and drop the **Terminal (Drop Icon)** template into the scene.
 3. Right click the template and select **Deinstance this Object**.
 4. Scale up the **Terminal Model** to the in-game size.
-5. Right click the **Terminal (Drop Icon)** template and select **Create New Template From Thi**s.
+5. Right click the **Terminal (Drop Icon)** template and select **Create New Template From This**.
 6. Name the new template `Terminal (Client)`.
 
 ![!Terminal Placeable Client](../img/ProducersTutorial/Producer_Terminal_Client.png){: .center loading="lazy" }
@@ -831,7 +832,7 @@ The **Collision Cube** will use the **Terminal (Client)** template as a size ref
 1. Right click the **Terminal (Client)** template and select **Deinstance This Object**.
 2. Search **Core Content** for a `Cube` mesh.
 3. Drag and drop the **Cube** into the **Geo** group.
-4. Transform the **Cube** match the dimensions of the **Terminal**.
+4. Transform the **Cube** to match the dimensions of the **Terminal**.
 5. Select the **Cube** and open the **Properties** window.
 6. Activate the **Can Overlap Triggers** property.
 
@@ -860,7 +861,7 @@ The **Collision Cube** will use the **Terminal (Client)** template as a size ref
 3. Right click the template and select **Deinstance This Object**.
 4. Search **Core Content** for a `Trigger`.
 5. Drag and drop the **Trigger** into the **Terminal (Client)** template.
-6. Transform the **Trigger** match the dimensions of the **Terminal Model**.
+6. Transform the **Trigger** to match the dimensions of the **Terminal Model**.
 
 ![!Terminal Placeable Trigger](../img/ProducersTutorial/Producer_Terminal_Trigger.png){: .center loading="lazy" }
 
@@ -924,7 +925,7 @@ The following should work:
 - Incubator lights up red if not within Terminal radius.
 - Placeables should be prevented from being placed on one another.
 - Players should have collision with placed objects.
-- Placeables should be saved across game plays.
+- Placeables should be saved across game sessions.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -944,10 +945,12 @@ A **Producer** uses **phases** to control the produced drops and the visuals.
 
 These are the four phases being used for the **Incubating Egg**:
 
-- **Placed**: When a player places the egg on the incubator it enters this phase.
-- **Building**: If a placed egg is receiving the Electricity Buff, then it begins the building phase.
-- **Ready**: Once the building phase has gone on for a couple seconds, it is now ready to be harvested.
-- **Expired**: If not harvested when ready for a couple more seconds, then the egg expires and becomes burnt.
+| Phase Name | Description |
+| --- | --- |
+| Placed | When a player places the egg on the incubator it enters this phase. |
+| Building | If a placed egg is receiving the Electricity Buff, then it begins the building phase. |
+| Ready | Once the building phase has gone on for a couple seconds, it is now ready to be harvested. |
+| Expired | If not harvested when ready for a couple more seconds, then the egg expires and becomes burnt. |
 
 ![!Incubating Egg Phases](../img/ProducersTutorial/Producer_IncubatingEggPhases.png){: .center loading="lazy" }
 
