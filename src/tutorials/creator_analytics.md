@@ -3,7 +3,7 @@ id: creator_analytics
 name: Creator Analytics
 title: Creator Analytics
 tags:
-    - Tutorial
+  - Tutorial
 ---
 
 # Creator Analytics
@@ -49,9 +49,9 @@ Data for each game is **cohorted**, meaning that it follows the group of users w
 
 #### Example
 
-| date |  players_d0 | players_d1 | players_d2 |
-| --- | --- | --- | --- | --- |
-| 2020-10-14 |  51 | 1 | 1 |
+| date       | players_d0 | players_d1 | players_d2 |
+| ---------- | ---------- | ---------- | ---------- |
+| 2020-10-14 | 51         | 1          | 1          |
 
 In the example above, on the 14th of October, there were **51** players playing for the first time (Day 0 or D0). The **players_d1** column tracks how many of those original 51 players returned the next day (Day 1 or D1). In this case, only 1. The third column tracks how many players from the original group of 51 played again two days later, on October 16th.
 
@@ -61,22 +61,22 @@ Data for a given day is added two days later to make sure that it is fully accur
 
 ### Terminology
 
-|  Column Name | Definition |
-| --- | --- |
-|  account_id | Your unique creator ID |
-|  user_name | Your creator username |
-|  game_id | The unique ID of one of your games |
-|  game_name | The name of the game. Both ID and name are provided because creators can have multiple games with the same name. |
-|  date | The date of the new cohort of users playing for the first time. |
-|  dau | The number of daily users for the day in date |
-|  dau_average_month_to_date | The average of those daily users for the month so far. |
-|  sessions | Total number of plays of the game that day |
-|  session_time_minutes | The average time a player spent in the game that day |
-|  players_d0 | The number of players playing on the date for the first time. |
-|  players_d7 | The number of the players who played for the first time on the date and returned seven days later. |
-|  players_d0_month_to_date | Average number of new players per day from the beginning of the month to the date |
-|  retention_d1_percent | The percent of new players from the date who returned one day later. |
-|  retention_d1_month_to_date_percent | The average percentage of players who return one day later from the beginning of the month to the date. |
+| Column Name                        | Definition                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| account_id                         | Your unique creator ID                                                                                           |
+| user_name                          | Your creator username                                                                                            |
+| game_id                            | The unique ID of one of your games                                                                               |
+| game_name                          | The name of the game. Both ID and name are provided because creators can have multiple games with the same name. |
+| date                               | The date of the new cohort of users playing for the first time.                                                  |
+| dau                                | The number of daily users for the day in date                                                                    |
+| dau_average_month_to_date          | The average of those daily users for the month so far.                                                           |
+| sessions                           | Total number of plays of the game that day                                                                       |
+| session_time_minutes               | The average time a player spent in the game that day                                                             |
+| players_d0                         | The number of players playing on the date for the first time.                                                    |
+| players_d7                         | The number of the players who played for the first time on the date and returned seven days later.               |
+| players_d0_month_to_date           | Average number of new players per day from the beginning of the month to the date                                |
+| retention_d1_percent               | The percent of new players from the date who returned one day later.                                             |
+| retention_d1_month_to_date_percent | The average percentage of players who return one day later from the beginning of the month to the date.          |
 
 ---
 
