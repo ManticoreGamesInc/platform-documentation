@@ -423,6 +423,6 @@ end
 TRIGGER.beginOverlapEvent:Connect(OnTriggerOverlap)
 ```
 
-See also: [CoreObject.serverUserData](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Task.Wait](task.md)
+See also: [CoreObject.serverUserData](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Other.IsA](other.md) | [Task.Wait](task.md)
 
 ---

@@ -24,29 +24,9 @@ A few base functions provided by the platform.
 
 Example using:
 
-### `print`
-
-### `warn`
-
-The common Lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
-
-There is a similar function, `warn()`, which functions also prints to the event log, except as a warning message. (So it's bright and yellow and hard to miss.)
-
-```lua
--- This will be printed to the event log normally.
-print("Hello world!")
-
--- This will be printed in scary yellow letters, as a warning!
-warn("Something is amiss!")
-```
-
----
-
-Example using:
+### `Tick`
 
 ### `time`
-
-### `Tick`
 
 Functions named `Tick()` are special - if you have a script with a `Tick()` function, then that function will be called every frame of the game. This is not something you want to do often, because of performance costs, but can be used to set up animations. (Ideally inside of client contexts.)
 
@@ -75,5 +55,51 @@ end
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [Color.RED](color.md) | [World.SpawnAsset](world.md) | [Vector3.FORWARD](vector3.md) | [CoreMesh.SetColor](coremesh.md)
+
+---
+
+Example using:
+
+### `print`
+
+### `warn`
+
+The common Lua `print()` statement puts text into the Event Log. It can be used from anywhere, and is often extremely useful for debugging.
+
+There is a similar function, `warn()`, which functions also prints to the event log, except as a warning message. (So it's bright and yellow and hard to miss.)
+
+```lua
+-- This will be printed to the event log normally.
+print("Hello world!")
+
+-- This will be printed in scary yellow letters, as a warning!
+warn("Something is amiss!")
+```
+
+---
+
+Example using:
+
+### `require`
+
+Using `require()` is a powerful way to abstract code and break it apart into separate responsabilities, as well as reusable components. In this example we have two scripts. The first script is in the hierarchy and calls `require()` on the second script. To link the two scripts together, select the first script in the hierarchy and drag the second script from Project Content into the Properties view. This action creates a custom property that points to the script asset.
+
+```lua
+-- Contents of the script in the hierarchy:
+local REQUIRED_SCRIPT = require( script:GetCustomProperty("SecondScript") )
+
+REQUIRED_SCRIPT.DoSomething()
+
+-- The second script returns a table, containing the DoSomething() function:
+local API = {}
+
+function API.DoSomething()
+    print("Hello world!")
+end
+
+return API
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md)
 
 ---

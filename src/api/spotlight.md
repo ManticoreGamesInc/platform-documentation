@@ -20,3 +20,137 @@ SpotLight is a Light that shines in a specific direction from the location at wh
 | `sourceLength` | `number` | Length of light source shape. | Read-Write |
 | `innerConeAngle` | `number` | The angle (in degrees) of the cone within which the projected light achieves full brightness. | Read-Write |
 | `outerConeAngle` | `number` | The outer angle (in degrees) of the cone of light emitted by this SpotLight. | Read-Write |
+
+## Examples
+
+Example using:
+
+### `falloffExponent`
+
+In this example, a Spot Light's "falloff exponent" property animates over time, between a minimum and maximum value range. Note that it only works if "Natural Falloff" is enabled on the light.
+
+```lua
+local SPOT_LIGHT = script.parent
+local MIN_EXPONENT = 1
+local MAX_EXPONENT = 40
+
+function Tick()
+    -- This makes `t` oscillate between 0 and 1
+    local t = math.sin(time()) / 2 + 0.5
+    SPOT_LIGHT.falloffExponent = CoreMath.Lerp(MIN_EXPONENT, MAX_EXPONENT, t)
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [CoreMath.Lerp](coremath.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `hasNaturalFalloff`
+
+In this example, a Spot Light's "natural falloff" property is toggled on/off over time.
+
+```lua
+local SPOT_LIGHT = script.parent
+
+function Tick()
+    Task.Wait(1)
+    SPOT_LIGHT.hasNaturalFalloff = true
+    
+    Task.Wait(1)
+    SPOT_LIGHT.hasNaturalFalloff = false
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `innerConeAngle`
+
+In this example, a Spot Light's "inner cone angle" property animates over time, between a minimum and maximum value range.
+
+```lua
+local SPOT_LIGHT = script.parent
+local MIN_INNER_ANGLE = 0
+local MAX_INNER_ANGLE = 50
+
+function Tick()
+    -- This makes `t` oscillate between 0 and 1
+    local t = math.sin(time()) / 2 + 0.5
+    SPOT_LIGHT.innerConeAngle = CoreMath.Lerp(MIN_INNER_ANGLE, MAX_INNER_ANGLE, t)
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [CoreMath.Lerp](coremath.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `outerConeAngle`
+
+In this example, a Spot Light's "outer cone angle" property animates over time, between a minimum and maximum value range.
+
+```lua
+local SPOT_LIGHT = script.parent
+local MIN_OUTER_ANGLE = 0
+local MAX_OUTER_ANGLE = 80
+
+function Tick()
+    -- This makes `t` oscillate between 0 and 1
+    local t = math.sin(time()) / 2 + 0.5
+    SPOT_LIGHT.outerConeAngle = CoreMath.Lerp(MIN_OUTER_ANGLE, MAX_OUTER_ANGLE, t)
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [CoreMath.Lerp](coremath.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `sourceLength`
+
+In this example, a Spot Light's "source length" property animates over time, between a minimum and maximum value range.
+
+```lua
+local SPOT_LIGHT = script.parent
+local MIN_LENGTH = 0
+local MAX_LENGTH = 1000
+
+function Tick()
+    -- This makes `t` oscillate between 0 and 1
+    local t = math.sin(time()) / 2 + 0.5
+    SPOT_LIGHT.sourceLength = CoreMath.Lerp(MIN_LENGTH, MAX_LENGTH, t)
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [CoreMath.Lerp](coremath.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
+### `sourceRadius`
+
+In this example, a Spot Light's "source radius" property animates over time, between a minimum and maximum value range.
+
+```lua
+local SPOT_LIGHT = script.parent
+local MIN_RADIUS = 0
+local MAX_RADIUS = 500
+
+function Tick()
+    -- This makes `t` oscillate between 0 and 1
+    local t = math.sin(time()) / 2 + 0.5
+    SPOT_LIGHT.sourceRadius = CoreMath.Lerp(MIN_RADIUS, MAX_RADIUS, t)
+end
+```
+
+See also: [CoreObject.parent](coreobject.md) | [CoreMath.Lerp](coremath.md) | [Task.Wait](task.md)
+
+---
