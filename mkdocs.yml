@@ -119,6 +119,7 @@ nav:
           - Queued Games: references/queues.md
           - Scenes: references/scenes.md
           - Script Debugger: references/script_debugger.md
+          - Script Generator: references/script_generator.md
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: references/shared_storage.md
           - Spawn Points: references/spawnpoints.md
