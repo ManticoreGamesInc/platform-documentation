@@ -75,7 +75,7 @@ This example will be using the **Script Generator** to make a script that uses a
 
 ### Add a Trigger
 
-Open the **Core Editor** to a new or old project. Add a **Trigger** object by pressing the keyboard shortcut ++9++. Move the trigger to be in front of the **Spawn Point** of the player.
+Open the **Core Editor** to a new blank project. Add a **Trigger** object by pressing the keyboard shortcut ++9++. Move the trigger to be in front of the **Spawn Point** of the player.
 
 !!! tip "Use the keyboard shortcut ++V++ to display Gizmos if the Trigger and Spawn Point are not visible."
 
