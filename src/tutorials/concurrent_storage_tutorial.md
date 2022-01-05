@@ -708,7 +708,7 @@ Open up the **PlaceGuidanceMessageServer** script and add the following code so 
 local GUIDANCE_MESSAGE_LOOKUP = require(script:GetCustomProperty("GuidanceMessageLookup"))
 
 local GUIDANCE_MESSAGE = script:GetCustomProperty("GuidanceMessage")
-local GUIDANCE_MESSAGES_CONTANER = script:GetCustomProperty("GuidanceMessagesContainer"):WaitForObject()
+local GUIDANCE_MESSAGES_CONTAINER = script:GetCustomProperty("GuidanceMessagesContainer"):WaitForObject()
 
 local CREATOR_KEY = script:GetCustomProperty("GuidanceMessages")
 ```
@@ -791,7 +791,7 @@ end
 
 ##### Create PlaceGuidanceMessage Function
 
-The `PlaceGuidanceMessage` function will handle spawning in the guidance message asset into the world. The asset will be added as a child of `GUIDANCE_MESSAGES_CONTANER`. The asset will also need to have the dynamic properties set so that when a player opens up the UI of the guidance message, they will be able to see the message, player who created it, date of when it was created, and the amount of coins that player has received for that guidance message.
+The `PlaceGuidanceMessage` function will handle spawning in the guidance message asset into the world. The asset will be added as a child of `GUIDANCE_MESSAGES_CONTAINER`. The asset will also need to have the dynamic properties set so that when a player opens up the UI of the guidance message, they will be able to see the message, player who created it, date of when it was created, and the amount of coins that player has received for that guidance message.
 
 The name of the asset is set using the id of the player who created the guidance message, and the timestamp. This is done to create a unique name for later on when you will need to check if existing guidance messages are valid or not.
 
@@ -809,7 +809,7 @@ local function PlaceGuidanceMessage(player, index)
 
         local obj = World.SpawnAsset(GUIDANCE_MESSAGE, {
 
-            parent = GUIDANCE_MESSAGES_CONTANER,
+            parent = GUIDANCE_MESSAGES_CONTAINER,
             position = pos
 
         })
@@ -842,7 +842,7 @@ The `RemoveInvalidChildren` function will handle cleaning up invalid guidance me
 ```lua
 local function RemoveInvalidChildren(data)
     local remove = {}
-    local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+    local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
     if data[sceneName] ~= nil then
         for childIndex, child in ipairs(children) do
@@ -878,7 +878,7 @@ The `CreateMissingChildren` function will create missing guidance messages that 
 ```lua
 local function CreateMissingChildren(data)
     local create = {}
-    local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+    local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
     if data[sceneName] ~= nil then
         for index, entry in ipairs(data[sceneName]) do
@@ -903,7 +903,7 @@ local function CreateMissingChildren(data)
         if msg ~= nil then
             local obj = World.SpawnAsset(GUIDANCE_MESSAGE, {
 
-                parent = GUIDANCE_MESSAGES_CONTANER,
+                parent = GUIDANCE_MESSAGES_CONTAINER,
                 position = entry.pos
 
             })
@@ -946,7 +946,7 @@ local function UpdateCoins(data)
         return
     end
 
-    local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+    local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
     for childIndex, child in ipairs(children) do
         local playerID = child:GetCustomProperty("ownerID")
@@ -1023,7 +1023,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
     local GUIDANCE_MESSAGE_LOOKUP = require(script:GetCustomProperty("GuidanceMessageLookup"))
 
     local GUIDANCE_MESSAGE = script:GetCustomProperty("GuidanceMessage")
-    local GUIDANCE_MESSAGES_CONTANER = script:GetCustomProperty("GuidanceMessagesContainer"):WaitForObject()
+    local GUIDANCE_MESSAGES_CONTAINER = script:GetCustomProperty("GuidanceMessagesContainer"):WaitForObject()
 
     local CREATOR_KEY = script:GetCustomProperty("GuidanceMessages")
 
@@ -1083,7 +1083,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
 
             local obj = World.SpawnAsset(GUIDANCE_MESSAGE, {
 
-                parent = GUIDANCE_MESSAGES_CONTANER,
+                parent = GUIDANCE_MESSAGES_CONTAINER,
                 position = pos
 
             })
@@ -1110,7 +1110,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
 
     local function RemoveInvalidChildren(data)
         local remove = {}
-        local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+        local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
         if data[sceneName] ~= nil then
             for childIndex, child in ipairs(children) do
@@ -1140,7 +1140,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
 
     local function CreateMissingChildren(data)
         local create = {}
-        local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+        local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
         if data[sceneName] ~= nil then
             for index, entry in ipairs(data[sceneName]) do
@@ -1165,7 +1165,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
             if msg ~= nil then
                 local obj = World.SpawnAsset(GUIDANCE_MESSAGE, {
 
-                    parent = GUIDANCE_MESSAGES_CONTANER,
+                    parent = GUIDANCE_MESSAGES_CONTAINER,
                     position = entry.pos
 
                 })
@@ -1196,7 +1196,7 @@ CreateMissingChildren(Storage.GetConcurrentCreatorData(CREATOR_KEY))
             return
         end
 
-        local children = GUIDANCE_MESSAGES_CONTANER:GetChildren()
+        local children = GUIDANCE_MESSAGES_CONTAINER:GetChildren()
 
         for childIndex, child in ipairs(children) do
             local playerID = child:GetCustomProperty("ownerID")
