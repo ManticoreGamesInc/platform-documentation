@@ -737,7 +737,7 @@ print(player:GetDefaultCamera():GetWorldPosition()) -- 0, -1000, 1000
 player:SetDefaultCamera(defaultCamera, 1)
 Task.Wait(2)
 
--- Players also have an "overide camera", which has higher priority
+-- Players also have an "override camera", which has higher priority
 -- than the default camera. It's usually used for moving the camera
 -- somewhere briefly, before reverting to the default camera.
 local overrideCamera = World.SpawnAsset(propTestCamera,
@@ -854,16 +854,16 @@ Example using:
 
 ### `isPartyLeader`
 
-In this example, a trigger is setup as a teleporter that sends players to a random game. If the player entering the trigger is the leader of a party, then the entire party is transfered to the same game.
+In this example, a trigger is setup as a teleporter that sends players to a random game. If the player entering the trigger is the leader of a party, then the entire party is transferred to the same game.
 
 ```lua
 local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
-    
+
 function OnBeginOverlap(_, player)
     if not player:IsA("Player") then return end
-    
+
     local destinationGame = GetRandomFeaturedGame()
-    
+
     if player.isInParty and player.isPartyLeader then
         -- Transfer the whole party
         local partyOfPlayers = {}
@@ -1463,28 +1463,28 @@ There are different approaches to stunning a player. In this example we disable 
 
 ```lua
 local STUN_DURATION = 1.5
-    
+
 function ApplyStunToPlayer(player)
     player.isMovementEnabled = false
     player.animationStance = "unarmed_stun_dizzy"
-    
+
     -- Initialize stun count if needed
     if not player.serverUserData.stunCount then
         player.serverUserData.stunCount = 0
     end
     -- Keep track of how many times stun has been called, in case multiple stuns overlap in time
     player.serverUserData.stunCount = player.serverUserData.stunCount + 1
-    
+
     -- Duration of the stun effect
     Task.Wait(STUN_DURATION)
-    
+
     -- Stun effect has passed. Decrease the counter
     player.serverUserData.stunCount = player.serverUserData.stunCount - 1
-    
+
     -- If there are no more stuns active, cleanup
     if player.serverUserData.stunCount <= 0 then
         player.isMovementEnabled = true
-        
+
         -- Put the animation back to normal
         player.animationStance = "unarmed_stance"
     end

@@ -295,7 +295,7 @@ local function OnDied(obj, damage)
     end
 end
 
--- Connect the died event that will fire when the object is destoyed
+-- Connect the died event that will fire when the object is destroyed
 DAMAGEABLE_OBJECT.diedEvent:Connect(OnDied)
 
 -- Set to a random team number between 1 and 2 (both inclusive)
@@ -327,7 +327,7 @@ end
 function GetDamageablesInArea(center, radius)
     --CPU optimization, to avoid square root later
     local radiusSquared = radius * radius
-    
+
     local result = {}
     local allDamageables = World.FindObjectsByType("DamageableObject")
     for _,obj in ipairs(allDamageables) do
@@ -355,7 +355,7 @@ In this example, the function `ApplyPoison()` can be called, passing any damagea
 function ApplyPoison(damageableObject)
     if damageableObject.serverUserData.poisonCount then
         damageableObject.serverUserData.poisonCount = damageableObject.serverUserData.poisonCount + 1
-        
+
         if damageableObject.serverUserData.poisonCount >= 10 then
             damageableObject:Die()
         end
@@ -410,9 +410,9 @@ function OnTriggerOverlap(_, other)
             other.serverUserData.immortalCount = 0
         end
         other.serverUserData.immortalCount = other.serverUserData.immortalCount + 1
-        
+
         Task.Wait(IMMORTAL_DURATION)
-        
+
         other.serverUserData.immortalCount = other.serverUserData.immortalCount - 1
         if other.serverUserData.immortalCount <= 0 then
             other.isImmortal = false

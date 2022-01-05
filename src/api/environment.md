@@ -36,7 +36,7 @@ Sometimes a script can be written for use on either server or client contexts. I
 function GetUserData(player)
     if Environment.IsServer() then
         return player.serverUserData
-        
+
     elseif Environment.IsClient() then
         return player.clientUserData
     end
@@ -53,7 +53,7 @@ Example using:
 
 ### `IsSinglePlayerPreview`
 
-We may want to press a key to display some UI. However, in single-player preview mode, The [Tab] key pauses the simulation. In this example, we assign [Tab] to display the scoreboard. On each action the `Environment` is checked, to see if it is singler-player preview, in which case [Caps Lock] is used instead of [Tab].
+We may want to press a key to display some UI. However, in single-player preview mode, The [Tab] key pauses the simulation. In this example, we assign [Tab] to display the scoreboard. On each action the `Environment` is checked, to see if it is single-player preview, in which case [Caps Lock] is used instead of [Tab].
 
 ```lua
 function IsTabAction(actionBinding)

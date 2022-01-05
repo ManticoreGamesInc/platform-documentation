@@ -74,10 +74,10 @@ function Tick(deltaTime)
     elseif degrees < 0 then
         degrees = degrees + 360
     end
-    
-    -- 0 at miday, 1 at both horizons
+
+    -- 0 at midday, 1 at both horizons
     local cycle = (math.cos(math.rad((degrees+90) * 2)) * 0.5) + 0.5
-    
+
     local quat = Quaternion.New(Vector3.New(0,1,0), degrees)
     SUN:SetWorldRotation(quat:GetRotation())
     SUN:SetSmartProperty("Light Color", Color.Lerp(SUNRISE_COLOR, defaultSunColor, cycle))

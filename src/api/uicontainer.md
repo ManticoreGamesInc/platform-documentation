@@ -47,7 +47,7 @@ local scale = 1
 -- Get the original size of the canvas before scaling
 local startingSize = propUIContainer:GetCanvasSize()
 
--- Determines whether the UI Container will be sacling in or out
+-- Determines whether the UI Container will be scaling in or out
 -- A value of 0 means that there will be no change in scale
 -- A value of 1 means that the UI Container will scale in
 -- A value of -1 means that the UI Container will scale out
