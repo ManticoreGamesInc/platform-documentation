@@ -531,17 +531,17 @@ UI.SetCursorVisible(true)
 
 ## Camera Captures
 
-[Camera](../api/camera.md) captures represents an image rendered by a **Camera** to be used elsewhere in the game, for example in the UI. Captures can be created using a fixed set of [resolutions](../api/cameracapture.md), and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
+[Camera](../api/camera.md) captures represents an image rendered by a **Camera** to be used elsewhere in the game, for example in the UI. Captures can be created using any combination of [resolutions](../api/cameracapture.md) up until the budget is fully consumed. The total budget is 8 megapixels (8,388,608 pixels). Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
 
-The following table lists the number of images supported per [resolution](../api/cameracapture.md).
+The following table lists the maximum number of images supported per [resolution](../api/cameracapture.md) when using the total budget.
 
-| Resolution Size | Maximum Images |
-| --------------- | -------------- |
-| Very Small | 256 |
-| Small | 64 |
-| Medium | 16 |
-| Large | 4 |
-| Very Large | 1 |
+| Resolution Size | Pixel Size | Total Pixels | Maximum Instances |
+| --------------- | ---------- | ----------------- |
+| Very Small | 64 x 64 | 4,096 | 2048 |
+| Small | 128 x 128 | 16,384 | 512 |
+| Medium | 256 x 256 | 65,536 | 128
+| Large | 512 x 512 | 262,144 | 32 |
+| Very Large | 1024 x 1024 | 1,048,576 | 8 |
 
 ### Camera Setup
 
@@ -632,7 +632,7 @@ local CAMERA = script:GetCustomProperty("Camera"):WaitForObject()
 
 #### Camera Capture
 
-Create the following code, which will create a capture using the `Capture` function, and passing in a [resolution](../api/cameracapture.md). The `Capture` function will return a `CameraCapture` object that may be used to display this image or refresh the capture. The `Capture` function may return `nil` if the maximum number of capture instances at the desired resolution has been exceeded.
+Create the following code, which will create a capture using the `Capture` function, and passing in a [resolution](../api/cameracapture.md). The `Capture` function will return a `CameraCapture` object that may be used to display this image or refresh the capture. The `Capture` function may return `nil` if the total budget (8,388,608 pixels) is reached.
 
 A `CameraCapture` can be refreshed or released. When releasing a `CameraCapture` the instance will become invalid and should no longer be used.
 
