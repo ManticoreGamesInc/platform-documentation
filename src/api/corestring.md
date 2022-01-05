@@ -29,7 +29,7 @@ Example using:
 In this example, the words in a sentence are sorted into alphabetical order.
 
 ```lua
-local text = "the brown fox ran over the lazy dog."
+local text = "the quick brown fox jumps over the lazy dog."
 -- Split into a table
 local words = {
     CoreString.Split(text, {
@@ -44,6 +44,26 @@ local sortedText = CoreString.Join(" ", table.unpack(words))
 -- Output to Event Log
 print(text)
 print(sortedText)
+```
+
+See also: [CoreLua.print](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `Trim`
+
+In this example we look at different ways to use the `Trim()` function to eliminate symbols from the beginning and end of a string. Results are printed to the Event Log.
+
+```lua
+local original = "  Hello World!!!"
+local trimmed1 = CoreString.Trim(original)
+local trimmed2 = CoreString.Trim(original, "!", " ")
+
+print(original)
+print(trimmed1)
+print(trimmed2)
 ```
 
 See also: [CoreLua.print](coreluafunctions.md)

@@ -47,7 +47,7 @@ Example using:
 
 ### `isTargetDataUpdated`
 
-In this example, a shotgun is configured to have a deterministic sequence of spread patterns. Both the angle and the randomness of the shots can be controlled in a way where they follow a predictable pattern of shots that repeats for every 5 shots. Some properties of the ability targeting can only be changed at runtime if the ability's execute phase has the property 'Is Target Data Updated' disabled. Otherwise, any changes to the target data are overriden at the start of the execute phase. The script expects to be placed under the shotgun's client context.
+In this example, a shotgun is configured to have a deterministic sequence of spread patterns. Both the angle and the randomness of the shots can be controlled in a way where they follow a predictable pattern of shots that repeats for every 5 shots. Some properties of the ability targeting can only be changed at runtime if the ability's execute phase has the property 'Is Target Data Updated' disabled. Otherwise, any changes to the target data are overridden at the start of the execute phase. The script expects to be placed under the shotgun's client context.
 
 ```lua
 local WEAPON = script:FindAncestorByType("Weapon")
@@ -67,12 +67,12 @@ local sequenceIndex = 1
 
 function OnCast(ability)
     local targetData = ability:GetTargetData()
-    
+
     targetData.spreadHalfAngle = sequenceAngle[sequenceIndex]
     targetData.spreadRandomSeed = sequenceRngSeed[sequenceIndex]
-    
+
     ability:SetTargetData(targetData)
-    
+
     sequenceIndex = sequenceIndex + 1
     if sequenceIndex > #sequenceAngle then
         sequenceIndex = 1
