@@ -147,19 +147,19 @@ end
 function Reset()
     local viewRot = LOCAL_PLAYER:GetViewWorldRotation()
     viewForward = Quaternion.New(viewRot):GetForwardVector()
-    
+
     targetPlayer = nil
 end
 
 function TestPlayer(player)
     local point = player:GetWorldPosition()
-    
+
     local projection = UI.GetCursorPlaneIntersection(point, viewForward)
     if not projection then return end
-    
+
     local distSqr = (point - projection).sizeSquared
-    
-    if targetPlayer == nil 
+
+    if targetPlayer == nil
     or distSqr < smallestDistSqr then
         smallestDistSqr = distSqr
         targetPlayer = player
@@ -261,7 +261,7 @@ function Tick(deltaTime)
     -- If "targetPlayer" refers to an actual player, update the position of the UI Text to
     -- be above that player's head
     if(Object.IsValid(targetPlayer)) then
-        -- Get the position of the player's head by vertically offseting the position of the player
+        -- Get the position of the player's head by vertically offsetting the position of the player
         local playerHeadPos = targetPlayer:GetWorldPosition() + Vector3.New(0, 0, 120)
 
         -- Convert the position of the player's head to 2D coordinates
@@ -517,7 +517,7 @@ In this example, RP points can be granted to a player by calling the function Gi
 -- Server script:
 function GiveRewardPoints(player, amount)
     player:GrantRewardPoints(amount, "MyRP")
-    
+
     Events.BroadcastToPlayer(player, "ShowRPGain", amount)
 end
 

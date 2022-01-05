@@ -41,6 +41,74 @@ A UIControl which displays a basic text label. Inherits from [UIControl](uicontr
 
 Example using:
 
+### `ComputeApproximateSize`
+
+In this example a random message will be displayed. Each message is a different length. Using `ComputeApproximateSize`, you can get the rendered text size and increase the parent width so the text does not overflow. This is useful when you do not know the size of the text, for example, player names.
+
+```lua
+-- Client script.
+-- The image is a fixed size.
+local UI_IMAGE = script:GetCustomProperty("Image"):WaitForObject()
+
+-- The text is set to not wrap, a child of the image, centered,
+-- and inherit parent width.
+local UI_TEXT = script:GetCustomProperty("Text"):WaitForObject()
+
+-- Amount of space on the left and right of the text.
+local padding = 100
+
+-- Cache the starting width that will be used later.
+local minWidth = UI_IMAGE.width
+
+-- Array of messages to pick from at random.
+local messages = {
+
+    "Lorem ipsum dolor sit amet.",
+    "Lorem ipsum.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Lorem ipsum dolor sit amet, consectetur."
+
+}
+
+-- Get the approx text size of the UI_TEXT.
+function GetTextSize()
+    local size = UI_TEXT:ComputeApproximateSize()
+
+    -- The size could be nil for a couple of frames,
+    -- so you will need to wait for the component to
+    -- be initialized.
+    while size == nil do
+        Task.Wait()
+        size = UI_TEXT:ComputeApproximateSize()
+    end
+
+    return size
+end
+
+-- Spawn a task to repeat every 3 seconds and display
+-- a random message.
+local randomMsgTask = Task.Spawn(function()
+
+    -- The UI_TEXT object needs the text property set
+    -- first before getting the size.
+    UI_TEXT.text = messages[math.random(#messages)]
+
+    -- The width of the image is set based on the size
+    -- of the text. The minimum width of the image will
+    -- not go below minWidth value.
+    UI_IMAGE.width = math.max(minWidth, GetTextSize().x + padding)
+end)
+
+randomMsgTask.repeatCount = -1
+randomMsgTask.repeatInterval = 3
+```
+
+See also: [Task.Spawn](task.md)
+
+---
+
+Example using:
+
 ### `SetShadowOffset`
 
 ### `SetShadowColor`
@@ -107,7 +175,7 @@ local timePassed = 0
 -- This variable will store the current size of the text outline
 local textOutlineSize = 0
 
--- This variable determins how large the text outline will be
+-- This variable determines how large the text outline will be
 local outlineScale = 5
 
 -- Determines how often the text outline changes size

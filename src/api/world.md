@@ -263,7 +263,7 @@ Example using:
 
 ### `RaycastAll`
 
-This example allows player's to damage other players that they are aiming at. This is done using World.RaycastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good usecase for this function would be for a laser gun.
+This example allows player's to damage other players that they are aiming at. This is done using World.RaycastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good use case for this function would be for a laser gun.
 
 ```lua
 function OnBindingPressed(player, binding)
@@ -449,7 +449,7 @@ Example using:
 
 ### `SpherecastAll`
 
-This example allows player's to damage other players that they are aiming at. This is done using World.SpherecastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good usecase for this function would be for a laser gun.
+This example allows player's to damage other players that they are aiming at. This is done using World.SpherecastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good use case for this function would be for a laser gun.
 
 ```lua
 function OnBindingPressed(player, binding)

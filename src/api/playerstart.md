@@ -30,15 +30,15 @@ Example using:
 
 ### `key`
 
-In this example, 5 seconds after the game starts, all players will respawn at this spawnpoint. Also, all players will be twice as tall and be on team 1.
+In this example, 5 seconds after the game starts, all players will respawn at this spawn point. Also, all players will be twice as tall and be on team 1.
 
 ```lua
 local playerStartSettings = script.parent
 
---All players that use this spawnpoint will be on team 1 when respawned
+--All players that use this spawn point will be on team 1 when respawned
 playerStartSettings.team = 1
 
---When a player spawns at this spawnpoint, they will be twice their normal size
+--When a player spawns at this spawn point, they will be twice their normal size
 playerStartSettings.playerScaleMultiplier = Vector3.New(2, 2, 2)
 
 --Set the spawn "key" of this spawn point so that it can be referenced when a player respawns
