@@ -174,7 +174,7 @@ local rotate360Degrees =  rotate180Degrees * rotate90Degrees * rotate90Degrees
 local rotatedVector = rotate90Degrees * Vector3.FORWARD
 -- rotatedVector is now equal to Vector3.RIGHT, because it has been rotated 90 degrees
 
--- You can also invert a quaternian using the minus-sign. Note that this is NOT the same
+-- You can also invert a quaternion using the minus-sign. Note that this is NOT the same
 -- as inverting the components. This produces a reversed rotation instead.
 -- This example rotates a vector by 90 degrees, and then back, leaving it unchanged.
 local forwardVector = rotate90Degrees * -rotate90Degrees * Vector3.FORWARD

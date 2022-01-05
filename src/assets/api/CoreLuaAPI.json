@@ -7544,20 +7544,6 @@
 							"Name": "damage"
 						}
 					]
-				},
-				{
-					"Name": "collidedEvent",
-					"Description": "Fired when the object collides with another object. The `HitResult` parameter describes the collision that occurred.",
-					"Parameters": [
-						{
-							"Type": "PhysicsObject",
-							"Name": "object"
-						},
-						{
-							"Type": "HitResult",
-							"Name": "hitResult"
-						}
-					]
 				}
 			],
 			"MemberFunctions": [
@@ -8144,20 +8130,6 @@
 				}
 			],
 			"Events": [
-				{
-					"Name": "collidedEvent",
-					"Description": "Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred.",
-					"Parameters": [
-						{
-							"Type": "Player",
-							"Name": "player"
-						},
-						{
-							"Type": "HitResult",
-							"Name": "hitResult"
-						}
-					]
-				},
 				{
 					"Name": "damagedEvent",
 					"Description": "Fired when the Player takes damage.",
