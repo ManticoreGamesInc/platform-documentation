@@ -420,7 +420,7 @@ local CAMERA = script.parent
 
 local CONSTRAIN_SPECTATOR_LOOK = false
 local PITCH_CONSTRAINED_ANGLE = 15
-local YAW_CONTRAINED_ANGLE = 15
+local YAW_CONSTRAINED_ANGLE = 15
 
 local defaultMinPitch = CAMERA.minPitch
 local defaultMaxPitch = CAMERA.maxPitch
@@ -465,8 +465,8 @@ function SpectatePlayer(player)
             CAMERA.minPitch = -PITCH_CONSTRAINED_ANGLE
             CAMERA.maxPitch = PITCH_CONSTRAINED_ANGLE
             CAMERA.isYawLimited = true
-            CAMERA.minYaw = -YAW_CONTRAINED_ANGLE
-            CAMERA.maxYaw = YAW_CONTRAINED_ANGLE
+            CAMERA.minYaw = -YAW_CONSTRAINED_ANGLE
+            CAMERA.maxYaw = YAW_CONSTRAINED_ANGLE
             CAMERA.currentDistance = defaultDistance
             CAMERA.minDistance = defaultDistance
             CAMERA.maxDistance = defaultDistance

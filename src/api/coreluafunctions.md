@@ -82,7 +82,7 @@ Example using:
 
 ### `require`
 
-Using `require()` is a powerful way to abstract code and break it apart into separate responsabilities, as well as reusable components. In this example we have two scripts. The first script is in the hierarchy and calls `require()` on the second script. To link the two scripts together, select the first script in the hierarchy and drag the second script from Project Content into the Properties view. This action creates a custom property that points to the script asset.
+Using `require()` is a powerful way to abstract code and break it apart into separate responsibilities, as well as reusable components. In this example we have two scripts. The first script is in the hierarchy and calls `require()` on the second script. To link the two scripts together, select the first script in the hierarchy and drag the second script from Project Content into the Properties view. This action creates a custom property that points to the script asset.
 
 ```lua
 -- Contents of the script in the hierarchy:
