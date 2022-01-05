@@ -37,11 +37,11 @@ local UI_IMAGE = script.parent
 
 function Tick()
     local movement = Input.GetActionValue(Game.GetLocalPlayer(), "Move")
-    
+
     local x = movement.x
     local y = movement.y
     local pivot = UIPivot.MIDDLE_CENTER
-    
+
     if y > 0 then
         if x > 0 then
             pivot = UIPivot.TOP_RIGHT
@@ -65,7 +65,7 @@ function Tick()
             pivot = UIPivot.MIDDLE_LEFT
         end
     end
-    
+
     UI_IMAGE.anchor = pivot
     UI_IMAGE.dock = pivot
 end
@@ -103,10 +103,10 @@ end
 
 function Tick(deltaTime)
     local t = CoreMath.Clamp(deltaTime * LERP_SPEED)
-    
+
     fWidth = CoreMath.Lerp(fWidth, defaultWidth * targetScale, t)
     fHeight = CoreMath.Lerp(fHeight, defaultHeight * targetScale, t)
-    
+
     UI_PANEL.width = CoreMath.Round(fWidth)
     UI_PANEL.height = CoreMath.Round(fHeight)
 end
@@ -160,7 +160,7 @@ Example using:
 
 ### `rotationAngle`
 
-Being able to control the position and rotation of UI elements is an extremely valuable skill when developing games in Core. This example will show you how you can change the position of a UI element by using the `x` and `y` properties of that element. Also, this example will demonstrate how to set the rotatation a UI element by using the `rotationAngle` property of that UI element.
+Being able to control the position and rotation of UI elements is an extremely valuable skill when developing games in Core. This example will show you how you can change the position of a UI element by using the `x` and `y` properties of that element. Also, this example will demonstrate how to set the rotation a UI element by using the `rotationAngle` property of that UI element.
 
 This example will move a UI object in a circular path while also rotating that UI object.
 

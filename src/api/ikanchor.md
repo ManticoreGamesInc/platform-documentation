@@ -121,27 +121,27 @@ Example using:
 
 ### `Deactivate`
 
-This example adds a layer of decision-making when activating/deactivating IK Anchors. With this approach, a more complex project, with multiple IK can be applied to players at the same time. If two anchors of the same type (e.g. Left Hand) are activated on the same player, then they go onto a stack and can remain consistent regardless of the order in which activate/deactivate are called. Without such an approach, multiple game systems may be fighting for the limited IK slots, with undesireable results.
+This example adds a layer of decision-making when activating/deactivating IK Anchors. With this approach, a more complex project, with multiple IK can be applied to players at the same time. If two anchors of the same type (e.g. Left Hand) are activated on the same player, then they go onto a stack and can remain consistent regardless of the order in which activate/deactivate are called. Without such an approach, multiple game systems may be fighting for the limited IK slots, with undesirable results.
 
 ```lua
 function ActivateIK(player, ikAnchor)
     local stack = GetIKStack(player, ikAnchor)
-    
+
     table.insert(stack, ikAnchor)
-    
+
     ikAnchor:Activate(player)
 end
 
 function DeactivateIK(player, ikAnchor)
     local stack = GetIKStack(player, ikAnchor)
-    
+
     for i = #stack, 1, -1 do
         if stack[i] == ikAnchor then
             table.remove(stack, i)
 
             if #stack == 0 then
                 ikAnchor:Deactivate()
-                
+
             elseif i == #stack + 1 then
                 local previousIK = stack[#stack]
                 previousIK:Activate(player)
@@ -153,7 +153,7 @@ end
 
 function GetIKStack(player, ikAnchor)
     local type = ikAnchor.anchorType
-    
+
     if player.clientUserData.IKStack == nil then
         player.clientUserData.IKStack = {}
     end

@@ -163,7 +163,7 @@ Example using:
 
 ### `TransferAllPlayersToGame`
 
-In this example, players can type the command `/reboot` into chat to send all players to a fresh server instance. It's the same game, just another copy of the server. Before transfering the players, we lock the server with `StopAcceptingPlayers()`, otherwise some players might reload into the same server instance.
+In this example, players can type the command `/reboot` into chat to send all players to a fresh server instance. It's the same game, just another copy of the server. Before transferring the players, we lock the server with `StopAcceptingPlayers()`, otherwise some players might reload into the same server instance.
 
 ```lua
 local GAME_ID = Game.GetCurrentGameId()
