@@ -51,3 +51,99 @@ Transforms represent the position, rotation, and scale of objects in the game. T
 | -------- | ----------- | ----------- | ---- |
 | `Transform * Transform` | [`Transform`](transform.md) | Returns a new Transform composing the left and right Transforms. | None |
 | `Transform * Quaternion` | [`Transform`](transform.md) | Returns a new Transform composing the left Transform then the right side rotation. | None |
+
+## Examples
+
+Example using:
+
+### `New`
+
+In this example we show that getting an object's rotation, position and scale individually is the same as getting the object's entire transform.
+
+```lua
+local OBJ = script.parent
+
+local rot = OBJ:GetRotation()
+local pos = OBJ:GetPosition()
+local sca = OBJ:GetScale()
+local newTransform = Transform.New(rot, pos, sca)
+
+if newTransform == OBJ:GetTransform() then
+    print("Equal")
+else
+    print("Not equal")
+end
+```
+
+See also: [CoreObject.GetTransform](coreobject.md)
+
+---
+
+Example using:
+
+### `GetPosition`
+
+### `SetPosition`
+
+In this example, we move an object up by 2 meters by modifying its transform. The script is placed as a child of the object and networking is enabled on the object. The same can be done for rotation and scale. Notice that, when manipulating Core Objects directly, their "world" position is most often changed. Whereas changes to a transform's properties are always in local space.
+
+```lua
+local OBJ = script.parent
+
+-- Grab a copy of the transform
+local t = OBJ:GetTransform()
+
+-- Change its position up by 2 meters
+local pos = t:GetPosition()
+pos = pos + Vector3.New(0, 0, 200)
+t:SetPosition(pos)
+
+-- Apply the transform back to the object
+OBJ:SetTransform(t)
+```
+
+See also: [CoreObject.SetTransform](coreobject.md) | [Vector3.New](vector3.md)
+
+---
+
+Example using:
+
+### `Transform*Transform`
+
+### `Transform*Quaternion`
+
+While many operations can be achieved by changing an object's position or rotation directly, some algorithms are best achieved with `Transforms` (matrices). In this example, we build an elaborate 3D spiral structure by spawning a series of cubes. This takes advantage of the composable nature of transforms, which can accumulate an indefinite series of position/rotation/scale, all while being highly efficient on the CPU.
+
+```lua
+-- Template of bottom-aligned cube that will be spawned
+local TEMPLATE = script:GetCustomProperty("CubeBottomAligned")
+
+-- Build the math structures only once
+local T_OFFSET = Transform.New(Quaternion.IDENTITY, Vector3.UP * 100, Vector3.ONE)
+local T_ARC = Transform.New(Rotation.New(5, 7, 0), Vector3.ZERO, Vector3.ONE)
+local Q_TIGHTEN = Quaternion.New(Rotation.New(0.03, 0.06, -0.01))
+
+-- Initial transform composition that will be applied to itself, over and over
+local composition = T_ARC * T_OFFSET
+
+t = script:GetTransform()
+
+function SpawnOne()
+    -- Slight rotation to tighten the spiral
+    composition = composition * Q_TIGHTEN
+    -- Iterate the composition
+    t = composition * t
+    -- Spawn the cube with the given transform
+    local obj = World.SpawnAsset(TEMPLATE, {transform = t})
+end
+
+-- Loop over time. Spawn a cube every 30ms
+function Tick()
+    Task.Wait(0.03)
+    SpawnOne()
+end
+```
+
+See also: [CoreObject.GetTransform](coreobject.md) | [World.SpawnAsset](world.md) | [Rotation.New](rotation.md) | [Vector3.UP](vector3.md) | [Quaternion.IDENTITY](quaternion.md) | [Task.Wait](task.md)
+
+---

@@ -329,7 +329,7 @@ Example using:
 
 ### `SetTargetData`
 
-The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programatically will be overwritten when the phase changes.
+The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programmatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programmatically will be overwritten when the phase changes.
 
 ```lua
 local ability = script:FindAncestorByType("Ability")
