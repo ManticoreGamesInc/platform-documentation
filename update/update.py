@@ -15,9 +15,13 @@ def update_dump(environment="Test"):
     dumpEndpoint = f"{baseUrl}/builds/api_export/api-{latestVersion.text}.json"
     r = requests.get(dumpEndpoint.replace("\r\n", ""))
     open(outfilePath, "wb").write(r.content)
-    print(f"Updated JSON Dump to version {latestVersion.text}")
+    print(
+        f"\x1b[\033[32m>>\x1b[0m Updating CoreLuaAPI.json from CDN - Version: \x1b[\033[32m{latestVersion.text}\x1b[0m."
+    )
 
 
 def update_environment():
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements, "--upgrade"])
-    subprocess.check_call(['npm', "install"])
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", "-r", requirements, "--upgrade"]
+    )
+    subprocess.check_call(["npm", "install"])
