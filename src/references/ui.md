@@ -536,7 +536,7 @@ UI.SetCursorVisible(true)
 The following table lists the maximum number of images supported per [resolution](../api/cameracapture.md) when using the total budget.
 
 | Resolution Size | Pixel Size | Total Pixels | Maximum Instances |
-| --------------- | ---------- | ----------------- |
+| --------------- | ---------- | ------------ | ----------------- |
 | Very Small | 64 x 64 | 4,096 | 2048 |
 | Small | 128 x 128 | 16,384 | 512 |
 | Medium | 256 x 256 | 65,536 | 128
