@@ -203,7 +203,7 @@ Example using:
 
 ### `IsFriendsWithLocalPlayer`
 
-In this client script example a global leaderboard is enriched with additional data about the players, in this case wheather the player on the leaderboard is you, or if they are a friend of yours.
+In this client script example a global leaderboard is enriched with additional data about the players, in this case whether the player on the leaderboard is you, or if they are a friend of yours.
 
 ```lua
 local LEADERBOARD_REF = script:GetCustomProperty("LeaderboardRef")
