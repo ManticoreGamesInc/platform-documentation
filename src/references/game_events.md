@@ -261,6 +261,18 @@ if eventData ~= nil then
     eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
 end
 
+--Stop the task once the event has ended or is invalid
+local function StopTask()
+    checkEventTask:Cancel()
+    checkEventTask = nil
+end
+
+local function SubmitPlayer(player, time)
+    if Leaderboards.HasLeaderboards() then
+        Leaderboards.SubmitPlayerScore(LEADERBOARD, player, time)
+    end
+end
+
 local function CheckEvent()
     if eventData ~= nil then
         --Submit all players if current time is between the start and end of an event
@@ -277,18 +289,6 @@ local function CheckEvent()
         end
     else
         StopTask()
-    end
-end
-
---Stop the task once the event has ended or is invalid
-local function StopTask()
-    checkEventTask:Cancel()
-    checkEventTask = nil
-end
-
-local function SubmitPlayer(player, time)
-    if Leaderboards.HasLeaderboards() then
-        Leaderboards.SubmitPlayerScore(LEADERBOARD, player, time)
     end
 end
 
@@ -364,6 +364,15 @@ if eventData ~= nil then
     eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
 end
 
+--Required to stop the task and remove event object once the event is no longer active
+local function CleanupEvent()
+    if(Object.IsValid(eventObject)) then
+        eventObject:Destroy()
+    end
+    checkEventTask:Cancel()
+    checkEventTask = nil
+end
+
 local function CheckEvent()
     if eventData ~= nil then
         --Track if the event is currently active by comparing the current time
@@ -372,22 +381,12 @@ local function CheckEvent()
         if not templateSpawned and eventActive then
             eventObject = World.SpawnAsset(TEMPLATE, {parent = PARENT_OBJECT})
             templateSpawned = true
-        end
         elseif templateSpawned and not eventActive then
             CleanupEvent()
         end
     else
         CleanupEvent()
     end
-end
-
---Required to stop the task and remove event object once the event is no longer active
-local function CleanupEvent()
-    if(Object.IsValid(eventObject)) then
-        eventObject:Destroy()
-    end
-    checkEventTask:Cancel()
-    checkEventTask = nil
 end
 
 --Task repeats indefinitely every 10 seconds
