@@ -117,15 +117,41 @@ end
 
 ### Test the Game
 
-Test the game and see if the UI image displays the camera capture.
+Test the game and see if the UI image displays the camera capture. The captured image isn't very interesting at the moment.
 
 ![!First Capture](../img/CameraCapture/Basics/basics_first_capture.png){: .center loading="lazy" }
 
-### Challenge
+## Create a Scene to Capture
 
-Try coming up with a scene and taking a camera capture and showing it in the UI with a border. This could be used to display a gallery of camera captures in game.
+Create a scene by adding objects from **Core Content** that will be used in the camera capture. Make sure to position the camera so it looks at the scene. Get the camera in the right position can be trial and error, so play the game often to see what is being captured until you have the camera pointing where you want.
 
-![!Final](../img/CameraCapture/Basics/basics_finished.png){: .center loading="lazy" }
+Even with a few objects it is easy to create interesting scenes. The scene in the image below was built using these objects:
+
+- 3D Objects
+    - Japanese Temple Wall 01.
+    - Cafe Table.
+    - Craftsman Dining Chair.
+    - Japanese Tea Set - Cup 01.
+    - Fantasy Dish Set - Plate 01.
+    - Fantasy Book 01, Fantasy Book 02, and Fantasy Book 03.
+
+- Animated Meshes
+    - Humanoid 1 Rig (customised).
+
+- Effects / Lighting
+    - Steam Volume VFX (for cups).
+    - Point Light
+
+- UI
+    - Fantasy Frame 007.
+
+![!Scene](../img/CameraCapture/Basics/basics_scene.png){: .center loading="lazy" }
+
+## Test the Game
+
+Test the game to see your scene captured and displayed in the UI.
+
+![!Finished](../img/CameraCapture/Basics/basics_finished.png){: .center loading="lazy" }
 
 ## Memory Budget
 
