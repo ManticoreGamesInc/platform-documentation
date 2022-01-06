@@ -279,7 +279,7 @@ Test the game and make sure the camera capture is working. If you followed along
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/CameraCapture/generator_final.mp4" type="video/mp4" />
+        <source src="/img/CameraCapture/Generator/generator_final.mp4" type="video/mp4" />
     </video>
 </div>
 
