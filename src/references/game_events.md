@@ -124,6 +124,8 @@ Each game event created will have a **Game Event Id** that can be copied and add
 
 The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts to retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
 
+### Countdown Timer
+
 For example, displaying a custom countdown timer for an event that will begin can be done by fetching the game event data.
 
 ```lua
@@ -165,6 +167,231 @@ The `eventID` value can be retrieved by copying the **Game Event Id** for the ev
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/GameEvents/countdown_example.mp4" type="video/mp4" />
+    </video>
+</div>
+
+### Event RSVP
+
+In **Core Content**, there is a [UIEventRSVPButton](../api/uieventrsvpbutton.md) that allows the player to click and RSVP to an event. Creators can change the **Game Event Id** for the button by setting the `eventId` property. Here's an example that displays a **UI Container** with the RSVP button if the player interacts with a **Trigger**.
+
+```lua
+--Script needs to be in Client Context for Game.GetLocalPlayer() to work
+local RSVP_TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+local RSVP_UI = script:GetCustomProperty("UIContainer"):WaitForObject()
+local RSVP_BUTTON = script:GetCustomProperty("UIEventRSVPButton"):WaitForObject()
+local EXIT_UI_BUTTON = script:GetCustomProperty("ExitButton"):WaitForObject()
+local EVENT_ID = script:GetCustomProperty("EventId")
+
+--Set the RSVP Button to the correct Game Event ID
+RSVP_BUTTON.eventId = EVENT_ID
+
+local localPlayer = Game.GetLocalPlayer()
+local inTrigger = false
+
+local function CloseUI()
+    RSVP_UI.visibility = Visibility.FORCE_OFF
+
+    if inTrigger then
+        RSVP_TRIGGER.isInteractable = true
+    else
+        RSVP_TRIGGER.isInteractable = false
+    end
+
+    UI.SetCursorVisible(false)
+    UI.SetCanCursorInteractWithUI(false)
+end
+
+local function OnInteracted(trigger, obj)
+    if inTrigger and Object.IsValid(obj) and obj:IsA("Player") and obj == localPlayer then
+        RSVP_UI.visibility = Visibility.FORCE_ON
+        RSVP_TRIGGER.isInteractable = false
+
+        UI.SetCursorVisible(true)
+        UI.SetCanCursorInteractWithUI(true)
+    end
+end
+
+local function OnExitTrigger(trigger, obj)
+    if Object.IsValid(obj) and obj:IsA("Player") and obj == localPlayer then
+        inTrigger = false
+        CloseUI()
+    end
+end
+
+local function OnEnterTrigger(trigger, obj)
+    if Object.IsValid(obj) and obj:IsA("Player") and obj == localPlayer then
+        RSVP_TRIGGER.isInteractable = true
+        inTrigger = true
+    end
+end
+
+EXIT_UI_BUTTON.clickedEvent:Connect(CloseUI)
+
+RSVP_TRIGGER.interactedEvent:Connect(OnInteracted)
+RSVP_TRIGGER.endOverlapEvent:Connect(OnExitTrigger)
+RSVP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
+```
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/GameEvents/rsvp_example.mp4" type="video/mp4" />
+    </video>
+</div>
+
+### Event Participants
+
+Creators may want a list of player names that participated in an event. One way to do this is store each player in a [Leaderboard](../api/leaderboards.md) if the event is currently active. Here's an example that uses [Chat](../api/chat.md) commands to display a **Leaderboard** of players that were in the game while an event was occurring.
+
+```lua
+local LEADERBOARD = script:GetCustomProperty("Leaderboard")
+local EVENT_ID = script:GetCustomProperty("EventID")
+
+local eventData = CorePlatform.GetGameEvent(EVENT_ID)
+local eventStartTime = 0
+local eventEndTime = 0
+
+--Only the creator has the ability to print event participants
+local creatorName = "DoubleABattery"
+
+local checkEventTask = nil
+
+--Access the start and end time for the event
+if eventData ~= nil then
+    eventStartTime = eventData:GetStartDateTime().secondsSinceEpoch
+    eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
+end
+
+function CheckEvent()
+    if eventData ~= nil then
+        --Submit all players if current time is between the start and end of an event
+        local currentTime = DateTime.CurrentTime().secondsSinceEpoch
+        if currentTime >= eventStartTime then
+            if currentTime < eventEndTime then
+                local allPlayers = Game.GetPlayers()
+                for _, player in pairs(allPlayers) do
+                    SubmitPlayer(player, currentTime)
+                end
+            else
+                StopTask()
+            end
+        end
+    else
+        StopTask()
+    end
+end
+
+--Stop the task once the event has ended or is invalid
+function StopTask()
+    checkEventTask:Cancel()
+    checkEventTask = nil
+end
+
+function SubmitPlayer(player, time)
+    if Leaderboards.HasLeaderboards() then
+        Leaderboards.SubmitPlayerScore(LEADERBOARD, player, time)
+    end
+end
+
+--Task repeats indefinitely every 10 seconds
+checkEventTask = Task.Spawn(CheckEvent)
+checkEventTask.repeatCount = -1
+checkEventTask.repeatInterval = 10
+
+--Need to check when a player joins in case the event ends before the task runs again
+function OnPlayerJoined(player)
+    if eventData ~= nil then
+        local currentTime = DateTime.CurrentTime().secondsSinceEpoch
+        if currentTime >= eventStartTime and currentTime < eventEndTime then
+            SubmitPlayer(player, currentTime)
+        end
+    end
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+
+--Only the creator can print all participants by typing "/event" into chat
+function PrintEventParticipants(player, data)
+    if player.name == creatorName and data.message == "/event" then
+        if Leaderboards.HasLeaderboards() then
+            print("Printing Event Participants...")
+            local entries = Leaderboards.GetLeaderboard(LEADERBOARD, LeaderboardType.GLOBAL)
+            for _, entry in pairs(entries) do
+                print(entry.name)
+            end
+        end
+    end
+end
+
+Chat.receiveMessageHook:Connect(PrintEventParticipants)
+```
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/GameEvents/leaderboard_example.mp4" type="video/mp4" />
+    </video>
+</div>
+
+### Spawning Event Template
+
+Events usually have items or activities that are temporary while the event is active such as a special boss fight. The start and end time of an event can be used to spawn a template if an event is active and destroy it once it has ended.
+
+```lua
+local TEMPLATE = script:GetCustomProperty("EventTemplate")
+--Parent object is at the desired location for the template
+local PARENT_OBJECT = script:GetCustomProperty("ParentObject"):WaitForObject()
+local EVENT_ID = script:GetCustomProperty("EventID")
+
+local eventData = CorePlatform.GetGameEvent(EVENT_ID)
+local eventStartTime = 0
+local eventEndTime = 0
+
+--Used to store the spawned template and destroy once the event ends
+local eventObject = nil
+local checkEventTask = nil
+
+--Handle spawning the template only once
+local templateSpawned = false
+
+if eventData ~= nil then
+    eventStartTime = eventData:GetStartDateTime().secondsSinceEpoch
+    eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
+end
+
+function CheckEvent()
+    if eventData ~= nil then
+        --Track if the event is currently active by comparing the current time
+        local currentTime = DateTime.CurrentTime().secondsSinceEpoch
+        local eventActive = currentTime >= eventStartTime and currentTime < eventEndTime
+        if not templateSpawned and eventActive then
+            eventObject = World.SpawnAsset(TEMPLATE, {parent = PARENT_OBJECT})
+            templateSpawned = true
+        end
+        if templateSpawned and not eventActive then
+            CleanupEvent()
+        end
+    else
+        CleanupEvent()
+    end
+end
+
+--Required to stop the task and remove event object once the event is no longer active
+function CleanupEvent()
+    if(Object.IsValid(eventObject)) then
+        eventObject:Destroy()
+    end
+    checkEventTask:Cancel()
+    checkEventTask = nil
+end
+
+--Task repeats indefinitely every 10 seconds
+checkEventTask = Task.Spawn(CheckEvent)
+checkEventTask.repeatCount = -1
+checkEventTask.repeatInterval = 10
+```
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/GameEvents/template_example.mp4" type="video/mp4" />
     </video>
 </div>
 
