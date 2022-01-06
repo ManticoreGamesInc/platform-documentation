@@ -243,15 +243,15 @@ RSVP_TRIGGER.beginOverlapEvent:Connect(OnEnterTrigger)
 Creators may want a list of player names that participated in an event. One way to do this is store each player in a [Leaderboard](../api/leaderboards.md) if the event is currently active. Here's an example that uses [Chat](../api/chat.md) commands to display a **Leaderboard** of players that were in the game while an event was occurring.
 
 ```lua
+--Only the creator has the ability to print event participants
+local CREATOR_NAME = script:GetCustomProperty("CreatorName")
 local LEADERBOARD = script:GetCustomProperty("Leaderboard")
 local EVENT_ID = script:GetCustomProperty("EventID")
 
+--Getting the Game Event data will yield the code until the request is returned
 local eventData = CorePlatform.GetGameEvent(EVENT_ID)
 local eventStartTime = 0
 local eventEndTime = 0
-
---Only the creator has the ability to print event participants
-local creatorName = "DoubleABattery"
 
 local checkEventTask = nil
 
@@ -261,7 +261,7 @@ if eventData ~= nil then
     eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
 end
 
-function CheckEvent()
+local function CheckEvent()
     if eventData ~= nil then
         --Submit all players if current time is between the start and end of an event
         local currentTime = DateTime.CurrentTime().secondsSinceEpoch
@@ -281,12 +281,12 @@ function CheckEvent()
 end
 
 --Stop the task once the event has ended or is invalid
-function StopTask()
+local function StopTask()
     checkEventTask:Cancel()
     checkEventTask = nil
 end
 
-function SubmitPlayer(player, time)
+local function SubmitPlayer(player, time)
     if Leaderboards.HasLeaderboards() then
         Leaderboards.SubmitPlayerScore(LEADERBOARD, player, time)
     end
@@ -298,7 +298,7 @@ checkEventTask.repeatCount = -1
 checkEventTask.repeatInterval = 10
 
 --Need to check when a player joins in case the event ends before the task runs again
-function OnPlayerJoined(player)
+local function OnPlayerJoined(player)
     if eventData ~= nil then
         local currentTime = DateTime.CurrentTime().secondsSinceEpoch
         if currentTime >= eventStartTime and currentTime < eventEndTime then
@@ -310,9 +310,10 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 --Only the creator can print all participants by typing "/event" into chat
-function PrintEventParticipants(player, data)
-    if player.name == creatorName and data.message == "/event" then
+local function PrintEventParticipants(player, data)
+    if player.name == CREATOR_NAME and data.message == "/event" then
         if Leaderboards.HasLeaderboards() then
+            data.message = ""
             print("Printing Event Participants...")
             local entries = Leaderboards.GetLeaderboard(LEADERBOARD, LeaderboardType.GLOBAL)
             for _, entry in pairs(entries) do
@@ -325,6 +326,10 @@ end
 Chat.receiveMessageHook:Connect(PrintEventParticipants)
 ```
 
+!!! tip
+    Reading the Event Log in a published game can be done by enabling **Play Mode Profiler**. In the **Game Settings** properties, activate the **Enable Play Mode Profiler**. This allows players to open the logs in a published game using the ++F4++ button.
+    ![!Profiler](../img/GameEvents/profiler.png){: .center loading="lazy" }
+
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/GameEvents/leaderboard_example.mp4" type="video/mp4" />
@@ -336,11 +341,13 @@ Chat.receiveMessageHook:Connect(PrintEventParticipants)
 Events usually have items or activities that are temporary while the event is active such as a special boss fight. The start and end time of an event can be used to spawn a template if an event is active and destroy it once it has ended.
 
 ```lua
+--This template needs to be networked and the script should be in default context
 local TEMPLATE = script:GetCustomProperty("EventTemplate")
 --Parent object is at the desired location for the template
 local PARENT_OBJECT = script:GetCustomProperty("ParentObject"):WaitForObject()
 local EVENT_ID = script:GetCustomProperty("EventID")
 
+--Getting the Game Event data will yield the code until the request is returned
 local eventData = CorePlatform.GetGameEvent(EVENT_ID)
 local eventStartTime = 0
 local eventEndTime = 0
@@ -357,7 +364,7 @@ if eventData ~= nil then
     eventEndTime = eventData:GetEndDateTime().secondsSinceEpoch
 end
 
-function CheckEvent()
+local function CheckEvent()
     if eventData ~= nil then
         --Track if the event is currently active by comparing the current time
         local currentTime = DateTime.CurrentTime().secondsSinceEpoch
@@ -366,7 +373,7 @@ function CheckEvent()
             eventObject = World.SpawnAsset(TEMPLATE, {parent = PARENT_OBJECT})
             templateSpawned = true
         end
-        if templateSpawned and not eventActive then
+        elseif templateSpawned and not eventActive then
             CleanupEvent()
         end
     else
@@ -375,7 +382,7 @@ function CheckEvent()
 end
 
 --Required to stop the task and remove event object once the event is no longer active
-function CleanupEvent()
+local function CleanupEvent()
     if(Object.IsValid(eventObject)) then
         eventObject:Destroy()
     end
