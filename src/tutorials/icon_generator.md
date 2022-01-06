@@ -279,7 +279,7 @@ Test the game and make sure the camera capture is working. If you followed along
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/CameraCapture/Generator/generator_final.mp4" type="video/mp4" />
+        <source src="/img/CameraCapture/IconGenerator/generator_final.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -291,4 +291,4 @@ There are more advanced features you could consider adding to the icon generator
 
 ## Learn More
 
-Camera Capture API](../api/cameracapture.md) | [Camera Capture Resolutions](../api/enums.md#cameracaptureresolution) | [Camera API](../api/camera.md) | [UI Reference](../references/ui.md#camera-captures)
+[Camera Capture API](../api/cameracapture.md) | [Camera Capture Resolutions](../api/enums.md#cameracaptureresolution) | [Camera API](../api/camera.md) | [UI Reference](../references/ui.md#camera-captures)
