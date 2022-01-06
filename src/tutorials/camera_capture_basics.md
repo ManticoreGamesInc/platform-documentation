@@ -123,7 +123,7 @@ Test the game and see if the UI image displays the camera capture. The captured 
 
 ## Create a Scene to Capture
 
-Create a scene by adding objects from **Core Content** that will be used in the camera capture. Make sure to position the camera so it looks at the scene. Get the camera in the right position can be trial and error, so play the game often to see what is being captured until you have the camera pointing where you want.
+Create a scene by adding objects from **Core Content** that will be used in the camera capture. Make sure to position the camera so it looks at the scene. Getting the camera in the right position can be trial and error, so play the game often to see what is being captured until you have the camera pointing where you want.
 
 Even with a few objects it is easy to create interesting scenes. The scene in the image below was built using these objects:
 
