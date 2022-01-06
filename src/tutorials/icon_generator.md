@@ -10,6 +10,8 @@ tags:
 
 In this tutorial you will learn how to setup an area to create icons from 3D objects that can be used in the UI. For example, if you have an inventory and want the images to represent the in world object of the item, then you can use camera captures to do this.
 
+* **Completion Time:** 30 minutes.
+* **Knowledge Level:** It's recommended to have completed the [Camera Captures](../tutorials/camera_capture_basics.md) tutorial.
 * **Skills you will learn:**
     * Setting up an area with lighting for the captures.
     * Creating data scripts to hold the UI image and icon asset.
