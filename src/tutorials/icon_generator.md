@@ -206,7 +206,7 @@ The `Image` property will be linked to the UI image in the **UI Container**, and
 You will now need to add the **IconData** script to the **Items** folder and setup as many **IconData** scripts as you need. In the case of this tutorial, there are 3 UI Images that will be used to display 3 bottles. So 3 **IconData** scripts need to be added to the **Items** folder.
 
 1. Drag the UI image from the **UI Container** onto the **Image** custom property.
-2. Drag the template to use for this icon from **Project Content** onto thr **Asset** custom property.
+2. Drag the template to use for this icon from **Project Content** onto the **Asset** custom property.
 
 Repeat this for all your UI images.
 
