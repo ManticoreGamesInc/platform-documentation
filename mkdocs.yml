@@ -332,6 +332,9 @@ extra:
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/playcoregames
       name: Facebook
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/coremultiverse
+      name: Instagram
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/coregames
       name: Twitter
