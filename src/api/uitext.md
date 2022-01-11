@@ -103,7 +103,7 @@ randomMsgTask.repeatCount = -1
 randomMsgTask.repeatInterval = 3
 ```
 
-See also: [Task.Spawn](task.md)
+See also: [UIText.text](uitext.md) | [UIControl.width](uicontrol.md) | [Task.Spawn](task.md)
 
 ---
 
