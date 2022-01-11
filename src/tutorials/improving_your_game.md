@@ -3,7 +3,7 @@ id: improving_your_game
 name: Improving Your Game to Attract More Players
 title: Improving Your Game to Attract More Players
 tags:
-    - Tutorial
+  - Tutorial
 ---
 
 # Improve Your Game to Attract More Players
@@ -41,7 +41,7 @@ One of Core's greatest strengths is how fast it is to change a game and republis
 
 In the beginning stages, the best group to playtest with are other creators who understand the challenges of implementing things in Core. They will best understand why you designed things a certain way based on the platform, and will often have useful solutions to problems you are working on.
 
-The [Core Creator Discord](https://discord.gg/core-creators) is the best way to find fellow creators, and includes a `# looking-for-feedback` where you can invite fellow creators to take a look at your game. The voice chat feature of discord will allow you to jump in a call, and talk to your testers as they play.
+The [Core Community Discord](https://discord.coregames.com) is the best way to find fellow creators that you can invite to take a look at your game. The voice chat feature of Discord will allow you to jump in a call, and talk to your testers as they play.
 
 ## Clarity for Players
 

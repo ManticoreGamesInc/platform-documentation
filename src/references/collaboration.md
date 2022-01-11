@@ -3,7 +3,7 @@ id: collaboration_in_core
 name: Collaboration in Core
 title: Collaboration in Core
 tags:
-    - Reference
+  - Reference
 ---
 
 # Collaboration in Core
@@ -20,7 +20,7 @@ Teams are a part of traditional game development, but Core also makes it possibl
 
 ### Core Project Files are Saved Locally
 
-All of your Core projects, called **Maps** are files saved on your computer, so they can be zipped and distributed the same way you would any file. Project files are very small, so they are easy to send through e-mail and chat programs, especially when compressed to a ``.zip`` file.
+All of your Core projects, called **Maps** are files saved on your computer, so they can be zipped and distributed the same way you would any file. Project files are very small, so they are easy to send through e-mail and chat programs, especially when compressed to a `.zip` file.
 
 #### Making a Zipped Map
 
@@ -93,7 +93,7 @@ There are many programming challenges involved in making a game, and how you div
 
 #### Discord
 
-The Core Creator Discord is a useful resource, but you can also create your own Discord server for a game development team. This allows you to create channels dedicated to specific topics, to help keep discussions focused and relevant, as well as creating voice channels for teammates to have open conversations and share ideas as work on their screens.
+The Core Community Discord is a useful resource, but you can also create your own Discord server for a game development team. This allows you to create channels dedicated to specific topics, to help keep discussions focused and relevant, as well as creating voice channels for teammates to have open conversations and share ideas as work on their screens.
 
 #### Kanban Boards
 
