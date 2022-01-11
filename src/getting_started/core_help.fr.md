@@ -3,7 +3,7 @@ id: core_help_fr
 name: Obtenir de l'assistance dans Core
 title: Obtenir de l'assistance dans Core
 tags:
-    - Reference
+  - Reference
 ---
 
 # Obtenir de l'assistance dans Core
@@ -16,9 +16,9 @@ Sur les [Forums des créateurs Core](https://forums.coregames.com/), vous trouve
 
 La section [Foire Aux Questions](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ) du centre d'assistance Core est un excellent point de départ pour résoudre les problèmes qui vous bloquent et ainsi vous permettre de continuer à développer votre projet.
 
-## Discord des créateurs Core
+## Discord de la communauté Core
 
-Le [Discord des créateurs Core](https://discord.gg/85k8A7V) est un serveur social sur lequel vous trouverez régulièrement d'autres créateurs avec qui discuter de vos problèmes et des solutions potentielles. Il propose des salons dans différentes langues et un système de discussion audio. C'est l'endroit idéal pour trouver des testeurs et obtenir des avis sur votre jeu.
+Le [Discord de la communauté Core](https://discord.coregames.com) est un serveur social sur lequel vous trouverez régulièrement d'autres créateurs avec qui discuter de vos problèmes et des solutions potentielles. Il propose des salons dans différentes langues et un système de discussion audio. C'est l'endroit idéal pour trouver des testeurs et obtenir des avis sur votre jeu.
 
 ## Centre d'assistance
 
