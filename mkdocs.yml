@@ -321,7 +321,7 @@ extra:
   robots: !ENV [ROBOTS, "noindex"]
   social:
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/core-creators
+      link: https://discord.coregames.com
       name: Discord
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/CoreGamesOfficial

@@ -3,7 +3,7 @@ id: core_help
 name: Getting Help in Core
 title: Getting Help in Core
 tags:
-    - Reference
+  - Reference
 ---
 
 # Getting Help in Core
@@ -16,9 +16,9 @@ The [Core Creator Forums](https://forums.coregames.com/) are full of tutorials, 
 
 [The Frequently Asked Questions](https://support.coregames.com/hc/en-us/categories/360003284214-FAQ) post on the Core Help Center is an excellent starting point to solve problems and get back to creation.
 
-## Core Creator Discord
+## Core Community Discord
 
-The [Core Creator Discord](https://discord.gg/core-creators) is a live social space where there are frequently other creators available to discuss challenges and potential solutions. It also includes channels in other languages and a live voice chat. It's an excellent place to find playtesters and get feedback on your game.
+The [Core Community Discord](https://discord.coregames.com) is a live social space where there are frequently other creators available to discuss challenges and potential solutions. It also includes channels in other languages and a live voice chat. It's an excellent place to find playtesters and get feedback on your game.
 
 ## Help Center
 
