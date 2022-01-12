@@ -47,7 +47,7 @@ The **Producers, Buffs and Areas** Example Project can be found in the **CREATE*
 
 ### Open the Basic Camp Fire Example
 
-The project is divided into [Scenes](scenes.md) which showcase different ways the Producers, Buffs and Areas systems can be used to create gameplay. To access the **Scenes** window, click **Window** in the top menu bar and select **Scenes**. Double-click the **Basic Camp Fire Example** to the load the correct scene.
+The project is divided into [Scenes](../references/scenes.md) which showcase different ways the Producers, Buffs and Areas systems can be used to create gameplay. To access the **Scenes** window, click **Window** in the top menu bar and select **Scenes**. Double-click the **Basic Camp Fire Example** to the load the correct scene.
 
 ![!All Producers Example Scenes](../img/Producers/Producers_Scenes.png){: .center loading="lazy" }
 
@@ -159,9 +159,9 @@ Select the Alien Egg and open the Properties window. There are many custom prope
 | CanDrop | Activate if the Item can be dropped on the ground from the Inventory. |
 | DropTemplate | The template that spawns on the ground when an Item is dropped from the Inventory. |
 | IconAsset | The template that appears in the Inventory slot. Can be a Kitbashed 2D Icon, 3D Icon, or an Image Icon. |
-| IsKitbashed2DIcon | Activate if IconAsset is a created from multiple images from [**UI Textures**](ui.md). |
+| IsKitbashed2DIcon | Activate if IconAsset is a created from multiple images from [**UI Textures**](../references/ui.md). |
 | Is3DIcon | Activate if IconAsset is made from a 3D model. |
-| IsImageIcon | Activate if IconAsset is a single image from [**UI Textures**](ui.md). |
+| IsImageIcon | Activate if IconAsset is a single image from [**UI Textures**](../references/ui.md). |
 | CanEquip | Activate if the player can hold and use the item by selecting it in the Inventory. |
 | EquipmentVisualTemplate | The template spawned on the player when an item is equipped. |
 
@@ -200,7 +200,7 @@ The **DropTemplate** property should already have a template from the Red Fruit 
 The **Icon Asset** template has three different options to display an inventory icon. The option used for the red fruit template requires knowledge of the **Icon Generator**.
 
 !!! info "The Icon Generator"
-    The Icon Generator is a component used to render 3D icons. It uses a remote camera in a black box to capture an image of a template. The black box should be moved in a published project to a place out of sight. To learn more about how icons are generated from 3D templates, see the [Icon Generator Tutorial](icon_generator.md).
+    The Icon Generator is a component used to render 3D icons. It uses a remote camera in a black box to capture an image of a template. The black box should be moved in a published project to a place out of sight. To learn more about how icons are generated from 3D templates, see the [Icon Generator Tutorial](../tutorials/icon_generator.md).
 
 ![!Icon Generator](../img/ProducersTutorial/Producer_IconGenerator.png){: .center loading="lazy" }
 
@@ -1009,7 +1009,7 @@ Select the **Alien Egg Model** inside the **Incubating Egg (Placed)** and open t
 
 ### Create Ready Template
 
-When the **Incubating Egg** is ready to be collected, the **Ready Template** can display a [visual effect (VFX)](vfx_tutorial.md) to encourage players to collect it.
+When the **Incubating Egg** is ready to be collected, the **Ready Template** can display a [visual effect (VFX)](../tutorials/vfx_tutorial.md) to encourage players to collect it.
 
 1. Right click the **Incubating Egg (Building)** template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 2. Select the **Alien Egg Model** inside the **Incubating Egg (Building)** and open the **Properties** window.
@@ -1115,4 +1115,4 @@ Here are some more game ideas that can be created using this framework:
 
 ## Learn More
 
-[Producers, Buffs, and Areas Reference](../references/producers.md) | [Gatherables and Inventory Reference](../references/gatherables.md) | [Templates Reference](templtes.md) | [VFX Tutorial](vfx_tutorial.md) | [UI Reference](../references/ui.md)
+[Producers, Buffs, and Areas Reference](../references/producers.md) | [Gatherables and Inventory Reference](../references/gatherables.md) | [Templates Reference](../references/templates.md) | [VFX Tutorial](../tutorials/vfx_tutorial.md) | [UI Reference](../references/ui.md)
