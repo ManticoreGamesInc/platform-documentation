@@ -20,7 +20,11 @@ The [Producers, Buffs, and Areas](../references/producers.md) Example Project al
 
 This tutorial will be breaking apart an example scene where the player can light a camp fire and cook fruit on the fire. This tutorial will make a similar Producer that can raise Alien Eggs to become Alien Raptors.
 
-<!-- TODO: Image of Final Project -->
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/ProducersTutorial/Producers.mp4" type="video/mp4" />
+    </video>
+</div>
 
 * **Completion Time:** ~2 hour
 * **Knowledge Level:** No Lua scripting involved, but basic [Core Editor](../getting_started/editor_intro.md) knowledge is recommended.
