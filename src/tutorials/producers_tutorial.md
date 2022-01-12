@@ -16,9 +16,11 @@ tags:
 
 ## Overview
 
-In this tutorial, you learn about the [Producers, Buffs, and Areas](../references/producers.md) Example Project which builds off the [Gatherables and Inventory](../references/gatherables.md) Example Project. The project allows creators to design games around **producers** which transform items into different items over time, **buffs** which provide customizable restrictions on the producers, and **areas** which allow the world space to be divided into distinct pieces which can be loaded on demand.
+The [Producers, Buffs, and Areas](../references/producers.md) Example Project allows creators to design games around **producers** which transform items into different items over time, **buffs** which provide customizable restrictions on the producers, and **areas** which allow the world space to be divided into distinct pieces which can be loaded on demand.
 
 This tutorial will be breaking apart an example scene where the player can light a camp fire and cook fruit on the fire. This tutorial will make a similar Producer that can raise Alien Eggs to become Alien Raptors.
+
+<!-- TODO: Image of Final Project -->
 
 * **Completion Time:** ~2 hour
 * **Knowledge Level:** No Lua scripting involved, but basic [Core Editor](../getting_started/editor_intro.md) knowledge is recommended.
@@ -36,8 +38,8 @@ This tutorial will be breaking apart an example scene where the player can light
 
 The **Producers, Buffs and Areas** Example Project can be found in the **CREATE** menu alongside the Empty and Framework project options.
 
-1. In Core, click the **CREATE** tab at the top to open options for new and existing projects.
-2. In the top bar menu of **CREATE**, select **NEW PROJECT**.
+1. In Core, click the **CREATE** tab in the top menu bar to open options for new and existing projects.
+2. In the top menu bar of **CREATE**, select **NEW PROJECT**.
 3. In the **EXAMPLE PROJECTS** section, select **Producers, Buffs and Areas**.
 4. Give the project a name in the **Name** field and press the **CREATE** button.
 
@@ -45,7 +47,7 @@ The **Producers, Buffs and Areas** Example Project can be found in the **CREATE*
 
 ### Open the Basic Camp Fire Example
 
-The project is divided into Scenes which showcase distinct ways the Producers, Buffs and Areas systems can be used to create gameplay. To access the **Scenes** window, click **Window** in the top toolbar and select **Scenes**. Double-click the **Basic Camp Fire Example** to the load the correct scene.
+The project is divided into [Scenes](scenes.md) which showcase different ways the Producers, Buffs and Areas systems can be used to create gameplay. To access the **Scenes** window, click **Window** in the top menu bar and select **Scenes**. Double-click the **Basic Camp Fire Example** to the load the correct scene.
 
 ![!All Producers Example Scenes](../img/Producers/Producers_Scenes.png){: .center loading="lazy" }
 
@@ -53,17 +55,22 @@ The project is divided into Scenes which showcase distinct ways the Producers, B
 
 The Basic Camp Fire Example scene has a working example where the player can cook fruit. This tutorial uses the cooking fruit example as a guide to make a similar system.
 
-Test the game and make sure the following works.
+Press ++=++ or the **Play** ![Play](../img/EditorManual/icons/Icon_Play.png) button in the top toolbar to start a preview and test the scene.
 
-1. Use the **number keys** to equip items in the **Hotbar Inventory** displayed at the bottom.
-2. Press ++I++ to toggle **Inventory Mode** to equip or drop items with the mouse.
-3. Use the **left mouse button** to place/use items down when applicable.
-4. Place a **Campfire Ring** item on the **Dirt** area and then place the **Fire Spit** item on top of it.
-5. Place **Firewood** into the campfire ring and light it with the **Matches**.
-6. Place the **Red Fruit** item onto the fire spit.
-7. Collect the **Cooked Fruit** and wait for the fire to burn out to collect **Charcoal**.
-8. Relight a new fire and place another fruit. This time do not collect until the fruit burns.
-9. Use the **Hammer** item to break down and collect placed items.
+#### Basic Controls
+
+- The **number keys** to equip items in the **Hotbar Inventory** displayed at the bottom.
+- ++I++ turns **Inventory Mode** on and off to equip or drop items with the mouse.
+- The **left mouse button** to places or uses items.
+
+#### Testing the Campfire
+
+1. Place a **Campfire Ring** item on the **Dirt** area and then place the **Fire Spit** item on top of it.
+2. Place **Firewood** into the campfire ring and light it with the **Matches**.
+3. Place the **Red Fruit** item onto the fire spit.
+4. Collect the **Cooked Fruit** and wait for the fire to burn out to collect **Charcoal**.
+5. Relight a new fire and place another fruit. This time do not collect until the fruit burns.
+6. Use the **Hammer** item to break down and collect placed items.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -83,7 +90,7 @@ Currently there is a single **Player Lot** with a **Dirt Placeable Area** within
 
 ### Duplicate the Dirt Placeable Area
 
-In the Hierarchy, expand the **Player Lot** group. Select the **Dirt (Farmable Area)** group and duplicate it using ++Ctrl+W++. Rename the duplicated group to `Scifi (Incubating Area)`.
+In the Hierarchy, expand the **Player Lot** group. Select the **Dirt (Farmable Area)** group and duplicate it using ++Ctrl+W++. Press ++F2++ or right-click the new **Dirt (Farmable Area)** and select **Rename** and change the name of the new group to `Scifi (Incubating Area)`.
 
 ![!Scifi Placeable Area](../img/ProducersTutorial/Producer_Scifi.png){: .center loading="lazy" }
 
@@ -104,19 +111,23 @@ Inside the **Scifi (Incubating Area)** group, select the **Cube** object and ope
 The Dirt and Scifi areas are on top of each other. The cubes for each of these areas need to be resized and moved so they are both visible side by side.
 
 1. Select the **Cube** within the **Scifi (Incubating Area)** group.
-2. Activate **Scale Mode** by pressing ++R++ and shorten the width of the cube by half.
+2. Activate **Scale Mode** by pressing ++R++ and decrease the width of the cube by half.
 3. Activate **Translation Mode** by pressing ++W++ and move the cube to the side.
 4. Select the **Cube** within the **Dirt (Farmable Area)** group.
-5. Activate **Scale Mode** by pressing ++R++ and shorten the width of the cube by half.
+5. Activate **Scale Mode** by pressing ++R++ and decrease the width of the cube by half.
 6. Activate **Translation Mode** by pressing ++W++ and move the cube to the side.
 
 ![!Scifi Placeable Area](../img/ProducersTutorial/Producer_Scifi_Size.png){: .center loading="lazy" }
 
 ## Creating an Alien Egg
 
-The Alien Egg is an item starting in the player's inventory. It needs 3 templates for being held in the player's hand, dropped on the floor, and seen in the inventory slot.
+The Alien Egg is an item that will start in the player's inventory. It will need three [templates](../references/templates.md) of the visual geometry for how it looks in different places:
 
-The Red Fruit item already has these three templates. Note they all have the same art model but are transformed to the desired context (e.g. laying on the ground or placed in the player's hand).
+- Held in the player's hand
+- Dropped to the floor
+- In an inventory slot
+
+The Red Fruit item already has these three templates. They all have the same art model but are transformed to the desired context (e.g. laying on the ground or placed in the player's hand).
 
 ![!Items Templates](../img/ProducersTutorial/Producer_Items_Templates.png){: .center loading="lazy" }
 
@@ -145,14 +156,17 @@ Select the Alien Egg and open the Properties window. There are many custom prope
 
 | Property Name | Description |
 | --- | --- |
-| CanDrop | Activate if the Item can be dropped from the Inventory. |
+| CanDrop | Activate if the Item can be dropped on the ground from the Inventory. |
 | DropTemplate | The template that spawns on the ground when an Item is dropped from the Inventory. |
 | IconAsset | The template that appears in the Inventory slot. Can be a Kitbashed 2D Icon, 3D Icon, or an Image Icon. |
-| IsKitbashed2DIcon | Activate if IconAsset is a Kitbashed 2D Icon. |
-| Is3DIcon | Activate if IconAsset is 3D Icon. |
-| IsImageIcon | Activate if IconAsset is an Image Icon. |
-| CanEquip | Activate if the player can equip the item by selecting it in the Inventory. |
+| IsKitbashed2DIcon | Activate if IconAsset is a created from multiple images from [**UI Textures**](ui.md). |
+| Is3DIcon | Activate if IconAsset is made from a 3D model. |
+| IsImageIcon | Activate if IconAsset is a single image from [**UI Textures**](ui.md). |
+| CanEquip | Activate if the player can hold and use the item by selecting it in the Inventory. |
 | EquipmentVisualTemplate | The template spawned on the player when an item is equipped. |
+
+!!! info "Boolean Custom Properties"
+    Properties with a checkbox [x] are **Boolean** type, which are **true** when checked and **false** when unchecked. Checking the box "activates" that property.
 
 ### Change the Name and Description
 
@@ -167,7 +181,7 @@ The **DropTemplate** property should already have a template from the Red Fruit 
 1. Click the **Find in Asset Catalog** button ![Find](../img/EditorManual/icons/Icon_GenericFind.png) to the right of the **DropTemplate** property to open the Project Content window with the template selected.
 {: .image-inline-text .image-background }
 2. Drag and drop the **Product - Fresh Red Fruit (Drop Icon)** template into the scene besides the Alien Egg Model.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Alien Egg Model** in the Hierarchy and select **Duplicate**.
 5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Drop Icon)**.
 6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
@@ -186,7 +200,7 @@ The **DropTemplate** property should already have a template from the Red Fruit 
 The **Icon Asset** template has three different options to display an inventory icon. The option used for the red fruit template requires knowledge of the **Icon Generator**.
 
 !!! info "The Icon Generator"
-    The Icon Generator is a component used to render 3D icons. It uses a remote camera in a black box to capture an image of a template. The black box should be moved in a published project to a place out of sight.
+    The Icon Generator is a component used to render 3D icons. It uses a remote camera in a black box to capture an image of a template. The black box should be moved in a published project to a place out of sight. To learn more about how icons are generated from 3D templates, see the [Icon Generator Tutorial](icon_generator.md).
 
 ![!Icon Generator](../img/ProducersTutorial/Producer_IconGenerator.png){: .center loading="lazy" }
 
@@ -196,7 +210,7 @@ The template for the **Icon Asset** is usually a particular size to get a clear 
 
 1. Open the **Project Content** window and search for `Product - Fresh Red Fruit (Inventory Icon)`.
 2. Drag and drop the **Product - Fresh Red Fruit (Inventory Icon)** template into the scene besides the Alien Egg Model.
-3. Right click the **Product - Fresh Red Fruit (Inventory Icon)** and select **Deinstance This Object**.
+3. Right click the **Product - Fresh Red Fruit (Inventory Icon)** and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Alien Egg Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Inventory Icon)**.
 6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
@@ -214,7 +228,7 @@ The template for the **Icon Asset** is usually a particular size to get a clear 
 
 As long as the **Alien Egg (Inventory Icon)** matched the red fruit Icon Asset template, then it will most likely produce a clear inventory icon. However, it is good to know how the **Icon Generator** is placing the template in front of the capturing camera in case adjustments are needed.
 
-1. In the Hierarchy, expand the **UI** folder and right click the **Icon Generator** and select **Deinstance This Object**.
+1. In the Hierarchy, expand the **UI** folder and right click the **Icon Generator** and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 2. Inside the Icon Generator, expand the **ClientContent** group and find the **Icon Container** group.
 3. Open the Project Content window and search for `Alien Egg (Inventory Icon)`.
 4. Drag and drop the template into the **Icon Container** group in the Hierarchy.
@@ -231,7 +245,7 @@ The **Equipment Visual Template** is the attached player equipment if an item is
 1. Click the **Find in Asset Catalog** button ![Find](../img/EditorManual/icons/Icon_GenericFind.png) to the right of the **EquipmentVisualTemplate** property to open the Project Content window with the template selected.
 {: .image-inline-text .image-background }
 2. Drag and drop the **Product - Fresh Red Fruit (Held)** template into the scene besides the Alien Egg Model.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Alien Egg Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Alien Egg Model into the **Geo** folder of the **Product - Fresh Red Fruit (Held)**.
 6. Position the duplicated Alien Egg Model to be on top of the red fruit (Basic Pepper 02).
@@ -266,10 +280,10 @@ The starting items in the **Hotbar Inventory** are located in Hierarchy. They sh
 
 ### Add the Alien Egg to Hotbar
 
-There is a default script in the project that can add a new starting item to the Hotbar Inventory.
+There is a script called `StartingItemData` in the project that can add a new starting item to the Hotbar Inventory.
 
 1. Search the **Project Content** for a script named `StartingItemData`.
-2. Drag and drop into the Starting Items script parent for Hotbar Settings.
+2. Drag and drop into the **Starting Items** script parent in the **Hotbar Settings** group.
 3. Rename the script to `Alien Egg`.
 4. Open the **Properties** window.
 5. Set the **ItemId** property to `Alien Egg`.
@@ -281,10 +295,10 @@ There is a default script in the project that can add a new starting item to the
 
 ### Test the Alien Egg Templates
 
-Now that the Alien Egg is in Hotbar Inventory, it can be tested to see the three templates created earlier.
+Now that the Alien Egg is in Hotbar Inventory, test the three templates:
 
-- **Alien Egg (Inventory Icon)** is visible in the Hotbar Inventory near the bottom of the screen.
-- **Alien Egg (Held)** is on the player's hand when selected in the inventory.
+- **Alien Egg (Inventory Icon)** should be visible in the Hotbar Inventory near the bottom of the screen.
+- **Alien Egg (Held)** should be on the player's hand when selected in the inventory.
 - **Alien Egg (Drop Icon)** appears when the player drags the item outside the inventory (Press ++I++ to enter Inventory Mode).
 
 !!! tip
@@ -359,7 +373,7 @@ In the Hierarchy, open the **Global Database** folder and expand the **Items** s
 
 ### Add to Starting Items
 
-The Burnt Egg item is now ready to be tested so it will need to be added as a starting item in the **Hotbar Inventory**.
+The fastest way to test the Burnt Egg item is to add it as a starting item in the **Hotbar Inventory**.
 
 1. In the Hierarchy, search for the `Starting Items` script under the **Hotbar Settings** group.
 2. Right click the **Alien Egg** script and select **Duplicate**.
@@ -372,7 +386,7 @@ The Burnt Egg item is now ready to be tested so it will need to be added as a st
 
 ### Test the Burnt Egg
 
-Preview the project and make sure to press ++F1++ to reset the player data. Check if all three templates (Drop, Inventory, and Held) are working.
+Preview the project with ++=++ and press ++F1++ to reset the player data. Check that all three templates (Drop, Inventory, and Held) are showing up and positioned correctly.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -394,7 +408,7 @@ Search **Core Content** for the `Raptor Mob` animated mesh. Drag and drop the me
 
 1. Search **Project Content** for `Burnt Egg (Drop Icon)` template.
 2. Drag and drop the **Burnt Egg (Drop Icon)** template into the scene besides the Alien Raptor Model.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Alien Raptor Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Alien Raptor Model into the **Geo** folder of the **Burnt Egg (Drop Icon)**.
 6. Position the duplicated Alien Raptor Model to be on top of the burnt egg mesh.
@@ -410,7 +424,7 @@ Search **Core Content** for the `Raptor Mob` animated mesh. Drag and drop the me
 
 1. Open the Project Content window and search for `Burnt Egg (Inventory Icon)`.
 2. Drag and drop the **Burnt Egg (Inventory Icon)** template into the scene besides the Alien Raptor Model.
-3. Right click the **Burnt Egg (Inventory Icon)** and select **Deinstance This Object**.
+3. Right click the **Burnt Egg (Inventory Icon)** and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Alien Raptor Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Alien Raptor Model into the **Geo** folder of the **Burnt Egg (Inventory Icon)**.
 6. Position the duplicated Alien Raptor Model to be on top of the burnt egg.
@@ -477,7 +491,7 @@ Search **Core Content** for `Sci-fi Chest Common Base 01` mesh. Place the mesh i
 
 1. Search **Project Content** for `Burnt Egg (Drop Icon)` template.
 2. Drag and drop the **Burnt Egg (Drop Icon)** template into the scene besides the Incubator Model.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Incubator Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Incubator Model into the **Geo** folder of the **Burnt Egg (Drop Icon)**.
 6. Position the duplicated Incubator Model to be on top of the burnt egg mesh.
@@ -538,7 +552,7 @@ The **Terminal** item outputs an **Electricity Buff** that powers nearby Incubat
 
 ### Create an Art Model
 
-Search **Core Content** for `Sci-fi Terminal 01 (Prop)` template. Place the template into the scene and rename it to `Terminal Model`. Right click the Terminal Model and select **Deinstance This Object**.
+Search **Core Content** for `Sci-fi Terminal 01 (Prop)` template. Place the template into the scene and rename it to `Terminal Model`. Right click the Terminal Model and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 
 ![!Terminal Model](../img/ProducersTutorial/Producer_Terminal.png){: .center loading="lazy" }
 
@@ -548,7 +562,7 @@ The **Drop Template** for the Terminal item should be scaled smaller than the ex
 
 1. Search **Project Content** for `Burnt Egg (Drop Icon)` template.
 2. Drag and drop the **Burnt Egg (Drop Icon)** template into the scene besides the Terminal Model.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Right click the **Terminal Model** in the Hierarchy and select Duplicate.
 5. Drag and drop the duplicated Terminal Model into the **Geo** folder of the **Burnt Egg (Drop Icon)**.
 6. Position the duplicated Terminal Model to be on top of the burnt egg mesh.
@@ -661,7 +675,7 @@ There will be **two Incubator Models** inside the **Client Template**. One will 
 
 1. Search the **Project Content** window for the `Incubator (Drop Icon)` template.
 2. Drag and drop the **Incubator (Drop Icon)** template into the scene.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Open the **Geo** folder inside the template.
 5. Right click the **Incubator Model** and select **Duplicate**.
 6. Rename one of them `Incubator Model On` and rename the other one `Incubator Model Off`.
@@ -705,7 +719,7 @@ Right click **Incubator (Drop Icon)** and select **Create New Template From This
 
 ### Create the Static Template
 
-The **Static Template** will be an invisible cube to handle collision.
+Because the Client Context cannot have collision, the **Static Template** will be an invisible cube that keeps players from walking through the Placeable.
 
 #### Create a Collision Cube
 
@@ -713,7 +727,7 @@ The **Collision Cube** needs to activate the **Can Overlap Triggers** property t
 
 1. Search the **Project Content** window for the `Incubator (Drop Icon)` template.
 2. Drag and drop the **Incubator (Drop Icon)** template into the scene.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Search **Core Content** for a `Cube` mesh.
 5. Drag and drop the **Cube** into the **Geo** group.
 6. Transform the **Cube** to match the dimensions of the **Incubator**.
@@ -744,7 +758,7 @@ The **Trigger Template** will use triggers to check if a Placeable is going to o
 
 1. Search the **Project Content** window for the `Incubator (Drop Icon)` template.
 2. Drag and drop the **Incubator (Drop Icon)** template into the scene.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Search **Core Content** for a `Trigger`.
 5. Drag and drop the **Trigger** into the **Incubator (Drop Icon)** template.
 6. Transform the **Trigger** to match the dimensions of the **Incubator Model**.
@@ -789,7 +803,7 @@ Expand the **Incubator** script and then expand the **InputBuffs** script. Renam
 
 ### Test the Incubator Placeable
 
-Preview the project and make sure to wipe the player data by pressing ++F1++.
+Preview the project and wipe the player data by pressing ++F1++.
 
 Test the following:
 
@@ -814,7 +828,7 @@ The **Terminal (Drop Icon)** was scaled down to look more like a pickup, but the
 
 1. Search **Project Content** for the `Terminal (Drop Icon)` template.
 2. Drag and drop the **Terminal (Drop Icon)** template into the scene.
-3. Right click the template and select **Deinstance this Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Scale up the **Terminal Model** to the in-game size.
 5. Right click the **Terminal (Drop Icon)** template and select **Create New Template From This**.
 6. Name the new template `Terminal (Client)`.
@@ -829,7 +843,7 @@ The **Static Template** is an invisible cube that handles collision.
 
 The **Collision Cube** will use the **Terminal (Client)** template as a size reference.
 
-1. Right click the **Terminal (Client)** template and select **Deinstance This Object**.
+1. Right click the **Terminal (Client)** template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 2. Search **Core Content** for a `Cube` mesh.
 3. Drag and drop the **Cube** into the **Geo** group.
 4. Transform the **Cube** to match the dimensions of the **Terminal**.
@@ -858,7 +872,7 @@ The **Collision Cube** will use the **Terminal (Client)** template as a size ref
 
 1. Search the **Project Content** window for the `Terminal (Client)` template.
 2. Drag and drop the **Terminal (Client)** template into the scene.
-3. Right click the template and select **Deinstance This Object**.
+3. Right click the template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 4. Search **Core Content** for a `Trigger`.
 5. Drag and drop the **Trigger** into the **Terminal (Client)** template.
 6. Transform the **Trigger** to match the dimensions of the **Terminal Model**.
@@ -954,7 +968,8 @@ These are the four phases being used for the **Incubating Egg**:
 
 ![!Incubating Egg Phases](../img/ProducersTutorial/Producer_IncubatingEggPhases.png){: .center loading="lazy" }
 
-!!! info "Producers can use more phases such as Rebuilding or custom phases, but they are not be used in this example."
+!!! info "Producer Phases"
+    Producers can use more phases such as Rebuilding or custom phases. Search for the `Producers & Buffs README` script in **Project Content** to learn more.
 
 #### Producer Properties
 
@@ -965,7 +980,7 @@ Here are some of the properties for Producers:
 | Property Name | Description |
 | --- | --- |
 | PlacedState_Client | The template spawned in Client context when the Placed phase happens. |
-| State1_Client | The template spawned in Client context when the Building state happens. |
+| State1_Client | The template spawned in Client context when the Building phase happens. |
 | ReadyState_Client | The template spawned in Client context when the Ready phase happens. |
 | ExpiredState_Client | The template spawned in Client context when the Expired phase happens. |
 | UniqueStorageId | Must be a unique number among Producers. |
@@ -994,9 +1009,9 @@ Select the **Alien Egg Model** inside the **Incubating Egg (Placed)** and open t
 
 ### Create Ready Template
 
-When the **Incubating Egg** is ready to be collected, the **Ready Template** can display a [VFX](vfx_tutorial.md) to encourage players to collect it.
+When the **Incubating Egg** is ready to be collected, the **Ready Template** can display a [visual effect (VFX)](vfx_tutorial.md) to encourage players to collect it.
 
-1. Right click the **Incubating Egg (Building)** template and select **Deinstance This Object**.
+1. Right click the **Incubating Egg (Building)** template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 2. Select the **Alien Egg Model** inside the **Incubating Egg (Building)** and open the **Properties** window.
 3. Set the **Color Override** property to a golden color.
 4. Search **Core Content** for the `Callout Sparkle` VFX.
@@ -1010,7 +1025,7 @@ When the **Incubating Egg** is ready to be collected, the **Ready Template** can
 
 The **Expired Template** will have a **Smoke VFX** to signify the player was too late to harvest the egg.
 
-1. Right click the **Incubating Egg (Ready)** template and select **Deinstance This Object**.
+1. Right click the **Incubating Egg (Ready)** template and select **Deinstance This Object**. Right click the template again and select **Abandon Template for Entire Instance**.
 2. Select the **Alien Egg Model** inside the **Incubating Egg (Ready)** and open the **Properties** window.
 3. Set the **Color Override** property to black.
 4. Set the **Material** property to `Asphalt 01`.
@@ -1100,4 +1115,4 @@ Here are some more game ideas that can be created using this framework:
 
 ## Learn More
 
-[Producers, Buffs, and Areas Reference](../references/producers.md) | [Gatherables and Inventory Reference](../references/gatherables.md) | [Core Editor](../getting_started/editor_intro.md) | [VFX Tutorial](vfx_tutorial.md) | [UI Reference](../references/ui.md)
+[Producers, Buffs, and Areas Reference](../references/producers.md) | [Gatherables and Inventory Reference](../references/gatherables.md) | [Templates Reference](templtes.md) | [VFX Tutorial](vfx_tutorial.md) | [UI Reference](../references/ui.md)
