@@ -54,9 +54,9 @@ nav:
           - Abilities: tutorials/ability_tutorial.md
           - AI Activities: tutorials/ai_activity_tutorial.md
           - ✨ Camera Captures: tutorials/camera_capture_basics.md
-          - ✨ Chat Commands: tutorials/chat_commands_tutorial.md
+          - Chat Commands: tutorials/chat_commands_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
-          - ✨ Concurrent Storage: tutorials/concurrent_storage_tutorial.md
+          - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
           - Cosmetic System: tutorials/cosmetic_tutorial.md
           - Destructible Objects: tutorials/boss_tutorial.md
           - Environment Art: tutorials/environment_art.md
@@ -67,12 +67,13 @@ nav:
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - ✨ Photo Booth: tutorials/photo_booth.md
           - ✨ Producers: tutorials/producers_tutorial.md
           - Learn Lua:
               - Hello World: tutorials/lua_basics_helloworld.md
               - Lightbulb: tutorials/lua_basics_lightbulb.md
               - Race Timer: tutorials/race_timer.md
-          - ✨ SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
+          - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
           - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons: tutorials/weapons_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
@@ -86,7 +87,7 @@ nav:
           - Audio: references/audio.md
           - Binding Sets: references/binding_sets.md
           - Cameras and Settings: references/cameras_and_settings.md
-          - ✨ Concurrent Storage: references/concurrent_storage.md
+          - Concurrent Storage: references/concurrent_storage.md
           - Community Content: getting_started/community_content.md
           - Contexts: api/contexts.md
           - Curves: references/curves.md
@@ -126,7 +127,7 @@ nav:
           - Scripting Introduction: tutorials/scripting_intro.md
           - Shared Data Storage: references/shared_storage.md
           - Spawn Points: references/spawnpoints.md
-          - ✨ Spawned Shared Assets: references/spawned_shared_assets.md
+          - Spawned Shared Assets: references/spawned_shared_assets.md
           - ✨ Storage Options: references/selecting_a_storage_type.md
           - Teams: references/teams.md
           - Templates: references/templates.md
