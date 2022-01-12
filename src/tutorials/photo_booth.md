@@ -122,7 +122,7 @@ To give the image a nice look, you can add a frame that fits on top of the **Scr
 
 #### Create Key Tip Text
 
-Later on in the tutorial you will be adding a feature where the player can pull out their last photo they took and walk around with it. A little tip under the screen preview image needs to be displayed, because at some points, the player can not equip their photo, so this text object will get updated dynamically.
+Later on in the tutorial you will be adding a feature where the player can pull out their last photo they took and walk around with it. A little tip under the screen preview image needs to be displayed, because at some point, the player can not equip their photo, so this text object will get updated dynamically.
 
 1. Inside **Screen Preview** create a **UI Text** object and rename it to `Key Tip`.
 2. Set the **Text** to `Press E To Hold Up Photo`.
@@ -177,7 +177,7 @@ When the player takes a photo, it would be nice to display a flash. You can do t
 
 ## Create Override Trigger
 
-A trigger will be used to detect when the player is in the photo booth area. This will override the players camera and will display the UI so a photo can be took. Position and scale the trigger so it is in front of the photo booth frame.
+A trigger will be used to detect when the player is in the photo booth area. This will override the player's camera and will display the UI so a photo can be took. Position and scale the trigger so it is in front of the photo booth frame.
 
 1. Create a **Trigger** and place it into the **Photo Booth** folder.
 2. Set the **Position** to **X** `250`, **Y** `0`, and **Z** `250`.
@@ -317,7 +317,7 @@ Test the game to make sure the following work:
 
 Create a script called `CameraCaptureClient` and place it into the **Client** folder in the **Hierarchy**. This script will be responsible for creating a camera capture and displaying it in the UI. The script will keep track of how many captures have been took, and automatically replace the oldest capture.
 
-The [resolution](../api/enums.md#cameracaptureresolution) of the captures are going to be 512 x 512, which is the `LARGE` size. This allows you to have 32 captures at this size, but 1 of them will be used else where.
+The [resolution](../api/enums.md#cameracaptureresolution) of the captures are going to be 512 x 512, which is the `LARGE` size. This allows you to have 32 captures at this size, but 1 of them will be used elsewhere.
 
 The script will need references to a few objects that are in the **Hierarchy**.
 
@@ -383,7 +383,7 @@ local localPlayer = Game.GetLocalPlayer()
     - `~~` Uses the bitwise NOT operator twice, which is shorthand for `math.floor`. Bitwise doesn't support decimals.
     - `maxSize ^ 2 << 3` Gives the total amount of memory budget.
     - `/ currentSize ^ 2` Divide the amount of memory you need by the total available to give the total images.
-    - `- 1` Decrement by `1`, as 1 image is needed else where.
+    - `- 1` Decrement by `1`, as 1 image is needed elsewhere.
 
     Sometimes the fancy way isn't always the best, as it can make it unreadable. Here is the expanded version:
 
