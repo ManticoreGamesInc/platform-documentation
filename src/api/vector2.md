@@ -40,6 +40,7 @@ A two-component vector that can represent a position or direction.
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | [`Vector2`](vector2.md) | Returns a new Vector2 with size 1, but still pointing in the same direction. Returns (0, 0) if the vector is too small to be normalized. | None |
+| `GetAbs()` | [`Vector2`](vector2.md) | Returns a new Vector2 with each component the absolute value of the component from this Vector2. | None |
 
 ## Class Functions
 
