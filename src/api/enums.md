@@ -191,7 +191,6 @@ tags:
 | `MovementMode.FALLING` | `3` | Player is jumping or falling. |
 | `MovementMode.SWIMMING` | `4` | Player is swimming. |
 | `MovementMode.FLYING` | `5` | Player is flying. |
-| `MovementMode.SLIDING` | `6` | MovementMode.SLIDING is not currently implemented. It will be removed in a future release. |
 
 ## NetReferenceType
 
