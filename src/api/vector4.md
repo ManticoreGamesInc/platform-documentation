@@ -44,6 +44,7 @@ A four-component vector.
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetNormalized()` | [`Vector4`](vector4.md) | Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized. | None |
+| `GetAbs()` | [`Vector4`](vector4.md) | Returns a new Vector4 with each component the absolute value of the component from this Vector4. | None |
 
 ## Class Functions
 
