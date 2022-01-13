@@ -19,6 +19,7 @@ The Input namespace contains functions and hooks for responding to player input.
 | `Input.GetCurrentInputType()` | [`InputType`](enums.md#inputtype) | Returns the current active input type. | Client-Only |
 | `Input.IsYAxisInverted(InputType)` | `boolean` | Returns `true` if the player has inverted the Y axis in their settings for the given input type, otherwise returns `false`. | Client-Only |
 | `Input.GetActionDescription(string actionName)` | `string` | Returns the description set in the Bindings Manager for the specified action. Returns `nil` if given an invalid action name. | Client-Only |
+| `Input.GetActions()` | `Array`<`string`> | Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not. | Client-Only |
 
 ## Events
 

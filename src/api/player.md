@@ -37,6 +37,7 @@ Player is an object representation of the state of a player connected to the gam
 | `brakingFrictionFactor` | `number` | Multiplier for friction when braking. Default = 0.6. | Read-Write |
 | `walkableFloorAngle` | `number` | Max walkable floor angle, in degrees. Clients can only read. Default = 44. | Read-Write |
 | `maxJumpCount` | `integer` | Max number of jumps, to enable multiple jumps. Set to 0 to disable jumping. | Read-Write |
+| `shouldFlipOnMultiJump` | `boolean` | Set to `false` to disable flip animation when player performs double-jump, triple-jump, etc. Defaults to `true`, enabling flip animation. | Read-Write |
 | `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. Speed is expressed in centimeters per second. | Read-Write |
 | `gravityScale` | `number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
 | `maxSwimSpeed` | `number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
@@ -161,6 +162,7 @@ Player is an object representation of the state of a player connected to the gam
 | `emoteStoppedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player stops playing an emote or an emote is interrupted. | None |
 | `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
 | `privateNetworkedDataChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` key> | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
+| `collidedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`HitResult`](hitresult.md) hitResult> | Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred. | None |
 
 ## Hooks
 
