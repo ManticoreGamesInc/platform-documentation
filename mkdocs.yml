@@ -109,6 +109,7 @@ nav:
           - Merged Models: references/merged_models.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
+          - ✨ Network Relevancy: references/network_relevancy.md
           - Object Generator: references/object_generator.md
           - Offline Storage: references/offline_storage.md
           - Party System: references/party_system.md
