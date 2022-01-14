@@ -57,7 +57,7 @@ To set the **Network Relevancy** for an object, creators will need to enable the
 
 ### Desired Relevance
 
-The **Desired Relevance** property is used to determine when an object should be put to sleep. **Critical** will never be effected. Other distances are setup on the **Game Settings** object in the **Hierarchy**.
+The **Desired Relevance** property is Used to determine the furthest distance at which the networked object is replicated. Critical objects are never affected by distance. Distances are defined on the **Game Settings** object in the **Hierarchy**.
 
 !!! tip "Networked objects will default to **Critical** network relevancy."
 
