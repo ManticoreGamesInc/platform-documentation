@@ -21,6 +21,7 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `mass` | `number` | Returns the mass of the vehicle in kilograms. | Read-Write |
 | `maxSpeed` | `number` | The maximum speed of the vehicle in centimeters per second. | Read-Write |
 | `accelerationRate` | `number` | The approximate acceleration rate of the vehicle in centimeters per second squared. | Read-Write |
+| `turnRadius` | `number` | The smallest circular turn that the vehicle can make. | Read-Write |
 | `brakeStrength` | `number` | The maximum deceleration of the vehicle when stopping. | Read-Write |
 | `coastBrakeStrength` | `number` | The deceleration of the vehicle while coasting (with no forward or backward input). | Read-Write |
 | `tireFriction` | `number` | The amount of friction tires or treads have on the ground. | Read-Write |
