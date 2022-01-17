@@ -6196,7 +6196,7 @@
 				},
 				{
 					"Name": "GetShapePosition",
-					"Description": "For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. Otherwise returns the world position where the impact occurred.",
+					"Description": "For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. In the case of HitResults not related to a box cast or sphere cast, returns the world position where the impact occurred.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -7080,7 +7080,7 @@
 				},
 				{
 					"Name": "referenceType",
-					"Description": "Returns one of `NetReferenceType.LEADERBOARD`, `NetReferenceType.SHARED_STORAGE`, or `NetReferenceType.UNKNOWN` to indicate which type of NetReference this is.",
+					"Description": "Returns one of the following to indicate the type of NetReference: `NetReferenceType.LEADERBOARD`, `NetReferenceType.SHARED_STORAGE`, `NetReferenceType.SHARED_PLAYER_STORAGE`, `NetReferenceType.CONCURRENT_SHARED_PLAYER_STORAGE`, `NetReferenceType.CONCURRENT_CREATOR_STORAGE`, `NetReferenceType.CREATOR_PERK` or `NetReferenceType.UNKNOWN`.",
 					"Type": "NetReferenceType",
 					"Tags": [
 						"ReadOnly"
@@ -7544,6 +7544,20 @@
 							"Name": "damage"
 						}
 					]
+				},
+				{
+					"Name": "collidedEvent",
+					"Description": "Fired when the object collides with another object. The `HitResult` parameter describes the collision that occurred.",
+					"Parameters": [
+						{
+							"Type": "PhysicsObject",
+							"Name": "object"
+						},
+						{
+							"Type": "HitResult",
+							"Name": "hitResult"
+						}
+					]
 				}
 			],
 			"MemberFunctions": [
@@ -7778,15 +7792,6 @@
 					]
 				},
 				{
-					"Name": "isSliding",
-					"IsDeprecated": true,
-					"DeprecationMessage": "Player.isSliding is not currently implemented. It will be removed in a future release.",
-					"Type": "boolean",
-					"Tags": [
-						"ReadOnly"
-					]
-				},
-				{
 					"Name": "maxWalkSpeed",
 					"Description": "Maximum speed while the player is on the ground. Clients can only read. Default = 640.",
 					"Type": "number",
@@ -7907,16 +7912,8 @@
 					]
 				},
 				{
-					"Name": "flipOnMultiJump",
-					"IsDeprecated": true,
-					"DeprecationMessage": "Player.flipOnMultiJump is deprecated. Please use Player.shouldFlipOnMultiJump instead.",
-					"Type": "boolean",
-					"Tags": [
-						"ServerOnly"
-					]
-				},
-				{
 					"Name": "shouldFlipOnMultiJump",
+					"Description": "Set to `false` to disable flip animation when player performs double-jump, triple-jump, etc. Defaults to `true`, enabling flip animation.",
 					"Type": "boolean",
 					"Tags": [
 						"ServerOnly"
@@ -8130,6 +8127,20 @@
 				}
 			],
 			"Events": [
+				{
+					"Name": "collidedEvent",
+					"Description": "Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred.",
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "HitResult",
+							"Name": "hitResult"
+						}
+					]
+				},
 				{
 					"Name": "damagedEvent",
 					"Description": "Fired when the Player takes damage.",
@@ -14265,6 +14276,20 @@
 			],
 			"MemberFunctions": [
 				{
+					"Name": "GetAbs",
+					"Description": "Returns a new Vector2 with each component the absolute value of the component from this Vector2.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "GetNormalized",
 					"Description": "Returns a new Vector2 with size 1, but still pointing in the same direction. Returns (0, 0) if the vector is too small to be normalized.",
 					"Signatures": [
@@ -14503,6 +14528,20 @@
 				}
 			],
 			"MemberFunctions": [
+				{
+					"Name": "GetAbs",
+					"Description": "Returns a new Vector3 with each component the absolute value of the component from this Vector3.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
 				{
 					"Name": "GetNormalized",
 					"Description": "Returns a new Vector3 with size 1, but still pointing in the same direction. Returns (0, 0, 0) if the vector is too small to be normalized.",
@@ -14755,6 +14794,20 @@
 				}
 			],
 			"MemberFunctions": [
+				{
+					"Name": "GetAbs",
+					"Description": "Returns a new Vector4 with each component the absolute value of the component from this Vector4.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector4"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
 				{
 					"Name": "GetNormalized",
 					"Description": "Returns a new Vector4 with size 1, but still pointing in the same direction. Returns (0, 0, 0, 0) if the vector is too small to be normalized.",
@@ -17688,6 +17741,23 @@
 					"Tags": [
 						"ClientOnly"
 					]
+				},
+				{
+					"Name": "GetActions",
+					"Description": "Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<string>"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
 				}
 			],
 			"StaticEvents": [
@@ -18521,7 +18591,7 @@
 				},
 				{
 					"Name": "GetScreenPosition",
-					"Description": "Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or `nil` if worldPosition is behind the camera. Only gives results from a client context.",
+					"Description": "Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or `nil` if worldPosition is behind the camera.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18544,7 +18614,7 @@
 				},
 				{
 					"Name": "GetScreenSize",
-					"Description": "Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. Only gives results from a client context. May return `nil` if the screen size cannot be determined.",
+					"Description": "Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. May return `nil` if the screen size cannot be determined.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18582,7 +18652,7 @@
 				},
 				{
 					"Name": "GetCursorPosition",
-					"Description": "Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. Only gives results from a client context. May return `nil` if the cursor position cannot be determined.",
+					"Description": "Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18600,7 +18670,9 @@
 				},
 				{
 					"Name": "GetCursorHitResult",
-					"Description": "Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode.",
+					"Description": "*This function is deprecated. Please use UI.GetHitResult() instead.* Return hit result from local client's view in direction of the Projected cursor position. Meant for client-side use only, for Ability cast, please use `ability:GetTargetData():GetHitPosition()`, which would contain cursor hit position at time of cast, when in top-down camera mode.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "UI.GetCursorHitResult is deprecated. Please use UI.GetHitResult instead.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18617,8 +18689,33 @@
 					]
 				},
 				{
+					"Name": "GetHitResult",
+					"Description": "Return hit result from local client's view from the given screen position cast in the camera direction.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "HitResult",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "screenPos"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "GetCursorPlaneIntersection",
-					"Description": "Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`.",
+					"Description": "*This function is deprecated. Please use UI.GetPlaneIntersection() instead.* Return intersection from local client's camera direction to given plane, specified by point on plane and optionally its normal. Meant for client-side use only. Example usage: `local hitPos = UI.GetCursorPlaneIntersection(Vector3.New(0, 0, 0))`.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "UI.GetCursorPlaneIntersection is deprecated. Please use UI.GetPlaneIntersection instead.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -18646,6 +18743,55 @@
 								}
 							],
 							"Parameters": [
+								{
+									"Type": "Vector3",
+									"Name": "pointOnPlane"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetPlaneIntersection",
+					"Description": "Return intersection from local client's view from the given screen position case in the camera direction to the given plane, specified by point on plane and optionally its normal. Example usage: `local hitPos = UI.GetPlaneIntersection(UI.GetScreenSize()/2, Vector3.ZERO)`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector3",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "screenPos"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "pointOnPlane"
+								},
+								{
+									"Type": "Vector3",
+									"Name": "planeNormal"
+								}
+							]
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector3",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "screenPos"
+								},
 								{
 									"Type": "Vector3",
 									"Name": "pointOnPlane"
@@ -19981,12 +20127,6 @@
 					"Name": "FLYING",
 					"Description": "Player is flying.",
 					"Value": 5
-				},
-				{
-					"Name": "SLIDING",
-					"IsDeprecated": true,
-					"DeprecationMessage": "MovementMode.SLIDING is not currently implemented. It will be removed in a future release.",
-					"Value": 6
 				}
 			]
 		},
