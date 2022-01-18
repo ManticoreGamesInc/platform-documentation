@@ -690,7 +690,7 @@ Events.Connect("BladeOverlap", KillPlayer)
 
 ### Test the Deadly Spinning Blades
 
-Preview the project. The blades should be spinning and cause the player to die when they collide. Also test in Multiplayer Preview mode <!-- TODO add icon --> with multiple players to see if the correct player is being killed.
+Preview the project. The blades should be spinning and cause the player to die when they collide. Also test in Multiplayer Preview mode ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png){: .image-inline-text .image-background } with multiple players to see if the correct player is being killed.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
