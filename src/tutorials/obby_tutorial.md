@@ -64,7 +64,7 @@ Currently, the **Moving Platform** is in a [Default Context](../references/netwo
 Create a new script by pressing the **Script** button ![Script](../img/EditorManual/icons/AssetType_Script.png){: .image-inline-text .image-background } above the scene. Name it `MovingPlatform_Server`. In the **Project Content** window, find the **MovingPlatform_Server** script in the **My Scripts** folder and drag it into the **Hierarchy**.
 
 ![!Moving Platform Script](../img/Obby/Obby_MovingPlatformScript.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Add Custom Properties
 
 In the Hierarchy, select the **MovingPlatform_Server** script and then open the **Properties** window. The script will need some **custom properties** to know how to move the platform.
@@ -75,7 +75,7 @@ In the Hierarchy, select the **MovingPlatform_Server** script and then open the 
 4. Add a new **Float** custom property and name it `WaitTime`.
 
 ![!Moving Platform Properties](../img/Obby/Obby_MovingPlatformProperties.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Set the Custom Properties
 
 Set the **TravelTime** property to `2`. Set the **WaitTime** property to `1`. The TargetPosition property can be copied easily using the Moving Platform (networked) object.
@@ -91,7 +91,7 @@ Set the **TravelTime** property to `2`. Set the **WaitTime** property to `1`. Th
         <source src="/img/Obby/Obby_CopyingProperty.mp4" type="video/mp4" />
     </video>
 </div>
-<!--- TODO update video --->
+
 #### Add Code to the Script
 
 In the Hierarchy, right click the **MovingPlatform_Server** script and select **Edit Script** to open the Script Editor window.
@@ -164,13 +164,13 @@ Save the script and preview the project. The platform should be moving back and 
 In the Hierarchy, multi-select the **MovingPlatform_Server** script and **Moving Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Moving Platform`.
 
 ![!Moving Platform Group](../img/Obby/Obby_MovingPlatformGroup.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ### Add Material to Platform
 
 Select the **Moving Platform (networked)** object and open the Properties window. Set the **Material** property to `Wood 9 Slice Crate 01`.
 
 ![!Moving Platform Material](../img/Obby/Obby_MovingPlatformMaterial.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ## Creating a Rotating Platform
 
 The **Rotating Platform** will spin in a certain direction continuously.
@@ -200,7 +200,7 @@ The **Rotating Platform** needs collision and will also be rotating so it needs 
 Create a new script and name it `RotatingPlatform_Server`. From the Project Content window, drag the **RotatingPlatform_Server** script into the Hierarchy.
 
 ![!Rotating Platform Script](../img/Obby/Obby_RotatingPlatformScript.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Add Custom Properties
 
 In the Hierarchy, select the **RotatingPlatform_Server** script and open the Properties window. The script will need two custom properties at the bottom.
@@ -209,7 +209,7 @@ In the Hierarchy, select the **RotatingPlatform_Server** script and open the Pro
 2. Add a **Vector3** custom property and name it `RotationSpeed`.
 
 ![!Rotating Platform Properties](../img/Obby/Obby_RotatingPlatformProperties.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Set the RotationSpeed Property
 
 !!! info "Rotation Axis"
@@ -268,13 +268,13 @@ Save the script and preview the project. The platform should be rotating and the
 In the Hierarchy, multi-select the **RotatingPlatform_Server** script and **Rotating Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Rotating Platform`.
 
 ![!Rotating Platform Group](../img/Obby/Obby_RotatingPlatformGroup.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ### Add Material to Platform
 
 Select the **Rotating Platform (networked)** object and open the Properties window. Set the **Material** property to `Wood 9 Slice Crate 01`.
 
 ![!Rotating Platform Material](../img/Obby/Obby_RotatingPlatformMaterial.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ## Creating a Shrink Platform
 
 The **Shrink Platform** will detect if a player stepped on the platform and begin shrinking until it disappears. After some time, it will grow back to normal and wait again for a player to step on it.
@@ -319,7 +319,7 @@ With the **ShrinkPlatform_Server** script selected, open the **Properties** wind
 4. Add a new **Float** custom property named `WaitTime` and set it to `1`.
 
 ![!Shrink Platform Properties](../img/Obby/Obby_ShrinkPlatformProperties.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Add Code to the Script
 
 Open the **Script Editor** for the **ShrinkPlatform_Server** script.
@@ -425,13 +425,13 @@ Save the script and preview the project. The platform should shrink once the pla
 In the Hierarchy, multi-select the **ShrinkPlatform_Server** script, **Trigger**, and **Shrink Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Shrink Platform`.
 
 ![!Shrink Platform Group](../img/Obby/Obby_ShrinkPlatformGroup.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ### Add Material to Platform
 
 Select the **Shrink Platform (networked)** object and open the Properties window. Set the **Material** property to `Concrete Basic 01`.
 
 ![!Shrink Platform Material](../img/Obby/Obby_ShrinkPlatformMaterial.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 ## Adding a Kill Zone and Spawn Settings
 
 ### Organize the Hierarchy
@@ -768,7 +768,7 @@ Select the **ChestAnimation_Client** script and open the Properties window. Add 
 6. Add a new **float** custom property named `RewardRotationSpeed` and set it to `1`.
 
 ![!Chest Script](../img/Obby/Obby_Chest_Script.png){: .center loading="lazy" }
-<!--- TODO update image --->
+
 #### Add Code to the Script
 
 Right click the **ChestAnimation_Client** script and select **Edit Script**.
@@ -960,7 +960,7 @@ Select the **PetsController_Server** script and open the Properties window. The 
 - Add a new **float** custom property named `PetDistance` and set it to `200`.
 
 ![!Pet Custom Properties](../img/Obby/Obby_PetCustomProperties.png){: .center loading="lazy" }
-<!--- TODO update image and add hierarchy --->
+
 #### Add Code to the Script
 
 Right click the **PetsController_Server** script and select **Edit Script**.
