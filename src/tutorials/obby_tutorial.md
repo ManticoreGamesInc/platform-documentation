@@ -255,7 +255,7 @@ ROTATING_PLATFORM:RotateContinuous(ROTATION_SPEED, false)
 
 Save the script and preview the project. The platform should be rotating and the player should rotate if on top of it.
 
-!!! tip "Use the ++shift+equal++ shortcut to spawn the player in Preview Mode where the scene camera location."
+!!! tip "Use the ++shift+equal++ shortcut to spawn the player in Preview Mode where the scene camera location currently is."
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
