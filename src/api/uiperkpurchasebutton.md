@@ -37,6 +37,69 @@ A UIControl for a button which allows players to purchase perks within a game. S
 
 Example using:
 
+In this example a player can click on a UI Perk Purchase Button (Client UI with Perk Net Reference), and will be given a certain amount of gems. These gems will be added to the player's resource, and also save in player storage so that the total gems persist between game sessions.
+
+```lua
+-- Server script. Player storage enabled.
+-- The perk reference (repeatable).
+local GEMS_PERK = script:GetCustomProperty("Gems")
+
+-- Total gems to give per purchase.
+local TOTAL_GEMS = script:GetCustomProperty("TotalGems") or 1
+
+-- Check if a perk is assigned.
+if not GEMS_PERK.isAssigned then
+    warn("No perk reference assigned")
+end
+
+-- Will be called when a perk is purchased by the player.
+local function PerkChanged(player, perk)
+    print(string.format("%s purchased %s perk", player.name, perk))
+
+    -- Check that the perk that was purchased matches
+    -- the GEMS_PERK reference so you can give gems.
+    if perk == GEMS_PERK then
+        player:AddResource("Gems", TOTAL_GEMS)
+
+        -- Fetch the players existing data.
+        local playerData = Storage.GetPlayerData(player)
+
+        -- Update the gems amount in the player data.
+        playerData.gems = player:GetResource("Gems")
+
+        -- Set the players storage data with the updated data.
+        Storage.SetPlayerData(player, playerData)
+    end
+end
+
+-- For debugging to see if the gems resource updated.
+local function PlayerResourceChanged(player, resource, newAmount)
+    if(resource == "Gems") then
+        print(string.format("%s gems: %s", player.name, newAmount))
+    end
+end
+
+-- Set the perkChangedEvent for the player when the join
+-- the game.
+local function OnPlayerJoined(player)
+    player.perkChangedEvent:Connect(PerkChanged)
+
+    local playerData = Storage.GetPlayerData(player)
+
+    -- Set the players resource with the gems in storage.
+    player:SetResource("Gems", playerData.gems or 0)
+    player.resourceChangedEvent:Connect(PlayerResourceChanged)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [Player.HasPerk](player.md) | [NetReference.isAssigned](netreference.md) | [Game.playerJoinedEvent](game.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Storage.SetPlayerData](storage.md) | [CoreLua.print](coreluafunctions.md)
+
+---
+
+Example using:
+
 ### `GetPerkReference`
 
 ### `SetPerkReference`
