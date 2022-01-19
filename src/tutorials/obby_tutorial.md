@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to make an **Obby**, which is a platform and obstacle game. The game will have moving, rotating, and shrinking platforms as well as deadly spinning blades.
+In this tutorial you are going to make an **Obby**, which is a platform and obstacle game. The game will have moving, rotating, and shrinking platforms as well as deadly spinning blades. The game will also have a rewards chest that can animate open and close. The reward inside is a flying pet that follows the player.
 
 * **Completion Time:** ~2 hours
 * **Knowledge Level:** It's recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
@@ -49,23 +49,25 @@ Open the Core Content window and search for `cube` to find a **Cube** object and
 
 ### Network the Moving Platform
 
-Currently, the **Moving Platform** is in a [Default Context](../references/networking.md). This context is useful for objects such as the **Starting Platform** because players need to collide with the object and the object will never change its position, rotation, or size. The Moving Platform will be changing its position so it needs to be in the **Default Context (Networked) Context**. In the Hierarchy, right click the **Moving Platform** and select the **Enable Networking**.
+Currently, the **Moving Platform** is in a [Default Context](../references/networking.md). This context is useful for objects such as the **Starting Platform** because players need to collide with the object and the object will never change its position, rotation, or size. The Moving Platform will be changing its position so it needs to be a **Networked Object in the Default Context**. In the Hierarchy, right click the **Moving Platform** and select the **Enable Networking**.
 
-!!! warning "**Networked Objects** are the most expensive type of objects because the server has to constantly track and share information about them."
+!!! warning "**Networked Objects** are the most expensive type of objects because the server has to send all the information about an object to each player."
 
 ![!Moving Platform Networked](../img/Obby/Obby_MovingPlatformNetworked.png){: .center loading="lazy" }
 
-### Create the MovingPlatform Script
+### Create the MovingPlatform_Server Script
+
+!!! info "When naming scripts, it is a good habit to append the context the script is in (Client, Server, Static). Scripts in Default Context are equivalent to scripts in Server Context."
 
 #### Add a New Script
 
-Create a new script by pressing the **Script** button ![Script](../img/EditorManual/icons/AssetType_Script.png){: .image-inline-text .image-background } above the scene. Name it `MovingPlatform`. In the **Project Content** window, find the **MovingPlatform** script in the **My Scripts** section and drag it into the **Hierarchy**.
+Create a new script by pressing the **Script** button ![Script](../img/EditorManual/icons/AssetType_Script.png){: .image-inline-text .image-background } above the scene. Name it `MovingPlatform_Server`. In the **Project Content** window, find the **MovingPlatform_Server** script in the **My Scripts** folder and drag it into the **Hierarchy**.
 
 ![!Moving Platform Script](../img/Obby/Obby_MovingPlatformScript.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Add Custom Properties
 
-In the Hierarchy, select the **MovingPlatform** script and then open the **Properties** window. The script will need some **custom properties** to know how to move the platform.
+In the Hierarchy, select the **MovingPlatform_Server** script and then open the **Properties** window. The script will need some **custom properties** to know how to move the platform.
 
 1. From the Hierarchy, drag and drop the **Moving Platform (networked)** object into the Custom Property section.
 2. Add a new **Vector3** custom property and name it `TargetPosition`.
@@ -73,14 +75,14 @@ In the Hierarchy, select the **MovingPlatform** script and then open the **Prope
 4. Add a new **Float** custom property and name it `WaitTime`.
 
 ![!Moving Platform Properties](../img/Obby/Obby_MovingPlatformProperties.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Set the Custom Properties
 
 Set the **TravelTime** property to `2`. Set the **WaitTime** property to `1`. The TargetPosition property can be copied easily using the Moving Platform (networked) object.
 
 1. In the scene, move the **Moving Platform (networked)** object to the desired target position.
 2. In the **Properties** window, right click the **Position** property and select **Copy [Position]**.
-3. In the Hierarchy, select the **MovingPlatform** script and open the Properties window.
+3. In the Hierarchy, select the **MovingPlatform_Server** script and open the Properties window.
 4. Right click the **TargetPosition** custom property and select **Paste Last Copied**.
 5. Move the **Moving Platform (networked)** object back to its starting position.
 
@@ -89,10 +91,10 @@ Set the **TravelTime** property to `2`. Set the **WaitTime** property to `1`. Th
         <source src="/img/Obby/Obby_CopyingProperty.mp4" type="video/mp4" />
     </video>
 </div>
-
+<!--- TODO update video --->
 #### Add Code to the Script
 
-In the Hierarchy, right click the **MovingPlatform** script and select **Edit Script** to open the Script Editor window.
+In the Hierarchy, right click the **MovingPlatform_Server** script and select **Edit Script** to open the Script Editor window.
 
 ##### Access Custom Properties
 
@@ -115,21 +117,21 @@ local STARTING_POSITION = MOVING_PLATFORM:GetWorldPosition()
 
 The **Moving Platform** is a [CoreObject](../api/coreobject.md) so it contains a function `GetWorldPosition` to access the current position of the object.
 
-##### Loop the Movement
+##### The Tick Function
 
 ```lua
-while true do
-	Task.Wait(WAIT_TIME)
-	MOVING_PLATFORM:MoveTo(TARGET_POSITION, TRAVEL_TIME, false)
-	Task.Wait(TRAVEL_TIME + WAIT_TIME)
-	MOVING_PLATFORM:MoveTo(STARTING_POSITION, TRAVEL_TIME, false)
-	Task.Wait(TRAVEL_TIME)
+function Tick()
+    Task.Wait(WAIT_TIME)
+    MOVING_PLATFORM:MoveTo(TARGET_POSITION, TRAVEL_TIME, false)
+    Task.Wait(TRAVEL_TIME + WAIT_TIME)
+    MOVING_PLATFORM:MoveTo(STARTING_POSITION, TRAVEL_TIME, false)
+    Task.Wait(TRAVEL_TIME)
 end
 ```
 
-The use of a `while true` loop will keep the code inside of it running indefinitely. This means the platform will forever move between the two locations. The `MoveTo` function requires three arguments to be passed in: The target position, the travel time, and whether the location is in local space.
+The `Tick` function is a special function that runs every game tick. This means the platform will forever move between the two locations. The `MoveTo` function requires three arguments to be passed in: The target position, the travel time, and whether the location is in local space.
 
-??? "The MovingPlatform Script"
+??? "The MovingPlatform_Server Script"
     ```lua
     local MOVING_PLATFORM = script:GetCustomProperty("MovingPlatform"):WaitForObject()
     local TARGET_POSITION = script:GetCustomProperty("TargetPosition")
@@ -138,7 +140,7 @@ The use of a `while true` loop will keep the code inside of it running indefinit
 
     local STARTING_POSITION = MOVING_PLATFORM:GetWorldPosition()
 
-    while true do
+    function Tick()
         Task.Wait(WAIT_TIME)
         MOVING_PLATFORM:MoveTo(TARGET_POSITION, TRAVEL_TIME, false)
         Task.Wait(TRAVEL_TIME + WAIT_TIME)
@@ -159,16 +161,16 @@ Save the script and preview the project. The platform should be moving back and 
 
 ### Organize the Moving Platform
 
-In the Hierarchy, multi-select the **MovingPlatform** script and **Moving Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Moving Platform`.
+In the Hierarchy, multi-select the **MovingPlatform_Server** script and **Moving Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Moving Platform`.
 
 ![!Moving Platform Group](../img/Obby/Obby_MovingPlatformGroup.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ### Add Material to Platform
 
 Select the **Moving Platform (networked)** object and open the Properties window. Set the **Material** property to `Wood 9 Slice Crate 01`.
 
 ![!Moving Platform Material](../img/Obby/Obby_MovingPlatformMaterial.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ## Creating a Rotating Platform
 
 The **Rotating Platform** will spin in a certain direction continuously.
@@ -187,27 +189,27 @@ In the **Core Content** window, find the **Cube** object and add it to the scene
 
 ### Network the Rotating Platform
 
-The **Rotating Platform** needs collision and will also be rotating so it needs to be networked to update for all players properly. Right click the **Rotating Platform** and select **Enable Networking**.
+The **Rotating Platform** needs collision and will also be rotating so it needs to be networked to update for all players. Right click the **Rotating Platform** and select **Enable Networking**.
 
 ![!Rotating Platform Networked](../img/Obby/Obby_RotatingPlatformNetworked.png){: .center loading="lazy" }
 
-### Create the RotatingPlatform Script
+### Create the RotatingPlatform_Server Script
 
 #### Add a New Script
 
-Create a new script and name it `RotatingPlatform`. From the Project Content window, drag the **RotatingPlatform** script into the Hierarchy.
+Create a new script and name it `RotatingPlatform_Server`. From the Project Content window, drag the **RotatingPlatform_Server** script into the Hierarchy.
 
 ![!Rotating Platform Script](../img/Obby/Obby_RotatingPlatformScript.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Add Custom Properties
 
-In the Hierarchy, select the **RotatingPlatform** script and open the Properties window. The script will need two custom properties at the bottom.
+In the Hierarchy, select the **RotatingPlatform_Server** script and open the Properties window. The script will need two custom properties at the bottom.
 
 1. Add the **Rotating Platform (networked)** object as a custom property.
 2. Add a **Vector3** custom property and name it `RotationSpeed`.
 
 ![!Rotating Platform Properties](../img/Obby/Obby_RotatingPlatformProperties.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Set the RotationSpeed Property
 
 !!! info "Rotation Axis"
@@ -222,7 +224,7 @@ Set the **RotationSpeed** property to **X** `0`, **Y** `0`, **Z** `1`. This will
 
 #### Add Code to the Script
 
-Open the **Script Editor** for the **RotatingPlatform** script.
+Open the **Script Editor** for the **RotatingPlatform_Server** script.
 
 ##### Access Custom Properties
 
@@ -241,7 +243,7 @@ local ROTATION_SPEED = script:GetCustomProperty("RotationSpeed")
 ROTATING_PLATFORM:RotateContinuous(ROTATION_SPEED, false)
 ```
 
-??? "The RotatingPlatform Script"
+??? "The RotatingPlatform_Server Script"
     ```lua
     local ROTATING_PLATFORM = script:GetCustomProperty("RotatingPlatform"):WaitForObject()
     local ROTATION_SPEED = script:GetCustomProperty("RotationSpeed")
@@ -253,7 +255,7 @@ ROTATING_PLATFORM:RotateContinuous(ROTATION_SPEED, false)
 
 Save the script and preview the project. The platform should be rotating and the player should rotate if on top of it.
 
-!!! tip "Use the ++Shift+=++ shortcut to spawn the player in Preview Mode where the creator camera currently is in the scene."
+!!! tip "Use the ++shift+equal++ shortcut to spawn the player in Preview Mode where the scene camera location."
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -263,16 +265,16 @@ Save the script and preview the project. The platform should be rotating and the
 
 ### Organize the Rotating Platform
 
-In the Hierarchy, multi-select the **RotatingPlatform** script and **Rotating Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Rotating Platform`.
+In the Hierarchy, multi-select the **RotatingPlatform_Server** script and **Rotating Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Rotating Platform`.
 
 ![!Rotating Platform Group](../img/Obby/Obby_RotatingPlatformGroup.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ### Add Material to Platform
 
 Select the **Rotating Platform (networked)** object and open the Properties window. Set the **Material** property to `Wood 9 Slice Crate 01`.
 
 ![!Rotating Platform Material](../img/Obby/Obby_RotatingPlatformMaterial.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ## Creating a Shrink Platform
 
 The **Shrink Platform** will detect if a player stepped on the platform and begin shrinking until it disappears. After some time, it will grow back to normal and wait again for a player to step on it.
@@ -285,7 +287,7 @@ In the **Core Content** window, find the **Cube** object and add it to the scene
 
 ### Network the Shrink Platform
 
-The **Shrink Platform** needs collision and will also be changing in size so it needs to be networked to update for all players properly. Right click the **Shrink Platform** and select **Enable Networking**.
+The **Shrink Platform** needs collision and will also be changing in size so it needs to be networked to update for all players. Right click the **Shrink Platform** and select **Enable Networking**.
 
 ![!Shrink Platform Networked](../img/Obby/Obby_ShrinkPlatformNetworked.png){: .center loading="lazy" }
 
@@ -296,20 +298,20 @@ Press the ++9++ button to create a new **Trigger**. Position the trigger to be o
 ![!Shrink Platform Trigger](../img/Obby/Obby_ShrinkPlatformTrigger.png){: .center loading="lazy" }
 
 !!! tip "Copying Properties"
-    A useful tip to get the **Trigger** in the correct position and size is to copy it from the **Shrink Platform**. There is a **Copy Properties** ![Copy](../img/Obby/copy_icon.png){: .image-inline-text .image-background } button at the top right of the Properties window that will copy all the properties from an object. Then there is a **Paste Properties** ![Paste](../img/Obby/paste_icon.png){: .image-inline-text .image-background } button that let's the creator choose which properties to paste that were copied.
+    A useful tip to get the **Trigger** in the correct position and size is to copy it from the **Shrink Platform**. There is a **Copy Properties** ![Copy](../img/Obby/copy_icon.png){: .image-inline-text .image-background } button at the top right of the Properties window that will copy all the properties from an object. Then there is a **Paste Properties** ![Paste](../img/Obby/paste_icon.png){: .image-inline-text .image-background } button that lets the creator choose which properties to paste that were copied.
     <div class="mt-video" style="width:100%">
         <video autoplay muted playsinline controls loop class="center" style="width:100%">
             <source src="/img/Obby/Obby_CopyingProperties.mp4" type="video/mp4" />
         </video>
     </div>
 
-### Create the ShrinkPlatform Script
+### Create the ShrinkPlatform_Server Script
 
-Create a new script named `ShrinkPlatform` and add it to the **Hierarchy**.
+Create a new script named `ShrinkPlatform_Server` and add it to the **Hierarchy**.
 
 #### Add Custom Properties
 
-With the **ShrinkPlatform** script selected, open the **Properties** window. Add the following custom properties.
+With the **ShrinkPlatform_Server** script selected, open the **Properties** window. Add the following custom properties.
 
 1. Drag and drop the **Shrink Platform (networked)** object as a custom property.
 2. Drag and drop the **Trigger** object as a custom property.
@@ -317,10 +319,10 @@ With the **ShrinkPlatform** script selected, open the **Properties** window. Add
 4. Add a new **Float** custom property named `WaitTime` and set it to `1`.
 
 ![!Shrink Platform Properties](../img/Obby/Obby_ShrinkPlatformProperties.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Add Code to the Script
 
-Open the **Script Editor** for the **ShrinkPlatform** script.
+Open the **Script Editor** for the **ShrinkPlatform_Server** script.
 
 ##### Access Custom Properties
 
@@ -348,12 +350,12 @@ There is a **CoreObject** function named `ScaleTo` that will scale an object to 
 
 ```lua
 local function Shrink()
-	shrinking = true
-	SHRINK_PLATFORM:ScaleTo(Vector3.ZERO, SHRINK_TIME, false)
-	Task.Wait(SHRINK_TIME + WAIT_TIME)
-	SHRINK_PLATFORM:ScaleTo(STARTING_SIZE, SHRINK_TIME, false)
-	Task.Wait(SHRINK_TIME)
-	shrinking = false
+    shrinking = true
+    SHRINK_PLATFORM:ScaleTo(Vector3.ZERO, SHRINK_TIME, false)
+    Task.Wait(SHRINK_TIME + WAIT_TIME)
+    SHRINK_PLATFORM:ScaleTo(STARTING_SIZE, SHRINK_TIME, false)
+    Task.Wait(SHRINK_TIME)
+    shrinking = false
 end
 ```
 
@@ -362,10 +364,10 @@ end
 When the Trigger detects a player has overlapped with it, then it will call the `Shrink` function as long as it is not shrinking already. Add this function at the bottom of the script.
 
 ```lua
-function OnBeginOverlap(whichTrigger, other)
-	if other:IsA("Player") and not shrinking then
-		Shrink()
-	end
+local function OnBeginOverlap(whichTrigger, other)
+    if other:IsA("Player") and not shrinking then
+        Shrink()
+    end
 end
 ```
 
@@ -377,7 +379,7 @@ The `OnBeginOverlap` function needs to fire when the actual event of the **Trigg
 TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
-??? "The ShrinkPlatform Script"
+??? "The ShrinkPlatform_Server Script"
     ```lua
     local SHRINK_PLATFORM = script:GetCustomProperty("ShrinkPlatform"):WaitForObject()
     local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
@@ -399,7 +401,7 @@ TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
     end
 
 
-    function OnBeginOverlap(whichTrigger, other)
+    local function OnBeginOverlap(whichTrigger, other)
         if other:IsA("Player") and not shrinking then
             Shrink()
         end
@@ -420,16 +422,16 @@ Save the script and preview the project. The platform should shrink once the pla
 
 ### Organize the Shrink Platform
 
-In the Hierarchy, multi-select the **ShrinkPlatform** script, **Trigger**, and **Shrink Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Shrink Platform`.
+In the Hierarchy, multi-select the **ShrinkPlatform_Server** script, **Trigger**, and **Shrink Platform (networked)** object by holding down ++Ctrl++ button while left clicking the mouse. Right click and select the **New Group Containing These** option. Name the group `Shrink Platform`.
 
 ![!Shrink Platform Group](../img/Obby/Obby_ShrinkPlatformGroup.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ### Add Material to Platform
 
 Select the **Shrink Platform (networked)** object and open the Properties window. Set the **Material** property to `Concrete Basic 01`.
 
 ![!Shrink Platform Material](../img/Obby/Obby_ShrinkPlatformMaterial.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 ## Adding a Kill Zone and Spawn Settings
 
 ### Organize the Hierarchy
@@ -579,10 +581,10 @@ local STATIC_CONTEXT = script:GetCustomProperty("StaticContext"):WaitForObject()
 Create the `OnBeginOverlap` function that will fire a broadcast when a player overlaps a trigger. The `other` parameter is being passed in the broadcast because another script will need to know which player to kill.
 
 ```lua
-function OnBeginOverlap(whichTrigger, other)
-	if other:IsA("Player") then
-		Events.Broadcast("BladeOverlap", other)
-	end
+local function OnBeginOverlap(whichTrigger, other)
+    if other:IsA("Player") then
+        Events.Broadcast("BladeOverlap", other)
+    end
 end
 ```
 
@@ -595,7 +597,7 @@ CoreObject's have a useful function named `FindDescendantsByType` that returns a
 ```lua
 local triggers = STATIC_CONTEXT:FindDescendantsByType("Trigger")
 
-for _, trigger in pairs(triggers) do
+for _, trigger in ipairs(triggers) do
     trigger.beginOverlapEvent:Connect(OnBeginOverlap)
 end
 ```
@@ -604,7 +606,7 @@ end
     ```lua
     local STATIC_CONTEXT = script:GetCustomProperty("StaticContext"):WaitForObject()
 
-    function OnBeginOverlap(whichTrigger, other)
+    local function OnBeginOverlap(whichTrigger, other)
         if other:IsA("Player") then
             Events.Broadcast("BladeOverlap", other)
         end
@@ -612,7 +614,7 @@ end
 
     local triggers = STATIC_CONTEXT:FindDescendantsByType("Trigger")
 
-    for _, trigger in pairs(triggers) do
+    for _, trigger in ipairs(triggers) do
         trigger.beginOverlapEvent:Connect(OnBeginOverlap)
     end
     ```
@@ -674,7 +676,7 @@ When the `BladeOverlap` message is broadcasted along the **Server Context**, the
 Events.Connect("BladeOverlap", KillPlayer)
 ```
 
-??? "The Blades_Server" Script
+??? "The Blades_Server Script"
     ```lua
     local STATIC_CONTEXT = script:GetCustomProperty("StaticContext"):WaitForObject()
     local ROTATION_SPEED = script:GetCustomProperty("RotationSpeed")
@@ -750,13 +752,13 @@ For the script to easily rotate the lid to an open and close position, it is imp
     </video>
 </div>
 
-### Create the ChestAnimation Script
+### Create the ChestAnimation_Client Script
 
-Create a new script named `ChestAnimation` and add it to the **ClientContext**.
+Create a new script named `ChestAnimation_Client` and add it to the **ClientContext**.
 
 #### Add Custom Properties
 
-Select the **ChestAnimation** script and open the Properties window. Add the following custom properties.
+Select the **ChestAnimation_Client** script and open the Properties window. Add the following custom properties.
 
 1. Add the **Fantasy Chest Lid 02** as a custom property named `ChestLid`.
 2. Add the **Whelp Mob** as a custom property named `Reward`.
@@ -766,10 +768,10 @@ Select the **ChestAnimation** script and open the Properties window. Add the fol
 6. Add a new **float** custom property named `RewardRotationSpeed` and set it to `1`.
 
 ![!Chest Script](../img/Obby/Obby_Chest_Script.png){: .center loading="lazy" }
-
+<!--- TODO update image --->
 #### Add Code to the Script
 
-Right click the **ChestAnimation** script and select **Edit Script**.
+Right click the **ChestAnimation_Client** script and select **Edit Script**.
 
 ##### Reference the Custom Properties
 
@@ -831,15 +833,15 @@ end
 When the player interacts with the trigger, it checks the `isChestOpen` variable to either open or close the chest. If closing the chest, a message `RewardClaimed` is broadcasted to the server. In another script, that broadcast will spawn a pet to follow the player.
 
 ```lua
-function OnInteracted(whichTrigger, other)
-	if other:IsA("Player") then
+local function OnInteracted(whichTrigger, other)
+    if other:IsA("Player") then
         if not isChestOpen then
-		    OpenChest()
+            OpenChest()
         else
             Events.BroadcastToServer("RewardClaimed", other, rewardTargetPosition)
             CloseChest()
         end
-	end
+    end
 end
 ```
 
@@ -851,7 +853,7 @@ Add this code at the bottom to connect the **Trigger's** interact event to the `
 TRIGGER.interactedEvent:Connect(OnInteracted)
 ```
 
-??? "The ChestAnimation Script"
+??? "The ChestAnimation_Client Script"
     ```lua
     local CHEST_LID = script:GetCustomProperty("ChestLid"):WaitForObject()
     local REWARD = script:GetCustomProperty("Reward"):WaitForObject()
@@ -884,7 +886,7 @@ TRIGGER.interactedEvent:Connect(OnInteracted)
         CHEST_LID:RotateTo(Rotation.ZERO, LID_ROTATION_SPEED, true)
     end
 
-    function OnInteracted(whichTrigger, other)
+    local function OnInteracted(whichTrigger, other)
         if other:IsA("Player") then
             if not isChestOpen then
                 OpenChest()
@@ -941,29 +943,27 @@ In the **Core Content** window, search for `Whelp Mob` and drag it into the scen
 
 ![!Pet Template](../img/Obby/Obby_PetTemplate.png){: .center loading="lazy" }
 
-### Create the PetsController Script
+### Create the PetsController_Server Script
 
 The last step is to make a script that can spawn pets and make them follow the appropriate targets.
 
 #### Add a New Script
 
-Create a new script and name it `PetsController`. Place the script inside the **Pets** group.
-
-![!Pet Script](../img/Obby/Obby_PetScript.png){: .center loading="lazy" }
+Create a new script and name it `PetsController_Server`. Place the script inside the **Pets** group.
 
 #### Create Custom Properties
 
-Select the **PetsController** script and open the Properties window. The script will need a reference to the template to spawn the pet. Add the following custom properties.
+Select the **PetsController_Server** script and open the Properties window. The script will need a reference to the template to spawn the pet. Add the following custom properties.
 
 - From the **Project Content** window, add the **Pet Template** as a custom property.
 - Add a new **float** custom property named `PetSpeed` and set it to `500`.
 - Add a new **float** custom property named `PetDistance` and set it to `200`.
 
 ![!Pet Custom Properties](../img/Obby/Obby_PetCustomProperties.png){: .center loading="lazy" }
-
+<!--- TODO update image and add hierarchy --->
 #### Add Code to the Script
 
-Right click the **PetsController** script and select **Edit Script**.
+Right click the **PetsController_Server** script and select **Edit Script**.
 
 ##### Reference the Custom Properties
 
@@ -1002,11 +1002,11 @@ Events.Connect("RewardClaimed", SpawnPet)
 
 ##### The Tick Function
 
-The `Tick` function is a special function that runs every game tick. The pets need to constantly be following and looking at their target. [CoreObjects](../api/coreobject.md) have two useful functions named `Follow` and `LookAt` to get the desired behaviour of the pets.
+The pets need to constantly be following and looking at their target. [CoreObjects](../api/coreobject.md) have two useful functions named `Follow` and `LookAt` to get the desired behaviour of the pets.
 
 ```lua
 function Tick()
-    for _, pet in pairs(pets) do
+    for _, pet in ipairs(pets) do
         if Object.IsValid(pet.object) and Object.IsValid(pet.target) then
             pet.object:Follow(pet.target, PET_SPEED, PET_DISTANCE)
             pet.object:LookAt(pet.target:GetWorldPosition())
@@ -1020,8 +1020,8 @@ end
 If a player with a pet leaves the server then it would make sense for the pet to be deleted and the table to be updated.
 
 ```lua
-function OnPlayerLeft(player)
-	for _, pet in pairs(pets) do
+local function OnPlayerLeft(player)
+    for _, pet in ipairs(pets) do
         if Object.IsValid(pet.object) and Object.IsValid(pet.target) then
             if player.id == pet.target.id then
                 pet.object:Destroy()
@@ -1040,7 +1040,7 @@ Add this code to the bottom to connect the `OnPlayerLeft` function to the `playe
 Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
-??? "The PetsController Script"
+??? "The PetsController_Server Script"
     ```lua
     local PET_TEMPLATE = script:GetCustomProperty("Pet")
     local PET_SPEED = script:GetCustomProperty("PetSpeed")
@@ -1060,7 +1060,7 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
     Events.Connect("RewardClaimed", SpawnPet)
 
     function Tick()
-        for _, pet in pairs(pets) do
+        for _, pet in ipairs(pets) do
             if Object.IsValid(pet.object) and Object.IsValid(pet.target) then
                 pet.object:Follow(pet.target, PET_SPEED, PET_DISTANCE)
                 pet.object:LookAt(pet.target:GetWorldPosition())
@@ -1068,8 +1068,8 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
         end
     end
 
-    function OnPlayerLeft(player)
-        for _, pet in pairs(pets) do
+    local function OnPlayerLeft(player)
+        for _, pet in ipairs(pets) do
             if Object.IsValid(pet.object) and Object.IsValid(pet.target) then
                 if player.id == pet.target.id then
                     pet.object:Destroy()
