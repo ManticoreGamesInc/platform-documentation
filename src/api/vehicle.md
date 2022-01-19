@@ -84,7 +84,7 @@ Example using:
 
 ### `turnRadius`
 
-Off road sections are an excellent way to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once a vehicle exits the trigger, it will drive at its original speed.
+Off road sections are an excellent way to encourage players to stay on the track. In this example, when vehicle with a driver enters a trigger, they will be slowed down and given more traction. Once a vehicle exits the trigger, it will drive at its original speed. Note: [Treaded Vehicles](../api/treadedvehicle.md) do not support `turnRadius`.
 
 ```lua
 -- Get the trigger object that will represent the off road area
@@ -103,7 +103,11 @@ function OnEnter(trigger, other)
         other.serverUserData.originalTireFriction = other.serverUserData.originalTireFriction or other.tireFriction
         other.serverUserData.originalMaxSpeed = other.serverUserData.originalMaxSpeed or other.maxSpeed
         other.serverUserData.originalAccelerationRate = other.serverUserData.originalAccelerationRate or other.accelerationRate
-        other.serverUserData.originalTurnRadius = other.serverUserData.originalTurnRadius or other.turnRadius
+
+        -- turnRadius only supported for FourWheeledVehicle type.
+        if other:IsA("FourWheeledVehicle") then
+            other.serverUserData.originalTurnRadius = other.serverUserData.originalTurnRadius or other.turnRadius
+        end
 
         -- Increase the tire friction of the vehicle by 900%, this will give the vehicle more traction
         other.tireFriction = other.tireFriction * 10.0
@@ -112,7 +116,10 @@ function OnEnter(trigger, other)
         -- Decrease the acceleration of the vehicle by 80%
         other.accelerationRate = other.accelerationRate * 0.2
         -- Shrink the turn radius by 80%, this will allow the vehicle to make tighter turns
-        other.turnRadius = other.tireFriction * 0.2
+        -- turnRadius only supported for FourWheeledVehicle type.
+        if other:IsA("FourWheeledVehicle") then
+            other.turnRadius = other.tireFriction * 0.2
+        end
     end
 end
 
@@ -131,7 +138,11 @@ function OnExit(trigger, other)
         -- Reset the vehicle specifications to the values before the vehicle
         -- had entered the boost pad
         other.maxSpeed = other.serverUserData.originalMaxSpeed
-        other.turnRadius = other.serverUserData.originalTurnRadius
+
+        -- turnRadius only supported for FourWheeledVehicle type.
+        if other:IsA("FourWheeledVehicle") then
+            other.turnRadius = other.serverUserData.originalTurnRadius
+        end
         other.accelerationRate = other.serverUserData.originalAccelerationRate
     end
 end
@@ -226,7 +237,7 @@ function ApplyDamageToDriver(newAmount, vehicleDamage)
     damage.sourceAbility = vehicleDamage.sourceAbility
     damage.sourcePlayer = vehicleDamage.sourcePlayer
     damage:SetHitResult(vehicleDamage:GetHitResult())
-    
+
     local player = VEHICLE.driver
     -- If we think the player will die from this damage, eject them and
     -- wait a bit, so they will ragdoll correctly
@@ -241,14 +252,14 @@ end
 function OnDamaged(_, damage)
     if damage.amount <= 0 then return end
     if not Object.IsValid(VEHICLE.driver) then return end
-    
+
     -- Chance to apply damage to the player or prevent it completely
     if math.random() >= CHANCE_TO_PASS_DAMAGE then return end
-    
+
     -- Reduction of the original damage amount
     local newAmount = damage.amount * (1 - DAMAGE_REDUCTION)
     newAmount = math.ceil(newAmount)
-    
+
     -- Apply reduced damage
     ApplyDamageToDriver(newAmount, damage)
 end
@@ -256,7 +267,7 @@ end
 function OnDied(_, damage)
     if not Object.IsValid(VEHICLE.driver) then return end
     local player = VEHICLE.driver
-    
+
     -- Apply the on-death damage
     ApplyDamageToDriver(ON_DEATH_DIRECT_DAMAGE_TO_DRIVER, damage)
 end
@@ -631,6 +642,9 @@ function RateVehicle(vehicle)
     print("Handling: " .. handling)
     if vehicle:IsA("TreadedVehicle") then
         print("Type: Treaded, " .. vehicle.turnSpeed)
+
+    -- Check to make sure the vehicle type is four wheeled, because treaded vehicles
+    -- do not have a turnRadius property.
     elseif vehicle:IsA("FourWheeledVehicle") then
         print("Type: 4-wheel, " .. vehicle.turnRadius)
     else
