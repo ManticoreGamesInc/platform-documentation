@@ -131,7 +131,7 @@ Gatherable drops are children of the **Drops** folder. Click the arrow next to t
 !!! note
     Empty scripts are often used to store a collection of Custom Properties. Both the **Drops** script and the **1 Cube (Custom Properties, Can Have Multiple)** script do not actually contain Lua code, but exist in the Hierarchy so that creators can define drops using the **Properties** window.
 
-Select **1 Cube (Custom Properties, Can Have Multiple)** and open the **Properties** window. You can change what item drops when the cube is gathered, the range of how many can drop, and the percent chances of each drop.
+Select **1 Cube (Custom Properties, Can Have Multiple)** and open the **Properties** window. You can change what item drops when the cube is gathered, the range of how many can drop, and the percentage chances of each drop.
 
 Copy this drop and change the **ItemID** to allow dropping of different items at the same gatherable node. See the **Database** section to learn how to create new types of items.
 

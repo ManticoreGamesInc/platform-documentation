@@ -25,7 +25,7 @@ To qualify for adding Perks to your games, there are two requirements:
 !!! note
     Members of the earlier Creator Payouts Pilot Program will automatically gain access to Perks.
 
-Creators in the Perks Program have access to Core’s Perks system, which enables creators to sell in-game benefits to players in exchange for Core Credits. Core creators can then redeem Core Credits earned through the sale of Perks for real world money.
+Creators in the Perks Program have access to Core's Perks system, which enables creators to sell in-game benefits to players in exchange for Core Credits. Core creators can then redeem Core Credits earned through the sale of Perks for real world money.
 
 ## How Perks Work
 
@@ -40,11 +40,11 @@ Creators can monetize their games through Perks, which allow them to sell in-gam
 !!! note
     Limited Time Perks do not automatically renew.
 
-Creators control what kind of perks they use and how to add them to their games. There is no limit to the number of Perks a creator can have, and one Perk can apply to several of a creator’s games.
+Creators control what kind of perks they use and how to add them to their games. There is no limit to the number of Perks a creator can have, and one Perk can apply to several of a creator's games.
 
-Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](../../api/player.md). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game’s monetization.
+Perks are added using the Core editor, where the creator can set the price, behavior, and appearance. The creator can customize it further using [Lua and the Core API](../../api/player.md). The Perks system also includes a full testing suite for testing purchases, daily analytics reports, giving the creator complete control over how to design their game's monetization.
 
-When a player buys a Perk, Core handles the transaction from start to finish. The Credits go to the creator’s account, at which point the creator can spend them in other Core games or in the Core shop.
+When a player buys a Perk, Core handles the transaction from start to finish. The Credits go to the creator's account, at which point the creator can spend them in other Core games or in the Core shop.
 
 To learn more about how to create Perks for your game, see the [Perks reference](../perks/implementing.md)
 
@@ -68,7 +68,7 @@ Creators can receive this split by opting to convert their Core Credits to real-
 
 By developing on Core, creators can build anything from a deep traditional MMO with a monthly subscription to simulation games with in-game cosmetic purchases, a completely free to play shooter or even a series of arcade games. In addition to development tools, Core provides server hosting, multiplayer networking, and instant publishing to the Core storefront. With Perks, Core also covers all transaction costs, such as credit card processing fees, customer support, and engine royalties for the underlying Unreal engine.
 
-Most development platforms provide only a subset of those benefits, passing the cost of the rest to creators. Other UGC platforms, such as Roblox, take a much larger share of revenue – or don’t allow monetization at all.
+Most development platforms provide only a subset of those benefits, passing the cost of the rest to creators. Other UGC platforms, such as Roblox, take a much larger share of revenue, or don't allow monetization at all.
 
 ![Core Revenue Split vs Competitor](../../img/Perks/Perks_CoreRoblox.png){: .center loading="lazy"}
 

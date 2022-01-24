@@ -56,7 +56,7 @@ The 4 different phases of an ability are:
     * The actual ability.
     * Whatever the ability is going to do, it happens at this moment.
 * **Recovery**
-    * Additional ability actions that aren’t part of the main action.
+    * Additional ability actions that aren't part of the main action.
 * **Cooldown**
     * The rest period after an ability is finished being cast, and cannot be cast again.
 
