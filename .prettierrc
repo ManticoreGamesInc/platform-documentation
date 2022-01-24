@@ -3,22 +3,21 @@
     "useTabs": false,
     "semi": false,
     "overrides": [
-    {
-        "files": ["*.md"],
-        "options": {
-            "tabWidth": 2
+        {
+            "files": [
+                "*.js"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": [
+                "*.yml"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
         }
-    },
-    {
-        "files": ["*.js"],
-        "options": {
-            "tabWidth": 2
-        }
-    },
-    {
-        "files": ["*.yml"],
-        "options": {
-            "tabWidth": 2
-        }
-    }]
+    ]
 }
