@@ -4,4 +4,4 @@ extends: spelling
 message: "Did you really mean '%s'?"
 ignorecase: true
 level: error
-ignore: vale-styles/Semmle/ignore.txt
+ignore: .github/vale-styles/Semmle/ignore.txt
