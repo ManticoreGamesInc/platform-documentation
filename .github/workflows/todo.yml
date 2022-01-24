@@ -15,4 +15,6 @@ jobs:
           REPO: ${{ github.repository }}
           SHA: ${{ github.sha }}
           REF: ${{ github.ref }}
-          INCLUDE_PATTERN: "\\.(md|js)$"
+          INCLUDE_PATTERN: "\\.(md)$"
+          MIN_WORDS: 1
+          MIN_CHARACTERS: 10
