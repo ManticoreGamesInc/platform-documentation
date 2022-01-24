@@ -1,20 +1,29 @@
 name: Create issues for TODOs
 
-on: [pull_request]
+on:
+  workflow_dispatch:
+    inputs:
+      importAll:
+        default: 'false'
+        required: false
+        type: boolean
+  pull_request
+
+permissions:
+  issues: write
+  repository-projects: read
+  contents: read
 
 jobs:
-  build:
+  todos:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-      - name: Run tdg-github-action
-        uses: ribtoks/tdg-github-action@master
+      - uses: actions/checkout@v2
+
+      - name: Run Issue Bot
+        uses: derjuulsn/todo-issue@main
         with:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          SHA: ${{ github.sha }}
-          REF: ${{ github.ref }}
-          INCLUDE_PATTERN: "\\.(md)$"
-          MIN_WORDS: 1
-          MIN_CHARACTERS: 10
+          excludePattern: "^(mkdocs-material/)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
