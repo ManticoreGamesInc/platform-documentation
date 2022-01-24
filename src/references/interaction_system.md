@@ -90,7 +90,7 @@ The **Look Interaction Example** checks if a player's look direction is intersec
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
-        <source src="/img/InteractionSystem/InteractionSystem_CursorExample.mp4" type="video/mp4" />
+        <source src="/img/InteractionSystem/InteractionSystem_LookExample.mp4" type="video/mp4" />
     </video>
 </div>
 
@@ -105,7 +105,11 @@ Drag the **Pointer Interaction Template** from **Project Content** into the scen
 - Moving the mouse over the cube from any point should change its color using the **Change Color Component**.
 - Clicking the sphere will also change its color using the **Change Color Component**, but also spawns VFX Muzzle Flash that is rotated to show the direction of collision between the pointer and the object, using the **Spawn Object Component** with the **UseInputNormal** and **UseInputPosition** properties enabled.
 
-<!-- TODO: Add video of interaction example -->
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/InteractionSystem/InteractionSystem_PointerExample.mp4" type="video/mp4" />
+    </video>
+</div>
 
 ### Trigger
 
