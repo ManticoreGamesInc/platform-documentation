@@ -11,10 +11,10 @@ tags:
 ## Overview
 
 Core lets you create multiplayer games right away, and provides tools for testing them. These games are hosted on Manticore's servers, which automatically create new instances of the game when players connect.
-​
+
 Core does this automatically which can hide the details of what is happening behind the scenes. This is important, because creating robust, performant games is difficult without an idea of how the networking works and how to configure it.
-​
-This document will explain how networking works, explain each of the contexts used in Core, and give examples of when to use them.​
+
+This document will explain how networking works, explain each of the contexts used in Core, and give examples of when to use them.
 
 ## How Networking Works In Core
 
@@ -25,11 +25,11 @@ When a multiplayer Core game starts, a session of the game starts running on the
 ### Enter the Server
 
 Once the game starts running, the server is in charge of most of the actual game logic. Most scripts only run on the server, and most things that clients see only happen because the server sent the client a message saying "hey, do this thing!"
-​
+
 Whenever something changes, the server tells all the clients about the change.
 
 Some objects (most notably players and projectiles) have some extra code in them to make them feel more responsive on the client, but the basic model is the same: If a player tries to move, the player's client tells the server, and (assuming the server agrees that the player can move there) the server then notifies all the other clients, "hey, this player has moved!"
-​
+
 Whenever something changes, the server tells all the clients about the change. But the exact actions taken depend on the object that is changing and how it has been declared.
 
 ## Contexts
@@ -90,7 +90,7 @@ A **Client Context** is a special kind of folder that you can create, by right-c
 **All children of a client context only exist on a player's local version of the game.** The server does not load or synchronize any of them. This brings a number of limitations, but also a few advantages.
 
 The biggest advantage of using the client context is that **objects in a client context don't cause any network traffic** and doesn't increase the server load at all, because the server doesn't know about anything in a client context. This makes client contexts great for cosmetic effects that don't need to be synched up between players, such as explosions, debris particles, or extremely complicated models.
-​
+
 The other advantage of the client context is that **objects can look different to different players**. This makes them ideal for setting up things that look different depending on who is looking, like **User Interface** elements that show individual player data.
 
 Any objects in a client context cannot be collided with by players or targetted so they can also be used to simplify collision calculations. Instead of allowing collision with an intricate object, and place it into a client context, and then create an invisible cube (or other simple shape) to handle the actual collision.
@@ -98,7 +98,7 @@ Any objects in a client context cannot be collided with by players or targetted 
 Scripts inside of a client context will run on the client side,but can only affect things that are in the client context. So a client context script cannot move an object in the default context, for example, even if that object were networked.
 
 If you need to have a script in a client context affect server logic, use `Events.BroadcastToServer()`. See the [Core API](../api/events.md) for more information.
-​
+
 !!! note
     Every child of the client context is ignored by the server, but the client context ITSELF is still a normal object that can be referenced by Lua scripts and (if it is marked as networked) moved or manipulated.
 
@@ -117,7 +117,7 @@ Things you would usually place in a client context include:
 A **Server Context** is another a special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Server Context**.
 
 Anything under a server context only exists on the server. It is never sent to the client at all. Normally, all scripts are downloaded by the client, even if they are not run, for compatibility reasons. Any scripts that are placed inside of a server context (and exist nowhere else in the Hierarchy) are not downloaded. This makes server contexts extremely useful to anyone who wants to keep their game logic safe from the prying eyes of players!
-​
+
 Any geometry inside of a server context is automatically non-collidable, so players cannot stand on it or target it.
 
 #### Example Uses of Server Context
@@ -141,7 +141,7 @@ The main use for this context is in creating procedural geometry. If both the se
 
 #### Example Uses of Static Context
 
-Things you would usually place in a server context include:
+Things you would usually place in a static context include:
 
 - Procedurally generated geometry that needs to have player collision
 - Complicated geometry that needs to be collidable, but only needs to move as a unit.
