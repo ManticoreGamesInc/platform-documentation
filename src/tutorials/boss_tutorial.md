@@ -4314,7 +4314,6 @@ Add the above code to the `Tick` function. This will handle fading out the curve
     local HEALTH_PULSE_CURVE = script:GetCustomProperty("HealthPulseCurve")
     local TRANSITION = script:GetCustomProperty("Transition"):WaitForObject()
     local TRANSITION_CURVE = script:GetCustomProperty("TransitionCurve")
-
     local localPlayer = Game.GetLocalPlayer()
     local healthElapsedTime = 0
     local fadeOutTransition = false
@@ -4414,7 +4413,7 @@ Boss fights can serve a number of different purposes for your game. They can be 
 Have think about what other interesting mechanics, or improvements can be added to the boss fight, and consider implementing them. Here are a few ideas.
 
 - Scale difficulty based on amount of players in the game.
-- Add weak points to boss (i.e. back of boss takes more damage).
+- Add weak points to boss (that is back of boss takes more damage).
 - Add more Boss attacks (i.e teleport, ground slam).
 - Damageable boss parts that need to be destroyed first.
 - Drop pickup from player if they leave the game.

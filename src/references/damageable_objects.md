@@ -54,13 +54,13 @@ By default, a **Damageable Object** that is placed into your **Hierarchy** will 
 
 ## Client Only Damageable Object
 
-A **Damageable Object** that is client only (i.e. placed into a **Client Context**), has no collision. Which means it cannot be hit by a weapon or projectile. Damage can still be applied to the **Damageable Object** from a client script.
+A **Damageable Object** that is client only (that is placed into a **Client Context**), has no collision. Which means it cannot be hit by a weapon or projectile. Damage can still be applied to the **Damageable Object** from a client script.
 
 !!! info "`ApplyDamage(Damage)` can also be used on the client to apply damage to the **Damageable Object**."
 
 ## The Damageable Properties
 
-The **Damageable Object** uses the **Damageable** interface that unifies health, damage, and death behavior with players and some objects (i.e. Vehicles, Physics Shape). Below are the properties of the **Damageable** interface that can be found on a few different objects in **Project Content**.
+The **Damageable Object** uses the **Damageable** interface that unifies health, damage, and death behavior with players and some objects (that is Vehicles, Physics Shape). Below are the properties of the **Damageable** interface that can be found on a few different objects in **Project Content**.
 
 | Property Name | Description |
 | ------------- | ----------- |

@@ -1078,7 +1078,7 @@ You need to get the name of the template to compare it against the name of the i
 For example. If the template name is `ED9709B6FF869235:Cosmetic - Head - Soccer Ball`, then the name part of it you need would be `Cosmetic - Head - Soccer Ball`.
 
 !!! warning "Template Renaming"
-    Something to be aware of when you rename templates in **Project Content**, is that the name of the template that is accessible via Lua, and the name of the spawned asset (i.e. using `World.SpawnAsset`), will not match the name of the template in **Project Content**. If you do come across this issue because you renamed a template, drop it into the **Hierarchy** and update the template.
+    Something to be aware of when you rename templates in **Project Content**, is that the name of the template that is accessible via Lua, and the name of the spawned asset (that is using `World.SpawnAsset`), will not match the name of the template in **Project Content**. If you do come across this issue because you renamed a template, drop it into the **Hierarchy** and update the template.
 
 #### Create CreateCameraCapture Function
 
@@ -2391,5 +2391,5 @@ There is more that you can do with a cosmetic system to make it more interesting
 - Add more categories / sockets.
 - Add full player outfit cosmetics.
 - Support multiple cosmetic booths to prevent player overlapping and using the same one.
-- Add support for coloring different cosmetic items (i.e. colors and materials).
-- Allow players to trade cosmetics (i.e. unique cosmetics found in the world and not in the shop).
+- Add support for coloring different cosmetic items (that is colors and materials).
+- Allow players to trade cosmetics (that is unique cosmetics found in the world and not in the shop).

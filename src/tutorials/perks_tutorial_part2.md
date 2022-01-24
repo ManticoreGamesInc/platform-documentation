@@ -881,7 +881,7 @@ The **CommandParser** library will do the heavy lifting by doing the following f
 - Check the player issuing the command has permission.
 - Validate commands, including sub commands.
 - Deliver a success or error message to the player who issued the command.
-- Deliver a message to the player who successfully received the item (i.e. VIP Perk).
+- Deliver a message to the player who successfully received the item (that is VIP Perk).
 
 Add the require line to the top of the **GiftServer** script.
 
@@ -1600,7 +1600,7 @@ Here are some ideas to challenge yourself:
 - New commands for gifting different resources and perks.
 - Implement a UI notification system to let the player know they received a gift.
 - Implement player to player gifting of resources and perks.
-- Create permanent perks the player can purchase (i.e. player titles, cosmetics).
+- Create permanent perks the player can purchase (that is player titles, cosmetics).
 
 ## Feedback and Questions
 

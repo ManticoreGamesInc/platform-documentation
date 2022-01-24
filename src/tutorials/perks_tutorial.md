@@ -52,14 +52,14 @@ You will be importing an asset from **Community Content** that will contain vari
 
 ## Creating a Resource Shop
 
-A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (i.e. killing enemies).
+A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (that is killing enemies).
 
 In this tutorial you will create a resource shop that sells 4 items. Below is a list of those items, and a description of what the perk could potentially be used for in a game.
 
 | Item | Description |
 | ---- | ----------- |
 | Pumpkins | A food resource that could provide additional benefits when eaten by the player. |
-| Coins | In game currency for purchasing items that aren't premium (i.e. purchasing a weapon from a blacksmith). |
+| Coins | In game currency for purchasing items that aren't premium (that is purchasing a weapon from a blacksmith). |
 | XP Potion | A potion the player could drink and get an XP boost for a certain amount of time. |
 | Gems | An in game currency used to purchase and trade items with other players. |
 
@@ -186,7 +186,7 @@ Each resource item needs to be added to the **Items** panel in the **Resource Sh
 Do the following for each shop resource. Since 4 perks were created, then 4 items should be added to the shop UI.
 
 1. Drag the template **Perks Tutorial - Resource Shop Item** into the **Items** panel.
-2. Rename the item to one of the resources being sold (i.e. `Coins`).
+2. Rename the item to one of the resources being sold (that is `Coins`).
 3. Open the group in the **Hierarchy** and set the **text** property for the **Amount** object in the **Properties** window.
 4. Change the **Image** property for the **image** object in the **Properties** window.
 5. Select the **Button** object.
@@ -336,7 +336,7 @@ end
 ```
 
 !!! tip "Trigger Interaction Label"
-    If a trigger is interactable, then the interaction label can show up to the player even when that player has not entered the trigger volume (i.e. the player getting close to the trigger volume). This is why the `inTrigger` variable is used, to make sure the player is inside the trigger volume before showing the interaction label.
+    If a trigger is interactable, then the interaction label can show up to the player even when that player has not entered the trigger volume (that is the player getting close to the trigger volume). This is why the `inTrigger` variable is used, to make sure the player is inside the trigger volume before showing the interaction label.
 
 #### Connect Events
 

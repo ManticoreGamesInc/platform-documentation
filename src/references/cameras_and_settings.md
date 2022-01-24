@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-**Cameras** capture and display the world, they are the eye for players, and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (i.e. security camera), capture and render to UI, or simply be the eye for the player when looking down their gun.
+**Cameras** capture and display the world, they are the eye for players, and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (that is security camera), capture and render to UI, or simply be the eye for the player when looking down their gun.
 
 When a new project is created, **Core** will automatically add a **Third Person Camera** to the **Hierarchy** under **Game Settings**. This will be the default camera which can be modified, or removed.
 
@@ -24,7 +24,7 @@ In the **Core Content** tab, under **Game Components**, drag the **Camera** comp
 
 ### Fixed Camera
 
-By default, a camera will have the properties **Set to Default**, **Attach to Local Player** enabled, and **Base Rotation Mode** set to **Look**. If a camera needs to be fixed (i.e. a CCTV camera in a room), the following properties can be changed.
+By default, a camera will have the properties **Set to Default**, **Attach to Local Player** enabled, and **Base Rotation Mode** set to **Look**. If a camera needs to be fixed (that is a CCTV camera in a room), the following properties can be changed.
 
 - Change **Set to Default** to be disabled.
 - Change **Attach to Local Player** to be disabled.
@@ -169,7 +169,7 @@ The top down camera view will show an overhead view of the game play. This type 
 
 ### Isometric Camera
 
-The isometric camera view is pointed at a fixed angle (i.e. 45 degrees) towards the player's character. This type of camera can be used in real time strategy, and role playing games.
+The isometric camera view is pointed at a fixed angle (that is 45 degrees) towards the player's character. This type of camera can be used in real time strategy, and role playing games.
 
 ![!Isometric](/img/Camera/isometric_camera.png){: .center loading="lazy" }
 
