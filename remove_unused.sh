@@ -2,7 +2,7 @@
 
 # Credits to https://www.stevemar.net/remove-unused-images/
 
-imagepaths=$(fd -e jpg -e jpeg -e png -E .git -E src/assets -E src/img/EditorManual/icons)
+imagepaths=$(fd -e jpg -e jpeg -e png -e mp4 -E .git -E src/assets -E src/img/EditorManual/icons -E mkdocs-material)
 counter=0
 
 for imagepath in $imagepaths; do
@@ -14,7 +14,7 @@ for imagepath in $imagepaths; do
 done
 
 if [ "$counter" -eq "0" ]; then
-    echo "No images were removed!"
+    echo "No files were removed!"
 else
-    echo "Removed a total $counter images, w00t!"
+    echo "Removed a total $counter files!"
 fi
