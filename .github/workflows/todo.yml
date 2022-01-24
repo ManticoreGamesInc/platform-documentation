@@ -4,10 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       importAll:
-        default: 'false'
+        default: "false"
         required: false
         type: boolean
-  pull_request
+        description: Enable, if you want to import all TODOs.
+  pull_request:
+    branches:
+      - development
 
 permissions:
   issues: write
