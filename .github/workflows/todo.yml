@@ -6,7 +6,7 @@ on:
       importAll:
         default: "false"
         required: false
-        type: boolean
+        type: string
         description: Enable, if you want to import all TODOs.
   push:
     branches:
