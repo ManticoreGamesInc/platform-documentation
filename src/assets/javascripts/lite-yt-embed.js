@@ -27,11 +27,9 @@ class LiteYTEmbed extends HTMLElement {
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
          * TODO: Consider using webp if supported, falling back to jpg
          */
-        this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`;
-        // Warm the connection for the poster image
-        LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-
-        this.style.backgroundImage = `url("${this.posterUrl}")`;
+        if (!this.style.backgroundImage) {
+          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
+        }
 
         // Set up play button, and its visually hidden label
         if (!playBtnEl) {
@@ -53,7 +51,7 @@ class LiteYTEmbed extends HTMLElement {
         // Once the user clicks, add the real iframe and drop our play button
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
-        this.addEventListener('click', e => this.addIframe());
+        this.addEventListener('click', this.addIframe);
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
@@ -98,6 +96,9 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     addIframe() {
+        if (this.classList.contains('lyt-activated')) return;
+        this.classList.add('lyt-activated');
+
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
 
@@ -113,11 +114,9 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
         this.append(iframeEl);
 
-        this.classList.add('lyt-activated');
-
         // Set focus for a11y
-        this.querySelector('iframe').focus();
+        iframeEl.focus();
     }
 }
-// Register custome element
+// Register custom element
 customElements.define('lite-youtube', LiteYTEmbed);

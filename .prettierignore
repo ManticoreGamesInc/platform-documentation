@@ -1,2 +1,3 @@
 # Ignore all Markdown files:
 *.md
+src/assets/javascripts/lite-yt-embed.js
