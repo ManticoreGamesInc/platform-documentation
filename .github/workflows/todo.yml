@@ -8,7 +8,7 @@ on:
         required: false
         type: boolean
         description: Enable, if you want to import all TODOs.
-  pull_request:
+  push:
     branches:
       - development
 
