@@ -284,7 +284,7 @@ Every time Core gets updated, an internal number, called `SerializationVersion` 
 | **GitHub**            | One of several websites that allows cloud storage of Git projects  |
 | **History**           | The list of changes to files in a project  |
 | **.gitignore**        | A special file that lists all the files and folders that do not need to be tracked with Git  |
-| **.gitattributes**    | A special file that controls Git settings line line endings and other attributes. |
+| **.gitattributes**    | A special file that controls Git settings line endings and other attributes. |
 | **Repository**        | A project that is tracked with Git. Sometimes shortened to **repo**  |
 | **Local Repository**  | The tracked version of a project saved on your computer |
 | **Remote Repository** | An online version of the project, which can be shared and downloaded onto other computers |

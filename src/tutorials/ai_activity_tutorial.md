@@ -272,7 +272,7 @@ Now that everything is implemented, it is time to clean up the code.
 
 Since the purpose of the **Idle Activity** is only to keep the `priority` set to `100`, we can remove the `tickHighestPriority()`, `start()`, and `stop()` functions.
 
-For the **Capture Activity**, there was no implementation for the `start()` and `stop()` functions, we we can remove those too.
+For the **Capture Activity**, there was no implementation for the `start()` and `stop()` functions, we can remove those too.
 
 ## Final Code
 

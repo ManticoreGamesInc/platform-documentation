@@ -157,7 +157,7 @@ As in the example scenes, there are two types of database that can be added to a
 
 ### Add a New Item to the Database
 
-The easiest way to add an item to the database is to duplicate an existing entry. However, the **ItemData** script is also a blank template version of these, can can be used for both Gatherables and Tools.
+The easiest way to add an item to the database is to duplicate an existing entry. However, the **ItemData** script is also a blank template version of these, can be used for both Gatherables and Tools.
 
 1. Open the **Gatherables Database** or the **Tools Database** in the Hierarchy.
 2. Select the **Items** script and click the arrow next to it to open it and see its children. All items in the database will be children of this script.

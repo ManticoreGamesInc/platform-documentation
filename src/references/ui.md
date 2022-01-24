@@ -174,7 +174,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 
 ### Create Variable References for the UI and Trigger
 
-Now, it is time to begin coding. First, you need to create variables that refer the the **UI** and **Trigger** **Custom Properties**.
+Now, it is time to begin coding. First, you need to create variables that refer the **UI** and **Trigger** **Custom Properties**.
 
 Add this to the top of your script:
 
@@ -325,7 +325,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 
 ### Create Variable References for the UI and Binding
 
-Now, it is time to begin coding. First, you need to create variables that refer the the **UI** and **Binding** **Custom Properties**.
+Now, it is time to begin coding. First, you need to create variables that refer the **UI** and **Binding** **Custom Properties**.
 
 Add this to the top of your script:
 
@@ -452,7 +452,7 @@ Second, you need a reference to the **UI** and to the trigger so that you can im
 
 ### Create Variable References for the UI and Button
 
-Now, it is time to begin coding. First, you need to create variables that refer the the **UI** and **Button** **Custom Properties**.
+Now, it is time to begin coding. First, you need to create variables that refer the **UI** and **Button** **Custom Properties**.
 
 Add this to the top of your script:
 

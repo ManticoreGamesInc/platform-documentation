@@ -180,7 +180,7 @@ In the Hierarchy, search for `Constricting Play Zone`. Select the **Constricting
 
 ### Change the Initial Play Zone Size
 
-The Play Zone starts off quite large. You can decrease the starting size of the the Play Zone, which leads to an increase in the pace of battle.
+The Play Zone starts off quite large. You can decrease the starting size of the Play Zone, which leads to an increase in the pace of battle.
 
 1. In the Hierarchy, search for `InitialZone`.
 2. Select the **InitialZone** object.

@@ -850,7 +850,7 @@ The above line can be uncommented to see the impact position and size when the p
 local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
 ```
 
-You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not not return the **BOSS_GEO**.
+You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not return the **BOSS_GEO**.
 
 ![!Impact Size](../img/BossTutorial/impact_size.png){: .center loading="lazy" }
 
@@ -4258,7 +4258,7 @@ When a player joins and there are already shield generators that have been disab
 
 #### Set Transition Visibility
 
-In the the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
+In the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
 
 #### Add Transition Custom Property
 

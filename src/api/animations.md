@@ -101,7 +101,7 @@ Sockets are different points on an animated and player's character mesh. They ca
 
 | Unarmed Zombie              | Description                                                    | Tags         | Events                      |
 | --------------------------- | -------------------------------------------------------------- | ------------ | --------------------------- |
-| zombie_unarmed_idle_ready   | A very undead idle in a pose that looks ready ready to strike. | animatedMesh |                             |
+| zombie_unarmed_idle_ready   | A very undead idle in a pose that looks ready to strike. | animatedMesh |                             |
 | zombie_unarmed_idle_relaxed | An undead idle pose that seems unaware of its surroundings.    | animatedMesh |                             |
 | zombie_unarmed_run_forward  | An uneven run fitting for an undead person.                    | animatedMesh | rightFootstep, leftFootstep |
 | zombie_unarmed_walk_forward | A walk with an uneven gait.                                    | animatedMesh | rightFootstep, leftFootstep |

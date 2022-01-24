@@ -46,7 +46,7 @@ Under **Community Projects**, search for `Concurrent`.
 
 To use concurrent storage you will need to enable it. You can find the concurrent storage settings for player and creator using the **Game Settings** object.
 
-1. in the **Hierarchy**, open the  the **Gameplay Settings** folder and select the **Game Settings** object.
+1. in the **Hierarchy**, open the **Gameplay Settings** folder and select the **Game Settings** object.
 2. In the **Properties** window enable **Concurrent Player Storage** and **Concurrent Creator Storage**.
 
 ![!Enable Storage](../img/ConcurrentStorageTutorial/enable_concurrent_storage.png){: .center loading="lazy" }

@@ -39,7 +39,7 @@ The **TERRAIN CREATOR** drop down menu contains two options, **Generate New Terr
 
 The **GENERATE NEW TERRAIN** window contains settings that are used to manipulate how the terrain will be generated.
 
-The left left side of the **GENERATE NEW TERRAIN** window  contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General** and **Parameters**.
+The left side of the **GENERATE NEW TERRAIN** window  contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General** and **Parameters**.
 
 ![Terrain Generator](../img/TerrainReference/TerrainGeneratorWindow.png){: .center loading="lazy" }
 
@@ -110,7 +110,7 @@ The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determi
 
 ![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
 
-Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
+Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
 {: .image-inline-text .image-background }
 
 ![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }

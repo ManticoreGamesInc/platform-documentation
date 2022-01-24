@@ -832,4 +832,4 @@ You'll probably want to set up User Interface (UI) for your fire staff's abiliti
 ## Examples
 
 * **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
-* **Core Content** includes pre-made and ready-to-use weapons! Check in Game Components Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
+* **Core Content** includes pre-made and ready-to-use weapons! Check in Game Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.

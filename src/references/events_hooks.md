@@ -280,7 +280,7 @@ The **Game** namespace has a collection of functions and events related to playe
 
     Knowing when a **Player** has joined the game allows you to do many things. For example, letting other players in the game know when other players have joined.
 
-    Another useful way to use the `playerJoinedEvent` is loading the the player's data from **Storage** when they join the server, and then sending that data to them (that is Private Networked Data).
+    Another useful way to use the `playerJoinedEvent` is loading the player's data from **Storage** when they join the server, and then sending that data to them (that is Private Networked Data).
 
 - `Game.playerLeftEvent`
 

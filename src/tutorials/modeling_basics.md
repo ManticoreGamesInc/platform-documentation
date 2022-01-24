@@ -118,7 +118,7 @@ It's important to remember your player will most likely not be viewing your crea
 
 From far away you can't even tell the raspberries use "**Clear Coat Reflector Triangle 01**".
 
-Try adding your own garnishes using the techniques we used to make the pancakes. Maybe some orange wedges or a side of hash browns? Share your creation on on the `#showcase` channel in Core's :fontawesome-brands-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/) so others can see what you made!
+Try adding your own garnishes using the techniques we used to make the pancakes. Maybe some orange wedges or a side of hash browns? Share your creation on the `#showcase` channel in Core's :fontawesome-brands-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/) so others can see what you made!
 
 ## Summary
 

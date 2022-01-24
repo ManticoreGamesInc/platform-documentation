@@ -833,7 +833,7 @@ end
 !!! tip "Shortcut"
     A shortcut for the above code can be written as `playerData[perkData.storageKey] = playerData[perkData.storageKey] or 0`. If the value is nil, then 0 will be stored. This reduces readability, but is handy to know.
 
-Update the value in the table with the the amount the player has just purchased.
+Update the value in the table with the amount the player has just purchased.
 
 ```lua
 playerData[perkData.storageKey] = playerData[perkData.storageKey] + perkData.resourceAmount

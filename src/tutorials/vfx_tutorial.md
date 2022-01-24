@@ -245,7 +245,7 @@ We'll start this section using two of the effects that we made earlier: the Adva
 
 2. Try turning up different settings. The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
 
-3. The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
+3. The **Shape** property can be the most fun to change for theming of your game. In particular, hearts are fun:
 
     ![Post Process Effects](../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
