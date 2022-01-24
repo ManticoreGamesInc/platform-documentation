@@ -1,0 +1,18 @@
+name: Create issues for TODOs
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Run tdg-github-action
+        uses: ribtoks/tdg-github-action@master
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          REF: ${{ github.ref }}
+          INCLUDE_PATTERN: "\\.(md|js)$"
