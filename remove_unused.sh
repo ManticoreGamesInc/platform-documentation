@@ -9,7 +9,7 @@ for imagepath in $imagepaths; do
     filename=$(basename -- "$imagepath")
     if ! rg -q -g "!/img/EditorManual/icons/**/*" "$filename" .; then
         git rm "$imagepath"
-        counter=$((counter+1))
+        counter=$((counter + 1))
     fi
 done
 
