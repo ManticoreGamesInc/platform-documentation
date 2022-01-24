@@ -27,6 +27,6 @@ jobs:
       - name: Run Issue Bot
         uses: derjuulsn/todo-issue@main
         with:
-          excludePattern: "^(mkdocs-material/)"
+          excludePattern: "^(mkdocs-material/|src/assets/javascripts/)"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
