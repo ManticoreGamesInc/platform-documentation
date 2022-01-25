@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The **Vehicle** system allows creators to create vehicles such as cars, trucks, and even treaded vehicles like tanks, easily. The vehicle system has a lot of customization options, including changing the way vehicles behave and feel by adjusting the physics. This allows for creators to create unique vehicles that are feel different for their game.
+The **Vehicle** system allows creators to create vehicles such as cars, trucks, and even treaded vehicles like tanks. The vehicle system has a lot of customization options, including changing the way vehicles behave and feel by adjusting the physics. This allows for creators to create unique vehicles that feel different for their game.
 
 ## Types of Vehicles
 
