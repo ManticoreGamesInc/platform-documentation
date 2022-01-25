@@ -66,7 +66,7 @@ Les créateurs peuvent recevoir cette moitié en choisissant de convertir leurs 
 
 ### Pourquoi 50%?
 
-Avec les outils fournis par Core, les créateurs peuvent développer des jeux extrêmement variés: du MMO avec abonnement mensuel au jeu de simulation avec achats de skins en jeu, du jeu de tir entièrement gratuit aux jeux d'arcade, etc. En plus des outils de développement, Core gère l'hébergement des serveurs, les réseaux multijoueur et la publication instantanée sur le Store Core. Avec les Perks, Core s'occupe également de tous les coûts de transaction, comme les frais de traitement des cartes bancaires, l'assistance clientèle et les royalties pour l'utilisation du moteur intégré, l'Unreal Engine.
+Avec les outils fournis par Core, les créateurs peuvent développer des jeux extrêmement variés: du MMO avec abonnement mensuel au jeu de simulation avec achats de skins en jeu, du jeu de tir entièrement gratuit aux jeux d'arcade, etc. En plus des outils de développement, Core gère l'hébergement des serveurs, les réseaux multijoueur et la publication instantanée sur le Store Core. Avec les Perks, Core s'occupe également de tous les couts de transaction, comme les frais de traitement des cartes bancaires, l'assistance clientèle et les royalties pour l'utilisation du moteur intégré, l'Unreal Engine.
 
 La plupart des autres plateformes de développement ne proposent qu'une portion de ces avantages, et laissent le reste à la charge des créateurs. D'autres plateformes de contenu généré par les utilisateurs, comme Roblox, prélèvent une part bien plus importante des revenus, ou n'autorisent simplement pas la monétisation.
 
