@@ -36,8 +36,31 @@ Core Game ID's can be found in the URL for the Core Game page.
 
 With a Game ID, you get more information about a game through a [**CoreGameInfo**](../api/coregameinfo.md) object, like the name of the game, or the creator. See the [**CorePlatform**](../api/coreplatform.md) namespace in the Core Lua API Reference for more information.
 
-<!-- ## Screenshots -->
-<!-- TODO: No clear object for screenshots or reference to one in Patch Notes -->
+In the example below, all the information received by `GetGameInfo` is printed out to the **Event Log**.
+
+```lua
+local gameId = "9e8fb3/cozy-tea-shop"
+local gameInfo = CorePlatform.GetGameInfo(gameId)
+
+print("Game Name: " ..gameInfo.name)
+print("  id: "..gameInfo.id)
+print("  parentGameId: "..tostring(gameInfo.parentGameId))
+print("  ownerName: "..gameInfo.ownerName)
+print("  ownerId: "..gameInfo.ownerId)
+print("  maxPlayers: "..gameInfo.maxPlayers)
+print("  screenshotCount: "..gameInfo.screenshotCount)
+print("  hasWorldCapture: "..tostring(gameInfo.hasWorldCapture))
+print("  isQueueEnabled: "..tostring(gameInfo.isQueueEnabled))
+print("  description: "..gameInfo.description)
+
+local tags = "["..
+    CoreString.Join(", ", table.unpack(gameInfo:GetTags()))
+.."]"
+
+print("  tags: "..tags)
+```
+
+![!Game Info](../img/GameInfo/event_log.png){: .center loading="lazy" }
 
 ## World Capture
 
