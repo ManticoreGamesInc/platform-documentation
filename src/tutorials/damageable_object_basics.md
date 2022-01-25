@@ -304,7 +304,7 @@ For the basic dummy, the properties on the damageable object will not be changed
 
 ### Create Damageable Object
 
-When you want to create your own custom damageable objects, you will want to start with the basic **Damageable Object** from **Core Content**. On its own, it is not that useful because it has no visual, and no collision. All damageable objects need some collision for it to register damage, and in most cases you will want some geometry so you can see the what to damage.
+When you want to create your own custom damageable objects, you will want to start with the basic **Damageable Object** from **Core Content**. On its own, it is not that useful because it has no visual, and no collision. All damageable objects need some collision for it to register damage, and in most cases you will want some geometry so you can see what to damage.
 
 1. In **Core Content** search for `Damageable Object` and add it to your **Hierarchy**.
 2. Rename **Damageable Object** to `Simple Damageable Object`.
@@ -410,7 +410,7 @@ So far the dummies have been very simple to setup, and with no Lua scripting you
 
 ### Add Destroy on Death Networked Template
 
-When the **Exploding Damageable Object** is killed, a template will be spawned that contains a Lua script that will loop over all the meshes that support **Debris Physics** by setting `isSimulatingDebrisPhysics` to `true`. The template that will be spawned has already been setup so that objects which support **Debris Physics** are in a **Supported** group.
+When the **Exploding Damageable Object** is killed, a template will be spawned that contains a Lua script that will loop over all the meshes that support [**Debris Physics**](../references/debris_physics.md) by setting `isSimulatingDebrisPhysics` to `true`. The template that will be spawned has already been setup so that objects which support **Debris Physics** are in a **Supported** group.
 
 1. Select the **Exploding Damageable Object** in the **Hierarchy** so it becomes the active object.
 2. In **Project Content** search for **General Scatter** and drag it onto the **Destroy on Death Networked Template** property.
@@ -747,4 +747,4 @@ Damageable objects are a lot of fun to experiment with. You can get polished res
 
 ## Learn More
 
-[Damageable Objects Reference](../references/damageable_objects.md) | [Damageable Object API](../api/damageableobject.md) | [Boss Fight Tutorial](../tutorials/boss_tutorial.md) | [UI API](../api/ui.md) | [Events API](../api/events.md)
+[Damageable Objects Reference](../references/damageable_objects.md) | [Damageable Object API](../api/damageableobject.md) | [Boss Fight Tutorial](../tutorials/boss_tutorial.md) | [UI API](../api/ui.md) | [Events API](../api/events.md) | [Debris Physics Reference](../references/debris_physics.md)
