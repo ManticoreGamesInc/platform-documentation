@@ -49,7 +49,7 @@ Les Perks sont créés et modifiés via la fenêtre **Perks Manager**. Ils peuve
 !!! info
     Le nombre de projets auxquels vous pouvez ajouter un Perk n'est pas limité.
 
-Votre nouveau Perk apparaîtra maintenant dans la section **My Perks** de la fenêtre **Project Content**.
+Votre nouveau Perk apparaitra maintenant dans la section **My Perks** de la fenêtre **Project Content**.
 
 ### Ajouter une référence à un Perk
 
@@ -63,7 +63,7 @@ Pour modifier l'expérience d'un joueur en fonction des Perks qu'il possède, vo
 
 ### Scripts et Perks
 
-Vous pouvez utiliser la fonction `player:HasPerk(perkReference)` pour savoir si un joueur dispose d'un Perk, et la fonction `player:GetPerkCount()` pour connaître le nombre de Perks répétables qu'un joueur a achetés.
+Vous pouvez utiliser la fonction `player:HasPerk(perkReference)` pour savoir si un joueur dispose d'un Perk, et la fonction `player:GetPerkCount()` pour connaitre le nombre de Perks répétables qu'un joueur a achetés.
 
 Pour en savoir plus sur les fonctions et événements associés aux Perks, consultez [Référence API de Core sur le type de joueur](../../api/player.md).
 
@@ -90,7 +90,7 @@ Une fois les Perks activés dans le menu test, lancez un Aperçu multijoueur. Si
 
 ## Ajouter un bouton d'achat de Perks
 
-Les Perks ne peuvent être achetés qu'en utilisant un **UI Perk Purchase Button**. Une boîte de dialogue sera utilisée pour confirmer l'achat.
+Les Perks ne peuvent être achetés qu'en utilisant un **UI Perk Purchase Button**. Une boite de dialogue sera utilisée pour confirmer l'achat.
 
 ## Ajouter un bouton d'achat de Perks à un projet
 
