@@ -18,7 +18,7 @@ Gatherables work by providing features through the Custom Properties of differen
 
 The **Gatherables and Inventory** Example Project can be found in the **CREATE** menu alongside the Empty and Framework project options.
 
-![Gatherables and Inventory Example](../img/Gatherables/Gatherables_OpenExampleProject)
+![Gatherables and Inventory Example](../img/Gatherables/Gatherables_OpenExampleProject.png)
 
 1. In Core, click the **CREATE** tab at the top to open options for new and existing projects.
 2. In the top bar menu of **CREATE**, select **NEW PROJECT**.
