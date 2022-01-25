@@ -69,21 +69,28 @@ Once you have a public game to use as a parent, any other game you publish can b
 
 To keep cohesion in the player's experience, you can use **Shared Storage Tables** to pass data between your published games. See the [Shared Storage](shared_storage.md) reference for more information.
 
-## Keeping Templates Consistent between Game Files with Clobber Copy
+## Keeping Templates Consistent between Game Files
 
 Core Object (**.pbt**) files are very small in size, and easy to pass between projects, to keep everything from large constructions to UI designs synchronized between different project maps. This can be done a variety of ways, including simple **copy and paste** from one open project to another.
 
-**Clobber Copy** allows creators to override the current version of an object, group, or template with a new one when copying and pasting between projects. A complex model or other template can be modified on one project, and then those changes can be brought into a second project, overriding the state.
-
 ### Clobber Copying between Games
 
-<!-- TODO: Figure out if we need to use Export as part of flow -->
+**Clobber Copy** allows creators to override the current version of an object, group, or template with a new one when copying and pasting between projects. A complex model or other template can be modified on one project, and then those changes can be brought into a second project, overriding the state.
 
 1. Modify a template in the **Hierarchy**.
 2. Make sure the object is select in the **Hierarchy** and press ++Ctrl++ + ++C++.
 3. Save and close the current project, and open up the connected or related project through the Core client.
-4. Press Ctrl+V to paste the template in.
+4. Press ++Ctrl++ + ++V++ to paste the template in.
 5. Choose "Overwrite Existing Assets" to replace the previous version with the new one.
+
+### Exporting Templates as PNG
+
+**Export as PNG** allows creators to export a template that can be dropped into existing projects. This also has the added benefit of becoming a shareable asset that can be shared with other people.
+
+1. In **Project Content**, find a template to export, right click and select **Export as PNG**.
+2. When promoted, select **Yes** to create a screen shot.
+
+After doing the above steps, the folder that contains the image will be opened up. The image generated can then be dropped into existing projects by opening the project first, and dragging the image into the editor. This can also be shared with other people by sending them the png file that will also allow them to drag it into their own editor.
 
 ---
 
