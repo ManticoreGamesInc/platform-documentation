@@ -58,6 +58,7 @@ nav:
           - Chat Hooks: tutorials/chat_tutorial.md
           - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
           - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - ✨ Damageable Object Basics: tutorials/damageable_object_basics.md
           - Destructible Objects: tutorials/boss_tutorial.md
           - Environment Art: tutorials/environment_art.md
           - Game Events: tutorials/game_events.md
@@ -130,7 +131,7 @@ nav:
           - Shared Data Storage: references/shared_storage.md
           - Spawn Points: references/spawnpoints.md
           - Spawned Shared Assets: references/spawned_shared_assets.md
-          - ✨ Storage Options: references/selecting_a_storage_type.md
+          - Storage Options: references/selecting_a_storage_type.md
           - Teams: references/teams.md
           - Templates: references/templates.md
           - Terrain: references/terrain.md
