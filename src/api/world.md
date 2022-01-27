@@ -430,7 +430,7 @@ function Tick()
         -- Draw reflection; direction of movement after impact
         CoreDebug.DrawLine(centerPos, centerPos + reflection, {thickness = 3, color = Color.YELLOW})
     else
-        -- There was no impact. E.g. Player aimed into the sky
+        -- There was no impact. For example the Player aimed into the sky
         CoreDebug.DrawLine(startPos, endPos, {thickness = 3, color = Color.RED})
     end
 end

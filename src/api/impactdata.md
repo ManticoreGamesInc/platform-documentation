@@ -27,7 +27,7 @@ A data structure containing all information about a specific Weapon interaction,
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetHitResult()` | [`HitResult`](hitresult.md) | Physics information about the impact between the Weapon and the other object. | None |
-| `GetHitResults()` | `Array`<[`HitResult`](hitresult.md)> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
+| `GetHitResults()` | `Array`<[`HitResult`](hitresult.md)> | Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (for example Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit. | None |
 
 ## Examples
 
@@ -97,7 +97,7 @@ Example using:
 
 ### `isHeadshot`
 
-When it comes to weapons damaging players, there is a built-in damage value that works. However, additional mechanics can be layered on top, with scripts. In this example, some weapons can have multiple shots at once (e.g. Shotgun) and headshots are defined to have a different damage value. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
+When it comes to weapons damaging players, there is a built-in damage value that works. However, additional mechanics can be layered on top, with scripts. In this example, some weapons can have multiple shots at once (for example a Shotgun) and headshots are defined to have a different damage value. For this to work, the weapon's default damage number should be set to zero, with all damage applied through this script.
 
 ```lua
 local WEAPON = script:FindAncestorByType('Weapon')

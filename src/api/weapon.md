@@ -63,7 +63,7 @@ A Weapon is an Equipment that comes with built-in Abilities and fires Projectile
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `targetImpactedEvent` | [`Event`](event.md)<[`Weapon`](weapon.md) weapon, [`ImpactData`](impactdata.md) impactData> | Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
+| `targetImpactedEvent` | [`Event`](event.md)<[`Weapon`](weapon.md) weapon, [`ImpactData`](impactdata.md) impactData> | Fired when a Weapon interacts with something. For example a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc. | Server-Only |
 | `projectileSpawnedEvent` | [`Event`](event.md)<[`Weapon`](weapon.md) weapon, [`Projectile`](projectile.md) projectile> | Fired when a Weapon spawns a projectile. | None |
 
 ## Examples
@@ -637,7 +637,7 @@ Example using:
 
 ### `projectilePierceCount`
 
-A weapon-viewing interface can show detailed specs about each weapon to players. In this example, the weapon's damage, as well as indicators if the shots bounce or pierce are setup for the player to view. This script would exist as part of a greater user interface, with various images and texts, and the ShowUI() function would be called depending on the game state (e.g. the player is browsing a shop).
+A weapon-viewing interface can show detailed specs about each weapon to players. In this example, the weapon's damage, as well as indicators if the shots bounce or pierce are setup for the player to view. This script would exist as part of a greater user interface, with various images and texts, and the ShowUI() function would be called depending on the game state (for example the player is browsing a shop).
 
 ```lua
 local WEAPON_DETAILS_UI = script.parent
