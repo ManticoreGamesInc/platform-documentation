@@ -281,9 +281,6 @@ function TargetImpacted(impactData)
             owner.hitPoints = owner.maxHitPoints
         end
     end
-
-    -- TODO : Other combat mechanics
-    -- ...
 end
 
 -- return {
