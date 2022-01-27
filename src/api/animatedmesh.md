@@ -42,7 +42,7 @@ AnimatedMesh objects are skeletal CoreMeshes with parameterized animations baked
 
 | Event Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
-| `animationEvent` | [`Event`](event.md)<[`AnimatedMesh`](animatedmesh.md) animatedMesh, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself. | Client-Only |
+| `animationEvent` | [`Event`](event.md)<[`AnimatedMesh`](animatedmesh.md) animatedMesh, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (for example the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself. | Client-Only |
 
 ## Examples
 

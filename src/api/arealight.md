@@ -31,7 +31,7 @@ Example using:
 
 ### `barnDoorLength`
 
-In this example, a client script animates the width and angle of a "barn door" light. This effect could be used in sync with a door opening from a highly-lit area onto a poorly lit one, generating a cinematic or emotional moment. In this case, the time `t` is driven by the sine of `time()`, but it could be driven by the the door's rotation instead.
+In this example, a client script animates the width and angle of a "barn door" light. This effect could be used in sync with a door opening from a highly-lit area onto a poorly lit one, generating a cinematic or emotional moment. In this case, the time `t` is driven by the sine of `time()`, but it could be driven by the door's rotation instead.
 
 ```lua
 local AREA_LIGHT = script:GetCustomProperty("AreaLight"):WaitForObject()

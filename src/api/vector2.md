@@ -113,7 +113,7 @@ Example using:
 
 ### `y`
 
-In this client script we listen for the player's primary action (e.g. Left mouse click) then print the position of their cursor to the event log.
+In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
 
 ```lua
 function OnBindingPressed(player, action)

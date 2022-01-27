@@ -121,7 +121,7 @@ Example using:
 
 ### `Deactivate`
 
-This example adds a layer of decision-making when activating/deactivating IK Anchors. With this approach, a more complex project, with multiple IK can be applied to players at the same time. If two anchors of the same type (e.g. Left Hand) are activated on the same player, then they go onto a stack and can remain consistent regardless of the order in which activate/deactivate are called. Without such an approach, multiple game systems may be fighting for the limited IK slots, with undesirable results.
+This example adds a layer of decision-making when activating/deactivating IK Anchors. With this approach, a more complex project, with multiple IK can be applied to players at the same time. If two anchors of the same type (for example Left Hand) are activated on the same player, then they go onto a stack and can remain consistent regardless of the order in which activate/deactivate are called. Without such an approach, multiple game systems may be fighting for the limited IK slots, with undesirable results.
 
 ```lua
 function ActivateIK(player, ikAnchor)

@@ -15,7 +15,7 @@ Game is a collection of functions and events related to players in the game, rou
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
 | `Game.GetLocalPlayer()` | [`Player`](player.md) | Returns the local player. | Client-Only |
-| `Game.GetPlayers([table parameters])` | `Array`<[`Player`](player.md)> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
+| `Game.GetPlayers([table parameters])` | `Array`<[`Player`](player.md)> | Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), For example: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`. | None |
 | `Game.FindPlayer(string playerId)` | [`Player`](player.md) | Returns the Player with the given player ID, if they're currently in the game. Otherwise returns `nil`. | None |
 | `Game.FindNearestPlayer(Vector3 position, [table parameters])` | [`Player`](player.md) | Returns the Player that is nearest to the given position. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
 | `Game.FindPlayersInCylinder(Vector3 position, number radius, [table parameters])` | `Array`<[`Player`](player.md)> | Returns a table with all Players that are in the given area. Position's `z` is ignored with the cylindrical area always upright. An optional table may be provided containing parameters to filter the list of players considered. This supports the same list of parameters as GetPlayers(). | None |
@@ -481,7 +481,7 @@ Example using:
 
 ### `playerLeftEvent`
 
-Events that fire when players join or leave the game. Both server and client scripts detect these events. In the following example teams are kept balanced at a ratio of 1 to 2. E.g. if there are 6 players two of them will be on team 1 and the other four will be on team 2.
+Events that fire when players join or leave the game. Both server and client scripts detect these events. In the following example teams are kept balanced at a ratio of 1 to 2. For example if there are 6 players two of them will be on team 1 and the other four will be on team 2.
 
 ```lua
 local BALANCE_RATIO = 1 / 2

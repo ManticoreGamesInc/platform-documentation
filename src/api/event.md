@@ -8,7 +8,7 @@ tags:
 
 # Event
 
-Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. E.g. `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.
+Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. For example `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.
 
 ## Functions
 
