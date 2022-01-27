@@ -8,7 +8,7 @@ tags:
 
 # Damage
 
-To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
+To damage a Player, you can simply write for example: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:
 
 ## Constructors
 
@@ -22,8 +22,8 @@ To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.N
 | -------- | ----------- | ----------- | ---- |
 | `amount` | `number` | The numeric amount of damage to inflict. | Read-Write |
 | `reason` | [`DamageReason`](enums.md#damagereason) | What is the context for this Damage? DamageReason.UNKNOWN (default value), DamageReason.COMBAT, DamageReason.FRIENDLY_FIRE, DamageReason.MAP, DamageReason.NPC. | Read-Write |
-| `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player. | Read-Write |
-| `sourcePlayer` | [`Player`](player.md) | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player. | Read-Write |
+| `sourceAbility` | [`Ability`](ability.md) | Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, for example a kill feed can show what killed a Player. | Read-Write |
+| `sourcePlayer` | [`Player`](player.md) | Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, for example a kill feed can show who killed a Player. | Read-Write |
 
 ## Functions
 
@@ -120,7 +120,7 @@ Example using:
 
 ### `amount`
 
-While Damage amount can be set when constructing the Damage object (e.g. Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
+While Damage amount can be set when constructing the Damage object (for example Damage.New(10)), you may want to create filtering functions that modify the damage depending on game conditions. In this example, players have a shield resource that prevents damage until the shield runs out. Instead of calling player:ApplyDamage() directly, the DamagePlayerAdvanced() function is called.
 
 ```lua
 function DamagePlayerAdvanced(player, dmg)

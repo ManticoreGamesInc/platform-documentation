@@ -29,7 +29,7 @@ Example using:
 
 ### `IsValid`
 
-The example below shows the importance of using `Object.IsValid()` instead of a simple nil check (i.e. `if object then`). An object can be in a situation where it's invalid, but not yet nil. This can happen if a script is retaining a reference to it or it began the destroy process but hasn't completed it yet.
+The example below shows the importance of using `Object.IsValid()` instead of a simple nil check (that is `if object then`). An object can be in a situation where it's invalid, but not yet nil. This can happen if a script is retaining a reference to it or it began the destroy process but hasn't completed it yet.
 
 In this example, the script has a cube child that it finds with the `GetChildren()` call. It then prints information about the cube as it progresses through the steps of being destroyed and its variable reference cleared.
 
@@ -79,7 +79,7 @@ Example using:
 
 In this example, multiple copies of the same script are placed into the scene. At startup, they search for each other and build a follow chain. The last script that can't find another script to follow is set to follow the local player. As the player moves around the chain of objects follows along in a smooth motion. The `clientUserData` property is leveraged in building the chain of object references.
 
-For this to work all scripts should be in a client context. In order to visualize the effect, objects (e.g. a Cubes) can be added as children of the scripts.
+For this to work all scripts should be in a client context. In order to visualize the effect, objects (for example a Cube) can be added as children of the scripts.
 
 As the name implies, `clientUserData` is a non-dynamic property on the client only.
 

@@ -207,7 +207,7 @@ Example using:
 
 ### `currentYaw`
 
-This sample explores the parallel between the player's rotation, the camera's rotation and the camera's view angles expressed in the `currentPitch` and `currentYaw` properties. The camera's "free control" and "rotation mode" are adjusted so the view angle properties give useful information--that's because if "free control" is disabled the view angles always return zero. This script expects to be in a client context. Results will vary depending on player settings (e.g. Facing Mode) as well as other camera settings.
+This sample explores the parallel between the player's rotation, the camera's rotation and the camera's view angles expressed in the `currentPitch` and `currentYaw` properties. The camera's "free control" and "rotation mode" are adjusted so the view angle properties give useful information--that's because if "free control" is disabled the view angles always return zero. This script expects to be in a client context. Results will vary depending on player settings (for example Facing Mode) as well as other camera settings.
 
 ```lua
 function Tick()

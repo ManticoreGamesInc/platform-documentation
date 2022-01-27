@@ -160,7 +160,7 @@ Player is an object representation of the state of a player connected to the gam
 | `movementModeChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`MovementMode`](enums.md#movementmode) newMovementMode, [`MovementMode`](enums.md#movementmode) previousMovementMode> | Fired when a Player's movement mode changes. The first parameter is the Player being changed. The second parameter is the "new" movement mode. The third parameter is the "previous" movement mode. Possible values for MovementMode are: MovementMode.NONE, MovementMode.WALKING, MovementMode.FALLING, MovementMode.SWIMMING, MovementMode.FLYING. | None |
 | `emoteStartedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player begins playing an emote. | None |
 | `emoteStoppedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` emoteId> | Fired when the Player stops playing an emote or an emote is interrupted. | None |
-| `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
+| `animationEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` eventName, `string` animationName> | Some animations have events specified at important points of the animation (for example the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return "animation_stance" as the animation name. | Client-Only |
 | `privateNetworkedDataChangedEvent` | [`Event`](event.md)<[`Player`](player.md) player, `string` key> | Fired when the player's private data changes. On the client, only the local player's private data is available. | None |
 | `collidedEvent` | [`Event`](event.md)<[`Player`](player.md) player, [`HitResult`](hitresult.md) hitResult> | Fired when a player collides with another object. The `HitResult` parameter describes the collision that occurred. | None |
 
@@ -497,6 +497,75 @@ end)
 ```
 
 See also: [CoreObject.AttachToPlayer](coreobject.md)
+
+---
+
+Example using:
+
+### `damageHook`
+
+In this example, players will get armor when they join the game that adds an extra layer of protection to damage sources before it effects the player's health. By using the damageHook for the player, the amount of damage in the Damage object that is passed in can be modified before it is applied to the player.
+
+In this case, the player has an armor resource that the damage is applied to first if the player's armor is greater than 0. Any damage the player takes will notify the source player to show the damage they have done. If the damage is to the armor, then the numbers will be green, otherwise it will be red to indicate damage is to the health.
+
+There are 2 scripts for this example. 1 Server, and 1 Client.
+
+```lua
+-- Server script
+
+local function ReduceArmor(player, damage)
+    local currentArmor = player:GetResource("armor")
+    local isArmor = false
+    local damageAmount = damage.amount
+
+    -- check the current armor amount for the player who
+    -- received the damaged.
+    if currentArmor > 0 then
+
+        -- Remove the damage.amount from the armor.
+        player:RemoveResource("armor", damage.amount)
+
+        -- Set the damage.amount to 0 so no damage to
+        -- the health is took.
+
+        damage.amount = 0
+        isArmor = true
+
+        print("Armor for " .. player.name .. " is " .. tostring(player:GetResource("armor")))
+    end
+
+    -- Broadcast to the player who is the source of the damage
+    -- so the damage numbers will appear on their screen.
+    Events.BroadcastToPlayer(damage.sourcePlayer, "ShowDamage", damageAmount, player:GetWorldPosition(), isArmor)
+end
+
+-- When the player joins, set their armor resource to 100 and
+-- connect up the damageHook event.
+local function OnPlayerJoined(player)
+    player:SetResource("armor", 100)
+    player.damageHook:Connect(ReduceArmor)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+
+-- Client script below
+
+-- Shows the damage numbers to the player. The color
+-- of the number depends on if the damage was done to
+-- the armor or the health.
+local function ShowDamage(damageAmount, position, isArmor)
+    UI.ShowFlyUpText(tostring(damageAmount), position, {
+
+        isBig = true,
+        color = (isArmor and Color.GREEN) or Color.RED
+
+    })
+end
+
+Events.Connect("ShowDamage", ShowDamage)
+```
+
+See also: [Hook.Connect](hook.md) | [Game.playerJoinedEvent](game.md) | [Damage.amount](damage.md) | [player.GetResource](player.md) | [Events.BroadcastToPlayer](events.md) | [UI.ShowFlyUpText](ui.md)
 
 ---
 
@@ -1008,7 +1077,7 @@ Example using:
 
 ### `HasPerk`
 
-In this example, limited time perks that players have purchased could still have active benefits (i.e. double xp) when the perk has expired while the player is still on the server. This could allow players to get extended perk benefits until they leave, or the server is closed.
+In this example, limited time perks that players have purchased could still have active benefits (that is double xp) when the perk has expired while the player is still on the server. This could allow players to get extended perk benefits until they leave, or the server is closed.
 
 To solve this issue, a task can be spawned that checks all players on the server periodically if they have the limited time perk. For example, you might be using SetResource to flag players having a Gold VIP Pass. If the limited time perk has expired, then the flag can be set to 0, which would end the benefits for the player until they repurchase the perk.
 
@@ -1108,7 +1177,7 @@ local PLAYER = Game.GetLocalPlayer()
 function UpdateFromNetworkedData(key)
     local data = PLAYER:GetPrivateNetworkedData(key)
     -- TODO: This would depend on your type of data and game system
-    -- E.g.: An inventory of items
+    -- For example: An inventory of items
     if key == "inventory" then
         for itemId,count in pairs(data) do
             print(PLAYER.name .. " has " .. count .. " copies of " .. itemId)
