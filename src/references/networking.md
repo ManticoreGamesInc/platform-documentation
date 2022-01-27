@@ -113,7 +113,7 @@ Things you would usually place in a client context include:
 - Decorative geometry that doesn't need collision.
 - Scripts that control any client-only things.
 
-### Server Contexts
+### Server Context
 
 A **Server Context** is another a special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Server Context**.
 
@@ -128,7 +128,7 @@ Things you would usually place in a server context include:
 - Scripts that you want to prevent players from being able to inspect
 - Visual widgets that you use while editing the game, but don't want to include in the published version
 
-### Static Contexts
+### Static Context
 
 A **Static Context** is a third special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Static Context**.
 
@@ -147,9 +147,9 @@ Things you would usually place in a static context include:
 - Procedurally generated geometry that needs to have player collision
 - Complicated geometry that needs to be collidable, but only needs to move as a unit.
 
-### Local Contexts
+### Local Context
 
-**Local Contexts** are very similar to **Static Contexts**, except that objects within them can be modified. However, any changes made to the objects in the Local Context are made independently by the server and each client, and are not networked automatically. Creators must take care to ensure that client and server state match, or players may experience unexpected behaviors (for example, jittery movement, teleportation).
+**Local Context** is very similar to **Static Contexts**, except that objects within them can be modified. However, any changes made to the objects in the Local Context are made independently by the server and each client, and are not networked automatically. Creators must take care to ensure that client and server state match, or players may experience unexpected behaviors (for example, jittery movement, teleportation).
 
 Local Contexts can be used when creating gameplay objects which have a stationary server component (like a trigger), but an animated client component (like a rotating visual component).
 
