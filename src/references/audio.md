@@ -60,13 +60,11 @@ When enabled the audio will change attenuation if there is geometry between the 
 
 #### Auto Play
 
-Causes the audio to player immediately upon additional to the world.
+Causes the audio to play immediately upon addition to the world.
 
 #### Transient
 
-When enabled the sound will destroy itself after playing. The Transient flag is great for cleaning up a sound after it spawns and finishes playing. Suggested use is at level start or in templates for one-time sounds such as when spawning objects.
-
-!!! note "Is not supported and has no effect for audio outside of a client context."
+If audio is set to transient, the audio object destroys itself when it is finished player. Is not supported and has no effect for audio objects outside of a client context. Suggested use is at level start or in templates for one-time sounds such as when spawning objects.
 
 #### Repeat
 
@@ -88,7 +86,7 @@ This is the radius at which the sound plays at full volume in centimeters (cm). 
 
 #### Falloff
 
-Radius of the falloff distance. If the distance from the sounds's origin is greater than the sound's radium, the sound will gradually diminish over the falloff distance. The max range a sound can be heard at is **Radius** + **Falloff**.
+Radius of the falloff distance. If the distance from the sounds's origin is greater than the sound's radius, the sound will gradually diminish over the falloff distance. The max range a sound can be heard at is **Radius** + **Falloff**.
 
 When visual gizmos are toggled on (by pressing ++V++ in the editor) Radius and Falloff values can be seen in the editor to help creators have a better visual understanding of how their sounds are heard in their games.
 
