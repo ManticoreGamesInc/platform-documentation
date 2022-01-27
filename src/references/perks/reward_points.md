@@ -90,4 +90,14 @@ Creators adding Reward Points will have access to three new assets to denote **R
 | :-------------------: | :------------------------: | :----------------------: |
 | ![Enable Reward Points](../../img/RewardPointsReference/RPIcon.png){: .center loading="lazy" } | ![Enable Reward Points](../../img/RewardPointsReference/RPFlatIcon.png){: .center loading="lazy" } | ![Enable Reward Points](../../img/RewardPointsReference/RPMedal3D.png){: .center loading="lazy" } |
 
-<!-- TODO: **Perks Program** creators will be able to enable an in-game widget that will allow players to see how much **RP** the player has earned towards the current **Creator Daily Cap**. The dimensions and position of the widget will be modifiable for **Perks Program** creators via the Core game editor. ![!RP Counter Widget](../../img/RewardPointsReference/RPCounter.png){: .center loading="lazy"} -->
+#### Reward Points Meter
+
+Creators can add a UI component called [**UI Reward Points Meter**](../api/uirewardpointsmeter.md) to their game that will allow players to see how much **RP** the player has earned towards the current **Create Daily Cap**.
+
+This asset can be found under **Perk Tools** in the **Core Content** table for Perk Members.
+
+![!RP Counter Widget](../../img/RewardPointsReference/RPCounter.png){: .center loading="lazy"}
+
+## Learn More
+
+[About the Perks Program](../references/perks/program.md) | [Joining the Perks Program](../references/perks/joining.md) | [GrantRewardPoints](../api/player.md)
