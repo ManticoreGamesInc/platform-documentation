@@ -141,7 +141,7 @@ function OnPlayerJoined(player)
 end
 
 function PromotePlayer(player)
-    -- TODO: Give some gameplay advantage or leadership ability
+    -- Give some gameplay advantage or leadership ability
     print("PROMOTING: " .. player.name)
 end
 
