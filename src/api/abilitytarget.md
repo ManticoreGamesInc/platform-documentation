@@ -185,7 +185,7 @@ function OnExecute(ability)
 
     -- Spawn the AOE object
     local instance = World.SpawnAsset(AOE_ASSET, {position = spawnPos})
-    -- Give the AOE object a reference back to this ability. E.g. if the AOE kills an enemy,
+    -- Give the AOE object a reference back to this ability. For example if the AOE kills an enemy,
     -- then it has enough information to correctly attribute a score increase.
     instance.serverUserData.sourceAbility = ability
 end
@@ -203,7 +203,7 @@ Example using:
 
 ### `spreadRandomSeed`
 
-In this example, a shotgun is configured to have a deterministic sequence of spread patterns. Both the angle and the randomness of the shots can be controlled in a way where they follow a predictable pattern of shots that repeats for every 5 shots. Some properties of the ability targeting can only be changed at runtime if the ability's execute phase has the property 'Is Target Data Updated' disabled. Otherwise, any changes to the target data are overriden at the start of the execute phase. The script expects to be placed under the shotgun's client context.
+In this example, a shotgun is configured to have a deterministic sequence of spread patterns. Both the angle and the randomness of the shots can be controlled in a way where they follow a predictable pattern of shots that repeats for every 5 shots. Some properties of the ability targeting can only be changed at runtime if the ability's execute phase has the property 'Is Target Data Updated' disabled. Otherwise, any changes to the target data are overridden at the start of the execute phase. The script expects to be placed under the shotgun's client context.
 
 ```lua
 local WEAPON = script:FindAncestorByType("Weapon")

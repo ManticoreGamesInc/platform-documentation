@@ -8,7 +8,7 @@ tags:
 
 # Trigger
 
-A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A Player walks into it):
+A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (for example a Player walks into it):
 
 ## Properties
 

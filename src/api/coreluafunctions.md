@@ -14,7 +14,7 @@ A few base functions provided by the platform.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `Tick(number deltaTime)` | `number` | Tick event, used for things you need to check continuously (e.g. main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
+| `Tick(number deltaTime)` | `number` | Tick event, used for things you need to check continuously (for example main game loop), but be careful of putting too much logic here or you will cause performance issues. DeltaTime is the time difference (in seconds) between this and the last tick. | None |
 | `time()` | `number` | Returns the time in seconds (floating point) since the game started on the server. | None |
 | `print(string)` | `string` | Print a message to the event log. Access the Event Log from the **Window** menu. | None |
 | `warn(string)` | `string` | Similar to `print()`, but includes the script name and line number. | None |

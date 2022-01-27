@@ -141,7 +141,7 @@ Example using:
 
 ### `unhoveredEvent`
 
-This example will will show you how to change the color of a button by using the `SetButtonColor` method. It's important to remember that colors in Core use red, gree, and blue values between 0 and 1 as opposed to values between 0 and 255.
+This example will show you how to change the color of a button by using the `SetButtonColor` method. It's important to remember that colors in Core use red, gree, and blue values between 0 and 1 as opposed to values between 0 and 255.
 
 ```lua
 -- Make the cursor visible
@@ -177,7 +177,7 @@ Example using:
 
 ### `pressedEvent`
 
-UI Buttons can be used as direct input to control the gameplay. This is especially useful for touch-screen devices, where UI Buttons can be setup as virtual controls. In this example, a UI Button has a value set for its `boundAction` property. When the button is pressed, the button's `pressedEvent` will callback. If the `boundAction` property has been set to a valid input action (e.g. "Jump") then the Input `actionPressedEvent` will also callback.
+UI Buttons can be used as direct input to control the gameplay. This is especially useful for touch-screen devices, where UI Buttons can be setup as virtual controls. In this example, a UI Button has a value set for its `boundAction` property. When the button is pressed, the button's `pressedEvent` will callback. If the `boundAction` property has been set to a valid input action (for example "Jump") then the Input `actionPressedEvent` will also callback.
 
 ```lua
 local UIBUTTON = script:GetCustomProperty("UIButton"):WaitForObject()

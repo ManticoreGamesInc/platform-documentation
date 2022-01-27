@@ -39,6 +39,8 @@ Example using:
 
 In this example a player can click on a UI Perk Purchase Button (Client UI with Perk Net Reference), and will be given a certain amount of gems. These gems will be added to the player's resource, and also save in player storage so that the total gems persist between game sessions.
 
+The UI Perk Button doesn't need any client side Lua logic when a player clicks the button because Core handles this for you.
+
 ```lua
 -- Server script. Player storage enabled.
 -- The perk reference (repeatable).
@@ -73,8 +75,10 @@ local function PerkChanged(player, perk)
 end
 
 -- For debugging to see if the gems resource updated.
+-- This would usually be in a client script that would update
+-- the player's UI with their updated Gem amount.
 local function PlayerResourceChanged(player, resource, newAmount)
-    if(resource == "Gems") then
+    if resource == "Gems" then
         print(string.format("%s gems: %s", player.name, newAmount))
     end
 end
@@ -88,6 +92,10 @@ local function OnPlayerJoined(player)
 
     -- Set the players resource with the gems in storage.
     player:SetResource("Gems", playerData.gems or 0)
+
+    -- This would usually be in a client script to update
+    -- the UI for the player to show their resources when
+    -- the amount changes.
     player.resourceChangedEvent:Connect(PlayerResourceChanged)
 end
 
