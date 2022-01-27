@@ -169,6 +169,7 @@ Player is an object representation of the state of a player connected to the gam
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `movementHook` | [`Hook`](hook.md)<[`Player`](player.md) player, `table` parameters> | Hook called when processing a Player's movement. The `parameters` table contains a `Vector3` named "direction", indicating the direction the player will move. | Client-Only |
+| `damageHook` | [`Hook`](hook.md)<[`Player`](player.md) player, [`Damage`](damage.md) damage> | Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter. | Server-Only |
 
 ## Additional Info
 
@@ -1176,7 +1177,7 @@ local PLAYER = Game.GetLocalPlayer()
 
 function UpdateFromNetworkedData(key)
     local data = PLAYER:GetPrivateNetworkedData(key)
-    -- TODO: This would depend on your type of data and game system
+    -- This would depend on your type of data and game system
     -- For example: An inventory of items
     if key == "inventory" then
         for itemId,count in pairs(data) do
