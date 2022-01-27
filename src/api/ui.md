@@ -50,6 +50,96 @@ The UI namespace contains a set of class functions allowing you to get informati
 
 Example using:
 
+### `GetAbsolutePosition`
+
+### `SetAbsolutePosition`
+
+In this example, a handle can be dragged left and right that will update the progress of a UI Progress object. Using GetAbsolutePosition will make the calculations simpler to work out where to move the handle because it will provide the screen position of the UI object.
+
+Another way that is a little more complicated is to work it out based on the anchor and pivot of the parent. This can be difficult to do. Using the Absolute Position methods for get and set makes it easier when it comes to dyanamic UI (for example, dragging and dropping UI objects).
+
+```lua
+-- Client script
+-- UI Container
+--  Panel
+--   Slider Panel
+--    Script
+--    Handle
+--    Progress Bar
+local ROOT = script.parent
+
+-- The handle that will be dragged left and right to change the slider amount.
+local HANDLE = script:GetCustomProperty("Handle"):WaitForObject()
+
+-- The UI progress bar that will be updated.
+local PROGRESS_BAR = script:GetCustomProperty("ProgressBar"):WaitForObject()
+
+-- With of the root container
+local WIDTH = ROOT.width
+
+local localPlayer = Game.GetLocalPlayer()
+local movingHandle = false
+local startingPercent = PROGRESS_BAR.progress
+local sliderAmount = WIDTH * startingPercent
+local currentAbsPos = nil
+
+-- Set the starting position of the handle.
+HANDLE.x = sliderAmount
+
+-- Set the movingHandle boolen to false on release of a binding.
+local function OnBindingReleased(player, binding)
+if binding == "ability_primary" then
+    movingHandle = false
+end
+end
+
+-- Set the movingHandle boolen to true on pressing of a binding.
+local function OnBindingPressed(player, binding)
+if binding == "ability_primary" then
+    movingHandle = true
+end
+end
+
+function Tick()
+if movingHandle then
+
+    -- GetAbsolutePosition may not return the correct vector values until
+    -- the UI object has fully initalized. So in this case the script will
+    -- set the currentAbsPos if it is nil, as it is needed in the calculation.
+    if not currentAbsPos then
+        currentAbsPos = HANDLE:GetAbsolutePosition()
+    end
+
+    local mousePos = UI.GetCursorPosition()
+    local pos = HANDLE:GetAbsolutePosition()
+
+    -- Workout the min and max coordinates the slider is allowed to move by.
+    local min = currentAbsPos.x - WIDTH * startingPercent
+    local max = currentAbsPos.x + WIDTH - (WIDTH * startingPercent)
+    local x = mousePos.x
+
+    -- Make sure the slider can not be moved outside the bounds for left and right.
+    x = math.max(x, min)
+    x = math.min(x, max)
+
+    -- Set the new absolute position for the x, but leave y intact.
+    HANDLE:SetAbsolutePosition(Vector2.New(x, pos.y))
+
+    -- Updated the progress bar.
+    PROGRESS_BAR.progress = HANDLE.x / WIDTH
+end
+end
+
+localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
+localPlayer.bindingReleasedEvent:Connect(OnBindingReleased)
+```
+
+See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md) | [UI.GetCursorPosition](ui.md)
+
+---
+
+Example using:
+
 ### `GetCoreModalType`
 
 Modals are temporary dialogs that popup, usually in the middle of the screen. They take over the input focus and give the player some options. Core has several built-in modals identified by the `CoreModalType`. In this example, we keep track of the current modal and print to the Event Log whenever there is a change to the active modal.

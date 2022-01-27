@@ -212,6 +212,7 @@ tags:
 | `NetworkContextType.CLIENT_CONTEXT` | `3` | Spawned on the client only. |
 | `NetworkContextType.SERVER_CONTEXT` | `4` | Spawned on the server only. |
 | `NetworkContextType.STATIC_CONTEXT` | `5` | Spawned independently on client or server and not replicated. |
+| `NetworkContextType.LOCAL_CONTEXT` | `6` | Spawned independently on client or server and not replicated, but allowing properties to be modified after spawning. |
 
 ## Orientation
 

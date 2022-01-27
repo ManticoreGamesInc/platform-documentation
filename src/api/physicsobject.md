@@ -42,6 +42,12 @@ A CoreObject with simulated physics that can interact with players and other obj
 | `diedEvent` | [`Event`](event.md)<[`PhysicsObject`](physicsobject.md) object, [`Damage`](damage.md) damage> | Fired when the object dies. | Server-Only |
 | `collidedEvent` | [`Event`](event.md)<[`PhysicsObject`](physicsobject.md) object , [`HitResult`](hitresult.md) hitResult> | Fired when the object collides with another object. The `HitResult` parameter describes the collision that occurred. | None |
 
+## Hooks
+
+| Hook Name | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `damageHook` | [`Hook`](hook.md)<[`PhysicsObject`](physicsobject.md) object, [`Damage`](damage.md) damage> | Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter. | Server-Only |
+
 ## Examples
 
 Example using:

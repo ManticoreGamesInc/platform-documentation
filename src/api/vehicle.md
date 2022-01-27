@@ -71,6 +71,7 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | ----- | ----------- | ----------- | ---- |
 | `clientMovementHook` | [`Hook`](hook.md)<[`Vehicle`](vehicle.md) vehicle, `table` parameters> | Hook called when processing the driver's input. The `parameters` table contains "throttleInput", "steeringInput", and "isHandbrakeEngaged". This is only called on the driver's client. "throttleInput" is a number -1.0, to 1.0, with positive values indicating forward input. "steeringInput" is the same, and positive values indicate turning to the right. "isHandbrakeEngaged" is a boolean. | Client-Only |
 | `serverMovementHook` | [`Hook`](hook.md)<[`Vehicle`](vehicle.md) vehicle, `table` parameters> | Hook called when on the server for a vehicle with no driver. This has the same parameters as clientMovementHook. | Server-Only |
+| `damageHook` | [`Hook`](hook.md)<[`Vehicle`](vehicle.md) vehicle, [`Damage`](damage.md) damage> | Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter. | Server-Only |
 
 ## Examples
 

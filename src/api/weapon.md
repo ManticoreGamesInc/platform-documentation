@@ -431,7 +431,7 @@ function OnTargetImpactedEvent(weapon, impactData)
     local direction = impactPos - weapon:GetWorldPosition()
     local remainingTravel = weapon.range - impactData.travelDistance
 
-    -- TODO : Perhaps do more if the weapon is of hitscan type
+    -- Perhaps do more if the weapon is of hitscan type
     if not weapon.isHitscan then
         if impactData.projectile then
             direction = impactData.projectile:GetVelocity()
