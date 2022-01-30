@@ -353,8 +353,6 @@ extra:
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.attr_list
-  - markdown.extensions.codehilite:
-      guess_lang: false
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
@@ -387,7 +385,8 @@ markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
