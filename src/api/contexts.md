@@ -17,12 +17,12 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
 
 ## Overview
 
-|                    | **Default (Non-Networked)** | **Networked**        | **Client Context** | **Server Context** | **Static Context** |
-| ------------------ | ----------------------------| ---------------------| -------------------| -------------------| -------------------|
-| Objects can change | No                          | Yes (only by server) | Yes                | Yes                | No                 |
-| Collision          | Yes                         | Yes                  | No                 | No                 | Yes                |
-| Objects exist on   | Client and Server           | Client and Server    | Client             | Server             | Client and Server  |
-| Scripts run on     | Server                      | Server               | Client             | Server             | Client and Server  |
+|                    | **Default (Non-Networked)** | **Networked**        | **Client Context** | **Server Context** | **Static Context** | **Local Context**  |
+| ------------------ | ----------------------------| ---------------------| -------------------| -------------------| -------------------| -------------------|
+| Objects can change | No                          | Yes (only by server) | Yes                | Yes                | No                 | Yes                |
+| Collision          | Yes                         | Yes                  | No                 | No                 | Yes                | Yes                |
+| Objects exist on   | Client and Server           | Client and Server    | Client             | Server             | Client and Server  | Client and Server  |
+| Scripts run on     | Server                      | Server               | Client             | Server             | Client and Server  | Client and Server  |
 
 ## Default (Non-Networked)
 
@@ -60,9 +60,19 @@ There are five types of contexts, **Client Context**, **Non-Networked**, **Stati
     - Send a single networked value to synchronize the server and client's random number generators.
     - Saves hundreds of transforms being sent from the server to every client.
 
+## Local Context
+
+- The same as **Static Context** but objects can change.
+- Scripts can spawn objects inside a local context.
+- Scripts run on both the server and the client.
+
 !!! warning "Beware of de-sync issues!"
     Performing any operations from a static context that might diverge during server/client execution of a script will almost certainly cause de-sync issues.
     Static scripts are run independently on the server and all clients so you should avoid performing any script actions that can exhibit different behavior depending on the machine. Specifically, avoid any logic that is conditional on:
     - Server-only or client-only objects.
     - Random number generators with different seeds.
     - Logic based around local `time()`.
+
+## Learn More
+
+[Networking Reference](../references/networking.md)
