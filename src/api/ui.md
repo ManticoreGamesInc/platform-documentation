@@ -88,46 +88,46 @@ HANDLE.x = sliderAmount
 
 -- Set the movingHandle boolen to false on release of a binding.
 local function OnBindingReleased(player, binding)
-if binding == "ability_primary" then
-    movingHandle = false
-end
+    if binding == "ability_primary" then
+        movingHandle = false
+    end
 end
 
 -- Set the movingHandle boolen to true on pressing of a binding.
 local function OnBindingPressed(player, binding)
-if binding == "ability_primary" then
-    movingHandle = true
-end
+    if binding == "ability_primary" then
+        movingHandle = true
+    end
 end
 
 function Tick()
-if movingHandle then
+    if movingHandle then
 
-    -- GetAbsolutePosition may not return the correct vector values until
-    -- the UI object has fully initalized. So in this case the script will
-    -- set the currentAbsPos if it is nil, as it is needed in the calculation.
-    if not currentAbsPos then
-        currentAbsPos = HANDLE:GetAbsolutePosition()
+        -- GetAbsolutePosition may not return the correct vector values until
+        -- the UI object has fully initalized. So in this case the script will
+        -- set the currentAbsPos if it is nil, as it is needed in the calculation.
+        if not currentAbsPos then
+            currentAbsPos = HANDLE:GetAbsolutePosition()
+        end
+
+        local mousePos = UI.GetCursorPosition()
+        local pos = HANDLE:GetAbsolutePosition()
+
+        -- Workout the min and max coordinates the slider is allowed to move by.
+        local min = currentAbsPos.x - WIDTH * startingPercent
+        local max = currentAbsPos.x + WIDTH - (WIDTH * startingPercent)
+        local x = mousePos.x
+
+        -- Make sure the slider can not be moved outside the bounds for left and right.
+        x = math.max(x, min)
+        x = math.min(x, max)
+
+        -- Set the new absolute position for the x, but leave y intact.
+        HANDLE:SetAbsolutePosition(Vector2.New(x, pos.y))
+
+        -- Updated the progress bar.
+        PROGRESS_BAR.progress = HANDLE.x / WIDTH
     end
-
-    local mousePos = UI.GetCursorPosition()
-    local pos = HANDLE:GetAbsolutePosition()
-
-    -- Workout the min and max coordinates the slider is allowed to move by.
-    local min = currentAbsPos.x - WIDTH * startingPercent
-    local max = currentAbsPos.x + WIDTH - (WIDTH * startingPercent)
-    local x = mousePos.x
-
-    -- Make sure the slider can not be moved outside the bounds for left and right.
-    x = math.max(x, min)
-    x = math.min(x, max)
-
-    -- Set the new absolute position for the x, but leave y intact.
-    HANDLE:SetAbsolutePosition(Vector2.New(x, pos.y))
-
-    -- Updated the progress bar.
-    PROGRESS_BAR.progress = HANDLE.x / WIDTH
-end
 end
 
 localPlayer.bindingPressedEvent:Connect(OnBindingPressed)

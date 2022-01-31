@@ -168,7 +168,7 @@ In this example, players can type the command `/reboot` into chat to send all pl
 ```lua
 local GAME_ID = Game.GetCurrentGameId()
 
-function OnChatMessage(params)
+function OnChatMessage(_, params)
     local message = string.lower(params.message)
     if message == "/reboot" and Game.IsAcceptingPlayers() then
         Game.StopAcceptingPlayers()
