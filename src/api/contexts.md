@@ -13,7 +13,7 @@ In Core, contexts are like folders and exist in one of two states: networked and
 
 When a script spawns an object, it inherits the script's context, even if it is somewhere else in the hierarchy. This means that a script in a server context can never spawn objects that clients can see or interact with.
 
-There are five types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context** and **Networked**.
+There are six types of contexts, **Client Context**, **Non-Networked**, **Static Context**, **Server Context**, **Networked** and **Local Context**.
 
 ## Overview
 
