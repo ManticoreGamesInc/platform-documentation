@@ -28,7 +28,7 @@ Example using:
 
 ### `duration`
 
-In this example, while the ability is on cooldown the percentage completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
+In this example, while the ability is on cooldown, the percentage completion of the cooldown is calculated. This could be useful, for instance, in displaying user interface.
 
 ```lua
 function GetCooldownRemaining(ability)
