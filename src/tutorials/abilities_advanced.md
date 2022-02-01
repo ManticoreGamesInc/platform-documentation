@@ -124,7 +124,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 ### Modifying the Animations
 
-Since we're making a magic staff and not a typical gun, we get to change the animations to something more fitting!
+Since we're making a magic staff and not a typical gun, we get to change the animations to something more fitting.
 
 1. Select the Fire Staff `weapon`. In the Weapon section of the Properties window, change the **Animation Stance** to "2hand_staff_stance" so that it looks better when you're walking around holding the staff.
 2. On the AttackAbility that already exists on the weapon, change the **Animation** in the Properties window to "2hand_staff_magic_bolt" as well.
@@ -167,7 +167,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
 5. Open the script and let's get typing.
 
-    1. We're going to create a reference to the `equipment` (which is also the `weapon`--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
+    1. We're going to create a reference to the `equipment` (which is also the `weapon` in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
 
         Type the below code to create variables for the `equipment` and the `ability`:
 
@@ -260,21 +260,21 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
         Make sure all the other check boxes match these images.
 
-7. Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it!
+7. Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it.
 
    Try it out and feel for the time lengths we entered--maybe you want a short or longer fly time, or a lower Cooldown so that it can be used more frequently. Adjust the values in the Execute and Cooldown sections to change these aspects.
 
 ### Right Click to Aim
 
-We're going to add the ability to focus zoom with right click for better aiming!
+We're going to add the ability to focus zoom with right click for better aiming.
 
 #### Client-Side Script
 
 1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written.
 
     1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming.
-    2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
-    3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose is used while aiming.
+    2. Add a custom property to the weapon object called "*AimBinding*" that's of the type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
+    3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose gets used while aiming.
     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
 
@@ -490,7 +490,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 12. We've written the script, but we can't forget to add it to our fire staff object.
 
-    Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here!
+    Within the Client Context folder that is holding the art model of the staff, create a new folder and call it "Scripts". Drag the WeaponAimClient script into here.
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy3.png){: .center loading="lazy" }
 
@@ -641,7 +641,7 @@ So let's get started on the server script.
     WEAPON.unequippedEvent:Connect(OnUnequipped)
     ```
 
-    Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click!
+    Now, if you hit play to test out your weapon, you should be able to zoom in when you hold right click.
 
     <div class="mt-video">
         <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -729,7 +729,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
         Now that we've set the game mode to Free For All, any test AI bots that we spawn we will be able to shoot at.
 
-    3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works!
+    3. Turn on **Multiplayer Preview Mode**, and set the number of players to 3. Now when hitting play you can test out how the headshot system works.
 
         <div class="mt-video">
             <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
