@@ -42,13 +42,13 @@ button in the toolbar at the top left of the editor.
 
 Name it `TutorialScript` for now.
 
-!!! tip "You can rename scripts by clicking on the name of the script in the **Hierarchy** and  ++F2++."
+!!! tip "You can rename scripts by clicking on the name of the script in the **Hierarchy** and ++F2++."
 
 ### Open the Script for Editing
 
 Your new script will appear in the **Project Content** window, in the **My Scripts** section. Double click **TutorialScript** to open the **Script Editor**
 
-![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .image-frame .center loading="lazy" }
+![MyScripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .image-frame .center loading="lazy" }
 
 !!! tip "You can also configure Core to open in an external editor instead of the built-in editor. See the [editor integrations](extensions.md) page to learn more."
 

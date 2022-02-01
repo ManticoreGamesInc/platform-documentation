@@ -173,7 +173,7 @@ Custom Properties:
 
 #### Round Start Sky Dive
 
-Spawns a plane on a fly-over path over a specified circular area that spawns players
+Spawns a plane on a flyover path over a specified circular area that spawns players
 
 Requires:
 

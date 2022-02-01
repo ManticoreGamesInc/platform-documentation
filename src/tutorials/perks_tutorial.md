@@ -151,7 +151,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 - Set the **Perk Name** to `Pumpkins`.
 - Set the **Perk Type** to **Repeatable**.
-- Set the **Price** to anything between 10 - 8000.
+- Set the **Price** to anything between 10 and 8000.
 
 ![!Pumpkins Perk](../img/PerksTutorial/resource_shop_pumpkins_perk.png){: .center loading="lazy" }
 
@@ -2150,7 +2150,7 @@ Test the game and make sure the following work:
 
 ## Creating a VIP Shop
 
-In this section you will be creating a VIP (Very Important Player) shop that will have perk packages players can purchase that will last for a limited amount of time. Each package will give the player a special chat status, gems and coins.
+In this section you will be creating a VIP (Very Important Player) shop that will have perk packages players can purchase that will last for a limited amount of time. Each package will give the player a special chat status, gems, and coins.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">

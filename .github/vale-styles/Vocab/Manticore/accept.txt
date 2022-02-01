@@ -121,3 +121,8 @@ XYZW
 Xyzz
 [eE]num
 Manticore
+1h
+2h
+2s
+3s
+4s

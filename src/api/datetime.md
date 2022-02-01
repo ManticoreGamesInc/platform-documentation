@@ -165,7 +165,7 @@ Example using:
 
 ### `day`
 
-It can be really useful to know how much time remains until an upcoming event. Perhaps there is a global countdown for all players until a new piece of content is revealed. In this example, we calculate when is the next midnight and how many seconds remain until that threshold arrives. We then take that remaining time and format it in a way that would be appropriate to show to a casual player. Example output: "Time until midnight: 10h 23m". This type of operation could be done every second and displayed in a `World Text` or `UI Text`.
+It can be really useful to know how much time remains until an upcoming event. Perhaps there is a global countdown for all players until a new piece of content is revealed. In this example, we calculate when is the next midnight and how many seconds remain until that threshold arrives. We then take that remaining time and format it in a way that would be appropriate to show to a casual player. Example output: "Time until midnight: 10 h 23 m". This type of operation could be done every second and displayed in a `World Text` or `UI Text`.
 
 ```lua
 local SECONDS_IN_DAY = 60 * 60 * 24

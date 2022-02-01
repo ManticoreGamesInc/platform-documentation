@@ -92,7 +92,7 @@ There are also a number of videos currently available on the [CoreGames YouTube 
 One example of how you can use Community Content is for creating an area full of NPCs that can be interacted with or are just going about their business. There are two components of Community Content that can allow you to build this:
 
 - **Choreographer by Chris** allows you to drag scripts into folders to create sequences of animations that can loop and trigger events.
-- **Dialogue System with NPCs by Hani** created for the CoreHaven game by ManticoreGames, this robust dialogue system will allow you to create dialogues with animations and attach them to NPCs. Find the script called **DialogsLibrary_Conversations** to follow the format of the example conversation and build your own.
+- **Dialogue System with NPCs by Hani** created for the CoreHaven game by ManticoreGames, this robust dialog system will allow you to create dialogs with animations and attach them to NPCs. Find the script called **DialogsLibrary_Conversations** to follow the format of the example conversation and build your own.
 
 ### Other Key Community Content
 

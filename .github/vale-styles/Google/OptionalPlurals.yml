@@ -10,3 +10,6 @@ action:
     - '(s)'
 tokens:
   - '\b\w+\(s\)'
+exceptions:
+  - Key
+  - projet

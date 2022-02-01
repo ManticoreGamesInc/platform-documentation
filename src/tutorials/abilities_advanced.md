@@ -100,8 +100,6 @@ Using an Ability object in combination with scripting makes it similar to a data
 
 In this tutorial, we will be making a magic fire staff that the player can pick up, granting them two different abilities: a left-click fire burst and a right-click charged fire bomb.
 
-So, let's make magic!
-
 ### Setting up the Basics
 
 To begin, let's set up the look of the fire staff and create our weapon object. Open the project you wish to use, or an empty project.
@@ -118,11 +116,11 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy1.png){: .center loading="lazy" }
 
-4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air!
+4. In the weapon's Properties, make sure to uncheck the box for "Is Hitscan Weapon" so that is still fires actual projectiles. Hitscan weapons have immediate impact on whatever they're firing at, so the projectile wouldn't need to travel through the air first. But that would mean no cool fireballs soaring through the air.
 
     ![Is Hitscan?](../img/EditorManual/Weapons/advanced/isHitscan_no.png){: .center loading="lazy" }
 
-5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied!
+5. Create a bullet template, following the same steps as in the first weapon tutorial--go for something thematic like a sphere with a custom Plasma material applied.
 
 ### Modifying the Animations
 
@@ -167,7 +165,7 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy2.png){: .center loading="lazy" }
 
-5. Open the script and let's get typing!
+5. Open the script and let's get typing.
 
     1. We're going to create a reference to the `equipment` (which is also the `weapon`--in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
 
@@ -272,9 +270,9 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
 #### Client-Side Script
 
-1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written!
+1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written.
 
-    1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming!
+    1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming.
     2. Add a custom property to the weapon object called "*AimBinding*" that is type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
     3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose is used while aiming.
     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
@@ -282,7 +280,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/customProps1.png){: .center loading="lazy" }
 
-2. Now we're going to build the script! Create a new script and call it "WeaponAimClient".
+2. Now we're going to build the script. Create a new script and call it "WeaponAimClient".
 
 3. Open this script, and let's start by accessing our variables.
 
@@ -300,7 +298,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
         end
         ```
 
-        This will check if the parent of this script is a `weapon`, based on the line we wrote above first! If it is not, it will give us the error message.
+        This will check if the parent of this script is a `weapon`, based on the line we wrote above first. If it is not, it will give us the error message.
 
     3. Next we need to create references to those custom properties we made earlier on the weapon. To do this, add the code below to your script:
 
@@ -329,7 +327,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
         local activeCamera = nil
         ```
 
-    Now we have our variables set up! Next is getting into creating the functions that use these variables.
+    Now we have our variables set up. Next is getting into creating the functions that use these variables.
 
 4. To get a better understanding of what we're going to be making, let's set up the `Tick()` function.
 
@@ -389,7 +387,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     end
     ```
 
-7. The above is followed directly by another function, `EnableScoping(player)`. This turns on the aiming!
+7. The above is followed directly by another function, `EnableScoping(player)`. This turns on the aiming.
 
     Again, beneath the above code, type:
 
@@ -414,7 +412,7 @@ We're going to add the ability to focus zoom with right click for better aiming!
     end
     ```
 
-9. These next two functions are specifically for turning on and off being zoomed in--if the player presses the assigned ability binding key, then it triggers the functions we wrote to enable and reset scoping!
+9. These next two functions are specifically for turning on and off being zoomed in--if the player presses the assigned ability binding key, then it triggers the functions we wrote to enable and reset scoping.
 
     Add these two functions below to the bottom of your script so far:
 
@@ -502,13 +500,13 @@ So this was the first half of the camera aim setup--we have created a script for
 
 This server script will seem fairly similar to the client script, but this one is directly changing and affecting variables of the player.
 
-So let's get started on the server script!
+So let's get started on the server script.
 
 1. Create a new script and call it "*WeaponAimServer*".
 
 2. In your project Hierarchy, navigate to the Fire Staff `weapon` object. Right click this object, and hover over "*Create Network Context*" to select "*New Server Context*".
 
-    Here is where we will keep our new script!
+    Here is where we will keep our new script.
 
 3. Drag the *WeaponAimServer* script into the Server Context folder that we just created.
 
@@ -546,7 +544,7 @@ So let's get started on the server script!
         local UNARMED_STANCE = "unarmed_stance"
         ```
 
-6. Now that we've created our variables, we can get into the function writing! We'll start with a function that sets the walking speed of the player while they are aiming.
+6. Now that we've created our variables, we can get into the function writing. We'll start with a function that sets the walking speed of the player while they are aiming.
 
     Type the following function below all the variables in your script.
 
@@ -634,7 +632,7 @@ So let's get started on the server script!
         end
         ```
 
-10. On to the last step for camera movement! Similar to the *WeaponAimClient* script, we need to connect the functions we wrote to the built-in events that happen on a `weapon` object.
+10. On to the last step for camera movement. Similar to the *WeaponAimClient* script, we need to connect the functions we wrote to the built-in events that happen on a `weapon` object.
 
     At the very end of your script, beneath all the other functions, add these two lines of code to connect the functions:
 
@@ -667,7 +665,7 @@ For our Fire Staff, let's set it up to do double damage if a player gets a succe
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy5.png){: .center loading="lazy" }
 
-3. Open the script, and let's begin adding code! This section is relatively short compared to the camera zoom section, as headshot logic is largely built into Core already.
+3. Open the script, and let's begin adding code. This section is relatively short compared to the camera zoom section, as headshot logic is largely built into Core already.
 
     1. First off we'll want the usual reference to the weapon at the top of our script:
 
@@ -765,7 +763,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
         ![Ammo Settings](../img/EditorManual/Weapons/advanced/ammoSettings.png){: .center loading="lazy" }
 
-        Now we get to build the ammunition pickup itself!
+        Now we get to build the ammunition pickup itself.
 
 2. We'll start by creating a `trigger` object for our player to interact with.
 
@@ -779,7 +777,7 @@ The main thing to change for our ammo supply is to change the properties of the 
     2. Right click this object and create a group containing this.
     3. Now that you have this group containing your ember shape, right click it and create a New Client Context Containing This. In general, you always want to keep art in client context or server context folders, to allow the game to run more smoothly.
 
-4. That settles the art portion--now for the script that will make the game magic happen!
+4. That settles the art portion--now for the script that will make the game magic happen.
 
     1. Within your project content, create a new script and call it "EmberPickupScript".
 
@@ -791,7 +789,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
     4. Now we need a function that determines what to do when the player touches the trigger. We want it to add 1 unit of ammo to the player's resources, and then we want to destroy the ammo object so that they cannot keep picking up the same one.
 
-        We can do all these things in one function--use the code below to get this to happen!
+        We can do all these things in one function--use the code below to get this to happen.
 
         ```lua
         function OnBeginOverlap(whichTrigger, other)
@@ -816,7 +814,7 @@ The main thing to change for our ammo supply is to change the properties of the 
 
 5. Once you've set up all the code, the final step is to select the trigger itself (that holds both the art and the script) and right click it. Select "Enable Networking" to enable this to work properly.
 
-6. Test it out! Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire!
+6. Test it out. Shoot the Fire Staff 10 times, and when you're out of ammo and cannot shoot anymore, pick up an *ember* pickup. Once you've gathered one, press R on the keyboard to trigger the reload ability. If all is set up correctly, that would give you 1 more fire bullet to fire.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">
@@ -832,4 +830,4 @@ You'll probably want to set up User Interface (UI) for your fire staff's abiliti
 ## Examples
 
 * **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
-* **Core Content** includes pre-made and ready-to-use weapons! Check in Game Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
+* **Core Content** includes pre-made and ready-to-use weapons. Check in Game Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.

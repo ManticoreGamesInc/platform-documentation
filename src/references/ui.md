@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-UI in Core includes all the 2D elements that can be used to build menus, notifications, dialogue boxes, and heads up displays (HUD's). Creating UI Elements is mostly a drag-and-drop process, where any UI element can be added to the scene with ease.
+UI in Core includes all the 2D elements that can be used to build menus, notifications, dialog boxes, and heads up displays (HUD's). Creating UI Elements is mostly a drag-and-drop process, where any UI element can be added to the scene with ease.
 
 ## UI Elements
 

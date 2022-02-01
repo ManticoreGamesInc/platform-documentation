@@ -149,11 +149,11 @@ Once you have committed all your changes, you will see an option suggesting that
 
 ![Publish Repository Button](../img/VersionControl/VersionControl_PublishRepoButton.png){: .center loading="lazy" }
 
-Click the **Publish repository** button to open a dialogue to put the project on the GitHub website.
+Click the **Publish repository** button to open a dialog to put the project on the GitHub website.
 
 You can change the title, or keep the one from the local repository. Check the **Keep this code private** box if you do not want others to be able to copy the project.
 
-![Publish Repository Dialogue](../img/VersionControl/VersionControl_PublishRepoDialogue.png){: .center loading="lazy" }
+![Publish Repository Dialog](../img/VersionControl/VersionControl_PublishRepoDialogue.png){: .center loading="lazy" }
 
 ### Find the Project on GitHub
 

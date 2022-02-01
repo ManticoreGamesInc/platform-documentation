@@ -111,7 +111,7 @@ Example using:
 
 ### `FindPlayersInCylinder`
 
-Searches for players in a vertically-infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
+Searches for players in a vertically infinite cylindrical volume. In this example, all players 5 meters away from the script object are pushed upwards. The search is setup to affect players on teams 1, 2, 3 and 4.
 
 ```lua
 function Tick()

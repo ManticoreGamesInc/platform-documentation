@@ -90,7 +90,7 @@ Once you have enable perks in the testing menu, start a multiplayer preview. If 
 
 ## Adding a Perks Purchase Button
 
-Perks can only be purchased using a **UI Perk Purchase Button**, and use a standardized dialogue to confirm a purchase.
+Perks can only be purchased using a **UI Perk Purchase Button**, and use a standardized dialog to confirm a purchase.
 
 ### Add a Perk Purchase Button to a Project
 
