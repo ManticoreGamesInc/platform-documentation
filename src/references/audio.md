@@ -116,7 +116,7 @@ Sets the minimum amount of delay that will be used when playing the audio.
 
 #### Start Delay Max
 
-Sets th maximum amount of delay that will be used when playing the audio.
+Sets the maximum amount of delay that will be used when playing the audio.
 
 ## Audio Networking
 
