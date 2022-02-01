@@ -143,7 +143,7 @@ Example using:
 
 ### `RIGHT`
 
-The Vector3 namespace includes a small selection of constants, for commonly-used Vector3 values.
+The Vector3 namespace includes a small selection of constants, for commonly used Vector3 values.
 
 ```lua
 print(Vector3.ZERO)    -- (0, 0, 0)

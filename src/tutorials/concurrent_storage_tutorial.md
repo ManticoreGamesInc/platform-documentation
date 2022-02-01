@@ -46,7 +46,7 @@ Under **Community Projects**, search for `Concurrent`.
 
 To use concurrent storage you will need to enable it. You can find the concurrent storage settings for player and creator using the **Game Settings** object.
 
-1. in the **Hierarchy**, open the  the **Gameplay Settings** folder and select the **Game Settings** object.
+1. in the **Hierarchy**, open the **Gameplay Settings** folder and select the **Game Settings** object.
 2. In the **Properties** window enable **Concurrent Player Storage** and **Concurrent Creator Storage**.
 
 ![!Enable Storage](../img/ConcurrentStorageTutorial/enable_concurrent_storage.png){: .center loading="lazy" }
@@ -499,7 +499,7 @@ The `UpdateTotalPlayers` function will check if the current scene is in the `dat
 The value of the entry into the `data` table is the current player count plus the `deltaPlayers` amount.
 
 !!! warning "Callback Efficiency and Return Value"
-    It is important that the callback (function) is fast to execute and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (i.e. `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
+    It is important that the callback (function) is fast to execute and returns back the table it was passed in. If your callback is slow, then it will slow down the updates to the key for any other server instances that are trying to write to it. Using a delta value (that is `deltaPlayers`) is a good way to batch up calls instead of updating concurrent storage every time a player joins or leaves.
 
 ```lua
 local function UpdateTotalPlayers(data)
@@ -1002,7 +1002,7 @@ The `PlaceGuidanceMessage` event is called from the client when a player attempt
 Events.ConnectForPlayer("PlaceGuidanceMessage", PlaceGuidanceMessage)
 ```
 
-You need to know when the concurrent creator storage data has changed so new guidance messages can be created, old ones updated (i.e. coins), and invalid ones removed.
+You need to know when the concurrent creator storage data has changed so new guidance messages can be created, old ones updated (that is coins), and invalid ones removed.
 
 ```lua
 Storage.ConnectToConcurrentCreatorDataChanged(CREATOR_KEY, UpdateGuidanceMessages)

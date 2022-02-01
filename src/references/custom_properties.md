@@ -220,7 +220,7 @@ The advanced/complex data types that are supported as custom properties are:
 
 A **Core Object Reference** contains a value that points to any object in the **Hierarchy**.
 
-When getting this reference into a variable, `:WaitForObject()` needs to be added to the end of the line to make sure the the object is loaded and exists in the game.
+When getting this reference into a variable, `:WaitForObject()` needs to be added to the end of the line to make sure the object is loaded and exists in the game.
 
 More information can be found in the [CoreObjectReference API](../api/coreobjectreference.md) and the [CoreObject API](../api/coreobject.md).
 

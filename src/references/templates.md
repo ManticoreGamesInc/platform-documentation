@@ -46,7 +46,7 @@ Once a group becomes a template, it will be blue in the Hierarchy. New templates
 
 Once your template is created, you may use it for just this project alone, or you can now further publish the template to **Community Content** for sharing with others and between different projects.
 
-### Open the Publishing Dialogue
+### Open the Publishing Dialog
 
 1. Find the template in the **Project Content** window.
 2. Click the **Publish Content** button in the Properties menu.

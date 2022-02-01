@@ -30,7 +30,7 @@ Example using:
 
 ### `DrawSphere`
 
-Core contains several useful functions for drawing in the 3d world, that are intended for use when debugging. If you are trying to visualize values in a 3d world,
+Core contains several useful functions for drawing in the 3D world, that are intended for use when debugging. If you are trying to visualize values in a 3D world,
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")

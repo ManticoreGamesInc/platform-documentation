@@ -76,7 +76,7 @@ We want to implement these functions for the **Idle** and **Capture** activities
 
 The **AIActivityHandler** is a **Core** class that contains the **AIActivity** instances added. It "handles" them by performing the following steps (on each update):
 
-1. It loops through every **AIActivity** and calls that activity’s **tick()** method.
+1. It loops through every **AIActivity** and calls that activity's **tick()** method.
 2. Once it has called the `tick` function of each activity, it looks at the `activity.priority` property and determines which activity is the highest.
 3. If a new **AIActivity** is determined highest priority, it will call `activity.stop()` on the previous, and `activity.start()` on the new one.
 4. Finally, for the one activity that has the highest priority, it will call `activity.tickHighestPriority()` every frame.
@@ -272,7 +272,7 @@ Now that everything is implemented, it is time to clean up the code.
 
 Since the purpose of the **Idle Activity** is only to keep the `priority` set to `100`, we can remove the `tickHighestPriority()`, `start()`, and `stop()` functions.
 
-For the **Capture Activity**, there was no implementation for the `start()` and `stop()` functions, we we can remove those too.
+For the **Capture Activity**, there was no implementation for the `start()` and `stop()` functions, we can remove those too.
 
 ## Final Code
 

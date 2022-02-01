@@ -850,7 +850,7 @@ The above line can be uncommented to see the impact position and size when the p
 local results = World.FindObjectsOverlappingSphere(hit:GetImpactPosition(), 500, { ignoreObjects = {BOSS_GEO}})
 ```
 
-You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not not return the **BOSS_GEO**.
+You need to check the objects that the projectile impacts. You want the projectile impact radius to be quite large, so on impact, you grab all the objects that are overlapping a sphere based on the impact position of the projectile. You can pass in objects to be ignored so the overlapping sphere cast does not return the **BOSS_GEO**.
 
 ![!Impact Size](../img/BossTutorial/impact_size.png){: .center loading="lazy" }
 
@@ -4258,7 +4258,7 @@ When a player joins and there are already shield generators that have been disab
 
 #### Set Transition Visibility
 
-In the the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
+In the **UI** container, there is a **Transition** panel that has an image set to black. The visibility for the panel needs to be set to **Inherit from Parent**.
 
 #### Add Transition Custom Property
 
@@ -4314,7 +4314,6 @@ Add the above code to the `Tick` function. This will handle fading out the curve
     local HEALTH_PULSE_CURVE = script:GetCustomProperty("HealthPulseCurve")
     local TRANSITION = script:GetCustomProperty("Transition"):WaitForObject()
     local TRANSITION_CURVE = script:GetCustomProperty("TransitionCurve")
-
     local localPlayer = Game.GetLocalPlayer()
     local healthElapsedTime = 0
     local fadeOutTransition = false
@@ -4414,7 +4413,7 @@ Boss fights can serve a number of different purposes for your game. They can be 
 Have think about what other interesting mechanics, or improvements can be added to the boss fight, and consider implementing them. Here are a few ideas.
 
 - Scale difficulty based on amount of players in the game.
-- Add weak points to boss (i.e. back of boss takes more damage).
+- Add weak points to boss (that is back of boss takes more damage).
 - Add more Boss attacks (i.e teleport, ground slam).
 - Damageable boss parts that need to be destroyed first.
 - Drop pickup from player if they leave the game.

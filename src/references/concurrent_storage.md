@@ -100,7 +100,7 @@ You can use Concurrent Shared Player Storage to create features like:
 
 ### Concurrent Shared Creator Storage
 
-Concurrent shared creator storage allows for creators to get and set data to a shared key that is available across different game servers. For example, if a player on one server finds a special enemy (i.e. for an event), other players on different server instances can be notified and also have the enemy spawned.
+Concurrent shared creator storage allows for creators to get and set data to a shared key that is available across different game servers. For example, if a player on one server finds a special enemy (that is for an event), other players on different server instances can be notified and also have the enemy spawned.
 
 You can use Concurrent Shared Creator Storage to create features like:
 

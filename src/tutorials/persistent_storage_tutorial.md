@@ -21,8 +21,8 @@ Here are just a few ideas on ways persistent storage can be used:
 * Player high score / player stats.
 * Player level / experience.
 * Player equipment / inventory.
-* Player resources (i.e. wood, metal, coal).
-* Currency (i.e. gold, gems).
+* Player resources (that is wood, metal, coal).
+* Currency (that is gold, gems).
 * Achievements / Trophies.
 
 ---
