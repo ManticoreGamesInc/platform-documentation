@@ -127,7 +127,7 @@ There are many different ways to structure a project's Git branches, but this st
 
 #### Folders
 
-The **Tree.pbt** file in your project is a master file that keeps track of all the assets in the project, and the the transforms and properties of all the objects that are in the scene. If two creators move the same object to different locations, git will no longer be able to determine which position an object should be in.
+The **Tree.pbt** file in your project is a master file that keeps track of all the assets in the project, and the transforms and properties of all the objects that are in the scene. If two creators move the same object to different locations, git will no longer be able to determine which position an object should be in.
 
 To avoid this problem, the best practice is to create **Folders** in Core that separate the assets. You can use the **Lock** icon when working on a project to ensure no changes to any of the objects in folders that you are not working on.
 

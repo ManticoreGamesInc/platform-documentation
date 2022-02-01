@@ -74,7 +74,7 @@ When a player reaches the **RP** limit for the day across all creators, the play
 
 Reward Points are granted to the player via Reward Point Events. An example of this can be found in the [daily rewards](../../api/player.md#grantrewardpoints) code snippet on the Player API page. Currently only Perks Program creators are able to add these events into their games.
 
-Once you’ve implemented **RP**, you will need to publish your game for them to be activated.
+Once you've implemented **RP**, you will need to publish your game for them to be activated.
 
 ![Publish Game](../../img/RewardPointsReference/SelectPublishButton.png){: .center loading="lazy" }
 

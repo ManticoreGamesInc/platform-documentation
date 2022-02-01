@@ -131,7 +131,7 @@ Gatherable drops are children of the **Drops** folder. Click the arrow next to t
 !!! note
     Empty scripts are often used to store a collection of Custom Properties. Both the **Drops** script and the **1 Cube (Custom Properties, Can Have Multiple)** script do not actually contain Lua code, but exist in the Hierarchy so that creators can define drops using the **Properties** window.
 
-Select **1 Cube (Custom Properties, Can Have Multiple)** and open the **Properties** window. You can change what item drops when the cube is gathered, the range of how many can drop, and the percent chances of each drop.
+Select **1 Cube (Custom Properties, Can Have Multiple)** and open the **Properties** window. You can change what item drops when the cube is gathered, the range of how many can drop, and the percentage chances of each drop.
 
 Copy this drop and change the **ItemID** to allow dropping of different items at the same gatherable node. See the **Database** section to learn how to create new types of items.
 
@@ -157,7 +157,7 @@ As in the example scenes, there are two types of database that can be added to a
 
 ### Add a New Item to the Database
 
-The easiest way to add an item to the database is to duplicate an existing entry. However, the **ItemData** script is also a blank template version of these, can can be used for both Gatherables and Tools.
+The easiest way to add an item to the database is to duplicate an existing entry. However, the **ItemData** script is also a blank template version of these, can be used for both Gatherables and Tools.
 
 1. Open the **Gatherables Database** or the **Tools Database** in the Hierarchy.
 2. Select the **Items** script and click the arrow next to it to open it and see its children. All items in the database will be children of this script.

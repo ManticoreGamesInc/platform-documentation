@@ -102,7 +102,7 @@ You will be using this trigger for the purposes of allowing them to interact wit
 
 1. Right-click the template and left-click **Add Gameplay Object** > **Add Trigger**.
 2. Move the trigger to overlap the switch.
-3. Resize the trigger to be the the distance you want players to be able to interact with the switch.
+3. Resize the trigger to be the distance you want players to be able to interact with the switch.
 4. Right-click the trigger then left-click **Enable Networking**.
 
 !!! hint

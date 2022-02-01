@@ -42,7 +42,7 @@ Beyond Core Frameworks, there are hundreds of Community Games that have been mar
 
 - **Tower of Terror** is an obstacle course game where players leap up a tower with randomized levels that get progressively harder, made by [NicholasForeman](https://medium.com/core-games/climbing-the-tower-90f9429f73e5). It is an excellent example of how to spawn distinct levels using the template system.
 
-- **Murder Mansion** by [standardcombo](https://www.coregames.com/user/b4c6e32137e54571814b5e8f27aa2fcd) is a betrayal game set in an ominous mansion where players collect clues to survive attack by a randomly-assigned murderer. You can use it as a framework for a hidden identity game, or just use the mansion environment, as seen in games like [Spider Bite](https://www.coregames.com/games/bb231b/spider-bite).
+- **Murder Mansion** by [standardcombo](https://www.coregames.com/user/b4c6e32137e54571814b5e8f27aa2fcd) is a betrayal game set in an ominous mansion where players collect clues to survive attack by a randomly assigned murderer. You can use it as a framework for a hidden identity game, or just use the mansion environment, as seen in games like [Spider Bite](https://www.coregames.com/games/bb231b/spider-bite).
 
 - **Tycoon Framework** created by [Aphrim](https://medium.com/core-games/a-rising-star-4db15f8709f4), the Tycoon Framework is the basis of several successful Core games where economic prosperity is the goal.
 
@@ -92,7 +92,7 @@ There are also a number of videos currently available on the [CoreGames YouTube 
 One example of how you can use Community Content is for creating an area full of NPCs that can be interacted with or are just going about their business. There are two components of Community Content that can allow you to build this:
 
 - **Choreographer by Chris** allows you to drag scripts into folders to create sequences of animations that can loop and trigger events.
-- **Dialogue System with NPCs by Hani** created for the CoreHaven game by ManticoreGames, this robust dialogue system will allow you to create dialogues with animations and attach them to NPCs. Find the script called **DialogsLibrary_Conversations** to follow the format of the example conversation and build your own.
+- **Dialogue System with NPCs by Hani** created for the CoreHaven game by ManticoreGames, this robust dialog system will allow you to create dialogs with animations and attach them to NPCs. Find the script called **DialogsLibrary_Conversations** to follow the format of the example conversation and build your own.
 
 ### Other Key Community Content
 
