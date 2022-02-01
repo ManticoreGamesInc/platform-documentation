@@ -14,7 +14,7 @@ A huge benefit to Core is the vast amount of visual effects that are built-in an
 
 Our team at Manticore has built a huge level map that you can explore at any time to see just *some* of the ways that all of our different visual effects (often shorted to VFX) could be used.
 
-To get a tour of what is possible with visual effects in Core, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map!
+To get a tour of what is possible with visual effects in Core, run around this map and then come back to this tutorial to learn how to make a couple of the effects found on this map.
 
 - **[Click here to go to the VFX level map page.](https://www.coregames.com/games/e38551f434b14eee989a08cd5f98c31d)**
 
@@ -47,18 +47,18 @@ Currently, there are **7 different sections** that contain effects you can use r
 - **Environment**
     - Elemental effects, and effects that are more nature-oriented.
 - **Explosions**
-    - Definitely things that blow up!
+    - Definitely things that blow up.
 - **Magic**
     - More ethereal and sparkly effects.
 - **Misc**
-    - Things that don't fit into the other categories--weird stuff!
+    - Things that don't fit into the other categories--weird stuff.
 - **Vehicles**
     - Effects designed to enhance movement and show physical power.
 - **Weapons**
     - These effects were designed specifically with the weapon system, and to go along with attacks.
 
 !!! tip
-    Don't be afraid to use any effect for any purpose--don't let categories restrict your creativity!
+    Don't be afraid to use any effect for any purpose--don't let categories restrict your creativity.
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the Effects button label. Each of these categories also have subcategories, that can be opened the same way:
 
@@ -66,7 +66,7 @@ These larger categories can be found by clicking the little drop down arrow on t
 
 To check out what any of these VFX objects do, drag one into your viewport or Hierarchy. In most cases it will start playing immediately, but for one-off animations, you'll probably want to reactivate them multiple times to see what they do.
 
-All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties' *Play* button!
+All VFX have a ***Play*** button at the top of their **Properties** window, so to check out what an explosion looks like, drag it into your scene and hit the Properties' *Play* button.
 
 ### Special Effect Materials
 
@@ -88,7 +88,7 @@ To find all our Post Process Effects, check out the Post Processing section of C
 
 ![Post Process Effects](../img/VFXtutorial/postProcessEffects.png "All post process effects can be found here."){: .center loading="lazy" }
 
-You'll probably want to always use some combination of these--the amount they can level-up a map visually is huge!
+You'll probably want to always use some combination of these--the amount they can level-up a map visually is huge.
 
 ---
 
@@ -106,7 +106,7 @@ While you can use the video above if that is your preference, we'll next go over
 
 ### Post Processing Effects
 
-Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post Process Effects**!
+Just like in the video, let's start with the most dramatic and easy of the visual effects you can use in Core: **Post Process Effects**.
 
 Post process effects can make very dramatic changes to a map with very little work. You can use as many of them as you want in combination, but this can eventually get tricky when you've got dozens. There are two main ways to use a post process effect: as an unbounded effect, or a bounded effect.
 
@@ -146,7 +146,7 @@ The best way to test post process effects is on an already decorated map with so
 
     ![Post Process Effects](../img/VFXtutorial/ppe_advBloom1_properties.png "Getting weird changing values."){: .center loading="lazy" }
 
-    Wiggle all those settings around to see what happens! Trying yourself can be the best way to understand what is happening.
+    Wiggle all those settings around to see what happens. Trying yourself can be the best way to understand what is happening.
 
 3. I'll first show you the settings I chose, and then explain a bit about them. I chose these properties:
 
@@ -171,11 +171,11 @@ The best way to test post process effects is on an already decorated map with so
 
     The other fun properties to change on this post process effect are the different **colors**. This can really change the mood of the entire scene, and is a fun way to affect temperature.
 
-    Have fun experimenting with different settings! If you don't see a change immediately, try changing the number very dramatically to get an idea of what is happening.
+    Have fun experimenting with different settings. If you don't see a change immediately, try changing the number very dramatically to get an idea of what is happening.
 
 #### Ambient Occlusion Post Process
 
-**Ambient Occlusion** (often abbreviated to AO) can be generally referred to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virtually, we use ambient occlusion!
+**Ambient Occlusion** (often abbreviated to AO) can be generally referred to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virtually, we use ambient occlusion.
 
 I'm going to start visually from scratch with this one, so I am back to the first image:
 
@@ -205,7 +205,7 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
 Something particularly fun and weird you can do with the Ambient Occlusion we made is **recolor** it. This can create some really wacky effects, or in general set a specific color palette for a project.
 
-We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor! The Ambient Occlusion Recolor Post Process **only works in combination** with the Ambient Occlusion Post Process.
+We're going to continue with the end result of the Ambient Occlusion section, so that we have existing ambient occlusion to recolor. The Ambient Occlusion Recolor Post Process **only works in combination** with the Ambient Occlusion Post Process.
 
 ![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 ![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor1.png "The default of AO is subtle but clear."){: .center loading="lazy" }
@@ -214,7 +214,7 @@ We're going to continue with the end result of the Ambient Occlusion section, so
 
     By default it starts with the color brown, which gives a warm darkness to the whole scene. You can alter this to suit whatever helps your scene--perhaps a dark blue would help instead to balance an already warm scene.
 
-These other two images below are a general explanation, and you don't need to do them for the tutorial. Knowing how to achieve these weird effects is good though!
+These other two images below are a general explanation, and you don't need to do them for the tutorial. Knowing how to achieve these weird effects is good though.
 
 ![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
@@ -222,7 +222,7 @@ Turning on the **Use Two Colors** option will give you a second color option, an
 
 ![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
-The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire... whatever you can imagine!
+The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire... whatever you can imagine.
 
 #### Lensflare Post Process
 
@@ -245,23 +245,23 @@ We'll start this section using two of the effects that we made earlier: the Adva
 
 2. Try turning up different settings. The **Intensity**, **Bokeh Size**, and **Threshold** can all be *overdriven* to create the look you are going for.
 
-3. The **Shape** property can be the most fun to change for the theming of your game. In particular, hearts are fun:
+3. The **Shape** property can be the most fun to change for theming of your game. In particular, hearts are fun:
 
     ![Post Process Effects](../img/VFXtutorial/ppe_LensFlare2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
     The above image also had increases to Intensity and the Bokeh Size.
 
-Now you know how to control several different post process effects. Each one in Core Content has slightly different base settings and options, but now you have enough knowledge to understand how the others work too. Have fun experimenting!
+Now you know how to control several different post process effects. Each one in Core Content has slightly different base settings and options, but now you have enough knowledge to understand how the others work too. Have fun experimenting.
 
 ---
 
 ### Visual Effects
 
-The next section of this tutorial focuses exclusively on VFX! Just like the video above, we will be making an interactable treasure chest and using the Core built-in resource system.
+The next section of this tutorial focuses exclusively on VFX. Just like the video above, we will be making an interactable treasure chest and using the Core built-in resource system.
 
 Core includes the benefit of having an ever-expanding list of visual effect objects to work with, and thanks to the template system, we can combine these in even more unique ways to achieve whatever your vision may be.
 
-We'll be making a treasure chest that requires an item to open!
+We'll be making a treasure chest that requires an item to open.
 
 **Time to complete:** 20 minutes
 
@@ -317,14 +317,14 @@ To start, open up a new project or whatever project you'd like to make this trea
 8. In the **Core Content** window, search for "trigger". Click and drag the object that shows up into the TreasureChest group in your project Hierarchy.
 
     !!! note
-        Overall in your group structure, it's typically best practice to keep your scripts at the top. You're most likely to want to click on them again later, so keeping them at the top helps them be easier to find!
+        Overall in your group structure, it's typically best practice to keep your scripts at the top. You're most likely to want to click on them again later, so keeping them at the top helps them be easier to find.
 
 9. With the Trigger selected in the Hierarchy, check out the **Properties** window. Scroll down to the **Gameplay** section.
 
     1. Find the *Interactable* property. Turn this on.
 
         !!! tip
-            A trigger can operate in two distinct ways. If **Interactable** is *on*, it will turn into a player-confirmed switch. This means the player will have to walk up to it and press ++F++ to cause the trigger to active its functions. This works perfectly for things like switches or dialogue.
+            A trigger can operate in two distinct ways. If **Interactable** is *on*, it will turn into a player-confirmed switch. This means the player will have to walk up to it and press ++F++ to cause the trigger to active its functions. This works perfectly for things like switches or dialog.
 
             If **Interactable** is *off*, the functions connected to the trigger will happen instantly whenever a player simply walks into a trigger. This case is more useful for things like traps, or in general things you don't want the player to know about or have to think about activating.
 
@@ -332,10 +332,10 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     At this stage, if you press play to try it out, you'll notice that walking up to the treasure chest prompts you to press ++F++ to open the chest, but when you press it nothing happens.
 
-    That's where the cool stuff we're going to make comes in!
+    That's where the cool stuff we're going to make comes in.
 
     !!! tip
-        Make sure your spawn point and treasure chest are not overlapping. Otherwise, when you press play, you might be stuck inside the chest!
+        Make sure your spawn point and treasure chest are not overlapping. Otherwise, when you press play, you might be stuck inside the chest.
 
         Press ++V++ to toggle gizmos on and off to see both the spawn point and the trigger we created.
 
@@ -349,7 +349,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 11. We need two other custom properties on our script. At the bottom of the Properties window, click the "Add Custom Property" button. Choose the type AssetReference, as we'll be adding something here that we haven't created yet. Name this one **OpeningVFX**, and the second one (also an AssetReference type) **LockedVFX**.
 
-12. Now that we've got everything we need, double click the `TreasureChest` script to open it up!
+12. Now that we've got everything we need, double click the `TreasureChest` script to open it up.
 
 #### Writing the Interaction Script
 
@@ -392,27 +392,27 @@ To start, open up a new project or whatever project you'd like to make this trea
     !!! info
         *Events* are built-into many objects in Core. To read more about different events on various objects, check out the [API Overview](../api/index.md).
 
-4. Now try pressing Play!
+4. Now try pressing Play.
 
-    When you walk up to the treasure chest and interact with it by pressing ++F++, our message appears on the screen. Woohoo!
+    When you walk up to the treasure chest and interact with it by pressing ++F++, our message appears on the screen.
 
-    Now it'd be real cool if this treasure chest required an item to open it. So, let's create that item!
+    Now it'd be real cool if this treasure chest required an item to open it. So, let's create that item.
 
 #### Creating a Pickup to Unlock the Chest
 
 1. [Community Content](community_content.md) is an insanely valuable resource for making your life easier. Other users (and even you too if you want!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality and varied art models to use in their games, and art people who need coding help the types of resources to do that.
 
-    In our case, we want an item the player can pick up. Luckily, there is something like that already on Community Content!
+    In our case, we want an item the player can pick up. Luckily, there is something like that already on Community Content.
 
-    Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this!
+    Navigate to the **Community Content** tab. Type "loot" into the search bar, and import the **Fantasy Loot Bag** by standardcombo. We're going to repurpose this.
 
     ![The Fantasy Loot Bag](../img/VFXtutorial/vfx4_FantasyLootBag.png){: .center loading="lazy" }
 
-2. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag! Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
+2. Click over to the **Core Content** tab. You'll see an **Imported Content** section, and within it, the Fantasy Loot Bag. Click this to drag the **green**{: style="color: var(--core-color-published)"} Loot Bag object into your viewport or project Hierarchy.
 
     Move it around so that it's somewhere you can see it and get to it.
 
-3. Press play to check out how it works by default! When you walk up to it, it'll prompt you with " Press F to pick up" and if you do, there is a sound effect and flash of light that happens while your character does an animation to grab it.
+3. Press play to check out how it works by default. When you walk up to it, it'll prompt you with "Press F to pick up" and if you do, there is a sound effect and flash of light that happens while your character does an animation to grab it.
 
     Depending on where the Loot Bag is in relation to the player, a different animation will play.
 
@@ -432,13 +432,13 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Now when a player walks over it, they will instantly grab it, rather than have to press ++F++ first.
 
-5. We can use whatever art we want in this object, so instead of a coin pouch let's try... a crowbar. For prying that chest open with!
+5. We can use whatever art we want in this object, so instead of a coin pouch let's try... a crowbar. For prying that chest open with.
 
     Beneath that trigger, there is a *ClientContext* folder. Within this folder are all the objects that make up the visual component of the Loot Bag. Don't delete the whole folder, but delete all of these contents so that we can start fresh.
 
 6. Click over to the Core Content tab, and type "crowbar" into the search box.
 
-    Drag the red object that shows up into the ClientContext folder that we just emptied. Now our Loot Bag is a crowbar!
+    Drag the red object that shows up into the ClientContext folder that we just emptied. Now our Loot Bag is a crowbar.
 
     ![The Crowbar](../img/VFXtutorial/vfx5_Crowbar.png){: .center loading="lazy" }
 
@@ -451,7 +451,7 @@ To start, open up a new project or whatever project you'd like to make this trea
     !!! tip
         Make sure to pay attention to your casing of a resource. The resource "Crowbar" is completely different from "crowbar".
 
-Now when walking up the crowbar, the player will automatically pick it up! But, it still has the coin sound effect by default, and that feels pretty weird with this object. So, let's create a new effect to play!
+Now when walking up the crowbar, the player will automatically pick it up. But, it still has the coin sound effect by default, and that feels pretty weird with this object. So, let's create a new effect to play.
 
 #### Creating a Pickup Effect Template
 
@@ -471,7 +471,7 @@ Now when walking up the crowbar, the player will automatically pick it up! But, 
 
     5. Scroll up a bit in the Properties window, and set the Life Span to 2.
 
-    6. Now we've got it all set! To use it in other places, we're going to make it into a template. Right click the root folder, and select "Create New Template from This". Now we have a custom sound effect template to use anywhere!
+    6. Now we've got it all set. To use it in other places, we're going to make it into a template. Right click the root folder, and select "Create New Template from This". Now we have a custom sound effect template to use anywhere.
 
     7. Since all templates in the Hierarchy are only *instances* of a template saved into Project Content, we can delete this one. We want our script to spawn the sound effect at the right moment.
 
@@ -481,7 +481,7 @@ Now when walking up the crowbar, the player will automatically pick it up! But, 
 
     ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center loading="lazy" }
 
-3. Now when you press play to test, it should play your new sound effect when picking up the crowbar. Ta-da!
+3. Now when you press play to test, it should play your new sound effect when picking up the crowbar.
 
 4. Now we come back to scripting. We need to make sure the player has the crowbar when trying to open the treasure chest in our interaction code we wrote earlier.
 
@@ -515,7 +515,7 @@ Now when walking up the crowbar, the player will automatically pick it up! But, 
     </figure>
     </div>
 
-Now if we test it--everything works correctly! But it sure looks plain and that feels bad. Let's add more effects to improve this.
+Now if we test it, everything works correctly. But it sure looks plain and that feels bad. Let's add more effects to improve this.
 
 #### Creating the Opening and Locked Effects
 
@@ -527,7 +527,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
 
     1. Scroll down to the section called "Smart" and change the **Radius** to 7.5 to be wider.
     2. Increase the **Spiral Speed** to 8.
-    3. Set the **Ring Life** to 1. So we've got a neat visual effect now!
+    3. Set the **Ring Life** to 1. So we've got a neat visual effect now.
     4. Now we need some sound effects: search for `Meta Fantasy Treasure 01 SFX` in Core Content and the `Object Fantasy Treasure Chest Open 01 SFX` and drag each one into the `OpenedFX` folder.
     5. Select both of these effects in the Hierarchy, and turn **Autoplay** on for both in the Properties window.
     6. Give each one a **Life Span** of 2.
@@ -540,7 +540,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
 
     ![OpenedFX](../img/VFXtutorial/vfx9_TreasureChestProps.png){: .center loading="lazy" }
 
-6. Now we need to spawn this effect in our code!
+6. Now we need to spawn this effect in our code.
 
     By adding this new code to spawn our effect and destroy the trigger, your function should look like this:
 
@@ -612,7 +612,7 @@ Now if we test it--everything works correctly! But it sure looks plain and that 
     </figure>
     </div>
 
-Now you've got some basic effects set up for your treasure chest! You have learned how to create effect templates by combining various visual effects with sound effects, and how to spawn them at specific times! Go forth, and make more awesome stuff.
+Now you've got some basic effects set up for your treasure chest. You have learned how to create effect templates by combining various visual effects with sound effects, and how to spawn them at specific times. Go forth, and make more awesome stuff.
 
 ## More Tips & Info
 

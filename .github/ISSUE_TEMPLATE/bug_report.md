@@ -26,16 +26,16 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
 
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Browser Version [e.g. 22]
+- OS: [for example iOS]
+- Browser [for example chrome, safari]
+- Browser Version [for example 22]
 
 **Smartphone (please complete the following information):**
 
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Browser Version [e.g. 22]
+- Device: [for example iPhone6]
+- OS: [for example iOS8.1]
+- Browser [for example stock browser, safari]
+- Browser Version [for example 22]
 
 **Additional context**
 Add any other context about the problem here.

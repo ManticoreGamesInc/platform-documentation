@@ -39,13 +39,13 @@ The **TERRAIN CREATOR** drop down menu contains two options, **Generate New Terr
 
 The **GENERATE NEW TERRAIN** window contains settings that are used to manipulate how the terrain will be generated.
 
-The left left side of the **GENERATE NEW TERRAIN** window  contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General** and **Parameters**.
+The left side of the **GENERATE NEW TERRAIN** window  contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General** and **Parameters**.
 
 ![Terrain Generator](../img/TerrainReference/TerrainGeneratorWindow.png){: .center loading="lazy" }
 
 #### Terrain Settings
 
-The **General** section contains settings that will apply to all types of terrain. The **Voxel Size** setting determines how large the voxels of the terrain will be. A voxel is like a 3D pixel. The smaller the voxels are, the more detail the terrain can have. The **Terrain Size** setting determines how many voxels the terrain will have. The higher the voxel count, the larger the terrain can be. The downside of increasing the number of voxels is that the terrain use up more of the limited terrain memory space. Creators are limited between 50MB and 100MB of terrain memory space depending on the maximum number of players for the game.
+The **General** section contains settings that will apply to all types of terrain. The **Voxel Size** setting determines how large the voxels of the terrain will be. A voxel is like a 3D pixel. The smaller the voxels are, the more detail the terrain can have. The **Terrain Size** setting determines how many voxels the terrain will have. The higher the voxel count, the larger the terrain can be. The downside of increasing the number of voxels is that the terrain use up more of the limited terrain memory space. Creators are limited between 50 MB and 100 MB of terrain memory space depending on the maximum number of players for the game.
 
 The **Parameters** section contains settings that will vary depending on the terrain type selected. For example, the **Cube World** is the only terrain type with the **Edge Length** setting.
 
@@ -110,7 +110,7 @@ The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determi
 
 ![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
 
-Clicking on the the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
+Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
 {: .image-inline-text .image-background }
 
 ![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }
@@ -219,7 +219,7 @@ Below is a side by side comparison between **Air Mode** being disabled and **Air
 
 ![air mode disabled](../img/TerrainReference/AirModeDisabled.png "image_tooltip"){: style="width:20%" }
 ![air mode enabled](../img/TerrainReference/AirModeEnabled.png "image_tooltip"){: style="width:20%" }
-_Air Mode Disabled (left) vs Air Mode Enabled (right)_
+*Air Mode Disabled (left) vs Air Mode Enabled (right)*
 {: .image-cluster }
 
 ### Smooth Tool
@@ -299,7 +299,7 @@ The strength of materials is even more so visible by using the **Debug Mode** in
 
 ![Enable Debug Mode](../img/TerrainReference/EnableDebugMode.png){: .center loading="lazy" }
 
-Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the _first_ terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#Weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: style="color:#D6D13E" } color.
+Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the *first* terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#Weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: style="color:#D6D13E" } color.
 
 ![Terrain Debug Mode](../img/TerrainReference/DebugModeExample.png){: .center loading="lazy" }
 
@@ -328,7 +328,7 @@ Clicking on the **Add Foliage** button will open the **STATIC MESH PICKER** wind
 !!!note
     When adding foliage only use assets from the **STATIC MESH PICKER** window can be used. Custom templates cannot be used as foliage.
 
-The object selected from the **STATIC MESH PICKER** window will now be randomly spread throughout the terrain as foliage. By default, the foliage added will be associated with the _first_ terrain material. This means that the foliage that was generated will only appear on terrain areas covered by the material in the first material slot of the terrain.
+The object selected from the **STATIC MESH PICKER** window will now be randomly spread throughout the terrain as foliage. By default, the foliage added will be associated with the *first* terrain material. This means that the foliage that was generated will only appear on terrain areas covered by the material in the first material slot of the terrain.
 
 ![Arch on Terrain](../img/TerrainReference/ArchOnTerrain.png){: .center loading="lazy" }
 
@@ -439,7 +439,7 @@ The **Cast Shadows** property determines if the foliage should cast shadows. Ena
 
 ![Shadows Disabled](../img/TerrainReference/ShadowsDisabled.png "image_tooltip"){: style="width:20%" }
 ![Shadows Enabled](../img/TerrainReference/ShadowsEnabled.png "image_tooltip"){: style="width:20%" }
-*_Shadows Disabled (left) vs. Shadows Enabled (right)_*
+**Shadows Disabled (left) vs. Shadows Enabled (right)**
 {: .image-cluster }
 
 ### Optimize Tool

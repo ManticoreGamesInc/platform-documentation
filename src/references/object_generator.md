@@ -81,7 +81,7 @@ Checking **Only Spawn On Terrain** ensures spawned objects will only spawn on th
 
 **Position Randomness** is a percentage that randomizes the placement of each object based on what **In-Between Distance** is set to. If Distance is set to `5` and **Randomness** is set to `0`, each object will spawn in exactly the center of a 5x5 square. If you set **Randomness** to `1`, each object will spawn up to 5 meters away (100% of **Distance**) from the center of it's square. If you set **Randomness** to `2`, each object will spawn up to 10 meters away (200% of **Distance**) from the center of it's square.
 
-TL;DR: The higher **Position Randomness** is set to, the more displaced objects spawned will be.
+In summary: The higher **Position Randomness** is set to, the more displaced objects spawned will be.
 
 ![ArtIntro1](../img/EnvironIntro/image9.png "Art Screenshot1")
 ![ArtIntro2](../img/EnvironIntro/image3.png "Art Screenshot2")

@@ -286,7 +286,7 @@ end
 ```
 
 - Only put parenthesis around complicated conditionals to keep your sanity, otherwise they aren't necessary in Lua.
-- Use double quotes for string literals (e.g. `local myMessage = "Here's a message"`)
+- Use double quotes for string literals (for example `local myMessage = "Here's a message"`)
 
 ## Comments
 

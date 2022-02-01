@@ -71,4 +71,4 @@ Not all players have access to all emotes, but can purchase them through the Sho
 | Top Rock Double Shuffle | `emote_dance_toprock_double_shuffle` | A looping animation featuring some fancy footwork.                                                    |
 | Waiting…                | `emote_waiting`                      | An animation that expresses impatience with a tapping foot.                                           |
 | Yep                     | `emote_yes`                          | An animation responding to a question with an affirmation.                                            |
-| You’re Dead             | `emote_you_are_dead`                 | An animation expressing the intent to get revenge.                                                    |
+| You're Dead             | `emote_you_are_dead`                 | An animation expressing the intent to get revenge.                                                    |

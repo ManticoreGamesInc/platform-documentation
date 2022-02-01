@@ -223,7 +223,7 @@
 		},
 		{
 			"Name": "Ability",
-			"Description": "Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.\r\n\r\nAbilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (e.g. Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.\r\n\r\nOnly one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The `canBePrevented` and `preventsOtherAbilities` properties can be used to customize interruption rules for competing abilities.\r\n\r\nIf an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.",
+			"Description": "Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.\r\n\r\nAbilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (for example Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.\r\n\r\nOnly one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The `canBePrevented` and `preventsOtherAbilities` properties can be used to customize interruption rules for competing abilities.\r\n\r\nIf an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -850,7 +850,7 @@
 			"Events": [
 				{
 					"Name": "animationEvent",
-					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself.",
+					"Description": "Some animations have events specified at important points of the animation (for example the impact point in a punch animation). This event is fired with the animated mesh that triggered it, the name of the event at those points, and the name of the animation itself.",
 					"Tags": [
 						"ClientOnly"
 					],
@@ -5216,7 +5216,7 @@
 		},
 		{
 			"Name": "Damage",
-			"Description": "To damage a Player, you can simply write e.g.: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:",
+			"Description": "To damage a Player, you can simply write for example: `whichPlayer:ApplyDamage(Damage.New(10))`. Alternatively, create a Damage object and populate it with all the following properties to get full use out of the system:",
 			"Constructors": [
 				{
 					"Name": "New",
@@ -5259,12 +5259,12 @@
 				},
 				{
 					"Name": "sourceAbility",
-					"Description": "Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show what killed a Player.",
+					"Description": "Reference to the Ability which caused the Damage. Setting this allows other systems to react to the damage event, for example a kill feed can show what killed a Player.",
 					"Type": "Ability"
 				},
 				{
 					"Name": "sourcePlayer",
-					"Description": "Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, e.g. a kill feed can show who killed a Player.",
+					"Description": "Reference to the Player who caused the Damage. Setting this allows other systems to react to the damage event, for example a kill feed can show who killed a Player.",
 					"Type": "Player"
 				},
 				{
@@ -5952,7 +5952,7 @@
 		},
 		{
 			"Name": "Event",
-			"Description": "Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. E.g. `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.",
+			"Description": "Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. for example `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.",
 			"Properties": [
 				{
 					"Name": "type",
@@ -6244,7 +6244,7 @@
 		},
 		{
 			"Name": "Hook",
-			"Description": "Hooks appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired, but Hooks allow those functions to modify the parameters given to them. E.g. `player.movementHook:Connect(OnPlayerMovement)` calls the function `OnPlayerMovement` each tick, which may modify the direction in which a player will move.",
+			"Description": "Hooks appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired, but Hooks allow those functions to modify the parameters given to them. for example `player.movementHook:Connect(OnPlayerMovement)` calls the function `OnPlayerMovement` each tick, which may modify the direction in which a player will move.",
 			"Properties": [
 				{
 					"Name": "type",
@@ -6610,7 +6610,7 @@
 				},
 				{
 					"Name": "GetHitResults",
-					"Description": "Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (e.g. Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit.",
+					"Description": "Table with multiple HitResults that hit the same object, in the case of Weapons with multi-shot (for example Shotguns). If a single attack hits multiple targets you receive a separate interaction event for each object hit.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -8265,7 +8265,7 @@
 				},
 				{
 					"Name": "animationEvent",
-					"Description": "Some animations have events specified at important points of the animation (e.g. the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return \"animation_stance\" as the animation name.",
+					"Description": "Some animations have events specified at important points of the animation (for example the impact point in a punch animation). This event is fired with the Player that triggered it, the name of the event at those points, and the name of the animation itself. Events generated from default stances on the player will return \"animation_stance\" as the animation name.",
 					"Tags": [
 						"ClientOnly"
 					],
@@ -12201,7 +12201,7 @@
 		},
 		{
 			"Name": "Trigger",
-			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (e.g. A Player walks into it):",
+			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (for example A Player walks into it):",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -15943,7 +15943,7 @@
 				},
 				{
 					"Name": "targetImpactedEvent",
-					"Description": "Fired when a Weapon interacts with something. E.g. a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc.",
+					"Description": "Fired when a Weapon interacts with something. for example a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc.",
 					"Parameters": [
 						{
 							"Type": "Weapon",
@@ -17153,7 +17153,7 @@
 				},
 				{
 					"Name": "GetPlayers",
-					"Description": "Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), E.g.: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`.",
+					"Description": "Returns a table containing the players currently in the game. An optional table may be provided containing parameters to filter the list of players returned: ignoreDead(boolean), ignoreLiving(boolean), ignoreSpawned(boolean), ignoreDespawned(boolean), ignoreTeams(integer or table of integer), includeTeams(integer or table of integer), ignorePlayers(Player or table of Player), for example: `Game.GetPlayers({ignoreDead = true, ignorePlayers = Game.GetLocalPlayer()})`.",
 					"Signatures": [
 						{
 							"Returns": [

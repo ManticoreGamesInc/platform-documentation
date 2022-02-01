@@ -99,7 +99,7 @@ Some questions you might consider about Celebrating Wins and Showing Losses:
 
 Depth can be one of the most challenging parts of game design, and focuses on what the gameplay experience will be like for a player who plays for a long time.
 
-Some depth can take the form of a well-developed game world, with background stories that are conveyed throughout, with dialogues or environment clues. However, the aspect that keeps players likely to return is the ability to set **goals** in your game.
+Some depth can take the form of a well-developed game world, with background stories that are conveyed throughout, with dialogs or environment clues. However, the aspect that keeps players likely to return is the ability to set **goals** in your game.
 
 Possible goals are important information to communicate, and many games succeed by having different types of goals that attract different types of players.
 

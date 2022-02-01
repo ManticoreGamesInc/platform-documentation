@@ -280,7 +280,7 @@ The **Game** namespace has a collection of functions and events related to playe
 
     Knowing when a **Player** has joined the game allows you to do many things. For example, letting other players in the game know when other players have joined.
 
-    Another useful way to use the `playerJoinedEvent` is loading the the player's data from **Storage** when they join the server, and then sending that data to them (i.e. Private Networked Data).
+    Another useful way to use the `playerJoinedEvent` is loading the player's data from **Storage** when they join the server, and then sending that data to them (that is Private Networked Data).
 
 - `Game.playerLeftEvent`
 
@@ -322,7 +322,7 @@ See [Player](../api/player.md#events) and [Bindings](../api/key_bindings.md) API
 
 ### Trigger
 
-A **Trigger** is an invisible and non-colliding **CoreObject** which fires events when it interacts with another object (e.g. A **Player** walks into it). **Triggers** can be used in a wide range of cases, one of them being a way to detect when a **Player** has entered the **Trigger** to show an interaction label to open a door.
+A **Trigger** is an invisible and non-colliding **CoreObject** which fires events when it interacts with another object (for example A **Player** walks into it). **Triggers** can be used in a wide range of cases, one of them being a way to detect when a **Player** has entered the **Trigger** to show an interaction label to open a door.
 
 !!! tip "A **Trigger** will also work in a **Client Context** by setting the **Collision** property to **Force On**."
 

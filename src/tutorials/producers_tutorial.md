@@ -131,7 +131,7 @@ The Alien Egg is an item that will start in the player's inventory. It will need
 - Dropped to the floor
 - In an inventory slot
 
-The Red Fruit item already has these three templates. They all have the same art model but are transformed to the desired context (e.g. laying on the ground or placed in the player's hand).
+The Red Fruit item already has these three templates. They all have the same art model but are transformed to the desired context (for example laying on the ground or placed in the player's hand).
 
 ![!Items Templates](../img/ProducersTutorial/Producer_Items_Templates.png){: .center loading="lazy" }
 

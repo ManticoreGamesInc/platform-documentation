@@ -62,7 +62,7 @@ The Command Parser comes with a basic permission system that allows for special 
 
 `/promote player permission`
 
-The permissions system will use player storage to save the permission, and also setup a player resource with the permission key. This can then be used client side if you would like to show which players have certain permissions (i.e. in a player list).
+The permissions system will use player storage to save the permission, and also setup a player resource with the permission key. This can then be used client side if you would like to show which players have certain permissions (that is in a player list).
 
 The permission system comes with 3 default permissions:
 
@@ -76,7 +76,7 @@ Open up the **CommandPermissions** script to see how the permissions are set up.
 
 The `CREATORS` permission is special. It has no `priority` property, only an array of player names. These player names are what you would consider to be root admins. Any player name in the `names` array will have access to all commands.
 
-!!! warning "Only add player names to the array that you trust (i.e. co-creators of the game). It is generally a good idea to just have your own name here, and use the `promote` command to promote trusted players to regular admins."
+!!! warning "Only add player names to the array that you trust (that is co-creators of the game). It is generally a good idea to just have your own name here, and use the `promote` command to promote trusted players to regular admins."
 
 ```lua
 CREATOR = {
@@ -601,7 +601,7 @@ This command would need to be tested in published game. You can test it locally 
 
 ### Grant Reward Points
 
-If you are in the [Perks Program](../references/perks/program.md), then you will have the ability to [grant reward points](../references/perks/reward_points.md) to players. This could be login based, or granted based on what the player does in game (i.e. finish a mission). Having the option to reward points could be useful.
+If you are in the [Perks Program](../references/perks/program.md), then you will have the ability to [grant reward points](../references/perks/reward_points.md) to players. This could be login based, or granted based on what the player does in game (that is finish a mission). Having the option to reward points could be useful.
 
 By using the [`GrantRewardPoints`](../api/player.md) function, you can grant reward points to a player. You can also turn this command into an `all` command, so that it can be applied to all players on the server.
 

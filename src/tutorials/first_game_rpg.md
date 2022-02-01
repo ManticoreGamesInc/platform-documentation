@@ -237,7 +237,7 @@ For the final step, remove all of the objects that are not part of the final gam
 
 ### Preview in Multiplayer
 
-Now that you have finished the steps to make the game, it is time to do more more test before publishing.
+Now that you have finished the steps to make the game, it is time to do more test before publishing.
 
 1. Click ![Multiplayer Preview Mode](../img/EditorManual/icons/Icon_MultiplayerTest.png) to switch the Preview Mode to Multiplayer.
 {: .image-inline-text .image-background }

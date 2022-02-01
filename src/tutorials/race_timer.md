@@ -47,7 +47,7 @@ When a race is about to start, you need to move the players to the starting line
 ### Create Lane Positions
 
 !!! tip "Visual Aid for Placing Spawn Points"
-    As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (i.e. no **Rendering**) compared to other objects.
+    As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (that is no **Rendering**) compared to other objects.
 
 1. Create a new group called **Starting Positions** inside the **Race Timer Tutorial - Track** group.
 2. Drag and drop a **Cube** from **Core Content** into the **Starting Positions** group.
@@ -131,7 +131,7 @@ The race manager server script is going to handle a few different things. You wi
 Create a new script called **RaceManager_Server** and place the script you created into the **Server Context** folder. Before opening the script, you need to setup the custom property for the positions so **Lua** has access to them.
 
 !!! tip "Script Naming Convention"
-    It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel.  For example, a server script could be called **GameManager_Server**, and the client script could be called **GameManager_Client**. Using this method of naming helps identify the context a script is for.
+    It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel. For example, a server script could be called **GameManager_Server**, and the client script could be called **GameManager_Client**. Using this method of naming helps identify the context a script is for.
 
     With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
 
@@ -679,7 +679,7 @@ Events.BroadcastToPlayer(obj, "RaceFinished", finalTime)
 You broadcast to the player that the race has finished, and also send their final time. Later on you will connect to this event from the client to update the time displayed in the UI with the time sent from the server.
 
 !!! tip "Client vs Server Trust"
-    The client can#t be trusted to send their race time, so this is all tracked on the server and sent to the client when the player has finished the race. If the race time was tracked client side and then submitted to the server, this could be exploited by the client by modifying the data that is sent from client to server. Nearly anything the client does needs to ask for data (i.e. final race time), or get permission from the server.
+    The client can#t be trusted to send their race time, so this is all tracked on the server and sent to the client when the player has finished the race. If the race time was tracked client side and then submitted to the server, this could be exploited by the client by modifying the data that is sent from client to server. Nearly anything the client does needs to ask for data (that is final race time), or get permission from the server.
 
 #### Connect Trigger Event
 
@@ -2584,7 +2584,7 @@ You need to update the `OnFinishTriggerOverlap` function to reset the splits and
 
 - Open the **RaceManager_Server** script and add line 5 to the `OnFinishTriggerOverlap` function. You increment the index to a number that doesn't exist so that the split time for the finish line trigger is recorded and sent to the player.
 
-- Open the **RaceManager_Server** script and add line 11 to the `OnFinishTriggerOverlap` function.  You need to reset the players `splits` table because they have finished the race.
+- Open the **RaceManager_Server** script and add line 11 to the `OnFinishTriggerOverlap` function. You need to reset the players `splits` table because they have finished the race.
 
 ```lua linenums="1"
 local function OnSplitTriggerOverlap(index, trig, obj)

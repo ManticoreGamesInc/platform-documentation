@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-A **Scene** is a way to have different assets and logic for a specific part of the game. A game can be made up of many scenes (e.g. main menu, tutorial, different levels) that display different information, and usually there is some way for a **Player** to get from one scene to the other.
+A **Scene** is a way to have different assets and logic for a specific part of the game. A game can be made up of many scenes (for example main menu, tutorial, different levels) that display different information, and usually there is some way for a **Player** to get from one scene to the other.
 
 All projects come with one scene by default called **Main**, which will be shown in the **Scenes** window as the active scene.
 
@@ -36,7 +36,7 @@ When a new scene has been created, the creator will be asked if they want to loa
 
 ## Loading a Scene
 
-When loading a **Scene**, **Core** will unload all assets in the project **Hierarchy** (i.e. template instances, script instances, UI), and load all the assets for the scene that will be loaded. When loading a scene, make sure to save the current scene or progress will be lost. **Core** will notify the creator of any unsaved changes when attempting to switch scene.
+When loading a **Scene**, **Core** will unload all assets in the project **Hierarchy** (that is template instances, script instances, UI), and load all the assets for the scene that will be loaded. When loading a scene, make sure to save the current scene or progress will be lost. **Core** will notify the creator of any unsaved changes when attempting to switch scene.
 
 A **Scene** can be loaded by clicking on the scene name in the **Scene** window.
 
@@ -67,7 +67,7 @@ Any scene in the project can be renamed. Scenes can't share the same name as eac
 
 ## Setting a Main Scene
 
-The main scene for a project, is the scene that will be loaded for players by default when entering your game. Any scene created can be set up as the main scene for the project. For example, if there is 2 scenes that have a different theme (i.e. Christmas vs Summer), it is easy to change which scene is the main one and republish your project. When players load your game, they will load the main scene first.
+The main scene for a project, is the scene that will be loaded for players by default when entering your game. Any scene created can be set up as the main scene for the project. For example, if there is 2 scenes that have a different theme (that is Christmas vs Summer), it is easy to change which scene is the main one and republish your project. When players load your game, they will load the main scene first.
 
 1. Open the **Scenes** window.
 2. Click the button to the right of the scene.
