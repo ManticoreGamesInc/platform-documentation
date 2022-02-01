@@ -556,7 +556,7 @@ Example using:
 
 ### `muzzleFlashTemplateId`
 
-This sample demonstrates several things. First, it creates a copy of the weapon's muzzle flash effect and attaches it to where the script is. Then, it shows how to traverse an object's hierarchy and create a custom table of objects to operate upon later--in this case it's trying to find smart objects that have both the `Stop()` and `Play()` functions. Finally, It shows how sound and VFX from a single spawned template can be played and stopped randomly -- in other words, they are reused without having to spawn a new copy of the template each time.
+This sample demonstrates several things. First, it creates a copy of the weapon's muzzle flash effect and attaches it to where the script is. Then, it shows how to traverse an object's hierarchy and create a custom table of objects to operate upon later--in this case it's trying to find smart objects that have both the `Stop()` and `Play()` functions. Finally, It shows how sound and VFX from a single spawned template can be played and stopped randomly. In other words, they are reused without having to spawn a new copy of the template each time.
 
 ```lua
 local WEAPON = script:FindAncestorByType("Weapon")
