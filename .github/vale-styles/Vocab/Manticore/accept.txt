@@ -123,6 +123,7 @@ Xyzz
 Manticore
 1h
 2h
+2hand
 2s
 3s
 4s
