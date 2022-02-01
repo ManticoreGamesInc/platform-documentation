@@ -88,7 +88,10 @@ Create a function called `OverlappedTrigger`. This function will check if the pl
 ```lua
 local function OverlappedTrigger(trigger, obj)
     if obj:IsA("Player") and (not players[obj] or not players[obj][trigger]) then
-        players[obj] = {}
+        if(not players[obj]) then
+            players[obj] = {}
+        end
+
         players[obj][trigger] = true
 
         if Environment.IsClient() then
@@ -141,7 +144,10 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 
     local function OverlappedTrigger(trigger, obj)
         if obj:IsA("Player") and (not players[obj] or not players[obj][trigger]) then
-            players[obj] = {}
+            if(not players[obj]) then
+                players[obj] = {}
+            end
+
             players[obj][trigger] = true
 
             if Environment.IsClient() then
