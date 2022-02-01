@@ -110,6 +110,14 @@ While some audio properties can be applied while sounds are playing (such as the
 
 The stop time of the audio track. Default is 0. A positive value means that the audio will stop that many seconds from the start of the track, including any fade out time.
 
+#### Start Delay Min
+
+Sets the minimum amount of delay that will be used when playing the audio.
+
+#### Start Delay Max
+
+Sets the maximum amount of delay that will be used when playing the audio.
+
 ## Audio Networking
 
 By default, playback will be networked to all clients. If an Audio object is simply placed in the scene and played, any connected clients within range also hear the sound playing. For client-specific playback, place the Audio object in a Client NetworkContext folder. In such a case, playback would be started by a client script, and different sounds could be heard on each client. Example use case: victory music only playing for the winning team.
