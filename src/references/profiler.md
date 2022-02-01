@@ -46,7 +46,7 @@ Some notes to keep in mind:
 
 * Server-side data is for **Game-thread only**, so all Render thread data is blank.
 * Due to the variable amount of Memory associated with Server pod instances depending on the number of Max Players for the game, the Memory counters show a **percentage** and not absolute MB values (like the ones shown in the Client tab)
-* Since the Server has a fixed tick rate of 30 ticks per second, the **Frame time will hover around the 33ms** mark even though the Game thread time might be much less.
+* Since the Server has a fixed tick rate of 30 ticks per second, the **Frame time will hover around the 33 ms** mark even though the Game thread time might be much less.
 
 ### Logs tab
 
@@ -132,9 +132,9 @@ Everything for a frame is first processed by the Game Thread. The results are pa
 * Your Frame time is the total amount of time spent generating one frame of the game. Since both the Game and Render threads sync up before finishing a frame, the Frame time is often close to time in one of these threads. Since GPU time is synced to the frame, it will likely be a similar number as the Frame time as well.
 * If Frame time is very close to the Game time, you are bottlenecked by the game thread. If Frame time is very close to Draw time, you are bottlenecked by the rendering thread. If neither time is close while GPU time is close, then you are bottlenecked by the video card.
 * Frame time is a much more reliable metric to measure performance as compared to Frame rate, since along with showing the time taken to generate one frame of the game, it also shows how consistent the times are over a range of frames. For reference,
-    * A game running at 60fps is equivalent to each frame taking roughly 16.67ms
-    * A game running at 30fps is equivalent to each frame taking roughly 33.33ms
-    * A game running at 15fps is equivalent to each frame taking roughly 66.67ms
+    * A game running at 60fps is equivalent to each frame taking roughly 16.67 ms
+    * A game running at 30fps is equivalent to each frame taking roughly 33.33 ms
+    * A game running at 15fps is equivalent to each frame taking roughly 66.67 ms
 
 ## Profiler Terminology in Detail
 

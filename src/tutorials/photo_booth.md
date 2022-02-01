@@ -503,7 +503,7 @@ end
 
 #### Connect Button Event
 
-Connect up the button that is used to take the screen shot. You can not just pass `TakePhoto` as the listener function, because the listener function will receive some parameters (i.e. the button clicked), and the `TakePhoto` function expects either `nil` or a **Player** object.
+Connect up the button that is used to take the screen shot. You can not just pass `TakePhoto` as the listener function, because the listener function will receive some parameters (that is the button clicked), and the `TakePhoto` function expects either `nil` or a **Player** object.
 
 ```lua
 TAKE_PHOTO_BUTTON.clickedEvent:Connect(function()
@@ -1074,7 +1074,7 @@ end
 
 ### Create GetData Function
 
-Create a function called `GetData`. This function will handle receiving data from the server by checking for a key called `photobooth.data`. The reason data is being sent to the client from the server is so that the client receives some important information so that it can display the background images in sync with other players. This is not full proof because of latency (i.e. player has a poor connection to the server), but it does do a good job of syncing up the background images so that when a player takes a photo, that background image should be the same on all other players screen.
+Create a function called `GetData`. This function will handle receiving data from the server by checking for a key called `photobooth.data`. The reason data is being sent to the client from the server is so that the client receives some important information so that it can display the background images in sync with other players. This is not full proof because of latency (that is player has a poor connection to the server), but it does do a good job of syncing up the background images so that when a player takes a photo, that background image should be the same on all other players screen.
 
 Syncing up background images between players isn't too important. But if you are playing in a party and using voice chat, it improves the experience with the images being in sync.
 

@@ -75,7 +75,7 @@ Data for a given day is added two days later to make sure that it is fully accur
 | players_d0                         | The number of players playing on the date for the first time.                                                    |
 | players_d7                         | The number of the players who played for the first time on the date and returned seven days later.               |
 | players_d0_month_to_date           | Average number of new players per day from the beginning of the month to the date                                |
-| retention_d1_percent               | The percent of new players from the date who returned one day later.                                             |
+| retention_d1_percent               | The percentage of new players from the date who returned one day later.                                             |
 | retention_d1_month_to_date_percent | The average percentage of players who return one day later from the beginning of the month to the date.          |
 
 ---

@@ -10,7 +10,7 @@ tags:
 
 A **Binding Set** contains a set of actions a creator has defined for the game and the default key bindings to trigger those actions.
 
-New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own. If there is no **Binding Set** in the **Hierarchy**, the default controls will be used.
+New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own.If there is no **Binding Set** in the **Hierarchy**, the default controls will be used.
 
 ## Opening the Bindings Manager Window
 
@@ -56,7 +56,7 @@ For example, setting the key ++Q++ to perform the **Jump** action.
 
 When a new binding is added, the action name and description can be set. The action name should be something that identifies what this action does. This identifier can be used in Lua to determine which action triggered the event.
 
-Bindings support a secondary key and controller input. Meaning that the player can perform an action using 2 different keys or use controller input (i.e. a button).
+Bindings support a secondary key and controller input. Meaning that the player can perform an action using 2 different keys or use controller input (that is a button).
 
 ### Core Behavior
 

@@ -52,14 +52,14 @@ You will be importing an asset from **Community Content** that will contain vari
 
 ## Creating a Resource Shop
 
-A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (i.e. killing enemies).
+A resource shop will allow players to purchase various resources that are used in your game. You can sell a wide range of resources that could help the player catch up, get a head start, or simply to cut out some of the grinding. For example, selling an XP Potion that the players can drink to increase the amount of XP they get from performing tasks in your game (that is killing enemies).
 
 In this tutorial you will create a resource shop that sells 4 items. Below is a list of those items, and a description of what the perk could potentially be used for in a game.
 
 | Item | Description |
 | ---- | ----------- |
 | Pumpkins | A food resource that could provide additional benefits when eaten by the player. |
-| Coins | In game currency for purchasing items that aren't premium (i.e. purchasing a weapon from a blacksmith). |
+| Coins | In game currency for purchasing items that aren't premium (that is purchasing a weapon from a blacksmith). |
 | XP Potion | A potion the player could drink and get an XP boost for a certain amount of time. |
 | Gems | An in game currency used to purchase and trade items with other players. |
 
@@ -151,7 +151,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 - Set the **Perk Name** to `Pumpkins`.
 - Set the **Perk Type** to **Repeatable**.
-- Set the **Price** to anything between 10 - 8000.
+- Set the **Price** to anything between 10 and 8000.
 
 ![!Pumpkins Perk](../img/PerksTutorial/resource_shop_pumpkins_perk.png){: .center loading="lazy" }
 
@@ -186,7 +186,7 @@ Each resource item needs to be added to the **Items** panel in the **Resource Sh
 Do the following for each shop resource. Since 4 perks were created, then 4 items should be added to the shop UI.
 
 1. Drag the template **Perks Tutorial - Resource Shop Item** into the **Items** panel.
-2. Rename the item to one of the resources being sold (i.e. `Coins`).
+2. Rename the item to one of the resources being sold (that is `Coins`).
 3. Open the group in the **Hierarchy** and set the **text** property for the **Amount** object in the **Properties** window.
 4. Change the **Image** property for the **image** object in the **Properties** window.
 5. Select the **Button** object.
@@ -336,7 +336,7 @@ end
 ```
 
 !!! tip "Trigger Interaction Label"
-    If a trigger is interactable, then the interaction label can show up to the player even when that player has not entered the trigger volume (i.e. the player getting close to the trigger volume). This is why the `inTrigger` variable is used, to make sure the player is inside the trigger volume before showing the interaction label.
+    If a trigger is interactable, then the interaction label can show up to the player even when that player has not entered the trigger volume (that is the player getting close to the trigger volume). This is why the `inTrigger` variable is used, to make sure the player is inside the trigger volume before showing the interaction label.
 
 #### Connect Events
 
@@ -833,7 +833,7 @@ end
 !!! tip "Shortcut"
     A shortcut for the above code can be written as `playerData[perkData.storageKey] = playerData[perkData.storageKey] or 0`. If the value is nil, then 0 will be stored. This reduces readability, but is handy to know.
 
-Update the value in the table with the the amount the player has just purchased.
+Update the value in the table with the amount the player has just purchased.
 
 ```lua
 playerData[perkData.storageKey] = playerData[perkData.storageKey] + perkData.resourceAmount
@@ -2150,7 +2150,7 @@ Test the game and make sure the following work:
 
 ## Creating a VIP Shop
 
-In this section you will be creating a VIP (Very Important Player) shop that will have perk packages players can purchase that will last for a limited amount of time. Each package will give the player a special chat status, gems and coins.
+In this section you will be creating a VIP (Very Important Player) shop that will have perk packages players can purchase that will last for a limited amount of time. Each package will give the player a special chat status, gems, and coins.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">

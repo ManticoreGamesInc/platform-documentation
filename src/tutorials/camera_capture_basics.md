@@ -222,7 +222,7 @@ In the video below, the capture image will be displayed, and then released after
 
 ## Refreshing Camera Captures
 
-Camera captures can be refreshed. This can be useful if the 3D object being used in the capture has changed, or to create things such as mirrors (i.e. rear view mirror in a car), or surveillance cameras.
+Camera captures can be refreshed. This can be useful if the 3D object being used in the capture has changed, or to create things such as mirrors (that is rear view mirror in a car), or surveillance cameras.
 
 In the example code below, the `CreateCapture` function is called from within the `Tick` function. Every .1 second, the `CreateCapture` function will be called again. This function will check if the `capture` variable is a valid capture instance, and if so, `Refresh` it. By doing this, the UI image becomes an animation.
 

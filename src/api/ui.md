@@ -603,7 +603,7 @@ Example using:
 
 ### `ShowFlyUpText`
 
-In this example, RP points can be granted to a player by calling the function GiveRewardPoints(player, amount). Additionally, a fly-up text appears and stays on screen for a bit, displaying the amount of RP that was gained. The script is broken into 2 parts, where the first one goes into a server script and the second one into a client script.
+In this example, RP points can be granted to a player by calling the function GiveRewardPoints(player, amount). Additionally, a fly up text appears and stays on screen for a bit, displaying the amount of RP that was gained. The script is broken into 2 parts, where the first one goes into a server script and the second one into a client script.
 
 ```lua
 -- Server script:

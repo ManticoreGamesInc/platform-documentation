@@ -12,7 +12,7 @@ If you don't want to deal with all the technicalities because you only want to d
 - Add a helpful commit message and submit it!
 - Now open a pull request with your changes and fill out the template.
 
-**Note:** The integrated preview mode won't display advanced markdown functionality (e.g. `!!! info` blocks and our custom Markdown features won't work. To check out how they will end up looking on the site, open a pull request and check out the Netlify preview.
+**Note:** The integrated preview mode won't display advanced markdown functionality (for example `!!! info` blocks and our custom Markdown features won't work. To check out how they will end up looking on the site, open a pull request and check out the Netlify preview.
 
 - Our system will automatically build a version of the site for you to view live.
 - Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `development` and later `production` which will make your content appear on the main site.
@@ -80,7 +80,7 @@ Now, depending on what you want to add, you can create your new Markdown files a
 ### Check in your Changes
 
 - Make sure to add your new page to the index of pages in `mkdocs.yml`.
-- Commit any changes to your branch and push to the repository. (e.g. `git push -u origin camera-controls`)
+- Commit any changes to your branch and push to the repository. (for example `git push -u origin camera-controls`)
 - When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `development`.
 - Our system will automatically build a version of the site for you to view live.
 - Your pull request will then be reviewed by other members of the team. Once it passes, it will be merged to `development` and later `production` which will make your content appear on the main site.

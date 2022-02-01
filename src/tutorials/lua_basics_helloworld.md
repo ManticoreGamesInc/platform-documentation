@@ -12,7 +12,7 @@ tags:
 
 This tutorial introduces the basics of creating scripts in Core, using the [Lua](https://lua.org) Programming Language. **You do not need to know how to program** to start this tutorial. If you are interested in a basic overview of programming concepts, our [Scripting Introduction](scripting_intro.md) is a great place to start.
 
-In the first part of a tutorial, you will create and run your first script, following the programming tradition of making a "Hello, World!" script to introduce yourself to to a new language.
+In the first part of a tutorial, you will create and run your first script, following the programming tradition of making a "Hello, World!" script to introduce yourself to a new language.
 
 In the second part, you will learn how to take an existing template in Core and use scripts to change it, by importing a bedroom scene into your project, and making a light switch that illuminates it.
 
@@ -42,13 +42,13 @@ button in the toolbar at the top left of the editor.
 
 Name it `TutorialScript` for now.
 
-!!! tip "You can rename scripts by clicking on the name of the script in the **Hierarchy** and  ++F2++."
+!!! tip "You can rename scripts by clicking on the name of the script in the **Hierarchy** and ++F2++."
 
 ### Open the Script for Editing
 
 Your new script will appear in the **Project Content** window, in the **My Scripts** section. Double click **TutorialScript** to open the **Script Editor**
 
-![My Scripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .image-frame .center loading="lazy" }
+![MyScripts](../img/scripting/MyScripts.png "This is where all the scripts you have made for this project live."){: .image-frame .center loading="lazy" }
 
 !!! tip "You can also configure Core to open in an external editor instead of the built-in editor. See the [editor integrations](extensions.md) page to learn more."
 

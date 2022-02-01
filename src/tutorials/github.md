@@ -149,11 +149,11 @@ Once you have committed all your changes, you will see an option suggesting that
 
 ![Publish Repository Button](../img/VersionControl/VersionControl_PublishRepoButton.png){: .center loading="lazy" }
 
-Click the **Publish repository** button to open a dialogue to put the project on the GitHub website.
+Click the **Publish repository** button to open a dialog to put the project on the GitHub website.
 
 You can change the title, or keep the one from the local repository. Check the **Keep this code private** box if you do not want others to be able to copy the project.
 
-![Publish Repository Dialogue](../img/VersionControl/VersionControl_PublishRepoDialogue.png){: .center loading="lazy" }
+![Publish Repository Dialog](../img/VersionControl/VersionControl_PublishRepoDialogue.png){: .center loading="lazy" }
 
 ### Find the Project on GitHub
 
@@ -284,7 +284,7 @@ Every time Core gets updated, an internal number, called `SerializationVersion` 
 | **GitHub**            | One of several websites that allows cloud storage of Git projects  |
 | **History**           | The list of changes to files in a project  |
 | **.gitignore**        | A special file that lists all the files and folders that do not need to be tracked with Git  |
-| **.gitattributes**    | A special file that controls Git settings line line endings and other attributes. |
+| **.gitattributes**    | A special file that controls Git settings line endings and other attributes. |
 | **Repository**        | A project that is tracked with Git. Sometimes shortened to **repo**  |
 | **Local Repository**  | The tracked version of a project saved on your computer |
 | **Remote Repository** | An online version of the project, which can be shared and downloaded onto other computers |
