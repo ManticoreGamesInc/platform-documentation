@@ -148,7 +148,7 @@ Example using:
 
 You can schedule tasks to run a specific number of times, and to wait a specific number of times between repeats. This sample creates a task that prints out "hello world", and then has it repeat itself thee times, once per second.
 
-Note that the repeat count is the number of time the task will repeat. NOT the number of times it will execute! (It will execute one more time than it repeats.)
+Note that the repeat count is the number of time the task will repeat. NOT the number of times it will execute. (It will execute one more time than it repeats.)
 
 ```lua
 local counter = 0

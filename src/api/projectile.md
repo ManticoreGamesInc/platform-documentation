@@ -205,7 +205,7 @@ Example using:
 
 We can get various information about a projectile's position and velocity via several functions. `GetWorldTransform()` and `GetWorldPosition()` functions can tell us where it is and where it is facing. `GetVelocity()` tells us where it is moving and how fast. And `SetVelocity()` allows us to change its direction in mid-flight.
 
-In this sample, we'll fire some more projectiles at the player. But we'll also give them a magic shield that reflects any projectiles that get too close!
+In this sample, we'll fire some more projectiles at the player. But we'll also give them a magic shield that reflects any projectiles that get too close.
 
 ```lua
 -- A template of a basic cube, attached to the script as a custom property:
@@ -264,7 +264,7 @@ We can change the shape of this capsule by modifying the length and radius of th
 
 This sample makes a few projectiles of varying shapes and sizes.
 
-Note that this only changes the collision properties of the projectile! The visual representation on screen will be unchanged.
+Note that this only changes the collision properties of the projectile. The visual representation on screen will be unchanged.
 
 By default, projectiles have a radius of 22, and length of 44.
 
@@ -464,7 +464,7 @@ Example using:
 
 Projectiles have the `piercesRemaining` property, which controls how many times they penetrate objects and keep going. In this sample, we spawn several walls and fire several projectiles at them, with different penetration numbers.
 
-Projectiles also have a property that determines if they should be destroyed when they hit an object - `shouldDieOnImpact`. One of the projectiles we spawn here does not die on impact! So when it hits a wall, it simply stops and waits for its `lifeSpan` to run out.
+Projectiles also have a property that determines if they should be destroyed when they hit an object - `shouldDieOnImpact`. One of the projectiles we spawn here does not die on impact. So when it hits a wall, it simply stops and waits for its `lifeSpan` to run out.
 
 ```lua
 -- A template of a basic cube, attached to the script as a custom property:

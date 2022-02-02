@@ -221,7 +221,7 @@ function Tick()
     local radius = 500
     local angle = math.rad(360) / #COLOR_CONSTANTS
     local params = { thickness = 10 }
-    
+
     for i,c in ipairs(COLOR_CONSTANTS) do
         params.color = c
         local v = Vector3.ZERO
@@ -241,7 +241,7 @@ Example using:
 
 ### `New`
 
-This example shows how to construct a new color object. The three parameters given to `New()` are the three primary colors of light: Red, Green and Blue. Here, we create a magenta color by using the values Red = 1, Green = 0 and Blue = 0.5.
+This example shows how to construct a new color object. The three parameters given to `New()` are the three primary colors of light: Red, Green, and Blue. Here, we create a magenta color by using the values Red = 1, Green = 0 and Blue = 0.5.
 
 ```lua
 local color = Color.New(1, 0, 0.5)

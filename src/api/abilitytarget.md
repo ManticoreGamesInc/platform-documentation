@@ -136,7 +136,7 @@ Example using:
 
 At any phase of an ability's activation, you can get data about what is under the cursor and would be hit.
 
-This code snippet prints out the name of whatever was under the cursor when the player executes this ability!
+This code snippet prints out the name of whatever was under the cursor when the player executes this ability.
 
 ```lua
 local ability = script:FindAncestorByType("Ability")

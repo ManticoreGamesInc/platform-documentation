@@ -257,7 +257,7 @@ Example using:
 
 There are events that fire at most major points for a player during gameplay. This example shows how to receive an event for players being damaged, dying, and spawning, as well as how to make a player automatically respawn after dying.
 
-One important thing to note - `player.damagedEvent` and `player.diedEvent` only execute on the server, so if you are writing a script that runs inside of a client context, it will not receive these events!
+One important thing to note - `player.damagedEvent` and `player.diedEvent` only execute on the server, so if you are writing a script that runs inside of a client context, it will not receive these events.
 
 ```lua
 function OnPlayerDamage(player, damage)
@@ -651,7 +651,7 @@ Example using:
 
 If you want to fling a player using the physics system, it is possible to directly affect their velocity. You can either add a physics impulse to their current velocity, or just set the player's velocity directly. You can also zero out their velocity using `Player.ResetVelocity()`.
 
-Note that when using impulses to apply force to a player, we need to scale it by the player's `mass` property!
+Note that when using impulses to apply force to a player, we need to scale it by the player's `mass` property.
 
 ```lua
 -- Fling the player towards the heavens:
@@ -794,7 +794,7 @@ Example using:
 
 ### `ClearOverrideCamera`
 
-It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context!
+It's possible to change a player's view by modifying or swapping their camera. This is client side only, and won't have any effect if done from a server context.
 
 ```lua
 local propTestCamera = script:GetCustomProperty("TestCamera")
@@ -805,6 +805,10 @@ local player = Game.GetLocalPlayer()
 local defaultCamera = World.SpawnAsset(propTestCamera,
         { position = Vector3.New(0, -1000, 1000) })
 defaultCamera:LookAtContinuous(player)
+
+-- Wait 1 frame to make sure the default camera is initialized for the client.
+Task.Wait()
+
 print(player:GetDefaultCamera():GetWorldPosition()) -- 0, -1000, 1000
 player:SetDefaultCamera(defaultCamera, 1)
 Task.Wait(2)
@@ -977,7 +981,7 @@ Example using:
 
 ### `SetLookWorldRotation`
 
-The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context!
+The direction and rotation that the player is looking can be both read and set through Lua scripts. Note that this will only work on scripts executing inside of a client context.
 
 ```lua
 local player = Game.GetLocalPlayer()
@@ -1388,7 +1392,7 @@ Example using:
 
 ### `deaths`
 
-You can get various vital statistics off of the player object, such as hit points, max hit points, kills and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
+You can get various vital statistics off of the player object, such as hit points, max hit points, kills, and deaths. This sample shows how to read that data and populate a leaderboard. (The leaderboard is printed out to the event log in this sample, but it would be trivial to feed it into some kind of onscreen UI.)
 
 ```lua
 -- Here's a function to print out various useful information about the player's current status
@@ -1571,7 +1575,7 @@ Example using:
 
 ### `isVisibleToSelf`
 
-It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context!
+It's possible to hide the player's model from the player controlling it. This can be especially useful for first-person games. Note that this can only be set by scripts running in the client context.
 
 ```lua
 -- The player can no longer see their own model. Other players' ability
@@ -1827,7 +1831,7 @@ Example using:
 
 ### `isCrouchEnabled`
 
-Most of the aspects of a player's movement can be controlled at runtime via scripting!
+Most of the aspects of a player's movement can be controlled at runtime via scripting.
 
 ```lua
 -- Player can now step over 100cm ledges!

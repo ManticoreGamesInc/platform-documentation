@@ -32,7 +32,7 @@ Example using:
 
 ### `type(property)`
 
-Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more!
+Sometimes you have a variable, but you don't know exactly what type it is. Fortunately, Lua offers several ways of checking the type at runtime, and Core expands those with a few more.
 
 ```lua
 local number = 42
