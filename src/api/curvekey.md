@@ -40,7 +40,7 @@ Example using:
 
 ### `value`
 
-In this example, we track the position of the player and draw a line to represent their movement path. Although we only save the player's position every 0.3 seconds, we are able to draw a much smoother path thanks to the `SimpleCurve` data type. At runtime we construct three `SimpleCurves`, one for each of player's dimensions of movement: X, Y and Z. The curves are built with a small set of points, but can estimate the in-between values with the `GetValue()` function.
+In this example, we track the position of the player and draw a line to represent their movement path. Although we only save the player's position every 0.3 seconds, we are able to draw a much smoother path thanks to the `SimpleCurve` data type. At runtime we construct three `SimpleCurves`, one for each of player's dimensions of movement: X, Y, and Z. The curves are built with a small set of points, but can estimate the in-between values with the `GetValue()` function.
 
 ```lua
 local PLAYER = Game.GetLocalPlayer()
@@ -55,17 +55,17 @@ local curveX, curveY, curveZ
 
 function Tick()
     Task.Wait(TIME_PERIOD)
-    
+
     local pos = PLAYER:GetWorldPosition()
-    if lastPosition ~= pos then 
+    if lastPosition ~= pos then
         lastPosition = pos
-        
+
         table.insert(positions, pos)
-        
+
         if #positions > MAX_POINTS then
             table.remove(positions, 1)
         end
-        
+
         RebuildCurves()
     end
     DrawDebug()
@@ -75,7 +75,7 @@ function RebuildCurves()
     local keysX = {}
     local keysY = {}
     local keysZ = {}
-    
+
     local t = 0
     local key
     for i,pos in ipairs(positions) do
@@ -84,19 +84,19 @@ function RebuildCurves()
         key.time = t
         key.value = pos.x
         table.insert(keysX, key)
-        
+
         key = CurveKey.New()
         key.interpolation = CurveInterpolation.CUBIC
         key.time = t
         key.value = pos.y
         table.insert(keysY, key)
-        
+
         key = CurveKey.New()
         key.interpolation = CurveInterpolation.CUBIC
         key.time = t
         key.value = pos.z
         table.insert(keysZ, key)
-        
+
         t = t + TIME_PERIOD
     end
 
@@ -108,7 +108,7 @@ end
 function DrawDebug()
     local drawParams = {duration = TIME_PERIOD+0.1, thickness = 3}
     local prevPoint = nil
-    
+
     local t = curveX.minTime
     while t <= curveX.maxTime do
         local point = Vector3.New(
@@ -120,7 +120,7 @@ function DrawDebug()
             CoreDebug.DrawLine(prevPoint, point, drawParams)
         end
         prevPoint = point
-        
+
         t = t + DRAW_RESOLUTION
     end
 end

@@ -32,7 +32,7 @@ Example using:
 
 ### `AddActivity`
 
-The AI Activity system is a way to define multiple activities that each have `start`, `update` and `stop` functions. A priority defines which activity is active. In this example, a basic game loop with lobby, round and game over is implemented using the AI Activity component.
+The AI Activity system is a way to define multiple activities that each have `start`, `update` and `stop` functions. A priority defines which activity is active. In this example, a basic game loop with lobby, round, and game over is implemented using the AI Activity component.
 
 ```lua
 local ACTIVITY_HANDLER = script.parent
@@ -183,13 +183,13 @@ end
 
 function drivingActivityTable.tickHighestPriority(activity, deltaTime)
     UpdateKnowledge()
-    
+
     if centerHit and activity.elapsedTime > 0.5 then
         throttle = 0 -- Let go of gas
     else
         throttle = 1 -- Press the gas
     end
-    
+
     if rightHit then
         steering = -1 -- Left
 
@@ -198,7 +198,7 @@ function drivingActivityTable.tickHighestPriority(activity, deltaTime)
     else
         steering = 0 -- Don't steer
     end
-    
+
     if averageSpeed < 30 and activity.elapsedTime > 1 then
         -- Go in reverse under these conditions
         ACTIVITY_HANDLER:AddActivity("Reverse", reverseActivityTable)
@@ -212,10 +212,10 @@ end
 
 function reverseActivityTable.tickHighestPriority(activity, deltaTime)
     UpdateKnowledge()
-    
+
     throttle = -1 -- Go in reverse
     steering = 1 -- and steer to the right
-    
+
     reverseTimeRemaining = reverseTimeRemaining - deltaTime
     if reverseTimeRemaining <= 0 then
         -- Stop going in reverse

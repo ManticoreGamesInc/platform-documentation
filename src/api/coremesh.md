@@ -62,7 +62,7 @@ Example using:
 
 ### `meshAssetId`
 
-You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from!
+You can check the asset ID of a static mesh. This will be the MUID of the Core Content object it was created from.
 
 ```lua
 local cube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(1000, 0, 300) })
