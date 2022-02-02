@@ -50,7 +50,7 @@ Example using:
 
 ### `animationEvent`
 
-Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note! This event is only fired client side. The server cannot directly respond to animation events!
+Some animations have events that fire when certain parts of the animations are reached. This allows you to sync up hit effects with animations. Important note: This event is only fired client side. The server cannot directly respond to animation events.
 
 ```lua
 local propDragonMob = script:GetCustomProperty("DragonMob")
@@ -58,7 +58,7 @@ local dragonMesh = World.SpawnAsset(propDragonMob)
 
 function AnimEventListener(mesh, eventName)
     print("Animated Mesh " .. mesh.name .. " just hit event " .. eventName .. "!")
-    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player!
+    -- Normally we'd spawn a "Swipe" effect here, and possibly check if we hit a player.
 end
 
 dragonMesh.animationEvent:Connect(AnimEventListener)
@@ -118,7 +118,7 @@ You can find out most of the interesting data about an Animated Mesh at runtime,
 local propDragonMob = script:GetCustomProperty("DragonMob")
 
 -- This function prints out all of the animations, sockets, stances, and events associated
--- with an animated mesh!
+-- with an animated mesh.
 function PrintAnimatedMeshData(mesh)
     print("Animation names:")
     for _, v in ipairs(mesh:GetAnimationNames()) do

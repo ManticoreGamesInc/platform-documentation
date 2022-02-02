@@ -248,8 +248,8 @@ template2.name = "Template 2"
 template1:Destroy()
 
 -- output:
--- Template 2 has been destroyed!
--- Template 1 has been destroyed!
+-- Template 2 has been destroyed.
+-- Template 1 has been destroyed.
 
 -- You can also set the lifeSpan of objects. They will destroy themselves in
 -- that many seconds.
@@ -371,7 +371,7 @@ Task.Wait(5)
     object to always turn and face the local player.
 ]]
     local watchingCube = World.SpawnAsset(propCubeTemplate, {position = Vector3.New(500, 200, 100)})
-    watchingCube:LookAtLocalView() -- This only works in a client context!
+    watchingCube:LookAtLocalView() -- This only works in a client context.
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md)
@@ -423,7 +423,7 @@ template4.name = "child"
 -- The hierarchy should now look like this:
 --
 -- template 1
---   +-template 2      -- Note that this one is an audio object!
+--   +-template 2      -- Note that this one is an audio object.
 --       +-template 3
 --       +-template 4  -- This is also audio
 
@@ -495,7 +495,7 @@ Specifically, we've added the following custom types to our script:
 ```lua
 -- We can read from custom properties directly, if we know their name:
 -- When you add a custom property, code like this is auto-generated in the
--- inspector window, and can be easily cut-and-pasted into your script!
+-- inspector window, and can be easily cut-and-pasted into your script.
 local propBestFood = script:GetCustomProperty("BestFood")
 local propNumberOfCats = script:GetCustomProperty("NumberOfCats")
 local propFavoriteColor = script:GetCustomProperty("FavoriteColor")
@@ -546,7 +546,7 @@ Example using:
 
 ### `SetWorldScale`
 
-One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation and Position)
+One of the most common basic thing you will want to do, is move things around in the world. All CoreObjects have a Transform, which represents where they are, which direction they are facing, and what size they are. You can read or write this, either as a whole `Transform` object, or by its components. (Scale, Rotation, and Position)
 
 ```lua
 local propCubeTemplate = script:GetCustomProperty("CubeTemplate")
@@ -577,7 +577,7 @@ cube2:SetScale(cube2:GetScale() * 2)
 print("cube2 relative scale:    " .. tostring(cube2:GetScale()))      -- X=2.000 Y=2.000 Z=2.000
 print("cube2 world scale:       " .. tostring(cube2:GetWorldScale())) -- X=4.000 Y=4.000 Z=4.000
 
--- It's also possible to read and write the entire transform at once!
+-- It's also possible to read and write the entire transform at once.
 local cube3 = World.SpawnAsset(propCubeTemplate)
 local cube4 = World.SpawnAsset(propCubeTemplate)
 cube4.parent = cube1
@@ -649,7 +649,7 @@ Example using:
 
 ### `StopScale`
 
-There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects!
+There are quite a few functions that make it easy to animate `CoreObject`s in your game. Since most things are `CoreObject`s, this gives you a lot of flexibility in creating animations for a wide variety of objects.
 
 `MoveTo()`, `RotateTo()` and `ScaleTo()` are the most basic, and they allow you to change a `CoreObject`'s position, rotation, or scale over time. The base version of these functions just takes a destination position/scale/rotation, and how much time it should take to get there.
 
@@ -675,7 +675,7 @@ movingCube:MoveContinuous(Vector3.UP * -100)
 spinningCube:RotateContinuous(Rotation.New(0, 0, 20))
 shrinkingCube:ScaleContinuous(Vector3.New(0.2, 0.2, 0.2))
 
--- And here, 2 seconds later, we stop them!
+-- And here, 2 seconds later, we stop them.
 Task.Wait(2)
 movingCube:StopMove()
 spinningCube:StopRotate()
@@ -694,7 +694,7 @@ Example using:
 
 ### `GetReference`
 
-Dynamic custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to!)
+Dynamic custom properties are a special kind of custom property that can be used to communicate with client contexts. (They're actually one of the few ways that the server can send data that a client context can respond to.)
 
 To create a dynamic custom property, right click a custom property in the Core editor, and select "Enable Dynamic Property."
 
@@ -844,14 +844,14 @@ local IMAGE_TEMPLATE = script:GetCustomProperty("BlankImage")
 
 function AddModalFadeToDialog(uiDialogRoot)
     local fadeImage = World.SpawnAsset(IMAGE_TEMPLATE, {parent = uiDialogRoot.parent})
-    
+
     fadeImage:ReorderBefore(uiDialogRoot)
-    
+
     fadeImage:SetColor(Color.New(0, 0, 0, 0.5))
-    
+
     fadeImage.width = uiDialogRoot.parent.width
     fadeImage.height = uiDialogRoot.parent.height
-    
+
     fadeImage.anchor = UIPivot.TOP_LEFT
     fadeImage.dock = UIPivot.TOP_LEFT
 end
@@ -926,7 +926,7 @@ if template.isStatic then print("It is Static") end
 --    Name: GoldCube
 --    Id: E355483D7F78F3B1:GoldCube
 --    sourceTemplateId: AF4DDC200B982801
---    It is networked!
+--    It is networked.
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [World.SpawnAsset](world.md) | [CoreLua.print](coreluafunctions.md)
