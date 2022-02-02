@@ -387,7 +387,7 @@ end
 
 The `EquipWeapon` function will spawn the weapon asset using [`SpawnAsset`](../api/world.md) based on the `index` that is passed in. At the same time it will save the index to the player's storage in the `weaponIndex` property.
 
-`SetPlayeData` requires 2 arguments, the player who you are saving the data for, and the table of data to be saved.
+`SetPlayerData` requires 2 arguments, the player who you are saving the data for, and the table of data to be saved.
 
 ```lua
 local function EquipWeapon(player, index)
