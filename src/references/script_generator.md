@@ -26,32 +26,37 @@ There are two main ways to open the Script Generator window. The first method is
 
 ### The Window Layout
 
-The Script Generator window has four main sections.
+The Script Generator window has three main sections.
 
-1. The dropdown menu for the **type** of script.
-2. **Options** to change the script.
-3. Three **buttons** to perform different actions on the script.
-4. A **preview** of the script.
+1. A menu on the side to choose the **type **of script.
+2. **Input** options to change the script.
+3. The **output** code and some buttons to use the code.
 
-!!! info "Some types of script do not have options to change the script."
+!!! info "Some types of scripts do not have input options."
 
 ![!Layout](../img/ScriptGenerator/ScriptGenerator_Layout.png){: .center loading="lazy" }
 
 #### Script Generator Types
 
-The Script Generator has seven different types of scripts available. Some script types have suggested **parent objects** for the generated script to work properly.
+The Script Generator has thirteen different types of scripts available. Some script types have suggested **parent objects** for the generated script to work properly.
 
 | Script Generator Type | Description | Suggested Parent |
 | --- | --- | --- |
 | Ability | Creates functions that connect to the start of each phase for an Ability. Also has a function connecting to the Tick event of the Ability. | The Ability object. |
 | AI Activity | Creates a table of functions that defines a new AIActivity to be managed by an AIActivityHandler. | The AIActivityHandler object. |
 | Animation Names | Three examples for setting an Ability's Animation, setting a player's Animation Stance, and attaching an object to a player's Socket. | Depends on the example. |
-| Event: Binding Pressed/Released | Creates two functions that connect to the events of when an Input Binding is pressed and released. | Server context. |
 | Event: Button Clicked/Hovered/Unhovered | Creates three functions that connect to the events of a UI Button being clicked, hovered, and unhovered by the mouse. | The UIButton object. |
+| Event: Custom Property Changed | Creates a function that connects the event of a Networked object's custom property being changed. | The Networked object. |
+| Event: Input Action Pressed/Released | Creates two functions that connects the event of a player pressing or releasing a binded action. | Depends on the example. |
+| Event: Input Changed | Creates a function that connects to the event of the player changing the input (such as switching to keyboard and mouse). | Depends on the example. |
+| Event: Player Damaged/Died/Spawned | When the player joins the game, it connects three functions for taking damage, dying, and spawning event. | Server context. |
 | Event: Player Join/Leave | Creates two functions that connect to the events of a Player joining and leaving the game. | Server context. |
+| Event: Player Resource Changed | When the player joins the game, it connects a function to a resource changing event. | Server context. |
 | Event: Trigger Overlap | Creates three functions that connect to the events of a Trigger beginning an overlap, ending an overlap, and being interacted. | The Trigger object. |
+| Hook: Chat | Creates a hook function that is called when receiving a chat message from a player. | Depends on the example. |
+| Hook: Player Movement | Creates a hook function that is called when processing a player's movement. | Client context. |
 
-#### Script Generator Options
+#### Script Generator Input Options
 
 Depending on the type of script, there may be options available to change the script to a creator's preference. One example is the **Ability** script type has options to include or exclude functions that connect to certain ability events. Another example is the **Animation Names** script type has a dropdown menu to choose an animation stance for the player.
 
@@ -59,11 +64,11 @@ Depending on the type of script, there may be options available to change the sc
 
 ![!Options](../img/ScriptGenerator/ScriptGenerator_Options.png){: .center loading="lazy" }
 
-#### Script Generator Buttons
+#### Script Generator Output Code
 
-There are three buttons above the script preview.
+The output section has the generated code that creators can highlight and copy. There are also three buttons above the script preview.
 
-1. **Regenerate Output** button resets the script to its original state. This is useful if the preview code was changed and needs to be reset.
+1. **Include Comments** checkbox will toggle comments that explains parts of the generated code.
 2. **Copy to Clipboard** button copies the entire script to the clipboard. The script can be pasted using ++Ctrl+W++.
 3. **Create New Script** button creates a new script with all the preview code inside of it.
 
@@ -83,7 +88,7 @@ Open the **Core Editor** to a new blank project. Add a **Trigger** object by pre
 
 ### Create the DanceTrigger Script
 
-Open the **Window** dropdown menu and select **Script Generator** to open the Script Generator window. Set the **Script Type** to **Event: Trigger Overlap**. Then click the Create New Script button and name the script `DanceTrigger`.
+Open the **Window** dropdown menu and select **Script Generator** to open the Script Generator window. Set the **Script Type** to **Event: Trigger Overlap**. In the **Input** options, deactivate the **Interacted** checkbox. Then click the **Create New Script** button and name the script `DanceTrigger`.
 
 ![!Trigger Generator](../img/ScriptGenerator/ScriptGenerator_TriggerGenerator.png){: .center loading="lazy" }
 
@@ -120,7 +125,7 @@ player.animationStance = "unarmed_dance_basic"
 In the **Hierarchy**, right click the **DanceTrigger** script and select **Edit Script** to open the **Script Editor**. Underneath the print statement inside the `OnBeginOverlap` function, paste the copied code. In the pasted code, change the `player` variable to be named `other`.
 
 ```lua hl_lines="6"
-local trigger = script.parent
+local TRIGGER = script.parent
 
 function OnBeginOverlap(whichTrigger, other)
     if other:IsA("Player") then
@@ -132,7 +137,7 @@ end
 
 ??? "DanceTrigger"
     ```lua
-    local trigger = script.parent
+    local TRIGGER = script.parent
 
     function OnBeginOverlap(whichTrigger, other)
         if other:IsA("Player") then
@@ -147,15 +152,8 @@ end
         end
     end
 
-    function OnInteracted(whichTrigger, other)
-        if other:IsA("Player") then
-            print(whichTrigger.name .. ": Trigger Interacted " .. other.name)
-        end
-    end
-
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-    trigger.endOverlapEvent:Connect(OnEndOverlap)
-    trigger.interactedEvent:Connect(OnInteracted)
+    TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+    TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
     ```
 
 !!! info "The `player` variable needs to be changed because in the `OnBeginOverlap` function there is a parameter named `other` that is referencing the Player overlapping the Trigger."
@@ -185,7 +183,7 @@ end
 
 ??? "DanceTrigger"
     ```lua
-    local trigger = script.parent
+    local TRIGGER = script.parent
 
     function OnBeginOverlap(whichTrigger, other)
         if other:IsA("Player") then
@@ -201,15 +199,8 @@ end
         end
     end
 
-    function OnInteracted(whichTrigger, other)
-        if other:IsA("Player") then
-            print(whichTrigger.name .. ": Trigger Interacted " .. other.name)
-        end
-    end
-
-    trigger.beginOverlapEvent:Connect(OnBeginOverlap)
-    trigger.endOverlapEvent:Connect(OnEndOverlap)
-    trigger.interactedEvent:Connect(OnInteracted)
+    TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+    TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
     ```
 
 ### Test the Project
