@@ -103,7 +103,7 @@ Example using:
 
 ### `FindObjectsByName`
 
-This example counts all the spawn points in the game for teams 1, 2 and 3, then prints how many belong to each team.
+This example counts all the spawn points in the game for teams 1, 2, and 3, then prints how many belong to each team.
 
 ```lua
 local team1Count = 0
@@ -136,7 +136,7 @@ Example using:
 
 ### `FindObjectsByType`
 
-This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video! For this to work, setup the script in a Client context.
+This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video. For this to work, setup the script in a Client context.
 
 ```lua
 function OnBindingPressed(player, binding)

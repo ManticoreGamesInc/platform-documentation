@@ -58,7 +58,7 @@ Example using:
 
 ### `New`
 
-In this example we show that getting an object's rotation, position and scale individually is the same as getting the object's entire transform.
+In this example we show that getting an object's rotation, position, and scale individually is the same as getting the object's entire transform.
 
 ```lua
 local OBJ = script.parent
