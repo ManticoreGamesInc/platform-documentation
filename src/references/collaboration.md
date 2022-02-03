@@ -123,7 +123,7 @@ There are many different ways to structure a project's Git branches, but this st
 
 - **publish**: This branch gets updated when you publish the game, and not updated again until you republish. This way you can always change your project back to match the published version or compare to it to see everything that will change with the next one.
 - **main**: This is your main branch. It is the most recent but fully stable version of your game. This is the version you will publish next.
-- **feature-name branches**: Every time you or your team mates want to start working on a new feature, make a new branch for each of them, so that you can feel free to experiment with new ideas that might break your project, but without actually breaking it!
+- **feature-name branches**: Every time you or your team mates want to start working on a new feature, make a new branch for each of them, so that you can feel free to experiment with new ideas that might break your project, but without actually breaking it.
 
 #### Folders
 

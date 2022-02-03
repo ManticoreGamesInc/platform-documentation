@@ -248,7 +248,7 @@ The **Local Context** will contain all the objects that would normally be networ
 
 ### Create Group Container
 
-To keep things organised and easier to loop over, create a **Group** called `Local Damageable Objects`. This group is where you will place all the damageable objects that you want to have 0 networking.
+To keep things organized and easier to loop over, create a **Group** called `Local Damageable Objects`. This group is where you will place all the damageable objects that you want to have 0 networking.
 
 ### Create Damageable Objects
 

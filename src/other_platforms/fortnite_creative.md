@@ -33,7 +33,7 @@ One of the biggest advantages of using **Templates** is that they can be easily 
 
 ### Terrain
 
-Core has a fully editable terrain system that will allow you to sculpt and paint terrain, as well as import it from height maps. Use the **Terrain** button at the top of the Editor to generate a terrain based on some preset height maps, and then sculpt it to fit your game. Check out the [terrain tutorial](https://www.youtube.com/watch?v=KFYlOzx7wm0) video series to see it in action!
+Core has a fully editable terrain system that will allow you to sculpt and paint terrain, as well as import it from height maps. Use the **Terrain** button at the top of the Editor to generate a terrain based on some preset height maps, and then sculpt it to fit your game. Check out the [terrain tutorial](https://www.youtube.com/watch?v=KFYlOzx7wm0) video series to see it in action.
 
 ### Game Components and Devices
 
