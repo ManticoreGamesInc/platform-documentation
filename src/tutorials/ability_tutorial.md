@@ -66,7 +66,7 @@ For this tutorial, we are going to make the player wave hello.
 
     ![A trigger at 0,0,0](../img/EditorManual/Abilities/trigger000.png "This trigger is halfway into the ground."){: .center loading="lazy" }
 
-    This box you are seeing is the `PickupTrigger`, which is what allows you to pick up the equipment! When a player walks into this, they will immediately "equip" the equipment.
+    This box you are seeing is the `PickupTrigger`, which is what allows you to pick up the equipment. When a player walks into this, they will immediately "equip" the equipment.
 
 2. With the `Equipment` object selected in the **Hierarchy**, check out the **Properties** window. Scroll down to the section titled "Equipment".
 
@@ -102,19 +102,19 @@ For this tutorial, we are going to make the player wave hello.
 
     4. Right click the Art folder, and hover over **"Create Network Context..."** to select **"New Client Context Containing This"** to ensure better performance for the game by wrapping the art in a Client Context.
 
-        Now that we've created a visible object that can be picked up, it needs to do something!
+        Now that we've created a visible object that can be picked up, it needs to do something.
 
 4. Before we set up the animation to work, let's make sure everything is together. So far in this tutorial, if you have been dragging things directly into the project Hierarchy, they should all be sitting at the (0,0,0) position of the game world.
 
     Make sure everything is together in the spot you expect, and that your art model and equipment trigger are in the same location.
 
-    You might even want to drag the whole thing upwards so that the trigger rests on top of the floor rather than halfway into the floor! When you want to move the whole thing, be sure to move the root folder: the `Equipment` object.
+    You might even want to drag the whole thing upwards so that the trigger rests on top of the floor rather than halfway into the floor. When you want to move the whole thing, be sure to move the root folder: the `Equipment` object.
 
     All together, it should look something like this:
 
     ![Everything together at 0,0,0](../img/EditorManual/Abilities/trigger000withGem.png "This equipment setup is fully above the ground now."){: .center loading="lazy" }
 
-5. Now to set up the animation! Navigate back to the **Core Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
+5. Now to set up the animation. Navigate back to the **Core Content** tab and the **Gameplay Objects** section, and this time drag an **Ability Object** into your project **Hierarchy**.
 
     1. Click on the `Ability` object and drag it onto the `Equipment` object to make it a child of the `Equipment` object.
 
@@ -142,12 +142,12 @@ For this tutorial, we are going to make the player wave hello.
 
     2. Do the same thing to the Facing Mode in the **Execute** section.
 
-**Now the ability is fully useable!** When you play your game, pick up the object, and then press ++shift++, you will be able to wave hello!
+**Now the ability is fully useable!** When you play your game, pick up the object, and then press ++shift++, you will be able to wave hello.
 
 !!! info "Good Object Placement"
     If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
 
-  If you'd like to change the amount of time between when you use (also known as **Cast**) an ability, this can be altered within the `Ability` object!
+  If you'd like to change the amount of time between when you use (also known as **Cast**) an ability, this can be altered within the `Ability` object.
 
   1. In the **Properties** window for the ability object, scroll down to the section called **Cooldown**.
 
@@ -159,7 +159,7 @@ For this tutorial, we are going to make the player wave hello.
 
   Of course, it would be nice to know when the ability has been activated, and how long it will be until you can use it again display on-screen.
 
-  For this we need UI!
+  For this we need UI.
 
 ---
 
@@ -167,7 +167,7 @@ For this tutorial, we are going to make the player wave hello.
 
 A crucial part of a video game is the feedback it gives--players need to know that they're using an ability.
 
-While you can make a User Interface _(often abbreviated to UI)_ element yourself, there is a pre-made template within **Core Content** that we can use to very quickly set up simple UI for our new ability!
+While you can make a User Interface _(often abbreviated to UI)_ element yourself, there is a pre-made template within **Core Content** that we can use to very quickly set up simple UI for our new ability.
 
 When the `Ability` is in the Cooldown phase, it will darken the ability button and show the seconds remaining until the `Ability` is usable again.
 
@@ -194,7 +194,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of Core's other built-in UI icons.
 
-    In my case, I chose the "Icon hand" image!
+    In my case, I chose the "Icon hand" image.
 
     ![Hierarchy](../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center loading="lazy" }
 
@@ -213,7 +213,7 @@ Now the UI element will update automatically once the ability is cast.
 
 Abilities themselves work in multiplayer games perfectly without any extra programming effort. If you made your own ability UI icon and did not use the Core Content template above, the UI will not update properly in multiplayer games. For the UI to update as the ability happens, the UI relating to the player's abilities must be placed in a Client Context folder.
 
-This has already been done for us in the Core Content template, so no action is needed!
+This has already been done for us in the Core Content template, so no action is needed.
 
 !!! info "Client Context"
     Generally speaking, all UI related to the player should be in a Client Context folder.

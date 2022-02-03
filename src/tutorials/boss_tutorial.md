@@ -3349,7 +3349,7 @@ end)
 The above code will setup the `interactedEvent`, and also handle disconnecting the event when the trigger is destroyed.
 
 !!! info "Disconnecting Event Listeners"
-    It is a good habit to disconnect any event listener that is no longer needed to improve the performance of your game. As you game gets bigger, more and more events will likely be used, and if those event listeners are left in memory, it could cause performance issues for your game.
+    It is a good habit to disconnect any event listener that is no longer needed to improve the performance of your game. As you game gets bigger, more events will likely be used, and if those event listeners are left in memory, it could cause performance issues for your game.
 
 ### The InjectorPickupServer Script
 

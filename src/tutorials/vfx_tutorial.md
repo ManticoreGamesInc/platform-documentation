@@ -162,7 +162,7 @@ The best way to test post process effects is on an already decorated map with so
 
     In general though, **Blend Weight** is the strength of the entire effect on the scene. It is essentially a slider from *off* to *on*.
 
-    That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. While I was able to drag the slider to 15, I instead typed in a value of 100 to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this!
+    That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. While I was able to drag the slider to 15, I instead typed in a value of 100 to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this.
 
     ![Post Process Effects](../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center loading="lazy" }
 
@@ -222,7 +222,7 @@ Turning on the **Use Two Colors** option will give you a second color option, an
 
 ![Post Process Effects](../img/VFXtutorial/ppe_AOrecolor3.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
-The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire... whatever you can imagine.
+The other particularly interesting setting on the recolor post process is modifying **Blend Weight**. The lower this number is, the more intense this glow effect is. This could be used to showcase damage increasing on the player, or maybe a world on fire or whatever you can imagine.
 
 #### Lensflare Post Process
 
@@ -379,7 +379,7 @@ To start, open up a new project or whatever project you'd like to make this trea
     end
     ```
 
-    Right now all this does is print directly on our screen the message we type in. Super simple to get it going!
+    Right now all this does is print directly on our screen the message we type in. Super simple to get it going.
 
 3. So now we have the function, but in order for it to work when we press play, it needs to be connected to the *event* called **interactedEvent** of the trigger.
 
@@ -467,7 +467,7 @@ Now when walking up the crowbar, the player will automatically pick it up. But, 
 
         !!! tip
             ![The Crowbar](../img/VFXtutorial/vfx7_PickupFX.png){: .center loading="lazy" }
-            The top right of the Properties window includes a play button for testing a sound. If you turn Apply Effects on, it will take into account whatever you change about the Properties!
+            The top right of the Properties window includes a play button for testing a sound. If you turn Apply Effects on, it will take into account whatever you change about the Properties.
 
     5. Scroll up a bit in the Properties window, and set the Life Span to 2.
 
@@ -560,7 +560,7 @@ Now if we test it, everything works correctly. But it sure looks plain and that 
 
     Notice that we are destroying the trigger at this step so we don't need to worry about reinteracting with it or being prompted on-screen with "Open" still.
 
-    Test it out! Now the opening effect that we made should play when opening the chest. This helps the action to feel more intentional and rewarding as a player.
+    Now the opening effect that we made should play when opening the chest. This helps the action to feel more intentional and rewarding as a player.
 
     <div class="figure-block">
     <figure>

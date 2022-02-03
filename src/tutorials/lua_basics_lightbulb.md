@@ -12,7 +12,7 @@ tags:
 
 In this tutorial, you will learn how to take an existing template created by another community member in Core and create a script that alters the template to perform an action when a player interacts with it.
 
-Together, you will create something that brightens every room: a light switch!
+Together, you will create something that brightens every room: a light switch.
 
 When a player presses ++F++ while near the light switch, it will flip and either turn on or off the light. It will simulate an electric current to the bulb.
 
@@ -111,7 +111,7 @@ You will be using this trigger for the purposes of allowing them to interact wit
 ![Trigger Location](../img/LightBulb/image20.png){: .image-frame .center loading="lazy" }
 
 !!! hint
-    If you can't see a the trigger, press ++V++ to make it visible!
+    If you can't see a the trigger, press ++V++ to make it visible.
 
 ### Make the Trigger Interactable
 
@@ -219,10 +219,10 @@ To figure out where the switch needs to be for on/off state, you will reposition
 
 Your rotations may be different, but will most likely look like this:
 
-|  On / Off | X | Y | Z |
-| --- | --- | --- | --- |
-|  On | 0 | -60 | 0 |
-|  Off | 0 | -130 | 0 |
+| On / Off | X | Y    | Z |
+| -------- | - | ---- | - |
+| On       | 0 | -60  | 0 |
+| Off      | 0 | -130 | 0 |
 
 ## Scripting the Rotation
 
@@ -275,11 +275,11 @@ Switch:RotateTo(ROTATION_ON, TIME_ROTATE)
 
 ### Test out the Switch
 
-Let's press **Play** and see how our switch moves!
+Let's press **Play** and see how our switch moves.
 
 !["Wrong Rotation"](../img/LightBulb/image13.png "This rotation looks wrong."){: .image-frame .center loading="lazy" }
 
-Unfortunately that didn't quite work out the way you wanted...
+Unfortunately that didn't quite work out the way you wanted.
 Depending on where in the scene you placed your light switch, it might look like this image, where the switch rotated sideways instead of up.
 
 ### Change the Rotation to Local Space
@@ -296,7 +296,7 @@ Switch:RotateTo(ROTATION_ON, TIME_ROTATE, true)
 
 By adding `true` to the end of the parameters for `RotateTo()`, it moves in *local* space. If you were to enter `false` instead, or enter nothing like you did the first time, it will move in *world* space. World space is relative to nothing but the world itself, as if it was at the root of the Hierarchy.
 
-Press **Play** and test it out!
+Press **Play** and test it out.
 
 ![Switch in Correct Position](../img/LightBulb/image7.png ){: .image-frame .center loading="lazy" }
 
@@ -551,7 +551,7 @@ end
 
 Press **Play** and make sure everything still works.
 
-A light should have turned on the first time you interacted with the switch and then nothing happens in the future. Progress!
+A light should have turned on the first time you interacted with the switch and then nothing happens in the future.
 
 ### Turn the Switch Back Off
 
@@ -740,7 +740,7 @@ end
 
 ## Summary
 
-You have now learned how a script can move and interact with objects within your scene using triggers and custom properties. You have also use programming structures like variables, functions, and `if` statements. Now you can start designing and coding interactions for your own games!
+You have now learned how a script can move and interact with objects within your scene using triggers and custom properties. You have also use programming structures like variables, functions, and `if` statements. Now you can start designing and coding interactions for your own games.
 
 ### Finished Script
 
