@@ -31,5 +31,10 @@ jobs:
           cache: npm
       - run: npm install
 
-      - name: Run Tests
-        run: npm run lint
+      - name: Lint Paths
+        run: npm run lint:paths
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: "src/**/*.md"
