@@ -74,7 +74,7 @@ Our pancake still looks a little naked, so let's add a few more details.
 
 ![ModelingBasics](../img/ModelingBasics/image16.png "Modeling Screenshot"){: .center loading="lazy" }
 
-A lot of pancakes have a crispy edge to them from being fried. I used "**Ring (thin)**" scaled down in a color slightly darker than my pancake to make it look like it'd spent some time in the skillet.
+A lot of pancakes have a crispy edge to them from being fried. I used "**Ring (thin)**" scaled down in a color slightly darker than the pancake to make it look like it'd spent some time in the skillet.
 
 Time...
 
