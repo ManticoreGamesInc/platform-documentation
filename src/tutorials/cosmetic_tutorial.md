@@ -1439,7 +1439,7 @@ if item == nil then
 end
 ```
 
-Check to make sure the item is valid, if it isn't, return and do nothing.
+Check to make sure the item is valid, if it isn't, return, and do nothing.
 
 ```lua
 if not thePlayer[category] then

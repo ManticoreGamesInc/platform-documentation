@@ -44,7 +44,7 @@ Another use of Concurrent Player Storage is gifting items to friends that are on
 
 ## Concurrent Shared Player Storage
 
-[Concurrent Shared Player Storage](../references/concurrent_storage.md) allows you to save player data between different games, servers and play sessions. It is the same as **Concurrent Player Storage** except that the player data can be used in multiple games.
+[Concurrent Shared Player Storage](../references/concurrent_storage.md) allows you to save player data between different games, servers, and play sessions. It is the same as **Concurrent Player Storage** except that the player data can be used in multiple games.
 
 With the storage being shared, it means it can be used across different games. This could be used for a system to allow cross game trading between players. Imagine having an inventory that is shared between your games, players would be able to trade items from their inventory to other players even if they were playing a different game or offline.
 

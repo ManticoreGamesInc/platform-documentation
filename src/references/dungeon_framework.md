@@ -85,7 +85,7 @@ The **Castle** section holds the parts you see outside the walls, and the **Temp
 
 #### Fantasy Props
 
-On the right side of the Lobby you should see different chests, potions and candles showing off the available fantasy props. These can also be found in **Core Content** by opening the **3D Objects** fp;der. and then **Props** and **Fantasy**.
+On the right side of the Lobby you should see different chests, potions, and candles showing off the available fantasy props. These can also be found in **Core Content** by opening the **3D Objects** fp;der. and then **Props** and **Fantasy**.
 
 ### Weapons Shop and Costumes Shop
 
@@ -105,7 +105,7 @@ There are two upgrades you can afford right now, for 0 gold:
 
 ### The First Dungeon
 
-You are now ready for your first adventure! Stand on the platform in front of **Dungeon 1**, and press ++F++ to teleport inside.
+You are now ready for your first adventure. Stand on the platform in front of **Dungeon 1**, and press ++F++ to teleport inside.
 
 ![Standing on Dungeon 1 Teleporter](../img/RPG/PlaytestDungeon1Entrance.png){: .center loading="lazy" }
 
@@ -116,4 +116,4 @@ As you play the dungeon, you should notice a few things:
 - Killing enemies also gives you XP so that you can level up.
 - At the end of the dungeon, you should see a door to a boss fight.
 
-Good luck on your adventure!
+Good luck on your adventure.

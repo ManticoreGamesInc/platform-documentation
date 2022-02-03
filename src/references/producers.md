@@ -27,7 +27,7 @@ The **Producers, Buffs and Areas** Example Project can be found in the **CREATE*
 
 ### Contents of the Project
 
-The project is divided into Scenes which showcase distinct ways the Producers, Buffs and Areas systems can be used to create gameplay. To access the Scenes window, click **Window** in the top toolbar and select **Scenes**.
+The project is divided into Scenes which showcase distinct ways the Producers, Buffs, and Areas systems can be used to create gameplay. To access the Scenes window, click **Window** in the top toolbar and select **Scenes**.
 
 ![All Producers Example Scenes](../img/Producers/Producers_Scenes.png){: .center loading="lazy" }
 
@@ -56,7 +56,7 @@ It also has an example of just using a regular placed item that is not a Produce
 Every example has **Player Lots** in it. They are needed to store which items the Player has placed in the world and what state they are in. They can also be used and combined with Areas in more advanced ways.
 
 !!! hint Using Areas to Reduce Object Count
-    Areas can be used without Player Lots. They are a way to load up art when you go through a portal to a new place. For example, you could have the furniture in your castle not load until a player visits. This will greatly reduce your scene object counts!
+    Areas can be used without Player Lots. They are a way to load up art when you go through a portal to a new place. For example, you could have the furniture in your castle not load until a player visits. This will greatly reduce your scene object counts.
 
 There are several examples of different lot/area combinations in this scene. If you are wondering what loads up the objects and how to specify the templates, trying looking for **Area Object Loader** and **Player Lot Object Loader** and then check the custom properties.
 
