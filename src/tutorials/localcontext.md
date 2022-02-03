@@ -31,7 +31,7 @@ In this tutorial you will be learning the benefits of using **Local Context** fo
 
 ## Local Context vs Static Context
 
-A [**Local Context**](../references/networking.md#local-context) is very similar to a [**Static Context**](../references/networking.md#static-context). The main different between them is that the **Local Context** allows for the objects inside that context to be modified, whereas a **Static Context** will not. So this means that the objects which are inside the Local Context are spawned on the server and the client, including Lua scripts, which is the same behaviour as a static context.
+A [**Local Context**](../references/networking.md#local-context) is very similar to a [**Static Context**](../references/networking.md#static-context). The main difference between them is that the **Local Context** allows for the objects inside that context to be modified, whereas a **Static Context** will not. So this means that the objects which are inside the Local Context are spawned on the server and the client, including Lua scripts, which is the same behaviour as a static context.
 
 When testing your game, it is recommended that all testing is done in **Multiplayer Preview Mode** because of the way local contexts work, and this is closest to a published game running on a live server.
 
@@ -68,7 +68,7 @@ Create a pickup that will be added to the **Local Gems** folder. Add as many as 
 
 ### Create GemPickups Script
 
-Create a script called `GemPickups` and place it into the **Local Gems** folder. This script is responsible for making sure the player can't pickup a pickup multi times. It was also handle cross calling for the server to update the player's resource, and cross calling to the client to handle turning off the visibility and playing the effects.
+Create a script called `GemPickups` and place it into the **Local Gems** folder. This script is responsible for making sure the player can't pick up a pickup multiple times. It was also handle cross calling for the server to update the player's resource, and cross calling to the client to handle turning off the visibility and playing the effects.
 
 The reason for cross context calling, is that even with doing environment checks, it will still throw an error about accessing some API calls from the given context. So doing a cross context call will help around this issue.
 
