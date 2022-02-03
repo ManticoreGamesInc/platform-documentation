@@ -45,7 +45,7 @@ Abilities can either be assigned to players at the start of a game, or when they
 
 ## Tutorial
 
-Adding a simple ability to a game is only a couple of steps. We'll go over how to activate an animation on a button press, with no coding necessary!
+Adding a simple ability to a game is only a couple of steps. We'll go over how to activate an animation on a button press, with no coding necessary.
 
 We're going to make a piece of equipment that the player can pick up, and when they do, they will gain a new ability.
 
@@ -74,11 +74,11 @@ For this tutorial, we are going to make the player wave hello.
 
     The **Socket** property determines _where_ the equipment will be attached to the player--we want the equipment to disappear, so for simplicity we will attach it somewhere that it will be hidden by the player's body.
 
-    Doing these first two steps will already let you pick up the `Equipment` when playing the game and walking through it--but it is hard to pick up something you can't see!
+    Doing these first two steps will already let you pick up the `Equipment` when playing the game and walking through it--but it is hard to pick up something you can't see.
 
 3. To make this a more usable power-up object, let's add a model to it that players can see.
 
-    You can choose whatever you would like and would fit your game, but in my case I am going to use a classic gem.
+    You can choose whatever you would like and would fit your game, but in this case I am going to use a classic gem.
 
     1. In the **Core Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
@@ -145,7 +145,7 @@ For this tutorial, we are going to make the player wave hello.
 **Now the ability is fully useable!** When you play your game, pick up the object, and then press ++shift++, you will be able to wave hello.
 
 !!! info "Good Object Placement"
-    If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground! Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
+    If you haven't moved your `Equipment` object at all so far, your gem may be clipping into the ground. Feel free to move the whole `Equipment` object upwards to make it both easier to see and simpler to pick up.
 
   If you'd like to change the amount of time between when you use (also known as **Cast**) an ability, this can be altered within the `Ability` object.
 
@@ -194,7 +194,7 @@ To get this to work correctly with the `Ability` we made above, there are only a
 
     Select the **Icon** object, and from within the **Properties** window, double-click the **Image** property to choose from all of Core's other built-in UI icons.
 
-    In my case, I chose the "Icon hand" image.
+    In this case, I chose the "Icon hand" image.
 
     ![Hierarchy](../img/EditorManual/Abilities/ComponentHierarchy.png "Hierarchy"){: .center loading="lazy" }
 

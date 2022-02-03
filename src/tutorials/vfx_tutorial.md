@@ -432,7 +432,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
     Now when a player walks over it, they will instantly grab it, rather than have to press ++F++ first.
 
-5. We can use whatever art we want in this object, so instead of a coin pouch let's try... a crowbar. For prying that chest open with.
+5. We can use whatever art we want in this object, so instead of a coin pouch let's try a crowbar. For prying that chest open with.
 
     Beneath that trigger, there is a *ClientContext* folder. Within this folder are all the objects that make up the visual component of the Loot Bag. Don't delete the whole folder, but delete all of these contents so that we can start fresh.
 
@@ -446,7 +446,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 7. The only other important thing we'll want to change is on the **root folder** of the Loot Bag object.
 
-    One of the custom properties is called "ResourceName". Be default it is "Gold" and therefore that's what resource is given to the player when they pick it up. We want this to be a crowbar... so let's just call it `Crowbar`!
+    One of the custom properties is called "ResourceName". Be default it is "Gold" and therefore that's what resource is given to the player when they pick it up. We want this to be a crowbar, so let's just call it `Crowbar`!
 
     !!! tip
         Make sure to pay attention to your casing of a resource. The resource "Crowbar" is completely different from "crowbar".

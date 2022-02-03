@@ -67,7 +67,7 @@ Damageable objects from Core Content will not do anything when you play the game
 
 ### Test the Game
 
-Test the game by picking up the **Advanced Assault Rifle** and shooting the damageable objects. You will see they will be destroyed, and when they are destroyed, audio and effects are played.
+Test the game by picking up the **Advanced Assault Rifle** and shooting the damageable objects. You will see they will be destroyed, and when they are destroyed, audio, and effects are played.
 
 Notice the **Damageable Sandbag** object can have the individual sandbags destroyed.
 

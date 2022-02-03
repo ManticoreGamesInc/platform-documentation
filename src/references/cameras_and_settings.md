@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-**Cameras** capture and display the world, they are the eye for players, and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (that is security camera), capture and render to UI, or simply be the eye for the player when looking down their gun.
+**Cameras** capture and display the world, they are the eye for players, and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (that is security camera), capture, and render to UI, or simply be the eye for the player when looking down their gun.
 
 When a new project is created, **Core** will automatically add a **Third Person Camera** to the **Hierarchy** under **Game Settings**. This will be the default camera which can be modified, or removed.
 

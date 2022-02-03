@@ -113,7 +113,7 @@ That's also the view users will get when playing a game locally, since the game 
 
 ## Underlying Threaded Architecture and how it relates to the Profiler View
 
-**Game Thread Time (CPU):** All the processing logic in the main game loop happens on this thread, including animation, physics, scripts, transforms and UI updates among other things. The time shown reflects the time taken by the current frame to perform all these activities.
+**Game Thread Time (CPU):** All the processing logic in the main game loop happens on this thread, including animation, physics, scripts, transforms, and UI updates among other things. The time shown reflects the time taken by the current frame to perform all these activities.
 
 **Render Thread Time (CPU):** This thread is responsible for mainly figuring out what needs to be rendered, and setting up things that will be needed by the renderer before enqueueing these render commands into the renderer"s command list. The time shown essentially reflects this along with the time taken to move data from the CPU to the GPU.
 

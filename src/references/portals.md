@@ -8,7 +8,7 @@ tags:
 
 # Portals
 
-The design of Core allows for fast travel between any Core game, allowing players to jump through the Metaverse! Portals allow players to connect interconnected games, as well as build hubs for their own game portfolios, or to build a social space that connects to the Core Game queues, like Active and Featured.
+The design of Core allows for fast travel between any Core game, allowing players to jump through the Metaverse. Portals allow players to connect interconnected games, as well as build hubs for their own game portfolios, or to build a social space that connects to the Core Game queues, like Active and Featured.
 
 ## Creating Portals to Other Games
 
