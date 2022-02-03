@@ -40,7 +40,7 @@ Currently, there are **5 different sections** that contain models to use right a
 
 These larger categories can be found by clicking the little drop down arrow on the left side of the 3D Objects button label. Each of these categories also have subcategories, that can be opened the same way:
 
-To use any of these models, click and drag one out from the Core Content tab into the **Main Viewport** or the **Hierarchy**.
+To use any of these models, click, and drag one out from the Core Content tab into the **Main Viewport** or the **Hierarchy**.
 
 <div class="mt-video">
     <video autoplay loop muted playsinline poster="/img/EditorManual/Abilities/Gem.png">

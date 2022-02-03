@@ -130,8 +130,8 @@ By default, playback will be networked to all clients. If an Audio object is sim
 - Size matters; Generally smaller objects are higher in pitch than ones that are much larger. Same goes for volume. A smaller insect will make less sound than a giant one for example. Also think about the size of the map. If things such as explosions or gunshots need to be heard across the entirety of the map, adjust the falloff and radius values of your sounds accordingly.
 - Audio is meant to compliment the visuals and in-game elements on-screen and help immerse players into your game. Pay attention to visual and world elements as they could potentially be things you"d want to implement sound for.
 - Know when to enable or disable 3D sound; Is it background music? Is it background nature ambience? Is it emitting from an object inside your 3D world? Make sure to adjust spatialization, attenuation and radius values accordingly.
-- Knobs, parameters, values, oh my! Have fun and experiment. There are more than enough audio properties creators can change to create a wide variety of soundscapes in Core.
-- Layering! This is an essential part of sound design where combining different sounds can yield interesting results. As mentioned before, think about complementing the visuals; If there is a lightning sword, perhaps having a layer **Electric Spark Short 01 SFX** on top of a **Sword Swing Swipe 01 SFX** sound.
+- Knobs, parameters, values and more. Have fun and experiment. There are more than enough audio properties creators can change to create a wide variety of soundscapes in Core.
+- Layering. This is an essential part of sound design where combining different sounds can yield interesting results. As mentioned before, think about complementing the visuals; If there is a lightning sword, perhaps having a layer **Electric Spark Short 01 SFX** on top of a **Sword Swing Swipe 01 SFX** sound.
 
 ## Audio with Special "Smart Property" parameters
 
@@ -150,7 +150,7 @@ Others will have very specific parameters that pertain to that asset in particul
 
 ![Music Section Properties](../img/Audio/MusicSectionsProperties.png "image_tooltip"){: .center loading="lazy" }
 
-In this example of the **Gunshot Sniper Rifle Set 01 SFX** asset. The tooltips will help creators better understand what these parameters do. It's always a good idea to try things out to find what works best for your game!
+In this example of the **Gunshot Sniper Rifle Set 01 SFX** asset. The tooltips will help creators better understand what these parameters do. It's always a good idea to try things out to find what works best for your game.
 
 The **Extend Resonance** option will ensure that each gunshot will fully resonate instead of being cut off early. This may be useful for larger-scale open world maps when sniper rifle shots should ring out at far distances.
 
@@ -192,7 +192,7 @@ There are plenty of audio assets with powerful customizable properties to suit a
 - Background Music (BGM)
 - Music Stingers
 
-**Player Sounds** - Sounds that relate to the player movement, impacts and voices
+**Player Sounds** - Sounds that relate to the player movement, impacts, and voices
 
 - Body Impacts
 - Clothing and Gear
@@ -239,7 +239,7 @@ There are plenty of audio assets with powerful customizable properties to suit a
 
 ## Background Music and Music Stingers
 
-Let's talk music! With Core, you will be happy to find a wide variety of background music (BGM) tracks of all styles, moods, genres and instrumentation to choose from. We'll always be adding more music tracks through future updates and releases.
+With Core, you will be happy to find a wide variety of background music (BGM) tracks of all styles, moods, genres, and instrumentation to choose from. We'll always be adding more music tracks through future updates and releases.
 
 Music assets are the same as any other audio assets with the same properties, but music assets are utilized in a vastly different way than most sound effects are used in game creation.
 
@@ -247,9 +247,9 @@ You will find that our music assets are broadly categorized by well-known music 
 
 **Action** - Music for adrenaline pumping sequences. These music tracks generally take elements from other styles but primarily cater to more intense game scenarios.
 
-**Ambient** - Ethereal and drone-like soundscapes that fill the air with a musical atmosphere. These can either be dark, neutral or positive.
+**Ambient** - Ethereal and drone-like soundscapes that fill the air with a musical atmosphere. These can either be dark, neutral, or positive.
 
-**Casual & Fun** - Anything fun and upbeat! Music that pairs nicely with casual games. Some tracks in this category may be ideal for "cute' looking games, casual puzzle games or building games.
+**Casual & Fun** - Anything fun and upbeat. Music that pairs nicely with casual games. Some tracks in this category may be ideal for "cute' looking games, casual puzzle games or building games.
 
 **Cinematic** - Music that you will probably hear watching an epic blockbuster or a tear-jerking drama film. Ideal for games that have strong cinematic or narrative elements when looking to express strong emotions in your game.
 
@@ -257,17 +257,17 @@ You will find that our music assets are broadly categorized by well-known music 
 
 **Country & Western** - Mostly guitar heavy music with a country twang. Great for anything with a country or western vibe.
 
-**Electronic** - Anything and everything with heavy electronic synth and drum elements. This genre encompasses a wide variety of electronic music subgenres as well such as dubstep, breakbeat, liquid bass, techno, synthwave and much more!
+**Electronic** - Anything and everything with heavy electronic synth and drum elements. This genre encompasses a wide variety of electronic music subgenres as well such as dubstep, breakbeat, liquid bass, techno, synthwave, and much more.
 
 **Fantasy** - Epic and lush high fantasy music that work for all and any fantasy game scenarios.
 
-**Hip-Hop** - Music that bumps! There are many sub-genres of hip-hop here including trap, lo-fi, chill and more!
+**Hip-Hop** - Music that bumps. There are many sub-genres of hip-hop here including trap, lo-fi, chill, and more.
 
-**Horror & Dark** - Music that will bring horror, fear and uneasiness to your games. Great for jump scares, horror scenes, disturbing atmospheres and dark mods.
+**Horror & Dark** - Music that will bring horror, fear, and uneasiness to your games. Great for jump scares, horror scenes, disturbing atmospheres, and dark mods.
 
 **Lounge & Jazz** - Music to lounge around to. You will find various jazz subgenres and general chill lounge music here.
 
-**Rock** - Music driven by distorted/overdriven guitars and heavy hitting drums. You will find various sub-genres of rock here such as Metal, classic rock, punk rock and more!
+**Rock** - Music driven by distorted/overdriven guitars and heavy hitting drums. You will find various sub-genres of rock here such as Metal, classic rock, punk rock and more.
 
 **World** - Music from various cultures and nationalities all over the world, both ancient and modern.
 
@@ -303,7 +303,7 @@ It is best to utilize music with Enable Spatialization disabled so that it can b
     - Using the radius and falloff zones without spatialization; Disable spatialization and enable attenuation to easily fade in a music track that will be heard in stereo (left and right speakers) where players should hear it. Creators will have to adjust radius and falloff accordingly as needed.
     - By trigger zone script; Script a trigger zone that will call `Play()` and `Stop()` as needed when a player enters and leaves the zone. Setting a Fade In or Fade Out time makes this a bit more seamless if there are several music tracks being triggered on and off concurrently. Please read the [Lua API documentation](../api/audio.md) for more scripting details.
 
-- Experiment with pitch! Sometimes slightly changing the pitch of a music track can result in vastly changing the overall mood and feel of a music track. Creators could also try taking any two same music tracks and slightly adjusting the pitch up or down to make it sound creepy and unnerving.
+- Experiment with pitch. Sometimes slightly changing the pitch of a music track can result in vastly changing the overall mood and feel of a music track. Creators could also try taking any two same music tracks and slightly adjusting the pitch up or down to make it sound creepy and unnerving.
 
 ## Learn More
 
