@@ -46,7 +46,7 @@ Variables can be used to keep track of number values, but numbers are only one o
 
 #### Strings
 
-**Strings** are any collection of numbers, letters and punctuation. They need to be written in double quotes (`" "`) so that the computer does not mistake them for code.
+**Strings** are any collection of numbers, letters, and punctuation. They need to be written in double quotes (`" "`) so that the computer does not mistake them for code.
 
 ```lua
 local myId = "123456789:Tiger"

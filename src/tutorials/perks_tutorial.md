@@ -159,7 +159,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 - Set the **Perk Name** to `Coins`.
 - Set the **Perk Type** to **Repeatable**.
-- Set the **Price** to anything between 10 - 8000.
+- Set the **Price** to anything between 10 and 8000.
 
 ![!Coins Perk](../img/PerksTutorial/resource_shop_coins_perk.png){: .center loading="lazy" }
 
@@ -167,7 +167,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 - Set the **Perk Name** to `XP Potion`
 - Set the **Perk Type** to **Repeatable**.
-- Set the **Price** to anything between 10 - 8000.
+- Set the **Price** to anything between 10 and 8000.
 
 ![!XP Potion Perk](../img/PerksTutorial/resource_shop_xp_perk.png){: .center loading="lazy" }
 
@@ -175,7 +175,7 @@ All the perks in the resource shop will be repeatable so players can buy multipl
 
 - Set the **Perk Name** to `Gems`
 - Set the **Perk Type** to **Repeatable**.
-- Set the **Price** to anything between 10 - 8000.
+- Set the **Price** to anything between 10 and 8000.
 
 ![!Gems Perk](../img/PerksTutorial/resource_shop_gems_perk.png){: .center loading="lazy" }
 
