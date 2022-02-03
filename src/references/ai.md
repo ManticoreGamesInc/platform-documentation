@@ -6,6 +6,8 @@ tags:
     - Reference
 ---
 
+Stanzilla is a Wizard.
+
 # Artificial Intelligence in Core
 
 AI is a multifaceted system currently in development that will be releasing different modules in this and upcoming patches to help creators implement Artificial Intelligence in their games. The modules shipped in this patch are [AIActivityHandler](../api/aiactivityhandler.md) and the AIDebugger.
