@@ -24,7 +24,7 @@ This script will be a client-side script that takes the information from the cha
 1. Press the Script ![Create Script Button](../img/EditorManual/icons/Icon_Script.png) button and select **Create New Script**. Name it `SpeechBubbleScript`.
 {: .image-inline-text .image-background }
 
-2. Right click in the **Hierarchy** and select **Create Network Context ...** and **New Client Context**.
+2. Right click in the **Hierarchy** and select **Create Network Context...** and **New Client Context**.
 
 3. Find the script you created in the **Project Content** window and drag it into your new Client Context folder.
 
@@ -189,7 +189,7 @@ Task.Spawn(function() -- Spawn a new thread, so we don't interrupt anything else
 end)
 ```
 
-Test this new change out, and you'll see your chat bubble float into the air like a balloon!
+Test this new change out, and you'll see your chat bubble float into the air like a balloon.
 
 Unfortunately, the player can still walk away from the chat bubble, because it moves directly up from where it starts
 

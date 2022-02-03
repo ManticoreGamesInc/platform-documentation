@@ -306,7 +306,7 @@ Test the command in multiplayer preview mode.
 
 ### Kick
 
-Being able to kick a player from a server for being a nuisance is a good command for moderators to have. This command will be basic and just kick the player to Core World. They have the ability to rejoin, so as a challenge, try and improve on the command by auto kicking them when they rejoin within a certain time frame. This could done by storing a future timestamps and when a player joins, check if the current time is less that the future time. This could be a good way to have a cooling off period of that player.
+Being able to kick a player from a server for being a nuisance is a good command for moderators to have. This command will be basic and just kick the player to Core World. They have the ability to rejoin, so as a challenge, try, and improve on the command by auto kicking them when they rejoin within a certain time frame. This could done by storing a future timestamps and when a player joins, check if the current time is less that the future time. This could be a good way to have a cooling off period of that player.
 
 An additional sub command to kick all players on the server apart from the sender could be good as well. This would allow you to kick all the players and possibly close the server from accepting players so you can do some testing.
 

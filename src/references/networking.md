@@ -117,7 +117,7 @@ Things you would usually place in a client context include:
 
 A **Server Context** is another a special kind of folder that you can create, by right-clicking in the **Hierarchy**, and selecting **Create Network Context** and **Server Context**.
 
-Anything under a server context only exists on the server. It is never sent to the client at all. Normally, all scripts are downloaded by the client, even if they are not run, for compatibility reasons. Any scripts that are placed inside of a server context (and exist nowhere else in the Hierarchy) are not downloaded. This makes server contexts extremely useful to anyone who wants to keep their game logic safe from the prying eyes of players!
+Anything under a server context only exists on the server. It is never sent to the client at all. Normally, all scripts are downloaded by the client, even if they are not run, for compatibility reasons. Any scripts that are placed inside of a server context (and exist nowhere else in the Hierarchy) are not downloaded. This makes server contexts extremely useful to anyone who wants to keep their game logic safe from the prying eyes of players.
 
 Any geometry inside of a server context is automatically non-collidable, so players cannot stand on it or target it.
 

@@ -56,7 +56,7 @@ The **Game Publishing Settings** window has a **Scenes** drop down where you can
 
 ## Success
 
-Your game is now live! Visit your game's page in the Core **Games** tab to try it out online.
+Your game is now live. Visit your game's page in the Core **Games** tab to try it out online.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 

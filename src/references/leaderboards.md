@@ -107,7 +107,7 @@ end
 
 ### Displaying Leaderboard Entries
 
-Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](../api/leaderboardentry.md) which have name, id, score and additionalData properties that can be used to display the data.
+Leaderboards can be access by NetRef from client-side scripts, making it easy to show entries through UI Text Box and World Text. The Leaderboards **GetLeaderboard** method returns a table of [**LeaderboardEntry** objects](../api/leaderboardentry.md) which have name, id, score, and additionalData properties that can be used to display the data.
 
 You can create a text asset that is spawned for each Leaderboard entry, or create a group of texts ahead of time for the total number of entries, and update their `text` property.
 

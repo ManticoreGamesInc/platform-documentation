@@ -17,7 +17,7 @@ Core is a complete game development, publishing, and multiplayer hosting platfor
 This documentation has a collection of introductions intended to specifically orient creators coming from game engines, like [Unity](unity.md), and other User Generated Content platforms, like [Roblox](roblox.md) and [Fortnite](fortnite_creative.md).
 
 !!! note
-    If you have experience from an engine or platform that is not included here you can submit a pull request or create an issue on the [Core Documentation GitHub](https://github.com/ManticoreGamesInc/platform-documentation) to share your knowledge!
+    If you have experience from an engine or platform that is not included here you can submit a pull request or create an issue on the [Core Documentation GitHub](https://github.com/ManticoreGamesInc/platform-documentation) to share your knowledge.
 
 ### Collaboration
 

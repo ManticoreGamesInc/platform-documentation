@@ -122,7 +122,7 @@ Each game event created will have a **Game Event Id** that can be copied and add
 
 ## Game Events API
 
-The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts to retrieve information about events. Information such as event name, description, amount of players registered, start and end dates are available.
+The [CoreGameEvent](../api/coregameevent.md) API can be accessed from Lua scripts to retrieve information about events. Information such as event name, description, amount of players registered, start, and end dates are available.
 
 ### Countdown Timer
 
