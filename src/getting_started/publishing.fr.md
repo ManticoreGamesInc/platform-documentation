@@ -46,7 +46,7 @@ Une bonne description est capitale pour aider les joueurs à trouver votre jeu e
 
 ## Félicitations
 
-Votre jeu est désormais accessible! Consultez la page de votre jeu dans l'onglet **Games** de Core pour l'essayer en ligne.
+Votre jeu est désormais accessible. Consultez la page de votre jeu dans l'onglet **Games** de Core pour l'essayer en ligne.
 
 ![GamePage](../img/MyFirstMultiplayer/GamePage.jpg){: .center loading="lazy" }
 

@@ -17,7 +17,7 @@ Bienvenue dans la documentation officielle de Core, l'outil de création de jeux
 - **Collaboration avec la communauté**: Renforcez votre création avec des objets, des scripts et des jeux partagés par d'autres créateurs Core.
 - **Les outils dont vous avez besoin**: effets visuels, audio, matériaux, textures, skyboxes, création de terrain, heightmaps, scripts et une longue liste de fonctionnalités en préparation.
 
-### Prêt à commencer? [Créez votre premier jeu!](my_first_multiplayer_game.fr.md)
+### Prêt à commencer? [Créez votre premier jeu](my_first_multiplayer_game.fr.md)
 
 ### Organisation de la documentation
 
