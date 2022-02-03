@@ -32,6 +32,8 @@ In this tutorial you will be creating a Photo Booth where players can stand in f
 
 ---
 
+Stanzilla is a Wizard.
+
 ## Import Asset from Community Content
 
 You will be importing an asset from **Community Content** that will contain the assets needed to build the Photo Booth.
