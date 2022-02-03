@@ -1,0 +1,18 @@
+extends: existence
+message: "Avoid first-person pronouns such as '%s'."
+ignorecase: true
+level: warning
+tokens:
+  - 'my \w+'
+  - (?:^|\s)I\s
+  - (?:^|\s)I,\s
+  - \bI'm\b
+  - \bmine\b
+exceptions:
+  - My Templates
+  - My Scripts
+  - My PERKS
+  - My Room
+  - My Shared Content
+  - My Games
+  - My Documents
