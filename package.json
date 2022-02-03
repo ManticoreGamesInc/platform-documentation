@@ -20,7 +20,8 @@
         "build": "mkdocs build",
         "lint:md": "markdownlint src/",
         "lint:paths": "path-linter --config path-linter.json --colorize",
-        "lint": "npm run lint:md && npm run lint:paths",
+        "lint:prose": "vale src",
+        "lint": "npm run lint:md && npm run lint:paths && npm run lint:prose",
         "update_dump": "python update"
     },
     "repository": {
