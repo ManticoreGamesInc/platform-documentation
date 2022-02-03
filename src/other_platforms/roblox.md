@@ -49,7 +49,7 @@ Core has a similar distinction between server and client scripts, and they have 
 
 Models in Core are not stored on servers, but are actually part of the local installation of the Core Launcher and Editor. What this means is that all the game assets, models, and audio, are built out of the pieces that come with Core by kitbashing, and you cannot import them from outside sources.
 
-Assets made by kitbashing can be packaged, with or without scripted functionality, as **templates**. These can be published privately to easily pass between your own projects, or publicly to allow other developers to use them.
+Assets made by kitbashing can be packaged, with, or without scripted functionality, as **templates**. These can be published privately to easily pass between your own projects, or publicly to allow other developers to use them.
 
 These shared templates are available in **Community Content**, and showcase creators pushing the boundaries of what is possible in Core.
 

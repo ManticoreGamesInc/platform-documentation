@@ -26,7 +26,7 @@ myImport.Foo()
 
 - No whitespace at end of lines
 - No vertical alignment
-- Spell out words fully! Abbreviations generally make code easier to write, but harder to read.
+- Spell out words fully. Abbreviations generally make code easier to write, but harder to read.
 
 ### Casing
 

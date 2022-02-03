@@ -76,15 +76,15 @@ Our pancake still looks a little naked, so let's add a few more details.
 
 A lot of pancakes have a crispy edge to them from being fried. I used "**Ring (thin)**" scaled down in a color slightly darker than the pancake to make it look like it'd spent some time in the skillet.
 
-Time...
+Time
 
 ![ModelingBasics](../img/ModelingBasics/image12.png "Modeling Screenshot"){: .center loading="lazy" }
 
-...to...
+to
 
 ![ModelingBasics](../img/ModelingBasics/image13.png "Modeling Screenshot"){: .center loading="lazy" }
 
-...stack.
+stack.
 
 Copy and paste the "**Chamfered Cylinder and Ring (thin)**". Resize your new pancake and set it slightly off-center. Perfectly stacked pancakes would look unnatural. Repeat until desired stack height is reached.
 

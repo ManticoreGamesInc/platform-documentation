@@ -112,7 +112,7 @@ Les Perks existent à plusieurs niveaux qui vous permettent de contrôler leur a
 ## Perks inactifs
 
 !!! warning
-    Les Perks doivent être publiés comme **inactifs** avant d'être activés!
+    Les Perks doivent être publiés comme **inactifs** avant d'être activés.
 
 Lorsqu'un Perk est créé, il est considéré comme **inactif**. Les Perks doivent être associés à un projet avant d'être activés et, pour cela, ils doivent être publiés à l'état inactif.
 
