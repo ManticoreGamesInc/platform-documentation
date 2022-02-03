@@ -28,7 +28,7 @@ There are two main ways to open the Script Generator window. The first method is
 
 The Script Generator window has three main sections.
 
-1. A menu on the side to choose the **type **of script.
+1. A menu on the side to choose the **type**of script.
 2. **Input** options to change the script.
 3. The **output** code and some buttons to use the code.
 
