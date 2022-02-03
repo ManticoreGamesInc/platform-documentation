@@ -8,10 +8,10 @@ tags:
 
 # Merged Models
 
-> Improve your game's performance by reducing the total number of non-networked objects!
+> Improve your game's performance by reducing the total number of non-networked objects.
 
 !!! warning
-    Merged models are a new feature that almost always improve game performance, but  there are even more improvements and refinements to this process coming in the future!
+    Merged models are a new feature that almost always improve game performance, but  there are even more improvements and refinements to this process coming in the future.
 
 ## Overview
 
@@ -19,7 +19,7 @@ tags:
 
 ## How Merged Models Improve Performance
 
-<!-- A game's framerate (FPS) is determined by whichever of three threads takes the longest: the game thread, the rendering thread, and the graphics. In almost all Core games, the **rendering thread** is slowest, and responsible for taking game data and sending it to the graphics processor. -->
+<!-- TODO: A game's framerate (FPS) is determined by whichever of three threads takes the longest: the game thread, the rendering thread, and the graphics. In almost all Core games, the **rendering thread** is slowest, and responsible for taking game data and sending it to the graphics processor. -->
 
 Merged models allow Core to run a process when your game first loads to simplify a Merged Model into just the sides that a player might collide with and sends that data to the server.
 

@@ -112,7 +112,7 @@ Perks exist in several different states that allow you to control whether player
 ### Inactive Perks
 
 !!! warning
-    Perks must be published as **inactive** before they are activated!
+    Perks must be published as **inactive** before they are activated.
 
 When perks are created they start out as **inactive**. Perks need to be associated with a project before they are activated, and to do that they must be published in an inactive state.
 

@@ -90,10 +90,10 @@ There are also a number of videos currently available on the [CoreGames YouTube 
 ### Example: Building a Bustling Town with Virtually No Scripting
 
 One example of how you can use Community Content is for creating an area full of NPCs that can be interacted with or are just going about their business. There are two components of Community Content that can allow you to build this:
-
+<!-- vale Google.Spelling = NO -->
 - **Choreographer by Chris** allows you to drag scripts into folders to create sequences of animations that can loop and trigger events.
 - **Dialogue System with NPCs by Hani** created for the CoreHaven game by ManticoreGames, this robust dialog system will allow you to create dialogs with animations and attach them to NPCs. Find the script called **DialogsLibrary_Conversations** to follow the format of the example conversation and build your own.
-
+<!-- vale Google.Spelling = YES -->
 ### Other Key Community Content
 
 - The **NPC AI Kit by standardcombo** is the most downloaded Community Content template, and the most popular way of creating enemy NPCs which can spawn when players are nearby, pursue players across NavMesh areas defined by visible plains, and take and give damage in combat.

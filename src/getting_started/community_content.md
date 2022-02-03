@@ -52,7 +52,7 @@ You can click this, or the name of the template in the Core Content navigation t
 
 ### Use Imported Content
 
-To use the template in your project, click and drag the green template icon into the **Main Viewport** or the project **Hierarchy**. This will automatically add it to the **Project Content** window.
+To use the template in your project, click, and drag the green template icon into the **Main Viewport** or the project **Hierarchy**. This will automatically add it to the **Project Content** window.
 
 ![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center loading="lazy" }
 
