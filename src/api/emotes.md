@@ -12,7 +12,8 @@ tags:
 Player emotes are the animations like dances and gestures that players are able to start at will through the **EMOTES** menu, usually by pressing ++B++ or the middle mouse button. Creators can find out what emote a player is currently playing through the `activeEmote` property and the `emoteStartedEvent` and `emoteStoppedEvent` on the player. See the [Player type](../api/player.md) for more information.
 
 Not all players have access to all emotes, but can purchase them through the Shop and unlock them through quests. The list below shows all the possible emotes that are currently available on Core.
-
+<!-- vale Google.Exclamation = NO -->
+<!-- vale Manticore.FirstPerson = NO -->
 | Display Name            | String                               | Description
 | ----------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | Basic ArmSwing          | `emote_dance_basic_arm_swing`        | A very simple loop of an arm swinging dance.                                                          |
@@ -72,3 +73,5 @@ Not all players have access to all emotes, but can purchase them through the Sho
 | Waiting…                | `emote_waiting`                      | An animation that expresses impatience with a tapping foot.                                           |
 | Yep                     | `emote_yes`                          | An animation responding to a question with an affirmation.                                            |
 | You're Dead             | `emote_you_are_dead`                 | An animation expressing the intent to get revenge.                                                    |
+<!-- vale Google.Exclamation = YES -->
+<!-- vale Manticore.FirstPerson = YES -->
