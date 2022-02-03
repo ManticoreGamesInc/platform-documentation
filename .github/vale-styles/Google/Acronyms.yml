@@ -64,3 +64,26 @@ exceptions:
   - ZIP
   - NEW
   - ROOT
+  - VFX
+  - SFX
+  - VIP
+  - PERKS
+  - GAME
+  - ITEM
+  - STILL
+  - SOLID
+  - MOVE
+  - MAST
+  - SOUND
+  - ITEMS
+  - CORE
+  - DAU
+  - RSVP
+  - RPG
+  - MESH
+  - CTF
+  - DATA
+  - NPC
+  - ADMIN
+  - RTS
+  - META

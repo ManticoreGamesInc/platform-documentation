@@ -39,7 +39,7 @@ The **TERRAIN CREATOR** drop down menu contains two options, **Generate New Terr
 
 The **GENERATE NEW TERRAIN** window contains settings that are used to manipulate how the terrain will be generated.
 
-The left side of the **GENERATE NEW TERRAIN** window  contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General** and **Parameters**.
+The left side of the **GENERATE NEW TERRAIN** window contains list of different terrain types. The center of the **GENERATE NEW TERRAIN** window contains two sections, **General**, and **Parameters**.
 
 ![Terrain Generator](../img/TerrainReference/TerrainGeneratorWindow.png){: .center loading="lazy" }
 

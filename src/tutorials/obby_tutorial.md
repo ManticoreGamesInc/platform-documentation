@@ -43,7 +43,7 @@ Select the **Starting Platform** in the Hierarchy and duplicate it using the ++C
 
 ### Create a Moving Platform
 
-Open the Core Content window and search for `cube` to find a **Cube** object and place it into the scene. In the Hierarchy, rename the cube to `Moving Platform`. In the scene, position and resize the cube to be in the desired starting state.
+Open the Core Content window and search for `cube` to find a **Cube** object and place it into the scene. In the Hierarchy, rename the cube to `Moving Platform`. In the scene, position, and resize the cube to be in the desired starting state.
 
 ![!Moving Platform](../img/Obby/Obby_MovingPlatform.png){: .center loading="lazy" }
 

@@ -24,7 +24,7 @@ An introduction to the basics of placing and remixing objects.
 
 ## Tutorial
 
-This tutorial will cover how to place and move images in a scene as well as how to customize objects to your liking. Share your decorated room on our Discord's #showcase channel!
+This tutorial will cover how to place and move images in a scene as well as how to customize objects to your liking. Share your decorated room on our Discord's #showcase channel.
 
 ### Downloading the Template
 
@@ -136,7 +136,7 @@ If you would like to edit your materials more, check out [Custom Materials](../r
 
 ### Decorate
 
-1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **Core Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own!
+1. Check out the other furniture included with the **My Room** template and furnish the rest of the room. You can also find more room props in the **Core Content** tab > **Props** > **Urban** > **Interior**. Search **Community Content** to find furnishings from other creators or make and upload your own.
 2. Take a screenshot of your room and post it on the `#showcase` channel in Core's :fontawesome-brands-discord: [Creator Discord](https://forums.coregames.com/t/discord-server/66/).
 
 ![!SceneCreation](../img/SceneCreation/image2.png "image_tooltip"){: .center loading="lazy" }

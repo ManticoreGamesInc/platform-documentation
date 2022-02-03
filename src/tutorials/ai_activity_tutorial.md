@@ -102,7 +102,7 @@ For convenience, an activity code snipping has been provided in the **Script Gen
 4. Click the **Copy To Clipboard** button.
 5. In your `AI_TicTacToe` script, paste the new snippet.
 
-In the context of TicTacToe, the only thing Idle needs to do is... wait your turn.
+In the context of TicTacToe, the only thing Idle needs to do is wait your turn.
 
 !!! note
     The code snippet contains a stubbed implementation for each of the four methods of the AI Activity class, as members of a `local IdleActivity = {}` Lua table.
@@ -214,7 +214,7 @@ if isPlayerTurn then
 end
 ```
 
-Finally, select and verify there is a valid board position to capture.
+Finally, select, and verify there is a valid board position to capture.
 
 ```lua
 -- If the AI has not chosen a board position, it is time to do that now
@@ -365,5 +365,3 @@ local CaptureActivityInstance = aiActivityHandler:AddActivity("Capture", Capture
 3. A bright blue marker will appear on the board; this is your move, the `X`.
 4. After two seconds a bright yellow marker will appear on the board; this is the AI's move, the `O`.
 5. Repeat until either you or the AI has won or there are no move available board positions to take, resulting in a tie.
-
-Good luck!
