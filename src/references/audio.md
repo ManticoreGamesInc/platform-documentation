@@ -154,9 +154,9 @@ In this example of the **Gunshot Sniper Rifle Set 01 SFX** asset. The tooltips w
 
 The **Extend Resonance** option will ensure that each gunshot will fully resonate instead of being cut off early. This may be useful for larger-scale open world maps when sniper rifle shots should ring out at far distances.
 
-The **Enable Dynamic Distance** option will allow a "designed at distance" sound to be heard the further the player is from the source sound. This option exists for the other gun sounds, explosions and other similar big-impact sounds since these sounds generally sound vastly different at a distance compared to most other commonly heard everyday sounds.
+The **Enable Dynamic Distance** option will allow a "designed at distance" sound to be heard the further the player is from the source sound. This option exists for the other gun sounds, explosions, and other similar big-impact sounds since these sounds generally sound vastly different at a distance compared to most other commonly heard everyday sounds.
 
-Another great example of an extremely easy to use, powerful and versatile sound asset would be our **Explosion Creation & Construction Kit**.
+Another great example of an extremely easy to use, powerful, and versatile sound asset would be our **Explosion Creation & Construction Kit**.
 
 The parameters at this point should already look familiar, but here creators will find them in a single asset since explosions are one of those sounds that usually require several layers of sound elements.
 

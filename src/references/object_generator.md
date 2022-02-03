@@ -30,7 +30,7 @@ Check **Use Non-Uniform Scale** if you would like to further fine tune the scale
 
 ### Randomize Yaw
 
-Yaw is an object's rotation along the Y-axis. Checking **Randomize Yaw** ensures all of your objects will be facing different directions. This is another box you should keep checked if you want your scene to feel more realistic!
+Yaw is an object's rotation along the Y-axis. Checking **Randomize Yaw** ensures all of your objects will be facing different directions. This is another box you should keep checked if you want your scene to feel more realistic.
 
 ![ArtIntro1](../img/EnvironIntro/image9.png "Art Screenshot1")
 ![ArtIntro2](../img/EnvironIntro/image42.png "Art Screenshot2")
