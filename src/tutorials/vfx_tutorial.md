@@ -148,11 +148,11 @@ The best way to test post process effects is on an already decorated map with so
 
     Wiggle all those settings around to see what happens. Trying yourself can be the best way to understand what is happening.
 
-3. I'll first show you the settings I chose, and then explain a bit about them. I chose these properties:
+3. Here are the settings being used for the **Advanced Bloom Post Process** effect.
 
     ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2_properties.png "Getting weird changing values."){: .center loading="lazy" }
 
-    Which makes my map look like this:
+    With those settings, the map will look like this:
 
     ![Post Process Effects](../img/VFXtutorial/ppe_advBloom2.png "Getting weird changing values."){: .center loading="lazy" }
 
@@ -162,7 +162,7 @@ The best way to test post process effects is on an already decorated map with so
 
     In general though, **Blend Weight** is the strength of the entire effect on the scene. It is essentially a slider from *off* to *on*.
 
-    That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. While I was able to drag the slider to 15, I instead typed in a value of 100 to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this.
+    That is different from **Intensity**, which controls the strength of the bloom itself. This has a cap on the slider, but you can type in any number you want to increase the intensity even more. The slider can be dragged to 15, but for a higher value, `100` is typed in to make things ridiculous and blown out. And it's fun--who knows, maybe you'll think of a cool place to use something like this.
 
     ![Post Process Effects](../img/VFXtutorial/ppe_advBloom3.png "Getting weird changing values."){: .center loading="lazy" }
 
@@ -177,7 +177,7 @@ The best way to test post process effects is on an already decorated map with so
 
 **Ambient Occlusion** (often abbreviated to AO) can be generally referred to as contact shadows. In the real world, when two objects are close together, less light is able to reach the cracks between them. So, to simulate this virtually, we use ambient occlusion.
 
-I'm going to start visually from scratch with this one, so I am back to the first image:
+Remove the previous post processing effect to go back to the first image.
 
 ![Post Process Effects](../img/VFXtutorial/ppe_before.png "My scene before any effects are added."){: .center loading="lazy" }
 
@@ -189,13 +189,13 @@ I'm going to start visually from scratch with this one, so I am back to the firs
 
 2. In the Properties window, make sure to turn on the **Advanced Settings** button to have access to everything.
 
-3. In this case, I want to make the AO dramatic for the scene, so I cranked up the settings. This creates really obvious contact shadows, which grounds everything together. It creates a feeling that things were built intentionally this way, which can help eliminate the feeling of kitbashing one might have in their scene.
+3. In this case, you want to make the AO dramatic for the scene, try increasing the setting value. This creates really obvious contact shadows, which grounds everything together. It creates a feeling that things were built intentionally this way, which can help eliminate the feeling of kitbashing one might have in their scene.
 
     Notice the dark shadows under the roof beams, and the darker shadows on the rubble pile on the left.
 
     ![Post Process Effects](../img/VFXtutorial/ppe_AO2.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
-    For this particular dramatic AO effect, I used these settings:
+    For this particular dramatic AO effect, the following settings were used:
 
     ![Post Process Effects](../img/VFXtutorial/ppe_AO2_properties.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 
@@ -239,7 +239,7 @@ We'll start this section using two of the effects that we made earlier: the Adva
 
 1. Drag the **Lensflare Post Process** into your Hierarchy, and you should get something like the second photo above.
 
-    For my scene at this particular angle, the lens flares were not very visible, so I turned the intensity up to 5. This made the shapes much more visible.
+    For the scene at this particular angle, the lens flares were not very visible, so the intensity was set to 5. This made the shapes much more visible.
 
     ![Post Process Effects](../img/VFXtutorial/ppe_lensflare_properties.png "The default of AO is subtle but clear."){: .center loading="lazy" }
 

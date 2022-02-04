@@ -13,7 +13,7 @@ tags:
 <lite-youtube videoid="fL6HMs9frgw" playlabel="GGJ Online (2021) Keynote and Theme Reveal Video"></lite-youtube>
 {: .video-container }
 
-Bienvenue aux participants de la Global Game Jam!
+Bienvenue aux participants de la Global Game Jam.
 
 Core est une plateforme de développement, d'édition et d'organisation de jeux (multijoueurs ou non) combinant une interface intuitive à un rendu professionnel. Dans ce document, vous trouverez une présentation des systèmes à l'œuvre dans Core ainsi que plusieurs suggestions de tutoriels et d'outils pour démarrer.
 
@@ -24,7 +24,7 @@ Cette année, Manticore Games a sponsorisé la [Global Game Jam Diversifier](htt
 Ce document regroupe plusieurs introductions destinées spécifiquement aux créateurs habitués à d'autres moteurs de jeu comme [Unity](unity.md), ou à d'autres plateformes de création comme [Roblox](roblox.md) et [Fortnite](fortnite_creative.md).
 
 !!! note
-    Si vous avez de l'expérience sur un moteur ou une plateforme non répertorié ici, vous pouvez nous en faire part ou créer un sujet sur le [Core Documentation GitHub](https://github.com/ManticoreGamesInc/platform-documentation) afin de partager votre expérience!
+    Si vous avez de l'expérience sur un moteur ou une plateforme non répertorié ici, vous pouvez nous en faire part ou créer un sujet sur le [Core Documentation GitHub](https://github.com/ManticoreGamesInc/platform-documentation) afin de partager votre expérience.
 
 ### Collaboration
 
@@ -99,7 +99,7 @@ Les [**Contenus de la communauté**](../getting_started/community_content.fr.md)
 En utilisant les contenus de la communauté, vous pouvez créer une zone remplie de PNJ avec lesquels interagir. Mais ils peuvent tout aussi bien vaquer à leurs propres occupations. Pour ceci, vous pouvez utiliser deux éléments des contenus de la communauté:
 
 - **Choreographer by Chris** vous permet de glisser des scripts dans des dossiers pour créer des séquences d'animations qui elles-mêmes tourneront en boucle ou déclencheront des événements.
-- **Dialogue System with NPCs by Hani**, créé pour le jeu CoreHaven par ManticoreGames, est un système de dialogue permettant de créer des dialogues avec des animations, avant de les associer à des PNJ. Trouvez le script appelé **DialogsLibrary_Conversations** puis suivez le format de la conversation pour créer la vôtre.
+- **Dialog System with NPCs by Hani**, créé pour le jeu CoreHaven par ManticoreGames, est un système de dialog permettant de créer des dialogues avec des animations, avant de les associer à des PNJ. Trouvez le script appelé **DialogsLibrary_Conversations** puis suivez le format de la conversation pour créer la vôtre.
 
 ### Autres Contenus de la communauté importants
 
