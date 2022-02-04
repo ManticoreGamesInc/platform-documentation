@@ -86,13 +86,13 @@ to
 
 stack.
 
-Copy and paste the "**Chamfered Cylinder and Ring (thin)**". Resize your new pancake and set it slightly off-center. Perfectly stacked pancakes would look unnatural. Repeat until desired stack height is reached.
+Copy and paste the **Chamfered Cylinder and Ring (thin)**. Resize your new pancake and set it slightly off-center. Perfectly stacked pancakes would look unnatural. Repeat until desired stack height is reached.
 
 #### Adding Details
 
 ![ModelingBasics](../img/ModelingBasics/image8.png "Modeling Screenshot"){: .center loading="lazy" }
 
-Our pancakes looked like they were undercooked, so I added "**Decal Stains Round 01**" to the top in a brown color to give it a nice crisp on top. They're starting to look good.
+Our pancakes looked like they were undercooked, the decal **Decal Stains Round 01** is added to the top in a brown color to give it a nice crisp on top. They're starting to look good.
 
 !!! info "Core Tip: To easily place a decal on a surface move your cursor to where you want to place a decal and press ++X++."
 
@@ -108,7 +108,7 @@ Don't forget the maple syrup. This is the "**Liquid Decal**" set to a light yell
 
 ![ModelingBasics](../img/ModelingBasics/image11.png "Modeling Screenshot"){: .center loading="lazy" }
 
-I added some fruit to our plate for more detail and color. The addition of different shapes and textures makes our pancakes more visually appealing.
+Some fruit was added to the plate for more detail and color. The addition of different shapes and textures makes our pancakes more visually appealing.
 
 ![ModelingBasics](../img/ModelingBasics/image9.png "Modeling Screenshot"){: .center loading="lazy" }
 

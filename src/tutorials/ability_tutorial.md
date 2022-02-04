@@ -12,12 +12,9 @@ tags:
 
 An ability is anything that the player can do themselves.
 
-Anytime that a player can do something more than just jump and crouch, that should be added to a Core project as an ability. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
+Anytime that a player can do something more than just jump and crouch, it can be an ability added to the project. Abilities are how a creator can add functions that a player can activate, and these abilities can be anything.
 
 An ability could be to sprint, a cheering emote, the opening of a hidden menu; an ability can be anything that ought to happen on a button press or at a certain moment, repeatedly.
-
-!!! info
-    Comparing with Unreal and other game engines, an ability is basically a fancier keyboard input. "Fancier" because it has events built-in that can be set at each phase of execution.
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
@@ -35,11 +32,11 @@ An ability could be to sprint, a cheering emote, the opening of a hidden menu; a
 
 ### What is an Ability
 
-In Core, an `Ability` is an object that holds information about how to behave when used. You can set how long the ability lasts for, how long until the ability can be used a second time, and all sorts of other properties.
+In Core, an `Ability` is an object that holds information about how to behave when used. You can set how long the ability lasts for, the cooldown of the ability until the player can use it again, and all sorts of other properties.
 
 While there are ways to utilize all these properties, for your first dive into abilities, we're just going to touch on the very basics.
 
-Abilities can either be assigned to players at the start of a game, or when they equip a special item.
+Players can equip abilities at the start of a game, or when they equip a special item.
 
 ---
 
@@ -78,7 +75,7 @@ For this tutorial, we are going to make the player wave hello.
 
 3. To make this a more usable power-up object, let's add a model to it that players can see.
 
-    You can choose whatever you would like and would fit your game, but in this case I am going to use a classic gem.
+    You can choose whatever you would like and would fit your game, but in this case the class gem is used.
 
     1. In the **Core Content** tab, search for "diamond" and drag the `Gem - Diamond 6-Sided Polished` into your Project Hierarchy.
 
@@ -86,7 +83,7 @@ For this tutorial, we are going to make the player wave hello.
 
         Feel free to change the material, or make the model suit your own game more. To learn more about how to make cool art & models in Core, read our **[Art Reference Guide](art.md)** or try a **[Tutorial](modeling_basics.md)**.
 
-        I went with a simple red gem, and made it a little smaller than the default diamond.
+        In this case the simple red gem is used, and made it a little smaller than the default diamond.
 
         ![Red Gem Model](../img/EditorManual/Abilities/redGem.png "Red Gem Model"){: .center loading="lazy" }
 
