@@ -41,8 +41,9 @@ This example has been stripped down just the parts used for the fire and cooking
 
 #### Isometric Town Builder
 
+<!-- vale Manticore.FirstPerson = NO -->
 Look at the settings on the Power and Happiness Buffs, and then look over how the Producers are receiving and giving off the Buffs. You can try adding a coal mine that needs to give off a fuel Buff for the power plant to receive before it can give off power.
-
+<!-- Vale Manticore.FirstPerson = YES -->
 ![Isometric Town Producers and Buffs](../img/Producers/Producers_IsometricTownProducers.png){: .center loading="lazy" }
 
 #### Producer and Buff Data Example
