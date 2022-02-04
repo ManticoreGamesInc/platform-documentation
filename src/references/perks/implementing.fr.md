@@ -64,9 +64,9 @@ Pour modifier l'expérience d'un joueur en fonction des Perks qu'il possède, vo
 ### Scripts et Perks
 
 Vous pouvez utiliser la fonction `player:HasPerk(perkReference)` pour savoir si un joueur dispose d'un Perk, et la fonction `player:GetPerkCount()` pour connaitre le nombre de Perks répétables qu'un joueur a achetés.
-<!-- Google.Acronyms = NO -->
+<!-- vale Google.Acronyms = NO -->
 Pour en savoir plus sur les fonctions et événements associés aux Perks, consultez [Référence API de Core sur le type de joueur](../../api/player.md).
-<!-- Google.Acronyms = YES -->
+<!-- vale Google.Acronyms = YES -->
 ## Tester les Perks
 
 Les créateurs peuvent tester les Perks dans un projet local pour s'assurer de leur bon fonctionnement, en utilisant la fenêtre **Perks Testing**.
