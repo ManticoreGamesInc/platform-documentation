@@ -21,7 +21,9 @@ The AIActivityHandler is an Hierarchy object that creates a new AIActivityHandle
 
 #### Using Core Content
 
-The AI Activity Handler object can be found in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**, or by searching `activity` in the search bar. Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](../api/aiactivityhandler.md).
+The AI Activity Handler object is in **Core Content** in the **Gameplay Objects** section of **GAME OBJECTS**. Searching **Core Content** for `activity` is another way to find the activity handler.
+
+Drag the **AI Activity Handler** into the **Hierarchy** to create a new [AIActivityHandler](../api/aiactivityhandler.md).
 
 ![AI Activity Handler in Core Content](../img/AI/AI_ActivityHandlerInCoreContent.png){: .center loading="lazy" }
 
