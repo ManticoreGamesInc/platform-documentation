@@ -10,12 +10,9 @@ tags:
 
 AI is a multifaceted system currently in development that will be releasing different modules in this and upcoming patches to help creators implement Artificial Intelligence in their games. The modules shipped in this patch are [AIActivityHandler](../api/aiactivityhandler.md) and the AIDebugger.
 
-!!! info
-    The Core AI system is currently in development, and more features are planned to release in future patches.
-
 ## AI Activity System
 
-The AIActivityHandler is a Hierarchy object that creates a new AIActivityHandler that can have multiple AIActivity objects (???) associated with it. Each AIActivity has multiple phases and a priority property that can be manipulated to show which the AI should choose in a given circumstance.
+The AIActivityHandler is an Hierarchy object that creates a new AIActivityHandler that can have multiple AIActivity objects associated with it. An AIActivityHandler can have activities registered, and the activity with the highest priority becomes the active state. For example, moving from.
 
 !!! note
     It has always been possible to build a system similar to the AI Activity System using pure Lua, the new AIActivity and AIActivityHandler types allow creators to do this with a new, cleaner interface that interacts with the AIDebugger and upcoming new AI systems.
@@ -30,7 +27,7 @@ The AI Activity Handler object can be found in **Core Content** in the **Gamepla
 
 #### Using the AI Debugger
 
-The **AI Debugger** window can be opened from the **Window** menu in the top menu bar, and will create a new **AI Activity Handler** and add it to the Hierarchy. Press the **Create New Handler** button to do this in one step.
+Open the **Window** menu to find the **AI Debugger** window to create a new **AI Activity Handler** and add it to the Hierarchy. Press the **Create New Handler** button to do this in one step.
 
 ![Create New Handler button in AI Debugger](../img/AI/AI_AIDebuggerCreateNewHandler.png){: .center loading="lazy" }
 
@@ -40,7 +37,7 @@ Each AI Activity Handler manages different AIActivities, which are Core API type
 
 #### Create a new AIActivity
 
-AI Activities are created entirely through scripts using the `AddActivity` function on the **AIActivityHandler**, but there is a helpful example in the **Script Generator** that will provide a complete AIActivity template.
+**AI Activities** get assigned to an **AI Activity Handler** using the `AddActivity` function from a Lua script. The **Script Generator** in the **AI Debugger** window has a code template to help get started.
 
 ![Open the Script Generator](../img/AI/AI_AIDebuggerScriptGenerator.png){: .center loading="lazy" }
 
