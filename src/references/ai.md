@@ -12,7 +12,7 @@ AI is a multifaceted system currently in development that will be releasing diff
 
 ## AI Activity System
 
-The AIActivityHandler is an object of the Hierarchy that creates a new instance of the AIActivityHandler that can have multiple AIActivity objects associated with it. An AIActivityHandler can have activities registered, and the activity with the highest priority becomes the active state.
+The AIActivityHandler is an object that can have multiple AIActivity objects associated with it. An AIActivityHandler can have activities registered, and the activity with the highest priority becomes the active state.
 
 !!! note
     It has always been possible to build a system similar to the AI Activity System using pure Lua, the new AIActivity and AIActivityHandler types allow creators to do this with a new, cleaner interface that interacts with the AIDebugger and upcoming new AI systems.
