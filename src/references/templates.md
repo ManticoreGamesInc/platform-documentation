@@ -200,6 +200,18 @@ One example of using nested templates is for a racing game that has different ca
 
 !!! warning "Templates can only be nested up to 16 levels deep."
 
+### Creating Nested Templates
+
+A nested template can be created by dragging one template into another in the **Hierarchy** window. The parent template needs to be deinstanced in order for the child template to be added.
+
+### Updating Nested Templates
+
+When updating a child template inside another template, there is an option of which template to update. This can be useful to change the child template in all instances or to change an individual child template property (e.g. only the front right tires are yellow for all taxi cars).
+
+![!Nested Template](../img/EditorManual/Art/NestedTemplate.png){: .center loading="lazy" }
+
+!!! info "If the child template is deinstanced when the parent template is updated, then the child template is abandoned."
+
 ## Learn More
 
 [Community Content](community_content.md) | [Modeling Complex Objects](modeling.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
