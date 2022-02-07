@@ -198,6 +198,8 @@ One example of using nested templates is for a racing game that has different ca
     </video>
 </div>
 
+!!! warning "Templates can only be nested up to 16 levels deep."
+
 ## Learn More
 
 [Community Content](community_content.md) | [Modeling Complex Objects](modeling.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
