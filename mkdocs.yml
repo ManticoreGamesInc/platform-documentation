@@ -352,6 +352,7 @@ extra:
       name: TikTok
 
 markdown_extensions:
+  - meta
   - markdown.extensions.admonition
   - markdown.extensions.attr_list
   - markdown.extensions.def_list
@@ -396,6 +397,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - meta-descriptions
   - tags:
       tags_file: generated/tags.md
   - git-revision-date-localized
