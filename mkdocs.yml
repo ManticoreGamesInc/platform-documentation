@@ -312,13 +312,6 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
 
 extra:
-  alternate:
-    - name: English
-      link: ./
-      lang: en
-    - name: Français (Beta)
-      link: ./fr/
-      lang: fr
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
@@ -406,7 +399,12 @@ plugins:
       default_language: !ENV [DEFAULT_LANGUAGE, "en"]
       default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, true]
       languages:
-        fr: Français (Beta)
+        en:
+          name: English
+          build: false
+        fr:
+          name: Français (Beta)
+          build: true
   - minify:
       minify_html: !ENV MKDOCS_MINIFY
   - redirects:
