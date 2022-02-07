@@ -93,7 +93,7 @@ Folders and groups can be added to other folders and groups. This allows for cle
 
 ### Templates
 
-Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. They also allow you to share your creations on Community Content. See the [Template tutorial](templates.md) to learn more.
+Templates can be used to save grouped objects, collections of created objects, scripts, and scripted objects. With nested templates, creators can use a modular workflow to make a complex model with many changing subcomponents. They also allow you to share your creations on Community Content. See the [Template reference](templates.md) to learn more.
 
 ### Merged Models
 

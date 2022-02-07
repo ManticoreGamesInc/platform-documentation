@@ -186,6 +186,18 @@ To learn more about importing and using **Community Content** templates, see the
 
 ![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center loading="lazy" }
 
+## Nested Templates
+
+**Nested templates** is when a template contains children components that are also templates. This allows for modular workflow when making a system that has many different subcomponents. This also allows teams of creators to use asynchronous collaboration when changing one aspect of a big and complex design.
+
+One example of using nested templates is for a racing game that has different car templates. If the creator wanted to add a dirt decal to the tires of all the car templates, then it would require updating each car template one by one. Using nested templates can shorten this to just one action by using a tire template nested within the car template. Updating the tire template would change all instances of the tire even across the different parent car templates.
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/EditorManual/Art/NestedTemplates.mp4" type="video/mp4" />
+    </video>
+</div>
+
 ## Learn More
 
 [Community Content](community_content.md) | [Modeling Complex Objects](modeling.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
