@@ -66,6 +66,7 @@ nav:
           - Curves: references/curves.md
           - Custom Properties: references/custom_properties.md
           - Damageable Objects: references/damageable_objects.md
+          - ✨ Data Tables: references/data_tables.md
           - Debris Physics: references/debris_physics.md
           - Editor Shortcuts: references/editor_keybindings.md
           - Events and Hooks: references/events_hooks.md
@@ -134,7 +135,7 @@ nav:
       - Perk Systems: tutorials/perks_tutorial.md
       - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
       - Persistent Storage: tutorials/persistent_storage_tutorial.md
-      - ✨ Photo Booth: tutorials/photo_booth.md
+      - Photo Booth: tutorials/photo_booth.md
       - Producers: tutorials/producers_tutorial.md
       - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
       - Visual Effects: tutorials/vfx_tutorial.md
