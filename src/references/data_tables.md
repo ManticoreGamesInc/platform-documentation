@@ -8,9 +8,7 @@ tags:
 
 # Data Tables
 
-Creators can create **Data Tables** that contain data in tabular form that contains rows and columns which can be access from a Lua script. Think of a data table as a list where each item is also a list. For example, a player's inventory that has items, and each item has a name, description, quantity, and icon.
-
-## Overview
+Creators can create **Data Tables** that contain data in tabular form that contains rows and columns. A data table is a list where each item is also a list. For example, a player's inventory that has items, and each item has a name, description, quantity, and icon.
 
 ## Creating a Data Table
 
@@ -48,6 +46,8 @@ Creators can modify column names by double-clicking on the column name in the da
 
 Creators can modify the column type by clicking on the warning icon in the column header. The **Column Settings** window will pop up allowing creators to modify the type and the column name. All columns need a type, otherwise accessing any of the columns from a Lua script will show an error in the **Event Log**.
 
+!!! warning "Creators can not open the column settings window after setting a column type. However, the CSV file allows creators to modify the column types outside of the editor."
+
 ![!Edit Column Type](../img/DataTables/edit_column_type.png){: .center loading="lazy" }
 
 ### Adding Columns and Rows
@@ -58,7 +58,7 @@ Creators can add more columns and rows to a data table by clicking on the ![Icon
 
 ### Inserting Columns and Rows
 
-Creators can insert columns and rows by right clicking on a column or row. An option panel will pop up where creators can select to insert columns left or right, and rows above and below the current selection.
+Creators can insert columns and rows by right-clicking on a column or row. An options panel will pop up where creators can select to insert columns left or right, and rows above and below the current selection.
 
 ![Insert Column](../img/DataTables/add_column "image_tooltip")
 ![Insert Row](../img/DataTables/add_row "image_tooltip")
@@ -66,7 +66,7 @@ Creators can insert columns and rows by right clicking on a column or row. An op
 
 ### Deleting Columns and Rows
 
-Creators can delete columns and rows by right clicking on a column or row. An option panel will pop up where creators can select to delete the column or row.
+Creators can delete columns and rows by right-clicking on a column or row. An options panel will pop up where creators can select to delete the column or row.
 
 ![Delete Column](../img/DataTables/delete_column "image_tooltip")
 ![Delete Row](../img/DataTables/delete_row "image_tooltip")
@@ -74,7 +74,7 @@ Creators can delete columns and rows by right clicking on a column or row. An op
 
 ### Moving Columns and Rows
 
-Creators can move columns and rows by right clicking on a column or row. An option panel will pop up where creators can select to the column left or right, and rows up or down.
+Creators can move columns and rows by right-clicking on a column or row and selecting move column left or right, or rows up or down from the options panel.
 
 ![Move Column](../img/DataTables/move_column "image_tooltip")
 ![Move Row](../img/DataTables/move_row "image_tooltip")
@@ -82,15 +82,15 @@ Creators can move columns and rows by right clicking on a column or row. An opti
 
 ### Copy and Pasting Columns and Rows
 
-Creators can copy and paste existing rows and columns into the data table by right clicking and selecting **Copy** or **Paste** from the pop up option panel.
+Creators can copy and paste existing rows and columns into the data table by right-clicking and selecting **Copy** or **Paste** from the popup option panel.
 
 ![!Copy and Pasting](../img/DataTables/copy_paste.png){: .center loading="lazy" }
 
 ### Editing Outside of the Core Editor
 
-A **Data Table** is a text file called a `csv` (Command-separated Values). This allow creators to easily modify the data of a data table. So adding large amounts of data would be easier by editing the csv file rather then adding the rows in one by one manually.
+A **Data Table** is a text file called a `CSV` (Comma-separated Values). This allows creators to easily modify the data of a data table. So adding large amounts of data would be easier by editing the CSV file rather than adding the rows in one by one manually.
 
-In **Project Content**, right clicking on a data table gives the options to **Show in Explorer**. Selecting this option will open up the location of the data table based on the current project.
+In **Project Content**, right-clicking on a data table gives the options to **Show in Explorer**. Selecting this option will open up the location of the data table based on the current project.
 
 ![!CSV](../img/DataTables/csv_file.png){: .center loading="lazy" }
 
@@ -109,3 +109,11 @@ end
 ```
 
 ![!Example](../img/DataTables/example.png){: .center loading="lazy" }
+
+## Use Cases
+
+- Storing the player's collected resources they have harvested in the world.
+- Consumables that the player can purchase from a shop.
+- NPC Dialog entries.
+- Crating recipes.
+- Loot tables with different rarities.
