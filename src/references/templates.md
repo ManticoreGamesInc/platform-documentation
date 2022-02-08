@@ -192,13 +192,13 @@ To learn more about importing and using **Community Content** templates, see the
 
 One example of using nested templates is for a racing game that has different car templates. If the creator wanted to add a dirt decal to the tires of all the car templates, then it would require updating each car template one by one. Using nested templates can shorten this to just one action by using a tire template nested within the car template. Updating the tire template would change all instances of the tire even across the different parent car templates.
 
+!!! warning "Templates can only be nested up to 16 levels deep."
+
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/EditorManual/Art/NestedTemplates.mp4" type="video/mp4" />
     </video>
 </div>
-
-!!! warning "Templates can only be nested up to 16 levels deep."
 
 ### Creating Nested Templates
 
@@ -206,11 +206,11 @@ A nested template can be created by dragging one template into another in the **
 
 ### Updating Nested Templates
 
-When updating a child template inside another template, there is an option of which template to update. This can be useful to change the child template in all instances or to change an individual child template property (e.g. only the front right tires are yellow for all taxi cars).
-
-![!Nested Template](../img/EditorManual/Art/NestedTemplate.png){: .center loading="lazy" }
+When updating a child template inside another template, there is an option of which template to update. This can be useful to change the child template in all instances or to change an individual child template property (for example, only the front right tires are yellow for all taxi cars).
 
 !!! info "If the child template is deinstanced when the parent template is updated, then the child template is abandoned."
+
+![!Nested Template](../img/EditorManual/Art/NestedTemplate.png){: .center loading="lazy" }
 
 ## Learn More
 
