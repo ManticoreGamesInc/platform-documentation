@@ -186,6 +186,32 @@ To learn more about importing and using **Community Content** templates, see the
 
 ![Community Content Template](../img/EditorManual/Art/CCtemplate.png "Community Content Template"){: .center loading="lazy" }
 
+## Nested Templates
+
+**Nested templates** is when a template contains children components that are also templates. This allows for modular workflow when making a system that has many different subcomponents. This also allows teams of creators to use asynchronous collaboration when changing one aspect of a big and complex design.
+
+One example of using nested templates is for a racing game that has different car templates. If the creator wanted to add a dirt decal to the tires of all the car templates, then it would require updating each car template one by one. Using nested templates can shorten this to just one action by using a tire template nested within the car template. Updating the tire template would change all instances of the tire even across the different parent car templates.
+
+!!! warning "Templates can only be nested up to 16 levels deep."
+
+<div class="mt-video" style="width:100%">
+    <video autoplay muted playsinline controls loop class="center" style="width:100%">
+        <source src="/img/EditorManual/Art/NestedTemplates.mp4" type="video/mp4" />
+    </video>
+</div>
+
+### Creating Nested Templates
+
+A nested template can be created by dragging one template into another in the **Hierarchy** window. The parent template needs to be deinstanced in order for the child template to be added.
+
+### Updating Nested Templates
+
+When updating a child template inside another template, there is an option of which template to update. This can be useful to change the child template in all instances or to change an individual child template property (for example, only the front right tires are yellow for all taxi cars).
+
+!!! info "If the child template is deinstanced when the parent template is updated, then the child template is abandoned."
+
+![!Nested Template](../img/EditorManual/Art/NestedTemplate.png){: .center loading="lazy" }
+
 ## Learn More
 
 [Community Content](community_content.md) | [Modeling Complex Objects](modeling.md) | [Intro to the Editor](editor_intro.md) | [Scripting Basics](lua_basics_lightbulb.md)
