@@ -39,6 +39,7 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `destroyOnDeathDelay` | `number` | Delay in seconds after death before this object is destroyed, if `destroyOnDeath` is set to `true`. Defaults to 0. | Read-Only |
 | `destroyOnDeathClientTemplateId` | `string` | Optional asset ID of a template to be spawned on clients when this object is automatically destroyed on death. | Read-Only |
 | `destroyOnDeathNetworkedTemplateId` | `string` | Optional asset ID of a networked template to be spawned on the server when this object is automatically destroyed on death. | Read-Only |
+| `canExit` | `boolean` | Returns `true` if the driver of the vehicle is allowed to exit using the Vehicle Exit binding. | Read-Only |
 
 ## Functions
 
