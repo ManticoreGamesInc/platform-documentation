@@ -188,7 +188,7 @@ To learn more about importing and using **Community Content** templates, see the
 
 ## Nested Templates
 
-**Nested templates** is when a template contains children components that are also templates. This allows for modular workflow when making a system that has many different subcomponents. This also allows teams of creators to use asynchronous collaboration when changing one aspect of a big and complex design.
+**Nested templates** allows creators to place a template instance inside another template instance. This allows for modular workflow when making a system that has many different subcomponents. This also allows teams of creators to use asynchronous collaboration when changing one aspect of a big and complex design.
 
 One example of using nested templates is for a racing game that has different car templates. If the creator wanted to add a dirt decal to the tires of all the car templates, then it would require updating each car template one by one. Using nested templates can shorten this to just one action by using a tire template nested within the car template. Updating the tire template would change all instances of the tire even across the different parent car templates.
 
