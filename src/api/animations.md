@@ -50,6 +50,7 @@ Sockets are different points on an animated and player's character mesh. They ca
 | `left_ankle`    | `pelvis`      | `right_ankle`    |
 | `left_arm_prop` |               |                  |
 
+<!-- vale Google.Units = NO -->
 ## Humanoid
 
 ### Animation Stances
@@ -554,6 +555,7 @@ Sockets are different points on an animated and player's character mesh. They ca
 | unarmed_sleep_end    | The character gets up from sleeping.                                                                                                                          | animatedMesh |                        |
 | unarmed_spit         | An attack animation that could be used for a ranged attack. The intended use was to emit a projectile from the characters mouth (fireball, poison spit, etc). | animatedMesh | action                 |
 
+<!-- vale Google.Units = YES -->
 ## How to Turn on Ragdoll
 
 If you want to turn on the [ragdoll](https://en.wikipedia.org/wiki/Ragdoll_physics) effect on players, use the following:
