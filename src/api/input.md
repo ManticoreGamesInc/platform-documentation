@@ -20,6 +20,8 @@ The Input namespace contains functions and hooks for responding to player input.
 | `Input.IsYAxisInverted(InputType)` | `boolean` | Returns `true` if the player has inverted the Y axis in their settings for the given input type, otherwise returns `false`. | Client-Only |
 | `Input.GetActionDescription(string actionName)` | `string` | Returns the description set in the Bindings Manager for the specified action. Returns `nil` if given an invalid action name. | Client-Only |
 | `Input.GetActions()` | `Array`<`string`> | Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not. | Client-Only |
+| `Input.GetActionInputLabel(string actionName, [table parameters])` | `string` | Returns a string label indicating the key or button assigned to the specified action. Returns `nil` if `actionName` is not a valid action or if an invalid `direction` parameter is specified for axis and direction bindings. Returns "None" for valid actions with no control bound. <br/>Supported parameters include: <br/>`direction (string)`: *Required* for axis and direction bindings, specifying "positive" or "negative" for axis bindings, or "up", "down", "left", or "right" for direction bindings. <br/>`inputType (InputType)`: Specifies whether to return a label for keyboard and mouse or controller. Defaults to the current active input type. <br/>`secondary (boolean)`: When `true` and returning a label for keyboard and mouse, returns a label for the secondary input. | Client-Only |
+| `Input.IsInputTypeEnabled(InputType)` | `boolean` | Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected. | Client-Only |
 
 ## Events
 
@@ -34,6 +36,7 @@ The Input namespace contains functions and hooks for responding to player input.
 | Hook Name | Return Type | Description | Tags |
 | ----- | ----------- | ----------- | ---- |
 | `escapeHook` | [`Hook`](hook.md)<[`Player`](player.md) player, `table` parameters> | Hook called when the local player presses the Escape key. The `parameters` table contains a `boolean` named "openPauseMenu", which may be set to `false` to prevent the pause menu from being opened. Players may press `Shift-Esc` to force the pause menu to open without calling this hook. | Client-Only |
+| `actionHook` | [`Hook`](hook.md)<[`Player`](player.md) player, `table` actionList> | Hook called each frame with a list of changes in action values since the previous frame. The `actionList` table is an array of tables with the structure {action = "actionName", value = `number` or `Vector2`} for each action whose value has changed since the last frame. If no values have changed, `actionList` will be empty, even if there are actions currently being held. Entries in the table can be added, removed, or changed and will affect whether pressed and released events fire. If a non-zero value is changed to zero then `Input.actionReleasedEvent` will fire for that action. If a zero value changes to non-zero then `Input.actionPressedEvent` will fire. | Client-Only |
 
 ## Examples
 

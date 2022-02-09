@@ -151,6 +151,7 @@ nav:
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Interfaces:
           - Damageable: api/damageable.md
+          - Item: api/item.md
       - Types:
           - Ability: api/ability.md
           - AbilityPhaseSettings: api/abilityphasesettings.md
@@ -190,6 +191,9 @@ nav:
           - HookListener: api/hooklistener.md
           - IKAnchor: api/ikanchor.md
           - ImpactData: api/impactdata.md
+          - Inventory: api/inventory.md
+          - InventoryItem: api/inventoryitem.md
+          - ItemObject: api/itemobject.md
           - LeaderboardEntry: api/leaderboardentry.md
           - Light: api/light.md
           - MaterialSlot: api/materialslot.md

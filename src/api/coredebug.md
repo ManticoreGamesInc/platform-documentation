@@ -19,6 +19,7 @@ The CoreDebug namespace contains functions that may be useful for debugging.
 | `CoreDebug.DrawSphere(Vector3 center, radius, [table optionalParameters])` | `None` | Draws a debug sphere. `optionalParameters` has the same options as `DrawLine()`. | None |
 | `CoreDebug.GetTaskStackTrace([Task task])` | `string` | Returns a stack trace listing the Lua method calls currently in progress by the given Task. Defaults to the current Task if `task` is not specified. | None |
 | `CoreDebug.GetStackTrace()` | `string` | Returns a stack trace listing all actively executing Lua tasks and their method calls. Usually there is only one task actively executing at a time, with others in a yielded state and excluded from this trace. Multiple tasks can be included in the trace if one task triggers an event that has listeners registered, or if a task calls `require()` to load a new script. | None |
+| `CoreDebug.ToString(value)` | `string` | Returns a string representation of the given value. By default this will return the same result as Lua's built-in `tostring()` function, but some types may return additional information useful for debugging. The format of strings returned by this function is subject to change and should never be relied upon to return specific information. | None |
 
 ## Examples
 
