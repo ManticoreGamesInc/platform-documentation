@@ -39,6 +39,8 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.SetSocialMenuEnabled(boolean isEnabled)` | `None` | Sets whether the social menu is enabled. | Client-Only |
 | `UI.IsSocialMenuEnabled()` | `boolean` | Returns whether the social menu is enabled. | Client-Only |
 | `UI.GetCoreModalType()` | [`CoreModalType`](enums.md#coremodaltype) | Returns the currently active core modal, or nil if none is active. | Client-Only |
+| `UI.IsVoiceChatWidgetVisible()` | `boolean` | Returns whether the voice chat widget is currently visible. Note that this may return `true` when the voice chat widget is not currently displaying anything on the screen. | Client-Only |
+| `UI.SetVoiceChatWidgetVisible(boolean isVisible)` | `None` | Sets whether the voice chat widget is currently visible. | Client-Only |
 
 ## Events
 

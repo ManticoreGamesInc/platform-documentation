@@ -144,6 +144,7 @@ Player is an object representation of the state of a player connected to the gam
 | `GetIKAnchors()` | `Array`<[`IKAnchor`](ikanchor.md)> | Returns an array of all IKAnchor objects activated on this player. | None |
 | `IsInPartyWith(Player)` | `boolean` | Returns whether both players are in the same public party. | None |
 | `GetPartyInfo()` | [`PartyInfo`](partyinfo.md) | If the player is in a party, returns a PartyInfo object with data about that party. | None |
+| `GetInventories()` | `Array`<[`Inventory`](inventory.md)> | Returns a list of Inventory objects assigned to the player. If the player has no assigned inventories, this list is empty. | None |
 
 ## Events
 
