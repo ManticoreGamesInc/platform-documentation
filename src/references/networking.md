@@ -155,6 +155,16 @@ Local Contexts can be used when creating gameplay objects which have a stationar
 
 Local Contexts can also be used by advanced creators who want to create synchronized functionality without using networked objects, instead synchronizing by some other mechanism, like having Local Context scripts perform changes based on a dynamic custom property on a networked object. Creators can use this to potentially improve performance and functionality for games that have higher player counts.
 
+## Nested Contexts
+
+**Nested Contexts** allow creators to include contexts inside a different (non-default) context. For most cases, the first context is respected. For example, if a server context is a child of a client context, then the server context will be treated as a client context.
+
+![!Nested Context Priority](../img/NetworkingReference/NestedContextPriority.png){: .center loading="lazy" }
+
+There are two specific situations when the nested context is respected. The first instance is a server or client context inside a **static context**. The second instance is a server or client context inside a **local context**. One example where this can be useful is to make a collectable, non-networked object. Using nested client and server scripts inside the local context for a collectible allows creators to spawn local effects and handle server collision.
+
+![!Nested Context Priority](../img/NetworkingReference/LocalNestedContext.png){: .center loading="lazy" }
+
 ## Learn More
 
 <lite-youtube videoid="MnPuWyN3oh4" playlabel="Networking"></lite-youtube>
