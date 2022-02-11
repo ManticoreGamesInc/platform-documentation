@@ -177,41 +177,6 @@ See also: [CoreModalType](enums.md#coremodaltype)
 
 Example using:
 
-### `GetCursorHitResult`
-
-### `SetCursorLockedToViewport`
-
-### `SetCursorVisible`
-
-In this example, a client script detects 3D objects being clicked on by using the function `UI.GetCursorHitResult()`. Sometimes nothing is clicked on, such as pointing into the sky. Results are print into the Event Log.
-
-```lua
-UI.SetCursorLockedToViewport(true)
-UI.SetCursorVisible(true)
-
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
-        local hit = UI.GetCursorHitResult()
-        if hit and hit.other then
-            print("Clicked on: "..hit.other.name)
-        else
-            print("Nothing was clicked on.")
-        end
-        UI.SetCursorVisible(false)
-        Task.Wait(0.2)
-        UI.SetCursorVisible(true)
-    end
-end
-
-Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
-```
-
-See also: [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
-
----
-
-Example using:
-
 ### `GetCursorPlaneIntersection`
 
 ### `SetCursorVisible`
@@ -298,6 +263,42 @@ player.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
+### `GetHitResult`
+
+### `SetCursorLockedToViewport`
+
+### `SetCursorVisible`
+
+In this example, a client script detects 3D objects being clicked on by using the function `UI.GetHitResult()`. Sometimes nothing is clicked on, such as pointing into the sky. Results are print into the Event Log.
+
+```lua
+UI.SetCursorLockedToViewport(true)
+UI.SetCursorVisible(true)
+
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        local cursorPos = UI.GetCursorPosition()
+        local hit = UI.GetHitResult(cursorPos)
+        if hit and hit.other then
+            print("Clicked on: "..hit.other.name)
+        else
+            print("Nothing was clicked on.")
+        end
+        UI.SetCursorVisible(false)
+        Task.Wait(0.2)
+        UI.SetCursorVisible(true)
+    end
+end
+
+Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
 
 ---
 
