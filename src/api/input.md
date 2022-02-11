@@ -42,6 +42,63 @@ The Input namespace contains functions and hooks for responding to player input.
 
 Example using:
 
+### `actionHook`
+
+In this example we override the jump action to make all players automatically jump every second.
+
+```lua
+local JUMP_PERIOD = 1
+local nextJumpTime = 0
+
+function OnAction(player, actionList)
+    -- Verbose output of all actions to the Event Log
+    for k,v in ipairs(actionList) do
+        print(tostring(k), tostring(v.action), tostring(v.value))
+    end
+    
+    -- Everyone periodically jumps automatically
+    if time() > nextJumpTime then
+        -- Jump
+        nextJumpTime = time() + JUMP_PERIOD
+        actionList[1] = {
+            action = "Jump",
+            value = 1.0
+        }
+    else
+        -- No jump
+        actionList[1] = {
+            action = "Jump",
+            value = 0.0
+        }
+    end
+end
+
+Input.actionHook:Connect(OnAction)
+```
+
+See also: [Hook.Connect](hook.md)
+
+---
+
+Example using:
+
+### `GetActionInputLabel`
+
+This client script shows how to get the "display name" for the jump action. It may usually say "Space Bar". However, the user could bind different keys to their inputs, or the value may differ due to localization. If you were to hardcode the words "Space Bar" into the user interface, it would be misleading for some users. Instead, call `Input.GetActionInputLabel()` and use the returned value to populate the UI.
+
+```lua
+local UI_TEXT = script:GetCustomProperty("UIText"):WaitForObject()
+
+local label = Input.GetActionInputLabel("jump", {inputType = InputType.KEYBOARD_AND_MOUSE})
+print(tostring(label))
+
+UI_TEXT.text = label
+```
+
+---
+
+Example using:
+
 ### `actionPressedEvent`
 
 Hotbars in games are a useful way for players to access things such as abilities, weapons, or tools quickly. This example shows how the mouse wheel can be used to scroll through all the slots in a hotbar. It supports wrapping around when scrolling past the start or end of the hotbar.
