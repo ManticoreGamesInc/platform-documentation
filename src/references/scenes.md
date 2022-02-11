@@ -44,7 +44,7 @@ There are 2 other ways to load a scene:
 
 ![Option Panel](../img/Scenes/option_load_scene.png)
 ![Hierarchy Window](../img/Scenes/load_scene_hierarchy.png)
-*Option panel from the Scenes Window (left), Scenes dropdown in the Hierarchy (right)*
+*Option panel from the Scenes Window (left), Scenes dropdown in the Hierarchy Window (right)*
 {: .image-cluster}
 
 ## Setting Max Players Per Scene
