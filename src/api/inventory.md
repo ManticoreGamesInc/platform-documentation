@@ -59,3 +59,257 @@ Inventory is a CoreObject that represents a container of InventoryItems. Items c
 | `resizedEvent` | [`Event`](event.md)<[`Inventory`](inventory.md) inventory> | Fired when the inventory's size has changed. | None |
 | `changedEvent` | [`Event`](event.md)<[`Inventory`](inventory.md) inventory, `integer` slot> | Fired when the contents of an inventory slot have changed. This includes when the item in that slot is added, given, received, dropped, moved, resized, or removed. | None |
 | `itemPropertyChangedEvent` | [`Event`](event.md)<[`Inventory`](inventory.md) inventory, [`InventoryItem`](inventoryitem.md) item, `string` propertyName> | Fired when an inventory item's dynamic custom property value has changed. | None |
+
+## Examples
+
+Example using:
+
+### `Assign`
+
+In this example each player is given an inventory when they join the game. The inventory is a template with networking enabled and is assigned as a custom property to the script.
+
+```lua
+local INVENTORY_TEMPLATE = script:GetCustomProperty("Inventory")
+
+function OnPlayerJoined(player)
+    local inventory = World.SpawnAsset(INVENTORY_TEMPLATE)
+    player.serverUserData.inventory = inventory
+    
+    inventory:Assign(player)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Player.serverUserData](player.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
+### `GetItem`
+
+### `slotCount`
+
+### `changedEvent`
+
+In this example, a client script prints to the Event Log all the contents of the local player's inventory. If the inventory contents change, the new list of contents is printed. In case the player has more than one inventory only the first one will be printed.
+
+```lua
+local VERBOSE = false
+local player = Game.GetLocalPlayer()
+local currentInventory = nil
+
+function RefreshInventoryUI()
+    print("\nInventory:")
+    
+    for i = 1, currentInventory.slotCount do
+        local item = currentInventory:GetItem(i)
+        if item then
+            print(item.name .." x"..item.count)
+            
+            if VERBOSE then
+                print("  itemAssetId: "..item.itemAssetId)
+                print("  itemTemplateId: "..item.itemTemplateId)
+                print("  maxStackCount: "..item.maximumStackCount)
+                print("  inventory: "..item.inventory.name)
+                print("  slot: "..item.slot)
+            end
+        end
+    end
+end
+
+while currentInventory == nil do
+    currentInventory = player:GetInventories()[1]
+    if currentInventory then
+        currentInventory.changedEvent:Connect(RefreshInventoryUI)
+        RefreshInventoryUI()
+    else
+        Task.Wait()
+    end
+end
+```
+
+See also: [InventoryItem.itemAssetId](inventoryitem.md) | [Player.GetInventories](player.md) | [Task.Wait](task.md) | [Game.GetLocalPlayer](game.md)
+
+---
+
+Example using:
+
+### `occupiedSlotCount`
+
+### `GetItem`
+
+In this example, we periodically check how many inventories each player has and print the result to the Event Log.
+
+```lua
+function Tick()
+    for _,player in ipairs(Game.GetPlayers()) do
+        local inventories = player:GetInventories()
+        local totalItems = 0
+        for _,inventory in ipairs(inventories) do
+            totalItems = totalItems + ComputeItemCount(inventory)
+        end
+        print(player.name.." has "..totalItems.." items across "..#inventories .." inventories.")
+    end
+    Task.Wait(3)
+end
+
+function ComputeItemCount(inventory)
+    if inventory.occupiedSlotCount == 0 then return 0 end
+    local total = 0
+    for i = 1, inventory.occupiedSlotCount do
+        local item = inventory:GetItem(i)
+        total = total + item.count
+    end
+    return total
+end
+```
+
+See also: [Player.GetInventories](player.md) | [InventoryItem.count](inventoryitem.md) | [Game.GetPlayers](game.md)
+
+---
+
+Example using:
+
+### `owner`
+
+### `slotCount`
+
+### `Unassign`
+
+### `CanGiveFromSlot`
+
+### `GiveFromSlot`
+
+### `ownerChangedEvent`
+
+In this example we implement inventories that drop when players die. For it to work, the inventory template should have a trigger child object, as well as a visual element (e.g. A crate) so that other players can see it after it drops.
+
+```lua
+local INVENTORY_TEMPLATE = script:GetCustomProperty("InventoryWithPickup")
+
+function OnPlayerDied(player, dmg)
+    -- The player's inventory is dropped upon death
+    local inventory = player.serverUserData.inventory
+    player.serverUserData.inventory = nil
+    inventory:Unassign()
+    inventory:SetWorldPosition(player:GetWorldPosition())
+end
+
+function OnInteracted(trigger, player)
+    -- Dead players cannot pickup an inventory
+    if player.isDead then return end
+    
+    local inventory = trigger.parent
+    if player.serverUserData.inventory == nil then
+        -- The player picks up the inventory
+        inventory:Assign(player)
+        player.serverUserData.inventory = inventory
+        
+    elseif inventory.slotCount >= 1 then
+        -- They already have an inventory. Transfer the items
+        local targetInventory = player.serverUserData.inventory
+        for i = 1,inventory.slotCount do
+            if inventory:CanGiveSlot(i, targetInventory) then
+                inventory:GiveSlot(i, targetInventory)
+            end
+        end
+    end
+end
+
+function OnOwnerChanged(inventory)
+    if Object.IsValid(inventory.owner) then
+        -- Hide the inventory
+        inventory.serverUserData.trigger.isInteractable = false
+        inventory.visibility = Visibility.FORCE_OFF
+    else
+        -- Show the inventory
+        inventory.serverUserData.trigger.isInteractable = true
+        inventory.visibility = Visibility.INHERIT
+    end
+end
+
+function OnPlayerJoined(player)
+    -- Spawn inventory object
+    local inventory = World.SpawnAsset(INVENTORY_TEMPLATE)
+    -- Find the trigger
+    local trigger = inventory:FindDescendantByType("Trigger")
+    inventory.serverUserData.trigger = trigger
+    -- Connect events
+    player.diedEvent:Connect(OnPlayerDied)
+    inventory.ownerChangedEvent:Connect(OnOwnerChanged)
+    trigger.interactedEvent:Connect(OnInteracted)
+    -- Assign to player
+    player.serverUserData.inventory = inventory
+    inventory:Assign(player)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [CoreObject.FindDescendantByType](coreobject.md) | [Player.diedEvent](player.md) | [Trigger.interactedEvent](trigger.md) | [World.SpawnAsset](world.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
+### `slotCount`
+
+### `GetItems`
+
+### `Resize`
+
+### `AddItem`
+
+This example demonstrates how to save and load an inventory from storage.
+
+```lua
+local INVENTORY_TEMPLATE = script:GetCustomProperty("Inventory")
+
+function SaveInventory(player, inventory)
+    -- Serialize
+    local inventoryData = {}
+    for i,item in ipairs(inventory:GetItems()) do
+        inventoryData[item.itemAssetId] = item.count
+    end
+    -- Save to storage
+    local data = Storage.GetPlayerData(player)
+    data.inventory = inventoryData
+    data.inventorySize = inventory.slotCount
+    Storage.SetPlayerData(player, data)
+end
+
+function LoadInventory(player)
+    local inventory = World.SpawnAsset(INVENTORY_TEMPLATE)
+    -- Load from storage
+    local data = Storage.GetPlayerData(player)
+    -- Parse
+    if data.inventorySize and data.inventory then
+        inventory:Resize(data.inventorySize)
+        for assetId,itemCount in pairs(data.inventory) do
+            inventory:AddItem(assetId, {count = itemCount})
+        end
+    end
+    return inventory
+end
+
+function OnPlayerJoined(player)
+    local inventory = LoadInventory(player)
+    player.serverUserData.inventory = inventory
+    
+    inventory:Assign(player)
+end
+
+function OnPlayerLeft(player)
+    local inventory = player.serverUserData.inventory
+    SaveInventory(player, inventory)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerLeftEvent:Connect(OnPlayerLeft)
+```
+
+See also: [InventoryItem.itemAssetId](inventoryitem.md) | [Storage.GetPlayerData](storage.md) | [Player.serverUserData](player.md) | [World.SpawnAsset](world.md) | [Game.playerLeftEvent](game.md)
+
+---
