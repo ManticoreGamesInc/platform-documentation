@@ -74,7 +74,7 @@ local INVENTORY_TEMPLATE = script:GetCustomProperty("Inventory")
 function OnPlayerJoined(player)
     local inventory = World.SpawnAsset(INVENTORY_TEMPLATE)
     player.serverUserData.inventory = inventory
-    
+
     inventory:Assign(player)
 end
 
@@ -102,12 +102,12 @@ local currentInventory = nil
 
 function RefreshInventoryUI()
     print("\nInventory:")
-    
+
     for i = 1, currentInventory.slotCount do
         local item = currentInventory:GetItem(i)
         if item then
             print(item.name .." x"..item.count)
-            
+
             if VERBOSE then
                 print("  itemAssetId: "..item.itemAssetId)
                 print("  itemTemplateId: "..item.itemTemplateId)
@@ -184,7 +184,7 @@ Example using:
 
 ### `ownerChangedEvent`
 
-In this example we implement inventories that drop when players die. For it to work, the inventory template should have a trigger child object, as well as a visual element (e.g. A crate) so that other players can see it after it drops.
+In this example we implement inventories that drop when players die. For it to work, the inventory template should have a trigger child object, as well as a visual element (for example, a crate) so that other players can see it after it drops.
 
 ```lua
 local INVENTORY_TEMPLATE = script:GetCustomProperty("InventoryWithPickup")
@@ -200,13 +200,13 @@ end
 function OnInteracted(trigger, player)
     -- Dead players cannot pickup an inventory
     if player.isDead then return end
-    
+
     local inventory = trigger.parent
     if player.serverUserData.inventory == nil then
         -- The player picks up the inventory
         inventory:Assign(player)
         player.serverUserData.inventory = inventory
-        
+
     elseif inventory.slotCount >= 1 then
         -- They already have an inventory. Transfer the items
         local targetInventory = player.serverUserData.inventory
@@ -297,7 +297,7 @@ end
 function OnPlayerJoined(player)
     local inventory = LoadInventory(player)
     player.serverUserData.inventory = inventory
-    
+
     inventory:Assign(player)
 end
 
