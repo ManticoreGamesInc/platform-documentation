@@ -21,6 +21,8 @@ Creators can create a **Data Table** from within the **Project Content** window 
 | Columns | The number of columns the data table has. |
 | First Column as Key | If enabled, the first column will be the key for the data table. |
 
+![!Create Menu](../img/DataTables/create_menu.png){: .center loading="lazy" }
+
 ![!Create Data Table](../img/DataTables/create_table_prompt.png){: .center loading="lazy" }
 
 ## Editing a Data Table
