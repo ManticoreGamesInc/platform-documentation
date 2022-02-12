@@ -73,7 +73,7 @@ To view created item assets, select **My Items** in **Project Content**.
 
 ### Item Asset Properties
 
-**Item Assets** have properties that describe the item
+**Item Assets** have properties that describe the item.
 
 <!-- vale Google.Passive = NO -->
 | Property Name | Property Description |
