@@ -87,6 +87,110 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
+### `CanDropFromSlot`
+
+### `DropFromSlot`
+
+This example shows how to drop items from a player's inventory. When the player presses the 1 or 2 keys, any items found in their inventory's slots 1 or 2 are dropped to the ground.
+
+```lua
+function DropItemFromSlot(player, slotNumber)
+    local inventory = player:GetInventories()[1]
+    if not inventory then return end
+
+    local deltaZ = 100
+    if player.isCrouching then
+         deltaZ = 50
+    end
+
+    local params = {
+        count = 1,
+        position = player:GetWorldPosition() - Vector3.UP * deltaZ
+    }
+
+    if inventory:CanDropFromSlot(slotNumber, params) then
+        inventory:DropFromSlot(slotNumber, params)
+    end
+end
+
+function OnBindingPressed(player, action)
+    if action == "ability_extra_1" then
+        DropItemFromSlot(player, 1)
+
+    elseif action == "ability_extra_2" then
+        DropItemFromSlot(player, 2)
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.bindingPressedEvent:Connect(OnBindingPressed)
+end)
+```
+
+See also: [Player.GetInventories](player.md) | [Game.playerJoinedEvent](game.md) | [Vector3.UP](vector3.md)
+
+---
+
+Example using:
+
+### `CanPickUpItem`
+
+### `PickUpItem`
+
+This example shows how to pick up items and add them to a player's inventory. The trigger is part of the template that is assigned to the `Item Asset`, in its property `Item Template`.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+
+function PickUpItem(player, itemObject)
+    local inventory = player:GetInventories()[1]
+    if not inventory then return end
+
+    local params = {all = true}
+
+    if inventory:CanPickUpItem(itemObject, params) then
+        inventory:PickUpItem(itemObject, params)
+    end
+end
+
+function OnBeginOverlap(_, player)
+    if player:IsA("Player") then
+        local item = TRIGGER:FindAncestorByType("ItemObject")
+        PickUpItem(player, item)
+    end
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+```
+
+See also: [Player.GetInventories](player.md) | [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Other.IsA](other.md)
+
+---
+
+Example using:
+
+### `ClearItems`
+
+In this example, when a player dies they lose all items that were in all of their inventories.
+
+```lua
+function OnPlayerDied(player, _)
+    for _,inventory in ipairs(player:GetInventories()) do
+        inventory:ClearItems()
+    end
+end
+
+Game.playerJoinedEvent:Connect(function(player)
+    player.diedEvent:Connect(OnPlayerDied)
+end)
+```
+
+See also: [Player.GetInventories](player.md) | [Game.playerJoinedEvent](game.md)
+
+---
+
+Example using:
+
 ### `GetItem`
 
 ### `slotCount`
@@ -160,7 +264,9 @@ function ComputeItemCount(inventory)
     local total = 0
     for i = 1, inventory.occupiedSlotCount do
         local item = inventory:GetItem(i)
-        total = total + item.count
+        if item then
+            total = total + item.count
+        end
     end
     return total
 end
@@ -184,7 +290,7 @@ Example using:
 
 ### `ownerChangedEvent`
 
-In this example we implement inventories that drop when players die. For it to work, the inventory template should have a trigger child object, as well as a visual element (for example, a crate) so that other players can see it after it drops.
+In this example, a player's entire inventory object drops when they die. For it to work, the inventory template should have a trigger child object, as well as a visual element (for example, a crate) so that other players can see it after it drops.
 
 ```lua
 local INVENTORY_TEMPLATE = script:GetCustomProperty("InventoryWithPickup")
