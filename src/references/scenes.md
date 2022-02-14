@@ -10,13 +10,13 @@ tags:
 
 ## Summary
 
-A **Scene** is a way to have different assets and logic for a specific part of the game. A game can be made up of many scenes (for example main menu, tutorial, different levels) that display different information, and usually there is some way for a **Player** to get from one scene to the other.
+A **Scene** is a way to have different assets and logic for a specific part of the game. Games can have many scenes (for example main menu, tutorial, different levels) that display different information, and usually, there is some way for a **Player** to get from one scene to the other.
 
-All projects come with one scene by default called **Main**, which will be shown in the **Scenes** window as the active scene.
+All projects come with one scene by default called **Main**. This **Main** scene is active by default.
 
 ## Creating a Scene
 
-Creating a **Scene** can be done from the **Scenes** window. Clicking on the **Scenes** button at the top of the **Hierarchy** will open a window that will show a list of all scenes for the project, and a **Create New Scene** button at the bottom of that list.
+Creators can create new scenes from the **Scenes** window. Clicking on the **Scenes** button at the top of the **Hierarchy** will open a window that will show a list of all scenes for the project, and a **Create New Scene** button at the bottom of that list.
 
 ![Scene Button](../img/Scenes/scenes_button.png)
 ![Scene Window](../img/Scenes/scenes_panel.png)
@@ -27,25 +27,25 @@ Creating a **Scene** can be done from the **Scenes** window. Clicking on the **S
 2. Click the **Create New Scene** button at the bottom of the **Scenes** window.
 3. Enter a name for the new scene.
 
-When a new scene has been created, the creator will be asked if they want to load the new scene.
+A newly created scene will give creators the option to choose to load that scene.
 
 !!! info "Limits"
     - Support for up to 64 scenes per project.
-    - Maximum total size of a game is 500mb.
-    - Maximum size of a scene is 100mb.
+    - Maximum total size of a game is 500 Megabytes.
+    - Maximum size of a scene is 100 Megabytes.
 
 ## Loading a Scene
 
-When loading a **Scene**, **Core** will unload all assets in the project **Hierarchy** (that is template instances, script instances, UI), and load all the assets for the scene that will be loaded. When loading a scene, make sure to save the current scene or progress will be lost. **Core** will notify the creator of any unsaved changes when attempting to switch scene.
+When loading a **Scene**, **Core** will unload all assets in the project **Hierarchy** (that is template instances, script instances, UI), and load all the assets for the scene that will be loaded. When loading a scene, make sure to save the current scene or progress will be lost. **Core** will notify the creator of any unsaved changes when attempting to switch scenes.
 
 A **Scene** can be loaded by clicking on the scene name in the **Scene** window.
 
-Another way to load a scene is from the **Scene** options panel.
+There are 2 other ways to load a scene:
 
-1. Click the button to the right of the scene.
-2. Click **Load Scene** from the options menu.
-
-![!Loading Scene](../img/Scenes/option_load_scene.png){: .center loading="lazy" }
+![Option Panel](../img/Scenes/option_load_scene.png)
+![Hierarchy Window](../img/Scenes/load_scene_hierarchy.png)
+*Option panel from the Scenes Window (left), Scenes dropdown in the Hierarchy Window (right)*
+{: .image-cluster}
 
 ## Setting Max Players Per Scene
 
@@ -61,13 +61,13 @@ Any scene in the project can be renamed. Scenes can't share the same name as eac
 
 1. Open the **Scenes** window.
 2. Click the button to the right of the scene.
-3. Click **Rename Scene** from the options menu, and set the new name for the scene.
+3. Click **Rename Scene** from the options menu and set the new name for the scene.
 
 ![!Renaming a Scene](../img/Scenes/option_rename_scene.png){: .center loading="lazy" }
 
-## Setting a Main Scene
+## Setting the Main Scene
 
-The main scene for a project, is the scene that will be loaded for players by default when entering your game. Any scene created can be set up as the main scene for the project. For example, if there is 2 scenes that have a different theme (that is Christmas vs Summer), it is easy to change which scene is the main one and republish your project. When players load your game, they will load the main scene first.
+The main scene for a project is the scene that will be loaded for players by default when entering your game. Any scene created can be set up as the main scene for the project. For example, if there are 2 scenes that have a different theme (that is Christmas vs Summer), it is easy to change which scene is the main one and republish your project. When players load your game, they will load the main scene first.
 
 1. Open the **Scenes** window.
 2. Click the button to the right of the scene.
@@ -83,7 +83,7 @@ Scenes set to **Main Scene** will also be the first scene loaded when loading yo
 
 Duplicating a scene is a good way to use an existing scene as a base. All assets in the scene being duplicated will be copied over to the new scene. For example, creating a tutorial based on the first level of your game without needing to start a new scene from scratch.
 
-When duplicating a scene, **Core** will name the duplicated scene the same name as the scene being duplicated, but append an index to the end so it is unique. For example, duplicating the scene "Opening Level" will be named "Opening Level_1".
+When duplicating a scene, **Core** will name the duplicated scene the same name as the scene being duplicated but append an index to the end so it is unique. For example, duplicating the scene "Opening Level" will be named "Opening Level_1".
 
 1. Open the **Scenes** window.
 2. Click the button to the right of the scene.
@@ -105,7 +105,7 @@ If a scene is already set to **Include for Publish**, the option will change to 
 
 ## Deleting a Scene
 
-To delete a scene from your project, it can not be currently loaded, or set as the main scene. When deleting a scene, all objects in the **Hierarchy** will be deleted. Objects such as template instances (including script instances) will be deleted from the **Hierarchy**, but not from **Project Content**. This means, any changes to a template that needs to be kept,, should be updated before the scene is deleted.
+To delete a scene from your project, it can not be currently loaded or set as the main scene. When deleting a scene, all objects in the **Hierarchy** will be deleted. Objects such as template instances (including script instances) will be deleted from the **Hierarchy**, but not from **Project Content**. This means, any changes to a template that needs to be kept, should be updated before the scene is deleted.
 
 !!! info "**Core** will confirm if the scene should be deleted."
 
@@ -133,7 +133,7 @@ Click on the **Publish Game** button to bring up the **Game Publishing Settings*
 
 ![!Publish Button](../img/Scenes/publish_button.png){: .center loading="lazy" }
 
-The **Game Publishing Settings** window has a **Scenes** drop down where creators can select which scenes should be included when publishing.
+The **Game Publishing Settings** window has a **Scenes** dropdown where creators can select which scenes should be included when publishing.
 
 !!! info "When publishing any scenes that isn't the main scene, **Core** will only publish the assets used for that scene."
 
@@ -141,7 +141,7 @@ The **Game Publishing Settings** window has a **Scenes** drop down where creator
 
 ## Transferring to a Scene
 
-Transferring players between scenes can be done by calling `TransferToScene`. When calling this function, the scene name must be passed, and must be named exactly as the scene is named.
+Transferring players between scenes can be done by calling `TransferToScene`. When calling this function, the scene name must be passed and must be named exactly as the scene is named.
 
 !!! warning "`TransferToScene` does not work in preview mode or games played locally."
 
@@ -171,7 +171,7 @@ other:TransferToScene(sceneName, {spawnKey = "TutorialArea"})
 
 ## Storage
 
-Any data stored in **Storage** is transferred to the scene being loaded. For example, if a player has inventory data, this means the scene can look at the **Storage** for the player to retrieve that data without needing to use a **Shared Storage Key**.
+Any data stored in **Storage** is transferred to the scene loaded. For example, if a player has inventory data, this means the scene can look at the **Storage** for the player to retrieve that data without needing to use a **Shared Storage Key**.
 
 ## Leaderboards
 
