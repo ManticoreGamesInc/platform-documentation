@@ -34,6 +34,55 @@ InventoryItem is an Object which implements the [Item](item.md) interface. It re
 
 Example using:
 
+### `GetCustomProperty`
+
+### `SetCustomProperty`
+
+In this example, a pair of server/client scripts are placed under an Inventory. If any of the inventory items has a dynamic custom property called "Freshness", then that item becomes less fresh over time, until the "Freshness" property reaches zero. The server script is responsible for changing the freshness, while the client script listens for the changes and prints them to the Event Log.
+
+```lua
+-- SERVER SCRIPT:
+local INVENTORY = script:FindAncestorByType("Inventory")
+local DECAY_PERIOD = 5
+
+function Tick()
+    Task.Wait(DECAY_PERIOD)
+    
+    for _,item in ipairs(INVENTORY:GetItems()) do
+        local value, hasProperty = item:GetCustomProperty("Freshness")
+        if hasProperty and value > 0 then
+            item:SetCustomProperty("Freshness", value - 1)
+        end
+    end
+end
+
+-- CLIENT SCRIPT:
+local INVENTORY = script:FindAncestorByType("Inventory")
+
+function OnPropertyChanged(inventory, item, propertyName)
+    local value = item:GetCustomProperty(propertyName)
+    
+    print("Item ".. item.name ..":".. propertyName .." = ".. tostring(value))
+    
+    if propertyName == "Freshness" then
+        if value == 1 then
+            print("One of your items is almost rotten!")
+            
+        elseif value == 0 then
+            print(item.name .." is now rotten.")
+        end
+    end
+end
+
+INVENTORY.itemPropertyChangedEvent:Connect(OnPropertyChanged)
+```
+
+See also: [Inventory.itemPropertyChangedEvent](inventory.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Task.Wait](task.md)
+
+---
+
+Example using:
+
 ### `itemAssetId`
 
 ### `itemTemplateId`
