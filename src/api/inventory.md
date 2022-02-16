@@ -77,8 +77,8 @@ local DECAY_PERIOD = 5
 
 function Tick()
     Task.Wait(DECAY_PERIOD)
-    
-    for _,item in ipairs(INVENTORY:GetItems()) do
+
+    for _,item in pairs(INVENTORY:GetItems()) do
         local value, hasProperty = item:GetCustomProperty("Freshness")
         if hasProperty and value > 0 then
             item:SetCustomProperty("Freshness", value - 1)
@@ -91,13 +91,13 @@ local INVENTORY = script:FindAncestorByType("Inventory")
 
 function OnPropertyChanged(inventory, item, propertyName)
     local value = item:GetCustomProperty(propertyName)
-    
+
     print("Item ".. item.name ..":".. propertyName .." = ".. tostring(value))
-    
+
     if propertyName == "Freshness" then
         if value == 1 then
             print("One of your items is almost rotten!")
-            
+
         elseif value == 0 then
             print(item.name .." is now rotten.")
         end
@@ -191,7 +191,7 @@ In games with more complex inventories players will want to reorganize their ite
 ```lua
 function OnMove(player, fromSlot, toSlot)
     local inventory = player:GetInventories()[1]
-    
+
     if inventory:CanMoveFromSlot(fromSlot, toSlot) then
         inventory:MoveFromSlot(fromSlot, toSlot)
     end
@@ -257,9 +257,9 @@ function Scrap(inventory, slotNumber)
     if inventory:CanRemoveFromSlot(slotNumber) then
         local item = inventory:GetItem(slotNumber)
         local resourceGain = item.count
-        
+
         inventory:RemoveFromSlot(slotNumber)
-        
+
         return resourceGain
     end
     return 0
@@ -274,7 +274,7 @@ end
 Events.ConnectForPlayer("ScrapItem", OnScrapItem)
 ```
 
-See also: [InventoryItem.count](inventoryitem.md) | [Player.AddResource](player.md) | [GameObject.GetCustomProperty](gameobject.md) | [Events.ConnectForPlayer](events.md)
+See also: [InventoryItem.count](inventoryitem.md) | [Player.AddResource](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Events.ConnectForPlayer](events.md)
 
 ---
 
@@ -514,7 +514,7 @@ local INVENTORY_TEMPLATE = script:GetCustomProperty("Inventory")
 function SaveInventory(player, inventory)
     -- Serialize
     local inventoryData = {}
-    for i,item in ipairs(inventory:GetItems()) do
+    for i,item in pairs(inventory:GetItems()) do
         inventoryData[item.itemAssetId] = item.count
     end
     -- Save to storage
