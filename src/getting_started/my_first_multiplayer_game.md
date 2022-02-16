@@ -182,7 +182,7 @@ You should now be able to walk into a bush. Test this in **Multiplayer Preview M
 
 You can apply a material to multiple objects by selecting them.
 
-- Use ++shift+Left Click++ to select more objects.
+- Use ++shift+left-button++ to select more objects.
 - Left click and drag to select objects in an area.
 
 <div class="mt-video">
