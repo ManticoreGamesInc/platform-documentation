@@ -1490,6 +1490,11 @@ The Dungeon Crawler uses the **NPC AI Kit** from **Community Content** for the e
 
 The **NPCAttackServer** script exposes a function called `ApplyDamage` that accepts a `Damage` object, and player. You can access the global `ApplyDamage` function by accessing the `context` of the script. In doing so, you can apply enough damage to the enemy to kill them.
 
+!!! warning "NPC AI Kit"
+    If you are using a newer version of the NPC AI Kit, you will need to pass in a table to the `ApplyDamage` function.
+
+    `attackServer.context.ApplyDamage({ damage = Damage.New(50000) })`
+
 ```lua
 CommandParser.AddCommand("killnpcs", function(sender, params, status)
     if CommandParser.HasPermission(sender, CommandParser.permissions.ADMIN) then
