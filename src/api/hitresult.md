@@ -25,6 +25,7 @@ Contains data pertaining to an impact or raycast.
 | `GetImpactNormal()` | [`Vector3`](vector3.md) | Normal direction of the surface which was impacted. | None |
 | `GetShapePosition()` | [`Vector3`](vector3.md) | For HitResults returned by box casts and sphere casts, returns the world position of the center of the cast shape when the collision occurred. In the case of HitResults not related to a box cast or sphere cast, returns the world position where the impact occurred. | None |
 | `GetTransform()` | [`Transform`](transform.md) | Returns a Transform composed of the position of the impact in world space, the rotation of the normal, and a uniform scale of 1. | None |
+| `GetMaterialSlot()` | [`MaterialSlot`](materialslot.md) | For HitResults involving a `CoreMesh`, returns a MaterialSlot instance indicating which material on the mesh was impacted. For certain types of collisions, including when the impacted object is not a `CoreMesh`, a `MaterialSlot` is not available, and `nil` is returned. | None |
 
 ## Examples
 
