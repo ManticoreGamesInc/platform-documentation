@@ -25,6 +25,9 @@ The VoiceChat namespace contains functions for controlling voice chat in a game.
 | `VoiceChat.MutePlayerInChannel(Player, string channelName)` | `none` | Mutes the given player in the specified channel. | Server-Only |
 | `VoiceChat.UnmutePlayerInChannel(Player, string channelName)` | `none` | Unmutes the given player in the specified channel. | Server-Only |
 | `VoiceChat.IsPlayerMutedInChannel(Player, string channelName)` | `boolean` | Returns `true` if the given player is muted in the specified channel, otherwise returns `false`. | None |
+| `VoiceChat.HasMicrophone(Player player)` | `boolean` | Returns `true` if Core has detected a microphone for the given player, otherwise returns `false`. | None |
+| `VoiceChat.IsVoiceChatEnabled(Player player)` | `boolean` | Returns `true` if the given player has enabled voice chat in their settings. | None |
+| `VoiceChat.GetVoiceChatMethod()` | [`VoiceChatMethod`](enums.md#voicechatmethod) | Returns the method the local player has selected in their settings to activate voice chat. | Client-Only |
 
 ## Examples
 

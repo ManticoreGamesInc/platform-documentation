@@ -26,10 +26,10 @@ UIControl is a CoreObject which serves as a base class for other UI controls.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetAbsolutePosition()` | [`Vector2`](vector2.md) | Returns the absolute screen position of the pivot for this control. | None |
-| `SetAbsolutePosition(Vector2)` | `None` | Sets the absolute screen position of the pivot for this control. | None |
-| `GetAbsoluteRotation()` | `number` | Returns the absolute rotation in degrees (clockwise) for this control. | None |
-| `SetAbsoluteRotation(number)` | `None` | Sets the absolute rotation in degrees (clockwise) for this control. | None |
+| `GetAbsolutePosition()` | [`Vector2`](vector2.md) | Returns the absolute screen position of the pivot for this control. | Client-Only |
+| `SetAbsolutePosition(Vector2)` | `None` | Sets the absolute screen position of the pivot for this control. | Client-Only |
+| `GetAbsoluteRotation()` | `number` | Returns the absolute rotation in degrees (clockwise) for this control. | Client-Only |
+| `SetAbsoluteRotation(number)` | `None` | Sets the absolute rotation in degrees (clockwise) for this control. | Client-Only |
 
 ## Examples
 
