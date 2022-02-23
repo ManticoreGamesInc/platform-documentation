@@ -19,7 +19,7 @@ A UIControl for a button, should be inside client context. Inherits from [UICont
 | `isInteractable` | `boolean` | Returns whether the Button can interact with the cursor (click, hover, etc). | Read-Write |
 | `shouldClipToSize` | `boolean` | Whether or not the button and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
 | `shouldScaleToFit` | `boolean` | Whether or not the button's label should scale down to fit within the bounds of this control. | Read-Write |
-| `boundAction` | `string` | Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set. | Read-Only |
+| `boundAction` | `string` | Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set. | Read-Write |
 
 ## Functions
 
