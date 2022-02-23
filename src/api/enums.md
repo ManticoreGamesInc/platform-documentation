@@ -121,6 +121,15 @@ tags:
 | `DamageReason.MAP` | `3` | Player is taking damage from the environment. |
 | `DamageReason.NPC` | `4` | Player is taking damage from a non-player character. |
 
+## DetailLevel
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `DetailLevel.LOW` | `0` | Missing Description |
+| `DetailLevel.MEDIUM` | `1` | Missing Description |
+| `DetailLevel.HIGH` | `2` | Missing Description |
+| `DetailLevel.ULTRA` | `3` | Missing Description |
+
 ## FacingMode
 
 | Enum Name | Value | Description |
@@ -350,6 +359,13 @@ tags:
 | --------- | ----------- | ----------- |
 | `VoiceChannelType.NORMAL` | `0` | A regular voice chat channel. Player volume is not affected by player position. |
 | `VoiceChannelType.POSITIONAL` | `1` | A positional voice chat channel. Player volume is affected by the speaker's position in relation to the listener. |
+
+## VoiceChatMethod
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `VoiceChatMethod.PUSH_TO_TALK` | `0` | Missing Description |
+| `VoiceChatMethod.DETECT_SPEAKING` | `2` | Missing Description |
 
 ## VoiceChatMode
 

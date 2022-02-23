@@ -35,6 +35,8 @@ A trigger is an invisible and non-colliding CoreObject which fires events when i
 | `beginOverlapEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Object`](object.md) other> | Fired when an object enters the Trigger volume. The first parameter is the Trigger itself. The second is the object overlapping the Trigger, which may be a CoreObject, a Player, or some other type. Call `other:IsA()` to check the type. | None |
 | `endOverlapEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Object`](object.md) other> | Fired when an object exits the Trigger volume. Parameters the same as `beginOverlapEvent.` | None |
 | `interactedEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Player`](player.md)> | Fired when a player uses the interaction on a trigger volume (<kbd>F</kbd> key). The first parameter is the Trigger itself and the second parameter is a Player. | None |
+| `interactableFocusedEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Player`](player.md)> | Fired when a player has focused on an interactable Trigger and may interact with it. | Client-Only |
+| `interactableUnfocusedEvent` | [`Event`](event.md)<[`Trigger`](trigger.md) trigger, [`Player`](player.md)> | Fired when a player is no longer focused on a previously focused interactable Trigger. | Client-Only |
 
 ## Examples
 
