@@ -143,7 +143,7 @@ local players = {}
 
 ##### Create AddRandomItems Function
 
-Create a function called `OnPlayerLeft`. This function will be called when the player joins the game so random items are added to the inventory. It will loop over the total `slotCount` of the inventory, and pick a random slot for an item to be added.
+Create a function called `AddRandomItems`. This function will be called when the player joins the game so random items are added to the inventory. It will loop over the total `slotCount` of the inventory, and pick a random slot for an item to be added.
 
 When adding an item to an inventory, it is recommended to check that it can be added. The function `CanAddItem` will return `true` or `false` depending on if the item can be added to the inventory. The first argument of `CanAddItem` is the item asset that you would like to insert into the inventory. The optional second argument can be a table where you can specify the `count` and the `slot` to check.
 
