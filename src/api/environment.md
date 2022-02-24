@@ -21,7 +21,6 @@ The Environment namespace contains a set of functions for determining where a sc
 | `Environment.IsPreview()` | `boolean` | Returns `true` if running in preview mode. | None |
 | `Environment.IsMultiplayerPreview()` | `boolean` | Returns `true` if running in multiplayer preview mode. | None |
 | `Environment.IsSinglePlayerPreview()` | `boolean` | Returns `true` if running in single-player preview mode. | None |
-| `Environment.GetDetailLevel()` | [`DetailLevel`](enums.md#detaillevel) | Returns the Detail Level selected by the player in the Settings menu. Useful for determining whether to spawn templates for VFX or other client-only objects, or selecting templates that are optimized for a particular detail level based on the player's settings. | Client-Only |
 
 ## Examples
 
