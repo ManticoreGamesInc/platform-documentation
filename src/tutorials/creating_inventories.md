@@ -702,7 +702,7 @@ Open up the **PlayerInventoryServer** script. You will need to modify this scrip
 Create a function called `FindLookupItemByKey`. This is a helper function that will take in a `key` that will be compared against the **key** column in the data table. If a key matches, then the row from the data table is returned.
 
 ```lua
-function FindLookupItemByKey(key)
+local function FindLookupItemByKey(key)
     for i, dataItem in pairs(INVENTORY_ASSETS) do
         if key == dataItem.key then
             return dataItem
@@ -716,7 +716,7 @@ end
 Create a function called `FindLookupItemByAssetId`. This is a helper function that will take in an `item` that will be compared against the `asset` column in the data table. If the `itemAssetId` matches the first part of the `asset`, then the row from the data table is returned.
 
 ```lua
-function FindLookupItemByAssetId(item)
+local function FindLookupItemByAssetId(item)
     for i, dataItem in pairs(INVENTORY_ASSETS) do
         local id = CoreString.Split(dataItem.asset, ":") -- (1)
 
@@ -733,7 +733,7 @@ end
 
 Create a function called `SavePlayerInventory`. This function will be called when the player leaves the game. It will create a table called `inv` and store all the items in the player's inventory in the table.
 
-The loop in the function will loop iterate based on the total slots in the inventory. The reason `slotCount` is used, is that the order and slot position of each item will be retained.
+The loop in the function will iterate based on the total slots in the inventory. The reason `slotCount` is used, is that the order and slot position of each item will be retained.
 
 Each slot item is added to the `inv` table that contains the key and count for that item.
 
@@ -741,7 +741,7 @@ Each slot item is added to the `inv` table that contains the key and count for t
     The **SavePlayerInventory** function is looping over the `slotCount` of an inventory. For this tutorial it was set to `16`, however, beware that if you leave the **Slot Count** property of an inventory at `0`, then the loop will take some time to complete and will lock up the game while it is looping through all the slots.
 
 ```lua
-function SavePlayerInventory(player)
+local function SavePlayerInventory(player)
     local data = Storage.GetPlayerData(player)
 
     data.inv = {} -- (1)
@@ -780,7 +780,7 @@ When adding items to an inventory, it is recommended to check the item can be ad
 If the player has an empty inventory, then `AddRandomItems` is called while passing in the player's inventory. This is for testing to make sure there are items in the inventory to move around.
 
 ```lua
-function LoadPlayerInventory(player)
+local function LoadPlayerInventory(player)
     local data = Storage.GetPlayerData(player)
 
     if data.inv ~= nil then
@@ -846,7 +846,7 @@ end
         end
     end
 
-    function FindLookupItemByKey(key)
+    local function FindLookupItemByKey(key)
         for i, dataItem in pairs(INVENTORY_ASSETS) do
             if key == dataItem.key then
                 return dataItem
@@ -854,7 +854,7 @@ end
         end
     end
 
-    function FindLookupItemByAssetId(item)
+    local function FindLookupItemByAssetId(item)
         for i, dataItem in pairs(INVENTORY_ASSETS) do
             local id = CoreString.Split(dataItem.asset, ":")
 
@@ -864,7 +864,7 @@ end
         end
     end
 
-    function SavePlayerInventory(player)
+    local function SavePlayerInventory(player)
         local data = Storage.GetPlayerData(player)
 
         data.inv = {}
@@ -887,7 +887,7 @@ end
         Storage.SetPlayerData(player, data)
     end
 
-    function LoadPlayerInventory(player)
+    local function LoadPlayerInventory(player)
         local data = Storage.GetPlayerData(player)
 
         if data.inv ~= nil then
@@ -1254,7 +1254,7 @@ end
 
 ##### Create DisableCursor Function
 
-Create a function called `DisableCursor`. This will hide the cursor for the UI and turn of UI interaction.
+Create a function called `DisableCursor`. This will hide the cursor for the UI and turn off UI interaction.
 
 ```lua
 function API.DisableCursor()
@@ -1646,7 +1646,7 @@ Open up the **PlayerInventoryServer** script and clear out all the code that is 
 Require the API at the top of the script by using the `require` function. With the API required, it will allow you to access any property or function from it.
 
 ```lua
-local INVENTORY_API = require(script:GetCustomProperty("InventoryAPI"))
+local API = require(script:GetCustomProperty("InventoryAPI"))
 ```
 
 ##### Create OnPlayerJoined Function
@@ -1719,7 +1719,7 @@ Open up the **PlayerInventoryClient** script. A big amount of code will be remov
 Require the API at the top of the script by using the `require` function. With the API required, it will allow you to access any property or function from it.
 
 ```lua
-local INVENTORY_API = require(script:GetCustomProperty("InventoryAPI"))
+local API = require(script:GetCustomProperty("InventoryAPI"))
 ```
 
 ##### Add Variables
@@ -1881,16 +1881,16 @@ ConnectSlotEvents()
 
 Previously the **PlayerInventoryClient** would handle the screen position of the proxy UI when a player had picked up an inventory item from a slot. Moving this to a new script will make it universal for all scripts because the API will be responsible for updating the proxy icon.
 
-Create a new script called `DragProxyIcon`.
+Create a new script called `DragProxyClient`.
 
-1. Add the **InventoryAPI** script as a custom property called `InventoryAPI`.
+1. Add the **InventoryAPI** script as a custom property called `API`.
 2. Add the **Proxy** panel in the **Proxy** folder as a custom property called `Proxy`.
 
 ![!Proxy Script](../img/Inventory/Tutorial/proxy_script.png){: .center loading="lazy" }
 
 #### Edit DragProxyClient Script
 
-Open up the **DragProxyClient Script and add require the API.
+Open up the **DragProxyClient** Script and add require the API.
 
 ```lua
 local API = require(script:GetCustomProperty("InventoryAPI"))
