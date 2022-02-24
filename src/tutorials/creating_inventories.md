@@ -392,9 +392,9 @@ local function ClearDraggedItem()
 end
 ```
 
-##### Created OnSlotPressed Function
+##### Created OnSlotPressedEvent Function
 
-Create a function called `OnSlotPressed`. This function will handle the various conditions when the player moves around items.
+Create a function called `OnSlotPressedEvent`. This function will handle the various conditions when the player moves around items.
 
 There are 3 conditions to be checked:
 
