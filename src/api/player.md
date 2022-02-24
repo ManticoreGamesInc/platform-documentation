@@ -1165,8 +1165,6 @@ Example using:
 
 ### `privateNetworkedDataChangedEvent`
 
-### `FAILURE`
-
 In this example, a player's inventory data is transferred from server to client. The server first accesses permanent storage to see if the player has previously played the game. If not, their inventory is initialized with starting items. Then, the server uses the private networked data API to transfer this information to the client script. Client scripts cannot access storage directly, so they depend on this transfer in order to display to the user interface what's contained in the inventory. Furthermore, because the transfer is private, other players don't incur networking costs. Plus, knowing other players' inventories is not important for the gameplay in this case.
 
 ```lua
