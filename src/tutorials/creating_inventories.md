@@ -380,10 +380,10 @@ end
 
 ##### Create ClearDraggedItem Function
 
-Created a function called `ClearDraggedItem`. This function will clear the variables at the top of the script by resetting them back to their original values. This function is called when the icon being dragged around has been placed into a slot without an existing item.
+Create a function called `ClearDraggedItem`. This function will clear the variables at the top of the script by resetting them back to their original values. This function is called when the icon being dragged around has been placed into a slot without an existing item.
 
 ```lua
-function ClearDraggedItem()
+local function ClearDraggedItem()
     activeSlot = nil
     activeSlotIcon = nil
     activeSlotCount = nil
@@ -572,7 +572,7 @@ ConnectSlotEvents()
         end
     end
 
-    function ClearDraggedItem()
+    local function ClearDraggedItem()
         activeSlot = nil
         activeSlotIcon = nil
         activeSlotCount = nil
