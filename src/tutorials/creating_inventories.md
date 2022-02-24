@@ -202,7 +202,7 @@ end
 Create a function called `MoveItemHandler` that will fetch the player's inventory, and try to move it from one slot index to another slot index by using the `MoveFromSlot` function. It is recommended to always check if the action on an inventory can be done. In this case, a check is done using `CanMoveFromSlot` to make sure the item can be moved.
 
 ```lua
-function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
+local function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
     local inventory = players[player.id]
 
     if inventory ~= nil then
@@ -263,7 +263,7 @@ Events.ConnectForPlayer("inventory.moveitem", MoveItemHandler)
         players[player.id] = nil
     end
 
-    function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
+    local function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
         local inventory = players[player.id]
 
         if inventory ~= nil then
@@ -919,7 +919,7 @@ end
         players[player.id] = nil
     end
 
-    function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
+    local function MoveItemHandler(player, fromSlotIndex, toSlotIndex)
         local inventory = players[player.id]
 
         if inventory ~= nil then
