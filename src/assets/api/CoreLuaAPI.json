@@ -223,12 +223,22 @@
 		},
 		{
 			"Name": "Ability",
-			"Description": "Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.\r\n\r\nAbilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (for example Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.\r\n\r\nOnly one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The `canBePrevented` and `preventsOtherAbilities` properties can be used to customize interruption rules for competing abilities.\r\n\r\nIf an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.",
+			"Description": "Abilities are CoreObjects that can be added to Players and guide the Player's animation in sync with the Ability's state machine. Spawn an Ability with `World.SpawnAsset()` or add an Ability as a child of an Equipment/Weapon to have it be assigned to the Player automatically when that item is equipped.\r\n\r\nAbilities can be activated by association with an Action Binding. Their internal state machine flows through the phases: Ready, Cast, Execute, Recovery, and Cooldown. An Ability begins in the Ready state and transitions to Cast when its Binding (for example Left mouse click) is activated by the owning player. It then automatically flows from Cast to Execute, then Recovery and finally Cooldown. At each of these state transitions it fires a corresponding event.\r\n\r\nOnly one ability can be active at a time. By default, activating an ability will interrupt the currently active ability. The `canBePrevented` and `preventsOtherAbilities` properties can be used to customize interruption rules for competing abilities.\r\n\r\nIf an ability is interrupted during the Cast phase, it will immediately reset to the Ready state. If an ability is interrupted during the Execute or Recovery phase, the ability will immediately transition to the Cooldown phase.",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
 					"Name": "actionBinding",
-					"Description": "Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page.",
+					"Description": "*This property is deprecated. Please use `actionName` instead, but note that `actionBinding` and `actionName` use different values.*  Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "actionBinding is deprecated. Please use actionName instead.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "actionName",
+					"Description": "Which binding set action name will cause the Ability to activate.",
 					"Type": "string",
 					"Tags": [
 						"ReadOnly"
@@ -5447,6 +5457,22 @@
 					]
 				}
 			],
+			"Hooks": [
+				{
+					"Name": "damageHook",
+					"Description": "Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter.",
+					"Parameters": [
+						{
+							"Type": "DamageableObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				}
+			],
 			"MemberFunctions": [
 				{
 					"Name": "ApplyDamage",
@@ -5952,7 +5978,7 @@
 		},
 		{
 			"Name": "Event",
-			"Description": "Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. for example `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.",
+			"Description": "Events appear as properties on several objects. The goal is to register a function that will be fired whenever that event happens. For example `playerA.damagedEvent:Connect(OnPlayerDamaged)` chooses the function `OnPlayerDamaged` to be fired whenever `playerA` takes damage.",
 			"Properties": [
 				{
 					"Name": "type",
@@ -6223,6 +6249,21 @@
 					]
 				},
 				{
+					"Name": "GetMaterialSlot",
+					"Description": "For HitResults involving a `CoreMesh`, returns a MaterialSlot instance indicating which material on the mesh was impacted. For certain types of collisions, including when the impacted object is not a `CoreMesh`, a `MaterialSlot` is not available, and `nil` is returned.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "MaterialSlot",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -6244,7 +6285,7 @@
 		},
 		{
 			"Name": "Hook",
-			"Description": "Hooks appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired, but Hooks allow those functions to modify the parameters given to them. for example `player.movementHook:Connect(OnPlayerMovement)` calls the function `OnPlayerMovement` each tick, which may modify the direction in which a player will move.",
+			"Description": "Hooks appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired, but Hooks allow those functions to modify the parameters given to them. For example `player.movementHook:Connect(OnPlayerMovement)` calls the function `OnPlayerMovement` each tick, which may modify the direction in which a player will move.",
 			"Properties": [
 				{
 					"Name": "type",
@@ -6622,6 +6663,1053 @@
 						}
 					]
 				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Inventory",
+			"Description": "Inventory is a CoreObject that represents a container of InventoryItems. Items can be added directly to an inventory, picked up from an ItemObject in the world, or transferred between inventories. An Inventory may be assigned to a Player, and Players may have any number of Inventories.",
+			"BaseType": "CoreObject",
+			"Properties": [
+				{
+					"Name": "owner",
+					"Description": "The Player who currently owns the inventory. May be `nil`. Change owners with `Assign()` or `Unassign()`.",
+					"Type": "Player",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "slotCount",
+					"Description": "The number of unique inventory item stacks this inventory can hold. Zero or negative numbers indicate no limit.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "emptySlotCount",
+					"Description": "The number of slots in the inventory that do not contain an inventory item stack.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "occupiedSlotCount",
+					"Description": "The number of slots in the inventory that contain an inventory item stack.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "ownerChangedEvent",
+					"Description": "Fired when the inventory's owner has changed.",
+					"Parameters": [
+						{
+							"Type": "Inventory",
+							"Name": "inventory"
+						}
+					]
+				},
+				{
+					"Name": "resizedEvent",
+					"Description": "Fired when the inventory's size has changed.",
+					"Parameters": [
+						{
+							"Type": "Inventory",
+							"Name": "inventory"
+						}
+					]
+				},
+				{
+					"Name": "changedEvent",
+					"Description": "Fired when the contents of an inventory slot have changed. This includes when the item in that slot is added, given, received, dropped, moved, resized, or removed.",
+					"Parameters": [
+						{
+							"Type": "Inventory",
+							"Name": "inventory"
+						},
+						{
+							"Type": "integer",
+							"Name": "slot"
+						}
+					]
+				},
+				{
+					"Name": "itemPropertyChangedEvent",
+					"Description": "Fired when an inventory item's dynamic custom property value has changed.",
+					"Parameters": [
+						{
+							"Type": "Inventory",
+							"Name": "inventory"
+						},
+						{
+							"Type": "InventoryItem",
+							"Name": "item"
+						},
+						{
+							"Type": "string",
+							"Name": "propertyName"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "Assign",
+					"Description": "Sets the owner property of the inventory to the specified player. When a networked inventory is assigned to a player, only that player's client will be able to access the inventory contents.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Unassign",
+					"Description": "Clears the owner property of the inventory. The given inventory will now be accessible to all clients.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetItem",
+					"Description": "Returns the contents of the specified slot. Returns `nil` if the slot is empty.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "InventoryItem"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetItems",
+					"Description": "Returns a table mapping integer slot number to the inventory item in that slot. Note that this may leave gaps in the table if the inventory contains empty slots, so use with `ipairs()` is not recommended. Returns an empty table if the inventory is empty. <br/>Supported parameters include: <br/>`itemAssetId (string)`: If specified, filters the results by the specified item asset reference. Useful for getting all inventory items of a specific type.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "ClearItems",
+					"Description": "Removes all items from the inventory.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "SortItems",
+					"Description": "Reorganizes inventory items into sequential slots starting with slot 1. Does not perform any consolidation of item stacks of the same type. Use `ConsolidateItems()` first if this behavior is desired.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "ConsolidateItems",
+					"Description": "Combines stacks of inventory items into as few slots as possible based on the `maximumStackCount` of each item. Slots may be emptied by this operation, but are otherwise not sorted or reorganized.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanResize",
+					"Description": "Checks if there are enough slots for all current contents of the inventory if the inventory were to be resized. Returns `true` if the inventory can be resized to the new size or `false` if it cannot.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "newSize"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "Resize",
+					"Description": "Changes the number of slots of the inventory. There must be enough slots to contain all of the items currently in the inventory or the operation will fail. This operation will move items into empty slots if necessary, but it will not consolidate item stacks, even if doing so would create sufficient space for the operation to succeed. Use `ConsolidateItems()` first if this behavior is desired. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "newSize"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanAddItem",
+					"Description": "Checks for room to add the specified item to this inventory. If the item can be added to the inventory, returns `true`. If the inventory is full or the item otherwise cannot be added, returns `false`. Supports the same parameters as `AddItem()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "AddItem",
+					"Description": "Attempts to add the specified item to this inventory. If the item was successfully added to the inventory, returns `true`. If the inventory was full or the item otherwise wasn't added, returns `false`. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of items to create and add to the inventory. Defaults to 1. <br/>`slot (integer)`: Attempts to create the item directly into the specified slot. If unspecified, the inventory will either look to stack this item with other items of the same `itemAssetId`, or will look to find the first empty slot. <br/>`customProperties (table)`: Applies initial property values to any dynamic properties on the item. Attempting to specify a property that does not exist will yield a warning. Attempting to specify a property that does exist and is not dynamic will raise an error. Providing a property value of the incorrect type will raise an error.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanPickUpItem",
+					"Description": "Checks for room in an existing stack or free inventory slots to add the given item to the inventory. If the item can be added to the inventory, returns `true`. If the inventory is full or the item otherwise cannot be added, returns `false`. Supports the same parameters as `PickUpItem()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "ItemObject",
+									"Name": "itemObject"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "PickUpItem",
+					"Description": "Creates an inventory item from an ItemObject that exists in the world, taking 1 count from the ItemObject. Destroys the ItemObject if the inventory item is successfully created and the ItemObject count has been reduced to zero. Returns `true` if the item was picked up. Returns `false` and logs a warning if the item could not be picked up. <br/>Supported parameters include: <br/>`count (integer)`: Determines the number of items taken from the specified ItemObject. If the ItemObject still has a count greater than zero after this operation, it is not destroyed. Defaults to 1. <br/>`all (boolean)`: If `true`, picks up all of the given item's count instead of just 1. Overrides `count` if both are specified.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "ItemObject",
+									"Name": "itemObject"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanMoveFromSlot",
+					"Description": "Checks if an item can be moved from one slot to another. If the item can be moved, returns `true`. Returns `false` if it cannot be moved. Supports the same parameters as `MoveFromSlot()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "fromSlot"
+								},
+								{
+									"Type": "integer",
+									"Name": "toSlot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "MoveFromSlot",
+					"Description": "Moves an inventory item and its entire count from one slot to another. If the target slot is empty, the stack is moved. If the target slot is occupied by a matching item, the stack will merge as much as it can up to its `maximumStackCount`. If the target slot is occupied by a non-matching item, the stacks will swap. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of items to move. When swapping with another stack containing a non-matching item, this operation will fail unless `count` is the entire stack.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "fromSlot"
+								},
+								{
+									"Type": "integer",
+									"Name": "toSlot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanRemoveItem",
+					"Description": "Checks if an item can be removed from the inventory. If the item can be removed, returns `true`. Returns `false` if it cannot be removed. Supports the same parameters as `RemoveItem()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "RemoveItem",
+					"Description": "Deletes 1 item of the specified asset from the inventory. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be removed. Defaults to 1. <br/>`all (boolean)`: If `true`, removes all of the specified items instead of just 1. Overrides `count` if both are specified.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanRemoveFromSlot",
+					"Description": "Checks if an item can be removed from an inventory slot. If the item can be removed, returns `true`. Returns `false` if it cannot be removed. Supports the same parameters as `RemoveFromSlot()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "RemoveFromSlot",
+					"Description": "Deletes the inventory item and its entire count from the specified inventory slot. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be removed. Defaults to the total count in the specified slot.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanDropItem",
+					"Description": "Checks if an item can be dropped from the inventory. If the item can be dropped, returns `true`. Returns `false` if it cannot be dropped. Supports the same parameters as `DropItem()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "DropItem",
+					"Description": "Removes 1 item of the specified asset from the inventory and creates an ItemObject with the item's properties. Spawns the ItemObject at the position of the inventory in the world, or at the position of the owner player's feet if the inventory has been assigned to a player. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be dropped. Defaults to 1. <br/>`all (boolean)`: If `true`, drops all of the specified items instead of just 1. Overrides `count` if both are specified. <br/>`dropTo (ItemObject)`: Specifies a pre-existing ItemObject to drop the items onto. Doing this will add to that ItemObject's count. If the ItemObject's maximum stack count would be exceeded by this operation, it will fail, and this function will return false. <br/>`parent (CoreObject)`: Creates the new ItemObject as a child of the specified CoreObject. Can only be used if `dropTo` is not specified. <br/>`position (Vector3)`: Specifies the world position at which the ItemObject is spawned, or the relative position if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`rotation (Rotation or Quaternion)`: Specifies the world rotation at which the ItemObject is spawned, or the relative rotation if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`scale (Vector3)`: Specifies the world scale with which the ItemObject is spawned, or the relative scale if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`transform (Transform)`: Specifies the world transform at which the ItemObject is spawned, or the relative transform if a parent is specified. Can only be used if `dropTo` is not specified, and is mutually exclusive with `position`, `rotation`, and `scale`. <br/>Additional parameters supported by `World.SpawnAsset()` may also be supported here.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanDropFromSlot",
+					"Description": "Checks if an item can be dropped from an inventory slot. If the item can be dropped, returns `true`. Returns `false` if it cannot be dropped. Supports the same parameters as `DropFromSlot()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "DropFromSlot",
+					"Description": "Drops the entire contents of a specified slot, creating an ItemObject with the item's properties. Spawns the ItemObject at the position of the inventory in the world, or at the position of the owner player's feet if the inventory has been assigned to a player. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. If the full item count is successfully dropped, the slot will be left empty.<br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be dropped. If not specified, the total number of items in this slot will be dropped. <br/>`dropTo (ItemObject)`: Specifies a pre-existing ItemObject to drop the items onto. Doing this will add to that ItemObject's count. If the ItemObject's max stack count would be exceeded by this operation, it will fail, and this function will return false. <br/>`parent (CoreObject)`: Creates the new ItemObject as a child of the specified CoreObject. Can only be used if `dropTo` is not specified. <br/>`position (Vector3)`: Specifies the world position at which the ItemObject is spawned, or the relative position if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`rotation (Rotation or Quaternion)`: Specifies the world rotation at which the ItemObject is spawned, or the relative rotation if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`scale (Vector3)`: Specifies the world scale with which the ItemObject is spawned, or the relative scale if a parent is specified. Can only be used if `dropTo` is not specified. <br/>`transform (Transform)`: Specifies the world transform at which the ItemObject is spawned, or the relative transform if a parent is specified. Can only be used if `dropTo` is not specified, and is mutually exclusive with `position`, `rotation`, and `scale`. <br/>Additional parameters supported by `World.SpawnAsset()` may also be supported here.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanGiveItem",
+					"Description": "Checks if an item can be transferred to the specified recipient inventory. If the item can be transferred, returns `true`. Returns `false` if it cannot be transferred. Supports the same parameters as `GiveItem()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "Inventory",
+									"Name": "recipient"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GiveItem",
+					"Description": "Transfers an item, specified by item asset ID, from this inventory to the given recipient inventory. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be transferred. Defaults to 1. <br/>`all (boolean)`: If `true`, transfers all of the specified items instead of just 1. Overrides `count` if both are specified.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "itemAssetId"
+								},
+								{
+									"Type": "Inventory",
+									"Name": "recipient"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "CanGiveFromSlot",
+					"Description": "Checks if a slot can be transferred to the specified recipient inventory. If the item can be transferred, returns `true`. Returns `false` if it cannot be transferred. Supports the same parameters as `GiveFromSlot()`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "Inventory",
+									"Name": "recipient"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GiveFromSlot",
+					"Description": "Transfers the entire stack of a given slot to the given recipient inventory. Returns `true` if the operation succeeded. Returns `false` and logs a warning if the operation failed. <br/>Supported parameters include: <br/>`count (integer)`: Specifies the number of the item to be transferred. If not specified, the total number of items in this slot will be transferred.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "slot"
+								},
+								{
+									"Type": "Inventory",
+									"Name": "recipient"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParameters",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "InventoryItem",
+			"Description": "InventoryItem is an Object which implements the [Item](item.md) interface. It represents an Item stored in an Inventory and has no 3D representation in the world.",
+			"BaseType": "Object",
+			"Implements": [
+				"Item"
+			],
+			"Properties": [
+				{
+					"Name": "name",
+					"Description": "The name of this item, inherited from the Item asset.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "itemAssetId",
+					"Description": "Asset ID defining this Item's properties.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "itemTemplateId",
+					"Description": "Asset reference that is spawned as a child of an ItemObject when spawned in the world. May be `nil`.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maximumStackCount",
+					"Description": "The maximum number of items in one stack of this item. Zero or negative numbers indicate no limit.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "inventory",
+					"Description": "The Inventory which owns this item.",
+					"Type": "Inventory",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "slot",
+					"Description": "The slot number to which this item has been assigned within its owning Inventory.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "count",
+					"Description": "The number of items this object represents.",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "SetCustomProperty",
+					"Description": "Sets the value of a custom property. The value must match the existing type of the property. Returns `true` if the property was successfully set. If the property could not be set, returns `false` or raises an error depending on the cause of the failure.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "value",
+									"Name": "propertyValue"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetCustomProperty",
+					"Description": "Returns the value of a specific custom property or `nil` if the Item does not possess the custom property. The second return value is `true` if the property is found or `false` if it is not. Initial values are inherited from the Item asset defining this item.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								},
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCustomProperties",
+					"Description": "Returns a table containing the names and values of all custom properties on this item. Initial values are inherited from the Item asset defining this item.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "ItemObject",
+			"Description": "ItemObject is a CoreObject which implements the [Item](item.md) interface. It represents an Item that has been spawned in the world.",
+			"BaseType": "CoreObject",
+			"Implements": [
+				"Item"
+			],
+			"Properties": [
+				{
+					"Name": "itemAssetId",
+					"Description": "Asset ID defining this ItemObject's properties.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "itemTemplateId",
+					"Description": "Asset reference that is spawned as a child of the ItemObject when spawned in the world. This is inherited from the item asset's Item Template property. May be `nil`.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maximumStackCount",
+					"Description": "The maximum number of items in one stack of this item. This is inherited from the item asset's Maximum Stack Count property. Zero or negative numbers indicate no limit.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "count",
+					"Description": "The number of items this object represents.",
+					"Type": "integer",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"Events": [
+				{
+					"Name": "changedEvent",
+					"Description": "Fired when the count or a custom property value of an ItemObject has changed.",
+					"Parameters": [
+						{
+							"Type": "ItemObject",
+							"Name": "itemObject"
+						}
+					]
+				}
+			],
+			"MemberFunctions": [
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -7198,7 +8286,7 @@
 		},
 		{
 			"Name": "Object",
-			"Description": "At a high level, Core Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include CoreObject, Player and Projectile.",
+			"Description": "At a high level, Core Lua types can be divided into two groups: data structures and Objects. Data structures are owned by Lua, while Objects are owned by the engine and could be destroyed while still referenced by Lua. Any such object will inherit from this type. These include CoreObject, Player, and Projectile.",
 			"Properties": [
 				{
 					"Name": "serverUserData",
@@ -7556,6 +8644,22 @@
 						{
 							"Type": "HitResult",
 							"Name": "hitResult"
+						}
+					]
+				}
+			],
+			"Hooks": [
+				{
+					"Name": "damageHook",
+					"Description": "Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter.",
+					"Parameters": [
+						{
+							"Type": "PhysicsObject",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
 						}
 					]
 				}
@@ -8327,6 +9431,40 @@
 					]
 				},
 				{
+					"Name": "interactableFocusedEvent",
+					"Description": "Fired when a player has focused on an interactable Trigger and may interact with it.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "Trigger",
+							"Name": "trigger"
+						}
+					]
+				},
+				{
+					"Name": "interactableUnfocusedEvent",
+					"Description": "Fired when a player is no longer focused on a previously focused interactable Trigger.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "Trigger",
+							"Name": "trigger"
+						}
+					]
+				},
+				{
 					"Name": "privateNetworkedDataChangedEvent",
 					"Description": "Fired when the player's private data changes. On the client, only the local player's private data is available.",
 					"Parameters": [
@@ -8356,6 +9494,23 @@
 						{
 							"Type": "table",
 							"Name": "parameters"
+						}
+					]
+				},
+				{
+					"Name": "damageHook",
+					"Description": "Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter.",
+					"Tags": [
+						"ServerOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
 						}
 					]
 				}
@@ -8572,6 +9727,20 @@
 							"Returns": [
 								{
 									"Type": "Array<CoreObject>"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetInventories",
+					"Description": "Returns a list of Inventory objects assigned to the player. If the player has no assigned inventories, this list is empty.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Array<Inventory>"
 								}
 							],
 							"Parameters": []
@@ -9540,6 +10709,23 @@
 							],
 							"Parameters": []
 						}
+					]
+				},
+				{
+					"Name": "GetInteractableTarget",
+					"Description": "If the player is currently focused on an interactable Trigger, returns that Trigger. Returns `nil` if the player is not currently focused on an interactable Trigger.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Trigger"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
@@ -12201,7 +13387,7 @@
 		},
 		{
 			"Name": "Trigger",
-			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (for example A Player walks into it):",
+			"Description": "A trigger is an invisible and non-colliding CoreObject which fires events when it interacts with another object (for example a Player walks into it):",
 			"BaseType": "CoreObject",
 			"Properties": [
 				{
@@ -12296,6 +13482,34 @@
 						},
 						{
 							"Type": "Player",
+							"Name": "player"
+						}
+					]
+				},
+				{
+					"Name": "interactableFocusedEvent",
+					"Description": "Fired when a player has focused on an interactable Trigger and may interact with it.",
+					"Parameters": [
+						{
+							"Type": "Trigger",
+							"Name": "trigger"
+						},
+						{
+							"Type": "Object",
+							"Name": "player"
+						}
+					]
+				},
+				{
+					"Name": "interactableUnfocusedEvent",
+					"Description": "Fired when a player is no longer focused on a previously focused interactable Trigger.",
+					"Parameters": [
+						{
+							"Type": "Trigger",
+							"Name": "trigger"
+						},
+						{
+							"Type": "Object",
 							"Name": "player"
 						}
 					]
@@ -12410,7 +13624,8 @@
 					"Description": "Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set.",
 					"Type": "string",
 					"Tags": [
-						"ReadOnly"
+						"RequiresAuthority",
+						"Dynamic"
 					]
 				},
 				{
@@ -12925,6 +14140,80 @@
 				}
 			],
 			"MemberFunctions": [
+				{
+					"Name": "GetAbsolutePosition",
+					"Description": "Returns the absolute screen position of the pivot for this control.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetAbsolutePosition",
+					"Description": "Sets the absolute screen position of the pivot for this control.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "position"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"ClientOnly",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "GetAbsoluteRotation",
+					"Description": "Returns the absolute rotation in degrees (clockwise) for this control.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetAbsoluteRotation",
+					"Description": "Sets the absolute rotation in degrees (clockwise) for this control.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "rotation"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"RequiresAuthority",
+						"ClientOnly",
+						"Dynamic"
+					]
+				},
 				{
 					"Name": "IsA",
 					"Signatures": [
@@ -14880,6 +16169,14 @@
 			],
 			"Properties": [
 				{
+					"Name": "canExit",
+					"Description": "Returns `true` if the driver of the vehicle is allowed to exit using the Vehicle Exit binding.",
+					"Type": "boolean",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
 					"Name": "isAccelerating",
 					"Description": "Returns `true` if the vehicle is currently accelerating.",
 					"Type": "boolean",
@@ -15188,6 +16485,20 @@
 						{
 							"Type": "table",
 							"Name": "parameters"
+						}
+					]
+				},
+				{
+					"Name": "damageHook",
+					"Description": "Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter.",
+					"Parameters": [
+						{
+							"Type": "Vehicle",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
 						}
 					]
 				}
@@ -15943,7 +17254,7 @@
 				},
 				{
 					"Name": "targetImpactedEvent",
-					"Description": "Fired when a Weapon interacts with something. for example a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc.",
+					"Description": "Fired when a Weapon interacts with something. For example a shot hits a wall. The `ImpactData` parameter contains information such as which object was hit, who owns the Weapon, which ability was involved in the interaction, etc.",
 					"Parameters": [
 						{
 							"Type": "Weapon",
@@ -16373,6 +17684,25 @@
 							]
 						}
 					]
+				},
+				{
+					"Name": "ToString",
+					"Description": "Returns a string representation of the given value. By default this will return the same result as Lua's built-in `tostring()` function, but some types may return additional information useful for debugging. The format of strings returned by this function is subject to change and should never be relied upon to return specific information.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "value",
+									"Name": "object"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -16469,7 +17799,7 @@
 			"StaticFunctions": [
 				{
 					"Name": "GetGameInfo",
-					"Description": "Requests metadata for a game with the given ID. Accepts full game IDs (eg \"67442ee5c0654855b51c4f5fc96ab0fd\") as well as the shorter slug version (\"67442e/farmers-market\"). This function may yield until a result is available, and may raise an error if the game ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls.",
+					"Description": "Requests metadata for a game with the given ID. Accepts full game IDs (for example \"67442ee5c0654855b51c4f5fc96ab0fd\") as well as the shorter slug version (\"67442e/farmers-market\"). This function may yield until a result is available, and may raise an error if the game ID is invalid or if an error occurs retrieving the information. Results may be cached for later calls.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -17743,6 +19073,56 @@
 					]
 				},
 				{
+					"Name": "GetActionInputLabel",
+					"Description": "Returns a string label indicating the key or button assigned to the specified action. Returns `nil` if `actionName` is not a valid action or if an invalid `direction` parameter is specified for axis and direction bindings. Returns \"None\" for valid actions with no control bound. <br/>Supported parameters include: <br/>`direction (string)`: *Required* for axis and direction bindings, specifying \"positive\" or \"negative\" for axis bindings, or \"up\", \"down\", \"left\", or \"right\" for direction bindings. <br/>`inputType (InputType)`: Specifies whether to return a label for keyboard and mouse or controller. Defaults to the current active input type. <br/>`secondary (boolean)`: When `true` and returning a label for keyboard and mouse, returns a label for the secondary input.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "string",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								},
+								{
+									"Type": "table",
+									"Name": "optionalParams",
+									"IsOptional": true
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsInputTypeEnabled",
+					"Description": "Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "InputType",
+									"Name": "inputType"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "GetActions",
 					"Description": "Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not.",
 					"Signatures": [
@@ -17823,6 +19203,23 @@
 						{
 							"Type": "table",
 							"Name": "parameters"
+						}
+					]
+				},
+				{
+					"Name": "actionHook",
+					"Description": "Hook called each frame with a list of changes in action values since the previous frame. The `actionList` table is an array of tables with the structure {action = \"actionName\", value = `number` or `Vector2`} for each action whose value has changed since the last frame. If no values have changed, `actionList` will be empty, even if there are actions currently being held. Entries in the table can be added, removed, or changed and will affect whether pressed and released events fire. If a non-zero value is changed to zero then `Input.actionReleasedEvent` will fire for that action. If a zero value changes to non-zero then `Input.actionPressedEvent` will fire.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Player",
+							"Name": "player"
+						},
+						{
+							"Type": "table",
+							"Name": "actionList"
 						}
 					]
 				}
@@ -19017,6 +20414,41 @@
 					"Tags": [
 						"ClientOnly"
 					]
+				},
+				{
+					"Name": "IsVoiceChatWidgetVisible",
+					"Description": "Returns whether the voice chat widget is currently visible. Note that this may return `true` when the voice chat widget is not currently displaying anything on the screen.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "SetVoiceChatWidgetVisible",
+					"Description": "Sets whether the voice chat widget is currently visible.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "boolean",
+									"Name": "isVisible"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
 				}
 			],
 			"StaticEvents": [
@@ -19253,6 +20685,61 @@
 									"Name": "player"
 								}
 							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "HasMicrophone",
+					"Description": "Returns `true` if Core has detected a microphone for the given player, otherwise returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "IsVoiceChatEnabled",
+					"Description": "Returns `true` if the given player has enabled voice chat in their settings.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Player",
+									"Name": "player"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetVoiceChatMethod",
+					"Description": "Returns the method the local player has selected in their settings to activate voice chat.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "VoiceChatMethod"
+								}
+							],
+							"Parameters": []
 						}
 					],
 					"Tags": [
@@ -20196,6 +21683,11 @@
 					"Name": "STATIC_CONTEXT",
 					"Description": "Spawned independently on client or server and not replicated.",
 					"Value": 5
+				},
+				{
+					"Name": "LOCAL_CONTEXT",
+					"Description": "Spawned independently on client or server and not replicated, but allowing properties to be modified after spawning.",
+					"Value": 6
 				}
 			]
 		},
@@ -20619,6 +22111,22 @@
 			]
 		},
 		{
+			"Name": "VoiceChatMethod",
+			"Description": "Indicates the setting a player uses to activate voice chat.",
+			"Values": [
+				{
+					"Name": "PUSH_TO_TALK",
+					"Description": "Player presses Push-to-Talk hotkey to speak in voice chat.",
+					"Value": 0
+				},
+				{
+					"Name": "DETECT_SPEAKING",
+					"Description": "Core detects when the player is speaking and automatically activates voice chat.",
+					"Value": 2
+				}
+			]
+		},
+		{
 			"Name": "VoiceChatMode",
 			"Description": "Controls whether voice chat is enabled in the game.",
 			"Values": [
@@ -20686,6 +22194,22 @@
 					]
 				}
 			],
+			"Hooks": [
+				{
+					"Name": "damageHook",
+					"Description": "Hook called when applying damage from a call to `ApplyDamage()`. The incoming damage may be modified or prevented by modifying properties on the `damage` parameter.",
+					"Parameters": [
+						{
+							"Type": "Damageable",
+							"Name": "object"
+						},
+						{
+							"Type": "Damage",
+							"Name": "damage"
+						}
+					]
+				}
+			],
 			"MemberFunctions": [
 				{
 					"Name": "ApplyDamage",
@@ -20720,6 +22244,102 @@
 									"Name": "damage"
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Item",
+			"Description": "Item is an interface which defines properties and functions for items in an Inventory or spawned in the world.",
+			"Properties": [
+				{
+					"Name": "itemAssetId",
+					"Description": "Asset ID defining this Item's properties.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "itemTemplateId",
+					"Description": "Asset reference that is spawned as a child of an ItemObject when spawned in the world. May be `nil`.",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "maximumStackCount",
+					"Description": "The maximum number of items in one stack of this item. Zero or negative numbers indicate no limit.",
+					"Type": "integer",
+					"Tags": [
+						"ReadOnly"
+					]
+				},
+				{
+					"Name": "count",
+					"Description": "The number of items this object represents.",
+					"Type": "integer"
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "SetCustomProperty",
+					"Description": "Sets the value of a custom property. The value must match the existing type of the property. Returns `true` if the property was successfully set. If the property could not be set, returns `false` or raises an error depending on the cause of the failure.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								},
+								{
+									"Type": "value",
+									"Name": "propertyValue"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCustomProperty",
+					"Description": "Returns the value of a specific custom property or `nil` if the Item does not possess the custom property. The second return value is `true` if the property is found or `false` if it is not.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "value"
+								},
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Name": "GetCustomProperties",
+					"Description": "Returns a table containing the names and values of all custom properties on an Item.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "table"
+								}
+							],
+							"Parameters": []
 						}
 					]
 				}
