@@ -167,7 +167,7 @@ end
 
 Create a function called `OnPlayerJoined` that will be called when a player joins the game. This function will spawn a new instance of the `BACKPACK` inventory template. The options second argument of `SpawnAsset` allows you to specify the `networkContext`. This is needed in this case, because the script is in a server context.
 
-When spawning an inventory, it can be assigned to a player using the `assign` function. This will make the inventory be owned by the player. The name of the inventory is also set, but this is optional and is used to see the owner of the inventory in the **Hierarchy** when testing.
+When spawning an inventory, it can be assigned to a player using the `Assign` function. This will make the inventory be owned by the player. The name of the inventory is also set, but this is optional and is used to see the owner of the inventory in the **Hierarchy** when testing.
 
 All inventories created for players are stored in the `players` table so they can be destroyed later when the player leaves the game.
 
@@ -1990,7 +1990,7 @@ Create a new script called `ChestInventoryServer` and place it into the **Server
 
 The **ChestInventoryServer** script needs references to the **InventoryAPI**, **Inventory Assets** data table, and the **Inventory** object created earlier in the **Hierarchy**.
 
-1. Add the *InventoryAPI** script as a custom property called `InventoryAPI`.
+1. Add the **InventoryAPI** script as a custom property called `InventoryAPI`.
 2. Add the **Inventory Assets** data table from **Project Content** as a custom property called `InventoryAssets`.
 3. Add the **Inventory** as a custom property called `Inventory`.
 
