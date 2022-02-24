@@ -121,15 +121,6 @@ tags:
 | `DamageReason.MAP` | `3` | Player is taking damage from the environment. |
 | `DamageReason.NPC` | `4` | Player is taking damage from a non-player character. |
 
-## DetailLevel
-
-| Enum Name | Value | Description |
-| --------- | ----------- | ----------- |
-| `DetailLevel.LOW` | `0` | Missing Description |
-| `DetailLevel.MEDIUM` | `1` | Missing Description |
-| `DetailLevel.HIGH` | `2` | Missing Description |
-| `DetailLevel.ULTRA` | `3` | Missing Description |
-
 ## FacingMode
 
 | Enum Name | Value | Description |
@@ -364,8 +355,8 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `VoiceChatMethod.PUSH_TO_TALK` | `0` | Missing Description |
-| `VoiceChatMethod.DETECT_SPEAKING` | `2` | Missing Description |
+| `VoiceChatMethod.PUSH_TO_TALK` | `0` | Player presses Push-to-Talk hotkey to speak in voice chat. |
+| `VoiceChatMethod.DETECT_SPEAKING` | `2` | Core detects when the player is speaking and automatically activates voice chat. |
 
 ## VoiceChatMode
 
