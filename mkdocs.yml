@@ -121,16 +121,17 @@ nav:
       - Chat Hooks: tutorials/chat_tutorial.md
       - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
       - Cosmetic System: tutorials/cosmetic_tutorial.md
-      - ✨ Damageable Object Basics: tutorials/damageable_object_basics.md
+      - Damageable Object Basics: tutorials/damageable_object_basics.md
       - Destructible Objects: tutorials/boss_tutorial.md
       - Environment Art: tutorials/environment_art.md
       - Game Events: tutorials/game_events.md
       - Icon Generator: tutorials/icon_generator.md
+      - ✨ Creating Inventories: tutorials/creating_inventories.md
       - ✨ Local Contexts: tutorials/localcontext.md
       - Lua Scripting: tutorials/lua_basics_helloworld.md
       - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
       - Lua Scripting, Part 3: tutorials/race_timer.md
-      - ✨ Make an Obby: tutorials/obby_tutorial.md
+      - Make an Obby: tutorials/obby_tutorial.md
       - Model a Room: tutorials/scene_creation.md
       - Modeling Basics: tutorials/modeling_basics.md
       - Perk Systems: tutorials/perks_tutorial.md
