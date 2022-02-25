@@ -357,6 +357,46 @@ See also: [Chat.BroadcastMessage](chat.md) | [Game.GetPlayers](game.md) | [Task.
 
 Example using:
 
+### `interactableFocusedEvent`
+
+### `interactableUnfocusedEvent`
+
+Similar to the other example, we show a visual indicator on top of interactable object. This time, however, we make use of the player's `interactableFocusedEvent` and `interactableUnfocusedEvent` events. This gives us the exact moment the interaction focus begins/ends, which is used to hide/show the VFX.
+
+```lua
+local INDICATOR_VFX = script:GetCustomProperty("IndicatorVfx"):WaitForObject()
+local PLAYER = Game.GetLocalPlayer()
+
+INDICATOR_VFX.visibility = Visibility.FORCE_OFF
+    
+function OnInteractableFocused(player, trigger)
+    print("Focused: " .. trigger.interactionLabel)
+    
+    INDICATOR_VFX:SetWorldPosition(trigger:GetWorldPosition())
+    INDICATOR_VFX.visibility = Visibility.INHERIT
+    
+    if INDICATOR_VFX.Play then
+        -- If the indicator has a Play() function, call it
+        INDICATOR_VFX:Play()
+    end
+end
+
+function OnInteractableUnfocused(player, trigger)
+    print("Unfocused: " .. trigger.interactionLabel)
+    
+    INDICATOR_VFX.visibility = Visibility.FORCE_OFF
+end
+
+PLAYER.interactableFocusedEvent:Connect(OnInteractableFocused)
+PLAYER.interactableUnfocusedEvent:Connect(OnInteractableUnfocused)
+```
+
+See also: [Trigger.interactionLabel](trigger.md) | [Vfx.Play](vfx.md) | [Game.GetLocalPlayer](game.md) | [CoreObject.SetRotation](coreobject.md)
+
+---
+
+Example using:
+
 ### `movementModeChangedEvent`
 
 Whenever the player changes movement mode, (walking, jumping, swimming, flying), a listener is notified. We can register for that listener if we want to know whenever that happens.
@@ -831,6 +871,35 @@ Task.Wait()
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [World.SpawnAsset](world.md) | [Vector3.New](vector3.md) | [Task.Wait](task.md) | [CoreLua.print](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `GetInteractableTarget`
+
+In this example, a visual indicator appears on top of any object that has an interactable trigger. For example, a weapon that can be picked up. The indicator spins around its Z axis. This is a client script.
+
+```lua
+local INDICATOR_VFX = script:GetCustomProperty("IndicatorVfx"):WaitForObject()
+local PLAYER = Game.GetLocalPlayer()
+
+function Tick()
+    local trigger = PLAYER:GetInteractableTarget()
+    if trigger then
+        INDICATOR_VFX:SetWorldPosition(trigger:GetWorldPosition())
+        INDICATOR_VFX.visibility = Visibility.INHERIT
+        
+        local rot = INDICATOR_VFX:GetRotation()
+        rot.z = time() * 360
+        INDICATOR_VFX:SetRotation(rot)
+    else
+        INDICATOR_VFX.visibility = Visibility.FORCE_OFF
+    end
+end
+```
+
+See also: [Game.GetLocalPlayer](game.md) | [CoreObject.SetRotation](coreobject.md)
 
 ---
 

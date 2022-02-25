@@ -67,26 +67,36 @@ See also: [Game.GetLocalPlayer](game.md) | [Player.GetViewWorldPosition](player.
 
 Example using:
 
-### `GetTransform`
+### `GetMaterialSlot`
 
-HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
+In some cases it's possible to detect which specific material on an object was impacted by a raycast. In this example, we add a script to a weapon that demonstrates two ways in which `HitResult.GetMaterialSlot` can be produced. Projectiles from weapons do not detect material hits. For this to work with a weapon's `ImpactData` it's property "is Hitscan" must be enabled.
 
 ```lua
-local impactTemplate = script:GetCustomProperty("ImpactObject")
-local weapon = script.parent
+local WEAPON = script:FindAncestorByType("Weapon")
 
 function OnTargetImpacted(_, impactData)
+    -- Approach using the weapon's own impact data
+    -- Requires the weapon to have "is Hitscan" enabled
     local hitResult = impactData:GetHitResult()
-    if hitResult then
-        local hitT = hitResult:GetTransform()
-        World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
-    end
+    local materialSlot = hitResult:GetMaterialSlot()
+    print(tostring(materialSlot))
+    
+    -- Alternative approach, using `World.Raycast`
+    -- Raycasts can be called more broadly and don't depend on weapons
+    local startRay = WEAPON:GetWorldPosition()
+    local endRay = hitResult:GetImpactPosition()
+    local direction = (endRay - startRay) / 2
+    startRay = startRay + direction
+    endRay = endRay + direction
+    hitResult = World.Raycast(startRay, endRay)
+    materialSlot = hitResult:GetMaterialSlot()
+    print(tostring(materialSlot))
 end
 
-weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+WEAPON.targetImpactedEvent:Connect(OnTargetImpacted)
 ```
 
-See also: [CoreObject.GetCustomProperty](coreobject.md) | [ImpactData.GetHitResult](impactdata.md) | [World.SpawnAsset](world.md) | [Weapon.targetImpactedEvent](weapon.md) | [Transform.GetPosition](transform.md) | [Event.Connect](event.md)
+See also: [Weapon.targetImpactedEvent](weapon.md) | [ImpactData.GetHitResult](impactdata.md) | [World.Raycast](world.md)
 
 ---
 
@@ -127,6 +137,31 @@ end
 ```
 
 See also: [Player.GetViewWorldPosition](player.md) | [UI.GetCursorPlaneIntersection](ui.md) | [World.Spherecast](world.md) | [CoreDebug.DrawSphere](coredebug.md) | [Vector3.FORWARD](vector3.md) | [Game.GetLocalPlayer](game.md)
+
+---
+
+Example using:
+
+### `GetTransform`
+
+HitResult is used by Weapons when attacks hit something. In this example, a custom template is spawned at the point of impact. The rotation of the new object is conveniently taken from the HitResult's transform data. This example assumes the script is placed as a child of a Weapon.
+
+```lua
+local impactTemplate = script:GetCustomProperty("ImpactObject")
+local weapon = script.parent
+
+function OnTargetImpacted(_, impactData)
+    local hitResult = impactData:GetHitResult()
+    if hitResult then
+        local hitT = hitResult:GetTransform()
+        World.SpawnAsset(impactTemplate, {position = hitT:GetPosition(), rotation = hitT:GetRotation()})
+    end
+end
+
+weapon.targetImpactedEvent:Connect(OnTargetImpacted)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [ImpactData.GetHitResult](impactdata.md) | [World.SpawnAsset](world.md) | [Weapon.targetImpactedEvent](weapon.md) | [Transform.GetPosition](transform.md) | [Event.Connect](event.md)
 
 ---
 
