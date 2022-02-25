@@ -2066,9 +2066,10 @@ Create a new script called `ChestInventoryClient` and place it into the **Client
 The **ChestInventoryClient** needs properties for the various components.
 
 1. Add the **InventoryAPI** as a custom property called `InventoryAPI`.
-2. Add the **Trigger** from the **Hierarchy** as a custom property called `Trigger`.
-3. Add the **Slots** UI panel from the **Hierarchy** that contains all the Slots as a custom property called `Slots`.
-4. Add the **Inventory** object from the **Hierarchy** as a custom property called **Inventory**.
+2. Add the **Chest Inventory** UI from the **Hierarchy** as a custom property called `ChestInventory`.
+3. Add the **Trigger** from the **Hierarchy** as a custom property called `Trigger`.
+4. Add the **Slots** UI panel from the **Hierarchy** that contains all the Slots as a custom property called `Slots`.
+5. Add the **Inventory** object from the **Hierarchy** as a custom property called **Inventory**.
 
 ![!Chest Inventory Props](../img/Inventory/Tutorial/add_chest_client_props.png){: .center loading="lazy" }
 
