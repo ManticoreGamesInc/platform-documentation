@@ -103,6 +103,33 @@ See also: [CoreObject.parent](coreobject.md) | [other.IsA](other.md) | [Trigger.
 
 Example using:
 
+### `interactableFocusedEvent`
+
+### `interactableUnfocusedEvent`
+
+In this example, an interactable trigger can detect when players are focusing on them using `interactableFocusedEvent` and `interactableUnfocusedEvent`. When this happens, the player's name is printed to the Event Log.
+
+```lua
+local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+
+function OnInteractableFocused(trigger, player)
+    print("Focused by " .. player.name)
+end
+
+function OnInteractableUnfocused(trigger, player)
+    print("Unfocused by " .. player.name)
+end
+
+TRIGGER.interactableFocusedEvent:Connect(OnInteractableFocused)
+TRIGGER.interactableUnfocusedEvent:Connect(OnInteractableUnfocused)
+```
+
+See also: [Player.GetInteractableTarget](player.md)
+
+---
+
+Example using:
+
 ### `interactedEvent`
 
 In this example, the trigger has the "Interactable" checkbox turned on. When the player walks up to the trigger and interacts with the F key they are propelled into the air. The script assumes to be a child of the trigger.
