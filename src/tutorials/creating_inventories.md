@@ -51,7 +51,7 @@ You will need to create a few item assets which are project-level definitions of
 2. Give the item asset a name (this example will use `Health Potion`).
 3. In the **Properties** window, set the **Name** of the item asset to `Health Potion`.
 4. Set the **Maximum Stack Size** to `5`.
-5. Add a **Core Object Reference** called `Icon`, and select an icon to use for this item.
+5. Add an **Asset Reference** called `Icon`, and select an icon to use for this item.
 6. Repeat this process so you have a few item assets that can be used.
 
 ![!Create Item Assets](../img/Inventory/Tutorial/create_item_assets.png){: .center loading="lazy" }
