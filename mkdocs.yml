@@ -399,7 +399,6 @@ plugins:
   - meta-descriptions
   - tags:
       tags_file: generated/tags.md
-  - git-revision-date-localized
   - ezlinks
   - i18n:
       default_language: !ENV [DEFAULT_LANGUAGE, "en"]
@@ -413,6 +412,7 @@ plugins:
           build: true
   - minify:
       minify_html: !ENV MKDOCS_MINIFY
+  - git-revision-date-localized
   - redirects:
       redirect_maps:
         tutorials/index.md: getting_started/start.md
