@@ -2343,7 +2343,7 @@ Allowing the ability for the player to move items into other inventories is usef
 
 ## Discarding Items
 
-In this section, you will be adding an additional feature to the player's inventory that will give them the option to discard items they no longer wish to keep. It will allow them to move an item over the top of a special slot that will destroy the item.
+In this section, you will be creating a feature for the player's inventory that will give them the option to discard items they no longer wish to keep. It will allow them to move an item over the top of a special slot that will destroy the item.
 
 The UI for the special slot has already been created and is a part of the **Player Inventory** folder.
 
