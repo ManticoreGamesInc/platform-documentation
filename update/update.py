@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 outfilePath = "src/assets/api/CoreLuaAPI.json"
-requirements = str(Path(__file__).parent.parent) + "/requirements.txt"
+requirements = f'{str(Path(__file__).parent.parent)}/requirements.txt'
 
 
 def update_dump(environment="Test"):
