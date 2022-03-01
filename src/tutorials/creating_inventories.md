@@ -609,7 +609,7 @@ ConnectSlotEvents()
                 local item = inventory:GetItem(activeSlotIndex)
                 local toItem = inventory:GetItem(slotIndex)
 
-                if(item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+                if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
                     activeSlot.opacity = 1
                 else
                     local tmpImg = icon:GetImage()
