@@ -427,7 +427,7 @@ local function OnSlotPressedEvent(button, slot, slotIndex) -- (1)
             local item = inventory:GetItem(activeSlotIndex)
             local toItem = inventory:GetItem(slotIndex)
 
-            if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+            if item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount then
                 activeSlot.opacity = 1
             else
                 local tmpImg = icon:GetImage()
@@ -483,7 +483,7 @@ local function ConnectSlotEvents()
         local button = slot:FindChildByName("Button")
         local icon = slot:FindChildByName("Icon")
 
-        if(button ~= nil and icon ~= nil and button.isInteractable) then
+        if button ~= nil and icon ~= nil and button.isInteractable then
             button.pressedEvent:Connect(OnSlotPressedEvent, slot, index)
         end
     end
@@ -609,7 +609,7 @@ ConnectSlotEvents()
                 local item = inventory:GetItem(activeSlotIndex)
                 local toItem = inventory:GetItem(slotIndex)
 
-                if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+                if item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount then
                     activeSlot.opacity = 1
                 else
                     local tmpImg = icon:GetImage()
@@ -649,7 +649,7 @@ ConnectSlotEvents()
             local button = slot:FindChildByName("Button")
             local icon = slot:FindChildByName("Icon")
 
-            if(button ~= nil and icon ~= nil and button.isInteractable) then
+            if button ~= nil and icon ~= nil and button.isInteractable then
                 button.pressedEvent:Connect(OnSlotPressedEvent, slot, index)
             end
         end
@@ -1306,7 +1306,7 @@ function API.OnSlotPressedEvent(button, inventory, slot, slotIndex)
             local item = inventory:GetItem(API.ACTIVE.slotIndex)
             local toItem = inventory:GetItem(slotIndex)
 
-            if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+            if item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount then
                 API.ACTIVE.slot.opacity = 1
             else
                 local tmpImg = icon:GetImage()
@@ -1589,7 +1589,7 @@ return API
                 local item = inventory:GetItem(API.ACTIVE.slotIndex)
                 local toItem = inventory:GetItem(slotIndex)
 
-                if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+                if item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount then
                     API.ACTIVE.slot.opacity = 1
                 else
                     local tmpImg = icon:GetImage()
@@ -1804,7 +1804,7 @@ local function ConnectSlotEvents()
         local button = slot:FindChildByName("Button")
         local icon = slot:FindChildByName("Icon")
 
-        if(button ~= nil and icon ~= nil and button.isInteractable) then
+        if button ~= nil and icon ~= nil and button.isInteractable then
             button.pressedEvent:Connect(API.OnSlotPressedEvent, inventory, slot, index)
         end
     end
@@ -1885,7 +1885,7 @@ ConnectSlotEvents()
             local button = slot:FindChildByName("Button")
             local icon = slot:FindChildByName("Icon")
 
-            if(button ~= nil and icon ~= nil and button.isInteractable) then
+            if button ~= nil and icon ~= nil and button.isInteractable then
                 button.pressedEvent:Connect(API.OnSlotPressedEvent, inventory, slot, index)
             end
         end
@@ -2222,7 +2222,7 @@ local function ConnectSlotEvents()
         local button = slot:FindChildByName("Button")
         local icon = slot:FindChildByName("Icon")
 
-        if(button ~= nil and icon ~= nil and button.isInteractable) then
+        if button ~= nil and icon ~= nil and button.isInteractable then
             button.pressedEvent:Connect(API.OnSlotPressedEvent, INVENTORY, slot, index)
         end
     end
@@ -2328,7 +2328,7 @@ ConnectSlotEvents()
             local button = slot:FindChildByName("Button")
             local icon = slot:FindChildByName("Icon")
 
-            if(button ~= nil and icon ~= nil and button.isInteractable) then
+            if button ~= nil and icon ~= nil and button.isInteractable then
                 button.pressedEvent:Connect(API.OnSlotPressedEvent, INVENTORY, slot, index)
             end
         end
@@ -2661,7 +2661,7 @@ end
                 local item = inventory:GetItem(API.ACTIVE.slotIndex)
                 local toItem = inventory:GetItem(slotIndex)
 
-                if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+                if item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount then
                     API.ACTIVE.slot.opacity = 1
                 else
                     local tmpImg = icon:GetImage()
