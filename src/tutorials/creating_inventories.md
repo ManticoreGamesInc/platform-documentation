@@ -110,7 +110,7 @@ Each player that joins the game will have a backpack with a size of 16 slots ass
 
 The UI for the player inventory has been created already, this can be customized and more slots can be added if you like. If more slots are created, remember to update the slot count for the backpack.
 
-1. In **Project Content** add the **Player Inventory** template to the **Hierarchy**.
+1. In **Core Content** search for `player inventory` to find the **Player Inventory** template, and add it to the **Hierarchy**.
 2. **Deinstance** the template.
 
 ![!Add Player Inventory](../img/Inventory/Tutorial/add_player_inventory.png){: .center loading="lazy" }
