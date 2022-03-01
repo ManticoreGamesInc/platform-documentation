@@ -1589,7 +1589,7 @@ return API
                 local item = inventory:GetItem(API.ACTIVE.slotIndex)
                 local toItem = inventory:GetItem(slotIndex)
 
-                if(item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
+                if (item ~= nil and toItem ~= nil and item.itemAssetId == toItem.itemAssetId and toItem.count == toItem.maximumStackCount) then
                     API.ACTIVE.slot.opacity = 1
                 else
                     local tmpImg = icon:GetImage()
