@@ -417,6 +417,7 @@ plugins:
   - redirects:
       redirect_maps:
         tutorials/index.md: getting_started/start.md
+        tutorials/overview.md: getting_started/start.md
         references/custom_materials.md: references/materials.md
         getting_started/profiler.md: references/profiler.md
         getting_started/performance_panel.md: references/performance_panel.md
