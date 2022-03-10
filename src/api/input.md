@@ -22,6 +22,9 @@ The Input namespace contains functions and hooks for responding to player input.
 | `Input.GetActions()` | `Array`<`string`> | Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not. | Client-Only |
 | `Input.GetActionInputLabel(string actionName, [table parameters])` | `string` | Returns a string label indicating the key or button assigned to the specified action. Returns `nil` if `actionName` is not a valid action or if an invalid `direction` parameter is specified for axis and direction bindings. Returns "None" for valid actions with no control bound. <br/>Supported parameters include: <br/>`direction (string)`: *Required* for axis and direction bindings, specifying "positive" or "negative" for axis bindings, or "up", "down", "left", or "right" for direction bindings. <br/>`inputType (InputType)`: Specifies whether to return a label for keyboard and mouse or controller. Defaults to the current active input type. <br/>`secondary (boolean)`: When `true` and returning a label for keyboard and mouse, returns a label for the secondary input. | Client-Only |
 | `Input.IsInputTypeEnabled(InputType)` | `boolean` | Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected. | Client-Only |
+| `Input.IsActionEnabled(string actionName)` | `boolean` | Returns `true` if the specified action is enabled. Returns `false` if the action is disabled or does not exist. | Client-Only |
+| `Input.EnableAction(string actionName)` | `None` | Enables the specified action, if the action exists. | Client-Only |
+| `Input.DisableAction(string actionName)` | `None` | Disables the specified action, if the action exists. If the action is currently held, this will also release the action. | Client-Only |
 
 ## Events
 

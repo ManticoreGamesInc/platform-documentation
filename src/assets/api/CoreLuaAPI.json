@@ -4744,6 +4744,25 @@
 					]
 				},
 				{
+					"Name": "IsCustomPropertyDynamic",
+					"Description": "Returns `true` if the named custom property exists and is marked as dynamic. Otherwise, returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName"
+								}
+							]
+						}
+					]
+				},
+				{
 					"Name": "IsA",
 					"Signatures": [
 						{
@@ -7625,6 +7644,25 @@
 								}
 							],
 							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsCustomPropertyDynamic",
+					"Description": "Returns `true` if the named custom property exists and is marked as dynamic. Otherwise, returns `false`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "propertyName "
+								}
+							]
 						}
 					]
 				},
@@ -19133,6 +19171,64 @@
 								}
 							],
 							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "EnableAction",
+					"Description": "Enables the specified action, if the action exists.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "DisableAction",
+					"Description": "Disables the specified action, if the action exists. If the action is currently held, this will also release the action.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsActionEnabled",
+					"Description": "Returns `true` if the specified action is enabled. Returns `false` if the action is disabled or does not exist.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
 						}
 					],
 					"Tags": [
