@@ -28,6 +28,7 @@ InventoryItem is an Object which implements the [Item](item.md) interface. It re
 | -------- | ----------- | ----------- | ---- |
 | `GetCustomProperties()` | `table` | Returns a table containing the names and values of all custom properties on this item. Initial values are inherited from the Item asset defining this item. | None |
 | `GetCustomProperty(string propertyName)` | `value`, `boolean` | Returns the value of a specific custom property or `nil` if the Item does not possess the custom property. The second return value is `true` if the property is found or `false` if it is not. Initial values are inherited from the Item asset defining this item. | None |
+| `IsCustomPropertyDynamic(string propertyName)` | `boolean` | Returns `true` if the named custom property exists and is marked as dynamic. Otherwise, returns `false`. | None |
 | `SetCustomProperty(string propertyName, value)` | `boolean` | Sets the value of a custom property. The value must match the existing type of the property. Returns `true` if the property was successfully set. If the property could not be set, returns `false` or raises an error depending on the cause of the failure. | None |
 
 ## Examples
