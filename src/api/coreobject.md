@@ -746,6 +746,28 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](wor
 
 Example using:
 
+### `IsCustomPropertyDynamic`
+
+### `GetCustomProperties`
+
+In this example we look at all custom properties of a script. We then evaluate if each of them is dynamic. Only dynamic properties can be modified at runtime. To make a custom property dynamic first change the Core Object to networked, then right-click the property and change it to dynamic.
+
+```lua
+local allProperties = script:GetCustomProperties()
+
+for key,value in pairs(allProperties) do
+    if script:IsCustomPropertyDynamic(key) then
+        print("Custom property '" .. key .. "' is dynamic!")
+    else
+        print("Custom property '" .. key .. "' is not dynamic.")
+    end
+end
+```
+
+---
+
+Example using:
+
 ### `ReorderAfter`
 
 ### `ReorderAfterSiblings`

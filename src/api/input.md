@@ -85,6 +85,50 @@ See also: [Hook.Connect](hook.md)
 
 Example using:
 
+### `IsActionEnabled`
+
+### `EnableAction`
+
+### `DisableAction`
+
+In this example players are prevented from jumping while moving. Also, a UI element is toggled on/off to indicate when jump is available.
+
+```lua
+local JUMP_ICON = script:GetCustomProperty("JumpIcon"):WaitForObject()
+
+function Tick()
+    if Input.IsActionEnabled("Jump") then
+        JUMP_ICON.visibility = Visibility.INHERIT
+    else
+        JUMP_ICON.visibility = Visibility.FORCE_OFF
+    end
+end
+
+function OnAction(player, actionList)
+    for k,v in ipairs(actionList) do
+        -- Verbose output of all actions to the Event Log
+        print(tostring(k), tostring(v.action), tostring(v.value))
+        
+        -- Toggle jump on/off, depending on movement
+        if v.action == "Move" then
+            if v.value == Vector2.ZERO then
+                Input.EnableAction("Jump")
+            else
+                Input.DisableAction("Jump")
+            end
+        end
+    end
+end
+
+Input.actionHook:Connect(OnAction)
+```
+
+See also: [CoreObject.visibility](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Hook.Connect](hook.md)
+
+---
+
+Example using:
+
 ### `GetActionInputLabel`
 
 This client script shows how to get the "display name" for the jump action. It may usually say "Space Bar". However, the user could bind different keys to their inputs, or the value may differ due to localization. If you were to hardcode the words "Space Bar" into the user interface, it would be misleading for some users. Instead, call `Input.GetActionInputLabel()` and use the returned value to populate the UI.
