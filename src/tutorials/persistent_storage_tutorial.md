@@ -48,7 +48,7 @@ For your game to store data persistently for players, you will need to enable pl
 4. Click on **Enable Player Storage** so it is enabled.
 
 !!! tip "Missing Game Settings"
-    If you do not have a **Game Settings** object in your **Hierarchy**, it can added to your hierarchy from the **Core Content** window by searching for **Game Settings**.
+    If you do not have a **Game Settings** object in your **Hierarchy**, it can be added to your hierarchy from the **Core Content** window by searching for **Game Settings**.
 
 ![!Game Settings](../img/PersistentStorage/game_settings.png){: .center loading="lazy" }
 
