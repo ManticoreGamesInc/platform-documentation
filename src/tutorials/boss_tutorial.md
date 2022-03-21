@@ -4400,7 +4400,7 @@ Do a final game test to make sure all the components you have added while follow
 
 ## Finished Project
 
-The [finished project](https://www.coregames.com/games/15fa6b/boss-fight-tutorial) for this tutorial is available to play and edit.
+The [finished project](https://www.coregames.com/games/31cca2/boss-fight) for this tutorial is available to play and edit (from Community Projects).
 
 For feedback and questions, please reach out to us on this tutorial's [forum thread](https://forums.coregames.com/t/advanced-scripting-in-core-boss-fight-tutorial/2062).
 
