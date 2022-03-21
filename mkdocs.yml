@@ -128,7 +128,7 @@ nav:
         - Game Events: tutorials/game_events.md
         - Icon Generator: tutorials/icon_generator.md
         - ✨ Creating Inventories: tutorials/creating_inventories.md
-        - ✨ Local Contexts: tutorials/localcontext.md
+        - Local Contexts: tutorials/localcontext.md
         - Lua Scripting: tutorials/lua_basics_helloworld.md
         - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
         - Lua Scripting, Part 3: tutorials/race_timer.md
