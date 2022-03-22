@@ -118,7 +118,7 @@ In this client script we listen for the player's primary action (for example Lef
 ```lua
 function OnBindingPressed(player, action)
     if action == "ability_primary" then
-        local cursorPos = UI.GetCursorPosition()
+        local cursorPos = Input.GetCursorPosition()
         if cursorPos then
             print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
         else
@@ -131,6 +131,6 @@ local player = Game.GetLocalPlayer()
 player.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-See also: [UI.GetCursorPosition](ui.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [Input.GetCursorPosition](input.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
 
 ---

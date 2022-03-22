@@ -146,6 +146,7 @@ Player is an object representation of the state of a player connected to the gam
 | `GetPartyInfo()` | [`PartyInfo`](partyinfo.md) | If the player is in a party, returns a PartyInfo object with data about that party. | None |
 | `GetInventories()` | `Array`<[`Inventory`](inventory.md)> | Returns a list of Inventory objects assigned to the player. If the player has no assigned inventories, this list is empty. | None |
 | `GetInteractableTarget()` | [`Trigger`](trigger.md) | If the player is currently focused on an interactable Trigger, returns that Trigger. Returns `nil` if the player is not currently focused on an interactable Trigger. | Client-Only |
+| `GetActiveAbility()` | [`Ability`](ability.md) | Returns the Ability that is currently active on the player, or `nil` if no ability is currently active. Abilities are considered active if they are in `CAST`, `EXECUTE`, or `RECOVERY` phases. Abilities in `COOLDOWN` or `READY` phase are not considered active. | None |
 
 ## Events
 
