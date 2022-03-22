@@ -18,7 +18,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.ShowDamageDirection(Vector3 worldPosition)` | `None` | Local player sees an arrow pointing towards some damage source. Lasts for 5 seconds. | Client-Only |
 | `UI.ShowDamageDirection(CoreObject source)` | `None` | Local player sees an arrow pointing towards some CoreObject. Multiple calls with the same CoreObject reuse the same UI indicator, but refreshes its duration. | Client-Only |
 | `UI.ShowDamageDirection(Player source)` | `None` | Local player sees an arrow pointing towards some other Player. Multiple calls with the same Player reuse the same UI indicator, but refreshes its duration. The arrow points to where the source was at the moment `ShowDamageDirection` is called and does not track the source Player's movements. | Client-Only |
-| `UI.GetCursorPosition()` | [`Vector2`](vector2.md) | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined. | Client-Only |
+| `UI.GetCursorPosition()` | [`Vector2`](vector2.md) | *This function is deprecated. Please use Input.GetCursorPosition() instead.* Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined. | Client-Only, <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
 | `UI.GetScreenPosition(Vector3 worldPosition)` | [`Vector2`](vector2.md) | Calculates the location that worldPosition appears on the screen. Returns a Vector2 with the `x`, `y` coordinates, or `nil` if worldPosition is behind the camera. | Client-Only |
 | `UI.GetScreenSize()` | [`Vector2`](vector2.md) | Returns a Vector2 with the size of the Player's screen in the `x`, `y` coordinates. May return `nil` if the screen size cannot be determined. | Client-Only |
 | `UI.PrintToScreen(string message, [Color])` | `None` | Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white. | Client-Only |
@@ -112,7 +112,7 @@ function Tick()
             currentAbsPos = HANDLE:GetAbsolutePosition()
         end
 
-        local mousePos = UI.GetCursorPosition()
+        local mousePos = Input.GetCursorPosition()
         local pos = HANDLE:GetAbsolutePosition()
 
         -- Workout the min and max coordinates the slider is allowed to move by.
@@ -136,7 +136,7 @@ localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 localPlayer.bindingReleasedEvent:Connect(OnBindingReleased)
 ```
 
-See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md) | [UI.GetCursorPosition](ui.md)
+See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md) | [Input.GetCursorPosition](input.md)
 
 ---
 
@@ -242,32 +242,6 @@ See also: [Player.GetViewWorldRotation](player.md) | [Vector3.sizeSquared](vecto
 
 Example using:
 
-### `GetCursorPosition`
-
-In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
-
-```lua
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
-        local cursorPos = UI.GetCursorPosition()
-        if cursorPos then
-            print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
-        else
-            print("Clicked at an undefined position.")
-        end
-    end
-end
-
-local player = Game.GetLocalPlayer()
-player.bindingPressedEvent:Connect(OnBindingPressed)
-```
-
-See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
-
----
-
-Example using:
-
 ### `GetHitResult`
 
 ### `SetCursorLockedToViewport`
@@ -282,7 +256,7 @@ UI.SetCursorVisible(true)
 
 function OnBindingPressed(player, action)
     if action == "ability_primary" then
-        local cursorPos = UI.GetCursorPosition()
+        local cursorPos = Input.GetCursorPosition()
         local hit = UI.GetHitResult(cursorPos)
         if hit and hit.other then
             print("Clicked on: "..hit.other.name)

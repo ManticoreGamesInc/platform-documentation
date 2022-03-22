@@ -786,7 +786,7 @@ local activeButton = nil
 
 function Tick(deltaTime)
     if activeButton then
-        local cursorPos = UI.GetCursorPosition()
+        local cursorPos = Input.GetCursorPosition()
         activeButton.x = CoreMath.Lerp(activeButton.x, 10, deltaTime * 12)
         activeButton.y = cursorPos.y + deltaY
     end
@@ -794,7 +794,7 @@ end
 
 function OnPressed(button)
     activeButton = button
-    local cursorPos = UI.GetCursorPosition()
+    local cursorPos = Input.GetCursorPosition()
     deltaY = button.y - cursorPos.y
 
     button:ReorderAfterSiblings()
@@ -852,7 +852,7 @@ end
 UpdatePositions()
 ```
 
-See also: [UI.GetCursorPosition](ui.md) | [UIControl.y](uicontrol.md) | [UIButton.pressedEvent](uibutton.md) | [CoreObject.clientUserData](coreobject.md) | [CoreMath.Lerp](coremath.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+See also: [Input.GetCursorPosition](input.md) | [UIControl.y](uicontrol.md) | [UIButton.pressedEvent](uibutton.md) | [CoreObject.clientUserData](coreobject.md) | [CoreMath.Lerp](coremath.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
 
 ---
 
