@@ -22,6 +22,7 @@ The Input namespace contains functions and hooks for responding to player input.
 | `Input.GetActions()` | `Array`<`string`> | Returns a list of the names of each action from currently active binding sets. Actions are included in this list regardless of whether the action is currently held or not. | Client-Only |
 | `Input.GetActionInputLabel(string actionName, [table parameters])` | `string` | Returns a string label indicating the key or button assigned to the specified action. Returns `nil` if `actionName` is not a valid action or if an invalid `direction` parameter is specified for axis and direction bindings. Returns "None" for valid actions with no control bound. <br/>Supported parameters include: <br/>`direction (string)`: *Required* for axis and direction bindings, specifying "positive" or "negative" for axis bindings, or "up", "down", "left", or "right" for direction bindings. <br/>`inputType (InputType)`: Specifies whether to return a label for keyboard and mouse or controller. Defaults to the current active input type. <br/>`secondary (boolean)`: When `true` and returning a label for keyboard and mouse, returns a label for the secondary input. | Client-Only |
 | `Input.IsInputTypeEnabled(InputType)` | `boolean` | Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected. | Client-Only |
+| `Input.GetCursorPosition()` | [`Vector2`](vector2.md) | Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined. | Client-Only |
 
 ## Events
 
@@ -42,6 +43,32 @@ The Input namespace contains functions and hooks for responding to player input.
 
 Example using:
 
+### `GetCursorPosition`
+
+In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
+
+```lua
+function OnBindingPressed(player, action)
+    if action == "ability_primary" then
+        local cursorPos = Input.GetCursorPosition()
+        if cursorPos then
+            print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
+        else
+            print("Clicked at an undefined position.")
+        end
+    end
+end
+
+local player = Game.GetLocalPlayer()
+player.bindingPressedEvent:Connect(OnBindingPressed)
+```
+
+See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
 ### `actionHook`
 
 In this example we override the jump action to make all players automatically jump every second.
@@ -55,7 +82,7 @@ function OnAction(player, actionList)
     for k,v in ipairs(actionList) do
         print(tostring(k), tostring(v.action), tostring(v.value))
     end
-    
+
     -- Everyone periodically jumps automatically
     if time() > nextJumpTime then
         -- Jump
