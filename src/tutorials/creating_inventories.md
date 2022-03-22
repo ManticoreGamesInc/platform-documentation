@@ -520,7 +520,7 @@ Create a function called `Tick` that will handle moving the proxy around on the 
 ```lua
 function Tick()
     if hasItem then
-        PROXY:SetAbsolutePosition(UI.GetCursorPosition())
+        PROXY:SetAbsolutePosition(Input.GetCursorPosition())
     end
 end
 ```
@@ -666,7 +666,7 @@ ConnectSlotEvents()
 
     function Tick()
         if hasItem then
-            PROXY:SetAbsolutePosition(UI.GetCursorPosition())
+            PROXY:SetAbsolutePosition(Input.GetCursorPosition())
         end
     end
 
@@ -1941,7 +1941,7 @@ Create a function called `Tick`. The `Tick` function will check to see if the AP
 ```lua
 function Tick()
     if API.ACTIVE.hasItem then
-        local mousePos = UI.GetCursorPosition()
+        local mousePos = Input.GetCursorPosition()
 
         API.PROXY:SetAbsolutePosition(Vector2.New(mousePos.x, mousePos.y))
     end
@@ -1958,7 +1958,7 @@ end
 
     function Tick()
         if API.ACTIVE.hasItem then
-            local mousePos = UI.GetCursorPosition()
+            local mousePos = Input.GetCursorPosition()
 
             API.PROXY:SetAbsolutePosition(Vector2.New(mousePos.x, mousePos.y))
         end
