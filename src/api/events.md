@@ -182,12 +182,12 @@ Events.ConnectForPlayer("CursorPosition", OnPlayerInputData)
 UI.SetCursorVisible(true)
 
 function Tick(deltaTime)
-    local cursorPos = UI.GetCursorPosition()
+    local cursorPos = Input.GetCursorPosition()
     Events.BroadcastToServer("CursorPosition", cursorPos)
     Task.Wait(0.25)
 end
 ```
 
-See also: [Player.name](player.md) | [UI.SetCursorVisible](ui.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
+See also: [Player.name](player.md) | [UI.SetCursorVisible](ui.md) | [Input.GetCursorPosition](input.md) | [CoreLua.Tick](coreluafunctions.md) | [Task.Wait](task.md)
 
 ---

@@ -41,6 +41,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `Interrupt()` | `None` | Changes an Ability from Cast phase to Ready phase. If the Ability is in either Execute or Recovery phases it instead goes to Cooldown phase. | None |
 | `AdvancePhase()` | `None` | Advances a currently active Ability from its current phase to the next phase. For example, an ability in the Cast phase will begin the Execute phase, an ability on cooldown will become ready, etc. | None |
 | `GetCurrentPhase()` | [`AbilityPhase`](enums.md#abilityphase) | The current AbilityPhase for this Ability. These are returned as one of: AbilityPhase.READY, AbilityPhase.CAST, AbilityPhase.EXECUTE, AbilityPhase.RECOVERY and AbilityPhase.COOLDOWN. | None |
+| `GetCurrentPhaseSettings()` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Returns the settings for the current phase of this Ability. Returns `nil` if the current phase is `AbilityPhase.READY`. | None |
 | `GetPhaseTimeRemaining()` | `number` | Seconds left in the current phase. | None |
 | `GetTargetData()` | [`AbilityTarget`](abilitytarget.md) | Returns information about what the Player has targeted this phase. | None |
 | `SetTargetData(AbilityTarget)` | `None` | Updates information about what the Player has targeted this phase. This can affect the execution of the Ability. | None |
