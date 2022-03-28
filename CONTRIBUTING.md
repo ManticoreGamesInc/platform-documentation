@@ -58,6 +58,12 @@ git submodule update --init --recursive --depth=1
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
 
+### Link with Netlify
+
+Note: Only needed if you are going to commit binary files hosted on Git LFS (.png, .jpg, .gif, .mov, .mp4, .zip, .webm).
+
+- Follow steps 1, 2, and 3 at the top of this tutorial: <https://docs.netlify.com/large-media/setup/> to link your account with Netlify.
+
 ### Spin up the Platform
 
 ```console
