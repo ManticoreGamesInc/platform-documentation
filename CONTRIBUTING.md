@@ -1,15 +1,15 @@
 # Contributing
 
-Thanks for your interest in helping out by contributing! Your assistance is very much appreciated!
+Thanks for your interest in helping out by contributing. Your assistance is very much appreciated.
 
 ## Simple Edits
 
-If you don't want to deal with all the technicalities because you only want to do some small wording changes, you can just use the GitHub WebUI to edit a markdown file directly!
+If you don't want to deal with all the technicalities because you only want to do some small wording changes, you can just use the GitHub WebUI to edit a markdown file directly.
 
 - Click on the `Edit` icon (top right) of the page you want to change.
 - Make your changes.
 - Make sure the changes look good and follow our [guidelines](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide) (check the **Preview** tab on the top left).
-- Add a helpful commit message and submit it!
+- Add a helpful commit message and submit it.
 - Now open a pull request with your changes and fill out the template.
 
 **Note:** The integrated preview mode won't display advanced markdown functionality (for example `!!! info` blocks and our custom Markdown features won't work. To check out how they will end up looking on the site, open a pull request and check out the Netlify preview.
@@ -26,6 +26,7 @@ First, make sure that you have:
 - [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup) (not required)
 - [Python](https://www.python.org/) >= 3.8.0
 - [Node.js](https://nodejs.org/en/download/) >= 15.0.0 & npm >= 7
+- [Git Large File System](https://git-lfs.github.com/) (If you are using it for the first time, make sure to run `git lfs install` once.)
 
 ### Clone the Repository
 
@@ -33,8 +34,9 @@ First, make sure that you have:
 cd folder/to/clone-into/
 git clone https://github.com/ManticoreGamesInc/platform-documentation
 cd platform-documentation
-git submodule update --init --recursive --depth=1
 git config pull.rebase true # We use rebase instead of merge
+git config lfs.locksverify false
+git submodule update --init --recursive --depth=1
 ```
 
 ### Install the Platform
@@ -79,6 +81,8 @@ Now, depending on what you want to add, you can create your new Markdown files a
 
 ### Check in your Changes
 
+Note: If you are going to commit binary files hosted on Git LFS (.png, .jpg, .gif, .mov, .mp4, .zip, .webm) you will need to be invited to the Netlify organisation and set up the account as well.
+
 - Make sure to add your new page to the index of pages in `mkdocs.yml`.
 - Commit any changes to your branch and push to the repository. (for example `git push -u origin camera-controls`)
 - When you are done and your changes meet all of [our requirements](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Documentation-Style-Guide), create a new pull request on GitHub, requesting your feature branch to be merged into `development`.
@@ -87,7 +91,7 @@ Now, depending on what you want to add, you can create your new Markdown files a
 
 ## Staying up to Date
 
-Always make sure your `development` branch is up to date before creating a new feature branch! To update your local version to the latest version:
+Always make sure your `development` branch is up to date before creating a new feature branch. To update your local version to the latest version:
 
 ```console
 git checkout development
