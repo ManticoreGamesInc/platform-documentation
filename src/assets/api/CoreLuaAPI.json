@@ -445,6 +445,20 @@
 					]
 				},
 				{
+					"Name": "GetCurrentPhaseSettings",
+					"Description": "Returns the settings for the current phase of this Ability. Returns `nil` if the current phase is `AbilityPhase.READY`.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "AbilityPhaseSettings"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "GetPhaseTimeRemaining",
 					"Description": "Seconds left in the current phase.",
 					"Signatures": [
@@ -10432,6 +10446,20 @@
 					]
 				},
 				{
+					"Name": "GetActiveAbility",
+					"Description": "Returns the Ability that is currently active on the player, or `nil` if no ability is currently active. Abilities are considered active if they are in `CAST`, `EXECUTE`, or `RECOVERY` phases. Abilities in `COOLDOWN` or `READY` phase are not considered active.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Ability"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
 					"Name": "GetActiveCamera",
 					"Description": "Returns whichever camera is currently active for the Player.",
 					"Signatures": [
@@ -19139,6 +19167,24 @@
 					]
 				},
 				{
+					"Name": "GetCursorPosition",
+					"Description": "Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "IsInputTypeEnabled",
 					"Description": "Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected.",
 					"Signatures": [
@@ -19171,64 +19217,6 @@
 								}
 							],
 							"Parameters": []
-						}
-					],
-					"Tags": [
-						"ClientOnly"
-					]
-				},
-				{
-					"Name": "EnableAction",
-					"Description": "Enables the specified action, if the action exists.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "action"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"ClientOnly"
-					]
-				},
-				{
-					"Name": "DisableAction",
-					"Description": "Disables the specified action, if the action exists. If the action is currently held, this will also release the action.",
-					"Signatures": [
-						{
-							"Returns": [],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "action"
-								}
-							]
-						}
-					],
-					"Tags": [
-						"ClientOnly"
-					]
-				},
-				{
-					"Name": "IsActionEnabled",
-					"Description": "Returns `true` if the specified action is enabled. Returns `false` if the action is disabled or does not exist.",
-					"Signatures": [
-						{
-							"Returns": [
-								{
-									"Type": "boolean"
-								}
-							],
-							"Parameters": [
-								{
-									"Type": "string",
-									"Name": "action"
-								}
-							]
 						}
 					],
 					"Tags": [
@@ -20145,7 +20133,9 @@
 				},
 				{
 					"Name": "GetCursorPosition",
-					"Description": "Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined.",
+					"Description": "*This function is deprecated. Please use Input.GetCursorPosition() instead.* Returns a Vector2 with the `x`, `y` coordinates of the mouse cursor on the screen. May return `nil` if the cursor position cannot be determined.",
+					"IsDeprecated": true,
+					"DeprecationMessage": "UI.GetCursorPosition is deprecated. Please use Input.GetCursorPosition instead.",
 					"Signatures": [
 						{
 							"Returns": [
