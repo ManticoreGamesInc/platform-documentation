@@ -827,6 +827,27 @@ See also: [Player.GetAttachedObjects](player.md) | [CoreObject.GetCustomProperty
 
 Example using:
 
+### `GetActiveAbility`
+
+In this example we have an ability that automatically activates as soon as it can. We could achieve that by calling :Activate() each frame, without verifying anything, however that would cause this ability to interrupt other abilities. By using `Player.GetActiveAbility()` we can guarantee this ability only activates when there are no others playing.
+
+```lua
+local ABILITY = script:GetCustomProperty("Ability"):WaitForObject()
+
+function Tick()
+    local activeAbility = ABILITY.owner:GetActiveAbility()
+    if activeAbility == nil and ABILITY:GetCurrentPhase() == AbilityPhase.READY then
+        ABILITY:Activate()
+    end
+end
+```
+
+See also: [Ability.Activate](ability.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
+
+---
+
+Example using:
+
 ### `GetActiveCamera`
 
 ### `GetDefaultCamera`
@@ -1234,8 +1255,6 @@ Example using:
 ### `GetPrivateNetworkedDataKeys`
 
 ### `privateNetworkedDataChangedEvent`
-
-### `FAILURE`
 
 In this example, a player's inventory data is transferred from server to client. The server first accesses permanent storage to see if the player has previously played the game. If not, their inventory is initialized with starting items. Then, the server uses the private networked data API to transfer this information to the client script. Client scripts cannot access storage directly, so they depend on this transfer in order to display to the user interface what's contained in the inventory. Furthermore, because the transfer is private, other players don't incur networking costs. Plus, knowing other players' inventories is not important for the gameplay in this case.
 
