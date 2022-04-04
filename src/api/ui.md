@@ -272,7 +272,7 @@ end
 Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
-See also: [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
+See also: [Input.GetCursorPosition](input.md) | [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
 
 ---
 

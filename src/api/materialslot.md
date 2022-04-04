@@ -143,7 +143,7 @@ function Tick(deltaTime)
     local newColor = Color.New(redChannel, greenChannel, blueChannel)
 
     -- Update the color of the first material slot
-    FirstMaterialSlot:SetColor(NewColor)    
+    FirstMaterialSlot:SetColor(newColor)    
 end
 ```
 
