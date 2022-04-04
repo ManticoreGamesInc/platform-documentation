@@ -150,7 +150,6 @@ nav:
       - Editor Extensions: extensions.md
       - Emotes: api/emotes.md
       - Enums: api/enums.md
-      - Key Bindings: api/key_bindings.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Interfaces:
           - Damageable: api/damageable.md
@@ -416,6 +415,7 @@ plugins:
   - git-revision-date-localized
   - redirects:
       redirect_maps:
+        api/key_bindings.md: references/binding_sets.md
         tutorials/index.md: getting_started/start.md
         tutorials/overview.md: getting_started/start.md
         references/custom_materials.md: references/materials.md
