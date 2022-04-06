@@ -58,6 +58,7 @@ Example using:
 In this example, players in a specific area will get 5 coins per pickup. For example, going to the Quarry area could give players bonus coins just for that area.
 
 ```lua
+-- Server script.
 local AREAS = require(script:GetCustomProperty("APIAreas"))
 local ITEM_PICKUPS = require(script:GetCustomProperty("APIItemPickups"))
 local CURRENCY = require(script:GetCustomProperty("APICurrency"))

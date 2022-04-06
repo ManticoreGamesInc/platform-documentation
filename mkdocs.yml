@@ -266,7 +266,7 @@ nav:
           - UI: api/ui.md
           - VoiceChat: api/voicechat.md
           - World: api/world.md
-  - Farming Framework API:
+  - Farming API (Tmp):
     - API Index: farming-framework-api/index.md
     - Namespaces:
       - ActiveCoreObjects: farming-framework-api/activecoreobjects.md
@@ -299,12 +299,10 @@ nav:
       - ReliableEvents: farming-framework-api/reliableevents.md
       - SpawnPoints: farming-framework-api/spawnpoints.md
       - Spectator: farming-framework-api/spectator.md
-      - StringChunk: farming-framework-api/stringchunk.md
       - Tags: farming-framework-api/tags.md
       - TimeSimulator: farming-framework-api/timesimulator.md
       - Tooltiip: farming-framework-api/tooltiip.md
       - TriggerInteractionModule: farming-framework-api/triggerinteractionmodule.md
-      - TypedBitString: farming-framework-api/typedbitstring.md
       - UILibrary: farming-framework-api/uilibrary.md
   - Core Academy:
       - Academy: https://learn.coregames.com

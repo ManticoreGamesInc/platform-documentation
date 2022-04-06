@@ -6,6 +6,10 @@ title: Interaction Manager
 
 # Interaction Manager
 
+The Interaction System provides creators with a way to quickly create interactive objects without any code. It is made up of a group of "Interaction Modules" and a set of "Interaction Components" that work together to manage Player input and provide interactivity.
+
+As a creator you just need to add Interaction Components to your objects and configure them. Each Interaction Component has a field for an Interaction Module. Using this field you can quickly switch out the type of input that the object will react to. Objects can have any number of Interaction Components under them to allow for more complex interactions.
+
 ## Functions
 
 | Class Function Name | Return Type | Description | Tags |

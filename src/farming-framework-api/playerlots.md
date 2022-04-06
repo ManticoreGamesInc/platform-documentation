@@ -40,25 +40,3 @@ Lots can even be combined with Areas to let you create pools of Area/Lots that d
 | `SetLotActiveForPlayer(string, Player, boolean)` | `None` | Activates or deactivates a Lot for a specific Player. | None |
 | `SetLotOwner(string, string, boolean)` | `None` | Sets the owner of the Lot. | None |
 | `SetMaxOwnedLots(string, integer)` | `None` | Sets a maximum amount of a Lot Type that a Player can own at a time. | None |
-
-## Examples
-
-Example using:
-
-### `FindPlayerOwnedLots`
-
--- Get all the lots owned by a player.
---
-
-```lua
--- local PLAYER_LOTS = require(script:GetCustomProperty("APIPlayerLots"))
--- local LOCAL_PLAYER = Game.GetLocalPlayer()
-
--- local function OnTeleportedToLot()
--- print(PLAYER_LOTS.FindLotByAncestors(LOCAL_PLAYER))
--- end
-
--- Events.Connect(PLAYER_LOTS.Events.TeleportedToLot, OnTeleportedToLot)
-
---
-```
