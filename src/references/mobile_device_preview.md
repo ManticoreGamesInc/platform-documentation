@@ -60,5 +60,3 @@ By enabling the **Safe Zone** option, the safe zone of the selected device will 
 The **Devices** dropdown allows creators to select a specific device to preview.
 
 ![!Devices](../img/MobileDevicePreview/devices.png){: .center loading="lazy" }
-
-TEST
