@@ -20,7 +20,7 @@ In the editor toolbar creators will find the **Device Preview** button that when
 
 ### Device Preview Menu
 
-The **Device Preview** menu will allow creators to enable and disabled device preview in preview and edit modes, along with other options to customize the preview display. This allows creators to quickly iterate on UI and games systems that rely on camera view and screen dimensions.
+The **Device Preview** menu will allow creators to enable and disable device preview in preview and edit modes, along with other options to customize the preview display. This allows creators to quickly iterate on UI and games systems that rely on camera view and screen dimensions.
 
 During preview mode, mouse, keyboard, touch, and controller input will change based on the preview mode chosen.
 
