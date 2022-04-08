@@ -14,25 +14,15 @@ The **Device Preview** is a feature in the **Core Editor** that simulates how ce
 
 ## Device Preview
 
-In the editor toolbar creators will find the **Device Preview Options** button that when clicked on will open up the device preview options.
+In the editor toolbar creators will find the **Device Preview** button that when clicked on will open up the device preview options.
 
 ![!Device Preview Button](../img/MobileDevicePreview/previewdevicebutton.png){: .center loading="lazy" }
 
 ### Device Preview Menu
 
-When creators click on the **Device Preview Options** button in the editor toolbar, an option menu will appear. This menu will allow creators to enable device preview, along with other options to customize the preview display.
+The **Device Preview** menu will allow creators to enable and disabled device preview in preview and edit modes, along with other options to customize the preview display.
 
 ![!Device Preview Options](../img/MobileDevicePreview/options.png){: .center loading="lazy" }
-
-#### Enable
-
-When enabling the **Enable** option, the preview area of the editor will simulate how the game will appear on a mobile device. Creators will be able to see all the UI controls that the player can use to access settings, mounts, and emotes.
-
-Pressing and holding the left mouse button will behave differently depending on which side of the screen it is on. If the mouse cursor is on the left side of the screen (50%), then this will handle directional movement for the player, and a virtual control will show up.
-
-Pressing and holding on the right side of the screen will control camera movement.
-
-![!Enabled](../img/MobileDevicePreview/enabled.png){: .center loading="lazy" }
 
 #### Device frame
 
@@ -60,3 +50,24 @@ By enabling the **Safe Zone** option, the safe zone of the selected device will 
 The **Devices** dropdown allows creators to select a specific device to preview.
 
 ![!Devices](../img/MobileDevicePreview/devices.png){: .center loading="lazy" }
+
+## Device Preview UI
+
+The device preview UI that is displayed changes depending on what bindings are set up in the Bindings Manager and where the player has touched the screen. For example, when the player is touching the left half of the screen a virtual joystick will be displayed. Touching and moving on the right half of the screen will control camera movement.
+
+![!Enabled](../img/MobileDevicePreview/enabled.png){: .center loading="lazy" }
+
+### Default Mobile UI
+
+The default mobile UI has controls that give a player quick access to things such as Mounts, Emotes, and Settings.
+
+| Mobile UI Icon | Description |
+| -------------- | ----------- |
+| ![Core Menu](../img/MobileDevicePreview/UI/Core.png) | Minimizes the current game and brings up the Core game browser. |
+| ![Player Emotes](../img/MobileDevicePreview/UI/Emotes.png) | Opens the emote window for the player to select an emote to play. |
+| ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. |
+| ![Settings](../img/MobileDevicePreview/UI/Settings.png) | Opens up the settings window for the player. |
+
+## Learn More
+
+[Binding Sets](../references/binding_sets.md)
