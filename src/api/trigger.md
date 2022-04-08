@@ -269,7 +269,7 @@ Example using:
 
 ### `isEnemyCollisionEnabled`
 
-In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to it's original neutral form. The script assumes to be a child of the trigger.
+In this example, when a player interacts with a trigger it joins their team and enemies can no longer interact with it. Each time they interact their team gains a point. When the last player to interact with the trigger is killed the trigger returns to its original neutral form. The script assumes to be a child of the trigger.
 
 ```lua
 local trigger = script.parent
