@@ -8,7 +8,7 @@ tags:
 
 # Mobile Device Preview
 
-The **Device Preview** is a feature in the **Core Editor** that simulates how certain aspects of a game will appear on a mobile device. It will give creators an approximate look and feel to simulate the mobile experience for players in landscape orientation.
+The **Device Preview** is a feature in the **Core Editor** that simulates how certain aspects of a game will appear on a mobile device. It will give creators an approximate look and feel to simulate the mobile experience for players.
 
 ![!Device Preview](../img/MobileDevicePreview/devicepreview.png){: .center loading="lazy" }
 
@@ -20,13 +20,20 @@ In the editor toolbar creators will find the **Device Preview** button that when
 
 ### Device Preview Menu
 
-The **Device Preview** menu will allow creators to enable and disabled device preview in preview and edit modes, along with other options to customize the preview display.
+The **Device Preview** menu will allow creators to enable and disabled device preview in preview and edit modes, along with other options to customize the preview display. This allows creators to quickly iterate on UI and games systems that rely on camera view and screen dimensions.
+
+During preview mode, mouse, keyboard, touch, and controller input will change based on the preview mode chosen.
+
+!!! warning "Multiplayer Preview Mode & Portait Mode"
+    The device preview only works in editor and local preview mode. Multiplayer preview mode is currently not supported.
+
+    Only landscape mode is supported for now.
 
 ![!Device Preview Options](../img/MobileDevicePreview/options.png){: .center loading="lazy" }
 
 #### Device frame
 
-When enabling the **Device Frame** option, the preview area will disable the device frame. In addition to simulating the dimensions of mobile devices, it will also reflect the notch on the display.
+When enabling the **Device Frame** option, the preview area will disable the device frame. In addition to simulating the dimensions of mobile devices, it will also reflect the notch on the display if supported by the device selected.
 
 ![Device Frame](../img/MobileDevicePreview/withframe.png)
 ![Device Frame](../img/MobileDevicePreview/noframe.png)
