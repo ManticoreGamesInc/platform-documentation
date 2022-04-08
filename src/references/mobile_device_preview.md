@@ -75,6 +75,17 @@ The default mobile UI has controls that give a player quick access to things suc
 | ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. |
 | ![Settings](../img/MobileDevicePreview/UI/Settings.png) | Opens up the settings window for the player. |
 
+## Performance Limits
+
+Performance limits track the objects in the project Hierarchy and show the limit numbers for the object count, networked object, and terrain complexity. Creators should try to keep all bars below the limits to give players the best game performance. Reaching any limit will result in a warning, but currently does not block you from publishing.
+
+There are 5 options to choose from that will adjust the object count and limits based on the specified platform and the detail quality level.
+
+![High](../img/MobileDevicePreview/high.png)
+![Low](../img/MobileDevicePreview/low.png)
+*PC (High) - 30,000 max objects (left), Mobile (Low) - 10,000 max objects (right)*
+{: .image-cluster}
+
 ## Learn More
 
 [Binding Sets](../references/binding_sets.md)
