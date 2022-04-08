@@ -53,7 +53,7 @@ The **Devices** dropdown allows creators to select a specific device to preview.
 
 ## Device Preview UI
 
-The device preview UI that is displayed changes depending on what bindings are set up in the Bindings Manager and where the player has touched the screen. For example, when the player is touching the left half of the screen a virtual joystick will be displayed. Touching and moving on the right half of the screen will control camera movement.
+The device preview UI changes depending on where the player touches the screen. For example, when the player touches the left half of the screen, a virtual joystick will appear. The right half of the screen controls the camera's movement when touched.
 
 ![!Enabled](../img/MobileDevicePreview/enabled.png){: .center loading="lazy" }
 
