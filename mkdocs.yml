@@ -53,7 +53,7 @@ nav:
           - Curves: references/curves.md
           - Custom Properties: references/custom_properties.md
           - Damageable Objects: references/damageable_objects.md
-          - ✨ Data Tables: references/data_tables.md
+          - Data Tables: references/data_tables.md
           - Debris Physics: references/debris_physics.md
           - Editor Shortcuts: references/editor_keybindings.md
           - Events and Hooks: references/events_hooks.md
@@ -65,10 +65,11 @@ nav:
           - IK and Custom Animations: references/ik_anchors.md
           - Interaction System: references/interaction_system.md
           - Interconnected Games: references/interconnected_games.md
-          - ✨ Inventories: references/inventory.md
+          - Inventories: references/inventory.md
           - Leaderboards: references/leaderboards.md
           - Materials: references/materials.md
           - Merged Models: references/merged_models.md
+          - ✨ Mobile Device Preview: references/mobile_device_preview.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
           - Network Relevancy: references/network_relevancy.md
@@ -127,7 +128,7 @@ nav:
         - Environment Art: tutorials/environment_art.md
         - Game Events: tutorials/game_events.md
         - Icon Generator: tutorials/icon_generator.md
-        - ✨ Creating Inventories: tutorials/creating_inventories.md
+        - Creating Inventories: tutorials/creating_inventories.md
         - Local Contexts: tutorials/localcontext.md
         - Lua Scripting: tutorials/lua_basics_helloworld.md
         - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
