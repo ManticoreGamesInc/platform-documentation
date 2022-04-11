@@ -190,7 +190,7 @@ Example using:
 
 ### `playbackRateMultiplier`
 
-Plays an animation on the animated mesh. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
+Plays an animation on the animated mesh that is in a Client Context. Optional parameters can be provided to control the animation playback: `playbackRate (Number)`: Controls how fast the animation plays. `shouldLoop (bool)`: If `true`, the animation will keep playing in a loop. If `false` the animation will stop playing once completed.
 
 In this example, a humanoid animated mesh has its laughing and death animations controlled by pressing the primary and secondary action bindings (PC default is mouse left-click and right-click respectively).
 
@@ -209,21 +209,18 @@ function PlayDeath()
     MESH.playbackRateMultiplier = 0
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         PlayAttack()
-
-    elseif action == "ability_secondary" then
+    elseif action == "Aim" then
         PlayDeath()
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
+See also: [CoreObject.parent](coreobject.md) | [Task.Wait](task.md) | [Game.playerJoinedEvent](game.md) | [Input.actionPressedEvent](input.md) | [Event.Connect](event.md)
 
 ---
 

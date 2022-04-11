@@ -135,17 +135,18 @@ ACTIVITY_HANDLER:AddActivity("Round", Round)
 ACTIVITY_HANDLER:AddActivity("GameOver", GameOver)
 
 -- For testing: Click left mouse button to score 1 point
-Game.playerJoinedEvent:Connect(function(player)
-    player.bindingPressedEvent:Connect(function(player, action)
-        if action == "ability_primary" then
-            print("Goal!")
-            Game.IncreaseTeamScore(player.team, 1)
-        end
-    end)
-end)
+-- The Shoot action in the Binding Set will need to be networked for it to be detected on the server.
+function OnActionPressed(player, action)
+    if action == "Shoot" then
+        print("Goal!")
+        Game.IncreaseTeamScore(player.team, 1)
+    end
+end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [AIActivity.priority](aiactivity.md) | [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [AIActivity.priority](aiactivity.md) | [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Input.actionPressedEvent](input.md) | [Player.team](player.md)
 
 ---
 

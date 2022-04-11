@@ -91,25 +91,45 @@ local player = Game.GetLocalPlayer()
 -- Store the current activation status of the IK Anchor
 local isActivated = false
 
+local isMovingForward = false
+
+local function OnActionPressed(player, action, value)
+    if action == "Move" then
+        if value.x == 1 then
+            isMovingForward = true
+        else
+            isMovingForward = false
+        end
+    end
+end
+
+local function OnActionReleased(player, action)
+    if action == "Move" then
+        isMovingForward = false
+    end
+end
+
 -- Attach the IK Anchor object to the root joint of the player so they move together
 IKAnchor:AttachToPlayer(player, "pelvis")
-
 IKAnchor:SetRotation(Rotation.New(0, -LEAN_ANGLE, 0))
 
 function Tick(deltaTime)
 -- Deactivate the IK Anchor if the player is not grounded, not pressing the "W" key, or not moving faster than the `ACTIVATION_SPEED`
-    if((not player.isWalking or not player:IsBindingPressed("ability_extra_21") or player:GetVelocity().size <= ACTIVATION_SPEED) and isActivated) then
+    if((not player.isWalking or not isMovingForward or player:GetVelocity().size <= ACTIVATION_SPEED) and isActivated) then
         IKAnchor:Deactivate(player)
         isActivated = false
     -- Only activate the IK Anchor if the player is grounded, pressing the "W" key, and moving faster than the `ACTIVATION_SPEED`
-    elseif (player.isWalking and not isActivated and player:IsBindingPressed("ability_extra_21") and player:GetVelocity().size > ACTIVATION_SPEED) then
+    elseif (player.isWalking and not isActivated and isMovingForward and player:GetVelocity().size > ACTIVATION_SPEED) then
         IKAnchor:Activate(player)
         isActivated = true
     end
 end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
 ```
 
-See also: [CoreObject.AttachToPlayer](coreobject.md) | [player.IsBindingPressed](player.md) | [Game.GetLocalPlayer](game.md)
+See also: [CoreObject.AttachToPlayer](coreobject.md) | [Input.actionPressedEvent](input.md) | [Game.GetLocalPlayer](game.md)
 
 ---
 

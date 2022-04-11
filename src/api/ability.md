@@ -385,20 +385,20 @@ See also: [CoreObject.parent](coreobject.md) | [Ability.owner](ability.md) | [Pl
 
 Example using:
 
-### `actionBinding`
+### `actionName`
 
-Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action binding (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
+Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action name (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
 
 ```lua
-local BINDING = script:GetCustomProperty("Binding")
+local ACTION_NAME = script:GetCustomProperty("ActionName")
 local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
 
-function GetLocalPlayerAbilityWithBinding()
+function GetLocalPlayerAbilityWithActionName()
     local player = Game.GetLocalPlayer()
     local abilities = player:GetAbilities()
 
     for _, ability in pairs(abilities) do
-        if ability.actionBinding == BINDING then
+        if ability.actionName == ACTION_NAME then
             return ability
         end
     end
@@ -407,7 +407,7 @@ function GetLocalPlayerAbilityWithBinding()
 end
 
 function Tick()
-    local ability = GetLocalPlayerAbilityWithBinding()
+    local ability = GetLocalPlayerAbilityWithActionName()
     if ability then
         NAME_UI.text = ability.name
     end
@@ -492,10 +492,10 @@ ability.castEvent:Connect(OnCast)
     On the client context, a user interface component that displays ability details is hidden until the player dies:
 ]]
 local abilityCanvas = script:GetCustomProperty("Canvas")
-local BINDING = script:GetCustomProperty("Binding")
+local ACTION_NAME = script:GetCustomProperty("ActionName")
 
 function Tick(deltaTime)
-    local ability = GetLocalPlayerAbilityWithBinding()
+    local ability = GetLocalPlayerAbilityWithActionName()
 
     if ability
     and ability.isEnabled
@@ -509,12 +509,12 @@ function Tick(deltaTime)
     end
 end
 
--- Searches the local player's abilities until one with a matching action binding is found
--- The BINDING search criteria should be set in the custom property
-function GetLocalPlayerAbilityWithBinding()
+-- Searches the local player's abilities until one with a matching action name is found
+-- The ACTION_NAME search criteria should be set in the custom property
+function GetLocalPlayerAbilityWithActionName()
     local abilities = Game.GetLocalPlayer():GetAbilities()
     for _, ability in pairs(abilities) do
-        if ability.actionBinding == BINDING then
+        if ability.actionName == ACTION_NAME then
             return ability
         end
     end
