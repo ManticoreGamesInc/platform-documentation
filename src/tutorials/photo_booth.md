@@ -1361,6 +1361,24 @@ The **CameraCaptureServer** script needs a reference to a template that will be 
 
 ![!Last Photo Property](../img/CameraCapture/PhotoBooth/last_photo_property.png){: .center loading="lazy" }
 
+## Create a new Binding
+
+The **Default Binding** set will need a new binding added to detect when the player presses a specific key.
+
+Open up the **Bindings Manager** window from the Window menu, or by double clicking on the Default Binding set in **My Binding Sets** found in the **Project Content** window.
+
+![!Bindings Window](../img/BindingSets/General/bindings_window.png){: .center loading="lazy" }
+
+### Add Binding
+
+From the **Bindings Window**, click on the **Add Bindings** button to add a new row to the binding set.
+
+1. In the **Action** field, enter `Toggle Photo Frame`.
+2. From the **Keyboard Primary** drop down, select the **E** key.
+3. Enable networking for the binding so it can be detected on the server.
+
+![!Add Binding](../img/CameraCapture/PhotoBooth/binding.png){: .center loading="lazy" }
+
 ### Edit CameraCaptureServer Script
 
 Open up the **CameraCaptureServer** script and add a reference to the property.
@@ -1379,15 +1397,15 @@ The `players` table will hold information for each player when they join the gam
 local players = {}
 ```
 
-#### Create OnBindingPressed Function
+#### Create OnActionPressed Function
 
-Create a function called `OnBindingPressed` that will check which binding the player has pressed. If the binding is the ++E++ key, then it will either show or hide the photo frame.
+Create a function called `OnActionPressed` that will check which action the player has pressed. If the action matches `Toggle Photo Frame`, then it show or hide the photo frame.
 
 If the player has the photo frame equipment, then it will disable the players mount, otherwise it will allow the player to mount. This is done because animation stances can not be played while the player is mounted, so the photo frame would appear in the wrong position and not look very good.
 
 ```lua
-local function OnBindingPressed(player, binding)
-    if binding == "ability_extra_22" then -- E
+local function OnActionPressed(player, action)
+    if action == "Toggle Photo Frame" then -- E
         if(players[player.id].visibility == Visibility.FORCE_ON) then
             player.canMount = true
             players[player.id].visibility = Visibility.FORCE_OFF
@@ -1417,13 +1435,11 @@ local function OnPlayerJoined(player)
     players[player.id] = frame -- (2)
 
     player:SetPrivateNetworkedData("photobooth.data", { elapsedTime, mutations })
-    player.bindingPressedEvent:Connect(OnBindingPressed) -- (3)
 end
 ```
 
 1. Name the frame to `Last Photo` as it will be searched for on the client.
 2. Store the asset instance in the `players` table for this player who joined.
-3. When the player presses any binding, the `OnBindingPressed` function will be called.
 
 #### Create OnPlayerLeft Function
 
@@ -1444,6 +1460,14 @@ Connect up the `playerLeftEvent` so that the `OnPlayerLeft` function is called w
 
 ```lua
 Game.playerLeftEvent:Connect(OnPlayerLeft)
+```
+
+#### Connect actionPressedEvent
+
+The `actionPressedEvent` needs to be connect so that when the player presses a key, the `OnActionPressed` function is called, which will check which it is.
+
+```lua
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
 #### The CameraCaptureServer Script
@@ -1468,8 +1492,8 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
         end
     end
 
-    local function OnBindingPressed(player, binding)
-        if binding == "ability_extra_22" then -- E
+    local function OnActionPressed(player, action)
+        if action == "Toggle Photo Frame" then -- E
             if(players[player.id].visibility == Visibility.FORCE_ON) then
                 player.canMount = true
                 players[player.id].visibility = Visibility.FORCE_OFF
@@ -1491,7 +1515,6 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
         players[player.id] = frame
 
         player:SetPrivateNetworkedData("photobooth.data", { elapsedTime, mutations })
-        player.bindingPressedEvent:Connect(OnBindingPressed)
     end
 
     local function OnPlayerLeft(player)
@@ -1515,6 +1538,8 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 
     Game.playerJoinedEvent:Connect(OnPlayerJoined)
     Game.playerLeftEvent:Connect(OnPlayerLeft)
+
+    Input.actionPressedEvent:Connect(OnActionPressed)
     ```
 
 ### Test the Game
@@ -2270,4 +2295,4 @@ Consider improving on the photo booth to use 3D scenes behind the player instead
 
 ## Learn More
 
-[Camera Captures Tutorial](../tutorials/camera_capture_basics.md) | [Icon Generator Tutorial](../tutorials/icon_generator.md) | [Camera Reference](../references/cameras_and_settings.md) | [Camera Capture API](../api/cameracapture.md) | [Camera API](../api/camera.md) | [Camera Capture Resolution](../api/enums.md#cameracaptureresolution) [RandomStream API](../api/randomstream.md)
+[Camera Captures Tutorial](../tutorials/camera_capture_basics.md) | [Icon Generator Tutorial](../tutorials/icon_generator.md) | [Camera Reference](../references/cameras_and_settings.md) | [Camera Capture API](../api/cameracapture.md) | [Camera API](../api/camera.md) | [Camera Capture Resolution](../api/enums.md#cameracaptureresolution) [RandomStream API](../api/randomstream.md) | [Binding Sets](../references/binding_sets.md)
