@@ -3400,49 +3400,56 @@ In this section you are going to add a little polish to project by adding a spri
 
 Currently it's very slow running a race, so let's allow the players to sprint when holding the ++shift++ key down.
 
+### Create a new Binding
+
+The **Default Binding** set will need a new binding added to detect when the player presses the key to sprint.
+
+Open up the **Bindings Manager** window from the Window menu, or by double clicking on the Default Binding set in **My Binding Sets** found in the **Project Content** window.
+
+![!Bindings Window](../img/BindingSets/General/bindings_window.png){: .center loading="lazy" }
+
+### Add Binding
+
+From the **Bindings Window**, click on the **Add Bindings** button to add a new row to the binding set.
+
+1. In the **Action** field, enter `Sprint`.
+2. From the **Keyboard Primary** drop down, select the **Left Shift** key.
+3. Enable networking for the binding.
+
+![!Add Binding](../img/RaceTimerTutorial/binding.png){: .center loading="lazy" }
+
+### Create OnActionPressed Function
+
+Add the below code just below the `SendPrivateData` function. This function will check when the player presses the ++shift++ key. The `maxWalkSpeed` of the player is modified to adjust the speed of the player when they sprint.
+
 ```lua linenums="1"
-local function SetSprintBinding(player)
-    player.bindingPressedEvent:Connect(function(obj, binding)
-        if binding == "ability_feet" then
-            player.maxWalkSpeed = 1200
-        end
-    end)
-
-    player.bindingReleasedEvent:Connect(function(obj, binding)
-        if binding == "ability_feet" then
-            player.maxWalkSpeed = 640
-        end
-    end)
-end
-```
-
-Add the above code just below the `SendPrivateData` function. This function will setup the binding for the player when they press and release the ++shift++ key. The `maxWalkSpeed` of the player is modified to adjust the speed of the player when they sprint.
-
-```lua linenums="1" hl_lines="20"
-local function OnPlayerJoined(player)
-    player.maxJumpCount = 0
-    player.canMount = false
-
-    players[player.id] = {
-
-        inRace = false,
-        startTime = 0,
-        finishTime = 0,
-        splits = {}
-
-    }
-
-    local data = Storage.GetPlayerData(player) or {}
-
-    if data.bestTime ~= nil then
-        SendPrivateData(player, "bestTime", data.bestTime)
+local function OnActionPressed(player, action)
+    if action == "Sprint" then
+        player.maxWalkSpeed = 1200
     end
-
-    SetSprintBinding(player)
 end
 ```
 
-Add the `SetSprintBinding` at line 20 so that the binding for the player who joins is setup.
+### Create OnActionReleased function
+
+Add the below code just below the `OnActionPressed` function. This function will check when the player releases the ++shift++ key. The `maxWalkSpeed` of the player is modified so it is reset back to default speed.
+
+```lua linenums="1"
+local function OnActionReleased(player, action)
+    if action == "Sprint" then
+        player.maxWalkSpeed = 640
+    end
+end
+```
+
+### Connect Events
+
+Connect the `actionPressedEvent` and `actionReleasedEvent`. These events will detect when an action has been pressed and released.
+
+```lua linenums="1"
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
+```
 
 ### The Final RaceManager_Server Script
 
@@ -3522,18 +3529,16 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
         player:SetPrivateNetworkedData(key, data)
     end
 
-    local function SetSprintBinding(player)
-        player.bindingPressedEvent:Connect(function(obj, binding)
-            if binding == "ability_feet" then
-                player.maxWalkSpeed = 1200
-            end
-        end)
+    local function OnActionPressed(player, action)
+        if action == "Sprint" then
+            player.maxWalkSpeed = 1200
+        end
+    end
 
-        player.bindingReleasedEvent:Connect(function(obj, binding)
-            if binding == "ability_feet" then
-                player.maxWalkSpeed = 640
-            end
-        end)
+    local function OnActionReleased(player, action)
+        if action == "Sprint" then
+            player.maxWalkSpeed = 640
+        end
     end
 
     local function OnPlayerJoined(player)
@@ -3564,10 +3569,6 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
         if data.bestTime ~= nil then
             SendPrivateData(player, "bestTime", data.bestTime)
         end
-
-        -- Set up sprint bindings for this player.
-
-        SetSprintBinding(player)
     end
 
     --[[
@@ -3778,6 +3779,9 @@ Add the `SetSprintBinding` at line 20 so that the binding for the player who joi
     end
 
     task_handler()
+
+    Input.actionPressedEvent:Connect(OnActionPressed)
+    Input.actionReleasedEvent:Connect(OnActionReleased)
     ```
 
 Enter **Play** mode and hold down ++shift++ to sprint. You will now be able to set an even quicker time.
