@@ -21,6 +21,7 @@ A UIControl which displays a basic text label. Inherits from [UIControl](uicontr
 | `shouldWrapText` | `boolean` | Whether or not text should be wrapped within the bounds of this control. | Read-Write |
 | `shouldClipText` | `boolean` | Whether or not text should be clipped when exceeding the bounds of this control. | Read-Write |
 | `shouldScaleToFit` | `boolean` | Whether or not text should scale down to fit within the bounds of this control. | Read-Write |
+| `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
 ## Functions
 

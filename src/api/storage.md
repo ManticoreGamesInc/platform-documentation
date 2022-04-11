@@ -417,7 +417,7 @@ Example using:
 
 This example shows how to write data to the Shared Storage. With this, any maps that you enable with your shared key can all access the same data that is associated with a player. This means that you could have several games where reward, levels, or achievements carry over between them.
 
-For this example to work, there is some setup th at needs to be done:
+For this example to work, there is some setup that needs to be done:
 
 - Storage needs to be enabled in the Game Settings object.
 

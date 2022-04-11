@@ -121,6 +121,15 @@ tags:
 | `DamageReason.MAP` | `3` | Player is taking damage from the environment. |
 | `DamageReason.NPC` | `4` | Player is taking damage from a non-player character. |
 
+## DetailLevel
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `DetailLevel.LOW` | `0` | Low. |
+| `DetailLevel.MEDIUM` | `1` | Medium. |
+| `DetailLevel.HIGH` | `2` | High. |
+| `DetailLevel.ULTRA` | `3` | Ultra, the highest detail level. |
+
 ## FacingMode
 
 | Enum Name | Value | Description |
@@ -154,6 +163,7 @@ tags:
 | --------- | ----------- | ----------- |
 | `InputType.KEYBOARD_AND_MOUSE` | `0` | Input from a keyboard and mouse. |
 | `InputType.CONTROLLER` | `1` | Input from a game controller. |
+| `InputType.TOUCH` | `2` | Input from a touch screen. |
 
 ## LeaderboardType
 
