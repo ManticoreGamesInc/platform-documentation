@@ -428,7 +428,7 @@ end
 
 #### Create OnActionPressed Function
 
-The `OnActionPressed` function will check which binding the player is pressing and equip the correct weapon for the player.
+The `OnActionPressed` function will check which key the player is pressing and equip the correct weapon for the player.
 
 ```lua
 local function OnActionPressed(player, action)
