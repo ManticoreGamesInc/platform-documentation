@@ -41,6 +41,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.GetCoreModalType()` | [`CoreModalType`](enums.md#coremodaltype) | Returns the currently active core modal, or nil if none is active. | Client-Only |
 | `UI.IsVoiceChatWidgetVisible()` | `boolean` | Returns whether the voice chat widget is currently visible. Note that this may return `true` when the voice chat widget is not currently displaying anything on the screen. | Client-Only |
 | `UI.SetVoiceChatWidgetVisible(boolean isVisible)` | `None` | Sets whether the voice chat widget is currently visible. | Client-Only |
+| `UI.FindControlAtPosition(Vector2 screenPosition)` | [`UIControl`](uicontrol.md) | Looks for a hittable UI control at the given screen position. Returns the top-most control if found. Returns `nil` if no hittable control was found at the specified position. | Client-Only |
 
 ## Events
 

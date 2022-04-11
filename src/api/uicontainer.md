@@ -23,6 +23,7 @@ A UIContainer is a type of UIControl. All other UI elements must be a descendant
 | -------- | ----------- | ----------- | ---- |
 | `GetCanvasSize()` | [`Vector2`](vector2.md) | Returns the size of the canvas when drawn in 3D space. | None |
 | `SetCanvasSize(Vector2)` | `None` | Sets the size of the canvas when drawn in 3D space. | None |
+| `IsCanvasReady()` | `boolean` | Returns `true` if the container has completed initialization, otherwise returns `false`. Calls to get or set the absolute position of controls within a container may not perform correctly before the container has finished initialization. | Client-Only |
 
 ## Examples
 

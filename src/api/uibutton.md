@@ -20,6 +20,7 @@ A UIControl for a button, should be inside client context. Inherits from [UICont
 | `shouldClipToSize` | `boolean` | Whether or not the button and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
 | `shouldScaleToFit` | `boolean` | Whether or not the button's label should scale down to fit within the bounds of this control. | Read-Write |
 | `boundAction` | `string` | Returns the name of the action binding that is toggled when the button is pressed or released, or `nil` if no binding has been set. | Read-Write |
+| `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
 ## Functions
 

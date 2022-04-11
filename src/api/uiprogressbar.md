@@ -18,6 +18,7 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | `fillType` | [`ProgressBarFillType`](enums.md#progressbarfilltype) | Controls the direction in which the progress bar fills. | Read-Write |
 | `fillTileType` | [`ImageTileType`](enums.md#imagetiletype) | How the fill texture is tiled. | Read-Write |
 | `backgroundTileType` | [`ImageTileType`](enums.md#imagetiletype) | How the background texture is tiled. | Read-Write |
+| `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
 ## Functions
 
