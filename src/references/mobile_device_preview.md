@@ -24,7 +24,7 @@ The **Device Preview** menu will allow creators to enable and disable device pre
 
 During preview mode, mouse, keyboard, touch, and controller input will change based on the preview mode chosen.
 
-!!! warning "Multiplayer Preview Mode & Portait Mode"
+!!! warning "Multiplayer Preview Mode & Portrait Mode"
     The device preview only works in editor and local preview mode. Multiplayer preview mode is currently not supported.
 
     Only landscape mode is supported for now.
@@ -85,6 +85,12 @@ There are 5 options to choose from that will adjust the object count and limits 
 ![Low](../img/MobileDevicePreview/low.png)
 *PC (High) - 30,000 max objects (left), Mobile (Low) - 10,000 max objects (right)*
 {: .image-cluster}
+
+### Detail Relevance
+
+Objects in a **Client Context** will render only if the player's **Detail Level** is equal to or above this setting. **Low+** will ensure that the objects in this context will always render. For example, having a much lower VFX particle density for mobile will give better performance, compared to PC having a higher VFX particle density.
+
+![!Detail](../img/MobileDevicePreview/detail.png){: .center loading="lazy" }
 
 ## Learn More
 
