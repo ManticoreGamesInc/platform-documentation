@@ -331,29 +331,29 @@ Add this to the top of your script:
 local Interface = script:GetCustomProperty("Interface"):WaitForObject()
 ```
 
-### Connect Event When a Player Presses a Binding
+### Connect Event When a Player Presses a Key
 
 It is now time to show the **UI** when a **Player** presses a specific binding. This is done by utilizing the `Input.actionPressedEvent` event.
 
 At the bottom of the script, add this:
 
 ```lua
-function OnBindingPressed(player, action)
+function OnActionPressed(player, action)
 
 end
 
-Input.actionPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-### Check the Binding
+### Check the Action
 
-The `actionPressedEvent` event fires when any binding is pressed so you need to check and see if it is the correct binding that you want it to be. This can be done by checking what the `action` value is.
+The `actionPressedEvent` event fires when any key is pressed and the function connected to the event will receive the action value for that binding.
 
-The action that will be checked, is the `Interact` action. All actions can be looked at from the Bindings Manager window in the Window menu.
+The action that will be checked is the `Interact` action. All actions can be looked at from the **Bindings Manager** window in the **Window** menu.
 
 [Click here](../references/binding_sets.md) for more information about binding sets.
 
-Add the following code to the top of the `OnBindingPressed` fuction. This will escape early if the action does not match `Interact`.
+Add the following code to the top of the `OnActionPressed` function. This will escape early if the action does not match `Interact`.
 
 ```lua
 if action ~= "Interact" then
@@ -390,7 +390,7 @@ Finally, you can disable the visibility of the UI so that when the **Player** sp
 ```lua
 local Interface = script:GetCustomProperty("Interface"):WaitForObject()
 
-function OnBindingPressed(player, action)
+function OnActionPressed(player, action)
     if action ~= "Interact" then
         return
     end
@@ -402,7 +402,7 @@ function OnBindingPressed(player, action)
     end
 end
 
-Input.actionPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
 ## Toggling UI With a Button
