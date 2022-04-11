@@ -41,21 +41,20 @@ Example using:
 In this example players take 50 damage whenever they press 'D'.
 
 ```lua
-function OnBindingPressed(player, action)
-    if action == "ability_extra_32" then --The 'D' key
+-- The action name to check for when the binding is pressed.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
+
+local function OnActionPressed(player, action)
+    if action == ACTION_NAME then
         local dmg = Damage.New(50)
         player:ApplyDamage(dmg)
     end
 end
 
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.ApplyDamage](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+See also: [Player.ApplyDamage](player.md) | [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Event.Connect](event.md)
 
 ---
 

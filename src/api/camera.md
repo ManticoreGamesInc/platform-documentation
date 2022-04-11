@@ -259,9 +259,6 @@ The following example implements a zoom/scoping effect that activates by holding
 ```lua
 local CAMERA = script.parent
 
--- This script only works for non-orthographics cameras
-if CAMERA.isOrthographic then return end
-
 -- These could be added as custom properties
 local TARGET_FOV = script:GetCustomProperty("TargetFOV") or 10
 local LERP_SPEED = script:GetCustomProperty("LerpSpeed") or 20
@@ -319,8 +316,8 @@ function Tick(deltaTime)
     CAMERA.currentDistance = distance
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_secondary" then
+function OnActionPressed(player, action)
+    if action == "Aim" then
         isPressing = true
 
         CAMERA.isDistanceAdjustable = false
@@ -328,17 +325,17 @@ function OnBindingPressed(player, action)
     end
 end
 
-function OnBindingReleased(player, action)
-    if action == "ability_secondary" then
+function OnActionReleased(player, action)
+    if action == "Aim" then
         isPressing = false
     end
 end
 
-player.bindingPressedEvent:Connect(OnBindingPressed)
-player.bindingReleasedEvent:Connect(OnBindingReleased)
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
 ```
 
-See also: [CoreObject.parent](coreobject.md) | [Camera.GetPositionOffset](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Vector3.Lerp](vector3.md) | [Player.isVisibleToSelf](player.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
+See also: [CoreObject.parent](coreobject.md) | [Camera.GetPositionOffset](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Vector3.Lerp](vector3.md) | [Player.isVisibleToSelf](player.md) | [Input.actionPressedEvent](input.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -380,16 +377,16 @@ function NextPlayer()
     end
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_secondary" then
+function OnActionPressed(player, action)
+    if action == "Aim" then
         NextPlayer()
     end
 end
 
-Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Vector3.New](vector3.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
+See also: [CoreObject.parent](coreobject.md) | [Game.GetPlayers](game.md) | [Vector3.New](vector3.md) | [Input.actionPressedEvent](input.md) | [Event.Connect](event.md)
 
 ---
 
@@ -499,16 +496,16 @@ function NextPlayer()
     end
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_secondary" then
+function OnActionPressed(player, action)
+    if action == "Aim" then
         NextPlayer()
     end
 end
 
-Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Camera.followPlayer](camera.md) | [CoreObject.parent](coreobject.md) | [Game.GetLocalPlayer](game.md) | [Vector3.New](vector3.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md)
+See also: [Camera.followPlayer](camera.md) | [CoreObject.parent](coreobject.md) | [Game.GetLocalPlayer](game.md) | [Vector3.New](vector3.md) | [Input.actionPressedEvent](input.md) | [Event.Connect](event.md)
 
 ---
 
@@ -519,18 +516,20 @@ Example using:
 The following client script allows players in a first-person game to turn on/off the head-bob effect that is associated with the camera being attached to the camera socket. To toggle the head-bob press 0.
 
 ```lua
-function OnBindingPressed(player, action)
-    if action == "ability_extra_0" then
+-- Action name to use from a binding set.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
+
+function OnActionPressed(player, action)
+    if action == ACTION_NAME then
         local camera = player:GetActiveCamera()
         camera.useCameraSocket = not camera.useCameraSocket
     end
 end
 
-local localPlayer = Game.GetLocalPlayer()
-localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.GetActiveCamera](player.md) | [Game.GetLocalPlayer](game.md) | [Event.Connect](event.md)
+See also: [Player.GetActiveCamera](player.md) | [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Event.Connect](event.md)
 
 ---
 
@@ -571,22 +570,22 @@ function Tick(deltaTime)
     CAMERA.viewWidth = viewWidth
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_secondary" then
+function OnActionPressed(player, action)
+    if action == "Aim" then
         isPressing = true
     end
 end
 
-function OnBindingReleased(player, action)
-    if action == "ability_secondary" then
+function OnActionReleased(player, action)
+    if action == "Aim" then
         isPressing = false
     end
 end
 
-player.bindingPressedEvent:Connect(OnBindingPressed)
-player.bindingReleasedEvent:Connect(OnBindingReleased)
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
 ```
 
-See also: [CoreObject.parent](coreobject.md) | [Camera.isOrthographics](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Player.bindingPressedEvent](player.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
+See also: [CoreObject.parent](coreobject.md) | [Camera.isOrthographics](camera.md) | [Game.GetLocalPlayer](game.md) | [CoreMath.Lerp](coremath.md) | [Input.actionPressedEvent](input.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---

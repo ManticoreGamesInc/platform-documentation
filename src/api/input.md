@@ -96,11 +96,11 @@ Example using:
 
 ### `GetCursorPosition`
 
-In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
+In this client script we listen for the player's shoot action (left mouse click) then print the position of their cursor to the event log.
 
 ```lua
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
+local function OnActionPressed(player, action)
+    if action == "Shoot" then
         local cursorPos = Input.GetCursorPosition()
         if cursorPos then
             print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
@@ -110,37 +110,10 @@ function OnBindingPressed(player, action)
     end
 end
 
-local player = Game.GetLocalPlayer()
-player.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
-
----
-
-Example using:
-
-### `GetCursorPosition`
-
-In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
-
-```lua
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
-        local cursorPos = Input.GetCursorPosition()
-        if cursorPos then
-            print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
-        else
-            print("Clicked at an undefined position.")
-        end
-    end
-end
-
-local player = Game.GetLocalPlayer()
-player.bindingPressedEvent:Connect(OnBindingPressed)
-```
-
-See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [Vector2.x](vector2.md)
+See also: [Game.GetLocalPlayer](game.md) | [Input.actionPressedEvent](input.md) | [Vector2.x](vector2.md)
 
 ---
 
@@ -182,14 +155,14 @@ function Tick()
         local position = (touch1 + touch2) / 2
         UIIMAGE:SetAbsolutePosition(position)
     end
-    
+
     -- Scale
     if isPinching then
         local pinchPercent = Input.GetPinchValue()
         UIIMAGE.width = CoreMath.Round(startingWidth * pinchPercent)
         UIIMAGE.height = CoreMath.Round(startingHeight * pinchPercent)
     end
-    
+
     -- Rotate
     if isRotating then
         local angle = Input.GetRotateValue()

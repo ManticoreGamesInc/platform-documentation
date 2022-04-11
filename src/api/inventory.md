@@ -143,6 +143,10 @@ Example using:
 This example shows how to drop items from a player's inventory. When the player presses the 1 or 2 keys, any items found in their inventory's slots 1 or 2 are dropped to the ground.
 
 ```lua
+-- Add binding set action names as custom properties.
+local SLOT1_ACTION = script:GetCustomProperty("Slot1Action")
+local SLOT2_ACTION = script:GetCustomProperty("Slot2Action")
+
 function DropItemFromSlot(player, slotNumber)
     local inventory = player:GetInventories()[1]
     if not inventory then return end
@@ -162,21 +166,18 @@ function DropItemFromSlot(player, slotNumber)
     end
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_extra_1" then
+function OnActionPressed(player, action)
+    if action == SLOT1_ACTION then
         DropItemFromSlot(player, 1)
-
-    elseif action == "ability_extra_2" then
+    elseif action == SLOT2_ACTION then
         DropItemFromSlot(player, 2)
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.GetInventories](player.md) | [Game.playerJoinedEvent](game.md) | [Vector3.UP](vector3.md)
+See also: [Player.GetInventories](player.md) | [Game.playerJoinedEvent](game.md) | [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Vector3.UP](vector3.md)
 
 ---
 

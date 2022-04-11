@@ -57,25 +57,27 @@ Example using:
 We may want to press a key to display some UI. However, in single-player preview mode, The [Tab] key pauses the simulation. In this example, we assign [Tab] to display the scoreboard. On each action the `Environment` is checked, to see if it is single-player preview, in which case [Caps Lock] is used instead of [Tab].
 
 ```lua
-function IsTabAction(actionBinding)
+local CAPS_LOCK_ACTION = script:GetCustomProperty("CapsLockAction")
+local TAB_ACTION = script:GetCustomProperty("TabAction")
+
+local function IsTabAction(action)
     if Environment.IsSinglePlayerPreview() then
-        return actionBinding == "ability_extra_18" -- Caps Lock key
+        return action == CAPS_LOCK_ACTION
     else
-        return actionBinding == "ability_extra_19" -- Tab key
+        return action == TAB_ACTION
     end
 end
 
-function OnBindingPressed(player, action)
+local function OnActionPressed(player, action)
     if IsTabAction(action) then
+        print("Show Scoreboard")
         Events.Broadcast("ShowScoreboard")
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md) | [Events.Broadcast](events.md)
+See also: [Game.playerJoinedEvent](game.md) | [Input.actionPressedEvent](input.md) | [Events.Broadcast](events.md)
 
 ---

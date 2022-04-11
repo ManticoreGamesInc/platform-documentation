@@ -38,7 +38,7 @@ Example using:
 
 ### `Connect`
 
-An example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnBindingPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's move direction.
+An example of how to implement "Click to Move" in your game, useful in conjunction with a top down camera. This client script detects mouse clicks with the `OnActionPressed` function and saves the clicked point as the `goal`. Then, in the `OnPlayerMovement` function the goal is used to recalculate the player's move direction.
 
 ```lua
 UI.SetCursorVisible(true)
@@ -64,8 +64,8 @@ function OnPlayerMovement(player, params)
     end
 end
 
-function OnBindingPressed(player, binding)
-    if binding == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         local hitResult = UI.GetCursorHitResult()
         if hitResult then
             goal = hitResult:GetImpactPosition()
@@ -74,9 +74,9 @@ function OnBindingPressed(player, binding)
 end
 
 PLAYER.movementHook:Connect(OnPlayerMovement)
-PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.bindingPressedEvent](player.md)
+See also: [Input.actionPressedEvent](input.md) | [Player.movementHook](player.md)
 
 ---
