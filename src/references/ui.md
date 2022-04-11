@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-UI in Core includes all the 2D elements that can be used to build menus, notifications, dialog boxes, and heads up displays (HUD's). Creating UI Elements is mostly a drag-and-drop process, where any UI element can be added to the scene with ease.
+**UI** in Core includes all the 2D elements to build menus, notifications, dialog boxes, and heads up displays (HUD's). Creating UI elements is mostly a drag-and-drop process, where any UI element is added to the scene with ease.
 
 ## UI Elements
 
@@ -22,7 +22,7 @@ More information can be found in the [UIControl API](../api/uicontrol.md)
 
 ### Container
 
-All other UI elements must be a descendant of a **Container** (UIContainer) to be visible. It does not have a position or size. It is always the size of the entire screen. It has no properties or functions of its own, but inherits everything from CoreObject.
+All other UI elements must be a descendant of a **Container** (UIContainer) to be visible. It does not have a position or size. It is always the size of the entire screen has no properties or functions of its own, but inherits everything from CoreObject.
 
 More information can be found in the [UIContainer API](../api/uicontainer.md)
 
@@ -312,68 +312,54 @@ First, you need to create a script that will handle this implementation.
 
 ![Toggle On Binding Script](../img/UIReference/ToggleOnBindingScript.png){: .center loading="lazy" }
 
-### Create Custom Properties for the UI and Binding
+### Create Custom Property for the UI
 
-Second, you need a reference to the **UI** and to the trigger so that you can implement the required trigger events that then toggle the **UI**.
+You need a reference to the **UI** that will be toggled on and off when a specific binding has been pressed.
 
 1. While having the script selected in the hierarchy, in the **Properties** window, add a **CoreObjectReference** **Custom Property** to the script and name it `Interface`.
 2. Drag-and-drop the **UI** from the **Hierarchy** into the **Custom Property** you just created.
-3. While having the script selected in the hierarchy, in the **Properties** window, add a **String** **Custom Property** to the script and name it `Binding`.
-4. Search the binding list for what binding you want to use. This example will be using ++T++, which is `ability_extra_24`.
 
-![Toggle On Binding Custom Properties](../img/UIReference/ToggleOnBindingCustomProperties.png){: .center loading="lazy" }
+![Custom Properties](../img/UIReference/ToggleOnBindingCustomProperties.png){: .center loading="lazy" }
 
-### Create Variable References for the UI and Binding
+### Create Variable References for the UI
 
-Now, it is time to begin coding. First, you need to create variables that refer the **UI** and **Binding** **Custom Properties**.
+Now, it is time to begin coding. First, you need to create variables that refer the **UI** **Custom Property**.
 
 Add this to the top of your script:
 
 ```lua
 local Interface = script:GetCustomProperty("Interface"):WaitForObject()
-
-local BINDING = script:GetCustomProperty("Binding")
-```
-
-`BINDING` is in all caps to hint that it is a constant; a variable that the value is no altered.
-
-### Create Variable Reference to Local Player
-
-The **UI** should only become visible if the **Local Player** presses the binding.
-
-Under or between the **Custom Property** references, add this to the script:
-
-```lua
-local LocalPlayer = Game.GetLocalPlayer()
 ```
 
 ### Connect Event When a Player Presses a Binding
 
-It is now time to show the **UI** when a **Player** enters the **Trigger**. This is used by utilizing the `Player.bindingPressedEvent` event.
+It is now time to show the **UI** when a **Player** presses a specific binding. This is done by utilizing the `Input.actionPressedEvent` event.
 
 At the bottom of the script, add this:
 
 ```lua
-function OnBindingPressed(player, binding)
+function OnBindingPressed(player, action)
 
 end
 
-LocalPlayer.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnBindingPressed)
 ```
 
 ### Check the Binding
 
-The `bindingPressedEvent` event fires when any binding is pressed so you need to check and see if it is the correct binding that you want it to be.
+The `actionPressedEvent` event fires when any binding is pressed so you need to check and see if it is the correct binding that you want it to be. This can be done by checking what the `action` value is.
 
-Do this by adding this to the top of the `OnBindingPressed` function:
+The action that will be checked, is the `Interact` action. All actions can be looked at from the Bindings Manager window in the Window menu.
+
+[Click here](../references/binding_sets.md) for more information about binding sets.
+
+Add the following code to the top of the `OnBindingPressed` fuction. This will escape early if the action does not match `Interact`.
 
 ```lua
-if binding ~= BINDING then
+if action ~= "Interact" then
     return
 end
 ```
-
-This will escape early if the two bindings do not match.
 
 ### Toggle the Visibility of the UI
 
@@ -404,12 +390,8 @@ Finally, you can disable the visibility of the UI so that when the **Player** sp
 ```lua
 local Interface = script:GetCustomProperty("Interface"):WaitForObject()
 
-local LocalPlayer = Game.GetLocalPlayer()
-
-local BINDING = script:GetCustomProperty("Binding")
-
-function OnBindingPressed(player, binding)
-    if binding ~= BINDING then
+function OnBindingPressed(player, action)
+    if action ~= "Interact" then
         return
     end
 
@@ -420,7 +402,7 @@ function OnBindingPressed(player, binding)
     end
 end
 
-LocalPlayer.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnBindingPressed)
 ```
 
 ## Toggling UI With a Button
@@ -545,7 +527,7 @@ The following table lists the maximum number of images supported per [resolution
 
 ### Camera Setup
 
-A [Camera](../api/camera.md) will need to be added to the **Hierarchy** that will be setup just for taking captures. The camera will need certain properties changed so it is setup optimally for creating captures. If any of these properties are not changed, Core will display a warning in the **Event Log** with information on which properties to change.
+A [Camera](../api/camera.md) will need to be added to the **Hierarchy** that will be setup just for taking captures. The camera will need certain properties changed, so it is set up optimally for creating captures. If any of these properties are not changed, Core will display a warning in the **Event Log** with information on which properties to change.
 
 1. Create a **Client Context** in the **Hierarchy**.
 2. Set the **Position** in the **Properties** window to **X** `-300`, **Z** `350`.
@@ -650,4 +632,4 @@ Place an object within the bounds of the dummy object, and enter play mode. You 
 
 ## Learn More
 
-[UIControl](../api/uicontrol.md) | [UIText](../api/uitext.md) | [Events](../api/events.md) | [CameraCapture](../api/cameracapture.md) | [Camera](../api/camera.md)
+[UIControl](../api/uicontrol.md) | [UIText](../api/uitext.md) | [Events](../api/events.md) | [CameraCapture](../api/cameracapture.md) | [Camera](../api/camera.md) | [Binding Sets](../references/binding_sets.md) | [Input API](../api/input.md)
