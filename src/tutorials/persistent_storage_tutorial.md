@@ -341,7 +341,7 @@ Test the game and make sure the following work:
 
 In this section you will learn how to save the player's weapon selection. Player's will be able to press ++1++ or ++2++ to switch between 2 different weapons.
 
-## Create Bindings
+### Create Bindings
 
 The **Default Binding** set will need a couple of new bindings added to detect when the player presses a specific key.
 
