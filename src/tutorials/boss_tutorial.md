@@ -2419,65 +2419,60 @@ When a player shoots the boss, it will display **Immune** in front of the Boss.
 
 Right now the player can be killed fairly easy by the boss as it is hard to get away from the damage of the projectile. Adding a sprint ability to the player will give them more of a chance, and as a side benefit, helps you test your game more quickly because you can move around faster.
 
+## Create a new Binding
+
+The **Default Binding** set will need a new binding added to detect when the player presses a specific key.
+
+Open up the **Bindings Manager** window from the Window menu, or by double clicking on the Default Binding set in **My Binding Sets** found in the **Project Content** window.
+
+![!Bindings Window](../img/BindingSets/General/bindings_window.png){: .center loading="lazy" }
+
+### Add Binding
+
+From the **Bindings Window**, click on the **Add Bindings** button to add a new row to the binding set.
+
+1. In the **Action** field, enter `Sprint`.
+2. From the **Keyboard Primary** drop down, select the **Left Shift** key.
+3. Enable networking for this binding so it can be listened on the server.
+
+![!Add Binding](../img/BindingSets/General/add_binding.png){: .center loading="lazy" }
+
 ### Update PlayerServer Script
 
-Open up the **PlayerServer** script. You will be update the `OnPlayerJoined` and `OnPlayerLeft` functions.
+Open up the **PlayerServer** script so you can add some functions and events that will give the player the ability to sprint.
 
-#### Update OnPlayerJoined
+#### Create OnActionPressed Function
 
-You will need to update the `OnPlayerJoined` function so it can setup the bindings for the player when they join.
+Create a new function called `OnActionPressed` that will be called when the player presses a key. It will check if the action value for the binding that was pressed is `Sprint`, and if so, the walk speed of the player is increased by setting the `maxWalkSpeed`.
 
 ```lua
-local function OnPlayerJoined(player)
-    local weapon = World.SpawnAsset(WEAPON)
-
-    weapon:Equip(player)
-    weapon.targetImpactedEvent:Connect(OnImpact)
-
-    players[player.id] = {
-
-        pressedEvt = player.bindingPressedEvent:Connect(function(obj, binding)
-            if binding == "ability_feet" then
-                player.maxWalkSpeed = 1200
-            end
-        end),
-
-        releasedEvt = player.bindingReleasedEvent:Connect(function(obj, binding)
-            if binding == "ability_feet" then
-                player.maxWalkSpeed = 640
-            end
-        end),
-
-        weapon = weapon
-    }
-
-    DisableWeapon(player)
+local function OnActionPressed(player, action)
+    if action == "Sprint" then
+        player.maxWalkSpeed = 1200
+    end
 end
 ```
 
-The `OnPlayerJoined` function adds the binding for when a player presses the ++shift++ key. When the ++shift++ key is pressed, it will increase the `maxWalkSpeed` property so the player moves more quickly. When the player releases the ++shift++ key, it will reset the `maxWalkSpeed`.
+#### Create OnActionReleased Function
 
-The returned values for each event are stored in the `players` table so they can be cleaned up later when the player leaves the game. It is good practice to always disconnect any events that are no longer used.
-
-#### Update OnPlayerLeft
-
-The `OnPlayerLeft` function needs to clean up the binding events setup in the `OnPlayerJoined` function.
+Create a new function called `OnActionReleased` that will be called when the player releases a key. It will check if the action value for the binding that was released is `Sprint`, and if so, the walk speed of the player reset to the default speed of `640`.
 
 ```lua
-local function OnPlayerLeft(player)
-    if players[player.id].pressedEvt.isConnected then
-        players[player.id].pressedEvt:Disconnect()
+local function OnActionRleased(player, action)
+    if action == "Sprint" then
+        player.maxWalkSpeed = 640
     end
-
-    if players[player.id].releasedEvt.isConnected then
-        players[player.id].releasedEvt:Disconnect()
-    end
-
-    players[player.id] = nil
 end
 ```
 
-The `OnPlayerLeft` function will check to see the if the `pressedEvt` or the `releasedEvt` are connected. If they are, then they will be disconnected so the functions will no longer be called.
+#### Connect Events
+
+Connect up the `actionPressedEvent` and `actionReleaseEvent`.
+
+```lua
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
+```
 
 #### The Updated PlayerServer Script
 
@@ -2546,34 +2541,14 @@ The `OnPlayerLeft` function will check to see the if the `pressedEvt` or the `re
 
         players[player.id] = {
 
-            pressedEvt = player.bindingPressedEvent:Connect(function(obj, binding)
-                if binding == "ability_feet" then
-                    player.maxWalkSpeed = 1200
-                end
-            end),
-
-            releasedEvt = player.bindingReleasedEvent:Connect(function(obj, binding)
-                if binding == "ability_feet" then
-                    player.maxWalkSpeed = 640
-                end
-            end),
-
             weapon = weapon
+
         }
 
         DisableWeapon(player)
     end
 
-    -- Clean up the events when a player leaves
     local function OnPlayerLeft(player)
-        if players[player.id].pressedEvt.isConnected then
-            players[player.id].pressedEvt:Disconnect()
-        end
-
-        if players[player.id].releasedEvt.isConnected then
-            players[player.id].releasedEvt:Disconnect()
-        end
-
         players[player.id] = nil
     end
 
@@ -2582,6 +2557,9 @@ The `OnPlayerLeft` function will check to see the if the `pressedEvt` or the `re
 
     Events.Connect("EnableWeapon", EnableWeapon)
     Events.Connect("DisableWeapon", DisableWeapon)
+
+    Input.actionPressedEvent:Connect(OnActionPressed)
+    Input.actionReleasedEvent:Connect(OnActionReleased)
     ```
 
 ## Create Shield Generator
@@ -3634,22 +3612,23 @@ The **ClientReady** event will be called when the client is ready to receive the
 
         players[player.id] = {
 
-            pressedEvt = player.bindingPressedEvent:Connect(function(obj, binding)
-                if binding == "ability_feet" then
-                    player.maxWalkSpeed = 1200
-                end
-            end),
-
-            releasedEvt = player.bindingReleasedEvent:Connect(function(obj, binding)
-                if binding == "ability_feet" then
-                    player.maxWalkSpeed = 640
-                end
-            end),
-
             weapon = weapon
+
         }
 
         DisableWeapon(player)
+    end
+
+    local function OnActionPressed(player, action)
+        if action == "Sprint" then
+            player.maxWalkSpeed = 1200
+        end
+    end
+
+    local function OnActionReleased(player, action)
+        if action == "Sprint" then
+            player.maxWalkSpeed = 640
+        end
     end
 
     local function UpdateGameState(player)
@@ -3664,16 +3643,7 @@ The **ClientReady** event will be called when the client is ready to receive the
         Events.BroadcastToPlayer(player, "UpdateGameState", GeneratorsIDStr)
     end
 
-    -- Clean up the events when a player leaves
     local function OnPlayerLeft(player)
-        if players[player.id].pressedEvt.isConnected then
-            players[player.id].pressedEvt:Disconnect()
-        end
-
-        if players[player.id].releasedEvt.isConnected then
-            players[player.id].releasedEvt:Disconnect()
-        end
-
         players[player.id] = nil
     end
 
@@ -3693,6 +3663,9 @@ The **ClientReady** event will be called when the client is ready to receive the
 
     Task.Wait()
     Events.ConnectForPlayer("ClientReady", UpdateGameState)
+
+    Input.actionPressedEvent:Connect(OnActionPressed)
+    Input.actionReleasedEvent:Connect(OnActionReleased)
     ```
 
 ### Update PlayerClient Script
@@ -4420,4 +4393,4 @@ Have think about what other interesting mechanics, or improvements can be added 
 
 ## Learn More
 
-[AI Activities](/tutorials/ai_activity_tutorial.md) | [Damageable Objects](/references/damageable_objects.md) | [Custom Materials](/references/materials.md) | [Curves](/references/curves.md) | [Triggers](/references/triggers.md) | [Weapons](/references/weapons.md)
+[AI Activities](/tutorials/ai_activity_tutorial.md) | [Damageable Objects](/references/damageable_objects.md) | [Custom Materials](/references/materials.md) | [Curves](/references/curves.md) | [Triggers](/references/triggers.md) | [Weapons](/references/weapons.md) | [Binding Sets](../references/binding_sets.md)
