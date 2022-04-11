@@ -341,6 +341,26 @@ Test the game and make sure the following work:
 
 In this section you will learn how to save the player's weapon selection. Player's will be able to press ++1++ or ++2++ to switch between 2 different weapons.
 
+## Create Bindings
+
+The **Default Binding** set will need a couple of new bindings added to detect when the player presses a specific key.
+
+Open up the **Bindings Manager** window from the Window menu, or by double clicking on the Default Binding set in **My Binding Sets** found in the **Project Content** window.
+
+![!Bindings Window](../img/BindingSets/General/bindings_window.png){: .center loading="lazy" }
+
+### Add Bindings
+
+From the **Bindings Window**, click on the **Add Bindings** button to add a new row to the binding set.
+
+1. In the **Action** field, enter `Equip Weapon 1`.
+2. From the **Keyboard Primary** drop down, select the **1** key.
+3. Mark the binding as networked so the server can listen for it.
+
+Repeat this for a second weapon using the **2** key.
+
+![!Bindings](../img/PersistentStorage/bindings.png){: .center loading="lazy" }
+
 ### Remove Advanced Assault Rifle
 
 Remove the advanced assault rifle that you added to your **Hierarchy** in the previous section. Instead of having the player pickup the weapon, it will be spawned into the world and equipped on the player.
@@ -406,15 +426,15 @@ local function EquipWeapon(player, index)
 end
 ```
 
-#### Create BindingPressed Function
+#### Create OnActionPressed Function
 
-The [`BindingPressed`](../api/player.md) function will check which binding the player is pressing, and equip the correct weapon for the player.
+The `OnActionPressed` function will check which binding the player is pressing and equip the correct weapon for the player.
 
 ```lua
-local function BindingPressed(player, binding)
-    if binding == "ability_extra_1" then
+local function OnActionPressed(player, action)
+    if action == "Equip Weapon 1" then
         EquipWeapon(player, 1)
-    elseif binding == "ability_extra_2" then
+    elseif action == "Equip Weapon 2" then
         EquipWeapon(player, 2)
     end
 end
@@ -422,14 +442,13 @@ end
 
 #### Create PlayerJoined Function
 
-The `PlayerJoined` function will be called when the player joins the game. This function will get the player's data and pass the `weaponIndex` to the `EquipWeapon` function so it is spawned for that player. You also need to set up the `bindingPressedEvent` so the player can switch between the weapons.
+The `PlayerJoined` function will be called when the player joins the game. This function will get the player's data and pass the `weaponIndex` to the `EquipWeapon` function so it is spawned for that player.
 
 ```lua
 local function PlayerJoined(player)
     local data = Storage.GetPlayerData(player)
 
     EquipWeapon(player, data.weaponIndex)
-    player.bindingPressedEvent:Connect(BindingPressed)
 end
 ```
 
@@ -439,6 +458,14 @@ Connect the [`playerJoinedEvent`](../api/player.md) so that when the player join
 
 ```lua
 Game.playerJoinedEvent:Connect(PlayerJoined)
+```
+
+#### Connect actionPressed Event
+
+To detect when a player has pressed a binding, you will need to connect the `actionPressedEvent`.
+
+```lua
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
 #### The WeaponServer Script
@@ -473,10 +500,10 @@ Game.playerJoinedEvent:Connect(PlayerJoined)
         end
     end
 
-    local function BindingPressed(player, binding)
-        if binding == "ability_extra_1" then
+    local function OnActionPressed(player, action)
+        if action == "Equip Weapon 1" then
             EquipWeapon(player, 1)
-        elseif binding == "ability_extra_2" then
+        elseif action == "Equip Weapon 2" then
             EquipWeapon(player, 2)
         end
     end
@@ -485,10 +512,10 @@ Game.playerJoinedEvent:Connect(PlayerJoined)
         local data = Storage.GetPlayerData(player)
 
         EquipWeapon(player, data.weaponIndex)
-        player.bindingPressedEvent:Connect(BindingPressed)
     end
 
     Game.playerJoinedEvent:Connect(PlayerJoined)
+    Input.actionPressedEvent:Connect(OnActionPressed)
     ```
 
 ### Test the Game
@@ -526,4 +553,4 @@ Adding persistent storage to your game can improve the experience for players, a
 
 ## Learn More
 
-[Persistent Storage Reference](../references/persistent_storage.md) | [Storage API](../api/storage.md) | [Basic Weapons Tutorial](../tutorials/weapons_tutorial.md) | [Networking Reference](../references/networking.md) | [Shared Storage Reference](../references/shared_storage.md) | [Concurrent Storage Reference](../references/concurrent_storage.md) | [Concurrent Storage Tutorial](../tutorials/concurrent_storage_tutorial.md)
+[Persistent Storage Reference](../references/persistent_storage.md) | [Storage API](../api/storage.md) | [Basic Weapons Tutorial](../tutorials/weapons_tutorial.md) | [Networking Reference](../references/networking.md) | [Shared Storage Reference](../references/shared_storage.md) | [Concurrent Storage Reference](../references/concurrent_storage.md) | [Concurrent Storage Tutorial](../tutorials/concurrent_storage_tutorial.md) | [Binding Sets](../references/binding_sets.md)
