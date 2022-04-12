@@ -83,7 +83,7 @@ There are 5 options to choose from that will adjust the object count and limits 
 
 ![High](../img/MobileDevicePreview/high.png)
 ![Low](../img/MobileDevicePreview/low.png)
-*PC (High) - 30,000 max objects (left), Mobile (Low) - 10,000 max objects (right)*
+*High - 30,000 max objects (left), Low - 10,000 max objects (right)*
 {: .image-cluster}
 
 ### Detail Relevance
