@@ -204,7 +204,7 @@ A weapon's `animationStance` is assigned to the player automatically when the it
 
 ```lua
 local WEAPON = script:FindAncestorByType('Weapon')
-local ACTION_BINDING = "ability_secondary"
+local ACTION_NAME = "Aim"
 local ACTIVE_STANCE = "1hand_melee_shield_block"
 
 function EnableStance(player)
@@ -219,14 +219,14 @@ function DisableStance(player)
     end
 end
 
-function OnBindingPressed(player, actionName)
-    if actionName == ACTION_BINDING then
+function OnActionPressed(player, actionName)
+    if actionName == ACTION_NAME then
         EnableStance(player)
     end
 end
 
-function OnBindingReleased(player, actionName)
-    if actionName == ACTION_BINDING then
+function OnActionReleased(player, actionName)
+    if actionName == ACTION_NAME then
         DisableStance(player)
     end
 end
@@ -236,14 +236,14 @@ function OnPlayerDied(player, damage)
 end
 
 function OnEquipped(weapon, player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-    player.bindingReleasedEvent:Connect(OnBindingReleased)
+    Input.actionPressedEvent:Connect(OnActionPressed)
+    Input.actionReleasedEvent:Connect(OnActionReleased)
 end
 
 WEAPON.equippedEvent:Connect(OnEquipped)
 ```
 
-See also: [Equipment.equippedEvent](equipment.md) | [Player.animationStance](player.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [Event.Connect](event.md)
+See also: [Equipment.equippedEvent](equipment.md) | [Player.animationStance](player.md) | [Input.actionPressedEvent](input.md) | [CoreObject.FindAncestorByType](coreobject.md) | [Object.IsValid](object.md) | [Event.Connect](event.md)
 
 ---
 

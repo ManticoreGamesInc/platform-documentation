@@ -113,11 +113,11 @@ Example using:
 
 ### `y`
 
-In this client script we listen for the player's primary action (for example Left mouse click) then print the position of their cursor to the event log.
+In this client script we listen for the player's shoot action (for example Left mouse click) then print the position of their cursor to the event log.
 
 ```lua
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         local cursorPos = Input.GetCursorPosition()
         if cursorPos then
             print("Clicked at: " .. cursorPos.x .. ", " .. cursorPos.y)
@@ -127,10 +127,9 @@ function OnBindingPressed(player, action)
     end
 end
 
-local player = Game.GetLocalPlayer()
-player.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Input.GetCursorPosition](input.md) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [Input.GetCursorPosition](input.md) | [Game.GetLocalPlayer](game.md)
 
 ---
