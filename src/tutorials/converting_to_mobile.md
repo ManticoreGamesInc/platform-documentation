@@ -27,10 +27,9 @@ Core is soon becoming available for **iOS devices**! In preparation, there are n
     </video>
 </div>
 
-
 ## Device Preview
 
-The first step is to open the project and test the new [**Device Preview**](../references/mobile_device_preview/).
+The first step is to open the project and test the new [**Device Preview**](../references/mobile_device_preview.md).
 
 ### Open a Project
 
@@ -78,7 +77,7 @@ In the **Deathmatch Framework** project, there is currently no way for the playe
 
 ## Binding Set
 
-A [**Binding Set**](../references/binding_sets/) is a set of actions a creator has defined for the game. Each action can be given multiple bindings for keyboards, controllers, and mobile devices. This is incredibly useful to make a player's actions work across multiple devices.
+A [**Binding Set**](../references/binding_sets.md) is a set of actions a creator has defined for the game. Each action can be given multiple bindings for keyboards, controllers, and mobile devices. This is incredibly useful to make a player's actions work across multiple devices.
 
 ### Open the Default Binding Set
 
@@ -114,7 +113,7 @@ With the new bindings created, it is now time to connect the actions to their fu
 
 #### Binding an Ability
 
-[Abilities](../tutorials/ability_tutorial/) are easy to bind with actions because it simply requires changing a single property.
+[Abilities](../tutorials/ability_tutorial.md) are easy to bind with actions because it simply requires changing a single property.
 
 Select the **Ability** object and open the **Properties** window. Set the **Action Name** property to the same action name used when the binding was created.
 
@@ -124,9 +123,9 @@ In this example, the **Starting Weapon** template has an ability for shooting an
 
 #### Binding with Scripting
 
-Some other actions may require scripting to accomplish the functionality. The [Input](../api/input/) namespace has events for an action being pressed and released.
+Some other actions may require scripting to accomplish the functionality. The [Input](../api/input.md) namespace has events for an action being pressed and released.
 
-Here is a simple script that will show [Fly Up Text](../api/ui/) above the player when the player presses the `Speak` action binding.
+Here is a simple script that will show [Fly Up Text](../api/ui.md) above the player when the player presses the `Speak` action binding.
 
 ```lua
 function OnActionPressed(player, action, value)
@@ -217,4 +216,4 @@ The Core Editor has some useful tools to assist creators in making their games m
 
 ## Learn More
 
-[Mobile Device Preview Reference](../references/mobile_device_preview/) | [Binding Set Reference](../references/binding_sets/) | [Abilities Tutorial](../tutorials/ability_tutorial/) | [Input API](../api/input/)
+[Mobile Device Preview Reference](../references/mobile_device_preview.md) | [Binding Set Reference](../references/binding_sets.md) | [Abilities Tutorial](../tutorials/ability_tutorial.md) | [Input API](../api/input.md)
