@@ -184,6 +184,48 @@ Learn more about Hooks on the [Hook API](hook.md) page.
 
 Example using:
 
+### `actionPressedEvent`
+
+### `actionReleasedEvent`
+
+### `maxWalkSpeed`
+
+### `maxSwimSpeed`
+
+Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
+
+In this example, when the player pressed the action for sprinting, it will increase the max walk speed. After the player releases the key, the speed will be reset to the `baseSpeed`
+
+```lua
+-- Set the action name to use for sprinting.
+-- You can created custom bindings in the Bindings Manager.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
+
+local baseSpeed = 640
+local sprintingSpeed = 1280
+
+function OnActionPressed(player, action)
+    if action == ACTION_NAME then
+        player.maxWalkSpeed = sprintingSpeed
+    end
+end
+
+function OnActionReleased(player, action)
+    if action == ACTION_NAME then
+        player.maxWalkSpeed = baseSpeed
+    end
+end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
+```
+
+See also: [Event.Connect](event.md)
+
+---
+
+Example using:
+
 ### `animationEvent`
 
 In this example, a client script listens for animation events on the player. When one such occurs, information about the event is printed to the Event Log.
@@ -199,50 +241,6 @@ Game.GetLocalPlayer().animationEvent:Connect(OnAnimationEvent)
 ```
 
 See also: [Game.GetLocalPlayer](game.md)
-
----
-
-Example using:
-
-### `bindingPressedEvent`
-
-### `bindingReleasedEvent`
-
-### `maxWalkSpeed`
-
-### `maxSwimSpeed`
-
-Normally you can leave the Core engine to handle most of the player input. You don't need to explicitly listen to jump events, to make the player jump, for example. But sometimes it's useful to listen to keypress events directly, when creating more complicated interactions.
-
-This sample uses the `bindingKeypressed` and `bindingKeyReleased` events to allow the player to sprint whenever the `ability_feet` keybind is held down. (Left-Shift by default)
-
-```lua
-local shiftKeyBinding = "ability_feet"
-
-local baseSpeed = 640
-local sprintingSpeed = 1280
-
-function OnBindingPressed(player, bindingPressed)
-    if bindingPressed == shiftKeyBinding then
-        player.maxWalkSpeed = sprintingSpeed
-    end
-end
-
-function OnBindingReleased(player, bindingReleased)
-    if bindingReleased == shiftKeyBinding then
-        player.maxWalkSpeed = baseSpeed
-    end
-end
-
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-    player.bindingReleasedEvent:Connect(OnBindingReleased)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
-```
-
-See also: [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -369,13 +367,13 @@ local INDICATOR_VFX = script:GetCustomProperty("IndicatorVfx"):WaitForObject()
 local PLAYER = Game.GetLocalPlayer()
 
 INDICATOR_VFX.visibility = Visibility.FORCE_OFF
-    
+
 function OnInteractableFocused(player, trigger)
     print("Focused: " .. trigger.interactionLabel)
-    
+
     INDICATOR_VFX:SetWorldPosition(trigger:GetWorldPosition())
     INDICATOR_VFX.visibility = Visibility.INHERIT
-    
+
     if INDICATOR_VFX.Play then
         -- If the indicator has a Play() function, call it
         INDICATOR_VFX:Play()
@@ -384,7 +382,7 @@ end
 
 function OnInteractableUnfocused(player, trigger)
     print("Unfocused: " .. trigger.interactionLabel)
-    
+
     INDICATOR_VFX.visibility = Visibility.FORCE_OFF
 end
 
@@ -619,17 +617,17 @@ Example using:
 
 ### `movementHook`
 
-### `IsBindingPressed`
+### `IsActionHeld`
 
 ### `GetViewWorldRotation`
 
-In this example, a client script prevents the player from moving normally. It does so connecting to the `movementHook` and setting the `direction` to zero. The player will instead move forward only when the primary key is pressed (Left mouse button).
+In this example, a client script prevents the player from moving normally. It does so connecting to the `movementHook` and setting the `direction` to zero. The player will instead move forward only when the Shoot action is pressed (Left mouse button for default bindings).
 
 ```lua
 local PLAYER = Game.GetLocalPlayer()
 
 function OnPlayerMovement(player, params)
-    if PLAYER:IsBindingPressed("ability_primary") then
+    if Input.IsActionHeld(player, "Shoot") then
         local direction = Quaternion.New(PLAYER:GetViewWorldRotation()):GetForwardVector()
         direction.z = 0
         params.direction = direction:GetNormalized()
@@ -653,32 +651,29 @@ Example using:
 
 You can set different movement modes for the player. `ActivateWalking()` will give the player normal walking physics. (They fall down, slide down slopes, etc.) `ActivateFlying`, on the other hand, makes them ignore gravity and fly around freely.
 
-This sample allows the player to fly while holding down the shift key.
+This example allows the player to toggle flying mode by pressing the binding setup.
+
+The binding for flying will need to be networked so the input can be detected on the server.
 
 ```lua
-local shiftKeyBinding = "ability_feet"
+-- Set the action name to use to toggle flying. A custom binding may needed to need to be
+-- added in the Binding Manager window.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
 
-function OnBindingPressed(player, bindingPressed)
-    if bindingPressed == shiftKeyBinding then
-        player:ActivateFlying()
+function OnActionPressed(player, action)
+    if action == ACTION_NAME then
+        if player.isFlying then
+            player:ActivateWalking()
+        else
+            player:ActivateFlying()
+        end
     end
 end
 
-function OnBindingReleased(player, bindingReleased)
-    if bindingReleased == shiftKeyBinding then
-    --    player:ActivateWalking()
-    end
-end
-
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-    player.bindingReleasedEvent:Connect(OnBindingReleased)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+See also: [Input.actionPressedEvent](input.md) | [Event.Connect](event.md)
 
 ---
 
@@ -726,16 +721,15 @@ Example using:
 
 ### `parentCoreObject`
 
-In this example, the script is placed as a child of a simple networked cube. The cube is set to move slowly upwards. When a player presses their primary ability key (Default LMB) they are attached to the cube and follow its movement. Pressing the primary key again detaches them from the cube and they fall off.
+In this example, the script is placed as a child of a simple networked cube. The cube is set to move slowly upwards. When a player presses the Shoot binding, they are attached to the cube and follow its movement. Pressing the binding again detaches them from the cube and they fall off.
 
 ```lua
 local CUBE = script.parent
-local ATTACH_KEY = "ability_primary"
 
 CUBE:MoveContinuous(Vector3.UP * 20)
 
-function OnBindingPressed(player, bindingPressed)
-    if bindingPressed == ATTACH_KEY then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         if player.parentCoreObject then
             -- Detach from cube
             player:Detach()
@@ -746,12 +740,10 @@ function OnBindingPressed(player, bindingPressed)
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [CoreObject.parent](coreobject.md) | [Vector3.UP](vector3.md) | [Game.playerJoinedEvent](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [CoreObject.parent](coreobject.md) | [Vector3.UP](vector3.md) | [Input.actionPressedEvent](input.md)
 
 ---
 
@@ -911,7 +903,7 @@ function Tick()
     if trigger then
         INDICATOR_VFX:SetWorldPosition(trigger:GetWorldPosition())
         INDICATOR_VFX.visibility = Visibility.INHERIT
-        
+
         local rot = INDICATOR_VFX:GetRotation()
         rot.z = time() * 360
         INDICATOR_VFX:SetRotation(rot)
@@ -1423,32 +1415,30 @@ Example using:
 
 ### `isVisible`
 
-You can make a player visible or invisible by setting the `isVisible` property, as well as check on their current visibility status. This sample gives the player the ability to turn invisible by pressing the shift key.
+You can make a player visible or invisible by setting the `isVisible` property, as well as check on their current visibility status. This sample gives the player the ability to turn invisible by pressing a key.
 
 ```lua
-local shiftKeyBinding = "ability_feet"
+-- Set the action name to use for going invisible. A custom binding may need to need to be
+-- added in the Binding Manager window.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
 
-function OnBindingPressed(player, bindingPressed)
-    if bindingPressed == shiftKeyBinding and player.isVisible then
+function OnActionPressed(player, action)
+    if action == ACTION_NAME then
         player.isVisible = false
     end
 end
 
-function OnBindingReleased(player, bindingReleased)
-    if bindingReleased == shiftKeyBinding and (not player.isVisible) then
+function OnActionReleased(player, action)
+    if action == ACTION_NAME then
         player.isVisible = true
     end
 end
 
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-    player.bindingReleasedEvent:Connect(OnBindingReleased)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
 ```
 
-See also: [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+See also: [Input.actionPressedEvent](input.md) | [Event.Connect](event.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 

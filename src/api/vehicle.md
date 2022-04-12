@@ -327,12 +327,14 @@ Example using:
 
 In this example, when the driver of the vehicle presses the spacebar, the vehicle launches up and forward a slight amount in the direction the vehicle is facing.
 
+The Jump action in the Binding Set will need to be networked for the script to detect input on the server.
+
 ```lua
 local VEHICLE = script:FindAncestorByType("Vehicle")
-local bindingPressListener = nil
+local actionPressedListener = nil
 
-function OnBindingPressed(player, binding)
-    if binding == "ability_extra_17" then
+function OnActionPressed(player, action)
+    if action == "Jump" then
         -- Vector3 (forward, 0, up) rotated into the world space of the vehicle
         local impulseVector = VEHICLE:GetWorldRotation() * Vector3.New(1000, 0, 1000)
         VEHICLE:AddImpulse(impulseVector * VEHICLE.mass)
@@ -340,12 +342,12 @@ function OnBindingPressed(player, binding)
 end
 
 function OnDriverEntered(vehicle, player)
-    bindingPressListener = player.bindingPressedEvent:Connect(OnBindingPressed)
+    actionPressedListener = Input.actionPressedEvent:Connect(OnActionPressed)
 end
 
 function OnDriverExited(vehicle, player)
-    if bindingPressListener and bindingPressListener.isConnected then
-        bindingPressListener:Disconnect()
+    if actionPressedListener and actionPressedListener.isConnected then
+        actionPressedListener:Disconnect()
     end
 end
 
@@ -353,7 +355,7 @@ VEHICLE.driverEnteredEvent:Connect(OnDriverEntered)
 VEHICLE.driverExitedEvent:Connect(OnDriverExited)
 ```
 
-See also: [CoreObject.AddImpulse](coreobject.md) | [Player.bindingPressedEvent](player.md) | [EventListener.Disconnect](eventlistener.md) | [Vector3.New](vector3.md)
+See also: [CoreObject.AddImpulse](coreobject.md) | [Input.actionPressedEvent](input.md) | [EventListener.Disconnect](eventlistener.md) | [Vector3.New](vector3.md)
 
 ---
 

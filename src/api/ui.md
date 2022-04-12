@@ -90,15 +90,15 @@ local currentAbsPos = nil
 HANDLE.x = sliderAmount
 
 -- Set the movingHandle boolen to false on release of a binding.
-local function OnBindingReleased(player, binding)
-    if binding == "ability_primary" then
+local function OnActionReleased(player, action)
+    if action == "Shoot" then
         movingHandle = false
     end
 end
 
 -- Set the movingHandle boolen to true on pressing of a binding.
-local function OnBindingPressed(player, binding)
-    if binding == "ability_primary" then
+local function OnActionPressed(player, action)
+    if action == "Shoot" then
         movingHandle = true
     end
 end
@@ -133,11 +133,11 @@ function Tick()
     end
 end
 
-localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
-localPlayer.bindingReleasedEvent:Connect(OnBindingReleased)
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
 ```
 
-See also: [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md) | [Input.GetCursorPosition](input.md)
+See also: [Game.GetLocalPlayer](game.md) | [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md)
 
 ---
 
@@ -255,8 +255,8 @@ In this example, a client script detects 3D objects being clicked on by using th
 UI.SetCursorLockedToViewport(true)
 UI.SetCursorVisible(true)
 
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         local cursorPos = Input.GetCursorPosition()
         local hit = UI.GetHitResult(cursorPos)
         if hit and hit.other then
@@ -270,10 +270,10 @@ function OnBindingPressed(player, action)
     end
 end
 
-Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Input.GetCursorPosition](input.md) | [HitResult.other](hitresult.md) | [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md)
+See also: [Input.GetCursorPosition](input.md) | [HitResult.other](hitresult.md) | [Task.Wait](task.md)
 
 ---
 
@@ -435,11 +435,11 @@ Example using:
 
 ### `SetReticleVisible`
 
-In this example, a client script toggles the default reticle on/off each time the left mouse button is clicked (or whatever is configured for the primary ability).
+In this example, a client script toggles the default reticle on/off each time the left mouse button (Shoot action) is clicked.
 
 ```lua
-function OnBindingPressed(player, action)
-    if action == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         if UI.IsReticleVisible() then
             UI.SetReticleVisible(false)
         else
@@ -447,10 +447,11 @@ function OnBindingPressed(player, action)
         end
     end
 end
-Game.GetLocalPlayer().bindingPressedEvent:Connect(OnBindingPressed)
+
+Input.actionPressedEvent(OnActionPressed)
 ```
 
-See also: [Player.bindingPressedEvent](player.md) | [Game.GetLocalPlayer](game.md) | [Event.Connect](event.md)
+See also: [Input.actionPressedEvent](input.md) | [Event.Connect](event.md)
 
 ---
 
@@ -476,6 +477,10 @@ Example using:
 This example shows the basic usage of the reward points UI. It's possible to show the rewards dialog, in either the Quest or Game tabs, by calling `UI.SetRewardsDialogVisible()`. With the function `UI.IsRewardsDialogVisible()` we can detect when the player closes the dialog.
 
 ```lua
+-- Binding actions for which keys to press to open up the rewards or quest dialog.
+local REWARDS_ACTION_NAME = script:GetCustomProperty("RewardsActionName")
+local QUESTS_ACTION_NAME = script:GetCustomProperty("QuestsActionName")
+
 local PLAYER = Game.GetLocalPlayer()
 
 local isDialogOpen = false
@@ -487,19 +492,18 @@ function Tick()
     end
 end
 
-function OnBindingPressed(player, action)
-    if action == "ability_extra_1" then
+function OnActionPressed(player, action)
+    if action == REWARDS_ACTION_NAME then
         UI.SetRewardsDialogVisible(true, RewardsDialogTab.REWARD_POINT_GAMES)
-
-    elseif action == "ability_extra_2" then
+    elseif action == QUESTS_ACTION_NAME then
         UI.SetRewardsDialogVisible(true, RewardsDialogTab.QUESTS)
     end
 end
 
-PLAYER.bindingPressedEvent:Connect(OnBindingPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [RewardsDialogTab](enums.md#rewardsdialogtab) | [Game.GetLocalPlayer](game.md) | [Player.bindingPressedEvent](player.md)
+See also: [RewardsDialogTab](enums.md#rewardsdialogtab) | [Game.GetLocalPlayer](game.md) | [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 

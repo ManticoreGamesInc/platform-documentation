@@ -136,11 +136,14 @@ Example using:
 
 ### `FindObjectsByType`
 
-This example searches the hierarchy for all UI Containers and hides them when the player presses the 'U' key. Useful when capturing video. For this to work, setup the script in a Client context.
+This example searches the hierarchy for all UI Containers and hides them when the player presses the key set up for the action in the bindings manager. Useful when capturing video. For this to work, setup the script in a Client context.
 
 ```lua
-function OnBindingPressed(player, binding)
-    if binding == "ability_extra_26" then
+-- The action name to check for when a binding has been pressed.
+local ACTION_NAME = script:GetCustomProperty("ActionName")
+
+function OnActionPressed(player, action)
+    if binding == ACTION_NAME then
         local containers = World.FindObjectsByType("UIContainer")
         for _, c in pairs(containers) do
             c.visibility = Visibility.FORCE_OFF
@@ -148,14 +151,10 @@ function OnBindingPressed(player, binding)
     end
 end
 
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [CoreObject.visibility](coreobject.md) | [Player.bindingPressedEvent](player.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
+See also: [CoreObject.visibility](coreobject.md) | [Input.actionPressedEvent](input.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
 
 ---
 
@@ -266,8 +265,8 @@ Example using:
 This example allows player's to damage other players that they are aiming at. This is done using World.RaycastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good use case for this function would be for a laser gun.
 
 ```lua
-function OnBindingPressed(player, binding)
-    if binding == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         local rayStart = player:GetViewWorldPosition()
         local lookVector = player:GetViewWorldRotation() * Vector3.FORWARD
         local results = World.RaycastAll(rayStart, rayStart + (lookVector * 5000), {ignorePlayers=player, shouldDebugRender = true})
@@ -285,14 +284,10 @@ function OnBindingPressed(player, binding)
     end
 end
 
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md)
+See also: [Player.GetViewWorldPosition](player.md) | [Input.actionPressedEvent](input.md) | [Damage.New](damage.md)
 
 ---
 
@@ -452,8 +447,8 @@ Example using:
 This example allows player's to damage other players that they are aiming at. This is done using World.SpherecastAll(), which returns a table of hitResults. This means that if multiple players are in a line then all of those players will be damaged. A good use case for this function would be for a laser gun.
 
 ```lua
-function OnBindingPressed(player, binding)
-    if binding == "ability_primary" then
+function OnActionPressed(player, action)
+    if action == "Shoot" then
         local rayStart = player:GetViewWorldPosition()
         local lookVector = player:GetViewWorldRotation() * Vector3.FORWARD
         local results = World.SpherecastAll(rayStart, rayStart + (lookVector * 5000), 50, {ignorePlayers=player, shouldDebugRender = true})
@@ -471,13 +466,9 @@ function OnBindingPressed(player, binding)
     end
 end
 
-function OnPlayerJoined(player)
-    player.bindingPressedEvent:Connect(OnBindingPressed)
-end
-
-Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See also: [Player.GetViewWorldPosition](player.md) | [Damage.New](damage.md)
+See also: [Player.GetViewWorldPosition](player.md) | [Input.actionPressedEvent](input.md) | [Damage.New](damage.md)
 
 ---
