@@ -155,114 +155,134 @@ Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon
 
 ### Fire Fly Ability
 
-1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **Core Content**.
+#### Add Ability
 
+1. Add another `ability` to the fire staff `weapon` as a child by dragging it in from the Gameplay Objects section of **Core Content**.
 2. Change the name of the ability to "FireFly".
 
-3. Create a new script, and call it "FlyAbilityServer"--this is where all the code for causing the ability to happen will go.
+#### Create FlyAbilityServer Script
 
-4. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
+1. Create a new script, and call it "FlyAbilityServer"--this is where all the code for causing the ability to happen will go.
+2. Drag this new script into the Fire Staff, on top of the FireFly ability, so that it becomes a child of that ability.
 
     ![Current Hierarchy](../img/EditorManual/Weapons/advanced/hierarchy2.png){: .center loading="lazy" }
 
-5. Open the script and let's get typing.
+3. Open the script and let's get typing.
 
-    1. We're going to create a reference to the `equipment` (which is also the `weapon` in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
+##### Add Variables
 
-        Type the below code to create variables for the `equipment` and the `ability`:
+We're going to create a reference to the `equipment` (which is also the `weapon` in this case) and a reference to the FireFly `ability` object so that we can use them in our script.
 
-        ```lua
-        local EQUIPMENT = script:FindAncestorByType('Equipment')
-        local ABILITY = script:FindAncestorByType('Ability')
-        ```
+Type the below code to create variables for the `equipment` and the `ability`:
 
-    2. The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
+```lua
+local EQUIPMENT = script:FindAncestorByType('Equipment')
+local ABILITY = script:FindAncestorByType('Ability')
+```
 
-        ```lua
-        local diedHandle = nil
-        ```
+The other variable we want to create is a reference to whether or not the player has died. We can use this to turn off the flying state if the player dies.
 
-    3. Next is the function that does that turning-off of the flying state by activating walking again:
+```lua
+local diedHandle = nil
+```
 
-        ```lua
-        function OnPlayerDied(player, damage)
-            player:ActivateWalking()
-        end
-        ```
+##### Create OnPlayerDied Function
 
-    4. The next two functions we need to include are what happens when the weapon is equipped or unequipped, which are primarily used for connecting the ability to turn off flying.
+Next is the function that does that turning-off of the flying state by activating walking again:
 
-        ```lua
-        function OnEquipped(equipment, player)
-            diedHandle = player.diedEvent:Connect(OnPlayerDied)
-        end
+```lua
+function OnPlayerDied(player, damage)
+    player:ActivateWalking()
+end
+```
 
-        function OnUnequipped(equipment, player)
-            if diedHandle then
-                diedHandle:Disconnect()
-            end
-            player:ActivateWalking()
-        end
-        ```
+##### Create Equipped Functions
 
-    5. After the equip functions, there are two more functions we'll create that directly turn on and off flying. Add these to the current bottom of your script:
+The next two functions we need to include are what happens when the weapon is equipped or unequipped, which are primarily used for connecting the ability to turn off flying.
 
-        ```lua
-        function StartFlying(ability)
-            ability.owner:ActivateFlying()
-        end
+```lua
+function OnEquipped(equipment, player)
+    diedHandle = player.diedEvent:Connect(OnPlayerDied)
+end
 
-        function StopFlying(ability)
-            ability.owner:ActivateWalking()
-        end
-        ```
+function OnUnequipped(equipment, player)
+    if diedHandle then
+        diedHandle:Disconnect()
+    end
+    player:ActivateWalking()
+end
+```
 
-    6. At the very bottom of the script, we code the main aspect that makes abilities so useful--we connect our functions to the events built within an ability.
+##### Create Flying Functions
 
-        Being able to connect functions to an ability's events is how we can control how long each phase takes in the `ability` object in the Hierarchy.
+After the equip functions, there are two more functions we'll create that directly turn on and off flying. Add these to the current bottom of your script:
 
-        In this case, we're connecting our functions `StartFlying()` and `StopFlying()` to the execute event and the cooldown event.
+```lua
+function StartFlying(ability)
+    ability.owner:ActivateFlying()
+end
 
-        ```lua
-        ABILITY.executeEvent:Connect(StartFlying)
-        ABILITY.cooldownEvent:Connect(StopFlying)
-        EQUIPMENT.equippedEvent:Connect(OnEquipped)
-        EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
-        ```
+function StopFlying(ability)
+    ability.owner:ActivateWalking()
+end
+```
 
-6. Now that we've written the script for flying to work, we can adjust things from simply within the Properties window with the FireFly `ability` object selected.
+##### Connect Events
 
-    This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
+At the very bottom of the script, we code the main aspect that makes abilities so useful--we connect our functions to the events built within an ability.
 
-    ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center loading="lazy" }
+Being able to connect functions to an ability's events is how we can control how long each phase takes in the `ability` object in the Hierarchy.
 
-    1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Binding** to "Ability Feet".
+In this case, we're connecting our functions `StartFlying()` and `StopFlying()` to the execute event and the cooldown event.
 
-    2. Change the **Animation** to "2hand_staff_magic_up".
+```lua
+ABILITY.executeEvent:Connect(StartFlying)
+ABILITY.cooldownEvent:Connect(StopFlying)
+EQUIPMENT.equippedEvent:Connect(OnEquipped)
+EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+```
 
-        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center loading="lazy" }
+#### Create a new Binding
 
-    3. Now in the *Cast* section, change the **Duration** to .15.
+The **Default Binding** set will need a new binding added to detect when the player presses a specific key.
 
-    4. Change the **Facing Mode** to "Movement".
+Open up the **Bindings Manager** window from the Window menu, or by double clicking on the Default Binding set in **My Binding Sets** found in the **Project Content** window.
 
-        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center loading="lazy" }
+![!Bindings Window](../img/BindingSets/General/bindings_window.png){: .center loading="lazy" }
 
-    5. In the Execute section, change **Duration** to 3.
+### Add Binding
 
-    6. Change the **Facing Mode** to Movement.
+From the **Bindings Window**, click on the **Add Bindings** button to add a new row to the binding set.
 
-        ![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center loading="lazy" }
+1. In the **Action** field, enter `Shift`.
+2. From the **Keyboard Primary** drop down, select the **Left Shift** key.
 
-    7. In the Recovery section, change the **Duration** to 0.
+![!Add Binding](../img/BindingSets/General/add_binding.png){: .center loading="lazy" }
 
-    8. In the Cooldown section, change the **Duration** to 12.
+#### Adjust Ability Properties
 
-        Make sure all the other check boxes match these images.
+Now that we've written the script for flying to work and added the binding, we can adjust things from simply within the Properties window with the FireFly `ability` object selected.
 
-7. Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it.
+This way we can alter the timing of how the ability works, like how long the user can fly, or how long until they're allowed to use the ability again.
 
-   Try it out and feel for the time lengths we entered--maybe you want a short or longer fly time, or a lower Cooldown so that it can be used more frequently. Adjust the values in the Execute and Cooldown sections to change these aspects.
+![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop1.png){: .center loading="lazy" }
+
+1. The first change we're going to make is in the *Ability* section of the Properties window. Change the **Action Name** to "Shift".
+2. Change the **Animation** to "2hand_staff_magic_up".
+![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop2.png){: .center loading="lazy" }
+3. Now in the *Cast* section, change the **Duration** to .15.
+4. Change the **Facing Mode** to "Movement".
+![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop3.png){: .center loading="lazy" }
+5. In the Execute section, change **Duration** to 3.
+6. Change the **Facing Mode** to Movement.
+![Current Hierarchy](../img/EditorManual/Weapons/advanced/FireFly_prop4.png){: .center loading="lazy" }
+7. In the Recovery section, change the **Duration** to 0.
+8. In the Cooldown section, change the **Duration** to 12.
+Make sure all the other check boxes match these images.
+
+Now this Fire Staff grants the ability to fly when pressing Shift on the keyboard to activate it.
+
+Try it out and feel for the time lengths we entered--maybe you want a short or longer fly time, or a lower Cooldown so that it can be used more frequently. Adjust the values in the Execute and Cooldown sections to change these aspects.
 
 ### Right Click to Aim
 
@@ -273,7 +293,7 @@ We're going to add the ability to focus zoom with right click for better aiming.
 1. First, we're going to add a bunch of custom properties to the weapon--custom properties give us a nice place to add variables that can be easily changed without having to open the code once it's been written.
 
     1. To start we need a custom property added to the weapon object of type Boolean called "*EnableAim*". Check this on to allow the weapon to zoom in for aiming.
-    2. Add a custom property to the weapon object called "*AimBinding*" that's of the type String. Give it the value "*ability_secondary*". This is for picking what ability binding, or keyboard key, to press to activate the ability. Ability secondary, in this case, is right click on a mouse.
+    2. Add a custom property to the weapon object called "*AimBinding*" that's of the type String. Give it the value `Aim`. This is for picking what action binding to activate the ability.
     3. Add another custom property of type String and call it "*AimActiveStance*". Set the value to "*2hand_staff_stance*". This determines what animation pose gets used while aiming.
     4. Add a custom property of type Float and call it "*AimWalkSpeedPercentage*". Give it a value of .5. This value will determine what fraction of the regular walk speed the player will move while aiming.
     5. Lastly for this part, add a custom property called "*AimZoomDistance*" of type Int, and give it a value of 100. This assigns how far the camera zooms in when aiming.
@@ -412,19 +432,19 @@ We're going to add the ability to focus zoom with right click for better aiming.
     end
     ```
 
-9. These next two functions are specifically for turning on and off being zoomed in--if the player presses the assigned ability binding key, then it triggers the functions we wrote to enable and reset scoping.
+9. These next two functions are specifically for turning on and off being zoomed in--if the player presses the assigned action binding key, then it triggers the functions we wrote to enable and reset scoping.
 
     Add these two functions below to the bottom of your script so far:
 
     ```lua
-    function OnBindingPressed(player, actionName)
-        if actionName == AIM_BINDING then
+    function OnActionPressed(player, action)
+        if action == AIM_BINDING then
             EnableScoping(player)
         end
     end
 
-    function OnBindingReleased(player, actionName)
-        if actionName == AIM_BINDING then
+    function OnActionReleased(player, action)
+        if action == AIM_BINDING then
             ResetScoping(player)
         end
     end
@@ -448,8 +468,8 @@ We're going to add the ability to focus zoom with right click for better aiming.
         function OnEquipped(weapon, player)
             if not CAN_AIM then return end
 
-            pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
-            releasedHandle = player.bindingReleasedEvent:Connect(OnBindingReleased)
+            pressedHandle = Input.actionPressedEvent:Connect(OnActionPressed)
+            releasedHandle = Input.actionReleasedEvent:Connect(OnActionReleased)
             playerDieHandle = player.diedEvent:Connect(OnPlayerDied)
 
             -- Set new active camera
@@ -499,6 +519,8 @@ So this was the first half of the camera aim setup--we have created a script for
 #### Server-Side Script
 
 This server script will seem fairly similar to the client script, but this one is directly changing and affecting variables of the player.
+
+Make sure that the Aim binding in the Bindings Manager is networked so the server script can read the input.
 
 So let's get started on the server script.
 
@@ -577,8 +599,8 @@ So let's get started on the server script.
     1. First comes the function for when a button is pressed:
 
         ```lua
-        function OnBindingPressed(player, actionName)
-            if actionName == AIM_BINDING then
+        function OnActionPressed(player, action)
+            if action == AIM_BINDING then
                 SetAimingSpeed(player)
             end
         end
@@ -587,9 +609,9 @@ So let's get started on the server script.
     2. Followed by a function for when a button is released:
 
         ```lua
-        function OnBindingReleased(player, actionName)
-            if actionName == AIM_BINDING then
-            ResetPlayerSpeed(player)
+        function OnActionReleased(player, action)
+            if action == AIM_BINDING then
+                ResetPlayerSpeed(player)
             end
         end
         ```
@@ -610,8 +632,8 @@ So let's get started on the server script.
         function OnEquipped(weapon, player)
             if not CAN_AIM then return end
 
-            pressedHandle = player.bindingPressedEvent:Connect(OnBindingPressed)
-            releasedHandle = player.bindingReleasedEvent:Connect(OnBindingReleased)
+            pressedHandle = Input.actionPressedEvent:Connect(OnActionPressed)
+            releasedHandle = Input.actionReleasedEvent:Connect(OnActionReleased)
             playerDieHandle = player.diedEvent:Connect(OnPlayerDied)
         end
         ```
@@ -831,3 +853,7 @@ You'll probably want to set up User Interface (UI) for your fire staff's abiliti
 
 * **[Spellshock](https://www.coregames.com/games/e23e99658d084ef59897ecee49f5d393)** includes advanced abilities using ability objects.
 * **Core Content** includes pre-made and ready-to-use weapons. Check in Game Components > Weapons to see what is available. Compare what we made here with "Advanced" weapons to see what is possible, and even more.
+
+## Learn More
+
+[Binding Sets](../references/binding_sets.md) | [Ability API](../api/ability.md) | [Player API](../api/player.md) | [Input API](../api/input.md)
