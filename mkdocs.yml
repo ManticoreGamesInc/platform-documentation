@@ -122,6 +122,7 @@ nav:
         - Chat Commands: tutorials/chat_commands_tutorial.md
         - Chat Hooks: tutorials/chat_tutorial.md
         - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
+        - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
         - Cosmetic System: tutorials/cosmetic_tutorial.md
         - Damageable Object Basics: tutorials/damageable_object_basics.md
         - Destructible Objects: tutorials/boss_tutorial.md
