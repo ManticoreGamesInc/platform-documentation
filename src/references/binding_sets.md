@@ -26,7 +26,7 @@ A **Binding Set** needs to be placed into the **Hierarchy**. A new **Binding Set
 
 A **Binding Set** can be created from the **Bindings Manager** window by clicking on the button **Create new Binding Set**. When a **Binding Set** is created, it will be added to **My Binding Sets** in **Project Content**.
 
-![Create Button](../img/BindingSets/create_binding_set.png){: .center loading="lazy" }
+![!Create Button](../img/BindingSets/create_binding_set.png){: .center loading="lazy" }
 
 **Binding Sets** created this way will have the property **Binding Sets** under **Bindings** already setup with the asset reference when placed into the **Hierarchy**.
 
@@ -81,6 +81,16 @@ Bindings can be networked so the value and input events are replicated to the se
 ![!Networked Binding](../img/BindingSets/networked_bindings.png){: .center loading="lazy" }
 
 For information on which events and functions work with networked bindings, see the [Input API](/api/input.md).
+
+### Enable / Disable Bindings
+
+Bindings can be enabled or disabled at startup by clicking on the checkbox in the **Enable** column of the **Bindings Manager** window. These can be controlled by a Lua script that can also enable and disable an action.
+
+```lua
+Input.EnableAction("Jump")
+```
+
+![!Enable Disable Bindings](../img/BindingSets/enable_disable_bindings.png){: .center loading="lazy" }
 
 ## Deleting a Binding
 
