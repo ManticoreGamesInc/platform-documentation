@@ -34,7 +34,7 @@ The **Gatherables and Inventory** example contains two scenes that show differen
 
 ### Start Preview
 
-Press **Play** button or ++=++ to start a local preview in the Gatherables - Inventory scene.
+Press **Play** button or ++"="++ to start a local preview in the Gatherables - Inventory scene.
 
 You should see objects spawn when the preview starts, with written instructions near each on how to interact with them.
 
@@ -48,8 +48,7 @@ Press ++1++, ++2++, or ++3++ with the preview running to swap which of three too
 
 Once you have gathered objects from the examples, they will be added to your inventory and saved for the next time you preview the game. See the [Persistent Storage reference](persistent_storage.md) to learn more about how this works in Core.
 
-!!! info
-    To remove all the gathered items and only keep the tools in your inventory, press the ++F1++ key while a preview is running.
+!!! info "To remove all the gathered items and only keep the tools in your inventory, press the ++F1++ key while a preview is running."
 
 ### Open the Isometric Example Scene
 
@@ -62,7 +61,7 @@ The second example scene shows another way that Gatherables can be used, with a 
 
 ## README's
 
-Each module of the Gatherables and Inventory system has its own detailed explanation inside of the project. To find all the README files, open **Project Content** and search for `readme`. Double click each one to open in the script editor.
+Each module of the Gatherables and Inventory system has its own detailed explanation inside the project. To find all the README files, open **Project Content** and search for `readme`. Double click each one to open in the script editor.
 
 ![All README Files](../img/Gatherables/Gatherables_AllReadmeFiles.png)
 
@@ -105,7 +104,7 @@ You can choose which tools are valid to use with a gatherable object, as well as
 
 #### Change the Gatherable State
 
-Gatherables can show up as multiple different world models as they are gathered. A Gatherable with only one state, like the **Gatherable Cube** disappears when it is gathered, where as others, like **Gatherable Trees** and **Gatherable Stones** change their appearance each time they are gathered. To find an example of how these can look, search for `Gatherable Tree` in **Project Content** to find the three different models used as the tree is gathered.
+Gatherables can show up as multiple different world models as they are gathered. A Gatherable with only one state, like the **Gatherable Cube** disappears when it is gathered, whereas others, like **Gatherable Trees** and **Gatherable Stones** change their appearance each time they are gathered. To find an example of how these can look, search for `Gatherable Tree` in **Project Content** to find the three different models used as the tree is gathered.
 
 ![Gatherable Tree States](../img/Gatherables/Gatherables_GatherableTreeStates.png))
 
@@ -169,12 +168,71 @@ The easiest way to add an item to the database is to duplicate an existing entry
 !!! note
     Empty scripts are often used to store a collection of Custom Properties. The **ItemData** scripts do not contain any Lua code, but are used instead to save information found in their custom properties to the items database.
 
-<!-- TODO: Remaining Sections
-
 ## Currency
 
+**Currency** is a drop in system (template) that provides ready to go Player Currency management without any code required. It also provides a full API for creators with scripting knowledge to allow them to expand on or change how the Currency works.
+
+Any amount of Currencies can be added to a game, and you can use them for more than just visible currency amounts. For example, a Currency could be used to track the scores in a game.
+
+The **Currency** template in **Project Content** can be added to the **Hierarchy** to create a new Currency.
+
+### Add Currency
+
+**Currency** can be added to your game by dragging out the **Currency** template. This template comes with settings and a UI for a Currency. The settings can be found on the Currency template if you select it in the Hierarchy. The UI can be moved, modified or deleted.
+
+| Property | Description |
+| -------- | ----------- |
+| CurrencyId | The ID of the Currency. Must be unique within a scene. |
+| Name | The name of the Currency. |
+| StorageKey | An optional Shared Storage Key to save Currency data into. Default is Local Storage. |
+| StartingAmount | The amount of this Currency a new Player will start with. |
+| MaxAmount | The maximum amount of this currency a Player can have. 0 means no maximum. |
+| DropTemplate | The template to use to display the dropped item in world. |
+| DropItemPickupTemplate | The Item Pickup Template to use if this Currency is dropped in world. |
+| VerboseLogs | If true, more detailed logs will be printed to the Event Log if errors or warnings occur. |
+| IconCameraId | If **Is3DIcon** is true, this should match the **CameraId** of an **Icon Generator** in the scene. |
+| IconAsset | The image or template to use for an icon. If **IsKitbashed2DIcon** is true, this should be a UI template. If **Is3DIcon** is true, this should be a 3D object template. If **IsImageIcon** is true, this should be an image/brush asset. |
+| IsKitbashed2DIcon | If true, the **IconAsset** should point to a UI template. This template will be spawned as the icon. |
+| Is3DIcon | If true, the **IconAsset** should point to a 3D object template. An image of this template will be used as the icon. |
+| IsImageIcon | If true, the **IconAsset** should point to an image/brush asset. This will be used as the icon. |
+
+### Currency Admin
+
+The Currency Admin system will listen for chat commands from specific admin players. You can use commands to do most common Currency actions like adding and removing Currency from players. Commands will fail gracefully if they cannot be done. Commands can only be run on online Players.
+
+See the **Currency README** in the Project Content for more information.
+
 ## Icons
--->
+
+The Icon Generator is a drop in component that will render 3D icons for use in **UIImage** objects. You can have several Icon Generators in the scene to allow for rendering icons in different styles. The Icon Generator will automatically clear unused icons to make sure only the relevant texture space is being used.
+
+### Icon Generator Setup
+
+1. Drop the **Icon Generator** template from **Project Content** into your scene and move it to an appropriate (hidden) area.
+2. Fill in the **CameraId** Custom Property on the "Icon Generator" object. This ID will be used in the script to identify which generator to use for your render.
+
+#### Creating an Object Template
+
+Create a template for the object you want to render. Work on the template inside the Icon Generators **Icon Container** to have a visible bounding box to work within. Once you are finished, save your template and delete it from the container. The blue tinted bounding box indicates a safe area for what will get rendered into the final icon. The frame on the back also describes the bounds of the final icon.
+
+#### Create Script
+
+Create a script to use to render the object to the image.
+
+To render the icon and apply it to the **UIImage** you just run the following script in a Client Context:
+
+```lua
+
+local ICON_MANAGER = require(script:GetCustomProperty("APIIconManager")) -- Asset Reference pointing to APIIconManager
+local ICON_TEMPLATE = script:GetCustomProperty("IconTemplate") -- Asset Reference pointing to the object template
+local CAMERA_ID = script:GetCustomProperty("CameraId") -- String set to the Camera Id on the Icon Generator you want to use
+local IMAGE = script:GetCustomProperty("Image"):WaitForObject() -- Core Object Reference to a UIImage
+
+-- Give the Icon Generator a frame to register
+Task.Wait()
+
+ICON_MANAGER.SetIcon(IMAGE, CAMERA_ID, ICON_TEMPLATE, CameraCaptureResolution.MEDIUM)
+```
 
 ---
 
