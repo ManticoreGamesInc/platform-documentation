@@ -118,7 +118,7 @@ In a Lua script, the `SetOverrideCamera` function can be used by passing in the 
 local CAMERA = script:GetCustomProperty("Camera"):WaitForObject()
 local localPlayer = Game.GetLocalPlayer()
 
-localPlayer:SetOverrideCamera(propCamera)
+localPlayer:SetOverrideCamera(CAMERA)
 ```
 
 See the [Camera API](/api/camera.md) and [Player API](/api/player.md) for more information.
