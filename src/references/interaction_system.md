@@ -118,16 +118,15 @@ The **Trigger Interaction Module** works much like a client-side interactable tr
 !!! info
     This module will react to Trigger interactions by the local Player or all players depending on the Input Settings. By default the Trigger module will only react to the local Player in order  to act like the other Interaction Modules. If the setting "TriggerLocally" is false then trigger inputs from all players will run. This can be a useful way to mimic networked play without using any actual networking but it could affect your interactions in unexpected ways.
 
-<!-- TODO: Add video of interaction example -->
+#### Trigger Interaction Example
+
+Drag the **Trigger Interaction Template** from **Project Content** into the scene, and start a preview. Interact with the cube by walking close enough to overlap its trigger, and then clicking.
+
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
         <source src="/img/InteractionSystem/InteractionSystem_TriggerExample.mp4" type="video/mp4" />
     </video>
 </div>
-
-#### Trigger Interaction Example
-
-Drag the **Trigger Interaction Template** from **Project Content** into the scene, and start a preview. Interact with the cube by walking close enough to overlap its trigger, and then clicking.
 
 ## Module Events
 
