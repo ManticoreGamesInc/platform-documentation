@@ -270,6 +270,7 @@ nav:
     - API Index: farming-framework-api/index.md
     - Namespaces:
       - ActiveCoreObjects: farming-framework-api/activecoreobjects.md
+      - ActiveCoreObjects: farming-framework-api/activecoreobjects.md
       - AreaLoaders: farming-framework-api/arealoaders.md
       - Areas: farming-framework-api/areas.md
       - Buffs: farming-framework-api/buffs.md
@@ -295,12 +296,10 @@ nav:
       - PointerInteractionModule: farming-framework-api/pointerinteractionmodule.md
       - ProducerBases: farming-framework-api/producerbases.md
       - Purchasing: farming-framework-api/purchasing.md
-      - RealTime: farming-framework-api/realtime.md
       - ReliableEvents: farming-framework-api/reliableevents.md
       - SpawnPoints: farming-framework-api/spawnpoints.md
       - Spectator: farming-framework-api/spectator.md
       - Tags: farming-framework-api/tags.md
-      - TimeSimulator: farming-framework-api/timesimulator.md
       - Tooltiip: farming-framework-api/tooltiip.md
       - TriggerInteractionModule: farming-framework-api/triggerinteractionmodule.md
       - UILibrary: farming-framework-api/uilibrary.md

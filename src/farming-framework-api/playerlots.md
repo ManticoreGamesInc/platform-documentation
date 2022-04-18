@@ -12,6 +12,22 @@ A Player can "own" any number of Player Lots, and Lots can exist only while the 
 
 Lots can even be combined with Areas to let you create pools of Area/Lots that dynamically load and unload as Players enter and exit them. This is used to create things like the interior of a Players house that only loads when a Player enters it.
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ---------- | ----------- | ----------- | ---- |
+| `PlayerLotAssigned` | `Event<None>` |  | None |
+| `PlayerLotActive` | `Event<None>` |  | None |
+| `PlayerLotInactive` | `Event<None>` |  | None |
+| `PlayerLotReset` | `Event<None>` |  | None |
+| `PlayerLotActiveForPlayer` | `Event<None>` |  | None |
+| `PlayerLotInactiveForPlayer` | `Event<None>` |  | None |
+| `PlayerLotSaved` | `Event<None>` |  | None |
+| `PlayerLotClearSave` | `Event<None>` |  | None |
+| `SetLotOwner` | `Event<None>` |  | None |
+| `TeleportToLot` | `Event<None>` |  | None |
+| `TeleportedToLot` | `Event<None>` |  | None |
+
 ## Functions
 
 | Class Function Name | Return Type | Description | Tags |

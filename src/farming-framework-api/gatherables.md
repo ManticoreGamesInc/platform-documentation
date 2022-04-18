@@ -19,6 +19,7 @@ All you need to do is drop a Gatherables template into your scene, swap out and 
 | `GATHERABLE_DESTROYED` | `Event<Player, entry>` | This event is sent when a Gatherable exits its last state. "entry" is a table with all of the Gatherable | Server |
 | `GATHERABLE_GATHERED` | `Event<Player, entry>` | This event is sent every time a successful gather interaction takes place. "entry" is a table with all of the | Server |
 | `GATHERABLE_RESPAWNED` | `Event<entry>` | This event is sent when a Gatherable object respawns. "entry" is a table with all of the Gatherable Object | Server |
+| `RESET_GATHERABLE_GROUP` | `Event<Integer>` |  | None |
 
 ## Functions
 

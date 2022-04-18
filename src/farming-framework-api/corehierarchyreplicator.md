@@ -6,6 +6,33 @@ title: Core Hierarchy Replicator
 
 # Core Hierarchy Replicator
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ---------- | ----------- | ----------- | ---- |
+| `UserAdd` | `Event<None>` |  | None |
+| `UserDestroy` | `Event<None>` |  | None |
+| `UserModify` | `Event<None>` |  | None |
+| `UserActivate` | `Event<None>` |  | None |
+| `UserDeactivate` | `Event<None>` |  | None |
+| `UserDestroyAll` | `Event<None>` |  | None |
+| `UserLock` | `Event<None>` |  | None |
+| `UserUnlock` | `Event<None>` |  | None |
+| `AddInstance` | `Event<None>` |  | None |
+| `DestroyInstance` | `Event<None>` |  | None |
+| `ModifyInstance` | `Event<None>` |  | None |
+| `DestroyAllInstances` | `Event<None>` |  | None |
+| `ActivateReplicator` | `Event<None>` |  | None |
+| `DeactivateReplicator` | `Event<None>` |  | None |
+| `ActivateReplicatorForPlayer` | `Event<None>` |  | None |
+| `DeactivateReplicatorForPlayer` | `Event<None>` |  | None |
+| `LockReplicator` | `Event<None>` |  | None |
+| `UnlockReplicator` | `Event<None>` |  | None |
+| `InstanceDestroyed` | `Event<None>` |  | None |
+| `InstanceAdded` | `Event<None>` |  | None |
+| `InstanceModified` | `Event<None>` |  | None |
+| `AllInstancesDestroyed` | `Event<None>` |  | None |
+
 ## Functions
 
 | Class Function Name | Return Type | Description | Tags |

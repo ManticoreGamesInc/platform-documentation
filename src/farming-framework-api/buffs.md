@@ -31,6 +31,7 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 | `BuffFinished` | `Event<targetId, buffId>` | Sent when a timed Buff finishes. | Client |
 | `BuffRelinked` | `Event<targetId, buffId>` | Sent when a Buff is linked to another object. | Client |
 | `BuffRemoved` | `Event<targetId, buffId>` | Sent when a Buff is removed. | Client |
+| `HandleBuffs` | `Event<None>` | Make all the things with buffs on them apply the buff, which will add buffs recursively. | Client |
 | `PrepareLinkedBuffs` | `Event<targetId>` | Sent prior to APIBuffs.Events.HandleBuffs and before all Buffs are linked. | Client |
 | `TargetRegistered` | `Event<targetId>` | Sent when a Buff target is registered with the system. | Client |
 | `TargetUnregistered` | `Event<targetId>` | Sent when a Buff target is unregistered from the system. | Client |

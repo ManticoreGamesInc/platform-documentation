@@ -6,6 +6,18 @@ title: Equipment
 
 # Equipment
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ---------- | ----------- | ----------- | ---- |
+| `EquipItem` | `Event<integer, CoreObject>` | Fired when the player equips an equipment or toggles an already equipped item off. | None |
+| `UnequipItem` | `Event<integer>` | Fired the player unequips an item. | None |
+| `UnequipAllItems` | `Event<None>` | Fired when all equipment has been unequipped. | None |
+| `Interact` | `Event<boolean, string, Player, CoreObject, string, table>` |  | None |
+| `EquippedItemFromWorld` | `Event<None>` |  | None |
+| `UnequippedItemIntoWorld` | `Event<None>` |  | None |
+| `SpawnEquipment` | `Event<CoreObject, CoreObject, Vector3, Rotation>` |  | None |
+
 ## Functions
 
 | Class Function Name | Return Type | Description | Tags |
