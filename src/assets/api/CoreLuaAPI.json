@@ -3214,7 +3214,7 @@
 						},
 						{
 							"Type": "CoreObject",
-							"Name": "newChild"
+							"Name": "newDescendant"
 						}
 					]
 				},
@@ -3228,7 +3228,7 @@
 						},
 						{
 							"Type": "CoreObject",
-							"Name": "removedChild"
+							"Name": "removedDescendant"
 						}
 					]
 				},
@@ -6436,7 +6436,7 @@
 				{
 					"Name": "target",
 					"Description": "Which Player the IKAnchor is activated on.",
-					"Type": "string",
+					"Type": "Player",
 					"Tags": [
 						"ReadOnly"
 					]
@@ -11871,6 +11871,150 @@
 			]
 		},
 		{
+			"Name": "Rectangle",
+			"Constructors": [
+				{
+					"Name": "New",
+					"Signatures": [
+						{
+							"Name": "WithVector4",
+							"Returns": [
+								{
+									"Type": "Rectangle"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector4",
+									"Name": "Vector"
+								}
+							]
+						},
+						{
+							"Name": "WithRectangle",
+							"Returns": [
+								{
+									"Type": "Rectangle"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Rectangle",
+									"Name": "Rectangle"
+								}
+							]
+						},
+						{
+							"Name": "WithValues",
+							"Returns": [
+								{
+									"Type": "Rectangle"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "number",
+									"Name": "Left"
+								},
+								{
+									"Type": "number",
+									"Name": "Top"
+								},
+								{
+									"Type": "number",
+									"Name": "Right"
+								},
+								{
+									"Type": "number",
+									"Name": "Bottom"
+								}
+							]
+						},
+						{
+							"Name": "Default",
+							"Returns": [
+								{
+									"Type": "Rectangle"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				}
+			],
+			"Properties": [
+				{
+					"Name": "left",
+					"Type": "number"
+				},
+				{
+					"Name": "top",
+					"Type": "number"
+				},
+				{
+					"Name": "right",
+					"Type": "number"
+				},
+				{
+					"Name": "bottom",
+					"Type": "number"
+				},
+				{
+					"Name": "type",
+					"Type": "string",
+					"Tags": [
+						"ReadOnly"
+					]
+				}
+			],
+			"MemberFunctions": [
+				{
+					"Name": "GetSize",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "GetCenter",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2"
+								}
+							],
+							"Parameters": []
+						}
+					]
+				},
+				{
+					"Name": "IsA",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "typeName"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"Name": "Rotation",
 			"Description": "An euler-based rotation around `x`, `y`, and `z` axes.",
 			"Constructors": [
@@ -13695,6 +13839,15 @@
 					]
 				},
 				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -14068,6 +14221,14 @@
 					]
 				},
 				{
+					"Name": "useSafeArea",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -14107,6 +14268,23 @@
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
+					]
+				},
+				{
+					"Name": "IsCanvasReady",
+					"Description": "Returns `true` if the container has completed initialization, otherwise returns `false`. Calls to get or set the absolute position of controls within a container may not perform correctly before the container has finished initialization.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
 					]
 				},
 				{
@@ -14324,6 +14502,15 @@
 					]
 				},
 				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -14448,6 +14635,15 @@
 				{
 					"Name": "isFlippedVertical",
 					"Description": "Whether or not the image is flipped vertically.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -14814,6 +15010,15 @@
 					]
 				},
 				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -14963,6 +15168,15 @@
 					"Name": "backgroundTileType",
 					"Description": "How the background texture is tiled.",
 					"Type": "ImageTileType",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
+					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
 						"Dynamic"
@@ -15137,6 +15351,15 @@
 			"BaseType": "UIControl",
 			"Properties": [
 				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
 					"Name": "type",
 					"Type": "string",
 					"Tags": [
@@ -15296,6 +15519,15 @@
 				{
 					"Name": "shouldScaleToFit",
 					"Description": "Whether or not text should scale down to fit within the bounds of this control.",
+					"Type": "boolean",
+					"Tags": [
+						"RequiresAuthority",
+						"Dynamic"
+					]
+				},
+				{
+					"Name": "isHittable",
+					"Description": "When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it.",
 					"Type": "boolean",
 					"Tags": [
 						"RequiresAuthority",
@@ -18331,6 +18563,23 @@
 							"Parameters": []
 						}
 					]
+				},
+				{
+					"Name": "GetDetailLevel",
+					"Description": "Returns the Detail Level selected by the player in the Settings menu. Useful for determining whether to spawn templates for VFX or other client-only objects, or selecting templates that are optimized for a particular detail level based on the player's settings.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "DetailLevel"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
 				}
 			]
 		},
@@ -19185,6 +19434,130 @@
 					]
 				},
 				{
+					"Name": "GetTouchPosition",
+					"Description": "Returns a Vector2 with the `x`, `y` coordinates of a touch input on the screen. An optional touch index may be provided to specify which touch to return on multitouch devices. If not specified, index 1 is used. Returns `nil` if the requested touch index is not currently active.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "fingerIndex"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetPointerPosition",
+					"Description": "When the current input type is `InputType.TOUCH`, returns a Vector2 with the `x`, `y` coordinates of a touch input on the screen. When the current input type is not `InputType.TOUCH`, returns the cursor position. An optional touch index may be provided to specify which touch to return on multitouch devices. If not specified, index 1 is used. Returns `nil` if the requested touch index is not currently active. The touch index is ignored for other input types.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": []
+						},
+						{
+							"Returns": [
+								{
+									"Type": "Vector2",
+									"IsOptional": true
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "integer",
+									"Name": "fingerIndex"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetPinchValue",
+					"Description": "During a pinch gesture with touch input, returns a value indicating the relative progress of the pinch gesture. Pinch gestures start with a pinch value of 1 and approach 0 when pinching together, or increase past 1 when touches move apart from each other. Returns 0 if no pinch is in progress.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "GetRotateValue",
+					"Description": "During a rotate gesture with touch input, returns a value indicating the angle of rotation from the start of the gesture. Returns 0 if no rotate is in progress.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "number"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "EnableVirtualControls",
+					"Description": "Enables display of virtual controls on devices with touch input, or in preview mode if device emulation is enabled. Virtual controls default to enabled when using touch input.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "DisableVirtualControls",
+					"Description": "Disables display of virtual controls on devices with touch input, or in preview mode with device emulation enabled.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "IsInputTypeEnabled",
 					"Description": "Returns `true` when the current device supports the given input type. For example, `Input.IsInputEnabled(InputType.CONTROLLER)` will return `true` if a gamepad is connected.",
 					"Signatures": [
@@ -19217,6 +19590,64 @@
 								}
 							],
 							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "EnableAction",
+					"Description": "Enables the specified action, if the action exists.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "DisableAction",
+					"Description": "Disables the specified action, if the action exists. If the action is currently held, this will also release the action.",
+					"Signatures": [
+						{
+							"Returns": [],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "IsActionEnabled",
+					"Description": "Returns `true` if the specified action is enabled. Returns `false` if the action is disabled or does not exist.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "boolean"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "string",
+									"Name": "action"
+								}
+							]
 						}
 					],
 					"Tags": [
@@ -19268,6 +19699,102 @@
 						{
 							"Type": "InputType",
 							"Name": "inputType"
+						}
+					]
+				},
+				{
+					"Name": "pinchStartedEvent",
+					"Description": "Fired when the player begins a pinching gesture on a touch input device. `Input.GetPinchValue()` may be polled during the pinch gesture to determine how far the player has pinched.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": []
+				},
+				{
+					"Name": "pinchStoppedEvent",
+					"Description": "Fired when the player ends a pinching gesture on a touch input device.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": []
+				},
+				{
+					"Name": "rotateStartedEvent",
+					"Description": "Fired when the player begins a rotating gesture on a touch input device. `Input.GetRotateValue()` may be polled during the rotate gesture to determine how far the player has rotated.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": []
+				},
+				{
+					"Name": "rotateStoppedEvent",
+					"Description": "Fired when the player ends a rotating gesture on a touch input device.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": []
+				},
+				{
+					"Name": "flickedEvent",
+					"Description": "Fired when the player performs a quick flicking gesture on a touch input device. The `angle` parameter indicates the direction of the flick. 0 indicates a flick to the right. Values increase in degrees counter-clockwise, so 90 indicates a flick straight up, 180 indicates a flick to the left, etc.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "number",
+							"Name": "angle"
+						}
+					]
+				},
+				{
+					"Name": "touchStartedEvent",
+					"Description": "Fired when the player starts touching the screen on a touch input device. Parameters are the screen location of the touch and a touch index used to distinguish between separate touches on a multitouch device.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Vector2",
+							"Name": "location"
+						},
+						{
+							"Type": "integer",
+							"Name": "touchIndex"
+						}
+					]
+				},
+				{
+					"Name": "touchStoppedEvent",
+					"Description": "Fired when the player stops touching the screen on a touch input device. Parameters are the screen location from which the touch was released and a touch index used to distinguish between separate touches on a multitouch device.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Vector2",
+							"Name": "location"
+						},
+						{
+							"Type": "integer",
+							"Name": "touchIndex"
+						}
+					]
+				},
+				{
+					"Name": "tappedEvent",
+					"Description": "Fired when the player taps on a touch input device. Parameters are the screen location of the tap and the touch index with which the tap was performed.",
+					"Tags": [
+						"ClientOnly"
+					],
+					"Parameters": [
+						{
+							"Type": "Vector2",
+							"Name": "location"
+						},
+						{
+							"Type": "integer",
+							"Name": "touchIndex"
 						}
 					]
 				}
@@ -20112,6 +20639,22 @@
 					]
 				},
 				{
+					"Name": "GetSafeArea",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "Rectangle"
+								}
+							],
+							"Parameters": []
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
 					"Name": "PrintToScreen",
 					"Description": "Draws a message on the corner of the screen. Second optional Color parameter can change the color from the default white.",
 					"Signatures": [
@@ -20528,6 +21071,28 @@
 								{
 									"Type": "boolean",
 									"Name": "isVisible"
+								}
+							]
+						}
+					],
+					"Tags": [
+						"ClientOnly"
+					]
+				},
+				{
+					"Name": "FindControlAtPosition",
+					"Description": "Looks for a hittable UI control at the given screen position. Returns the top-most control if found. Returns `nil` if no hittable control was found at the specified position.",
+					"Signatures": [
+						{
+							"Returns": [
+								{
+									"Type": "UIControl"
+								}
+							],
+							"Parameters": [
+								{
+									"Type": "Vector2",
+									"Name": "Position"
 								}
 							]
 						}
@@ -20954,7 +21519,7 @@
 				},
 				{
 					"Name": "Raycast",
-					"Description": "Traces a ray from `startPosition` to `endPosition`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. Note that if a raycast starts inside an object, that object will not be returned by the raycast. <br /> Optional parameters can be provided to control the results of the Raycast:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list. <br/>`shouldDebugRender (boolean)`: If `true`, enables visualization of the raycast in world space for debugging. <br/>`debugRenderDuration (number)`: Number of seconds for which debug rendering should remain on screen. Defaults to 1 second. <br/>`debugRenderThickness (number)`: The thickness of lines drawn for debug rendering. Defaults to 1. <br/>`debugRenderColor (Color)`: Overrides the color of lines drawn for debug rendering. If not specified, multiple colors may be used to indicate where results were hit.",
+					"Description": "Traces a ray from `startPosition` to `endPosition`, returning a `HitResult` with data about the impact point and object. Returns `nil` if no intersection is found. Note that if a raycast starts inside an object, that object will not be returned by the raycast. <br /> Optional parameters can be provided to control the results of the Raycast:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list. <br/>`useCameraCollision (boolean)`: If `true`, results are found based on objects' camera collision property rather than their game collision. <br/>`shouldDebugRender (boolean)`: If `true`, enables visualization of the raycast in world space for debugging. <br/>`debugRenderDuration (number)`: Number of seconds for which debug rendering should remain on screen. Defaults to 1 second. <br/>`debugRenderThickness (number)`: The thickness of lines drawn for debug rendering. Defaults to 1. <br/>`debugRenderColor (Color)`: Overrides the color of lines drawn for debug rendering. If not specified, multiple colors may be used to indicate where results were hit.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -21141,7 +21706,7 @@
 				},
 				{
 					"Name": "FindObjectsOverlappingSphere",
-					"Description": "Returns all objects found overlapping or within a sphere with the specified position and radius. Optional parameters can be provided to control the results of the search:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list.",
+					"Description": "Returns all objects found overlapping or within a sphere with the specified position and radius. Optional parameters can be provided to control the results of the search:<br/>`ignoreTeams (integer or Array<integer>)`: Don't return any players belonging to the team or teams listed. <br/>`ignorePlayers (Player, Array<Player>, or boolean)`: Ignore any of the players listed. If `true`, ignore all players. <br/>`checkObjects (Object, Array<Object>)`: Only return results that are contained in this list. <br/>`ignoreObjects (Object, Array<Object>)`: Ignore results that are contained in this list. <br/>`useCameraCollision (boolean)`: If `true`, results are found based on objects' camera collision property rather than their game collision.",
 					"Signatures": [
 						{
 							"Returns": [
@@ -21501,6 +22066,32 @@
 			]
 		},
 		{
+			"Name": "DetailLevel",
+			"Description": "Indicates the desired detail level selected by the player in the Settings menu.",
+			"Values": [
+				{
+					"Name": "LOW",
+					"Description": "Low.",
+					"Value": 0
+				},
+				{
+					"Name": "MEDIUM",
+					"Description": "Medium.",
+					"Value": 1
+				},
+				{
+					"Name": "HIGH",
+					"Description": "High.",
+					"Value": 2
+				},
+				{
+					"Name": "ULTRA",
+					"Description": "Ultra, the highest detail level.",
+					"Value": 3
+				}
+			]
+		},
+		{
 			"Name": "FacingMode",
 			"Description": "Describes how the player character determines which direction it should face.",
 			"Values": [
@@ -21591,6 +22182,11 @@
 					"Name": "CONTROLLER",
 					"Description": "Input from a game controller.",
 					"Value": 1
+				},
+				{
+					"Name": "TOUCH",
+					"Description": "Input from a touch screen.",
+					"Value": 2
 				}
 			]
 		},

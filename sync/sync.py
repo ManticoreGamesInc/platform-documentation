@@ -14,3 +14,18 @@ def sync_api():
         if os.path.isfile(full_file_name):
             shutil.copy(full_file_name, dst_path)
     print("\x1b[\x1b[32m>>\x1b[0m Syncing API from LuaAPIDocumentation folder\x1b[0m.")
+
+
+def sync_api_assets():
+    src_path = os.path.join(
+        Path(__file__).parents[2], "LuaAPIDocumentation", "DocumentationOutput"
+    )
+    src_files = ["luacheckrc.zip", "luacompleterc.zip"]
+    dst_path = os.path.join(Path(__file__).parents[1], "src", "assets", "api")
+    for file_name in src_files:
+        full_file_name = os.path.join(src_path, file_name)
+        if os.path.isfile(full_file_name):
+            shutil.copy(full_file_name, dst_path)
+    print(
+        "\x1b[\x1b[32m>>\x1b[0m Syncing API assets from LuaAPIDocumentation folder\x1b[0m."
+    )

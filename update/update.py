@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 outfilePath = "src/assets/api/CoreLuaAPI.json"
-requirements = f'{str(Path(__file__).parent.parent)}/requirements.txt'
+requirements = f"{str(Path(__file__).parent.parent)}/requirements.txt"
 
 
 def update_dump(environment="Test"):
@@ -12,7 +12,7 @@ def update_dump(environment="Test"):
 
     versionEndpoint = f"{baseUrl}/builds/{environment}-latest_client_build.txt"
     latestVersion = requests.get(versionEndpoint)
-    dumpEndpoint = f"{baseUrl}/builds/api_export/api-{latestVersion.text}.json"
+    dumpEndpoint = f"{baseUrl}/builds/api_export/api-1.70123.666-test-s.json"
     r = requests.get(dumpEndpoint.replace("\r\n", ""))
     open(outfilePath, "wb").write(r.content)
     print(
