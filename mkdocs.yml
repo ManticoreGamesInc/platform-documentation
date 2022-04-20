@@ -216,6 +216,7 @@ nav:
           - Projectile: api/projectile.md
           - Quaternion: api/quaternion.md
           - RandomStream: api/randomstream.md
+          - Rectangle: api/rectangle.md
           - Rotation: api/rotation.md
           - Script: api/script.md
           - ScriptAsset: api/scriptasset.md

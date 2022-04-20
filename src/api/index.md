@@ -45,15 +45,15 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [MergedModel](../api/mergedmodel.md) | [NetReference](../api/netreference.md) | [NetworkContext](../api/networkcontext.md) | [Object](../api/object.md) |
 | [PartyInfo](../api/partyinfo.md) | [PhysicsObject](../api/physicsobject.md) | [Player](../api/player.md) | [PlayerSettings](../api/playersettings.md) |
 | [PlayerStart](../api/playerstart.md) | [PlayerTransferData](../api/playertransferdata.md) | [PointLight](../api/pointlight.md) | [Projectile](../api/projectile.md) |
-| [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) | [Rotation](../api/rotation.md) | [Script](../api/script.md) |
-| [ScriptAsset](../api/scriptasset.md) | [SimpleCurve](../api/simplecurve.md) | [SmartAudio](../api/smartaudio.md) | [SmartObject](../api/smartobject.md) |
-| [SpotLight](../api/spotlight.md) | [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) | [Terrain](../api/terrain.md) |
-| [Transform](../api/transform.md) | [TreadedVehicle](../api/treadedvehicle.md) | [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) |
-| [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) | [UIEventRSVPButton](../api/uieventrsvpbutton.md) | [UIImage](../api/uiimage.md) |
-| [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) | [UIRewardPointsMeter](../api/uirewardpointsmeter.md) |
-| [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) | [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) |
-| [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) | [Vfx](../api/vfx.md) | [VoiceChatChannel](../api/voicechatchannel.md) |
-| [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) | | |
+| [Quaternion](../api/quaternion.md) | [RandomStream](../api/randomstream.md) | [Rectangle](../api/rectangle.md) | [Rotation](../api/rotation.md) |
+| [Script](../api/script.md) | [ScriptAsset](../api/scriptasset.md) | [SimpleCurve](../api/simplecurve.md) | [SmartAudio](../api/smartaudio.md) |
+| [SmartObject](../api/smartobject.md) | [SpotLight](../api/spotlight.md) | [StaticMesh](../api/staticmesh.md) | [Task](../api/task.md) |
+| [Terrain](../api/terrain.md) | [Transform](../api/transform.md) | [TreadedVehicle](../api/treadedvehicle.md) | [Trigger](../api/trigger.md) |
+| [UIButton](../api/uibutton.md) | [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) | [UIEventRSVPButton](../api/uieventrsvpbutton.md) |
+| [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) | [UIProgressBar](../api/uiprogressbar.md) |
+| [UIRewardPointsMeter](../api/uirewardpointsmeter.md) | [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) | [Vector2](../api/vector2.md) |
+| [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) | [Vfx](../api/vfx.md) |
+| [VoiceChatChannel](../api/voicechatchannel.md) | [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) | |
 
 ## Core Lua Namespaces
 

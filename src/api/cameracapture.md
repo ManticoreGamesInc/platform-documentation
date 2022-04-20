@@ -8,15 +8,17 @@ tags:
 
 # CameraCapture
 
-CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Captures can be created using a fixed set of resolutions, and a finite number of captures are allowed at a time for each resolution. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
+CameraCapture represents an image rendered by a `Camera` to be used elsewhere in the game, for example in UI. Each camera capture instance uses a certain amount of the memory based on the resolution size. Creators are free to create whatever combination (mixed resolutions) of camera captures needed up until the budget is fully consumed. Creators may wish to explicitly release existing capture instances when they are no longer needed, so that they can create more elsewhere. A released capture is no longer valid, and should not be used thereafter.
 
-Currently, creators are limited to the following:
+The total budget is 8 megapixels (8,388,608 pixels).
 
-* Up to 256 `VERY_SMALL` captures.
-* In addition to Up to 64 `SMALL` capture.
-* In addition to Up to 16 `MEDIUM` captures.
-* In addition to Up to 4 `LARGE` captures.
-* In addition to Up to 1 `VERY_LARGE` capture.
+Below lists the total nunber of captures that can be done per resolution. Creators can mix the resolution size as long as the total budget is not above the limit of 8 megapixels.
+
+- 2048 maximum captures at `VERY_SMALL` resolution size.
+- 512 maximum captures at `SMALL` resolution size.
+- 128 maximum captures at `MEDIUM` resolution size.
+- 32 maximum captures at `LARGE` resolution size.
+- 8 maximum captures at `VERY_LARGE` resolution size.
 
 ## Properties
 
