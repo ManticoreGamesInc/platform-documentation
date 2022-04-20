@@ -103,49 +103,49 @@ nav:
           - Weapons: references/weapons.md
   - Tutorials:
       - Getting Started:
-        - Install Core: getting_started/installing_core.md
-        - Intro to the Editor: getting_started/editor_intro.md
-        - Make Your First Game:
-            - Start Here: getting_started/start.md
-            - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
-            - Create an RPG Game: tutorials/first_game_rpg.md
-            - Create a Survival Game: tutorials/survival_tutorial.md
-            - Create a CTF Game: tutorials/first_game_ctf.md
-            - Create a Battle Royale Game: tutorials/first_game_br.md
+          - Install Core: getting_started/installing_core.md
+          - Intro to the Editor: getting_started/editor_intro.md
+          - Make Your First Game:
+              - Start Here: getting_started/start.md
+              - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
+              - Create an RPG Game: tutorials/first_game_rpg.md
+              - Create a Survival Game: tutorials/survival_tutorial.md
+              - Create a CTF Game: tutorials/first_game_ctf.md
+              - Create a Battle Royale Game: tutorials/first_game_br.md
       - Tutorials:
-        - Publish a Game: getting_started/publishing.md
-        - Getting Help in Core: getting_started/core_help.md
-        - Core for Game Jams: references/global_game_jam.md
-        - Abilities: tutorials/ability_tutorial.md
-        - AI Activities: tutorials/ai_activity_tutorial.md
-        - Camera Captures: tutorials/camera_capture_basics.md
-        - Chat Commands: tutorials/chat_commands_tutorial.md
-        - Chat Hooks: tutorials/chat_tutorial.md
-        - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
-        - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
-        - Cosmetic System: tutorials/cosmetic_tutorial.md
-        - Damageable Object Basics: tutorials/damageable_object_basics.md
-        - Destructible Objects: tutorials/boss_tutorial.md
-        - Environment Art: tutorials/environment_art.md
-        - Game Events: tutorials/game_events.md
-        - Icon Generator: tutorials/icon_generator.md
-        - Creating Inventories: tutorials/creating_inventories.md
-        - Local Contexts: tutorials/localcontext.md
-        - Lua Scripting: tutorials/lua_basics_helloworld.md
-        - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
-        - Lua Scripting, Part 3: tutorials/race_timer.md
-        - Make an Obby: tutorials/obby_tutorial.md
-        - Model a Room: tutorials/scene_creation.md
-        - Modeling Basics: tutorials/modeling_basics.md
-        - Perk Systems: tutorials/perks_tutorial.md
-        - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
-        - Persistent Storage: tutorials/persistent_storage_tutorial.md
-        - Photo Booth: tutorials/photo_booth.md
-        - Producers: tutorials/producers_tutorial.md
-        - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
-        - Visual Effects: tutorials/vfx_tutorial.md
-        - Weapons & Abilities: tutorials/abilities_advanced.md
-        - Weapons: tutorials/weapons_tutorial.md
+          - Publish a Game: getting_started/publishing.md
+          - Getting Help in Core: getting_started/core_help.md
+          - Core for Game Jams: references/global_game_jam.md
+          - Abilities: tutorials/ability_tutorial.md
+          - AI Activities: tutorials/ai_activity_tutorial.md
+          - Camera Captures: tutorials/camera_capture_basics.md
+          - Chat Commands: tutorials/chat_commands_tutorial.md
+          - Chat Hooks: tutorials/chat_tutorial.md
+          - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
+          - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
+          - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - Damageable Object Basics: tutorials/damageable_object_basics.md
+          - Destructible Objects: tutorials/boss_tutorial.md
+          - Environment Art: tutorials/environment_art.md
+          - Game Events: tutorials/game_events.md
+          - Icon Generator: tutorials/icon_generator.md
+          - Creating Inventories: tutorials/creating_inventories.md
+          - Local Contexts: tutorials/localcontext.md
+          - Lua Scripting: tutorials/lua_basics_helloworld.md
+          - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
+          - Lua Scripting, Part 3: tutorials/race_timer.md
+          - Make an Obby: tutorials/obby_tutorial.md
+          - Model a Room: tutorials/scene_creation.md
+          - Modeling Basics: tutorials/modeling_basics.md
+          - Perk Systems: tutorials/perks_tutorial.md
+          - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
+          - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - Photo Booth: tutorials/photo_booth.md
+          - Producers: tutorials/producers_tutorial.md
+          - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
+          - Visual Effects: tutorials/vfx_tutorial.md
+          - Weapons & Abilities: tutorials/abilities_advanced.md
+          - Weapons: tutorials/weapons_tutorial.md
   - Core API:
       - API Index: api/index.md
       - Animations & Sockets: api/animations.md
