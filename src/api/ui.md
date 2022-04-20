@@ -42,6 +42,7 @@ The UI namespace contains a set of class functions allowing you to get informati
 | `UI.IsVoiceChatWidgetVisible()` | `boolean` | Returns whether the voice chat widget is currently visible. Note that this may return `true` when the voice chat widget is not currently displaying anything on the screen. | Client-Only |
 | `UI.SetVoiceChatWidgetVisible(boolean isVisible)` | `None` | Sets whether the voice chat widget is currently visible. | Client-Only |
 | `UI.FindControlAtPosition(Vector2 screenPosition)` | [`UIControl`](uicontrol.md) | Looks for a hittable UI control at the given screen position. Returns the top-most control if found. Returns `nil` if no hittable control was found at the specified position. | Client-Only |
+| `UI.GetSafeArea()` | [`Rectangle`](rectangle.md) | Returns a rectangle in screen space indicating an area on screen that is not obscured by elements such as the notch on a mobile phone. | Client-Only |
 
 ## Events
 
