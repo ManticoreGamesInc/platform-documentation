@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you will create an ability that can be picked up in the world, and when activated, the player will wave. You will be using Core Content components that can be place in the Hierarchy, so no Lua knowledge is needed.
+In this tutorial you will create an ability that can be picked up in the world, and when activated, the player will wave. You will be using Core Content components that can be placed in the Hierarchy, so no Lua knowledge is needed.
 
 * **Completion Time:** 10 minutes
 * **Knowledge Level:** No prior knowledge required
@@ -60,16 +60,16 @@ Open up the **Bindings Manager** window from the Window menu, or by double click
 
 ### Add Binding
 
-From the **Bindings Window**, click on the **Add Bindings** button and add a new **Basic Binding** to the binding set.
+From the **Bindings Window**, click on the **Add Binding** button and add a new **Basic Binding** to the binding set.
 
 1. In the **Action** field, enter `Wave`.
-2. From the **Keyboard Primary** drop down, select the **1** key.
+2. From the **Keyboard Primary** drop down, select the ++1++ key.
 
 ![!Add Binding](../img/AbilityTutorial/add_binding.png){: .center loading="lazy" }
 
 ## Create Ability
 
-An Ability will handle playing the waving animation when the player presses the **1** key, which is tied to the **Wave** action in the Binding Set.
+An Ability will handle playing the waving animation when the player presses the ++1++ key, which is tied to the **Wave** action in the Binding Set.
 
 1. Find the **Ability** object In **Gameplay Objects** in the **GAME OBJECTS** category of the **Project Content** tab.
 2. Add the Ability object as a child of the **Equipment** object in the **Hierarchy**.
@@ -79,7 +79,7 @@ An Ability will handle playing the waving animation when the player presses the 
 
 ### Set Ability Properties
 
-There are some properties on the ability that need to be set. One of those is the **Action Name** that is used to trigger the ability. In this case the binding is set to **1** with an action name of **Wave**.
+There are some properties on the ability that need to be set. One of those is the **Action Name** that is used to trigger the ability. In this case the binding is set to ++1++ with an action name of **Wave**.
 
 Abilities have a lot of other properties that can be changed to customize how the ability behaves. For example, the cooldown of the ability could be made shorter or longer.
 
@@ -96,13 +96,13 @@ Having some UI (User Interface) that displays on screen for players can be usefu
 2. Right-click on the object in the **Hierarchy** and select **Deinstance Template**.
 3. Inside the object, open up the **Abilities Container** and delete one of the **Ability Display Panel** objects.
 4. Click on the other **Ability Display Panel** and in the Properties window, set the **ActionName** property to `Wave`.
-5. Feel free to adjust the **Icon** for the ability by open up the group and change the image for the **Icon** object.
+5. Feel free to adjust the **Icon** for the ability by opening up the group and changing the image for the **Icon** object.
 
 ![!Display](../img/AbilityTutorial/display.png){: .center loading="lazy" }
 
 ## Test the Game
 
-Test the game to make sure the equipment can be picked up and pressing the key **1** activates the ability and makes the player character wave.
+Test the game to make sure the equipment can be picked up and pressing the key ++1++ activates the ability and makes the player character wave.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
