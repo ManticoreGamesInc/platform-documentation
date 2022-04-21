@@ -94,7 +94,7 @@ The biggest advantage of using the client context is that **objects in a client 
 
 The other advantage of the client context is that **objects can look different to different players**. This makes them ideal for setting up things that look different depending on who is looking, like **User Interface** elements that show individual player data.
 
-Any objects in a client context cannot be collided with by players or targetted so they can also be used to simplify collision calculations. Instead of allowing collision with an intricate object, and place it into a client context, and then create an invisible cube (or other simple shape) to handle the actual collision.
+Any objects in a client context cannot be collided with by players or targetted so they can also be used to simplify collision calculations. Instead of allowing collision with an intricate object, place it into a client context, and then create an invisible cube (or other simple shape) to handle the actual collision.
 
 Scripts inside of a client context will run on the client side,but can only affect things that are in the client context. So a client context script cannot move an object in the default context, for example, even if that object were networked.
 
