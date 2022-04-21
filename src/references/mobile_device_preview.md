@@ -72,7 +72,7 @@ The default mobile UI has controls that give a player quick access to things suc
 | -------------- | ----------- |
 | ![Core Menu](../img/MobileDevicePreview/UI/Core.png) | Minimizes the current game and brings up the Core game browser. |
 | ![Player Emotes](../img/MobileDevicePreview/UI/Emotes.png) | Opens the emote window for the player to select an emote to play. |
-| ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. Will not sure if mounts are disabled for the game. |
+| ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. Will not show if mounts are disabled for the game. |
 | ![Settings](../img/MobileDevicePreview/UI/Settings.png) | Opens up the settings window for the player. |
 
 ## Performance Limits
