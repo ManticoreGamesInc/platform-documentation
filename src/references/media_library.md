@@ -14,32 +14,33 @@ The **Media Library** in Core allows creators to upload content to their account
 
 Content that can be uploaded such as images support JPEG, JPG, and PNG, along with support for transparency.
 
-Creators have a maximum total storage of 104 MB per account.
+Creators have a maximum total storage of 104 MB per account, and each file uploaded can be up to 5 MB in size with no resolution restrictions.
 
-### Opening the Media Library
+## Opening the Media Library
 
 The Media Library can be opened by selecting **Media Library** from the **Window** menu. From this window creators can view, rename, and delete content they have uploaded to their account.
 
-Opening the Media Library window in different projects will show that creator's content.
+The Medial Library will show all content uploaded by the creator. The uploaded content is tied to the creators account, not to a project. This gives creators flexibility with using content from the Media library in any of their projects.
 
 The Media Library will show how much space the creator has left at the bottom of the window. The amount of space available is per creator account.
 
 ![!Media Library](../img/MediaLibrary/media_library.png){: .center loading="lazy" }
 
-### Uploading Content
+## Uploading Content
 
 Creators can upload JPEG, JPG, and PNG files to the Media Library by clicking on the **Upload Image** button. When the **Upload Image** button is clicked on, a file dialog will appear where creators can browse for the image they want to upload to their library.
 
 After the selected image has been uploaded, it will appear in the library where you can view, rename, or delete it. On the right side of the Media Library, information about the image will be displayed.
 
-!!! tip "The maximum file size is 5 MB at any resolution size."
+!!! warning "Community Content / Shared Projects"
+    Because the content in the Media Library is tied to a creators account, it is currently not possible to share templates or projects using Media Library content from creators.
 
 ![Uploading](../img/MediaLibrary/uploading.png)
 ![Uploaded Image](../img/MediaLibrary/uploaded_image.png)
 _File Dialog Browser (left) - Uploaded Image (right)_
 {: .image-cluster}
 
-### Creating Image Assets
+## Creating Image Assets
 
 Creating an image asset can be done from the Media Library by clicking on an existing image and then clicking the **Create Image Asset**. Creators can also right-click on the image and select **Create Asset**.
 
@@ -55,13 +56,13 @@ Notice how the content in the image below is named according to what they are wh
 
 ![!Rename Image](../img/MediaLibrary/rename.png){: .center loading="lazy" }
 
-### Deleting Content
+## Deleting Content
 
 Deleting images from the Media Library can be done by right-clicking on the image and selecting **Delete**, or from the preview panel in the Media Library. Deleting an image will delete it from the Media Library, and brushes that have been created using that image in any of the creators projects will show up as white in the game as the image will no longer be valid.
 
 ![!Delete Image](../img/MediaLibrary/delete.png){: .center loading="lazy" }
 
-### My Brushes
+## My Brushes
 
 All assets created from the Media Library can be found in **My Brushes** in the **Project Content** window. These brushes can be used in the UI by dragging them in to the preview window or Hierarchy.
 
@@ -69,7 +70,7 @@ If a brush is not added to an existing UI Container, then one will be created au
 
 ![!Add Brush](../img/MediaLibrary/add_brush.png){: .center loading="lazy" }
 
-#### Retaining Aspect Ratio
+### Retaining Aspect Ratio
 
 Creators may notice that brushes which get added to the **Hierarchy** do not maintain the original aspect ratio of the image. By enabling the option **Retain Aspect Ratio** in the Properties window of the UI Image, the aspect ratio will be retained regardless of its given dimensions.
 
@@ -77,7 +78,7 @@ In the image below, the left UI Image does not have **Retain Aspect Ratio** enab
 
 ![!Ratio](../img/MediaLibrary/ratio.png){: .center loading="lazy" }
 
-#### Brush Picker
+### Brush Picker
 
 The **Brush Picker** window will allow creators to find Core Base Brushes and their own brushes quickly when needing to swap out an existing brush. The Core Base Brushes can be filtered by selecting a type from the filter drop down.
 
