@@ -33,7 +33,7 @@ During preview mode, mouse, keyboard, touch, and controller input will change ba
 
 #### Device frame
 
-When enabling the **Device Frame** option, the preview area will disable the device frame. In addition to simulating the dimensions of mobile devices, it will also reflect the notch on the display if supported by the device selected.
+When enabling the **Device Frame** option, the preview area will display the device frame. In addition to simulating the dimensions of mobile devices, it will also reflect the notch on the display if supported by the device selected.
 
 ![Device Frame](../img/MobileDevicePreview/withframe.png)
 ![Device Frame](../img/MobileDevicePreview/noframe.png)
@@ -72,7 +72,7 @@ The default mobile UI has controls that give a player quick access to things suc
 | -------------- | ----------- |
 | ![Core Menu](../img/MobileDevicePreview/UI/Core.png) | Minimizes the current game and brings up the Core game browser. |
 | ![Player Emotes](../img/MobileDevicePreview/UI/Emotes.png) | Opens the emote window for the player to select an emote to play. |
-| ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. |
+| ![Player Mounts](../img/MobileDevicePreview/UI/Mounts.png) | Opens the mount window for the player to select a mount to ride. Will not show if mounts are disabled for the game. |
 | ![Settings](../img/MobileDevicePreview/UI/Settings.png) | Opens up the settings window for the player. |
 
 ## Performance Limits
