@@ -87,3 +87,7 @@ exceptions:
   - ADMIN
   - RTS
   - META
+  - PNJ
+  - HUD
+  - ZERO
+  - NONE
