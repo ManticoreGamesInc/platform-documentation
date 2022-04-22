@@ -105,7 +105,7 @@ The ribbon will display at the top of the panel.
 
 The close image will display at the top right of the panel and would allow the player to close the UI.
 
-!!! info "Interactable UI",
+!!! info "Interactable UI"
     The focus of this tutorial is not making the UI elements interactable (for example, a button to purchase an item). Brushes can not be used on UI components such as UI Buttons, but can be children of the button and a Lua script can be created to handle the button states (for example, hover and unhover) to change the image.
 
 1. Select the **Close** brush in **My Brushes** and add it to the **Hierarchy**.
