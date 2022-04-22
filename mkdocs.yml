@@ -270,7 +270,6 @@ nav:
           - Overview: api/farming_framework/index.md
           - Namespaces:
               - ActiveCoreObjects: api/farming_framework/activecoreobjects.md
-              - ActiveCoreObjects: api/farming_framework/activecoreobjects.md
               - AreaLoaders: api/farming_framework/arealoaders.md
               - Areas: api/farming_framework/areas.md
               - Buffs: api/farming_framework/buffs.md
