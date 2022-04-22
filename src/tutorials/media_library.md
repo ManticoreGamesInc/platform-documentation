@@ -5,7 +5,7 @@ title: Uploading Images
 tags:
     - Tutorial
 ---
-
+<!-- vale Manticore.FirstPerson = NO -->
 # Uploading Images using the Media Library
 
 ![!Preview](../img/MediaLibraryTutorial/preview.png){: .center loading="lazy" }
@@ -19,7 +19,7 @@ Being able to upload images allows you to create UI (User Interface) that is uni
 The focus of this tutorial will be the Media Library and creating brushes from images you have uploaded to the Media Library. Interactive functionality will not be covered, for example, making buttons the player can click on.
 
 * **Completion Time:** ~20 minutes
-* **Knowledge Level:** No previous knowledge needed.
+* **Knowledge Level:** No previous knowledge.
 * **Skills you will learn:**
     * Where to find the Media Library.
     * How to upload images to the Media Library.
@@ -121,19 +121,19 @@ The close image will display at the top right of the panel and would allow the p
 
 The item panel will contain the components for the item that players could purchase. This panel will not retain the aspect ratio, as this needs to be a specific width and height.
 
-After you have created all the components of the item panel, you can duplicate it and move it down by setting the **Y Offset** property. Repeat this for how many items you want to display in the UI. In this tutorial we will be doing 4.
+After you have created all the components of the item panel, you can duplicate it and move it down by setting the **Y Offset** property. Repeat this for how many items you want to display in the UI. In this tutorial, we will be doing 4 items.
 
 1. Select the **Item Panel** brush in **My Brushes** and add it to the **Hierarchy**.
 2. Rename the **UI Image** in the **Hierarchy** to `Item Panel`.
-4. Set the **Y Offset** property to `100`.
-5. Set the **Width** property to `560` and **Height** to `125`.
-6. Set the **Dock** and **Anchor** property **Top Center**.
+3. Set the **Y Offset** property to `100`.
+4. Set the **Width** property to `560` and **Height** to `125`.
+5. Set the **Dock** and **Anchor** property **Top Center**.
 
 ![!Close](../img/MediaLibraryTutorial/create_close.png){: .center loading="lazy" }
 
 #### Create Item Icon
 
-The item icon will represent that item the player would receive when the item is purchased.
+The item icon will represent the item the player would receive when the item is purchased.
 
 1. Add a UI Image as a child of the **Item Panel** and rename it to `Icon`.
 2. Set the **X Offset** property to `18`.
@@ -202,7 +202,7 @@ The Coins brush will create a UI image that gives you an area where the player's
 
 #### Create Total Coins Text
 
-The coins image has an area on it where the player's total coins can go.
+The coin's image has an area on it where the player's total coins can go.
 
 1. Create a UI Text object called `Player Coins` that is a child of the **Player Coins** image.
 2. Set the **X Offset** property to `100` and the **Y Offset** to `6`.
