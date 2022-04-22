@@ -27,6 +27,48 @@ The Environment namespace contains a set of functions for determining where a sc
 
 Example using:
 
+### `GetDetailLevel`
+
+In this example, we implement an `Explosion()` function that can be called as a result of some gameplay moment. However, the explosion effects may be too expensive on low-end devices. To solve this, we provide two alternative VFX templates. At runtime we decide which of the two to spawn, based on the player's chosen level of detail.
+
+```lua
+local FULL_VFX_TEMPLATE = script:GetCustomProperty("FullVFX")
+local BASIC_VFX_TEMPLATE = script:GetCustomProperty("BasicVFX")
+
+function Explosion(epicenter, radius, damageAmount)
+    -- An optimization because .sizeSquared is faster than .size
+    local radiusSquared = radius * radius
+    
+    -- Deal damage in the area
+    local damageables = World.FindObjectsByType("Damageable")
+    local dmg = Damage.New(damageAmount)
+    
+    for _,obj in ipairs(damageables) do
+        local deltaPos = epicenter - obj:GetWorldPosition()
+        if deltaPos.sizeSquared <= radiusSquared then
+            obj:ApplyDamage(dmg)
+        end
+    end
+    
+    -- Spawn visual effects
+    local detailLevel = Environment.GetDetailLevel()
+    
+    if detailLevel > DetailLevel.LOW then
+        -- High-quality effects
+        World.SpawnAsset(FULL_VFX_TEMPLATE, {position = epicenter})
+    else
+        -- Basic effects, for low-end devices
+        World.SpawnAsset(BASIC_VFX_TEMPLATE, {position = epicenter})
+    end
+end
+```
+
+See also: [World.FindObjectsByType](world.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Damage.New](damage.md) | [Vector3.sizeSquared](vector3.md)
+
+---
+
+Example using:
+
 ### `IsServer`
 
 ### `IsClient`
