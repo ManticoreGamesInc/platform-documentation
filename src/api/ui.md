@@ -280,6 +280,40 @@ See also: [Input.GetCursorPosition](input.md) | [HitResult.other](hitresult.md) 
 
 Example using:
 
+### `GetSafeArea`
+
+Some devices (such as mobile phones) may have regions at the edges of their screen where interactive elements should not be placed. While this can be handled automatically by the `UI Container` object, some advanced projects may need to incorporate these limits into their logic. In this example we measure the screen's safe space (which excludes the restricted areas) and compare that to the screen size. With this knowledge, we can figure out what side of the screen has such "unsafe" zones. Perhaps it could be both sides, or neither side. This can be simulated in preview mode with options provided in the editor (next to play button).
+
+```lua
+-- Rectangular bounds of the screen's safe area
+local rectangle = UI.GetSafeArea()
+print(tostring(rectangle))
+
+-- Total screen size
+local screenSize = UI.GetScreenSize()
+print(tostring(screenSize))
+
+-- Compare the two to figure out if there are "unsafe" areas
+local notchWidth = nil
+if rectangle.left > 0 then
+    notchWidth = rectangle.left
+    print("Notch area of " .. notchWidth .. " on LEFT side.")
+end
+if rectangle.right < screenSize.x then
+    notchWidth = screenSize.x - rectangle.right
+    print("Notch area of " .. notchWidth .. " on RIGHT side.")
+end
+if not notchWidth then
+    print("The whole screen is safe!")
+end
+```
+
+See also: [UIContainer.useSafeArea](uicontainer.md) | [Rectangle.left](rectangle.md) | [Vector2.x](vector2.md)
+
+---
+
+Example using:
+
 ### `GetScreenPosition`
 
 The `GetScreenPosition` method is a powerful function that does a lot of behind the scenes math to convert any 3D point in the game world into a 2D screen coordinate. This script will use the `GetScreenPosition` method to cause a UI Text object to jump to different players and follow each player for 2 second intervals.

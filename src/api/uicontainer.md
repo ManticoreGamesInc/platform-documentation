@@ -248,6 +248,40 @@ See also: [Events.Broadcast](events.md) | [CoreMath.Clamp](coremath.md)
 
 ---
 
+Example using:
+
+### `useSafeArea`
+
+Some devices (such as mobile phones) may have regions at the edges of their screen where interactive elements should not be placed. While this can be handled automatically by the `UI Container` object, some advanced projects may need to incorporate these limits into their logic. In this example we figure out if the container cares about using the safe area and, if so, where is the "unsafe" area and how wide is it. This can be simulated in preview mode with options provided in the editor (next to play button).
+
+```lua
+local UI_CONTAINER = script.parent
+local notchWidth = nil
+
+if UI_CONTAINER.useSafeArea then
+    local safeArea = UI.GetSafeArea()
+    local screenSize = UI.GetScreenSize()
+    
+    if safeArea.left > 0 then
+        notchWidth = safeArea.left
+        print("UI Container is using safe zone.")
+        print("There is a notch of " .. notchWidth .. " on the LEFT side.")
+    end
+    if safeArea.right < screenSize.x then
+        notchWidth = screenSize.x - safeArea.right
+        print("UI is using safe zone.")
+        print("There is a notch of " .. notchWidth .. " on the RIGHT side.")
+    end
+end
+if not notchWidth then
+    print("The whole screen is safe for UI =)")
+end
+```
+
+See also: [UI.GetSafeArea](ui.md) | [Rectangle.left](rectangle.md)
+
+---
+
 ## Tutorials
 
 [UI in Core](../references/ui.md)
