@@ -103,49 +103,49 @@ nav:
           - Weapons: references/weapons.md
   - Tutorials:
       - Getting Started:
-        - Install Core: getting_started/installing_core.md
-        - Intro to the Editor: getting_started/editor_intro.md
-        - Make Your First Game:
-            - Start Here: getting_started/start.md
-            - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
-            - Create an RPG Game: tutorials/first_game_rpg.md
-            - Create a Survival Game: tutorials/survival_tutorial.md
-            - Create a CTF Game: tutorials/first_game_ctf.md
-            - Create a Battle Royale Game: tutorials/first_game_br.md
+          - Install Core: getting_started/installing_core.md
+          - Intro to the Editor: getting_started/editor_intro.md
+          - Make Your First Game:
+              - Start Here: getting_started/start.md
+              - Create a Shooter Game: getting_started/my_first_multiplayer_game.md
+              - Create an RPG Game: tutorials/first_game_rpg.md
+              - Create a Survival Game: tutorials/survival_tutorial.md
+              - Create a CTF Game: tutorials/first_game_ctf.md
+              - Create a Battle Royale Game: tutorials/first_game_br.md
       - Tutorials:
-        - Publish a Game: getting_started/publishing.md
-        - Getting Help in Core: getting_started/core_help.md
-        - Core for Game Jams: references/global_game_jam.md
-        - Abilities: tutorials/ability_tutorial.md
-        - AI Activities: tutorials/ai_activity_tutorial.md
-        - Camera Captures: tutorials/camera_capture_basics.md
-        - Chat Commands: tutorials/chat_commands_tutorial.md
-        - Chat Hooks: tutorials/chat_tutorial.md
-        - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
-        - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
-        - Cosmetic System: tutorials/cosmetic_tutorial.md
-        - Damageable Object Basics: tutorials/damageable_object_basics.md
-        - Destructible Objects: tutorials/boss_tutorial.md
-        - Environment Art: tutorials/environment_art.md
-        - Game Events: tutorials/game_events.md
-        - Icon Generator: tutorials/icon_generator.md
-        - Creating Inventories: tutorials/creating_inventories.md
-        - Local Contexts: tutorials/localcontext.md
-        - Lua Scripting: tutorials/lua_basics_helloworld.md
-        - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
-        - Lua Scripting, Part 3: tutorials/race_timer.md
-        - Make an Obby: tutorials/obby_tutorial.md
-        - Model a Room: tutorials/scene_creation.md
-        - Modeling Basics: tutorials/modeling_basics.md
-        - Perk Systems: tutorials/perks_tutorial.md
-        - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
-        - Persistent Storage: tutorials/persistent_storage_tutorial.md
-        - Photo Booth: tutorials/photo_booth.md
-        - Producers: tutorials/producers_tutorial.md
-        - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
-        - Visual Effects: tutorials/vfx_tutorial.md
-        - Weapons & Abilities: tutorials/abilities_advanced.md
-        - Weapons: tutorials/weapons_tutorial.md
+          - Publish a Game: getting_started/publishing.md
+          - Getting Help in Core: getting_started/core_help.md
+          - Core for Game Jams: references/global_game_jam.md
+          - Abilities: tutorials/ability_tutorial.md
+          - AI Activities: tutorials/ai_activity_tutorial.md
+          - Camera Captures: tutorials/camera_capture_basics.md
+          - Chat Commands: tutorials/chat_commands_tutorial.md
+          - Chat Hooks: tutorials/chat_tutorial.md
+          - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
+          - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
+          - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - Damageable Object Basics: tutorials/damageable_object_basics.md
+          - Destructible Objects: tutorials/boss_tutorial.md
+          - Environment Art: tutorials/environment_art.md
+          - Game Events: tutorials/game_events.md
+          - Icon Generator: tutorials/icon_generator.md
+          - Creating Inventories: tutorials/creating_inventories.md
+          - Local Contexts: tutorials/localcontext.md
+          - Lua Scripting: tutorials/lua_basics_helloworld.md
+          - Lua Scripting, Part 2: tutorials/lua_basics_lightbulb.md
+          - Lua Scripting, Part 3: tutorials/race_timer.md
+          - Make an Obby: tutorials/obby_tutorial.md
+          - Model a Room: tutorials/scene_creation.md
+          - Modeling Basics: tutorials/modeling_basics.md
+          - Perk Systems: tutorials/perks_tutorial.md
+          - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
+          - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - Photo Booth: tutorials/photo_booth.md
+          - Producers: tutorials/producers_tutorial.md
+          - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
+          - Visual Effects: tutorials/vfx_tutorial.md
+          - Weapons & Abilities: tutorials/abilities_advanced.md
+          - Weapons: tutorials/weapons_tutorial.md
   - Core API:
       - API Index: api/index.md
       - Animations & Sockets: api/animations.md
@@ -266,43 +266,43 @@ nav:
           - UI: api/ui.md
           - VoiceChat: api/voicechat.md
           - World: api/world.md
-  - Farming API (Tmp):
-    - API Index: farming-framework-api/index.md
-    - Namespaces:
-      - ActiveCoreObjects: farming-framework-api/activecoreobjects.md
-      - ActiveCoreObjects: farming-framework-api/activecoreobjects.md
-      - AreaLoaders: farming-framework-api/arealoaders.md
-      - Areas: farming-framework-api/areas.md
-      - Buffs: farming-framework-api/buffs.md
-      - CameraDirectionInteractionModule: farming-framework-api/cameradirectioninteractionmodule.md
-      - CoreHierarchyReplicator: farming-framework-api/corehierarchyreplicator.md
-      - Crafting: farming-framework-api/crafting.md
-      - Currency: farming-framework-api/currency.md
-      - CursorInteractionModule: farming-framework-api/cursorinteractionmodule.md
-      - Database: farming-framework-api/database.md
-      - DataMigration: farming-framework-api/datamigration.md
-      - Drops: farming-framework-api/drops.md
-      - Equipment: farming-framework-api/equipment.md
-      - Gatherables: farming-framework-api/gatherables.md
-      - IconManager: farming-framework-api/iconmanager.md
-      - InteractionManager: farming-framework-api/interactionmanager.md
-      - Inventory: farming-framework-api/inventory.md
-      - ItemPickups: farming-framework-api/itempickups.md
-      - LookInteractionModule: farming-framework-api/lookinteractionmodule.md
-      - Placeables: farming-framework-api/placeables.md
-      - PlacementAreas: farming-framework-api/placementareas.md
-      - PlayerLots: farming-framework-api/playerlots.md
-      - PlayerUpgrades: farming-framework-api/playerupgrades.md
-      - PointerInteractionModule: farming-framework-api/pointerinteractionmodule.md
-      - ProducerBases: farming-framework-api/producerbases.md
-      - Purchasing: farming-framework-api/purchasing.md
-      - ReliableEvents: farming-framework-api/reliableevents.md
-      - SpawnPoints: farming-framework-api/spawnpoints.md
-      - Spectator: farming-framework-api/spectator.md
-      - Tags: farming-framework-api/tags.md
-      - Tooltiip: farming-framework-api/tooltiip.md
-      - TriggerInteractionModule: farming-framework-api/triggerinteractionmodule.md
-      - UILibrary: farming-framework-api/uilibrary.md
+      - Farming Framework:
+          - Overview: api/farming_framework/index.md
+          - Namespaces:
+              - ActiveCoreObjects: api/farming_framework/activecoreobjects.md
+              - ActiveCoreObjects: api/farming_framework/activecoreobjects.md
+              - AreaLoaders: api/farming_framework/arealoaders.md
+              - Areas: api/farming_framework/areas.md
+              - Buffs: api/farming_framework/buffs.md
+              - CameraDirectionInteractionModule: api/farming_framework/cameradirectioninteractionmodule.md
+              - CoreHierarchyReplicator: api/farming_framework/corehierarchyreplicator.md
+              - Crafting: api/farming_framework/crafting.md
+              - Currency: api/farming_framework/currency.md
+              - CursorInteractionModule: api/farming_framework/cursorinteractionmodule.md
+              - Database: api/farming_framework/database.md
+              - DataMigration: api/farming_framework/datamigration.md
+              - Drops: api/farming_framework/drops.md
+              - Equipment: api/farming_framework/equipment.md
+              - Gatherables: api/farming_framework/gatherables.md
+              - IconManager: api/farming_framework/iconmanager.md
+              - InteractionManager: api/farming_framework/interactionmanager.md
+              - Inventory: api/farming_framework/inventory.md
+              - ItemPickups: api/farming_framework/itempickups.md
+              - LookInteractionModule: api/farming_framework/lookinteractionmodule.md
+              - Placeables: api/farming_framework/placeables.md
+              - PlacementAreas: api/farming_framework/placementareas.md
+              - PlayerLots: api/farming_framework/playerlots.md
+              - PlayerUpgrades: api/farming_framework/playerupgrades.md
+              - PointerInteractionModule: api/farming_framework/pointerinteractionmodule.md
+              - ProducerBases: api/farming_framework/producerbases.md
+              - Purchasing: api/farming_framework/purchasing.md
+              - ReliableEvents: api/farming_framework/reliableevents.md
+              - SpawnPoints: api/farming_framework/spawnpoints.md
+              - Spectator: api/farming_framework/spectator.md
+              - Tags: api/farming_framework/tags.md
+              - Tooltiip: api/farming_framework/tooltiip.md
+              - TriggerInteractionModule: api/farming_framework/triggerinteractionmodule.md
+              - UILibrary: api/farming_framework/uilibrary.md
   - Core Academy:
       - Academy: https://learn.coregames.com
   - Forums:
