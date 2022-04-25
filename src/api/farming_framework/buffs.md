@@ -26,15 +26,15 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `BuffAdded` | `Event<targetId, buffId>` | Sent when a Buff is added to a target. This will be sent even if the Buff is immediately removed. | Client |
-| `BuffChanged` | `Event<targetId, buffId>` | Sent when a Buff changes. This will be sent periodically, usually when other state changes. | Client |
-| `BuffFinished` | `Event<targetId, buffId>` | Sent when a timed Buff finishes. | Client |
-| `BuffRelinked` | `Event<targetId, buffId>` | Sent when a Buff is linked to another object. | Client |
-| `BuffRemoved` | `Event<targetId, buffId>` | Sent when a Buff is removed. | Client |
-| `HandleBuffs` | `Event<None>` | Make all the things with buffs on them apply the buff, which will add buffs recursively. | Client |
-| `PrepareLinkedBuffs` | `Event<targetId>` | Sent prior to APIBuffs.Events.HandleBuffs and before all Buffs are linked. | Client |
-| `TargetRegistered` | `Event<targetId>` | Sent when a Buff target is registered with the system. | Client |
-| `TargetUnregistered` | `Event<targetId>` | Sent when a Buff target is unregistered from the system. | Client |
+| `BuffAdded` | `Event`<`targetId`, `buffId`> | Sent when a Buff is added to a target. This will be sent even if the Buff is immediately removed. | Client |
+| `BuffChanged` | `Event`<`targetId`, `buffId`> | Sent when a Buff changes. This will be sent periodically, usually when other state changes. | Client |
+| `BuffFinished` | `Event`<`targetId`, `buffId`> | Sent when a timed Buff finishes. | Client |
+| `BuffRelinked` | `Event`<`targetId`, `buffId`> | Sent when a Buff is linked to another object. | Client |
+| `BuffRemoved` | `Event`<`targetId`, `buffId`> | Sent when a Buff is removed. | Client |
+| `HandleBuffs` | `Event`<None> | Make all the things with buffs on them apply the buff, which will add buffs recursively. | Client |
+| `PrepareLinkedBuffs` | `Event`<`targetId`> | Sent prior to APIBuffs.Events.HandleBuffs and before all Buffs are linked. | Client |
+| `TargetRegistered` | `Event`<`targetId`> | Sent when a Buff target is registered with the system. | Client |
+| `TargetUnregistered` | `Event`<`targetId`> | Sent when a Buff target is unregistered from the system. | Client |
 
 ## Functions
 

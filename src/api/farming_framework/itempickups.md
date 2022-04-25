@@ -10,11 +10,11 @@ title: Item Pickups
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `DropItem` | `Event<integer, CoreObject, Vector3, Vector3, string, integer, integer, boolean, boolean, integer>` |  | None |
-| `DropItems` | `Event<Player, integer, CoreObject, Vector3, float, PickupData, boolean, boolean, integer>` |  | None |
-| `PickupItems` | `Event<Player, integer, boolean>` |  | None |
-| `RemoveItemPickups` | `Event<Player, integer[]>` |  | None |
-| `ItemPickupCollected` | `Event<Player, string, string, integer, integer>` |  | None |
+| `DropItem` | `Event`<integer, CoreObject, Vector3, Vector3, string, integer, integer, boolean, boolean, integer> |  | None |
+| `DropItems` | `Event`<Player, integer, CoreObject, Vector3, float, PickupData, boolean, boolean, integer> |  | None |
+| `PickupItems` | `Event`<Player, integer, boolean> |  | None |
+| `RemoveItemPickups` | `Event`<Player, integer[]> |  | None |
+| `ItemPickupCollected` | `Event`<Player, string, string, integer, integer> |  | None |
 
 ## Functions
 

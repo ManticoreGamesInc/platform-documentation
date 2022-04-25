@@ -15,13 +15,13 @@ For example, a Currency could be used to track the scores in a game.
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `CurrencyAdded` | `Event<[Player](../api/player.md), currencyId, amountAdded>` | Sent each time an amount is added to a Currency for a Player. This event sends on the server as well as the | Server |
-| `CurrencyLoaded` | `Event<[Player](../api/player.md), currencyId>` | Sent when a Currency is loaded on both server and the client for the Player that loaded the Currency. | Server |
-| `CurrencyRegistered` | `Event<currencyId>` | Sent when a Currency is registered on the server. | Server |
-| `CurrencyRemoved` | `Event<[Player](../api/player.md), currencyId, amountRemoved>` | Sent each time an amount is removed from a Currency for a Player. This event sends on the server as well as | Server |
-| `CurrencySaved` | `Event<[Player](../api/player.md), currencyId>` | Sent on the server each time a Currency for a Player is saved. | Server |
-| `CurrencySet` | `Event<[Player](../api/player.md), currencyId, amountSet>` | Sent each time a Currency is set to a specific amount for a Player. This event sends on the server as well as | Server |
-| `CurrencyUnregistered` | `Event<currencyId>` | Sent when a Currency is unregistered on the server. | Server |
+| `CurrencyAdded` | `Event`<[`Player`](../api/player.md), `currencyId`, `amountAdded`> | Sent each time an amount is added to a Currency for a Player. This event sends on the server as well as the | Server |
+| `CurrencyLoaded` | `Event`<[`Player`](../api/player.md), `currencyId`> | Sent when a Currency is loaded on both server and the client for the Player that loaded the Currency. | Server |
+| `CurrencyRegistered` | `Event`<`currencyId`> | Sent when a Currency is registered on the server. | Server |
+| `CurrencyRemoved` | `Event`<[`Player`](../api/player.md), `currencyId`, `amountRemoved`> | Sent each time an amount is removed from a Currency for a Player. This event sends on the server as well as | Server |
+| `CurrencySaved` | `Event`<[`Player`](../api/player.md), `currencyId`> | Sent on the server each time a Currency for a Player is saved. | Server |
+| `CurrencySet` | `Event`<[`Player`](../api/player.md), `currencyId`, `amountSet`> | Sent each time a Currency is set to a specific amount for a Player. This event sends on the server as well as | Server |
+| `CurrencyUnregistered` | `Event`<`currencyId`> | Sent when a Currency is unregistered on the server. | Server |
 
 ## Functions
 

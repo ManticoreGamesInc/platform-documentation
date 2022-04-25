@@ -26,20 +26,20 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `BuffAdded` | `Event<targetId, buffId>` | Sent when a Buff is added to a target. This will be sent even if the Buff is immediately removed. | Client |
-| `BuffChanged` | `Event<targetId, buffId>` | Sent when a Buff changes. This will be sent periodically, usually when other state changes. | Client |
-| `BuffFinished` | `Event<targetId, buffId>` | Sent when a timed Buff finishes. | Client |
-| `BuffRelinked` | `Event<targetId, buffId>` | Sent when a Buff is linked to another object. | Client |
-| `BuffRemoved` | `Event<targetId, buffId>` | Sent when a Buff is removed. | Client |
-| `PrepareLinkedBuffs` | `Event<targetId>` | Sent prior to APIBuffs.Events.HandleBuffs and before all Buffs are linked. | Client |
-| `ProducerCollected` | `Event<objectId, placeableId, producerId>` | Sent when a Producer is collected. | Client |
-| `ProducerExpired` | `Event<objectId, placeableId, oldProducerId>` | Sent when a Producer expires. | Client |
-| `ProducerPlaced` | `Event<objectId, placeableId, producerId>` | Sent when a Producer is placed into a Producer Base. | Client |
-| `ProducerReadyForCollect` | `Event<objectId, placeableId, producerId>` | Sent when a Producer has finished building and is ready to be collected. | Client |
-| `ProducerRemoved` | `Event<objectId, placeableId, oldProducerId>` | Sent when a Producer is removed from a Producer Base. | Client |
-| `ProducerStartedBuilding` | `Event<objectId, placeableId, producerId>` | Sent when a Producer starts building or rebuilding. | Client |
-| `TargetRegistered` | `Event<targetId>` | Sent when a Buff target is registered with the system. | Client |
-| `TargetUnregistered` | `Event<targetId>` | Sent when a Buff target is unregistered from the system. | Client |
+| `BuffAdded` | `Event`<`targetId`, `buffId`> | Sent when a Buff is added to a target. This will be sent even if the Buff is immediately removed. | Client |
+| `BuffChanged` | `Event`<`targetId`, `buffId`> | Sent when a Buff changes. This will be sent periodically, usually when other state changes. | Client |
+| `BuffFinished` | `Event`<`targetId`, `buffId`> | Sent when a timed Buff finishes. | Client |
+| `BuffRelinked` | `Event`<`targetId`, `buffId`> | Sent when a Buff is linked to another object. | Client |
+| `BuffRemoved` | `Event`<`targetId`, `buffId`> | Sent when a Buff is removed. | Client |
+| `PrepareLinkedBuffs` | `Event`<`targetId`> | Sent prior to APIBuffs.Events.HandleBuffs and before all Buffs are linked. | Client |
+| `ProducerCollected` | `Event`<`objectId`, `placeableId`, `producerId`> | Sent when a Producer is collected. | Client |
+| `ProducerExpired` | `Event`<`objectId`, `placeableId`, `oldProducerId`> | Sent when a Producer expires. | Client |
+| `ProducerPlaced` | `Event`<`objectId`, `placeableId`, `producerId`> | Sent when a Producer is placed into a Producer Base. | Client |
+| `ProducerReadyForCollect` | `Event`<`objectId`, `placeableId`, `producerId`> | Sent when a Producer has finished building and is ready to be collected. | Client |
+| `ProducerRemoved` | `Event`<`objectId`, `placeableId`, `oldProducerId`> | Sent when a Producer is removed from a Producer Base. | Client |
+| `ProducerStartedBuilding` | `Event`<`objectId`, `placeableId`, `producerId`> | Sent when a Producer starts building or rebuilding. | Client |
+| `TargetRegistered` | `Event`<`targetId`> | Sent when a Buff target is registered with the system. | Client |
+| `TargetUnregistered` | `Event`<`targetId`> | Sent when a Buff target is unregistered from the system. | Client |
 
 ## Functions
 

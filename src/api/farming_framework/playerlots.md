@@ -16,17 +16,17 @@ Lots can even be combined with Areas to let you create pools of Area/Lots that d
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `PlayerLotAssigned` | `Event<None>` |  | None |
-| `PlayerLotActive` | `Event<None>` |  | None |
-| `PlayerLotInactive` | `Event<None>` |  | None |
-| `PlayerLotReset` | `Event<None>` |  | None |
-| `PlayerLotActiveForPlayer` | `Event<None>` |  | None |
-| `PlayerLotInactiveForPlayer` | `Event<None>` |  | None |
-| `PlayerLotSaved` | `Event<None>` |  | None |
-| `PlayerLotClearSave` | `Event<None>` |  | None |
-| `SetLotOwner` | `Event<None>` |  | None |
-| `TeleportToLot` | `Event<None>` |  | None |
-| `TeleportedToLot` | `Event<None>` |  | None |
+| `PlayerLotAssigned` | `Event`<None> |  | None |
+| `PlayerLotActive` | `Event`<None> |  | None |
+| `PlayerLotInactive` | `Event`<None> |  | None |
+| `PlayerLotReset` | `Event`<None> |  | None |
+| `PlayerLotActiveForPlayer` | `Event`<None> |  | None |
+| `PlayerLotInactiveForPlayer` | `Event`<None> |  | None |
+| `PlayerLotSaved` | `Event`<None> |  | None |
+| `PlayerLotClearSave` | `Event`<None> |  | None |
+| `SetLotOwner` | `Event`<None> |  | None |
+| `TeleportToLot` | `Event`<None> |  | None |
+| `TeleportedToLot` | `Event`<None> |  | None |
 
 ## Functions
 

@@ -12,10 +12,10 @@ The **Crafting** system can be used to turn one thing into another over time. Th
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `CraftingCollected` | `Event<craftingStationId, recipeId, amount>` | Sent when a crafted Recipe is collected from a Crafting Station or Global crafting. | Client |
-| `CraftingReadyForCollect` | `Event<craftingStationId, recipeId, amount>` | Sent when a Crafting Station or Global crafting finishes crafting a Recipe. | Client |
-| `CraftingReset` | `Event<craftingStationId>` | Sent when a Crafting Station is reset. This can happen during load for Crafting Stations being used by | Server |
-| `StartedCrafting` | `Event<craftingStationId, recipeId, amount>` | Sent when a Crafting Station or Global crafting starts crafting a Recipe. | Client |
+| `CraftingCollected` | `Event`<`craftingStationId`, `recipeId`, `amount`> | Sent when a crafted Recipe is collected from a Crafting Station or Global crafting. | Client |
+| `CraftingReadyForCollect` | `Event`<`craftingStationId`, `recipeId`, `amount`> | Sent when a Crafting Station or Global crafting finishes crafting a Recipe. | Client |
+| `CraftingReset` | `Event`<`craftingStationId`> | Sent when a Crafting Station is reset. This can happen during load for Crafting Stations being used by | Server |
+| `StartedCrafting` | `Event`<`craftingStationId`, `recipeId`, `amount`> | Sent when a Crafting Station or Global crafting starts crafting a Recipe. | Client |
 
 ## Functions
 

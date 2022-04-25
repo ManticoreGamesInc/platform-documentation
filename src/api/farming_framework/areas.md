@@ -17,11 +17,11 @@ templates loaded into the client, server, static contexts, and more.
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `AreaFinishedLoading` | `Event<areaId>` | This event is sent every time an Area finishes loading. | Server |
-| `AreaFinishedUnloading` | `Event<areaId>` | This event is sent every time an Area finishes unloading. | Server |
-| `PlayerAreaChanged` | `Event<[Player](../api/player.md), areaId, lastAreaId>` | This event is sent every time a Player moves to an Area. | Server |
-| `PlayerFinishedLoadingArea` | `Event<[Player](../api/player.md)>` | This event is sent from the client to the server when a Player finishes loading an Area. | Server |
-| `TeleportToArea` | `Event<[Player](../api/player.md), areaId, areaKey, targetPosition, [targetRotation](../api/targetrotation.md), spawnPointKey>` | This event is sent from the client to the server, or server to server when a Player enters a portal or clicks | Server |
+| `AreaFinishedLoading` | `Event`<`areaId`> | This event is sent every time an Area finishes loading. | Server |
+| `AreaFinishedUnloading` | `Event`<`areaId`> | This event is sent every time an Area finishes unloading. | Server |
+| `PlayerAreaChanged` | `Event`<[`Player`](../api/player.md), `areaId`, `lastAreaId`> | This event is sent every time a Player moves to an Area. | Server |
+| `PlayerFinishedLoadingArea` | `Event`<[`Player`](../api/player.md)> | This event is sent from the client to the server when a Player finishes loading an Area. | Server |
+| `TeleportToArea` | `Event`<[`Player`](../api/player.md), `areaId`, `areaKey`, `targetPosition`, [`targetRotation`](../api/targetrotation.md), `spawnPointKey`> | This event is sent from the client to the server, or server to server when a Player enters a portal or clicks | Server |
 
 ## Functions
 

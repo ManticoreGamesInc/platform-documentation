@@ -18,19 +18,19 @@ Clicking Items that have been configured to be Equipment will optionally equip t
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `InventoryAdded` | `Event<[Player](../api/player.md), inventoryId, itemType, itemId, amountData>` | Sent each time an Item is added to an Inventory for a Player. This event sends on the server as well as the | Server |
-| `InventoryCleared` | `Event<[Player](../api/player.md), inventoryId, resetToStartingItems>` | Sent each time an Inventory is cleared for a Player. Clearing an Inventory can optionally reset it to have its | Server |
-| `InventoryLoaded` | `Event<[Player](../api/player.md), inventoryId>` | Sent when an Inventory is loaded on both server and the client for the Player that loaded the Inventory. | Server |
-| `InventoryRegistered` | `Event<inventoryId>` | Sent when an Inventory is registered on the server. Probably not super useful, but could be listened to to | Server |
-| `InventoryRemoved` | `Event<[Player](../api/player.md), inventoryId, itemType, itemId, amountData>` | Sent each time an Item is removed from an Inventory for a Player. This event sends on the server as well as | Server |
-| `InventorySaved` | `Event<[Player](../api/player.md), inventoryId>` | Sent on the server each time an Inventory for a Player is saved. | Server |
-| `InventoryTransferred` | `Event<[Player](../api/player.md), sourceInventoryId, sourceSlotIndex, targetInventoryId, targetSlotIndex>` | Sent each time an Item is moved from one slot to another in the same or to another Inventory for a Player. | Server |
-| `InventoryUnregistered` | `Event<inventoryId>` | Sent when an Inventory is unregistered on the server. | Server |
-| `SlotClicked` | `Event<[Player](../api/player.md), inventoryId, slotIndex>` | Sent from the provided InventoryScreenSlot when clicked. If a custom UI is created this Event will need to be | Client |
-| `SlotDropped` | `Event<[Player](../api/player.md), sourceInventoryId, sourceSlotIndex, dropTargetId, targetInventoryId, targetSlotIndex>` | Sent from the provided InventoryScreenSlot when dropped. If a custom UI is created this Event will need to be | Client |
-| `SlotEquipped` | `Event<inventoryId, slotIndex>` | Sent to the client of the Player that equipped the Item in their Inventory. | Client |
-| `SlotRightClicked` | `Event<[Player](../api/player.md), inventoryId, slotIndex>` | Sent from the provided InventoryScreenSlot when right-clicked. If a custom UI is created this Event will need to be | Client |
-| `SlotUnequipped` | `Event<inventoryId, slotIndex>` | Sent to the client of the Player that unequipped the Item in their Inventory. | Client |
+| `InventoryAdded` | `Event`<[`Player`](../api/player.md), `inventoryId`, `itemType`, `itemId`, `amountData`> | Sent each time an Item is added to an Inventory for a Player. This event sends on the server as well as the | Server |
+| `InventoryCleared` | `Event`<[`Player`](../api/player.md), `inventoryId`, `resetToStartingItems`> | Sent each time an Inventory is cleared for a Player. Clearing an Inventory can optionally reset it to have its | Server |
+| `InventoryLoaded` | `Event`<[`Player`](../api/player.md), `inventoryId`> | Sent when an Inventory is loaded on both server and the client for the Player that loaded the Inventory. | Server |
+| `InventoryRegistered` | `Event`<`inventoryId`> | Sent when an Inventory is registered on the server. Probably not super useful, but could be listened to to | Server |
+| `InventoryRemoved` | `Event`<[`Player`](../api/player.md), `inventoryId`, `itemType`, `itemId`, `amountData`> | Sent each time an Item is removed from an Inventory for a Player. This event sends on the server as well as | Server |
+| `InventorySaved` | `Event`<[`Player`](../api/player.md), `inventoryId`> | Sent on the server each time an Inventory for a Player is saved. | Server |
+| `InventoryTransferred` | `Event`<[`Player`](../api/player.md), `sourceInventoryId`, `sourceSlotIndex`, `targetInventoryId`, `targetSlotIndex`> | Sent each time an Item is moved from one slot to another in the same or to another Inventory for a Player. | Server |
+| `InventoryUnregistered` | `Event`<`inventoryId`> | Sent when an Inventory is unregistered on the server. | Server |
+| `SlotClicked` | `Event`<[`Player`](../api/player.md), `inventoryId`, `slotIndex`> | Sent from the provided InventoryScreenSlot when clicked. If a custom UI is created this Event will need to be | Client |
+| `SlotDropped` | `Event`<[`Player`](../api/player.md), `sourceInventoryId`, `sourceSlotIndex`, `dropTargetId`, `targetInventoryId`, `targetSlotIndex`> | Sent from the provided InventoryScreenSlot when dropped. If a custom UI is created this Event will need to be | Client |
+| `SlotEquipped` | `Event`<`inventoryId`, `slotIndex`> | Sent to the client of the Player that equipped the Item in their Inventory. | Client |
+| `SlotRightClicked` | `Event`<[`Player`](../api/player.md), `inventoryId`, `slotIndex`> | Sent from the provided InventoryScreenSlot when right-clicked. If a custom UI is created this Event will need to be | Client |
+| `SlotUnequipped` | `Event`<`inventoryId`, `slotIndex`> | Sent to the client of the Player that unequipped the Item in their Inventory. | Client |
 
 ## Functions
 

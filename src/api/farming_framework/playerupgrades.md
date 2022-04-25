@@ -10,13 +10,13 @@ title: Player Upgrades
 
 | Event Name | Return Type | Description | Tags |
 | ---------- | ----------- | ----------- | ---- |
-| `AddUpgrade` | `Event<None>` |  | None |
-| `RemoveUpgrade` | `Event<None>` |  | None |
-| `LoadUpgrades` | `Event<None>` |  | None |
-| `UpgradeAdded` | `Event<None>` |  | None |
-| `UpgradeRemoved` | `Event<None>` |  | None |
-| `UpgradeLoaded` | `Event<None>` |  | None |
-| `UpgradeSaved` | `Event<None>` |  | None |
+| `AddUpgrade` | `Event`<None> |  | None |
+| `RemoveUpgrade` | `Event`<None> |  | None |
+| `LoadUpgrades` | `Event`<None> |  | None |
+| `UpgradeAdded` | `Event`<None> |  | None |
+| `UpgradeRemoved` | `Event`<None> |  | None |
+| `UpgradeLoaded` | `Event`<None> |  | None |
+| `UpgradeSaved` | `Event`<None> |  | None |
 
 ## Functions
 
