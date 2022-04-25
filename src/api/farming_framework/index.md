@@ -1,7 +1,5 @@
 ---
-
 id: farming-framework-api
-
 name: Farming Framework API
 title: Farming Framework API
 hide:
@@ -20,7 +18,7 @@ hide:
 
 ## Overview
 
-The Farming Framework brings the power of the Producers, Buffs, and Areas to make it possible to build experiences with crops, crafting, and shops, as well as personal areas for players that can be upgraded, decorated, and expanded. It takes advantage of the Data Tables feature and even includes a system to migrate misspelled or redundant storage to a new id without losing player data!
+The Farming Framework brings the power of the Producers, Buffs, and Areas to make it possible to build experiences with crops, crafting, and shops, as well as personal areas for players that can be upgraded, decorated, and expanded. It takes advantage of the Data Tables feature and even includes a system to migrate misspelled or redundant storage to a new ID without losing player data.
 
 ## Namespaces
 
