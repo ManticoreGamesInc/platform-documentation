@@ -1,17 +1,18 @@
 ---
-id: farming-framework-api
-name: Farming Framework API
-title: Farming Framework API
+id: api
+name: Core API
+title: Core API
 hide:
     - toc
+tags:
+    - API
+    - Reference
 ---
 
 <style>
-
-.md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
+  .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
     display: none;
-}
-
+  }
 </style>
 
 # Lua Scripting API
