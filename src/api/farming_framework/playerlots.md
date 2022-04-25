@@ -6,11 +6,11 @@ title: Player Lots
 
 # Player Lots
 
-Player Lots offer a way for creators to define sections in their game that belong to individual Players. Lots can be mixed with several other systems and the main benefits they provide are ownership, permissions and persistence.
+**Player Lots** offer a way for creators to define sections in their game that belong to individual Players. Lots can be mixed with several other systems and the main benefits they provide are ownership, permissions, and persistence.
 
 A Player can "own" any number of Player Lots, and Lots can exist only while the owner is online, or stay even after they leave the game.
 
-Lots can even be combined with Areas to let you create pools of Area/Lots that dynamically load and unload as Players enter and exit them. This is used to create things like the interior of a Players house that only loads when a Player enters it.
+Lots can even be combined with Areas to let you create pools of Area/Lots that dynamically load and unload as Players enter and exit them. This is used to create things like the interior of a Player's house that only loads when a Player enters it.
 
 ## Events
 
@@ -35,16 +35,16 @@ Lots can even be combined with Areas to let you create pools of Area/Lots that d
 | `CanOwnLot(string, string, boolean)` | `boolean` | Returns true if the Player can own the Lot in question. | None |
 | `ClearPlayerLotSaveData(string)` | `None` | Clears save data for a Lot. | None |
 | `FindAvailableLots(string|nil, boolean)` | `Array<string>` | Finds all the lots that aren't 'owned' by any Players, or that are owned by offline Players. | None |
-| `FindLotByAncestors(CoreObject)` | `string` | Finds the id of the Lot this core object is contained inside. | None |
-| `FindLotForOwner(string, string|nil)` | `string` | Find the id of the first Lot for a Player that optionally matches the provided Lot type. | None |
+| `FindLotByAncestors(CoreObject)` | `string` | Finds the ID of the Lot this core object is contained inside. | None |
+| `FindLotForOwner(string, string|nil)` | `string` | Find the ID of the first Lot for a Player that optionally matches the provided Lot type. | None |
 | `FindLotReplicator(string)` | `string` | Finds the id of the first Replicator on a Lot. | None |
-| `FindLotReplicatorByIdentifier(string, string)` | `string` | Find the id of the first Replicator on a Lot that has a specific identifier. | None |
-| `FindPlayerOwnedLots(string, string|nil)` | `Array<string>` | Returns all the ids for Lots that are owned by a Player, with an optional Lot type filter. | None |
+| `FindLotReplicatorByIdentifier(string, string)` | `string` | Find the ID of the first Replicator on a Lot that has a specific identifier. | None |
+| `FindPlayerOwnedLots(string, string|nil)` | `Array<string>` | Returns all the IDs for Lots that are owned by a Player, with an optional Lot type filter. | None |
 | `GetLotReplicatorIdentifier(string, string)` | `string` | Get the identifier of a Replicator on a Lot. | None |
 | `GetLotReplicators()` | `table` | Returns all registered Player Lot Replicators. | None |
 | `GetLotRoot(string)` | `CoreObject` | Returns the root object of a Lot. | None |
 | `GetLotState(string)` | `LotState` | Returns the state for a Lot. | None |
-| `GetLots(string|nil)` | `Array<string>` | Returns a list of all Lot ids with an optional filter on Lot Type. | None |
+| `GetLots(string|nil)` | `Array<string>` | Returns a list of all Lot IDs with an optional filter on Lot Type. | None |
 | `GetOrAssignLot(string, string|nil, boolean)` | `None` | Returns an assigned Lot or assigns the Player as the owner on an available Lot. | None |
 | `GetOwner(string)` | `Player` | Returns the owner of a Player Lot. | None |
 | `IsOwnerOnly()` | `None` | None | None |

@@ -6,21 +6,21 @@ title: Placeables
 
 # Placeables
 
-The Producers system allows you to build objects that take an input, change over time and generate an output. They were designed with farming / crops in mind, but can be used for a multitude of other cases. Some ideas:
+The **Producers** system allows you to build objects that take an input, change over time and generate an output. They were designed with farming/crops in mind but can be used for a multitude of other cases. Some ideas:
 
 1. A corn plant that grows over time and produces some corn. If not harvested in time it withers and dies.
-2. A gas engine that can be filled, runs until it's empty and then stops.
+2. A gas engine that can be filled, runs until its empty and then stops.
 3. A building that takes time to become fully constructed. Once constructed it generates currency periodically.
 
-When mixed with the Buffs system these examples can become even more interesting:
+When mixed with the **Buffs** system these examples can become even more interesting:
 
 1. A corn plant that needs a "watered" buff to grow.
 2. A gas engine that, when running, emits a "power" buff that allows other Producers to progress.
 3. A building that requires the "power" buff to generate currency. While generating currency it emits a "happiness" buff that affects other gameplay.
 
-Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you wants many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
+Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you want many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
 
-Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during game play. In most cases you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
+Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during gameplay. In most cases, you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
 
 ## Events
 

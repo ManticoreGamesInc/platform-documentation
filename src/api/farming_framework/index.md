@@ -1,3 +1,4 @@
+
 ---
 id: farming-framework-api
 name: Farming Framework API
@@ -9,7 +10,9 @@ hide:
 <style>
 
 .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
+
     display: none;
+
 }
 
 </style>

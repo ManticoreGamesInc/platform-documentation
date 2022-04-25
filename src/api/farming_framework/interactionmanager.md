@@ -6,9 +6,9 @@ title: Interaction Manager
 
 # Interaction Manager
 
-The Interaction System provides creators with a way to quickly create interactive objects without any code. It is made up of a group of "Interaction Modules" and a set of "Interaction Components" that work together to manage Player input and provide interactivity.
+The **Interaction System** provides creators with a way to quickly create interactive objects without any code. It is made up of a group of "Interaction Modules" and a set of "Interaction Components" that work together to manage Player input and provide interactivity.
 
-As a creator you just need to add Interaction Components to your objects and configure them. Each Interaction Component has a field for an Interaction Module. Using this field you can quickly switch out the type of input that the object will react to. Objects can have any number of Interaction Components under them to allow for more complex interactions.
+Creators will need to add Interaction Components to your objects and configure them. Each Interaction Component has a field for an Interaction Module. Using this field you can quickly switch out the type of input that the object will react to. Objects can have any number of Interaction Components under them to allow for more complex interactions.
 
 ## Functions
 
@@ -18,7 +18,7 @@ As a creator you just need to add Interaction Components to your objects and con
 | `BeginDragOver(CoreObject, CoreObject)` | `None` | Should be called by an input module whenever a drop target is dragged over a drop target. | None |
 | `BeginHover(CoreObject, CoreObject, Vector3, Vector3)` | `None` | Begins hovering on a target in an input module. This will set the input modules current target. | None |
 | `BeginPress(CoreObject, CoreObject, string)` | `None` | Begins a press on a target in an input module. | None |
-| `Deselect(CoreObject, CoreObject, string, Player)` | `None` | Removes a target from a Players selection set in an input module. | None |
+| `Deselect(CoreObject, CoreObject, string, Player)` | `None` | Removes a target from a Player's selection set in an input module. | None |
 | `DeselectAll(CoreObject, string, Player)` | `None` | Removes all targets from a Players selection set in an input module. | None |
 | `DisableModule(CoreObject)` | `None` | Releases the current interaction target for this module and prevents any further interactions. | None |
 | `EnableModule(CoreObject)` | `None` | Reactivates an interaction module after being disabled. | None |
@@ -28,7 +28,7 @@ As a creator you just need to add Interaction Components to your objects and con
 | `EndPress(CoreObject, CoreObject, string, boolean)` | `None` | Ends a press on a target in an input module. | None |
 | `ForceBeginHover(CoreObject, Vector3, Vector3)` | `None` | Calls API.BeginHover on all modules with the target registered. | None |
 | `ForceEndHover(CoreObject)` | `None` | Calls API.EndHover on all modules with the target registered. | None |
-| `GetAllDropTargets(CoreObject)` | `table` | Returns all registered drop targets fro an input module. | None |
+| `GetAllDropTargets(CoreObject)` | `table` | Returns all registered drop targets from an input module. | None |
 | `GetAllTargets(CoreObject)` | `table` | Returns all registered targets for an input module. | None |
 | `GetCurrentDropTarget(CoreObject)` | `CoreObject` | Returns the current drop target being dragged over for an input module. | None |
 | `GetCurrentTarget(CoreObject)` | `CoreObject` | Returns the current target of an input module. | None |

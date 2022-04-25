@@ -6,21 +6,21 @@ title: Buffs
 
 # Buffs
 
-The Producers system allows you to build objects that take an input, change over time and generate an output. They were designed with farming / crops in mind, but can be used for a multitude of other cases. Some ideas:
+The **Producers** system allows you to build objects that take an input, change over time and generate an output. They were designed with farming/crops in mind but can be used for a multitude of other cases. Some ideas:
 
 1. A corn plant that grows over time and produces some corn. If not harvested in time it withers and dies.
-2. A gas engine that can be filled, runs until it's empty and then stops.
+2. A gas engine that can be filled, runs until its empty and then stops.
 3. A building that takes time to become fully constructed. Once constructed it generates currency periodically.
 
-When mixed with the Buffs system these examples can become even more interesting:
+When mixed with the **Buffs** system these examples can become even more interesting:
 
 1. A corn plant that needs a "watered" buff to grow.
 2. A gas engine that, when running, emits a "power" buff that allows other Producers to progress.
 3. A building that requires the "power" buff to generate currency. While generating currency it emits a "happiness" buff that affects other gameplay.
 
-Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you wants many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
+Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you want many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
 
-Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during game play. In most cases you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
+Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during gameplay. In most cases, you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
 
 ## Events
 
@@ -41,11 +41,11 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 | Class Function Name | Return Type | Description | Tags |
 | ------------------- | ----------- | ----------- | ---- |
 | `AddBuff(string, string, fun():number, number, BuffParams)` | `None` | Adds a buff. | None |
-| `AddBuffsInRadius(string, number, string, fun():number, number, BuffParams)` | `None` | Adds a buff to targets in a radius from the source target Id. | None |
+| `AddBuffsInRadius(string, number, string, fun():number, number, BuffParams)` | `None` | Adds a buff to targets in a radius from the source target ID. | None |
 | `AddTargetRecieveBuff()` | `None` | None | None |
 | `ClearTargetRecieveBuffs()` | `None` | None | None |
 | `FindBuffId(number)` | `string` | Given a unique storage number, find the buffId. | None |
-| `FindTargetByAncestors(CoreObject)` | `string, nil` | Finds a buff target by looking through the ancestors of a core object. | None |
+| `FindTargetByAncestors(CoreObject)` | `string, nil` | Finds a buff target by looking through the ancestors of a CoreObject. | None |
 | `GetAllTargets()` | `Array<string>` | Get all the buff targets currently registered. | None |
 | `GetBuffDuration(any, any)` | `any` | Returns the duration of a buff. Will return 0 if the buff is permanent. Buffs can be stacked, so this is the duration of a single buff. | None |
 | `GetBuffRemainingAmount(string, string, any)` | `number` | Find the remaining value (between 1 and 0, or 2 and 0 if theirs stacks etc). | None |
@@ -57,8 +57,8 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 | `GetTargetsWithBuff(string)` | `Array<string>` | Get all the targets that have a certain buff on them. | None |
 | `HandleFinishedTimedBuffs(string, number)` | `None` | Updates the buffs by removing any buffs that have expired. | None |
 | `HasBuff(string, string)` | `boolean` | Check if a target has a buff on them. | None |
-| `IsBuffLinked(string, string)` | `boolean` | If this returns true, it means the buff is 'linked' and wont time out. | None |
-| `IsBuffPermanent(string, string)` | `boolean` | Determines if a buff is permanent and therefore wont have a duration. | None |
+| `IsBuffLinked(string, string)` | `boolean` | If this returns true, it means the buff is 'linked' and won't time out. | None |
+| `IsBuffPermanent(string, string)` | `boolean` | Determines if a buff is permanent and therefore won't have a duration. | None |
 | `IsBuffTarget(string)` | `boolean` | Check if a targetId is a buff target. | None |
 | `IsValidBuff(any)` | `boolean` | Check if a buffId is in the database. | None |
 | `ReadBuffsFromTable(string, table, any, any)` | `None` | Reads all the current buffs from a table to a target. | None |
@@ -67,7 +67,7 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 | `RemoveTargetRecieveBuff()` | `None` | None | None |
 | `RequestLinkedBuffsUpdate()` | `None` | None | None |
 | `SetBuffDuration(any, any, any, any)` | `None` | Changes the duration of a buff. Note that the duration isn't networked so if you change it on the server you will want to change it on the client too. | None |
-| `SetBuffRate(any, any, number, any)` | `None` | Sets the rate of a timed buff. by default its -1. | None |
+| `SetBuffRate(any, any, number, any)` | `None` | Sets the rate of a timed buff. By default, its -1. | None |
 | `SetBuffTimeFunction()` | `None` | None | None |
 | `UnregisterTarget(string)` | `None` | Removes a target from the buff system. | None |
 | `UpdateLinkedBuffs()` | `None` | Forces all the linked buffs to be relinked. Expensive to call. | None |

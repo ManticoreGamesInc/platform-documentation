@@ -6,21 +6,21 @@ title: Producer Bases
 
 # Producer Bases
 
-The Producers system allows you to build objects that take an input, change over time and generate an output. They were designed with farming / crops in mind, but can be used for a multitude of other cases. Some ideas:
+The **Producers** system allows you to build objects that take an input, change over time and generate an output. They were designed with farming/crops in mind but can be used for a multitude of other cases. Some ideas:
 
 1. A corn plant that grows over time and produces some corn. If not harvested in time it withers and dies.
-2. A gas engine that can be filled, runs until it's empty and then stops.
+2. A gas engine that can be filled, runs until its empty and then stops.
 3. A building that takes time to become fully constructed. Once constructed it generates currency periodically.
 
-When mixed with the Buffs system these examples can become even more interesting:
+When mixed with the **Buffs** system these examples can become even more interesting:
 
 1. A corn plant that needs a "watered" buff to grow.
 2. A gas engine that, when running, emits a "power" buff that allows other Producers to progress.
 3. A building that requires the "power" buff to generate currency. While generating currency it emits a "happiness" buff that affects other gameplay.
 
-Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you wants many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
+Like Gatherables, Producers make use of the Replicator functionality. This means they use 0 networked objects and run fairly efficiently at scale. Gatherables are more efficient when you want many objects in your scene, so it becomes a choice between the two systems that depends on how much functionality you need vs. efficiency.
 
-Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during game play. In most cases you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
+Producers also introduce a new system called Placeables. Placeables are objects that can be placed by the Player during gameplay. In most cases, you will also want to use Player Lots to allow placed Producers to be saved to the Players Storage.
 
 ## Events
 
@@ -51,12 +51,12 @@ Producers also introduce a new system called Placeables. Placeables are objects 
 | `Collect(Player|nil, string)` | `None` | Collects a Producer. | None |
 | `CollectDropResults()` | `None` | None | None |
 | `FindProducerBaseIdByAncestors(CoreObject)` | `any` | Finds a producer base. | None |
-| `FindProducerIdFromEquipment(string, string, table)` | `string` | Returns a Producer Id based on the passed in Equipment settings. | None |
+| `FindProducerIdFromEquipment(string, string, table)` | `string` | Returns a Producer ID based on the passed in Equipment settings. | None |
 | `GetPlaceableData(string)` | `PlaceableData` | None | None |
 | `GetProducerBaseState(string)` | `ProducerBaseState` | Returns the current state for a Producer. | None |
 | `GetProducerData(string)` | `ProducerData` | Returns Product data based on a producerId. | None |
 | `GetProducerIdByStorageId(integer)` | `table` | Returns a Product data based on a number. | None |
-| `GetProducerIdForSourceItem(string)` | `string` | Returns the Id of the first Producer that uses the provided source item, or nil if none are found. | None |
+| `GetProducerIdForSourceItem(string)` | `string` | Returns the ID of the first Producer that uses the provided source item, or nil if none are found. | None |
 | `GetProducerStorageIdByProducerId(string)` | `integer` | Returns a number based on a producerId. | None |
 | `HandleProducerDrops()` | `None` | None | None |
 | `IsProducerBaseRegistered(string)` | `boolean` | Returns true if the producer id has been registered. | None |

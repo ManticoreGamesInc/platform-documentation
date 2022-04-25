@@ -23,7 +23,7 @@ title: Equipment
 | Class Function Name | Return Type | Description | Tags |
 | ------------------- | ----------- | ----------- | ---- |
 | `CanEquipmentInteract(Player, CoreObject, string, table)` | `string`, `boolean` | Returns true if the registered target can interact with the equipment. Also returns a reason the target cannot be interacted with if relevant. | None |
-| `Equip(Player, string, string)` | `None` | Equips an item to a Player, or toggles an already equipped item off. On the server this returns a reference to the Equipment if it was equipped. | None |
+| `Equip(Player, string, string)` | `None` | Equips an item to a Player, or toggles an already equipped item off. On the server, this returns a reference to the Equipment if it was equipped. | None |
 | `EquipmentInteract(Player, CoreObject, string, table)` | `string`, `boolean` | Interacts with a registered target with a specific equipment. Returns success and error information. | None |
 | `FindEquipmentTargetByAncestors(CoreObject)` | `CoreObject` | Will traverse up the hierarchy from the supplied CoreObject and return the first registered target or nil. | None |
 | `GetAllEquipment(Player)` | `table` | Returns all equipped Equipment for a Player. | None |
