@@ -28,7 +28,9 @@ The focus of this tutorial will be the Media Library and creating brushes from i
 
 ## Download Image Pack
 
-For this tutorial, you can use your images if you prefer, or if you want to follow along to recreate the shop UI, then you will need to download an image pack such as the one linked below. The pack below will require you to cut or slice the parts you want to use.
+For this tutorial, you will be creating a Shop UI for players to purchase items. You can use your own images, or if you want to follow along to recreate the shop UI, then you will need to download an image pack.
+
+The pack below will require you to cut or slice the parts you want to use.
 
 [Mobile Game GUI](https://graphicburger.com/mobile-game-gui/)
 
@@ -36,7 +38,7 @@ Always check the license that comes with any images you download that you will b
 
 ## Uploading Images to the Media Library
 
-To use images in any of your projects, the images need to be uploaded to your Media Library account first. Once the images have been uploaded, you can then create brushes that can be used in the UI.
+To use images in any of your projects, the images need to be uploaded to your Media Library account first. Images that are uploaded to your Media Library account are shared across all your projects. Once the images have been uploaded, you can then create brushes that can be used in the UI.
 
 ### Open Media Library
 
@@ -44,7 +46,7 @@ To open the Media Library, go to the **Window** menu at the top of your Core Edi
 
 ![!Window Menu](../img/MediaLibraryTutorial/window_menu.png){: .center loading="lazy" }
 
-### Uploading Images
+### Upload Images
 
 From the Media Library window, select the **Upload Image** button and upload all the images you want to use for your UI.
 
@@ -54,14 +56,14 @@ In the image below, all the images that will be used in this tutorial have been 
 
 ## Creating Brushes
 
-Before you can use an image in your project, a custom brush needs to be created. A brush is a usable asset that references the image on your account.
+Before you can use an image in your project you will need to create a **Brush**. A **Brush** is a usable asset that references the **Image Asset** on your account.
 
 For each image in the Media Library you want to use in your UI, do the following:
 
 1. Click on an image in the Media Library.
 2. Click on the **Create Image Asset** button.
 
-When clicking the **Create Image Asset** button, a new brush will be created in the folder **My Brushes** in the **Project Content** window.
+When clicking the **Create Image Asset** button, a new Brush will be created in the folder **My Brushes** in the **Project Content** window.
 
 ![!Create Brushes](../img/MediaLibraryTutorial/my_brushes.png){: .center loading="lazy" }
 
@@ -75,7 +77,12 @@ When using custom images, they will look better when you match their aspect rati
 
 The aspect ratio doesn't need to be manually worked out. When enabling the option **Retain Aspect Ratio** in the Properties window, Core will retain the aspect ratio regardless of the dimensions set. This allows you to easily control the size of your image using the width or height properties while keeping the correct aspect ratio.
 
-### Add Panel Brush
+![Enabled](../img/MediaLibraryTutorial/before.png)
+![Disabled](../img/MediaLibraryTutorial/after.png)
+_Retain Aspect Ratio Disabled (left) vs. Retain Aspect Ratio Enabled (right)_
+{: .image-cluster}
+
+### Add Brush for the Panel
 
 The panel will be the base layer for the UI, everything else will sit on top of it.
 
@@ -87,7 +94,7 @@ The panel will be the base layer for the UI, everything else will sit on top of 
 
 ![!Panel](../img/MediaLibraryTutorial/create_panel.png){: .center loading="lazy" }
 
-### Add Ribbon Brush
+### Add Brush for the Ribbon
 
 The ribbon will display at the top of the panel.
 
@@ -101,12 +108,12 @@ The ribbon will display at the top of the panel.
 
 ![!Ribbon](../img/MediaLibraryTutorial/create_ribbon.png){: .center loading="lazy" }
 
-### Add Close Brush
+### Add Brush for the Close
 
 The close image will display at the top right of the panel and would allow the player to close the UI.
 
 !!! info "Interactable UI"
-    The focus of this tutorial is not making the UI elements interactable (for example, a button to purchase an item). Brushes can not be used on UI components such as UI Buttons, but can be children of the button and a Lua script can be created to handle the button states (for example, hover and unhover) to change the image.
+    The focus of this tutorial is not making the UI elements interactable (for example, a button to purchase an item). Brushes can not be used on UI components such as UI Buttons, but can be children of the button and a Lua script can be created to handle the button states (for example, hover and unhover) to change the image. For more information about [UI click here](../references/ui.md).
 
 1. Select the **Close** brush in **My Brushes** and add it to the **Hierarchy**.
 2. Rename the **UI Image** in the **Hierarchy** to `Close`.
@@ -214,7 +221,7 @@ The coin's image has an area on it where the player's total coins can go.
 
 ## Summary
 
-With the support for transparency, the Media Library allows you to create a custom UI experience for your players that can not be found in any other game. The Media Library makes managing your content very easy because it is tied to your account, so all the content is accessible in any of your projects.
+With the support for transparency, the Media Library allows you to create a custom UI experience for your players that are unique to your game and theme. The Media Library makes managing your content very easy because it is tied to your account, so all the content is accessible in any of your projects.
 
 ## Learn More
 
