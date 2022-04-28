@@ -127,6 +127,7 @@ nav:
           - Cosmetic System: tutorials/cosmetic_tutorial.md
           - Damageable Object Basics: tutorials/damageable_object_basics.md
           - Destructible Objects: tutorials/boss_tutorial.md
+          - ✨ Creating Device Aware UI: tutorials/device_aware_ui.md
           - Environment Art: tutorials/environment_art.md
           - Game Events: tutorials/game_events.md
           - Icon Generator: tutorials/icon_generator.md
