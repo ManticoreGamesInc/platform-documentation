@@ -14,7 +14,7 @@ The **Media Library** in Core allows creators to upload content to their account
 
 Content that can be uploaded such as images supports JPEG, JPG, and PNG, along with support for transparency.
 
-There is an account limit of 100 images or 104MB, whichever is hit first. Individual images have a 5MB limit.
+There is an account limit of 100 images or 104 MB, whichever is hit first. Individual images have a 5 MB limit.
 
 ## Opening the Media Library
 
