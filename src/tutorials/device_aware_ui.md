@@ -318,7 +318,7 @@ One last test to check if the rest of the UI rules are working that you have in 
 
 ## Summary
 
-There are different solutions to solving the problem of how UI should be displayed on different devices. Some solutions require no code and would require you to rethink where on the screen your UI should be. Another solution could be spawning in a whole different set of UI depending on the input device. Each solution has there pros and cons. The advantage of the data table solution, is that it is friendly for artists to use once the script has been setup.
+There are different solutions to solving the problem of how UI should be displayed on different devices. Some solutions require no code and would require you to rethink where on the screen your UI should be. Another solution could be spawning in a whole different set of UI depending on the input device. Each solution has their pros and cons. The advantage of the data table solution is that it is friendly for artists to use.
 
 ## Learn More
 
