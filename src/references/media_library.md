@@ -12,15 +12,15 @@ tags:
 
 The **Media Library** in Core allows creators to upload content to their account which can be displayed in any of the creator's games.
 
-Content that can be uploaded such as images support JPEG, JPG, and PNG, along with support for transparency.
+Content that can be uploaded such as images supports JPEG, JPG, and PNG, along with support for transparency.
 
-Creators have a maximum total storage of 104 MB per account, and each file uploaded can be up to 5 MB in size with no resolution restrictions.
+There is an account limit of 100 images or 104 MB, whichever is hit first. Individual images have a 5 MB limit.
 
 ## Opening the Media Library
 
-The Media Library can be opened by selecting **Media Library** from the **Window** menu. From this window creators can view, rename, and delete content they have uploaded to their account.
+The Media Library can be opened by selecting **Media Library** from the **Window** menu. From this window, creators can view, rename, and delete content they have uploaded to the account.
 
-The Medial Library will show all content uploaded by the creator. The uploaded content is tied to the creators account, not to a project. This gives creators flexibility with using content from the Media library in any of their projects.
+The Medial Library will show all content uploaded by the creator. The uploaded content is tied to the creator's account, not to a project. This gives creators flexibility with using content from the Media library in any of their projects.
 
 The Media Library will show how much space the creator has left at the bottom of the window. The amount of space available is per creator account.
 
@@ -33,7 +33,7 @@ Creators can upload JPEG, JPG, and PNG files to the Media Library by clicking on
 After the selected image has been uploaded, it will appear in the library where you can view, rename, or delete it. On the right side of the Media Library, information about the image will be displayed.
 
 !!! warning "Community Content / Shared Projects"
-    Because the content in the Media Library is tied to a creators account, it is currently not possible to share templates or projects using Media Library content from creators.
+    Because the content in the Media Library is tied to a creator's account, it is currently not possible to share templates or projects using Media Library content from creators.
 
 ![Uploading](../img/MediaLibrary/uploading.png)
 ![Uploaded Image](../img/MediaLibrary/uploaded_image.png)
@@ -64,7 +64,7 @@ Deleting images from the Media Library can be done by right-clicking on the imag
 
 ## My Brushes
 
-All assets created from the Media Library can be found in **My Brushes** in the **Project Content** window. These brushes can be used in the UI by dragging them in to the preview window or Hierarchy.
+All assets created from the Media Library can be found in **My Brushes** in the **Project Content** window. These brushes can be used in the UI by dragging them into the preview window or Hierarchy.
 
 If a brush is not added to an existing UI Container, then one will be created automatically.
 
