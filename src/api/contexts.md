@@ -57,7 +57,7 @@ There are six types of contexts, **Client Context**, **Non-Networked**, **Static
 - Scripts can spawn objects inside a static context.
 - Scripts run on both the server and the client.
 - Useful for things reproduced easily on the client and server with minimal data (procedurally generated maps).
-    - Send a single networked value to synchronize the server and client's random number generators.
+    - Send a single networked value to synchronize the server and client's random number generators. Avoid using `math.random` for this purpose as this is shared by all scripts and contexts and will not generate the same sequence of numbers per client. See [RandomStream](../api/randomstream.md)
     - Saves hundreds of transforms being sent from the server to every client.
 
 ### Local Context
