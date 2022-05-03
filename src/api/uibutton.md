@@ -42,6 +42,7 @@ A UIControl for a button, should be inside client context. Inherits from [UICont
 | `SetShadowColor(Color)` | `None` | Sets the color of the button's drop shadow. | None |
 | `GetShadowOffset()` | [`Vector2`](vector2.md) | Returns the offset of the button's drop shadow in UI space. | None |
 | `SetShadowOffset(Vector2)` | `None` | Sets the offset of the button's drop shadow in UI space. | None |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this button. Returns `nil` if the button is not currently being interacted with. | Client-Only |
 
 ## Events
 

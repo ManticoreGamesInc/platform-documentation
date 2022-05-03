@@ -41,6 +41,7 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 | `SetGameEvent(CoreGameEvent event)` | `None` | Downloads and sets a game event image as the texture for this UIImage control. | None |
 | `SetGameScreenshot(string gameId, [integer screenshotIndex])` | `None` | Downloads and sets a game screenshot as the texture for this UIImage control. The screenshot may come from a different game. | None |
 | `SetCameraCapture(CameraCapture)` | `None` | Sets the UIImage to display the given camera capture. If the given capture is not valid, it will be ignored. If the capture is released while in use, this UIImage will revert to its default image. | Client-Only |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this image. Returns `nil` if the image is not currently being interacted with. | Client-Only |
 
 ## Examples
 

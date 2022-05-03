@@ -37,6 +37,7 @@ A UIControl which displays a basic text label. Inherits from [UIControl](uicontr
 | `SetShadowOffset(Vector2)` | `None` | Sets the offset of the text's drop shadow in UI space. | None |
 | `ComputeApproximateSize()` | [`Vector2`](vector2.md) | Attempts to determine the size of the rendered block of text. This may return `nil` if the size cannot be determined, for example because the underlying widget has not been fully initialized yet. | None |
 | `SetFont(string fontId)` | `None` | Sets the text to use the specified font asset. | None |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this control. Returns `nil` if the control is not currently being interacted with. | Client-Only |
 
 ## Examples
 
