@@ -32,6 +32,7 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | `SetBackgroundColor(Color)` | `None` | Sets the color of the background. | None |
 | `GetBackgroundImage()` | `string` | Returns the asset ID of the image used for the progress bar background. | None |
 | `SetBackgroundImage(string assetId)` | `None` | Sets the progress bar background to use the image specified by the given asset ID. | None |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this control. Returns `nil` if the control is not currently being interacted with. | Client-Only |
 
 ## Examples
 

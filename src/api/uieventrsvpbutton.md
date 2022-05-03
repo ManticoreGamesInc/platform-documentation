@@ -18,6 +18,12 @@ A UIControl for a button which allows players to register for an event within a 
 | `eventId` | `string` | Returns the ID of the event for which this button is currently configured. This ID can be found in the creator dashboard or using the `CoreGameEvent.id` property of an event returned from various `CorePlatform` functions. | Read-Write |
 | `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
+## Functions
+
+| Function Name | Return Type | Description | Tags |
+| -------- | ----------- | ----------- | ---- |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this button. Returns `nil` if the button is not currently being interacted with. | Client-Only |
+
 ## Events
 
 | Event Name | Return Type | Description | Tags |

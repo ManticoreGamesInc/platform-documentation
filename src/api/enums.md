@@ -182,6 +182,16 @@ tags:
 | `LookControlMode.RELATIVE` | `1` | Look input controls the current look direction. |
 | `LookControlMode.LOOK_AT_CURSOR` | `2` | Look input is ignored. The player's look direction is determined by drawing a line from the player to the cursor on the Cursor Plane. |
 
+## MouseButton
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `MouseButton.LEFT` | `1` | The left mouse button. |
+| `MouseButton.RIGHT` | `2` | The right mouse button. |
+| `MouseButton.MIDDLE` | `3` | The middle mouse button. |
+| `MouseButton.THUMB_1` | `4` | The first thumb button. |
+| `MouseButton.THUMB_2` | `5` | The second thumb button. |
+
 ## MovementControlMode
 
 | Enum Name | Value | Description |

@@ -48,6 +48,9 @@ The Input namespace contains functions and hooks for responding to player input.
 | `Input.pinchStoppedEvent` | [`Event`](event.md) | Fired when the player ends a pinching gesture on a touch input device. | Client-Only |
 | `Input.rotateStartedEvent` | [`Event`](event.md) | Fired when the player begins a rotating gesture on a touch input device. `Input.GetRotateValue()` may be polled during the rotate gesture to determine how far the player has rotated. | Client-Only |
 | `Input.rotateStoppedEvent` | [`Event`](event.md) | Fired when the player ends a rotating gesture on a touch input device. | Client-Only |
+| `Input.pointerMovedEvent` | [`Event`](event.md)<[`Vector2`](vector2.md) delta, `integer` touchIndex> | Fired when the pointer (either the mouse or a touch input) has moved. Parameters include the change in position since the last time `pointerMovedEvent` was fired for the given pointer, and an optional touch index indicating which touch input moved. `touchIndex` will be `nil` when the mouse has moved. | Client-Only |
+| `Input.mouseButtonPressedEvent` | [`Event`](event.md)<[`Vector2`](vector2.md) position, [`MouseButton`](enums.md#mousebutton)> | Fired when the user has pressed a mouse button. Parameters indicate the screen position of the cursor when the button was pressed, and an enum value indicating which mouse button was pressed. | Client-Only |
+| `Input.mouseButtonReleasedEvent` | [`Event`](event.md)<[`Vector2`](vector2.md) position, [`MouseButton`](enums.md#mousebutton)> | Fired when the user has released a mouse button. Parameters indicate the screen position of the cursor when the button was released, and an enum value indicating which mouse button was released. | Client-Only |
 
 ## Hooks
 

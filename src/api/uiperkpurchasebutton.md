@@ -23,6 +23,7 @@ A UIControl for a button which allows players to purchase perks within a game. S
 | -------- | ----------- | ----------- | ---- |
 | `GetPerkReference()` | [`NetReference`](netreference.md) | Returns a reference to the perk for which this button is currently configured. If no perk has been set, returns an unassigned NetReference. (See the `.isAssigned` property on `NetReference`.) | None |
 | `SetPerkReference(NetReference)` | `None` | Configures this button to use the specified perk. | None |
+| `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this button. Returns `nil` if the button is not currently being interacted with. | Client-Only |
 
 ## Events
 
