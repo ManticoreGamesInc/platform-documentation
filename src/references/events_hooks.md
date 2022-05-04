@@ -372,15 +372,13 @@ See [UIButton](../api/uibutton.md#events) API for more information.
 
 ## Input
 
-The **Input** namespace contains functions, events, and hooks for responding to player input, and allows creators to respond to the player input based on various conditions, for example, what input type is connected to the device.
+The **Input** namespace contains functions, events, and hooks for responding to player input. For example, what input type is connected to the device.
 
 See [Input](../api/input.md) API for more information.
 
 ### Touch
 
-The **Input** namespace has functions and events that can be used to handle the player's input when the input type is [TOUCH](../api/enums.md#inputtype). This means that when the player uses their finger on the screen, creators can respond to those touch events.
-
-For example, detecting when a player starts and stops touching the screen.
+The **Input** namespace has functions and events that can be used to handle the player's input when the input type is [TOUCH](../api/enums.md#inputtype). This means that when the player uses their finger on the screen, creators can respond to those touch events. For example, detecting when a player starts and stops touching the screen.
 
 ```lua
 local function OnTouchStarted(location, touchIndex)
