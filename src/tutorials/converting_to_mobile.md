@@ -151,7 +151,7 @@ Mobile devices will naturally have smaller screens than computers so it is impor
 
 The **Safe Zone** refers to an area where UI is is guaranteed to be visible on any device's screen.
 
-Open the **Device Preview Option**s menu and activate the **Safe Zone** option. There should be an orange dotted rectangle on the preview screen representing the safe zone. Make sure all UI is within the safe zone.
+Open the **Device Preview Options** menu and activate the **Safe Zone** option. There should be an orange dotted rectangle on the preview screen representing the safe zone. Make sure all UI is within the safe zone.
 
 ![!Safe Zone](../img/ConvertToMobile/Mobile-SafeZone.png){: .center loading="lazy" }
 
