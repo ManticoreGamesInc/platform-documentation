@@ -40,9 +40,9 @@ A **Hook** is like an event, but the purpose is to view or change something that
 
 - `Events.Connect`
 
-    This function allows for user created events to be listened too by passing the event name as the first argument, and the event listener function as the second argument. When the event is broadcasted too, the listener function will be fired.
+    This function allows for user created events to be listened to by passing the event name as the first argument, and the event listener function as the second argument. When the event is broadcasted too, the listener function will be fired.
 
-    When setting up a listener, an `EventListener` object is returned that can be used to determine if the listener is connected and disconnecting of the event to stop listening.
+    When setting up a listener, an `EventListener` object is returned that can be used to determine if the listener is connected and disconnecting for the event to stop listening.
 
     ```lua linenums="1"
     -- Script "A"
@@ -74,7 +74,7 @@ A **Hook** is like an event, but the purpose is to view or change something that
 
 - `Events.BroadcastToAllPlayers`
 
-    This function broadcasts the event to all clients over the network and fires all listeners attached to that event. Any arguments after the event name are passed to the listener on the client. The function returns a result code and a message. This is a networked event so will count against all players rate limits.
+    This function broadcasts the event to all clients over the network and fires all listeners attached to that event. Any arguments after the event name are passed to the listener on the client. The function returns a result code and a message. This is a networked event so will count against all player's rate limits.
 
     ```lua linenums="1"
     -- Server script
@@ -175,11 +175,11 @@ The functions in the **Events** namespace have a limit of 128 bytes per broadcas
 
 - Dynamic Properties
 
-    Using dynamic properties is a way to transfer data to all clients. This is very useful when clients need to know about the game state, or setting AI animations. Dynamic properties are replicated to all clients, this has the benefit of all clients receiving the change, however it increases network traffic. The data is replicated as soon as possible, but changing a lot of properties, or having a large amount of data can cause a delay.
+    Using dynamic properties is a way to transfer data to all clients. This is very useful when clients need to know about the game state, or setting AI animations. Dynamic properties are replicated to all clients, this has the benefit of all clients receiving the change, however, it increases network traffic. The data is replicated as soon as possible, but changing a lot of properties, or having a large amount of data can cause a delay.
 
 - Private Networked Data
 
-    This is ideal for transferring large chunks of data to the player. For example, loading the player's inventory from **Storage** which could contain a large number of items. This has the added benefit where data is replicated to the receiving client and not all clients.
+    This is ideal for transferring large chunks of data to the player. For example, loading the player's inventory from **Storage** which could contain many items. This has the added benefit where data is replicated to the receiving client and not all clients.
 
 See [SetCustomProperty](../api/coreobject.md#setcustomproperty) and [SetPrivateNetworkedData](../api/player.md#setprivatenetworkeddata).
 
@@ -231,7 +231,7 @@ See [Ability](../api/ability.md) API for more information.
     raptorMesh:PlayAnimation("unarmed_claw")
     ```
 
-    In the code above, the `AnimEventListener` will fire if the animation has an event. In this case the `unarmed_claw` animation has an `impact` event. This could be useful for playing a slash effect when the raptor impacts an object such as a **Player**.
+    In the code above, the `AnimEventListener` will fire if the animation has an event. In this case, the `unarmed_claw` animation has an `impact` event. This could be useful for playing a slash effect when the raptor impacts an object such as a **Player**.
 
 See [AnimatedMesh](../api/animatedmesh.md) API for more information.
 
@@ -258,7 +258,7 @@ See [CoreObject](../api/coreobject.md#events) API for more information.
 
 ### Equipment
 
-**Equipment** is a **CoreObject** representing an equippable item for players. They generally have a visual component that attaches to the Player, but a visual component is not a requirement. Any Ability objects added as children of the **Equipment** are added / removed from the Player automatically as it becomes equipped / unequipped.
+**Equipment** is a **CoreObject** representing an equippable item for players. They generally have a visual component that attaches to the Player, but a visual component is not a requirement. Any Ability objects added as children of the **Equipment** are added/removed from the Player automatically as it becomes equipped/unequipped.
 
 See [Equipment](../api/equipment.md#events) API for more information.
 
@@ -268,7 +268,7 @@ The **Game** namespace has a collection of functions and events related to playe
 
 - `Game.playerJoinedEvent`
 
-    Fired when a **Player** has joined the game and their character is ready. When used in client context it will fire off for each player already connected to the server.
+    Fired when a **Player** has joined the game and their character is ready. When used in the client context it will fire off for each player already connected to the server.
 
     ```lua linenums="1"
     local function OnPlayerJoined(player)
@@ -278,7 +278,7 @@ The **Game** namespace has a collection of functions and events related to playe
     Game.playerJoinedEvent:Connect(OnPlayerJoined)
     ```
 
-    Knowing when a **Player** has joined the game allows you to do many things. For example, letting other players in the game know when other players have joined.
+    Knowing when a **Player** has joined the game allows you to do many things. For example, updating a UI player list so other players can see who has joined the game.
 
     Another useful way to use the `playerJoinedEvent` is loading the player's data from **Storage** when they join the server, and then sending that data to them (that is Private Networked Data).
 
@@ -306,7 +306,7 @@ See [IKAnchors](../api/ikanchor.md#events) API for more information.
 
 ### Player
 
-**Player** is an object representation of the state of a player connected to the game, as well as their avatar in the world. The **Player** object contains a lot of useful events that can be listened too. For example, a useful thing to know is what key binding the **Player** has pressed. Listening to the `bindingPressedEvent` when a **Player** presses a specific key binding is an easy way to do this.
+**Player** is an object representation of the state of a player connected to the game, as well as their avatar in the world. The **Player** object contains a lot of useful events that can be listened to. For example, a useful thing to know is what key binding the **Player** has pressed. Listening to the `bindingPressedEvent` when a **Player** presses a specific key binding is an easy way to do this.
 
 ```lua linenums="1"
 local localPlayer = Game.GetLocalPlayer()
@@ -370,6 +370,29 @@ A **UIButton** is a useful UI component that allows players to interact with the
 
 See [UIButton](../api/uibutton.md#events) API for more information.
 
+## Input
+
+The **Input** namespace contains functions, events, and hooks for responding to player input. For example, what input type is connected to the device.
+
+See [Input](../api/input.md) API for more information.
+
+### Touch
+
+The **Input** namespace has functions and events that can be used to handle the player's input when the input type is [TOUCH](../api/enums.md#inputtype). This means that when the player uses their finger on the screen, creators can respond to those touch events. For example, detecting when a player starts and stops touching the screen.
+
+```lua
+local function OnTouchStarted(location, touchIndex)
+    print(string.format("Finger touched at %s", location))
+end
+
+local function OnTouchStopped(location, touchIndex)
+    print(string.format("Finger lifted at %s", location))
+end
+
+Input.touchStartedEvent:Connect(OnTouchStarted)
+Input.touchStoppedEvent:Connect(OnTouchStopped)
+```
+
 ## Hooks
 
 **Hooks** appear as properties on several objects. Similar to Events, functions may be registered that will be called whenever that hook is fired. **Hooks** are similar to **Events**, the difference being that a **Hook** is used to view or change something that's already going on in a system.
@@ -384,15 +407,15 @@ See [Chat](../api/chat.md#hooks) API for more information.
 
 ### Movement
 
-The **Movement** hook is called when processing a player's movement. The parameters table contains a Vector3 named "direction", indicating the direction the player will move. For example, in a click to move game, the client script would detect mouse input and modify the players direction.
+The **Movement** hook is called when processing a player's movement. The parameter's table contains a Vector3 named "direction", indicating the direction the player will move. For example, in a click to move game, the client script would detect mouse input and modify the players direction.
 
 See [Movement](../api/player.md#hooks) API for more information.
 
 ### Input
 
-The Input namespace contains hooks for responding to player input. For example, in a lot of games the ++escape++ key is used to open up a games menu. In **Core** the default behaviour is to open up the browse games page. Using an **Input** hook, this can be changed.
+The Input namespace contains hooks for responding to player input. For example, in a lot of games, the ++escape++ key is used to open up a game's menu. In **Core** the default behavior is to open up the browse games page. Using an **Input** hook, this can be changed.
 
-!!! tip "Players may press ++Shift++ + ++Esc++ to force the pause menu to open if the default behaviour has been changed for the ++escape++ key."
+!!! tip "Players may press ++Shift++ + ++Esc++ to force the pause menu to open if the default behavior has been changed for the ++escape++ key."
 
 See [Input](../api/input.md) API for more information.
 
@@ -404,7 +427,7 @@ See [Vehicle](../api/vehicle.md#hooks) API for more information.
 
 ## Disconnecting
 
-It's a good idea to disconnect any events that will no longer be used. Some events that aren't disconnected will continue to be fired even when the script that setup the listener is destroyed. A build up of events can lead to poor game performance for your players, so it's recommended to disconnect any events that no longer have a use.
+It's a good idea to disconnect any events that will no longer be used. Some events that aren't disconnected will continue to be fired even when the script that set up the listener is destroyed. A build up of events can lead to poor game performance for your players, so it's recommended to disconnect any events that no longer have a use.
 
 Below is an example that sets up some listeners, and later when the script has been destroyed, disconnects any listeners still connected.
 
