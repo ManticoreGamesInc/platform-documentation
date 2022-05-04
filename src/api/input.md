@@ -555,3 +555,84 @@ UpdateInputImage(Game.GetLocalPlayer(), Input.GetCurrentInputType())
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Input.GetCurrentInputType](input.md) | [KEYBOARD_AND_MOUSE](enums.md#keyboard_and_mouse)
 
 ---
+
+Example using:
+
+### `pointerMovedEvent`
+
+This client script will track the distance the mouse cursor or touch index traveled. Results appear in the Event Log.
+
+```lua
+local function OnPointerMoved(offsetVector, touchIndex)
+	local distance = offsetVector.size
+	if touchIndex == nil then
+		print("Mouse traveled " .. distance)
+	else
+		print("Touch index " .. touchIndex .. " traveled " .. distance)
+	end
+end
+
+Input.pointerMovedEvent:Connect(OnPointerMoved)
+```
+
+See also: [Vector2.size](vector2.md)
+
+---
+
+Example using:
+
+### `pointerMovedEvent`
+
+This client script will track the distance the mouse cursor or touch index traveled. Results appear in the Event Log.
+
+```lua
+local function OnPointerMoved(offsetVector, touchIndex)
+	local distance = offsetVector.size
+	if touchIndex == nil then
+		print("Mouse traveled " .. distance)
+	else
+		print("Touch index " .. touchIndex .. " traveled " .. distance)
+	end
+end
+
+Input.pointerMovedEvent:Connect(OnPointerMoved)
+```
+
+See also: [Vector2.size](vector2.md)
+
+---
+
+Examples using:
+
+### `mouseButtonPressedEvent`
+
+### `mouseButtonReleasedEvent`
+
+A power meter is a common mechanic in games, especially sports. For this example, detecting when the mouse buttons are pressed and released will control the progress of a UIProgressBar.
+
+```lua
+local POWER_METER = script:GetCustomProperty("PowerMeter"):WaitForObject()
+local POWER_SPEED = script:GetCustomProperty("PowerSpeed")
+
+local mouseDown = false
+
+function Tick(deltaTime)
+	if mouseDown then
+		POWER_METER.progress = POWER_METER.progress + deltaTime / POWER_SPEED
+	end
+end
+
+local function OnMousePressed()
+	POWER_METER.progress = 0
+	mouseDown = true
+end
+
+local function OnMouseReleased()
+	mouseDown = false
+end
+
+Input.mouseButtonPressedEvent:Connect(OnMousePressed)
+Input.mouseButtonReleasedEvent:Connect(OnMouseReleased)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar](uiprogressbar.md)
