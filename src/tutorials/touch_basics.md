@@ -146,7 +146,7 @@ The **TouchDragClient** script will need [custom properties](../references/custo
 
 ### Edit Script
 
-Open up the **TouchDragclient** script and add the variables for the custom properties that were added. These variables will contain a reference to each of the custom properties and will allow you to use them throughout the script.
+Open up the **TouchDragClient** script and add the variables for the custom properties that were added. These variables will contain a reference to each of the custom properties and will allow you to use them throughout the script.
 
 ```lua
 local ICONS = require(script:GetCustomProperty("Icons"))
@@ -227,7 +227,7 @@ An icon is randomly picked from the `ICONS` data table and given some random pos
 
 The `pressedEvent` and `releasedEvent` are used as they will work on Mobile and PC.
 
-If a [`task`](../api/task.md) has been spawned, then the `repeatInterval` property is set to a random value between 0 and 1 using `math.random`.
+If a [`Task`](../api/task.md) has been spawned, then the `repeatInterval` property is set to a random value between 0 and 1 using `math.random`.
 
 ```lua
 local function SpawnIcon()
@@ -301,7 +301,7 @@ Input.DisableVirtualControls()
 
 #### Spawn Repeating Task
 
-A [task](../api/task.md) needs to be spawned that will spawn an icon every so often. The `repeatCount` is set to `-1` so it repeats forever, and the `repeatInterval` is initially set to `.6` but will be random after each spawn. This is the duration between each icon spawning.
+A [Task](../api/task.md) needs to be spawned that will spawn an icon every so often. The `repeatCount` is set to `-1` so it repeats forever, and the `repeatInterval` is initially set to `.6` but will be random after each spawn. This is the duration between each icon spawning.
 
 ```lua
 task = Task.Spawn(SpawnIcon)
