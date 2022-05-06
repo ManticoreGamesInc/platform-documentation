@@ -145,6 +145,7 @@ nav:
           - Photo Booth: tutorials/photo_booth.md
           - Producers: tutorials/producers_tutorial.md
           - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
+          - ✨ Touch API Basics: tutorials/touch_basics.md
           - ✨ Uploading Images: tutorials/media_library.md
           - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
