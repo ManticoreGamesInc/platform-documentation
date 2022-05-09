@@ -65,7 +65,7 @@ tags:
 | ----------------------------------- | ---------------------------------| --------------------- | -------------------------- |
 | Selection Area                      | ++left-button++                  | Creates Selection Box | Viewport Active            |
 | Select / Deselect                   | ++left-button++                  | If Object over Cursor select it, otherwise Deselect All | Viewport Active |
-| Select All                          | ++ctrl++                         | Select Everything in the Scene | None |                      |
+| Select All                          | ++ctrl+A++                         | Select Everything in the Scene | None |                      |
 | Add to Selection                    | ++shift+left-button++            | Adds Object to Selection, or Makes Already Selected Object the Current Pivot. | Selection |
 | Add / Subtract from Selection       | ++ctrl+left-button++             | Adds or Removes Object from Current Selection                                 | Selection |
 | Deselect All                        | ++esc++                          | Deselects All (same as ++ctrl+P++)                                                                 | Selection  |
@@ -74,6 +74,8 @@ tags:
 | Navigate Hierarchy                  | ++Arrow-Up++ ++Arrow-Down++    | Selects Next / Previous Item in List | Viewport or Hierarchy Active |
 | Navigate Child/Parent               | ++Arrow-Left++ ++Arrow-Right++ | Selects Parent or First Child, or Expands / Collapses Current Parent Node (group etc.) | Viewport or Hierarchy Active    |
 | Expand / Collapse Recursive         | ++shift+left-button++            |   Expand / Collapse Selected Item and Children Under It | On Expansion Arrow |
+| New Template From Object         | ++ctrl+shift+I++            |  Creates a new template from the current object selected  | Object Selected |
+| Update Template From Object         | ++ctrl+shift+O++            |  Updates a template if the current object selected is an instance of a template  | Object Selected |
 
 ## New Objects
 
