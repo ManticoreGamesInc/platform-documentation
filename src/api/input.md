@@ -201,6 +201,67 @@ See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [CoreObject.GetCustomP
 
 Example using:
 
+### `mouseButtonPressedEvent`
+
+### `mouseButtonReleasedEvent`
+
+A power meter is a common mechanic in games, especially sports. For this example, detecting when the mouse buttons are pressed and released will control the progress of a UIProgressBar.
+
+```lua
+local POWER_METER = script:GetCustomProperty("PowerMeter"):WaitForObject()
+local POWER_SPEED = script:GetCustomProperty("PowerSpeed")
+
+local mouseDown = false
+
+function Tick(deltaTime)
+    if mouseDown then
+        POWER_METER.progress = POWER_METER.progress + deltaTime / POWER_SPEED
+    end
+end
+
+local function OnMousePressed()
+    POWER_METER.progress = 0
+    mouseDown = true
+end
+
+local function OnMouseReleased()
+    mouseDown = false
+end
+
+Input.mouseButtonPressedEvent:Connect(OnMousePressed)
+Input.mouseButtonReleasedEvent:Connect(OnMouseReleased)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [UIProgressBar.progress](uiprogressbar.md) | [CoreLua.Tick](coreluafunctions.md)
+
+---
+
+Example using:
+
+### `pointerMovedEvent`
+
+In this example, the script will print to the Event Log the distance the mouse cursor or touch index traveled.
+
+```lua
+local function OnPointerMoved(offsetVector, touchIndex)
+    local distance = offsetVector.size
+
+    if touchIndex == nil then
+        print("Mouse traveled " .. distance)
+    else
+        print("Touch index " .. touchIndex .. " traveled " .. distance)
+    end
+end
+
+Input.pointerMovedEvent:Connect(OnPointerMoved)
+```
+
+See also: [Vector2](vector2.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
 ### `tappedEvent`
 
 ### `flickedEvent`
