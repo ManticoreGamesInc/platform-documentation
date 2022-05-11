@@ -59,18 +59,18 @@ For editors where we do not provide our own editor extensions, we supply a JSON 
 #### `.luacompleterc`
 
 - :fontawesome-solid-download: Download: [luacompleterc.zip](./assets/api/luacompleterc.zip "API Autocomplete Files")
-- :fontawesome-solid-angle-double-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
+- :fontawesome-solid-angles-right: Install: Extract the `.luacompleterc` file to your `Documents\My Games\Core\Saved\Maps` folder.
 
 ### Installing a Linter
 
 [Luacheck](https://github.com/luarocks/luacheck), which also serves as a static analyzer, is **the** Lua Linter to use. You can add a `.luacheckrc` config file to your project that tells it what to check for and it will point out any mistakes you may make. Check out their [documentation](https://luacheck.readthedocs.io/en/stable/) for more info. A statically linked binary with all deps included is available on [GitHub](https://github.com/luarocks/luacheck/releases/).
 
 - :fontawesome-solid-download: Download: [Luacheck](https://github.com/luarocks/luacheck/releases/)
-- :fontawesome-solid-angle-double-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
+- :fontawesome-solid-angles-right: Install: Copy `luacheck.exe` to a folder and add it to your `PATH` environment variable. ([HowTo](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 In addition, we provide a `.luacheckrc` settings file with all Core API so they don't show up as undeclared global variables.
 
 - :fontawesome-solid-download: Download: [luacheckrc.zip](./assets/api/luacheckrc.zip "luacheckrc.zip")
-- :fontawesome-solid-angle-double-right: Install: Extract the `.luacheckrc` file to your `C:\\Users\YOURUSERNAME\Documents\My Games\Core\Saved\Maps` folder.
+- :fontawesome-solid-angles-right: Install: Extract the `.luacheckrc` file to your `C:\\Users\YOURUSERNAME\Documents\My Games\Core\Saved\Maps` folder.
 
 !!! alert "If you want to use **vscode-core** together with a Luacheck extension, you might want to disable the "**Diagnostics**" feature in Sumneko's Lua extension."
