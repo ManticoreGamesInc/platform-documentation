@@ -25,19 +25,37 @@ First, make sure that you have:
 
 - [Visual Studio Code](https://github.com/ManticoreGamesInc/platform-documentation/wiki/Editor-Setup) (not required)
 - [Python](https://www.python.org/) >= 3.8.0
-- [Node.js](https://nodejs.org/en/download/) >= 15.0.0 & npm >= 7
-- [Git Large File System](https://git-lfs.github.com/) (If you are using it for the first time, make sure to run `git lfs install` once.)
+- [Node.js](https://nodejs.org/en/download/) >= 16.0.0 & npm >= 8
+- [Git Large File System](https://git-lfs.github.com/)
 
 ### Clone the Repository
 
+#### External Contributors
+
 ```console
 cd folder/to/clone-into/
+git lfs install --skip-smudge
 git clone https://github.com/ManticoreGamesInc/platform-documentation
 cd platform-documentation
 git config pull.rebase true # We use rebase instead of merge
 git config lfs.locksverify false
 git submodule update --init --recursive --depth=1
 ```
+
+#### Employees with access to Netlify
+
+```console
+cd folder/to/clone-into/
+git lfs install
+git clone https://github.com/ManticoreGamesInc/platform-documentation
+cd platform-documentation
+git config pull.rebase true # We use rebase instead of merge
+git config lfs.locksverify false
+git submodule update --init --recursive --depth=1
+```
+
+- Note: You will need to be invited to the Netlify organisation and set up the account as well.
+    - After you got your account set up, follow steps 1, 2, and 3 at the top of this tutorial: <https://docs.netlify.com/large-media/setup/> to link your account with Netlify.
 
 ### Install the Platform
 
@@ -57,12 +75,6 @@ git submodule update --init --recursive --depth=1
     ```
 
     - Note: This step might be re-required after updates, will be noted in commit notes if needed.
-
-### Link with Netlify
-
-Note: Only needed if you are going to commit binary files hosted on Git LFS (.png, .jpg, .gif, .mov, .mp4, .zip, .webm).
-
-- Follow steps 1, 2, and 3 at the top of this tutorial: <https://docs.netlify.com/large-media/setup/> to link your account with Netlify.
 
 ### Spin up the Platform
 
@@ -86,8 +98,6 @@ git checkout -b camera-controls # Create a new branch using your feature as the 
 Now, depending on what you want to add, you can create your new Markdown files and start writing. Our file structure is pretty self explanatory, tutorials go into `src/tutorials/` and so on.
 
 ### Check in your Changes
-
-Note: If you are going to commit binary files hosted on Git LFS (.png, .jpg, .gif, .mov, .mp4, .zip, .webm) you will need to be invited to the Netlify organisation and set up the account as well.
 
 - Make sure to add your new page to the index of pages in `mkdocs.yml`.
 - Commit any changes to your branch and push to the repository. (for example `git push -u origin camera-controls`)
