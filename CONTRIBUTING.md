@@ -30,20 +30,6 @@ First, make sure that you have:
 
 ### Clone the Repository
 
-#### External Contributors
-
-```console
-cd folder/to/clone-into/
-git lfs install --skip-smudge
-git clone https://github.com/ManticoreGamesInc/platform-documentation
-cd platform-documentation
-git config pull.rebase true # We use rebase instead of merge
-git config lfs.locksverify false
-git submodule update --init --recursive --depth=1
-```
-
-#### Employees with access to Netlify
-
 ```console
 cd folder/to/clone-into/
 git lfs install
@@ -53,9 +39,6 @@ git config pull.rebase true # We use rebase instead of merge
 git config lfs.locksverify false
 git submodule update --init --recursive --depth=1
 ```
-
-- Note: You will need to be invited to the Netlify organisation and set up the account as well.
-    - After you got your account set up, follow steps 1, 2, and 3 at the top of this tutorial: <https://docs.netlify.com/large-media/setup/> to link your account with Netlify.
 
 ### Install the Platform
 

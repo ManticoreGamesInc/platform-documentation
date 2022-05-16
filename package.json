@@ -49,8 +49,5 @@
     },
     "engines": {
         "node": ">= 16"
-    },
-    "dependencies": {
-        "netlify-cli": "^10.3.1"
     }
 }
