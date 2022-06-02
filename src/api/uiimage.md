@@ -41,9 +41,44 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 | `SetGameEvent(CoreGameEvent event)` | `None` | Downloads and sets a game event image as the texture for this UIImage control. | None |
 | `SetGameScreenshot(string gameId, [integer screenshotIndex])` | `None` | Downloads and sets a game screenshot as the texture for this UIImage control. The screenshot may come from a different game. | None |
 | `SetCameraCapture(CameraCapture)` | `None` | Sets the UIImage to display the given camera capture. If the given capture is not valid, it will be ignored. If the capture is released while in use, this UIImage will revert to its default image. | Client-Only |
+| `SetBlockchainToken(BlockchainToken token)` | `None` | Downloads and sets a blockchain token image as the texture for this UIImage control. | None |
 | `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this image. Returns `nil` if the image is not currently being interacted with. | Client-Only |
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `touchStartedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player starts touching the control on a touch input device. Parameters are the screen location of the touch and a touch index used to distinguish between separate touches on a multitouch device. | Client-Only |
+| `touchStoppedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player stops touching the control on a touch input device. Parameters are the screen location from which the touch was released and a touch index used to distinguish between separate touches on a multitouch device. | Client-Only |
+| `tappedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player taps the control on a touch input device. Parameters are the screen location of the tap and the touch index with which the tap was performed. | Client-Only |
+| `flickedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md), `number` angle> | Fired when the player performs a quick flicking gesture on the control on a touch input device. The `angle` parameter indicates the direction of the flick. 0 indicates a flick to the right. Values increase in degrees counter-clockwise, so 90 indicates a flick straight up, 180 indicates a flick to the left, etc. | Client-Only |
+| `pinchStartedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md)> | Fired when the player begins a pinching gesture on the control on a touch input device. `Input.GetPinchValue()` may be polled during the pinch gesture to determine how far the player has pinched. | Client-Only |
+| `pinchStoppedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md)> | Fired when the player ends a pinching gesture on a touch input device. | Client-Only |
+| `rotateStartedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md)> | Fired when the player begins a rotating gesture on the control on a touch input device. `Input.GetRotateValue()` may be polled during the rotate gesture to determine how far the player has rotated. | Client-Only |
+| `rotateStoppedEvent` | [`Event`](event.md)<[`UIImage`](uiimage.md)> | Fired when the player ends a rotating gesture on a touch input device. | Client-Only |
+
 ## Examples
+
+Example using:
+
+### `SetBlockchainToken`
+
+MekaVerse is an NFT collection with 8,888 unique mechas. The following example shows how to remotely load the image for Meka #1. The script sits in the hierarchy as a child of a `UI Image`, which is used for visualizing the NFT's artwork.
+
+```lua
+-- Address to the NFT #1 in the MekaVerse collection
+-- https://opensea.io/assets/ethereum/0x9a534628b4062e123ce7ee2222ec20b86e16ca8f/1
+local UI_IMAGE = script.parent
+local NFT_CONTRACT_ADDRESS = "0x9a534628b4062e123ce7ee2222ec20b86e16ca8f"
+local TOKEN_ID = "1"
+
+local token = Blockchain.GetToken(NFT_CONTRACT_ADDRESS, TOKEN_ID)
+UI_IMAGE:SetBlockchainToken(token)
+```
+
+See also: [Blockchain.GetToken](blockchain.md) | [CoreObject.parent](coreobject.md)
+
+---
 
 Example using:
 

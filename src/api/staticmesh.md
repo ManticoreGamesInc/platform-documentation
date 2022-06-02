@@ -26,6 +26,7 @@ See AnimatedMesh for meshes with animations.
 | `GetMaterialSlot(string slotName)` | [`MaterialSlot`](materialslot.md) | Get the MaterialSlot object for the given slot. If called on the client on a networked object, the resulting object cannot be modified. | None |
 | `GetMaterialSlots()` | `Array`<[`MaterialSlot`](materialslot.md)> | Get an array of all MaterialSlots on this mesh. If called on the client on a networked object, the resulting object cannot be modified. | None |
 | `ResetMaterialSlot(string slotName)` | `None` | Resets a material slot to its original state. | None |
+| `GetBoundingBox([table parameters])` | [`Box`](box.md) | Returns a `Box` describing the mesh bounds. The `Box` span may exceed the exact extrema of the object. Optional parameters can be provided to control the results:<br/>`inLocalSpace (boolean)`: If true, the box will describe the bounds in the mesh's local coordinate system. Defaults to false. <br/>`onlyCollidable (boolean)`: If true, the box will only describe the bounds of the mesh's collidable geometry. This can be affected by collision settings and network context. Defaults to false. | None |
 
 ## Examples
 

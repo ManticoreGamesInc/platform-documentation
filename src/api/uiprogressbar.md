@@ -34,6 +34,19 @@ A UIControl that displays a filled rectangle which can be used for things such a
 | `SetBackgroundImage(string assetId)` | `None` | Sets the progress bar background to use the image specified by the given asset ID. | None |
 | `GetCurrentTouchIndex()` | `integer` | Returns the touch index currently interacting with this control. Returns `nil` if the control is not currently being interacted with. | Client-Only |
 
+## Events
+
+| Event Name | Return Type | Description | Tags |
+| ----- | ----------- | ----------- | ---- |
+| `touchStartedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player starts touching the control on a touch input device. Parameters are the screen location of the touch and a touch index used to distinguish between separate touches on a multitouch device. | Client-Only |
+| `touchStoppedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player stops touching the control on a touch input device. Parameters are the screen location from which the touch was released and a touch index used to distinguish between separate touches on a multitouch device. | Client-Only |
+| `tappedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md), [`Vector2`](vector2.md) location, `integer` touchIndex> | Fired when the player taps the control on a touch input device. Parameters are the screen location of the tap and the touch index with which the tap was performed. | Client-Only |
+| `flickedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md), `number` angle> | Fired when the player performs a quick flicking gesture on the control on a touch input device. The `angle` parameter indicates the direction of the flick. 0 indicates a flick to the right. Values increase in degrees counter-clockwise, so 90 indicates a flick straight up, 180 indicates a flick to the left, etc. | Client-Only |
+| `pinchStartedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md)> | Fired when the player begins a pinching gesture on the control on a touch input device. `Input.GetPinchValue()` may be polled during the pinch gesture to determine how far the player has pinched. | Client-Only |
+| `pinchStoppedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md)> | Fired when the player ends a pinching gesture on a touch input device. | Client-Only |
+| `rotateStartedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md)> | Fired when the player begins a rotating gesture on the control on a touch input device. `Input.GetRotateValue()` may be polled during the rotate gesture to determine how far the player has rotated. | Client-Only |
+| `rotateStoppedEvent` | [`Event`](event.md)<[`UIProgressBar`](uiprogressbar.md)> | Fired when the player ends a rotating gesture on a touch input device. | Client-Only |
+
 ## Examples
 
 Example using:

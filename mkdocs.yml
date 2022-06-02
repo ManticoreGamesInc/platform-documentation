@@ -170,6 +170,11 @@ nav:
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
           - BindingSet: api/bindingset.md
+          - BlockckainContract: api/blockchaincontract.md
+          - BlockckainToken: api/blockchaintoken.md
+          - BlockckainTokenAttribute: api/blockchaintokenattribute.md
+          - BlockckainTokenCollection: api/blockchaintokencollection.md
+          - Box: api/box.md
           - Camera: api/camera.md
           - CameraCapture: api/cameracapture.md
           - Color: api/color.md
@@ -254,6 +259,7 @@ nav:
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
+          - Blockckain: api/blockckain.md
           - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
           - CoreDebug: api/coredebug.md
