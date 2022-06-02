@@ -26,9 +26,9 @@ Metadata about a token stored on the blockchain.
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetContract()` | `BlockchainContract` | Returns the contract this token belongs to. | None |
-| `GetAttributes()` | `Array`<`BlockchainTokenAttribute`> | Returns an array of this token's attributes. | None |
-| `GetAttribute(string attributeName)` | `BlockchainTokenAttribute` | Returns the attribute with the specified name. Returns nil if this token does not contain the desired attribute. | None |
+| `GetContract()` | [`BlockchainContract`](blockchaincontract.md) | Returns the contract this token belongs to. | None |
+| `GetAttributes()` | `Array`<[`BlockchainTokenAttribute`](blockchaintokenattribute.md)> | Returns an array of this token's attributes. | None |
+| `GetAttribute(string attributeName)` | [`BlockchainTokenAttribute`](blockchaintokenattribute.md) | Returns the attribute with the specified name. Returns nil if this token does not contain the desired attribute. | None |
 
 ## Examples
 
@@ -111,24 +111,14 @@ local NON_HOLDER_TEAM = 1
 
 -- Given a player and an NFT collection, check if the player owns a token
 function DoesPlayerOwnFromContract(player, contractAddress)
-    local playerCollection = Blockchain.GetTokens({playerId = player.id})
+    local playerCollection = Blockchain.GetTokensForPlayer(player, { contractAddress = contractAddress })
+    local tokens = playerCollection:GetResults()
 
-    local tokens
-
-    while true do
-        tokens = playerCollection:GetResults()
-
-        for _, token in ipairs(tokens) do
-            if token.contractAddress == contractAddress then
-                return true
-            end
-        end
-        if playerCollection.hasMoreResults then
-            playerCollection = playerCollection:GetMoreResults()
-        else
-            return false
-        end
+    if #tokens > 0 then
+        return true
     end
+
+    return false
 end
 
 -- Is the given player considered VIP in our game?
@@ -150,7 +140,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-See also: [Blockchain.GetTokens](blockchain.md) | [BlockchainTokenCollection.GetResults](blockchaintokencollection.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
+See also: [Blockchain.GetTokensForPlayer](blockchain.md) | [BlockchainTokenCollection.GetResults](blockchaintokencollection.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
 
 ---
 

@@ -20,8 +20,8 @@ Contains a set of results from [Blockchain.GetTokens()](blockchain.md) and relat
 
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
-| `GetResults()` | `Array`<`BlockchainToken`> | Returns the list of tokens contained in this set of results. This may return an empty table. | None |
-| `GetMoreResults()` | `BlockchainTokenCollection` | Requests the next set of results for this list of tokens and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. | None |
+| `GetResults()` | `Array`<[`BlockchainToken`](blockchaintoken.md)> | Returns the list of tokens contained in this set of results. This may return an empty table. | None |
+| `GetMoreResults()` | [`BlockchainTokenCollection`](blockchaintokencollection.md) | Requests the next set of results for this list of tokens and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. | None |
 
 ## Examples
 
@@ -44,24 +44,15 @@ local NON_HOLDER_TEAM = 1
 
 -- Given a player and an NFT collection, check if the player owns a token
 function DoesPlayerOwnFromContract(player, contractAddress)
-    local playerCollection = Blockchain.GetTokens({playerId = player.id})
+    local playerCollection = Blockchain.GetTokensForPlayer(player, { contractAddress = contractAddress })
 
-    local tokens
+    local tokens = playerCollection:GetResults()
 
-    while true do
-        tokens = playerCollection:GetResults()
-        
-        for _, token in ipairs(tokens) do
-            if token.contractAddress == contractAddress then
-                return true
-            end
-        end
-        if playerCollection.hasMoreResults then
-            playerCollection = playerCollection:GetMoreResults()
-        else
-            return false
-        end
+    if #tokens > 0 then
+        return true
     end
+
+    return false
 end
 
 -- Is the given player considered VIP in our game?
@@ -83,7 +74,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-See also: [Blockchain.GetTokens](blockchain.md) | [BlockchainToken.contractAddress](blockchaintoken.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
+See also: [Blockchain.GetTokensForPlayer](blockchain.md) | [BlockchainToken.contractAddress](blockchaintoken.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
 
 ---
 

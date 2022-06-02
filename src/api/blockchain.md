@@ -14,11 +14,11 @@ Blockchain is a collection of functions for looking up blockchain tokens, collec
 
 | Class Function Name | Return Type | Description | Tags |
 | -------------- | ----------- | ----------- | ---- |
-| `Blockchain.GetToken(string contractAddress, string tokenId)` | `BlockchainToken` | Looks up a single blockchain token given its contract address and token ID. This function may yield while fetching token data. May return nil if the requested token does not exist. May raise a Lua error if an error occurs while retrieving token data. | None |
-| `Blockchain.GetTokensForPlayer(Player player, [table parameters[)` | `BlockchainTokenCollection` | Searches for blockchain tokens owned by the specified player. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `contractAddress (string)`: Only return tokens with the specified contract address. <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
-| `Blockchain.GetTokensForOwner(string ownerAddress, [table parameters[)` | `BlockchainTokenCollection` | Searches for blockchain tokens owned by the specified wallet address. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `contractAddress (string)`: Only return tokens with the specified contract address. <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
-| `Blockchain.GetTokens(string contractAddress, [table parameters[)` | `BlockchainTokenCollection` | Searches for blockchain tokens belonging to the specified contract address. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
-| `Blockchain.GetContract(string contractAddress)` | `BlockchainContract` | Looks up a blockchain contract given the contract address. This function may yield while fetching the contract data. May return nil if the requested contract does not exist. May raise a Lua error if an error occurs while retrieving the contract data. | None |
+| `Blockchain.GetToken(string contractAddress, string tokenId)` | [`BlockchainToken`](blockchaintoken.md) | Looks up a single blockchain token given its contract address and token ID. This function may yield while fetching token data. May return nil if the requested token does not exist. May raise a Lua error if an error occurs while retrieving token data. | None |
+| `Blockchain.GetTokensForPlayer(Player player, [table parameters[)` | [`BlockchainTokenCollection`](blockchaintokencollection.md) | Searches for blockchain tokens owned by the specified player. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `contractAddress (string)`: Only return tokens with the specified contract address. <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
+| `Blockchain.GetTokensForOwner(string ownerAddress, [table parameters[)` | [`BlockchainTokenCollection`](blockchaintokencollection.md) | Searches for blockchain tokens owned by the specified wallet address. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `contractAddress (string)`: Only return tokens with the specified contract address. <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
+| `Blockchain.GetTokens(string contractAddress, [table parameters[)` | [`BlockchainTokenCollection`](blockchaintokencollection.md) | Searches for blockchain tokens belonging to the specified contract address. This function may yield while fetching token data. May raise a Lua error if an error occurs while retrieving token data. <br /> Optional parameters can be provided to filter the results: <br/> `tokenIds (string or Array<string>)`: Only return tokens with the specified token IDs. | None |
+| `Blockchain.GetContract(string contractAddress)` | [`BlockchainContract`](blockchaincontract.md) | Looks up a blockchain contract given the contract address. This function may yield while fetching the contract data. May return nil if the requested contract does not exist. May raise a Lua error if an error occurs while retrieving the contract data. | None |
 
 ## Examples
 
@@ -90,10 +90,9 @@ end
 
 -- Fetch the NFTs
 local params = {
-    contractAddress = SMART_CONTRACT_ADDRESS,
     tokenIds = tokenIds
 }
-local freeChoiceTokens = Blockchain.GetTokens(params)
+local freeChoiceTokens = Blockchain.GetTokens(SMART_CONTRACT_ADDRESS, params)
 
 -- Print results. Attributes arrive in random order
 print("\nFree choices for today:\n")

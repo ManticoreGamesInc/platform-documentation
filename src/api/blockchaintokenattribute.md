@@ -51,10 +51,9 @@ end
 
 -- Fetch the NFTs
 local params = {
-    contractAddress = SMART_CONTRACT_ADDRESS, 
     tokenIds = tokenIds
 }
-local freeChoiceTokens = Blockchain.GetTokens(params)
+local freeChoiceTokens = Blockchain.GetTokens(SMART_CONTRACT_ADDRESS, params)
 --[[ Alternate implementation to fetch the NFTs
 local freeChoiceTokens = {}
 for _, id in ipairs(tokenIds) do
