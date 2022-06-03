@@ -46,6 +46,179 @@ A UIControl for a button which allows players to register for an event within a 
 
 Example using:
 
+### `GetTouchPosition`
+
+### `GetPinchValue`
+
+### `GetRotateValue`
+
+### `pinchStartedEvent`
+
+### `pinchStoppedEvent`
+
+### `rotateStartedEvent`
+
+### `rotateStoppedEvent`
+
+In this example we manipulate a UI object with a multi-touch pinching gesture. The pinch gesture is used to move, scale and rotate a the UI Text on screen.
+
+```lua
+-- Client Script as a child of the UI object.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local isPinching = false
+local isRotating = false
+local startingWidth
+local startingHeight
+local startingAngle
+
+function Tick()
+-- Position
+local touch1 = Input.GetTouchPosition(1)
+local touch2 = Input.GetTouchPosition(2)
+
+if touch1 ~= nil and touch2 ~= nil then
+    local position = (touch1 + touch2) / 2
+
+    UI_OBJECT:SetAbsolutePosition(position)
+end
+
+-- Scale
+if isPinching then
+    local pinchPercent = Input.GetPinchValue()
+
+    UI_OBJECT.width = CoreMath.Round(startingWidth * pinchPercent)
+    UI_OBJECT.height = CoreMath.Round(startingHeight * pinchPercent)
+end
+
+-- Rotate
+if isRotating then
+    local angle = Input.GetRotateValue()
+
+    UI_OBJECT.rotationAngle = startingAngle + angle
+end
+end
+
+-- Detect pinch gesture start/end
+UI_OBJECT.pinchStartedEvent:Connect(function()
+isPinching = true
+startingWidth = UI_OBJECT.width
+startingHeight = UI_OBJECT.height
+end)
+
+UI_OBJECT.pinchStoppedEvent:Connect(function()
+isPinching = false
+end)
+
+-- Detect rotation gesture start/end
+UI_OBJECT.rotateStartedEvent:Connect(function()
+isRotating = true
+startingAngle = UI_OBJECT.rotationAngle
+end)
+
+UI_OBJECT.rotateStoppedEvent:Connect(function()
+isRotating = false
+end)
+```
+
+See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [UIEventRSVPButton.isHittable](uieventrsvpbutton.md) | [CoreObject.parent](coreobject.md) | [CoreMath.Round](coremath.md)
+
+---
+
+Example using:
+
+### `tappedEvent`
+
+### `flickedEvent`
+
+In this example we listen for the tapped and flicked touch gestures on the UI object. When one of those events is triggered, the pertinent information is printed to the screen.
+
+```lua
+-- Client Script as a child of the UI object.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+function OnTappedEvent(control, location, touchIndex)
+UI.PrintToScreen("Tap ".. touchIndex ..": ".. tostring(location))
+end
+
+function OnFlickedEvent(control, angle)
+UI.PrintToScreen("Flick: " .. angle)
+end
+
+UI_OBJECT.tappedEvent:Connect(OnTappedEvent)
+UI_OBJECT.flickedEvent:Connect(OnFlickedEvent)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIEventRSVPButton.isHittable](uieventrsvpbutton.md)
+
+---
+
+Example using:
+
+### `touchStartedEvent`
+
+### `touchStoppedEvent`
+
+In this example, the touch inputs on the UI object are tracked in two different ways, with a counter and with a table. Each time the amount of touches change a summary of the touch information is printed to screen.
+
+```lua
+-- Client Script as a child of the UI object.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local touchCount = 0
+local activeTouches = {}
+
+function PrintTouchInfo()
+local str = touchCount .. ": ["
+local addComma = false
+
+for id,_ in pairs(activeTouches) do
+    if addComma then
+        str = str .. ", "
+    end
+
+    addComma = true
+    str = str .. id
+end
+
+str = str .. "]"
+
+UI.PrintToScreen(str)
+end
+
+local function OnTouchStarted(control, location, touchId)
+touchCount = touchCount + 1
+activeTouches[touchId] = true
+
+PrintTouchInfo()
+end
+
+local function OnTouchStopped(control, location, touchId)
+touchCount = touchCount - 1
+activeTouches[touchId] = nil
+
+PrintTouchInfo()
+end
+
+UI_OBJECT.touchStartedEvent:Connect(OnTouchStarted)
+UI_OBJECT.touchStoppedEvent:Connect(OnTouchStopped)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIEventRSVPButton.isHittable](uieventrsvpbutton.md)
+
+---
+
+Example using:
+
 ### `eventId`
 
 In this example, a client script controls a UI that prompts players to join (RSVP) an upcoming game event. In case the player has already registered for the event, then the UI does not show. The UI is populated with information about the event, such as name and description. Also, the RSVP Button must be given the game event's `id` in order to connect correctly with the platform service. The UI becomes hidden when the RSVP or Close buttons are clicked.
@@ -62,29 +235,29 @@ local RSVP_BUTTON = script:GetCustomProperty("UIEventRSVPButton"):WaitForObject(
 local player = Game.GetLocalPlayer()
 
 function ShowUI()
-    UI_ROOT.visibility = Visibility.INHERIT
+UI_ROOT.visibility = Visibility.INHERIT
 end
 
 function HideUI()
-    UI_ROOT.visibility = Visibility.FORCE_OFF
+UI_ROOT.visibility = Visibility.FORCE_OFF
 end
 
 function UpdateContents(eventData)
-    UI_EVENT_NAME.text = eventData.name
-    UI_EVENT_DESCRIPTION.text = eventData.description
-    RSVP_BUTTON.eventId = eventData.id
+UI_EVENT_NAME.text = eventData.name
+UI_EVENT_DESCRIPTION.text = eventData.description
+RSVP_BUTTON.eventId = eventData.id
 end
 
 function EvaluateUpcomingEvent()
-    local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
-    for i, eventData in ipairs(collection:GetResults()) do
-        if eventData.state == CoreGameEventState.SCHEDULED
-        and not CorePlatform.IsPlayerRegisteredForGameEvent(player, eventData) then
-            UpdateContents(eventData)
-            ShowUI()
-            return
-        end
+local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
+for i, eventData in ipairs(collection:GetResults()) do
+    if eventData.state == CoreGameEventState.SCHEDULED
+    and not CorePlatform.IsPlayerRegisteredForGameEvent(player, eventData) then
+        UpdateContents(eventData)
+        ShowUI()
+        return
     end
+end
 end
 
 CLOSE_BUTTON.clickedEvent:Connect(HideUI)

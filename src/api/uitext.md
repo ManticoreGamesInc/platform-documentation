@@ -56,6 +56,176 @@ A UIControl which displays a basic text label. Inherits from [UIControl](uicontr
 
 Example using:
 
+### `GetTouchPosition`
+
+### `GetPinchValue`
+
+### `GetRotateValue`
+
+### `pinchStartedEvent`
+
+### `pinchStoppedEvent`
+
+### `rotateStartedEvent`
+
+### `rotateStoppedEvent`
+
+In this example we manipulate a UI Text object with a multi-touch pinching gesture. The pinch gesture is used to move, scale and rotate a the UI Text on screen.
+
+```lua
+-- Client Script as a child of the UI Text.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local isPinching = false
+local isRotating = false
+local startingSize
+local startingAngle
+
+function Tick()
+    -- Position
+    local touch1 = Input.GetTouchPosition(1)
+    local touch2 = Input.GetTouchPosition(2)
+
+    if touch1 ~= nil and touch2 ~= nil then
+        local position = (touch1 + touch2) / 2
+
+        UI_OBJECT:SetAbsolutePosition(position)
+    end
+
+    -- Scale
+    if isPinching then
+        local pinchPercent = Input.GetPinchValue()
+
+        UI_OBJECT.fontSize = CoreMath.Round(startingSize * pinchPercent)
+    end
+
+    -- Rotate
+    if isRotating then
+        local angle = Input.GetRotateValue()
+
+        UI_OBJECT.rotationAngle = startingAngle + angle
+    end
+end
+
+-- Detect pinch gesture start/end
+UI_OBJECT.pinchStartedEvent:Connect(function()
+    isPinching = true
+    startingSize = UI_OBJECT.fontSize
+end)
+
+UI_OBJECT.pinchStoppedEvent:Connect(function()
+    isPinching = false
+end)
+
+-- Detect rotation gesture start/end
+UI_OBJECT.rotateStartedEvent:Connect(function()
+    isRotating = true
+    startingAngle = UI_OBJECT.rotationAngle
+end)
+
+UI_OBJECT.rotateStoppedEvent:Connect(function()
+    isRotating = false
+end)
+```
+
+See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [UIText.isHittable](uitext.md) | [CoreObject.parent](coreobject.md) | [CoreMath.Round](coremath.md)
+
+---
+
+Example using:
+
+### `tappedEvent`
+
+### `flickedEvent`
+
+In this example we listen for the tapped and flicked touch gestures on the UI object. When one of those events is triggered, the pertinent information is printed to the screen.
+
+```lua
+-- Client Script as a child of the UI Text.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+function OnTappedEvent(control, location, touchIndex)
+    UI.PrintToScreen("Tap ".. touchIndex ..": ".. tostring(location))
+end
+
+function OnFlickedEvent(control, angle)
+    UI.PrintToScreen("Flick: " .. angle)
+end
+
+UI_OBJECT.tappedEvent:Connect(OnTappedEvent)
+UI_OBJECT.flickedEvent:Connect(OnFlickedEvent)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIText.isHittable](uitext.md)
+
+---
+
+Example using:
+
+### `touchStartedEvent`
+
+### `touchStoppedEvent`
+
+In this example, the touch inputs on the UI object are tracked in two different ways, with a counter and with a table. Each time the amount of touches change a summary of the touch information is printed to screen.
+
+```lua
+-- Client Script as a child of the UI Text.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local touchCount = 0
+local activeTouches = {}
+
+function PrintTouchInfo()
+    local str = touchCount .. ": ["
+    local addComma = false
+
+    for id,_ in pairs(activeTouches) do
+        if addComma then
+            str = str .. ", "
+        end
+
+        addComma = true
+        str = str .. id
+    end
+
+    str = str .. "]"
+
+    UI.PrintToScreen(str)
+end
+
+local function OnTouchStarted(control, location, touchId)
+    touchCount = touchCount + 1
+    activeTouches[touchId] = true
+
+    PrintTouchInfo()
+end
+
+local function OnTouchStopped(control, location, touchId)
+    touchCount = touchCount - 1
+    activeTouches[touchId] = nil
+
+    PrintTouchInfo()
+end
+
+UI_OBJECT.touchStartedEvent:Connect(OnTouchStarted)
+UI_OBJECT.touchStoppedEvent:Connect(OnTouchStopped)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIText.isHittable](uitext.md)
+
+---
+
+Example using:
+
 ### `ComputeApproximateSize`
 
 In this example a random message will be displayed. Each message is a different length. Using `ComputeApproximateSize`, you can get the rendered text size and increase the parent width so the text does not overflow. This is useful when you do not know the size of the text, for example, player names.

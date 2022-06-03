@@ -136,7 +136,7 @@ Example using:
 
 ### `rotateStoppedEvent`
 
-In this example we manipulate an image with a multi-touch pinching gesture. The pinch gesture is used to move, scale and roate a 2D image on screen.
+In this example we manipulate an image with a multi-touch pinching gesture. The pinch gesture is used to move, scale and rotate a 2D image on screen.
 
 ```lua
 local UIIMAGE = script:GetCustomProperty("UIImage"):WaitForObject()

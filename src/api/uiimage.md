@@ -61,6 +61,179 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 
 Example using:
 
+### `GetTouchPosition`
+
+### `GetPinchValue`
+
+### `GetRotateValue`
+
+### `pinchStartedEvent`
+
+### `pinchStoppedEvent`
+
+### `rotateStartedEvent`
+
+### `rotateStoppedEvent`
+
+In this example we manipulate a UI object with a multi-touch pinching gesture. The pinch gesture is used to move, scale and rotate a the UI Text on screen.
+
+```lua
+-- Client Script as a child of the UI Text.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local isPinching = false
+local isRotating = false
+local startingWidth
+local startingHeight
+local startingAngle
+
+function Tick()
+    -- Position
+    local touch1 = Input.GetTouchPosition(1)
+    local touch2 = Input.GetTouchPosition(2)
+
+    if touch1 ~= nil and touch2 ~= nil then
+        local position = (touch1 + touch2) / 2
+
+        UI_OBJECT:SetAbsolutePosition(position)
+    end
+
+    -- Scale
+    if isPinching then
+        local pinchPercent = Input.GetPinchValue()
+
+        UI_OBJECT.width = CoreMath.Round(startingWidth * pinchPercent)
+        UI_OBJECT.height = CoreMath.Round(startingHeight * pinchPercent)
+    end
+
+    -- Rotate
+    if isRotating then
+        local angle = Input.GetRotateValue()
+
+        UI_OBJECT.rotationAngle = startingAngle + angle
+    end
+end
+
+-- Detect pinch gesture start/end
+UI_OBJECT.pinchStartedEvent:Connect(function()
+    isPinching = true
+    startingWidth = UI_OBJECT.width
+    startingHeight = UI_OBJECT.height
+end)
+
+UI_OBJECT.pinchStoppedEvent:Connect(function()
+    isPinching = false
+end)
+
+-- Detect rotation gesture start/end
+UI_OBJECT.rotateStartedEvent:Connect(function()
+    isRotating = true
+    startingAngle = UI_OBJECT.rotationAngle
+end)
+
+UI_OBJECT.rotateStoppedEvent:Connect(function()
+    isRotating = false
+end)
+```
+
+See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [UIImage.isHittable](uiimage.md) | [CoreObject.parent](coreobject.md) | [CoreMath.Round](coremath.md)
+
+---
+
+Example using:
+
+### `tappedEvent`
+
+### `flickedEvent`
+
+In this example we listen for the tapped and flicked touch gestures on the UI object. When one of those events is triggered, the pertinent information is printed to the screen.
+
+```lua
+-- Client Script as a child of the UI object.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+function OnTappedEvent(control, location, touchIndex)
+    UI.PrintToScreen("Tap ".. touchIndex ..": ".. tostring(location))
+end
+
+function OnFlickedEvent(control, angle)
+    UI.PrintToScreen("Flick: " .. angle)
+end
+
+UI_OBJECT.tappedEvent:Connect(OnTappedEvent)
+UI_OBJECT.flickedEvent:Connect(OnFlickedEvent)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIImage.isHittable](uiimage.md)
+
+---
+
+Example using:
+
+### `touchStartedEvent`
+
+### `touchStoppedEvent`
+
+In this example, the touch inputs on the UI object are tracked in two different ways, with a counter and with a table. Each time the amount of touches change a summary of the touch information is printed to screen.
+
+```lua
+-- Client Script as a child of the UI object.
+local UI_OBJECT = script.parent
+
+-- Make the UI Control hittable
+UI_OBJECT.isHittable = true
+
+local touchCount = 0
+local activeTouches = {}
+
+function PrintTouchInfo()
+    local str = touchCount .. ": ["
+    local addComma = false
+
+    for id,_ in pairs(activeTouches) do
+        if addComma then
+            str = str .. ", "
+        end
+
+        addComma = true
+        str = str .. id
+    end
+
+    str = str .. "]"
+
+    UI.PrintToScreen(str)
+end
+
+local function OnTouchStarted(control, location, touchId)
+    touchCount = touchCount + 1
+    activeTouches[touchId] = true
+
+    PrintTouchInfo()
+end
+
+local function OnTouchStopped(control, location, touchId)
+    touchCount = touchCount - 1
+    activeTouches[touchId] = nil
+
+    PrintTouchInfo()
+end
+
+UI_OBJECT.touchStartedEvent:Connect(OnTouchStarted)
+UI_OBJECT.touchStoppedEvent:Connect(OnTouchStopped)
+```
+
+See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIImage.isHittable](uiimage.md)
+
+---
+
+Example using:
+
 ### `SetBlockchainToken`
 
 MekaVerse is an NFT collection with 8,888 unique mechas. The following example shows how to remotely load the image for Meka #1. The script sits in the hierarchy as a child of a `UI Image`, which is used for visualizing the NFT's artwork.
@@ -93,10 +266,10 @@ local featuredGames = CorePlatform.GetGameCollection("featured")
 
 for _,entry in ipairs(featuredGames) do
     print("Showing screenshots for " .. entry.name)
-    
+
     local gameInfo = CorePlatform.GetGameInfo(entry.id)
     local count = gameInfo.screenshotCount
-    
+
     -- Show each of the game's screenshots
     for i = 1,count do
         IMAGE:SetGameScreenshot(entry.id, i)
@@ -171,7 +344,7 @@ function Tick(deltaTime)
         -- Reset the "timer" to 2 seconds
         timer = 2
 
-        -- Get the id of the friend at the current index of the array 
+        -- Get the id of the friend at the current index of the array
         local friend_id = friends[currentIndex].id
 
         -- Update the image with the friend's profile picture
