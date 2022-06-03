@@ -209,6 +209,79 @@ See also: [Damage.New](damage.md) | [Damageable.ApplyDamage](damageable.md) | [C
 
 Example using:
 
+### `GetBoundingBoxFromObjects`
+
+In this example, we get the bounding box of a group of static meshes to determine if the group is overlapping another object. This is useful for objects that have been kit bashed where you need to prevent them from overlapping other objects. This example will turn the objects in the group red when it is overlapping another object.
+
+```lua
+-- Client Script
+
+-- The group that contains the static meshes that is being moved around.
+local GROUP = script:GetCustomProperty("Object"):WaitForObject()
+
+-- Ground/Floor that will be ignored.
+local DEFAULT_FLOOR = script:GetCustomProperty("DefaultFloor"):WaitForObject()
+
+local meshes = GROUP:FindDescendantsByType("StaticMeshes")
+
+UI.SetCursorVisible(true)
+
+local function SetGroupMeshesColor(color)
+    for index, mesh in ipairs(meshes) do
+        if color then
+            mesh:SetColor(Color[color])
+        else
+            mesh:ResetColor()
+        end
+    end
+end
+
+function Tick()
+    local hit = UI.GetHitResult(Input.GetPointerPosition())
+
+    if hit ~= nil then
+        local position = hit:GetImpactPosition()
+
+        -- Get the bounding box of the objects by passing in all static meshes of the GROUP.
+        local box = World.GetBoundingBoxFromObjects(meshes)
+        local transform = box:GetTransform()
+        local rotation = transform:GetRotation()
+        local scale = transform:GetScale()
+
+        local overlappingObjects = World.FindObjectsOverlappingBox(box:GetCenter(), scale * 100, {
+
+            ignoreObjects = { DEFAULT_FLOOR },
+            ignorePlayers = true,
+            shapeRotation = rotation
+
+        })
+
+        -- Draw the box so we can see if it does match the correct size.
+        CoreDebug.DrawBox(box:GetCenter(), scale * 100, {
+
+            thickness = 1.5, duration = .1, color = Color.YELLOW, rotation = rotation
+
+        })
+
+        -- If the number of overlapping objects is greater than 0, then set all to red.
+        if #overlappingObjects > 0 then
+            SetGroupMeshesColor("RED")
+        else
+            SetGroupMeshesColor()
+        end
+
+        -- Update the position of the object based on the hit impact position.
+        GROUP:SetWorldPosition(position)
+    end
+end
+```
+
+See also: [Box.GetTransform](box.md) | [Transform.GetScale](transform.md) | [CoreLua.Tick](coreluafunctions.md) | [UI.SetCursorVisible](ui.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [CoreObject.GetCustomProperty](coreobject.md) | [World.FindObjectsOverlappingBox](world.md) | [CoreDebug.DrawBox](coredebug.md) | [CoreMesh.SetColor](coremesh.md)
+
+---
+
+Example using:
+
 ### `GetRootObject`
 
 There is a parent CoreObject for the entire hierarchy. Although not visible in the user interface, it's accessible with the World.GetRootObject() class function. This example walks the whole hierarchy tree (depth first) and prints the name+type of each Core Object.

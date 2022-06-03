@@ -62,7 +62,7 @@ Some sets of related functionality are grouped within namespaces, which are simi
 
 |   |   |   |   |
 |:-:|:-:|:-:|:-:|
-| [Blockchain](../api/blockchain.md) | [Chat](../api/chat.md) | [CoreAnalytics](../api/coreanalytics.md) | [CoreDebug](../api/coredebug.md) |
+| [Blockchain](../api/blockchain.md) | [Chat](../api/chat.md) | [CoreDebug](../api/coredebug.md) |
 | [CoreLuaFunctions](../api/coreluafunctions.md) | [CoreMath](../api/coremath.md) | [CorePlatform](../api/coreplatform.md) | [CoreSocial](../api/coresocial.md) |
 | [CoreString](../api/corestring.md) | [Environment](../api/environment.md) | [Events](../api/events.md) | [Game](../api/game.md) |
 | [Input](../api/input.md) | [Leaderboards](../api/leaderboards.md) | [Storage](../api/storage.md) | [Teams](../api/teams.md) |

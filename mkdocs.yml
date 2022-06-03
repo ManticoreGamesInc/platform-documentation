@@ -262,7 +262,7 @@ nav:
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
-          - Blockckain: api/blockckain.md
+          - Blockchain: api/blockchain.md
           - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
           - CoreDebug: api/coredebug.md
