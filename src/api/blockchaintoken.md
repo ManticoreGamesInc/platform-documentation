@@ -4,6 +4,7 @@ name: BlockchainToken
 title: BlockchainToken
 tags:
     - API
+    - Blockchain
 ---
 
 # BlockchainToken

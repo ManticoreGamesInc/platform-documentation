@@ -4,6 +4,7 @@ name: UIImage
 title: UIImage
 tags:
     - API
+    - UI
 ---
 
 # UIImage

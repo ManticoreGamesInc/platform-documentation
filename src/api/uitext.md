@@ -4,6 +4,7 @@ name: UIText
 title: UIText
 tags:
     - API
+    - UI
 ---
 
 # UIText

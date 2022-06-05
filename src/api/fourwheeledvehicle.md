@@ -4,6 +4,7 @@ name: FourWheeledVehicle
 title: FourWheeledVehicle
 tags:
     - API
+    - Vehicle
 ---
 
 # FourWheeledVehicle

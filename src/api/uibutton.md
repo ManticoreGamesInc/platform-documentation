@@ -4,6 +4,7 @@ name: UIButton
 title: UIButton
 tags:
     - API
+    - UI
 ---
 
 # UIButton

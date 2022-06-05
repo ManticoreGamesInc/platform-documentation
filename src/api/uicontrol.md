@@ -4,6 +4,7 @@ name: UIControl
 title: UIControl
 tags:
     - API
+    - UI
 ---
 
 # UIControl

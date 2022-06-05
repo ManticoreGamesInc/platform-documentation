@@ -4,6 +4,7 @@ name: UIProgressBar
 title: UIProgressBar
 tags:
     - API
+    - UI
 ---
 
 # UIProgressBar

@@ -4,6 +4,7 @@ name: BlockchainContract
 title: BlockchainContract
 tags:
     - API
+    - Blockchain
 ---
 
 # BlockchainContract

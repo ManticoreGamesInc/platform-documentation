@@ -4,6 +4,7 @@ name: UIPerkPurchaseButton
 title: UIPerkPurchaseButton
 tags:
     - API
+    - UI
 ---
 
 # UIPerkPurchaseButton

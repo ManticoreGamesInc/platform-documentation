@@ -4,6 +4,7 @@ name: Blockchain
 title: Blockchain
 tags:
     - API
+    - Blockchain
 ---
 
 # Blockchain

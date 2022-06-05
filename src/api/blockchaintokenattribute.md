@@ -4,6 +4,7 @@ name: BlockchainTokenAttribute
 title: BlockchainTokenAttribute
 tags:
     - API
+    - Blockchain
 ---
 
 # BlockchainTokenAttribute

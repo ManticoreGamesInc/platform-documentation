@@ -4,6 +4,7 @@ name: UIScrollPanel
 title: UIScrollPanel
 tags:
     - API
+    - UI
 ---
 
 # UIScrollPanel

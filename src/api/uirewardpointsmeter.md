@@ -4,6 +4,7 @@ name: UIRewardPointsMeter
 title: UIRewardPointsMeter
 tags:
     - API
+    - UI
 ---
 
 # UIRewardPointsMeter

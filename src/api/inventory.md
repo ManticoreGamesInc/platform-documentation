@@ -4,6 +4,7 @@ name: Inventory
 title: Inventory
 tags:
     - API
+    - Inventory
 ---
 
 # Inventory

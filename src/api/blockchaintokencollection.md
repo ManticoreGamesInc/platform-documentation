@@ -4,6 +4,7 @@ name: BlockchainTokenCollection
 title: BlockchainTokenCollection
 tags:
     - API
+    - Blockchain
 ---
 
 # BlockchainTokenCollection

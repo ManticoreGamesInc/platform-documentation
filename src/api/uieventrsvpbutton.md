@@ -4,6 +4,7 @@ name: UIEventRSVPButton
 title: UIEventRSVPButton
 tags:
     - API
+    - UI
 ---
 
 # UIEventRSVPButton
