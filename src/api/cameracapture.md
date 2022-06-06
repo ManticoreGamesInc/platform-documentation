@@ -12,7 +12,7 @@ CameraCapture represents an image rendered by a `Camera` to be used elsewhere in
 
 The total budget is 8 megapixels (8,388,608 pixels).
 
-Below lists the total nunber of captures that can be done per resolution. Creators can mix the resolution size as long as the total budget is not above the limit of 8 megapixels.
+Below lists the total number of captures that can be done per resolution. Creators can mix the resolution size as long as the total budget is not above the limit of 8 megapixels.
 
 - 2048 maximum captures at `VERY_SMALL` resolution size.
 - 512 maximum captures at `SMALL` resolution size.

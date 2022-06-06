@@ -55,7 +55,7 @@ local rng = RandomStream.New(rngSeed)
 
 -- Choose random token IDs
 local tokenIds = {}
-for i = 1,FREE_CHOICE_AMOUNT do
+for i = 1, FREE_CHOICE_AMOUNT do
     local id = tostring(rng:GetInteger(1, COLLECTION_SIZE))
     table.insert(tokenIds, id)
 end
@@ -69,7 +69,7 @@ end
 
 -- Print results. Attributes arrive in random order
 print("\nFree choices for today:\n")
-for _,token in ipairs(freeChoiceTokens) do
+for _, token in ipairs(freeChoiceTokens) do
     print("Loot Bag #" .. token.tokenId)
 
     local allAttributes = token:GetAttributes()
@@ -80,10 +80,17 @@ end
 
 -- Alternate version, with attributes ordered based on original design
 local sortedAttributeNames = {
-    "weapon", "chest", "head", "waist", "foot", "hand", "neck", "ring"
+    "weapon",
+    "chest",
+    "head",
+    "waist",
+    "foot",
+    "hand",
+    "neck",
+    "ring",
 }
 print("\n(v2) Free choices for today:\n")
-for _,token in ipairs(freeChoiceTokens) do
+for _, token in ipairs(freeChoiceTokens) do
     print("Loot Bag #" .. token.tokenId)
 
     for _, attributeName in pairs(sortedAttributeNames) do
