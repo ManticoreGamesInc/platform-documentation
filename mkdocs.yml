@@ -71,6 +71,7 @@ nav:
           - Materials: references/materials.md
           - Media Library: references/media_library.md
           - Merged Models: references/merged_models.md
+          - ✨ Migrating to Action Bindings: references/migrating_bindings.md
           - Mobile Device Preview: references/mobile_device_preview.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
