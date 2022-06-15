@@ -20,7 +20,7 @@ All Core Content such as weapons are using action bindings and are a great way t
 
 For example, below is a comparison between the **WeaponAimClient** script that is used in some Core Content weapons and the same script that is used in older Community Content.
 
-On the left `Input.actionPressedEvent` and `Input.actionRleasedEvent` events are used, compared to the deprecated events `player.bindingPressedEvent` and `player.bindingReleasedEvent`. With the Default Binding set, the **Aim** action will be used that is set on the custom property **AimBinding** on the weapon object.
+On the left `Input.actionPressedEvent` and `Input.actionReleasedEvent` events are used, compared to the deprecated events `player.bindingPressedEvent` and `player.bindingReleasedEvent`. With the Default Binding set, the **Aim** action will be used that is set on the custom property **AimBinding** on the weapon object.
 
 ![!Compare](../img/MigrateBindings/compare.png){: .center loading="lazy" }
 
