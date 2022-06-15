@@ -22,7 +22,7 @@ Contains a set of results from [Blockchain.GetTokens()](blockchain.md) and relat
 | Function Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `GetResults()` | `Array`<[`BlockchainToken`](blockchaintoken.md)> | Returns the list of tokens contained in this set of results. This may return an empty table. | None |
-| `GetMoreResults()` | [`BlockchainTokenCollection`](blockchaintokencollection.md) | Requests the next set of results for this list of tokens and returns a new collection containing those results. Returns `nil` if the `hasMoreResults` property is `false`. This function may yield until a result is available, and may raise an error if an error occurs retrieving the information. | None |
+| `GetMoreResults()` | `<BlockchainTokenCollection`, [`BlockchainTokenResultCode`](enums.md#blockchaintokenresultcode), `string` error | Requests the next set of results for this list of tokens and returns a new collection containing those results. This function may yield until a result is available. Returns `nil` if the `hasMoreResults` property is `false`, or if an error occurs while fetching data. The status code in the second return value indicates whether the request succeeded or failed, with an optional error message in the third return value. | None |
 
 ## Examples
 
