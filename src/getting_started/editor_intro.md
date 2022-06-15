@@ -33,7 +33,7 @@ The Main Viewport is the window into all visual aspects of a project. It will ap
     - ++W++, ++A++, ++S++, and ++D++ will move view position forward, left, right, and back.
 - Hold ++Alt++ and use the **left mouse button** to orbit around a selected object.
 - Use the **scroll wheel** to move the view closer or further away.
-- Hold the **wheel button**  to slide the view left, right, up, or down.
+- Hold the **wheel button** to slide the view left, right, up, or down.
 - Press ++F++ with an object selected to move the view to focus on that object.
 
 ### Preview Mode
@@ -65,7 +65,7 @@ Preview Mode shows a project from a player perspective, allowing you to run thro
 
 The Hierarchy shows all the objects that are currently in the project. These objects can be reordered by dragging and dropping. Dragging an object on top of another will make it a **child** of that object.
 
-**Child objects** are positioned relative to location in the scene of the **parent object** that they are nested under, and can access their parent object's properties in scripts.
+**Child objects** are positioned relative to the location in the scene of the **parent object** that they are nested under and can access their parent object's properties in scripts.
 
 ## Content
 
@@ -93,7 +93,7 @@ The Toolbar contains the different options for manipulating objects.
 {: .image-inline-text .image-background }
 - ![Snap Rotation](../img/EditorManual/icons/Icon_SnapRotation.png) or ++G++ to **Snap Rotation**, rotating the object in the selected degree interval.
 {: .image-inline-text .image-background }
-- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the objects size along that dimension, or select the center cube to scale the entire object in proportion.
+- ![Scale Tool](../img/EditorManual/icons/Icon_TransformScale.png) or ++R++ to **Transform Scale**. It will show three arms with cubes at the ends from the object's center. Drag any of the cubes to change the object's size along that dimension, or select the center cube to scale the entire object in proportion.
 {: .image-inline-text .image-background }
 - ![Snap Scale](../img/EditorManual/icons/Icon_SnapScale.png) or ++G++ to **Snap Scale**. It will resize the object in whole units according to the selected size.
 {: .image-inline-text .image-background }
@@ -111,7 +111,7 @@ Scripts allow you to program the behavior of different objects in the project. C
 
 ### Event Log
 
-The Event Log is where output from scripts, including errors, can be found. It is not open by default, but can be opened through the **Window** menu.
+The Event Log is where the output from scripts, including errors, can be found. It is not open by default but can be opened through the **Window** menu.
 
 ## Saving the Project
 

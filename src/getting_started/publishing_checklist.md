@@ -72,7 +72,7 @@ The goal of this checklist is to outline the essentials that you should check be
 - [x] **Players can access every space they need to play the game**
 - [x] **Players cannot go places that are not part of the game.**
 - [x] **There are no parts of the map where players can accidentally get trapped.**
-- [x] Players can clearly distinguish where they are able to go.
+- [x] Players can clearly distinguish where they can go.
 - [x] *Different areas of the map offer different experiences.*
 - [x] *Places players cannot go still look interesting and support the feeling of the game*
 
@@ -83,7 +83,7 @@ The goal of this checklist is to outline the essentials that you should check be
 - [x] **The game has been tested using Multiplayer Preview Mode**
 - [x] The game has been tested with different numbers of players.
 - [x] The maximum number of allowed players can all play the game together easily.
-- [x] *The maximum and minimum number or players are adjusted based on how many people are usually playing to allow games as often as possible.*
+- [x] *The maximum and minimum number of players are adjusted based on how many people are usually playing to allow games as often as possible.*
 
 ### Teams
 

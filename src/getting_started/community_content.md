@@ -56,9 +56,9 @@ To use the template in your project, click, and drag the green template icon int
 
 ![Imported Content Asset](../img/getting_started/ProjectContent_importedcontentasset.png "Imported Template Asset"){: .center loading="lazy" }
 
-## Publishing Your Own Content
+## Publishing Your Content
 
-To share your own templates on Community Content, see the [Template reference](templates.md).
+To share your templates on Community Content, see the [Template reference](templates.md).
 
 ## Community Shared Games
 
