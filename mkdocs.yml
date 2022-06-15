@@ -69,7 +69,7 @@ nav:
           - Inventories: references/inventory.md
           - Leaderboards: references/leaderboards.md
           - Materials: references/materials.md
-          - ✨ Media Library: references/media_library.md
+          - Media Library: references/media_library.md
           - Merged Models: references/merged_models.md
           - Mobile Device Preview: references/mobile_device_preview.md
           - Modeling Reference: references/modeling.md
@@ -126,6 +126,7 @@ nav:
           - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
           - Converting to Mobile: tutorials/converting_to_mobile.md
           - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - ✨ Creating an NFT: tutorials/creating_an_nft.md
           - Damageable Object Basics: tutorials/damageable_object_basics.md
           - Destructible Objects: tutorials/boss_tutorial.md
           - Creating Device Aware UI: tutorials/device_aware_ui.md
