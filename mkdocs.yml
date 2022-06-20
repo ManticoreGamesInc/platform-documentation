@@ -161,6 +161,7 @@ nav:
       - Editor Extensions: extensions.md
       - Emotes: api/emotes.md
       - Enums: api/enums.md
+      - Legacy Key Bindings: api/key_bindings.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Interfaces:
           - Damageable: api/damageable.md
