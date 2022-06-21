@@ -37,6 +37,13 @@ tags:
 | `AbilityPhase.RECOVERY` | `3` | The ability has finished executing, but has not yet entered cooldown. |
 | `AbilityPhase.COOLDOWN` | `4` | The ability is not currently ready to use. |
 
+## BlockchainTokenResultCode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `BlockchainTokenResultCode.SUCCESS` | `0` | Data was successfully retrieved. |
+| `BlockchainTokenResultCode.FAILURE` | `1` | An error occurred while retrieving data. Additional specific failure codes may be added in the future, so it is recommended to check for `SUCCESS` when determining whether an operation succeeded or failed. |
+
 ## BroadcastEventResultCode
 
 | Enum Name | Value | Description |

@@ -36,6 +36,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `maxYaw` | `number` | The maximum yaw for free control. | Read-Write |
 | `useAsAudioListener` | `boolean` | Whether the local player's audio should be attenuated and spatialized based on their view position while this is the active camera. | Read-Write |
 | `audioListenerOffset` | [`Vector3`](vector3.md) | This property is deprecated. Please use the GetAudioListenerOffset() and SetAudioListenerOffset() functions instead. | Read-Write, <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
+| `isCameraCollisionEnabled` | `boolean` | When true, this camera will collide with objects that have camera collision enabled. When set to false, the camera will not collide with any objects. Defaults to true. | Read-Write |
 
 ## Functions
 

@@ -4,6 +4,7 @@ name: UI
 title: UI
 tags:
     - API
+    - UI
 ---
 
 # UI

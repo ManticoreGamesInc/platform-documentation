@@ -4,6 +4,7 @@ name: UIPanel
 title: UIPanel
 tags:
     - API
+    - UI
 ---
 
 # UIPanel

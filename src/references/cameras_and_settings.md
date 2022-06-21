@@ -10,7 +10,7 @@ tags:
 
 ## Summary
 
-**Cameras** capture and display the world, they are the eye for players, and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (that is security camera), capture, and render to UI, or simply be the eye for the player when looking down their gun.
+**Cameras** capture and display the world, they are the eye of the player and can be set up in many ways. **Cameras** can be placed in the world to capture specific points of interest (for example, a security camera), capture, and render to UI, or simply be the eye for the player when looking down their gun.
 
 When a new project is created, **Core** will automatically add a **Third Person Camera** to the **Hierarchy** under **Game Settings**. This will be the default camera which can be modified, or removed.
 
@@ -39,7 +39,7 @@ Adding a new **Camera** to the **Hierarchy** may appear that nothing happens whe
 
 ## Properties
 
-There are various properties that can be adjusted on the **Camera** that can change the way the player views the game.
+Some properties can be adjusted on the **Camera** that can change the way the player views the game.
 
 ### Transform
 
@@ -131,7 +131,7 @@ See the [Camera API](/api/camera.md) and [Player API](/api/player.md) for more i
 
 ## Camera Capture to Image
 
-A **Camera** has the ability capture the view from the camera to an image at different resolutions. These captured images then be used else where, for example, capturing an object in the world and using it as item in a UI inventory system.
+A **Camera** has the ability to capture the view from the camera to an image at different resolutions. These captured images can be used elsewhere, for example, capturing an object in the world and using it as an item in a UI inventory system.
 
 To capture images from a camera, the `Capture` function can be used in a Lua script.
 
@@ -151,48 +151,48 @@ See the [Camera API](/api/camera.md) and [CameraCapture API](/api/cameracapture.
 
 ### First Person Camera
 
-The first person camera shows what a player is looking at from the viewpoint of the player's character. This type of camera can be used in first person shooter (FPS) games.
+The first-person camera shows what a player is looking at from the viewpoint of the player's character. This type of camera can be used in first-person shooter (FPS) games.
 
-![!First Person](/img/Camera/first_person_camera.png){: .center loading="lazy" }
+![!First-Person](/img/Camera/first_person_camera.png){: .center loading="lazy" }
 
 ### Third Person Camera
 
-The third person camera view will show the player's character to the player. Sometimes the camera is offset from the character to give it a feeling of appearing over the shoulder. This type of camera can be used in third person shooters (TPS) and adventure games.
+The third-person camera view will show the player's character to the player. Sometimes the camera is offset from the character to give it a feeling of appearing over the shoulder. This type of camera can be used in third-person shooters (TPS) and adventure games.
 
-![!Third Person](/img/Camera/third_person_camera.png){: .center loading="lazy" }
+![!Third-Person](/img/Camera/third_person_camera.png){: .center loading="lazy" }
 
-### Top Down Camera
+### Top-Down Camera
 
-The top down camera view will show an overhead view of the game play. This type of camera can be used in real time strategy (RTS), and simulation games.
+The top-down camera view will show an overhead view of the gameplay. This type of camera can be used in a real-time strategy (RTS), and simulation games.
 
-![!Top Down](/img/Camera/top_down_camera.png){: .center loading="lazy" }
+![!Top-Down](/img/Camera/top_down_camera.png){: .center loading="lazy" }
 
 ### Isometric Camera
 
-The isometric camera view is pointed at a fixed angle (that is 45 degrees) towards the player's character. This type of camera can be used in real time strategy, and role playing games.
+The isometric camera view is pointed at a fixed angle (that is 45 degrees) toward the player's character. This type of camera can be used in real-time strategy and role-playing games.
 
 ![!Isometric](/img/Camera/isometric_camera.png){: .center loading="lazy" }
 
 ### Side Scroller Camera
 
-A side scroller camera is a view point from a side view angle, and usually the player's character moves left and right, and the screen scrolls with the character. This type of camera can be used for 2D games.
+A side-scroller camera is a viewpoint from a side view angle, and usually, the player's character moves left and right, and the screen scrolls with the character. This type of camera can be used for 2D games.
 
-![!Side Scroller](/img/Camera/side_scroller_camera.png){: .center loading="lazy" }
+![!Side-Scroller](/img/Camera/side_scroller_camera.png){: .center loading="lazy" }
 
 ## Player Settings
 
-The player settings object has properties that handle player movement control, and camera control.
+The player settings object has properties that handle player movement control and camera control.
 
 ### Ability Aim Mode
 
-This setting controls where the aim is calculated from. For example, in a third person camera, the aim is usually calculated from the camera view (view relative), but in a side scroller view, the aim would be calculated based on the eye position (look relative) of the player's character.
+This setting controls where the aim is calculated from. For example, in a third-person camera, the aim is usually calculated from the camera view (view relative), but in a side-scroller view, the aim would be calculated based on the eye position (look relative) of the player's character.
 
 | Mode | Description |
 | ---- | ----------- |
 | View Relative | Ability aim is calculated from the camera origin along the camera forward direction. |
 | Look Relative | Ability aim is calculated from the players eye position along the player look direction. |
 
-See the video below to see the difference when using a side scroller camera. The **Ability Aim Mode** is set to **Look Relative**, then changed to **View Relative**. Watch the bullet trail to see the difference between the 2 settings.
+See the video below to see the difference when using a side-scroller camera. The **Ability Aim Mode** is set to **Look Relative**, then changed to **View Relative**. Watch the bullet trail to see the difference between the 2 settings.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -258,7 +258,7 @@ In Look Control Mode: Look at Cursor, a cursor position is mapped into the world
 
 ##### Cursor Plane Offset
 
-Distance the cursor plane is offset along the plane's normal.
+The distance the cursor plane is offset along the plane's normal.
 
 #### Facing Mode
 
@@ -277,6 +277,18 @@ In this video, the difference can be seen when moving the player's character aro
         <source src="/img/Camera/facing_mode.mp4" type="video/mp4" />
     </video>
 </div>
+
+## Camera Collision
+
+Cameras by default will collide with objects that have **Camera Collision** enabled. When the property `isCameraCollisionEnabled` is set to false, the camera will not collide with any objects. This defaults to true. Creators will find this useful for easier development of games with a fixed camera angle which would not typically need to collide with any geometry.
+
+Using a Lua script, the `isCameraCollisionEnabled` can be toggled on or off. For example, in the code below, the camera collision is turned off for the `CAMERA`.
+
+```lua
+local CAMERA = script:GetCustomProperty("Camera"):WaitForObject()
+
+CAMERA.isCameraCollisionEnabled = false -- Turn off collision for this camera.
+```
 
 ## Learn More
 

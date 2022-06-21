@@ -4,6 +4,7 @@ name: Vehicle
 title: Vehicle
 tags:
     - API
+    - Vehicle
 ---
 
 # Vehicle

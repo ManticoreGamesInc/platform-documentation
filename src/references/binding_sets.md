@@ -10,7 +10,7 @@ tags:
 
 A **Binding Set** contains a set of actions a creator has defined for the game and the default key bindings to trigger those actions.
 
-New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings setup already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own.If there is no **Binding Set** in the **Hierarchy**, the default controls will be used.
+New **Core** projects created, will contain a **Binding Set** that will have the default **Core** bindings set up already in the **Hierarchy**. This will allow creators to modify the default **Binding Set** to customize it for their game, or remove it and create their own. If there is no **Binding Set** in the **Hierarchy**, the default controls will be used.
 
 ## Opening the Bindings Manager Window
 
@@ -20,7 +20,7 @@ From the **Window** menu, select **Bindings Manager** to open up the **Bindings 
 
 ## Creating a Binding Set
 
-A **Binding Set** needs to be placed into the **Hierarchy**. A new **Binding Set** will not overwrite an existing **Binding Set** that is in the **Hierarchy**. For example, if one **Binding Set** has ++Space++ set to perform the **Jump** action, and another **Binding Set** has ++Space++ set for to perform the **Crouch** action, then both actions will be performed.
+A **Binding Set** needs to be placed into the **Hierarchy**. A new **Binding Set** will not overwrite an existing **Binding Set** that is in the **Hierarchy**. For example, if one **Binding Set** has ++Space++ set to perform the **Jump** action, and another **Binding Set** has ++Space++ set to perform the **Crouch** action, then both actions will be performed.
 
 ### Bindings Manager
 
@@ -28,7 +28,7 @@ A **Binding Set** can be created from the **Bindings Manager** window by clickin
 
 ![!Create Button](../img/BindingSets/create_binding_set.png){: .center loading="lazy" }
 
-**Binding Sets** created this way will have the property **Binding Sets** under **Bindings** already setup with the asset reference when placed into the **Hierarchy**.
+**Binding Sets** created this way will have the property **Binding Sets** under **Bindings** already set up with the asset reference when placed into the **Hierarchy**.
 
 ![!Asset Reference](../img/BindingSets/asset_reference.png){: .center loading="lazy" }
 
@@ -60,13 +60,13 @@ Bindings support a secondary key and controller input. Meaning that the player c
 
 ### Core Behavior
 
-When creating a binding, a **Core Behavior** needs to be selected so that the **Binding Set** knows which action to perform when the binding is triggered. When a **Core Behavior** is selected, the binding will get auto filled with the default **Core** values for the keyboard and controller inputs.
+When creating a binding, a **Core Behavior** needs to be selected so that the **Binding Set** knows which action to perform when the binding is triggered. When a **Core Behavior** is selected, the binding will get auto-filled with the default **Core** values for the keyboard and controller inputs.
 
 ![!Core Behavior](../img/BindingSets/core_behaviors.png){: .center loading="lazy" }
 
 ### Binding Types
 
-There are 3 different types of bindings that can created.
+There are 3 different types of bindings that can by created.
 
 | Binding Type        | Description                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@ There are 3 different types of bindings that can created.
 
 ### Networked Bindings
 
-Bindings can be networked so the value and input events are replicated to the server. Replicated bindings allows creators to use specific **Input** functions and events in a server script using Lua. Networked bindings can be set individually or for all child bindings of a **Binding Set** in the **Bindings Manager**.
+Bindings can be networked so the value and input events are replicated to the server. Replicated bindings allow creators to use specific **Input** functions and events in a server script using Lua. Networked bindings can be set individually or for all child bindings of a **Binding Set** in the **Bindings Manager**.
 
 ![!Networked Binding](../img/BindingSets/networked_bindings.png){: .center loading="lazy" }
 
@@ -94,7 +94,7 @@ Input.EnableAction("Jump")
 
 ## Deleting a Binding
 
-A binding can be deleted from a **Binding Set** by accessing the option menu and selecting **Delete Binding** from the **Bindings Manager** window.
+A binding can be deleted from a **Binding Set** by accessing the options menu and selecting **Delete Binding** from the **Bindings Manager** window.
 
 ![!Delete Binding](../img/BindingSets/delete_binding.png){: .center loading="lazy" }
 
@@ -130,7 +130,7 @@ See the [Input API](/api/input.md) for all the events and functions.
 
 ## Detecting Input Type
 
-Detecting what input device a player is using, can allow for creators to customize the UI depending on the player's input device.
+Detecting what input device a player is using, can allow creators to customize the UI depending on the player's input device.
 
 The input type can be determined by checking the returned value from `Input.GetCurrentInputType` and `Input.inputTypeChangedEvent`. For example, detecting the player input device to customize the UI depending on if they input device is keyboard or controller.
 

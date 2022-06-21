@@ -4,6 +4,7 @@ name: TreadedVehicle
 title: TreadedVehicle
 tags:
     - API
+    - Vehicle
 ---
 
 # TreadedVehicle

@@ -193,6 +193,14 @@ A couple of points to note:
 * **Physics Memory**: Memory usage for physics (includes terrain, collision, triggers) in scene.
 * **Lua Memory**: Memory usage for lua scripts running in scene.
 
+## Bot Spawning
+
+Creators have access to Bot Spawning from the profiler that can be used to test out the performance of their game with multiple players. This is accessible to game owners only.
+
+To access the Bot Spawning options, click the **Bot** tab in the profiler. This will give you options to spawn bots with random skins, how many to spawn, and the option to despawn them all. As a bot dies, another will fill that spot to maintain the number selected.
+
+![!Bot Spawning](../img/Profiler/bot_spawning.png "image_tooltip"){: .center loading="lazy" }
+
 ## Sources
 
 [ParallelRendering on the Unreal Engine Wiki](https://docs.unrealengine.com/en-US/Programming/Rendering/ParallelRendering/index.html) | [How to Improve Game Thread CPU Performance Unreal Engine Blog](https://www.unrealengine.com/en-US/blog/how-to-improve-game-thread-cpu-performance)

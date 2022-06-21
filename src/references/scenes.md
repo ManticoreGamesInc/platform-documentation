@@ -143,8 +143,6 @@ The **Game Publishing Settings** window has a **Scenes** dropdown where creators
 
 Transferring players between scenes can be done by calling `TransferToScene`. When calling this function, the scene name must be passed and must be named exactly as the scene is named.
 
-!!! warning "`TransferToScene` does not work in preview mode or games played locally."
-
 Below is an example. When a player overlaps the trigger, they will be transferred to the **Tutorial** Scene.
 
 ```lua

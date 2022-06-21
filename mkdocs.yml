@@ -46,6 +46,7 @@ nav:
           - Art in Core: references/art.md
           - Audio: references/audio.md
           - Binding Sets: references/binding_sets.md
+          - ✨ Blockchain: references/blockchain.md
           - Cameras and Settings: references/cameras_and_settings.md
           - Concurrent Storage: references/concurrent_storage.md
           - Community Content: getting_started/community_content.md
@@ -68,9 +69,10 @@ nav:
           - Inventories: references/inventory.md
           - Leaderboards: references/leaderboards.md
           - Materials: references/materials.md
-          - ✨ Media Library: references/media_library.md
+          - Media Library: references/media_library.md
           - Merged Models: references/merged_models.md
-          - ✨ Mobile Device Preview: references/mobile_device_preview.md
+          - ✨ Migrating to Action Bindings: references/migrating_bindings.md
+          - Mobile Device Preview: references/mobile_device_preview.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
           - Network Relevancy: references/network_relevancy.md
@@ -123,11 +125,12 @@ nav:
           - Chat Commands: tutorials/chat_commands_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
           - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
-          - ✨ Converting to Mobile: tutorials/converting_to_mobile.md
+          - Converting to Mobile: tutorials/converting_to_mobile.md
           - Cosmetic System: tutorials/cosmetic_tutorial.md
+          - ✨ Creating an NFT: tutorials/creating_an_nft.md
           - Damageable Object Basics: tutorials/damageable_object_basics.md
           - Destructible Objects: tutorials/boss_tutorial.md
-          - ✨ Creating Device Aware UI: tutorials/device_aware_ui.md
+          - Creating Device Aware UI: tutorials/device_aware_ui.md
           - Environment Art: tutorials/environment_art.md
           - Game Events: tutorials/game_events.md
           - Icon Generator: tutorials/icon_generator.md
@@ -139,14 +142,16 @@ nav:
           - Make an Obby: tutorials/obby_tutorial.md
           - Model a Room: tutorials/scene_creation.md
           - Modeling Basics: tutorials/modeling_basics.md
+          - ✨ NFT Inventory Loot: tutorials/nft_inventory_loot.md
+          - ✨ NFT Slideshow: tutorials/slideshow.md
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
           - Photo Booth: tutorials/photo_booth.md
           - Producers: tutorials/producers_tutorial.md
           - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
-          - ✨ Touch API Basics: tutorials/touch_basics.md
-          - ✨ Uploading Images: tutorials/media_library.md
+          - Touch API Basics: tutorials/touch_basics.md
+          - Uploading Images: tutorials/media_library.md
           - Visual Effects: tutorials/vfx_tutorial.md
           - Weapons & Abilities: tutorials/abilities_advanced.md
           - Weapons: tutorials/weapons_tutorial.md
@@ -156,6 +161,7 @@ nav:
       - Editor Extensions: extensions.md
       - Emotes: api/emotes.md
       - Enums: api/enums.md
+      - Legacy Key Bindings: api/key_bindings.md
       - Lua Style Guide: tutorials/lua_style_guide.md
       - Interfaces:
           - Damageable: api/damageable.md
@@ -170,6 +176,11 @@ nav:
           - AreaLight: api/arealight.md
           - Audio: api/audio.md
           - BindingSet: api/bindingset.md
+          - BlockckainContract: api/blockchaincontract.md
+          - BlockckainToken: api/blockchaintoken.md
+          - BlockckainTokenAttribute: api/blockchaintokenattribute.md
+          - BlockckainTokenCollection: api/blockchaintokencollection.md
+          - Box: api/box.md
           - Camera: api/camera.md
           - CameraCapture: api/cameracapture.md
           - Color: api/color.md
@@ -254,6 +265,7 @@ nav:
           - Weapon: api/weapon.md
           - WorldText: api/worldtext.md
       - Namespaces:
+          - Blockchain: api/blockchain.md
           - Chat: api/chat.md
           - Core Functions: api/coreluafunctions.md
           - CoreDebug: api/coredebug.md

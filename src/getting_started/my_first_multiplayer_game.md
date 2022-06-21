@@ -146,7 +146,7 @@ By default, Core objects have collision, so players can't just walk into bushes 
 
 1. Test this by pressing ![Play](../img/EditorManual/icons/Icon_Play.png) to preview the game.
 {: .image-inline-text .image-background }
-2. Look at your props from a player perspective. You should be able to walk up to a bush, but collide with it once you touch it.
+2. Look at your props from a player's perspective. You should be able to walk up to a bush but collide with it once you touch it.
 3. Click on the bush to select it, and open the **Properties** window.
 4. Find the **Collision** property and change it to **Force Off**.
 
@@ -192,12 +192,12 @@ You can apply a material to multiple objects by selecting them.
     </video>
 </div>
 
-1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whitebod Wall 01**.
+1. In the **Hierarchy** window, type "wall" into the search bar to show only the objects named **Whiteboard Wall 01**.
 2. Press ++enter++ to select everything from the search.
 3. Choose a material, and drag it onto one of the walls.
 
 !!! note
-    You can also select the entire list by clicking the first object in the list, then holding ++shift++ and scroll down to click the last.
+    You can also select the entire list by clicking the first object in the list, then holding ++shift++ and scrolling down to click the last.
 
 ### Give Everything a Material
 
@@ -244,7 +244,7 @@ In the top left corner of the screen in game, you can see that you win the Death
 
 ### Change the UI Instructions
 
-Although the game now ends after two kills, the instructions shown on the screen still tell players to shoot for ten.
+Although the game now ends after two kills, the instructions are shown on the screen still tell players to shoot for ten.
 
 1. Search for **UI Text Box** under **Game Instructions** in the **Hierarchy**.
 2. Open the **Properties** window.

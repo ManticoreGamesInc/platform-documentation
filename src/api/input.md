@@ -8,7 +8,7 @@ tags:
 
 # Input
 
-The Input namespace contains functions and hooks for responding to player input.
+The Input namespace contains functions and hooks for responding to player input. Lean more about how to use the Input system in our [Binding Sets](../references/binding_sets.md) reference.
 
 ## Class Functions
 
@@ -136,7 +136,7 @@ Example using:
 
 ### `rotateStoppedEvent`
 
-In this example we manipulate an image with a multi-touch pinching gesture. The pinch gesture is used to move, scale and roate a 2D image on screen.
+In this example we manipulate an image with a multi-touch pinching gesture. The pinch gesture is used to move, scale and rotate a 2D image on screen.
 
 ```lua
 local UIIMAGE = script:GetCustomProperty("UIImage"):WaitForObject()
@@ -616,3 +616,11 @@ UpdateInputImage(Game.GetLocalPlayer(), Input.GetCurrentInputType())
 See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](game.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Input.GetCurrentInputType](input.md) | [KEYBOARD_AND_MOUSE](enums.md#keyboard_and_mouse)
 
 ---
+
+## Tutorials
+
+[Touch API Basics Tutorial](..tutorials/touch_basics/)
+
+## Learn More
+
+[Binding Sets](../references/binding_sets.md)

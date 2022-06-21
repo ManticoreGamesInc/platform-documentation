@@ -11,7 +11,7 @@ tags:
 > Improve your game's performance by reducing the total number of non-networked objects.
 
 !!! warning
-    Merged models are a new feature that almost always improve game performance, but  there are even more improvements and refinements to this process coming in the future.
+    Merged models are a new feature that almost always improve game performance, but there are even more improvements and refinements to this process coming in the future.
 
 ## Overview
 
@@ -32,7 +32,7 @@ Once the game has loaded, the objects inside of a merged model are removed from 
 As mesh merging improves, games will improve performance just by putting groups into merge models. Merged Models inside of other merged models will just be merged into the outermost layer, so in general, **it is a good idea to put groups of objects into Merged Models as you work.**
 
 !!! warning
-    Currently, some special effects materials do not behave the same may when merged, so you may want to separate them from your Merged Model.
+    Currently, some special effects materials do not behave the same way when merged, so you may want to separate them from your Merged Model.
 
 ### Screen-Sized Chunks
 
