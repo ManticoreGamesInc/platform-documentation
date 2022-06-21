@@ -361,9 +361,9 @@ Create a new function named `SetUIVisibility` to set the Slideshow UI and mouse 
 
 ```lua
 local function SetUIVisibility(isVisible)
-	UICONTAINER.visibility = isVisible and Visibility.FORCE_ON or Visibility.FORCE_OFF
-	UI.SetCursorVisible(isVisible)
-	UI.SetCanCursorInteractWithUI(isVisible)
+ UICONTAINER.visibility = isVisible and Visibility.FORCE_ON or Visibility.FORCE_OFF
+ UI.SetCursorVisible(isVisible)
+ UI.SetCanCursorInteractWithUI(isVisible)
 end
 ```
 
@@ -375,10 +375,10 @@ This will update the **Index Text** to show the current image index and amount. 
 
 ```lua
 local function UpdateUI()
-	INDEX_TEXT.text = tostring(imageIndex) .. " / " .. tostring(imageAmount)
-	LEFT_BUTTON.isInteractable = imageIndex > 1
-	RIGHT_BUTTON.isInteractable = imageIndex < imageAmount
-	SCROLL_PANEL.x = -(imageIndex - 1) * imageSize
+ INDEX_TEXT.text = tostring(imageIndex) .. " / " .. tostring(imageAmount)
+ LEFT_BUTTON.isInteractable = imageIndex > 1
+ RIGHT_BUTTON.isInteractable = imageIndex < imageAmount
+ SCROLL_PANEL.x = -(imageIndex - 1) * imageSize
 end
 ```
 
@@ -390,13 +390,13 @@ This function starts by using `Blockchain.GetTokensFromOwner` to return a `Block
 
 ```lua
 local function CreateImages()
-	local collection = Blockchain.GetTokensForOwner(OWNER_ADDRESS, {contractAddress = CONTRACT_ADDRESS})
-	local tokens
+ local collection = Blockchain.GetTokensForOwner(OWNER_ADDRESS, {contractAddress = CONTRACT_ADDRESS})
+ local tokens
 
-	while true do
-		tokens = collection:GetResults()
+ while true do
+  tokens = collection:GetResults()
 
-		for _, token in ipairs(tokens) do
+  for _, token in ipairs(tokens) do
             local image = World.SpawnAsset(IMAGE_TEMPLATE, {parent = SCROLL_PANEL})
             image.x = imageAmount * imageSize
             image.width = imageSize
@@ -406,16 +406,16 @@ local function CreateImages()
         end
 
         if collection.hasMoreResults then
-        	collection = collection:GetMoreResults()
+         collection = collection:GetMoreResults()
         else
-        	SCROLL_PANEL.width = imageAmount * imageSize
-        	if imageAmount > 0 then
-        		imageIndex = 1
-        	end
-        	UpdateUI()
-        	return
+         SCROLL_PANEL.width = imageAmount * imageSize
+         if imageAmount > 0 then
+          imageIndex = 1
+         end
+         UpdateUI()
+         return
         end
-	end
+ end
 end
 ```
 
@@ -425,26 +425,26 @@ Add three functions for the [Trigger](../api/trigger.md) events. The trigger's i
 
 ```lua
 local function OnBeginOverlap(trigger, other)
-	if other:IsA("Player") then
-		TRIGGER.isInteractable = true
-		isOverlapping = true
-	end
+ if other:IsA("Player") then
+  TRIGGER.isInteractable = true
+  isOverlapping = true
+ end
 end
 
 local function OnEndOverlap(trigger, other)
-	if other:IsA("Player") then
-		TRIGGER.isInteractable = false
-		SetUIVisibility(false)
-		isOverlapping = false
+ if other:IsA("Player") then
+  TRIGGER.isInteractable = false
+  SetUIVisibility(false)
+  isOverlapping = false
 
-	end
+ end
 end
 
 local function OnInteracted(trigger, other)
-	if other:IsA("Player") then
-		TRIGGER.isInteractable = false
-		SetUIVisibility(true)
-	end
+ if other:IsA("Player") then
+  TRIGGER.isInteractable = false
+  SetUIVisibility(true)
+ end
 end
 ```
 
@@ -454,20 +454,20 @@ Add three new functions for each of the [UI Button](../api/uibutton.md) click ev
 
 ```lua
 local function OnLeftButtonClicked(button)
-	imageIndex = imageIndex - 1
-	UpdateUI()
+ imageIndex = imageIndex - 1
+ UpdateUI()
 end
 
 local function OnRightButtonClicked(button)
-	imageIndex = imageIndex + 1
-	UpdateUI()
+ imageIndex = imageIndex + 1
+ UpdateUI()
 end
 
 local function OnCloseButtonClicked(button)
-	SetUIVisibility(false)
-	if isOverlapping then
-		TRIGGER.isInteractable = true
-	end
+ SetUIVisibility(false)
+ if isOverlapping then
+  TRIGGER.isInteractable = true
+ end
 end
 ```
 
@@ -489,7 +489,7 @@ CLOSE_BUTTON.clickedEvent:Connect(OnCloseButtonClicked)
 
 Call these three initial functions.
 
-When the script first runs, the Slideshow UI should be hidden and updated. The NFT tokens should then be loaded and created into images which may take some time. 
+When the script first runs, the Slideshow UI should be hidden and updated. The NFT tokens should then be loaded and created into images which may take some time.
 
 ```lua
 SetUIVisibility(false)

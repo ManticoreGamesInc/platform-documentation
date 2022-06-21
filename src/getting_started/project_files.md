@@ -28,7 +28,7 @@ The **AssetManifest.pbt** file in the **Tree** folder is a list of all CoreObjec
 
 **Folders** exist to partition the project into smaller sub-trees, to keep every single object of the project from being listed as a single file. By contrast, **Groups** exist to organize models and make their parts able to scale uniformly together. In the **Tree.pbt** file, both are listed as a "Folder", but the objects called "Folder" in the **Hierarchy** are special types with the property **IsFilePartition** marked as `true`.
 
-Each Folder created in a project creates an actual folder inside the **Tree** folder, each of which includes its own **AssetManifest**.pbt** and **Tree.pbt** files, listing the asset references and property data for the objects in the Folder in the Hierarchy.
+Each Folder created in a project creates an actual folder inside the **Tree** folder, each of which includes its own **AssetManifest**.pbt **and** **Tree.pbt** files, listing the asset references and property data for the objects in the Folder in the Hierarchy.
 
 !!! note "Using **Folders** to partition workspaces for each collaborator on a project will prevent merge conflicts in the **Tree.pbt** file. See the [GitHub Tutorial](../tutorials/github.md) for more information."
 
