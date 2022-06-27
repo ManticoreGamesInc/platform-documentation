@@ -23,7 +23,7 @@ If an ability is interrupted during the Cast phase, it will immediately reset to
 | `isEnabled` | `boolean` | Turns an Ability on/off. It stays on the Player but is interrupted if `isEnabled` is set to `false` during an active Ability. True by default. | Read-Write |
 | `canActivateWhileDead` | `boolean` | Indicates if the Ability can be used while the owning Player is dead. False by default. | Read-Only |
 | `name` | `string` | The name of the Ability. | Read-Only |
-| `actionBinding` | `string` | *This property is deprecated. Please use `actionName` instead, but note that `actionBinding` and `actionName` use different values.*  Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | Read-Only, <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
+| `actionBinding` | `string` | *This property is deprecated. Please use `actionName` instead, but note that `actionBinding` and `actionName` use different values.*  Which action binding will cause the Ability to activate. Possible values of the bindings are listed on the [Ability binding](../api/key_bindings.md) page. | Read-Only, <abbr title='This API is deprecated and might be removed in a future version.'><strong>Deprecated</strong></abbr> |
 | `actionName` | `string` | Which binding set action name will cause the Ability to activate. See [Binding Sets](../references/binding_sets.md) reference. | Read-Only |
 | `owner` | [`Player`](player.md) | Assigning an owner applies the Ability to that Player. | Read-Write |
 | `castPhaseSettings` | [`AbilityPhaseSettings`](abilityphasesettings.md) | Config data for the Cast phase (see below). | Read-Only |

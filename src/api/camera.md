@@ -17,7 +17,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `followPlayer` | [`Player`](player.md) | Which Player's view the camera should follow. Set to the local Player for a first or third person camera. Set to nil to detach. | Read-Write |
-| `isOrthographic` | `boolean` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write, <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
+| `isOrthographic` | `boolean` | Whether the camera uses an isometric (orthographic) view or perspective. | Read-Write, <abbr title='This API is deprecated and might be removed in a future version.'><strong>Deprecated</strong></abbr> |
 | `fieldOfView` | `number` | The field of view when using perspective view. Clamped between 1.0 and 170.0. | Read-Write |
 | `viewWidth` | `number` | The width of the view with an isometric view. Has a minimum value of 1.0. | Read-Write |
 | `useCameraSocket` | `boolean` | If you have a followPlayer, then use their camera socket. This is often preferable for first-person cameras, and gives a bit of view bob. | Read-Write |
@@ -35,7 +35,7 @@ Each Player (on their client) can have a default Camera and an override Camera. 
 | `minYaw` | `number` | The minimum yaw for free control. | Read-Write |
 | `maxYaw` | `number` | The maximum yaw for free control. | Read-Write |
 | `useAsAudioListener` | `boolean` | Whether the local player's audio should be attenuated and spatialized based on their view position while this is the active camera. | Read-Write |
-| `audioListenerOffset` | [`Vector3`](vector3.md) | This property is deprecated. Please use the GetAudioListenerOffset() and SetAudioListenerOffset() functions instead. | Read-Write, <abbr title='This API is deprecated and will be removed in a future version'><strong>Deprecated</strong></abbr> |
+| `audioListenerOffset` | [`Vector3`](vector3.md) | This property is deprecated. Please use the GetAudioListenerOffset() and SetAudioListenerOffset() functions instead. | Read-Write, <abbr title='This API is deprecated and might be removed in a future version.'><strong>Deprecated</strong></abbr> |
 | `isCameraCollisionEnabled` | `boolean` | When true, this camera will collide with objects that have camera collision enabled. When set to false, the camera will not collide with any objects. Defaults to true. | Read-Write |
 
 ## Functions
