@@ -12,9 +12,12 @@ tags:
 
 The **Physics Object** is a [CoreObject](../api/coreobject.md) that has simulated physics to interact with gravity, players, and other objects. It also implements the [Damageable](../api/damageable.md) interface. This means it has properties, events, and functions for objects which can take damage and die.
 
-By default, a **Physics Object** placed into the **Hierarchy** is [networked](../reference/networking.md). This means all clients will see the same physics simulation on the object. Although this is essential in most games, networked objects are the most performance expensive type of objects. They should only be used if absolutely necessary to the gameplay.
+By default, a **Physics Object** placed into the **Hierarchy** is [networked](../reference/networking.md). This means all clients will see the same physics simulation on the object. Although this is essential in most games, networked objects are the most performance-expensive type of object. They should only be used if necessary for the gameplay.
 
-A Physics Object's networking can be disabled and the object can be placed in a [Client Context](../api/contexts.md). This will cause the clients to see varying results when the object collides and simulates physics. It will also disable the object from receiving damage from networked weapons. Client-side physics are useful for visual effects similar to Debris Physics.
+!!! tip "Network Dormancy"
+    For more control on when a networked object should be replicated, consider using the [dormancy](../tutorials/network_dormancy.md) feature. This gives creators more control on when a networked object should be updated, which will make games more performant and utilize more networked behavior.
+
+A Physics Object's networking can be disabled and the object can be placed in a [Client Context](../api/contexts.md). This will cause the clients to see varying results when the object collides and simulates physics. It will also disable the object from receiving damage from networked weapons. Client-side physics is useful for visual effects similar to Debris Physics.
 
 !!! note
     Physics Objects come with a child **ClientContext** that has a mesh shape. This mesh shape is only visual and does not affect the physics or collision of the Physics Object.
@@ -58,7 +61,7 @@ Physics Objects also implement **Damageable** properties. This can be useful to 
 
 ### Find Physics Object
 
-**Physics Objects** can be found in the **Core Content** under the **Gameplay Objects** section. There are three different shapes available: capsule, cube, sphere.
+**Physics Objects** can be found in the **Core Content** under the **Gameplay Objects** section. There are three different shapes available: capsule, cube, and sphere.
 
 ![!Physics Objects Core Content](../img/PhysicsObjects/PhysicsObjects_CoreContent.png){: .center loading="lazy" }
 
