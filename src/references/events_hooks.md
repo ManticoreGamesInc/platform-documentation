@@ -16,13 +16,11 @@ A **Hook** is like an event, but the purpose is to view or change something that
 
 ## Broadcasting and Connecting
 
-**Core** has a robust event system for communicating between scripts by using functions from the **Events** namespace. There are functions in the **Events** namespace that help with server to client and client to server communication. Along with that, broadcasting between scripts in the same network context can help with modularizing your systems.
+**Core** has a robust event system for communicating between scripts by using functions from the **Events** namespace. There are functions in the **Events** namespace that help with server-to-client and client-to-server communication. Along with that, broadcasting between scripts in the same network context can help with modularizing your systems.
 
 - `Events.Broadcast`
 
-    This function allows for user created events to be broadcasted in the same network context. These events have an added benefit where they are not networked, so can be used as much as needed. This is helpful when there are scripts in the same network context but need a way to talk to each other or pass data. `Events.Broadcast` also supports any number of arguments that will get passed to the listener function.
-
-    As an example of same network context communication.
+    This function allows for user-created events to be broadcasted in the same network context. These events have an added benefit where they are not networked, so can be used as much as needed. This is helpful when there are scripts in the same network context but need a way to talk to each other or pass data. `Events.Broadcast` also supports any number of arguments that will get passed to the listener function.
 
     ```lua linenums="1"
     Events.Broadcast("PrintMessage", "Hello World!")
@@ -31,9 +29,11 @@ A **Hook** is like an event, but the purpose is to view or change something that
     The code above would be in one script that handles broadcasting to the `PrintMessage` event.
 
     ```lua linenums="1"
-    Events.Connect("PrintMessage", function(msg)
+    local function PrintMessage(msg)
         print(msg)
-    end)
+    end
+
+    Events.Connect("PrintMessage", PrintMessage)
     ```
 
     The above code would be in another script that listens for the `PrintMessage` event.
@@ -57,8 +57,7 @@ A **Hook** is like an event, but the purpose is to view or change something that
     -- Script "B"
 
     local myEvent
-
-    myEvent = Events.Connect("CallOnce", function(msg)
+    local function CallOnce(msg)
         print(msg)
 
         -- Check if myEvent is connected, if so, disconnect.
@@ -67,7 +66,9 @@ A **Hook** is like an event, but the purpose is to view or change something that
             myEvent:Disconnect()
             myEvent = nil
         end
-    end)
+    end
+
+    myEvent = Events.Connect("CallOnce", CallOnce)
     ```
 
     In the above code, the event `CallOnce` is broadcasted which will fire all listeners attached to that event. The connected listener will only be fired once. A reference to the `eventListener` is stored in the `myEvent` variable so that the event `CallOnce` can be disconnected later.
@@ -85,35 +86,40 @@ A **Hook** is like an event, but the purpose is to view or change something that
     ```lua linenums="1"
     -- Client script
 
-    Events.Connect("RoundCompleted", function(roundEndTime)
+    local function RoundCompleted(roundEndTime)
         print("Round Completed", roundEndTime)
-    end)
+    end
+
+    Events.Connect("RoundCompleted", RoundCompleted)
     ```
 
 - `Events.BroadcastToPlayer`
 
-    This function broadcasts the event to a specific client over the network and fires all listeners attached on the client. The first argument specifies the **Player** who will receive the event. The arguments after the event name will be passed to the listener on the client. The function returns a result code and a message. This is a networked event so will count against the receiving player's rate limits.
+    This function broadcasts the event to a specific client over the network and fires all listeners attached to the client. The first argument specifies the **Player** who will receive the event. The arguments after the event name will be passed to the listener on the client. The function returns a result code and a message. This is a networked event so will count against the receiving player's rate limits.
+
+    ```lua linenums="1"
+    -- Client script
+
+    local function Say(message)
+        print(message)
+    end
+
+    Events.Connect("OnJoinSay", Say)
 
     ```lua linenums="1"
     -- Server script
     -- Broadcast to the player when they join the game.
 
-    Game.playerJoinedEvent:Connect(function(player)
+    local function OnPlayerJoined(player)
         Events.BroadcastToPlayer(player, "OnJoinSay", "Welcome")
-    end)
-    ```
+    end
 
-    ```lua linenums="1"
-    -- Client script
-
-    Events.Connect("OnJoinSay", function(message)
-        print(message)
-    end)
+    Game.playerJoinedEvent:Connect(OnPlayerJoined)
     ```
 
 - `Events.BroadcastToServer`
 
-    This function broadcasts the event to the server from the client over the network and fires all listeners attached on the server. Any arguments after the event name are passed to the listener on the server. The function returns a result code and a message. This is a networked event so will count against the rate limit for the server.
+    This function broadcasts the event to the server from the client over the network and fires all listeners attached to the server. Any arguments after the event name are passed to the listener on the server. The function returns a result code and a message. This is a networked event so will count against the rate limit for the server.
 
     ```lua linenums="1"
     -- Client script
@@ -124,9 +130,11 @@ A **Hook** is like an event, but the purpose is to view or change something that
     ```lua linenums="1"
     -- Server script
 
-    Events.Connect("PurchaseItem", function(item_id)
+    local function PurchaseItem(item_id)
         print(item_id)
-    end)
+    end
+
+    Events.Connect("PurchaseItem", PurchaseItem)
     ```
 
 - `Events.ConnectForPlayer`
@@ -142,9 +150,11 @@ A **Hook** is like an event, but the purpose is to view or change something that
     ```lua linenums="1"
     -- Server script
 
-    Events.ConnectForPlayer("PurchaseItem", function(player, item_id)
+    local function PurchaseItem(player, item_id)
         print(player.name, item_id)
-    end)
+    end
+
+    Events.ConnectForPlayer("PurchaseItem", PurchaseItem)
     ```
 
 ### Rate Limits
@@ -244,9 +254,11 @@ There are a lot of useful events that a **CoreObject** can use, one of those bei
 ```lua linenums="1"
 local RAPTOR = script:GetCustomProperty("RaptorMob"):WaitForObject()
 
-RAPTOR.destroyEvent:Connect(function(obj)
+local function OnDestroyed(obj)
     print(obj .. " Destroyed")
-end)
+end
+
+RAPTOR.destroyEvent:Connect(OnDestroyed)
 
 Task.Wait(1)
 RAPTOR:Destroy()
@@ -306,14 +318,18 @@ See [IKAnchors](../api/ikanchor.md#events) API for more information.
 
 ### Player
 
+!!! warning "`bindingPressedEvent` is deprecated. Use [Action Bindings](../api/input.md) instead."
+
 **Player** is an object representation of the state of a player connected to the game, as well as their avatar in the world. The **Player** object contains a lot of useful events that can be listened to. For example, a useful thing to know is what key binding the **Player** has pressed. Listening to the `bindingPressedEvent` when a **Player** presses a specific key binding is an easy way to do this.
 
 ```lua linenums="1"
 local localPlayer = Game.GetLocalPlayer()
 
-localPlayer.bindingPressedEvent:Connect(function(player, binding)
+local function OnBindingPressed(player, binding)
     print("The player pressed " .. binding)
-end)
+end
+
+localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 ```
 
 In the code above, when a player presses a binding, it will print out to the **Event Log** what the binding was. This is useful if you need to perform a specific action based on what binding the **Player** has pressed.
@@ -329,17 +345,20 @@ A **Trigger** is an invisible and non-colliding **CoreObject** which fires event
 ```lua linenums="1"
 local TRIGGER = script:GetCustomProperty("pickupTrigger")
 
-TRIGGER.beginOverlapEvent:Connect(function(trigger, obj)
+local function OnBeginOverlap(trigger, obj)
     if Object.IsValid(obj) and obj:IsA("Player") then
         print("Player entered the trigger").
     end
-end)
+end
 
-TRIGGER.endOverlapEvent:Connect(function(trigger, obj)
+local function OnEndOverlap(trigger, obj)
     if Object.IsValid(obj) and obj:IsA("Player") then
         print("Player left the trigger").
     end
-end)
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
 In the example code above, the listeners will display a message in the **Event Log** when the **Player** enters and exits the **Trigger**.
@@ -407,7 +426,7 @@ See [Chat](../api/chat.md#hooks) API for more information.
 
 ### Movement
 
-The **Movement** hook is called when processing a player's movement. The parameter's table contains a Vector3 named "direction", indicating the direction the player will move. For example, in a click to move game, the client script would detect mouse input and modify the players direction.
+The **Movement** hook is called when processing a player's movement. The parameter's table contains a Vector3 named "direction", indicating the direction the player will move. For example, in a click to move game, the client script would detect mouse input and modify the player's direction.
 
 See [Movement](../api/player.md#hooks) API for more information.
 
@@ -443,13 +462,15 @@ myEvents[#myEvents + 1] = Events.Connect("YourOtherEvent", SomeOtherFunction)
 
 -- When the script is destroyed, disconnect all events by looping through the table
 
-script.destroyEvent:Connect(function()
+local function OnDestroyed()
     for index, event in ipairs(myEvents) do
         if event.isConnected then
             event:Disconnect()
         end
     end
-end)
+end
+
+script.destroyEvent:Connect(OnDestroyed)
 ```
 
 ## Learn More

@@ -138,9 +138,11 @@ The **Player** object in the Lua API has a `team` property that can be accessed 
 For example, getting the team the player is on when they join the game.
 
 ```lua
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     print("Player is on team:", player.team, player.name)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See the [Player](/api/player.md) object for more information.
