@@ -15,7 +15,7 @@ The **Physics Object** is a [CoreObject](../api/coreobject.md) that has simulate
 By default, a **Physics Object** placed into the **Hierarchy** is [networked](../reference/networking.md). This means all clients will see the same physics simulation on the object. Although this is essential in most games, networked objects are the most performance-expensive type of object. They should only be used if necessary for the gameplay.
 
 !!! tip "Network Dormancy"
-    For more control on when a networked object should be replicated, consider using the [dormancy](../tutorials/network_dormancy.md) feature. This gives creators more control on when a networked object should be updated, which will make games more performant and utilize more networked behavior.
+    For more control on when a networked object should be replicated, consider using the [dormancy](../tutorials/network_dormancy.md) feature. This gives creators more control over when a networked object should be updated, which will make games more performant and utilize more networked behavior.
 
 A Physics Object's networking can be disabled and the object can be placed in a [Client Context](../api/contexts.md). This will cause the clients to see varying results when the object collides and simulates physics. It will also disable the object from receiving damage from networked weapons. Client-side physics is useful for visual effects similar to Debris Physics.
 
