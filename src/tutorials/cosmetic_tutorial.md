@@ -54,7 +54,7 @@ The content imported from **Community Content** contains some cosmetics and UI a
 
 A trigger needs to be added where the platform is to detect the player so you can override the camera and show the cosmetic UI.
 
-When positioning the trigger, make sure it is high enough up, otherwise the player's character will be in the ground.
+When positioning the trigger, make sure it is high enough up, otherwise, the player's character will be in the ground.
 
 1. Create new **Trigger** object.
 2. Move the trigger so it is on the platform object (found in the **Envir** group).
@@ -109,7 +109,7 @@ local function DisablePlayer(player)
 end
 ```
 
-Create the `DisablePlayer` function. This will stop the player being able to move their character, or use their mount while the cosmetic UI is open. The `desiredFacingMode` property for the player is set to `FACE_MOVEMENT`, otherwise the player's character can end up facing away from the camera.
+Create the `DisablePlayer` function. This will stop the player from being able to move their character, or use their mount while the cosmetic UI is open. The `desiredFacingMode` property for the player is set to `FACE_MOVEMENT`, otherwise, the player's character can end up facing away from the camera.
 
 #### Create EnablePlayer Function
 
@@ -141,16 +141,16 @@ local function OnTriggerOverlap(trigger, obj)
 end
 ```
 
-Create the `OnTriggerOverlap` function. This function will check the object that entered the bounds of the trigger is a **Player** type. If it is a player that entered the trigger, then `DisablePlayer` is called to disable the players control of their character.
+Create the `OnTriggerOverlap` function. This function will check the object that entered the bounds of the trigger is a **Player** type. If it is a player that entered the trigger, then `DisablePlayer` is called to disable the player's control of their character.
 
 ```lua
 obj:SetWorldPosition(Vector3.New(triggerPos.x, triggerPos.y, triggerPos.z))
 obj:SetWorldRotation(Rotation.New(0, 0, triggerRot.z))
 ```
 
-The position and rotation of the player needs to be set. The position of the player can be set using the position of the trigger. The `z` rotation of the trigger is used for the player so the player's character faces the direction of the trigger. This will make the player's character face the cosmetic camera.
+The position and rotation of the player need to be set. The position of the player can be set using the position of the trigger. The `z` rotation of the trigger is used for the player so the player's character faces the direction of the trigger. This will make the player's character face the cosmetic camera.
 
-The position and rotation of the player needs to be set. You can use the position and rotation of the trigger. Using the rotation gives you more flexibility on the direction a player is facing.
+The position and rotation of the player need to be set. You can use the position and rotation of the trigger. Using the rotation gives you more flexibility in the direction a player is facing.
 
 ```lua
 Events.BroadcastToPlayer(obj, "EnableCosmeticChanger")
@@ -235,7 +235,7 @@ Drag the **Cosmetic Camera** you created earlier, onto the **CosmeticClient** sc
 
 ### Edit CosmeticClient Script
 
-Open up the **CosmeticClient** script and add following variables.
+Open up the **CosmeticClient** script and add the following variables.
 
 ```lua
 local LOOK_CAMERA = script:GetCustomProperty("LookCamera"):WaitForObject()
@@ -260,13 +260,13 @@ The `EnableCosmeticChanger` function will be called when the `EnableCosmeticChan
 localPlayer:SetOverrideCamera(LOOK_CAMERA, .2)
 ```
 
-When the player enters the trigger on the platform, you need to override the players camera. This can be done by using `SetOverrideCamera` for the local player by passing in the `LOOK_CAMERA` and a lerp time of `.2` for the arguments. The lerp time is the time it takes to smoothly go from the current active camera, to the camera set as the override.
+When the player enters the trigger on the platform, you need to override the player's camera. This can be done by using `SetOverrideCamera` for the local player by passing in the `LOOK_CAMERA` and a lerp time of `.2` for the arguments. The lerp time is the time it takes to smoothly go from the current active camera to the camera set as the override.
 
 ```lua
 Events.Broadcast("ShowCosmeticUI")
 ```
 
-The event broadcast `ShowCosmeticUI` is set up now. This will broadcast to another client script that will show the cosmetic UI to the player. This will be done in a later section.
+The event broadcast `ShowCosmeticUI` is set up now. This will be broadcast to another client script that will show the cosmetic UI to the player. This will be done in a later section.
 
 #### Create ClearCamera Function
 
@@ -382,7 +382,7 @@ local activeButton = BUTTONS:FindChildByName("Head")
 local activePanel = PANELS:FindChildByName("Head")
 ```
 
-When the cosmetic panel is opened up for the first time, a default active button and panel needs to be set up. So you need to find the **Head** button and panel, and store a reference to them for later use. This is to help with switching the state of the button and panel to show the player which cosmetic category they are currently looking at.
+When the cosmetic panel is opened up for the first time, a default active button and panel need to be set up. So you need to find the **Head** button and panel, and store a reference to them for later use. This is to help with switching the state of the button and panel to show the player which cosmetic category they are currently looking at.
 
 ```lua
 local activePanelItemButton = {}
@@ -529,7 +529,7 @@ Add the above code to the end of the script.
 
 Test the game and make sure the following work.
 
-- Cosmetic UI panel shows when player enters the trigger.
+- Cosmetic UI panel shows when the player enters the trigger.
 - Buttons and panels update when clicking on them.
 - Clicking the **Close** button closes the UI.
 - Camera override is cleared and transitions back to the default camera.
@@ -542,7 +542,7 @@ Test the game and make sure the following work.
 
 ## Create Item Lookup Data
 
-The cosmetic system needs to know what items are available for the player to use and also what to display in the UI panels for each category. To do this, you will be creating scripts that are placed into the **Hierarchy** that hold data in the custom properties.
+The cosmetic system needs to know what items are available for the player to use and also what to display in the UI panels for each category. To do this, you will be creating scripts that are placed into the **Hierarchy** that holds data in the custom properties.
 
 ### Create Cosmetic Items Group
 
@@ -563,7 +563,7 @@ Inside the **Cosmetic Items** group, create the following groups that will act a
 
 ### Create Socket Custom Property
 
-The cosmetic system will need to know what socket on the player's character the item should be attached too. One way to do this, is to add a custom property to each category with the socket name.
+The cosmetic system will need to know what socket on the player's character the item should be attached to. One way to do this is to add a custom property to each category with the socket name.
 
 For each category, add a **String** custom property called `socket`, and set the value for each one.
 
@@ -606,7 +606,7 @@ Add an **Asset Reference** custom property to the **CosmeticItem** script, and n
 
 ### Create Cosmetic Items
 
-You now need to create the cosmetic items using the **CosmeticItem** script created previously. Start with the **Head** category, add the **CosmeticItem** script, set the ID and template for that cosmetic item.
+You now need to create the cosmetic items using the **CosmeticItem** script created previously. Start with the **Head** category, add the **CosmeticItem** script, and set the ID and template for that cosmetic item.
 
 For example. Set the **id** to `1`, and drag a cosmetic item from the **Head** folder from **My Templates** in **Project Content**. Do this for all the cosmetic items, and repeat for the other categories.
 
@@ -622,7 +622,7 @@ See the video below where some items are added to the **Head** category, and the
 
 ## Add Cosmetic Items to UI Panels
 
-Now that you have some cosmetic items, you need to display them in the UI panel so the player can use them. In this section the items will be added to the panels. For the moment, those items will be just white squares in the category panels, in a later section you will be capturing the images for the UI with a camera.
+Now that you have some cosmetic items, you need to display them in the UI panel so the player can use them. In this section, the items will be added to the panels. For the moment, those items will be just white squares in the category panels, in a later section you will be capturing the images for the UI with a camera.
 
 ### Add CosmeticItems Custom Property
 
@@ -650,7 +650,7 @@ local local_player = Game.GetLocalPlayer()
 local cosmetic_data = {}
 ```
 
-Add the above lines to the top of the script. The `cosmetic_data` table will be used to store the player's data so that when they open up the cosmetic ui, it will have the items selected that was saved.
+Add the above lines to the top of the script. The `cosmetic_data` table will be used to store the player's data so that when they open up the cosmetic UI, it will have the items selected that were saved.
 
 #### Create EquipCosmetic Function
 
@@ -745,7 +745,7 @@ local function CreatePanelItemsUI(category, selected)
 end
 ```
 
-The `CreatePanelItemsUI` function will set up each UI category by spawning in a UI item, and positioning it in the panel.
+The `CreatePanelItemsUI` function will set up each UI category by spawning a UI item and positioning it in the panel.
 
 ```lua
 ui_item.x = xOffset
@@ -762,7 +762,7 @@ end
 counter = counter + 1
 ```
 
-On each iteration of the loop, it checks to see if the counter is 5. It if is 5, then it resets the `xOffset` to `0`, which will place the next UI item to the left of the panel. `yOffset` gets incremented by `75`, which will place the next UI item on the next row. So think of this as column and rows, the UI item for each cosmetic is being placed in rows of 5.
+On each iteration of the loop, it checks to see if the counter is 5. It if is 5, then it resets the `xOffset` to `0`, which will place the next UI item to the left of the panel. `yOffset` gets incremented by `75`, which will place the next UI item on the next row. So think of this as columns and rows, the UI item for each cosmetic is being placed in rows of 5.
 
 ```lua
 if selected ~= nil and tostring(id) == selected then
@@ -771,7 +771,7 @@ if selected ~= nil and tostring(id) == selected then
 end
 ```
 
-If the player has saved data, then you need to compare the `id` of the cosmetic item against the id value in `selected` to see if there is a match. If there is a match, then the item for that category is set to the hovered color to indicate to the player that item is the current item attached to the character.
+If the player has saved data, then you need to compare the `id` of the cosmetic item against the id value in `selected` to see if there is a match. If there is a match, then the item for that category is set to the hovered color to indicate to the player that the item is the current item attached to the character.
 
 ```lua
 ui_item.clickedEvent:Connect(function()
@@ -813,7 +813,7 @@ ui_item.clickedEvent:Connect(function()
 end)
 ```
 
-Each item in the panel that is clicked on will be set as the active cosmetic item, unless it is the same item previously selected. If it was the same item previously selected, then it is removed from the player's character. The state of the current active item for a category is tracked to handle the visual side of it in the UI.
+Each item in the panel that is clicked on will be set as the active cosmetic item unless it is the same item previously selected. If it was the same item previously selected, then it is removed from the player's character. The state of the current active item for a category is tracked to handle the visual side of it in the UI.
 
 #### Update CreateCosmeticItemsUI Function
 
@@ -1013,20 +1013,19 @@ The UI items in the panels will be white, this will be solved in the next sectio
 </div>
 
 ## Setup UI Camera Capturing
-
-In this section you will set up the camera capturing template and modify the **CosmeticUIClient** script so that the cosmetic items show in the UI panels for each category.
+In this section, you will set up the camera capturing template and modify the **CosmeticUIClient** script so that the cosmetic items show in the UI panels for each category.
 
 ![!UI Capture](../img/CosmeticTutorial/camera_capture_ui_items.png){: .center loading="lazy" }
 
 ### Add UI Capture Template
 
-A template has been created for you that contains a camera that will grab a image of what is in front of it, and use that in the cosmetic UI for each item.
+A template has been created for you that contains a camera that will grab an image of what is in front of it, and use that in the cosmetic UI for each item.
 
 Add the **UI Capture** template into the **Client** group in the **Hierarchy**.
 
-Expand the **UI Capture** group to see how it is set up. In the **Items** group, you will see all the cosmetics. These items are client side objects that have been set up to display nicely in the UI. When the cosmetic items are dynamically positioned in the cosmetic panels, a camera capture will be done for each item and used in the UI.
+Expand the **UI Capture** group to see how it is set up. In the **Items** group, you will see all the cosmetics. These items are client-side objects that have been set up to display nicely in the UI. When the cosmetic items are dynamically positioned in the cosmetic panels, a camera capture will be done for each item and used in the UI.
 
-Position the **UI Capture** object anywhere you like. Generally this object will be hidden from view for the player. For example, this could be placed under the map.
+Position the **UI Capture** object anywhere you like. Generally, this object will be hidden from view for the player. For example, this could be placed under the map.
 
 ![!UI Capture](../img/CosmeticTutorial/ui_capture_template.png){: .center loading="lazy" }
 
@@ -1067,13 +1066,13 @@ local function FindCaptureItem(tpl, category)
 end
 ```
 
-Create the `FindCaptureItem` function just above the `CreatePanelItemsUI` function. This function will search for the item in `CAPTURE_ITEMS_LIST` based on the `category` passed in for a cosmetic that matches the template passed in. It's important that the name of the item matches the name of the template.
+Create the `FindCaptureItem` function just above the `CreatePanelItemsUI` function. This function will search for the item in `CAPTURE_ITEMS_LIST` based on the `category` passed in for a cosmetic that matches the template passed in. The name of the item must match the name of the template.
 
 ```lua
 local id, name = CoreString.Split(tpl, ":")
 ```
 
-You need to get the name of the template to compare it against the name of the item in the loop. You can do this by splitting the tpl string up.
+You need to get the name of the template to compare it against the name of the item in the loop. You can do this by splitting the `tpl` string up.
 
 For example. If the template name is `ED9709B6FF869235:Cosmetic - Head - Soccer Ball`, then the name part of it you need would be `Cosmetic - Head - Soccer Ball`.
 
@@ -1111,7 +1110,7 @@ capture = CAPTURE_CAMERA:Capture(CameraCaptureResolution.SMALL)
 item.visibility = Visibility.FORCE_OFF
 ```
 
-The `item` visibility is turn on, then a camera capture is done, then the `item` visibility is turned off.
+The `item` visibility is turned on, then a camera capture is done, then the `item` visibility is turned off.
 
 The capture resolution is set to small so that far more captures can be done.
 
@@ -1135,7 +1134,7 @@ if capture ~= nil then
 end
 ```
 
-This will set the image for the ui item to the camera capture for that specific cosmetic item.
+This will set the image for the UI item to the camera capture for that specific cosmetic item.
 
 ## The CosmeticUIClient Script
 
@@ -1337,7 +1336,7 @@ Test the game and make sure the cosmetic items show up in the UI.
 
 ## Attaching Cosmetic Items
 
-In this section you will be adding the code to handle attaching cosmetic items to the player's character.
+In this section, you will be adding the code to handle attaching cosmetic items to the player's character.
 
 ### Add Cosmetic Items Custom Property
 
@@ -1465,7 +1464,7 @@ local function PlayerJoined(player)
 end
 ```
 
-Create the `PlayerJoined` function just above the `DisablePlayer` function. This function will add the player to the `players` table. Later on this will be modified to support player storage.
+Create the `PlayerJoined` function just above the `DisablePlayer` function. This function will add the player to the `players` table. Later on, this will be modified to support player storage.
 
 ### Create PlayerLeft Function
 
@@ -1483,7 +1482,7 @@ local function PlayerLeft(player)
 end
 ```
 
-Create the `PlayerLeft` function just above the `DisablePlayer` function. This function will handle cleaning up all the cosmetic items attached to the player when they leave the game. It will loop over the cosmetic categories, check the object is valid, and destroy them. If you don't do this, then when the player leaves, the cosmetic items will be left in the world.
+Create the `PlayerLeft` function just above the `DisablePlayer` function. This function will handle cleaning up all the cosmetic items attached to the player when they leave the game. It will loop over the cosmetic categories, check whether the object is valid, and destroy them. If you don't do this, then when the player leaves, the cosmetic items will be left in the world.
 
 ### Create EquipCosmetic Function
 
@@ -1688,7 +1687,7 @@ Test the game and make sure the following work.
 
 ## Saving Player Cosmetics
 
-In this section you will be modifying the code to add support for saving to player storage all the cosmetic items the player has selected.
+In this section, you will be modifying the code to add support for saving to player storage all the cosmetic items the player has selected.
 
 !!! tip "Make sure **Enable Player Storage** is enabled on the **Game Settings** object in the **Hierarchy**."
 
@@ -1727,7 +1726,7 @@ Modify the `PlayerJoined` function with the above code. You will be using `SetPr
 local items = { CoreString.Split(cosmetic_data, "|") }
 ```
 
-The `cosmetic_data` is a string made up of the id of each cosmetic in a specific order, and separated by the `|` character. Wrapping curly braces around the returned value from `Split` will give you back a table with all the cosmetic items.
+The `cosmetic_data` is a string made up of the id of each cosmetic in a specific order and separated by the `|` character. Wrapping curly braces around the returned value from `Split` will give you back a table with all the cosmetic items.
 
 ```lua
 SpawnCosmetic(player, items[1], "Head")
@@ -1744,7 +1743,7 @@ Since the order of the data is known, you can pass the id of each cosmetic item 
 player:SetPrivateNetworkedData("cosmetic_data", cosmetic_data)
 ```
 
-The reason you need to send the `cosmetic_data` to the player, is so that the cosmetic UI can be updated with which cosmetic items they already have attached to the player's character. So for example, if the player has the umbrella cosmetic for the left hand, then in the Left Hand panel, it will be the active item in the UI.
+The reason you need to send the `cosmetic_data` to the player is so that the cosmetic UI can be updated with which cosmetic items they already have attached to the player's character. So for example, if the player has the umbrella cosmetic for the left hand, then in the Left-Hand panel, it will be the active item in the UI.
 
 ### Create GetSelectedCosmeticID Function
 
@@ -1831,9 +1830,9 @@ When the player leaves the game, the cosmetic data string is built and stored in
 data.c = GetCosmeticString(player)
 ```
 
-The cosmetic string is stored in the `data` table in the property `c`. It's a good idea to keep property names short to save on storage space.
+The cosmetic string is stored in the `data` table in property `c`. It's a good idea to keep property names short to save on storage space.
 
-!!! tip "When using lots of short property names, write a comment above the property, as it can be easy to lose track on what the property is for."
+!!! tip "When using lots of short property names, write a comment above the property, as it can be easy to lose track of what the property is for."
 
 ### The CosmeticServer Script
 
@@ -2071,7 +2070,7 @@ item:SetButtonColor(item:GetHoveredColor())
 break
 ```
 
-The `activePanelItemButton` table for the `category` is updated with the found `item`, and `active` is marked as `true`. This is done to keep track of which cosmetic item in a specific category has been selected so the button color can be changed correctly. The last line can `break` out of the loop, since the function has found the matching item.
+The `activePanelItemButton` table for the `category` is updated with the found `item`, and `active` is marked as `true`. This is done to keep track of which cosmetic item in a specific category has been selected so the button color can be changed correctly. The last line can `break` out of the loop since the function has found the matching item.
 
 ### Create SetSelectedCosmetics Function
 
@@ -2096,7 +2095,7 @@ local function SetSelectedCosmetics(player, key)
 end
 ```
 
-Create the `SetSelectedCosmetics` function just above the `ShowUI` function. This function will do a similar thing to what is done in the `CosmeticServer` script, by looking at the player's cosmetic data string, and setting each item in a category as the active item.
+Create the `SetSelectedCosmetics` function just above the `ShowUI` function. This function will do a similar thing to what is done in the `CosmeticServer` script, by looking at the player's cosmetic data string and setting each item in a category as the active item.
 
 ```lua
 if key == "cosmetic_data" then
@@ -2367,13 +2366,15 @@ Test the game and make sure the following work.
 
 ## Networked Cosmetic Items
 
-When creating cosmetic items, the parent of the cosmetic will need to be networked so that it is replicated to all other players in the game, otherwise they won't see it. To save on the amount of networked objects used, make sure to place all the child objects inside a Client Context, this will reduce the amount of networked objects for your game.
+When creating cosmetic items, the parent of the cosmetic will need to be networked so that it is replicated to all other players in the game, otherwise, they won't see it. To save on the number of networked objects used, make sure to place all the child objects inside a Client Context, this will reduce the number of networked objects for your game.
 
 For example. Take a look at the Pumpkin cosmetic. You will see that most of the objects are inside a Client Context group. The only networked object is the parent group.
 
 ![!Networked](../img/CosmeticTutorial/networked_objects.png){: .center loading="lazy" }
 
-There are other solutions that can be used if networked objects is a big concern for you. One way would to spawn and attach the cosmetics on the client. However, you would then need to replicate this to other players in the game by broadcasting to the server, then back to all the other clients. This solution is a bit more work, but can work well if done correctly.
+There are other solutions that can be used if networked objects are a concern for you. One way would be to spawn and attach the cosmetics to the client. However, you would then need to replicate this to other players in the game by broadcasting to the server, then back to all the other clients. This solution is a bit more work but can work well if done correctly.
+
+Another way would be to use [dormant](../tutorials/network_dormancy.md) networked objects. This gives you more control on when a networked object should be updated, which will make the game more performant, and you can utilize more networked behavior.
 
 ## Finished Project
 
