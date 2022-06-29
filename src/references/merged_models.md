@@ -11,11 +11,11 @@ tags:
 > Improve your game's performance by reducing the total number of non-networked objects.
 
 !!! warning
-    Merged models are a new feature that almost always improve game performance, but there are even more improvements and refinements to this process coming in the future.
+    Merged models are a new feature that almost always improves game performance, but there are even more improvements and refinements to this process coming in the future.
 
 ## Overview
 
-**Merged Models** improve performance of a game by decreasing the time it takes to render a scene each frame. They do this through a process called **mesh merging**, which calculates which parts of a collection of objects are necessary to track for collision, and sends that data to the server.
+**Merged Models** improve the performance of a game by decreasing the time it takes to render a scene each frame. They do this through a process called **mesh merging**, which calculates which parts of a collection of objects are necessary to track for collision, and sends that data to the server.
 
 ## How Merged Models Improve Performance
 
@@ -25,7 +25,7 @@ Merged models allow Core to run a process when your game first loads to simplify
 
 The graphics processor then visually renders the Merged Model entirely, instead of waiting on calculations for each object on whether or not they are close enough to a player to be rendered.
 
-Once the game has loaded, the objects inside of a merged model are removed from the Hierarchy, and not counted in the total number non-networked objects in the game.
+Once the game has loaded, the objects inside a merged model are removed from the Hierarchy, and not counted in the total number non-networked objects in the game.
 
 ## Choosing Which Models to Merge
 
@@ -44,17 +44,17 @@ In general, you can determine the size of your screen-sized chunk, and then deve
 
 ### Only Default Context
 
-Because Merged Models are only for non-networked objects, there are a number of objects in your game that they will not work with.
+Because Merged Models are only for non-networked objects, there are some objects in your game that they will not work with.
 
 Objects in the **Client Context** do not have collision, and therefore do not have collision information to calculate. **Networked** objects can change through a game and need to be continuously tracked by the server and client, so also cannot be part of a Merged Model.
 
 If a networked or client-side object is added to a merge model, it will be ignored in the merging process, and should still work normally.
 
-Objects with different settings in the **Rendering** section, like **Disable Receiving Decals** or **Disable Casting Shadows** will also be excluded from the merge group to preserve their special properties.
+Objects with different settings in the **Rendering** section, like **Disable Receiving Decals** or **Disable Casting Shadows** will also be excluded from the merged group to preserve their special properties.
 
 ### Aggressive Merge
 
-The **Aggressive Merge** option is available as a checkbox in the **Properties** window of a Merged Model. It will remove custom rendering properties and disable networking on objects inside of the merge model instead of ignoring them.
+The **Aggressive Merge** option is available as a checkbox in the **Properties** window of a Merged Model. It will remove custom rendering properties and disable networking on objects inside the merged model instead of ignoring them.
 
 To use Aggressive Merge, remove all networked and objects with custom rendering settings that you want to preserve from the Merged Model.
 
