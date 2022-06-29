@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you will be learning the benefits of using **Local Context** for your game to help you improve networking performance. You will be learning how to take an object that is usually networked, and optimizing it by handling the networking side of it yourself.
+In this tutorial, you will be learning the benefits of using **Local Context** for your game to help you improve networking performance. You will be learning how to take an object that is usually networked and optimize it by handling the networking side of it yourself.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -31,7 +31,7 @@ In this tutorial you will be learning the benefits of using **Local Context** fo
 
 ## Local Context vs Static Context
 
-A [**Local Context**](../references/networking.md#local-context) is very similar to a [**Static Context**](../references/networking.md#static-context). The main difference between them is that the **Local Context** allows for the objects inside that context to be modified, whereas a **Static Context** will not. So this means that the objects which are inside the Local Context are spawned on the server and the client, including Lua scripts, which is the same behaviour as a static context.
+A [**Local Context**](../references/networking.md#local-context) is very similar to a [**Static Context**](../references/networking.md#static-context). The main difference between them is that the **Local Context** allows for the objects inside that context to be modified, whereas a **Static Context** will not. So this means that the objects which are inside the Local Context are spawned on the server and the client, including Lua scripts, which is the same behavior as a static context.
 
 When testing your game, it is recommended that all testing is done in **Multiplayer Preview Mode** because of the way local contexts work, and this is closest to a published game running on a live server.
 
@@ -39,7 +39,9 @@ When testing your game, it is recommended that all testing is done in **Multipla
 
 ## Networked Objects
 
-For the tutorial, we will be focusing on [**Damageable Objects**](../references/damageable_objects.md) and **Shared Pickups** to show how you can do your own networking to optimize networking performance and reduce networked object count which will lead to improved player experience.
+For the tutorial, we will be focusing on [**Damageable Objects**](../references/damageable_objects.md) and **Shared Pickups** to show how you can do your networking to optimize networking performance and reduce networked object count which will lead to an improved player experience.
+
+For another alternative to networking performance, consider taking a look at [network dormancy](../tutorials/network_dormancy.md). This method will give you control over when a networked object should be updated, which will make games more performant and utilize more networked behavior.
 
 ## Shared Pickups
 
@@ -47,7 +49,7 @@ Games that have pickups usually are a first come first serve, meaning whoever ge
 
 Using **Local Context**, we can provide an optimized solution that uses 0 networked objects, and also create the pickups in a way that it is a shared item so that other players can also pick it up.
 
-This solution requires a little bit of thinking because a local context script will need to do cross context calling to perform tasks such as spawning effects and giving the player a resource.
+This solution requires a bit of thinking because a local context script will need to do cross-context calling to perform tasks such as spawning effects and giving the player a resource.
 
 ### Create Folder Structure
 
@@ -68,9 +70,9 @@ Create a pickup that will be added to the **Local Gems** folder. Add as many as 
 
 ### Create GemPickups Script
 
-Create a script called `GemPickups` and place it into the **Local Gems** folder. This script is responsible for making sure the player can't pick up a pickup multiple times. It was also handle cross calling for the server to update the player's resource, and cross calling to the client to handle turning off the visibility and playing the effects.
+Create a script called `GemPickups` and place it into the **Local Gems** folder. This script is responsible for making sure the player can't pick up a pickup multiple times. It will also handle cross-calling for the server to update the player's resource, and cross-calling to the client to handle turning off the visibility and playing the effects.
 
-The reason for cross context calling, is that even with doing environment checks, it will still throw an error about accessing some API calls from the given context. So doing a cross context call will help around this issue.
+The reason for cross-context calling is that even with doing environment checks, it will still throw an error about accessing some API calls from the given context. So doing a cross-context call will help around this issue.
 
 #### Add Variables
 
@@ -83,7 +85,7 @@ local players = {}
 
 #### Create OverlappedTrigger Function
 
-Create a function called `OverlappedTrigger`. This function will check if the player has already overlapped this trigger to prevent multiple pickups. The 2 `Broadcast` calls are cross context calls to hide the gem on the client, and add one resource to the player on the server. Notice that the `addgem` broadcast is not inside an environment check. This is because this broadcast will be sent cross context to both the client and the server.
+Create a function called `OverlappedTrigger`. This function will check if the player has already overlapped this trigger to prevent multiple pickups. The 2 `Broadcast` calls are cross-context calls to hide the gem on the client, and add one resource to the player on the server. Notice that the `addgem` broadcast is not inside an environment check. This is because this broadcast will be sent cross-context to both the client and the server.
 
 ```lua
 local function OverlappedTrigger(trigger, obj)
@@ -175,7 +177,7 @@ Game.playerLeftEvent:Connect(OnPlayerLeft)
 
 ### Create GemServer Script
 
-Create a script called `GemServer`. Place the script inside the **Gems Pickup** group in the **Default Context**. This script will listen for a specific broadcast event so it can update the player's gems resource amount. This is a cross context script that will be called from the **GemPickups** script.
+Create a script called `GemServer`. Place the script inside the **Gems Pickup** group in the **Default Context**. This script will listen for a specific broadcast event so it can update the player's gems resource amount. This is a cross-context script that will be called from the **GemPickups** script.
 
 Connect up the broadcast event for `addgem`.
 
@@ -187,7 +189,7 @@ end)
 
 ### Create GemClient Script
 
-Create a script called `GemClient` and place it into the **Client** folder. This script will be responsible for spawning the effect and audio when the player picks up the gem. It will also hide the gem from that local player. This is a cross context script that is called from the **GemPickup** script.
+Create a script called `GemClient` and place it into the **Client** folder. This script will be responsible for spawning the effect and audio when the player picks up the gem. It will also hide the gem from that local player. This is a cross-context script that is called from the **GemPickup** script.
 
 Create a template for the effect that you want, and add it as a custom property called `GemPickupEffects`.
 
@@ -223,7 +225,7 @@ Test the game in **Multiplayer Preview Mode** and make sure that the gem can be 
 
 ### Damageable Object
 
-By default, **Damageable Objects** are networked when added to the **Hierarchy**. This is because the changes of the damageable object at runtime needs to be replicated to the players so they know about the state of the object. When a player shoots a damageable object and kills it, this information needs to be received by the players. The more players in your game, the more networked objects are used.
+By default, **Damageable Objects** are networked when added to the **Hierarchy**. This is because the changes of the damageable object at runtime need to be replicated to the players so they know about the state of the object. When a player shoots a damageable object and kills it, this information needs to be received by the players. The more players in your game, the more networked objects are used.
 
 If we take a look at a general setup of a damageable object, you will see that just for one of these objects, it costs 9 networked objects per player, and this is a basic dummy damageable object. 9 might not sound a lot, but when you try to support more players in your game, this number will grow very quickly.
 
@@ -233,14 +235,14 @@ To get the total amount of networked objects in your game, you can take the netw
 
 ## Custom Networking
 
-In this section we will go over how you could optimize the damageable object so that each damageable object will have a 0 network count. This means that you will need to create your own networking solution to reduce the networking count. This section attempts to cover most edge cases, but for further improvement, this would be down to you and how your game objects should behave.
+In this section, we will go over how you could optimize the damageable object so that each damageable object will have a 0 network count. This means that you will need to create your own networking solution to reduce the networking count. This section attempts to cover most edge cases, but for further improvement, this would be down to you and how your game objects should behave.
 
 ### Create Local context
 
-The **Local Context** will contain all the objects that would normally be networked. These objects (including scripts), will be spawned on the server and the client. The local context you will create will need to have networking enabled. The reason for this, is that the custom networking method you will be using in this case, is **Dynamic Properties**. All health data for the damageable objects will be sent to the clients this way.
+The **Local Context** will contain all the objects that would normally be networked. These objects (including scripts), will be spawned on the server and the client. The local context you will create will need to have networking enabled. The reason for this is that the custom networking method you will be using in this case is **Dynamic** Properties**. All health data for the damageable objects will be sent to the clients this way.
 
 1. Create a **Local Context** in the **Hierarchy**.
-2. Right click on the **Local Context** and select **Enable Networking**.
+2. Right-click on the **Local Context** and select **Enable Networking**.
 3. Add a **string** custom property called `HealthData`.
 4. Enable **Dynamic Property** for the **HealthData** property.
 
@@ -288,9 +290,9 @@ Test the game in **Multiplayer Preview Mode**. You should see that the crate doe
 
 ### Monitor Health
 
-In this section you will be creating a script that will be monitoring the health of all the damageable crates and sending this data to each client. Doing this will allow you to handle the client side destroying of the crate and also play the effect.
+In this section, you will be creating a script that will be monitoring the health of all the damageable crates and send this data to each client. Doing this will allow you to handle the client-side destroying of the crate and also play the effect.
 
-The method you will be using to send the data is the dynamic property `HealthData` that you created earlier. This property will contain a string made up of the health of each damageable crate. Because the local context children is in the same order for both the server and the client, we can use this as an advantage for minimizing the amount of data that is sent by the dynamic property.
+The method you will be using to send the data is the dynamic property `HealthData` that you created earlier. This property will contain a string made up of the health of each damageable crate. Because the local context children are in the same order for both the server and the client, we can use this as an advantage for minimizing the amount of data that is sent by the dynamic property.
 
 #### Create MonitorHealth Script
 
@@ -331,7 +333,7 @@ end
 Create a function called `OnChildAdded`. This function will update the `children` table so that it contains a list of all the damageable objects. Because some damageable objects can spawn a networked template, you need to monitor when this happens so that the `damagedEvent` is connected to the new child. Notice that an `Environment` check is being done since it needs to be done on the server.
 
 !!! warning "Damageable Objects with Networked Template Property Set"
-    If the damageable object has been setup to spawn a networked object when it is destroyed, then the object that is spawned will not be killable on the client. The template will have to be non-networked for this to work.
+    If the damageable object has been set up to spawn a networked object when it is destroyed, then the object that is spawned will not be killable on the client. The template will have to be non-networked for this to work.
 
 ```lua
 local function OnChildAdded(parent, child)
@@ -470,7 +472,7 @@ Test the game in multiplayer preview and check that it works.
 
 ## Summary
 
-**Local Context** allows you to improve networking performance for your game, which will improve the player experience. Make sure you test your game in a multiplayer setting when implementing your own networking solution.
+**Local Context** allows you to improve networking performance for your game, which will improve the player experience. Make sure you test your game in a multiplayer setting when implementing your networking solution.
 
 ## Learn More
 
