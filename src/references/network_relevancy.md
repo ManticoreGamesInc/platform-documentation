@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-**Network Relevancy** in **Core** allows creators to set a network relevancy for networked objects to reduce network data when the player is outside of predefined ranges. It does not make sense for players to receive network data for networked objects that are on the other side of the map. Whereas networked objects that the player can see or interact with will be relevant, meaning the player will receive network updates for those objects in range.
+**Network Relevancy** in **Core** allows creators to set network relevancy for networked objects to reduce network data when the player is outside of predefined ranges. It does not make sense for players to receive network data for networked objects that are on the other side of the map. Whereas networked objects that the player can see or interact with will be relevant, meaning the player will receive network updates for those objects in range.
 
 In the example below (lowered distances), notice when the player gets further away from a networked object, they stop. Meaning the network data is not being sent to the player, which puts the object in a sleep state. As the player gets in range, it will start sending network data again.
 
@@ -43,9 +43,9 @@ The **Game Settings** object found in the **Hierarchy** contains a **Performance
 
 The **Network Relevance Focus** property allows creators to select between **Player** and **Camera** to determine which object the network relevance calculations are made in reference to.
 
-When the **Network Relevance Focus** is set to **Player**, then the network relevance calculations are made from where the player is in the world. As the player moves further away from networked objects that have a lower relevancy than **Critical**, then those objects will be put to sleep, meaning network traffic will be reduced for that player.
+When the **Network Relevance Focus** is set to **Player**, then the network relevance calculations are made from where the player is in the world. As the player moves further away from networked objects that have lower relevancy than **Critical**, then those objects will be put to sleep, meaning network traffic will be reduced for that player.
 
-When the **Network Relevance Focus** is set to **Camera**, then the network relevance calculations are made from the current active camera that is set for the player. This applies to override cameras as well, meaning, if an override camera is set on the player, then the networked objects will be put to sleep based on the override camera position instead of the default player camera.
+When the **Network Relevance Focus** is set to **Camera**, then the network relevance calculations are made from the active camera that is set for the player. This applies to override cameras as well, meaning, that if an override camera is set on the player, then the networked objects will be put to sleep based on the override camera position instead of the default player camera.
 
 ![!Network Relevance Focus](../img/NetworkRelevancy/focus.png){: .center loading="lazy" }
 
@@ -63,7 +63,13 @@ The **Desired Relevance** property is used to determine the furthest distance at
 
 ### Inherited Relevance
 
-The **Inherited Relevance** property shows the network relevancy the object has inherited by the ancestor in the **Hierarchy**. Descendants of a networked object can have the same desired relevance or lower, but it can never be higher than the ancestor. For example, if the ancestor is set to **High** and a descendant is set to **Critical**, that descendant will default to the inherit relevancy (**High** in this case). However, the descendant can be set to **Medium** or **Low** which will override the inherited network relevancy.
+The **Inherited Relevance** property shows the network relevancy the object has inherited by the ancestor in the **Hierarchy**. Descendants of a networked object can have the same desired relevance or lower, but they can never be higher than the ancestor. For example, if the ancestor is set to **High** and a descendant is set to **Critical**, that descendant will default to the inherit relevancy (**High** in this case). However, the descendant can be set to **Medium** or **Low** which will override the inherited network relevancy.
+
+### Dormant By Default
+
+The **Dormant By Default** property when enabled will only use network bandwidth when created or when forced by a Lua API call. This allows creators to have greater control over which networked objects are replicated, and also the speed at which they get replicated.
+
+Disabling a networked object's replication means that the server will not be checking to see if the object has changed, and will not send any new information about that object down to clients, until either the object has Replication enabled again, or until creators explicitly request the server replicate the object down to each client with a Lua API call.
 
 ## Learn More
 
