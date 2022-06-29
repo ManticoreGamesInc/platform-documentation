@@ -2384,13 +2384,17 @@ For feedback and questions, please reach out to us on this tutorial's [forum thr
 
 ## Summary
 
-Cosmetics in games are very popular. They can be a good way to allow players to add more customisation to their character, and show off to other players. Some games have cosmetics as premium items where the player will need to purchase them with real money.
+Cosmetics in games are very popular. They can be a good way to allow players to add more customization to their character, and show off to other players. Some games have cosmetics as premium items where the player will need to purchase them with real money.
 
 There is more that you can do with a cosmetic system to make it more interesting, and have more depth to it. Here are some ideas to consider.
 
-- Make some cosmetic items become unlocked at a certain player levels.
-- Add more categories / sockets.
+- Make some cosmetic items become unlocked at a certain player level.
+- Add more categories/sockets.
 - Add full player outfit cosmetics.
-- Support multiple cosmetic booths to prevent player overlapping and using the same one.
+- Support multiple cosmetic booths to prevent players from overlapping and using the same one.
 - Add support for coloring different cosmetic items (that is colors and materials).
 - Allow players to trade cosmetics (that is unique cosmetics found in the world and not in the shop).
+
+## Learn More
+
+[Persistent Storage](../tutorials/persistent_storage_tutorial.md) | [UI](../references/ui.md) | [Cameras and Settings](../references/cameras_and_settings.md|)
