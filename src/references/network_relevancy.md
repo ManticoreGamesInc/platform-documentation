@@ -12,6 +12,8 @@ tags:
 
 **Network Relevancy** in **Core** allows creators to set network relevancy for networked objects to reduce network data when the player is outside of predefined ranges. It does not make sense for players to receive network data for networked objects that are on the other side of the map. Whereas networked objects that the player can see or interact with will be relevant, meaning the player will receive network updates for those objects in range.
 
+For further optimization of networked objects, look at the [dormancy](../tutorials/network_dormancy.md) feature which will make games more performant and utilize more networked behavior by only having certain networked objects replicate when needed.
+
 In the example below (lowered distances), notice when the player gets further away from a networked object, they stop. Meaning the network data is not being sent to the player, which puts the object in a sleep state. As the player gets in range, it will start sending network data again.
 
 <div class="mt-video" style="width:100%">
