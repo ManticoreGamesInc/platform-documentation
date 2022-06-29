@@ -10,9 +10,6 @@ tags:
 
 > Improve your game's performance by reducing the total number of non-networked objects.
 
-!!! warning
-    Merged models are a new feature that almost always improves game performance, but there are even more improvements and refinements to this process coming in the future.
-
 ## Overview
 
 **Merged Models** improve the performance of a game by decreasing the time it takes to render a scene each frame. They do this through a process called **mesh merging**, which calculates which parts of a collection of objects are necessary to track for collision, and sends that data to the server.
