@@ -576,7 +576,7 @@ For each category, add a **String** custom property called `socket`, and set the
 | Left Foot | `left_ankle` |
 | Right Foot | `right_ankle` |
 
-For more information on sockets, see the [Player Animations & Sockets](/api/animations.md) API.
+For more information on sockets, see the [Player Animations & Sockets](../api/animations.md) API.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1013,6 +1013,7 @@ The UI items in the panels will be white, this will be solved in the next sectio
 </div>
 
 ## Setup UI Camera Capturing
+
 In this section, you will set up the camera capturing template and modify the **CosmeticUIClient** script so that the cosmetic items show in the UI panels for each category.
 
 ![!UI Capture](../img/CosmeticTutorial/camera_capture_ui_items.png){: .center loading="lazy" }
@@ -1114,7 +1115,7 @@ The `item` visibility is turned on, then a camera capture is done, then the `ite
 
 The capture resolution is set to small so that far more captures can be done.
 
-See the [CameraCapture](/api/cameracapture.md) API for more information.
+See the [CameraCapture](../api/cameracapture.md) API for more information.
 
 #### Update CreatePanelItemsUI Function
 
@@ -2397,4 +2398,4 @@ There is more that you can do with a cosmetic system to make it more interesting
 
 ## Learn More
 
-[Persistent Storage](../tutorials/persistent_storage_tutorial.md) | [UI](../references/ui.md) | [Cameras and Settings](../references/cameras_and_settings.md|)
+[Persistent Storage](../tutorials/persistent_storage_tutorial.md) | [UI](../references/ui.md) | [Cameras and Settings](../references/cameras_and_settings.md)
