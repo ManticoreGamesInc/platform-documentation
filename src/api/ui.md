@@ -565,17 +565,20 @@ function Tick()
     Task.Wait(1)
 end
 
-TRIGGER.beginOverlapEvent:Connect(function(trigger, other)
+local function OnBeginOverlap(trigger, other)
     if other == PLAYER then
         UI.SetSocialMenuEnabled(true)
     end
-end)
+end
 
-TRIGGER.endOverlapEvent:Connect(function(trigger, other)
+local function OnEndOverlap(trigger, other)
     if other == PLAYER then
         UI.SetSocialMenuEnabled(false)
     end
-end)
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
 ```
 
 See also: [CoreObject.visibility](coreobject.md) | [Trigger.beginOverlapEvent](trigger.md) | [Game.GetLocalPlayer](game.md) | [Task.Wait](task.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
@@ -599,9 +602,11 @@ function OnDamaged(player, dmg)
     Events.BroadcastToPlayer(player, "TookDamage", amount, position)
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+function OnPlayerJoined(player)
     player.damagedEvent:Connect(OnDamaged)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 -- Client script:
 function OnDamaged(amount, position)

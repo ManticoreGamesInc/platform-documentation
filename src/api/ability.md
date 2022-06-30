@@ -67,6 +67,7 @@ Example using:
 The Cast phase begins as soon as an ability is activated. By checking if the player casting the ability `isGrounded` we can create an effect that propels you upwards, but it doesn't work if you are already jumping or flying. We detect this is the `castEvent`, which is early enough for an `Interrupt()` to reset the ability.
 
 ```lua
+--Server script
 local ability = script.parent
 
 function OnCast(ability)
@@ -91,6 +92,7 @@ Example using:
 In this example, a fighting game has an "invincible" mechanic where player attacks are not interrupted while they have this effect. Some powerful attacks make the player invincible during the entire active cycle of the ability. The effect is gained at the beginning of the cast phase and is removed at the end of the recovery phase, before the cooldown begins. The resource system is used in keeping track of the invincibility effect.
 
 ```lua
+--Server script
 local ability = script.parent
 
 function OnCast(ability)
@@ -116,6 +118,7 @@ Example using:
 Weapons implement lots of built-in gameplay that doesn't require any scripting, such as attack and reload abilities. However, they can be augmented with additional mechanics. In this example, a special sound effect is played when a weapon shoots while low on ammunition. The script expects to be a child of a weapon's "Shoot" ability.
 
 ```lua
+--Server script
 local ability = script.parent
 local weapon = script:FindAncestorByType('Weapon')
 local lowAmmoSound = script:GetCustomProperty("LowAmmoSound")
@@ -142,6 +145,7 @@ Example using:
 The `interruptedEvent` fires when an ability is going through it's activation process and `Interrupt()` is called on it, or if it becomes disabled. In this example, interruption is a key part of the game design, so a visual effect is spawned at the player's position to help communicate the interaction between players.
 
 ```lua
+--Server script
 local ability = script.parent
 local interruptedVfx = script:GetCustomProperty("InterruptedVfx")
 
@@ -165,6 +169,7 @@ Example using:
 The Ready phase begins when an ability comes off cooldown and is "ready" to be used again. In this example, we create an invisibility effect that takes advantage of the `readyEvent`, leveraging the cooldown duration of the ability as a clock to determine when to make the player visible again.
 
 ```lua
+-- Server script
 local ability = script.parent
 
 function OnExecute(ability)
@@ -192,6 +197,7 @@ Example using:
 The `recoveryEvent` marks the end of an ability's Execute phase and the beginning of its Recovery phase. In this example, a melee punch ability has a trigger that causes damage to enemies who overlap it. For it to work the trigger is only enabled for a brief moment, during the Execute phase.
 
 ```lua
+--Server script
 local ability = script.parent
 local trigger = script:GetCustomProperty("ImpactTrigger"):WaitForObject()
 trigger.collision = Collision.FORCE_OFF
@@ -252,16 +258,16 @@ Example using:
 
 The Ability `Activate()` function behaves as if the player had pressed the key binding. In order for a server gameplay decision to result in an ability activation, it must be communicated over the network somehow. In this example, a trigger overlap is representative of an arbitrary gameplay decision on the server. A broadcast message is sent to the client, who receives the event and activates the ability.
 
-Server script:
-
 ```lua
+--Server script
 local trigger = script.parent
-
-trigger.beginOverlapEvent(function(trigger, other)
+local function OnBeginOverlap(trigger, other)
     if other:IsA("Player") then
         Events.BroadcastToPlayer(other, "SteppedOnObject")
     end
-end)
+end
+
+trigger.beginOverlapEvent(OnBeginOverlap)
 
 --[[#description
     Client context script under the ability:
@@ -334,6 +340,7 @@ Example using:
 The ability's targeting data gives a lot of information about where and what the player is aiming at. If setup correctly, it can also be modified programmatically. In this example, the Z position of the target is flattened horizontally. Useful, for example, in a top-down shooter. For this to work it should be placed in a client context under the ability. The ability should also have the option "Is Target Data Update" turned off for the Execute phase, otherwise any data set programmatically will be overwritten when the phase changes.
 
 ```lua
+--Server script
 local ability = script:FindAncestorByType("Ability")
 
 function OnCast(ability)
@@ -360,6 +367,7 @@ Example using:
 Interrupting an ability either sends it back into ready state (if it was still in the Cast phase) or puts it on cooldown. In this example, we have an ability that searches for all enemies in a 10 meter radius and interrupts their abilities.
 
 ```lua
+--Server script
 local ability = script.parent
 local RADIUS = 1000 -- 10 meters
 
@@ -390,6 +398,7 @@ Example using:
 Even though some API properties are read-only, they are useful is solutions such as user interface. In this example, a client context script searches the local player's list of abilities to find one that matches the action name (input) designated for this UI component. When it's found, the ability's name is written to the UI Text object.
 
 ```lua
+--Client script
 local ACTION_NAME = script:GetCustomProperty("ActionName")
 local NAME_UI = script:GetCustomProperty("NameUIText"):WaitForObject()
 
@@ -425,6 +434,7 @@ Example using:
 In this example, the `ProcessAbilities()` function can be called once, such as at the beginning of a round, to take inventory of a player's abilities and classify them based on animation. This example also demonstrates how to disconnect event listeners so that we don't listen for the same event multiple times.
 
 ```lua
+--Server script
 function OnMelee1HandCast(ability)
     print("One-handed melee attack")
 end
@@ -478,6 +488,7 @@ Example using:
 Some games may have abilities that can be used while the player is dead. In this example, we have abilities that can **only** be activated while dead. If not dead, then it's interrupted.
 
 ```lua
+--Server script
 local ability = script:FindAncestorByType("Ability")
 
 function OnCast(ability)
@@ -534,6 +545,7 @@ Example using:
 In this example, an ability recognizes that it has been interrupted by the activation of another, special ability, that is setup to serve for animation cancelling. The `canBePrevented` property is usually true in this game, but in this special case it has been configured as false so that it can be activated at any time. The player gains vertical impulse as result of the synergy and hears a small audio cue that helps communicate the mechanic.
 
 ```lua
+--Server script
 local ability = script.parent
 local cancelSound = script:GetCustomProperty("CancelSound")
 
@@ -570,6 +582,7 @@ Example using:
 In this example, a function in a client context script can be called to show the elapsed times for an ability. The UI Text it controls displays how many seconds are remaining in the current phase, and the color of the text blends from black to white to indicate the percentage of completion. Although the Execute and Recovery phases are actually separate, they are here presented to the player as a single phase.
 
 ```lua
+--Client script
 local COUNTDOWN_TEXT = script:GetCustomProperty("CountdownText"):WaitForObject()
 
 function UpdateForAbility(ability)
@@ -619,6 +632,7 @@ Example using:
 In this example, an equipment is setup with multiple abilities that all use the same action binding. This script cycles through the abilities, making sure only one is enabled at a time. The `owner` property is cleared for the previous ability and set for the next one, as part of ensuring the correct one activates when the binding is pressed.
 
 ```lua
+--Server script
 local equipment = script:FindAncestorByType("Equipment")
 local abilities = {}
 local abilityIndex = 1
@@ -658,6 +672,7 @@ Example using:
 Usually, abilities are presented as part of an equipment, but that isn't a requirement. In this example, when new players join the game they are assigned an ability through the use of the `owner` property.
 
 ```lua
+--Server script
 local abilityTemplate = script:GetCustomProperty("AbilityTemplate")
 
 function OnPlayerJoined(player)

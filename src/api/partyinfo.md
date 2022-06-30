@@ -104,7 +104,7 @@ This example, we setup a portal that allows any member of a party to enter the p
 local TRIGGER = script.parent
 local GAME_ID = "b983bc/core-plaza"
 
-function PortalPlayerToGame(player)
+local function PortalPlayerToGame(player)
     if player.isInParty then
         local partyInfo = player:GetPartyInfo()
         if partyInfo.isPlayAsParty then
@@ -116,11 +116,13 @@ function PortalPlayerToGame(player)
     player:TransferToGame(GAME_ID)
 end
 
-TRIGGER.beginOverlapEvent:Connect(function(_, player)
+local function OnBeginOverlap(_, player)
     if player:IsA("Player") then
         PortalPlayerToGame(player)
     end
-end)
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 See also: [Player.GetPartyInfo](player.md) | [Trigger.beginOverlapEvent](trigger.md) | [Other.IsA](other.md)

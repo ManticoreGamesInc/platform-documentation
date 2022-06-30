@@ -84,28 +84,45 @@ local STATE_DISABLED = 4
 local currentState
 local stateElapsedTime = 0
 
-function SetState(newState)
+local function SetUIPosition(percent)
+    -- Set the y position of the UI. Invert the percent here because the
+    -- semantics of the popup are such that 1 means the popup is visible,
+    -- in the middle of screen while a value of 0 means the popup is
+    -- outside the screen, with a positive Y.
+    UI_ELEMENT.y = (1 - percent) * DISABLED_POSITION
+end
+
+local function SetState(newState)
     if newState == STATE_IDLE then
         -- Force the UI to the middle of screen
         SetUIPosition(1)
-        
+
     elseif newState == STATE_ENTER then
         -- Enable the UI, to begin the 'enter' animation
         UI_ELEMENT.visibility = Visibility.INHERIT
-        
+
     elseif newState == STATE_DISABLED then
         -- Force the UI to be off-screen
         SetUIPosition(0)
         UI_ELEMENT.visibility = Visibility.FORCE_OFF
     end
-    
+
     currentState = newState
     stateElapsedTime = 0
 end
 
+-- These events could be called from elsewhere in the game
+local function ShowUI()
+    SetState(STATE_ENTER)
+end
+
+local function HideUI()
+    SetState(STATE_EXIT)
+end
+
 function Tick(deltaTime)
     stateElapsedTime = stateElapsedTime + deltaTime
-    
+
     if currentState == STATE_ENTER then
         if stateElapsedTime >= ANIM_DURATION then
             -- The 'enter' animation has ended, go to Idle
@@ -116,7 +133,7 @@ function Tick(deltaTime)
             percent = ENTER_CURVE:GetValue(percent)
             SetUIPosition(percent)
         end
-        
+
     elseif currentState == STATE_EXIT then
         if stateElapsedTime >= ANIM_DURATION then
             -- The 'exit' animation has ended, go to Disabled
@@ -129,22 +146,6 @@ function Tick(deltaTime)
         end
     end
 end
-
-function SetUIPosition(percent)
-    -- Set the y position of the UI. Invert the percent here because the
-    -- semantics of the popup are such that 1 means the popup is visible,
-    -- in the middle of screen while a value of 0 means the popup is
-    -- outside the screen, with a positive Y.
-    UI_ELEMENT.y = (1 - percent) * DISABLED_POSITION
-end
-
--- These events could be called from elsewhere in the game
-Events.Connect("ShowUI", function()
-    SetState(STATE_ENTER)
-end)
-Events.Connect("HideUI", function()
-    SetState(STATE_EXIT)
-end)
 
 -- Set the initial state of the UI to 'disabled'
 SetState(STATE_DISABLED)
@@ -175,7 +176,7 @@ In this example, the script has a custom property of type `SimpleCurve`. At runt
 ```lua
 local CURVE = script:GetCustomProperty("Curve")
 
-function ExtrapolationToString(value)
+local function ExtrapolationToString(value)
     if value == CurveExtrapolation.CYCLE then return "CYCLE" end
     if value == CurveExtrapolation.CYCLE_WITH_OFFSET then return "CYCLE_WITH_OFFSET" end
     if value == CurveExtrapolation.OSCILLATE then return "OSCILLATE" end

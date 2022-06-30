@@ -76,19 +76,22 @@ local CLOSE_BUTTON = script:GetCustomProperty("CloseButton"):WaitForObject()
 
 UIPANEL.visibility = Visibility.FORCE_OFF
 
-TRIGGER.beginOverlapEvent:Connect(function()
+local function OnBeginOverlap()
     Input.DisableVirtualControls()
     UI.SetCursorVisible(true)
     UI.SetCanCursorInteractWithUI(true)
     UIPANEL.visibility = Visibility.FORCE_ON
-end)
+end
 
-CLOSE_BUTTON.clickedEvent:Connect(function()
+local function OnButtonClicked()
     Input.EnableVirtualControls()
     UI.SetCursorVisible(false)
     UI.SetCanCursorInteractWithUI(false)
     UIPANEL.visibility = Visibility.FORCE_OFF
-end)
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
+CLOSE_BUTTON.clickedEvent:Connect(OnButtonClicked)
 ```
 
 See also: [Trigger.beginOverlapEvent](trigger.md) | [UIButton.clickedEvent](uibutton.md) | [UI.SetCursorVisible](ui.md) | [CoreObject.visibility](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
@@ -173,26 +176,32 @@ function Tick()
     end
 end
 
--- Detect pinch gesture start/end
-Input.pinchStartedEvent:Connect(function()
+local function PinchStarted()
     isPinching = true
     startingWidth = UIIMAGE.width
     startingHeight = UIIMAGE.height
-end)
+end
 
-Input.pinchStoppedEvent:Connect(function()
+local function PinchStopped()
     isPinching = false
-end)
+end
 
--- Detect rotation gesture start/end
-Input.rotateStartedEvent:Connect(function()
+-- Detect pinch gesture start/end
+Input.pinchStartedEvent:Connect(PinchStarted)
+Input.pinchStoppedEvent:Connect(PinchStopped)
+
+local function RotateStarted()
     isRotating = true
     startingAngle = UIIMAGE.rotationAngle
-end)
+end
 
-Input.rotateStoppedEvent:Connect(function()
+local function RotateStopped()
     isRotating = false
-end)
+end
+
+-- Detect rotation gesture start/end
+Input.rotateStartedEvent:Connect(RotateStarted)
+Input.rotateStoppedEvent:Connect(RotateStopped)
 ```
 
 See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)
@@ -469,8 +478,7 @@ local function ClearActiveSlot(index)
     slots[index]:FindChildByName("Frame"):SetColor(INACTIVE_COLOR)
 end
 
--- Listens for when an action is pressed.
-Input.actionPressedEvent:Connect(function(player, action, value)
+local function OnActionPressed(player, action, value)
     -- Checks to see if the action is the Zoom action.
     -- This could be a custom action, doesn't need to be named "Zoom".
     if action == "Zoom" then
@@ -490,7 +498,10 @@ Input.actionPressedEvent:Connect(function(player, action, value)
             SetActiveSlot(currentSlotIndex)
         end
     end
-end)
+end
+
+-- Listens for when an action is pressed.
+Input.actionPressedEvent:Connect(OnActionPressed)
 
 -- Set the active slot from the start (1 in this case).
 SetActiveSlot(currentSlotIndex)
@@ -569,10 +580,12 @@ end
 -- Intercept the ESC key being pressed
 Input.escapeHook:Connect(OnEscape)
 
--- Send players to Core World when they press the custom "Exit" button
-EXIT_BUTTON.clickedEvent:Connect(function()
+local function DoTransfer()
     Game.GetLocalPlayer():TransferToGame("e39f3e/core-world")
-end)
+end
+
+-- Send players to Core World when they press the custom "Exit" button
+EXIT_BUTTON.clickedEvent:Connect(DoTransfer)
 ```
 
 See also: [Player.TransferToGame](player.md) | [UIButton.clickedEvent](uibutton.md) | [UI.SetCanCursorInteractWithUI](ui.md) | [Game.GetLocalPlayer](game.md)

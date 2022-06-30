@@ -504,10 +504,12 @@ function Tick()
     end
 end
 
-Game.playerJoinedEvent:Connect(function(p)
+local function OnPlayerJoined(p)
     -- The first player to join gains control of the movement vector
     player = p
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Player.GetViewWorldRotation](player.md) | [CoreDebug.DrawLine](coredebug.md) | [Vector3.GetNormalized](vector3.md) | [CoreObject.GetWorldScale](coreobject.md) | [Game.PlayerJoinedEvent](game.md)

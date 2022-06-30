@@ -110,7 +110,7 @@ local UI_IMAGE = script:GetCustomProperty("UIImage"):WaitForObject()
 
 local camCapture = nil
 
-function Capture(selectedCamera)    
+local function Capture(selectedCamera)
     if selectedCamera then
         if not camCapture or not camCapture:IsValid() then
             camCapture = selectedCamera:Capture(CameraCaptureResolution.VERY_LARGE)
@@ -122,13 +122,15 @@ function Capture(selectedCamera)
     end
 end
 
-script.destroyEvent:Connect(function()
+local function ReleaseCapture()
     if camCapture and camCapture:IsValid() then
         print("Release from memory a camera capture with resolution: " .. camCapture.resolution)
         camCapture:Release()
         camCapture = nil
     end
-end)
+end
+
+script.destroyEvent:Connect(ReleaseCapture)
 ```
 
 See also: [Camera.Capture](camera.md) | [UIImage.SetCameraCapture](uiimage.md) | [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md)

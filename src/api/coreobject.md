@@ -97,6 +97,9 @@ CoreObject is an Object placed in the scene hierarchy during edit mode or is par
 | `ReorderAfterSiblings()` | `None` | Reorders this object after all of its siblings in the hierarchy. | None |
 | `ReorderBefore(CoreObject sibling)` | `None` | Reorders this object just before the specified sibling in the hierarchy. | None |
 | `ReorderAfter(CoreObject sibling)` | `None` | Reorders this object just after the specified sibling in the hierarchy. | None |
+| `IsReplicationEnabled()` | `boolean` | Returns `true` if the object has replication enabled, else returns `false`. | Server-Only |
+| `SetReplicationEnabled(boolean)` | `None` | Enables/Disables replication for the networked object. | Server-Only |
+| `ForceReplication()` | `None` | If the networked object does not have replication enabled and this call is made, this will force it to replicate its current state. | Server-Only |
 
 ## Events
 
@@ -707,13 +710,15 @@ In a client context, we can set up listeners to tell us when a custom property c
 
 ```lua
 -- Client context:
-script.customPropertyChangedEvent:Connect(function(coreObject, propertyName)
+local function OnPropertyChanged(coreObject, propertyName)
     print("The dynamic property [" .. coreObject.name .. "] just had its ["
             .. propertyName .. "] property changed.")
 
     local newValue = coreObject:GetCustomProperty(propertyName)
     print("New value: " .. tostring(newValue))
-end)
+end
+
+script.customPropertyChangedEvent:Connect(OnPropertyChanged)
 
 --[[#description
     Now, if the server changes the custom property, the client is notified:

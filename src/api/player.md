@@ -315,17 +315,17 @@ This example combines player emotes with chat messages. Whenever a player begins
 Also, whenever a player joins the game, the server counts the number of players using any dance emotes and informs the amount to the new player.
 
 ```lua
-function OnEmoteStarted(player, emoteId)
+local function OnEmoteStarted(player, emoteId)
     local message = player.name .. " is using " .. emoteId
     Chat.BroadcastMessage(message)
 end
 
-function OnEmoteStopped(player, emoteId)
+local function OnEmoteStopped(player, emoteId)
     local message = player.name .. " stopped using " .. emoteId
     Chat.BroadcastMessage(message)
 end
 
-function CountPlayersDancing()
+local function CountPlayersDancing()
     local result = 0
     for _,player in ipairs(Game.GetPlayers()) do
         local emote = player.activeEmote
@@ -336,7 +336,7 @@ function CountPlayersDancing()
     return result
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     player.emoteStartedEvent:Connect(OnEmoteStarted)
     player.emoteStoppedEvent:Connect(OnEmoteStopped)
 
@@ -347,7 +347,9 @@ Game.playerJoinedEvent:Connect(function(player)
     if Object.IsValid(player) then
         Chat.BroadcastMessage(message, {players = player})
     end
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Chat.BroadcastMessage](chat.md) | [Game.GetPlayers](game.md) | [Task.Wait](task.md) | [Object.IsValid](object.md)
@@ -528,7 +530,7 @@ When attaching an object to a player you need to specify the "socket" you want t
 local CUBE = script.parent
 CUBE.collision = Collision.FORCE_OFF
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     -- Attach the cube to the player's head
     CUBE:AttachToPlayer(player, "head")
 
@@ -537,7 +539,9 @@ Game.playerJoinedEvent:Connect(function(player)
     for _, v in ipairs(player:GetAttachedObjects()) do
         print(tostring(v.name))
     end
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [CoreObject.AttachToPlayer](coreobject.md)
@@ -1449,13 +1453,15 @@ Example using:
 Each time a player bumps into another object they fire a `collidedEvent`. This example works on both server and client scripts. It shows how to connect to the event and prints the names of the objects into the Event Log.
 
 ```lua
-function OnPlayerCollided(player, hitResult)
+local function OnPlayerCollided(player, hitResult)
     print(player.name .. " collided with " .. hitResult.other.name)
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     player.collidedEvent:Connect(OnPlayerCollided)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [HitResult.other](hitresult.md) | [Game.playerJoinedEvent](game.md) | [Event.Connect](event.md)
@@ -1595,13 +1601,15 @@ In this example, a trigger makes the player fall through the ground when they st
 ```lua
 local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
 
-TRIGGER.beginOverlapEvent:Connect(function(_,player)
+local function OnBeginOverlap(_,player)
     if player:IsA("Player") then
         player.isCollidable = false
         Task.Wait(1.5)
         player.isCollidable = true
     end
-end)
+end
+
+TRIGGER.beginOverlapEvent:Connect(OnBeginOverlap)
 ```
 
 See also: [Trigger.beginOverlapEvent](trigger.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Task.Wait](task.md)

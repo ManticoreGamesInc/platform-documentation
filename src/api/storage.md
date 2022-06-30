@@ -23,6 +23,7 @@ Core storage allows a maximum of 32Kb (32768 bytes) of encoded data to be stored
 | `Storage.GetSharedPlayerData(NetReference sharedStorageKey, Player player)` | `table` | Returns the shared player data associated with `player` and `sharedStorageKey`. This returns a copy of the data that has already been retrieved for the player, so calling this function does not incur any additional network cost. Changes to the data in the returned table will not be persisted without calling `Storage.SetSharedPlayerData()`. | Server-Only |
 | `Storage.SetSharedPlayerData(NetReference sharedStorageKey, Player player, table data)` | <[`StorageResultCode`](enums.md#storageresultcode) resultCode, `string` errorMessage> | Updates the shared data associated with `player` and `sharedStorageKey`. Returns a result code and an error message. See below for supported data types. | Server-Only |
 | `Storage.SizeOfData(table data)` | `integer` | Computes and returns the size required for the given `data` table when stored as Player data. | Server-Only |
+| `Storage.SizeOfCompressedData(table data)` | `integer` | Computes and returns the compressed size required for the given `data` table when stored as Player data. | Server-Only |
 | `Storage.GetOfflinePlayerData(string playerId)` | `table` | Requests the player data associated with the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetPlayerData()` should be used instead. | Server-Only |
 | `Storage.GetSharedOfflinePlayerData(NetReference sharedStorageKey, string playerId)` | `table` | Requests the shared player data associated with `sharedStorageKey` and the specified player who is not in the current instance of the game. This function may yield until data is available, and may raise an error if the player ID is invalid or if an error occurs retrieving the information. If the player is in the current instance of the game, `Storage.GetSharedPlayerData()` should be used instead. | Server-Only |
 | `Storage.GetConcurrentPlayerData(string playerId)` | <`table` data, [`StorageResultCode`](enums.md#storageresultcode) resultCode, `string` errorMessage> | Requests the concurrent player data associated with the specified player. This function may yield until data is available. Returns the data (`nil` if not available), a result code, and an optional error message if an error occurred. | Server-Only |
@@ -74,13 +75,16 @@ local SEND_PERIOD = script:GetCustomProperty("SendPeriod") or 10
 -- Add players when they join. Subtract when they leave.
 local deltaPlayers = 0
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     deltaPlayers = deltaPlayers + 1
-end)
+end
 
-Game.playerLeftEvent:Connect(function(player)
+local function OnPlayerLeft(player)
     deltaPlayers = deltaPlayers - 1
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerLeftEvent:Connect(OnPlayerLeft)
 
 function Tick()
     Task.Wait(SEND_PERIOD)
@@ -215,7 +219,7 @@ end
 
 local playerStorageListeners = {}
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     -- Only the server in which a player has joined listens for new messages in their inbox
     local listener = Storage.ConnectToConcurrentPlayerDataChanged(player.id, OnConcurrentPlayerDataChanged)
     -- Save the event listener so we can disconnect from it later
@@ -225,15 +229,18 @@ Game.playerJoinedEvent:Connect(function(player)
     if Object.IsValid(player) then
         CheckInbox(player)
     end
-end)
+end
 
-Game.playerLeftEvent:Connect(function(player)
+local function OnPlayerLeft(player)
     -- The player is leaving. Disconnect the event listener to stop receiving message events on this server
     if playerStorageListeners[player].isConnected then
         playerStorageListeners[player]:Disconnect()
         playerStorageListeners[player] = nil
     end
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+Game.playerLeftEvent:Connect(OnPlayerLeft)
 ```
 
 See also: [StorageResultCode](enums.md#storageresultcode) | [EventListener.Disconnect](eventlistener.md) | [Game.FindPlayer](game.md) | [Events.BroadcastToPlayer](events.md) | [Object.IsValid](object.md) | [Task.Wait](task.md)

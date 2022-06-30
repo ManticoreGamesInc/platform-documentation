@@ -25,9 +25,11 @@ Example using:
 How to reverse a player's walking direction.
 
 ```lua
-Game.GetLocalPlayer().movementHook:Connect(function(player, params)
+local function OnMovement(player, params)
     params.direction = -params.direction
-end)
+end
+
+Game.GetLocalPlayer().movementHook:Connect(OnMovement)
 ```
 
 See also: [Player.movementHook](player.md)

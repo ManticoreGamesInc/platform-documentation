@@ -86,8 +86,8 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
-| `CoreGameEventState.ACTIVE` | `1` | The event is currently active. |
 | `CoreGameEventState.SCHEDULED` | `0` | The event is scheduled to begin in the future. |
+| `CoreGameEventState.ACTIVE` | `1` | The event is currently active. |
 | `CoreGameEventState.CANCELED` | `2` | The event has been canceled and will not run. |
 
 ## CoreModalType
@@ -223,13 +223,13 @@ tags:
 
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
+| `NetReferenceType.UNKNOWN` | `0` | Unknown `NetReference`. |
 | `NetReferenceType.LEADERBOARD` | `1` | Leaderboard key. |
-| `NetReferenceType.SHARED_STORAGE` | `2` | NetReferenceType.SHARED_STORAGE has been renamed to SHARED_PLAYER_STORAGE. SHARED_STORAGE will be removed in a future release. |
 | `NetReferenceType.SHARED_PLAYER_STORAGE` | `2` | Shared player storage key. |
+| `NetReferenceType.SHARED_STORAGE` | `2` | NetReferenceType.SHARED_STORAGE has been renamed to SHARED_PLAYER_STORAGE. SHARED_STORAGE will be removed in a future release. |
+| `NetReferenceType.CREATOR_PERK` | `3` | Creator perk. |
 | `NetReferenceType.CONCURRENT_SHARED_PLAYER_STORAGE` | `4` | Concurrent shared player storage key. |
 | `NetReferenceType.CONCURRENT_CREATOR_STORAGE` | `5` | Concurrent creator storage key. |
-| `NetReferenceType.CREATOR_PERK` | `3` | Creator perk. |
-| `NetReferenceType.UNKNOWN` | `0` | Unknown `NetReference`. |
 
 ## NetworkContextType
 
@@ -277,9 +277,9 @@ tags:
 | --------- | ----------- | ----------- |
 | `ProgressBarFillType.LEFT_TO_RIGHT` | `0` | Progress bar fills from left to right. |
 | `ProgressBarFillType.RIGHT_TO_LEFT` | `1` | Progress bar fills from right to left. |
+| `ProgressBarFillType.FROM_CENTER` | `2` | Progress bar fills from the center outward. |
 | `ProgressBarFillType.TOP_TO_BOTTOM` | `3` | Progress bar fills from top to bottom. |
 | `ProgressBarFillType.BOTTOM_TO_TOP` | `4` | Progress bar fills from bottom to top. |
-| `ProgressBarFillType.FROM_CENTER` | `2` | Progress bar fills from the center outward. |
 
 ## RespawnMode
 
@@ -322,8 +322,8 @@ tags:
 | Enum Name | Value | Description |
 | --------- | ----------- | ----------- |
 | `StorageResultCode.SUCCESS` | `0` | Data was successfully saved. |
-| `StorageResultCode.FAILURE` | `2` | An error occurred saving the player's data. |
 | `StorageResultCode.STORAGE_DISABLED` | `1` | Player Storage is disabled in the game's settings. |
+| `StorageResultCode.FAILURE` | `2` | An error occurred saving the player's data. |
 | `StorageResultCode.EXCEEDED_SIZE_LIMIT` | `3` | The provided data is too large and could not be saved. |
 | `StorageResultCode.REQUEST_ALREADY_QUEUED` | `4` | A request was made to set creator or player data while a request was already in progress to update that same data. |
 
