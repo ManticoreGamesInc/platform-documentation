@@ -13,7 +13,7 @@ tags:
  Shared Assets are a limited form of [`World.SpawnAsset()`](../api/world.md) that enable certain networked behavior very cheaply. The functions [`SpawnSharedAsset`](../api/networkcontext.md) and [`DestroySharedAsset`](../api/networkcontext.md) can only be called on the server, and the spawned object will exist on both the server and client. However, these are very much cheaper than networked objects. The object once spawned cannot be modified, like other objects within a static context. The only option parameters available are transform, position, rotation, and scale.
 
 !!! tip "Network Dormancy"
-    For more control on when a networked object should be replicated, consider using the [dormancy](../tutorials/network_dormancy.md) feature. This gives creators more control on when a networked object should be updated, which will make games more performant and utilize more networked behavior.
+    For further optimization of networked objects, look at the [dormancy](../tutorials/network_dormancy.md) feature which will make games more performant and utilize more networked behavior by only having certain networked objects replicate when needed.
 
 ## Spawning Shared Assets
 
