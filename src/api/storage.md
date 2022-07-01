@@ -448,6 +448,36 @@ Storage.SetSharedPlayerData(propSharedKey, player, sampleData)
 
 ---
 
+Example using:
+
+### `SizeOfCompressedData`
+
+In this example, we can get the compressed size of the data that will be stored in player storage. This could be useful to check if the updated data will fit in the storage key.
+
+```lua
+-- Server Script
+-- Enable player storage
+
+local function OnPlayerLeft(player)
+local data = Storage.GetPlayerData(player)
+
+data.coins = 1000
+data.petName = "Frodo"
+data.items = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+print(Storage.SizeOfData(data)) -- 192
+print(Storage.SizeOfCompressedData(data)) -- 152
+
+Storage.SetPlayerData(data)
+end
+
+Game.playerLeftEvent:Connect(OnPlayerLeft)
+```
+
+See also: [Storage.GetPlayerData](storage.md) | [Game.playerLeftEvent](game.md)
+
+---
+
 ## Tutorials
 
 Check out our [Persistent Data Storage in Core](../tutorials/persistent_storage_tutorial.md) tutorial to learn how to apply this API in practice.

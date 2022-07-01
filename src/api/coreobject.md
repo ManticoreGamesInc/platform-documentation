@@ -910,6 +910,63 @@ See also: [World.SpawnAsset](world.md)
 
 Example using:
 
+### `SetReplicationEnabled`
+
+### `IsReplicationEnabled`
+
+### `ForceReplication`
+
+In this example, an object is replicated to clients every 10 settings by spawning a task which will toggle the replication state of the object. When replication is enabled, the object will be moved up for a certain time, and then replication will be turned off, which will send no more updates to clients.
+
+The server script will listen for the event `ForceUpdate`, and force a replication if the object is not already replicating.
+
+```lua
+--Server Script
+
+-- An object in the hierarchy that is networked.
+local OBJECT = script:GetCustomProperty("MyObject"):WaitForObject()
+
+-- Toggle object replication on and off.
+local function ToggleReplication()
+if OBJECT:IsReplicationEnabled() then
+    OBJECT:SetReplicationEnabled(false)
+else
+    OBJECT:SetReplicationEnabled(true)
+end
+end
+
+-- If the object does not have replication enabled, update the position then force
+-- replication which will update for all connected clients.
+local function ForceUpdate()
+if not OBJECT:IsReplicationEnabled() then
+    OBJECT:SetWorldPosition(OBJECT:GetWorldPosition() + (Vector3.UP * 50))
+    OBJECT:ForceReplication()
+end
+end
+
+-- If the object has replication enabled, update the world position.
+function Tick(deltaTime)
+if OBJECT:IsReplicationEnabled() then
+    OBJECT:SetWorldPosition(OBJECT:GetWorldPosition() + (Vector3.UP * (deltaTime * 10)))
+end
+end
+
+-- Spawn a task that runs every 10 seconds that toggles replication.
+local task = Task.Spawn(ToggleReplication, 10)
+
+task.repeatCount = -1
+task.repeatInterval = 10
+
+-- Broadcast this event to force replication.
+Events.Connect("ForceUpdate", ForceUpdate)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Vector3.UP,](vector3.md) | [Task.Spawn](task.md) | [Event.Connect](event.md) | [CoreLua.Tick](coreluafunctions.md)
+
+---
+
+Example using:
+
 ### `name`
 
 ### `id`
