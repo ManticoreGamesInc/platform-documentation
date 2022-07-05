@@ -79,16 +79,16 @@ Example using:
 In some games it may be important to know if a player is new and, if they are not, how much time has passed since they were last playing. In this example, we catch the moment players join and leave. Using storage, we save the timestamp when they leave and use that information the next time they join. By comparing the timestamps of leaving and joining we know how many seconds elapsed.
 
 ```lua
-Game.playerLeftEvent:Connect(function(player)
+local function OnPlayerLeft(player)
     local data = Storage.GetPlayerData(player)
 
     local now = DateTime.CurrentTime()
     data.leftDateTime = now:ToIsoString()
 
     Storage.SetPlayerData(player, data)
-end)
+end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     local data = Storage.GetPlayerData(player)
 
     if data.leftDateTime then
@@ -99,7 +99,10 @@ Game.playerJoinedEvent:Connect(function(player)
     else
         print("New player ".. player.name ..". First time playing.")
     end
-end)
+end
+
+Game.playerLeftEvent:Connect(OnPlayerLeft)
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Storage.GetPlayerData](storage.md) | [Game.playerLeftEvent](game.md) | [Player.name](player.md)
@@ -171,7 +174,7 @@ It can be really useful to know how much time remains until an upcoming event. P
 local SECONDS_IN_DAY = 60 * 60 * 24
 
 -- This function takes a number of remaining seconds and formats it into a string
-function FormatCasualTimespan(totalSeconds)
+local function FormatCasualTimespan(totalSeconds)
     local seconds = totalSeconds
     local minutes = math.floor(seconds / 60)
     seconds = seconds - minutes*60

@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to create a procedural puzzle game where players need to jump from one platform to the other. The goal is to get to the finish area in the least amount of jumps. You will be learning how to use [Spawn Shared Asset](../references/spawned_shared_assets/) to create a new puzzle each time the player reaches the finish.
+In this tutorial, you are going to create a procedural puzzle game where players need to jump from one platform to the other. The goal is to get to the finish area in the least amount of jumps. You will be learning how to use [Spawn Shared Asset](../references/spawned_shared_assets/) to create a new puzzle each time the player reaches the finish.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -38,7 +38,10 @@ You will be importing an asset from **Community Content** that will contain the 
 
 ## Testing Static Context Scripts
 
-When using [Spawn Shared Asset](../api/networkcontext.md), a [Networked Static Context](../references/networking.md) is required, this reduces the amount of networked objects in your game, and the assets being spawned are cheaper than if they were networked.
+When using [Spawn Shared Asset](../api/networkcontext.md), a [Networked Static Context](../references/networking.md) is required, this reduces the number of networked objects in your game, and the assets being spawned are cheaper than if they were networked.
+
+!!! tip "Network Dormancy"
+    For an even more optimized approach, consider looking at [Network Dormancy](../tutorials/network_dormancy.md) that will make your game more performant and utilize more networked behavior.
 
 Because the template is spawned on the server and client, testing any script logic from within the static context may not behave as you expect. This is because the assets are spawned on the server and the client, and in local preview mode, it is a server and client combined. So it is recommended to test in multiplayer preview so the server and client are separate.
 
@@ -53,7 +56,7 @@ Because the template is spawned on the server and client, testing any script log
 
 ## Create Networked Static Context
 
-When spawning shared assets, they need to go into a networked **Static Context**. A static context is a good choice when creating procedural content, as it will reduce the amount of networked objects in your game. Objects spawned inside a static context can not be moved or modified, however, as a unit they can be moved.
+When spawning shared assets, they need to go into a networked **Static Context**. A static context is a good choice when creating procedural content, as it will reduce the number of networked objects in your game. Objects spawned inside a static context can not be moved or modified, however, as a unit, they can be moved.
 
 1. Create a **Static Context** and name it `Static Container`.
 2. Enable **Networking** on the **Static Container**.
@@ -116,12 +119,12 @@ local sharedAssets = {} -- (8)
 local puzzleCreated = false -- (9)
 ```
 
-1. Objects that have position, scale, and rotation, has a [Transform](../api/transform.md). No matter what the rotation of the `START_AREA` is, the platforms will always spawn in the forward direction. By pressing ++T++ you can see the transform gizmo change from world space to local space. ![!Properties](../img/SpawnSharedAsset/direction.png){: .center loading="lazy" }
+1. Objects that have a position, scale, and rotation, have a [Transform](../api/transform.md)](../api/transform.md). No matter what the rotation of the `START_AREA` is, the platforms will always spawn in the forward direction. By pressing ++T++ you can see the transform gizmo change from world space to local space. ![!Properties](../img/SpawnSharedAsset/direction.png){: .center loading="lazy" }
 2. There will be 2 platforms to pick between to jump on, you will need to offset one of them, so we can do that using the right direction.
 3. The up direction will be used to handle moving this up or down in the local up (Z) direction of the object.
 4. Store the `START_AREA` world position, as it will be used to offset the platforms from the `START_AREA` position.
 5. The total amount of platforms to spawn in the forward direction. The higher the number the longer it will take to get across.
-6. The forward distance between the platforms. The smaller the distance, the easier it will be to jump. Making this too small could lead to players jumping more than 1 platform.
+6. The forward distance between the platforms. The smaller the distance, the easier it will be to jump. Making this too small could lead to players jumping on more than 1 platform.
 7. The distance between the right platform and the left platform.
 8. A table that will hold a reference to all the shared assets that are spawned so they can be destroyed later when creating a new puzzle.
 9. A boolean that will stop the level from being recreated when other players join.
@@ -218,7 +221,7 @@ end
 
 1. The `finishArea` parameter is the spawned asset that is passed in from the `CreatePuzzle` function.
 2. Get the center position between the starting area and finish area.
-3. Scale the trigger so that it matches the puzzle area, but include a bit of padding to prevent players jumping further then the dimensions of the trigger.
+3. Scale the trigger so that it matches the puzzle area, but include a bit of padding to prevent players from jumping further than the dimensions of the trigger.
 4. Move the trigger down in the world by applying a negative `up` direction.
 5. Connect the `beginOverlapEvent` to detect when the player has entered the trigger volume.
 
@@ -260,15 +263,15 @@ local function CreatePuzzle()
 end
 ```
 
-1. Set the `puzzleCreated` boolean to true to prevent other players recreating the puzzle when they join the game.
+1. Set the `puzzleCreated` boolean to true to prevent other players from recreating the puzzle when they join the game.
 2. Spawn this platform in the negative right direction so the platform is spaced apart from the right platform.
 3. You always need a good and bad platform, so you need to check what `randomIndex` is and get the opposite platform.
-4. Set the position of the right platform by moving it by the `leftDistanceBetween` amount along the `right` direction.
+4. Set the position of the right platform by moving it by the `leftDistanceBetween` amount in the `right` direction.
 5. Wait a small amount of time to give a nicer effect when spawning in the pairs of platforms.
 
 #### Create PlayerJoined Function
 
-When a player joins the game, the `PlayerJoined` function will be called. It will place the player at a specific spawn point that has a **Spawn Key** of `Start Area`. If this is the first player that has joined the game, then the puzzle will be created, otherwise return.
+When a player joins the game, the `PlayerJoined` function will be called. It will place the player at a specific spawn point that has a **Spawn Key** of `Start Area`. If this is the first player that has joined the game, then the puzzle will be created, otherwise, return.
 
 ```lua
 local function PlayerJoined(player)
@@ -288,7 +291,7 @@ end
 
 The `DestroyPlatform` function will be called if the player lands on a bad platform. All shared assets that were spawned when creating the puzzle were put into the `sharedAssets` table which is an array. By looping over the table you can check the platform exists and destroy it using `DestroySharedAsset` function.
 
-The `DestroySharedAsset` function is called from the network context, in this case it is the `STATIC_CONTAINER`. By passing in the shared asset to be destroyed, it will be removed from the server and the client for you.
+The `DestroySharedAsset` function is called from the network context, in this case, it is the `STATIC_CONTAINER`. By passing in the shared asset to be destroyed, it will be removed from the server and the client for you.
 
 ```lua
 local function DestroyPlatform(obj, player)
@@ -330,12 +333,12 @@ end
 
 1. Disable the player's jump while the puzzle is being destroyed and recreated.
 2. Reset the player's total jumps for this puzzle.
-3. Respawn the player back to at the start area.
+3. Respawn the player back to the start area.
 4. Enable the player's jump so they can play again now that the puzzle has been created.
 
 #### Create IncrementJumps Function
 
-When a player jumps on to a platform, their total jumps resource is incremented by `1`.
+When a player jumps onto a platform, their total jumps resource is incremented by `1`.
 
 ```lua
 local function IncrementJumps(player)
@@ -345,7 +348,7 @@ end
 
 #### Connect playerJoinedEvent
 
-Connect the `playerJoinedEvent` so when a player joins the game the `PlayerJoined` function will be called.
+Connect the `playerJoinedEvent` so that when a player joins the game the `PlayerJoined` function will be called.
 
 ```lua
 Game.playerJoinedEvent:Connect(PlayerJoined)
@@ -584,9 +587,9 @@ The `BeginOverlap` function will check if a player is in the trigger volume.
 
 A script in a static context is created on the server and client, so you will need to check which [environment](../api/environment.md) the script is in. In this case, if the environment is the client, then you broadcast to the event `PlatformLandedOn` so an effect can be played when the player lands on the platform. If the platform is not solid, then a broadcast to the `PlatformLaugh` event is done to play a sound.
 
-When the environment is the server, you can broadcast to a server script that will disable the player's jump, and increment their jump resource amount. If the platform is not solid, then the shared asset is destroyed, otherwise the player's jump is enabled again.
+When the environment is the server, you can broadcast to a server script that will disable the player's jump, and increment their jump resource amount. If the platform is not solid, then the shared asset is destroyed, otherwise, the player's jump is enabled again.
 
-Being able to check what environment the script is being run in is a great way to handle logic that need to be done in a specific context.
+Being able to check what environment the script is being run in is a great way to handle logic that needs to be done in a specific context.
 
 ```lua
 local function BeginOverlap(trigger, obj)
@@ -712,7 +715,7 @@ end
 
 #### Create ShowStill Function
 
-The `ShowStill` function will turn on the visibility of the `STILL` image and turn off the visibility of the `MOVE` image. This will indicate to the player they shouldn't try to jump, because their jump is disabled for a short amount of time.
+The `ShowStill` function will turn on the visibility of the `STILL` image and turn off the visibility of the `MOVE` image. This will indicate to the player they shouldn't try to jump because their jump is disabled for a short amount of time.
 
 ```lua
 local function ShowStill()
@@ -723,7 +726,7 @@ end
 
 #### Connect resourceChangedEvent
 
-To display the amount of jumps the player has done, you need to listen for when the player's resources has changed. This can be done by using the `resourceChangedEvent` and checking if the resource is `jumps`, and then updating the `JUMPS_AMOUNT` text with the `newAmount`.
+To display the number of jumps the player has done, you need to listen for when the player's resources have changed. This can be done by using the `resourceChangedEvent` and checking if the resource is `jumps`, and then updating the `JUMPS_AMOUNT` text with the `newAmount`.
 
 ```lua
 localPlayer.resourceChangedEvent:Connect(function(player, resource, newAmount)
@@ -791,7 +794,7 @@ Create a new script called `FinishArea`. This script will need to be placed insi
 
 ### Update Finish Area Template
 
-1. Drag the **Finish Area** template from **Project Content** in to the **Hierarchy** and deinstance it.
+1. Drag the **Finish Area** template from **Project Content** into the **Hierarchy**** and deinstance it.
 2. Drag the script **FinishArea** into the **Finish Area** group in the **Hierarchy**.
 3. Add the **Trigger** to the **FinishArea** script as a custom property.
 4. Update the **Finish Area** template and delete it from the **Hierarchy**.
@@ -825,7 +828,7 @@ local function OnEnterTrigger(trigger, obj)
 end
 ```
 
-1. The position and scale of the finish area is sent to the client script to scale the effect to the correct size.
+1. The position and scale of the finish area are sent to the client script to scale the effect to the correct size.
 
 ### Connect beginOverlapEvent
 
@@ -918,7 +921,7 @@ end
 
 #### Create PlayFinishArea Function
 
-The `PlayFinishArea` function will spawn the `CONFETTI_VFX` at the finish area. It will scale and position the effect volume based on the scale and position of the finish area. After 4 seconds the vfx will be destroyed, which at that point the game will restart.
+The `PlayFinishArea` function will spawn the `CONFETTI_VFX` at the finish area. It will scale and position the effect volume based on the scale and position of the finish area. After 4 seconds the VFX will be destroyed, and at that point, the game will restart.
 
 ```lua
 local function PlayFinishArea(position, scale)
@@ -1005,19 +1008,15 @@ Make sure the following work:
 
 ## Summary
 
-Using **Spawn Shared Asset** is great for procedural content like the puzzle in this tutorial, it's much cheaper on the networking cost, and much easier to keep the server and client in sync using the API methods for spawning and destroying shared assets. It adds a replay value for players, because the puzzle is always changing.
+Using **Spawn Shared Asset** is great for procedural content like the puzzle in this tutorial, it's much cheaper on the networking cost, and much easier to keep the server and client in sync using the API methods for spawning and destroying shared assets. It adds a replay value for players because the puzzle is always changing.
 
-There are a lot of game genres that can benefit from procedural content, such as dungeon crawlers, mazes etc.
+There are a lot of game genres that can benefit from procedural content, such as dungeon crawlers, and mazes.
 
 Consider improving the game by adding additional features:
 
 - Leaderboards to track the total jumps overall players have done.
 - Persistent storage to keep track of the player's lowest jump amount for a puzzle.
 - Puzzle hazards the player must overcome to get to the next platform.
-
-<!--## Feedback and Questions
-
-For feedback and questions, join the discussion on this tutorial's [forum thread]().-->
 
 ## Learn More
 

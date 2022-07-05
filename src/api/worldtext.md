@@ -69,7 +69,7 @@ local FONT_2 = script:GetCustomProperty("Font2")
 while true do
     Task.Wait(1)
     WORLD_TEXT:SetFont(FONT_1)
-    
+
     Task.Wait(1)
     WORLD_TEXT:SetFont(FONT_2)
 end
@@ -88,9 +88,11 @@ Change the contents of a WorldText object with the `text` property. In this exam
 ```lua
 local nameTextObject = script.parent
 
-Game.playerJoinedEvent:Connect(function (player)
+local function OnPlayerJoined(player)
     nameTextObject.text = player.name .. "<br>has joined the game!<br>GLHF!"
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [CoreObject.parent](coreobject.md) | [Game.playerJoinedEvent](game.md) | [Player.name](player.md) | [Event.Connect](event.md)

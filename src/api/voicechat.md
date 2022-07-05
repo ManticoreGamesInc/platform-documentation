@@ -42,22 +42,24 @@ Example using:
 In this example, players are muted when they die and unmuted when they respawn. While it's possible to mute a player in a specific channel, this example loops through all the channels a player participates in and mutes them in all.
 
 ```lua
-function OnDied(player)
+local function OnDied(player)
     for _,channel in ipairs(VoiceChat.GetChannelsForPlayer(player)) do
         channel:MutePlayer(player)
     end
 end
 
-function OnSpawned(player)
+local function OnSpawned(player)
     for _,channel in ipairs(VoiceChat.GetChannelsForPlayer(player)) do
         channel:UnmutePlayer(player)
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     player.diedEvent:Connect(OnDied)
     player.spawnedEvent:Connect(OnSpawned)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Game.playerJoinedEvent](game.md) | [Player.diedEvent](player.md)
@@ -77,7 +79,7 @@ This client script demonstrates ways to detect the local player's access to voic
 ```lua
 local player = Game.GetLocalPlayer()
 
-function UpdateVoiceStatus()
+local function UpdateVoiceStatus()
     local hasMic = VoiceChat.HasMicrophone(player)
     local voiceEnabled = VoiceChat.IsVoiceChatEnabled(player)
     local method = VoiceChat.GetVoiceChatMethod()
@@ -167,7 +169,7 @@ local ADMIN_NAME = script:GetCustomProperty("adminName")
 -- Will hold the binding event for the admin player.
 local adminBindingEvt
 
-function OnActionPressed(player, action)
+local function OnActionPressed(player, action)
     -- Action 1 changes the mode to TEAM.
     if action == ACTION_NAME_1 then
         VoiceChat.SetVoiceChatMode(VoiceChatMode.TEAM)
@@ -188,7 +190,7 @@ function OnActionPressed(player, action)
 end
 
 -- Handler for the player joined event.
-function OnPlayerJoined(player)
+local function OnPlayerJoined(player)
     -- Check if the player joining the game is the admin player
     -- so the action pressed event can be setup just for them.
     if player.name == ADMIN_NAME then
@@ -198,7 +200,7 @@ end
 
 -- When a player leaves the game, check if it was the admin player so
 -- the binding event can be disconnected.
-function OnPlayerLeft(player)
+local function OnPlayerLeft(player)
     if player.name == ADMIN_NAME and adminBindingEvt ~= nil and adminBindingEvt.isConnected then
         adminBindingEvt:Disconnect()
         adminBindingEvt = nil

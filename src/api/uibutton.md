@@ -123,26 +123,32 @@ function Tick()
     end
 end
 
--- Detect pinch gesture start/end
-UI_OBJECT.pinchStartedEvent:Connect(function()
+local function OnPinchStarted()
     isPinching = true
     startingWidth = UI_OBJECT.width
     startingHeight = UI_OBJECT.height
-end)
+end
 
-UI_OBJECT.pinchStoppedEvent:Connect(function()
+local function OnPinchStopped()
     isPinching = false
-end)
+end
 
--- Detect rotation gesture start/end
-UI_OBJECT.rotateStartedEvent:Connect(function()
+-- Detect pinch gesture start/end
+UI_OBJECT.pinchStartedEvent:Connect(OnPinchStarted)
+UI_OBJECT.pinchStoppedEvent:Connect(OnPinchStopped)
+
+local function OnRotateStarted()
     isRotating = true
     startingAngle = UI_OBJECT.rotationAngle
-end)
+end
 
-UI_OBJECT.rotateStoppedEvent:Connect(function()
+local function OnRotateStopped()
     isRotating = false
-end)
+end
+
+-- Detect rotation gesture start/end
+UI_OBJECT.rotateStartedEvent:Connect(OnRotateStarted)
+UI_OBJECT.rotateStoppedEvent:Connect(OnRotateStopped)
 ```
 
 See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [UIButton.isHittable](uibutton.md) | [CoreObject.parent](coreobject.md) | [CoreMath.Round](coremath.md)
@@ -369,13 +375,16 @@ local UIBUTTON = script:GetCustomProperty("UIButton"):WaitForObject()
 UI.SetCursorVisible(true)
 UI.SetCanCursorInteractWithUI(true)
 
-UIBUTTON.pressedEvent:Connect(function()
+local function OnPressed()
     print("Button: " .. UIBUTTON.boundAction)
-end)
+end
 
-Input.actionPressedEvent:Connect(function(player, action, value)
+local function OnActionPressed(player, action, value)
     print("Action: " .. action .. ", value: " .. tostring(value))
-end)
+end
+
+UIBUTTON.pressedEvent:Connect(OnPressed)
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
 See also: [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md) | [UI.SetCanCursorInteractWithUI](ui.md)

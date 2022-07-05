@@ -108,26 +108,32 @@ function Tick()
     end
 end
 
--- Detect pinch gesture start/end
-UI_OBJECT.pinchStartedEvent:Connect(function()
+local function OnPinchStarted()
     isPinching = true
     startingWidth = UI_OBJECT.width
     startingHeight = UI_OBJECT.height
-end)
+end
 
-UI_OBJECT.pinchStoppedEvent:Connect(function()
+local function OnPinchStopped()
     isPinching = false
-end)
+end
 
--- Detect rotation gesture start/end
-UI_OBJECT.rotateStartedEvent:Connect(function()
+-- Detect pinch gesture start/end
+UI_OBJECT.pinchStartedEvent:Connect(OnPinchStarted)
+UI_OBJECT.pinchStoppedEvent:Connect(OnPinchStopped)
+
+local function OnRotateStarted()
     isRotating = true
     startingAngle = UI_OBJECT.rotationAngle
-end)
+end
 
-UI_OBJECT.rotateStoppedEvent:Connect(function()
+local function OnRotateStopped()
     isRotating = false
-end)
+end
+
+-- Detect rotation gesture start/end
+UI_OBJECT.rotateStartedEvent:Connect(OnRotateStarted)
+UI_OBJECT.rotateStoppedEvent:Connect(OnRotateStopped)
 ```
 
 See also: [UIControl.SetAbsolutePosition](uicontrol.md) | [UIProgressBar.isHittable](uiprogressbar.md) | [CoreObject.parent](coreobject.md) | [CoreMath.Round](coremath.md)

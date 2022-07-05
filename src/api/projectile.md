@@ -82,9 +82,12 @@ local mySlowProjectile = Projectile.Spawn(propCubeTemplate,
             Vector3.UP)                -- direction
 
 mySlowProjectile.lifeSpan = 1
-mySlowProjectile.lifeSpanEndedEvent:Connect(function(projectile)
+
+local function OnLifeSpanEnded(projectile)
     print("Projectile lifespan over")
-end)
+end
+
+mySlowProjectile.lifeSpanEndedEvent:Connect(OnLifeSpanEnded)
 
 mySlowProjectile:SetVelocity(Vector3.New(0, 0, 1000))
 ```
@@ -117,9 +120,11 @@ objectHomingProjectile.homingTarget = objectInWorld
 objectHomingProjectile.drag = 5
 objectHomingProjectile.homingAcceleration = 5000
 
-objectHomingProjectile.homingFailedEvent:Connect(function (projectile)
+local function OnHomingFailed(projectile)
     print("Target lost!")
-end)
+end
+
+objectHomingProjectile.homingFailedEvent:Connect(OnHomingFailed)
 
 Task.Wait(0.5)
 objectInWorld:Destroy()
@@ -151,12 +156,14 @@ local myProjectile = Projectile.Spawn(propCubeTemplate,
             Vector3.New(1000, 0, 200), -- starting position
             Vector3.New(0, 0, -1))     -- direction
 
-myProjectile.impactEvent:Connect(function(projectile, other, hitresult)
+local function OnImpacted(projectile, other, hitresult)
     print("Hit object: " .. other.name .. " with an impact normal of " .. tostring(hitresult:GetImpactNormal()))
     if other and other:IsA("Player") then
         print("We hit player " .. other.name .. "!!!")
     end
-end)
+end
+
+myProjectile.impactEvent:Connect(OnImpacted)
 ```
 
 See also: [Projectile.Spawn](projectile.md) | [CoreObject.name](coreobject.md) | [HitResult.GetImpactNormal](hitresult.md) | [other.IsA](other.md) | [Vector3.New](vector3.md) | [CoreLua.print](coreluafunctions.md) | [Event.Connect](event.md)
@@ -400,9 +407,11 @@ objectHomingProjectile.homingTarget = objectInWorld
 objectHomingProjectile.drag = 5
 objectHomingProjectile.homingAcceleration = 5000
 
-objectHomingProjectile.impactEvent:Connect(function(projectile, other, hitresult)
+local function OnImpacted(projectile, other, hitresult)
     print("Hit something! " .. other.name)
-end)
+end
+
+objectHomingProjectile.impactEvent:Connect(OnImpacted)
 
 -- The projectile will hit home towards the target object, and print out a message when it hits.
 ```
@@ -533,9 +542,12 @@ end
 
 --Tell each projectile fired what to do when it hits something:
 local weapon = script.parent
-weapon.projectileSpawnedEvent:Connect(function(weapon, projectile)
+
+local function OnProjectileSpawned(weapon, projectile)
     projectile.impactEvent:Connect(OnImpact)
-end)
+end
+
+weapon.projectileSpawnedEvent:Connect(OnProjectileSpawned)
 ```
 
 See also: [Ability.name](ability.md) | [Player.GetResource](player.md) | [Damage.New](damage.md) | [other.IsA](other.md) | [CoreLua.print](coreluafunctions.md)

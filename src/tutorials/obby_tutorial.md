@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to make an **Obby**, which is a platform and obstacle game. The game will have moving, rotating, and shrinking platforms as well as deadly spinning blades. The game will also have a rewards chest that can animate open and close. The reward inside is a flying pet that follows the player.
+In this tutorial, you are going to make an **Obby**, which is a platform and obstacle game. The game will have moving, rotating, and shrinking platforms as well as deadly spinning blades. The game will also have a rewards chest that can animate open and close. The reward inside is a flying pet that follows the player.
 
 * **Completion Time:** ~2 hours
 * **Knowledge Level:** It's recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
@@ -51,7 +51,8 @@ Open the Core Content window and search for `cube` to find a **Cube** object and
 
 Currently, the **Moving Platform** is in a [Default Context](../references/networking.md). This context is useful for objects such as the **Starting Platform** because players need to collide with the object and the object will never change its position, rotation, or size. The Moving Platform will be changing its position so it needs to be a **Networked Object in the Default Context**. In the Hierarchy, right click the **Moving Platform** and select the **Enable Networking**.
 
-!!! warning "**Networked Objects** are the most expensive type of objects because the server has to send all the information about an object to each player."
+!!! warning "**Networked Objects**"
+    Networked Objects are the most expensive type of object because the server has to send all the information about an object to each player. Consider looking at other solutions such as [Local Contexts](../references/networking.md] and [Dormancy](../tutorials/network_dormancy.md).
 
 ![!Moving Platform Networked](../img/Obby/Obby_MovingPlatformNetworked.png){: .center loading="lazy" }
 
@@ -446,7 +447,7 @@ A **Kill Zone** is a trigger that will kill a player when they overlap it. This 
 
 1. In the **Core Content** window, search for `Kill Zone` and drag it into the scene.
 2. In the Hierarchy, select the **KillTrigger** inside the **Kill Zone** group.
-3. Increase the size of the trigger to be much larger than the map and move it to be below all of the platforms.
+3. Increase the size of the trigger to be much larger than the map and move it to be below all the platforms.
 
 ![!Kill Zone](../img/Obby/Obby_KillZone.png){: .center loading="lazy" }
 
@@ -623,7 +624,7 @@ end
 
 #### Add a New Script
 
-Now a message is being broadcasted to the server and client when a player overlaps the blade's trigger. There needs to another script that can receive the message and kill the correct player. The player can only be killed server side so this new script should be in **Server Context**.
+Now a message is being broadcasted to the server and client when a player overlaps the blade's trigger. There needs to be another script that can receive the message and kill the correct player. The player can only be killed server side so this new script should be in **Server Context**.
 
 1. Right click the Hierarchy and select **Create Network Context** followed by **Add Server Context**.
 2. Create a new script and name it `Blades_Server`.
@@ -978,7 +979,7 @@ local PETS_GROUP = script.parent
 
 ##### The SpawnPet Function
 
-The pets and their targets will be tracked in a table. So when a pet is spawned it will be added to a table with the pet object and the target object. The function has two parameters (`player` and `spawnPosition`) because it needs to match the amount of arguments being passed from the **Rewards Chest** broadcast.
+The pets and their targets will be tracked in a table. So when a pet is spawned it will be added to a table with the pet object and the target object. The function has two parameters (`player` and `spawnPosition`) because it needs to match the number of arguments being passed from the **Rewards Chest** broadcast.
 
 ```lua
 local pets = {}
@@ -1002,7 +1003,7 @@ Events.Connect("RewardClaimed", SpawnPet)
 
 ##### The Tick Function
 
-The pets need to constantly be following and looking at their target. [CoreObjects](../api/coreobject.md) have two useful functions named `Follow` and `LookAt` to get the desired behaviour of the pets.
+The pets need to constantly be following and looking at their target. [CoreObjects](../api/coreobject.md) have two useful functions named `Follow` and `LookAt` to get the desired behavior of the pets.
 
 ```lua
 function Tick()

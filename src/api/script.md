@@ -30,13 +30,15 @@ Script directly in hierarchy:
 ```lua
 local followTemplate = script:GetCustomProperty("FollowTemplate")
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     local obj = World.SpawnAsset(followTemplate)
     -- Locate the script inside
     local followScript = obj:FindDescendantByType("Script")
     -- Call the context function
     followScript.context.SetTarget(player)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 
 --[[#description
     Script located inside a template. The 'targetPlayer' property and the 'SetTarget()' function can be

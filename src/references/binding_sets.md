@@ -121,9 +121,11 @@ The **Input** namespace has various functions and events that can be used with b
 For example, listening for when an action has been pressed using `actionPressedEvent`.
 
 ```lua
-Input.actionPressedEvent:Connect(function(player, action, value)
+local function OnActionPressed(player, action, value)
     print("Pressed", player, action, value)
-end)
+end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
 See the [Input API](/api/input.md) for all the events and functions.

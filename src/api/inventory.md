@@ -287,15 +287,17 @@ Example using:
 In this example, when a player dies they lose all items that were in all of their inventories.
 
 ```lua
-function OnPlayerDied(player, _)
+local function OnPlayerDied(player, _)
     for _,inventory in ipairs(player:GetInventories()) do
         inventory:ClearItems()
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     player.diedEvent:Connect(OnPlayerDied)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Player.GetInventories](player.md) | [Game.playerJoinedEvent](game.md)

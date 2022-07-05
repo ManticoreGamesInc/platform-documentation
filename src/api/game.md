@@ -87,7 +87,7 @@ In this example, when a player joins their ID is saved as a variable. Five secon
 ```lua
 local playerId = nil
 
-function CheckLater()
+local function CheckLater()
     local player = Game.FindPlayer(playerId)
     if Object.IsValid(player) then
         print("Player " .. player.name .. " is still here.")
@@ -96,11 +96,13 @@ function CheckLater()
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function OnPlayerJoined(player)
     playerId = player.id
 
     Task.Spawn(CheckLater, 5)
-end)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
 See also: [Task.Spawn](task.md) | [Game.playerJoinedEvent](game.md) | [Object.IsValid](object.md) | [Player.name](player.md)

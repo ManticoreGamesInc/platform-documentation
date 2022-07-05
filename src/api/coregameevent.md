@@ -100,7 +100,7 @@ In this example, an event is setup with the Reference Name `double_xp`. Whenever
 ```lua
 local GAME_ID = "a3040c7ff0ca4a148d98191c701afe9a"
 
-function IsEventActive(refName)
+local function IsEventActive(refName)
     local collection = CorePlatform.GetGameEventsForGame(GAME_ID)
     for i, eventData in ipairs(collection:GetResults()) do
         if eventData.state == CoreGameEventState.ACTIVE
@@ -111,11 +111,11 @@ function IsEventActive(refName)
     return false
 end
 
-function IsDoubleXPActive()
+local function IsDoubleXPActive()
     return IsEventActive("double_xp")
 end
 
-function OnResourceChanged(player, resourceName, newValue)
+local function OnResourceChanged(player, resourceName, newValue)
     if resourceName == "xp" then
         if not locked and player.serverUserData.lastXP ~= nil and IsDoubleXPActive() then
             local delta = newValue - player.serverUserData.lastXP
@@ -129,9 +129,11 @@ function OnResourceChanged(player, resourceName, newValue)
     end
 end
 
-Game.playerJoinedEvent:Connect(function(player)
+local function ConnectReourceChanged(player)
     player.resourceChangedEvent:Connect(OnResourceChanged)
-end)
+end
+
+Game.playerJoinedEvent:Connect(ConnectReourceChanged)
 ```
 
 See also: [CorePlatform.GetGameEventsForGame](coreplatform.md) | [CoreGameEventCollection.GetResults](coregameeventcollection.md) | [CoreGameEventState](enums.md#coregameeventstate) | [Player.AddResource](player.md) | [Game.playerJoinedEvent](game.md)
